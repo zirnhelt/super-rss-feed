@@ -52,10 +52,10 @@ class Article:
     def _parse_date(self, entry) -> datetime:
         """Parse publication date from entry"""
         if hasattr(entry, 'published_parsed') and entry.published_parsed:
-            return datetime(*entry.published_parsed[:6])
+            return datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
         elif hasattr(entry, 'updated_parsed') and entry.updated_parsed:
-            return datetime(*entry.updated_parsed[:6])
-        return datetime.now()
+            return datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
+        return datetime.now(timezone.utc)
     
     def should_filter(self) -> bool:
         """Check if article should be filtered out"""
@@ -244,8 +244,7 @@ def generate_rss_feed(articles: List[Article], output_path: str):
     fg.link(href="https://github.com/your-username/super-rss-feed", rel="alternate")
     fg.description("AI-curated RSS aggregator from 50+ sources")
     fg.language("en")
-    from datetime import timezone
-fg.lastBuildDate(datetime.now(timezone.utc))
+    fg.lastBuildDate(datetime.now(timezone.utc))
     
     for article in articles[:MAX_ARTICLES_OUTPUT]:
         fe = fg.add_entry()
@@ -271,7 +270,7 @@ def main():
     feeds = parse_opml(opml_path)
     
     # Fetch articles
-    cutoff_date = datetime.now() - timedelta(hours=LOOKBACK_HOURS)
+    cutoff_date = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     print(f"\n📥 Fetching articles from last {LOOKBACK_HOURS} hours...")
     
     all_articles = []
