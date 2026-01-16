@@ -6,7 +6,7 @@ Aggregates feeds from OPML, deduplicates, scores with Claude, applies diversity 
 
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from collections import defaultdict
 from typing import List, Dict, Optional
 import xml.etree.ElementTree as ET
@@ -244,7 +244,8 @@ def generate_rss_feed(articles: List[Article], output_path: str):
     fg.link(href="https://github.com/your-username/super-rss-feed", rel="alternate")
     fg.description("AI-curated RSS aggregator from 50+ sources")
     fg.language("en")
-    fg.lastBuildDate(datetime.now())
+    from datetime import timezone
+fg.lastBuildDate(datetime.now(timezone.utc))
     
     for article in articles[:MAX_ARTICLES_OUTPUT]:
         fe = fg.add_entry()
