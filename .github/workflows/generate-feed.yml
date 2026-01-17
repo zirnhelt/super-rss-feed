@@ -2,9 +2,12 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    # Run daily at 6 AM Pacific (2 PM UTC)
+    # Run daily at 5 AM Pacific (1 PM UTC)
     - cron: '0 13 * * *'
   workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -30,11 +33,17 @@ jobs:
         run: |
           python super_rss_curator.py feeds.opml
       
+      - name: Prepare deployment
+        run: |
+          mkdir -p output
+          cp super-feed.xml output/
+          cp index.html output/
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./output
           publish_branch: gh-pages
           keep_files: false
           commit_message: 'Update RSS feed'
