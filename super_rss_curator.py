@@ -23,6 +23,21 @@ MAX_PER_SOURCE = 5  # Default limit per source
 LOOKBACK_HOURS = 48  # How far back to fetch articles
 MIN_CLAUDE_SCORE = 30  # Minimum relevance score (0-100)
 
+# Paywall & Access Configuration
+PAYWALL_CONFIG = {
+    "nytimes.com": {"access": "direct", "friction": "none"},  # Your NYT subscription
+    "wltribune.com": {"access": "direct", "friction": "none"},  # Your Black Press subscription
+    "wsj.com": {"access": "apple_news", "friction": "app_switch"},
+    "theatlantic.com": {"access": "apple_news", "friction": "app_switch"},
+    "wired.com": {"access": "apple_news", "friction": "app_switch"},
+}
+
+# Local News Sources - Always Include
+LOCAL_SOURCES = [
+    "Williams Lake Tribune",
+    "wltribune.com"
+]
+
 # Filters
 BLOCKED_SOURCES = ["fox news", "foxnews"]
 BLOCKED_KEYWORDS = [
@@ -44,6 +59,7 @@ class Article:
         self.source = source_title
         self.source_url = source_url
         self.score = 0
+        self.is_local = self._check_if_local()
         
         # Generate hash for deduplication
         self.url_hash = hashlib.md5(self.link.encode()).hexdigest()
@@ -57,8 +73,19 @@ class Article:
             return datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
         return datetime.now(timezone.utc)
     
+    def _check_if_local(self) -> bool:
+        """Check if this is a local news source"""
+        for local_source in LOCAL_SOURCES:
+            if local_source.lower() in self.source.lower() or local_source.lower() in self.link.lower():
+                return True
+        return False
+    
     def should_filter(self) -> bool:
         """Check if article should be filtered out"""
+        # Never filter local news
+        if self.is_local:
+            return False
+        
         text = f"{self.title} {self.description}".lower()
         
         # Check blocked sources
@@ -105,8 +132,8 @@ def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Art
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'])
             
-            # Skip old articles
-            if article.pub_date < cutoff_date:
+            # Skip old articles (but include all local news regardless of age within 48h window)
+            if not article.is_local and article.pub_date < cutoff_date:
                 continue
             
             # Skip filtered content
@@ -116,7 +143,11 @@ def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Art
             articles.append(article)
         
         if articles:
-            print(f"  ✓ {feed['title']}: {len(articles)} articles")
+            local_count = sum(1 for a in articles if a.is_local)
+            if local_count > 0:
+                print(f"  ✓ {feed['title']}: {len(articles)} articles (📍 {local_count} local)")
+            else:
+                print(f"  ✓ {feed['title']}: {len(articles)} articles")
     
     except Exception as e:
         print(f"  ✗ {feed['title']}: {str(e)}")
@@ -155,6 +186,19 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
 
 def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
     """Score articles using Claude API"""
+    # Separate local news from articles to score
+    local_articles = [a for a in articles if a.is_local]
+    articles_to_score = [a for a in articles if not a.is_local]
+    
+    # Auto-score local news at maximum
+    for article in local_articles:
+        article.score = 100
+    
+    print(f"📍 Local news: {len(local_articles)} articles (auto-scored at 100)")
+    
+    if not articles_to_score:
+        return local_articles
+    
     client = anthropic.Anthropic(api_key=api_key)
     
     # Your interests for scoring
@@ -167,17 +211,17 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     - 3D printing (Bambu Lab)
     - Sci-fi worldbuilding
     - Deep technical content over news
-    - Canadian content and local news (Williams Lake, Quesnel)
+    - Canadian content (especially BC Interior, Cariboo region)
     """
     
-    print(f"🤖 Scoring {len(articles)} articles with Claude...")
+    print(f"🤖 Scoring {len(articles_to_score)} articles with Claude...")
     
     # Batch articles for efficiency (10 at a time)
     batch_size = 10
     scored_articles = []
     
-    for i in range(0, len(articles), batch_size):
-        batch = articles[i:i+batch_size]
+    for i in range(0, len(articles_to_score), batch_size):
+        batch = articles_to_score[i:i+batch_size]
         
         # Prepare batch for Claude
         article_list = "\n\n".join([
@@ -217,11 +261,13 @@ No explanations, just the numbers."""
                 article.score = 50
                 scored_articles.append(article)
     
-    return scored_articles
+    # Combine local news with scored articles
+    all_scored = local_articles + scored_articles
+    return all_scored
 
 
 def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
-    """Limit articles per source to ensure diversity"""
+    """Limit articles per source to ensure diversity (except local news)"""
     source_counts = defaultdict(int)
     diverse_articles = []
     
@@ -229,7 +275,11 @@ def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List
     sorted_articles = sorted(articles, key=lambda a: a.score, reverse=True)
     
     for article in sorted_articles:
-        if source_counts[article.source] < max_per_source:
+        # Always include local news regardless of source limits
+        if article.is_local:
+            diverse_articles.append(article)
+            source_counts[article.source] += 1
+        elif source_counts[article.source] < max_per_source:
             diverse_articles.append(article)
             source_counts[article.source] += 1
     
@@ -241,21 +291,36 @@ def generate_rss_feed(articles: List[Article], output_path: str):
     """Generate RSS XML file"""
     fg = FeedGenerator()
     fg.title("Erich's Curated Super Feed")
-    fg.link(href="https://github.com/your-username/super-rss-feed", rel="alternate")
-    fg.description("AI-curated RSS aggregator from 50+ sources")
+    fg.link(href="https://zirnhelt.github.io/super-rss-feed/", rel="alternate")
+    fg.description("AI-curated RSS aggregator from 50+ sources with local Williams Lake news")
     fg.language("en")
     fg.lastBuildDate(datetime.now(timezone.utc))
     
-    for article in articles[:MAX_ARTICLES_OUTPUT]:
+    # Separate local news for top placement
+    local_articles = [a for a in articles if a.is_local]
+    other_articles = [a for a in articles if not a.is_local]
+    
+    # Local news first, then scored content
+    ordered_articles = local_articles + other_articles
+    
+    for article in ordered_articles[:MAX_ARTICLES_OUTPUT]:
         fe = fg.add_entry()
         fe.title(article.title)
         fe.link(href=article.link)
-        fe.description(f"{article.description}<br><br><em>Source: {article.source} | Score: {article.score}</em>")
+        
+        # Add local news indicator
+        if article.is_local:
+            desc = f"📍 <strong>LOCAL NEWS</strong><br>{article.description}<br><br><em>Source: {article.source}</em>"
+        else:
+            desc = f"{article.description}<br><br><em>Source: {article.source} | Score: {article.score}</em>"
+        
+        fe.description(desc)
         fe.published(article.pub_date)
         fe.author(name=article.source)
     
     fg.rss_file(output_path)
-    print(f"✅ Generated RSS feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles)")
+    local_count = len([a for a in ordered_articles[:MAX_ARTICLES_OUTPUT] if a.is_local])
+    print(f"✅ Generated RSS feed: {output_path} ({len(ordered_articles[:MAX_ARTICLES_OUTPUT])} articles, {local_count} local)")
 
 
 def main():
@@ -278,7 +343,8 @@ def main():
         articles = fetch_feed_articles(feed, cutoff_date)
         all_articles.extend(articles)
     
-    print(f"\n📈 Total fetched: {len(all_articles)} articles")
+    local_count = sum(1 for a in all_articles if a.is_local)
+    print(f"\n📈 Total fetched: {len(all_articles)} articles ({local_count} local)")
     
     # Deduplicate
     unique_articles = deduplicate_articles(all_articles)
@@ -286,9 +352,10 @@ def main():
     # Score with Claude
     scored_articles = score_articles_with_claude(unique_articles, api_key)
     
-    # Filter by minimum score
-    quality_articles = [a for a in scored_articles if a.score >= MIN_CLAUDE_SCORE]
-    print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_articles)} → {len(quality_articles)} articles")
+    # Filter by minimum score (except local news which is always included)
+    quality_articles = [a for a in scored_articles if a.score >= MIN_CLAUDE_SCORE or a.is_local]
+    local_included = sum(1 for a in quality_articles if a.is_local)
+    print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_articles)} → {len(quality_articles)} articles ({local_included} local)")
     
     # Apply diversity limits
     diverse_articles = apply_diversity_limits(quality_articles, MAX_PER_SOURCE)
@@ -304,6 +371,7 @@ def main():
     print(f"  After dedup: {len(unique_articles)}")
     print(f"  After scoring: {len(quality_articles)}")
     print(f"  Final output: {min(len(diverse_articles), MAX_ARTICLES_OUTPUT)}")
+    print(f"  Local news included: {sum(1 for a in diverse_articles[:MAX_ARTICLES_OUTPUT] if a.is_local)}")
 
 
 if __name__ == '__main__':
