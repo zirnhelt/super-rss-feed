@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Super RSS Feed Curator with Williams Lake Tribune Priority Integration + Images
+Super RSS Feed Curator with Williams Lake Tribune Priority Integration + Enhanced Images
 - Aggregates feeds from OPML with smart caching
 - Scrapes Williams Lake Tribune directly for priority local news
 - Local news gets maximum priority and 📍 tags
 - Outputs JSON Feed format with prominent source attribution
-- Includes image support for visual feeds
+- Includes enhanced image support with conditional scraping for high-scoring articles
 """
 import os
 import sys
@@ -31,6 +31,11 @@ MAX_PER_LOCAL = 15  # Higher limit for local content
 LOOKBACK_HOURS = 48  # How far back to fetch articles
 MIN_CLAUDE_SCORE = 30  # Minimum relevance score (0-100)
 LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
+
+# Image scraping configuration
+ENABLE_IMAGE_SCRAPING = True
+MIN_SCORE_FOR_SCRAPING = 60  # Only scrape images for articles with score >= 60
+MAX_SCRAPE_REQUESTS = 20  # Limit HTTP requests to avoid rate limiting
 
 # Caching configuration
 SCORED_CACHE_FILE = 'scored_articles_cache.json'
@@ -69,12 +74,14 @@ class Article:
             self.description = entry.get('description', '') or entry.get('summary', '')
             self.pub_date = self._parse_date(entry)
             self.image_url = self._extract_image(entry)  # Extract image from RSS entry
+            self.needs_image_scraping = not bool(self.image_url)
         else:
             self.title = title.strip()
             self.link = link.strip()
             self.description = description.strip()
             self.pub_date = pub_date or datetime.now(timezone.utc)
             self.image_url = None  # Manual articles (WLT scraping) don't have images yet
+            self.needs_image_scraping = True
         
         self.source = source_title
         self.source_url = source_url
@@ -99,21 +106,65 @@ class Article:
         if hasattr(entry, 'enclosures') and entry.enclosures:
             for enc in entry.enclosures:
                 if hasattr(enc, 'type') and enc.type and enc.type.startswith('image/'):
-                    return enc.href
+                    # Basic filter for tiny images (likely tracking pixels)
+                    url = enc.href
+                    if not self._is_tiny_image(url):
+                        return url
         
         # Check media content (Media RSS)
         if hasattr(entry, 'media_content') and entry.media_content:
             for media in entry.media_content:
                 if media.get('type', '').startswith('image/'):
-                    return media.get('url')
+                    url = media.get('url')
+                    if url and not self._is_tiny_image(url):
+                        return url
         
         # Parse description for <img> tags as fallback
         if self.description:
-            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', self.description)
-            if img_match:
-                return img_match.group(1)
+            soup = BeautifulSoup(self.description, 'html.parser')
+            for img in soup.find_all('img', src=True):
+                url = img['src']
+                if not self._is_tiny_image(url):
+                    return url
         
         return None
+    
+    def _is_tiny_image(self, url: str) -> bool:
+        """Filter out likely tracking pixels and tiny images"""
+        tiny_patterns = [
+            'pixel', '1x1', 'tracker', 'analytics', 'doubleclick',
+            'facebook.com/tr', 'google-analytics', 'googletagmanager'
+        ]
+        url_lower = url.lower()
+        return any(pattern in url_lower for pattern in tiny_patterns)
+    
+    def _scrape_article_image(self) -> Optional[str]:
+        """Scrape article page for Open Graph/Twitter Card images"""
+        try:
+            headers = {"User-Agent": "Mozilla/5.0 (compatible; RSS-Curator/1.0)"}
+            response = requests.get(self.link, headers=headers, timeout=5)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.content, "html.parser")
+            
+            # Open Graph image (best option)
+            og_image = soup.find("meta", property="og:image")
+            if og_image and og_image.get("content"):
+                url = og_image["content"]
+                if not self._is_tiny_image(url):
+                    return url
+            
+            # Twitter Card image (fallback)
+            twitter_image = soup.find("meta", attrs={"name": "twitter:image"})
+            if twitter_image and twitter_image.get("content"):
+                url = twitter_image["content"]
+                if not self._is_tiny_image(url):
+                    return url
+                
+            return None
+        except Exception:
+            # Fail silently - image scraping is optional
+            return None
     
     def should_filter(self) -> bool:
         """Check if article should be filtered out (never filter local content)"""
@@ -159,7 +210,7 @@ def save_wlt_cache(cache: Dict[str, bool]):
 
 def scrape_williams_lake_tribune() -> List[Article]:
     """Scrape fresh Williams Lake Tribune articles with caching"""
-    print("🏔️ Scraping Williams Lake Tribune...")
+    print("🔍️ Scraping Williams Lake Tribune...")
     
     # Load existing cache
     cache = load_wlt_cache()
@@ -196,7 +247,7 @@ def scrape_williams_lake_tribune() -> List[Article]:
                     full_url = urljoin(WLT_BASE_URL, href)
                     article_links.add(full_url)
         
-        print(f"  🔍 Found {len(article_links)} potential article URLs")
+        print(f"  📄 Found {len(article_links)} potential article URLs")
         
         # Filter out cached URLs and process new ones
         new_articles = 0
@@ -338,10 +389,10 @@ def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Art
             articles.append(article)
         
         if articles:
-            print(f"  ✓ {feed['title']}: {len(articles)} articles")
+            print(f"  ✅ {feed['title']}: {len(articles)} articles")
     
     except Exception as e:
-        print(f"  ✗ {feed['title']}: {str(e)}")
+        print(f"  ❌ {feed['title']}: {str(e)}")
     
     return articles
 
@@ -484,6 +535,43 @@ No explanations, just the numbers."""
     return all_scored
 
 
+def enhance_missing_images(articles: List[Article]) -> List[Article]:
+    """Conditionally scrape images for high-scoring articles that lack them"""
+    if not ENABLE_IMAGE_SCRAPING:
+        print("🖼️ Image scraping disabled")
+        return articles
+    
+    # Filter candidates: needs image scraping AND score >= threshold AND not local
+    candidates = [
+        a for a in articles 
+        if (a.needs_image_scraping and 
+            a.score >= MIN_SCORE_FOR_SCRAPING and 
+            not a.is_local)
+    ]
+    
+    if not candidates:
+        print("🖼️ No articles need image enhancement")
+        return articles
+    
+    # Sort by score (highest first) and limit requests
+    candidates.sort(key=lambda a: a.score, reverse=True)
+    to_scrape = candidates[:MAX_SCRAPE_REQUESTS]
+    
+    print(f"🖼️ Enhancing images for {len(to_scrape)} high-scoring articles...")
+    
+    enhanced_count = 0
+    for article in to_scrape:
+        scraped_image = article._scrape_article_image()
+        if scraped_image:
+            article.image_url = scraped_image
+            article.needs_image_scraping = False
+            enhanced_count += 1
+            print(f"  ✅ {article.source}: Found image")
+    
+    print(f"🖼️ Enhanced {enhanced_count}/{len(to_scrape)} articles with images")
+    return articles
+
+
 def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
     """Limit articles per source to ensure diversity, with higher limits for local content"""
     source_counts = defaultdict(int)
@@ -556,10 +644,12 @@ def generate_json_feed(articles: List[Article], output_path: str):
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(feed_data, f, indent=2, ensure_ascii=False)
     
-    # Count articles with images for stats
+    # Enhanced statistics with image coverage
     articles_with_images = sum(1 for a in articles[:MAX_ARTICLES_OUTPUT] if a.image_url)
+    image_percentage = (articles_with_images / len(articles[:MAX_ARTICLES_OUTPUT])) * 100 if articles else 0
     
-    print(f"✅ Generated JSON Feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles, {articles_with_images} with images)")
+    print(f"✅ Generated JSON Feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles)")
+    print(f"🖼️ Images: {articles_with_images}/{len(articles[:MAX_ARTICLES_OUTPUT])} ({image_percentage:.1f}%)")
 
 
 def main():
@@ -595,11 +685,14 @@ def main():
     # Score with Claude (using smart caching)
     scored_articles = score_articles_with_claude(unique_articles, api_key)
     
+    # Enhance missing images for high-scoring articles
+    enhanced_articles = enhance_missing_images(scored_articles)
+    
     # Filter by minimum score (but always keep local articles)
-    quality_articles = [a for a in scored_articles if a.score >= MIN_CLAUDE_SCORE or a.is_local]
-    non_local_filtered = len([a for a in scored_articles if not a.is_local and a.score < MIN_CLAUDE_SCORE])
+    quality_articles = [a for a in enhanced_articles if a.score >= MIN_CLAUDE_SCORE or a.is_local]
+    non_local_filtered = len([a for a in enhanced_articles if not a.is_local and a.score < MIN_CLAUDE_SCORE])
     if non_local_filtered > 0:
-        print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_articles)} → {len(quality_articles)} articles ({non_local_filtered} filtered)")
+        print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(enhanced_articles)} → {len(quality_articles)} articles ({non_local_filtered} filtered)")
     
     # Apply diversity limits
     diverse_articles = apply_diversity_limits(quality_articles, MAX_PER_SOURCE)
