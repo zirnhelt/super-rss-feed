@@ -31,13 +31,20 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python super_rss_curator.py feeds.opml
+          python super_rss_curator_cached.py feeds.opml
       
       - name: Prepare deployment
         run: |
+          echo "Files in current directory:"
+          ls -la
+          echo "Looking for super-feed.json:"
+          ls -la super-feed.json
           mkdir -p output
-          cp super-feed.xml output/
+          cp super-feed.json output/
           cp index.html output/
+          echo "Files in output directory:"
+          ls -la output/
+
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
