@@ -47,6 +47,9 @@ BLOCKED_KEYWORDS = [
     # Sports
     "nfl", "nba", "mlb", "nhl", "premier league", "champions league",
     "world cup", "olympics", "super bowl", "playoff", "touchdown",
+    "hockey", "football", "soccer", "basketball", "baseball",
+    "tournament", "championship", "sports", "athletics",
+    "rec centre", "recreation centre", "arena",
     # Advice columns
     "dear abby", "ask amy", "miss manners", "advice column",
     "relationship advice", "dating advice"
