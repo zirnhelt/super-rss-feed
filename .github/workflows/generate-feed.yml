@@ -31,7 +31,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python super_rss_curator_json.py feeds.opml
+          python super_rss_curator_cached.py feeds.opml
       
       - name: Prepare deployment
         run: |
