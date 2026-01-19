@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Super RSS Feed Curator with Williams Lake Tribune Priority Integration + Enhanced Images
+Super RSS Feed Curator with Williams Lake Tribune Priority Integration + Images
 - Aggregates feeds from OPML with smart caching
 - Scrapes Williams Lake Tribune directly for priority local news
-- Local news gets maximum priority and 📍 tags
+- Local news gets maximum priority and ðŸ“ tags
 - Outputs JSON Feed format with prominent source attribution
-- Includes enhanced image support with conditional scraping for high-scoring articles
+- Includes image support for visual feeds
 """
 import os
 import sys
@@ -31,11 +31,6 @@ MAX_PER_LOCAL = 15  # Higher limit for local content
 LOOKBACK_HOURS = 48  # How far back to fetch articles
 MIN_CLAUDE_SCORE = 30  # Minimum relevance score (0-100)
 LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
-
-# Image scraping configuration
-ENABLE_IMAGE_SCRAPING = True
-MIN_SCORE_FOR_SCRAPING = 60  # Only scrape images for articles with score >= 60
-MAX_SCRAPE_REQUESTS = 20  # Limit HTTP requests to avoid rate limiting
 
 # Caching configuration
 SCORED_CACHE_FILE = 'scored_articles_cache.json'
@@ -74,14 +69,12 @@ class Article:
             self.description = entry.get('description', '') or entry.get('summary', '')
             self.pub_date = self._parse_date(entry)
             self.image_url = self._extract_image(entry)  # Extract image from RSS entry
-            self.needs_image_scraping = not bool(self.image_url)
         else:
             self.title = title.strip()
             self.link = link.strip()
             self.description = description.strip()
             self.pub_date = pub_date or datetime.now(timezone.utc)
             self.image_url = None  # Manual articles (WLT scraping) don't have images yet
-            self.needs_image_scraping = True
         
         self.source = source_title
         self.source_url = source_url
@@ -106,65 +99,21 @@ class Article:
         if hasattr(entry, 'enclosures') and entry.enclosures:
             for enc in entry.enclosures:
                 if hasattr(enc, 'type') and enc.type and enc.type.startswith('image/'):
-                    # Basic filter for tiny images (likely tracking pixels)
-                    url = enc.href
-                    if not self._is_tiny_image(url):
-                        return url
+                    return enc.href
         
         # Check media content (Media RSS)
         if hasattr(entry, 'media_content') and entry.media_content:
             for media in entry.media_content:
                 if media.get('type', '').startswith('image/'):
-                    url = media.get('url')
-                    if url and not self._is_tiny_image(url):
-                        return url
+                    return media.get('url')
         
         # Parse description for <img> tags as fallback
         if self.description:
-            soup = BeautifulSoup(self.description, 'html.parser')
-            for img in soup.find_all('img', src=True):
-                url = img['src']
-                if not self._is_tiny_image(url):
-                    return url
+            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', self.description)
+            if img_match:
+                return img_match.group(1)
         
         return None
-    
-    def _is_tiny_image(self, url: str) -> bool:
-        """Filter out likely tracking pixels and tiny images"""
-        tiny_patterns = [
-            'pixel', '1x1', 'tracker', 'analytics', 'doubleclick',
-            'facebook.com/tr', 'google-analytics', 'googletagmanager'
-        ]
-        url_lower = url.lower()
-        return any(pattern in url_lower for pattern in tiny_patterns)
-    
-    def _scrape_article_image(self) -> Optional[str]:
-        """Scrape article page for Open Graph/Twitter Card images"""
-        try:
-            headers = {"User-Agent": "Mozilla/5.0 (compatible; RSS-Curator/1.0)"}
-            response = requests.get(self.link, headers=headers, timeout=5)
-            response.raise_for_status()
-            
-            soup = BeautifulSoup(response.content, "html.parser")
-            
-            # Open Graph image (best option)
-            og_image = soup.find("meta", property="og:image")
-            if og_image and og_image.get("content"):
-                url = og_image["content"]
-                if not self._is_tiny_image(url):
-                    return url
-            
-            # Twitter Card image (fallback)
-            twitter_image = soup.find("meta", attrs={"name": "twitter:image"})
-            if twitter_image and twitter_image.get("content"):
-                url = twitter_image["content"]
-                if not self._is_tiny_image(url):
-                    return url
-                
-            return None
-        except Exception:
-            # Fail silently - image scraping is optional
-            return None
     
     def should_filter(self) -> bool:
         """Check if article should be filtered out (never filter local content)"""
@@ -191,10 +140,10 @@ def load_wlt_cache() -> Dict[str, bool]:
         if os.path.exists(WLT_CACHE_FILE):
             with open(WLT_CACHE_FILE, 'r') as f:
                 cache = json.load(f)
-                print(f"📁 Loaded WLT cache with {len(cache)} URLs")
+                print(f"ðŸ“ Loaded WLT cache with {len(cache)} URLs")
                 return cache
     except Exception as e:
-        print(f"⚠ WLT cache load error: {e}")
+        print(f"âš  WLT cache load error: {e}")
     
     return {}
 
@@ -205,12 +154,12 @@ def save_wlt_cache(cache: Dict[str, bool]):
         with open(WLT_CACHE_FILE, 'w') as f:
             json.dump(cache, f, indent=2)
     except Exception as e:
-        print(f"⚠ WLT cache save error: {e}")
+        print(f"âš  WLT cache save error: {e}")
 
 
 def scrape_williams_lake_tribune() -> List[Article]:
     """Scrape fresh Williams Lake Tribune articles with caching"""
-    print("🔍️ Scraping Williams Lake Tribune...")
+    print("ðŸ”ï¸ Scraping Williams Lake Tribune...")
     
     # Load existing cache
     cache = load_wlt_cache()
@@ -247,7 +196,7 @@ def scrape_williams_lake_tribune() -> List[Article]:
                     full_url = urljoin(WLT_BASE_URL, href)
                     article_links.add(full_url)
         
-        print(f"  📄 Found {len(article_links)} potential article URLs")
+        print(f"  ðŸ” Found {len(article_links)} potential article URLs")
         
         # Filter out cached URLs and process new ones
         new_articles = 0
@@ -287,12 +236,12 @@ def scrape_williams_lake_tribune() -> List[Article]:
         # Save updated cache
         save_wlt_cache(cache_cleaned)
         
-        print(f"  📰 Williams Lake Tribune: {new_articles} new articles")
+        print(f"  ðŸ“° Williams Lake Tribune: {new_articles} new articles")
         if len(articles) != new_articles:
-            print(f"  📁 Cache: {len(articles) - new_articles} previously seen")
+            print(f"  ðŸ“ Cache: {len(articles) - new_articles} previously seen")
     
     except Exception as e:
-        print(f"  ❌ Williams Lake Tribune scraping error: {e}")
+        print(f"  âŒ Williams Lake Tribune scraping error: {e}")
     
     return articles
 
@@ -303,10 +252,10 @@ def load_scored_cache() -> Dict[str, Dict]:
         if os.path.exists(SCORED_CACHE_FILE):
             with open(SCORED_CACHE_FILE, 'r') as f:
                 cache = json.load(f)
-                print(f"📁 Loaded {len(cache)} articles from cache")
+                print(f"ðŸ“ Loaded {len(cache)} articles from cache")
                 return cache
     except Exception as e:
-        print(f"⚠ Cache load error: {e}")
+        print(f"âš  Cache load error: {e}")
     
     return {}
 
@@ -327,9 +276,9 @@ def save_scored_cache(cache: Dict[str, Dict]):
             
         removed = len(cache) - len(cleaned_cache)
         if removed > 0:
-            print(f"💾 Saved cache with {len(cleaned_cache)} articles (removed {removed} old entries)")
+            print(f"ðŸ’¾ Saved cache with {len(cleaned_cache)} articles (removed {removed} old entries)")
     except Exception as e:
-        print(f"⚠ Cache save error: {e}")
+        print(f"âš  Cache save error: {e}")
 
 
 def is_cache_entry_valid(cache_entry: Dict) -> bool:
@@ -364,7 +313,7 @@ def parse_opml(opml_path: str) -> List[Dict[str, str]]:
                 'html_url': html_url
             })
     
-    print(f"📚 Found {len(feeds)} feeds in OPML")
+    print(f"ðŸ“š Found {len(feeds)} feeds in OPML")
     return feeds
 
 
@@ -389,10 +338,10 @@ def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Art
             articles.append(article)
         
         if articles:
-            print(f"  ✅ {feed['title']}: {len(articles)} articles")
+            print(f"  âœ“ {feed['title']}: {len(articles)} articles")
     
     except Exception as e:
-        print(f"  ❌ {feed['title']}: {str(e)}")
+        print(f"  âœ— {feed['title']}: {str(e)}")
     
     return articles
 
@@ -422,7 +371,7 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
         seen_titles.append(article.title_normalized)
         unique.append(article)
     
-    print(f"🔍 Deduplication: {len(articles)} → {len(unique)} articles")
+    print(f"ðŸ” Deduplication: {len(articles)} â†’ {len(unique)} articles")
     return unique
 
 
@@ -450,28 +399,37 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
             new_articles.append(article)
     
     if cached_articles and new_articles:
-        print(f"💡 Cache: {len(cached_articles)} hits, {len(new_articles)} new articles to score")
+        print(f"ðŸ’¡ Cache: {len(cached_articles)} hits, {len(new_articles)} new articles to score")
     elif cached_articles:
-        print(f"💡 Cache: All {len(cached_articles)} articles found in cache")
+        print(f"ðŸ’¡ Cache: All {len(cached_articles)} articles found in cache")
     else:
-        print(f"🤖 Scoring {len(new_articles)} articles with Claude...")
+        print(f"ðŸ¤– Scoring {len(new_articles)} articles with Claude...")
     
     # Score new articles if any
     if new_articles:
         client = anthropic.Anthropic(api_key=api_key)
         
-        # Your interests for scoring
-        interests = """
-        - AI/ML infrastructure and telemetry
-        - Systems thinking and complex systems
-        - Climate tech and sustainability
-        - Homelab/self-hosting technology
-        - Meshtastic and mesh networking
-        - 3D printing (Bambu Lab)
-        - Sci-fi worldbuilding
-        - Deep technical content over news
-        - Canadian content and local news (Williams Lake, Quesnel)
-        """
+        # System prompt with cache control (cached across all API calls!)
+        system_prompt = [{
+            "type": "text",
+            "text": """You are an article relevance scorer. Rate articles 0-100 based on these interests:
+
+- AI/ML infrastructure and telemetry
+- Systems thinking and complex systems
+- Climate tech and sustainability
+- Homelab/self-hosting technology
+- Meshtastic and mesh networking
+- 3D printing (Bambu Lab)
+- Sci-fi worldbuilding
+- Deep technical content over news
+- Canadian content and local news (Williams Lake, Quesnel)
+
+Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
+No explanations, just the numbers.""",
+            "cache_control": {"type": "ephemeral"}
+        }]
+        
+        print(f"🤖 Scoring {len(new_articles)} new articles with Claude (prompt caching enabled)...")
         
         # Batch articles for efficiency (10 at a time)
         batch_size = 10
@@ -485,22 +443,16 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
                 for idx, a in enumerate(batch)
             ])
             
-            prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
-
-My interests:
-{interests}
-
-Articles to score:
-{article_list}
-
-Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
-No explanations, just the numbers."""
             
             try:
                 response = client.messages.create(
                     model="claude-sonnet-4-20250514",
                     max_tokens=200,
-                    messages=[{"role": "user", "content": prompt}]
+                    system=system_prompt,  # Cached system message
+                    messages=[{
+                        "role": "user",
+                        "content": f"Score these articles:\n\n{article_list}"
+                    }]
                 )
                 
                 scores_text = response.content[0].text.strip()
@@ -516,7 +468,7 @@ No explanations, just the numbers."""
                     }
             
             except Exception as e:
-                print(f"  ⚠ Scoring error: {e}")
+                print(f"  âš  Scoring error: {e}")
                 # Assign default scores on error
                 for article in batch:
                     article.score = 50
@@ -535,43 +487,6 @@ No explanations, just the numbers."""
     return all_scored
 
 
-def enhance_missing_images(articles: List[Article]) -> List[Article]:
-    """Conditionally scrape images for high-scoring articles that lack them"""
-    if not ENABLE_IMAGE_SCRAPING:
-        print("🖼️ Image scraping disabled")
-        return articles
-    
-    # Filter candidates: needs image scraping AND score >= threshold AND not local
-    candidates = [
-        a for a in articles 
-        if (a.needs_image_scraping and 
-            a.score >= MIN_SCORE_FOR_SCRAPING and 
-            not a.is_local)
-    ]
-    
-    if not candidates:
-        print("🖼️ No articles need image enhancement")
-        return articles
-    
-    # Sort by score (highest first) and limit requests
-    candidates.sort(key=lambda a: a.score, reverse=True)
-    to_scrape = candidates[:MAX_SCRAPE_REQUESTS]
-    
-    print(f"🖼️ Enhancing images for {len(to_scrape)} high-scoring articles...")
-    
-    enhanced_count = 0
-    for article in to_scrape:
-        scraped_image = article._scrape_article_image()
-        if scraped_image:
-            article.image_url = scraped_image
-            article.needs_image_scraping = False
-            enhanced_count += 1
-            print(f"  ✅ {article.source}: Found image")
-    
-    print(f"🖼️ Enhanced {enhanced_count}/{len(to_scrape)} articles with images")
-    return articles
-
-
 def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
     """Limit articles per source to ensure diversity, with higher limits for local content"""
     source_counts = defaultdict(int)
@@ -588,7 +503,7 @@ def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List
             diverse_articles.append(article)
             source_counts[article.source] += 1
     
-    print(f"📊 Diversity filter: {len(articles)} → {len(diverse_articles)} articles")
+    print(f"ðŸ“Š Diversity filter: {len(articles)} â†’ {len(diverse_articles)} articles")
     return diverse_articles
 
 
@@ -607,7 +522,7 @@ def generate_json_feed(articles: List[Article], output_path: str):
     
     for article in articles[:MAX_ARTICLES_OUTPUT]:
         # Create prominent source-first title with local indicator
-        local_prefix = "📍 " if article.is_local else ""
+        local_prefix = "ðŸ“ " if article.is_local else ""
         item_title = f"{local_prefix}[{article.source}] {article.title}"
         
         # Rich metadata for better reader display
@@ -644,19 +559,17 @@ def generate_json_feed(articles: List[Article], output_path: str):
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(feed_data, f, indent=2, ensure_ascii=False)
     
-    # Enhanced statistics with image coverage
+    # Count articles with images for stats
     articles_with_images = sum(1 for a in articles[:MAX_ARTICLES_OUTPUT] if a.image_url)
-    image_percentage = (articles_with_images / len(articles[:MAX_ARTICLES_OUTPUT])) * 100 if articles else 0
     
-    print(f"✅ Generated JSON Feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles)")
-    print(f"🖼️ Images: {articles_with_images}/{len(articles[:MAX_ARTICLES_OUTPUT])} ({image_percentage:.1f}%)")
+    print(f"âœ… Generated JSON Feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles, {articles_with_images} with images)")
 
 
 def main():
     # Check for API key
     api_key = os.getenv('ANTHROPIC_API_KEY')
     if not api_key:
-        print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
+        print("âŒ Error: ANTHROPIC_API_KEY environment variable not set")
         sys.exit(1)
     
     # Parse OPML (excludes Williams Lake Tribune RSS to avoid duplicates)
@@ -668,7 +581,7 @@ def main():
     
     # Fetch RSS feed articles
     cutoff_date = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
-    print(f"\n🔥 Fetching articles from last {LOOKBACK_HOURS} hours...")
+    print(f"\nðŸ”¥ Fetching articles from last {LOOKBACK_HOURS} hours...")
     
     rss_articles = []
     for feed in feeds:
@@ -677,7 +590,7 @@ def main():
     
     # Combine local and RSS articles
     all_articles = local_articles + rss_articles
-    print(f"\n📈 Total fetched: {len(all_articles)} articles ({len(local_articles)} local + {len(rss_articles)} RSS)")
+    print(f"\nðŸ“ˆ Total fetched: {len(all_articles)} articles ({len(local_articles)} local + {len(rss_articles)} RSS)")
     
     # Deduplicate
     unique_articles = deduplicate_articles(all_articles)
@@ -685,14 +598,11 @@ def main():
     # Score with Claude (using smart caching)
     scored_articles = score_articles_with_claude(unique_articles, api_key)
     
-    # Enhance missing images for high-scoring articles
-    enhanced_articles = enhance_missing_images(scored_articles)
-    
     # Filter by minimum score (but always keep local articles)
-    quality_articles = [a for a in enhanced_articles if a.score >= MIN_CLAUDE_SCORE or a.is_local]
-    non_local_filtered = len([a for a in enhanced_articles if not a.is_local and a.score < MIN_CLAUDE_SCORE])
+    quality_articles = [a for a in scored_articles if a.score >= MIN_CLAUDE_SCORE or a.is_local]
+    non_local_filtered = len([a for a in scored_articles if not a.is_local and a.score < MIN_CLAUDE_SCORE])
     if non_local_filtered > 0:
-        print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(enhanced_articles)} → {len(quality_articles)} articles ({non_local_filtered} filtered)")
+        print(f"â­ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_articles)} â†’ {len(quality_articles)} articles ({non_local_filtered} filtered)")
     
     # Apply diversity limits
     diverse_articles = apply_diversity_limits(quality_articles, MAX_PER_SOURCE)
@@ -702,7 +612,7 @@ def main():
     generate_json_feed(diverse_articles, output_path)
     
     # Stats
-    print("\n📊 Final stats:")
+    print("\nðŸ“Š Final stats:")
     print(f"  Total sources: {len(feeds) + 1}")  # +1 for Williams Lake Tribune
     print(f"  Articles fetched: {len(all_articles)}")
     print(f"  After dedup: {len(unique_articles)}")
@@ -711,7 +621,7 @@ def main():
     
     # Local content stats
     local_count = sum(1 for a in diverse_articles[:MAX_ARTICLES_OUTPUT] if a.is_local)
-    print(f"  📍 Local articles: {local_count}")
+    print(f"  ðŸ“ Local articles: {local_count}")
 
 
 if __name__ == '__main__':
