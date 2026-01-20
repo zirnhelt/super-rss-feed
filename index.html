@@ -17,40 +17,109 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
         
         .container {
             background: white;
             border-radius: 16px;
             padding: 48px;
-            max-width: 600px;
+            max-width: 900px;
+            margin: 0 auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
         
         h1 {
             font-size: 2.5em;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
             color: #667eea;
         }
         
-        p {
-            margin-bottom: 24px;
+        .subtitle {
+            margin-bottom: 32px;
             color: #666;
+            font-size: 1.1em;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            margin: 32px 0 16px 0;
+            color: #764ba2;
+        }
+        
+        .feeds-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .feed-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .feed-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .feed-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .feed-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85em;
+            color: #999;
+            align-items: center;
+        }
+        
+        .feed-count {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        
+        .feed-updated {
+            font-style: italic;
+        }
+        
+        .feed-description {
+            color: #666;
+            margin-bottom: 12px;
         }
         
         .feed-url {
-            background: #f5f5f5;
-            border: 2px solid #667eea;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 32px 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 8px;
             font-family: 'Courier New', monospace;
+            font-size: 0.85em;
             word-break: break-all;
-            color: #333;
+            color: #667eea;
+            cursor: pointer;
+        }
+        
+        .feed-url:hover {
+            background: #f0f0f0;
         }
         
         .button {
@@ -63,6 +132,7 @@
             font-weight: 600;
             transition: all 0.3s;
             margin-right: 12px;
+            margin-top: 8px;
         }
         
         .button:hover {
@@ -71,102 +141,146 @@
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
         
-        .button.secondary {
-            background: #764ba2;
-        }
-        
-        .button.secondary:hover {
-            background: #663d8f;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 16px;
-            margin: 32px 0;
-        }
-        
-        .stat {
+        .loading {
             text-align: center;
-            padding: 16px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .stat-label {
-            font-size: 0.9em;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .update-time {
-            text-align: center;
+            padding: 40px;
             color: #999;
-            font-size: 0.9em;
-            margin-top: 24px;
+        }
+        
+        .error {
+            background: #ffe0e0;
+            border-left: 4px solid #cc0000;
+            color: #cc0000;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 16px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🎯 Super RSS Feed</h1>
-        <p>AI-curated aggregator from 50+ sources. Deduped, scored, and filtered daily.</p>
+        <p class="subtitle">AI-curated news from 50+ sources. Daily updates at 5 AM Pacific.</p>
         
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">250</div>
-                <div class="stat-label">Articles</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Sources</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">Daily</div>
-                <div class="stat-label">Updates</div>
-            </div>
+        <h2>📚 Available Feeds</h2>
+        <div id="feedsList" class="feeds-list">
+            <div class="loading">Loading feed information...</div>
         </div>
         
-        <div class="feed-url" id="feedUrl">
-            Loading feed URL...
-        </div>
-        
-        <a href="super-feed.xml" class="button">📡 Subscribe to Feed</a>
-        <a href="https://github.com/YOUR-USERNAME/super-rss-feed" class="button secondary">📝 View on GitHub</a>
-        
-        <p class="update-time" id="updateTime">Last updated: Never</p>
+        <h2>🔗 Quick Links</h2>
+        <a href="curated-feeds.opml" class="button">📥 Download OPML</a>
+        <a href="https://github.com/zirnhelt/super-rss-feed" class="button">🔧 View on GitHub</a>
     </div>
     
     <script>
-        // Set feed URL dynamically
-        const feedUrl = window.location.href + 'super-feed.xml';
-        document.getElementById('feedUrl').textContent = feedUrl;
+        const feeds = [
+            { 
+                file: 'feed-best-of.json', 
+                name: '🏆 Best Of', 
+                description: 'Top-scoring articles across all categories (30-50 items)'
+            },
+            { 
+                file: 'feed-local.json', 
+                name: '🏔️ Local News', 
+                description: 'Williams Lake Tribune and BC Interior coverage (always top priority)'
+            },
+            { 
+                file: 'feed-ai-tech.json', 
+                name: '🤖 AI & Tech', 
+                description: 'AI/ML, platform engineering, cloud infrastructure, telemetry'
+            },
+            { 
+                file: 'feed-climate.json', 
+                name: '🌍 Climate & Energy', 
+                description: 'Climate tech, renewable energy, environmental news'
+            },
+            { 
+                file: 'feed-homelab.json', 
+                name: '🏠 Homelab & DIY', 
+                description: '3D printing, home automation, self-hosting, networking'
+            },
+            { 
+                file: 'feed-mesh.json', 
+                name: '📡 Mesh Networks', 
+                description: 'Meshtastic, LoRa, decentralized communications'
+            },
+            { 
+                file: 'feed-news.json', 
+                name: '📰 General News', 
+                description: 'Politics, business, technology, current events'
+            },
+            { 
+                file: 'feed-science.json', 
+                name: '🔬 Science', 
+                description: 'Research, discoveries, academic papers, systems thinking'
+            },
+            { 
+                file: 'feed-scifi.json', 
+                name: '🚀 Sci-Fi & Culture', 
+                description: 'Science fiction, fantasy, worldbuilding, books'
+            }
+        ];
         
-        // Check for last update
-        fetch('super-feed.xml')
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(data, 'text/xml');
-                const lastBuildDate = xml.querySelector('lastBuildDate');
+        const baseUrl = window.location.href.replace(/\/$/, '');
+        const feedsContainer = document.getElementById('feedsList');
+        
+        async function loadFeedInfo() {
+            feedsContainer.innerHTML = '';
+            
+            for (const feed of feeds) {
+                const feedItem = document.createElement('div');
+                feedItem.className = 'feed-item';
                 
-                if (lastBuildDate) {
-                    const date = new Date(lastBuildDate.textContent);
-                    document.getElementById('updateTime').textContent = 
-                        `Last updated: ${date.toLocaleString()}`;
+                try {
+                    const response = await fetch(feed.file);
+                    const data = await response.json();
+                    
+                    const itemCount = data.items?.length || 0;
+                    const lastUpdate = data.items?.[0]?.date_published 
+                        ? new Date(data.items[0].date_published).toLocaleString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: '2-digit'
+                          })
+                        : 'Unknown';
+                    
+                    feedItem.innerHTML = `
+                        <div class="feed-header">
+                            <div class="feed-name">${feed.name}</div>
+                            <div class="feed-meta">
+                                <span class="feed-count">${itemCount} items</span>
+                                <span class="feed-updated">Updated: ${lastUpdate}</span>
+                            </div>
+                        </div>
+                        <div class="feed-description">${feed.description}</div>
+                        <div class="feed-url" onclick="copyToClipboard('${baseUrl}/${feed.file}')" title="Click to copy">
+                            ${baseUrl}/${feed.file}
+                        </div>
+                    `;
+                } catch (error) {
+                    feedItem.innerHTML = `
+                        <div class="feed-header">
+                            <div class="feed-name">${feed.name}</div>
+                        </div>
+                        <div class="feed-description">${feed.description}</div>
+                        <div class="error">Feed not yet generated</div>
+                    `;
                 }
-            })
-            .catch(() => {
-                document.getElementById('updateTime').textContent = 
-                    'Feed not yet generated';
+                
+                feedsContainer.appendChild(feedItem);
+            }
+        }
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Feed URL copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy. Please select and copy manually.');
             });
+        }
+        
+        loadFeedInfo();
     </script>
 </body>
 </html>
