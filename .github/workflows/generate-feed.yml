@@ -44,6 +44,13 @@ jobs:
           echo "Files in output directory:"
           ls -la output/
 
+      - name: Commit cache files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scored_articles_cache.json wlt_cache.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update cache files [skip ci]"
+          git push
 
       
       - name: Deploy to GitHub Pages
