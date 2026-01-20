@@ -2,8 +2,8 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    # Run daily at 5 AM Pacific (1 PM UTC)
-    - cron: '0 13 * * *'
+    # Run daily at 4 AM Pacific (12 PM UTC)
+    - cron: '0 12 * * *'
   workflow_dispatch:  # Allow manual trigger
 
 permissions:
@@ -33,17 +33,17 @@ jobs:
         run: |
           python super_rss_curator_json.py feeds.opml
       
-      - name: Prepare deployment
+      - name: Copy files to output
         run: |
           echo "Files in current directory:"
           ls -la
-          echo "Looking for super-feed.json:"
-          ls -la super-feed.json
           mkdir -p output
-          cp super-feed.json output/
+          cp feed-*.json output/
+          cp curated-feeds.opml output/
           cp index.html output/
           echo "Files in output directory:"
           ls -la output/
+
 
       
       - name: Deploy to GitHub Pages
