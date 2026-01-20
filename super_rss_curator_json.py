@@ -27,7 +27,7 @@ from bs4 import BeautifulSoup
 # Configuration
 MAX_PER_CATEGORY = 50  # Max articles per category feed
 MAX_BEST_OF = 50  # Max articles in "Best Of" feed
-MAX_PER_SOURCE = 5  # Default limit per source
+MAX_PER_SOURCE = 8  # Default limit per source
 MAX_PER_LOCAL = 15  # Higher limit for local content
 LOOKBACK_HOURS = 48  # How far back to fetch articles
 MIN_CLAUDE_SCORE = 30  # Minimum relevance score (0-100)
@@ -386,7 +386,7 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
         
         is_duplicate = False
         for seen_title in seen_titles:
-            if fuzz.ratio(article.title_normalized, seen_title) > 85:
+            if fuzz.ratio(article.title_normalized, seen_title) > 75:
                 is_duplicate = True
                 break
         
