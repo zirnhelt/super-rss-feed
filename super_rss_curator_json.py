@@ -3,7 +3,6 @@
 Super RSS Feed Curator with Category-Based Feeds
 - Categorizes articles into 8 topic-based feeds
 - Generates individual JSON feeds per category
-- Creates "Best Of" aggregate feed
 - Auto-generates OPML subscription file
 - Uses Claude API with prompt caching for cost efficiency
 """
@@ -26,7 +25,6 @@ from bs4 import BeautifulSoup
 
 # Configuration
 MAX_PER_CATEGORY = 50  # Max articles per category feed
-MAX_BEST_OF = 50  # Max articles in "Best Of" feed
 MAX_PER_SOURCE = 8  # Default limit per source
 MAX_PER_LOCAL = 15  # Higher limit for local content
 LOOKBACK_HOURS = 48  # How far back to fetch articles
@@ -36,7 +34,7 @@ LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
 # Caching configuration
 SCORED_CACHE_FILE = 'scored_articles_cache.json'
 WLT_CACHE_FILE = 'wlt_cache.json'
-CACHE_EXPIRY_HOURS = 6  # Don't re-score articles for 6 hours
+CACHE_EXPIRY_HOURS = 24  # Don't re-score articles for 24 hours
 
 # Williams Lake Tribune settings
 WLT_BASE_URL = "https://wltribune.com"
@@ -274,7 +272,18 @@ def scrape_williams_lake_tribune() -> List[Article]:
             save_wlt_cache(cache)
             
         print(f"  📰 Williams Lake Tribune: {len(articles)} new articles")
-        
+
+# Add this check before creating the article:
+# Check if title contains sports keywords (even for local content)
+sports_keywords = ["hockey", "basketball", "soccer", "football", "baseball", 
+                  "tournament", "championship", "sports", "athletics",
+                  "game", "season", "playoff", "league"]
+
+title_lower = title.lower()
+if any(keyword in title_lower for keyword in sports_keywords):
+    continue  # Skip sports articles even from WLT
+
+    
     except Exception as e:
         print(f"  ✗ Williams Lake Tribune scraping error: {e}")
     
@@ -621,62 +630,6 @@ def generate_category_feeds(articles: List[Article], base_url: str):
         print(f"  ✓ {cat_info['emoji']} {cat_info['name']}: {len(cat_articles)} articles → {cat_info['filename']}")
 
 
-def generate_best_of_feed(articles: List[Article], base_url: str):
-    """Generate 'Best Of' aggregate feed with top articles"""
-    
-    # Sort all articles by score and take top MAX_BEST_OF
-    best_articles = sorted(articles, key=lambda a: a.score, reverse=True)[:MAX_BEST_OF]
-    
-    feed_data = {
-        "version": "https://jsonfeed.org/version/1.1",
-        "title": "⭐ Best Of - Curated Feed",
-        "home_page_url": "https://github.com/zirnhelt/super-rss-feed",
-        "feed_url": f"{base_url}/feed-best-of.json",
-        "description": "Top-scored articles across all categories",
-        "authors": [{"name": "Erich's AI Curator"}],
-        "items": []
-    }
-    
-    for article in best_articles:
-        local_prefix = "📍 " if article.is_local else ""
-        
-        # Show categories in title
-        cat_tags = " ".join([CATEGORIES[c]['emoji'] for c in article.categories if c in CATEGORIES])
-        item_title = f"{local_prefix}{cat_tags} [{article.source}] {article.title}"
-        
-        item = {
-            "id": article.link,
-            "url": article.link,
-            "title": item_title,
-            "content_html": f"<p>{article.description}</p>",
-            "summary": article.description,
-            "date_published": article.pub_date.isoformat(),
-            "authors": [{"name": article.source}],
-            "tags": [article.source.lower().replace(" ", "_")] + list(article.categories),
-            "_source": {
-                "original_title": article.title,
-                "source_name": article.source,
-                "source_url": article.source_url,
-                "ai_score": article.score,
-                "categories": list(article.categories),
-                "is_local": article.is_local
-            }
-        }
-        
-        if article.source_url:
-            item["external_url"] = article.source_url
-        
-        if article.image_url:
-            item["image"] = article.image_url
-            
-        feed_data["items"].append(item)
-    
-    # Write JSON file
-    with open('feed-best-of.json', 'w', encoding='utf-8') as f:
-        json.dump(feed_data, f, indent=2, ensure_ascii=False)
-    
-    print(f"\n⭐ Best Of feed: {len(best_articles)} articles → feed-best-of.json")
-
 
 def generate_opml(base_url: str):
     """Generate OPML subscription file for all category feeds"""
@@ -687,15 +640,7 @@ def generate_opml(base_url: str):
     ET.SubElement(head, 'dateCreated').text = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S GMT')
     
     body = ET.SubElement(opml, 'body')
-    
-    # Add "Best Of" first
-    ET.SubElement(body, 'outline', 
-                  type="rss",
-                  text="⭐ Best Of - Curated Feed",
-                  title="⭐ Best Of - Curated Feed",
-                  xmlUrl=f"{base_url}/feed-best-of.json",
-                  htmlUrl="https://github.com/zirnhelt/super-rss-feed")
-    
+     
     # Add category feeds
     for cat_key, cat_info in CATEGORIES.items():
         ET.SubElement(body, 'outline',
