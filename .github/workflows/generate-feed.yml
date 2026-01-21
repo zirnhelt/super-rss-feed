@@ -2,7 +2,7 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    cron: '0 10 * * *'
+    - cron: '0 10 * * *'
     # 3:00 AM Pacific (10:00 UTC) 
   workflow_dispatch:  # Allow manual trigger
 
