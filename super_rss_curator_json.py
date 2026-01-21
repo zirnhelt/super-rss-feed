@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-“””
+"""
 Super RSS Feed Curator with Category-Based Feeds
 
 - Categorizes articles into 8 topic-based feeds
 - Generates individual JSON feeds per category
 - Auto-generates OPML subscription file
 - Uses Claude API with prompt caching for cost efficiency
-  “””
+  """
   import os
   import sys
   import re
@@ -35,87 +35,87 @@ LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
 
 # Caching configuration
 
-SCORED_CACHE_FILE = ‘scored_articles_cache.json’
-WLT_CACHE_FILE = ‘wlt_cache.json’
-CACHE_EXPIRY_HOURS = 24  # Don’t re-score articles for 24 hours
+SCORED_CACHE_FILE = 'scored_articles_cache.json'
+WLT_CACHE_FILE = 'wlt_cache.json'
+CACHE_EXPIRY_HOURS = 24  # Don't re-score articles for 24 hours
 
 # Williams Lake Tribune settings
 
-WLT_BASE_URL = “https://wltribune.com”
-WLT_NEWS_URL = f”{WLT_BASE_URL}/news/”
+WLT_BASE_URL = "https://wltribune.com"
+WLT_NEWS_URL = f"{WLT_BASE_URL}/news/"
 
 # Category definitions
 
 CATEGORIES = {
-‘local’: {
-‘name’: ‘Williams Lake Local’,
-‘emoji’: ‘📍’,
-‘description’: ‘Local news from Williams Lake and surrounding Cariboo region’,
-‘filename’: ‘feed-local.json’
+'local': {
+'name': 'Williams Lake Local',
+'emoji': '📍',
+'description': 'Local news from Williams Lake and surrounding Cariboo region',
+'filename': 'feed-local.json'
 },
-‘ai_tech’: {
-‘name’: ‘AI/ML & Tech Infrastructure’,
-‘emoji’: ‘🤖’,
-‘description’: ‘AI, machine learning, infrastructure, and telemetry’,
-‘filename’: ‘feed-ai-tech.json’
+'ai_tech': {
+'name': 'AI/ML & Tech Infrastructure',
+'emoji': '🤖',
+'description': 'AI, machine learning, infrastructure, and telemetry',
+'filename': 'feed-ai-tech.json'
 },
-‘climate’: {
-‘name’: ‘Climate & Sustainability’,
-‘emoji’: ‘🌍’,
-‘description’: ‘Climate technology, sustainability, and environmental news’,
-‘filename’: ‘feed-climate.json’
+'climate': {
+'name': 'Climate & Sustainability',
+'emoji': '🌍',
+'description': 'Climate technology, sustainability, and environmental news',
+'filename': 'feed-climate.json'
 },
-‘homelab’: {
-‘name’: ‘Homelab & Self-Hosting’,
-‘emoji’: ‘🏠’,
-‘description’: ‘Homelab tech, self-hosting, and home automation’,
-‘filename’: ‘feed-homelab.json’
+'homelab': {
+'name': 'Homelab & Self-Hosting',
+'emoji': '🏠',
+'description': 'Homelab tech, self-hosting, and home automation',
+'filename': 'feed-homelab.json'
 },
-‘mesh’: {
-‘name’: ‘Mesh Networks & Hardware’,
-‘emoji’: ‘📡’,
-‘description’: ‘Meshtastic, mesh networking, and hardware projects’,
-‘filename’: ‘feed-mesh.json’
+'mesh': {
+'name': 'Mesh Networks & Hardware',
+'emoji': '📡',
+'description': 'Meshtastic, mesh networking, and hardware projects',
+'filename': 'feed-mesh.json'
 },
-‘science’: {
-‘name’: ‘Science & Systems Thinking’,
-‘emoji’: ‘🔬’,
-‘description’: ‘Systems thinking, complexity, and scientific discoveries’,
-‘filename’: ‘feed-science.json’
+'science': {
+'name': 'Science & Systems Thinking',
+'emoji': '🔬',
+'description': 'Systems thinking, complexity, and scientific discoveries',
+'filename': 'feed-science.json'
 },
-‘scifi’: {
-‘name’: ‘Sci-fi & Worldbuilding’,
-‘emoji’: ‘📚’,
-‘description’: ‘Science fiction, fantasy, and worldbuilding’,
-‘filename’: ‘feed-scifi.json’
+'scifi': {
+'name': 'Sci-fi & Worldbuilding',
+'emoji': '📚',
+'description': 'Science fiction, fantasy, and worldbuilding',
+'filename': 'feed-scifi.json'
 },
-‘news’: {
-‘name’: ‘Canadian and Global News’,
-‘emoji’: ‘🌐’,
-‘description’: ‘Canadian and international news coverage’,
-‘filename’: ‘feed-news.json’
+'news': {
+'name': 'Canadian and Global News',
+'emoji': '🌐',
+'description': 'Canadian and international news coverage',
+'filename': 'feed-news.json'
 }
 }
 
 # Filters
 
-BLOCKED_SOURCES = [“fox news”, “foxnews”]
+BLOCKED_SOURCES = ["fox news", "foxnews"]
 BLOCKED_KEYWORDS = [
 # Sports
-“nfl”, “nba”, “mlb”, “nhl”, “premier league”, “champions league”,
-“world cup”, “olympics”, “super bowl”, “playoff”, “touchdown”,
-“hockey”, “football”, “soccer”, “basketball”, “baseball”,
-“tournament”, “championship”, “sports”, “athletics”,
-“rec centre”, “recreation centre”, “arena”,
+"nfl", "nba", "mlb", "nhl", "premier league", "champions league",
+"world cup", "olympics", "super bowl", "playoff", "touchdown",
+"hockey", "football", "soccer", "basketball", "baseball",
+"tournament", "championship", "sports", "athletics",
+"rec centre", "recreation centre", "arena",
 # Advice columns
-“dear abby”, “ask amy”, “miss manners”, “advice column”,
-“relationship advice”, “dating advice”
+"dear abby", "ask amy", "miss manners", "advice column",
+"relationship advice", "dating advice"
 ]
 
 class Article:
-“”“Represents a single article with category tags”””
-def **init**(self, entry=None, source_title: str = “”, source_url: str = “”,
-title: str = “”, link: str = “”, description: str = “”,
+"""Represents a single article with category tags"""
+def **init**(self, entry=None, source_title: str = "", source_url: str = "",
+title: str = "", link: str = "", description: str = "",
 pub_date: datetime = None, is_local: bool = False):
 
 ```
@@ -191,31 +191,31 @@ def should_filter(self) -> bool:
 ```
 
 def load_wlt_cache() -> Dict[str, bool]:
-“”“Load Williams Lake Tribune URL cache to avoid re-scraping”””
+"""Load Williams Lake Tribune URL cache to avoid re-scraping"""
 try:
-with open(WLT_CACHE_FILE, ‘r’) as f:
+with open(WLT_CACHE_FILE, 'r') as f:
 cache = json.load(f)
-print(f”📖 Loaded WLT cache with {len(cache)} URLs”)
+print(f"📖 Loaded WLT cache with {len(cache)} URLs")
 return cache
 except FileNotFoundError:
-print(“📖 No WLT cache found, starting fresh”)
+print("📖 No WLT cache found, starting fresh")
 return {}
 except Exception as e:
-print(f”⚠ WLT cache load error: {e}”)
+print(f"⚠ WLT cache load error: {e}")
 return {}
 
 def save_wlt_cache(cache: Dict[str, bool]):
-“”“Save Williams Lake Tribune URL cache”””
+"""Save Williams Lake Tribune URL cache"""
 try:
-with open(WLT_CACHE_FILE, ‘w’) as f:
+with open(WLT_CACHE_FILE, 'w') as f:
 json.dump(cache, f, indent=2)
-print(f”💾 Saved WLT cache with {len(cache)} URLs”)
+print(f"💾 Saved WLT cache with {len(cache)} URLs")
 except Exception as e:
-print(f”⚠ WLT cache save error: {e}”)
+print(f"⚠ WLT cache save error: {e}")
 
 def scrape_williams_lake_tribune() -> List[Article]:
-“”“Scrape Williams Lake Tribune directly for priority local news”””
-print(“📍 Scraping Williams Lake Tribune…”)
+"""Scrape Williams Lake Tribune directly for priority local news"""
+print("📍 Scraping Williams Lake Tribune…")
 
 ```
 cache = load_wlt_cache()
@@ -295,26 +295,26 @@ return articles
 ```
 
 def load_scored_cache() -> Dict[str, Dict]:
-“”“Load cache of previously scored articles”””
+"""Load cache of previously scored articles"""
 try:
-with open(SCORED_CACHE_FILE, ‘r’) as f:
+with open(SCORED_CACHE_FILE, 'r') as f:
 cache = json.load(f)
-print(f”📖 Loaded {len(cache)} articles from scoring cache”)
+print(f"📖 Loaded {len(cache)} articles from scoring cache")
 return cache
 except FileNotFoundError:
-print(“📖 No scoring cache found, starting fresh”)
+print("📖 No scoring cache found, starting fresh")
 return {}
 except Exception as e:
-print(f”⚠ Scoring cache load error: {e}”)
+print(f"⚠ Scoring cache load error: {e}")
 return {}
 
 def save_scored_cache(cache: Dict[str, Dict]):
-“”“Save cache of scored articles, removing old entries”””
+"""Save cache of scored articles, removing old entries"""
 try:
 cutoff_time = datetime.now(timezone.utc) - timedelta(hours=12)
 cleaned_cache = {
 url_hash: data for url_hash, data in cache.items()
-if datetime.fromisoformat(data[‘scored_at’]) > cutoff_time
+if datetime.fromisoformat(data['scored_at']) > cutoff_time
 }
 
 ```
@@ -329,16 +329,16 @@ except Exception as e:
 ```
 
 def is_cache_entry_valid(cache_entry: Dict) -> bool:
-“”“Check if cached score is still valid (not expired)”””
+"""Check if cached score is still valid (not expired)"""
 try:
-scored_time = datetime.fromisoformat(cache_entry[‘scored_at’])
+scored_time = datetime.fromisoformat(cache_entry['scored_at'])
 expiry_time = scored_time + timedelta(hours=CACHE_EXPIRY_HOURS)
 return datetime.now(timezone.utc) < expiry_time
 except:
 return False
 
 def parse_opml(opml_path: str) -> List[Dict[str, str]]:
-“”“Extract RSS feed URLs from OPML file”””
+"""Extract RSS feed URLs from OPML file"""
 feeds = []
 tree = ET.parse(opml_path)
 root = tree.getroot()
@@ -361,7 +361,7 @@ return feeds
 ```
 
 def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Article]:
-“”“Fetch recent articles from a single feed”””
+"""Fetch recent articles from a single feed"""
 articles = []
 
 ```
@@ -389,7 +389,7 @@ return articles
 ```
 
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
-“”“Remove duplicate articles using URL and fuzzy title matching”””
+"""Remove duplicate articles using URL and fuzzy title matching"""
 seen_urls = set()
 seen_titles = []
 unique = []
@@ -417,7 +417,7 @@ return unique
 ```
 
 def score_and_categorize_articles(articles: List[Article], api_key: str) -> List[Article]:
-“”“Score articles and assign categories using Claude API with prompt caching”””
+"""Score articles and assign categories using Claude API with prompt caching"""
 
 ```
 # Separate local articles (already categorized) from others
@@ -482,8 +482,8 @@ if new_articles:
 - news: Canadian news, global news, politics, current events
 
 Return ONLY valid JSON (no markdown, no backticks):
-[{“score”: 85, “categories”: [“ai_tech”, “science”]}, {“score”: 42, “categories”: [“news”]}, …]”””,
-“cache_control”: {“type”: “ephemeral”}
+[{"score": 85, "categories": ["ai_tech", "science"]}, {"score": 42, "categories": ["news"]}, …]""",
+"cache_control": {"type": "ephemeral"}
 }]
 
 ```
@@ -549,7 +549,7 @@ return all_articles
 ```
 
 def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
-“”“Limit articles per source to ensure diversity”””
+"""Limit articles per source to ensure diversity"""
 source_counts = defaultdict(int)
 diverse_articles = []
 
@@ -569,7 +569,7 @@ return diverse_articles
 ```
 
 def generate_category_feeds(articles: List[Article], base_url: str):
-“”“Generate individual JSON feeds per category”””
+"""Generate individual JSON feeds per category"""
 
 ```
 # Organize articles by category
@@ -642,7 +642,7 @@ for cat_key, cat_info in CATEGORIES.items():
 ```
 
 def generate_opml(base_url: str):
-“”“Generate OPML subscription file for all category feeds”””
+"""Generate OPML subscription file for all category feeds"""
 
 ```
 opml = ET.Element('opml', version="1.0")
@@ -672,9 +672,9 @@ print(f"   Import this into Inoreader to subscribe to all feeds at once!")
 
 def main():
 # Check for API key
-api_key = os.getenv(‘ANTHROPIC_API_KEY’)
+api_key = os.getenv('ANTHROPIC_API_KEY')
 if not api_key:
-print(“❌ Error: ANTHROPIC_API_KEY environment variable not set”)
+print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
 sys.exit(1)
 
 ```
@@ -745,5 +745,5 @@ for cat_key in CATEGORIES.keys():
     print(f"  {emoji} {name}: {count} articles")
 ```
 
-if **name** == ‘**main**’:
+if **name** == '**main**':
 main()
