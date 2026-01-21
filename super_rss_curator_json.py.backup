@@ -250,7 +250,13 @@ def scrape_williams_lake_tribune() -> List[Article]:
             title = link.get_text().strip()
             if not title or len(title) < 10:
                 continue
-                
+
+            # Add this check before creating the article:
+            # Check if title contains sports keywords (even for local content)
+            sports_keywords = ["hockey", "basketball", "soccer", "football", "baseball", 
+                  "tournament", "championship", "sports", "athletics",
+                  "game", "season", "playoff", "league"]
+            
             article = Article(
                 title=title,
                 link=full_url,
@@ -273,11 +279,6 @@ def scrape_williams_lake_tribune() -> List[Article]:
             
         print(f"  📰 Williams Lake Tribune: {len(articles)} new articles")
 
-# Add this check before creating the article:
-# Check if title contains sports keywords (even for local content)
-sports_keywords = ["hockey", "basketball", "soccer", "football", "baseball", 
-                  "tournament", "championship", "sports", "athletics",
-                  "game", "season", "playoff", "league"]
 
 title_lower = title.lower()
 if any(keyword in title_lower for keyword in sports_keywords):
