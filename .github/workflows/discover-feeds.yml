@@ -1,0 +1,63 @@
+name: Discover New Feeds
+
+on:
+  schedule:
+    # Run every Sunday at 2 AM Pacific (10 AM UTC)
+    - cron: '0 10 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  discover-feeds:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Run feed discovery
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        python feed_discovery.py
+    
+    - name: Create Pull Request with discoveries
+      if: success()
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'Weekly feed discoveries'
+        title: '🔍 Weekly Feed Discovery Report'
+        body: |
+          ## 🎯 Weekly Feed Discovery Report
+          
+          This automated PR contains the latest feed discovery results.
+          
+          **Files updated:**
+          - `feed_discovery_report.json` - Full discovery report
+          - `discovery_cache.json` - Discovery cache for faster subsequent runs
+          
+          **Next steps:**
+          1. Review the discovery report
+          2. Add promising feeds to `feeds.opml` manually
+          3. Merge this PR to keep discovery cache updated
+          
+          **Top recommendations are in the report summary.**
+        branch: feed-discovery
+        delete-branch: true
+        
+    - name: Upload discovery report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: feed-discovery-report
+        path: |
+          feed_discovery_report.json
+          discovery_cache.json
+        retention-days: 30
