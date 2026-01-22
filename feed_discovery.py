@@ -4,7 +4,6 @@ Feed Discovery System for Super RSS Curator
 - Fetches curated OPML files from GitHub sources
 - Scores candidate feeds using existing Claude logic
 - Outputs recommendations for new feeds to add
-- Caches results monthly to minimize API costs
 """
 import os
 import sys
@@ -17,10 +16,6 @@ from urllib.parse import urlparse
 import feedparser
 import anthropic
 from dataclasses import dataclass
-
-# Import from existing curator (assumes it's in same directory)
-sys.path.append('.')
-from super_rss_curator_json import Article, score_articles_with_claude
 
 # Configuration
 DISCOVERY_CACHE_FILE = 'discovery_cache.json'
@@ -53,6 +48,96 @@ DISCOVERY_SOURCES = [
     }
 ]
 
+class SimpleArticle:
+    """Simple article representation for feed discovery"""
+    def __init__(self, entry, source_title: str, source_url: str):
+        self.title = entry.get('title', '').strip()
+        self.link = entry.get('link', '')
+        self.description = entry.get('description', '') or entry.get('summary', '')
+        self.source = source_title
+        self.source_url = source_url
+        self.score = 0
+        
+        # Parse publication date
+        try:
+            if hasattr(entry, 'published_parsed') and entry.published_parsed:
+                from datetime import datetime, timezone
+                self.pub_date = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+            else:
+                self.pub_date = datetime.now(timezone.utc)
+        except:
+            self.pub_date = datetime.now(timezone.utc)
+
+def score_articles_with_claude(articles: List[SimpleArticle], api_key: str) -> List[SimpleArticle]:
+    """Score articles using Claude API"""
+    if not articles:
+        return articles
+    
+    client = anthropic.Anthropic(api_key=api_key)
+    
+    # Your interests for scoring
+    interests = """
+    - AI/ML infrastructure and telemetry
+    - Systems thinking and complex systems
+    - Climate tech and sustainability
+    - Homelab/self-hosting technology
+    - Meshtastic and mesh networking
+    - 3D printing (Bambu Lab)
+    - Sci-fi worldbuilding
+    - Deep technical content over news
+    - Canadian content and local news (Williams Lake, Quesnel)
+    """
+    
+    # Batch articles for efficiency (10 at a time)
+    batch_size = 10
+    scored_articles = []
+    
+    for i in range(0, len(articles), batch_size):
+        batch = articles[i:i+batch_size]
+        
+        # Prepare batch for Claude
+        article_list = "\n\n".join([
+            f"Article {idx}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {a.description[:200]}..."
+            for idx, a in enumerate(batch)
+        ])
+        
+        prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
+
+My interests:
+{interests}
+
+Articles to score:
+{article_list}
+
+Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
+No explanations, just the numbers."""
+        
+        try:
+            response = client.messages.create(
+                model="claude-3-sonnet-20240229",
+                max_tokens=100,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            
+            # Parse scores
+            scores_text = response.content[0].text.strip()
+            scores = [float(s.strip()) for s in scores_text.split(',')]
+            
+            # Assign scores to articles
+            for j, article in enumerate(batch):
+                if j < len(scores):
+                    article.score = scores[j]
+                scored_articles.append(article)
+                
+        except Exception as e:
+            print(f"  ❌ Error scoring batch {i//batch_size + 1}: {str(e)}")
+            # Add articles with 0 score if API fails
+            for article in batch:
+                article.score = 0
+                scored_articles.append(article)
+    
+    return scored_articles
+
 @dataclass
 class FeedCandidate:
     """Represents a potential feed to evaluate"""
@@ -61,7 +146,7 @@ class FeedCandidate:
     html_url: str
     source: str
     category: str
-    sample_articles: List[Article] = None
+    sample_articles: List[SimpleArticle] = None
     average_score: float = 0.0
     article_count: int = 0
     error: str = None
@@ -142,15 +227,15 @@ class FeedDiscovery:
         print(f"\n🎯 Total candidates: {len(candidates)}")
         return candidates
     
-    def _sample_feed_articles(self, candidate: FeedCandidate) -> List[Article]:
+    def _sample_feed_articles(self, candidate: FeedCandidate) -> List[SimpleArticle]:
         """Sample recent articles from a feed candidate"""
         try:
             parsed = feedparser.parse(candidate.url)
             articles = []
             
-            # Convert to Article objects (limit to MAX_ARTICLES_PER_FEED)
+            # Convert to SimpleArticle objects (limit to MAX_ARTICLES_PER_FEED)
             for entry in parsed.entries[:MAX_ARTICLES_PER_FEED]:
-                article = Article(entry, candidate.title, candidate.html_url)
+                article = SimpleArticle(entry, candidate.title, candidate.html_url)
                 
                 # Skip very old articles (older than 30 days)
                 if (datetime.now(timezone.utc) - article.pub_date).days > 30:
