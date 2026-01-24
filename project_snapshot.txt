@@ -1,0 +1,3476 @@
+# Super RSS Feed Project Files
+# Repository: https://github.com/zirnhelt/super-rss-feed
+# Generated: $(date)
+# ================================
+#
+# GUIDE FOR CLAUDE:
+# This snapshot provides current project state for context and file management.
+#
+# DIRECTORY LISTING: Shows all files with timestamps - use this to identify
+#   stale/obsolete files that should be removed
+#
+# GIT PULL STATUS: Confirms we're working with latest versions from GitHub
+#
+# SOURCE FILES: Full content of Python scripts, configs, workflows, documentation
+#   - Use these as the authoritative current code
+#
+# CACHE FILES: Stats only (not full content) - these are runtime artifacts
+#   - wlt_cache.json: Williams Lake Tribune scraped content cache
+#   - scored_articles_cache.json: API-scored article cache
+#   - feed_discovery_cache.json: New source evaluation cache
+#
+# FEED FILES: NOT included in snapshot (*.xml, *.rss, feed_*.json)
+#   - These are daily outputs, not helpful for code management
+#
+# ================================
+
+
+
+========================================
+DIRECTORY LISTING
+========================================
+
+Root files:
+-rw-rw-r-- 1 zirnhelt zirnhelt 2.8K Jan 18 09:57 CACHING_SYSTEM.md
+-rw-rw-r-- 1 zirnhelt zirnhelt 2.2K Jan 19 15:48 curated-feeds.opml
+-rw-rw-r-- 1 zirnhelt zirnhelt  17K Jan 21 18:47 feed_discovery.py
+-rw-rw-r-- 1 zirnhelt zirnhelt 4.4K Jan 21 18:25 FEED_DISCOVERY_README.md
+-rw-rw-r-- 1 zirnhelt zirnhelt  16K Jan 24 08:46 feeds.opml
+-rw-rw-r-- 1 zirnhelt zirnhelt 1.1K Jan 21 07:40 fix_quotes.py
+-rw-rw-r-- 1 zirnhelt zirnhelt 2.1K Jan 18 23:47 IMAGE_SCRAPING_SUMMARY.md
+-rw-rw-r-- 1 zirnhelt zirnhelt 8.8K Jan 23 06:29 index.html
+-rw-rw-r-- 1 zirnhelt zirnhelt 7.2K Jan 21 18:25 integrate_discoveries.py
+-rw-rw-r-- 1 zirnhelt zirnhelt 1.2K Jan 24 08:48 project_snapshot.txt
+-rw-r--r-- 1 zirnhelt zirnhelt 4.7K Jan 16 06:35 PROJECT_SUMMARY.md
+-rw-r--r-- 1 zirnhelt zirnhelt 2.4K Jan 16 06:35 QUICKSTART.md
+-rw-r--r-- 1 zirnhelt zirnhelt 3.1K Jan 16 06:35 README.md
+-rw-rw-r-- 1 zirnhelt zirnhelt   72 Jan 18 13:29 requirements.txt
+-rw-rw-r-- 1 zirnhelt zirnhelt  15K Jan 18 09:57 super_rss_curator_cached.py
+-rw-rw-r-- 1 zirnhelt zirnhelt  30K Jan 24 08:46 super_rss_curator_json.py
+-rw-rw-r-- 1 zirnhelt zirnhelt  11K Jan 18 13:29 super_rss_curator.py
+-rw-r--r-- 1 zirnhelt zirnhelt 2.0K Jan 16 06:35 test_setup.py
+-rw-rw-r-- 1 zirnhelt zirnhelt 9.4K Jan 24 08:36 UPDATE_SUMMARY.md
+-rw-rw-r-- 1 zirnhelt zirnhelt  26K Jan 21 19:08 discovery_cache.json
+-rw-rw-r-- 1 zirnhelt zirnhelt  58K Jan 24 08:46 scored_articles_cache.json
+-rw-rw-r-- 1 zirnhelt zirnhelt 7.3K Jan 24 08:46 wlt_cache.json
+
+.github/workflows:
+total 8.0K
+-rw-rw-r-- 1 zirnhelt zirnhelt 1.8K Jan 21 18:36 discover-feeds.yml
+-rw-rw-r-- 1 zirnhelt zirnhelt 2.2K Jan 24 08:46 generate-feed.yml
+
+
+========================================
+GIT PULL STATUS
+========================================
+Already up to date.
+
+
+========================================
+SOURCE FILES (Full Content)
+========================================
+
+
+----------------------------------------
+FILE: super_rss_curator_cached.py
+----------------------------------------
+#!/usr/bin/env python3
+"""
+Super RSS Feed Curator (Cached JSON Feed Edition)
+Aggregates feeds from OPML, deduplicates, scores with Claude, outputs JSON Feed format
+Includes smart caching to avoid re-scoring the same articles multiple times per day
+"""
+
+import os
+import sys
+from datetime import datetime, timedelta, timezone
+from collections import defaultdict
+from typing import List, Dict, Optional
+import xml.etree.ElementTree as ET
+import hashlib
+import json
+
+import feedparser
+from fuzzywuzzy import fuzz
+import anthropic
+
+# Configuration
+MAX_ARTICLES_OUTPUT = 250
+MAX_PER_SOURCE = 5  # Default limit per source
+LOOKBACK_HOURS = 48  # How far back to fetch articles
+MIN_CLAUDE_SCORE = 30  # Minimum relevance score (0-100)
+
+# Caching configuration
+SCORED_CACHE_FILE = 'scored_articles_cache.json'
+CACHE_EXPIRY_HOURS = 6  # Don't re-score articles for 6 hours
+
+# Filters
+BLOCKED_SOURCES = ["fox news", "foxnews"]
+BLOCKED_KEYWORDS = [
+    # Sports
+    "nfl", "nba", "mlb", "nhl", "premier league", "champions league",
+    "world cup", "olympics", "super bowl", "playoff", "touchdown",
+    # Advice columns
+    "dear abby", "ask amy", "miss manners", "advice column",
+    "relationship advice", "dating advice"
+]
+
+class Article:
+    """Represents a single article"""
+    def __init__(self, entry, source_title: str, source_url: str):
+        self.title = entry.get('title', '').strip()
+        self.link = entry.get('link', '').strip()
+        self.description = entry.get('description', '') or entry.get('summary', '')
+        self.pub_date = self._parse_date(entry)
+        self.source = source_title
+        self.source_url = source_url
+        self.score = 0
+        
+        # Generate hash for deduplication and caching
+        self.url_hash = hashlib.md5(self.link.encode()).hexdigest()
+        self.title_normalized = self.title.lower().strip()
+    
+    def _parse_date(self, entry) -> datetime:
+        """Parse publication date from entry"""
+        if hasattr(entry, 'published_parsed') and entry.published_parsed:
+            return datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+        elif hasattr(entry, 'updated_parsed') and entry.updated_parsed:
+            return datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
+        return datetime.now(timezone.utc)
+    
+    def should_filter(self) -> bool:
+        """Check if article should be filtered out"""
+        text = f"{self.title} {self.description}".lower()
+        
+        # Check blocked sources
+        source_lower = self.source.lower()
+        if any(blocked in source_lower for blocked in BLOCKED_SOURCES):
+            return True
+        
+        # Check blocked keywords
+        if any(keyword in text for keyword in BLOCKED_KEYWORDS):
+            return True
+        
+        return False
+
+
+def load_scored_cache() -> Dict[str, Dict]:
+    """Load previously scored articles from cache"""
+    try:
+        with open(SCORED_CACHE_FILE, 'r') as f:
+            cache = json.load(f)
+            print(f"📁 Loaded {len(cache)} articles from cache")
+            return cache
+    except FileNotFoundError:
+        print("📁 No cache file found, starting fresh")
+        return {}
+    except Exception as e:
+        print(f"⚠ Cache load error: {e}, starting fresh")
+        return {}
+
+
+def save_scored_cache(cache: Dict[str, Dict]):
+    """Save scored articles to cache"""
+    try:
+        # Clean old entries while saving
+        cutoff_time = datetime.now(timezone.utc) - timedelta(hours=CACHE_EXPIRY_HOURS * 2)
+        cleaned_cache = {
+            url_hash: data for url_hash, data in cache.items()
+            if datetime.fromisoformat(data['scored_at']) > cutoff_time
+        }
+        
+        with open(SCORED_CACHE_FILE, 'w') as f:
+            json.dump(cleaned_cache, f, indent=2)
+        
+        removed = len(cache) - len(cleaned_cache)
+        print(f"💾 Saved cache with {len(cleaned_cache)} articles" + 
+              (f" (removed {removed} old entries)" if removed > 0 else ""))
+    except Exception as e:
+        print(f"⚠ Cache save error: {e}")
+
+
+def is_cache_entry_valid(cache_entry: Dict) -> bool:
+    """Check if cached score is still valid (not expired)"""
+    try:
+        scored_time = datetime.fromisoformat(cache_entry['scored_at'])
+        expiry_time = scored_time + timedelta(hours=CACHE_EXPIRY_HOURS)
+        return datetime.now(timezone.utc) < expiry_time
+    except:
+        return False
+
+
+def parse_opml(opml_path: str) -> List[Dict[str, str]]:
+    """Extract RSS feed URLs from OPML file"""
+    feeds = []
+    tree = ET.parse(opml_path)
+    root = tree.getroot()
+    
+    for outline in root.findall(".//outline[@type='rss']"):
+        feed_url = outline.get('xmlUrl')
+        feed_title = outline.get('title') or outline.get('text')
+        html_url = outline.get('htmlUrl', '')
+        
+        if feed_url:
+            feeds.append({
+                'url': feed_url,
+                'title': feed_title,
+                'html_url': html_url
+            })
+    
+    print(f"📚 Found {len(feeds)} feeds in OPML")
+    return feeds
+
+
+def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Article]:
+    """Fetch recent articles from a single feed"""
+    articles = []
+    
+    try:
+        parsed = feedparser.parse(feed['url'])
+        
+        for entry in parsed.entries:
+            article = Article(entry, feed['title'], feed['html_url'])
+            
+            # Skip old articles
+            if article.pub_date < cutoff_date:
+                continue
+            
+            # Skip filtered content
+            if article.should_filter():
+                continue
+            
+            articles.append(article)
+        
+        if articles:
+            print(f"  ✓ {feed['title']}: {len(articles)} articles")
+    
+    except Exception as e:
+        print(f"  ✗ {feed['title']}: {str(e)}")
+    
+    return articles
+
+
+def deduplicate_articles(articles: List[Article]) -> List[Article]:
+    """Remove duplicate articles using URL and fuzzy title matching"""
+    seen_urls = set()
+    seen_titles = []
+    unique = []
+    
+    for article in articles:
+        # Exact URL match
+        if article.url_hash in seen_urls:
+            continue
+        
+        # Fuzzy title match (85% similarity threshold)
+        is_duplicate = False
+        for seen_title in seen_titles:
+            if fuzz.ratio(article.title_normalized, seen_title) > 85:
+                is_duplicate = True
+                break
+        
+        if is_duplicate:
+            continue
+        
+        seen_urls.add(article.url_hash)
+        seen_titles.append(article.title_normalized)
+        unique.append(article)
+    
+    print(f"🔍 Deduplication: {len(articles)} → {len(unique)} articles")
+    return unique
+
+
+def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
+    """Score articles using Claude API with smart caching"""
+    
+    # Load cache
+    cache = load_scored_cache()
+    
+    # Separate cached vs new articles
+    cached_articles = []
+    new_articles = []
+    cache_hits = 0
+    
+    for article in articles:
+        cache_entry = cache.get(article.url_hash)
+        if cache_entry and is_cache_entry_valid(cache_entry):
+            # Use cached score
+            article.score = cache_entry['score']
+            cached_articles.append(article)
+            cache_hits += 1
+        else:
+            # Need to score this one
+            new_articles.append(article)
+    
+    print(f"💡 Cache: {cache_hits} hits, {len(new_articles)} new articles to score")
+    
+    # Only score new articles if there are any
+    if new_articles:
+        client = anthropic.Anthropic(api_key=api_key)
+        
+        # Your interests for scoring
+        interests = """
+        - AI/ML infrastructure and telemetry
+        - Systems thinking and complex systems
+        - Climate tech and sustainability
+        - Homelab/self-hosting technology
+        - Meshtastic and mesh networking
+        - 3D printing (Bambu Lab)
+        - Sci-fi worldbuilding
+        - Deep technical content over news
+        - Canadian content and local news (Williams Lake, Quesnel)
+        """
+        
+        print(f"🤖 Scoring {len(new_articles)} new articles with Claude...")
+        
+        # Batch articles for efficiency (10 at a time)
+        batch_size = 10
+        
+        for i in range(0, len(new_articles), batch_size):
+            batch = new_articles[i:i+batch_size]
+            
+            # Prepare batch for Claude
+            article_list = "\n\n".join([
+                f"Article {idx}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {a.description[:200]}..."
+                for idx, a in enumerate(batch)
+            ])
+            
+            prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
+
+My interests:
+{interests}
+
+Articles to score:
+{article_list}
+
+Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
+No explanations, just the numbers."""
+            
+            try:
+                response = client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=200,
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                
+                scores_text = response.content[0].text.strip()
+                scores = [int(s.strip()) for s in scores_text.split(',')]
+                
+                # Apply scores and update cache
+                current_time = datetime.now(timezone.utc).isoformat()
+                for article, score in zip(batch, scores):
+                    article.score = score
+                    # Update cache
+                    cache[article.url_hash] = {
+                        'score': score,
+                        'title': article.title,
+                        'source': article.source,
+                        'scored_at': current_time
+                    }
+            
+            except Exception as e:
+                print(f"  ⚠ Scoring error: {e}")
+                # Assign default scores on error
+                for article in batch:
+                    article.score = 50
+    
+    # Save updated cache
+    if new_articles:
+        save_scored_cache(cache)
+    
+    # Return all articles (cached + newly scored)
+    all_articles = cached_articles + new_articles
+    return all_articles
+
+
+def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
+    """Limit articles per source to ensure diversity"""
+    source_counts = defaultdict(int)
+    diverse_articles = []
+    
+    # Sort by score first
+    sorted_articles = sorted(articles, key=lambda a: a.score, reverse=True)
+    
+    for article in sorted_articles:
+        if source_counts[article.source] < max_per_source:
+            diverse_articles.append(article)
+            source_counts[article.source] += 1
+    
+    print(f"📊 Diversity filter: {len(articles)} → {len(diverse_articles)} articles")
+    return diverse_articles
+
+
+def generate_json_feed(articles: List[Article], output_path: str):
+    """Generate JSON Feed file with prominent source attribution"""
+    
+    feed_data = {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": "Curated Feed",  # Shorter, less prominent title
+        "home_page_url": "https://github.com/zirnhelt/super-rss-feed",
+        "feed_url": f"https://zirnhelt.github.io/super-rss-feed/{output_path}",
+        "description": "AI-curated articles from trusted sources",
+        "authors": [{"name": "Erich's AI Curator"}],
+        "items": []
+    }
+    
+    for article in articles[:MAX_ARTICLES_OUTPUT]:
+        # Create prominent source-first title
+        item_title = f"[{article.source}] {article.title}"
+        
+        # Rich metadata for better reader display
+        item = {
+            "id": article.link,
+            "url": article.link,
+            "title": item_title,  # Source-prominent title
+            "content_html": f"<p>{article.description}</p>",
+            "summary": article.description,
+            "date_published": article.pub_date.isoformat(),
+            "authors": [{"name": article.source}],
+            "tags": [article.source.lower().replace(" ", "_")],
+            "_source": {  # Custom metadata for your use
+                "original_title": article.title,
+                "source_name": article.source,
+                "source_url": article.source_url,
+                "ai_score": article.score,
+                "relevance": "high" if article.score >= 70 else "medium"
+            }
+        }
+        
+        # Add external URL reference (some readers show this prominently)
+        if article.source_url:
+            item["external_url"] = article.source_url
+            
+        feed_data["items"].append(item)
+    
+    # Write JSON file
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(feed_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Generated JSON Feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles)")
+
+
+def main():
+    # Check for API key
+    api_key = os.getenv('ANTHROPIC_API_KEY')
+    if not api_key:
+        print("⌛ Error: ANTHROPIC_API_KEY environment variable not set")
+        sys.exit(1)
+    
+    # Parse OPML
+    opml_path = sys.argv[1] if len(sys.argv) > 1 else 'feeds.opml'
+    feeds = parse_opml(opml_path)
+    
+    # Fetch articles
+    cutoff_date = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+    print(f"\n🔥 Fetching articles from last {LOOKBACK_HOURS} hours...")
+    
+    all_articles = []
+    for feed in feeds:
+        articles = fetch_feed_articles(feed, cutoff_date)
+        all_articles.extend(articles)
+    
+    print(f"\n📈 Total fetched: {len(all_articles)} articles")
+    
+    # Deduplicate
+    unique_articles = deduplicate_articles(all_articles)
+    
+    # Score with Claude (using cache)
+    scored_articles = score_articles_with_claude(unique_articles, api_key)
+    
+    # Filter by minimum score
+    quality_articles = [a for a in scored_articles if a.score >= MIN_CLAUDE_SCORE]
+    print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_articles)} → {len(quality_articles)} articles")
+    
+    # Apply diversity limits
+    diverse_articles = apply_diversity_limits(quality_articles, MAX_PER_SOURCE)
+    
+    # Generate JSON feed
+    output_path = 'super-feed.json'
+    generate_json_feed(diverse_articles, output_path)
+    
+    # Stats
+    print("\n📊 Final stats:")
+    print(f"  Total sources: {len(feeds)}")
+    print(f"  Articles fetched: {len(all_articles)}")
+    print(f"  After dedup: {len(unique_articles)}")
+    print(f"  After scoring: {len(quality_articles)}")
+    print(f"  Final output: {min(len(diverse_articles), MAX_ARTICLES_OUTPUT)}")
+
+
+if __name__ == '__main__':
+    main()
+
+
+----------------------------------------
+FILE: super_rss_curator_json.py
+----------------------------------------
+#!/usr/bin/env python3
+"""
+Super RSS Feed Curator with Cumulative Feed Support
+- Loads existing feed and merges with new articles (no article loss between runs)
+- Ages out articles older than FEED_RETENTION_DAYS
+- Uses shown_cache to prevent re-scoring and re-adding aged-out articles
+- Outputs JSON Feed format with prominent source attribution and image support
+- Williams Lake Tribune gets priority treatment with direct scraping
+"""
+import os
+import sys
+import re
+from datetime import datetime, timedelta, timezone
+from collections import defaultdict
+from typing import List, Dict, Optional
+import xml.etree.ElementTree as ET
+import hashlib
+import json
+from urllib.parse import urljoin, urlparse
+
+import feedparser
+from fuzzywuzzy import fuzz
+import anthropic
+import requests
+from bs4 import BeautifulSoup
+
+# Configuration
+MAX_FEED_SIZE = 500         # Total items in feed (cap to prevent bloat)
+FEED_RETENTION_DAYS = 3     # Keep articles in feed for 3 days
+MAX_PER_SOURCE = 8          # Default limit per source
+MAX_PER_LOCAL = 15          # Higher limit for local content
+LOOKBACK_HOURS = 48         # How far back to fetch articles
+MIN_CLAUDE_SCORE = 30       # Minimum relevance score (0-100)
+LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
+
+# Caching configuration
+SCORED_CACHE_FILE = 'scored_articles_cache.json'
+WLT_CACHE_FILE = 'wlt_cache.json'
+SHOWN_CACHE_FILE = 'shown_articles_cache.json'  # Track articles already shown
+CACHE_EXPIRY_HOURS = 48      # Don't re-score articles for 6 hours
+SHOWN_CACHE_DAYS = 14       # Remember shown articles for 14 days
+
+# Williams Lake Tribune settings
+WLT_BASE_URL = "https://wltribune.com"
+WLT_NEWS_URL = f"{WLT_BASE_URL}/news/"
+
+# Filters
+BLOCKED_SOURCES = [
+    # News aggregators and low-quality sources  
+    "fox news", "foxnews",
+    "metafilter", "metafilter.com",
+    "hacker news", "news.ycombinator.com", "hn",
+    "reddit", "reddit.com",
+    "digg", "digg.com", 
+    "slashdot", "slashdot.org",
+    "alltop", "allsides",
+    "stumbleupon", "delicious",
+    "newsvine", "mixx",
+    # Social media aggregators
+    "buzzfeed", "upworthy", "viral viral",
+    "clickhole", "bored panda"
+]
+BLOCKED_KEYWORDS = [
+    # Sports
+    "nfl", "nba", "mlb", "nhl", "premier league", "champions league",
+    "world cup", "olympics", "super bowl", "playoff", "touchdown",
+    "hockey", "football", "soccer", "basketball", "baseball",
+    "tournament", "championship", "sports", "athletics",
+    "rec centre", "recreation centre", "arena",
+    # Advice columns
+    "dear abby", "ask amy", "miss manners", "advice column",
+    "relationship advice", "dating advice"
+]
+
+
+class Article:
+    """Represents a single article"""
+    def __init__(self, entry=None, source_title: str = "", source_url: str = "", 
+                 title: str = "", link: str = "", description: str = "", 
+                 pub_date: datetime = None, is_local: bool = False):
+        
+        # Handle both RSS entries and manual creation
+        if entry:
+            self.title = entry.get('title', '').strip()
+            self.link = entry.get('link', '').strip()
+            self.description = entry.get('description', '') or entry.get('summary', '')
+            self.pub_date = self._parse_date(entry)
+            self.image_url = self._extract_image(entry)
+        else:
+            self.title = title.strip()
+            self.link = link.strip()
+            self.description = description.strip()
+            self.pub_date = pub_date or datetime.now(timezone.utc)
+            self.image_url = None
+        
+        self.source = source_title
+        self.source_url = source_url
+        self.score = LOCAL_PRIORITY_SCORE if is_local else 0
+        self.is_local = is_local
+        
+        # Generate hash for deduplication and caching
+        self.url_hash = hashlib.md5(self.link.encode()).hexdigest()
+        self.title_normalized = self.title.lower().strip()
+    
+    def _parse_date(self, entry) -> datetime:
+        """Parse publication date from entry"""
+        if hasattr(entry, 'published_parsed') and entry.published_parsed:
+            return datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+        elif hasattr(entry, 'updated_parsed') and entry.updated_parsed:
+            return datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
+        return datetime.now(timezone.utc)
+    
+    def _extract_image(self, entry) -> Optional[str]:
+        """Extract image URL from RSS feed entry"""
+        # Check enclosures first (most common)
+        if hasattr(entry, 'enclosures') and entry.enclosures:
+            for enc in entry.enclosures:
+                if hasattr(enc, 'type') and enc.type and enc.type.startswith('image/'):
+                    return enc.href
+        
+        # Check media content (Media RSS)
+        if hasattr(entry, 'media_content') and entry.media_content:
+            for media in entry.media_content:
+                if media.get('type', '').startswith('image/'):
+                    return media.get('url')
+        
+        # Parse description for <img> tags as fallback
+        if self.description:
+            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', self.description)
+            if img_match:
+                return img_match.group(1)
+        
+        return None
+    
+    def should_filter(self) -> bool:
+        """Check if article should be filtered out (never filter local content)"""
+        if self.is_local:
+            return False
+            
+        text = f"{self.title} {self.description}".lower()
+        
+        # Check blocked sources
+        source_lower = self.source.lower()
+        if any(blocked in source_lower for blocked in BLOCKED_SOURCES):
+            return True
+        
+        # Check blocked keywords
+        if any(keyword in text for keyword in BLOCKED_KEYWORDS):
+            return True
+        
+        return False
+
+
+def load_existing_feed(feed_path: str) -> List[Article]:
+    """Load articles from previous feed generation"""
+    try:
+        with open(feed_path, 'r') as f:
+            feed_data = json.load(f)
+        
+        articles = []
+        for item in feed_data.get('items', []):
+            # Reconstruct Article objects from previous feed
+            article = Article(
+                title=item['_source']['original_title'],
+                link=item['url'],
+                description=item['summary'],
+                pub_date=datetime.fromisoformat(item['date_published']),
+                source_title=item['_source']['source_name'],
+                source_url=item['_source']['source_url'],
+                is_local=item['_source'].get('is_local', False)
+            )
+            article.score = item['_source']['ai_score']
+            article.image_url = item.get('image')
+            articles.append(article)
+        
+        print(f"📚 Loaded {len(articles)} articles from previous feed")
+        return articles
+    except FileNotFoundError:
+        print("📚 No previous feed found, starting fresh")
+        return []
+    except Exception as e:
+        print(f"⚠️ Error loading previous feed: {e}")
+        return []
+
+
+def merge_and_age_articles(existing: List[Article], new: List[Article], 
+                           retention_days: int = 3) -> List[Article]:
+    """Merge new articles with existing, remove old ones, dedupe by URL"""
+    
+    cutoff_date = datetime.now(timezone.utc) - timedelta(days=retention_days)
+    
+    # Keep existing articles that aren't too old
+    retained = [a for a in existing if a.pub_date > cutoff_date]
+    aged_out = len(existing) - len(retained)
+    if aged_out > 0:
+        print(f"📅 Aged out {aged_out} articles (> {retention_days} days old)")
+    
+    # Combine with new articles
+    combined = retained + new
+    
+    # Dedupe by URL (existing articles take precedence to preserve state)
+    seen_urls = set()
+    deduped = []
+    
+    for article in combined:
+        if article.url_hash not in seen_urls:
+            seen_urls.add(article.url_hash)
+            deduped.append(article)
+    
+    removed_dupes = len(combined) - len(deduped)
+    if removed_dupes > 0:
+        print(f"🔄 Removed {removed_dupes} duplicate articles during merge")
+    
+    return deduped
+
+
+def load_wlt_cache() -> Dict[str, bool]:
+    """Load Williams Lake Tribune URL cache to avoid re-scraping"""
+    try:
+        if os.path.exists(WLT_CACHE_FILE):
+            with open(WLT_CACHE_FILE, 'r') as f:
+                cache = json.load(f)
+                print(f"📖 Loaded WLT cache with {len(cache)} URLs")
+                return cache
+    except Exception as e:
+        print(f"⚠️ WLT cache load error: {e}")
+    
+    return {}
+
+
+def save_wlt_cache(cache: Dict[str, bool]):
+    """Save Williams Lake Tribune URL cache"""
+    try:
+        with open(WLT_CACHE_FILE, 'w') as f:
+            json.dump(cache, f, indent=2)
+    except Exception as e:
+        print(f"⚠️ WLT cache save error: {e}")
+
+
+def scrape_williams_lake_tribune() -> List[Article]:
+    """Scrape fresh Williams Lake Tribune articles with caching"""
+    print("📰 Scraping Williams Lake Tribune...")
+    
+    # Load existing cache
+    cache = load_wlt_cache()
+    articles = []
+    
+    try:
+        # Fetch the news page
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(WLT_NEWS_URL, headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Find all article links (adjust selectors as needed for their site structure)
+        article_links = set()
+        
+        # Method 1: Look for links containing 2026 (current year articles)
+        for link in soup.find_all('a', href=True):
+            href = link['href']
+            # Skip if not an article URL or if it's 2025 or older
+            if '/2026/' in href and ('/news/' in href or '/local/' in href):
+                full_url = urljoin(WLT_BASE_URL, href)
+                article_links.add(full_url)
+        
+        # Method 2: Look in common news sections
+        news_sections = soup.find_all(['article', 'div'], class_=re.compile(r'(news|article|post)', re.I))
+        for section in news_sections:
+            for link in section.find_all('a', href=True):
+                href = link['href']
+                if '/2026/' in href:
+                    full_url = urljoin(WLT_BASE_URL, href)
+                    article_links.add(full_url)
+        
+        print(f"  📄 Found {len(article_links)} potential article URLs")
+        
+        # Filter out cached URLs and process new ones
+        new_articles = 0
+        for url in article_links:
+            if url not in cache:
+                # For now, create basic article entries
+                title = f"Williams Lake Tribune Article"  # Default title
+                description = "Local news from Williams Lake Tribune"
+                
+                # Try to extract a better title from the URL path
+                path_parts = urlparse(url).path.split('/')
+                if len(path_parts) > 1:
+                    # Use the last part of path as title hint, clean it up
+                    url_title = path_parts[-1].replace('-', ' ').replace('_', ' ').title()
+                    if len(url_title) > 10:  # If we got a reasonable title
+                        title = url_title
+                
+                article = Article(
+                    source_title="Williams Lake Tribune",
+                    source_url=WLT_BASE_URL,
+                    title=title,
+                    link=url,
+                    description=description,
+                    is_local=True
+                )
+                
+                articles.append(article)
+                cache[url] = True
+                new_articles += 1
+        
+        # Clean old cache entries (older than 7 days)
+        cache_cleaned = {url: True for url in cache.keys() 
+                        if any(f'/{year}/' in url for year in ['2026'])}  # Keep 2026 articles
+        
+        # Save updated cache
+        save_wlt_cache(cache_cleaned)
+        
+        print(f"  📰 Williams Lake Tribune: {new_articles} new articles")
+        if len(articles) != new_articles:
+            print(f"  📖 Cache: {len(articles) - new_articles} previously seen")
+    
+    except Exception as e:
+        print(f"  ✗ Williams Lake Tribune scraping error: {e}")
+    
+    return articles
+
+
+def load_scored_cache() -> Dict[str, Dict]:
+    """Load cached article scores to avoid re-scoring"""
+    try:
+        if os.path.exists(SCORED_CACHE_FILE):
+            with open(SCORED_CACHE_FILE, 'r') as f:
+                cache = json.load(f)
+                print(f"📖 Loaded {len(cache)} articles from scoring cache")
+                return cache
+    except Exception as e:
+        print(f"⚠️ Scoring cache load error: {e}")
+    
+    return {}
+
+
+def save_scored_cache(cache: Dict[str, Dict]):
+    """Save article scores cache"""
+    try:
+        # Clean old entries (older than 12 hours) to keep cache manageable
+        cutoff = (datetime.now(timezone.utc) - timedelta(hours=12)).isoformat()
+        cleaned_cache = {}
+        
+        for url_hash, entry in cache.items():
+            if entry.get('scored_at', '2020-01-01') > cutoff:
+                cleaned_cache[url_hash] = entry
+        
+        with open(SCORED_CACHE_FILE, 'w') as f:
+            json.dump(cleaned_cache, f, indent=2)
+            
+        removed = len(cache) - len(cleaned_cache)
+        if removed > 0:
+            print(f"💾 Saved scoring cache with {len(cleaned_cache)} articles (removed {removed} old entries)")
+    except Exception as e:
+        print(f"⚠️ Scoring cache save error: {e}")
+
+
+def is_cache_entry_valid(cache_entry: Dict) -> bool:
+    """Check if cached score is still valid (within CACHE_EXPIRY_HOURS)"""
+    try:
+        scored_at = datetime.fromisoformat(cache_entry['scored_at'])
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=CACHE_EXPIRY_HOURS)
+        return scored_at > cutoff
+    except:
+        return False
+
+
+def load_shown_cache() -> set:
+    """Load cache of previously shown article hashes"""
+    try:
+        with open(SHOWN_CACHE_FILE, 'r') as f:
+            data = json.load(f)
+            # Clean expired entries on load
+            cutoff_time = datetime.now(timezone.utc) - timedelta(days=SHOWN_CACHE_DAYS)
+            valid_hashes = {
+                url_hash for url_hash, timestamp in data.items()
+                if datetime.fromisoformat(timestamp) > cutoff_time
+            }
+            print(f"📖 Loaded {len(valid_hashes)} previously shown articles ({len(data) - len(valid_hashes)} expired)")
+            return valid_hashes
+    except FileNotFoundError:
+        print("📖 No shown articles cache found, starting fresh")
+        return set()
+    except Exception as e:
+        print(f"⚠️ Shown cache load error: {e}")
+        return set()
+
+
+def save_shown_cache(shown_hashes: set):
+    """Save cache of shown article hashes with timestamps"""
+    try:
+        # Load existing data first
+        existing_data = {}
+        try:
+            with open(SHOWN_CACHE_FILE, 'r') as f:
+                existing_data = json.load(f)
+        except:
+            pass
+        
+        # Add new hashes with current timestamp
+        current_time = datetime.now(timezone.utc).isoformat()
+        for url_hash in shown_hashes:
+            existing_data[url_hash] = current_time
+        
+        # Clean expired entries
+        cutoff_time = datetime.now(timezone.utc) - timedelta(days=SHOWN_CACHE_DAYS)
+        cleaned_data = {
+            url_hash: timestamp for url_hash, timestamp in existing_data.items()
+            if datetime.fromisoformat(timestamp) > cutoff_time
+        }
+        
+        with open(SHOWN_CACHE_FILE, 'w') as f:
+            json.dump(cleaned_data, f, indent=2)
+        
+        removed = len(existing_data) - len(cleaned_data)
+        print(f"💾 Saved shown articles cache with {len(cleaned_data)} articles" + 
+              (f" (removed {removed} expired)" if removed > 0 else ""))
+    except Exception as e:
+        print(f"⚠️ Shown cache save error: {e}")
+
+
+def parse_opml(opml_path: str) -> List[Dict[str, str]]:
+    """Extract RSS feed URLs from OPML file, excluding Williams Lake Tribune"""
+    feeds = []
+    tree = ET.parse(opml_path)
+    root = tree.getroot()
+    
+    for outline in root.findall(".//outline[@type='rss']"):
+        feed_url = outline.get('xmlUrl')
+        feed_title = outline.get('title') or outline.get('text')
+        html_url = outline.get('htmlUrl', '')
+        
+        # Skip Williams Lake Tribune RSS feed to avoid duplicates with scraped content
+        if feed_title and "williams lake" in feed_title.lower():
+            continue
+        
+        if feed_url:
+            feeds.append({
+                'url': feed_url,
+                'title': feed_title,
+                'html_url': html_url
+            })
+    
+    print(f"📚 Found {len(feeds)} feeds in OPML")
+    return feeds
+
+
+def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Article]:
+    """Fetch recent articles from a single feed"""
+    articles = []
+    
+    try:
+        parsed = feedparser.parse(feed['url'])
+        
+        for entry in parsed.entries:
+            article = Article(entry, feed['title'], feed['html_url'])
+            
+            # Skip old articles
+            if article.pub_date < cutoff_date:
+                continue
+            
+            # Skip filtered content
+            if article.should_filter():
+                continue
+            
+            articles.append(article)
+        
+        if articles:
+            print(f"  ✓ {feed['title']}: {len(articles)} articles")
+    
+    except Exception as e:
+        print(f"  ✗ {feed['title']}: {str(e)}")
+    
+    return articles
+
+
+def deduplicate_articles(articles: List[Article]) -> List[Article]:
+    """Remove duplicate articles using URL and fuzzy title matching"""
+    seen_urls = set()
+    seen_titles = []
+    unique = []
+    
+    for article in articles:
+        # Exact URL match
+        if article.url_hash in seen_urls:
+            continue
+        
+        # Fuzzy title match (85% similarity threshold)
+        is_duplicate = False
+        for seen_title in seen_titles:
+            if fuzz.ratio(article.title_normalized, seen_title) > 85:
+                is_duplicate = True
+                break
+        
+        if is_duplicate:
+            continue
+        
+        seen_urls.add(article.url_hash)
+        seen_titles.append(article.title_normalized)
+        unique.append(article)
+    
+    print(f"🔍 Deduplication: {len(articles)} → {len(unique)} articles")
+    return unique
+
+
+def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
+    """Score articles using Claude API with smart caching"""
+    # Load existing cache
+    cache = load_scored_cache()
+    
+    # Separate cached and new articles
+    cached_articles = []
+    new_articles = []
+    
+    for article in articles:
+        # Skip scoring for local articles - they get maximum priority
+        if article.is_local:
+            cached_articles.append(article)
+            continue
+            
+        cache_entry = cache.get(article.url_hash)
+        if cache_entry and is_cache_entry_valid(cache_entry):
+            # Use cached score
+            article.score = cache_entry['score']
+            cached_articles.append(article)
+        else:
+            new_articles.append(article)
+    
+    if cached_articles and new_articles:
+        print(f"💡 Cache: {len(cached_articles)} hits, {len(new_articles)} new articles to score")
+    elif cached_articles:
+        print(f"💡 Cache: All {len(cached_articles)} articles found in cache")
+    else:
+        print(f"🤖 Scoring {len(new_articles)} articles with Claude...")
+    
+    # Score new articles if any
+    if new_articles:
+        client = anthropic.Anthropic(api_key=api_key)
+        
+        # Your interests for scoring
+interests = """
+PRIMARY INTERESTS (score 70-100):
+- AI/ML infrastructure, platform engineering, and telemetry: MLOps, observability, production AI systems, data pipelines, AI platforms
+- Smart home, home automation, and home networking: HomeKit, HomeBridge, Philips Hue, IKEA smart home, home automation systems, mesh networking (Meshtastic, LoRa), self-hosted services, privacy-focused home tech
+- Climate tech and clean energy: Solar, batteries, EVs, carbon capture, renewable energy technologies, sustainable materials
+- 3D printing: Bambu Lab, PLA materials, printer mechanics, slicing software, additive manufacturing
+- Canadian content and BC Interior local news: Williams Lake, Quesnel, Cariboo, Kamloops, BC regional news
+
+SECONDARY INTERESTS (score 40-69):
+- Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies
+- Deep technical how-tos and tutorials: Hands-on guides, configuration walkthroughs, technical troubleshooting
+- Sci-fi worldbuilding: Hard science fiction, speculative fiction, magic systems, narrative construction
+- Scientific research and discoveries: Breakthrough studies, academic papers, novel findings
+
+LOW PRIORITY (score 10-39):
+- General tech news and product announcements
+- Surface-level reviews without technical depth
+- Entertainment and lifestyle content
+"""
+        
+        # Batch articles for efficiency (10 at a time)
+        batch_size = 10
+        
+        for i in range(0, len(new_articles), batch_size):
+            batch = new_articles[i:i+batch_size]
+            
+            # Prepare batch for Claude
+            article_list = "\n\n".join([
+                f"Article {idx}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {a.description[:200]}..."
+                for idx, a in enumerate(batch)
+            ])
+            
+            prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
+
+My interests:
+{interests}
+
+Articles to score:
+{article_list}
+
+Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
+No explanations, just the numbers."""
+            
+            try:
+                response = client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=200,
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                
+                scores_text = response.content[0].text.strip()
+                scores = [int(s.strip()) for s in scores_text.split(',')]
+                
+                # Apply scores and update cache
+                for article, score in zip(batch, scores):
+                    article.score = score
+                    cache[article.url_hash] = {
+                        'score': score,
+                        'title': article.title,
+                        'scored_at': datetime.now(timezone.utc).isoformat()
+                    }
+            
+            except Exception as e:
+                print(f"  ⚠️ Scoring error: {e}")
+                # Assign default scores on error
+                for article in batch:
+                    article.score = 50
+                    cache[article.url_hash] = {
+                        'score': 50,
+                        'title': article.title,
+                        'scored_at': datetime.now(timezone.utc).isoformat()
+                    }
+    
+    # Save updated cache
+    if new_articles:
+        save_scored_cache(cache)
+    
+    # Combine all articles
+    all_scored = cached_articles + new_articles
+    return all_scored
+
+
+def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
+    """Limit articles per source to ensure diversity, with higher limits for local content"""
+    source_counts = defaultdict(int)
+    diverse_articles = []
+    
+    # Sort by local priority first, then by score
+    sorted_articles = sorted(articles, key=lambda a: (not a.is_local, -a.score))
+    
+    for article in sorted_articles:
+        # Use higher limit for local content
+        limit = MAX_PER_LOCAL if article.is_local else max_per_source
+        
+        if source_counts[article.source] < limit:
+            diverse_articles.append(article)
+            source_counts[article.source] += 1
+    
+    print(f"📊 Diversity filter: {len(articles)} → {len(diverse_articles)} articles")
+    return diverse_articles
+
+
+def generate_json_feed(articles: List[Article], output_path: str):
+    """Generate JSON Feed file with prominent source attribution and image support"""
+    
+    feed_data = {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": "Curated Feed",
+        "home_page_url": "https://github.com/zirnhelt/super-rss-feed",
+        "feed_url": f"https://zirnhelt.github.io/super-rss-feed/{output_path}",
+        "description": "AI-curated articles with priority local news from Williams Lake",
+        "authors": [{"name": "Erich's AI Curator"}],
+        "items": []
+    }
+    
+    for article in articles:
+        # Create prominent source-first title with local indicator
+        local_prefix = "📍 " if article.is_local else ""
+        item_title = f"{local_prefix}[{article.source}] {article.title}"
+        
+        # Rich metadata for better reader display
+        item = {
+            "id": article.link,
+            "url": article.link,
+            "title": item_title,
+            "content_html": f"<p>{article.description}</p>",
+            "summary": article.description,
+            "date_published": article.pub_date.isoformat(),
+            "authors": [{"name": article.source}],
+            "tags": [article.source.lower().replace(" ", "_")],
+            "_source": {
+                "original_title": article.title,
+                "source_name": article.source,
+                "source_url": article.source_url,
+                "ai_score": article.score,
+                "relevance": "local" if article.is_local else ("high" if article.score >= 70 else "medium"),
+                "is_local": article.is_local
+            }
+        }
+        
+        # Add image if available
+        if article.image_url:
+            item["image"] = article.image_url
+        
+        # Add external URL reference
+        if article.source_url:
+            item["external_url"] = article.source_url
+            
+        feed_data["items"].append(item)
+    
+    # Write JSON file
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(feed_data, f, indent=2, ensure_ascii=False)
+    
+    # Count articles with images for stats
+    articles_with_images = sum(1 for a in articles if a.image_url)
+    
+    print(f"✅ Generated JSON Feed: {output_path} ({len(articles)} articles, {articles_with_images} with images)")
+
+
+def main():
+    # Check for API key
+    api_key = os.getenv('ANTHROPIC_API_KEY')
+    if not api_key:
+        print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
+        sys.exit(1)
+    
+    # Configuration
+    output_path = 'super-feed.json'
+    
+    # Load existing feed for cumulative updates
+    existing_articles = load_existing_feed(output_path)
+    
+    # Load shown cache (prevents re-adding aged-out articles and re-scoring existing ones)
+    shown_cache = load_shown_cache()
+    
+    # Add existing articles to shown cache
+    for article in existing_articles:
+        shown_cache.add(article.url_hash)
+    
+    # Parse OPML (excludes Williams Lake Tribune RSS to avoid duplicates)
+    opml_path = sys.argv[1] if len(sys.argv) > 1 else 'feeds.opml'
+    feeds = parse_opml(opml_path)
+    
+    # Scrape Williams Lake Tribune directly for priority local news
+    local_articles = scrape_williams_lake_tribune()
+    
+    # Fetch RSS feed articles
+    cutoff_date = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+    print(f"\n📥 Fetching articles from last {LOOKBACK_HOURS} hours...")
+    
+    rss_articles = []
+    for feed in feeds:
+        articles = fetch_feed_articles(feed, cutoff_date)
+        rss_articles.extend(articles)
+    
+    # Combine local and RSS articles
+    all_new_articles = local_articles + rss_articles
+    print(f"\n📈 Total NEW articles fetched: {len(all_new_articles)}")
+    
+    # Filter against shown cache (removes already-in-feed AND aged-out-but-seen)
+    truly_new = [a for a in all_new_articles if a.url_hash not in shown_cache]
+    print(f"🆕 Truly new articles (not in cache): {len(truly_new)}")
+    
+    # Deduplicate truly new articles
+    unique_new = deduplicate_articles(truly_new)
+    
+    # Score only NEW articles with Claude (using smart caching)
+    scored_new = score_articles_with_claude(unique_new, api_key)
+    
+    # Filter NEW articles by minimum score (but always keep local articles)
+    quality_new = [a for a in scored_new if a.score >= MIN_CLAUDE_SCORE or a.is_local]
+    non_local_filtered = len([a for a in scored_new if not a.is_local and a.score < MIN_CLAUDE_SCORE])
+    if non_local_filtered > 0:
+        print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_new)} → {len(quality_new)} articles ({non_local_filtered} filtered)")
+    
+    # MERGE new articles with existing + age out old articles
+    merged_articles = merge_and_age_articles(existing_articles, quality_new, FEED_RETENTION_DAYS)
+    
+    # Apply diversity limits to MERGED set
+    diverse_articles = apply_diversity_limits(merged_articles, MAX_PER_SOURCE)
+    
+    # Limit total feed size and sort by score
+    final_articles = sorted(diverse_articles, key=lambda a: a.score, reverse=True)[:MAX_FEED_SIZE]
+    
+    # Update shown cache with new articles
+    new_shown_hashes = {a.url_hash for a in quality_new}
+    shown_cache.update(new_shown_hashes)
+    save_shown_cache(shown_cache)
+    
+    # Generate JSON feed
+    generate_json_feed(final_articles, output_path)
+    
+    # Stats
+    print("\n📊 Final stats:")
+    print(f"  Existing articles retained: {len(existing_articles)}")
+    print(f"  New articles fetched: {len(all_new_articles)}")
+    print(f"  New articles scored: {len(quality_new)}")
+    print(f"  After merge + aging: {len(merged_articles)}")
+    print(f"  After diversity limits: {len(diverse_articles)}")
+    print(f"  Final feed size: {len(final_articles)}")
+    
+    # Local content stats
+    local_count = sum(1 for a in final_articles if a.is_local)
+    print(f"  📍 Local articles: {local_count}")
+
+
+if __name__ == '__main__':
+    main()
+
+
+----------------------------------------
+FILE: super_rss_curator.py
+----------------------------------------
+#!/usr/bin/env python3
+"""
+Super RSS Feed Curator
+Aggregates feeds from OPML, deduplicates, scores with Claude, applies diversity filters
+"""
+
+import os
+import sys
+from datetime import datetime, timedelta, timezone
+from collections import defaultdict
+from typing import List, Dict, Optional
+import xml.etree.ElementTree as ET
+import hashlib
+
+import feedparser
+from feedgen.feed import FeedGenerator
+from fuzzywuzzy import fuzz
+import anthropic
+
+# Configuration
+MAX_ARTICLES_OUTPUT = 250
+MAX_PER_SOURCE = 5  # Default limit per source
+LOOKBACK_HOURS = 48  # How far back to fetch articles
+MIN_CLAUDE_SCORE = 30  # Minimum relevance score (0-100)
+
+# Filters
+BLOCKED_SOURCES = ["fox news", "foxnews"]
+BLOCKED_KEYWORDS = [
+    # Sports
+    "nfl", "nba", "mlb", "nhl", "premier league", "champions league",
+    "world cup", "olympics", "super bowl", "playoff", "touchdown",
+    # Advice columns
+    "dear abby", "ask amy", "miss manners", "advice column",
+    "relationship advice", "dating advice"
+]
+
+class Article:
+    """Represents a single article"""
+    def __init__(self, entry, source_title: str, source_url: str):
+        self.title = entry.get('title', '').strip()
+        self.link = entry.get('link', '').strip()
+        self.description = entry.get('description', '') or entry.get('summary', '')
+        self.pub_date = self._parse_date(entry)
+        self.source = source_title
+        self.source_url = source_url
+        self.score = 0
+        
+        # Generate hash for deduplication
+        self.url_hash = hashlib.md5(self.link.encode()).hexdigest()
+        self.title_normalized = self.title.lower().strip()
+    
+    def _parse_date(self, entry) -> datetime:
+        """Parse publication date from entry"""
+        if hasattr(entry, 'published_parsed') and entry.published_parsed:
+            return datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+        elif hasattr(entry, 'updated_parsed') and entry.updated_parsed:
+            return datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
+        return datetime.now(timezone.utc)
+    
+    def should_filter(self) -> bool:
+        """Check if article should be filtered out"""
+        text = f"{self.title} {self.description}".lower()
+        
+        # Check blocked sources
+        source_lower = self.source.lower()
+        if any(blocked in source_lower for blocked in BLOCKED_SOURCES):
+            return True
+        
+        # Check blocked keywords
+        if any(keyword in text for keyword in BLOCKED_KEYWORDS):
+            return True
+        
+        return False
+
+
+def parse_opml(opml_path: str) -> List[Dict[str, str]]:
+    """Extract RSS feed URLs from OPML file"""
+    feeds = []
+    tree = ET.parse(opml_path)
+    root = tree.getroot()
+    
+    for outline in root.findall(".//outline[@type='rss']"):
+        feed_url = outline.get('xmlUrl')
+        feed_title = outline.get('title') or outline.get('text')
+        html_url = outline.get('htmlUrl', '')
+        
+        if feed_url:
+            feeds.append({
+                'url': feed_url,
+                'title': feed_title,
+                'html_url': html_url
+            })
+    
+    print(f"📚 Found {len(feeds)} feeds in OPML")
+    return feeds
+
+
+def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Article]:
+    """Fetch recent articles from a single feed"""
+    articles = []
+    
+    try:
+        parsed = feedparser.parse(feed['url'])
+        
+        for entry in parsed.entries:
+            article = Article(entry, feed['title'], feed['html_url'])
+            
+            # Skip old articles
+            if article.pub_date < cutoff_date:
+                continue
+            
+            # Skip filtered content
+            if article.should_filter():
+                continue
+            
+            articles.append(article)
+        
+        if articles:
+            print(f"  ✓ {feed['title']}: {len(articles)} articles")
+    
+    except Exception as e:
+        print(f"  ✗ {feed['title']}: {str(e)}")
+    
+    return articles
+
+
+def deduplicate_articles(articles: List[Article]) -> List[Article]:
+    """Remove duplicate articles using URL and fuzzy title matching"""
+    seen_urls = set()
+    seen_titles = []
+    unique = []
+    
+    for article in articles:
+        # Exact URL match
+        if article.url_hash in seen_urls:
+            continue
+        
+        # Fuzzy title match (85% similarity threshold)
+        is_duplicate = False
+        for seen_title in seen_titles:
+            if fuzz.ratio(article.title_normalized, seen_title) > 85:
+                is_duplicate = True
+                break
+        
+        if is_duplicate:
+            continue
+        
+        seen_urls.add(article.url_hash)
+        seen_titles.append(article.title_normalized)
+        unique.append(article)
+    
+    print(f"🔍 Deduplication: {len(articles)} → {len(unique)} articles")
+    return unique
+
+
+def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
+    """Score articles using Claude API"""
+    client = anthropic.Anthropic(api_key=api_key)
+    
+    # Your interests for scoring
+    interests = """
+    - AI/ML infrastructure and telemetry
+    - Systems thinking and complex systems
+    - Climate tech and sustainability
+    - Homelab/self-hosting technology
+    - Meshtastic and mesh networking
+    - 3D printing (Bambu Lab)
+    - Sci-fi worldbuilding
+    - Deep technical content over news
+    - Canadian content and local news (Williams Lake, Quesnel)
+    """
+    
+    print(f"🤖 Scoring {len(articles)} articles with Claude...")
+    
+    # Batch articles for efficiency (10 at a time)
+    batch_size = 10
+    scored_articles = []
+    
+    for i in range(0, len(articles), batch_size):
+        batch = articles[i:i+batch_size]
+        
+        # Prepare batch for Claude
+        article_list = "\n\n".join([
+            f"Article {idx}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {a.description[:200]}..."
+            for idx, a in enumerate(batch)
+        ])
+        
+        prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
+
+My interests:
+{interests}
+
+Articles to score:
+{article_list}
+
+Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
+No explanations, just the numbers."""
+        
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=200,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            
+            scores_text = response.content[0].text.strip()
+            scores = [int(s.strip()) for s in scores_text.split(',')]
+            
+            for article, score in zip(batch, scores):
+                article.score = score
+                scored_articles.append(article)
+        
+        except Exception as e:
+            print(f"  ⚠ Scoring error: {e}")
+            # Assign default scores on error
+            for article in batch:
+                article.score = 50
+                scored_articles.append(article)
+    
+    return scored_articles
+
+
+def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
+    """Limit articles per source to ensure diversity"""
+    source_counts = defaultdict(int)
+    diverse_articles = []
+    
+    # Sort by score first
+    sorted_articles = sorted(articles, key=lambda a: a.score, reverse=True)
+    
+    for article in sorted_articles:
+        if source_counts[article.source] < max_per_source:
+            diverse_articles.append(article)
+            source_counts[article.source] += 1
+    
+    print(f"📊 Diversity filter: {len(articles)} → {len(diverse_articles)} articles")
+    return diverse_articles
+
+
+def generate_rss_feed(articles: List[Article], output_path: str):
+    """Generate RSS XML file"""
+    fg = FeedGenerator()
+    fg.title("Erich's Curated Super Feed")
+    fg.link(href="https://github.com/your-username/super-rss-feed", rel="alternate")
+    fg.description("AI-curated RSS aggregator from 50+ sources")
+    fg.language("en")
+    fg.lastBuildDate(datetime.now(timezone.utc))
+    
+    for article in articles[:MAX_ARTICLES_OUTPUT]:
+        fe = fg.add_entry()
+        fe.title(article.title)
+        fe.link(href=article.link)
+        fe.description(f"{article.description}<br><br><em>Source: {article.source} | Score: {article.score}</em>")
+        fe.published(article.pub_date)
+        fe.author(name=article.source)
+    
+    fg.rss_file(output_path)
+    print(f"✅ Generated RSS feed: {output_path} ({len(articles[:MAX_ARTICLES_OUTPUT])} articles)")
+
+
+def main():
+    # Check for API key
+    api_key = os.getenv('ANTHROPIC_API_KEY')
+    if not api_key:
+        print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
+        sys.exit(1)
+    
+    # Parse OPML
+    opml_path = sys.argv[1] if len(sys.argv) > 1 else 'feeds.opml'
+    feeds = parse_opml(opml_path)
+    
+    # Fetch articles
+    cutoff_date = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+    print(f"\n📥 Fetching articles from last {LOOKBACK_HOURS} hours...")
+    
+    all_articles = []
+    for feed in feeds:
+        articles = fetch_feed_articles(feed, cutoff_date)
+        all_articles.extend(articles)
+    
+    print(f"\n📈 Total fetched: {len(all_articles)} articles")
+    
+    # Deduplicate
+    unique_articles = deduplicate_articles(all_articles)
+    
+    # Score with Claude
+    scored_articles = score_articles_with_claude(unique_articles, api_key)
+    
+    # Filter by minimum score
+    quality_articles = [a for a in scored_articles if a.score >= MIN_CLAUDE_SCORE]
+    print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_articles)} → {len(quality_articles)} articles")
+    
+    # Apply diversity limits
+    diverse_articles = apply_diversity_limits(quality_articles, MAX_PER_SOURCE)
+    
+    # Generate RSS feed
+    output_path = 'super-feed.xml'
+    generate_rss_feed(diverse_articles, output_path)
+    
+    # Stats
+    print("\n📊 Final stats:")
+    print(f"  Total sources: {len(feeds)}")
+    print(f"  Articles fetched: {len(all_articles)}")
+    print(f"  After dedup: {len(unique_articles)}")
+    print(f"  After scoring: {len(quality_articles)}")
+    print(f"  Final output: {min(len(diverse_articles), MAX_ARTICLES_OUTPUT)}")
+
+
+if __name__ == '__main__':
+    main()
+
+
+----------------------------------------
+FILE: requirements.txt
+----------------------------------------
+feedparser==6.0.10
+anthropic==0.40.0
+fuzzywuzzy
+requests
+beautifulsoup4
+
+
+----------------------------------------
+FILE: index.html
+----------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erich's Super RSS Feed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            color: #667eea;
+        }
+        
+        .subtitle {
+            margin-bottom: 32px;
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            margin: 32px 0 16px 0;
+            color: #764ba2;
+        }
+        
+        .feeds-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .feed-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .feed-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .feed-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .feed-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85em;
+            color: #999;
+            align-items: center;
+        }
+        
+        .feed-count {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        
+        .feed-updated {
+            font-style: italic;
+        }
+        
+        .feed-description {
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .feed-url {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            word-break: break-all;
+            color: #667eea;
+            cursor: pointer;
+        }
+        
+        .feed-url:hover {
+            background: #f0f0f0;
+        }
+        
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 12px;
+            margin-top: 8px;
+        }
+        
+        .button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        
+        .error {
+            background: #ffe0e0;
+            border-left: 4px solid #cc0000;
+            color: #cc0000;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Super RSS Feed</h1>
+        <p class="subtitle">AI-curated news from 50+ sources, organized by topic. Daily updates at 3 AM Pacific.</p>
+        
+        <h2>📚 Available Feeds</h2>
+        <div id="feedsList" class="feeds-list">
+            <div class="loading">Loading feed information...</div>
+        </div>
+        
+        <h2>🔗 Quick Links</h2>
+        <a href="curated-feeds.opml" class="button">📥 Download OPML</a>
+        <a href="https://github.com/zirnhelt/super-rss-feed" class="button">🔧 View on GitHub</a>
+    </div>
+    
+    <script>
+        const feeds = [
+            { 
+                file: 'feed-local.json', 
+                name: '🏔️ Local News', 
+                description: 'Williams Lake Tribune and BC Interior coverage (always top priority)'
+            },
+            { 
+                file: 'feed-ai-tech.json', 
+                name: '🤖 AI & Tech', 
+                description: 'AI/ML, platform engineering, cloud infrastructure, telemetry'
+            },
+            { 
+                file: 'feed-climate.json', 
+                name: '🌍 Climate & Energy', 
+                description: 'Climate tech, renewable energy, environmental news'
+            },
+            { 
+                file: 'feed-homelab.json', 
+                name: '🏠 Homelab & DIY', 
+                description: '3D printing, home automation, self-hosting, networking'
+            },
+            { 
+                file: 'feed-mesh.json', 
+                name: '📡 Mesh Networks', 
+                description: 'Meshtastic, LoRa, decentralized communications'
+            },
+            { 
+                file: 'feed-news.json', 
+                name: '📰 General News', 
+                description: 'Politics, business, technology, current events'
+            },
+            { 
+                file: 'feed-science.json', 
+                name: '🔬 Science', 
+                description: 'Research, discoveries, academic papers, systems thinking'
+            },
+            { 
+                file: 'feed-scifi.json', 
+                name: '🚀 Sci-Fi & Culture', 
+                description: 'Science fiction, fantasy, worldbuilding, books'
+            }
+        ];
+        
+        const baseUrl = window.location.href.replace(/\/$/, '');
+        const feedsContainer = document.getElementById('feedsList');
+        
+        async function loadFeedInfo() {
+            feedsContainer.innerHTML = '';
+            
+            for (const feed of feeds) {
+                const feedItem = document.createElement('div');
+                feedItem.className = 'feed-item';
+                
+                try {
+                    const response = await fetch(feed.file);
+                    const data = await response.json();
+                    
+                    const itemCount = data.items?.length || 0;
+                    const lastUpdate = data.items?.[0]?.date_published 
+                        ? new Date(data.items[0].date_published).toLocaleString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: '2-digit'
+                          })
+                        : 'Unknown';
+                    
+                    feedItem.innerHTML = `
+                        <div class="feed-header">
+                            <div class="feed-name">${feed.name}</div>
+                            <div class="feed-meta">
+                                <span class="feed-count">${itemCount} items</span>
+                                <span class="feed-updated">Updated: ${lastUpdate}</span>
+                            </div>
+                        </div>
+                        <div class="feed-description">${feed.description}</div>
+                        <div class="feed-url" onclick="copyToClipboard('${baseUrl}/${feed.file}')" title="Click to copy">
+                            ${baseUrl}/${feed.file}
+                        </div>
+                    `;
+                } catch (error) {
+                    feedItem.innerHTML = `
+                        <div class="feed-header">
+                            <div class="feed-name">${feed.name}</div>
+                        </div>
+                        <div class="feed-description">${feed.description}</div>
+                        <div class="error">Feed not yet generated</div>
+                    `;
+                }
+                
+                feedsContainer.appendChild(feedItem);
+            }
+        }
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Feed URL copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy. Please select and copy manually.');
+            });
+        }
+        
+        loadFeedInfo();
+    </script>
+</body>
+</html>
+
+
+----------------------------------------
+FILE: .github/workflows/discover-feeds.yml
+----------------------------------------
+name: Discover New Feeds
+
+on:
+  schedule:
+    # Run every Sunday at 2 AM Pacific (10 AM UTC)
+    - cron: '0 10 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  discover-feeds:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Run feed discovery
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        python feed_discovery.py
+    
+    - name: Create Pull Request with discoveries
+      if: success()
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'Weekly feed discoveries'
+        title: '🔍 Weekly Feed Discovery Report'
+        body: |
+          ## 🎯 Weekly Feed Discovery Report
+          
+          This automated PR contains the latest feed discovery results.
+          
+          **Files updated:**
+          - `feed_discovery_report.json` - Full discovery report
+          - `discovery_cache.json` - Discovery cache for faster subsequent runs
+          
+          **Next steps:**
+          1. Review the discovery report
+          2. Add promising feeds to `feeds.opml` manually
+          3. Merge this PR to keep discovery cache updated
+          
+          **Top recommendations are in the report summary.**
+        branch: feed-discovery
+        delete-branch: true
+        
+    - name: Upload discovery report as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: feed-discovery-report
+        path: |
+          feed_discovery_report.json
+          discovery_cache.json
+        retention-days: 30
+
+
+----------------------------------------
+FILE: .github/workflows/generate-feed.yml
+----------------------------------------
+name: Generate Super RSS Feed
+
+on:
+  schedule:
+    # Run 3 times daily for cumulative feed updates
+    - cron: '0 14 * * *'  # 6:00 AM Pacific (14:00 UTC)
+    - cron: '0 22 * * *'  # 2:00 PM Pacific (22:00 UTC)
+    - cron: '0 6 * * *'   # 10:00 PM Pacific (06:00 UTC next day)
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Download previous feed from GitHub Pages
+        run: |
+          # Download existing feed if it exists (for cumulative updates)
+          wget https://zirnhelt.github.io/super-rss-feed/super-feed.json -O super-feed.json || echo "No previous feed found (first run)"
+        continue-on-error: true
+      
+      - name: Generate RSS feed
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python super_rss_curator_json.py feeds.opml
+      
+      - name: Copy files to output
+        run: |
+          echo "Files in current directory:"
+          ls -la
+          mkdir -p output
+          cp super-feed.json output/
+          cp index.html output/
+          echo "Files in output directory:"
+          ls -la output/
+
+      - name: Commit cache files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update cache files [skip ci]"
+          git push
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: false
+          commit_message: 'Update RSS feed'
+
+
+----------------------------------------
+FILE: CACHING_SYSTEM.md
+----------------------------------------
+# Smart Article Caching System
+
+## The Problem
+Your original script re-scores all articles every time it runs, even if they were just scored minutes ago. This wastes API credits and time.
+
+**Example today:**
+- First run: Scored 320 articles ($0.60)
+- Second run: Re-scored same 320 articles ($0.60) 
+- **Total waste:** $0.60 + time
+
+## The Solution
+The cached version (`super_rss_curator_cached.py`) adds smart caching:
+
+### How It Works:
+1. **Saves scores** to `scored_articles_cache.json`
+2. **Checks cache first** for each article (6-hour expiry)  
+3. **Only scores new articles** or ones older than 6 hours
+4. **Updates cache** with fresh scores
+
+### Sample Output:
+```
+📁 Loaded 245 articles from cache
+💡 Cache: 198 hits, 122 new articles to score  
+🤖 Scoring 122 new articles with Claude...
+💾 Saved cache with 367 articles (removed 23 old entries)
+```
+
+### Benefits:
+- **Massive API savings:** 198 cache hits = $0.36 saved
+- **Faster execution:** No delays for cached articles
+- **Automatic cleanup:** Removes articles older than 12 hours
+- **Resilient:** Works if cache file is missing/corrupted
+
+## Usage
+
+### Replace Your Current Script:
+```bash
+# In your repo
+cp super_rss_curator_cached.py super_rss_curator_json.py
+git add super_rss_curator_json.py
+git commit -m "Add smart caching to avoid re-scoring same articles"
+git push
+```
+
+### Cache File Management:
+```bash
+# Cache file is auto-generated: scored_articles_cache.json
+# You can safely delete it to start fresh
+# It auto-expires old entries
+
+# To see cache contents:
+jq '.[] | {title, score, scored_at}' scored_articles_cache.json | head -20
+```
+
+### Configuration:
+```python
+CACHE_EXPIRY_HOURS = 6    # Don't re-score for 6 hours
+SCORED_CACHE_FILE = 'scored_articles_cache.json'
+```
+
+## Expected Results
+
+### First Run (Cold Cache):
+```
+📁 No cache file found, starting fresh
+🤖 Scoring 320 articles with Claude...
+💾 Saved cache with 320 articles
+```
+
+### Second Run (1 hour later):
+```  
+📁 Loaded 320 articles from cache
+💡 Cache: 315 hits, 5 new articles to score
+🤖 Scoring 5 new articles with Claude...
+💾 Saved cache with 325 articles
+```
+
+### Third Run (Next day):
+```
+📁 Loaded 325 articles from cache  
+💡 Cache: 45 hits, 275 new articles to score
+🤖 Scoring 275 new articles with Claude...
+💾 Saved cache with 320 articles (removed 280 old entries)
+```
+
+## Cost Savings
+
+**Without caching (current):**
+- Every run: ~320 articles × $0.002 = $0.64
+- 5 runs/day = $3.20/day
+- Monthly = ~$96
+
+**With caching:**
+- First run: $0.64
+- Subsequent runs: ~$0.05 (only new articles)
+- 5 runs/day = $0.84/day  
+- Monthly = ~$25
+
+**Savings: ~$70/month** 
+
+The cache is especially valuable for:
+- Manual testing and fixes
+- Multiple runs in a day
+- GitHub Actions that might retry on failures
+
+
+----------------------------------------
+FILE: FEED_DISCOVERY_README.md
+----------------------------------------
+# Feed Discovery System
+
+Automated system to discover and recommend new RSS feeds based on your interests using AI scoring.
+
+## How It Works
+
+1. **Fetches** curated OPML files from high-quality sources (AI/ML, tech, climate, etc.)
+2. **Filters** out feeds you already have 
+3. **Samples** recent articles from candidate feeds
+4. **Scores** feeds using your existing Claude API interests profile
+5. **Recommends** feeds above threshold (default: 60+ score)
+6. **Caches** results for a month to minimize API costs
+
+## Quick Start
+
+### Manual Discovery
+```bash
+# Run discovery (requires ANTHROPIC_API_KEY)
+export ANTHROPIC_API_KEY='your-key-here'
+python feed_discovery.py
+
+# Review recommendations
+cat feed_discovery_report.json | jq '.summary.top_recommendations'
+
+# Add feeds interactively 
+python integrate_discoveries.py
+
+# Or auto-add high-scoring feeds
+python integrate_discoveries.py --auto-add-threshold 75
+```
+
+### Automated Weekly Discovery
+
+The system runs automatically every Sunday via GitHub Actions and creates a PR with results.
+
+1. Enable the workflow in `.github/workflows/discover-feeds.yml`
+2. Ensure `ANTHROPIC_API_KEY` secret is set in repo
+3. Review weekly PRs with discovery reports
+4. Manually integrate promising feeds using the integration script
+
+## Discovery Sources
+
+Current curated OPML sources:
+- **AI/ML**: ~250 feeds from awesome_ML_AI_RSS_feed
+- **Tech & Startups**: ~500 feeds covering startups, science, tech
+- **RSS Renaissance**: Additional AI-focused feeds
+- **Plenary**: General recommended feeds + international news
+
+## Output Files
+
+- `feed_discovery_report.json` - Full recommendations with scores
+- `discovery_cache.json` - Cache to avoid re-scoring feeds
+- GitHub Actions artifact with both files
+
+## Report Structure
+
+```json
+{
+  "total_candidates_evaluated": 150,
+  "recommended_feeds": 12,
+  "min_score_threshold": 60,
+  "categories": {
+    "ai_ml": {
+      "count": 5,
+      "feeds": [{
+        "title": "MIT AI Lab",
+        "url": "https://example.com/feed.xml",
+        "average_score": 78.5,
+        "sample_articles": 3,
+        "reason": "Strong alignment with your interests"
+      }]
+    }
+  },
+  "summary": {
+    "top_recommendations": [...] // Top 10 feeds
+  }
+}
+```
+
+## Integration Options
+
+### Interactive Mode (Default)
+```bash
+python integrate_discoveries.py
+```
+- Shows each recommended feed
+- Lets you decide y/n for each
+- Adds selections to OPML under "Discovered Feeds"
+
+### Auto-Add Mode  
+```bash
+python integrate_discoveries.py --auto-add-threshold 80
+```
+- Automatically adds feeds scoring 80+
+- Good for high-confidence discoveries
+- Still creates separate category for review
+
+### Dry Run
+```bash
+python integrate_discoveries.py --dry-run
+```
+- Shows what would be added without changes
+- Good for reviewing before committing
+
+## Customization
+
+### Add More Discovery Sources
+Edit `DISCOVERY_SOURCES` in `feed_discovery.py`:
+
+```python
+DISCOVERY_SOURCES.append({
+    'name': 'Climate Tech Feeds',
+    'url': 'https://example.com/climate-feeds.opml',
+    'category': 'climate'
+})
+```
+
+### Adjust Scoring Threshold
+```python
+MIN_FEED_SCORE = 70  # Raise for higher quality filter
+```
+
+### Change Sampling
+```python
+MAX_ARTICLES_PER_FEED = 5  # Sample more articles per feed
+```
+
+## Caching
+
+- Feeds are re-evaluated monthly (configurable)
+- Cache stored in `discovery_cache.json`
+- Delete cache file to force fresh evaluation of all feeds
+- Cache includes scores, article counts, and error states
+- Monthly caching dramatically reduces API costs
+
+## Troubleshooting
+
+### No recommendations found
+- Check if threshold is too high (try lowering `MIN_FEED_SCORE`)
+- Verify OPML sources are accessible
+- Check for existing feeds already in your OPML
+
+### API errors
+- Verify `ANTHROPIC_API_KEY` is set correctly
+- Check Claude API usage/rate limits
+- Large batches might need rate limiting
+
+### OPML parsing errors
+- Some sources may have malformed OPML
+- Check `discovery_cache.json` for specific errors
+- Script continues with other sources if one fails
+
+## Cost Estimation
+
+**Per discovery run:**
+- ~100-200 candidate feeds
+- ~3 articles per feed = 300-600 articles to score  
+- ~30-60 Claude API calls (10 articles per call)
+- **Cost: ~$0.10-0.20 per discovery run**
+
+**Weekly automation: ~$0.50/month**
+
+Much cheaper than your main curation since it's only sampling articles, and monthly caching means most weeks hit the cache instead of re-scoring.
+
+
+----------------------------------------
+FILE: IMAGE_SCRAPING_SUMMARY.md
+----------------------------------------
+# Image Scraping Enhancement - Summary
+
+## What Was Added
+
+**Configuration Variables:**
+```python
+ENABLE_IMAGE_SCRAPING = True        # Toggle feature on/off
+MIN_SCORE_FOR_SCRAPING = 60         # Only high-scoring articles
+MAX_SCRAPE_REQUESTS = 20            # Rate limiting
+```
+
+**Article Class Enhancements:**
+- `needs_image_scraping` flag (True if no RSS image found)
+- Enhanced `_extract_image()` with BeautifulSoup and tracking pixel filters
+- New `_scrape_article_image()` method for Open Graph/Twitter Card images
+- New `_is_tiny_image()` method to filter tracking pixels
+
+**New Pipeline Function:**
+- `enhance_missing_images()` - scrapes images for top-scoring articles missing them
+
+**Enhanced Statistics:**
+- Image coverage percentage in final output
+- Progress indicators during image scraping
+
+## Expected Results
+
+**Image Coverage Improvement:**
+- Before: ~30% of articles have images (from RSS feeds)
+- After: ~70% of articles have images (RSS + scraped)
+- Only 10-20 additional HTTP requests per run (high-scoring articles only)
+
+**Performance Impact:**
+- Minimal - only articles scoring 60+ get enhanced
+- 5-second timeout per request to avoid hanging
+- Fails silently if scraping fails
+
+## Installation
+
+1. Download the enhanced file: `super_rss_curator_json_with_image_scraping.py`
+2. Replace your existing `super_rss_curator_json.py`
+3. Test: `python3 super_rss_curator_json.py`
+
+## Configuration
+
+To disable image scraping:
+```python
+ENABLE_IMAGE_SCRAPING = False
+```
+
+To be more selective (only articles scoring 80+):
+```python
+MIN_SCORE_FOR_SCRAPING = 80
+```
+
+To reduce HTTP requests:
+```python
+MAX_SCRAPE_REQUESTS = 10
+```
+
+## What Images Are Scraped
+
+**Priority order:**
+1. Open Graph images (`<meta property="og:image">`)
+2. Twitter Card images (`<meta name="twitter:image">`)
+
+**Filtered out:**
+- Tracking pixels (1x1, pixel, analytics, etc.)
+- Tiny images likely to be ads/trackers
+- Any images from doubleclick, facebook tracking, etc.
+
+The enhancement is conservative - it only scrapes when likely to find good images and fails gracefully when it can't.
+
+
+----------------------------------------
+FILE: PROJECT_SUMMARY.md
+----------------------------------------
+# Super RSS Feed Curator - Project Summary
+
+## What You've Got
+
+A complete, production-ready RSS aggregation system that:
+
+✅ **Consolidates** 58 feeds into one curated stream  
+✅ **Filters** sports, Fox News, advice columns automatically  
+✅ **Deduplicates** using URL + fuzzy title matching  
+✅ **Scores** with Claude API (0-100) based on your interests  
+✅ **Diversifies** with per-source limits (max 5 articles/source)  
+✅ **Outputs** top 250 articles daily  
+✅ **Runs** automatically via GitHub Actions  
+✅ **Hosts** on GitHub Pages (free)
+
+## File Structure
+
+```
+super-rss-feed/
+├── super_rss_curator.py      # Main Python script
+├── requirements.txt           # Dependencies
+├── feeds.opml                 # Your 58 consolidated feeds
+├── test_setup.py             # Setup verification script
+├── index.html                # Landing page
+├── README.md                 # Full documentation
+├── QUICKSTART.md             # 5-minute setup guide
+├── .gitignore                # Git ignore rules
+└── .github/
+    └── workflows/
+        └── generate-feed.yml  # Daily automation
+```
+
+## How It Works
+
+### Phase 1: Fetch
+- Reads `feeds.opml` (58 unique feeds)
+- Fetches articles from last 48 hours
+- Parses ~1000-2000 raw articles
+
+### Phase 2: Filter
+Removes:
+- Fox News (any source with "fox" or "foxnews")
+- Sports (NFL, NBA, MLB, NHL, playoff, etc.)
+- Advice columns (Dear Abby, Ask Amy, etc.)
+
+### Phase 3: Deduplicate
+- Exact match: URL hashing
+- Fuzzy match: 85% title similarity threshold
+- Typically removes 20-30% duplicates
+
+### Phase 4: Score with Claude
+Batches of 10 articles sent to Claude API:
+```
+Your interests:
+- AI/ML infrastructure and telemetry
+- Systems thinking and complex systems
+- Climate tech and sustainability
+- Homelab/self-hosting technology
+- Meshtastic and mesh networking
+- 3D printing (Bambu Lab)
+- Sci-fi worldbuilding
+- Canadian content and local news
+```
+
+Returns score 0-100 for each article.
+
+### Phase 5: Quality Filter
+- Drops articles < 30 score (configurable)
+- Typically keeps 60-70% of scored articles
+
+### Phase 6: Diversity
+- Limits to max 5 articles per source
+- Prevents Aeon/NYT overload
+- Maintains balanced mix
+
+### Phase 7: Output
+- Top 250 articles by score
+- Generated as RSS 2.0 XML
+- Includes source + score in description
+- Hosted on GitHub Pages
+
+## Cost Estimate
+
+**Claude API usage:**
+- ~1500 articles/day fetched
+- After dedup: ~1000 articles
+- Batches of 10 = 100 API calls
+- Each call: ~100 input + 20 output tokens
+- Total: ~12,000 tokens/day
+
+**Pricing:**
+- Sonnet 4: $3/MTok input, $15/MTok output
+- Daily: ~$0.04 input + $0.03 output = **$0.07/day**
+- Monthly: **~$2.10/month**
+
+**GitHub:**
+- Actions: Free (2000 min/month limit)
+- Pages: Free
+- Storage: Free
+
+**Total: ~$2/month**
+
+## Configuration Options
+
+### Tuning Parameters
+
+```python
+# Output size
+MAX_ARTICLES_OUTPUT = 250
+
+# Source diversity
+MAX_PER_SOURCE = 5
+
+# Time window
+LOOKBACK_HOURS = 48
+
+# Quality threshold
+MIN_CLAUDE_SCORE = 30
+```
+
+### Source-Specific Limits
+
+To give some sources more/less weight:
+
+```python
+# In apply_diversity_limits(), add:
+source_limits = {
+    'MIT Technology Review': 10,
+    'Aeon Essays': 3,
+    'Williams Lake Tribune': 8,
+    # default: 5
+}
+```
+
+### Category Filtering
+
+Want to emphasize certain topics?
+
+```python
+# Add category boost in scoring prompt:
+interests = """
+PRIORITY (2x weight):
+- AI/ML infrastructure
+
+NORMAL:
+- Climate tech
+- Sci-fi
+
+LOW PRIORITY (0.5x weight):
+- General news
+"""
+```
+
+## Maintenance
+
+**Weekly:**
+- Check feed output quality
+- Review low-scoring articles (are they actually bad?)
+- Adjust MIN_CLAUDE_SCORE if needed
+
+**Monthly:**
+- Review Claude API costs
+- Check for dead feeds (update feeds.opml)
+- Scan for new blocked keywords
+
+**Quarterly:**
+- Update interests in scoring prompt
+- Review source diversity distribution
+- Consider adding new feeds
+
+## Next Steps
+
+**After Setup:**
+
+1. **Week 1:** Monitor daily - tune MIN_CLAUDE_SCORE
+2. **Week 2:** Adjust MAX_PER_SOURCE for dominant sources
+3. **Week 3:** Add any missed filter keywords
+4. **Week 4:** Locked in - run on autopilot
+
+**Optional Enhancements:**
+
+- Add category tags to articles
+- Build web UI to browse scored articles
+- Add "thumbs up/down" feedback loop
+- Email digest of top 10 articles
+- Slack/Discord notifications for high-scoring articles
+
+## Support
+
+**Issues?**
+1. Check Actions tab for error logs
+2. Run `python test_setup.py` locally
+3. Verify API key in Secrets
+4. Check console.anthropic.com for API issues
+
+**Want to tweak?**
+- All code is commented
+- README has full customization guide
+- Parameters are at top of script
+
+That's it! You now have an AI-powered RSS curator running automatically. 🎉
+
+
+----------------------------------------
+FILE: QUICKSTART.md
+----------------------------------------
+# Quick Start Guide
+
+## 5-Minute Setup
+
+### 1. Create GitHub Repository
+
+```bash
+# Create new repo on GitHub called "super-rss-feed"
+# Then clone and add files:
+git clone https://github.com/YOUR-USERNAME/super-rss-feed.git
+cd super-rss-feed
+
+# Copy all files from this package into the repo
+```
+
+### 2. Install Dependencies (Local Testing)
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Test Locally
+
+```bash
+# Set your API key
+export ANTHROPIC_API_KEY='sk-ant-...'
+
+# Run the curator
+python super_rss_curator.py feeds.opml
+
+# Check output
+cat super-feed.xml
+```
+
+### 4. Push to GitHub
+
+```bash
+git add .
+git commit -m "Initial setup"
+git push origin main
+```
+
+### 5. Configure GitHub
+
+**Add API Key:**
+1. Go to repo Settings → Secrets and variables → Actions
+2. New repository secret
+3. Name: `ANTHROPIC_API_KEY`
+4. Value: Your Claude API key
+
+**Enable GitHub Pages:**
+1. Settings → Pages
+2. Source: Deploy from a branch
+3. Branch: `gh-pages` / `/ (root)`
+4. Save
+
+### 6. Run First Build
+
+1. Go to Actions tab
+2. Click "Generate Super RSS Feed"
+3. Click "Run workflow" → "Run workflow"
+4. Wait ~2-5 minutes
+
+### 7. Subscribe to Your Feed
+
+Your feed URL will be:
+```
+https://YOUR-USERNAME.github.io/super-rss-feed/super-feed.xml
+```
+
+Add this to Inoreader, Feedly, or your RSS reader.
+
+## Customization
+
+### Adjust Filter Keywords
+
+Edit `super_rss_curator.py`:
+
+```python
+BLOCKED_KEYWORDS = [
+    # Add your keywords here
+    "celebrity", "kardashian", "recipe",
+]
+```
+
+### Change Source Limits
+
+```python
+MAX_PER_SOURCE = 3  # Reduce if feeds too dominant
+```
+
+### Tune Scoring Threshold
+
+```python
+MIN_CLAUDE_SCORE = 40  # Raise for stricter filtering
+```
+
+### Update Your Interests
+
+Find the `interests` string in `score_articles_with_claude()` and customize.
+
+## Troubleshooting
+
+**No articles in feed?**
+- Check MIN_CLAUDE_SCORE isn't too high (try 20)
+- Verify LOOKBACK_HOURS is reasonable (48+)
+- Check Action logs for errors
+
+**Too expensive?**
+- Reduce LOOKBACK_HOURS to 24
+- Increase MIN_CLAUDE_SCORE to 50
+- Reduce number of feeds in OPML
+
+**Action fails?**
+- Verify ANTHROPIC_API_KEY is set correctly
+- Check API usage limits at console.anthropic.com
+- Review Actions logs for specific errors
+
+## Daily Workflow
+
+Once set up:
+1. Feed automatically updates daily at 6 AM Pacific
+2. Subscribe in your RSS reader
+3. Adjust filters/scores as needed
+4. Feed stays fresh automatically
+
+That's it! 🎉
+
+
+----------------------------------------
+FILE: README.md
+----------------------------------------
+# Super RSS Feed Curator
+
+AI-powered RSS aggregator that consolidates 50+ feeds into one curated feed using Claude API.
+
+## Features
+
+- **Aggregates** all your OPML feeds into one unified feed
+- **Deduplicates** using URL + fuzzy title matching
+- **Filters** sports, Fox News, advice columns
+- **Scores** articles with Claude API based on your interests
+- **Diversifies** output with per-source limits
+- **Outputs** top 250 articles daily
+
+## Setup
+
+### 1. Fork this repository
+
+Click "Fork" on GitHub to create your own copy.
+
+### 2. Add your OPML file
+
+Replace `feeds.opml` with your RSS feed list:
+
+```bash
+# Either use the enhanced categorized version or your Feedly export
+cp enhanced_feed_list_categorized.opml feeds.opml
+# OR
+cp feedly-*.opml feeds.opml
+```
+
+### 3. Set up API key
+
+1. Go to your repository Settings → Secrets and variables → Actions
+2. Click "New repository secret"
+3. Name: `ANTHROPIC_API_KEY`
+4. Value: Your Claude API key from https://console.anthropic.com
+
+### 4. Enable GitHub Pages
+
+1. Go to Settings → Pages
+2. Source: Deploy from a branch
+3. Branch: `gh-pages` / `/ (root)`
+4. Save
+
+### 5. Run the workflow
+
+1. Go to Actions tab
+2. Click "Generate Super RSS Feed"
+3. Click "Run workflow"
+
+Your feed will be available at:
+```
+https://YOUR-USERNAME.github.io/super-rss-feed/super-feed.xml
+```
+
+## Configuration
+
+Edit `super_rss_curator.py` to customize:
+
+```python
+MAX_ARTICLES_OUTPUT = 250      # Number of articles in output
+MAX_PER_SOURCE = 5             # Max articles per source
+LOOKBACK_HOURS = 48            # How far back to fetch
+MIN_CLAUDE_SCORE = 30          # Minimum relevance score
+
+# Add/remove blocked sources
+BLOCKED_SOURCES = ["fox news", "foxnews"]
+
+# Add/remove blocked keywords
+BLOCKED_KEYWORDS = [
+    "nfl", "nba", "mlb", "nhl",
+    "dear abby", "ask amy"
+]
+```
+
+## Local Testing
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Set API key
+export ANTHROPIC_API_KEY='your-key-here'
+
+# Run
+python super_rss_curator.py feeds.opml
+
+# Check output
+open super-feed.xml
+```
+
+## How It Works
+
+1. **Fetch**: Pulls articles from all OPML feeds (last 48 hours)
+2. **Filter**: Removes sports, Fox News, advice columns
+3. **Dedupe**: Eliminates duplicates by URL and fuzzy title matching
+4. **Score**: Claude API rates each article 0-100 based on your interests
+5. **Diversify**: Limits articles per source (default: 5 max)
+6. **Output**: Top 250 articles sorted by relevance score
+
+## Customizing Interests
+
+Edit the `interests` string in `score_articles_with_claude()`:
+
+```python
+interests = """
+- AI/ML infrastructure and telemetry
+- Systems thinking and complex systems
+- Climate tech and sustainability
+- Your interests here...
+"""
+```
+
+## Troubleshooting
+
+**Feed not updating?**
+- Check Actions tab for errors
+- Verify `ANTHROPIC_API_KEY` secret is set
+- Ensure GitHub Pages is enabled on `gh-pages` branch
+
+**Too many/few articles?**
+- Adjust `MAX_ARTICLES_OUTPUT`
+- Change `MIN_CLAUDE_SCORE` threshold
+- Modify `MAX_PER_SOURCE` limits
+
+**Claude API costs?**
+- ~0.5-2 cents per run with 250 articles
+- ~$0.30-0.60/month for daily runs
+- Monitor usage at https://console.anthropic.com
+
+## License
+
+MIT
+
+
+----------------------------------------
+FILE: UPDATE_SUMMARY.md
+----------------------------------------
+# Super RSS Feed - Complete Update Package
+## Based on Google News Takeout Analysis (4,045 articles analyzed)
+
+---
+
+## 📊 What Changed
+
+### Analysis Results
+- **Analyzed period**: Aug 2024 - Jan 2026
+- **Total articles clicked**: 4,045
+- **Top insight**: You click 10.8% smart home vs 0.3% Meshtastic content
+- **Missing sources**: 15 of your top 20 clicked sites weren't in feeds.opml
+
+### Three Major Updates
+
+#### 1. **feeds.opml**: +26 New Sources
+- **20 high-value feeds** you actually click frequently
+- **6 Google News discovery feeds** for topic-specific aggregation
+- Organized by category for easy management
+
+#### 2. **Claude Scoring Interests**: Refined & Restructured
+- **Merged** "Meshtastic" (0.3% clicks) → "Smart Home" (10.8% clicks)
+- **Restructured** as PRIMARY/SECONDARY/LOW priority
+- **Added** specific keywords matching your actual clicks
+
+#### 3. **Cache Expiry**: Fixed Inefficiency
+- **Before**: 6h expiry → 43% unnecessary re-scoring
+- **After**: 48h expiry → 90%+ cache hit rate
+- **Savings**: ~65% reduction in API calls (~$1.36/month saved)
+
+---
+
+## 📥 Files Included
+
+All files are in `/tmp/`:
+
+1. `feeds_updated.opml` - Complete updated OPML (86 total feeds)
+2. `updated_interests.py` - New Claude interests for reference
+3. `auto_patch.sh` - Automated script to patch Python code
+4. `apply_updates.sh` - Interactive guide through all updates
+5. `rss_feeds_to_find.txt` - Reference list of sources added
+
+---
+
+## 🚀 Quick Start (Recommended)
+
+### Option A: Automatic (fastest)
+```bash
+# 1. Update OPML
+cd ~/super-rss-feed
+cp /tmp/feeds_updated.opml ~/super-rss-feed/feeds.opml
+
+# 2. Patch Python code automatically
+bash /tmp/auto_patch.sh
+
+# 3. Test locally
+source ~/.local/share/virtualenvs/super-rss-feed-*/bin/activate
+python super_rss_curator_json.py feeds.opml
+
+# 4. Review output, then commit
+git add feeds.opml super_rss_curator_json.py
+git commit -m "Major update: +26 feeds, refined interests, fixed cache"
+git push
+```
+
+### Option B: Interactive (more control)
+```bash
+bash /tmp/apply_updates.sh
+# Follow the prompts - it will guide you through each change
+```
+
+---
+
+## 📝 Manual Update Instructions
+
+If you prefer to understand each change:
+
+### Update 1: feeds.opml
+
+**Action**: Replace your current feeds.opml
+```bash
+cd ~/super-rss-feed
+cp feeds.opml feeds.opml.backup  # Safety first
+cp /tmp/feeds_updated.opml feeds.opml
+```
+
+**What's new**:
+- Tom's Guide (173 clicks) - https://www.tomsguide.com/feeds/all
+- CTV News (165 clicks) - https://www.ctvnews.ca/rss/...
+- XDA Developers (110 clicks) - https://www.xda-developers.com/feed/
+- The Verge (89 clicks) - https://www.theverge.com/rss/index.xml
+- [+16 more high-value sources]
+- [+6 Google News discovery feeds]
+
+### Update 2: Claude Scoring Interests
+
+**File**: `super_rss_curator_json.py`
+**Location**: Around line 454
+
+**Find this**:
+```python
+interests = """
+- AI/ML infrastructure and telemetry
+- Systems thinking and complex systems
+- Climate tech and sustainability
+- Homelab/self-hosting technology
+- Meshtastic and mesh networking
+- 3D printing (Bambu Lab)
+- Sci-fi worldbuilding
+- Deep technical content over news
+- Canadian content and local news (Williams Lake, Quesnel)
+"""
+```
+
+**Replace with**:
+```python
+interests = """
+PRIMARY INTERESTS (score 70-100):
+- AI/ML infrastructure, platform engineering, and telemetry: MLOps, observability, production AI systems, data pipelines, AI platforms
+- Smart home, home automation, and home networking: HomeKit, HomeBridge, Philips Hue, IKEA smart home, home automation systems, mesh networking (Meshtastic, LoRa), self-hosted services, privacy-focused home tech
+- Climate tech and clean energy: Solar, batteries, EVs, carbon capture, renewable energy technologies, sustainable materials
+- 3D printing: Bambu Lab, PLA materials, printer mechanics, slicing software, additive manufacturing
+- Canadian content and BC Interior local news: Williams Lake, Quesnel, Cariboo, Kamloops, BC regional news
+
+SECONDARY INTERESTS (score 40-69):
+- Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies
+- Deep technical how-tos and tutorials: Hands-on guides, configuration walkthroughs, technical troubleshooting
+- Sci-fi worldbuilding: Hard science fiction, speculative fiction, magic systems, narrative construction
+- Scientific research and discoveries: Breakthrough studies, academic papers, novel findings
+
+LOW PRIORITY (score 10-39):
+- General tech news and product announcements
+- Surface-level reviews without technical depth
+- Entertainment and lifestyle content
+"""
+```
+
+**Why**: Your actual clicks show 10.8% smart home vs 0.3% Meshtastic. This merges them and adds specific keywords Claude can match.
+
+### Update 3: Cache Expiry Fix
+
+**File**: `super_rss_curator_json.py`
+
+**Change 1** (around line 35):
+```python
+# Before:
+CACHE_EXPIRY_HOURS = 6
+
+# After:
+CACHE_EXPIRY_HOURS = 48
+```
+
+**Change 2** (around line 168 in `save_scored_cache()` function):
+```python
+# Before:
+cutoff_time = datetime.now(timezone.utc) - timedelta(hours=12)
+
+# After:
+cutoff_time = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+```
+
+**Why**: Your workflows run 3x daily (8h apart), but cache expires at 6h. This wastes API calls re-scoring the same articles. Matching to LOOKBACK_HOURS (48h) means articles are only scored once while they're still being fetched.
+
+---
+
+## ✅ Testing Checklist
+
+After applying updates:
+
+```bash
+cd ~/super-rss-feed
+source ~/.local/share/virtualenvs/super-rss-feed-*/bin/activate
+python super_rss_curator_json.py feeds.opml
+```
+
+**Look for**:
+- ✓ New sources appearing (Tom's Guide, The Verge, CTV, etc.)
+- ✓ Cache hit rate 80-90% (up from ~57%)
+- ✓ Smart home articles scoring higher (70-100 range)
+- ✓ No errors during execution
+
+**Sample good output**:
+```
+📚 Found 86 feeds in OPML
+📥 Fetching articles...
+  ✓ Tom's Guide: 12 articles
+  ✓ The Verge: 8 articles
+  ✓ CTV News: 15 articles
+  ...
+📖 Loaded 525 articles from scoring cache
+💡 Cache: 500 hits, 35 new articles to score  ← Good! 93% hit rate
+🤖 Scoring 35 new articles...
+```
+
+---
+
+## 📈 Expected Impact
+
+### Immediate
+- **More relevant articles**: Sources you actually read now in the feed
+- **Better scoring**: Smart home content gets proper priority
+- **Lower costs**: ~65% fewer redundant API calls
+
+### Monthly Costs
+- **Before**: ~$2.10/month (with 57% cache hit rate)
+- **After**: ~$0.74/month (with 90%+ cache hit rate)
+- **Savings**: ~$1.36/month (~65% reduction)
+
+### Feed Quality
+- **Smart home coverage**: Will improve significantly
+- **BC local news**: Better coverage (Kamloops, Kelowna sources added)
+- **Google News discovery**: Fills gaps in niche topics
+
+---
+
+## 🔍 Monitoring
+
+After first automated run (check GitHub Actions):
+
+1. **Cache performance**:
+   ```bash
+   grep "Cache:" ~/super-rss-feed/*.log
+   # Should show 80-90% hit rate
+   ```
+
+2. **New sources appearing**:
+   ```bash
+   grep -E "(Tom's Guide|The Verge|CTV News)" scored_articles_cache.json | wc -l
+   # Should be > 0
+   ```
+
+3. **Smart home scoring**:
+   ```bash
+   # Check that smart home articles are scoring 70+
+   grep -i "homekit\|hue\|smart home" scored_articles_cache.json | head -5
+   ```
+
+---
+
+## 🆘 Troubleshooting
+
+### "Some feeds returning 0 articles"
+Some new feeds may be slow to index. Give them 24-48h, or check if the RSS URL is correct.
+
+### "Cache hit rate still low"
+Make sure BOTH cache changes were applied:
+```bash
+grep "CACHE_EXPIRY_HOURS" super_rss_curator_json.py
+grep "LOOKBACK_HOURS" super_rss_curator_json.py
+```
+
+### "Metafilter still appearing"
+Check what the actual source name is:
+```bash
+grep -i metafilter scored_articles_cache.json | head -3
+```
+Then add that exact name to BLOCKED_SOURCES.
+
+### "Want to revert everything"
+```bash
+cd ~/super-rss-feed
+cp feeds.opml.backup feeds.opml
+cp super_rss_curator_json.py.pre-update super_rss_curator_json.py
+git checkout .  # Reverts all uncommitted changes
+```
+
+---
+
+## 📚 Reference: All New Feeds
+
+### High-Value Direct Sources (20)
+1. Tom's Guide - Tech/smart home reviews
+2. CTV News - Canadian national news
+3. XDA Developers - Android deep-dives
+4. The Verge - Tech news
+5. Global News - Canadian news
+6. ZDNet - Enterprise tech
+7. ScienceAlert - Science news
+8. InsideEVs - EV news
+9. New Atlas - Emerging tech
+10. How-To Geek - Tech tutorials
+11. MacRumors - Apple news
+12. TechRadar - Tech reviews
+13. Castanet - Kelowna/Okanagan local
+14. CFJC Today - Kamloops local
+15. The Tyee - BC independent news
+16. CleanTechnica - Clean tech/EVs
+17. Android Authority - Android news
+18. Android Police - Android news
+19. Neowin - Tech news
+20. All3DP - 3D printing
+
+### Google News Discovery Feeds (6)
+1. Smart Home & Automation
+2. 3D Printing  
+3. AI/ML Infrastructure
+4. Clean Energy & EVs
+5. Mesh Networking & LoRa
+6. Williams Lake & BC Interior
+
+---
+
+## 🎯 Next Steps
+
+After this update settles (2-3 days):
+
+1. **Review feed quality** - Are you seeing better articles?
+2. **Check Inoreader** - Any sources overwhelming the feed?
+3. **Monitor costs** - Verify API usage dropped
+4. **Fine-tune** - Adjust MAX_PER_SOURCE if needed
+
+---
+
+## Questions?
+
+Check the analysis output:
+```bash
+cat /tmp/rss_feeds_to_find.txt  # List of sources added
+python3 /tmp/analyze_google_news.py  # Re-run analysis
+```
+
+Or review your Google News patterns:
+- 18.4% AI/ML (matches interests ✓)
+- 14.9% Climate (matches interests ✓)  
+- 10.8% Smart Home (NOW properly weighted ✓)
+- 6.9% 3D Printing (matches interests ✓)
+- 7.2% BC Local (expanded coverage ✓)
+
+
+----------------------------------------
+FILE: curated-feeds.opml
+----------------------------------------
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="1.0">
+  <head>
+    <title>Erich's Curated Feeds</title>
+    <dateCreated>Mon, 19 Jan 2026 23:48:13 GMT</dateCreated>
+  </head>
+  <body>
+    <outline type="rss" text="⭐ Best Of - Curated Feed" title="⭐ Best Of - Curated Feed" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-best-of.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="📍 Williams Lake Local" title="📍 Williams Lake Local" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-local.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="🤖 AI/ML &amp; Tech Infrastructure" title="🤖 AI/ML &amp; Tech Infrastructure" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-ai-tech.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="🌍 Climate &amp; Sustainability" title="🌍 Climate &amp; Sustainability" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-climate.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="🏠 Homelab &amp; Self-Hosting" title="🏠 Homelab &amp; Self-Hosting" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-homelab.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="📡 Mesh Networks &amp; Hardware" title="📡 Mesh Networks &amp; Hardware" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-mesh.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="🔬 Science &amp; Systems Thinking" title="🔬 Science &amp; Systems Thinking" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-science.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="📚 Sci-fi &amp; Worldbuilding" title="📚 Sci-fi &amp; Worldbuilding" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-scifi.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+    <outline type="rss" text="🌐 Canadian and Global News" title="🌐 Canadian and Global News" xmlUrl="https://zirnhelt.github.io/super-rss-feed/feed-news.json" htmlUrl="https://github.com/zirnhelt/super-rss-feed" />
+  </body>
+</opml>
+
+----------------------------------------
+FILE: feeds.opml
+----------------------------------------
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Erich's RSS Feeds - Updated from Google News Analysis</title>
+  </head>
+  <body>
+    <!-- Existing feeds -->
+    <outline type="rss" text="AP News" title="AP News" xmlUrl="https://apnews.com/rss" htmlUrl="https://apnews.com" />
+    <outline type="rss" text="Al Jazeera English" title="Al Jazeera English" xmlUrl="https://www.aljazeera.com/xml/rss/all.xml" htmlUrl="https://www.aljazeera.com" />
+    <outline type="rss" text="Ars Technica – Technology Lab" title="Ars Technica – Technology Lab" xmlUrl="https://feeds.arstechnica.com/arstechnica/technology-lab" htmlUrl="https://arstechnica.com" />
+    <outline type="rss" text="Boing Boing" title="Boing Boing" xmlUrl="https://boingboing.net/feed" htmlUrl="https://boingboing.net/" />
+    <outline type="rss" text="Business Insider" title="Business Insider" xmlUrl="http://feeds2.feedburner.com/businessinsider" htmlUrl="https://www.businessinsider.com" />
+    <outline type="rss" text="CNET" title="CNET" xmlUrl="https://www.cnet.com/rss/all/" htmlUrl="https://www.cnet.com" />
+    <outline type="rss" text="Engadget" title="Engadget" xmlUrl="http://www.engadget.com/rss.xml" htmlUrl="http://www.engadget.com" />
+    <outline type="rss" text="Gizmodo" title="Gizmodo" xmlUrl="http://gizmodo.com/vip.xml" htmlUrl="https://gizmodo.com/" />
+    <outline type="rss" text="Instructables Blog" title="Instructables Blog" xmlUrl="https://www.instructables.com/tag/instructables%20blog/rss.xml" />
+    <outline type="rss" text="Julia Evans' Blog" title="Julia Evans' Blog" xmlUrl="https://jvns.ca/atom.xml" htmlUrl="http://jvns.ca" />
+    <outline type="rss" text="Kottke.org" title="Kottke.org" xmlUrl="https://feeds.kottke.org/main" htmlUrl="https://kottke.org/" />
+    <outline type="rss" text="Lifehacker" title="Lifehacker" xmlUrl="http://lifehacker.com/vip.xml" htmlUrl="https://lifehacker.com/feed/rss" />
+    <outline type="rss" text="MIT Technology Review" title="MIT Technology Review" xmlUrl="https://www.technologyreview.com/feed/" htmlUrl="https://www.technologyreview.com" />
+    <outline type="rss" text="Mental Floss" title="Mental Floss" xmlUrl="http://www.mentalfloss.com/blogs/feed" htmlUrl="http://mentalfloss.com" />
+    <outline type="rss" text="NYT &gt; Business" title="NYT &gt; Business" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Business.xml" htmlUrl="https://www.nytimes.com/section/business" />
+    <outline type="rss" text="NYT &gt; Top Stories" title="NYT &gt; Top Stories" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml" htmlUrl="https://nytimes.com" />
+    <outline type="rss" text="Nautilus" title="Nautilus" xmlUrl="https://nautil.us/feed/" htmlUrl="https://nautil.us/" />
+    <outline type="rss" text="Noahpinion (Noah Smith)" title="Noahpinion (Noah Smith)" xmlUrl="https://noahpinion.substack.com/feed" htmlUrl="https://www.noahpinion.blog" />
+    <outline type="rss" text="Open Culture" title="Open Culture" xmlUrl="https://www.openculture.com/feed" htmlUrl="https://www.openculture.com/" />
+    <outline type="rss" text="Quartz" title="Quartz" xmlUrl="http://qz.com/feed" htmlUrl="https://qz.com" />
+    <outline type="rss" text="Reuters Top News" title="Reuters Top News" xmlUrl="http://feeds.reuters.com/reuters/topNews" htmlUrl="https://www.reuters.com" />
+    <outline type="rss" text="Science-Based Medicine" title="Science-Based Medicine" xmlUrl="http://www.sciencebasedmedicine.org/?feed=rss2" htmlUrl="https://sciencebasedmedicine.org" />
+    <outline type="rss" text="Scientific American" title="Scientific American" xmlUrl="https://www.scientificamerican.com/feed/" htmlUrl="https://www.scientificamerican.com" />
+    <outline type="rss" text="Stratechery by Ben Thompson" title="Stratechery by Ben Thompson" xmlUrl="https://stratechery.com/feed/" htmlUrl="https://stratechery.com" />
+    <outline type="rss" text="Techdirt" title="Techdirt" xmlUrl="http://www.techdirt.com/techdirt_rss.xml" htmlUrl="https://www.techdirt.com" />
+    <outline type="rss" text="The Atlantic – Culture" title="The Atlantic – Culture" xmlUrl="https://www.theatlantic.com/feed/channel/culture/" htmlUrl="https://www.theatlantic.com/culture/" />
+    <outline type="rss" text="The Guardian – Global Development" title="The Guardian – Global Development" xmlUrl="https://www.theguardian.com/global-development/rss" htmlUrl="https://www.theguardian.com/global-development" />
+    <outline type="rss" text="The Marginalian (Maria Popova)" title="The Marginalian (Maria Popova)" xmlUrl="https://www.themarginalian.org/feed/" htmlUrl="https://www.themarginalian.org" />
+    <outline type="rss" text="WIRED" title="WIRED" xmlUrl="https://www.wired.com/feed/rss" htmlUrl="https://www.wired.com" />
+    <outline type="rss" text="Williams Lake Tribune" title="Williams Lake Tribune" xmlUrl="https://zirnhelt.github.io/wlt-rss-feed/wlt_news.xml" htmlUrl="https://wltribune.com" />
+    
+    <!-- NEW: High-value sources from Google News analysis -->
+    <outline text="🆕 From Google News Analysis (173+ clicks each)" title="🆕 From Google News Analysis">
+      <outline type="rss" text="Tom's Guide" title="Tom's Guide" 
+               xmlUrl="https://www.tomsguide.com/feeds/all" 
+               htmlUrl="https://www.tomsguide.com" />
+      <outline type="rss" text="CTV News" title="CTV News" 
+               xmlUrl="https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009" 
+               htmlUrl="https://www.ctvnews.ca" />
+      <outline type="rss" text="XDA Developers" title="XDA Developers" 
+               xmlUrl="https://www.xda-developers.com/feed/" 
+               htmlUrl="https://www.xda-developers.com" />
+      <outline type="rss" text="The Verge" title="The Verge" 
+               xmlUrl="https://www.theverge.com/rss/index.xml" 
+               htmlUrl="https://www.theverge.com" />
+      <outline type="rss" text="Global News" title="Global News" 
+               xmlUrl="https://globalnews.ca/feed/" 
+               htmlUrl="https://globalnews.ca" />
+      <outline type="rss" text="ZDNet" title="ZDNet" 
+               xmlUrl="https://www.zdnet.com/news/rss.xml" 
+               htmlUrl="https://www.zdnet.com" />
+      <outline type="rss" text="ScienceAlert" title="ScienceAlert" 
+               xmlUrl="https://www.sciencealert.com/feed" 
+               htmlUrl="https://www.sciencealert.com" />
+      <outline type="rss" text="InsideEVs" title="InsideEVs" 
+               xmlUrl="https://insideevs.com/feed/" 
+               htmlUrl="https://www.insideevs.com" />
+      <outline type="rss" text="New Atlas" title="New Atlas" 
+               xmlUrl="https://newatlas.com/index.rss" 
+               htmlUrl="https://newatlas.com" />
+      <outline type="rss" text="How-To Geek" title="How-To Geek" 
+               xmlUrl="https://www.howtogeek.com/feed/" 
+               htmlUrl="https://www.howtogeek.com" />
+      <outline type="rss" text="MacRumors" title="MacRumors" 
+               xmlUrl="https://www.macrumors.com/feed/" 
+               htmlUrl="https://www.macrumors.com" />
+      <outline type="rss" text="TechRadar" title="TechRadar" 
+               xmlUrl="https://www.techradar.com/rss" 
+               htmlUrl="https://www.techradar.com" />
+    </outline>
+    
+    <!-- NEW: BC Local News (high engagement) -->
+    <outline text="🏔️ BC Interior & Local News" title="🏔️ BC Interior & Local News">
+      <outline type="rss" text="Castanet Kelowna" title="Castanet Kelowna" 
+               xmlUrl="https://www.castanet.net/rss/news/" 
+               htmlUrl="https://www.castanet.net" />
+      <outline type="rss" text="CFJC Today Kamloops" title="CFJC Today Kamloops" 
+               xmlUrl="https://cfjctoday.com/feed/" 
+               htmlUrl="https://cfjctoday.com" />
+      <outline type="rss" text="The Tyee" title="The Tyee" 
+               xmlUrl="https://thetyee.ca/rss2.xml" 
+               htmlUrl="https://thetyee.ca" />
+    </outline>
+    
+    <!-- NEW: Clean Tech & EVs -->
+    <outline text="⚡ Clean Tech & EVs" title="⚡ Clean Tech & EVs">
+      <outline type="rss" text="CleanTechnica" title="CleanTechnica" 
+               xmlUrl="https://cleantechnica.com/feed/" 
+               htmlUrl="https://cleantechnica.com" />
+    </outline>
+    
+    <!-- NEW: Android & Mobile -->
+    <outline text="📱 Android & Mobile" title="📱 Android & Mobile">
+      <outline type="rss" text="Android Authority" title="Android Authority" 
+               xmlUrl="https://www.androidauthority.com/feed/" 
+               htmlUrl="https://www.androidauthority.com" />
+      <outline type="rss" text="Android Police" title="Android Police" 
+               xmlUrl="https://www.androidpolice.com/feed/" 
+               htmlUrl="https://www.androidpolice.com" />
+      <outline type="rss" text="Neowin" title="Neowin" 
+               xmlUrl="https://www.neowin.net/news/rss/" 
+               htmlUrl="https://www.neowin.net" />
+    </outline>
+    
+    <!-- NEW: 3D Printing -->
+    <outline text="🖨️ 3D Printing" title="🖨️ 3D Printing">
+      <outline type="rss" text="All3DP" title="All3DP" 
+               xmlUrl="https://all3dp.com/feed/" 
+               htmlUrl="https://all3dp.com" />
+    </outline>
+    
+    <!-- Existing categorized feeds -->
+    <outline text="Systems Thinking &amp; Science" title="Systems Thinking &amp; Science">
+      <outline type="rss" text="Quanta Magazine" title="Quanta Magazine" 
+               xmlUrl="https://api.quantamagazine.org/feed/" 
+               htmlUrl="https://www.quantamagazine.org" />
+      <outline type="rss" text="FlowingData" title="FlowingData" 
+               xmlUrl="https://flowingdata.com/feed/" 
+               htmlUrl="https://flowingdata.com" />
+      <outline type="rss" text="Our World in Data Blog" title="Our World in Data Blog" 
+               xmlUrl="https://ourworldindata.org/feed" 
+               htmlUrl="https://ourworldindata.org" />
+      <outline type="rss" text="FiveThirtyEight" title="FiveThirtyEight" 
+               xmlUrl="https://fivethirtyeight.com/feed/" 
+               htmlUrl="https://fivethirtyeight.com" />
+    </outline>
+    
+    <outline text="Canadian &amp; Indigenous News" title="Canadian &amp; Indigenous News">
+      <outline type="rss" text="The Breach" title="The Breach" 
+               xmlUrl="https://breachmedia.ca/feed/" 
+               htmlUrl="https://breachmedia.ca/" />
+      <outline type="rss" text="The Narwhal" title="The Narwhal" 
+               xmlUrl="https://thenarwhal.ca/feed/" 
+               htmlUrl="https://thenarwhal.ca" />
+      <outline type="rss" text="Yellowhead Institute" title="Yellowhead Institute" 
+               xmlUrl="https://yellowheadinstitute.org/feed/" 
+               htmlUrl="https://yellowheadinstitute.org/" />
+      <outline type="rss" text="The Maple" title="The Maple" 
+               xmlUrl="https://www.readthemaple.com/rss/" 
+               htmlUrl="https://www.readthemaple.com/" />
+      <outline type="rss" text="Ricochet" title="Ricochet" 
+               xmlUrl="https://ricochet.media/en/feed" 
+               htmlUrl="https://ricochet.media/en/feed" />
+      <outline type="rss" text="IndigiNews" title="IndigiNews" 
+               xmlUrl="https://indiginews.com/feed" 
+               htmlUrl="https://indiginews.com/" />
+    </outline>
+    
+    <outline text="Maker, DIY &amp; 3D Printing" title="Maker, DIY &amp; 3D Printing">
+      <outline type="rss" text="Hackaday" title="Hackaday" 
+               xmlUrl="https://hackaday.com/feed" 
+               htmlUrl="https://hackaday.com" />
+      <outline type="rss" text="Make: Magazine" title="Make: Magazine" 
+               xmlUrl="https://makezine.com/feed/" 
+               htmlUrl="https://makezine.com" />
+      <outline type="rss" text="Cool Tools" title="Cool Tools" 
+               xmlUrl="https://kk.org/cooltools/feed" 
+               htmlUrl="https://kk.org/cooltools" />
+      <outline type="rss" text="All About Bambu" title="All About Bambu" 
+               xmlUrl="https://www.allaboutbambu.com/feed/" 
+               htmlUrl="https://www.allaboutbambu.com" />
+    </outline>
+    
+    <outline text="Climate &amp; Sustainability" title="Climate &amp; Sustainability">
+      <outline type="rss" text="Yale Climate Connections" title="Yale Climate Connections" 
+               xmlUrl="https://yaleclimateconnections.org/feed/" 
+               htmlUrl="https://yaleclimateconnections.org" />
+      <outline type="rss" text="Treehugger" title="Treehugger" 
+               xmlUrl="https://www.treehugger.com/rss" 
+               htmlUrl="https://www.treehugger.com/feeds/latest/" />
+    </outline>
+    
+    <outline text="Tech, AI &amp; Policy" title="Tech, AI &amp; Policy">
+      <outline type="rss" text="Pluralistic: Daily links from Cory Doctorow" title="Pluralistic" 
+               xmlUrl="https://pluralistic.net/feed/" 
+               htmlUrl="https://pluralistic.net" />
+      <outline type="rss" text="TechCrunch" title="TechCrunch" 
+               xmlUrl="https://techcrunch.com/feed/" 
+               htmlUrl="https://techcrunch.com" />
+      <outline type="rss" text="Krebs on Security" title="Krebs on Security" 
+               xmlUrl="http://krebsonsecurity.com/feed/" 
+               htmlUrl="https://krebsonsecurity.com" />
+    </outline>
+    
+    <outline text="Long-form &amp; Culture" title="Long-form &amp; Culture">
+      <outline type="rss" text="Longreads" title="Longreads" 
+               xmlUrl="https://longreads.com/feed/" 
+               htmlUrl="https://longreads.com" />
+    </outline>
+
+    <!-- NEW: Google News Discovery Feeds (targeted by your actual interests) -->
+    <outline text="🔍 Google News Discovery Feeds" title="🔍 Google News Discovery Feeds">
+      <outline type="rss" text="GN: Smart Home & Automation" title="GN: Smart Home & Automation" 
+               xmlUrl="https://news.google.com/rss/search?q=smart+home+OR+homekit+OR+home+automation+OR+philips+hue+OR+homebridge&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" 
+               htmlUrl="https://news.google.com" />
+      <outline type="rss" text="GN: 3D Printing" title="GN: 3D Printing" 
+               xmlUrl="https://news.google.com/rss/search?q=3D+printing+OR+Bambu+Lab+OR+additive+manufacturing&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" 
+               htmlUrl="https://news.google.com" />
+      <outline type="rss" text="GN: AI/ML Infrastructure" title="GN: AI/ML Infrastructure" 
+               xmlUrl="https://news.google.com/rss/search?q=AI+infrastructure+OR+MLOps+OR+observability+OR+telemetry&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" 
+               htmlUrl="https://news.google.com" />
+      <outline type="rss" text="GN: Clean Energy & EVs" title="GN: Clean Energy & EVs" 
+               xmlUrl="https://news.google.com/rss/search?q=clean+energy+OR+electric+vehicle+OR+battery+technology+OR+solar&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" 
+               htmlUrl="https://news.google.com" />
+      <outline type="rss" text="GN: Mesh Networking & LoRa" title="GN: Mesh Networking & LoRa" 
+               xmlUrl="https://news.google.com/rss/search?q=meshtastic+OR+mesh+networking+OR+LoRa+OR+decentralized+communication&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" 
+               htmlUrl="https://news.google.com" />
+      <outline type="rss" text="GN: Williams Lake & BC Interior" title="GN: Williams Lake & BC Interior" 
+               xmlUrl="https://news.google.com/rss/search?q=Williams+Lake+OR+Cariboo+OR+Quesnel+OR+BC+interior&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" 
+               htmlUrl="https://news.google.com" />
+    </outline>
+
+</body>
+</opml>
+
+
+========================================
+CACHE FILES (Stats Only)
+========================================
+
+discovery_cache.json:
+-rw-rw-r-- 1 zirnhelt zirnhelt 26K Jan 21 19:08 discovery_cache.json
+  Line count: 835
+
+scored_articles_cache.json:
+-rw-rw-r-- 1 zirnhelt zirnhelt 58K Jan 24 08:46 scored_articles_cache.json
+  Line count: 1976
+
+wlt_cache.json:
+-rw-rw-r-- 1 zirnhelt zirnhelt 7.3K Jan 24 08:46 wlt_cache.json
+  Line count: 66
