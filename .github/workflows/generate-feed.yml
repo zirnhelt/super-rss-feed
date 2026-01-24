@@ -2,8 +2,10 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    - cron: '0 10 * * *'
-    # 3:00 AM Pacific (10:00 UTC) 
+    # Run 3 times daily for cumulative feed updates
+    - cron: '0 14 * * *'  # 6:00 AM Pacific (14:00 UTC)
+    - cron: '0 22 * * *'  # 2:00 PM Pacific (22:00 UTC)
+    - cron: '0 6 * * *'   # 10:00 PM Pacific (06:00 UTC next day)
   workflow_dispatch:  # Allow manual trigger
 
 permissions:
@@ -27,6 +29,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
+      - name: Download previous feed from GitHub Pages
+        run: |
+          # Download existing feed if it exists (for cumulative updates)
+          wget https://zirnhelt.github.io/super-rss-feed/super-feed.json -O super-feed.json || echo "No previous feed found (first run)"
+        continue-on-error: true
+      
       - name: Generate RSS feed
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -38,8 +46,7 @@ jobs:
           echo "Files in current directory:"
           ls -la
           mkdir -p output
-          cp feed-*.json output/
-          cp curated-feeds.opml output/
+          cp super-feed.json output/
           cp index.html output/
           echo "Files in output directory:"
           ls -la output/
@@ -48,10 +55,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scored_articles_cache.json wlt_cache.json
+          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache files [skip ci]"
           git push
-
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
