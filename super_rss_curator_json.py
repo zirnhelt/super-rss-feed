@@ -453,7 +453,13 @@ def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Art
     articles = []
     
     try:
-        parsed = feedparser.parse(feed['url'])
+        # Set user agent to avoid blocking by tech sites
+        feedparser.USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        headers = {
+            "User-Agent": feedparser.USER_AGENT,
+            "Accept": "application/rss+xml, application/xml, text/xml"
+        }
+        parsed = feedparser.parse(feed["url"], request_headers=headers)
         
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'])
