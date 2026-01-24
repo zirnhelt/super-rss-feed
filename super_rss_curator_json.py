@@ -30,7 +30,7 @@ FEED_RETENTION_DAYS = 3     # Keep articles in feed for 3 days
 MAX_PER_SOURCE = 8          # Default limit per source
 MAX_PER_LOCAL = 15          # Higher limit for local content
 LOOKBACK_HOURS = 48         # How far back to fetch articles
-MIN_CLAUDE_SCORE = 30       # Minimum relevance score (0-100)
+MIN_CLAUDE_SCORE = 20       # Minimum relevance score (0-100)
 LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
 
 # Caching configuration
