@@ -542,24 +542,24 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         
         # Your interests for scoring
         interests = """
-         PRIMARY INTERESTS (score 70-100):
-         - AI/ML infrastructure, platform engineering, and telemetry: MLOps, observability, production AI systems, data pipelines, AI platforms
-         - Smart home, home automation, and home networking: HomeKit, HomeBridge, Philips Hue, IKEA smart home, home automation systems, mesh networking (Meshtastic, LoRa), self-hosted services, privacy-focused home tech
-         - Climate tech and clean energy: Solar, batteries, EVs, carbon capture, renewable energy technologies, sustainable materials
-         - 3D printing: Bambu Lab, PLA materials, printer mechanics, slicing software, additive manufacturing
-         - Canadian content and BC Interior local news: Williams Lake, Quesnel, Cariboo, Kamloops, BC regional news
+PRIMARY INTERESTS (score 70-100):
+- AI/ML infrastructure, platform engineering, and telemetry: MLOps, observability, production AI systems, data pipelines, AI platforms
+- Smart home, home automation, and home networking: HomeKit, HomeBridge, Philips Hue, IKEA smart home, home automation systems, mesh networking (Meshtastic, LoRa), self-hosted services, privacy-focused home tech
+- Climate tech and clean energy: Solar, batteries, EVs, carbon capture, renewable energy technologies, sustainable materials
+- 3D printing: Bambu Lab, PLA materials, printer mechanics, slicing software, additive manufacturing
+- Canadian content and BC Interior local news: Williams Lake, Quesnel, Cariboo, Kamloops, BC regional news
 
-         SECONDARY INTERESTS (score 40-69):
-         - Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies
-         - Deep technical how-tos and tutorials: Hands-on guides, configuration walkthroughs, technical troubleshooting
-         - Sci-fi worldbuilding: Hard science fiction, speculative fiction, magic systems, narrative construction
-         - Scientific research and discoveries: Breakthrough studies, academic papers, novel findings
+SECONDARY INTERESTS (score 40-69):
+- Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies
+- Deep technical how-tos and tutorials: Hands-on guides, configuration walkthroughs, technical troubleshooting
+- Sci-fi worldbuilding: Hard science fiction, speculative fiction, magic systems, narrative construction
+- Scientific research and discoveries: Breakthrough studies, academic papers, novel findings
 
-         LOW PRIORITY (score 10-39):
-         - General tech news and product announcements
-         - Surface-level reviews without technical depth
-         - Entertainment and lifestyle content
-         """
+LOW PRIORITY (score 10-39):
+- General tech news and product announcements
+- Surface-level reviews without technical depth
+- Entertainment and lifestyle content
+"""
         
         # Batch articles for efficiency (10 at a time)
         batch_size = 10
