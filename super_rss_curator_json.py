@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Super RSS Feed Curator with Category Feeds
-- Loads existing feed and merges with new articles (no article loss between runs)
+Super RSS Feed Curator with Category Feeds (Config-driven version)
+- All configuration loaded from config/ directory
+- Loads existing feed and merges with new articles
 - Ages out articles older than FEED_RETENTION_DAYS
 - Uses shown_cache to prevent re-scoring and re-adding aged-out articles
 - Outputs JSON Feed format with prominent source attribution and image support
 - Williams Lake Tribune gets priority treatment with direct scraping
-- Generates separate category feeds: local, ai-tech, climate, homelab, science, scifi, news
+- Generates separate category feeds
 """
 import os
 import sys
@@ -14,7 +15,6 @@ import re
 from datetime import datetime, timedelta, timezone
 from collections import defaultdict
 from typing import List, Dict, Optional
-import xml.etree.ElementTree as ET
 import hashlib
 import json
 from urllib.parse import urljoin, urlparse
@@ -25,53 +25,43 @@ import anthropic
 import requests
 from bs4 import BeautifulSoup
 
-# Configuration
-MAX_FEED_SIZE = 500         # Total items in feed (cap to prevent bloat)
-FEED_RETENTION_DAYS = 3     # Keep articles in feed for 3 days
-MAX_PER_SOURCE = 8          # Default limit per source
-MAX_PER_LOCAL = 15          # Higher limit for local content
-LOOKBACK_HOURS = 48         # How far back to fetch articles
-MIN_CLAUDE_SCORE = 20       # Minimum relevance score (0-100)
-LOCAL_PRIORITY_SCORE = 100  # Maximum score for local articles
+# Import configuration loader
+from config_loader import *
+
+# Load all configuration at startup
+CONFIG = get_all_config()
+
+# Extract commonly used config values
+SYSTEM = CONFIG['system']
+LIMITS = CONFIG['limits']
+FILTERS = CONFIG['filters']
+CATEGORIES = CONFIG['categories']
+FEEDS = CONFIG['feeds']
+SCORING_INTERESTS = CONFIG['scoring_interests']
+
+# Configuration from config files
+MAX_FEED_SIZE = LIMITS['max_feed_size']
+FEED_RETENTION_DAYS = LIMITS['feed_retention_days']
+MAX_PER_SOURCE = LIMITS['max_per_source']
+MAX_PER_LOCAL = LIMITS['max_per_local']
+LOOKBACK_HOURS = SYSTEM['lookback_hours']
+MIN_CLAUDE_SCORE = LIMITS['min_claude_score']
+LOCAL_PRIORITY_SCORE = LIMITS['local_priority_score']
 
 # Caching configuration
-SCORED_CACHE_FILE = 'scored_articles_cache.json'
-WLT_CACHE_FILE = 'wlt_cache.json'
-SHOWN_CACHE_FILE = 'shown_articles_cache.json'  # Track articles already shown
-CACHE_EXPIRY_HOURS = 48      # Don't re-score articles for 6 hours
-SHOWN_CACHE_DAYS = 14       # Remember shown articles for 14 days
+SCORED_CACHE_FILE = get_cache_file('scored_articles')
+WLT_CACHE_FILE = get_cache_file('wlt')
+SHOWN_CACHE_FILE = get_cache_file('shown_articles')
+CACHE_EXPIRY_HOURS = SYSTEM['cache_expiry']['scored_hours']
+SHOWN_CACHE_DAYS = SYSTEM['cache_expiry']['shown_days']
 
 # Williams Lake Tribune settings
-WLT_BASE_URL = "https://wltribune.com"
-WLT_NEWS_URL = f"{WLT_BASE_URL}/news/"
+WLT_BASE_URL = SYSTEM['urls']['wlt_base']
+WLT_NEWS_URL = SYSTEM['urls']['wlt_news']
 
-# Filters
-BLOCKED_SOURCES = [
-    # News aggregators and low-quality sources  
-    "fox news", "foxnews",
-    "metafilter", "metafilter.com",
-    "hacker news", "news.ycombinator.com", "hn",
-    "reddit", "reddit.com",
-    "digg", "digg.com", 
-    "slashdot", "slashdot.org",
-    "alltop", "allsides",
-    "stumbleupon", "delicious",
-    "newsvine", "mixx",
-    # Social media aggregators
-    "buzzfeed", "upworthy", "viral viral",
-    "clickhole", "bored panda"
-]
-BLOCKED_KEYWORDS = [
-    # Sports
-    "nfl", "nba", "mlb", "nhl", "premier league", "champions league",
-    "world cup", "olympics", "super bowl", "playoff", "touchdown",
-    "hockey", "football", "soccer", "basketball", "baseball",
-    "tournament", "championship", "sports", "athletics",
-    "rec centre", "recreation centre", "arena",
-    # Advice columns
-    "dear abby", "ask amy", "miss manners", "advice column",
-    "relationship advice", "dating advice"
-]
+# Filters from config
+BLOCKED_SOURCES = FILTERS['blocked_sources']
+BLOCKED_KEYWORDS = FILTERS['blocked_keywords']
 
 
 class Article:
@@ -160,43 +150,14 @@ def categorize_article(article: Article) -> str:
     if article.is_local:
         return "local"
     
-    # Keywords for each category (order matters - first match wins)
-    # Note: Mesh networking merged into homelab per user's Google Takeout analysis
-    categories = {
-        "ai-tech": [
-            "ai", "machine learning", "ml", "artificial intelligence", "mlops",
-            "platform engineering", "telemetry", "observability", "data pipeline",
-            "llm", "neural", "deep learning", "transformer", "gpu computing",
-            "anthropic", "openai", "claude", "chatgpt"
-        ],
-        "climate": [
-            "climate", "solar", "battery", "batteries", "ev ", "electric vehicle", 
-            "renewable", "carbon", "sustainability", "green energy", "wind power", 
-            "emissions", "clean energy", "carbon capture", "geothermal"
-        ],
-        "homelab": [
-            "homelab", "self-host", "home automation", "homekit", "homebridge",
-            "3d print", "bambu", "smart home", "home assistant", "home network",
-            "unifi", "omada", "philips hue", "ikea smart",
-            # Mesh networking merged here (0.3% clicks vs 10.8% smart home)
-            "meshtastic", "lora", "lorawan", "mesh network", "radio mesh"
-        ],
-        "science": [
-            "research", "study finds", "scientists", "discovery", "academic",
-            "peer review", "journal", "systems thinking", "complex system",
-            "emergence", "network effect", "interdepend"
-        ],
-        "scifi": [
-            "sci-fi", "science fiction", "fantasy", "worldbuilding", "novel",
-            "author", "book review", "sanderson", "rothfuss", "leckie",
-            "tchaikovsky", "murderbot"
-        ]
-    }
-    
-    # Check each category
-    for category, keywords in categories.items():
-        if any(keyword in text for keyword in keywords):
-            return category
+    # Check each category's keywords
+    for cat_key in get_all_categories():
+        if cat_key == 'local':  # Skip local, already handled
+            continue
+        
+        keywords = get_category_keywords(cat_key)
+        if keywords and any(keyword.lower() in text for keyword in keywords):
+            return cat_key
     
     # Default to general news
     return "news"
@@ -235,8 +196,10 @@ def load_existing_feed(feed_path: str) -> List[Article]:
 
 
 def merge_and_age_articles(existing: List[Article], new: List[Article], 
-                           retention_days: int = 3) -> List[Article]:
+                           retention_days: int = None) -> List[Article]:
     """Merge new articles with existing, remove old ones, dedupe by URL"""
+    if retention_days is None:
+        retention_days = FEED_RETENTION_DAYS
     
     cutoff_date = datetime.now(timezone.utc) - timedelta(days=retention_days)
     
@@ -475,6 +438,8 @@ def save_shown_cache(shown_hashes: set):
 
 def parse_opml(opml_path: str) -> List[Dict[str, str]]:
     """Extract RSS feed URLs from OPML file, excluding Williams Lake Tribune"""
+    import xml.etree.ElementTree as ET
+    
     feeds = []
     tree = ET.parse(opml_path)
     root = tree.getroot()
@@ -597,46 +562,8 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     if new_articles:
         client = anthropic.Anthropic(api_key=api_key)
         
-        # Your interests for scoring
-        interests = """
-PRIMARY INTERESTS (High Relevance - Score 70-100):
-- AI/ML infrastructure and telemetry: MLOps, observability, production AI systems, platform engineering, data pipelines
-- Climate tech and renewable energy: Solar, batteries, EVs, carbon capture, clean energy technologies
-- Smart home and home automation: HomeKit, HomeBridge, Omada networking, home network infrastructure
-- 3D printing: Bambu Lab ecosystem, PLA materials, printer mechanics, slicing software
-- Williams Lake and Cariboo local news: Community events, regional development, local politics, Indigenous issues
-
-SECONDARY INTERESTS (Medium Relevance - Score 40-69):
-- Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies, resilience
-- Meshtastic and LoRa mesh networking: Off-grid communication, mesh protocols, rural connectivity
-- Homelab and self-hosting: Infrastructure, privacy-focused tech, home servers, automation
-- Sustainable agriculture and food systems: Regenerative farming, permaculture, local food webs, organic practices
-- Rural connectivity and infrastructure: Broadband access, remote work technology, small-town digital infrastructure
-- Community resilience: Local economies, disaster preparedness, social infrastructure, mutual aid
-- Sci-fi worldbuilding: Hard science fiction, speculative fiction, world-building systems, narrative construction
-
-CONTEXTUAL INTERESTS (Score Based on Quality - 20-60):
-- Cariboo region culture and development: BC rural issues, small-town planning, regional history
-- Food preservation and traditional skills: When tied to systems thinking or sustainability
-- Off-grid and homestead technology: Solar systems, water management, DIY infrastructure
-- Deep technical how-tos: Hands-on guides, configuration walkthroughs, troubleshooting
-- Scientific research and discoveries: Breakthrough studies, novel findings with systems implications
-
-SCORING NOTES:
-- Local Williams Lake/Cariboo content should score 80+ regardless of topic
-- Content bridging multiple interests (e.g. "solar homestead automation") scores higher
-- Prefer deep analysis over breaking news
-- Prioritize systems-level thinking over isolated facts
-- Technical depth and hands-on utility boost scores
-
-AVOID (Score 0-20):
-- Celebrity news, gossip, advice columns
-- Sports coverage (unless technology/systems angle)
-- Surface-level product reviews without technical depth
-- Clickbait and engagement farming
-- Pure lifestyle content without systems thinking
-"""
-    
+        # Use scoring interests from config
+        interests = SCORING_INTERESTS
         
         # Batch articles for efficiency (10 at a time)
         batch_size = 10
@@ -700,8 +627,11 @@ No explanations, just the numbers."""
     return all_scored
 
 
-def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List[Article]:
+def apply_diversity_limits(articles: List[Article], max_per_source: int = None) -> List[Article]:
     """Limit articles per source to ensure diversity, with higher limits for local content"""
+    if max_per_source is None:
+        max_per_source = MAX_PER_SOURCE
+    
     source_counts = defaultdict(int)
     diverse_articles = []
     
@@ -720,22 +650,24 @@ def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List
     return diverse_articles
 
 
-def generate_json_feed(articles: List[Article], output_path: str, feed_title: str = "Curated Feed"):
+def generate_json_feed(articles: List[Article], output_path: str, feed_title: str = None):
     """Generate JSON Feed file with prominent source attribution and image support"""
+    if feed_title is None:
+        feed_title = "Curated Feed"
     
     feed_data = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": feed_title,
-        "home_page_url": "https://github.com/zirnhelt/super-rss-feed",
-        "feed_url": f"https://zirnhelt.github.io/super-rss-feed/{output_path}",
+        "home_page_url": FEEDS['base_url'],
+        "feed_url": f"{FEEDS['base_url']}/{output_path}",
         "description": f"AI-curated {feed_title.lower()} articles",
-        "authors": [{"name": "Erich's AI Curator"}],
+        "authors": [{"name": FEEDS['author']}],
         "items": []
     }
     
     for article in articles:
         # Create prominent source-first title with local indicator
-        local_prefix = "📍 " if article.is_local else ""
+        local_prefix = "🏔️ " if article.is_local else ""
         item_title = f"{local_prefix}[{article.source}] {article.title}"
         
         # Rich metadata for better reader display
@@ -782,7 +714,7 @@ def main():
     # Check for API key
     api_key = os.getenv('ANTHROPIC_API_KEY')
     if not api_key:
-        print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
+        print("❌ ANTHROPIC_API_KEY environment variable not set")
         sys.exit(1)
     
     # Load shown cache (prevents re-adding aged-out articles and re-scoring existing ones)
@@ -835,23 +767,14 @@ def main():
         print(f"  {category}: {len(categorized_new[category])} new articles")
     
     # For each category: load existing feed, merge, age, apply diversity, generate
-    all_categories = ['local', 'ai-tech', 'climate', 'homelab', 'science', 'scifi', 'news']
+    all_categories = get_all_categories()
     
     print("\n📦 Processing category feeds...")
     category_stats = {}
     
     for category in all_categories:
         category_output = f"feed-{category}.json"
-        category_title_map = {
-            'local': 'Williams Lake Local',
-            'ai-tech': 'AI/ML & Tech',
-            'climate': 'Climate & Energy',
-            'homelab': 'Homelab & DIY',
-            'science': 'Science',
-            'scifi': 'Sci-Fi & Culture',
-            'news': 'General News'
-        }
-        feed_title = category_title_map.get(category, category.title())
+        feed_title = get_feed_title(category)
         
         # Load existing feed for this category
         existing_cat = load_existing_feed(category_output)

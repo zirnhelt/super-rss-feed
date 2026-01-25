@@ -1,0 +1,17 @@
+{
+  "cache_files": {
+    "scored_articles": "scored_articles_cache.json",
+    "wlt": "wlt_cache.json",
+    "shown_articles": "shown_articles_cache.json"
+  },
+  "cache_expiry": {
+    "scored_hours": 48,
+    "shown_days": 14
+  },
+  "urls": {
+    "wlt_base": "https://wltribune.com",
+    "wlt_news": "https://wltribune.com/news/",
+    "super_rss_base": "https://zirnhelt.github.io/super-rss-feed"
+  },
+  "lookback_hours": 48
+}
