@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Super RSS Feed Curator with Cumulative Feed Support
+Super RSS Feed Curator with Category Feeds
 - Loads existing feed and merges with new articles (no article loss between runs)
 - Ages out articles older than FEED_RETENTION_DAYS
 - Uses shown_cache to prevent re-scoring and re-adding aged-out articles
 - Outputs JSON Feed format with prominent source attribution and image support
 - Williams Lake Tribune gets priority treatment with direct scraping
+- Generates separate category feeds: local, ai-tech, climate, homelab, science, scifi, news
 """
 import os
 import sys
@@ -149,6 +150,56 @@ class Article:
             return True
         
         return False
+
+
+def categorize_article(article: Article) -> str:
+    """Categorize article based on title, description, and source"""
+    text = f"{article.title} {article.description} {article.source}".lower()
+    
+    # Local content always goes to local feed
+    if article.is_local:
+        return "local"
+    
+    # Keywords for each category (order matters - first match wins)
+    # Note: Mesh networking merged into homelab per user's Google Takeout analysis
+    categories = {
+        "ai-tech": [
+            "ai", "machine learning", "ml", "artificial intelligence", "mlops",
+            "platform engineering", "telemetry", "observability", "data pipeline",
+            "llm", "neural", "deep learning", "transformer", "gpu computing",
+            "anthropic", "openai", "claude", "chatgpt"
+        ],
+        "climate": [
+            "climate", "solar", "battery", "batteries", "ev ", "electric vehicle", 
+            "renewable", "carbon", "sustainability", "green energy", "wind power", 
+            "emissions", "clean energy", "carbon capture", "geothermal"
+        ],
+        "homelab": [
+            "homelab", "self-host", "home automation", "homekit", "homebridge",
+            "3d print", "bambu", "smart home", "home assistant", "home network",
+            "unifi", "omada", "philips hue", "ikea smart",
+            # Mesh networking merged here (0.3% clicks vs 10.8% smart home)
+            "meshtastic", "lora", "lorawan", "mesh network", "radio mesh"
+        ],
+        "science": [
+            "research", "study finds", "scientists", "discovery", "academic",
+            "peer review", "journal", "systems thinking", "complex system",
+            "emergence", "network effect", "interdepend"
+        ],
+        "scifi": [
+            "sci-fi", "science fiction", "fantasy", "worldbuilding", "novel",
+            "author", "book review", "sanderson", "rothfuss", "leckie",
+            "tchaikovsky", "murderbot"
+        ]
+    }
+    
+    # Check each category
+    for category, keywords in categories.items():
+        if any(keyword in text for keyword in keywords):
+            return category
+    
+    # Default to general news
+    return "news"
 
 
 def load_existing_feed(feed_path: str) -> List[Article]:
@@ -669,15 +720,15 @@ def apply_diversity_limits(articles: List[Article], max_per_source: int) -> List
     return diverse_articles
 
 
-def generate_json_feed(articles: List[Article], output_path: str):
+def generate_json_feed(articles: List[Article], output_path: str, feed_title: str = "Curated Feed"):
     """Generate JSON Feed file with prominent source attribution and image support"""
     
     feed_data = {
         "version": "https://jsonfeed.org/version/1.1",
-        "title": "Curated Feed",
+        "title": feed_title,
         "home_page_url": "https://github.com/zirnhelt/super-rss-feed",
         "feed_url": f"https://zirnhelt.github.io/super-rss-feed/{output_path}",
-        "description": "AI-curated articles with priority local news from Williams Lake",
+        "description": f"AI-curated {feed_title.lower()} articles",
         "authors": [{"name": "Erich's AI Curator"}],
         "items": []
     }
@@ -724,7 +775,7 @@ def generate_json_feed(articles: List[Article], output_path: str):
     # Count articles with images for stats
     articles_with_images = sum(1 for a in articles if a.image_url)
     
-    print(f"✅ Generated JSON Feed: {output_path} ({len(articles)} articles, {articles_with_images} with images)")
+    print(f"  ✅ {output_path} ({len(articles)} articles, {articles_with_images} with images)")
 
 
 def main():
@@ -734,18 +785,8 @@ def main():
         print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
         sys.exit(1)
     
-    # Configuration
-    output_path = 'super-feed.json'
-    
-    # Load existing feed for cumulative updates
-    existing_articles = load_existing_feed(output_path)
-    
     # Load shown cache (prevents re-adding aged-out articles and re-scoring existing ones)
     shown_cache = load_shown_cache()
-    
-    # Add existing articles to shown cache
-    for article in existing_articles:
-        shown_cache.add(article.url_hash)
     
     # Parse OPML (excludes Williams Lake Tribune RSS to avoid duplicates)
     opml_path = sys.argv[1] if len(sys.argv) > 1 else 'feeds.opml'
@@ -783,35 +824,80 @@ def main():
     if non_local_filtered > 0:
         print(f"⭐ Quality filter (score >= {MIN_CLAUDE_SCORE}): {len(scored_new)} → {len(quality_new)} articles ({non_local_filtered} filtered)")
     
-    # MERGE new articles with existing + age out old articles
-    merged_articles = merge_and_age_articles(existing_articles, quality_new, FEED_RETENTION_DAYS)
+    # CATEGORIZE all quality new articles
+    print("\n📂 Categorizing new articles...")
+    categorized_new = defaultdict(list)
+    for article in quality_new:
+        category = categorize_article(article)
+        categorized_new[category].append(article)
     
-    # Apply diversity limits to MERGED set
-    diverse_articles = apply_diversity_limits(merged_articles, MAX_PER_SOURCE)
+    for category in sorted(categorized_new.keys()):
+        print(f"  {category}: {len(categorized_new[category])} new articles")
     
-    # Limit total feed size and sort by score
-    final_articles = sorted(diverse_articles, key=lambda a: a.score, reverse=True)[:MAX_FEED_SIZE]
+    # For each category: load existing feed, merge, age, apply diversity, generate
+    all_categories = ['local', 'ai-tech', 'climate', 'homelab', 'science', 'scifi', 'news']
     
-    # Update shown cache with new articles
+    print("\n📦 Processing category feeds...")
+    category_stats = {}
+    
+    for category in all_categories:
+        category_output = f"feed-{category}.json"
+        category_title_map = {
+            'local': 'Williams Lake Local',
+            'ai-tech': 'AI/ML & Tech',
+            'climate': 'Climate & Energy',
+            'homelab': 'Homelab & DIY',
+            'science': 'Science',
+            'scifi': 'Sci-Fi & Culture',
+            'news': 'General News'
+        }
+        feed_title = category_title_map.get(category, category.title())
+        
+        # Load existing feed for this category
+        existing_cat = load_existing_feed(category_output)
+        
+        # Add existing to shown cache
+        for article in existing_cat:
+            shown_cache.add(article.url_hash)
+        
+        # Get new articles for this category
+        new_cat = categorized_new.get(category, [])
+        
+        # Merge and age
+        merged_cat = merge_and_age_articles(existing_cat, new_cat, FEED_RETENTION_DAYS)
+        
+        # Apply diversity limits
+        diverse_cat = apply_diversity_limits(merged_cat, MAX_PER_SOURCE)
+        
+        # Limit total feed size and sort by score
+        final_cat = sorted(diverse_cat, key=lambda a: a.score, reverse=True)[:MAX_FEED_SIZE]
+        
+        # Generate category feed
+        generate_json_feed(final_cat, category_output, feed_title)
+        
+        # Collect stats
+        category_stats[category] = {
+            'total': len(final_cat),
+            'local': sum(1 for a in final_cat if a.is_local)
+        }
+    
+    # Update shown cache with ALL new articles
     new_shown_hashes = {a.url_hash for a in quality_new}
     shown_cache.update(new_shown_hashes)
     save_shown_cache(shown_cache)
     
-    # Generate JSON feed
-    generate_json_feed(final_articles, output_path)
-    
-    # Stats
+    # Final stats
+    total_articles = sum(stats['total'] for stats in category_stats.values())
     print("\n📊 Final stats:")
-    print(f"  Existing articles retained: {len(existing_articles)}")
     print(f"  New articles fetched: {len(all_new_articles)}")
     print(f"  New articles scored: {len(quality_new)}")
-    print(f"  After merge + aging: {len(merged_articles)}")
-    print(f"  After diversity limits: {len(diverse_articles)}")
-    print(f"  Final feed size: {len(final_articles)}")
+    print(f"  Total articles across all feeds: {total_articles}")
     
-    # Local content stats
-    local_count = sum(1 for a in final_articles if a.is_local)
-    print(f"  📍 Local articles: {local_count}")
+    print(f"\n📂 Category breakdown:")
+    for category in all_categories:
+        stats = category_stats[category]
+        local_suffix = f" ({stats['local']} local)" if stats['local'] > 0 else ""
+        print(f"  {category}: {stats['total']} articles{local_suffix}")
 
 
 if __name__ == '__main__':
