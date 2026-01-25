@@ -548,24 +548,44 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         
         # Your interests for scoring
         interests = """
-PRIMARY INTERESTS (score 70-100):
-- AI/ML infrastructure, platform engineering, and telemetry: MLOps, observability, production AI systems, data pipelines, AI platforms
-- Smart home, home automation, and home networking: HomeKit, HomeBridge, Philips Hue, IKEA smart home, home automation systems, mesh networking (Meshtastic, LoRa), self-hosted services, privacy-focused home tech
-- Climate tech and clean energy: Solar, batteries, EVs, carbon capture, renewable energy technologies, sustainable materials
-- 3D printing: Bambu Lab, PLA materials, printer mechanics, slicing software, additive manufacturing
-- Canadian content and BC Interior local news: Williams Lake, Quesnel, Cariboo, Kamloops, BC regional news
+PRIMARY INTERESTS (High Relevance - Score 70-100):
+- AI/ML infrastructure and telemetry: MLOps, observability, production AI systems, platform engineering, data pipelines
+- Climate tech and renewable energy: Solar, batteries, EVs, carbon capture, clean energy technologies
+- Smart home and home automation: HomeKit, HomeBridge, Omada networking, home network infrastructure
+- 3D printing: Bambu Lab ecosystem, PLA materials, printer mechanics, slicing software
+- Williams Lake and Cariboo local news: Community events, regional development, local politics, Indigenous issues
 
-SECONDARY INTERESTS (score 40-69):
-- Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies
-- Deep technical how-tos and tutorials: Hands-on guides, configuration walkthroughs, technical troubleshooting
-- Sci-fi worldbuilding: Hard science fiction, speculative fiction, magic systems, narrative construction
-- Scientific research and discoveries: Breakthrough studies, academic papers, novel findings
+SECONDARY INTERESTS (Medium Relevance - Score 40-69):
+- Systems thinking and complex systems: Network effects, feedback loops, emergence, interdependencies, resilience
+- Meshtastic and LoRa mesh networking: Off-grid communication, mesh protocols, rural connectivity
+- Homelab and self-hosting: Infrastructure, privacy-focused tech, home servers, automation
+- Sustainable agriculture and food systems: Regenerative farming, permaculture, local food webs, organic practices
+- Rural connectivity and infrastructure: Broadband access, remote work technology, small-town digital infrastructure
+- Community resilience: Local economies, disaster preparedness, social infrastructure, mutual aid
+- Sci-fi worldbuilding: Hard science fiction, speculative fiction, world-building systems, narrative construction
 
-LOW PRIORITY (score 10-39):
-- General tech news and product announcements
-- Surface-level reviews without technical depth
-- Entertainment and lifestyle content
+CONTEXTUAL INTERESTS (Score Based on Quality - 20-60):
+- Cariboo region culture and development: BC rural issues, small-town planning, regional history
+- Food preservation and traditional skills: When tied to systems thinking or sustainability
+- Off-grid and homestead technology: Solar systems, water management, DIY infrastructure
+- Deep technical how-tos: Hands-on guides, configuration walkthroughs, troubleshooting
+- Scientific research and discoveries: Breakthrough studies, novel findings with systems implications
+
+SCORING NOTES:
+- Local Williams Lake/Cariboo content should score 80+ regardless of topic
+- Content bridging multiple interests (e.g. "solar homestead automation") scores higher
+- Prefer deep analysis over breaking news
+- Prioritize systems-level thinking over isolated facts
+- Technical depth and hands-on utility boost scores
+
+AVOID (Score 0-20):
+- Celebrity news, gossip, advice columns
+- Sports coverage (unless technology/systems angle)
+- Surface-level product reviews without technical depth
+- Clickbait and engagement farming
+- Pure lifestyle content without systems thinking
 """
+    
         
         # Batch articles for efficiency (10 at a time)
         batch_size = 10
