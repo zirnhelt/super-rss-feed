@@ -29,12 +29,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Download previous feed from GitHub Pages
-        run: |
-          # Download existing feed if it exists (for cumulative updates)
-          wget https://zirnhelt.github.io/super-rss-feed/super-feed.json -O super-feed.json || echo "No previous feed found (first run)"
-        continue-on-error: true
-      
       - name: Generate RSS feed
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -46,8 +40,19 @@ jobs:
           echo "Files in current directory:"
           ls -la
           mkdir -p output
-          cp super-feed.json output/
+          
+          # Copy all category feeds
+          cp feed-*.json output/
+          
+          # Copy website files
           cp index.html output/
+          cp curated-feeds.opml output/
+          
+          # Copy cache files (for persistence between runs)
+          cp scored_articles_cache.json output/
+          cp shown_articles_cache.json output/
+          cp wlt_cache.json output/
+          
           echo "Files in output directory:"
           ls -la output/
 
