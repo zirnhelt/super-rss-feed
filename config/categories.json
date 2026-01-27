@@ -1,126 +1,38 @@
 {
   "local": {
-    "name": "Local News",
+    "name": "Local News", 
     "description": "Williams Lake Tribune and BC Interior coverage",
     "emoji": "🏔️",
-    "always_priority": true,
-    "keywords": []
+    "always_priority": true
   },
-  "ai-tech": {
-    "name": "AI & Tech",
-    "description": "AI/ML, platform engineering, cloud infrastructure, telemetry",
-    "emoji": "🤖",
-    "keywords": [
-      "ai",
-      "machine learning",
-      "ml",
-      "artificial intelligence",
-      "mlops",
-      "platform engineering",
-      "telemetry",
-      "observability",
-      "data pipeline",
-      "llm",
-      "neural",
-      "deep learning",
-      "transformer",
-      "gpu computing",
-      "anthropic",
-      "openai",
-      "claude",
-      "chatgpt"
-    ]
+  "homelab": {
+    "name": "Homelab & DIY",
+    "description": "3D printing, home automation, self-hosting, networking", 
+    "emoji": "🏠"
   },
   "climate": {
     "name": "Climate & Energy",
     "description": "Climate tech, renewable energy, environmental news",
-    "emoji": "🌍",
-    "keywords": [
-      "climate",
-      "solar",
-      "battery",
-      "batteries",
-      "ev ",
-      "electric vehicle",
-      "renewable",
-      "carbon",
-      "sustainability",
-      "green energy",
-      "wind power",
-      "emissions",
-      "clean energy",
-      "carbon capture",
-      "geothermal"
-    ]
-  },
-  "homelab": {
-    "name": "Homelab & DIY",
-    "description": "3D printing, home automation, self-hosting, networking",
-    "emoji": "🏠",
-    "keywords": [
-      "homelab",
-      "self-host",
-      "home automation",
-      "homekit",
-      "homebridge",
-      "3d print",
-      "bambu",
-      "smart home",
-      "home assistant",
-      "home network",
-      "unifi",
-      "omada",
-      "philips hue",
-      "ikea smart",
-      "meshtastic",
-      "lora",
-      "lorawan",
-      "mesh network",
-      "radio mesh"
-    ]
+    "emoji": "🌍"
   },
   "science": {
     "name": "Science",
     "description": "Research, discoveries, academic papers, systems thinking",
-    "emoji": "🔬",
-    "keywords": [
-      "research",
-      "study finds",
-      "scientists",
-      "discovery",
-      "academic",
-      "peer review",
-      "journal",
-      "systems thinking",
-      "complex system",
-      "emergence",
-      "network effect",
-      "interdepend"
-    ]
+    "emoji": "🔬"
+  },
+  "ai-tech": {
+    "name": "AI & Tech", 
+    "description": "AI/ML, platform engineering, cloud infrastructure, telemetry",
+    "emoji": "🤖"
   },
   "scifi": {
     "name": "Sci-Fi & Culture",
-    "description": "Science fiction, fantasy, worldbuilding, books",
-    "emoji": "🚀",
-    "keywords": [
-      "sci-fi",
-      "science fiction",
-      "fantasy",
-      "worldbuilding",
-      "novel",
-      "author",
-      "book review",
-      "sanderson",
-      "rothfuss",
-      "leckie",
-      "tchaikovsky",
-      "murderbot"
-    ]
+    "description": "Science fiction, fantasy, worldbuilding, books", 
+    "emoji": "🚀"
   },
   "news": {
     "name": "General News",
     "description": "Politics, business, technology, current events",
-    "emoji": "📰",
-    "keywords": []
+    "emoji": "📰"
   }
 }
