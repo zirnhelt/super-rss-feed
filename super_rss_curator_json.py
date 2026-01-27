@@ -456,7 +456,7 @@ def save_shown_articles_cache(cache):
     cache_file = SYSTEM['cache_files']['shown_articles']
     # Keep only last 14 days
     cutoff = (datetime.now(timezone.utc) - timedelta(days=SYSTEM['cache_expiry']['shown_days'])).timestamp()
-    cleaned = {k: v for k, v in cache.items() if v > cutoff}
+    cleaned = {k: v for k, v in cache.items() if float(v) > cutoff}
     
     with open(cache_file, 'w') as f:
         json.dump(cleaned, f, indent=2)
