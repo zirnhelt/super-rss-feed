@@ -19,6 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 from fuzzywuzzy import fuzz
 import anthropic
+from fetch_images import batch_fetch_images
 
 # Configuration paths
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -628,6 +629,12 @@ def main():
     print(f"\n📈 Total fetched: {len(all_articles)} articles")
     
     unique_articles = deduplicate_articles(all_articles)
+    
+    # Fetch images for articles (hybrid: OpenGraph + favicon fallback)
+    print(f"🖼️  Fetching images for articles...")
+    unique_articles = batch_fetch_images(unique_articles, max_fetch=30)
+    images_found = sum(1 for a in unique_articles if hasattr(a, 'image') and a.image)
+    print(f"   Found images for {images_found}/{len(unique_articles)} articles")
     
     shown_cache = load_shown_cache()
     new_articles = [a for a in unique_articles if a.url_hash not in shown_cache]
