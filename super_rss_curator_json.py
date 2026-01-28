@@ -375,8 +375,8 @@ Categories: local, ai-tech, climate, homelab, science, scifi, news"""
             except json.JSONDecodeError as e:
                 # Try to extract scores with regex as fallback
                 print(f"  ⚠ JSON parse failed, trying regex extraction...")
-                score_pattern = r'"score"\s*:\s*(\d+)"
-                category_pattern = r'"category"\s*:\s*"([^"]+)"
+                score_pattern = r'"score"\s*:\s*(\d+)
+                category_pattern = r'"category"\s*:\s*"([^"]+)
                 
                 scores = [int(s) for s in re.findall(score_pattern, response_text)]
                 categories = re.findall(category_pattern, response_text)
