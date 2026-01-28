@@ -456,7 +456,22 @@ def save_shown_articles_cache(cache):
     cache_file = SYSTEM['cache_files']['shown_articles']
     # Keep only last 14 days
     cutoff = (datetime.now(timezone.utc) - timedelta(days=SYSTEM['cache_expiry']['shown_days'])).timestamp()
-    cleaned = {k: v for k, v in cache.items() if float(v) > cutoff}
+    
+    cleaned = {}
+    for k, v in cache.items():
+        # Handle both ISO datetime strings and numeric timestamps
+        try:
+            if isinstance(v, str):
+                # Convert ISO datetime string to timestamp
+                timestamp = datetime.fromisoformat(v.replace('Z', '+00:00')).timestamp()
+            else:
+                timestamp = float(v)
+            
+            if timestamp > cutoff:
+                cleaned[k] = timestamp
+        except (ValueError, AttributeError):
+            # Skip malformed entries
+            continue
     
     with open(cache_file, 'w') as f:
         json.dump(cleaned, f, indent=2)
