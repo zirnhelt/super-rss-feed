@@ -361,14 +361,34 @@ Categories: local, ai-tech, climate, homelab, science, scifi, news"""
             
             # Parse JSON response
             response_text = response.content[0].text.strip()
-            # Remove markdown code blocks if present
-            if response_text.startswith('```'):
-                response_text = response_text.split('```')[1]
-                if response_text.startswith('json'):
-                    response_text = response_text[4:]
-                response_text = response_text.strip()
             
-            scores_data = json.loads(response_text)
+            # Try to extract JSON even if malformed
+            try:
+                # Remove markdown code blocks if present
+                if response_text.startswith("```"):
+                    response_text = response_text.split("```")[1]
+                    if response_text.startswith("json"):
+                        response_text = response_text[4:]
+                    response_text = response_text.strip()
+                
+                scores_data = json.loads(response_text)
+            except json.JSONDecodeError as e:
+                # Try to extract scores with regex as fallback
+                print(f"  ⚠ JSON parse failed, trying regex extraction...")
+                score_pattern = r'"score"\s*:\s*(\d+)"
+                category_pattern = r'"category"\s*:\s*"([^"]+)"
+                
+                scores = [int(s) for s in re.findall(score_pattern, response_text)]
+                categories = re.findall(category_pattern, response_text)
+                
+                if len(scores) >= len(batch):
+                    scores_data = [
+                        {"score": scores[i], "category": categories[i] if i < len(categories) else "news"}
+                        for i in range(len(batch))
+                    ]
+                else:
+                    raise e
+            
             
             for article, score_data in zip(batch, scores_data):
                 article.score = score_data['score']
