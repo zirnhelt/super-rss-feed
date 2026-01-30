@@ -216,8 +216,8 @@ def load_wlt_cache():
         cutoff = datetime.now(timezone.utc).timestamp() - cache_expiry.total_seconds()
         
         # Defensive: skip any non-dict entries (corrupted cache)
-    return {k: v for k, v in cache.items() 
-            if isinstance(v, dict) and v.get('timestamp', 0) > cutoff}
+        return {k: v for k, v in cache.items() 
+                if isinstance(v, dict) and v.get('timestamp', 0) > cutoff}
         
     except (json.JSONDecodeError, FileNotFoundError):
         return {}
