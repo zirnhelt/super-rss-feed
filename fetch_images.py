@@ -163,8 +163,12 @@ def batch_fetch_images(articles, max_fetch=20):
         else:
             # Just use favicon for remaining articles
             logo = get_source_logo(article.source_url)
-            if logo:
-                article.image = logo
+            article.image = logo if logo else None
+        
+        # Final safety net - ensure every article has an image
+        if not hasattr(article, 'image') or not article.image:
+            logo = get_source_logo(article.source_url)
+            article.image = logo if logo else None
     
     if cache_updated:
         save_image_cache(cache)

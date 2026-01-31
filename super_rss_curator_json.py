@@ -82,7 +82,18 @@ WLT_NEWS_URL = SYSTEM['urls']['wlt_news']
 class Article:
     """Represents a single article"""
     def __init__(self, entry, source_title: str, source_url: str, feed_url: str = ''):
-        self.title = entry.get('title', '').strip()
+        # Clean title - remove source suffix if present
+        raw_title = entry.get('title', '').strip()
+        # Remove " - SourceName" pattern common in Google News
+        if ' - ' in raw_title:
+            parts = raw_title.rsplit(' - ', 1)
+            # Only remove if the suffix looks like a source name (not too long)
+            if len(parts) == 2 and len(parts[1]) < 50:
+                self.title = parts[0].strip()
+            else:
+                self.title = raw_title
+        else:
+            self.title = raw_title
         self.link = entry.get('link', '').strip()
         self.description = entry.get('description', '') or entry.get('summary', '')
         self.pub_date = self._parse_date(entry)
@@ -634,7 +645,7 @@ def main():
     
     # Fetch images for articles (hybrid: OpenGraph + favicon fallback)
     print(f"🖼️  Fetching images for articles...")
-    unique_articles = batch_fetch_images(unique_articles, max_fetch=30)
+    unique_articles = batch_fetch_images(unique_articles, max_fetch=50)
     images_found = sum(1 for a in unique_articles if hasattr(a, 'image') and a.image)
     print(f"   Found images for {images_found}/{len(unique_articles)} articles")
     
