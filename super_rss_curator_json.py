@@ -163,7 +163,7 @@ def save_scored_cache(cache):
 def load_shown_cache():
     """Load shown articles cache"""
     if not os.path.exists(SHOWN_CACHE_FILE):
-        return set()
+        return {}
     
     try:
         with open(SHOWN_CACHE_FILE, 'r') as f:
@@ -172,18 +172,18 @@ def load_shown_cache():
         cache_expiry = timedelta(days=SYSTEM['cache_expiry']['shown_days'])
         cutoff = datetime.now(timezone.utc).timestamp() - cache_expiry.total_seconds()
         
-        valid_urls = {url for url, timestamp in cache.items() if timestamp > cutoff}
+        valid_urls = {url: timestamp for url, timestamp in cache.items() if timestamp > cutoff}
         
         return valid_urls
         
     except (json.JSONDecodeError, FileNotFoundError):
-        return set()
+        return {}
 
 
 def save_shown_cache(shown_urls):
     """Save shown articles cache"""
     try:
-        cache = {url: datetime.now(timezone.utc).timestamp() for url in shown_urls}
+        cache = shown_urls
         with open(SHOWN_CACHE_FILE, 'w') as f:
             json.dump(cache, f, indent=2)
     except Exception as e:
@@ -708,8 +708,9 @@ def main():
         
         generate_json_feed(all_items, cat_key, feed_file)
     
-    new_shown = set(a.url_hash for a in quality_articles)
-    shown_cache.update(new_shown)
+    now_ts = datetime.now(timezone.utc).timestamp()
+    for article in quality_articles:
+        shown_cache[article.url_hash] = now_ts
     save_shown_cache(shown_cache)
     
     generate_opml()
