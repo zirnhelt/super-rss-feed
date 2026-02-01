@@ -566,6 +566,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
+            item["content_html"] = f'<img src="{article.image}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
         
         if category == 'local':
             item["tags"] = ["local-priority"]

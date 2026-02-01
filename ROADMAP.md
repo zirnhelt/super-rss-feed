@@ -27,6 +27,5 @@
 - [ ] Feed blocking workarounds for sites that reject User-Agent headers
 
 ## Long-term / Speculative
-- [ ] Monetization: premium RSS feeds, SaaS white-label curator, consulting
 - [ ] Reading pattern feedback loop - user engagement data feeds back into scoring
 - [ ] Cross-project: shared interest/scoring config between RSS and Podcast systems
