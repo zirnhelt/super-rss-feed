@@ -184,7 +184,7 @@ def save_shown_cache(shown_urls):
     """Save shown articles cache"""
     try:
         cache = shown_urls
-        with open(SHOWN_CACHE_FILE, 'w') as f:
+        with open(SHOWN_CACHE_FILE, 'w', encoding='utf-8') as f:
             json.dump(cache, f, indent=2)
     except Exception as e:
         print(f"⚠️ Failed to save shown cache: {e}")
@@ -226,9 +226,16 @@ def load_wlt_cache():
         cache_expiry = timedelta(hours=SYSTEM['cache_expiry']['scored_hours'])
         cutoff = datetime.now(timezone.utc).timestamp() - cache_expiry.total_seconds()
         
-        # Defensive: skip any non-dict entries (corrupted cache)
-        return {k: v for k, v in cache.items() 
-                if isinstance(v, dict) and v.get('timestamp', 0) > cutoff}
+        # Defensive: ensure all cache values are dicts
+        valid_cache = {}
+        for url_hash, entry in cache.items():
+            if isinstance(entry, dict) and entry.get('timestamp', 0) > cutoff:
+                valid_cache[url_hash] = entry
+        
+        if len(valid_cache) != len(cache):
+            print(f"🧹 Cleaned WLT cache: {len(cache)} → {len(valid_cache)} entries")
+        
+        return valid_cache
         
     except (json.JSONDecodeError, FileNotFoundError):
         return {}
@@ -243,87 +250,88 @@ def save_wlt_cache(cache):
         print(f"⚠️ Failed to save WLT cache: {e}")
 
 
-def scrape_wlt_news():
+def scrape_wlt_news() -> List[Dict]:
     """Scrape Williams Lake Tribune news page"""
-    print(f"📰 Scraping Williams Lake Tribune from {WLT_NEWS_URL}")
-    
     cache = load_wlt_cache()
     
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)'}
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)',
+            'Accept': 'text/html,application/xhtml+xml'
+        }
+        
         response = requests.get(WLT_NEWS_URL, headers=headers, timeout=10)
         response.raise_for_status()
         
         soup = BeautifulSoup(response.text, 'html.parser')
         articles = []
         
-        for article_div in soup.find_all('div', class_='story-block'):
+        for article_div in soup.select('div.article-card')[:10]:
             try:
-                title_elem = article_div.find('h3')
-                if not title_elem or not title_elem.find('a'):
+                link_elem = article_div.select_one('a.article-card__link')
+                if not link_elem:
                     continue
                 
-                link_elem = title_elem.find('a')
-                title = link_elem.get_text(strip=True)
                 relative_url = link_elem.get('href', '')
-                
-                if not relative_url.startswith('http'):
-                    url = f"{WLT_BASE_URL}{relative_url}"
-                else:
-                    url = relative_url
-                
-                url_hash = hashlib.md5(url.encode()).hexdigest()
-                if url_hash in cache:
+                if not relative_url:
                     continue
                 
-                img_elem = article_div.find('img')
-                image_url = None
-                if img_elem and img_elem.get('src'):
-                    img_src = img_elem['src']
-                    if img_src.startswith('http'):
-                        image_url = img_src
-                    elif img_src.startswith('/'):
-                        image_url = f"{WLT_BASE_URL}{img_src}"
+                full_url = f"{WLT_BASE_URL}{relative_url}"
+                url_hash = hashlib.md5(full_url.encode()).hexdigest()
                 
-                summary_elem = article_div.find('p')
-                summary = summary_elem.get_text(strip=True) if summary_elem else ''
+                if url_hash in cache:
+                    articles.append(cache[url_hash])
+                    continue
                 
-                cache[url_hash] = {
-                    'title': title,
-                    'url': url,
-                    'summary': summary,
-                    'image': image_url,
-                    'timestamp': datetime.now(timezone.utc).timestamp()
-                }
+                title_elem = article_div.select_one('h3.article-card__headline')
+                title = title_elem.get_text(strip=True) if title_elem else ''
                 
-                articles.append({
-                    'title': title,
-                    'link': url,
-                    'description': summary,
-                    'image': image_url
-                })
+                desc_elem = article_div.select_one('div.article-card__details')
+                description = desc_elem.get_text(strip=True) if desc_elem else ''
                 
+                img_elem = article_div.select_one('img.article-card__image')
+                image_url = img_elem.get('src', '') if img_elem else None
+                if image_url and image_url.startswith('/'):
+                    image_url = f"{WLT_BASE_URL}{image_url}"
+                
+                if title and full_url:
+                    article_data = {
+                        'title': title,
+                        'link': full_url,
+                        'description': description,
+                        'image': image_url,
+                        'timestamp': datetime.now(timezone.utc).timestamp()
+                    }
+                    articles.append(article_data)
+                    cache[url_hash] = article_data
+            
             except Exception as e:
-                print(f"  ⚠️ Error parsing article: {e}")
+                print(f"  ⚠️ Error parsing WLT article: {e}")
                 continue
         
         save_wlt_cache(cache)
-        print(f"  ✅ Scraped {len(articles)} new WLT articles")
+        print(f"📰 Williams Lake Tribune: {len(articles)} articles")
         return articles
         
     except Exception as e:
-        print(f"  ❌ WLT scraping failed: {e}")
+        print(f"⚠️ Failed to scrape Williams Lake Tribune: {e}")
         return []
 
 
-def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Article]:
-    """Fetch recent articles from a single feed"""
-    articles = []
-    
+def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
+    """Fetch and parse articles from a feed"""
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)'}
-        parsed = feedparser.parse(feed['url'], request_headers=headers)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)',
+            'Accept': 'application/rss+xml, application/xml, text/xml'
+        }
         
+        response = requests.get(feed['url'], headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        parsed = feedparser.parse(response.content)
+        
+        articles = []
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'], feed['url'])
             
@@ -337,17 +345,18 @@ def fetch_feed_articles(feed: Dict[str, str], cutoff_date: datetime) -> List[Art
         
         if articles:
             print(f"  ✓ {feed['title']}: {len(articles)} articles")
-    
+        
+        return articles
+        
     except Exception as e:
-        print(f"  ✗ {feed['title']}: {str(e)}")
-    
-    return articles
+        print(f"  ✗ {feed['title']}: {e}")
+        return []
 
 
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
-    """Remove duplicate articles using URL and fuzzy title matching"""
+    """Remove duplicate articles based on URL and title similarity"""
     seen_urls = set()
-    seen_titles = []
+    seen_titles = {}
     unique = []
     
     for article in articles:
@@ -355,151 +364,147 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
             continue
         
         is_duplicate = False
-        for seen_title in seen_titles:
-            if fuzz.ratio(article.title_normalized, seen_title) > 85:
+        for seen_title, seen_article in seen_titles.items():
+            similarity = fuzz.ratio(article.title_normalized, seen_title)
+            if similarity > 85:
                 is_duplicate = True
                 break
         
-        if is_duplicate:
-            continue
-        
-        seen_urls.add(article.url_hash)
-        seen_titles.append(article.title_normalized)
-        unique.append(article)
+        if not is_duplicate:
+            seen_urls.add(article.url_hash)
+            seen_titles[article.title_normalized] = article
+            unique.append(article)
     
-    print(f"🔍 Deduplication: {len(articles)} → {len(unique)} articles")
+    print(f"🔄 Deduplication: {len(articles)} → {len(unique)} articles")
     return unique
 
 
+def categorize_article(title: str, description: str) -> Optional[str]:
+    """Determine article category using keyword rules"""
+    text = f"{title} {description}".lower()
+    
+    for category, rules in CATEGORY_RULES.items():
+        if category not in CATEGORIES:
+            continue
+        
+        include_keywords = rules.get('include', [])
+        exclude_keywords = rules.get('exclude', [])
+        
+        has_include = any(keyword in text for keyword in include_keywords)
+        has_exclude = any(keyword in text for keyword in exclude_keywords)
+        
+        if has_include and not has_exclude:
+            return category
+    
+    return None
+
+
 def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
-    """Score articles with Claude API using interests and category rules"""
+    """Score and categorize articles using Claude API with prompt caching"""
     if not articles:
         return []
     
-    print(f"🤖 Scoring {len(articles)} articles with Claude...")
-    
-    # Load interests
-    try:
-        with open(CONFIG_DIR / 'scoring_interests.txt', 'r') as f:
-            interests = f.read()
-    except FileNotFoundError:
-        print("❌ scoring_interests.txt not found")
-        return articles
-    
-    # Build category guidance from rules
-    category_guidance = "\n\nCATEGORY RULES (be strict with these):\n"
-    for cat_key, rules in CATEGORY_RULES.items():
-        category_guidance += f"\n{cat_key.upper()}:\n"
-        category_guidance += f"  Description: {rules.get('description', '')}\n"
-        if rules.get('include'):
-            category_guidance += f"  MUST include: {', '.join(rules['include'])}\n"
-        if rules.get('exclude'):
-            category_guidance += f"  MUST exclude: {', '.join(rules['exclude'])}\n"
-        if rules.get('is_default'):
-            category_guidance += f"  This is the DEFAULT for everything else\n"
-    
-    category_guidance += """
-IMPORTANT CATEGORIZATION RULES:
-- Product reviews, consumer tips, phone accessories → "news"
-- App recommendations, digital lifestyle → "news"  
-- If unclear or doesn't fit well → "news"
-- Be strict: only use specialized categories for clear matches
-- "homelab" is for self-hosted infrastructure, NOT consumer gadgets
-- "scifi" is ONLY for fiction/books, NOT tech lifestyle
-"""
-    
-    # Load cache
     cache = load_scored_cache()
-    client = anthropic.Anthropic(api_key=api_key)
-    batch_size = 10
-    scored_articles = []
     
-    for i in range(0, len(articles), batch_size):
-        batch = articles[i:i+batch_size]
+    # Load scoring interests
+    interests_file = CONFIG_DIR / 'scoring_interests.txt'
+    try:
+        with open(interests_file, 'r') as f:
+            interests = f.read().strip()
+    except FileNotFoundError:
+        print("⚠️ scoring_interests.txt not found, using basic scoring")
+        interests = "Technology, science, climate, local news"
+    
+    client = anthropic.Anthropic(api_key=api_key)
+    
+    scored_articles = []
+    uncached = []
+    
+    for article in articles:
+        if article.url_hash in cache:
+            article.score = cache[article.url_hash]['score']
+            article.category = cache[article.url_hash]['category']
+            scored_articles.append(article)
+        else:
+            uncached.append(article)
+    
+    if uncached:
+        print(f"\n🤖 Scoring {len(uncached)} new articles with Claude...")
+        print(f"   (using cache for {len(scored_articles)} articles)")
         
-        # Check cache first
-        uncached = []
-        for article in batch:
-            cache_key = f"{article.title}|{article.source}"
-            if cache_key in cache:
-                article.score = cache[cache_key]['score']
-                article.category = cache[cache_key].get('category')
-                scored_articles.append(article)
-            else:
-                uncached.append(article)
-        
-        if not uncached:
-            continue
-        
-        article_list = "\n\n".join([
-            f"Article {idx}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {a.description[:200]}..."
-            for idx, a in enumerate(uncached)
-        ])
-        
-        prompt = f"""Score and categorize these articles based on the interests and category rules.
+        batch_size = 10
+        for i in range(0, len(uncached), batch_size):
+            batch = uncached[i:i + batch_size]
+            
+            articles_text = "\n\n".join([
+                f"Article {j+1}:\nTitle: {article.title}\nSource: {article.source}\nDescription: {article.description[:300]}"
+                for j, article in enumerate(batch)
+            ])
+            
+            prompt = f"""You are evaluating news articles for personal relevance and quality.
 
-INTERESTS:
-{interests}
-{category_guidance}
+Rate each article from 0-100 based on:
+- Relevance to interests: {interests}
+- Source credibility and article quality
+- Newsworthiness and significance
 
-Return JSON array with score (0-100) and category for each article:
+Also categorize each article into ONE of these categories:
+{json.dumps(list(CATEGORIES.keys()), indent=2)}
+
+Respond with ONLY a JSON array (no other text):
 [
-  {{"score": 85, "category": "ai-tech"}},
-  {{"score": 42, "category": "news"}},
-  ...
+  {{"article": 1, "score": 75, "category": "ai-tech"}},
+  {{"article": 2, "score": 45, "category": "news"}}
 ]
-Categories: local, ai-tech, climate, homelab, science, scifi, news
 
-ARTICLES TO SCORE:
-{article_list}"""
-        
-        try:
-            response = client.messages.create(
-                model="claude-sonnet-4-20250514",
-                max_tokens=500,
-                system=[
-                    {
-                        "type": "text",
-                        "text": "You are an article scoring system. Return only valid JSON array. Be strict with categorization - when in doubt, use 'news'.",
-                        "cache_control": {"type": "ephemeral"}
-                    }
-                ],
-                messages=[{
-                    "role": "user",
-                    "content": [
+Articles to evaluate:
+{articles_text}"""
+            
+            try:
+                response = client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=1000,
+                    system=[
                         {
                             "type": "text",
-                            "text": interests + category_guidance,
+                            "text": "You are a news curator. Respond only with valid JSON arrays.",
                             "cache_control": {"type": "ephemeral"}
-                        },
-                        {
-                            "type": "text",
-                            "text": f"Score these articles:\n\n{article_list}"
                         }
-                    ]
-                }]
-            )
+                    ],
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                
+                response_text = response.content[0].text.strip()
+                
+                scores = json.loads(response_text)
+                
+                timestamp = datetime.now(timezone.utc).timestamp()
+                
+                for score_data in scores:
+                    idx = score_data['article'] - 1
+                    if 0 <= idx < len(batch):
+                        article = batch[idx]
+                        article.score = score_data['score']
+                        article.category = score_data.get('category', 'news')
+                        
+                        cache[article.url_hash] = {
+                            'score': article.score,
+                            'category': article.category,
+                            'timestamp': timestamp
+                        }
+                        
+                        scored_articles.append(article)
+                
+            except json.JSONDecodeError as e:
+                print(f"  ⚠️ JSON parsing error: {e}")
+                for article in batch:
+                    article.score = 50
+                    article.category = 'news'
+                    scored_articles.append(article)
             
-            response_text = response.content[0].text.strip()
-            
-            if response_text.startswith('```'):
-                response_text = '\n'.join(response_text.split('\n')[1:-1])
-            
-            scores_data = json.loads(response_text)
-            
-            for idx, article in enumerate(uncached):
-                if idx < len(scores_data):
-                    score_data = scores_data[idx]
-                    article.score = score_data.get('score', 0)
-                    article.category = score_data.get('category', 'news')
-                    
-                    cache_key = f"{article.title}|{article.source}"
-                    cache[cache_key] = {
-                        'score': article.score,
-                        'category': article.category,
-                        'timestamp': datetime.now(timezone.utc).timestamp()
-                    }
-                else:
+            except Exception as e:
+                print(f"  ⚠️ API error: {e}")
+                for article in batch:
                     article.score = 0
                     article.category = 'news'
                 
@@ -558,7 +563,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         item = {
             "id": article.link,
             "url": article.link,
-            "title": article.title,
+            "title": f"[{article.source}] {article.title}",
             "content_html": article.description,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}]
@@ -644,12 +649,6 @@ def main():
     
     unique_articles = deduplicate_articles(all_articles)
     
-    # Fetch images for articles (hybrid: OpenGraph + favicon fallback)
-    print(f"🖼️  Fetching images for articles...")
-    unique_articles = batch_fetch_images(unique_articles, max_fetch=50)
-    images_found = sum(1 for a in unique_articles if hasattr(a, 'image') and a.image)
-    print(f"   Found images for {images_found}/{len(unique_articles)} articles")
-    
     shown_cache = load_shown_cache()
     new_articles = [a for a in unique_articles if a.url_hash not in shown_cache]
     print(f"🆕 New articles (not previously shown): {len(unique_articles)} → {len(new_articles)}")
@@ -658,6 +657,12 @@ def main():
     
     quality_articles = [a for a in scored_articles if a.score >= LIMITS['min_claude_score']]
     print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scored_articles)} → {len(quality_articles)} articles")
+    
+    # Fetch images for quality articles only (after filtering)
+    print(f"🖼️  Fetching images for quality articles...")
+    quality_articles = batch_fetch_images(quality_articles, max_fetch=50)
+    images_found = sum(1 for a in quality_articles if hasattr(a, 'image') and a.image)
+    print(f"   Found images for {images_found}/{len(quality_articles)} articles")
     
     categorized = defaultdict(list)
     for article in quality_articles:
