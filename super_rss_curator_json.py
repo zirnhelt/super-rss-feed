@@ -505,17 +505,9 @@ Articles to evaluate:
             except Exception as e:
                 print(f"  ⚠️ API error: {e}")
                 for article in batch:
-                    article.score = 0
+                    article.score = 50
                     article.category = 'news'
-                
-                scored_articles.append(article)
-            
-        except Exception as e:
-            print(f"  ⚠️ Batch scoring error: {e}")
-            for article in uncached:
-                article.score = 50
-                article.category = 'news'
-                scored_articles.append(article)
+                    scored_articles.append(article)
     
     save_scored_cache(cache)
     return scored_articles
