@@ -102,7 +102,8 @@ class Article:
         self.feed_url = feed_url
         self.score = 0
         self.category = None
-        
+        self.image = self._extract_image(entry)
+
         self.url_hash = hashlib.md5(self.link.encode()).hexdigest()
         self.title_normalized = self.title.lower().strip()
     
@@ -113,7 +114,32 @@ class Article:
         elif hasattr(entry, 'updated_parsed') and entry.updated_parsed:
             return datetime(*entry.updated_parsed[:6], tzinfo=timezone.utc)
         return datetime.now(timezone.utc)
-    
+
+    def _extract_image(self, entry) -> str:
+        """Extract image URL from feed entry metadata"""
+        # media:thumbnail (common in Media RSS)
+        thumbs = getattr(entry, 'media_thumbnail', None)
+        if thumbs and isinstance(thumbs, list) and thumbs[0].get('url'):
+            return thumbs[0]['url']
+
+        # media:content with medium="image"
+        media = getattr(entry, 'media_content', None)
+        if media and isinstance(media, list):
+            for m in media:
+                if m.get('medium') == 'image' and m.get('url'):
+                    return m['url']
+                if m.get('type', '').startswith('image/') and m.get('url'):
+                    return m['url']
+
+        # RSS enclosures with image type
+        enclosures = getattr(entry, 'enclosures', None)
+        if enclosures and isinstance(enclosures, list):
+            for enc in enclosures:
+                if enc.get('type', '').startswith('image/'):
+                    return enc.get('href') or enc.get('url', '')
+
+        return None
+
     def should_filter(self) -> bool:
         """Check if article should be filtered out"""
         text = f"{self.title} {self.description}".lower()
@@ -555,7 +581,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         item = {
             "id": article.link,
             "url": article.link,
-            "title": f"[{article.source}] {article.title}",
+            "title": article.title if article.title.startswith(f"[{article.source}]") else f"[{article.source}] {article.title}",
             "content_html": article.description,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}]
