@@ -128,6 +128,11 @@ interests = """
 - ~$0.30-0.60/month for daily runs
 - Monitor usage at https://console.anthropic.com
 
+## Contributors
+
+- [zirnhelt](https://github.com/zirnhelt) - Creator and maintainer
+- [Claude](https://claude.ai) - AI contributor
+
 ## License
 
 MIT
