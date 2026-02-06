@@ -555,7 +555,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         item = {
             "id": article.link,
             "url": article.link,
-            "title": f"[{article.source}] {article.title}",
+            "title": article.title if article.title.startswith(f"[{article.source}]") else f"[{article.source}] {article.title}",
             "content_html": article.description,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}]
