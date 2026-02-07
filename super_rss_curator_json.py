@@ -385,28 +385,55 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         return []
 
 
+def _source_priority(article: Article) -> int:
+    """Return sort key for dedup ordering. Lower = processed first = wins ties."""
+    # Local-priority articles always win
+    if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
+        return 0
+    source_map = SOURCE_PREFS.get('source_map', {})
+    source_type = source_map.get(article.source)
+    if source_type == 'print':
+        return 1
+    if source_type == 'broadcast':
+        return 3
+    return 2  # unclassified sources
+
+
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
-    """Remove duplicate articles based on URL and title similarity"""
+    """Remove duplicate articles based on URL and title similarity.
+
+    Sorts by source preference first so that local-priority and print
+    sources win when two outlets cover the same story.
+    """
+    # Preferred sources get processed first so they survive dedup
+    sorted_articles = sorted(articles, key=_source_priority)
+
     seen_urls = set()
-    seen_titles = {}
+    seen_titles = {}  # normalized_title -> Article
     unique = []
-    
-    for article in articles:
+
+    for article in sorted_articles:
         if article.url_hash in seen_urls:
             continue
-        
+
         is_duplicate = False
         for seen_title, seen_article in seen_titles.items():
             similarity = fuzz.ratio(article.title_normalized, seen_title)
             if similarity > 85:
+                # If the current article is local-priority and the already-kept
+                # one is not, swap: replace the weaker duplicate with this one.
+                if _source_priority(article) < _source_priority(seen_article):
+                    unique.remove(seen_article)
+                    seen_titles.pop(seen_title)
+                    break  # fall through to add the current article
                 is_duplicate = True
                 break
-        
+
         if not is_duplicate:
             seen_urls.add(article.url_hash)
             seen_titles[article.title_normalized] = article
             unique.append(article)
-    
+
     print(f"🔄 Deduplication: {len(articles)} → {len(unique)} articles")
     return unique
 

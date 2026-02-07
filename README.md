@@ -1,15 +1,17 @@
 # Super RSS Feed Curator
 
-AI-powered RSS aggregator that consolidates 50+ feeds into one curated feed using Claude API.
+AI-powered RSS aggregator that consolidates 80+ feeds into categorized, curated JSON feeds using Claude API.
 
 ## Features
 
-- **Aggregates** all your OPML feeds into one unified feed
-- **Deduplicates** using URL + fuzzy title matching
-- **Filters** sports, Fox News, advice columns
-- **Scores** articles with Claude API based on your interests
-- **Diversifies** output with per-source limits
-- **Outputs** top 250 articles daily
+- **Aggregates** RSS feeds from OPML + Williams Lake Tribune scraping + Google News discovery
+- **Deduplicates** using URL + fuzzy title matching, with source-aware priority (print sources win over broadcast)
+- **Filters** blocked sources and keywords (sports, advice columns, etc.)
+- **Scores** articles 0-100 with Claude API based on configurable interests
+- **Source preferences** — classify sources as print or broadcast with per-type score adjustments and article caps
+- **Categorizes** into 7 feeds: local, ai-tech, climate, homelab, science, scifi, news
+- **Diversifies** output with per-source limits that respect source type
+- **Caches** scored articles to minimize API calls (~80-90% cache hit rate)
 
 ## Setup
 
@@ -19,14 +21,7 @@ Click "Fork" on GitHub to create your own copy.
 
 ### 2. Add your OPML file
 
-Replace `feeds.opml` with your RSS feed list:
-
-```bash
-# Either use the enhanced categorized version or your Feedly export
-cp enhanced_feed_list_categorized.opml feeds.opml
-# OR
-cp feedly-*.opml feeds.opml
-```
+Replace `feeds.opml` with your RSS feed list, or edit the existing one.
 
 ### 3. Set up API key
 
@@ -48,29 +43,73 @@ cp feedly-*.opml feeds.opml
 2. Click "Generate Super RSS Feed"
 3. Click "Run workflow"
 
-Your feed will be available at:
+Your feeds will be available at:
 ```
-https://YOUR-USERNAME.github.io/super-rss-feed/super-feed.xml
+https://YOUR-USERNAME.github.io/super-rss-feed/feed-local.json
+https://YOUR-USERNAME.github.io/super-rss-feed/feed-news.json
+https://YOUR-USERNAME.github.io/super-rss-feed/feed-ai-tech.json
+...
 ```
 
 ## Configuration
 
-Edit `super_rss_curator.py` to customize:
+All configuration lives in the `config/` directory:
 
-```python
-MAX_ARTICLES_OUTPUT = 250      # Number of articles in output
-MAX_PER_SOURCE = 5             # Max articles per source
-LOOKBACK_HOURS = 48            # How far back to fetch
-MIN_CLAUDE_SCORE = 30          # Minimum relevance score
+| File | Purpose |
+|------|---------|
+| `limits.json` | Feed size, retention, per-source caps, score thresholds |
+| `filters.json` | Blocked sources and keywords |
+| `categories.json` | Category definitions (name, emoji, description) |
+| `category_rules.json` | Include/exclude keyword rules for categorization |
+| `scoring_interests.txt` | Claude scoring prompt with interest hierarchy |
+| `source_preferences.json` | Source type classifications and per-type preferences |
+| `feeds.json` | Output feed metadata (titles, descriptions, base URL) |
+| `system.json` | Cache settings, URLs, lookback window |
 
-# Add/remove blocked sources
-BLOCKED_SOURCES = ["fox news", "foxnews"]
+### Source preferences
 
-# Add/remove blocked keywords
-BLOCKED_KEYWORDS = [
-    "nfl", "nba", "mlb", "nhl",
-    "dear abby", "ask amy"
-]
+`config/source_preferences.json` lets you classify sources by type and set per-type behavior:
+
+```json
+{
+  "source_types": {
+    "broadcast": {
+      "score_adjustment": -15,
+      "max_per_source": 3
+    },
+    "print": {
+      "score_adjustment": 5,
+      "max_per_source": 10
+    }
+  },
+  "source_map": {
+    "CFJC Today Kamloops": "broadcast",
+    "CTV News": "broadcast",
+    "Williams Lake Tribune": "print",
+    "The Tyee": "print"
+  }
+}
+```
+
+Sources not in the map use the defaults from `limits.json` (8 per source, no score adjustment).
+
+### Scoring interests
+
+Edit `config/scoring_interests.txt` to set your interest hierarchy:
+
+```
+PRIMARY INTERESTS (Score 70-100):
+- AI/ML infrastructure and telemetry
+- Climate tech and renewable energy
+- Williams Lake and Cariboo local news
+
+SECONDARY INTERESTS (Score 40-69):
+- Systems thinking and complex systems
+- Homelab and self-hosting
+
+AVOID (Score 0-20):
+- Celebrity news, gossip
+- Sports coverage
 ```
 
 ## Local Testing
@@ -83,33 +122,23 @@ pip install -r requirements.txt
 export ANTHROPIC_API_KEY='your-key-here'
 
 # Run
-python super_rss_curator.py feeds.opml
+python super_rss_curator_json.py feeds.opml
 
-# Check output
-open super-feed.xml
+# Validate config
+python config_loader.py
 ```
 
 ## How It Works
 
-1. **Fetch**: Pulls articles from all OPML feeds (last 48 hours)
-2. **Filter**: Removes sports, Fox News, advice columns
-3. **Dedupe**: Eliminates duplicates by URL and fuzzy title matching
-4. **Score**: Claude API rates each article 0-100 based on your interests
-5. **Diversify**: Limits articles per source (default: 5 max)
-6. **Output**: Top 250 articles sorted by relevance score
-
-## Customizing Interests
-
-Edit the `interests` string in `score_articles_with_claude()`:
-
-```python
-interests = """
-- AI/ML infrastructure and telemetry
-- Systems thinking and complex systems
-- Climate tech and sustainability
-- Your interests here...
-"""
-```
+1. **Fetch** — Pulls articles from all OPML feeds + scrapes Williams Lake Tribune (last 48 hours)
+2. **Filter** — Removes blocked sources and keywords
+3. **Deduplicate** — Eliminates duplicates by URL and fuzzy title matching; preferred sources (local, then print) win ties
+4. **Score** — Claude API rates each article 0-100 based on your interests; cached for 6 hours
+5. **Source preferences** — Adjusts scores by source type (print boost, broadcast penalty)
+6. **Quality filter** — Drops articles below minimum score threshold
+7. **Categorize** — Assigns articles to 7 category feeds using keyword rules
+8. **Diversify** — Limits articles per source, with per-type caps from source preferences
+9. **Output** — Generates JSON Feed 1.1 files and OPML index
 
 ## Troubleshooting
 
@@ -119,13 +148,18 @@ interests = """
 - Ensure GitHub Pages is enabled on `gh-pages` branch
 
 **Too many/few articles?**
-- Adjust `MAX_ARTICLES_OUTPUT`
-- Change `MIN_CLAUDE_SCORE` threshold
-- Modify `MAX_PER_SOURCE` limits
+- Adjust `max_feed_size` in `config/limits.json`
+- Change `min_claude_score` threshold
+- Modify `max_per_source` limits
+
+**Too much broadcast news?**
+- Increase the broadcast `score_adjustment` penalty in `config/source_preferences.json`
+- Lower the broadcast `max_per_source` cap
+- Add more sources to the broadcast list in `source_map`
 
 **Claude API costs?**
-- ~0.5-2 cents per run with 250 articles
-- ~$0.30-0.60/month for daily runs
+- ~0.5-2 cents per run depending on cache hit rate
+- Scored article cache reduces API calls by 65-90%
 - Monitor usage at https://console.anthropic.com
 
 ## Contributors
