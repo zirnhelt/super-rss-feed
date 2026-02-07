@@ -35,6 +35,11 @@ def load_feeds_config() -> Dict:
     with open(CONFIG_DIR / "feeds.json", 'r') as f:
         return json.load(f)
 
+def load_source_preferences() -> Dict:
+    """Load source preferences (source type classifications and per-type limits)."""
+    with open(CONFIG_DIR / "source_preferences.json", 'r') as f:
+        return json.load(f)
+
 def load_scoring_interests() -> str:
     """Load Claude scoring interests as plain text."""
     with open(CONFIG_DIR / "scoring_interests.txt", 'r') as f:
@@ -75,6 +80,16 @@ def get_cache_file(cache_type: str) -> str:
     system = load_system_config()
     return system['cache_files'].get(cache_type, f'{cache_type}_cache.json')
 
+def get_source_type(source_name: str) -> Optional[str]:
+    """Get the source type (print, broadcast, etc.) for a given source name."""
+    prefs = load_source_preferences()
+    return prefs.get('source_map', {}).get(source_name)
+
+def get_source_type_config(source_type: str) -> Dict:
+    """Get configuration for a source type (score_adjustment, max_per_source)."""
+    prefs = load_source_preferences()
+    return prefs.get('source_types', {}).get(source_type, {})
+
 def get_all_config() -> Dict:
     """Load all configuration at once."""
     return {
@@ -83,7 +98,8 @@ def get_all_config() -> Dict:
         'filters': load_filters_config(),
         'categories': load_categories_config(),
         'feeds': load_feeds_config(),
-        'scoring_interests': load_scoring_interests()
+        'scoring_interests': load_scoring_interests(),
+        'source_preferences': load_source_preferences()
     }
 
 def validate_config() -> Dict[str, List[str]]:
@@ -171,14 +187,48 @@ def validate_config() -> Dict[str, List[str]]:
     
     try:
         interests = load_scoring_interests()
-        
+
         # Check it's not empty
         if not interests.strip():
             errors['scoring_interests.txt'] = ["File is empty"]
-            
+
     except Exception as e:
         errors['scoring_interests.txt'] = [f"Failed to load: {str(e)}"]
-    
+
+    try:
+        prefs = load_source_preferences()
+
+        # Check structure
+        if 'source_types' not in prefs:
+            errors.setdefault('source_preferences.json', []).append("Missing 'source_types' key")
+        elif not isinstance(prefs['source_types'], dict):
+            errors.setdefault('source_preferences.json', []).append("'source_types' must be dict")
+        else:
+            for type_name, type_config in prefs['source_types'].items():
+                if 'score_adjustment' in type_config and not isinstance(type_config['score_adjustment'], (int, float)):
+                    errors.setdefault('source_preferences.json', []).append(
+                        f"source_types.{type_name}.score_adjustment must be a number"
+                    )
+                if 'max_per_source' in type_config and (not isinstance(type_config['max_per_source'], int) or type_config['max_per_source'] < 1):
+                    errors.setdefault('source_preferences.json', []).append(
+                        f"source_types.{type_name}.max_per_source must be a positive integer"
+                    )
+
+        if 'source_map' not in prefs:
+            errors.setdefault('source_preferences.json', []).append("Missing 'source_map' key")
+        elif not isinstance(prefs['source_map'], dict):
+            errors.setdefault('source_preferences.json', []).append("'source_map' must be dict")
+        else:
+            valid_types = set(prefs.get('source_types', {}).keys())
+            for source_name, source_type in prefs['source_map'].items():
+                if source_type not in valid_types:
+                    errors.setdefault('source_preferences.json', []).append(
+                        f"Source '{source_name}' has unknown type '{source_type}'"
+                    )
+
+    except Exception as e:
+        errors['source_preferences.json'] = [f"Failed to load: {str(e)}"]
+
     return errors
 
 if __name__ == "__main__":

@@ -1,0 +1,33 @@
+{
+  "source_types": {
+    "broadcast": {
+      "score_adjustment": -15,
+      "max_per_source": 3,
+      "description": "TV and radio news outlets - reduce dominance in feed"
+    },
+    "print": {
+      "score_adjustment": 5,
+      "max_per_source": 10,
+      "description": "Newspapers and print-first publications - preferred sources"
+    }
+  },
+  "source_map": {
+    "CFJC Today Kamloops": "broadcast",
+    "CTV News": "broadcast",
+    "Global News": "broadcast",
+    "Williams Lake Tribune": "print",
+    "The Tyee": "print",
+    "The Narwhal": "print",
+    "The Breach": "print",
+    "The Maple": "print",
+    "IndigiNews": "print",
+    "AP News": "print",
+    "Reuters Top News": "print",
+    "NYT Business": "print",
+    "NYT Top Stories": "print",
+    "The Guardian Global Development": "print",
+    "The Atlantic Culture": "print",
+    "Scientific American": "print",
+    "BC Gov News": "print"
+  }
+}
