@@ -70,6 +70,12 @@ LIMITS = load_limits()
 SYSTEM = load_system_config()
 FEEDS_CONFIG = load_feeds_config()
 
+def load_source_preferences():
+    """Load source type preferences"""
+    return load_json_config('source_preferences.json')
+
+SOURCE_PREFS = load_source_preferences()
+
 # Cache files
 SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
 WLT_CACHE_FILE = SYSTEM['cache_files']['wlt']
@@ -539,23 +545,52 @@ Articles to evaluate:
     return scored_articles
 
 
+def apply_source_preferences(articles: List[Article]) -> List[Article]:
+    """Apply score adjustments based on source type preferences (print vs broadcast)"""
+    source_map = SOURCE_PREFS.get('source_map', {})
+    source_types = SOURCE_PREFS.get('source_types', {})
+    adjusted_count = 0
+
+    for article in articles:
+        source_type = source_map.get(article.source)
+        if source_type and source_type in source_types:
+            adjustment = source_types[source_type].get('score_adjustment', 0)
+            if adjustment != 0:
+                article.score = max(0, min(100, article.score + adjustment))
+                adjusted_count += 1
+
+    if adjusted_count:
+        print(f"📰 Source preferences: adjusted scores for {adjusted_count} articles")
+    return articles
+
+
 def apply_diversity_limits(articles: List[Article], category: str) -> List[Article]:
-    """Limit articles per source to ensure diversity"""
+    """Limit articles per source to ensure diversity, respecting source type preferences"""
     if category == 'local':
-        max_per_source = LIMITS['max_per_local']
+        default_max = LIMITS['max_per_local']
     else:
-        max_per_source = LIMITS['max_per_source']
-    
+        default_max = LIMITS['max_per_source']
+
+    source_map = SOURCE_PREFS.get('source_map', {})
+    source_types = SOURCE_PREFS.get('source_types', {})
+
     source_counts = defaultdict(int)
     diverse_articles = []
-    
+
     sorted_articles = sorted(articles, key=lambda a: a.score, reverse=True)
-    
+
     for article in sorted_articles:
-        if source_counts[article.source] < max_per_source:
+        # Determine per-source limit: use source type override if available
+        source_type = source_map.get(article.source)
+        if source_type and source_type in source_types:
+            max_for_source = source_types[source_type].get('max_per_source', default_max)
+        else:
+            max_for_source = default_max
+
+        if source_counts[article.source] < max_for_source:
             diverse_articles.append(article)
             source_counts[article.source] += 1
-    
+
     print(f"📊 Diversity filter ({category}): {len(articles)} → {len(diverse_articles)} articles")
     return diverse_articles
 
@@ -672,7 +707,9 @@ def main():
     print(f"🆕 New articles (not previously shown): {len(unique_articles)} → {len(new_articles)}")
     
     scored_articles = score_articles_with_claude(new_articles, api_key)
-    
+
+    scored_articles = apply_source_preferences(scored_articles)
+
     quality_articles = [a for a in scored_articles if a.score >= LIMITS['min_claude_score']]
     print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scored_articles)} → {len(quality_articles)} articles")
     
