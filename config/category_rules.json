@@ -1,9 +1,9 @@
 {
   "local": {
-    "include": ["Williams Lake", "Cariboo", "Quesnel", "BC Interior", "Tribune"],
-    "exclude": [],
+    "include": ["Williams Lake", "Cariboo", "Quesnel", "100 Mile House", "Horsefly", "Lac la Hache", "Tribune"],
+    "exclude": ["Kamloops", "Kelowna", "Penticton", "Vernon"],
     "always_priority": true,
-    "description": "Anything about Williams Lake, Cariboo region, or BC Interior"
+    "description": "Williams Lake and Cariboo region local news only"
   },
   "ai-tech": {
     "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure"],
