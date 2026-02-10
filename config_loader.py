@@ -148,6 +148,13 @@ def validate_config() -> Dict[str, List[str]]:
                 errors.setdefault('filters.json', []).append(f"{key} must be list")
             elif not all(isinstance(x, str) for x in filters[key]):
                 errors.setdefault('filters.json', []).append(f"{key} must contain only strings")
+        # Optional lists: blocked_keywords_unless_local, local_signals
+        for key in ['blocked_keywords_unless_local', 'local_signals']:
+            if key in filters:
+                if not isinstance(filters[key], list):
+                    errors.setdefault('filters.json', []).append(f"{key} must be list")
+                elif not all(isinstance(x, str) for x in filters[key]):
+                    errors.setdefault('filters.json', []).append(f"{key} must contain only strings")
                 
     except Exception as e:
         errors['filters.json'] = [f"Failed to load: {str(e)}"]

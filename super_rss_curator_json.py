@@ -149,14 +149,21 @@ class Article:
     def should_filter(self) -> bool:
         """Check if article should be filtered out"""
         text = f"{self.title} {self.description}".lower()
-        
+
         source_lower = self.source.lower()
         if any(blocked in source_lower for blocked in FILTERS['blocked_sources']):
             return True
-        
+
         if any(keyword in text for keyword in FILTERS['blocked_keywords']):
             return True
-        
+
+        # Arts/entertainment keywords are skipped when article mentions local places
+        nonlocal_keywords = FILTERS.get('blocked_keywords_unless_local', [])
+        if nonlocal_keywords:
+            is_local = any(signal in text for signal in FILTERS.get('local_signals', []))
+            if not is_local and any(keyword in text for keyword in nonlocal_keywords):
+                return True
+
         return False
 
 
