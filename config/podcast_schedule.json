@@ -9,7 +9,8 @@
         "arts", "culture", "festival", "storytelling", "creative", "media",
         "digital storytelling", "theatre", "theater", "gallery", "film",
         "music", "literary", "poetry", "museum", "cultural", "animation",
-        "podcast", "streaming", "publishing", "artist"
+        "podcast", "streaming", "publishing", "artist",
+        "community media", "local storytelling", "rural creative", "digital equity"
       ]
     },
     "tuesday": {
@@ -32,7 +33,9 @@
         "governance", "city hall", "bylaw", "budget", "network", "broadband",
         "election", "mayor", "councillor", "regional district", "zoning",
         "infrastructure", "public service", "transit", "library", "hospital",
-        "RCMP", "fire department", "water system", "sewer"
+        "RCMP", "fire department", "water system", "sewer",
+        "civic tech", "digital services", "rural broadband", "community network",
+        "municipal technology", "open data", "smart city rural"
       ]
     },
     "thursday": {
@@ -45,7 +48,9 @@
         "nation", "Aboriginal", "elder", "traditional knowledge", "title",
         "rights", "self-governance", "cultural heritage", "ceremony",
         "residential school", "UNDRIP", "duty to consult", "land claim",
-        "guardian", "stewardship", "Nenqay Deni Accord"
+        "guardian", "stewardship", "Nenqay Deni Accord",
+        "Indigenous technology", "language technology", "remote monitoring",
+        "land management tech", "guardian program", "community mapping"
       ]
     },
     "friday": {
@@ -69,7 +74,8 @@
         "Cariboo", "community", "digital equity", "volunteer", "non-profit",
         "fundraiser", "event", "Horsefly", "Lac la Hache", "Likely",
         "Anahim Lake", "Alexis Creek", "Nazko", "Wells", "Barkerville",
-        "Stampede", "rodeo", "local business", "main street"
+        "Stampede", "rodeo", "local business", "main street",
+        "community technology", "local connectivity", "rural internet"
       ]
     },
     "sunday": {
@@ -81,13 +87,16 @@
         "rural", "broadband", "solar", "preparedness", "community",
         "off-grid", "renewable", "climate adaptation", "emergency",
         "food security", "water", "energy", "housing", "affordability",
-        "remote work", "telehealth", "co-op", "mutual aid", "future"
+        "remote work", "telehealth", "co-op", "mutual aid", "future",
+        "rural technology", "community resilience", "off-grid tech",
+        "mesh network", "Meshtastic", "self-hosted", "disaster tech"
       ]
     }
   },
   "max_articles": 10,
   "min_score": 25,
   "keyword_boost": 15,
+  "ai_tech_no_context_penalty": 30,
   "include_top_from_other": 2,
   "other_min_score": 70
 }
