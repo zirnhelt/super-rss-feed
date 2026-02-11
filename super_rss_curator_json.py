@@ -680,11 +680,20 @@ def load_podcast_schedule():
         return None
 
 
+def _keyword_match_count(text: str, keywords: List[str]) -> int:
+    """Count how many keywords appear in the text (case-insensitive)."""
+    text_lower = text.lower()
+    return sum(1 for kw in keywords if kw.lower() in text_lower)
+
+
 def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str, List[Article]]):
     """Generate a daily themed podcast feed based on the podcast schedule.
 
-    Selects the top articles from today's theme category, optionally blending
-    in a few high-scoring articles from other categories as bonus picks.
+    Each day has a specific theme with associated categories and keywords.
+    Articles from the relevant categories are scored with a keyword boost
+    for strong theme relevance, then the top articles are selected.
+    Articles from outside the theme categories can still appear as bonus
+    picks if they score high enough.
     """
     schedule_config = load_podcast_schedule()
     if not schedule_config or not schedule_config.get('enabled', False):
@@ -700,43 +709,59 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     today = schedule[day_name]
     theme_categories = today['categories']
     theme_label = today['label']
+    theme_description = today.get('description', '')
+    theme_keywords = today.get('keywords', [])
     max_articles = schedule_config.get('max_articles', 10)
-    min_score = schedule_config.get('min_score', 30)
+    min_score = schedule_config.get('min_score', 25)
+    keyword_boost = schedule_config.get('keyword_boost', 15)
     include_bonus = schedule_config.get('include_top_from_other', 0)
     bonus_min_score = schedule_config.get('other_min_score', 70)
 
     # Collect articles from today's theme categories
-    theme_articles = []
+    theme_pool = []
+    theme_set = set(theme_categories)
     for cat in theme_categories:
-        theme_articles.extend(categorized.get(cat, []))
+        theme_pool.extend(categorized.get(cat, []))
 
-    # Filter by minimum score and sort by score descending
-    theme_articles = [a for a in theme_articles if a.score >= min_score]
-    theme_articles.sort(key=lambda a: a.score, reverse=True)
-    theme_articles = theme_articles[:max_articles]
+    # Apply keyword boost: articles matching theme keywords get a score bump
+    scored_pool = []
+    for article in theme_pool:
+        if article.score < min_score:
+            continue
+        text = f"{article.title} {article.description}"
+        matches = _keyword_match_count(text, theme_keywords)
+        boosted_score = article.score + (keyword_boost if matches > 0 else 0)
+        scored_pool.append((article, boosted_score, matches))
+
+    # Sort by boosted score descending, then by keyword matches as tiebreaker
+    scored_pool.sort(key=lambda x: (x[1], x[2]), reverse=True)
+    theme_articles = [(a, bs, m) for a, bs, m in scored_pool[:max_articles]]
 
     # Optionally include top articles from other categories as bonus picks
-    bonus_articles = []
+    bonus_entries = []
     if include_bonus > 0:
-        theme_set = set(theme_categories)
         other = []
         for cat, articles in categorized.items():
             if cat not in theme_set:
                 other.extend(articles)
         other = [a for a in other if a.score >= bonus_min_score]
         other.sort(key=lambda a: a.score, reverse=True)
-        # Exclude any already in theme_articles by URL
-        theme_urls = {a.link for a in theme_articles}
-        bonus_articles = [a for a in other if a.link not in theme_urls][:include_bonus]
+        theme_urls = {a.link for a, _, _ in theme_articles}
+        for a in other:
+            if a.link not in theme_urls:
+                bonus_entries.append((a, a.score, 0))
+                if len(bonus_entries) >= include_bonus:
+                    break
 
-    podcast_articles = theme_articles + bonus_articles
+    all_entries = theme_articles + bonus_entries
 
-    if not podcast_articles:
+    if not all_entries:
         print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
         return
 
     # Build the JSON Feed with podcast-specific metadata
     feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
+    bonus_urls = {a.link for a, _, _ in bonus_entries}
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": f"🎙️ {theme_label}",
@@ -748,17 +773,19 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
         "language": "en",
         "_podcast": {
             "theme": theme_label,
+            "theme_description": theme_description,
             "theme_categories": theme_categories,
             "day": day_name,
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "article_count": len(podcast_articles),
-            "bonus_count": len(bonus_articles)
+            "article_count": len(all_entries),
+            "bonus_count": len(bonus_entries),
+            "keyword_boost": keyword_boost
         },
         "items": []
     }
 
-    for article in podcast_articles:
-        is_bonus = article in bonus_articles
+    for article, boosted_score, kw_matches in all_entries:
+        is_bonus = article.link in bonus_urls
         item = {
             "id": article.link,
             "url": article.link,
@@ -767,6 +794,8 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}],
             "_score": article.score,
+            "_boosted_score": boosted_score,
+            "_keyword_matches": kw_matches,
             "_category": article.category,
             "_is_bonus": is_bonus
         }
@@ -778,7 +807,8 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     with open('feed-podcast.json', 'w', encoding='utf-8') as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
-    print(f"🎙️ Podcast feed ({theme_label}): {len(theme_articles)} theme + {len(bonus_articles)} bonus articles")
+    theme_with_kw = sum(1 for _, _, m in theme_articles if m > 0)
+    print(f"🎙️ Podcast feed ({theme_label}): {len(theme_articles)} theme ({theme_with_kw} keyword-boosted) + {len(bonus_entries)} bonus")
 
 
 def generate_opml():
