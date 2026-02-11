@@ -717,6 +717,21 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     include_bonus = schedule_config.get('include_top_from_other', 0)
     bonus_min_score = schedule_config.get('other_min_score', 70)
 
+    # Rural/local context signals — ai-tech articles without these get penalized
+    # in the podcast to keep the feed locally grounded
+    rural_context_signals = [
+        "rural", "community", "small town", "local", "municipal", "civic",
+        "off-grid", "remote", "broadband", "connectivity", "digital equity",
+        "precision agriculture", "farm", "forestry", "ranch", "mining",
+        "wildfire", "emergency", "telehealth", "education", "indigenous",
+        "first nation", "co-op", "cooperative", "volunteer", "non-profit",
+        "williams lake", "cariboo", "quesnel", "100 mile house",
+        "horsefly", "lac la hache", "chilcotin", "bella coola",
+        "resource", "homestead", "self-hosted", "mesh network", "meshtastic",
+        "lora", "solar", "off grid", "preparedness", "resilience",
+    ]
+    ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
+
     # Collect articles from today's theme categories
     theme_pool = []
     theme_set = set(theme_categories)
@@ -724,6 +739,7 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
         theme_pool.extend(categorized.get(cat, []))
 
     # Apply keyword boost: articles matching theme keywords get a score bump
+    # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
     scored_pool = []
     for article in theme_pool:
         if article.score < min_score:
@@ -731,6 +747,13 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
         text = f"{article.title} {article.description}"
         matches = _keyword_match_count(text, theme_keywords)
         boosted_score = article.score + (keyword_boost if matches > 0 else 0)
+
+        # Penalize ai-tech articles that lack rural/local context
+        if article.category == 'ai-tech':
+            has_rural_context = _keyword_match_count(text, rural_context_signals) > 0
+            if not has_rural_context:
+                boosted_score -= ai_tech_penalty
+
         scored_pool.append((article, boosted_score, matches))
 
     # Sort by boosted score descending, then by keyword matches as tiebreaker
