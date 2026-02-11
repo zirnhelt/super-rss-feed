@@ -32,7 +32,7 @@ jobs:
       - name: Download existing feeds from GitHub Pages
         run: |
           echo "Downloading existing feeds from gh-pages..."
-          for feed in local ai-tech climate homelab news science scifi; do
+          for feed in local ai-tech climate homelab news science scifi podcast; do
             wget -q "https://zirnhelt.github.io/super-rss-feed/feed-${feed}.json" -O "feed-${feed}.json" || echo "No existing feed-${feed}.json"
           done
           echo "Download complete. Feed sizes:"

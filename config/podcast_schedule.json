@@ -1,0 +1,93 @@
+{
+  "enabled": true,
+  "schedule": {
+    "monday": {
+      "label": "Arts, Culture & Digital Storytelling",
+      "description": "Local arts scene, festivals, creative economy, media, and cultural tech",
+      "categories": ["local", "scifi", "news", "ai-tech"],
+      "keywords": [
+        "arts", "culture", "festival", "storytelling", "creative", "media",
+        "digital storytelling", "theatre", "theater", "gallery", "film",
+        "music", "literary", "poetry", "museum", "cultural", "animation",
+        "podcast", "streaming", "publishing", "artist"
+      ]
+    },
+    "tuesday": {
+      "label": "Working Lands & Industry",
+      "description": "Cariboo forestry, ranching, mining, agriculture — tech in the resource economy",
+      "categories": ["local", "climate", "news", "science"],
+      "keywords": [
+        "forestry", "ranching", "mining", "agriculture", "lumber", "cattle",
+        "resource", "mill", "sawmill", "logging", "farm", "timber",
+        "ranch", "grazing", "hay", "crop", "harvest", "pulp",
+        "industrial", "workforce", "commodity", "export", "trade"
+      ]
+    },
+    "wednesday": {
+      "label": "Community Tech & Governance",
+      "description": "SD27, CRD, Williams Lake council, municipal networks, civic innovation",
+      "categories": ["local", "ai-tech", "news", "homelab"],
+      "keywords": [
+        "school district", "SD27", "CRD", "council", "municipal", "civic",
+        "governance", "city hall", "bylaw", "budget", "network", "broadband",
+        "election", "mayor", "councillor", "regional district", "zoning",
+        "infrastructure", "public service", "transit", "library", "hospital",
+        "RCMP", "fire department", "water system", "sewer"
+      ]
+    },
+    "thursday": {
+      "label": "Indigenous Lands & Innovation",
+      "description": "Tŝilhqot'in, Secwépemc, Dakelh — language, governance, land stewardship, and tech",
+      "categories": ["local", "ai-tech", "science", "news", "climate"],
+      "keywords": [
+        "Tŝilhqot'in", "Secwépemc", "Dakelh", "Indigenous", "First Nation",
+        "language revitalization", "land stewardship", "treaty", "reconciliation",
+        "nation", "Aboriginal", "elder", "traditional knowledge", "title",
+        "rights", "self-governance", "cultural heritage", "ceremony",
+        "residential school", "UNDRIP", "duty to consult", "land claim",
+        "guardian", "stewardship", "Nenqay Deni Accord"
+      ]
+    },
+    "friday": {
+      "label": "Wild Spaces & Outdoor Life",
+      "description": "Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate",
+      "categories": ["local", "climate", "science", "news"],
+      "keywords": [
+        "wilderness", "backcountry", "recreation", "conservation", "wildfire",
+        "wildlife", "outdoor", "trail", "park", "Chilcotin", "camping",
+        "hunting", "fishing", "bear", "caribou", "salmon", "watershed",
+        "forest fire", "BC Wildfire", "evacuation", "drought", "flood",
+        "hiking", "rafting", "lake", "river", "mountain"
+      ]
+    },
+    "saturday": {
+      "label": "Cariboo Voices & Local News",
+      "description": "Williams Lake, Quesnel, 100 Mile House, Bella Coola — community stories and digital equity",
+      "categories": ["local", "news", "homelab", "ai-tech"],
+      "keywords": [
+        "Williams Lake", "Quesnel", "100 Mile House", "Bella Coola",
+        "Cariboo", "community", "digital equity", "volunteer", "non-profit",
+        "fundraiser", "event", "Horsefly", "Lac la Hache", "Likely",
+        "Anahim Lake", "Alexis Creek", "Nazko", "Wells", "Barkerville",
+        "Stampede", "rodeo", "local business", "main street"
+      ]
+    },
+    "sunday": {
+      "label": "Resilient Rural Futures",
+      "description": "Infrastructure, connectivity, sustainability, and preparing Cariboo communities for change",
+      "categories": ["local", "climate", "homelab", "ai-tech", "science"],
+      "keywords": [
+        "infrastructure", "connectivity", "sustainability", "resilience",
+        "rural", "broadband", "solar", "preparedness", "community",
+        "off-grid", "renewable", "climate adaptation", "emergency",
+        "food security", "water", "energy", "housing", "affordability",
+        "remote work", "telehealth", "co-op", "mutual aid", "future"
+      ]
+    }
+  },
+  "max_articles": 10,
+  "min_score": 25,
+  "keyword_boost": 15,
+  "include_top_from_other": 2,
+  "other_min_score": 70
+}
