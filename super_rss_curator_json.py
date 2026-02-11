@@ -671,6 +671,116 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
     print(f"✅ Generated {category} feed: {len(feed['items'])} articles")
 
 
+def load_podcast_schedule():
+    """Load podcast schedule configuration"""
+    try:
+        return load_json_config('podcast_schedule.json')
+    except SystemExit:
+        print("⚠️ podcast_schedule.json not found, skipping podcast feed")
+        return None
+
+
+def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str, List[Article]]):
+    """Generate a daily themed podcast feed based on the podcast schedule.
+
+    Selects the top articles from today's theme category, optionally blending
+    in a few high-scoring articles from other categories as bonus picks.
+    """
+    schedule_config = load_podcast_schedule()
+    if not schedule_config or not schedule_config.get('enabled', False):
+        return
+
+    schedule = schedule_config['schedule']
+    day_name = datetime.now(timezone.utc).strftime('%A').lower()
+
+    if day_name not in schedule:
+        print(f"⚠️ No podcast schedule entry for {day_name}")
+        return
+
+    today = schedule[day_name]
+    theme_categories = today['categories']
+    theme_label = today['label']
+    max_articles = schedule_config.get('max_articles', 10)
+    min_score = schedule_config.get('min_score', 30)
+    include_bonus = schedule_config.get('include_top_from_other', 0)
+    bonus_min_score = schedule_config.get('other_min_score', 70)
+
+    # Collect articles from today's theme categories
+    theme_articles = []
+    for cat in theme_categories:
+        theme_articles.extend(categorized.get(cat, []))
+
+    # Filter by minimum score and sort by score descending
+    theme_articles = [a for a in theme_articles if a.score >= min_score]
+    theme_articles.sort(key=lambda a: a.score, reverse=True)
+    theme_articles = theme_articles[:max_articles]
+
+    # Optionally include top articles from other categories as bonus picks
+    bonus_articles = []
+    if include_bonus > 0:
+        theme_set = set(theme_categories)
+        other = []
+        for cat, articles in categorized.items():
+            if cat not in theme_set:
+                other.extend(articles)
+        other = [a for a in other if a.score >= bonus_min_score]
+        other.sort(key=lambda a: a.score, reverse=True)
+        # Exclude any already in theme_articles by URL
+        theme_urls = {a.link for a in theme_articles}
+        bonus_articles = [a for a in other if a.link not in theme_urls][:include_bonus]
+
+    podcast_articles = theme_articles + bonus_articles
+
+    if not podcast_articles:
+        print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
+        return
+
+    # Build the JSON Feed with podcast-specific metadata
+    feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
+    feed = {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": f"🎙️ {theme_label}",
+        "home_page_url": FEEDS_CONFIG['base_url'],
+        "feed_url": f"{FEEDS_CONFIG['base_url']}/feed-podcast.json",
+        "description": feed_config.get('description', 'Daily themed podcast feed'),
+        "icon": f"{FEEDS_CONFIG['base_url']}/favicon.ico",
+        "authors": [{"name": FEEDS_CONFIG['author']}],
+        "language": "en",
+        "_podcast": {
+            "theme": theme_label,
+            "theme_categories": theme_categories,
+            "day": day_name,
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "article_count": len(podcast_articles),
+            "bonus_count": len(bonus_articles)
+        },
+        "items": []
+    }
+
+    for article in podcast_articles:
+        is_bonus = article in bonus_articles
+        item = {
+            "id": article.link,
+            "url": article.link,
+            "title": article.title if article.title.startswith(f"[{article.source}]") else f"[{article.source}] {article.title}",
+            "content_html": article.description,
+            "date_published": article.pub_date.isoformat(),
+            "authors": [{"name": article.source, "url": article.source_url}],
+            "_score": article.score,
+            "_category": article.category,
+            "_is_bonus": is_bonus
+        }
+        if hasattr(article, 'image') and article.image:
+            item["image"] = article.image
+            item["content_html"] = f'<img src="{article.image}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
+        feed["items"].append(item)
+
+    with open('feed-podcast.json', 'w', encoding='utf-8') as f:
+        json.dump(feed, f, indent=2, ensure_ascii=False)
+
+    print(f"🎙️ Podcast feed ({theme_label}): {len(theme_articles)} theme + {len(bonus_articles)} bonus articles")
+
+
 def generate_opml():
     """Generate OPML file with all category feeds"""
     import xml.etree.ElementTree as ET
@@ -763,6 +873,9 @@ def main():
         count = len(categorized[cat_key])
         print(f"  {cat_key}: {count} articles")
     
+    # Generate the daily podcast feed from categorized articles
+    generate_podcast_feed(quality_articles, categorized)
+
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
     retention_cutoff = datetime.now(timezone.utc) - timedelta(days=retention_days)

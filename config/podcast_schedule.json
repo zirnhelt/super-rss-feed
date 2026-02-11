@@ -1,0 +1,37 @@
+{
+  "enabled": true,
+  "schedule": {
+    "monday": {
+      "categories": ["ai-tech"],
+      "label": "AI & Tech Monday"
+    },
+    "tuesday": {
+      "categories": ["climate"],
+      "label": "Climate & Energy Tuesday"
+    },
+    "wednesday": {
+      "categories": ["science"],
+      "label": "Science Wednesday"
+    },
+    "thursday": {
+      "categories": ["homelab"],
+      "label": "Homelab & DIY Thursday"
+    },
+    "friday": {
+      "categories": ["local"],
+      "label": "Local News Friday"
+    },
+    "saturday": {
+      "categories": ["scifi"],
+      "label": "Sci-Fi Saturday"
+    },
+    "sunday": {
+      "categories": ["news"],
+      "label": "Week in Review"
+    }
+  },
+  "max_articles": 10,
+  "min_score": 30,
+  "include_top_from_other": 2,
+  "other_min_score": 70
+}
