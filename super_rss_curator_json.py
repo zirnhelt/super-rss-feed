@@ -740,13 +740,19 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
 
     # Apply keyword boost: articles matching theme keywords get a score bump
     # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
+    keyword_boost_cap = schedule_config.get('keyword_boost_cap', 3)
+    no_match_penalty = schedule_config.get('no_match_penalty', 10)
     scored_pool = []
     for article in theme_pool:
         if article.score < min_score:
             continue
         text = f"{article.title} {article.description}"
         matches = _keyword_match_count(text, theme_keywords)
-        boosted_score = article.score + (keyword_boost if matches > 0 else 0)
+        # Scale boost by number of keyword matches (capped) for stronger theme signal
+        if matches > 0:
+            boosted_score = article.score + keyword_boost * min(matches, keyword_boost_cap)
+        else:
+            boosted_score = article.score - no_match_penalty
 
         # Penalize ai-tech articles that lack rural/local context
         if article.category == 'ai-tech':
