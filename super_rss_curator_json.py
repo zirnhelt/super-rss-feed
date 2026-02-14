@@ -767,20 +767,49 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     theme_articles = [(a, bs, m) for a, bs, m in scored_pool[:max_articles]]
 
     # Optionally include top articles from other categories as bonus picks
+    # with theme-aware filtering for diversity
     bonus_entries = []
     if include_bonus > 0:
+        # Collect all non-theme articles that meet minimum score
         other = []
         for cat, articles in categorized.items():
             if cat not in theme_set:
-                other.extend(articles)
-        other = [a for a in other if a.score >= bonus_min_score]
-        other.sort(key=lambda a: a.score, reverse=True)
+                for article in articles:
+                    if article.score >= bonus_min_score:
+                        other.append((article, cat))
+
+        # Apply thematic adjacency boost: articles sharing theme keywords get a small boost
+        thematic_boost = schedule_config.get('bonus_thematic_boost', 5)  # Small boost for theme adjacency
+        scored_other = []
         theme_urls = {a.link for a, _, _ in theme_articles}
-        for a in other:
-            if a.link not in theme_urls:
-                bonus_entries.append((a, a.score, 0))
-                if len(bonus_entries) >= include_bonus:
-                    break
+
+        for article, cat in other:
+            if article.link in theme_urls:
+                continue  # Skip duplicates
+
+            # Calculate thematic adjacency score
+            text = f"{article.title} {article.description}"
+            kw_matches = _keyword_match_count(text, theme_keywords)
+            adjacency_score = article.score + (thematic_boost if kw_matches > 0 else 0)
+            scored_other.append((article, adjacency_score, cat))
+
+        # Sort by adjusted score (with thematic adjacency)
+        scored_other.sort(key=lambda x: x[1], reverse=True)
+
+        # Apply category diversity: cap each category in bonus set to prevent dominance
+        max_per_category = schedule_config.get('bonus_max_per_category', 2)
+        category_counts = defaultdict(int)
+
+        for article, adj_score, cat in scored_other:
+            # Check category cap
+            if category_counts[cat] >= max_per_category:
+                continue
+
+            bonus_entries.append((article, adj_score, 0))
+            category_counts[cat] += 1
+
+            if len(bonus_entries) >= include_bonus:
+                break
 
     all_entries = theme_articles + bonus_entries
 
@@ -826,6 +855,7 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
             "_boosted_score": boosted_score,
             "_keyword_matches": kw_matches,
             "_category": article.category,
+            "_source_category": article.category,  # Explicit source category for downstream filtering
             "_is_bonus": is_bonus
         }
         if hasattr(article, 'image') and article.image:
