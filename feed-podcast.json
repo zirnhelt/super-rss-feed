@@ -21,212 +21,213 @@
       "ai-tech",
       "science"
     ],
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Resilient Rural Futures' through a RURAL TECH AND INNOVATION lens. Strong fits include: off-grid power systems and solar for Cariboo homes, mesh networks and community-owned connectivity, self-hosted systems and data sovereignty, telehealth platforms and remote healthcare tech, climate adaptation technology for rural areas, emergency communication systems and disaster tech, renewable energy innovation, food security tech (greenhouses, vertical farms, local food tracking), water monitoring and conservation systems, affordable housing innovation, resilient infrastructure design, rural remote work tools and digital nomad infrastructure, co-op technology platforms, and future-focused solutions that help Cariboo communities thrive despite isolation or climate challenges. Prefer articles about technology building rural resilience and self-sufficiency. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "sunday",
-    "generated_at": "2026-02-15T14:27:59.471904+00:00",
+    "generated_at": "2026-02-15T22:20:56.512384+00:00",
     "article_count": 10,
     "bonus_count": 0,
-    "keyword_boost": 15
+    "scoring_method": "claude_theme_evaluation"
   },
   "items": [
     {
-      "id": "https://quesnelobserver.com/2026/02/15/kingsbury-claims-olympic-gold-for-canada-mens-dual-moguls/",
-      "url": "https://quesnelobserver.com/2026/02/15/kingsbury-claims-olympic-gold-for-canada-mens-dual-moguls/",
-      "title": "[Quesnel Cariboo Observer] Kingsbury claims Olympic gold for Canada in men’s dual moguls",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41595832_web1_260215-BPD-Canada-gold-kingsbury_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>First gold for Canadians at Milano Cortina 2026 Olympic Winter Games </p>",
-      "date_published": "2026-02-15T11:20:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "_score": 90,
-      "_boosted_score": 80,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41595832_web1_260215-BPD-Canada-gold-kingsbury_1.jpg?w=1024"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/02/15/south-cariboo-gymnasts-training-for-b-c-winter-games/",
-      "url": "https://100milefreepress.net/2026/02/15/south-cariboo-gymnasts-training-for-b-c-winter-games/",
-      "title": "[100 Mile Free Press] South Cariboo gymnasts training for B.C. Winter Games",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/02/41533732_web1_260212-OMH-Gymnastics-Winter-Games_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Seven South Cariboo girls are heading to Rossland to compete this year </p>",
-      "date_published": "2026-02-15T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_score": 87,
-      "_boosted_score": 77,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/02/41533732_web1_260212-OMH-Gymnastics-Winter-Games_2.jpg?w=1024"
-    },
-    {
-      "id": "https://www.howtogeek.com/new-ikea-matter-over-thread-smart-home-gadgets-that-are-worth-the-money/",
-      "url": "https://www.howtogeek.com/new-ikea-matter-over-thread-smart-home-gadgets-that-are-worth-the-money/",
-      "title": "[How-To Geek] 6 new IKEA Matter over Thread smart home gadgets that are worth the money",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/01/ikea-timmerflotte-sensor-on-a-desk-and-displaying-the-temperature.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCheap Matter over Thread devices are finally here.",
-      "date_published": "2026-02-15T14:00:15+00:00",
+      "id": "https://www.howtogeek.com/why-my-portable-solar-panels-are-essential-even-in-the-winter/",
+      "url": "https://www.howtogeek.com/why-my-portable-solar-panels-are-essential-even-in-the-winter/",
+      "title": "[How-To Geek] Why my portable solar panels are essential, even in the winter",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/portable-solar-panels-plugged-into-an-anker-solix-c1000.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLess sun doesn't mean no sun.",
+      "date_published": "2026-02-15T18:15:16+00:00",
       "authors": [
         {
           "name": "How-To Geek",
           "url": "https://www.howtogeek.com"
         }
       ],
-      "_score": 75,
-      "_boosted_score": 65,
-      "_keyword_matches": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/01/ikea-timmerflotte-sensor-on-a-desk-and-displaying-the-temperature.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/slightly-terrifying-3d-printing-breakthrough-means-we-can-now-print-robotic-muscle-so-is-this-the-beginning-of-the-end-for-humanity",
-      "url": "https://www.techradar.com/pro/security/slightly-terrifying-3d-printing-breakthrough-means-we-can-now-print-robotic-muscle-so-is-this-the-beginning-of-the-end-for-humanity",
-      "title": "[TechRadar] Is this the beginning of the end for humanity? Slightly terrifying 3D printing breakthrough means we can now print robotic 'muscle'",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/uKbEDqkMzFkDmGPGuDjv2A-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHarvard engineers develop a 3D printing method for producing robotic muscles with programmed movement.",
-      "date_published": "2026-02-15T13:05:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_score": 75,
-      "_boosted_score": 65,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/uKbEDqkMzFkDmGPGuDjv2A-1280-80.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/the-nothing-that-has-the-potential-to-be-anything/",
-      "url": "https://www.wired.com/story/the-nothing-that-has-the-potential-to-be-anything/",
-      "title": "[WIRED] The Nothing That Has the Potential to Be Anything",
-      "content_html": "<img src=\"https://media.wired.com/photos/698dbacfd6bc30e8fe7c79aa/master/pass/Zero%20Point%20Energy%20cr-TK-Default.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou can never truly empty a box. Why? Zero-point energy.",
-      "date_published": "2026-02-15T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_score": 35,
-      "_boosted_score": 50,
-      "_keyword_matches": 1,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://media.wired.com/photos/698dbacfd6bc30e8fe7c79aa/master/pass/Zero%20Point%20Energy%20cr-TK-Default.jpg"
-    },
-    {
-      "id": "https://insideevs.com/news/787335/kia-ev2-norway-range-test/",
-      "url": "https://insideevs.com/news/787335/kia-ev2-norway-range-test/",
-      "title": "[InsideEVs] Watch The Kia EV2 Take On A Brutal Winter Range Test And Win",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/7Z2xQ7/s3/kia-ev2-winter-range-test.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe EV2 is Kia’s smallest electric car, but it does surprisingly well in cold winter driving.",
-      "date_published": "2026-02-15T10:20:37+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "_score": 55,
-      "_boosted_score": 45,
-      "_keyword_matches": 0,
+      "_quality_score": 90,
+      "_theme_score": 85,
+      "_final_score": 85,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://cdn.motor1.com/images/mgl/7Z2xQ7/s3/kia-ev2-winter-range-test.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/portable-solar-panels-plugged-into-an-anker-solix-c1000.jpg"
     },
     {
-      "id": "https://www.cnet.com/home/smart-home/alexa-settings-everyone-should-disable-on-a-new-amazon-echo/",
-      "url": "https://www.cnet.com/home/smart-home/alexa-settings-everyone-should-disable-on-a-new-amazon-echo/",
-      "title": "[CNET] I Finally Changed These 8 Alexa Settings and My Smart Speaker Is Actually Useful Now",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/312fad749131affefccbe78d94078ebd348a93a3/hub/2025/06/26/ce8cf543-bb46-4dc9-8f26-cf6afbec41e2/echo-dot-5-table.jpg?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou can improve your Echo experience in a massive way by switching up these particular settings.",
-      "date_published": "2026-02-15T13:01:00+00:00",
+      "id": "https://hackaday.com/2026/02/15/dealing-with-intermittent-water-utilities/",
+      "url": "https://hackaday.com/2026/02/15/dealing-with-intermittent-water-utilities/",
+      "title": "[Hackaday] Dealing With Intermittent Water Utilities",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/02/water-detection-main.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/02/water-detection-main.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In many places, municipal water from a utility is something that&#8217;s often taken for granted. A local government or water utility will employ a water tower or pumping facility to <a class=\"read-more\" href=\"https://hackaday.com/2026/02/15/dealing-with-intermittent-water-utilities/\">&#8230;read more</a>",
+      "date_published": "2026-02-15T18:00:04+00:00",
       "authors": [
         {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
-      "_score": 55,
-      "_boosted_score": 45,
-      "_keyword_matches": 0,
+      "_quality_score": 75,
+      "_theme_score": 85,
+      "_final_score": 85,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/312fad749131affefccbe78d94078ebd348a93a3/hub/2025/06/26/ce8cf543-bb46-4dc9-8f26-cf6afbec41e2/echo-dot-5-table.jpg?auto=webp&width=300"
+      "image": "https://hackaday.com/wp-content/uploads/2026/02/water-detection-main.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/the-used-enterprise-server-in-my-closet-costs-more-to-run-than-cloud-storage/",
-      "url": "https://www.xda-developers.com/the-used-enterprise-server-in-my-closet-costs-more-to-run-than-cloud-storage/",
-      "title": "[XDA Developers] The used enterprise server in my closet costs more to run than cloud storage",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/dell-poweredge-r210-ii-server-ram.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n",
-      "date_published": "2026-02-15T14:01:20+00:00",
+      "id": "https://www.howtogeek.com/your-router-might-already-support-mesh-networking-heres-how-to-check/",
+      "url": "https://www.howtogeek.com/your-router-might-already-support-mesh-networking-heres-how-to-check/",
+      "title": "[How-To Geek] Your old router is secretly a mesh system: How to unlock its hidden Wi-Fi settings",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/08/52732186704_a9161584f8_o.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBuying a whole new mesh system is a mistake: Your current router is already capable",
+      "date_published": "2026-02-15T19:30:15+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/08/52732186704_a9161584f8_o.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/setting-up-a-reverse-proxy-was-easier-than-every-guide-made-it-seem/",
+      "url": "https://www.xda-developers.com/setting-up-a-reverse-proxy-was-easier-than-every-guide-made-it-seem/",
+      "title": "[XDA Developers] Setting up a reverse proxy was easier than every guide made it seem",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/caddy-feature-image-proxmox.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSeriously, it took longer to read the guides",
+      "date_published": "2026-02-15T17:00:20+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "_score": 55,
-      "_boosted_score": 45,
-      "_keyword_matches": 0,
+      "_quality_score": 70,
+      "_theme_score": 70,
+      "_final_score": 70,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/dell-poweredge-r210-ii-server-ram.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/caddy-feature-image-proxmox.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/if-you-only-use-ubuntu-you-are-missing-out-on-what-linux-is-all-about/",
-      "url": "https://www.howtogeek.com/if-you-only-use-ubuntu-you-are-missing-out-on-what-linux-is-all-about/",
-      "title": "[How-To Geek] If you only use Ubuntu, you’re missing out on what Linux is all about",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/04/ubuntu-logo-with-some-alert-and-error-icons-around-it.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf Ubuntu is your only Linux experience, you might be repeating the same pattern you tried to leave behind.",
-      "date_published": "2026-02-15T12:30:16+00:00",
+      "id": "https://www.xda-developers.com/tried-gerbera-instead-of-jellyfin-how-went/",
+      "url": "https://www.xda-developers.com/tried-gerbera-instead-of-jellyfin-how-went/",
+      "title": "[XDA Developers] I tried Gerbera instead of Jellyfin, and here’s how it went",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/gerberaonliving-room-tv.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSetting up Gerbera was the easy part. The real story started when I tried living without Jellyfin’s extras.",
+      "date_published": "2026-02-15T20:00:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/gerberaonliving-room-tv.jpeg"
+    },
+    {
+      "id": "https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html",
+      "url": "https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html",
+      "title": "[Boing Boing] The cloud storage equivalent of finally quitting the gym",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/Koofr-Cloud-Storage.jpg?fit=2250%2C1500&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html\" rel=\"nofollow\" title=\"The cloud storage equivalent of finally quitting the gym\"><img alt=\"Koofr Cloud Storage\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1500\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/Koofr-Cloud-Storage.jpg?fit=2250%2C1500&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"2250\" /></a><p><strong>TL;DR:</strong>&#160;Get&#160;<a href=\"https://store.boingboing.net/sales/koofr-cloud-storage-plans-lifetime-subscription-1tb?utm_source=boingboing.net&#38;utm_content=PS-12092&#38;utm_medium=Referral&#38;utm_campaign=koofr-cloud-storage-lifetime-subscription-1tb-2026-02-12&#38;utm_term=SALE-20795\" rel=\"noreferrer noopener\" target=\"_blank\">1TB of cloud storage from Koofr</a>&#160;for $129.99 with code KOOFR (reg. $810). Deal ends Feb. 16 at 11:59 p.m. PT.</p>\n<p>Cloud storage subscriptions are a lot like gym memberships: cheap enough to ignore, expensive enough over time to regret, and surprisingly hard to quit. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html\">The cloud storage equivalent of finally quitting the gym</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-02-15T16:00:00+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "_quality_score": 45,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/Koofr-Cloud-Storage.jpg?fit=2250%2C1500&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.howtogeek.com/on-the-inside-jordan/",
+      "url": "https://www.howtogeek.com/on-the-inside-jordan/",
+      "title": "[How-To Geek] On The Inside: This writer's daily driver is a Linux laptop",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/the-kubuntu-focus-m2-gen-6-laptop-on-a-desk-with-a-software-updater-and-linux-terminal-open.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLinux can be more than just an OS you tinker with—it can replace Windows and become your daily device for everything.",
+      "date_published": "2026-02-15T19:05:16+00:00",
       "authors": [
         {
           "name": "How-To Geek",
           "url": "https://www.howtogeek.com"
         }
       ],
-      "_score": 55,
-      "_boosted_score": 45,
-      "_keyword_matches": 0,
+      "_quality_score": 70,
+      "_theme_score": 35,
+      "_final_score": 35,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/04/ubuntu-logo-with-some-alert-and-error-icons-around-it.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/the-kubuntu-focus-m2-gen-6-laptop-on-a-desk-with-a-software-updater-and-linux-terminal-open.jpg"
     },
     {
-      "id": "https://www.neowin.net/deals/price-drop-save-69-on-pansophy-ai-desktop-assistant-base-plan/",
-      "url": "https://www.neowin.net/deals/price-drop-save-69-on-pansophy-ai-desktop-assistant-base-plan/",
-      "title": "[Neowin] [Price Drop] Save 69% on Pansophy AI Desktop Assistant (Base Plan)",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2025/11/1763977927_product_346799_product_shots3_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2025/11/1763977927_product_346799_product_shots3_medium.webp\" /></div>Your Private AI, Fully Local and Limitless! No cloud, no tokens, no subscriptions, and now price dropped. <a href=\"https://www.neowin.net/deals/price-drop-save-69-on-pansophy-ai-desktop-assistant-base-plan/\">Read more...</a>",
-      "date_published": "2026-02-15T09:46:02+00:00",
+      "id": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVjVJd05kU2pYWFZiRFRXTmFmem0zWG5pX0dqeS1BdDVZNk9xclUtUkc2SEZKc0VaUlg1OXdBaGxnRk1JLUpocHpwRUJMbnFfR3Q3em5laDBVYTZjWkVFb190VGxhWDJBYzdEY1VhRkhkNFdWQ29HWlBNbTd2Tk0yRWlheXNyZXhxUUUtVVExVUdLMVRDek8zcHdkdlB5QjF2NDVfaDdhTUlWelRJYU1uTjhvdEtZY0F4b2hUQnZoajBpWm5EM3JOckNKOHU5b2lSUUR5cVFKMkFyekxsMnVld3VOYU9lUQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVjVJd05kU2pYWFZiRFRXTmFmem0zWG5pX0dqeS1BdDVZNk9xclUtUkc2SEZKc0VaUlg1OXdBaGxnRk1JLUpocHpwRUJMbnFfR3Q3em5laDBVYTZjWkVFb190VGxhWDJBYzdEY1VhRkhkNFdWQ29HWlBNbTd2Tk0yRWlheXNyZXhxUUUtVVExVUdLMVRDek8zcHdkdlB5QjF2NDVfaDdhTUlWelRJYU1uTjhvdEtZY0F4b2hUQnZoajBpWm5EM3JOckNKOHU5b2lSUUR5cVFKMkFyekxsMnVld3VOYU9lUQ?oc=5",
+      "title": "[GN AI ML Infrastructure] AI Infrastructure Meets Water Security: Sungai Samak Estate’s Strategic Moment",
+      "content_html": "<img src=\"https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVjVJd05kU2pYWFZiRFRXTmFmem0zWG5pX0dqeS1BdDVZNk9xclUtUkc2SEZKc0VaUlg1OXdBaGxnRk1JLUpocHpwRUJMbnFfR3Q3em5laDBVYTZjWkVFb190VGxhWDJBYzdEY1VhRkhkNFdWQ29HWlBNbTd2Tk0yRWlheXNyZXhxUUUtVVExVUdLMVRDek8zcHdkdlB5QjF2NDVfaDdhTUlWelRJYU1uTjhvdEtZY0F4b2hUQnZoajBpWm5EM3JOckNKOHU5b2lSUUR5cVFKMkFyekxsMnVld3VOYU9lUQ?oc=5\" target=\"_blank\">AI Infrastructure Meets Water Security: Sungai Samak Estate’s Strategic Moment</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">FinancialContent</font>",
+      "date_published": "2026-02-15T11:22:00+00:00",
       "authors": [
         {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
+          "name": "GN AI ML Infrastructure",
+          "url": "https://news.google.com"
         }
       ],
-      "_score": 55,
-      "_boosted_score": 45,
-      "_keyword_matches": 0,
+      "_quality_score": 60,
+      "_theme_score": 65,
+      "_final_score": 35,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2025/11/1763977927_product_346799_product_shots3_story.webp"
+      "image": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+    },
+    {
+      "id": "https://www.xda-developers.com/windows-sandbox-best-feature-youre-not-using/",
+      "url": "https://www.xda-developers.com/windows-sandbox-best-feature-youre-not-using/",
+      "title": "[XDA Developers] Windows Sandbox is the best feature you're not using",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/windows-sandbox-on-computer.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEnable Windows Sandbox and test questionable software risk-free in a disposable virtual machine.",
+      "date_published": "2026-02-15T17:30:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/windows-sandbox-on-computer.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/8-ubuntu-tips-and-tricks-for-first-time-users/",
+      "url": "https://www.howtogeek.com/8-ubuntu-tips-and-tricks-for-first-time-users/",
+      "title": "[How-To Geek] 8 Ubuntu tips and tricks for first-time users",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/05/laptop-with-linux-terminal-open.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBecome an Ubuntu power user in no time.",
+      "date_published": "2026-02-15T19:00:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/05/laptop-with-linux-terminal-open.jpg"
     }
   ]
 }
