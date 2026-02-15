@@ -686,14 +686,84 @@ def _keyword_match_count(text: str, keywords: List[str]) -> int:
     return sum(1 for kw in keywords if kw.lower() in text_lower)
 
 
+def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str) -> List[tuple]:
+    """Score articles for thematic fit using Claude.
+
+    Returns list of tuples: (article, theme_score)
+    where theme_score is 0-100 indicating fit to the daily theme.
+    """
+    if not articles:
+        return []
+
+    client = anthropic.Anthropic(api_key=api_key)
+    scored_results = []
+
+    batch_size = 10
+    print(f"🎯 Scoring {len(articles)} articles for theme: {theme_label}")
+
+    for i in range(0, len(articles), batch_size):
+        batch = articles[i:i + batch_size]
+
+        articles_text = "\n\n".join([
+            f"Article {j+1}:\nTitle: {article.title}\nSource: {article.source}\nDescription: {article.description[:300]}"
+            for j, article in enumerate(batch)
+        ])
+
+        prompt = f"""{theme_prompt}
+
+Respond with ONLY a JSON array (no other text):
+[
+  {{"article": 1, "theme_score": 85}},
+  {{"article": 2, "theme_score": 45}}
+]
+
+Articles to evaluate:
+{articles_text}"""
+
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=1000,
+                system=[
+                    {
+                        "type": "text",
+                        "text": "You are evaluating news articles for thematic relevance. Respond only with valid JSON arrays.",
+                        "cache_control": {"type": "ephemeral"}
+                    }
+                ],
+                messages=[{"role": "user", "content": prompt}]
+            )
+
+            response_text = response.content[0].text.strip()
+            scores = json.loads(response_text)
+
+            for score_data in scores:
+                idx = score_data['article'] - 1
+                if 0 <= idx < len(batch):
+                    article = batch[idx]
+                    theme_score = score_data.get('theme_score', 0)
+                    scored_results.append((article, theme_score))
+
+        except json.JSONDecodeError as e:
+            print(f"  ⚠️ JSON parsing error: {e}")
+            for article in batch:
+                scored_results.append((article, 50))
+
+        except Exception as e:
+            print(f"  ⚠️ API error: {e}")
+            for article in batch:
+                scored_results.append((article, 50))
+
+    return scored_results
+
+
 def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str, List[Article]]):
     """Generate a daily themed podcast feed based on the podcast schedule.
 
-    Each day has a specific theme with associated categories and keywords.
-    Articles from the relevant categories are scored with a keyword boost
-    for strong theme relevance, then the top articles are selected.
-    Articles from outside the theme categories can still appear as bonus
-    picks if they score high enough.
+    Each day has a specific theme with associated categories and a custom scoring prompt.
+    Articles from the relevant categories are evaluated by Claude for thematic fit,
+    then the top articles are selected. Articles from outside the theme categories
+    can still appear as bonus picks if they score high enough.
     """
     schedule_config = load_podcast_schedule()
     if not schedule_config or not schedule_config.get('enabled', False):
@@ -710,12 +780,17 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     theme_categories = today['categories']
     theme_label = today['label']
     theme_description = today.get('description', '')
-    theme_keywords = today.get('keywords', [])
+    theme_scoring_prompt = today.get('scoring_prompt', '')
     max_articles = schedule_config.get('max_articles', 10)
     min_score = schedule_config.get('min_score', 25)
-    keyword_boost = schedule_config.get('keyword_boost', 15)
     include_bonus = schedule_config.get('include_top_from_other', 0)
     bonus_min_score = schedule_config.get('other_min_score', 70)
+
+    # Get API key for theme scoring
+    api_key = os.getenv('ANTHROPIC_API_KEY')
+    if not api_key:
+        print("⚠️ No API key available for theme scoring")
+        return
 
     # Rural/local context signals — ai-tech articles without these get penalized
     # in the podcast to keep the feed locally grounded
@@ -738,36 +813,33 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     for cat in theme_categories:
         theme_pool.extend(categorized.get(cat, []))
 
-    # Apply keyword boost: articles matching theme keywords get a score bump
+    # Filter by minimum quality score
+    theme_pool = [a for a in theme_pool if a.score >= min_score]
+
+    # Score articles for thematic fit using Claude
+    theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
+
     # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
-    keyword_boost_cap = schedule_config.get('keyword_boost_cap', 3)
-    no_match_penalty = schedule_config.get('no_match_penalty', 10)
+    ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
     scored_pool = []
-    for article in theme_pool:
-        if article.score < min_score:
-            continue
+    for article, theme_score in theme_scored:
         text = f"{article.title} {article.description}"
-        matches = _keyword_match_count(text, theme_keywords)
-        # Scale boost by number of keyword matches (capped) for stronger theme signal
-        if matches > 0:
-            boosted_score = article.score + keyword_boost * min(matches, keyword_boost_cap)
-        else:
-            boosted_score = article.score - no_match_penalty
+        final_score = theme_score
 
         # Penalize ai-tech articles that lack rural/local context
         if article.category == 'ai-tech':
             has_rural_context = _keyword_match_count(text, rural_context_signals) > 0
             if not has_rural_context:
-                boosted_score -= ai_tech_penalty
+                final_score = max(0, final_score - ai_tech_penalty)
 
-        scored_pool.append((article, boosted_score, matches))
+        scored_pool.append((article, final_score, theme_score))
 
-    # Sort by boosted score descending, then by keyword matches as tiebreaker
-    scored_pool.sort(key=lambda x: (x[1], x[2]), reverse=True)
-    theme_articles = [(a, bs, m) for a, bs, m in scored_pool[:max_articles]]
+    # Sort by final score descending
+    scored_pool.sort(key=lambda x: x[1], reverse=True)
+    theme_articles = [(a, fs, ts) for a, fs, ts in scored_pool[:max_articles]]
 
     # Optionally include top articles from other categories as bonus picks
-    # with theme-aware filtering for diversity
+    # with theme-aware scoring for diversity
     bonus_entries = []
     if include_bonus > 0:
         # Collect all non-theme articles that meet minimum score
@@ -778,38 +850,38 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
                     if article.score >= bonus_min_score:
                         other.append((article, cat))
 
-        # Apply thematic adjacency boost: articles sharing theme keywords get a small boost
-        thematic_boost = schedule_config.get('bonus_thematic_boost', 5)  # Small boost for theme adjacency
-        scored_other = []
         theme_urls = {a.link for a, _, _ in theme_articles}
+        other_filtered = [(a, c) for a, c in other if a.link not in theme_urls]
 
-        for article, cat in other:
-            if article.link in theme_urls:
-                continue  # Skip duplicates
+        if other_filtered:
+            # Score bonus articles for thematic fit
+            other_articles = [a for a, _ in other_filtered]
+            other_scored = score_articles_for_theme(other_articles, theme_scoring_prompt, theme_label, api_key)
 
-            # Calculate thematic adjacency score
-            text = f"{article.title} {article.description}"
-            kw_matches = _keyword_match_count(text, theme_keywords)
-            adjacency_score = article.score + (thematic_boost if kw_matches > 0 else 0)
-            scored_other.append((article, adjacency_score, cat))
+            # Build scored list with category info
+            scored_other = []
+            cat_lookup = {a.link: c for a, c in other_filtered}
+            for article, theme_score in other_scored:
+                cat = cat_lookup.get(article.link, 'news')
+                scored_other.append((article, theme_score, cat))
 
-        # Sort by adjusted score (with thematic adjacency)
-        scored_other.sort(key=lambda x: x[1], reverse=True)
+            # Sort by theme score descending
+            scored_other.sort(key=lambda x: x[1], reverse=True)
 
-        # Apply category diversity: cap each category in bonus set to prevent dominance
-        max_per_category = schedule_config.get('bonus_max_per_category', 2)
-        category_counts = defaultdict(int)
+            # Apply category diversity: cap each category in bonus set to prevent dominance
+            max_per_category = schedule_config.get('bonus_max_per_category', 2)
+            category_counts = defaultdict(int)
 
-        for article, adj_score, cat in scored_other:
-            # Check category cap
-            if category_counts[cat] >= max_per_category:
-                continue
+            for article, theme_score, cat in scored_other:
+                # Check category cap
+                if category_counts[cat] >= max_per_category:
+                    continue
 
-            bonus_entries.append((article, adj_score, 0))
-            category_counts[cat] += 1
+                bonus_entries.append((article, theme_score, theme_score))
+                category_counts[cat] += 1
 
-            if len(bonus_entries) >= include_bonus:
-                break
+                if len(bonus_entries) >= include_bonus:
+                    break
 
     all_entries = theme_articles + bonus_entries
 
@@ -833,16 +905,17 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
             "theme": theme_label,
             "theme_description": theme_description,
             "theme_categories": theme_categories,
+            "theme_scoring_prompt": theme_scoring_prompt,
             "day": day_name,
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "article_count": len(all_entries),
             "bonus_count": len(bonus_entries),
-            "keyword_boost": keyword_boost
+            "scoring_method": "claude_theme_evaluation"
         },
         "items": []
     }
 
-    for article, boosted_score, kw_matches in all_entries:
+    for article, final_score, theme_score in all_entries:
         is_bonus = article.link in bonus_urls
         item = {
             "id": article.link,
@@ -851,11 +924,11 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
             "content_html": article.description,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}],
-            "_score": article.score,
-            "_boosted_score": boosted_score,
-            "_keyword_matches": kw_matches,
+            "_quality_score": article.score,
+            "_theme_score": theme_score,
+            "_final_score": final_score,
             "_category": article.category,
-            "_source_category": article.category,  # Explicit source category for downstream filtering
+            "_source_category": article.category,
             "_is_bonus": is_bonus
         }
         if hasattr(article, 'image') and article.image:
@@ -866,8 +939,8 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     with open('feed-podcast.json', 'w', encoding='utf-8') as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
-    theme_with_kw = sum(1 for _, _, m in theme_articles if m > 0)
-    print(f"🎙️ Podcast feed ({theme_label}): {len(theme_articles)} theme ({theme_with_kw} keyword-boosted) + {len(bonus_entries)} bonus")
+    avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
+    print(f"🎙️ Podcast feed ({theme_label}): {len(theme_articles)} theme articles (avg theme score: {avg_theme_score:.1f}) + {len(bonus_entries)} bonus")
 
 
 def generate_opml():
