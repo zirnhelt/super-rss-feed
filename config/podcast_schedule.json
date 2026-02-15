@@ -5,92 +5,43 @@
       "label": "Arts, Culture & Digital Storytelling",
       "description": "Local arts scene, festivals, creative economy, media, and cultural tech",
       "categories": ["local", "scifi", "news", "ai-tech"],
-      "keywords": [
-        "arts", "culture", "festival", "storytelling", "creative", "media",
-        "digital storytelling", "theatre", "theater", "gallery", "film",
-        "music", "literary", "poetry", "museum", "cultural", "animation",
-        "podcast", "streaming", "publishing", "artist",
-        "community media", "local storytelling", "rural creative", "digital equity"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "tuesday": {
       "label": "Working Lands & Industry",
       "description": "Cariboo forestry, ranching, mining, agriculture — tech in the resource economy",
       "categories": ["local", "climate", "news", "science"],
-      "keywords": [
-        "forestry", "ranching", "mining", "agriculture", "lumber", "cattle",
-        "resource", "mill", "sawmill", "logging", "farm", "timber",
-        "ranch", "grazing", "hay", "crop", "harvest", "pulp",
-        "industrial", "workforce", "commodity", "export", "trade"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' through a RURAL TECH AND INNOVATION lens. Strong fits include: precision forestry and remote sensing in Cariboo logging, AgTech and ranch management systems, mining automation and safety technology, farm sensors and soil monitoring, sawmill modernization and automation, drone surveys for resource management, IoT in agriculture and ranching, climate adaptation tech for working lands, workforce training for industrial tech, commodity tracking and supply chain tech, and how Cariboo resource industries adopt innovation. Prefer articles that bridge resource economy AND technology in rural/industrial contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "wednesday": {
       "label": "Community Tech & Governance",
       "description": "SD27, CRD, Williams Lake council, municipal networks, civic innovation",
       "categories": ["local", "ai-tech", "news", "homelab"],
-      "keywords": [
-        "school district", "SD27", "CRD", "council", "municipal", "civic",
-        "governance", "city hall", "bylaw", "budget", "network", "broadband",
-        "election", "mayor", "councillor", "regional district", "zoning",
-        "infrastructure", "public service", "transit", "library", "hospital",
-        "RCMP", "fire department", "water system", "sewer",
-        "civic tech", "digital services", "rural broadband", "community network",
-        "municipal technology", "open data", "smart city rural"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Community Tech & Governance' through a RURAL TECH AND INNOVATION lens. Strong fits include: municipal broadband and fiber projects in Cariboo communities, SD27 education technology and digital learning, civic tech platforms and open data initiatives, community-owned networks and ISPs, smart rural infrastructure (water, waste, transit), digital government services for rural areas, council decisions on technology spending, public Wi-Fi and connectivity programs, election technology and civic engagement platforms, rural innovation hubs, and how Williams Lake/Quesnel/100 Mile/CRD use technology for public services. Prefer articles that bridge governance AND technology in rural civic contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "thursday": {
       "label": "Indigenous Lands & Innovation",
       "description": "Tŝilhqot'in, Secwépemc, Dakelh — language, governance, land stewardship, and tech",
       "categories": ["local", "ai-tech", "science", "news", "climate"],
-      "keywords": [
-        "Tŝilhqot'in", "Secwépemc", "Dakelh", "Indigenous", "First Nation",
-        "language revitalization", "land stewardship", "treaty", "reconciliation",
-        "nation", "Aboriginal", "elder", "traditional knowledge", "title",
-        "rights", "self-governance", "cultural heritage", "ceremony",
-        "residential school", "UNDRIP", "duty to consult", "land claim",
-        "guardian", "stewardship", "Nenqay Deni Accord",
-        "Indigenous technology", "language technology", "remote monitoring",
-        "land management tech", "guardian program", "community mapping"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Indigenous Lands & Innovation' through a RURAL TECH AND INNOVATION lens. Strong fits include: language revitalization technology for Tŝilhqot'in/Secwépemc/Dakelh, Indigenous guardian programs using remote monitoring and sensors, land management tech and environmental monitoring on Indigenous lands, digital tools for traditional knowledge preservation, community mapping and GIS for land claims, Indigenous-led connectivity projects, technology for cultural heritage documentation, mobile apps for language learning, drone/satellite monitoring for stewardship, reconciliation through digital collaboration, and how Cariboo Indigenous nations use innovation for self-determination. Prefer articles that bridge Indigenous governance/culture AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "friday": {
       "label": "Wild Spaces & Outdoor Life",
       "description": "Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate",
       "categories": ["local", "climate", "science", "news"],
-      "keywords": [
-        "wilderness", "backcountry", "recreation", "conservation", "wildfire",
-        "wildlife", "outdoor", "trail", "park", "Chilcotin", "camping",
-        "hunting", "fishing", "bear", "caribou", "salmon", "watershed",
-        "forest fire", "BC Wildfire", "evacuation", "drought", "flood",
-        "hiking", "rafting", "lake", "river", "mountain"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "saturday": {
       "label": "Cariboo Voices & Local News",
       "description": "Williams Lake, Quesnel, 100 Mile House, Bella Coola — community stories and digital equity",
       "categories": ["local", "news", "homelab", "ai-tech"],
-      "keywords": [
-        "Williams Lake", "Quesnel", "100 Mile House", "Bella Coola",
-        "Cariboo", "community", "digital equity", "volunteer", "non-profit",
-        "fundraiser", "event", "Horsefly", "Lac la Hache", "Likely",
-        "Anahim Lake", "Alexis Creek", "Nazko", "Wells", "Barkerville",
-        "Stampede", "rodeo", "local business", "main street",
-        "community technology", "local connectivity", "rural internet"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital equity and internet access in Cariboo communities, local tech businesses and main street innovation, community digital literacy programs, rural internet initiatives (fiber, fixed wireless, Starlink), technology adoption by Williams Lake/Quesnel/100 Mile/Bella Coola organizations, local media tech (community radio, podcasts, streaming), Stampede and events using digital promotion, tech-enabled volunteer coordination, small-town tech hubs and makerspaces, rural e-commerce and digital storefronts, connectivity in remote communities (Horsefly, Likely, Anahim Lake, Alexis Creek), and grassroots community technology projects. Prefer articles that bridge local community AND technology/innovation. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "sunday": {
       "label": "Resilient Rural Futures",
       "description": "Infrastructure, connectivity, sustainability, and preparing Cariboo communities for change",
       "categories": ["local", "climate", "homelab", "ai-tech", "science"],
-      "keywords": [
-        "infrastructure", "connectivity", "sustainability", "resilience",
-        "rural", "broadband", "solar", "preparedness", "community",
-        "off-grid", "renewable", "climate adaptation", "emergency",
-        "food security", "water", "energy", "housing", "affordability",
-        "remote work", "telehealth", "co-op", "mutual aid", "future",
-        "rural technology", "community resilience", "off-grid tech",
-        "mesh network", "Meshtastic", "self-hosted", "disaster tech"
-      ]
+      "scoring_prompt": "Rate how well this article fits the theme 'Resilient Rural Futures' through a RURAL TECH AND INNOVATION lens. Strong fits include: off-grid power systems and solar for Cariboo homes, mesh networks and community-owned connectivity, self-hosted systems and data sovereignty, telehealth platforms and remote healthcare tech, climate adaptation technology for rural areas, emergency communication systems and disaster tech, renewable energy innovation, food security tech (greenhouses, vertical farms, local food tracking), water monitoring and conservation systems, affordable housing innovation, resilient infrastructure design, rural remote work tools and digital nomad infrastructure, co-op technology platforms, and future-focused solutions that help Cariboo communities thrive despite isolation or climate challenges. Prefer articles about technology building rural resilience and self-sufficiency. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     }
   },
   "max_articles": 10,
