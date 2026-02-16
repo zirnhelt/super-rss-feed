@@ -80,6 +80,7 @@ SOURCE_PREFS = load_source_preferences()
 SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
 WLT_CACHE_FILE = SYSTEM['cache_files']['wlt']
 SHOWN_CACHE_FILE = SYSTEM['cache_files']['shown_articles']
+PODCAST_CACHE_FILE = 'podcast_articles_cache.json'  # Weekly cache for podcast feeds
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
@@ -227,6 +228,76 @@ def save_shown_cache(shown_urls):
             json.dump(cache, f, indent=2)
     except Exception as e:
         print(f"⚠️ Failed to save shown cache: {e}")
+
+
+def load_podcast_cache():
+    """Load weekly podcast articles cache (7 days retention)"""
+    if not os.path.exists(PODCAST_CACHE_FILE):
+        return []
+
+    try:
+        with open(PODCAST_CACHE_FILE, 'r', encoding='utf-8') as f:
+            cache_data = json.load(f)
+
+        # Keep articles from last 7 days
+        cache_expiry = timedelta(days=7)
+        cutoff = datetime.now(timezone.utc) - cache_expiry
+
+        valid_articles = []
+        for item in cache_data:
+            pub_date = datetime.fromisoformat(item['pub_date'])
+            if pub_date > cutoff:
+                valid_articles.append(item)
+
+        if len(valid_articles) != len(cache_data):
+            print(f"🧹 Cleaned podcast cache: {len(cache_data)} → {len(valid_articles)} articles")
+
+        return valid_articles
+
+    except (json.JSONDecodeError, FileNotFoundError, KeyError) as e:
+        print(f"⚠️ Error loading podcast cache: {e}")
+        return []
+
+
+def save_podcast_cache(articles):
+    """Save articles to weekly podcast cache
+
+    Args:
+        articles: List of Article objects to cache
+    """
+    try:
+        # Load existing cache
+        existing = load_podcast_cache()
+
+        # Build set of existing URLs to avoid duplicates
+        existing_urls = {item['link'] for item in existing}
+
+        # Add new articles
+        for article in articles:
+            if article.link not in existing_urls:
+                existing.append({
+                    'link': article.link,
+                    'title': article.title,
+                    'description': article.description,
+                    'pub_date': article.pub_date.isoformat(),
+                    'source': article.source,
+                    'source_url': article.source_url,
+                    'score': article.score,
+                    'category': article.category,
+                    'image': getattr(article, 'image', None)
+                })
+
+        # Sort by pub_date descending
+        existing.sort(key=lambda x: x['pub_date'], reverse=True)
+
+        # Save back to file
+        with open(PODCAST_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(existing, f, indent=2, ensure_ascii=False)
+
+        print(f"💾 Podcast cache updated: {len(existing)} articles (7-day window)")
+
+    except Exception as e:
+        print(f"⚠️ Failed to save podcast cache: {e}")
 
 
 def parse_opml(opml_path: str) -> List[Dict[str, str]]:
@@ -757,11 +828,15 @@ Articles to evaluate:
     return scored_results
 
 
-def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str, List[Article]]):
-    """Generate a daily themed podcast feed based on the podcast schedule.
+def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
+    """Generate a themed podcast feed from weekly cached articles.
 
-    Each day has a specific theme with associated categories and a custom scoring prompt.
-    Articles from the relevant categories are evaluated by Claude for thematic fit,
+    Args:
+        theme_name: Day name (e.g., 'monday', 'tuesday')
+        cached_articles: List of article dicts from the weekly cache
+
+    Each theme has associated categories and a custom scoring prompt.
+    Articles from the weekly cache are evaluated by Claude for thematic fit,
     then the top articles are selected. Articles from outside the theme categories
     can still appear as bonus picks if they score high enough.
     """
@@ -770,13 +845,12 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
         return
 
     schedule = schedule_config['schedule']
-    day_name = datetime.now(timezone.utc).strftime('%A').lower()
 
-    if day_name not in schedule:
-        print(f"⚠️ No podcast schedule entry for {day_name}")
+    if theme_name not in schedule:
+        print(f"⚠️ No podcast schedule entry for {theme_name}")
         return
 
-    today = schedule[day_name]
+    today = schedule[theme_name]
     theme_categories = today['categories']
     theme_label = today['label']
     theme_description = today.get('description', '')
@@ -807,11 +881,28 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     ]
     ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
 
-    # Collect articles from today's theme categories
+    # Convert cached article dicts to Article objects
+    # Create a simple Article-like class for cached articles
+    class CachedArticle:
+        def __init__(self, data):
+            self.title = data['title']
+            self.link = data['link']
+            self.description = data['description']
+            self.pub_date = datetime.fromisoformat(data['pub_date'])
+            self.source = data['source']
+            self.source_url = data['source_url']
+            self.score = data['score']
+            self.category = data['category']
+            self.image = data.get('image')
+
+    all_cached = [CachedArticle(item) for item in cached_articles]
+
+    # Collect articles from this theme's categories
     theme_pool = []
     theme_set = set(theme_categories)
-    for cat in theme_categories:
-        theme_pool.extend(categorized.get(cat, []))
+    for article in all_cached:
+        if article.category in theme_set:
+            theme_pool.append(article)
 
     # Filter by minimum quality score
     theme_pool = [a for a in theme_pool if a.score >= min_score]
@@ -844,11 +935,9 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     if include_bonus > 0:
         # Collect all non-theme articles that meet minimum score
         other = []
-        for cat, articles in categorized.items():
-            if cat not in theme_set:
-                for article in articles:
-                    if article.score >= bonus_min_score:
-                        other.append((article, cat))
+        for article in all_cached:
+            if article.category not in theme_set and article.score >= bonus_min_score:
+                other.append((article, article.category))
 
         theme_urls = {a.link for a, _, _ in theme_articles}
         other_filtered = [(a, c) for a, c in other if a.link not in theme_urls]
@@ -892,12 +981,13 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
     # Build the JSON Feed with podcast-specific metadata
     feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
     bonus_urls = {a.link for a, _, _ in bonus_entries}
+    feed_filename = f"feed-podcast-{theme_name}.json"
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": f"🎙️ {theme_label}",
         "home_page_url": FEEDS_CONFIG['base_url'],
-        "feed_url": f"{FEEDS_CONFIG['base_url']}/feed-podcast.json",
-        "description": feed_config.get('description', 'Daily themed podcast feed'),
+        "feed_url": f"{FEEDS_CONFIG['base_url']}/{feed_filename}",
+        "description": f"{theme_description} - {feed_config.get('description', 'Themed podcast feed from weekly articles')}",
         "icon": f"{FEEDS_CONFIG['base_url']}/favicon.ico",
         "authors": [{"name": FEEDS_CONFIG['author']}],
         "language": "en",
@@ -906,11 +996,11 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
             "theme_description": theme_description,
             "theme_categories": theme_categories,
             "theme_scoring_prompt": theme_scoring_prompt,
-            "day": day_name,
+            "day": theme_name,
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "article_count": len(all_entries),
             "bonus_count": len(bonus_entries),
-            "scoring_method": "claude_theme_evaluation"
+            "scoring_method": "claude_theme_evaluation_weekly_cache"
         },
         "items": []
     }
@@ -936,36 +1026,62 @@ def generate_podcast_feed(quality_articles: List[Article], categorized: Dict[str
             item["content_html"] = f'<img src="{article.image}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
         feed["items"].append(item)
 
-    with open('feed-podcast.json', 'w', encoding='utf-8') as f:
+    with open(feed_filename, 'w', encoding='utf-8') as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
-    print(f"🎙️ Podcast feed ({theme_label}): {len(theme_articles)} theme articles (avg theme score: {avg_theme_score:.1f}) + {len(bonus_entries)} bonus")
+    print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(theme_articles)} theme articles (avg theme score: {avg_theme_score:.1f}) + {len(bonus_entries)} bonus")
 
 
 def generate_opml():
-    """Generate OPML file with all category feeds"""
+    """Generate OPML file with all category feeds and podcast feeds"""
     import xml.etree.ElementTree as ET
-    
+
     opml = ET.Element('opml', version='1.0')
     head = ET.SubElement(opml, 'head')
     ET.SubElement(head, 'title').text = "Erich's Curated Feeds"
     ET.SubElement(head, 'dateCreated').text = datetime.now().strftime('%a, %d %b %Y %H:%M:%S GMT')
-    
+
     body = ET.SubElement(opml, 'body')
-    
+
+    # Add category feeds
+    category_folder = ET.SubElement(body, 'outline', {
+        'text': 'Category Feeds',
+        'title': 'Category Feeds'
+    })
+
     for cat_key, cat_config in CATEGORIES.items():
         feed_title = f"{cat_config['emoji']} {cat_config['name']}"
         feed_url = f"{FEEDS_CONFIG['base_url']}/feed-{cat_key}.json"
-        
-        ET.SubElement(body, 'outline', {
+
+        ET.SubElement(category_folder, 'outline', {
             'type': 'rss',
             'text': feed_title,
             'title': feed_title,
             'xmlUrl': feed_url,
             'htmlUrl': FEEDS_CONFIG['base_url']
         })
-    
+
+    # Add podcast feeds
+    schedule_config = load_podcast_schedule()
+    if schedule_config and schedule_config.get('enabled', False):
+        podcast_folder = ET.SubElement(body, 'outline', {
+            'text': '🎙️ Themed Podcast Feeds',
+            'title': '🎙️ Themed Podcast Feeds'
+        })
+
+        for day_name, day_config in schedule_config['schedule'].items():
+            feed_title = f"🎙️ {day_config['label']}"
+            feed_url = f"{FEEDS_CONFIG['base_url']}/feed-podcast-{day_name}.json"
+
+            ET.SubElement(podcast_folder, 'outline', {
+                'type': 'rss',
+                'text': feed_title,
+                'title': feed_title,
+                'xmlUrl': feed_url,
+                'htmlUrl': FEEDS_CONFIG['base_url']
+            })
+
     tree = ET.ElementTree(opml)
     tree.write('curated-feeds.opml', encoding='utf-8', xml_declaration=True)
     print("✅ Generated OPML file: curated-feeds.opml")
@@ -1034,9 +1150,19 @@ def main():
     for cat_key in CATEGORIES.keys():
         count = len(categorized[cat_key])
         print(f"  {cat_key}: {count} articles")
-    
-    # Generate the daily podcast feed from categorized articles
-    generate_podcast_feed(quality_articles, categorized)
+
+    # Save quality articles to weekly podcast cache
+    save_podcast_cache(quality_articles)
+
+    # Load weekly cache for podcast feed generation
+    podcast_cache = load_podcast_cache()
+
+    # Generate all 7 themed podcast feeds from weekly cache
+    print(f"\n🎙️ Generating themed podcast feeds from {len(podcast_cache)} cached articles...")
+    schedule_config = load_podcast_schedule()
+    if schedule_config and schedule_config.get('enabled', False):
+        for day_name in schedule_config['schedule'].keys():
+            generate_podcast_feed(day_name, podcast_cache)
 
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
