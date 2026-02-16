@@ -1,6 +1,6 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": "🎙️ Resilient Rural Futures",
+  "title": "🎙️ Arts, Culture & Digital Storytelling",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-podcast.json",
   "description": "Daily themed article selection for podcast generation",
@@ -12,222 +12,261 @@
   ],
   "language": "en",
   "_podcast": {
-    "theme": "Resilient Rural Futures",
-    "theme_description": "Infrastructure, connectivity, sustainability, and preparing Cariboo communities for change",
+    "theme": "Arts, Culture & Digital Storytelling",
+    "theme_description": "Local arts scene, festivals, creative economy, media, and cultural tech",
     "theme_categories": [
       "local",
-      "climate",
-      "homelab",
-      "ai-tech",
-      "science"
+      "scifi",
+      "news",
+      "ai-tech"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Resilient Rural Futures' through a RURAL TECH AND INNOVATION lens. Strong fits include: off-grid power systems and solar for Cariboo homes, mesh networks and community-owned connectivity, self-hosted systems and data sovereignty, telehealth platforms and remote healthcare tech, climate adaptation technology for rural areas, emergency communication systems and disaster tech, renewable energy innovation, food security tech (greenhouses, vertical farms, local food tracking), water monitoring and conservation systems, affordable housing innovation, resilient infrastructure design, rural remote work tools and digital nomad infrastructure, co-op technology platforms, and future-focused solutions that help Cariboo communities thrive despite isolation or climate challenges. Prefer articles about technology building rural resilience and self-sufficiency. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
-    "day": "sunday",
-    "generated_at": "2026-02-15T22:20:56.512384+00:00",
-    "article_count": 10,
-    "bonus_count": 0,
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "day": "monday",
+    "generated_at": "2026-02-16T07:05:55.057642+00:00",
+    "article_count": 12,
+    "bonus_count": 2,
     "scoring_method": "claude_theme_evaluation"
   },
   "items": [
     {
-      "id": "https://www.howtogeek.com/why-my-portable-solar-panels-are-essential-even-in-the-winter/",
-      "url": "https://www.howtogeek.com/why-my-portable-solar-panels-are-essential-even-in-the-winter/",
-      "title": "[How-To Geek] Why my portable solar panels are essential, even in the winter",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/portable-solar-panels-plugged-into-an-anker-solix-c1000.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLess sun doesn't mean no sun.",
-      "date_published": "2026-02-15T18:15:16+00:00",
+      "id": "https://cfjctoday.com/2026/02/15/how-a-day-of-chaos-and-heartache-unspooled-in-tumbler-ridge/",
+      "url": "https://cfjctoday.com/2026/02/15/how-a-day-of-chaos-and-heartache-unspooled-in-tumbler-ridge/",
+      "title": "[CFJC Today Kamloops] How a day of chaos and heartache unspooled in Tumbler Ridge",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wpRssService/imageRedirect?url=http%3A%2F%2Fmapi.cp.org%2Fasset-photos%2F95ce0bed-cb2a-465b-a01f-7adc7687ae2e%2F584c2f91f925698a4cb8a7ac5783c13948d1ac2619e063327b6b86b68dae765e.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNothing is too far apart in tiny Tumbler Ridge, B.C., and there was a well-worn path between the local RCMP detachment and the nondescript brown timbe...",
+      "date_published": "2026-02-15T23:41:30+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
         }
       ],
-      "_quality_score": 90,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_quality_score": 25,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/portable-solar-panels-plugged-into-an-anker-solix-c1000.jpg"
+      "image": "https://media-cdn.socastsrm.com/wpRssService/imageRedirect?url=http%3A%2F%2Fmapi.cp.org%2Fasset-photos%2F95ce0bed-cb2a-465b-a01f-7adc7687ae2e%2F584c2f91f925698a4cb8a7ac5783c13948d1ac2619e063327b6b86b68dae765e.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/02/15/dealing-with-intermittent-water-utilities/",
-      "url": "https://hackaday.com/2026/02/15/dealing-with-intermittent-water-utilities/",
-      "title": "[Hackaday] Dealing With Intermittent Water Utilities",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/02/water-detection-main.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/02/water-detection-main.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In many places, municipal water from a utility is something that&#8217;s often taken for granted. A local government or water utility will employ a water tower or pumping facility to <a class=\"read-more\" href=\"https://hackaday.com/2026/02/15/dealing-with-intermittent-water-utilities/\">&#8230;read more</a>",
-      "date_published": "2026-02-15T18:00:04+00:00",
+      "id": "https://thetyee.ca/News/2026/02/16/Online-Life-Tumbler-Ridge-Shooter/",
+      "url": "https://thetyee.ca/News/2026/02/16/Online-Life-Tumbler-Ridge-Shooter/",
+      "title": "[The Tyee] What We Know about the Online Life of the Tumbler Ridge Shooter",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/02/11/TumblerRidgePolicePresence.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn expert digs into the social media accounts of Jesse Van Rootselaar.",
+      "date_published": "2026-02-16T08:40:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 75,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_quality_score": 80,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/02/water-detection-main.jpg"
+      "image": "https://thetyee.ca/News/2026/02/11/TumblerRidgePolicePresence.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/your-router-might-already-support-mesh-networking-heres-how-to-check/",
-      "url": "https://www.howtogeek.com/your-router-might-already-support-mesh-networking-heres-how-to-check/",
-      "title": "[How-To Geek] Your old router is secretly a mesh system: How to unlock its hidden Wi-Fi settings",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/08/52732186704_a9161584f8_o.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBuying a whole new mesh system is a mistake: Your current router is already capable",
-      "date_published": "2026-02-15T19:30:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/08/52732186704_a9161584f8_o.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/setting-up-a-reverse-proxy-was-easier-than-every-guide-made-it-seem/",
-      "url": "https://www.xda-developers.com/setting-up-a-reverse-proxy-was-easier-than-every-guide-made-it-seem/",
-      "title": "[XDA Developers] Setting up a reverse proxy was easier than every guide made it seem",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/caddy-feature-image-proxmox.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSeriously, it took longer to read the guides",
-      "date_published": "2026-02-15T17:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/caddy-feature-image-proxmox.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/tried-gerbera-instead-of-jellyfin-how-went/",
-      "url": "https://www.xda-developers.com/tried-gerbera-instead-of-jellyfin-how-went/",
-      "title": "[XDA Developers] I tried Gerbera instead of Jellyfin, and here’s how it went",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/gerberaonliving-room-tv.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSetting up Gerbera was the easy part. The real story started when I tried living without Jellyfin’s extras.",
-      "date_published": "2026-02-15T20:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 65,
-      "_final_score": 65,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/gerberaonliving-room-tv.jpeg"
-    },
-    {
-      "id": "https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html",
-      "url": "https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html",
-      "title": "[Boing Boing] The cloud storage equivalent of finally quitting the gym",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/Koofr-Cloud-Storage.jpg?fit=2250%2C1500&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html\" rel=\"nofollow\" title=\"The cloud storage equivalent of finally quitting the gym\"><img alt=\"Koofr Cloud Storage\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1500\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/Koofr-Cloud-Storage.jpg?fit=2250%2C1500&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"2250\" /></a><p><strong>TL;DR:</strong>&#160;Get&#160;<a href=\"https://store.boingboing.net/sales/koofr-cloud-storage-plans-lifetime-subscription-1tb?utm_source=boingboing.net&#38;utm_content=PS-12092&#38;utm_medium=Referral&#38;utm_campaign=koofr-cloud-storage-lifetime-subscription-1tb-2026-02-12&#38;utm_term=SALE-20795\" rel=\"noreferrer noopener\" target=\"_blank\">1TB of cloud storage from Koofr</a>&#160;for $129.99 with code KOOFR (reg. $810). Deal ends Feb. 16 at 11:59 p.m. PT.</p>\n<p>Cloud storage subscriptions are a lot like gym memberships: cheap enough to ignore, expensive enough over time to regret, and surprisingly hard to quit. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/02/15/the-cloud-storage-equivalent-of-finally-quitting-the-gym.html\">The cloud storage equivalent of finally quitting the gym</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-02-15T16:00:00+00:00",
+      "id": "https://boingboing.net/2026/02/15/bitcoin-mining-but-make-it-a-50-experiment.html",
+      "url": "https://boingboing.net/2026/02/15/bitcoin-mining-but-make-it-a-50-experiment.html",
+      "title": "[Boing Boing] Bitcoin mining, but make it a $50 experiment",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/BlockChance.jpg?fit=2250%2C1500&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/02/15/bitcoin-mining-but-make-it-a-50-experiment.html\" rel=\"nofollow\" title=\"Bitcoin mining, but make it a $50 experiment\"><img alt=\"BlockChance\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1500\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/BlockChance.jpg?fit=2250%2C1500&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"2250\" /></a><p><strong>TL;DR:</strong>&#160;Try your luck at Bitcoin mining without the noise, heat, or four-figure commitment. The&#160;<a href=\"https://store.boingboing.net/sales/blockchance-bitcoin-ticket-miner?utm_source=boingboing.net&#38;utm_content=PS-12093&#38;utm_medium=Referral&#38;utm_campaign=blockchance-bitcoin-ticket-miner-2026-02-12&#38;utm_term=SALE-328964\" rel=\"noreferrer noopener\" target=\"_blank\">BlockChance Bitcoin Ticket Miner</a>&#160;is $49.97 (reg. $149.99) and lets you participate in real Bitcoin mining like a digital scratch-off ticket. Deal ends Feb. 22 at 11:59 p.m. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/02/15/bitcoin-mining-but-make-it-a-50-experiment.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/02/15/bitcoin-mining-but-make-it-a-50-experiment.html\">Bitcoin mining, but make it a $50 experiment</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-02-15T22:00:00+00:00",
       "authors": [
         {
           "name": "Boing Boing",
           "url": "https://boingboing.net/"
         }
       ],
-      "_quality_score": 45,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/Koofr-Cloud-Storage.jpg?fit=2250%2C1500&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.howtogeek.com/on-the-inside-jordan/",
-      "url": "https://www.howtogeek.com/on-the-inside-jordan/",
-      "title": "[How-To Geek] On The Inside: This writer's daily driver is a Linux laptop",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/the-kubuntu-focus-m2-gen-6-laptop-on-a-desk-with-a-software-updater-and-linux-terminal-open.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLinux can be more than just an OS you tinker with—it can replace Windows and become your daily device for everything.",
-      "date_published": "2026-02-15T19:05:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/the-kubuntu-focus-m2-gen-6-laptop-on-a-desk-with-a-software-updater-and-linux-terminal-open.jpg"
-    },
-    {
-      "id": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVjVJd05kU2pYWFZiRFRXTmFmem0zWG5pX0dqeS1BdDVZNk9xclUtUkc2SEZKc0VaUlg1OXdBaGxnRk1JLUpocHpwRUJMbnFfR3Q3em5laDBVYTZjWkVFb190VGxhWDJBYzdEY1VhRkhkNFdWQ29HWlBNbTd2Tk0yRWlheXNyZXhxUUUtVVExVUdLMVRDek8zcHdkdlB5QjF2NDVfaDdhTUlWelRJYU1uTjhvdEtZY0F4b2hUQnZoajBpWm5EM3JOckNKOHU5b2lSUUR5cVFKMkFyekxsMnVld3VOYU9lUQ?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVjVJd05kU2pYWFZiRFRXTmFmem0zWG5pX0dqeS1BdDVZNk9xclUtUkc2SEZKc0VaUlg1OXdBaGxnRk1JLUpocHpwRUJMbnFfR3Q3em5laDBVYTZjWkVFb190VGxhWDJBYzdEY1VhRkhkNFdWQ29HWlBNbTd2Tk0yRWlheXNyZXhxUUUtVVExVUdLMVRDek8zcHdkdlB5QjF2NDVfaDdhTUlWelRJYU1uTjhvdEtZY0F4b2hUQnZoajBpWm5EM3JOckNKOHU5b2lSUUR5cVFKMkFyekxsMnVld3VOYU9lUQ?oc=5",
-      "title": "[GN AI ML Infrastructure] AI Infrastructure Meets Water Security: Sungai Samak Estate’s Strategic Moment",
-      "content_html": "<img src=\"https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxOVjVJd05kU2pYWFZiRFRXTmFmem0zWG5pX0dqeS1BdDVZNk9xclUtUkc2SEZKc0VaUlg1OXdBaGxnRk1JLUpocHpwRUJMbnFfR3Q3em5laDBVYTZjWkVFb190VGxhWDJBYzdEY1VhRkhkNFdWQ29HWlBNbTd2Tk0yRWlheXNyZXhxUUUtVVExVUdLMVRDek8zcHdkdlB5QjF2NDVfaDdhTUlWelRJYU1uTjhvdEtZY0F4b2hUQnZoajBpWm5EM3JOckNKOHU5b2lSUUR5cVFKMkFyekxsMnVld3VOYU9lUQ?oc=5\" target=\"_blank\">AI Infrastructure Meets Water Security: Sungai Samak Estate’s Strategic Moment</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">FinancialContent</font>",
-      "date_published": "2026-02-15T11:22:00+00:00",
-      "authors": [
-        {
-          "name": "GN AI ML Infrastructure",
-          "url": "https://news.google.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 65,
-      "_final_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 20,
+      "_final_score": 20,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
-      "image": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/BlockChance.jpg?fit=2250%2C1500&quality=60&ssl=1"
     },
     {
-      "id": "https://www.xda-developers.com/windows-sandbox-best-feature-youre-not-using/",
-      "url": "https://www.xda-developers.com/windows-sandbox-best-feature-youre-not-using/",
-      "title": "[XDA Developers] Windows Sandbox is the best feature you're not using",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/windows-sandbox-on-computer.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEnable Windows Sandbox and test questionable software risk-free in a disposable virtual machine.",
-      "date_published": "2026-02-15T17:30:20+00:00",
+      "id": "https://quesnelobserver.com/2026/02/15/video-vigil-for-tumbler-ridge-in-langley-city/",
+      "url": "https://quesnelobserver.com/2026/02/15/video-vigil-for-tumbler-ridge-in-langley-city/",
+      "title": "[Quesnel Cariboo Observer] VIDEO: Vigil for Tumbler Ridge in Langley City",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41597365_web1_Vigil_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Crowd attends Sunday memorial in park </p>",
+      "date_published": "2026-02-16T03:45:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41597365_web1_Vigil_3.jpg?w=1024"
+    },
+    {
+      "id": "https://www.theguardian.com/global-development/2026/feb/16/the-goal-has-been-to-demystify-how-a-colonial-nairobi-library-was-restored-and-given-back-to-the-people",
+      "url": "https://www.theguardian.com/global-development/2026/feb/16/the-goal-has-been-to-demystify-how-a-colonial-nairobi-library-was-restored-and-given-back-to-the-people",
+      "title": "[The Guardian Global Development] ‘The goal has been to demystify’: how a colonial Nairobi library was restored and given back to the people",
+      "content_html": "<img src=\"https://i.guim.co.uk/img/media/32081bc6fe3b5460e582dbb69a38171a3ab6fb0f/644_0_6440_5152/master/6440.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=18e87e2cab39f66aff36fa2f78e37e80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Once a whites-only enclave, the grand McMillan Memorial library is one of three in the Kenyan capital that have been transformed for the community</p><p>Down a steep, narrow staircase, the basement of the McMillan Memorial Library in Nairobi holds more than 100 enormous, dust-covered bound volumes of newspapers. Here too are the minutes of council meetings and photographic negatives going back more than a century.</p><p>“Here lie some of the minute-by-minute recorded debates from the time British colonial powers ruled Nairobi, when it was a segregated city,” says Angela Wachuka, a publisher. Seconds later, a power cut plunges the room into darkness. “We still have a great deal of work to do,” she adds.</p> <a href=\"https://www.theguardian.com/global-development/2026/feb/16/the-goal-has-been-to-demystify-how-a-colonial-nairobi-library-was-restored-and-given-back-to-the-people\">Continue reading...</a>",
+      "date_published": "2026-02-16T05:00:42+00:00",
+      "authors": [
+        {
+          "name": "The Guardian Global Development",
+          "url": "https://www.theguardian.com/global-development"
+        }
+      ],
+      "_quality_score": 30,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i.guim.co.uk/img/media/32081bc6fe3b5460e582dbb69a38171a3ab6fb0f/644_0_6440_5152/master/6440.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=18e87e2cab39f66aff36fa2f78e37e80"
+    },
+    {
+      "id": "https://www.xda-developers.com/do-this-instead-of-getting-a-steam-machine-on-older-hardware/",
+      "url": "https://www.xda-developers.com/do-this-instead-of-getting-a-steam-machine-on-older-hardware/",
+      "title": "[XDA Developers] Don't buy a Steam Machine even if your PC is half-a-decade old",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/11/steam-machine-969677271.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTurn your old PC into a console-killer instead of buying",
+      "date_published": "2026-02-16T00:00:20+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_quality_score": 25,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/windows-sandbox-on-computer.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/11/steam-machine-969677271.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/8-ubuntu-tips-and-tricks-for-first-time-users/",
-      "url": "https://www.howtogeek.com/8-ubuntu-tips-and-tricks-for-first-time-users/",
-      "title": "[How-To Geek] 8 Ubuntu tips and tricks for first-time users",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/05/laptop-with-linux-terminal-open.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBecome an Ubuntu power user in no time.",
-      "date_published": "2026-02-15T19:00:16+00:00",
+      "id": "https://cfjctoday.com/2026/02/15/tnrd-extends-911-dispatch-contract-with-rdco-while-awaiting-details-costs-on-nextgen-service/",
+      "url": "https://cfjctoday.com/2026/02/15/tnrd-extends-911-dispatch-contract-with-rdco-while-awaiting-details-costs-on-nextgen-service/",
+      "title": "[CFJC Today Kamloops] TNRD extends 911 dispatch contract with RDCO while awaiting details, costs on NextGen service",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/02/a751d609-14fd-41db-9357-743923e72e4a.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Image Credit: CFJC Today File)",
+      "date_published": "2026-02-16T00:41:45+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
         }
       ],
-      "_quality_score": 65,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_quality_score": 30,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/05/laptop-with-linux-terminal-open.jpg"
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/02/a751d609-14fd-41db-9357-743923e72e4a.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/ddr4-systems-quietly-became-the-smart-buy-in-2026/",
+      "url": "https://www.xda-developers.com/ddr4-systems-quietly-became-the-smart-buy-in-2026/",
+      "title": "[XDA Developers] DDR4 systems quietly became the only sane choice in 2026",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/64gb-ddr4-ram-modules.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe're evolving, just backwards",
+      "date_published": "2026-02-15T23:00:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 30,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/64gb-ddr4-ram-modules.jpg"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/02/15/ranch-musings-a-cariboo-rancher-visits-cuba/",
+      "url": "https://100milefreepress.net/2026/02/15/ranch-musings-a-cariboo-rancher-visits-cuba/",
+      "title": "[100 Mile Free Press] RANCH MUSINGS: A Cariboo rancher visits Cuba",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/02/41557288_web1_260212-OMH-Zirnhelt-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>100 Mile Free Press columnist David Zirnhelt&#8217;s regular column to the Free Press </p>",
+      "date_published": "2026-02-16T01:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/02/41557288_web1_260212-OMH-Zirnhelt-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.themarginalian.org/2026/02/15/emily-levine-cold-solace-anna-belle-kaufman/",
+      "url": "https://www.themarginalian.org/2026/02/15/emily-levine-cold-solace-anna-belle-kaufman/",
+      "title": "[The Marginalian] How to Live and How to Die",
+      "content_html": "<img src=\"https://www.themarginalian.org/wp-content/uploads/2020/02/EmilyLevine1.jpg?fit=600%2C315&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n\"Leave something of sweetness and substance in the mouth of the world.\"",
+      "date_published": "2026-02-16T00:38:02+00:00",
+      "authors": [
+        {
+          "name": "The Marginalian",
+          "url": "https://www.themarginalian.org"
+        }
+      ],
+      "_quality_score": 25,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": false,
+      "image": "https://www.themarginalian.org/wp-content/uploads/2020/02/EmilyLevine1.jpg?fit=600%2C315&ssl=1"
+    },
+    {
+      "id": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQR3BXQ3BrM0MzYzBOT3J6MHZiNHpETTAxNDY3WjNFb2p0WEw1ZzlvY1V3azR0VktPVzJMU0pLczF5RUtHWWRwY2txc01RcF90ZzdSaU1ERDZoeE5IYkN4ZDVVc2lxN2c2eFd4UDRJVWdwMHV5bTdMUXhhT1h4TW5EOENtZjc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQR3BXQ3BrM0MzYzBOT3J6MHZiNHpETTAxNDY3WjNFb2p0WEw1ZzlvY1V3azR0VktPVzJMU0pLczF5RUtHWWRwY2txc01RcF90ZzdSaU1ERDZoeE5IYkN4ZDVVc2lxN2c2eFd4UDRJVWdwMHV5bTdMUXhhT1h4TW5EOENtZjc?oc=5",
+      "title": "[GN 3D Printing] Recyclable ink for 3D printing",
+      "content_html": "<img src=\"https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxQR3BXQ3BrM0MzYzBOT3J6MHZiNHpETTAxNDY3WjNFb2p0WEw1ZzlvY1V3azR0VktPVzJMU0pLczF5RUtHWWRwY2txc01RcF90ZzdSaU1ERDZoeE5IYkN4ZDVVc2lxN2c2eFd4UDRJVWdwMHV5bTdMUXhhT1h4TW5EOENtZjc?oc=5\" target=\"_blank\">Recyclable ink for 3D printing</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">chemeurope.com</font>",
+      "date_published": "2026-02-16T05:28:26+00:00",
+      "authors": [
+        {
+          "name": "GN 3D Printing",
+          "url": "https://news.google.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/02/16/Will-BC-Axe-FireSmart-Funding/",
+      "url": "https://thetyee.ca/News/2026/02/16/Will-BC-Axe-FireSmart-Funding/",
+      "title": "[The Tyee] Will BC Axe FireSmart Funding in Tomorrow’s Budget?",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/02/15/RakePineNeedles.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe province has suggested fire prevention funding will be centralized. Local officials are concerned.",
+      "date_published": "2026-02-16T08:20:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/News/2026/02/15/RakePineNeedles.jpg"
     }
   ]
 }
