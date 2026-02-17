@@ -774,13 +774,15 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
 
     for i in range(0, len(articles), batch_size):
         batch = articles[i:i + batch_size]
+        batch_start_count = len(scored_results)
 
-        articles_text = "\n\n".join([
-            f"Article {j+1}:\nTitle: {article.title}\nSource: {article.source}\nDescription: {article.description[:300]}"
-            for j, article in enumerate(batch)
-        ])
+        try:
+            articles_text = "\n\n".join([
+                f"Article {j+1}:\nTitle: {article.title}\nSource: {article.source}\nDescription: {(article.description or '')[:300]}"
+                for j, article in enumerate(batch)
+            ])
 
-        prompt = f"""{theme_prompt}
+            prompt = f"""{theme_prompt}
 
 Respond with ONLY a JSON array (no other text):
 [
@@ -791,7 +793,6 @@ Respond with ONLY a JSON array (no other text):
 Articles to evaluate:
 {articles_text}"""
 
-        try:
             response = client.messages.create(
                 model="claude-sonnet-4-20250514",
                 max_tokens=1000,
@@ -823,6 +824,13 @@ Articles to evaluate:
         except Exception as e:
             print(f"  ⚠️ API error: {e}")
             for article in batch:
+                scored_results.append((article, 50))
+
+        # Fallback: if Claude returned a valid but empty/incomplete response,
+        # ensure every article in the batch gets a score so none are silently dropped
+        scored_in_batch = {a.link for a, _ in scored_results[batch_start_count:]}
+        for article in batch:
+            if article.link not in scored_in_batch:
                 scored_results.append((article, 50))
 
     return scored_results
@@ -909,6 +917,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
 
     # Score articles for thematic fit using Claude
     theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
+
+    # Fallback: if scoring returned nothing despite having a pool, use quality scores directly
+    if not theme_scored and theme_pool:
+        print(f"  ⚠️ Theme scoring returned empty for {theme_label}, falling back to quality scores")
+        theme_scored = [(article, article.score) for article in theme_pool]
 
     # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
     ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
