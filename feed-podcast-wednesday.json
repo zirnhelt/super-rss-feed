@@ -22,7 +22,7 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Community Tech & Governance' through a RURAL TECH AND INNOVATION lens. Strong fits include: municipal broadband and fiber projects in Cariboo communities, SD27 education technology and digital learning, civic tech platforms and open data initiatives, community-owned networks and ISPs, smart rural infrastructure (water, waste, transit), digital government services for rural areas, council decisions on technology spending, public Wi-Fi and connectivity programs, election technology and civic engagement platforms, rural innovation hubs, and how Williams Lake/Quesnel/100 Mile/CRD use technology for public services. Prefer articles that bridge governance AND technology in rural civic contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-02-17T14:50:19.616937+00:00",
+    "generated_at": "2026-02-17T22:35:44.437934+00:00",
     "article_count": 12,
     "bonus_count": 2,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
@@ -49,144 +49,104 @@
       "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
     },
     {
-      "id": "https://www.techradar.com/pro/eu-parliament-bans-ai-use-on-government-work-devices",
-      "url": "https://www.techradar.com/pro/eu-parliament-bans-ai-use-on-government-work-devices",
-      "title": "[TechRadar] EU Parliament bans AI use on government work devices as security fears rise",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ZHgAaT45MZnqJNcsVHH3m4-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEU Parliament says many AI tools could run locally instead of sending information to the cloud, so it's banned them.",
-      "date_published": "2026-02-17T12:25:00+00:00",
+      "id": "https://news.gov.bc.ca/releases/2026FIN0003-000158",
+      "url": "https://news.gov.bc.ca/releases/2026FIN0003-000158",
+      "title": "[BC Gov News] Budget secures B.C.’s future, protects critical services",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nB.C. makes disciplined spending choices while growing the economy",
+      "date_published": "2026-02-17T22:03:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/ZHgAaT45MZnqJNcsVHH3m4-1280-80.jpg"
-    },
-    {
-      "id": "https://www.tomsguide.com/computing/vpns/uk-government-considers-vpn-ban-for-under-16s-as-privacy-advocates-slam-proposal-as-a-draconian-crackdown",
-      "url": "https://www.tomsguide.com/computing/vpns/uk-government-considers-vpn-ban-for-under-16s-as-privacy-advocates-slam-proposal-as-a-draconian-crackdown",
-      "title": "[Toms Guide] UK government considers VPN ban for under-16s – as privacy advocates slam proposal as a 'draconian crackdown'",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/4VXTpqXRXmenWRYadxMYLd-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe UK government is further examining children's access to VPNs, with restrictions being investigated as part of a consultation – and privacy advocates aren't happy.",
-      "date_published": "2026-02-16T17:02:50+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/4VXTpqXRXmenWRYadxMYLd-1280-80.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/found-way-track-my-home-server-ports-without-using-spreadsheet/",
-      "url": "https://www.xda-developers.com/found-way-track-my-home-server-ports-without-using-spreadsheet/",
-      "title": "[XDA Developers] I finally found a way to track all my home server ports without using a spreadsheet",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/portracker-running-on-a-mac.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis self-hosted app makes it effortless to keep a track of all your containers.",
-      "date_published": "2026-02-17T13:30:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/portracker-running-on-a-mac.jpeg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/02/17/nyregion/new-jersey-transit-delays-manhattan.html",
-      "url": "https://www.nytimes.com/2026/02/17/nyregion/new-jersey-transit-delays-manhattan.html",
-      "title": "[NYT Top Stories] New Jersey Commuters Face Month of Misery as Service to Manhattan Is Slashed",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/02/17/multimedia/17met-njtransit-delays-SWAP-bzqv/17met-njtransit-delays-SWAP-bzqv-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNJ Transit suggested that commuters should work from home for the next month, as Amtrak moves train traffic to a new bridge, severely reducing service into Manhattan.",
-      "date_published": "2026-02-17T12:56:43+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 30,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/02/17/multimedia/17met-njtransit-delays-SWAP-bzqv/17met-njtransit-delays-SWAP-bzqv-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.engadget.com/general/europe-probes-sheins-addictive-app-design-and-illegal-product-sales-125322191.html?src=rss",
-      "url": "https://www.engadget.com/general/europe-probes-sheins-addictive-app-design-and-illegal-product-sales-125322191.html?src=rss",
-      "title": "[Engadget] Europe probes Shein's addictive app design and illegal product sales",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2023-12%2Fe00db180-99dd-11ee-be7d-83a16c1e634f&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=2a04643d221ad9d7668663e7aea208d1918cc358\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The European Commission (EC) has <a href=\"https://ec.europa.eu/commission/presscorner/detail/en/ip_26_420\"><ins>opened an investigation</ins></a> into low-cost fast fashion retailer Shein. EC officials are concerned about the sale of illegal products, including <a href=\"https://www.bbc.com/news/articles/cddrg70pj1mo\"><ins>child sexual abuse material</ins></a>, as well as the potentially addictive design of its shopping experience. The Commission found fellow low-cost retailer Temu <a href=\"https://ec.europa.eu/commission/presscorner/detail/en/ip_25_1913\"><ins>in violation</ins></a> of the Digital Services Act after a similar investigation last year.</p>\n<p>The probe is being opened under the <a href=\"https://digital-strategy.ec.europa.eu/en/policies/digital-services-act\"><ins>Digital Services Act</ins></a>, a set of EU rules governing online services. The Commission will examine how Shein drives engagement with shoppers, including using a points and rewards system, and whether the company is properly mitigating the risk of addiction via these and other features.</p>\n<span id=\"end-legacy-contents\"></span><p>Algorithmic recommendation systems are another point of contention, and the Commission will ask Shein to disclose how it suggests  products to users. It also says that the company must offer users a system that is not based on profiling.</p>\n<p>The Singapore-based company has faced a great deal of scrutiny in past years on a number of fronts, including its labor practices, <a href=\"https://www.bbc.com/news/articles/clyg7n1d85go\"><ins>materials sourcing</ins></a>, <a href=\"https://www.engadget.com/big-tech/tiktok-temu-and-more-face-complaints-alleging-gdpr-violations-in-eu-195115567.html\"><ins>data practices</ins></a> and <a href=\"https://www.reuters.com/markets/deals/what-is-stake-china-founded-e-commerce-giant-shein-eu-rule-looms-2024-06-19/\"><ins>IP infringement</ins></a>. Last year the <a href=\"https://www.engadget.com/big-tech/texas-ag-opens-probe-into-shein-000812688.html\"><ins>Texas Attorney General</ins></a> opened a <a href=\"https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-investigates-global-fast-fashion-giant-shein-unethical-labor-practices\"><ins>probe</ins></a> into the company's safety and labor practices amid allegations that Shein uses forced labor as well as toxic or hazardous materials.</p>\n<p>Addictive design has been a recent priority for European regulators, with the Commission demanding that <a href=\"https://www.engadget.com/social-media/eu-says-tiktok-uses-addictive-design-and-must-change-131738425.html\"><ins>TikTok</ins></a> make changes to its platform after a similar probe concluded earlier this month. Algorithms have also been in focus, with the Commission recently launching a probe into how exactly <a href=\"https://www.engadget.com/big-tech/the-eu-wants-to-know-just-how-xs-recommendation-algorithm-works-161000963.html\"><ins>X's recommendation algorithm</ins></a> works.</p>\n<p>The regulatory body will now continue collecting evidence in the matter, and holds the authority within the EU to levy fines and demand changes should the platform wish to continue operations in the region.</p>This article originally appeared on Engadget at https://www.engadget.com/general/europe-probes-sheins-addictive-app-design-and-illegal-product-sales-125322191.html?src=rss",
-      "date_published": "2026-02-17T12:53:24+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "_quality_score": 25,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2023-12%2Fe00db180-99dd-11ee-be7d-83a16c1e634f&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=2a04643d221ad9d7668663e7aea208d1918cc358"
-    },
-    {
-      "id": "https://www.techradar.com/vpn/vpn-privacy-security/brits-are-turning-their-backs-on-us-big-tech-and-looking-to-europe-for-privacy",
-      "url": "https://www.techradar.com/vpn/vpn-privacy-security/brits-are-turning-their-backs-on-us-big-tech-and-looking-to-europe-for-privacy",
-      "title": "[TechRadar] Brits are turning their backs on US Big Tech — and looking to Europe for privacy",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ZB6QZ4odYGv3MmphCrnxER-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGeopolitical tensions and privacy fears are driving a wedge between UK users and US tech giants, with a majority now seeking closer-to-home alternatives for their digital lives.",
-      "date_published": "2026-02-17T13:45:38+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
         }
       ],
       "_quality_score": 45,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/ZB6QZ4odYGv3MmphCrnxER-1280-80.jpg"
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/i-just-set-up-a-new-linux-desktop-here-are-the-first-things-i-did/",
-      "url": "https://www.howtogeek.com/i-just-set-up-a-new-linux-desktop-here-are-the-first-things-i-did/",
-      "title": "[How-To Geek] I just set up a new Linux desktop, here are the first 5 things I did",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/a-vertically-oriented-portable-monitor-showing-a-kde-plasma-login-screen-for-a-linux-device-with-the-time-and-date.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew Linux installation, same old configuration files.",
-      "date_published": "2026-02-17T13:30:16+00:00",
+      "id": "https://qz.com/trump-admin-cftc-state-regulation-crackdown",
+      "url": "https://qz.com/trump-admin-cftc-state-regulation-crackdown",
+      "title": "[Quartz] The Trump administration wants to block states from regulating prediction markets",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Michael%2520Selig%2520Mike%2520Selig%2520CFTC%2520chair.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe latest generation of online betting markets “provide useful functions for society,” said the chair of the Commodity and Futures Trading Commission",
+      "date_published": "2026-02-17T19:40:47+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "_quality_score": 60,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_quality_score": 30,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/a-vertically-oriented-portable-monitor-showing-a-kde-plasma-login-screen-for-a-linux-device-with-the-time-and-date.jpg"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Michael%2520Selig%2520Mike%2520Selig%2520CFTC%2520chair.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/138565/news/education/temporary-school-facilities-arriving-in-tumbler-ridge-this-week/",
+      "url": "https://www.mycariboonow.com/138565/news/education/temporary-school-facilities-arriving-in-tumbler-ridge-this-week/",
+      "title": "[My Cariboo Now] Temporary school facilities arriving in Tumbler Ridge this week",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/02/IMG_7095-e1770862480539.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/02/IMG_7095-e1770862480539-1024x576.jpg\" width=\"696\" />\"We are continuing to use a compassionate, trauma-informed approach that includes providing updates to the school community, families and the public about a planned return to school in the coming days.\"</p>\n<p>The post <a href=\"https://www.mycariboonow.com/138565/news/education/temporary-school-facilities-arriving-in-tumbler-ridge-this-week/\">Temporary school facilities arriving in Tumbler Ridge this week</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-02-17T19:29:54+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/02/IMG_7095-e1770862480539.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/compliance-culture-reset-2026-from-gatekeepers-to-growth-enablers",
+      "url": "https://www.techradar.com/pro/compliance-culture-reset-2026-from-gatekeepers-to-growth-enablers",
+      "title": "[TechRadar] Compliance culture reset 2026",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ddAwW6WCaku93JBBpA65LL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCommunications compliance in 2026 means business enablement, and scaling oversight alongside the platforms under scrutiny.",
+      "date_published": "2026-02-17T15:08:37+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 25,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/ddAwW6WCaku93JBBpA65LL-1280-80.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/vpn/vpn-privacy-security/millions-of-iranians-could-lose-access-to-vpns-as-of-next-week-due-to-lack-of-us-funding",
+      "url": "https://www.techradar.com/vpn/vpn-privacy-security/millions-of-iranians-could-lose-access-to-vpns-as-of-next-week-due-to-lack-of-us-funding",
+      "title": "[TechRadar] Millions of Iranians could lose access to VPNs 'as of next week' due to lack of US funding",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/z8Ysj7MUYeyK822yMiTepP-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Open Technology Fund warns that millions of VPN users in Iran could lose access to the tools as early next week if US agencies don't replenish the group's funds.",
+      "date_published": "2026-02-17T13:32:53+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 35,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/z8Ysj7MUYeyK822yMiTepP-1280-80.jpg"
     },
     {
       "id": "https://thenarwhal.ca/bc-mining-push-2026/",
@@ -201,39 +161,79 @@
         }
       ],
       "_quality_score": 80,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
       "image": "https://thenarwhal.ca/wp-content/uploads/2026/02/CP-Eby-Teck-Mine-Dyck-1024x691.jpg"
     },
     {
-      "id": "https://www.nytimes.com/2026/02/17/nyregion/portal-bridge-decades-nj-transit.html",
-      "url": "https://www.nytimes.com/2026/02/17/nyregion/portal-bridge-decades-nj-transit.html",
-      "title": "[NYT Top Stories] The Portal Bridge Has Caused Headaches for Decades",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/02/17/world/17met-njtransit-chaos-alogi/17met-njtransit-chaos-alogi-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA main rail link to New York City, the bridge over the Hackensack River will be replaced. Few commuters will miss it.",
-      "date_published": "2026-02-17T12:38:05+00:00",
+      "id": "https://thetyee.ca/Opinion/2026/02/17/Vancouver-Handling-False-Creek-South/",
+      "url": "https://thetyee.ca/Opinion/2026/02/17/Vancouver-Handling-False-Creek-South/",
+      "title": "[The Tyee] Vancouver’s Handling of False Creek South Is Officially a Scandal",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2025/03/24/FalseCreekMain.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe city’s auditor general found ‘serious mismanagement of public funds’ and more to criticize.",
+      "date_published": "2026-02-17T08:10:00+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
       "_quality_score": 30,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/02/17/world/17met-njtransit-chaos-alogi/17met-njtransit-chaos-alogi-mediumSquareAt3X.jpg"
+      "image": "https://thetyee.ca/Opinion/2025/03/24/FalseCreekMain.jpg"
     },
     {
-      "id": "https://insideevs.com/news/787500/canada-chinese-evs-tariff-drop/",
-      "url": "https://insideevs.com/news/787500/canada-chinese-evs-tariff-drop/",
-      "title": "[InsideEVs] Canadians Are Warming Up To Affordable Chinese EV Imports",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/9meBRg/s3/byd-canada.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new poll suggests buyers are warming to China-built EVs as Ottawa courts Chinese investment and Canadian production.",
-      "date_published": "2026-02-17T13:45:13+00:00",
+      "id": "https://quesnelobserver.com/2026/02/17/budget-2026-will-delay-7-scheduled-long-term-care-projects-in-b-c/",
+      "url": "https://quesnelobserver.com/2026/02/17/budget-2026-will-delay-7-scheduled-long-term-care-projects-in-b-c/",
+      "title": "[Quesnel Cariboo Observer] Budget 2026 will delay 7 scheduled long-term care projects in B.C.",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41610492_web1_260217-BPD-Long-term-care-timing_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Seniors advocate says province is already behind on long-term care bed targets </p>",
+      "date_published": "2026-02-17T22:06:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41610492_web1_260217-BPD-Long-term-care-timing_1.jpg?w=1024"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/02/17/b-c-is-raising-taxes-and-cutting-public-sector-jobs-as-provincial-debt-soars/",
+      "url": "https://quesnelobserver.com/2026/02/17/b-c-is-raising-taxes-and-cutting-public-sector-jobs-as-provincial-debt-soars/",
+      "title": "[Quesnel Cariboo Observer] B.C. is raising taxes and cutting public sector jobs as provincial debt soars",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41610445_web1_260217-BPD-Budgetmain-Bailey_1.jpg?w=923\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Finance Minister Brenda Bailey says it is not an &#8216;austerity budget&#8217; </p>",
+      "date_published": "2026-02-17T22:00:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41610445_web1_260217-BPD-Budgetmain-Bailey_1.jpg?w=923"
+    },
+    {
+      "id": "https://insideevs.com/news/787560/tesla-cybercab-robotaxi-giga-texas-production/",
+      "url": "https://insideevs.com/news/787560/tesla-cybercab-robotaxi-giga-texas-production/",
+      "title": "[InsideEVs] Tesla Begins Cybercab Production. Now Comes The Hard Part",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/L3MQbG/s3/tesla-cybercab.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe company has begun the production of its first purpose-built autonomous vehicle, the Cybercab.",
+      "date_published": "2026-02-17T20:28:59+00:00",
       "authors": [
         {
           "name": "InsideEVs",
@@ -246,25 +246,25 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/9meBRg/s3/byd-canada.jpg"
+      "image": "https://cdn.motor1.com/images/mgl/L3MQbG/s3/tesla-cybercab.jpg"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNzJWWi1OMGdaRFpoXzE1Uy1WLVRRTmJJRTdUVjRWN1d6MjczRC1PUk9uZVBHMHVkMXdwYlhONUdxWE0zYXMxVzVNOEhsc3MzM1BmMGhkY1IyaWxfX01qb1hKT01lWnFWYzV0bmVFZVdRSVpiUnhyV1R1RHZjbmFzMncxNVVzZXZCOXdpYThpRks1UVFXWVFQUVFiMXNBZGJQMHo4UW5R?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNzJWWi1OMGdaRFpoXzE1Uy1WLVRRTmJJRTdUVjRWN1d6MjczRC1PUk9uZVBHMHVkMXdwYlhONUdxWE0zYXMxVzVNOEhsc3MzM1BmMGhkY1IyaWxfX01qb1hKT01lWnFWYzV0bmVFZVdRSVpiUnhyV1R1RHZjbmFzMncxNVVzZXZCOXdpYThpRks1UVFXWVFQUVFiMXNBZGJQMHo4UW5R?oc=5",
-      "title": "[GN Clean Energy and EVs] Octopus Energy invests $1 billion in California clean technology",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxPNzJWWi1OMGdaRFpoXzE1Uy1WLVRRTmJJRTdUVjRWN1d6MjczRC1PUk9uZVBHMHVkMXdwYlhONUdxWE0zYXMxVzVNOEhsc3MzM1BmMGhkY1IyaWxfX01qb1hKT01lWnFWYzV0bmVFZVdRSVpiUnhyV1R1RHZjbmFzMncxNVVzZXZCOXdpYThpRks1UVFXWVFQUVFiMXNBZGJQMHo4UW5R?oc=5\" target=\"_blank\">Octopus Energy invests $1 billion in California clean technology</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">pv magazine International</font>",
-      "date_published": "2026-02-17T13:00:01+00:00",
+      "id": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZmFyNk5laFhrRm9IRXI4UTZZcnJBNVFLTTNQdjVqeG9hMnEwV0otZHl6bk8wdGpNOUx4dmF0dlVYRlRBcVczQTRMdmZ4STR2UC05N1hRNm43QzFXXzNIbzJqR2JJMkJEUEFYRjFHUm5RbXBlbDNoajVZX1hON3RWcTlmckoxRnhxVDg4UUNLSzBhMjB2ck83cHVIUTYwMlN6TlQyQlhscXg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZmFyNk5laFhrRm9IRXI4UTZZcnJBNVFLTTNQdjVqeG9hMnEwV0otZHl6bk8wdGpNOUx4dmF0dlVYRlRBcVczQTRMdmZ4STR2UC05N1hRNm43QzFXXzNIbzJqR2JJMkJEUEFYRjFHUm5RbXBlbDNoajVZX1hON3RWcTlmckoxRnhxVDg4UUNLSzBhMjB2ck83cHVIUTYwMlN6TlQyQlhscXg?oc=5",
+      "title": "[GN 3D Printing] IMDEA researchers develop woven nitinol to overcome 3D printing limitations",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZmFyNk5laFhrRm9IRXI4UTZZcnJBNVFLTTNQdjVqeG9hMnEwV0otZHl6bk8wdGpNOUx4dmF0dlVYRlRBcVczQTRMdmZ4STR2UC05N1hRNm43QzFXXzNIbzJqR2JJMkJEUEFYRjFHUm5RbXBlbDNoajVZX1hON3RWcTlmckoxRnhxVDg4UUNLSzBhMjB2ck83cHVIUTYwMlN6TlQyQlhscXg?oc=5\" target=\"_blank\">IMDEA researchers develop woven nitinol to overcome 3D printing limitations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">VoxelMatters</font>",
+      "date_published": "2026-02-17T17:09:07+00:00",
       "authors": [
         {
-          "name": "GN Clean Energy and EVs",
+          "name": "GN 3D Printing",
           "url": "https://news.google.com"
         }
       ],
-      "_quality_score": 70,
+      "_quality_score": 75,
       "_theme_score": 0,
       "_final_score": 0,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
       "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
     }
