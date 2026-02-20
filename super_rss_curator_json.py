@@ -89,14 +89,18 @@ WLT_NEWS_URL = SYSTEM['urls']['wlt_news']
 class Article:
     """Represents a single article"""
     def __init__(self, entry, source_title: str, source_url: str, feed_url: str = ''):
+        is_google_news = 'news.google.com' in feed_url
+
         # Clean title - remove source suffix if present
         raw_title = entry.get('title', '').strip()
         # Remove " - SourceName" pattern common in Google News
+        extracted_outlet = None
         if ' - ' in raw_title:
             parts = raw_title.rsplit(' - ', 1)
             # Only remove if the suffix looks like a source name (not too long)
             if len(parts) == 2 and len(parts[1]) < 50:
                 self.title = parts[0].strip()
+                extracted_outlet = parts[1].strip()
             else:
                 self.title = raw_title
         else:
@@ -104,7 +108,9 @@ class Article:
         self.link = entry.get('link', '').strip()
         self.description = entry.get('description', '') or entry.get('summary', '')
         self.pub_date = self._parse_date(entry)
-        self.source = source_title
+        # For Google News feeds, use the outlet name embedded in the title suffix
+        # (e.g. "TechCrunch") rather than the generic feed title ("GN AI ML Infrastructure")
+        self.source = extracted_outlet if (is_google_news and extracted_outlet) else source_title
         self.source_url = source_url
         self.feed_url = feed_url
         self.score = 0
