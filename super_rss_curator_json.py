@@ -81,6 +81,8 @@ SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
 WLT_CACHE_FILE = SYSTEM['cache_files']['wlt']
 SHOWN_CACHE_FILE = SYSTEM['cache_files']['shown_articles']
 PODCAST_CACHE_FILE = 'podcast_articles_cache.json'  # Weekly cache for podcast feeds
+THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
+THEME_SCORE_CACHE_TTL_DAYS = 7
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
@@ -304,6 +306,28 @@ def save_podcast_cache(articles):
 
     except Exception as e:
         print(f"⚠️ Failed to save podcast cache: {e}")
+
+
+def load_theme_score_cache() -> Dict:
+    """Load cached per-article theme scores."""
+    if not os.path.exists(THEME_SCORE_CACHE_FILE):
+        return {}
+    try:
+        with open(THEME_SCORE_CACHE_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_theme_score_cache(cache: Dict):
+    """Persist theme score cache, pruning entries older than TTL."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=THEME_SCORE_CACHE_TTL_DAYS)).isoformat()
+    pruned = {k: v for k, v in cache.items() if v.get('cached_at', '') >= cutoff}
+    try:
+        with open(THEME_SCORE_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(pruned, f)
+    except Exception as e:
+        print(f"⚠️ Failed to save theme score cache: {e}")
 
 
 def parse_opml(opml_path: str) -> List[Dict[str, str]]:
@@ -766,20 +790,42 @@ def _keyword_match_count(text: str, keywords: List[str]) -> int:
 def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str) -> List[tuple]:
     """Score articles for thematic fit using Claude.
 
+    Results are cached by (article URL, theme label) for THEME_SCORE_CACHE_TTL_DAYS days
+    so repeated runs do not re-score the same articles.
+
     Returns list of tuples: (article, theme_score)
     where theme_score is 0-100 indicating fit to the daily theme.
     """
     if not articles:
         return []
 
-    client = anthropic.Anthropic(api_key=api_key)
+    # Load cache and separate already-scored articles from those that need scoring
+    theme_cache = load_theme_score_cache()
+    now_iso = datetime.now(timezone.utc).isoformat()
+
     scored_results = []
+    uncached = []
+    for article in articles:
+        cache_key = f"{article.link}:::{theme_label}"
+        if cache_key in theme_cache:
+            scored_results.append((article, theme_cache[cache_key]['score']))
+        else:
+            uncached.append(article)
 
+    cache_hits = len(articles) - len(uncached)
+    if cache_hits:
+        print(f"🎯 Theme scoring [{theme_label}]: {cache_hits} cached, {len(uncached)} need scoring")
+    else:
+        print(f"🎯 Scoring {len(uncached)} articles for theme: {theme_label}")
+
+    if not uncached:
+        return scored_results
+
+    client = anthropic.Anthropic(api_key=api_key)
     batch_size = 10
-    print(f"🎯 Scoring {len(articles)} articles for theme: {theme_label}")
 
-    for i in range(0, len(articles), batch_size):
-        batch = articles[i:i + batch_size]
+    for i in range(0, len(uncached), batch_size):
+        batch = uncached[i:i + batch_size]
         batch_start_count = len(scored_results)
 
         try:
@@ -821,6 +867,8 @@ Articles to evaluate:
                     article = batch[idx]
                     theme_score = score_data.get('theme_score', 0)
                     scored_results.append((article, theme_score))
+                    cache_key = f"{article.link}:::{theme_label}"
+                    theme_cache[cache_key] = {'score': theme_score, 'cached_at': now_iso}
 
         except json.JSONDecodeError as e:
             print(f"  ⚠️ JSON parsing error: {e}")
@@ -839,6 +887,7 @@ Articles to evaluate:
             if article.link not in scored_in_batch:
                 scored_results.append((article, 50))
 
+    save_theme_score_cache(theme_cache)
     return scored_results
 
 
