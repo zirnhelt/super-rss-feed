@@ -41,6 +41,8 @@ jobs:
           done
           # Download podcast cache
           wget -q "https://zirnhelt.github.io/super-rss-feed/podcast_articles_cache.json" -O "podcast_articles_cache.json" || echo "No existing podcast_articles_cache.json"
+          # Download theme score cache
+          wget -q "https://zirnhelt.github.io/super-rss-feed/theme_scores_cache.json" -O "theme_scores_cache.json" || echo "No existing theme_scores_cache.json"
           echo "Download complete. Feed sizes:"
           wc -l feed-*.json
         continue-on-error: true
@@ -69,6 +71,7 @@ jobs:
           cp shown_articles_cache.json output/
           cp wlt_cache.json output/
           cp podcast_articles_cache.json output/
+          cp theme_scores_cache.json output/ 2>/dev/null || true
 
           echo "Files in output directory:"
           ls -la output/
@@ -77,7 +80,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json podcast_articles_cache.json
+          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json podcast_articles_cache.json theme_scores_cache.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache files [skip ci]"
           git push
       
