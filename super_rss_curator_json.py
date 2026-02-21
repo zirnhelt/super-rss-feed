@@ -570,9 +570,9 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     """Score and categorize articles using Claude API with prompt caching"""
     if not articles:
         return []
-    
+
     cache = load_scored_cache()
-    
+
     # Load scoring interests
     interests_file = CONFIG_DIR / 'scoring_interests.txt'
     try:
@@ -581,12 +581,21 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     except FileNotFoundError:
         print("⚠️ scoring_interests.txt not found, using basic scoring")
         interests = "Technology, science, climate, local news"
-    
+
     client = anthropic.Anthropic(api_key=api_key)
-    
+
+    # Build the cached system prompt once — includes the large interests text and
+    # category list so they are only billed on cache miss, not on every batch.
+    categories_json = json.dumps(list(CATEGORIES.keys()))
+    cached_system_prompt = (
+        f"You are a news curator. Respond only with valid JSON arrays.\n\n"
+        f"Rate articles 0-100 for personal relevance and quality based on these interest priorities:\n{interests}\n\n"
+        f"Also assign each article to ONE of these categories: {categories_json}"
+    )
+
     scored_articles = []
     uncached = []
-    
+
     for article in articles:
         if article.url_hash in cache:
             article.score = cache[article.url_hash]['score']
@@ -594,29 +603,21 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
             scored_articles.append(article)
         else:
             uncached.append(article)
-    
+
     if uncached:
         print(f"\n🤖 Scoring {len(uncached)} new articles with Claude...")
         print(f"   (using cache for {len(scored_articles)} articles)")
-        
+
         batch_size = 10
         for i in range(0, len(uncached), batch_size):
             batch = uncached[i:i + batch_size]
-            
+
             articles_text = "\n\n".join([
                 f"Article {j+1}:\nTitle: {article.title}\nSource: {article.source}\nDescription: {article.description[:300]}"
                 for j, article in enumerate(batch)
             ])
-            
-            prompt = f"""You are evaluating news articles for personal relevance and quality.
 
-Rate each article from 0-100 based on:
-- Relevance to interests: {interests}
-- Source credibility and article quality
-- Newsworthiness and significance
-
-Also categorize each article into ONE of these categories:
-{json.dumps(list(CATEGORIES.keys()), indent=2)}
+            prompt = f"""Rate each article from 0-100 and assign a category.
 
 Respond with ONLY a JSON array (no other text):
 [
@@ -626,15 +627,15 @@ Respond with ONLY a JSON array (no other text):
 
 Articles to evaluate:
 {articles_text}"""
-            
+
             try:
                 response = client.messages.create(
-                    model="claude-sonnet-4-20250514",
-                    max_tokens=1000,
+                    model="claude-haiku-3-5-20241022",
+                    max_tokens=500,
                     system=[
                         {
                             "type": "text",
-                            "text": "You are a news curator. Respond only with valid JSON arrays.",
+                            "text": cached_system_prompt,
                             "cache_control": {"type": "ephemeral"}
                         }
                     ],
@@ -822,6 +823,14 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
         return scored_results
 
     client = anthropic.Anthropic(api_key=api_key)
+
+    # The theme prompt is the same for all batches in this call, so put it in
+    # the cached system message to avoid paying for it on every batch.
+    cached_theme_system = (
+        f"You are evaluating news articles for thematic relevance. Respond only with valid JSON arrays.\n\n"
+        f"{theme_prompt}"
+    )
+
     batch_size = 10
 
     for i in range(0, len(uncached), batch_size):
@@ -834,7 +843,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
                 for j, article in enumerate(batch)
             ])
 
-            prompt = f"""{theme_prompt}
+            prompt = f"""Rate each article 0-100 for theme fit.
 
 Respond with ONLY a JSON array (no other text):
 [
@@ -846,12 +855,12 @@ Articles to evaluate:
 {articles_text}"""
 
             response = client.messages.create(
-                model="claude-sonnet-4-20250514",
-                max_tokens=1000,
+                model="claude-haiku-3-5-20241022",
+                max_tokens=500,
                 system=[
                     {
                         "type": "text",
-                        "text": "You are evaluating news articles for thematic relevance. Respond only with valid JSON arrays.",
+                        "text": cached_theme_system,
                         "cache_control": {"type": "ephemeral"}
                     }
                 ],
