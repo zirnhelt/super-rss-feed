@@ -857,13 +857,7 @@ Articles to evaluate:
             response = client.messages.create(
                 model="claude-haiku-3-5-20241022",
                 max_tokens=500,
-                system=[
-                    {
-                        "type": "text",
-                        "text": cached_theme_system,
-                        "cache_control": {"type": "ephemeral"}
-                    }
-                ],
+                system=cached_theme_system,
                 messages=[{"role": "user", "content": prompt}]
             )
 
