@@ -495,16 +495,19 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
 
 def _source_priority(article: Article) -> int:
     """Return sort key for dedup ordering. Lower = processed first = wins ties."""
-    # Local-priority articles always win
-    if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
-        return 0
     source_map = SOURCE_PREFS.get('source_map', {})
     source_type = source_map.get(article.source)
-    if source_type == 'print':
+    # Subscribed / preferred local paper always wins dedup
+    if source_type == 'preferred_local':
+        return 0
+    # Other explicitly local-priority articles
+    if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
         return 1
+    if source_type == 'print':
+        return 2
     if source_type == 'broadcast':
-        return 3
-    return 2  # unclassified sources
+        return 4
+    return 3  # unclassified sources
 
 
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
