@@ -9,13 +9,18 @@
       "score_adjustment": 5,
       "max_per_source": 10,
       "description": "Newspapers and print-first publications - preferred sources"
+    },
+    "preferred_local": {
+      "score_adjustment": 20,
+      "max_per_source": 10,
+      "description": "Subscribed local paper - always wins dedup over other local outlets and gets the highest score boost"
     }
   },
   "source_map": {
     "CFJC Today Kamloops": "broadcast",
     "CTV News": "broadcast",
     "Global News": "broadcast",
-    "Williams Lake Tribune": "print",
+    "Williams Lake Tribune": "preferred_local",
     "Quesnel Cariboo Observer": "print",
     "100 Mile Free Press": "print",
     "My Cariboo Now": "print",

@@ -495,16 +495,19 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
 
 def _source_priority(article: Article) -> int:
     """Return sort key for dedup ordering. Lower = processed first = wins ties."""
-    # Local-priority articles always win
-    if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
-        return 0
     source_map = SOURCE_PREFS.get('source_map', {})
     source_type = source_map.get(article.source)
-    if source_type == 'print':
+    # Subscribed / preferred local paper always wins dedup
+    if source_type == 'preferred_local':
+        return 0
+    # Other explicitly local-priority articles
+    if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
         return 1
+    if source_type == 'print':
+        return 2
     if source_type == 'broadcast':
-        return 3
-    return 2  # unclassified sources
+        return 4
+    return 3  # unclassified sources
 
 
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
@@ -679,6 +682,33 @@ Articles to evaluate:
     
     save_scored_cache(cache)
     return scored_articles
+
+
+def enforce_local_priority(articles: List[Article]) -> List[Article]:
+    """Enforce 80+ score and 'local' category for any article containing Cariboo/local signals.
+
+    Claude reliably applies the local priority rule for most articles, but occasionally
+    scores on topic relevance alone and misses the geographic locality signal. This
+    post-scoring pass guarantees the intent of the scoring_interests.txt rule:
+    'Local Williams Lake/Cariboo content should score 80+ regardless of topic'.
+    """
+    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
+    if not local_signals:
+        return articles
+
+    enforced = 0
+    for article in articles:
+        text = f"{article.title} {article.description}".lower()
+        if any(signal in text for signal in local_signals):
+            if article.score < 80:
+                article.score = 80
+                enforced += 1
+            # Always correct the category so local articles reach the local feed
+            article.category = 'local'
+
+    if enforced:
+        print(f"📍 Local priority enforced: boosted {enforced} article(s) to score 80+")
+    return articles
 
 
 def apply_source_preferences(articles: List[Article]) -> List[Article]:
@@ -1200,6 +1230,8 @@ def main():
     print(f"🆕 New articles (not previously shown): {len(unique_articles)} → {len(new_articles)}")
     
     scored_articles = score_articles_with_claude(new_articles, api_key)
+
+    scored_articles = enforce_local_priority(scored_articles)
 
     scored_articles = apply_source_preferences(scored_articles)
 
