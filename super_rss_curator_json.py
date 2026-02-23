@@ -669,14 +669,14 @@ Articles to evaluate:
             except json.JSONDecodeError as e:
                 print(f"  ⚠️ JSON parsing error: {e}")
                 for article in batch:
-                    article.score = 50
+                    article.score = _hash_fallback_score(article.link)
                     article.category = 'news'
                     scored_articles.append(article)
-            
+
             except Exception as e:
                 print(f"  ⚠️ API error: {e}")
                 for article in batch:
-                    article.score = 50
+                    article.score = _hash_fallback_score(article.link)
                     article.category = 'news'
                     scored_articles.append(article)
     
@@ -818,6 +818,21 @@ def _keyword_match_count(text: str, keywords: List[str]) -> int:
     return sum(1 for kw in keywords if kw.lower() in text_lower)
 
 
+def _hash_fallback_score(url: str, salt: str = '') -> int:
+    """Deterministic per-article fallback score so failed-batch articles are not identical.
+
+    Without this, all articles in a failed scoring batch receive the same flat score (50),
+    making them indistinguishable and causing the same articles to always sort to the top
+    of every daily feed. Using a hash gives each article a unique score (35-64) while
+    keeping the semantic meaning close to "medium quality/relevance".
+
+    Including `salt` (e.g. the theme label) makes the score vary per theme, so the same
+    article ranks differently in different daily feeds.
+    """
+    h = int(hashlib.md5(f"{url}:::{salt}".encode()).hexdigest()[:8], 16)
+    return 35 + (h % 30)  # Range 35–64
+
+
 def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str) -> List[tuple]:
     """Score articles for thematic fit using Claude.
 
@@ -906,36 +921,41 @@ Articles to evaluate:
         except json.JSONDecodeError as e:
             print(f"  ⚠️ JSON parsing error: {e}")
             for article in batch:
-                scored_results.append((article, 50))
+                scored_results.append((article, _hash_fallback_score(article.link, theme_label)))
 
         except Exception as e:
             print(f"  ⚠️ API error: {e}")
             for article in batch:
-                scored_results.append((article, 50))
+                scored_results.append((article, _hash_fallback_score(article.link, theme_label)))
 
         # Fallback: if Claude returned a valid but empty/incomplete response,
         # ensure every article in the batch gets a score so none are silently dropped
         scored_in_batch = {a.link for a, _ in scored_results[batch_start_count:]}
         for article in batch:
             if article.link not in scored_in_batch:
-                scored_results.append((article, 50))
+                scored_results.append((article, _hash_fallback_score(article.link, theme_label)))
 
     save_theme_score_cache(theme_cache)
     return scored_results
 
 
-def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
+def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], used_urls: set = None) -> set:
     """Generate a themed podcast feed from weekly cached articles.
 
     Args:
         theme_name: Day name (e.g., 'monday', 'tuesday')
         cached_articles: List of article dicts from the weekly cache
+        used_urls: Set of article URLs already selected by earlier days this run.
+                   Articles in this set are excluded so each article only appears
+                   in one daily feed per week. Updated in-place and returned.
 
     Each theme has associated categories and a custom scoring prompt.
     Articles from the weekly cache are evaluated by Claude for thematic fit,
     then the top articles are selected. Articles from outside the theme categories
     can still appear as bonus picks if they score high enough.
     """
+    if used_urls is None:
+        used_urls = set()
     schedule_config = load_podcast_schedule()
     if not schedule_config or not schedule_config.get('enabled', False):
         return
@@ -991,7 +1011,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
             self.category = data['category']
             self.image = data.get('image')
 
-    all_cached = [CachedArticle(item) for item in cached_articles]
+    all_cached = [CachedArticle(item) for item in cached_articles if item['link'] not in used_urls]
+    if used_urls:
+        skipped = len(cached_articles) - len(all_cached)
+        if skipped:
+            print(f"  ↩️  Skipping {skipped} articles already used in earlier feeds this run")
 
     # Collect articles from this theme's categories
     theme_pool = []
@@ -1077,7 +1101,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
 
     if not all_entries:
         print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
-        return
+        return used_urls
+
+    # Mark these articles as used so later days don't repeat them
+    for article, _, _ in all_entries:
+        used_urls.add(article.link)
 
     # Build the JSON Feed with podcast-specific metadata
     feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
@@ -1132,6 +1160,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
     print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(theme_articles)} theme articles (avg theme score: {avg_theme_score:.1f}) + {len(bonus_entries)} bonus")
+
+    return used_urls
 
 
 def generate_opml():
@@ -1261,11 +1291,13 @@ def main():
     podcast_cache = load_podcast_cache()
 
     # Generate all 7 themed podcast feeds from weekly cache
+    # used_urls accumulates across days so each article appears in at most one feed
     print(f"\n🎙️ Generating themed podcast feeds from {len(podcast_cache)} cached articles...")
     schedule_config = load_podcast_schedule()
     if schedule_config and schedule_config.get('enabled', False):
+        used_urls: set = set()
         for day_name in schedule_config['schedule'].keys():
-            generate_podcast_feed(day_name, podcast_cache)
+            used_urls = generate_podcast_feed(day_name, podcast_cache, used_urls)
 
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
