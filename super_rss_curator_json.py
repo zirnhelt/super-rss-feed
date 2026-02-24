@@ -620,7 +620,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
                 for j, article in enumerate(batch)
             ])
 
-            prompt = f"""Rate each article from 0-100 and assign a category.
+            prompt = f"""Rate each article from 0-100 and assign a category from: {categories_json}
 
 Respond with ONLY a JSON array (no other text):
 [
@@ -657,7 +657,9 @@ Articles to evaluate:
                         article = batch[idx]
                         article.score = score_data['score']
                         article.category = score_data.get('category', 'news')
-                        
+                        if article.category not in CATEGORIES:
+                            article.category = categorize_article(article.title, article.description) or 'news'
+
                         cache[article.url_hash] = {
                             'score': article.score,
                             'category': article.category,
