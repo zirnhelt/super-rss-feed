@@ -676,7 +676,7 @@ Articles to evaluate:
 
             try:
                 response = client.messages.create(
-                    model="claude-3-5-haiku-20241022",
+                    model="claude-haiku-4-5-20251001",
                     max_tokens=500,
                     system=[
                         {
@@ -930,7 +930,7 @@ Articles to evaluate:
 {articles_text}"""
 
             response = client.messages.create(
-                model="claude-3-5-haiku-20241022",
+                model="claude-haiku-4-5-20251001",
                 max_tokens=500,
                 system=cached_theme_system,
                 messages=[{"role": "user", "content": prompt}]
