@@ -396,10 +396,10 @@ def scrape_wlt_news() -> List[Dict]:
     
     try:
         headers = {
-            'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml'
         }
-        
+
         response = requests.get(WLT_NEWS_URL, headers=headers, timeout=10)
         response.raise_for_status()
         
@@ -450,7 +450,10 @@ def scrape_wlt_news() -> List[Dict]:
                 continue
         
         save_wlt_cache(cache)
-        print(f"📰 Williams Lake Tribune: {len(articles)} articles")
+        if not articles:
+            print("⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors")
+        else:
+            print(f"📰 Williams Lake Tribune: {len(articles)} articles")
         return articles
         
     except Exception as e:
@@ -462,8 +465,8 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
     """Fetch and parse articles from a feed"""
     try:
         headers = {
-            'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)',
-            'Accept': 'application/rss+xml, application/xml, text/xml'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+            'Accept': 'application/rss+xml, application/xml, text/xml, */*'
         }
         
         response = requests.get(feed['url'], headers=headers, timeout=10)
@@ -1295,6 +1298,11 @@ def main():
         
         new_items = categorized[cat_key]
         diverse_new = apply_diversity_limits(new_items, cat_key)
+
+        cat_cap = LIMITS.get('max_new_per_category', {}).get(cat_key)
+        if cat_cap and len(diverse_new) > cat_cap:
+            print(f"🔢 Category cap ({cat_key}): {len(diverse_new)} → {cat_cap} articles")
+            diverse_new = diverse_new[:cat_cap]
         
         all_items = diverse_new + [
             type('Article', (), {
