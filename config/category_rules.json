@@ -5,20 +5,15 @@
     "always_priority": true,
     "description": "Williams Lake and Cariboo region local news only"
   },
-  "ai-tech": {
-    "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure"],
-    "exclude": ["consumer apps", "phone reviews", "gadget reviews", "charging tips"],
-    "description": "AI/ML systems, platform engineering, infrastructure - NOT consumer tech or app reviews"
+  "homelab": {
+    "include": ["self-hosting", "home server", "3D printing", "Bambu Lab", "home automation", "HomeKit", "HomeBridge", "Omada", "mesh networking", "Meshtastic"],
+    "exclude": ["consumer tips", "phone accessories", "charging cables", "AirTag", "product reviews"],
+    "description": "Self-hosted infrastructure, 3D printing, serious home automation - NOT consumer gadgets or tips"
   },
   "climate": {
     "include": ["climate", "renewable energy", "solar", "EV", "electric vehicle", "battery technology", "carbon", "clean energy", "sustainability"],
     "exclude": ["consumer electronics", "phone chargers", "USB accessories", "general tech gadgets"],
     "description": "Climate tech, renewable energy, EVs - NOT general electronics or gadgets"
-  },
-  "homelab": {
-    "include": ["self-hosting", "home server", "3D printing", "Bambu Lab", "home automation", "HomeKit", "HomeBridge", "Omada", "mesh networking", "Meshtastic"],
-    "exclude": ["consumer tips", "phone accessories", "charging cables", "AirTag", "product reviews"],
-    "description": "Self-hosted infrastructure, 3D printing, serious home automation - NOT consumer gadgets or tips"
   },
   "science": {
     "include": ["research", "study", "discovery", "paper", "journal", "particle physics", "scientific"],
@@ -29,6 +24,11 @@
     "include": ["science fiction", "fantasy", "novel", "book", "worldbuilding", "author", "fiction"],
     "exclude": ["apps", "digital minimalism", "productivity", "phone features", "tech lifestyle"],
     "description": "Science fiction and fantasy ONLY - NOT tech lifestyle or productivity apps"
+  },
+  "ai-tech": {
+    "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure"],
+    "exclude": ["consumer apps", "phone reviews", "gadget reviews", "charging tips"],
+    "description": "AI/ML systems, platform engineering, infrastructure - NOT consumer tech or app reviews"
   },
   "news": {
     "description": "Default category for everything else: politics, business, product reviews, consumer tech tips, general technology news",
