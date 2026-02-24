@@ -26,10 +26,10 @@ pip install -r requirements.txt
 export ANTHROPIC_API_KEY='sk-ant-...'
 
 # Run the curator
-python super_rss_curator.py feeds.opml
+python super_rss_curator_json.py feeds.opml
 
-# Check output
-cat super-feed.xml
+# Check output (JSON feeds in feed-*.json)
+ls feed-*.json
 ```
 
 ### 4. Push to GitHub
@@ -74,7 +74,7 @@ Add this to Inoreader, Feedly, or your RSS reader.
 
 ### Adjust Filter Keywords
 
-Edit `super_rss_curator.py`:
+Edit `super_rss_curator_json.py`:
 
 ```python
 BLOCKED_KEYWORDS = [
