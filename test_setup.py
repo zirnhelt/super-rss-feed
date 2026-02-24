@@ -45,7 +45,7 @@ def main():
     all_good = True
     
     # Check files
-    all_good &= check_file('super_rss_curator.py', 'Main script')
+    all_good &= check_file('super_rss_curator_json.py', 'Main script')
     all_good &= check_file('requirements.txt', 'Dependencies file')
     all_good &= check_file('feeds.opml', 'OPML feed list')
     all_good &= check_file('.github/workflows/generate-feed.yml', 'GitHub Actions workflow')
@@ -66,7 +66,7 @@ def main():
     
     if all_good:
         print("✅ All checks passed! You're ready to run:")
-        print("   python super_rss_curator.py feeds.opml")
+        print("   python super_rss_curator_json.py feeds.opml")
     else:
         print("❌ Some checks failed. Fix the issues above.")
         sys.exit(1)
