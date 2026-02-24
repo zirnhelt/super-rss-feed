@@ -81,6 +81,8 @@ SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
 WLT_CACHE_FILE = SYSTEM['cache_files']['wlt']
 SHOWN_CACHE_FILE = SYSTEM['cache_files']['shown_articles']
 PODCAST_CACHE_FILE = 'podcast_articles_cache.json'  # Weekly cache for podcast feeds
+PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each day's podcast episode
+PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
 
@@ -306,6 +308,39 @@ def save_podcast_cache(articles):
 
     except Exception as e:
         print(f"⚠️ Failed to save podcast cache: {e}")
+
+
+def load_podcast_shown_cache() -> Dict:
+    """Load cache tracking which article URLs have appeared in recent podcast episodes.
+
+    Format: {url: {"day": "monday", "shown_at": "<ISO8601>"}}
+    Entries older than PODCAST_SHOWN_TTL_DAYS are discarded so articles can
+    reappear after a full 7-day rotation.
+    """
+    if not os.path.exists(PODCAST_SHOWN_FILE):
+        return {}
+    try:
+        with open(PODCAST_SHOWN_FILE, 'r', encoding='utf-8') as f:
+            raw = json.load(f)
+        cutoff = datetime.now(timezone.utc) - timedelta(days=PODCAST_SHOWN_TTL_DAYS)
+        valid = {
+            url: entry for url, entry in raw.items()
+            if datetime.fromisoformat(entry['shown_at']) > cutoff
+        }
+        if len(valid) != len(raw):
+            print(f"🧹 Cleaned podcast shown cache: {len(raw)} → {len(valid)} entries")
+        return valid
+    except Exception:
+        return {}
+
+
+def save_podcast_shown_cache(cache: Dict):
+    """Persist the podcast shown cache to disk."""
+    try:
+        with open(PODCAST_SHOWN_FILE, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"⚠️ Failed to save podcast shown cache: {e}")
 
 
 def load_theme_score_cache() -> Dict:
@@ -934,12 +969,19 @@ Articles to evaluate:
     return scored_results
 
 
-def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
+def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict) -> set:
     """Generate a themed podcast feed from weekly cached articles.
 
     Args:
         theme_name: Day name (e.g., 'monday', 'tuesday')
         cached_articles: List of article dicts from the weekly cache
+        podcast_shown_cache: Dict of {url: entry} for articles already used in
+            recent podcast episodes.  Articles in this set are excluded so each
+            day's episode surfaces fresh content.
+
+    Returns:
+        Set of article URLs that were included in the generated feed, so the
+        caller can update the shown cache.
 
     Each theme has associated categories and a custom scoring prompt.
     Articles from the weekly cache are evaluated by Claude for thematic fit,
@@ -948,13 +990,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
     """
     schedule_config = load_podcast_schedule()
     if not schedule_config or not schedule_config.get('enabled', False):
-        return
+        return set()
 
     schedule = schedule_config['schedule']
 
     if theme_name not in schedule:
         print(f"⚠️ No podcast schedule entry for {theme_name}")
-        return
+        return set()
 
     today = schedule[theme_name]
     theme_categories = today['categories']
@@ -970,7 +1012,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
     api_key = os.getenv('ANTHROPIC_API_KEY')
     if not api_key:
         print("⚠️ No API key available for theme scoring")
-        return
+        return set()
 
     # Rural/local context signals — ai-tech articles without these get penalized
     # in the podcast to keep the feed locally grounded
@@ -1013,6 +1055,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
     # Filter by minimum quality score
     theme_pool = [a for a in theme_pool if a.score >= min_score]
 
+    # Exclude articles already used in a recent podcast episode
+    before_shown_filter = len(theme_pool)
+    theme_pool = [a for a in theme_pool if a.link not in podcast_shown_cache]
+    shown_excluded = before_shown_filter - len(theme_pool)
+    if shown_excluded:
+        print(f"  🔄 Excluded {shown_excluded} articles already shown in recent podcast episodes")
+
     # Score articles for thematic fit using Claude
     theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
 
@@ -1051,7 +1100,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
                 other.append((article, article.category))
 
         theme_urls = {a.link for a, _, _ in theme_articles}
-        other_filtered = [(a, c) for a, c in other if a.link not in theme_urls]
+        other_filtered = [
+            (a, c) for a, c in other
+            if a.link not in theme_urls and a.link not in podcast_shown_cache
+        ]
 
         if other_filtered:
             # Score bonus articles for thematic fit
@@ -1087,7 +1139,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
 
     if not all_entries:
         print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
-        return
+        return set()
 
     # Build the JSON Feed with podcast-specific metadata
     feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
@@ -1142,6 +1194,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict]):
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
     print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(theme_articles)} theme articles (avg theme score: {avg_theme_score:.1f}) + {len(bonus_entries)} bonus")
+
+    return {a.link for a, _, _ in all_entries}
 
 
 def generate_opml():
@@ -1270,12 +1324,26 @@ def main():
     # Load weekly cache for podcast feed generation
     podcast_cache = load_podcast_cache()
 
-    # Generate all 7 themed podcast feeds from weekly cache
-    print(f"\n🎙️ Generating themed podcast feeds from {len(podcast_cache)} cached articles...")
+    # Generate only today's themed podcast feed from weekly cache.
+    # Regenerating all 7 feeds on every run causes identical feeds across days
+    # because the article pool and cached theme scores don't change between runs.
+    # Instead, each day's episode is generated once (on that day) from a pool
+    # that excludes articles already shown in the past 7 days of podcast episodes.
+    print(f"\n🎙️ Generating today's podcast feed from {len(podcast_cache)} cached articles...")
     schedule_config = load_podcast_schedule()
     if schedule_config and schedule_config.get('enabled', False):
-        for day_name in schedule_config['schedule'].keys():
-            generate_podcast_feed(day_name, podcast_cache)
+        today_name = datetime.now(timezone.utc).strftime('%A').lower()
+        if today_name in schedule_config['schedule']:
+            podcast_shown_cache = load_podcast_shown_cache()
+            selected_urls = generate_podcast_feed(today_name, podcast_cache, podcast_shown_cache)
+            if selected_urls:
+                now_iso = datetime.now(timezone.utc).isoformat()
+                for url in selected_urls:
+                    podcast_shown_cache[url] = {'day': today_name, 'shown_at': now_iso}
+                save_podcast_shown_cache(podcast_shown_cache)
+                print(f"  📌 Marked {len(selected_urls)} articles as shown for future episode exclusion")
+        else:
+            print(f"⚠️ No podcast schedule for today ({today_name})")
 
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
