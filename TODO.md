@@ -6,15 +6,42 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 <!-- AUTO:START -->
 ## Feed Errors — Last 7 Days
 
-_No errors recorded yet — will populate after the first logged run._
+| Date | Slot | Issue | Detail |
+|------|------|-------|--------|
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **AP News** failed | `404 Client Error: Not Found for url: https://apnews.com/rss` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Gizmodo** failed | `404 Client Error: Not Found for url: https://gizmodo.com/vip.xml` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Instructables Blog** failed | `404 Client Error: Not Found for url: https://www.instructables.com/tag/instructables%20blog/rss.xml` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Noahpinion** failed | `403 Client Error: Forbidden for url: https://noahpinion.substack.com/feed` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Reuters Top News** failed | `HTTPConnectionPool(host='feeds.reuters.com', port=80): Max retries exceeded with url: /reuters/topNews (Caused by NameRe` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **The Globe and Mail** failed | `404 Client Error: Not Found for url: https://www.theglobeandmail.com/arc/outboundfeeds/rss/` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Scientific American** failed | `404 Client Error: Not Found for url: https://www.scientificamerican.com/feed/` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Stratechery** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: http://www.techdirt.com/techdirt_rss.xml` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **The Marginalian** failed | `HTTPSConnectionPool(host='www.themarginalian.org', port=443): Read timed out. (read timeout=10)` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Williams Lake Tribune** failed | `404 Client Error: Not Found for url: https://zirnhelt.github.io/wlt-rss-feed/wlt_news.xml` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **CTV News** failed | `404 Client Error: Not Found for url: https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **MacRumors** failed | `404 Client Error: Not Found for url: https://www.macrumors.com/feed/` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Castanet Kelowna** failed | `HTTPSConnectionPool(host='www.castanet.net', port=443): Read timed out. (read timeout=10)` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **The Tyee** failed | `HTTPSConnectionPool(host='thetyee.ca', port=443): Read timed out. (read timeout=10)` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **All3DP** failed | `403 Client Error: Forbidden for url: https://all3dp.com/feed/` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **The Breach** failed | `HTTPSConnectionPool(host='breachmedia.ca', port=443): Read timed out. (read timeout=10)` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Ricochet** failed | `404 Client Error: Not Found for url: https://ricochet.media/en/feed` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **All About Bambu** failed | `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Treehugger** failed | `402 Client Error: Payment Required for url: https://www.treehugger.com/rss` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Modern Farmer** failed | `HTTPSConnectionPool(host='modernfarmer.com', port=443): Read timed out. (read timeout=10)` |
 
 ## Content Mix — Last 7 Days
 
-_No data yet — will populate after the first logged run._
+| Date | Slot | Quality | Mix (top 3) |
+|------|------|---------|-------------|
+| 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
 
-_Last updated by log\_feed\_results.py · seeded 2026-02-24_
+_Last updated by log\_feed\_results.py · 2026-02-24 14:54 UTC_
 
 <!-- AUTO:END -->
+
 
 ## Notes & Review
 
