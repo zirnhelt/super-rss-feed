@@ -31,16 +31,27 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Treehugger** failed | `402 Client Error: Payment Required for url: https://www.treehugger.com/rss` |
 | 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Modern Farmer** failed | `HTTPSConnectionPool(host='modernfarmer.com', port=443): Read timed out. (read timeout=10)` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **AP News** failed | `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **Instructables** failed | `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **Castanet Kelowna** failed | `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **All About Bambu** failed | `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-24 | 🌞 2 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
+| 2026-02-24 | 🌞 afternoon | 404 | news:402(100%), local:2(0%) |
 
-_Last updated by log\_feed\_results.py · 2026-02-24 15:34 UTC_
+_Last updated by log\_feed\_results.py · 2026-02-24 22:37 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
