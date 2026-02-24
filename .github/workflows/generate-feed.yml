@@ -43,6 +43,8 @@ jobs:
           wget -q "https://zirnhelt.github.io/super-rss-feed/podcast_articles_cache.json" -O "podcast_articles_cache.json" || echo "No existing podcast_articles_cache.json"
           # Download theme score cache
           wget -q "https://zirnhelt.github.io/super-rss-feed/theme_scores_cache.json" -O "theme_scores_cache.json" || echo "No existing theme_scores_cache.json"
+          # Download image cache
+          wget -q "https://zirnhelt.github.io/super-rss-feed/image_cache.json" -O "image_cache.json" || echo "No existing image_cache.json"
           echo "Download complete. Feed sizes:"
           wc -l feed-*.json
         continue-on-error: true
@@ -72,6 +74,7 @@ jobs:
           cp wlt_cache.json output/
           cp podcast_articles_cache.json output/
           cp theme_scores_cache.json output/ 2>/dev/null || true
+          cp image_cache.json output/ 2>/dev/null || true
 
           echo "Files in output directory:"
           ls -la output/
