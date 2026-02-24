@@ -529,7 +529,12 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
 
         is_duplicate = False
         for seen_title, seen_article in seen_titles.items():
-            similarity = fuzz.ratio(article.title_normalized, seen_title)
+            # Use both ratio and token_sort_ratio: the latter catches wire-service
+            # reprints where the same story has reordered title words.
+            similarity = max(
+                fuzz.ratio(article.title_normalized, seen_title),
+                fuzz.token_sort_ratio(article.title_normalized, seen_title),
+            )
             if similarity > 85:
                 # If the current article is local-priority and the already-kept
                 # one is not, swap: replace the weaker duplicate with this one.

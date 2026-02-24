@@ -17,8 +17,8 @@
 
 ## Short-term
 - [x] Clean up stale backup and fix scripts from root directory
-- [ ] Stronger deduplication logic for near-duplicate articles
-- [ ] Improved sports filtering for local content (rec centres, arenas)
+- [x] Stronger deduplication logic for near-duplicate articles
+- [x] Improved sports filtering for local content (rec centres, arenas)
 - [ ] Categorization accuracy refinement based on reading patterns
 
 ## Medium-term
