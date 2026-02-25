@@ -32,6 +32,29 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌅 6 AM Pacific
+- Fetched **912** → dedup **882** → new **372** → quality **211**
+- Mix: local:6(3%), ai-tech:78(37%), climate:14(7%), homelab:32(15%), science:8(4%), scifi:2(1%), news:71(34%)
+- Feeds: local:27, ai-tech:87, climate:26, homelab:43, science:14, scifi:3, news:500
+- Images: 211/211
+- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
+- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+- ⚠️ ⚠️ JSON parsing error: Extra data: line 4 column 1 (char 39)
+
+
+---
+
+
+
 ## 2026-02-24 (Tuesday)
 
 #### 🌅 6 AM Pacific
@@ -95,6 +118,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
+
+
+---
 
 
 ---

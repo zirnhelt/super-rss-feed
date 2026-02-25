@@ -17,6 +17,15 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-02-25 | 🌙 10 PM Pacific | ⚠️ **All About Bambu** failed | `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu` |
 | 2026-02-25 | 🌙 10 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-25 | 🌙 10 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **AP News** failed | `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **Instructables** failed | `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **Castanet Kelowna** failed | `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **All About Bambu** failed | `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-25 | 🌅 6 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **AP News** failed | `404 Client Error: Not Found for url: https://apnews.com/rss` |
 | 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Gizmodo** failed | `404 Client Error: Not Found for url: https://gizmodo.com/vip.xml` |
 | 2026-02-24 | 🌅 6 AM Pacific | ⚠️ **Instructables Blog** failed | `404 Client Error: Not Found for url: https://www.instructables.com/tag/instructables%20blog/rss.xml` |
@@ -55,12 +64,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-02-25 | 🌙 evening | 52 | news:21(40%), ai-tech:17(33%), local:5(10%) |
+| 2026-02-25 | 🌅 morning | 211 | ai-tech:78(37%), news:71(34%), homelab:32(15%) |
 | 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
 | 2026-02-24 | 🌞 afternoon | 404 | news:402(100%), local:2(0%) |
 
-_Last updated by log\_feed\_results.py · 2026-02-25 07:03 UTC_
+_Last updated by log\_feed\_results.py · 2026-02-25 14:48 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
