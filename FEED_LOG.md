@@ -55,6 +55,29 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌞 2 PM Pacific
+- Fetched **935** → dedup **907** → new **538** → quality **296**
+- Mix: local:9(3%), ai-tech:103(35%), climate:10(3%), homelab:30(10%), science:18(6%), scifi:1(0%), news:125(42%)
+- Feeds: local:36, ai-tech:127, climate:36, homelab:73, science:32, scifi:4, news:500
+- Images: 296/296
+- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
+- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+- ⚠️ ⚠️ JSON parsing error: Extra data: line 4 column 1 (char 39)
+
+
+---
+
+
+
 ## 2026-02-24 (Tuesday)
 
 #### 🌅 6 AM Pacific
@@ -118,6 +141,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
+
+
+---
 
 
 ---
