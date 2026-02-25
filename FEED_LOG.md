@@ -5,6 +5,30 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+## 2026-02-25 (Wednesday)
+
+#### 🌙 10 PM Pacific
+- Fetched **882** → dedup **857** → new **91** → quality **52**
+- Mix: local:5(10%), ai-tech:17(33%), climate:3(6%), homelab:5(10%), science:1(2%), news:21(40%)
+- Feeds: local:17, ai-tech:17, climate:3, homelab:5, science:1, scifi:0, news:500
+- Images: 52/52
+- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
+- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+- ⚠️ ⚠️ JSON parsing error: Extra data: line 4 column 1 (char 54)
+
+
+---
+
+
+
 ## 2026-02-24 (Tuesday)
 
 #### 🌅 6 AM Pacific
@@ -68,6 +92,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
+
+
+---
 
 
 ---
