@@ -600,9 +600,9 @@ def categorize_article(title: str, description: str) -> Optional[str]:
         if category not in CATEGORIES:
             continue
         
-        include_keywords = rules.get('include', [])
-        exclude_keywords = rules.get('exclude', [])
-        
+        include_keywords = [kw.lower() for kw in rules.get('include', [])]
+        exclude_keywords = [kw.lower() for kw in rules.get('exclude', [])]
+
         has_include = any(keyword in text for keyword in include_keywords)
         has_exclude = any(keyword in text for keyword in exclude_keywords)
         
@@ -676,7 +676,7 @@ Articles to evaluate:
 
             try:
                 response = client.messages.create(
-                    model="claude-haiku-4-5-20251001",
+                    model="claude-haiku-4-5",
                     max_tokens=500,
                     system=[
                         {
@@ -687,9 +687,16 @@ Articles to evaluate:
                     ],
                     messages=[{"role": "user", "content": prompt}]
                 )
-                
+
                 response_text = response.content[0].text.strip()
-                
+                # Strip markdown code fences if model wraps the JSON
+                if response_text.startswith('```'):
+                    lines = response_text.splitlines()
+                    inner = lines[1:]
+                    if inner and inner[-1].strip() == '```':
+                        inner = inner[:-1]
+                    response_text = '\n'.join(inner).strip()
+
                 scores = json.loads(response_text)
                 
                 timestamp = datetime.now(timezone.utc).timestamp()
@@ -713,16 +720,17 @@ Articles to evaluate:
                 
             except json.JSONDecodeError as e:
                 print(f"  ⚠️ JSON parsing error: {e}")
+                print(f"     Response was: {response_text[:300]!r}")
                 for article in batch:
                     article.score = 50
-                    article.category = 'news'
+                    article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
-            
+
             except Exception as e:
                 print(f"  ⚠️ API error: {e}")
                 for article in batch:
                     article.score = 50
-                    article.category = 'news'
+                    article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
     
     save_scored_cache(cache)
@@ -930,13 +938,20 @@ Articles to evaluate:
 {articles_text}"""
 
             response = client.messages.create(
-                model="claude-haiku-4-5-20251001",
+                model="claude-haiku-4-5",
                 max_tokens=500,
                 system=cached_theme_system,
                 messages=[{"role": "user", "content": prompt}]
             )
 
             response_text = response.content[0].text.strip()
+            # Strip markdown code fences if model wraps the JSON
+            if response_text.startswith('```'):
+                lines = response_text.splitlines()
+                inner = lines[1:]
+                if inner and inner[-1].strip() == '```':
+                    inner = inner[:-1]
+                response_text = '\n'.join(inner).strip()
             scores = json.loads(response_text)
 
             for score_data in scores:
