@@ -5,7 +5,8 @@
   </head>
   <body>
     <!-- Existing feeds -->
-    <outline type="rss" text="AP News" title="AP News" xmlUrl="https://apnews.com/hub/ap-top-news.rss" htmlUrl="https://apnews.com" />
+    <!-- AP News: xmlUrl has changed multiple times; hub/ap-top-news.rss has been 404 since 2026-02-24. Remove until a stable URL is confirmed. -->
+    <!-- <outline type="rss" text="AP News" title="AP News" xmlUrl="https://apnews.com/hub/ap-top-news.rss" htmlUrl="https://apnews.com" /> -->
     <outline type="rss" text="Al Jazeera English" title="Al Jazeera English" xmlUrl="https://www.aljazeera.com/xml/rss/all.xml" htmlUrl="https://www.aljazeera.com" />
     <outline type="rss" text="Ars Technica Technology Lab" title="Ars Technica Technology Lab" xmlUrl="https://feeds.arstechnica.com/arstechnica/technology-lab" htmlUrl="https://arstechnica.com" />
     <outline type="rss" text="Boing Boing" title="Boing Boing" xmlUrl="https://boingboing.net/feed" htmlUrl="https://boingboing.net/" />
@@ -13,7 +14,8 @@
     <outline type="rss" text="CNET" title="CNET" xmlUrl="https://www.cnet.com/rss/all/" htmlUrl="https://www.cnet.com" />
     <outline type="rss" text="Engadget" title="Engadget" xmlUrl="http://www.engadget.com/rss.xml" htmlUrl="http://www.engadget.com" />
     <outline type="rss" text="Gizmodo" title="Gizmodo" xmlUrl="https://gizmodo.com/feed" htmlUrl="https://gizmodo.com/" />
-    <outline type="rss" text="Instructables" title="Instructables" xmlUrl="https://www.instructables.com/tag/type-id/featured-true/rss.xml" htmlUrl="https://www.instructables.com/" />
+    <!-- Instructables: /tag/type-id/featured-true/rss.xml has been 404 since 2026-02-24; GN 3D Printing feed covers maker content -->
+    <!-- <outline type="rss" text="Instructables" title="Instructables" xmlUrl="https://www.instructables.com/tag/type-id/featured-true/rss.xml" htmlUrl="https://www.instructables.com/" /> -->
     <outline type="rss" text="Julia Evans Blog" title="Julia Evans Blog" xmlUrl="https://jvns.ca/atom.xml" htmlUrl="http://jvns.ca" />
     <outline type="rss" text="Kottke.org" title="Kottke.org" xmlUrl="https://feeds.kottke.org/main" htmlUrl="https://kottke.org/" />
     <outline type="rss" text="Lifehacker" title="Lifehacker" xmlUrl="http://lifehacker.com/vip.xml" htmlUrl="https://lifehacker.com/feed/rss" />
@@ -56,7 +58,8 @@
     <outline type="rss" text="How-To Geek" title="How-To Geek" xmlUrl="https://www.howtogeek.com/feed/" htmlUrl="https://www.howtogeek.com" />
     <outline type="rss" text="MacRumors" title="MacRumors" xmlUrl="https://feeds.macrumors.com/MacRumors-All" htmlUrl="https://www.macrumors.com" />
     <outline type="rss" text="TechRadar" title="TechRadar" xmlUrl="https://www.techradar.com/rss" htmlUrl="https://www.techradar.com" />
-    <outline type="rss" text="Castanet Kelowna" title="Castanet Kelowna" xmlUrl="https://www.castanet.net/rss/news/" htmlUrl="https://www.castanet.net" />
+    <!-- Castanet Kelowna: /rss/news/ has been 404 since 2026-02-25; check castanet.net/rss/ for updated feed structure -->
+    <!-- <outline type="rss" text="Castanet Kelowna" title="Castanet Kelowna" xmlUrl="https://www.castanet.net/rss/news/" htmlUrl="https://www.castanet.net" /> -->
     <outline type="rss" text="CFJC Today Kamloops" title="CFJC Today Kamloops" xmlUrl="https://cfjctoday.com/feed/" htmlUrl="https://cfjctoday.com" />
     <outline type="rss" text="The Tyee" title="The Tyee" xmlUrl="https://thetyee.ca/rss2.xml" htmlUrl="https://thetyee.ca" />
     <outline type="rss" text="CleanTechnica" title="CleanTechnica" xmlUrl="https://cleantechnica.com/feed/" htmlUrl="https://cleantechnica.com" />
@@ -79,7 +82,8 @@
     <outline type="rss" text="Hackaday" title="Hackaday" xmlUrl="https://hackaday.com/feed" htmlUrl="https://hackaday.com" />
     <outline type="rss" text="Make Magazine" title="Make Magazine" xmlUrl="https://makezine.com/feed/" htmlUrl="https://makezine.com" />
     <outline type="rss" text="Cool Tools" title="Cool Tools" xmlUrl="https://kk.org/cooltools/feed" htmlUrl="https://kk.org/cooltools" />
-    <outline type="rss" text="All About Bambu" title="All About Bambu" xmlUrl="https://www.allaboutbambu.com/feed/" htmlUrl="https://www.allaboutbambu.com" />
+    <!-- All About Bambu: DNS resolution failures on every run since 2026-02-24; GN 3D Printing feed covers Bambu Lab news -->
+    <!-- <outline type="rss" text="All About Bambu" title="All About Bambu" xmlUrl="https://www.allaboutbambu.com/feed/" htmlUrl="https://www.allaboutbambu.com" /> -->
     <outline type="rss" text="Yale Climate Connections" title="Yale Climate Connections" xmlUrl="https://yaleclimateconnections.org/feed/" htmlUrl="https://yaleclimateconnections.org" />
     <!-- Treehugger returns 402 Payment Required; removed. CleanTechnica and Yale Climate still cover this -->
     <outline type="rss" text="Pluralistic" title="Pluralistic" xmlUrl="https://pluralistic.net/feed/" htmlUrl="https://pluralistic.net" />
@@ -94,6 +98,10 @@
     <outline type="rss" text="GN Clean Energy and EVs" title="GN Clean Energy and EVs" xmlUrl="https://news.google.com/rss/search?q=clean+energy+OR+electric+vehicle+OR+battery+technology+OR+solar&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <outline type="rss" text="GN Mesh Networking and LoRa" title="GN Mesh Networking and LoRa" xmlUrl="https://news.google.com/rss/search?q=meshtastic+OR+mesh+networking+OR+LoRa+OR+decentralized+communication&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <outline type="rss" text="GN Williams Lake and BC Interior" title="GN Williams Lake and BC Interior" xmlUrl="https://news.google.com/rss/search?q=Williams+Lake+OR+Cariboo+OR+Quesnel+OR+BC+interior&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <!-- Indigenous tech and land stewardship — supports Thursday theme and year-round local Indigenous coverage -->
+    <outline type="rss" text="GN Indigenous Technology BC" title="GN Indigenous Technology BC" xmlUrl="https://news.google.com/rss/search?q=Indigenous+technology+OR+First+Nations+governance+OR+%22land+stewardship%22+OR+%22language+revitalization%22+BC&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <!-- Climate science and research — compensates for Yale Climate Connections and Resilience.org failures -->
+    <outline type="rss" text="GN Climate Science Research" title="GN Climate Science Research" xmlUrl="https://news.google.com/rss/search?q=%22climate+science%22+OR+%22climate+research%22+OR+%22carbon+capture%22+OR+%22climate+adaptation%22+Canada&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <!-- SUSTAINABLE FOOD SYSTEMS & RURAL CONTEXT -->
     <outline text="Civil Eats" title="Civil Eats" type="rss" xmlUrl="https://civileats.com/feed/" htmlUrl="https://civileats.com" />
     <outline text="Modern Farmer" title="Modern Farmer" type="rss" xmlUrl="https://modernfarmer.com/feed/" htmlUrl="https://modernfarmer.com" />
