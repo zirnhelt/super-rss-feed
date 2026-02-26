@@ -1060,12 +1060,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     all_cached = [CachedArticle(item) for item in cached_articles]
 
-    # Collect articles from this theme's categories
-    theme_pool = []
+    # The theme scoring prompt is the real semantic filter, so score ALL
+    # quality-eligible articles — not just those in the day's primary categories.
+    # theme_set marks which categories are "primary" for _is_bonus labelling only.
     theme_set = set(theme_categories)
-    for article in all_cached:
-        if article.category in theme_set:
-            theme_pool.append(article)
+    theme_pool = list(all_cached)
 
     # Filter by minimum quality score
     theme_pool = [a for a in theme_pool if a.score >= min_score]
@@ -1158,7 +1157,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     # Build the JSON Feed with podcast-specific metadata
     feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
-    bonus_urls = {a.link for a, _, _ in bonus_entries}
+    # Mark articles whose category is outside the day's primary category list as bonus
+    bonus_urls = {a.link for a, _, _ in all_entries if a.category not in theme_set}
     feed_filename = f"feed-podcast-{theme_name}.json"
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
@@ -1177,7 +1177,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "day": theme_name,
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "article_count": len(all_entries),
-            "bonus_count": len(bonus_entries),
+            "bonus_count": len(bonus_urls),
             "scoring_method": "claude_theme_evaluation_weekly_cache"
         },
         "items": []
@@ -1208,7 +1208,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
-    print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(theme_articles)} theme articles (avg theme score: {avg_theme_score:.1f}) + {len(bonus_entries)} bonus")
+    cross_cat = len(bonus_urls)
+    print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(all_entries)} articles (avg theme score: {avg_theme_score:.1f}, {cross_cat} cross-category)")
 
     return {a.link for a, _, _ in all_entries}
 
