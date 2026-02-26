@@ -940,7 +940,13 @@ Articles to evaluate:
             response = client.messages.create(
                 model="claude-haiku-4-5",
                 max_tokens=500,
-                system=cached_theme_system,
+                system=[
+                    {
+                        "type": "text",
+                        "text": cached_theme_system,
+                        "cache_control": {"type": "ephemeral"}
+                    }
+                ],
                 messages=[{"role": "user", "content": prompt}]
             )
 
@@ -982,6 +988,134 @@ Articles to evaluate:
 
     save_theme_score_cache(theme_cache)
     return scored_results
+
+
+def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, api_key: str):
+    """Score new articles against all podcast themes in one pass at ingest time.
+
+    Called once per run after quality articles are saved to the podcast cache.
+    Each article is scored for all 7 themes in a single Claude call per batch,
+    with results written to the shared theme score cache.  Daily podcast feed
+    generation then becomes a pure cache read with zero API calls.
+
+    Uses prompt caching on the combined multi-theme system message (Option D).
+    """
+    if not articles or not schedule_config or not schedule_config.get('enabled', False):
+        return
+
+    schedule = schedule_config.get('schedule', {})
+    if not schedule:
+        return
+
+    theme_cache = load_theme_score_cache()
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    # Collect articles that are missing a score for at least one theme
+    uncached = []
+    for article in articles:
+        if any(f"{article.link}:::{cfg['label']}" not in theme_cache for cfg in schedule.values()):
+            uncached.append(article)
+
+    if not uncached:
+        print(f"🎯 Ingest theme scoring: all {len(articles)} articles already cached for all themes")
+        return
+
+    print(f"🎯 Ingest theme scoring: {len(uncached)} articles × {len(schedule)} themes...")
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    # Build one combined system prompt covering all themes, then cache it so
+    # subsequent batches in the same run pay only the (cheaper) cache-read rate.
+    theme_descriptions = "\n\n".join(
+        f"Theme key \"{day}\" — {cfg['label']}:\n{cfg.get('scoring_prompt', '')}"
+        for day, cfg in schedule.items()
+    )
+    day_keys = list(schedule.keys())
+    combined_system = (
+        f"You are evaluating news articles for thematic relevance across multiple themes. "
+        f"Respond only with valid JSON arrays.\n\n"
+        f"Score each article 0-100 for each of the following themes:\n\n"
+        f"{theme_descriptions}"
+    )
+
+    day_schema = ", ".join(f'"{d}": 0' for d in day_keys)
+
+    batch_size = 10
+    for i in range(0, len(uncached), batch_size):
+        batch = uncached[i:i + batch_size]
+
+        articles_text = "\n\n".join(
+            f"Article {j+1}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {(a.description or '')[:300]}"
+            for j, a in enumerate(batch)
+        )
+
+        prompt = f"""Rate each article 0-100 for every theme key listed in the system prompt.
+
+Respond with ONLY a JSON array (no other text):
+[
+  {{"article": 1, {day_schema}}},
+  {{"article": 2, {day_schema}}}
+]
+
+Articles to evaluate:
+{articles_text}"""
+
+        try:
+            response = client.messages.create(
+                model="claude-haiku-4-5",
+                max_tokens=800,
+                system=[
+                    {
+                        "type": "text",
+                        "text": combined_system,
+                        "cache_control": {"type": "ephemeral"}
+                    }
+                ],
+                messages=[{"role": "user", "content": prompt}]
+            )
+
+            response_text = response.content[0].text.strip()
+            if response_text.startswith('```'):
+                lines = response_text.splitlines()
+                inner = lines[1:]
+                if inner and inner[-1].strip() == '```':
+                    inner = inner[:-1]
+                response_text = '\n'.join(inner).strip()
+
+            scores = json.loads(response_text)
+
+            scored_in_batch = set()
+            for score_data in scores:
+                idx = score_data.get('article', 0) - 1
+                if 0 <= idx < len(batch):
+                    article = batch[idx]
+                    scored_in_batch.add(idx)
+                    for day, cfg in schedule.items():
+                        label = cfg['label']
+                        theme_score = int(score_data.get(day, 50))
+                        theme_cache[f"{article.link}:::{label}"] = {
+                            'score': theme_score,
+                            'cached_at': now_iso
+                        }
+
+            # Fallback score for any articles Claude omitted from the response
+            for idx, article in enumerate(batch):
+                if idx not in scored_in_batch:
+                    for cfg in schedule.values():
+                        key = f"{article.link}:::{cfg['label']}"
+                        if key not in theme_cache:
+                            theme_cache[key] = {'score': 50, 'cached_at': now_iso}
+
+        except (json.JSONDecodeError, Exception) as e:
+            print(f"  ⚠️ Ingest theme scoring error (batch {i//batch_size + 1}): {e}")
+            for article in batch:
+                for cfg in schedule.values():
+                    key = f"{article.link}:::{cfg['label']}"
+                    if key not in theme_cache:
+                        theme_cache[key] = {'score': 50, 'cached_at': now_iso}
+
+    save_theme_score_cache(theme_cache)
+    print(f"   ✅ Ingest theme scoring complete ({len(uncached)} articles × {len(schedule)} themes cached)")
 
 
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict) -> set:
@@ -1075,6 +1209,15 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     shown_excluded = before_shown_filter - len(theme_pool)
     if shown_excluded:
         print(f"  🔄 Excluded {shown_excluded} articles already shown in recent podcast episodes")
+
+    # Cap the pool: sort by quality score and keep only the top candidates.
+    # Articles with lower quality scores are unlikely to beat well-scored candidates
+    # for theme fit, so scoring them wastes API calls.
+    POOL_CAP = 300
+    if len(theme_pool) > POOL_CAP:
+        theme_pool.sort(key=lambda a: a.score, reverse=True)
+        theme_pool = theme_pool[:POOL_CAP]
+        print(f"  📊 Pool capped at top {POOL_CAP} articles by quality score")
 
     # Score articles for thematic fit using Claude
     theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
@@ -1337,6 +1480,11 @@ def main():
     # Save quality articles to weekly podcast cache
     save_podcast_cache(quality_articles)
 
+    # Score new articles for all themes at ingest time so daily podcast generation
+    # is a pure cache read with zero additional API calls (Options B + D).
+    schedule_config = load_podcast_schedule()
+    score_all_themes_at_ingest(quality_articles, schedule_config, api_key)
+
     # Load weekly cache for podcast feed generation
     podcast_cache = load_podcast_cache()
 
@@ -1346,7 +1494,6 @@ def main():
     # Instead, each day's episode is generated once (on that day) from a pool
     # that excludes articles already shown in the past 7 days of podcast episodes.
     print(f"\n🎙️ Generating today's podcast feed from {len(podcast_cache)} cached articles...")
-    schedule_config = load_podcast_schedule()
     if schedule_config and schedule_config.get('enabled', False):
         today_name = datetime.now(timezone.utc).strftime('%A').lower()
         if today_name in schedule_config['schedule']:
