@@ -55,6 +55,29 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌞 2 PM Pacific
+- Fetched **903** → dedup **875** → new **562** → quality **272**
+- Mix: local:9(3%), ai-tech:91(33%), climate:8(3%), homelab:37(14%), science:26(10%), scifi:1(0%), news:100(37%)
+- Feeds: local:47, ai-tech:237, climate:62, homelab:148, science:74, scifi:8, news:500
+- Images: 272/272
+- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
+- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
+- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
+
+
+
 ## 2026-02-25 (Wednesday)
 
 #### 🌙 10 PM Pacific
@@ -136,6 +159,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-24 (Tuesday)
 
@@ -200,6 +226,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
+
+
+---
 
 
 ---

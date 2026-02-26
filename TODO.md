@@ -27,6 +27,16 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-02-26 | 🌅 6 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-26 | 🌅 6 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-26 | 🌅 6 AM Pacific | ⚠️ **Resilience.org** failed | `521 Server Error: <none> for url: https://www.resilience.org/feed/` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **AP News** failed | `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Instructables** failed | `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Castanet Kelowna** failed | `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **All About Bambu** failed | `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-02-26 | 🌞 2 PM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
 | 2026-02-25 | 🌙 10 PM Pacific | ⚠️ **AP News** failed | `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss` |
 | 2026-02-25 | 🌙 10 PM Pacific | ⚠️ **Instructables** failed | `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/` |
 | 2026-02-25 | 🌙 10 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
@@ -93,15 +103,17 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 |------|------|---------|-------------|
 | 2026-02-26 | 🌙 evening | 89 | news:42(47%), ai-tech:19(21%), homelab:11(12%) |
 | 2026-02-26 | 🌅 morning | 182 | news:76(42%), ai-tech:58(32%), homelab:25(14%) |
+| 2026-02-26 | 🌞 afternoon | 272 | news:100(37%), ai-tech:91(33%), homelab:37(14%) |
 | 2026-02-25 | 🌙 evening | 52 | news:21(40%), ai-tech:17(33%), local:5(10%) |
 | 2026-02-25 | 🌅 morning | 211 | ai-tech:78(37%), news:71(34%), homelab:32(15%) |
 | 2026-02-25 | 🌞 afternoon | 296 | news:125(42%), ai-tech:103(35%), homelab:30(10%) |
 | 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
 | 2026-02-24 | 🌞 afternoon | 404 | news:402(100%), local:2(0%) |
 
-_Last updated by log\_feed\_results.py · 2026-02-26 14:46 UTC_
+_Last updated by log\_feed\_results.py · 2026-02-26 22:30 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
