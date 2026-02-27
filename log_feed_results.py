@@ -17,18 +17,31 @@ import argparse
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from collections import defaultdict
+try:
+    from zoneinfo import ZoneInfo
+    _PACIFIC = ZoneInfo("America/Los_Angeles")
+except ImportError:
+    _PACIFIC = None
+
+
+def _to_pacific(utc_dt: datetime) -> datetime:
+    """Convert a UTC datetime to Pacific time (PST/PDT), for log date display."""
+    if _PACIFIC:
+        return utc_dt.astimezone(_PACIFIC)
+    # Fallback: approximate with UTC-8 (PST); acceptable ±1 h error during PDT
+    return utc_dt + timedelta(hours=-8)
 
 LOG_FILE = Path('FEED_LOG.md')
 TODO_FILE = Path('TODO.md')
 RETENTION_DAYS = 7
 
 # GitHub Actions cron schedule -> Pacific slots (UTC hours)
-# 0 14 * * *  = 6:00 AM Pacific  (14 UTC)
-# 0 22 * * *  = 2:00 PM Pacific  (22 UTC)
-# 0 6  * * *  = 10:00 PM Pacific (06 UTC)
-SLOT_BY_UTC_HOUR = {14: 'morning', 22: 'afternoon', 6: 'evening'}
-SLOT_EMOJIS  = {'morning': '🌅', 'afternoon': '🌞', 'evening': '🌙'}
-SLOT_LABELS  = {'morning': '6 AM Pacific', 'afternoon': '2 PM Pacific', 'evening': '10 PM Pacific'}
+# 30 12 * * *  = 4:30 AM Pacific  (12:30 UTC)
+# 30 20 * * *  = 12:30 PM Pacific (20:30 UTC)
+# 30 4  * * *  = 8:30 PM Pacific  (04:30 UTC)
+SLOT_BY_UTC_HOUR = {12: 'morning', 20: 'afternoon', 4: 'evening'}
+SLOT_EMOJIS  = {'morning': '🌅', 'afternoon': '🌞', 'evening': '🌙', 'manual': '🔧'}
+SLOT_LABELS  = {'morning': '4:30 AM Pacific', 'afternoon': '12:30 PM Pacific', 'evening': '8:30 PM Pacific', 'manual': 'Manual Run'}
 CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'science', 'scifi', 'news']
 
 AUTO_START = '<!-- AUTO:START -->'
@@ -46,9 +59,9 @@ def detect_slot() -> str:
         if (hour - target) % 24 <= 1 or (target - hour) % 24 <= 1:
             return slot
     # Rough fallback
-    if 10 <= hour < 18:
+    if 8 <= hour < 16:
         return 'morning'
-    if 18 <= hour <= 23:
+    if 16 <= hour <= 23:
         return 'afternoon'
     return 'evening'
 
@@ -196,7 +209,7 @@ def format_run_section(slot: str, metrics: dict) -> str:
 
 LOG_HEADER = (
     '# Feed Generation Log\n\n'
-    '_Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). '
+    '_Auto-updated 3× daily (4:30 AM / 12:30 PM / 8:30 PM Pacific). '
     'Full detail kept for the last 7 days; older entries are compressed to weekly summaries._\n\n'
     '---\n\n'
 )
@@ -309,9 +322,12 @@ def update_feed_log(slot: str, metrics: dict, run_time: datetime):
     content = LOG_FILE.read_text('utf-8') if LOG_FILE.exists() else LOG_HEADER
     sections = parse_log_sections(content)
 
-    today_str   = run_time.strftime('%Y-%m-%d')
-    today_label = day_label(run_time)
-    cutoff_str  = (run_time - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
+    # Use Pacific local time for date labels so the evening slot (fires at
+    # 06:00 UTC the next calendar day) appears under the correct Pacific date.
+    pac_time    = _to_pacific(run_time)
+    today_str   = pac_time.strftime('%Y-%m-%d')
+    today_label = day_label(pac_time)
+    cutoff_str  = (pac_time - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
 
     run_text = format_run_section(slot, metrics)
 
@@ -488,8 +504,8 @@ def main():
     parser = argparse.ArgumentParser(description='Log feed generation results to FEED_LOG.md and TODO.md')
     parser.add_argument('output_file', nargs='?', default='-',
                         help='Path to captured feed output (default: stdin)')
-    parser.add_argument('--slot', choices=['morning', 'afternoon', 'evening'],
-                        help='Override run-slot detection')
+    parser.add_argument('--slot', choices=['morning', 'afternoon', 'evening', 'manual'],
+                        help='Override run-slot detection; use "manual" for workflow_dispatch runs')
     parser.add_argument('--date', help='Override date as YYYY-MM-DD')
     args = parser.parse_args()
 
