@@ -40,8 +40,8 @@ RETENTION_DAYS = 7
 # 0 22 * * *  = 2:00 PM Pacific  (22 UTC)
 # 0 6  * * *  = 10:00 PM Pacific (06 UTC)
 SLOT_BY_UTC_HOUR = {14: 'morning', 22: 'afternoon', 6: 'evening'}
-SLOT_EMOJIS  = {'morning': '🌅', 'afternoon': '🌞', 'evening': '🌙'}
-SLOT_LABELS  = {'morning': '6 AM Pacific', 'afternoon': '2 PM Pacific', 'evening': '10 PM Pacific'}
+SLOT_EMOJIS  = {'morning': '🌅', 'afternoon': '🌞', 'evening': '🌙', 'manual': '🔧'}
+SLOT_LABELS  = {'morning': '6 AM Pacific', 'afternoon': '2 PM Pacific', 'evening': '10 PM Pacific', 'manual': 'Manual Run'}
 CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'science', 'scifi', 'news']
 
 AUTO_START = '<!-- AUTO:START -->'
@@ -504,8 +504,8 @@ def main():
     parser = argparse.ArgumentParser(description='Log feed generation results to FEED_LOG.md and TODO.md')
     parser.add_argument('output_file', nargs='?', default='-',
                         help='Path to captured feed output (default: stdin)')
-    parser.add_argument('--slot', choices=['morning', 'afternoon', 'evening'],
-                        help='Override run-slot detection')
+    parser.add_argument('--slot', choices=['morning', 'afternoon', 'evening', 'manual'],
+                        help='Override run-slot detection; use "manual" for workflow_dispatch runs')
     parser.add_argument('--date', help='Override date as YYYY-MM-DD')
     args = parser.parse_args()
 

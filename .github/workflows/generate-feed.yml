@@ -61,7 +61,11 @@ jobs:
       - name: Log feed generation results
         if: always()
         run: |
-          python log_feed_results.py /tmp/feed_output.txt
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python log_feed_results.py /tmp/feed_output.txt --slot manual
+          else
+            python log_feed_results.py /tmp/feed_output.txt
+          fi
         continue-on-error: true
       
       - name: Copy files to output
