@@ -3,9 +3,9 @@ name: Generate Super RSS Feed
 on:
   schedule:
     # Run 3 times daily for cumulative feed updates
-    - cron: '0 14 * * *'  # 6:00 AM Pacific (14:00 UTC)
-    - cron: '0 22 * * *'  # 2:00 PM Pacific (22:00 UTC)
-    - cron: '0 6 * * *'   # 10:00 PM Pacific (06:00 UTC next day)
+    - cron: '30 12 * * *'  # 4:30 AM Pacific  (12:30 UTC)
+    - cron: '30 20 * * *'  # 12:30 PM Pacific (20:30 UTC)
+    - cron: '30 4 * * *'   # 8:30 PM Pacific  (04:30 UTC next day)
   workflow_dispatch:  # Allow manual trigger
 
 permissions:
