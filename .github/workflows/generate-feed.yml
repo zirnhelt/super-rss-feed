@@ -59,6 +59,7 @@ jobs:
           python super_rss_curator_json.py feeds.opml 2>&1 | tee /tmp/feed_output.txt
 
       - name: Log feed generation results
+        if: always()
         run: |
           python log_feed_results.py /tmp/feed_output.txt
         continue-on-error: true

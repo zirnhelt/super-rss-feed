@@ -17,6 +17,19 @@ import argparse
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from collections import defaultdict
+try:
+    from zoneinfo import ZoneInfo
+    _PACIFIC = ZoneInfo("America/Los_Angeles")
+except ImportError:
+    _PACIFIC = None
+
+
+def _to_pacific(utc_dt: datetime) -> datetime:
+    """Convert a UTC datetime to Pacific time (PST/PDT), for log date display."""
+    if _PACIFIC:
+        return utc_dt.astimezone(_PACIFIC)
+    # Fallback: approximate with UTC-8 (PST); acceptable ±1 h error during PDT
+    return utc_dt + timedelta(hours=-8)
 
 LOG_FILE = Path('FEED_LOG.md')
 TODO_FILE = Path('TODO.md')
@@ -309,9 +322,12 @@ def update_feed_log(slot: str, metrics: dict, run_time: datetime):
     content = LOG_FILE.read_text('utf-8') if LOG_FILE.exists() else LOG_HEADER
     sections = parse_log_sections(content)
 
-    today_str   = run_time.strftime('%Y-%m-%d')
-    today_label = day_label(run_time)
-    cutoff_str  = (run_time - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
+    # Use Pacific local time for date labels so the evening slot (fires at
+    # 06:00 UTC the next calendar day) appears under the correct Pacific date.
+    pac_time    = _to_pacific(run_time)
+    today_str   = pac_time.strftime('%Y-%m-%d')
+    today_label = day_label(pac_time)
+    cutoff_str  = (pac_time - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
 
     run_text = format_run_section(slot, metrics)
 
