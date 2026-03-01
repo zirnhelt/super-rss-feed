@@ -24,6 +24,24 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌞 12:30 PM Pacific
+- Fetched **581** → dedup **565** → new **311** → quality **110**
+- Mix: local:3(3%), ai-tech:21(19%), climate:2(2%), homelab:20(18%), science:4(4%), news:60(55%)
+- Feeds: local:44, ai-tech:294, climate:40, homelab:203, science:76, scifi:12, news:474
+- Images: 110/110
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
+
+
+
 ## 2026-02-28 (Saturday)
 
 #### 🌅 4:30 AM Pacific
@@ -75,6 +93,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Krebs on Security** failed — `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
 
 
 ---
@@ -178,6 +199,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-26 (Thursday)
 
@@ -246,6 +270,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
 - ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
 
 
 ---
@@ -402,6 +429,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-24 (Tuesday)
 
@@ -466,6 +496,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
+
+
+---
 
 
 ---
