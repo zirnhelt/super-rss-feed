@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-01 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-03-01 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-03-01 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-03-01 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-01 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
 | 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
 | 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
@@ -134,6 +139,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-01 | 🌅 morning | 93 | news:52(56%), ai-tech:20(22%), homelab:15(16%) |
 | 2026-02-28 | 🌅 morning | 129 | news:52(40%), ai-tech:35(27%), homelab:24(19%) |
 | 2026-02-28 | 🌞 afternoon | 101 | news:53(52%), homelab:19(19%), ai-tech:17(17%) |
 | 2026-02-28 | 🌙 evening | 77 | news:26(34%), ai-tech:21(27%), homelab:16(21%) |
@@ -149,9 +155,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
 | 2026-02-24 | 🌞 afternoon | 404 | news:402(100%), local:2(0%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-01 05:35 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-01 13:14 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
