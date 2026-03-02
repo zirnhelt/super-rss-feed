@@ -18,6 +18,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-01 | 🌞 12:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
 | 2026-03-01 | 🌞 12:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-03-01 | 🌞 12:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
 | 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
 | 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
@@ -146,6 +151,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 |------|------|---------|-------------|
 | 2026-03-01 | 🌅 morning | 93 | news:52(56%), ai-tech:20(22%), homelab:15(16%) |
 | 2026-03-01 | 🌞 afternoon | 110 | news:60(55%), ai-tech:21(19%), homelab:20(18%) |
+| 2026-03-01 | 🌙 evening | 93 | news:51(55%), ai-tech:17(18%), homelab:16(17%) |
 | 2026-02-28 | 🌅 morning | 129 | news:52(40%), ai-tech:35(27%), homelab:24(19%) |
 | 2026-02-28 | 🌞 afternoon | 101 | news:53(52%), homelab:19(19%), ai-tech:17(17%) |
 | 2026-02-28 | 🌙 evening | 77 | news:26(34%), ai-tech:21(27%), homelab:16(21%) |
@@ -161,9 +167,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
 | 2026-02-24 | 🌞 afternoon | 404 | news:402(100%), local:2(0%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-01 20:46 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-02 05:34 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
