@@ -32,23 +32,44 @@ jobs:
       - name: Download existing feeds from GitHub Pages
         run: |
           echo "Downloading existing feeds from gh-pages..."
+          BASE="https://zirnhelt.github.io/super-rss-feed"
+
+          # Download feed JSON files atomically: write to a temp file and only
+          # replace the target if the download succeeds AND the content is valid JSON.
+          # This prevents stale repository files or HTML error responses from being
+          # used as feed state, which would cause the retention window to drop all
+          # existing articles and leave feeds with only that run's new articles.
+          download_json() {
+            local url="$1"
+            local dest="$2"
+            local tmp="${dest}.tmp"
+            if wget -q --timeout=30 "$url" -O "$tmp" 2>/dev/null \
+               && python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$tmp" 2>/dev/null; then
+              mv "$tmp" "$dest"
+              echo "  ✓ $dest"
+            else
+              rm -f "$tmp"
+              # Remove any stale repo file so the curator builds fresh for this category
+              rm -f "$dest"
+              echo "  ✗ $dest (download failed or invalid JSON — will build fresh)"
+            fi
+          }
+
           for feed in local ai-tech climate homelab news science scifi; do
-            wget -q "https://zirnhelt.github.io/super-rss-feed/feed-${feed}.json" -O "feed-${feed}.json" || echo "No existing feed-${feed}.json"
+            download_json "${BASE}/feed-${feed}.json" "feed-${feed}.json"
           done
           # Download themed podcast feeds
           for day in monday tuesday wednesday thursday friday saturday sunday; do
-            wget -q "https://zirnhelt.github.io/super-rss-feed/feed-podcast-${day}.json" -O "feed-podcast-${day}.json" || echo "No existing feed-podcast-${day}.json"
+            download_json "${BASE}/feed-podcast-${day}.json" "feed-podcast-${day}.json"
           done
-          # Download podcast cache
-          wget -q "https://zirnhelt.github.io/super-rss-feed/podcast_articles_cache.json" -O "podcast_articles_cache.json" || echo "No existing podcast_articles_cache.json"
-          # Download theme score cache
-          wget -q "https://zirnhelt.github.io/super-rss-feed/theme_scores_cache.json" -O "theme_scores_cache.json" || echo "No existing theme_scores_cache.json"
-          # Download podcast shown cache (tracks which URLs appeared in recent podcast episodes)
-          wget -q "https://zirnhelt.github.io/super-rss-feed/podcast_shown_cache.json" -O "podcast_shown_cache.json" || echo "No existing podcast_shown_cache.json"
-          # Download image cache
-          wget -q "https://zirnhelt.github.io/super-rss-feed/image_cache.json" -O "image_cache.json" || echo "No existing image_cache.json"
+          # Download caches (non-critical — failures are fine)
+          download_json "${BASE}/podcast_articles_cache.json"  "podcast_articles_cache.json"
+          download_json "${BASE}/theme_scores_cache.json"      "theme_scores_cache.json"
+          download_json "${BASE}/podcast_shown_cache.json"     "podcast_shown_cache.json"
+          download_json "${BASE}/image_cache.json"             "image_cache.json"
+
           echo "Download complete. Feed sizes:"
-          wc -l feed-*.json
+          wc -l feed-*.json 2>/dev/null || echo "(no feed files yet)"
         continue-on-error: true
       
       - name: Generate RSS feed

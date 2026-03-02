@@ -425,72 +425,128 @@ def save_wlt_cache(cache):
         print(f"⚠️ Failed to save WLT cache: {e}")
 
 
+def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache):
+    """Attempt to extract articles using a specific set of CSS selectors.
+
+    Returns a list of article dicts and the updated cache, or an empty list if
+    no containers matched.
+    """
+    containers = soup.select(container_sel)
+    if not containers:
+        return []
+
+    articles = []
+    for article_div in containers[:10]:
+        try:
+            link_elem = article_div.select_one(link_sel) if link_sel else article_div.find('a')
+            if not link_elem:
+                continue
+
+            href = link_elem.get('href', '').strip()
+            if not href:
+                continue
+            # Build absolute URL
+            if href.startswith('http'):
+                full_url = href
+            else:
+                full_url = f"{WLT_BASE_URL}{href}"
+
+            # Skip non-wltribune links (ads, external)
+            if 'wltribune.com' not in full_url:
+                continue
+
+            url_hash = hashlib.md5(full_url.encode()).hexdigest()
+            if url_hash in cache:
+                articles.append(cache[url_hash])
+                continue
+
+            title_elem = article_div.select_one(title_sel) if title_sel else None
+            title = title_elem.get_text(strip=True) if title_elem else link_elem.get_text(strip=True)
+
+            desc_elem = article_div.select_one(desc_sel) if desc_sel else None
+            description = desc_elem.get_text(strip=True) if desc_elem else ''
+
+            img_elem = article_div.select_one(img_sel) if img_sel else None
+            image_url = None
+            if img_elem:
+                image_url = img_elem.get('src') or img_elem.get('data-src', '')
+                if image_url and image_url.startswith('/'):
+                    image_url = f"{WLT_BASE_URL}{image_url}"
+
+            if title and full_url:
+                article_data = {
+                    'title': title,
+                    'link': full_url,
+                    'description': description,
+                    'image': image_url,
+                    'timestamp': datetime.now(timezone.utc).timestamp()
+                }
+                articles.append(article_data)
+                cache[url_hash] = article_data
+
+        except Exception as e:
+            print(f"  ⚠️ Error parsing WLT article: {e}")
+            continue
+
+    return articles
+
+
 def scrape_wlt_news() -> List[Dict]:
-    """Scrape Williams Lake Tribune news page"""
+    """Scrape Williams Lake Tribune news page.
+
+    Tries multiple CSS selector patterns in order so the scraper degrades
+    gracefully when the site layout changes.  When all patterns fail it logs
+    a snippet of visible text to aid debugging.
+    """
     cache = load_wlt_cache()
-    
+
+    # Ordered list of (container, link, title, desc, img) selector tuples.
+    # Add new patterns at the top when the site redesigns; keep old ones as
+    # fallbacks so a partial match still surfaces articles.
+    SELECTOR_PATTERNS = [
+        # Black Press Media 2024+ pattern
+        ('div.article-card', 'a.article-card__link', 'h3.article-card__headline',
+         'div.article-card__details', 'img.article-card__image'),
+        # Black Press Media alternate card style
+        ('div.article-card--horizontal', 'a', 'h3', 'p.article-card__description', 'img'),
+        # Generic article list items (many BP sites)
+        ('li.article-list__item', 'a', 'h3', 'p', 'img'),
+        # Story/post grid
+        ('div.story', 'a.story__link', 'h2.story__headline', 'p.story__excerpt', 'img'),
+        # WordPress-style post entries
+        ('article', 'a[rel="bookmark"]', 'h2.entry-title', 'div.entry-summary', 'img'),
+        # Very generic fallback: any <article> tag with a headline link
+        ('article', 'a', 'h2', 'p', 'img'),
+    ]
+
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml'
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-CA,en;q=0.9',
         }
 
         response = requests.get(WLT_NEWS_URL, headers=headers, timeout=10)
         response.raise_for_status()
-        
+
         soup = BeautifulSoup(response.text, 'html.parser')
         articles = []
-        
-        for article_div in soup.select('div.article-card')[:10]:
-            try:
-                link_elem = article_div.select_one('a.article-card__link')
-                if not link_elem:
-                    continue
-                
-                relative_url = link_elem.get('href', '')
-                if not relative_url:
-                    continue
-                
-                full_url = f"{WLT_BASE_URL}{relative_url}"
-                url_hash = hashlib.md5(full_url.encode()).hexdigest()
-                
-                if url_hash in cache:
-                    articles.append(cache[url_hash])
-                    continue
-                
-                title_elem = article_div.select_one('h3.article-card__headline')
-                title = title_elem.get_text(strip=True) if title_elem else ''
-                
-                desc_elem = article_div.select_one('div.article-card__details')
-                description = desc_elem.get_text(strip=True) if desc_elem else ''
-                
-                img_elem = article_div.select_one('img.article-card__image')
-                image_url = img_elem.get('src', '') if img_elem else None
-                if image_url and image_url.startswith('/'):
-                    image_url = f"{WLT_BASE_URL}{image_url}"
-                
-                if title and full_url:
-                    article_data = {
-                        'title': title,
-                        'link': full_url,
-                        'description': description,
-                        'image': image_url,
-                        'timestamp': datetime.now(timezone.utc).timestamp()
-                    }
-                    articles.append(article_data)
-                    cache[url_hash] = article_data
-            
-            except Exception as e:
-                print(f"  ⚠️ Error parsing WLT article: {e}")
-                continue
-        
-        save_wlt_cache(cache)
+
+        for container_sel, link_sel, title_sel, desc_sel, img_sel in SELECTOR_PATTERNS:
+            articles = _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache)
+            if articles:
+                print(f"📰 Williams Lake Tribune: {len(articles)} articles (selector: {container_sel!r})")
+                break
+
         if not articles:
-            print("⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors")
-        else:
-            print(f"📰 Williams Lake Tribune: {len(articles)} articles")
+            # Log a snippet of the page to aid selector debugging
+            body_text = ' '.join(soup.get_text(' ', strip=True).split())[:300]
+            print(f"⚠️ Williams Lake Tribune: 0 articles scraped — all selector patterns failed")
+            print(f"   Page text preview: {body_text!r}")
+
+        save_wlt_cache(cache)
         return articles
-        
+
     except Exception as e:
         print(f"⚠️ Failed to scrape Williams Lake Tribune: {e}")
         return []
