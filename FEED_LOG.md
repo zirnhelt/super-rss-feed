@@ -24,6 +24,24 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌞 12:30 PM Pacific
+- Fetched **829** → dedup **802** → new **529** → quality **307**
+- Mix: local:13(4%), ai-tech:77(27%), climate:17(6%), homelab:34(12%), science:16(6%), scifi:1(0%), news:131(45%)
+- Feeds: local:61, ai-tech:397, climate:68, homelab:279, science:115, scifi:15, news:500
+- Images: 307/307
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+
+
+---
+
+
+
 ## 2026-03-01 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -98,6 +116,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-28 (Saturday)
 
@@ -150,6 +171,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Krebs on Security** failed — `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
 
 
 ---
@@ -277,6 +301,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-26 (Thursday)
 
@@ -345,6 +372,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
 - ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
 
 
 ---
@@ -525,6 +555,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-24 (Tuesday)
 
@@ -589,6 +622,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
 - ⚠️ ⚠️ JSON parsing error: Expecting value: line 1 column 1 (char 0)
+
+
+---
 
 
 ---
