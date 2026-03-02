@@ -20,6 +20,11 @@
     "exclude": ["product reviews", "consumer tech", "apps"],
     "description": "Scientific research, discoveries, academic papers - NOT tech news or reviews"
   },
+  "wellness": {
+    "include": ["health", "wellness", "nutrition", "fitness", "mental health", "exercise", "sleep", "diet", "longevity", "gut health", "microbiome", "preventive health", "preventative", "chronic disease", "wellbeing", "medicine", "healthcare", "anxiety", "depression", "stress", "mindfulness", "therapy", "physical activity", "obesity", "diabetes", "heart disease", "immune system", "inflammation"],
+    "exclude": ["sports scores", "game results", "athlete stats", "product review", "gadget review", "consumer electronics"],
+    "description": "Personal health, nutrition, mental health, fitness, and medicine - NOT sports coverage or tech reviews"
+  },
   "scifi": {
     "include": ["science fiction", "fantasy", "novel", "book", "worldbuilding", "author", "fiction"],
     "exclude": ["apps", "digital minimalism", "productivity", "phone features", "tech lifestyle"],
