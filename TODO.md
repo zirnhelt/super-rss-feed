@@ -8,6 +8,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
 | 2026-03-02 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
 | 2026-03-02 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
 | 2026-03-02 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
@@ -167,6 +173,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-03 | 🌅 morning | 205 | news:84(45%), ai-tech:61(32%), homelab:22(12%) |
 | 2026-03-02 | 🌅 morning | 246 | news:95(43%), ai-tech:75(34%), homelab:25(11%) |
 | 2026-03-02 | 🌞 afternoon | 307 | news:131(45%), ai-tech:77(27%), homelab:34(12%) |
 | 2026-03-02 | 🌙 evening | 178 | news:65(41%), ai-tech:46(29%), homelab:20(13%) |
@@ -188,9 +195,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-02-24 | 🌅 morning | 321 | news:321(100%) |
 | 2026-02-24 | 🌞 afternoon | 404 | news:402(100%), local:2(0%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-03 05:33 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-03 13:39 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
