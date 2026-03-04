@@ -22,251 +22,211 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Community Tech & Governance' through a RURAL TECH AND INNOVATION lens. Strong fits include: municipal broadband and fiber projects in Cariboo communities, SD27 education technology and digital learning, civic tech platforms and open data initiatives, community-owned networks and ISPs, smart rural infrastructure (water, waste, transit), digital government services for rural areas, council decisions on technology spending, public Wi-Fi and connectivity programs, election technology and civic engagement platforms, rural innovation hubs, and how Williams Lake/Quesnel/100 Mile/CRD use technology for public services. Prefer articles that bridge governance AND technology in rural civic contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-02-25T22:30:07.696593+00:00",
-    "article_count": 12,
-    "bonus_count": 2,
+    "generated_at": "2026-03-04T05:29:01.473864+00:00",
+    "article_count": 10,
+    "bonus_count": 1,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://gizmodo.com/denver-announces-data-center-moratorium-as-opposition-picks-up-steam-around-the-country-2000726129",
-      "url": "https://gizmodo.com/denver-announces-data-center-moratorium-as-opposition-picks-up-steam-around-the-country-2000726129",
-      "title": "[Gizmodo] Denver Announces Data Center Moratorium as Opposition Picks Up Steam Around the Country",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/02/shutterstock_2685684165-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMany states are considering a moratorium. Will national politicians catch up?",
-      "date_published": "2026-02-25T12:15:25+00:00",
+      "id": "https://wltribune.com/2026/02/27/not-a-luxury-outgoing-b-c-merit-commissioner-warns-axing-role-hurts-accountability/",
+      "url": "https://wltribune.com/2026/02/27/not-a-luxury-outgoing-b-c-merit-commissioner-warns-axing-role-hurts-accountability/",
+      "title": "[Williams Lake Tribune] ‘Not a luxury’: Outgoing B.C. merit commissioner warns axing role hurts accountability",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/02/41696080_web1_260227-BPD-Mccoyspeaks-mccoy_1.jpg?w=900\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Finance Minister Bailey plans to get rid of independent merit commissioner as part of Budget 2026 </p>",
+      "date_published": "2026-02-27T16:17:00+00:00",
       "authors": [
         {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 35,
-      "_theme_score": 25,
-      "_final_score": 25,
+      "_quality_score": 75,
+      "_theme_score": 65,
+      "_final_score": 65,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/02/shutterstock_2685684165-1280x853.jpg"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/02/41696080_web1_260227-BPD-Mccoyspeaks-mccoy_1.jpg?w=900"
     },
     {
-      "id": "https://thetyee.ca/News/2026/02/25/BC-Merit-Commissioner/",
-      "url": "https://thetyee.ca/News/2026/02/25/BC-Merit-Commissioner/",
-      "title": "[The Tyee] The BC Merit Commissioner Gained Power After an Injustice. Now It's Gone",
-      "content_html": "<img src=\"https://thetyee.ca/News/2026/02/19/BrendaBaileyMeritCzar.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCarole James said the office would help prevent future tragedies like the wrongful firing of health workers.",
-      "date_published": "2026-02-25T08:20:00+00:00",
+      "id": "https://thetyee.ca/News/2026/03/04/Who-You-Gonna-Call-Not-911-BC-Central-Coast/",
+      "url": "https://thetyee.ca/News/2026/03/04/Who-You-Gonna-Call-Not-911-BC-Central-Coast/",
+      "title": "[The Tyee] Who You Gonna Call? Not 911 on BC’s Central Coast",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/03/03/SmartphoneSnow.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDespite the province's push for better emergency management, much of the coast lacks emergency calling capacity.",
+      "date_published": "2026-03-04T08:20:00+00:00",
       "authors": [
         {
           "name": "The Tyee",
           "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 37,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://thetyee.ca/News/2026/02/19/BrendaBaileyMeritCzar.jpg"
-    },
-    {
-      "id": "https://globalnews.ca/news/11688460/halifax-budget-discussions/",
-      "url": "https://globalnews.ca/news/11688460/halifax-budget-discussions/",
-      "title": "[Global News] Tensions high as Halifax mayor, councillors battle over how to balance books",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/02/city-council.jpg?quality=65&strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe mayor recently brought up the idea of reducing municipal wages over the next three years by seven per cent. One councillor is calling the budget process \"chaotic.\"",
-      "date_published": "2026-02-24T22:10:03+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/02/city-council.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/02/24/us/chicago-snowplow-contest-ice.html",
-      "url": "https://www.nytimes.com/2026/02/24/us/chicago-snowplow-contest-ice.html",
-      "title": "[NYT Top Stories] ‘Abolish ICE’ Wins Chicago’s Snowplow Naming Contest",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/02/24/multimedia/24nat-chicago-snowplow-1-kcfv/24nat-chicago-snowplow-1-kcfv-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn annual snowplow naming contest usually draws lighthearted quips. This year, Chicagoans picked a political pun.",
-      "date_published": "2026-02-24T21:18:16+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/02/24/multimedia/24nat-chicago-snowplow-1-kcfv/24nat-chicago-snowplow-1-kcfv-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/kanopy-streaming-video-free-movies-library-card/",
-      "url": "https://www.cnet.com/tech/services-and-software/kanopy-streaming-video-free-movies-library-card/",
-      "title": "[CNET] Have a Library Card? You Can Stream Over 30,000 Movies for Free",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/1d100ba6e86f8e3780cb0e25359c667f8eb278bb/hub/2026/01/21/4d6dd3c8-a1a1-4c38-9e99-2e3b3a00ca65/image.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSign up for Kanopy for free using your library card for tons of free content.",
-      "date_published": "2026-02-24T14:00:51+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/1d100ba6e86f8e3780cb0e25359c667f8eb278bb/hub/2026/01/21/4d6dd3c8-a1a1-4c38-9e99-2e3b3a00ca65/image.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://globalnews.ca/news/11680121/calgary-city-councillors-crack-down-shoplifting/",
-      "url": "https://globalnews.ca/news/11680121/calgary-city-councillors-crack-down-shoplifting/",
-      "title": "[Global News] Calgary city councillors seek ways to crack down on shoplifting under $100",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2025/06/d3e6bd09627eba58c39b3d17dec412f2774cd355800da34902ee76e69d4fcd8d.jpg?quality=65&strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA motion from two Calgary city councillors asks administration to conduct \"an analysis of approaches\" that the city could take to regulate theft under $100.",
-      "date_published": "2026-02-24T00:45:51+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://globalnews.ca/wp-content/uploads/2025/06/d3e6bd09627eba58c39b3d17dec412f2774cd355800da34902ee76e69d4fcd8d.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWGluX2hYaksxME5tX0lJajgyNDdMaFpoQ0JDTmZELXRrVXNBeFF5X1h2WHhsWjgyQTZPWVFhWkN2aVlzaklXa0J1QWZSb1h3akh5bk9JQXF1WGVMTi1JcFJicVJIX0RCNE10Q3YyYkZtcHVWeWNwUEY3aktCZ1VBUHBaemltR1BnNHZUbVB4VmFjejhOQlBlVjdsbFdDWUpW?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWGluX2hYaksxME5tX0lJajgyNDdMaFpoQ0JDTmZELXRrVXNBeFF5X1h2WHhsWjgyQTZPWVFhWkN2aVlzaklXa0J1QWZSb1h3akh5bk9JQXF1WGVMTi1JcFJicVJIX0RCNE10Q3YyYkZtcHVWeWNwUEY3aktCZ1VBUHBaemltR1BnNHZUbVB4VmFjejhOQlBlVjdsbFdDWUpW?oc=5",
-      "title": "[SiliconANGLE] Ubicquia raises $106M to expand AI-enabled infrastructure platform",
-      "content_html": "<img src=\"https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxQWGluX2hYaksxME5tX0lJajgyNDdMaFpoQ0JDTmZELXRrVXNBeFF5X1h2WHhsWjgyQTZPWVFhWkN2aVlzaklXa0J1QWZSb1h3akh5bk9JQXF1WGVMTi1JcFJicVJIX0RCNE10Q3YyYkZtcHVWeWNwUEY3aktCZ1VBUHBaemltR1BnNHZUbVB4VmFjejhOQlBlVjdsbFdDWUpW?oc=5\" target=\"_blank\">Ubicquia raises $106M to expand AI-enabled infrastructure platform</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">SiliconANGLE</font>",
-      "date_published": "2026-02-23T22:32:33+00:00",
-      "authors": [
-        {
-          "name": "SiliconANGLE",
-          "url": "https://news.google.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
-    },
-    {
-      "id": "https://www.zdnet.com/article/what-is-moca-2-5-improve-internet/",
-      "url": "https://www.zdnet.com/article/what-is-moca-2-5-improve-internet/",
-      "title": "[ZDNet] Why I swapped Wi-Fi for MoCA",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.zdnet.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMoCA 2.5 is a recommended alternative to Wi-Fi networks that leverage old coaxial cables to enable high-speed internet.",
-      "date_published": "2026-02-23T22:02:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.zdnet.com&sz=128"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/02/23/b-c-journalists-new-book-teaches-youth-to-read-past-the-headline/",
-      "url": "https://quesnelobserver.com/2026/02/23/b-c-journalists-new-book-teaches-youth-to-read-past-the-headline/",
-      "title": "[Quesnel Cariboo Observer] B.C. journalist’s new book teaches youth to ‘read past the headline’",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41654661_web1_260205-VNE-CraigieMisinformationBook-GregorCraigie_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>As a father, Gregor Craigie felt compelled to write Sticking to the Facts: 10 Ways to Fight Misinformation </p>",
-      "date_published": "2026-02-23T21:30:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/02/41654661_web1_260205-VNE-CraigieMisinformationBook-GregorCraigie_1.jpg?w=1024"
-    },
-    {
-      "id": "https://techcrunch.com/2026/02/23/americans-are-destroying-flock-surveillance-cameras/",
-      "url": "https://techcrunch.com/2026/02/23/americans-are-destroying-flock-surveillance-cameras/",
-      "title": "[TechCrunch] Americans are destroying Flock surveillance cameras",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhile some cities are moving to end their contracts with Flock over its links to ICE, others are taking matters into their own hands.",
-      "date_published": "2026-02-23T18:49:49+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
-    },
-    {
-      "id": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPS00zbkpFNW5aNkJaQ1FkWURBWm1OaWFUUTZpaFMzMWZneWpZdDY4Y2pPcUNzUHhjTUQ5ZlJ2OHc5Q0VoemdsdmNacnVJYm1tVW1OQVBRQndaSVhHdnRqbFVZamE4c1NvOUUyTWdfSVBOSUFLRklYZWJnbFMzZHJlVGhMQUlTSlAydUdkeWpSSU9YOV9keU4xVnM1c0xvb1BoaURIM1FRVQ?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPS00zbkpFNW5aNkJaQ1FkWURBWm1OaWFUUTZpaFMzMWZneWpZdDY4Y2pPcUNzUHhjTUQ5ZlJ2OHc5Q0VoemdsdmNacnVJYm1tVW1OQVBRQndaSVhHdnRqbFVZamE4c1NvOUUyTWdfSVBOSUFLRklYZWJnbFMzZHJlVGhMQUlTSlAydUdkeWpSSU9YOV9keU4xVnM1c0xvb1BoaURIM1FRVQ?oc=5",
-      "title": "[TechCrunch] Google’s new 1.9GW clean energy deal includes massive 100-hour battery",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPS00zbkpFNW5aNkJaQ1FkWURBWm1OaWFUUTZpaFMzMWZneWpZdDY4Y2pPcUNzUHhjTUQ5ZlJ2OHc5Q0VoemdsdmNacnVJYm1tVW1OQVBRQndaSVhHdnRqbFVZamE4c1NvOUUyTWdfSVBOSUFLRklYZWJnbFMzZHJlVGhMQUlTSlAydUdkeWpSSU9YOV9keU4xVnM1c0xvb1BoaURIM1FRVQ?oc=5\" target=\"_blank\">Google’s new 1.9GW clean energy deal includes massive 100-hour battery</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TechCrunch</font>",
-      "date_published": "2026-02-24T21:32:22+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://news.google.com"
-        }
-      ],
-      "_quality_score": 75,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
-    },
-    {
-      "id": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQVjNuTkczT1NPeDJxWGhuRVVMd3dVUzMybmJXUzJaM0xBQnFsTllCUHJsajhsNmlHSHpDUURHV2R2UlVReVVwSFpYMEZvbl9DQXNRTEgzeWl4WjJObWZRS3ZZNWl2ZFh1Q3VrUDVKR1JpTUZMRW04czBCaDhZZ3FOX0ViaEtnMDl1UVRqNTVsaHV0bDQ5OFJPc2Y1WG1jcmRTcWJNUklwd2pGMDFoZzZoUG00US11bmN2T2N5MTdhUi1MQ0RLUUNFTFNNY2UxN2VxYmFqSDJ3RW9CUQ?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQVjNuTkczT1NPeDJxWGhuRVVMd3dVUzMybmJXUzJaM0xBQnFsTllCUHJsajhsNmlHSHpDUURHV2R2UlVReVVwSFpYMEZvbl9DQXNRTEgzeWl4WjJObWZRS3ZZNWl2ZFh1Q3VrUDVKR1JpTUZMRW04czBCaDhZZ3FOX0ViaEtnMDl1UVRqNTVsaHV0bDQ5OFJPc2Y1WG1jcmRTcWJNUklwd2pGMDFoZzZoUG00US11bmN2T2N5MTdhUi1MQ0RLUUNFTFNNY2UxN2VxYmFqSDJ3RW9CUQ?oc=5",
-      "title": "[SolarQuarter] Global Cleantech Expo-Odisha Highlights India’s Renewable Energy Growth and MSME-Led Clean Tech Innovation",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxQVjNuTkczT1NPeDJxWGhuRVVMd3dVUzMybmJXUzJaM0xBQnFsTllCUHJsajhsNmlHSHpDUURHV2R2UlVReVVwSFpYMEZvbl9DQXNRTEgzeWl4WjJObWZRS3ZZNWl2ZFh1Q3VrUDVKR1JpTUZMRW04czBCaDhZZ3FOX0ViaEtnMDl1UVRqNTVsaHV0bDQ5OFJPc2Y1WG1jcmRTcWJNUklwd2pGMDFoZzZoUG00US11bmN2T2N5MTdhUi1MQ0RLUUNFTFNNY2UxN2VxYmFqSDJ3RW9CUQ?oc=5\" target=\"_blank\">Global Cleantech Expo-Odisha Highlights India’s Renewable Energy Growth and MSME-Led Clean Tech Innovation</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">SolarQuarter</font>",
-      "date_published": "2026-02-20T11:52:46+00:00",
-      "authors": [
-        {
-          "name": "SolarQuarter",
-          "url": "https://news.google.com"
-        }
-      ],
       "_quality_score": 70,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_theme_score": 55,
+      "_final_score": 55,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/News/2026/03/03/SmartphoneSnow.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/171793/news/municipal-news/cariboo-regional-district/nicole-audet-officially-declared-as-new-crd-area-a-director/",
+      "url": "https://www.mycariboonow.com/171793/news/municipal-news/cariboo-regional-district/nicole-audet-officially-declared-as-new-crd-area-a-director/",
+      "title": "[My Cariboo Now] Nicole Audet officially declared as new CRD Area A Director",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/12/CRD-SIGN-scaled-e1638477670269.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://www.mycariboonow.com/wp-content/uploads/2021/12/CRD-SIGN-1024x768.jpg\" width=\"696\" />The Cariboo Regional District's Chief Electoral Officer officially declared the results of the Area A By-Election. Naming Nicole Audet as the new Director for Area A, replacing the late Mary Sjostrom.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/171793/news/municipal-news/cariboo-regional-district/nicole-audet-officially-declared-as-new-crd-area-a-director/\">Nicole Audet officially declared as new CRD Area A Director</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-02-27T14:00:42+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 45,
+      "_final_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/12/CRD-SIGN-scaled-e1638477670269.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/188595/news/provincial/b-c-to-end-twice-yearly-time-changes-with-move-to-permanent-daylight-saving-time/",
+      "url": "https://www.mycariboonow.com/188595/news/provincial/b-c-to-end-twice-yearly-time-changes-with-move-to-permanent-daylight-saving-time/",
+      "title": "[My Cariboo Now] B.C. to end twice-yearly time changes with move to permanent Daylight Saving Time",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/Image-12-scaled-1-1024x576.jpg\" width=\"696\" />British Columbians will change their clocks for the last time this weekend as the province shifts to permanent daylight saving time.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/188595/news/provincial/b-c-to-end-twice-yearly-time-changes-with-move-to-permanent-daylight-saving-time/\">B.C. to end twice-yearly time changes with move to permanent Daylight Saving Time</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-03-03T01:36:19+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 45,
+      "_final_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
+    },
+    {
+      "id": "https://www.mycariboonow.com/191028/news/indigenous/final-list-of-candidates-for-new-chief-and-councillor-for-lhatko-dene-nation-election/",
+      "url": "https://www.mycariboonow.com/191028/news/indigenous/final-list-of-candidates-for-new-chief-and-councillor-for-lhatko-dene-nation-election/",
+      "title": "[My Cariboo Now] Final list of candidates for new chief and councillor for Lhatko Dene Nation election",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/Lhtako-Dene-Nation-Building-KCP_1565.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"404\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/Lhtako-Dene-Nation-Building-KCP_1565-1024x594.jpg\" width=\"696\" />Lhatko Dene Nation announced its final list of candidates for a new chief and a new councillor in the First Nation's upcoming election on April 22. </p>\n<p>The post <a href=\"https://www.mycariboonow.com/191028/news/indigenous/final-list-of-candidates-for-new-chief-and-councillor-for-lhatko-dene-nation-election/\">Final list of candidates for new chief and councillor for Lhatko Dene Nation election</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-03-03T18:30:32+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/Lhtako-Dene-Nation-Building-KCP_1565.jpg"
+    },
+    {
+      "id": "https://www.resilience.org/stories/2026-03-03/the-future-is-local-mitmach-region-vorarlberg/",
+      "url": "https://www.resilience.org/stories/2026-03-03/the-future-is-local-mitmach-region-vorarlberg/",
+      "title": "[Resilience.org] The Future is Local: Mitmach-Region Vorarlberg",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/03/0_STm3vdp4DhkGodKN.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFor centuries, social life in Europe was radically organized at the local level. Language, food, work, belonging, and identity were closely tied to specific places: landscapes, villages, and markets. Relationships were manageable and resilient. Place was not a backdrop — it was the system.",
+      "date_published": "2026-03-03T10:10:28+00:00",
+      "authors": [
+        {
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
+        }
+      ],
+      "_quality_score": 78,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
+      "image": "https://www.resilience.org/wp-content/uploads/2026/03/0_STm3vdp4DhkGodKN.webp"
+    },
+    {
+      "id": "https://newatlas.com/telecommunications/google-taara-25gbps-internet-cities-light/",
+      "url": "https://newatlas.com/telecommunications/google-taara-25gbps-internet-cities-light/",
+      "title": "[New Atlas] Google spinoff beams blazing-fast internet around cities using light",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/93bf8d9/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fd6%2F47%2Fb61cf06a4a53827971c97568f4d4%2Fthe-taara-beam-shoots-data-at-25gbps-between-pole-mounted-units-using-beams-of-light.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The Taara Beam shoots data at 25Gbps between pole-mounted units using beams of light\" src=\"https://assets.newatlas.com/dims4/default/220ab3d/2147483647/strip/true/crop/1200x800+0+0/resize/1200x800!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fd6%2F47%2Fb61cf06a4a53827971c97568f4d4%2Fthe-taara-beam-shoots-data-at-25gbps-between-pole-mounted-units-using-beams-of-light.jpg\" /><p>Over the last few years, an ambitious moonshot project spun out of Google has been developing fascinating technologies to deliver connectivity across communities without the need for underground cables. For its latest trick, Taara is now providing high-speed internet access across cities using invisible beams of light.</p><p><a href=\"https://newatlas.com/telecommunications/google-taara-25gbps-internet-cities-light/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/telecommunications/\">Telecommunications</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/taara/\" rel=\"tag\">Taara</a>, <a href=\"https://newatlas.com/tag/alphabet/\" rel=\"tag\">Alphabet</a>, <a href=\"https://newatlas.com/tag/fiber-optics/\" rel=\"tag\">Fiber optics</a>, <a href=\"https://newatlas.com/tag/internet/\" rel=\"tag\">Internet</a>, <a href=\"https://newatlas.com/tag/broadband/\" rel=\"tag\">Broadband</a></p>",
+      "date_published": "2026-02-28T16:03:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/93bf8d9/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fd6%2F47%2Fb61cf06a4a53827971c97568f4d4%2Fthe-taara-beam-shoots-data-at-25gbps-between-pole-mounted-units-using-beams-of-light.jpg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/03/williams-lake-lions-club-hosting-clubs-day/",
+      "url": "https://wltribune.com/2026/03/03/williams-lake-lions-club-hosting-clubs-day/",
+      "title": "[Williams Lake Tribune] Williams Lake Lions Club hosting clubs day",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41709570_web1_260305-WLT-Lions-Clubs-Day-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Public encouraged to learn more about clubs within the community on Mar. 21 </p>",
+      "date_published": "2026-03-03T05:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41709570_web1_260305-WLT-Lions-Clubs-Day-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/03/vote-on-mlas-bill-to-repeal-b-c-human-rights-code-explained/",
+      "url": "https://wltribune.com/2026/03/03/vote-on-mlas-bill-to-repeal-b-c-human-rights-code-explained/",
+      "title": "[Williams Lake Tribune] Vote on MLA’s bill to repeal B.C. human rights code explained",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41708593_web1_260302-BPD-Humanrightsbill-Halford_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Private member&#8217;s bill immediately voted down </p>",
+      "date_published": "2026-03-03T16:50:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 95,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41708593_web1_260302-BPD-Humanrightsbill-Halford_1.jpeg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/03/01/nominations-open-for-2026-best-of-the-south-cariboo-contest/",
+      "url": "https://100milefreepress.net/2026/03/01/nominations-open-for-2026-best-of-the-south-cariboo-contest/",
+      "title": "[100 Mile Free Press] Nominations open for 2026 Best of the South Cariboo Contest",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41676604_web1_260305-OMH-Best-of-Promo_1.jpg?w=829\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The nomination period runs from March 1 to 29, with voting taking place from April 12 to May 3 </p>",
+      "date_published": "2026-03-01T13:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41676604_web1_260305-OMH-Best-of-Promo_1.jpg?w=829"
     }
   ]
 }
