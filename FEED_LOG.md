@@ -5,6 +5,25 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+## 2026-03-06 (Friday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1000** → dedup **968** → new **459** → quality **201**
+- Mix: local:2(1%), ai-tech:54(30%), climate:17(9%), homelab:27(15%), science:8(4%), scifi:1(1%), news:73(40%)
+- Feeds: local:121, ai-tech:500, climate:178, homelab:500, science:234, scifi:38, news:500
+- Images: 201/201
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+
+
+---
+
+
+
 ## 2026-03-05 (Thursday)
 
 #### 🌅 4:30 AM Pacific
@@ -56,6 +75,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
 - ⚠️ ⚠️ JSON parsing error: Extra data: line 13 column 1 (char 544)
+
+
+---
 
 
 ---
@@ -120,6 +142,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+
+
+---
 
 
 ---
@@ -207,6 +232,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-03-02 (Monday)
 
@@ -258,6 +286,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
 - ⚠️ ⚠️ JSON parsing error: Extra data: line 18 column 1 (char 204)
+
+
+---
 
 
 ---
@@ -398,6 +429,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-02-28 (Saturday)
 
@@ -450,6 +484,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Krebs on Security** failed — `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
+
+
+---
 
 
 ---
@@ -643,154 +680,6 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
-
-## 2026-02-26 (Thursday)
-
-#### 🌙 10 PM Pacific
-- Fetched **930** → dedup **907** → new **336** → quality **89**
-- Mix: local:5(6%), ai-tech:19(21%), climate:5(6%), homelab:11(12%), science:5(6%), scifi:2(2%), news:42(47%)
-- Feeds: local:41, ai-tech:146, climate:41, homelab:84, science:37, scifi:6, news:500
-- Images: 89/89
-- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
-- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
-- ⚠️ ⚠️ JSON parsing error: Extra data: line 4 column 1 (char 54)
-
-
----
-
-
----
-
-
-
-
-#### 🌅 6 AM Pacific
-- Fetched **873** → dedup **848** → new **433** → quality **182**
-- Mix: local:2(1%), ai-tech:58(32%), climate:11(6%), homelab:25(14%), science:9(5%), scifi:1(1%), news:76(42%)
-- Feeds: local:42, ai-tech:197, climate:54, homelab:111, science:48, scifi:7, news:500
-- Images: 182/182
-- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
-- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Resilience.org** failed — `521 Server Error: <none> for url: https://www.resilience.org/feed/`
-- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
-
-
----
-
-
-
-
-#### 🌞 2 PM Pacific
-- Fetched **903** → dedup **875** → new **562** → quality **272**
-- Mix: local:9(3%), ai-tech:91(33%), climate:8(3%), homelab:37(14%), science:26(10%), scifi:1(0%), news:100(37%)
-- Feeds: local:47, ai-tech:237, climate:62, homelab:148, science:74, scifi:8, news:500
-- Images: 272/272
-- ⚠️ **AP News** failed — `404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss`
-- ⚠️ **Instructables** failed — `404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true/rss.xml/`
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **Castanet Kelowna** failed — `404 Client Error: Not Found for url: https://www.castanet.net/rss/news/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **All About Bambu** failed — `HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolu`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
-- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
----
-
-
 ---
 
 
@@ -847,6 +736,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## Week of 2026-02-25–2026-02-25
 - 3 runs · avg fetched 910 · avg quality 186
@@ -866,6 +758,29 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 ---
+
+
+---
+
+
+---
+
+
+
+## Week of 2026-02-26–2026-02-26
+- 3 runs · avg fetched 902 · avg quality 181
+- Dominant: **news** (40%) local:16 / ai-tech:168 / climate:24 / homelab:73 / science:40 / scifi:4 / news:218
+- - ⚠️ AP News failed — 404 Client Error: Not Found for url: https://apnews.com/hub/ap-top-news.rss
+- - ⚠️ Instructables failed — 404 Client Error: Not Found for url: https://www.instructables.com/tag/type-id/featured-true
+- - ⚠️ Scientific American failed — HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /S
+- - ⚠️ Techdirt failed — 520 Server Error: <none> for url: https://www.techdirt.com/feed/
+- - ⚠️ Castanet Kelowna failed — 404 Client Error: Not Found for url: https://www.castanet.net/rss/news/
+- - ⚠️ The Breach failed — 520 Server Error: <none> for url: https://breachmedia.ca/feed/
+- - ⚠️ All About Bambu failed — HTTPSConnectionPool(host='www.allaboutbambu.com', port=443): Max retries exceeded with url
+- - ⚠️ Yale Climate Connections failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without 
+- - ⚠️ Longreads failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+- - ⚠️ Resilience.org failed — 521 Server Error: <none> for url: https://www.resilience.org/feed/
+- - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
 
 
 ---
