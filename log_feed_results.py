@@ -248,7 +248,9 @@ def reassemble_log(sections: list) -> str:
     out = []
     for sec in sections:
         text = ''.join(sec['lines'])
-        out.append(text.rstrip('\n'))
+        # Strip any trailing separator lines that accumulated from previous writes
+        text = re.sub(r'(\s*\n---)+\s*$', '', text).rstrip('\n')
+        out.append(text)
         if sec['type'] in ('day', 'week'):
             out.append('\n\n---\n')
         out.append('\n')

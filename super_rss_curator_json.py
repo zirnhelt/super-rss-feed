@@ -902,6 +902,10 @@ Articles to evaluate:
                     if inner and inner[-1].strip() == '```':
                         inner = inner[:-1]
                     response_text = '\n'.join(inner).strip()
+                # Extract just the JSON array to ignore any trailing text
+                _start, _end = response_text.find('['), response_text.rfind(']') + 1
+                if _start != -1 and _end > _start:
+                    response_text = response_text[_start:_end]
 
                 scores = json.loads(response_text)
 
@@ -1164,6 +1168,10 @@ Articles to evaluate:
                 if inner and inner[-1].strip() == '```':
                     inner = inner[:-1]
                 response_text = '\n'.join(inner).strip()
+            # Extract just the JSON array to ignore any trailing text
+            _start, _end = response_text.find('['), response_text.rfind(']') + 1
+            if _start != -1 and _end > _start:
+                response_text = response_text[_start:_end]
             scores = json.loads(response_text)
 
             for score_data in scores:
@@ -1287,6 +1295,10 @@ Articles to evaluate:
                 if inner and inner[-1].strip() == '```':
                     inner = inner[:-1]
                 response_text = '\n'.join(inner).strip()
+            # Extract just the JSON array to ignore any trailing text
+            _start, _end = response_text.find('['), response_text.rfind(']') + 1
+            if _start != -1 and _end > _start:
+                response_text = response_text[_start:_end]
 
             scores = json.loads(response_text)
 
