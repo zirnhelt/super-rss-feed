@@ -23,38 +23,78 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Resilient Rural Futures' — stories about how Cariboo and rural communities are adapting, diversifying, and building lasting strength. Strong fits include: post-resource-economy transition and community economic planning (post-mill, post-mine, post-forestry towns finding new paths), local economic diversification initiatives and community futures discussions, rural workforce transition and skills development, co-operative and community-ownership economic models, off-grid power systems and solar for Cariboo homes, mesh networks and community-owned connectivity, self-hosted systems and data sovereignty, telehealth platforms and remote healthcare tech, climate adaptation technology for rural areas, emergency communication systems and disaster tech, renewable energy innovation, food security tech (greenhouses, vertical farms, local food tracking), water monitoring and conservation systems, affordable housing innovation, resilient infrastructure design, rural remote work tools and digital nomad infrastructure, and future-focused solutions that help Cariboo communities thrive despite isolation or climate challenges. Score equally highly for community economic resilience stories and technology resilience stories — both are core to rural futures. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "sunday",
-    "generated_at": "2026-03-08T17:59:19.026582+00:00",
+    "generated_at": "2026-03-08T20:46:52.643072+00:00",
     "article_count": 40,
-    "bonus_count": 5,
+    "bonus_count": 7,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://hackaday.com/2026/03/03/get-your-green-power-on/",
-      "url": "https://hackaday.com/2026/03/03/get-your-green-power-on/",
-      "title": "[Hackaday] Get Your Green Power On!",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/green-powered-tw-hh-ntitle_2x.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/green-powered-tw-hh-ntitle_2x.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Nobody likes power cords, and batteries always need recharging or replacing. What if your device could run on only the power it could gather together by itself from the world <a class=\"read-more\" href=\"https://hackaday.com/2026/03/03/get-your-green-power-on/\">&#8230;read more</a>",
-      "date_published": "2026-03-03T18:00:28+00:00",
+      "id": "https://thetyee.ca/News/2026/03/05/Mass-Death-This-Scale-Incomprehensible/",
+      "url": "https://thetyee.ca/News/2026/03/05/Mass-Death-This-Scale-Incomprehensible/",
+      "title": "[The Tyee] ‘Mass Death on This Scale Is Incomprehensible’",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/03/04/AmbulanceBayVGH.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOverdose deaths are trending down, but BC is still in the thick of a crisis. Here’s what the data tells us.",
+      "date_published": "2026-03-05T08:20:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/green-powered-tw-hh-ntitle_2x.png"
+      "_quality_score": 53,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/News/2026/03/04/AmbulanceBayVGH.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/03/03/video-ottawa-invests-more-than-2m-for-okanagan-indian-band-youth-project/",
-      "url": "https://wltribune.com/2026/03/03/video-ottawa-invests-more-than-2m-for-okanagan-indian-band-youth-project/",
-      "title": "[Williams Lake Tribune] VIDEO: Ottawa invests more than $2M for Okanagan Indian Band youth project",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41727262_web1_260305-VMS-okib-funds-OKIB_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Announcement made by Kelowna MP Stephen Fuhr at Head of the Lake Hall near Vernon March 3 </p>",
-      "date_published": "2026-03-03T14:30:00+00:00",
+      "id": "https://wltribune.com/2026/03/08/international-womens-day-2026-michelle-lavoie/",
+      "url": "https://wltribune.com/2026/03/08/international-womens-day-2026-michelle-lavoie/",
+      "title": "[Williams Lake Tribune] International Women’s Day 2026: Michelle Lavoie",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41714115_web1_260305-WLT-Michelle-Lavoie-Womens-Day-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>For International Women&#8217;s Day we talked with some amazing women around the Cariboo Chilcotin </p>",
+      "date_published": "2026-03-08T11:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41714115_web1_260305-WLT-Michelle-Lavoie-Womens-Day-_2.jpg?w=1024"
+    },
+    {
+      "id": "https://www.howtogeek.com/everything-i-learned-fighting-terrible-internet-providers-for-a-decade-and-how-i-won/",
+      "url": "https://www.howtogeek.com/everything-i-learned-fighting-terrible-internet-providers-for-a-decade-and-how-i-won/",
+      "title": "[How-To Geek] Everything I learned fighting terrible internet providers for a decade (and how I won)",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/img20251121144028.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI haven't had the best luck with my ISPs—here's how I still came out on top",
+      "date_published": "2026-03-08T18:30:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/img20251121144028.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/02/b-c-begins-court-ordered-negotiations-with-cowichan-tribes/",
+      "url": "https://wltribune.com/2026/03/02/b-c-begins-court-ordered-negotiations-with-cowichan-tribes/",
+      "title": "[Williams Lake Tribune] B.C. begins court-ordered negotiations with Cowichan Tribes",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41715380_web1_260205-SUL-Eby-Address-LMIA-fraud-davideby_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Both sides pledge not to invalidate private, fee-simple title in joint statement </p>",
+      "date_published": "2026-03-02T16:05:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -67,634 +107,294 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41727262_web1_260305-VMS-okib-funds-OKIB_1.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41715380_web1_260205-SUL-Eby-Address-LMIA-fraud-davideby_1.jpg?w=1024"
     },
     {
-      "id": "https://hackaday.com/2026/03/04/neither-android-nor-ios-diy-smartphone-runs-on-esp32/",
-      "url": "https://hackaday.com/2026/03/04/neither-android-nor-ios-diy-smartphone-runs-on-esp32/",
-      "title": "[Hackaday] Neither Android nor iOS: DIY Smartphone Runs on ESP32!",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/ESP32smartphone-feat.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Front and back of the prototype phone\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/ESP32smartphone-feat.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>You may or may not be reading this on a smartphone, but odds are that even if you aren&#8217;t, you own one. Well, possess one, anyway &#8212; it&#8217;s debatable if <a class=\"read-more\" href=\"https://hackaday.com/2026/03/04/neither-android-nor-ios-diy-smartphone-runs-on-esp32/\">&#8230;read more</a>",
-      "date_published": "2026-03-04T09:00:32+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/ESP32smartphone-feat.png"
-    },
-    {
-      "id": "https://www.theverge.com/column/890135/truth-hybrid-vehicles",
-      "url": "https://www.theverge.com/column/890135/truth-hybrid-vehicles",
-      "title": "[The Verge] The uncomfortable truth about hybrid vehicles",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268385_The_Stepback-_Plug-in_hybrid_vehicles_arent_all_they_cracked_up_to_be_CVirginia2.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on the EV struggle, follow Andrew J. Hawkins. The Stepback arrives in our subscribers' inboxes at 8AM ET. Opt in for The Stepback here. How it started Apologies to the Toyota Prius, but the first hybrid vehicle [&#8230;]",
-      "date_published": "2026-03-08T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 64,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268385_The_Stepback-_Plug-in_hybrid_vehicles_arent_all_they_cracked_up_to_be_CVirginia2.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
-    },
-    {
-      "id": "https://www.howtogeek.com/smart-ways-to-use-your-computers-ethernet-port/",
-      "url": "https://www.howtogeek.com/smart-ways-to-use-your-computers-ethernet-port/",
-      "title": "[How-To Geek] Wi-Fi bridging and headless server config: 6 advanced uses for your PC's empty Ethernet port",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/11/52578165855_4771535e86_o.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe sysadmin's guide to repurposing an RJ45 port",
-      "date_published": "2026-03-08T17:00:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/11/52578165855_4771535e86_o.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/clonezilla-pc-back-up/",
-      "url": "https://www.zdnet.com/article/clonezilla-pc-back-up/",
-      "title": "[ZDNet] How I used CloneZilla to fully back up my PC in case disaster strikes (and it's free)",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/c0cc92440e95b6ccbcf9dd74495ced39073658c1/2026/03/02/ebeb55d5-cc2d-4f96-bf37-8f03f49f6fac/clonezillahero.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you've ever had to deal with a dying computer, you know the challenge of ensuring you have a good backup. Clonezilla makes that easy.",
-      "date_published": "2026-03-06T10:00:42+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://www.zdnet.com/a/img/resize/c0cc92440e95b6ccbcf9dd74495ced39073658c1/2026/03/02/ebeb55d5-cc2d-4f96-bf37-8f03f49f6fac/clonezillahero.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://www.xda-developers.com/dont-buy-the-wrong-raspberry-pi-for-your-project/",
-      "url": "https://www.xda-developers.com/dont-buy-the-wrong-raspberry-pi-for-your-project/",
-      "title": "[XDA Developers] Most people buy the wrong Raspberry Pi for what they actually need it to do",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/raspberry-pi-microsd-card-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNot all Raspberry Pis are created equal. Performance, power demands, and I/O differences make some models better suited for specific projects.",
-      "date_published": "2026-03-07T01:00:25+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/raspberry-pi-microsd-card-1.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/you-dont-need-a-rack-for-a-home-lab/",
-      "url": "https://www.xda-developers.com/you-dont-need-a-rack-for-a-home-lab/",
-      "title": "[XDA Developers] You don’t need a rack for a home lab",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/11/home-lab-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUnless you're expanding rapidly, there's little reason for a rack",
-      "date_published": "2026-03-04T12:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/11/home-lab-1.jpg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/03/05/mishas-musings-seperation-will-not-work-reform-canada-instead/",
-      "url": "https://100milefreepress.net/2026/03/05/mishas-musings-seperation-will-not-work-reform-canada-instead/",
-      "title": "[100 Mile Free Press] MISHA’S MUSINGS: Separation will not work; reform Canada instead",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41594182_web1_220901-SLN-Alberta-Day-event_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>100 Mile Free Press reporter Misha Mustaqueem&#8217;s regular column to the Free Press </p>",
-      "date_published": "2026-03-06T01:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41594182_web1_220901-SLN-Alberta-Day-event_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/03/05/technology/personaltech/ai-smart-home-google-gemini-amazon-alexa.html",
-      "url": "https://www.nytimes.com/2026/03/05/technology/personaltech/ai-smart-home-google-gemini-amazon-alexa.html",
-      "title": "[NYT Top Stories] The Smart Home Never Quite Worked. Now It’s Getting an A.I. Reboot.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/11/business/00techfix-smarthome/00techfix-smarthome-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAmazon and Google think that artificially intelligent assistants like Alexa+ and Gemini will speed up the process of setting up a smart home, but many problems remain unsolved.",
-      "date_published": "2026-03-05T16:30:06+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 67,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/03/11/business/00techfix-smarthome/00techfix-smarthome-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-use-my-local-llms-with-these-6-obscure-self-hosted-apps/",
-      "url": "https://www.xda-developers.com/i-use-my-local-llms-with-these-6-obscure-self-hosted-apps/",
-      "title": "[XDA Developers] I use my local LLMs with these 6 obscure self-hosted apps",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/blinko-6.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy LLMs pair incredibly well with these tools",
-      "date_published": "2026-03-05T21:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/blinko-6.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/built-personal-ai-powered-research-stack-with-free-tools/",
-      "url": "https://www.xda-developers.com/built-personal-ai-powered-research-stack-with-free-tools/",
-      "title": "[XDA Developers] I built a personal AI-powered research stack with nothing but free tools",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/lm-studio-models-on-desktop-pc-with-box-book-and-lamp-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA system that covers the full research pipeline, without paywalls",
-      "date_published": "2026-03-06T12:31:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/lm-studio-models-on-desktop-pc-with-box-book-and-lamp-in-view.jpeg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/201012/news/communty/eby-says-openai-ceo-will-apologize-to-tumbler-ridge-over-missed-warnings-about-shooter/",
-      "url": "https://www.mycariboonow.com/201012/news/communty/eby-says-openai-ceo-will-apologize-to-tumbler-ridge-over-missed-warnings-about-shooter/",
-      "title": "[My Cariboo Now] Eby says OpenAI CEO will apologize to Tumbler Ridge over missed warnings about shooter",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/55130314657_d2a4383d45_k-1024x576.jpg\" width=\"696\" />B.C. Premier David Eby said OpenAI CEO Sam Altman has agreed to apologize to the people of Tumbler Ridge after the company decided not to warn police about the online activity of the suspect in last month’s deadly shooting.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/201012/news/communty/eby-says-openai-ceo-will-apologize-to-tumbler-ridge-over-missed-warnings-about-shooter/\">Eby says OpenAI CEO will apologize to Tumbler Ridge over missed warnings about shooter</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-06T19:51:13+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
-    },
-    {
-      "id": "https://wltribune.com/2026/03/07/strong-wind-conditions-expected-throughout-northern-b-c-okanagan-kootenays/",
-      "url": "https://wltribune.com/2026/03/07/strong-wind-conditions-expected-throughout-northern-b-c-okanagan-kootenays/",
-      "title": "[Williams Lake Tribune] Strong wind conditions expected throughout Northern B.C., Okanagan, Kootenays",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41758799_web1_27117295_web1_wind-windy-weather-Langley.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A wind warning and special weather statement are in effect </p>",
-      "date_published": "2026-03-07T07:50:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_quality_score": 75,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41758799_web1_27117295_web1_wind-windy-weather-Langley.jpg?w=1024"
-    },
-    {
-      "id": "https://gizmodo.com/this-startup-wants-to-tuck-data-centers-beneath-offshore-wind-turbines-2000729795",
-      "url": "https://gizmodo.com/this-startup-wants-to-tuck-data-centers-beneath-offshore-wind-turbines-2000729795",
-      "title": "[Gizmodo] This Startup Wants to Tuck Data Centers Beneath Offshore Wind Turbines",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/Aikido-turbine-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAikido Technologies has come up with a new way to bring renewable energy to the AI industry.",
-      "date_published": "2026-03-05T00:00:29+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 75,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/03/Aikido-turbine-1280x853.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/toughtested-roc16-solar-powered-power-bank/",
-      "url": "https://www.zdnet.com/article/toughtested-roc16-solar-powered-power-bank/",
-      "title": "[ZDNet] Most solar power banks I've tested were gimmicks",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.zdnet.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe ToughTested ROC16 power bank is the first solar-charged unit I actually recommend.",
-      "date_published": "2026-03-02T15:18:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.zdnet.com&sz=128"
-    },
-    {
-      "id": "https://www.howtogeek.com/i-ran-my-smart-home-without-internet/",
-      "url": "https://www.howtogeek.com/i-ran-my-smart-home-without-internet/",
-      "title": "[How-To Geek] I ran my smart home without the internet for a day—here’s what broke",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2024/01/netgear-nighthawk-mesh-router-11-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNot a cloud in sight.",
-      "date_published": "2026-03-02T13:15:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2024/01/netgear-nighthawk-mesh-router-11-1.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/new-self-hosted-media-platform-exactly-what-home-lab-was-missing/",
-      "url": "https://www.xda-developers.com/new-self-hosted-media-platform-exactly-what-home-lab-was-missing/",
-      "title": "[XDA Developers] This new self hosted media platform is exactly what my home lab was missing",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/mydia-on-a-mac.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExplore how Mydia's built-in release calendar and efficient performance have earned a permanent spot in my home lab setup.",
-      "date_published": "2026-03-01T23:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/mydia-on-a-mac.jpeg"
-    },
-    {
-      "id": "https://www.xda-developers.com/these-home-lab-mistakes-are-spiking-your-electricity-bills/",
-      "url": "https://www.xda-developers.com/these-home-lab-mistakes-are-spiking-your-electricity-bills/",
-      "title": "[XDA Developers] Stop wasting electricity (and money) with these 4 home lab mistakes",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/07/server-motherboard-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese mistakes are single-handedly spiking your electricity bills",
-      "date_published": "2026-03-04T17:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/07/server-motherboard-2.jpg"
-    },
-    {
-      "id": "https://thenarwhal.ca/eu-canada-oil-and-gas/",
-      "url": "https://thenarwhal.ca/eu-canada-oil-and-gas/",
-      "title": "[The Narwhal] Who&#8217;s rushing to buy Canadian oil and gas? Not Europe, says high-level EU diplomat",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/03/PRAIRIES-AB-2023-Oil-and-Gas-Bracken-WEB-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEurope will ‘give priority to clean energy sources,’ including renewables and nuclear, as it looks to the future",
-      "date_published": "2026-03-02T17:53:09+00:00",
+      "id": "https://thenarwhal.ca/lake-simcoe-road-salt-problem/",
+      "url": "https://thenarwhal.ca/lake-simcoe-road-salt-problem/",
+      "title": "[The Narwhal] Winter road salt is threatening Lake Simcoe and Ontario watersheds year-round",
+      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/02/CP-Snow-Plow-Drost-Web-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSalt used to remove ice from roadways is collecting in Simcoe's watershed — a source of drinking water for hundreds of thousands of people",
+      "date_published": "2026-03-02T13:00:00+00:00",
       "authors": [
         {
           "name": "The Narwhal",
           "url": "https://thenarwhal.ca"
         }
       ],
-      "_quality_score": 70,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_quality_score": 53,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/03/PRAIRIES-AB-2023-Oil-and-Gas-Bracken-WEB-1024x683.jpg"
+      "image": "https://thenarwhal.ca/wp-content/uploads/2026/02/CP-Snow-Plow-Drost-Web-1024x683.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/esp32-projects-turned-out-more-useful-than-store-bought-smart-device/",
-      "url": "https://www.xda-developers.com/esp32-projects-turned-out-more-useful-than-store-bought-smart-device/",
-      "title": "[XDA Developers] 5 ESP32 projects that turned out more useful than any store-bought smart device",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/12/respeaker-lite-3d-printed-enclosure-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLocal-first wins.",
-      "date_published": "2026-03-06T01:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/12/respeaker-lite-3d-printed-enclosure-1.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/starlink-says-v2-satellites-will-provide-5g-speeds-from-space-with-100x-the-data-density-so-get-ready-for-a-mobile-speed-overhaul",
-      "url": "https://www.techradar.com/pro/starlink-says-v2-satellites-will-provide-5g-speeds-from-space-with-100x-the-data-density-so-get-ready-for-a-mobile-speed-overhaul",
-      "title": "[TechRadar] Starlink says V2 satellites will provide ‘5G speeds from space with 100x the data density’",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/wDQviSAFMcKEgtV7CiyuSZ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStarlink V2 satellites aim to deliver 5G speeds from space, dramatically increasing data density and supporting hundreds of LTE phones.",
-      "date_published": "2026-03-08T16:10:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 45,
-      "_final_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/wDQviSAFMcKEgtV7CiyuSZ-1280-80.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/home-assistant-projects-to-try-this-weekend-march-6-8/",
-      "url": "https://www.howtogeek.com/home-assistant-projects-to-try-this-weekend-march-6-8/",
-      "title": "[How-To Geek] 3 ridiculous Home Assistant projects to try this weekend (March 6",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/03/a-snarky-notification-from-home-assistant-describing-someone-at-the-door-on-an-iphone.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe cake is a lie.",
-      "date_published": "2026-03-06T17:15:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/03/a-snarky-notification-from-home-assistant-describing-someone-at-the-door-on-an-iphone.png"
-    },
-    {
-      "id": "https://gizmodo.com/bill-gates-terrapower-finally-has-a-permit-for-a-nuclear-reactor-but-no-reliable-way-to-fuel-it-2000729268",
-      "url": "https://gizmodo.com/bill-gates-terrapower-finally-has-a-permit-for-a-nuclear-reactor-but-no-reliable-way-to-fuel-it-2000729268",
-      "title": "[Gizmodo] Bill Gates’ TerraPower Finally Has a Permit for a Nuclear Reactor, but No Reliable Way to Fuel It",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/bill-gates-2026-1280x863.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCommercial quantities of the required fuel are currently only available from one vendor: the Russian state.",
-      "date_published": "2026-03-05T12:00:50+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/03/bill-gates-2026-1280x863.jpg"
-    },
-    {
-      "id": "https://www.npr.org/2026/03/03/nx-s1-5726369/as-more-people-turn-to-chatbots-for-health-advice-studies-say-they-may-be-led-astray",
-      "url": "https://www.npr.org/2026/03/03/nx-s1-5726369/as-more-people-turn-to-chatbots-for-health-advice-studies-say-they-may-be-led-astray",
-      "title": "[NPR Health News] As more people turn to chatbots for health advice, studies say they may be led astray",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.npr.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPeople are turning to AI chatbots to help them with medical advice. Recent studies suggest these bots are not always helpful in making decisions about health.",
-      "date_published": "2026-03-03T09:40:49+00:00",
+      "id": "https://www.npr.org/2026/03/02/nx-s1-5724246/some-families-afraid-of-ice-are-forgoing-medical-care-these-volunteers-help-them",
+      "url": "https://www.npr.org/2026/03/02/nx-s1-5724246/some-families-afraid-of-ice-are-forgoing-medical-care-these-volunteers-help-them",
+      "title": "[NPR Health News] Some families afraid of ICE are forgoing medical care. These volunteers help them",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.npr.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn Minneapolis, underground healthcare networks of volunteer doctors and nurses bring care into the homes of families too scared of immigration enforcement to seek help.",
+      "date_published": "2026-03-02T09:41:10+00:00",
       "authors": [
         {
           "name": "NPR Health News",
           "url": "https://www.npr.org/sections/health-shots/"
         }
       ],
-      "_quality_score": 65,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "wellness",
-      "_source_category": "wellness",
+      "_quality_score": 55,
+      "_theme_score": 12,
+      "_final_score": 12,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.google.com/s2/favicons?domain=www.npr.org&sz=128"
     },
     {
-      "id": "https://newatlas.com/automotive/chery-kp31/",
-      "url": "https://newatlas.com/automotive/chery-kp31/",
-      "title": "[New Atlas] The world's first diesel plug-in hybrid pickup truck is here",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/4ca3746/2147483647/strip/true/crop/1920x1008+0+0/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F3d%2Fc3%2F9b6392174eb4a6d799340a258d5d%2Fchery-kp31-concept-3.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"You're looking at the world's first diesel plug-in hybrid pickup truck\" src=\"https://assets.newatlas.com/dims4/default/5342a36/2147483647/strip/true/crop/1920x1080+0+0/resize/1440x810!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F3d%2Fc3%2F9b6392174eb4a6d799340a258d5d%2Fchery-kp31-concept-3.jpg\" /><p>In another example of \"I didn’t have this on my 2026 wishlist\", we have The Chery KP31: a diesel plug-in hybrid powertrain packaged in a pickup. In a segment dominated by gasoline and battery-only powertrains, a new contender has emerged from China.</p><p><a href=\"https://newatlas.com/automotive/chery-kp31/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/automotive/\">Automotive</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/chery/\" rel=\"tag\">Chery</a>, <a href=\"https://newatlas.com/tag/pickup/\" rel=\"tag\">Pickup</a>, <a href=\"https://newatlas.com/tag/truck/\" rel=\"tag\">Truck</a>, <a href=\"https://newatlas.com/tag/phev/\" rel=\"tag\">PHEV</a>, <a href=\"https://newatlas.com/tag/diesel/\" rel=\"tag\">Diesel</a>, <a href=\"https://newatlas.com/tag/hybrid/\" rel=\"tag\">Hybrid</a>, <a href=\"https://newatlas.com/tag/china/\" rel=\"tag\">China</a></p>",
-      "date_published": "2026-03-07T21:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/4ca3746/2147483647/strip/true/crop/1920x1008+0+0/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F3d%2Fc3%2F9b6392174eb4a6d799340a258d5d%2Fchery-kp31-concept-3.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://globalnews.ca/news/11714126/everwind-wind-and-hydrogen-projects/",
-      "url": "https://globalnews.ca/news/11714126/everwind-wind-and-hydrogen-projects/",
-      "title": "[Global News] EverWind lands more than $240M in financing for N.S. wind and hydrogen projects",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/03/134aa92d7c5ea3282720ce87463e44ec1568686e190700a6d46ee0e5cc83db21.jpg?quality=65&strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA wind energy company in Nova Scotia has secured $240 million in financing to construct onshore wind farms and an associated green hydrogen project.",
-      "date_published": "2026-03-03T12:58:17+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/03/134aa92d7c5ea3282720ce87463e44ec1568686e190700a6d46ee0e5cc83db21.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://hackaday.com/2026/03/03/building-a-hackerspace-entry-system/",
-      "url": "https://hackaday.com/2026/03/03/building-a-hackerspace-entry-system/",
-      "title": "[Hackaday] Building a Hackerspace Entry System",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/02/mudbyte-e1772246864250.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"449\" src=\"https://hackaday.com/wp-content/uploads/2026/02/mudbyte-e1772246864250.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>A hackerspace is a place that generally needs to be accessed by a wide group of people, often at weird and unusual hours. Handing around keys and making sure everything <a class=\"read-more\" href=\"https://hackaday.com/2026/03/03/building-a-hackerspace-entry-system/\">&#8230;read more</a>",
-      "date_published": "2026-03-03T12:00:35+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/02/mudbyte-e1772246864250.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/medical-chatbots-are-coming-heres-what-you-need-to-know-before-using-one",
-      "url": "https://www.sciencealert.com/medical-chatbots-are-coming-heres-what-you-need-to-know-before-using-one",
-      "title": "[ScienceAlert] Medical Chatbots Are Coming. Here's What You Need to Know Before Using One.",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/health_chatbot_header.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"woman laying on the sofa with her phone and a tissue\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/health_chatbot_header.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />They're no substitute for professional advice.</p>",
-      "date_published": "2026-03-03T01:21:02+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/03/health_chatbot_header.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/03/06/us/oat-farmers-midwest.html",
-      "url": "https://www.nytimes.com/2026/03/06/us/oat-farmers-midwest.html",
-      "title": "[NYT Top Stories] Where Corn and Soybeans Rule, the ‘Oat Mafia’ Fights for Turf",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/02/27/multimedia/00nat-oat-mafia-01-hmcz/00nat-oat-mafia-01-hmcz-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFarmers in the Upper Midwest are investing in homegrown oats. It’s good for the land. But can it work as a cash crop?",
-      "date_published": "2026-03-06T10:00:12+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 57,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/02/27/multimedia/00nat-oat-mafia-01-hmcz/00nat-oat-mafia-01-hmcz-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/what-ethernet-cables-you-use-can-make-or-break-your-network/",
-      "url": "https://www.xda-developers.com/what-ethernet-cables-you-use-can-make-or-break-your-network/",
-      "title": "[XDA Developers] What Ethernet cables you use can make or break your network",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/ethernet-cables.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe smallest cable in the chain can cap your network.",
-      "date_published": "2026-03-06T20:30:20+00:00",
+      "id": "https://www.xda-developers.com/3d-prints-finish-this-weekend-actually-use-every-day/",
+      "url": "https://www.xda-developers.com/3d-prints-finish-this-weekend-actually-use-every-day/",
+      "title": "[XDA Developers] 4 3D prints you can finish this weekend that you'll actually use every day",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/4-3d-print-settings-that-actually-save-you-time-and-money-featured.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou can finish these 3D prints this weekend, solving several of your daily annoyances.",
+      "date_published": "2026-03-07T22:00:20+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_quality_score": 82,
+      "_theme_score": 10,
+      "_final_score": 10,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/ethernet-cables.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/4-3d-print-settings-that-actually-save-you-time-and-money-featured.jpeg"
     },
     {
-      "id": "https://www.engadget.com/big-tech/google-pledges-roughly-three-hours-of-its-annual-profit-to-fight-climate-change-164808010.html?src=rss",
-      "url": "https://www.engadget.com/big-tech/google-pledges-roughly-three-hours-of-its-annual-profit-to-fight-climate-change-164808010.html?src=rss",
-      "title": "[Engadget] Google pledges roughly three hours of its annual profit to fight climate change",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2026-01%2Fb8fe24a0-fd11-11f0-b7fe-32b125ecf2ca&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=f6857d9667fee5f06374ca23486138699563dade\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Google <a href=\"https://blog.google/company-news/outreach-and-initiatives/sustainability/pledge-to-fight-superpollutants-2030/\"><ins>has pledged</ins></a> &quot;at least&quot; $50 million through 2030 on &quot;projects designed to eliminate superpollutants.&quot; The company will be joined by a handful of other companies including Amazon and Salesforce in the newly formed <a href=\"https://www.prnewswire.com/in/news-releases/beyond-alliance-leading-companies-will-direct-100m-to-cut-superpollutants-302701084.html\"><ins>Superpollutant Action Initiative</ins></a>.</p>\n<p>In total, these companies have committed $100 million to the project, hoping to &quot;accelerate the reduction&quot; of superpollutants like methane, black carbon and refrigerant gases. Google says these are responsible for <a href=\"https://www.ipcc.ch/report/ar6/wg1/figures/chapter-6/figure-6-12\"><ins>close to half</ins></a> of all planetary warming.</p>\n<span id=\"end-legacy-contents\"></span><p>&quot;Superpollutants are a major part of the equation to limit atmospheric warming. Experts agree that eliminating them where we can is one of the most powerful levers we have to deliver near-term impact, playing a vital and complementary role to removing CO2,&quot; said Randy Spock, Google's carbon credits and removals lead. The gases break down faster than CO2 but can trap heat thousands of times more efficiently, and the coalition claims that aggressive action could prevent more than half a degree Celsius of warming by 2050.</p>\n<p>Alphabet, Google’s parent company, <a href=\"https://s206.q4cdn.com/479360582/files/doc_news/2026/Feb/04/attachments/2025q4-alphabet-earnings-release.pdf\"><ins>reported</ins></a> $132 billion in net income in 2025. Google's five-year, $50 million pledge works out to about three hours of that. The company is also set to <a href=\"https://www.engadget.com/big-tech/google-plans-to-invest-40-billion-towards-building-data-centers-in-texas-183056066.html\"><ins>spend billions</ins></a> building massive data centers for AI that it claims are <a href=\"https://www.engadget.com/ai/google-claims-its-building-data-centers-that-barely-use-any-water-171411965.html\"><ins>more resource conscious</ins></a> than others. So far, Google’s AI infrastructure buildout drove an <a href=\"https://blog.google/company-news/outreach-and-initiatives/sustainability/environmental-report-2025/\"><ins>11 percent rise</ins></a> in the company's total emissions last year.</p>This article originally appeared on Engadget at https://www.engadget.com/big-tech/google-pledges-roughly-three-hours-of-its-annual-profit-to-fight-climate-change-164808010.html?src=rss",
-      "date_published": "2026-03-05T16:48:08+00:00",
+      "id": "https://www.howtogeek.com/i-added-my-computer-to-home-assistant-and-you-should-too/",
+      "url": "https://www.howtogeek.com/i-added-my-computer-to-home-assistant-and-you-should-too/",
+      "title": "[How-To Geek] I added my computer to Home Assistant, and you should too",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/ubuntu-running-on-a-macbook-pro-in-a-vm.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUse your computer's states as a trigger for your smart home devices.",
+      "date_published": "2026-03-07T12:00:16+00:00",
       "authors": [
         {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_quality_score": 75,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/ubuntu-running-on-a-macbook-pro-in-a-vm.jpg"
+    },
+    {
+      "id": "https://www.wired.com/story/sleep-apnea-women-detection-treatment/",
+      "url": "https://www.wired.com/story/sleep-apnea-women-detection-treatment/",
+      "title": "[WIRED] Sleep Apnea Often Goes Undetected in Women. That’s Starting to Change",
+      "content_html": "<img src=\"https://media.wired.com/photos/69a8428b8a849494479d35f1/master/pass/GettyImages-629409489.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWomen’s sleep apnea symptoms differ from men’s and can often be confused with hormonal shifts. Researchers are working to close the detection gap.",
+      "date_published": "2026-03-06T09:30:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://media.wired.com/photos/69a8428b8a849494479d35f1/master/pass/GettyImages-629409489.jpg"
+    },
+    {
+      "id": "https://newatlas.com/automotive/aptera-solar-ev-validation-assembly-line/",
+      "url": "https://newatlas.com/automotive/aptera-solar-ev-validation-assembly-line/",
+      "title": "[New Atlas] Aptera solar EV rolls off assembly line for the first time",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/74576b2/2147483647/strip/true/crop/3712x1949+0+392/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Feb%2F0b%2F06333d4d445fa033e96b269e9d82%2Fvehicle-itself.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The banner says it all: The Aptera Solar EV has now moved from hand-built validation vehicles to structured assembly line production\" src=\"https://assets.newatlas.com/dims4/default/218f721/2147483647/strip/true/crop/3712x2732+0+0/resize/1304x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Feb%2F0b%2F06333d4d445fa033e96b269e9d82%2Fvehicle-itself.jpg\" /><p>It has been a long, twisting journey for Aptera’s solar-powered EV (sEV), but we can at last report that the extraordinary futuristic car has taken a huge step toward mass production.</p><p><a href=\"https://newatlas.com/automotive/aptera-solar-ev-validation-assembly-line/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/automotive/\">Automotive</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/aptera/\" rel=\"tag\">Aptera</a>, <a href=\"https://newatlas.com/tag/electric+vehicle/\" rel=\"tag\">Electric Vehicles</a>, <a href=\"https://newatlas.com/tag/solar-powered/\" rel=\"tag\">Solar Powered</a>, <a href=\"https://newatlas.com/tag/aerodynamics/\" rel=\"tag\">Aerodynamics</a>, <a href=\"https://newatlas.com/tag/energy-efficient/\" rel=\"tag\">Energy Efficient</a></p>",
+      "date_published": "2026-03-05T17:04:03+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 10,
+      "_final_score": 10,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2026-01%2Fb8fe24a0-fd11-11f0-b7fe-32b125ecf2ca&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=f6857d9667fee5f06374ca23486138699563dade"
+      "image": "https://assets.newatlas.com/dims4/default/74576b2/2147483647/strip/true/crop/3712x1949+0+392/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Feb%2F0b%2F06333d4d445fa033e96b269e9d82%2Fvehicle-itself.jpg&na.image_optimisation=0"
     },
     {
-      "id": "https://kottke.org/26/03/0048487-til-about-babysitting-co-",
-      "url": "https://kottke.org/26/03/0048487-til-about-babysitting-co-",
-      "title": "[Kottke.org] TIL about  babysitting co-ops . &#8220;The premise is...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>TIL about <a href=\"https://reasonstobecheerful.world/the-spark-how-to-make-parenting-fun-again/\">babysitting co-ops</a>. &#8220;The premise is simple: Families in the co-op provide each other with free childcare. A point system&#8230;ensures that everyone contributes their fair share. Every half an hour is worth one point&#8230;&#8221;\n</p>",
-      "date_published": "2026-03-04T18:40:31+00:00",
+      "id": "https://insideevs.com/news/788767/vw-ev-sales-2-million-2026/",
+      "url": "https://insideevs.com/news/788767/vw-ev-sales-2-million-2026/",
+      "title": "[InsideEVs] Volkswagen Is A Sneaky EV Success Story",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/eobqeW/s3/vw-id.3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe German brand just delivered its 2 millionth electric model. 2026 could be even bigger.",
+      "date_published": "2026-03-02T22:53:32+00:00",
       "authors": [
         {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/eobqeW/s3/vw-id.3.jpg"
+    },
+    {
+      "id": "https://techcrunch.com/2026/03/05/byd-rolls-out-ev-batteries-with-5-minute-flash-charging-but-theres-a-catch/",
+      "url": "https://techcrunch.com/2026/03/05/byd-rolls-out-ev-batteries-with-5-minute-flash-charging-but-theres-a-catch/",
+      "title": "[TechCrunch] BYD rolls out EV batteries with 5-minute ‘flash charging.’ But there’s a catch.",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Chinese automaker's new Blade Battery 2.0 is capable of charging at up to 1.5 megawatts, dramatically slashing the time it takes to fill up.",
+      "date_published": "2026-03-05T20:34:37+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
+    },
+    {
+      "id": "https://insideevs.com/news/788942/ecc-skateboard-ev-chassis-restomod/",
+      "url": "https://insideevs.com/news/788942/ecc-skateboard-ev-chassis-restomod/",
+      "title": "[InsideEVs] This Ready-Made EV Chassis Could Be The Perfect Fit For A Classic Truck",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/Ak3kBy/s3/electric-classic-cars-skateboard-ev-chassis.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA plug-and-play solution from the world’s largest converter of classic cars to EVs.",
+      "date_published": "2026-03-07T13:00:22+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/Ak3kBy/s3/electric-classic-cars-skateboard-ev-chassis.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/1gb-raspberry-pi-perfect-for-these-projects/",
+      "url": "https://www.howtogeek.com/1gb-raspberry-pi-perfect-for-these-projects/",
+      "title": "[How-To Geek] The 1GB Raspberry Pi isn't useless—in fact, it's perfect for these 5 projects",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/01/raspberry-pi-5-on-a-blue-and-orange-hexagon-background.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSometimes 1GB is plenty.",
+      "date_published": "2026-03-02T12:00:15+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/01/raspberry-pi-5-on-a-blue-and-orange-hexagon-background.png"
+    },
+    {
+      "id": "https://www.theverge.com/transportation/889145/lead-the-charge-supply-chain-leaderboard-toyota-tesla",
+      "url": "https://www.theverge.com/transportation/889145/lead-the-charge-supply-chain-leaderboard-toyota-tesla",
+      "title": "[The Verge] The world’s biggest automaker has one of the dirtiest supply chains: report",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/22792451/1230549913.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTesla, Ford, and Volvo occupy the top three spots in a new ranking of 18 global automakers based on their efforts to eliminate carbon emissions, environmental harms, and human rights violations from their supply chains. Toyota, meanwhile, lurks near the bottom of the list, underscoring the persistent difficulty in getting the world's largest car company [&#8230;]",
+      "date_published": "2026-03-04T20:22:27+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/22792451/1230549913.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
+    },
+    {
+      "id": "https://insideevs.com/news/788826/ev-500-vape-batteries/",
+      "url": "https://insideevs.com/news/788826/ev-500-vape-batteries/",
+      "title": "[InsideEVs] A YouTuber Made An EV Powered By 500 Vape Batteries",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/wl8oNL/s3/vape-powered-ev.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt might just be the world’s first EV that can be charged via USB-C.",
+      "date_published": "2026-03-03T13:09:17+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/wl8oNL/s3/vape-powered-ev.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/sea-levels-are-higher-than-we-thought-and-the-implications-are-huge",
+      "url": "https://www.sciencealert.com/sea-levels-are-higher-than-we-thought-and-the-implications-are-huge",
+      "title": "[ScienceAlert] Sea Levels Are Higher Than We Thought, And The Implications Are Huge",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/PalmTreesPartlyObsuredByHighSeaLevel.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Palm trees behind a high water level\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/PalmTreesPartlyObsuredByHighSeaLevel.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Up to 132 million more people at risk.</p>",
+      "date_published": "2026-03-05T01:06:07+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
       "_quality_score": 55,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/03/PalmTreesPartlyObsuredByHighSeaLevel.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/overlooked-linux-shells-youll-actually-want-to-use/",
-      "url": "https://www.howtogeek.com/overlooked-linux-shells-youll-actually-want-to-use/",
-      "title": "[How-To Geek] 4 overlooked Linux shells you’ll actually want to use",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/06/linux-mascot-wearing-sunglasses-and-using-a-laptop-surrounded-by-floating-windows-with-the-i3-window-manager-logo-in-the-background.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFour more shells that you should consider to enrich your Linux life.",
-      "date_published": "2026-03-04T11:30:16+00:00",
+      "id": "https://www.wired.com/story/synchron-brain-computer-interface-five-years-als/",
+      "url": "https://www.wired.com/story/synchron-brain-computer-interface-five-years-als/",
+      "title": "[WIRED] What It’s Like to Have a Brain Implant for 5 Years",
+      "content_html": "<img src=\"https://media.wired.com/photos/69a1c00663d7023723a168ed/master/pass/Rodney%20Gorhman31%20(2).jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNo one has had a Synchron brain-computer interface longer than Rodney Gorham. He's still finding new ways to use it.",
+      "date_published": "2026-03-04T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://media.wired.com/photos/69a1c00663d7023723a168ed/master/pass/Rodney%20Gorhman31%20(2).jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/distros-beginners-should-avoid/",
+      "url": "https://www.howtogeek.com/distros-beginners-should-avoid/",
+      "title": "[How-To Geek] Stop! These 4 Linux distros are not as safe as you think for beginners",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/a-thoughtful-linux-mascot-beside-two-linux-desktop-screens-divided-into-beginner-on-the-right-and-pro-on-the-left.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you're new to Linux, you might accidentally spoil your experience if you try to install any of these Linux distros.",
+      "date_published": "2026-03-03T12:30:15+00:00",
       "authors": [
         {
           "name": "How-To Geek",
@@ -702,132 +402,432 @@
         }
       ],
       "_quality_score": 55,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_theme_score": 10,
+      "_final_score": 10,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/06/linux-mascot-wearing-sunglasses-and-using-a-laptop-surrounded-by-floating-windows-with-the-i3-window-manager-logo-in-the-background.png"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/a-thoughtful-linux-mascot-beside-two-linux-desktop-screens-divided-into-beginner-on-the-right-and-pro-on-the-left.png"
     },
     {
-      "id": "https://makezine.com/article/maker-news/maker-faire/growing-the-future-fungal-materials-for-earth-and-space/",
-      "url": "https://makezine.com/article/maker-news/maker-faire/growing-the-future-fungal-materials-for-earth-and-space/",
-      "title": "[Make Magazine] Growing the Future: Fungal Materials for Earth and Space",
-      "content_html": "<img src=\"https://makezine.com/wp-content/uploads/2026/03/1772496787056.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"OpenFung\" class=\"attachment-medium size-medium wp-post-image\" height=\"428\" src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2026/03/1772496787056.png?fit=750%2C428&amp;ssl=1\" style=\"margin-bottom: 15px;\" width=\"750\" /></div>\n<p>In a niche corner of the internet where creators still surprise audiences with real animatronics rather than CGI, Jesse Velez reveals the process behind the most impressive sci-fi props.</p>\n<p>The post <a href=\"https://makezine.com/article/maker-news/maker-faire/growing-the-future-fungal-materials-for-earth-and-space/\">Growing the Future: Fungal Materials for Earth and Space</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
-      "date_published": "2026-03-03T01:04:00+00:00",
+      "id": "https://www.npr.org/2026/03/07/nx-s1-5741076/british-columbia-daylight-saving-time",
+      "url": "https://www.npr.org/2026/03/07/nx-s1-5741076/british-columbia-daylight-saving-time",
+      "title": "[NPR Health News] British Columbia to make daylight saving time permanent",
+      "content_html": "<img src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6318x3554+0+0/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F95%2F6e%2F0654f73e4e3b95aba7cb1a531e09%2Fap23068804275020.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Canadian province is permanently ending the biannual time shifts for more light at the day's end. But research shows daylight saving increases health risks<strong>.</strong>",
+      "date_published": "2026-03-07T23:25:42+00:00",
       "authors": [
         {
-          "name": "Make Magazine",
-          "url": "https://makezine.com"
+          "name": "NPR Health News",
+          "url": "https://www.npr.org/sections/health-shots/"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://makezine.com/wp-content/uploads/2026/03/1772496787056.png"
+      "_quality_score": 52,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6318x3554+0+0/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F95%2F6e%2F0654f73e4e3b95aba7cb1a531e09%2Fap23068804275020.jpg"
     },
     {
-      "id": "https://gizmodo.com/in-a-hotter-wetter-south-mold-is-emerging-as-a-public-health-crisis-2000728485",
-      "url": "https://gizmodo.com/in-a-hotter-wetter-south-mold-is-emerging-as-a-public-health-crisis-2000728485",
-      "title": "[Gizmodo] In a Hotter, Wetter South, Mold Is Emerging as a Public Health Crisis",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/Regina_mold_1-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn Asheville, North Carolina, a housing crisis is colliding with a poorly understood health threat.",
-      "date_published": "2026-03-02T19:45:42+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/03/Regina_mold_1-1280x853.jpg"
-    },
-    {
-      "id": "https://www.theverge.com/science/889768/bill-gates-terrapower-nuclear-wyoming-reactor",
-      "url": "https://www.theverge.com/science/889768/bill-gates-terrapower-nuclear-wyoming-reactor",
-      "title": "[The Verge] Bill Gates&#8217; nuclear company is the first to get approval to build next-gen reactor",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Screenshot-2026-03-05-101214.jpg?quality=90&strip=all&crop=0%2C7.0268328396851%2C100%2C85.94633432063&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBill Gates-founded nuclear energy startup TerraPower has been granted approval from the Nuclear Regulatory Commission to build a next-generation reactor in Wyoming. This is the first commercial-scale, advanced nuclear power plant to ever receive the federal permit, according to the press release, and will be the first commercial reactor constructed in the US in almost [&#8230;]",
-      "date_published": "2026-03-05T10:16:58+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 75,
-      "_theme_score": 12,
-      "_final_score": 12,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Screenshot-2026-03-05-101214.jpg?quality=90&strip=all&crop=0%2C7.0268328396851%2C100%2C85.94633432063&w=1200"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-finally-found-the-best-portainer-replacement/",
-      "url": "https://www.xda-developers.com/i-finally-found-the-best-portainer-replacement/",
-      "title": "[XDA Developers] I finally found the best Portainer replacement for managing Docker containers",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/dockhand-17.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI'm can't imagine going back to Portainer after using this tool",
-      "date_published": "2026-03-01T21:30:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 12,
-      "_final_score": 12,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/dockhand-17.jpg"
-    },
-    {
-      "id": "https://www.engadget.com/ai/big-tech-companies-agree-to-not-ruin-your-electric-bill-with-ai-data-centers-230102956.html?src=rss",
-      "url": "https://www.engadget.com/ai/big-tech-companies-agree-to-not-ruin-your-electric-bill-with-ai-data-centers-230102956.html?src=rss",
-      "title": "[Engadget] Big tech companies agree to not ruin your electric bill with AI data centers",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fmedia-mbst-pub-ue1.s3.amazonaws.com%2Fcreatr-uploaded-images%2F2024-02%2F926fec80-d507-11ee-bdeb-b320a72a2f88&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=89be5cd56fde4d48ae003bec0e09aa5e21f7c01e\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Today the White House <a class=\"link\" href=\"https://www.whitehouse.gov/fact-sheets/2026/03/fact-sheet-president-donald-j-trump-advances-energy-affordability-with-the-ratepayer-protection-pledge/\" target=\"_blank\">announced</a> that several major players in tech and AI have agreed to steps that will keep electricity costs from rising due to data centers. Under this <a class=\"link\" href=\"https://www.whitehouse.gov/articles/2026/03/ratepayer-protection-pledge/\" target=\"_blank\">Ratepayer Protection Pledge</a>, companies are agreeing to practices that are intended to protect residents from seeing higher electricity costs as more and more businesses create power-hungry data centers. Amazon, Google, Meta, Microsoft, OpenAI, Oracle and xAI have all apparently signed on. A few of the participants — <a class=\"link\" href=\"https://www.aboutamazon.com/news/policy-news-views/amazon-data-centers-power-costs-white-house-pledge\" target=\"_blank\">Amazon</a>, <a class=\"link\" href=\"https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/\" target=\"_blank\">Google</a> and <a class=\"link\" href=\"https://about.fb.com/news/2026/03/meta-data-centers-support-energy-jobs-environment-local-communities/\" target=\"_blank\">Meta</a> — had conveniently timed press releases patting themselves on the back for their participation and touting whatever other policies they have for mitigating the negative impacts of data center construction.</p><p>The main provisions of the federal pledge have tech companies agreeing to &quot;build, bring, or buy the new generation resources and electricity needed to satisfy their new energy demands, paying the full cost of those resources.&quot; It also claims they will pay for any needed power infrastructure upgrades and operate under separate rate structures for power that will see payments made whether or not the business uses that electricity.</p><p>The pledge doesn't appear to be any form of binding agreement and there's no discussion of enforcement or a penalty for companies that don't honor the stipulated provisions. It also doesn't address any of the other impacts data centers and AI development might be having, either on <a class=\"link\" href=\"https://arstechnica.com/tech-policy/2026/02/pops-whines-and-roars-xai-accused-of-torturing-neighbors-of-noisy-power-plant/\" target=\"_blank\">local communities</a>, on <a class=\"link\" href=\"https://www.engadget.com/why-do-ai-data-centers-use-so-many-resources-171500010.html\" target=\"_blank\">other utilities and resources</a>, or on access to critical computing elements <a class=\"link\" href=\"https://www.engadget.com/computing/ces-2026-proved-the-pc-industry-is-hosed-this-year-174500314.html\" target=\"_blank\">like RAM</a>. </p>This article originally appeared on Engadget at https://www.engadget.com/ai/big-tech-companies-agree-to-not-ruin-your-electric-bill-with-ai-data-centers-230102956.html?src=rss",
-      "date_published": "2026-03-04T23:01:02+00:00",
+      "id": "https://www.engadget.com/big-tech/bill-gates-backed-terrapower-begins-nuclear-reactor-construction-221132639.html?src=rss",
+      "url": "https://www.engadget.com/big-tech/bill-gates-backed-terrapower-begins-nuclear-reactor-construction-221132639.html?src=rss",
+      "title": "[Engadget] Bill Gates-backed TerraPower begins nuclear reactor construction",
+      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-03%2F0a3b0a64-ab04-4ee7-a269-b1265f171b80&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=a501112ab2fbd0c0cd5aa233c57a856d7d77e82a\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The Nuclear Regulatory Commission has granted approval to TerraPower to begin construction of a reactor in Wyoming. The project is the first new US commercial nuclear reactor in about a decade, according to <a class=\"link rapid-with-clickid\" href=\"https://shopping.yahoo.com/rdlw?merchantId=c813ae39-7d58-41cb-ac66-ad830606ceef&amp;siteId=us-engadget&amp;pageId=1p-autolink&amp;contentUuid=dfa029ca-ac2e-4ce4-ab40-c5c212bcfffe&amp;featureId=text-link&amp;merchantName=The+New+York+Times&amp;linkText=The+New+York+Times&amp;custData=eyJzb3VyY2VOYW1lIjoiV2ViLURlc2t0b3AtVmVyaXpvbiIsImxhbmRpbmdVcmwiOiJodHRwczovL3d3dy5ueXRpbWVzLmNvbS8yMDI2LzAzLzA0L2NsaW1hdGUvbnVjbGVhci1wb3dlci10ZXJyYXBvd2VyLWNvbnN0cnVjdGlvbi1wZXJtaXQuaHRtbCIsImNvbnRlbnRVdWlkIjoiZGZhMDI5Y2EtYWMyZS00Y2U0LWFiNDAtYzVjMjEyYmNmZmZlIiwib3JpZ2luYWxVcmwiOiJodHRwczovL3d3dy5ueXRpbWVzLmNvbS8yMDI2LzAzLzA0L2NsaW1hdGUvbnVjbGVhci1wb3dlci10ZXJyYXBvd2VyLWNvbnN0cnVjdGlvbi1wZXJtaXQuaHRtbCJ9&amp;signature=AQAAAYHqsvP52XIhjm2LyEaMwT92HX9MMXW86_t5Agp03gOZ&amp;gcReferrer=https%3A%2F%2Fwww.nytimes.com%2F2026%2F03%2F04%2Fclimate%2Fnuclear-power-terrapower-construction-permit.html\" target=\"_blank\"><em>The New York Times</em></a>. TerraPower was founded by Bill Gates, and it took years for the business to receive regulatory approval for this construction effort. </p><p>TerraPower is part of a push to create more efficient and less expensive nuclear facilities as an alternative power source, particularly as AI companies and data center construction places more demands on the US' current infrastructure. TerraPower's project involves tech it has dubbed <a class=\"link\" href=\"https://www.terrapower.com/natrium/\" target=\"_blank\">Natrium</a> in its planned reactor. Using this liquid sodium approach rather than a traditional light-water reactor is part of how the company aims to reduce costs and time frames.</p><p>Advocates see nuclear reactors as a way to generate power without the climate impact of coal or gas plants. Critics point to the safety risks as a severe downside to this approach, while others question whether the creation and disposal of nuclear waste counter the environmental gains. The Gates-backed operation still isn't coming in cheap. The proposed facility could cost at least $4 billion and still faces logistical challenges before coming online as planned in 2031.</p>This article originally appeared on Engadget at https://www.engadget.com/big-tech/bill-gates-backed-terrapower-begins-nuclear-reactor-construction-221132639.html?src=rss",
+      "date_published": "2026-03-04T22:11:32+00:00",
       "authors": [
         {
           "name": "Engadget",
           "url": "http://www.engadget.com"
         }
       ],
-      "_quality_score": 65,
-      "_theme_score": 12,
-      "_final_score": 12,
+      "_quality_score": 72,
+      "_theme_score": 8,
+      "_final_score": 8,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fmedia-mbst-pub-ue1.s3.amazonaws.com%2Fcreatr-uploaded-images%2F2024-02%2F926fec80-d507-11ee-bdeb-b320a72a2f88&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=89be5cd56fde4d48ae003bec0e09aa5e21f7c01e"
+      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-03%2F0a3b0a64-ab04-4ee7-a269-b1265f171b80&resize=1400%2C933&client=19f2b5e49a271b2bde77&signature=a501112ab2fbd0c0cd5aa233c57a856d7d77e82a"
     },
     {
-      "id": "https://www.resilience.org/stories/2026-03-05/could-the-west-lose-the-resource-wars-ai-rare-earths-and-economic-statecraft/",
-      "url": "https://www.resilience.org/stories/2026-03-05/could-the-west-lose-the-resource-wars-ai-rare-earths-and-economic-statecraft/",
-      "title": "[Resilience.org] Could the West Lose the Resource Wars? AI, Rare Earths, and Economic Statecraft",
-      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/03/RR22-MichaelEvery_CraigTindale-Thumbnail-BG-2048x1117-1.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn this episode, Nate is joined by financial and economic analysts, Craig Tindale and Michael Every, to discuss the widespread implications of growing geopolitical tensions over scarce resources and the rapidly changing foreign policy and economic statecraft that countries are implementing in response.",
-      "date_published": "2026-03-05T11:28:50+00:00",
+      "id": "https://insideevs.com/news/789260/used-ev-hyundai-ioniq-6/",
+      "url": "https://insideevs.com/news/789260/used-ev-hyundai-ioniq-6/",
+      "title": "[InsideEVs] The Hyundai Ioniq 6 Is A Stunning Used EV Deal With 361 Miles Of Range",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/mM2pg4/s3/hyundai-ioniq-6-limited.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt may be mostly discontinued for 2026, but this aerodynamic electric sedan can easily be found gently used below $20,000.",
+      "date_published": "2026-03-07T14:00:18+00:00",
       "authors": [
         {
-          "name": "Resilience.org",
-          "url": "https://www.resilience.org"
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
         }
       ],
-      "_quality_score": 62,
-      "_theme_score": 12,
-      "_final_score": 12,
+      "_quality_score": 65,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/mM2pg4/s3/hyundai-ioniq-6-limited.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/green-ethernet-setting-disconnecting-internet/",
+      "url": "https://www.howtogeek.com/green-ethernet-setting-disconnecting-internet/",
+      "title": "[How-To Geek] Stop using Energy Efficient Ethernet: Why IEEE 802.3az is causing your random link flapping",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/12/ethernet-cables-plugged-into-a-ubiquiti-flex-mini-managed-network-switch-3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTurn off this “green” setting to stop your Ethernet from disconnecting randomly",
+      "date_published": "2026-03-07T19:00:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/12/ethernet-cables-plugged-into-a-ubiquiti-flex-mini-managed-network-switch-3.jpg"
+    },
+    {
+      "id": "https://www.zdnet.com/article/europe-open-source-office-suite-alternative-to-microsoft-google/",
+      "url": "https://www.zdnet.com/article/europe-open-source-office-suite-alternative-to-microsoft-google/",
+      "title": "[ZDNet] Sick of Microsoft and Google? This new European office suite is a private, open-source alternative",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.zdnet.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBuilt on open-source software, this European cloud office suite aims to keep your data out of Microsoft 365 and Google Workspace.",
+      "date_published": "2026-03-06T13:39:00+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=www.zdnet.com&sz=128"
+    },
+    {
+      "id": "https://modernfarmer.com/2026/03/what-plant-march/",
+      "url": "https://modernfarmer.com/2026/03/what-plant-march/",
+      "title": "[Modern Farmer] What to Plant in March: The Best Early Spring Crops",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=modernfarmer.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>If you’re wondering what to plant in March, there are options regardless of your location. Some crops are meant to start now to have hefty summer yields, while others bolster the market stand as spring begins to bloom. </p>\n<p>The post <a href=\"https://modernfarmer.com/2026/03/what-plant-march/\">What to Plant in March: The Best Early Spring Crops</a> appeared first on <a href=\"https://modernfarmer.com\">Modern Farmer</a>.</p>",
+      "date_published": "2026-03-04T13:26:09+00:00",
+      "authors": [
+        {
+          "name": "Modern Farmer",
+          "url": "https://modernfarmer.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=modernfarmer.com&sz=128"
+    },
+    {
+      "id": "https://gizmodo.com/germany-enters-the-race-to-bring-the-first-commercial-fusion-plant-to-grids-2000728434",
+      "url": "https://gizmodo.com/germany-enters-the-race-to-bring-the-first-commercial-fusion-plant-to-grids-2000728434",
+      "title": "[Gizmodo] The Race to Build the World’s First Commercial Fusion Plant Is Heating Up",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/proxima-fusion-alpha-stellaris-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPrivate and government stakeholders alike seem to believe that fusion energy is right around the corner.",
+      "date_published": "2026-03-02T21:05:54+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 75,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://gizmodo.com/app/uploads/2026/03/proxima-fusion-alpha-stellaris-1280x853.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/this-cheap-ikea-organizer-is-the-perfect-3d-printing-project/",
+      "url": "https://www.howtogeek.com/this-cheap-ikea-organizer-is-the-perfect-3d-printing-project/",
+      "title": "[How-To Geek] This cheap IKEA organizer is the perfect 3D printing project",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/ikea-sk-dis-pegboard-in-black.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA shining example of how 3D printing can elevate great product design.",
+      "date_published": "2026-03-07T18:30:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/ikea-sk-dis-pegboard-in-black.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/this-hyperarid-desert-is-transforming-into-a-carbon-sink-heres-why",
+      "url": "https://www.sciencealert.com/this-hyperarid-desert-is-transforming-into-a-carbon-sink-heres-why",
+      "title": "[ScienceAlert] This 'Hyperarid' Desert Is Transforming Into a Carbon Sink. Here's Why.",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/02/DesertTrees.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Taklamakan Desert afforestation\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/02/DesertTrees.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />This really works.</p>",
+      "date_published": "2026-03-07T18:00:50+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/02/DesertTrees.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/anker-solix-e10-whole-home-backup-system-review-3643346/",
+      "url": "https://www.androidauthority.com/anker-solix-e10-whole-home-backup-system-review-3643346/",
+      "title": "[Android Authority] The Anker SOLIX E10 is the ultimate whole-home backup system",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/02/Anker-SOLIX-E10-Whole-Home-Backup-System-Power-Module-light.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHighly configurable, massively extendable home power system.",
+      "date_published": "2026-03-07T10:30:56+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/02/Anker-SOLIX-E10-Whole-Home-Backup-System-Power-Module-light.jpg"
+    },
+    {
+      "id": "https://www.tomsguide.com/home/home-security/i-just-saw-tp-links-security-camera-of-the-future-and-it-basically-turns-your-home-into-fort-knox",
+      "url": "https://www.tomsguide.com/home/home-security/i-just-saw-tp-links-security-camera-of-the-future-and-it-basically-turns-your-home-into-fort-knox",
+      "title": "[Toms Guide] I just saw TP-Link’s security camera of the future — and it basically turns your home into Fort Knox",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/LT6ueaUnxKTo7JVMxEDVw4-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe TP-Link Tapo C665G just might be the world’s smartest security camera with 4K capture, support for WiFi and 4G, an optional bundled solar panel, ridiculously good battery life, and a weatherproof design.",
+      "date_published": "2026-03-02T22:08:13+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/LT6ueaUnxKTo7JVMxEDVw4-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/05/capacitor-memory-makes-homebrew-relay-computer-historically-plausible/",
+      "url": "https://hackaday.com/2026/03/05/capacitor-memory-makes-homebrew-relay-computer-historically-plausible/",
+      "title": "[Hackaday] Capacitor Memory Makes Homebrew Relay Computer Historically Plausible",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/relay-capacitor-mem-feat.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/relay-capacitor-mem-feat.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>It&#8217;s one thing to create your own relay-based computer; that&#8217;s already impressive enough, but what really makes [DiPDoT]&#8217;s design special&#8211; at least after this latest video&#8212; is swapping the SRAM <a class=\"read-more\" href=\"https://hackaday.com/2026/03/05/capacitor-memory-makes-homebrew-relay-computer-historically-plausible/\">&#8230;read more</a>",
+      "date_published": "2026-03-05T21:00:37+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 70,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/relay-capacitor-mem-feat.png"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/05/ebike-charges-at-car-charging-stations/",
+      "url": "https://hackaday.com/2026/03/05/ebike-charges-at-car-charging-stations/",
+      "title": "[Hackaday] Ebike Charges At Car Charging Stations",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/02/ebike-charger-main.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/02/ebike-charger-main.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Electric vehicles are everywhere these days, and with them comes along a whole slew of charging infrastructure. The fastest of these are high-power machines that can deliver enough energy to <a class=\"read-more\" href=\"https://hackaday.com/2026/03/05/ebike-charges-at-car-charging-stations/\">&#8230;read more</a>",
+      "date_published": "2026-03-06T06:00:44+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/02/ebike-charger-main.png"
+    },
+    {
+      "id": "https://insideevs.com/news/789118/byd-new-megawatt-flash-charging-stations/",
+      "url": "https://insideevs.com/news/789118/byd-new-megawatt-flash-charging-stations/",
+      "title": "[InsideEVs] 9 Minutes To 97%: BYD Just Made EV Charging Basically As Quick As Getting Gas",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/W8K8Qg/s3/byd-flash-charger.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBYD also unveiled world’s most powerful fast charger for cars, arranged like your neighborhood gas station.",
+      "date_published": "2026-03-05T19:20:45+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/W8K8Qg/s3/byd-flash-charger.jpg"
+    },
+    {
+      "id": "https://www.zdnet.com/article/optimum-fiber-internet-deal/",
+      "url": "https://www.zdnet.com/article/optimum-fiber-internet-deal/",
+      "title": "[ZDNet] Optimum's latest fiber internet deal costs only $25 a month",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/328bedcf7c590dfe2085d9b7c28b25f76c34ab0a/2025/08/08/0d84e69d-8a03-41f3-87e2-01a9802c6f20/dsc03833.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOptimum's new '$25 for 5' offer locks in broadband internet at an affordable price. Here are the details.",
+      "date_published": "2026-03-05T00:25:00+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 5,
+      "_final_score": 5,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
-      "image": "https://www.resilience.org/wp-content/uploads/2026/03/RR22-MichaelEvery_CraigTindale-Thumbnail-BG-2048x1117-1.jpeg"
+      "image": "https://www.zdnet.com/a/img/resize/328bedcf7c590dfe2085d9b7c28b25f76c34ab0a/2025/08/08/0d84e69d-8a03-41f3-87e2-01a9802c6f20/dsc03833.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://boingboing.net/2026/03/06/deep-sleep-could-be-the-key-to-treating-tinnitus-research-suggests.html",
+      "url": "https://boingboing.net/2026/03/06/deep-sleep-could-be-the-key-to-treating-tinnitus-research-suggests.html",
+      "title": "[Boing Boing] Deep sleep could be the key to treating tinnitus, research suggests",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/ear.jpg?fit=1200%2C800&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/03/06/deep-sleep-could-be-the-key-to-treating-tinnitus-research-suggests.html\" rel=\"nofollow\" title=\"Deep sleep could be the key to treating tinnitus, research suggests\"><img alt=\"Human ear model (sasirin pamai/shutterstock.com)\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/ear.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>Roughly one in seven people hears a persistent sound that doesn't exist — a ringing, buzzing, or hissing called tinnitus. It's the most widespread false sensory perception humans experience, and there's no cure. But new research from Oxford suggests sleep may hold the key to changing that. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/03/06/deep-sleep-could-be-the-key-to-treating-tinnitus-research-suggests.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/03/06/deep-sleep-could-be-the-key-to-treating-tinnitus-research-suggests.html\">Deep sleep could be the key to treating tinnitus, research suggests</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-03-06T18:14:47+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/ear.jpg?fit=1200%2C800&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.businessinsider.com/evs-automakers-axed-this-year-2026-3",
+      "url": "https://www.businessinsider.com/evs-automakers-axed-this-year-2026-3",
+      "title": "[Business Insider] The EV graveyard: All the electric cars that automakers have axed this year",
+      "content_html": "<img src=\"https://i.insider.com/69aa46a4d3e2f1aef36a19db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEV sales have slowed significantly. Business Insider compiled a list of cars that have been discontinued or delayed this year.",
+      "date_published": "2026-03-08T08:33:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/69aa46a4d3e2f1aef36a19db?format=jpeg"
+    },
+    {
+      "id": "https://www.neowin.net/sponsored/ends-34-sustainable-it-playbook-for-technology-leaders-2nd-edition-free-worth-3999/",
+      "url": "https://www.neowin.net/sponsored/ends-34-sustainable-it-playbook-for-technology-leaders-2nd-edition-free-worth-3999/",
+      "title": "[Neowin] [Ends 3/4] Sustainable IT Playbook for Technology Leaders, 2nd Edition (free, worth $39,99)",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/02/1771496536_packt_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/02/1771496536_packt_medium.webp\" /></div>While the climate crisis poses a threat to planetary health, digital transformation continues to reshape our societies. <a href=\"https://www.neowin.net/sponsored/ends-34-sustainable-it-playbook-for-technology-leaders-2nd-edition-free-worth-3999/\">Read more...</a>",
+      "date_published": "2026-03-04T17:00:01+00:00",
+      "authors": [
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.neowin.com/news/images/uploaded/2026/02/1771496536_packt_story.webp"
+    },
+    {
+      "id": "https://www.zdnet.com/article/optimum-will-give-you-fiber-internet-for-25-a-month-for-5-years-heres-how/",
+      "url": "https://www.zdnet.com/article/optimum-will-give-you-fiber-internet-for-25-a-month-for-5-years-heres-how/",
+      "title": "[ZDNet] Optimum will give you fiber internet for $25 a month",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/cb9d8f1e05cd4d8d99dd93e3c37f8896cdc0821e/2026/03/03/9ba246cc-3350-48a0-acd9-dc086625e349/shopping-1.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOptimum's new '$25 for 5' offer locks in broadband internet at an affordable price. Here are the details.",
+      "date_published": "2026-03-04T11:00:48+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://www.zdnet.com/a/img/resize/cb9d8f1e05cd4d8d99dd93e3c37f8896cdc0821e/2026/03/03/9ba246cc-3350-48a0-acd9-dc086625e349/shopping-1.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.businessinsider.com/guides/home/best-sleep-products",
+      "url": "https://www.businessinsider.com/guides/home/best-sleep-products",
+      "title": "[Business Insider] The Business Insider guide to the best sleep products of the year",
+      "content_html": "<img src=\"https://i.insider.com/69ab2cd6d3e2f1aef36a2769?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe best sleep products help you wind down, stay asleep, and wake up refreshed. From mattresses to sleep tech, see all of our top picks in one place.",
+      "date_published": "2026-03-06T19:42:07+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/69ab2cd6d3e2f1aef36a2769?format=jpeg"
+    },
+    {
+      "id": "https://www.howtogeek.com/stop-killing-your-milwaukee-batteries-4-tips-that-actually-help/",
+      "url": "https://www.howtogeek.com/stop-killing-your-milwaukee-batteries-4-tips-that-actually-help/",
+      "title": "[How-To Geek] Stop killing your Milwaukee batteries: 4 tips that work",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/a7301171.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExtend the runtime and life of your Milwaukee battery packs.",
+      "date_published": "2026-03-07T19:45:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/a7301171.jpg"
     }
   ]
 }
