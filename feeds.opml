@@ -30,9 +30,11 @@
     <!-- Reuters dropped public RSS in 2020; replaced with AP News hub feed above -->
     <!-- Globe and Mail RSS URL changed and content is paywalled; removed -->
     <outline type="rss" text="Science-Based Medicine" title="Science-Based Medicine" xmlUrl="http://www.sciencebasedmedicine.org/?feed=rss2" htmlUrl="https://sciencebasedmedicine.org" />
-    <outline type="rss" text="Scientific American" title="Scientific American" xmlUrl="https://rss.sciam.com/ScientificAmericanNews" htmlUrl="https://www.scientificamerican.com" />
+    <!-- Scientific American: rss.sciam.com has timed out on every run since 2026-02-24; disabled until a working URL is confirmed. -->
+    <!-- <outline type="rss" text="Scientific American" title="Scientific American" xmlUrl="https://rss.sciam.com/ScientificAmericanNews" htmlUrl="https://www.scientificamerican.com" /> -->
     <!-- Stratechery is a paid newsletter, public RSS is inaccessible; removed -->
-    <outline type="rss" text="Techdirt" title="Techdirt" xmlUrl="https://www.techdirt.com/feed/" htmlUrl="https://www.techdirt.com" />
+    <!-- Techdirt: 520 Server Error (Cloudflare block) on every run since 2026-02-24; disabled. -->
+    <!-- <outline type="rss" text="Techdirt" title="Techdirt" xmlUrl="https://www.techdirt.com/feed/" htmlUrl="https://www.techdirt.com" /> -->
     <outline type="rss" text="The Atlantic Culture" title="The Atlantic Culture" xmlUrl="https://www.theatlantic.com/feed/channel/culture/" htmlUrl="https://www.theatlantic.com/culture/" />
     <outline type="rss" text="The Guardian Global Development" title="The Guardian Global Development" xmlUrl="https://www.theguardian.com/global-development/rss" htmlUrl="https://www.theguardian.com/global-development" />
     <outline type="rss" text="The Marginalian" title="The Marginalian" xmlUrl="https://www.themarginalian.org/feed/" htmlUrl="https://www.themarginalian.org" />
@@ -73,7 +75,8 @@
     <outline type="rss" text="FlowingData" title="FlowingData" xmlUrl="https://flowingdata.com/feed/" htmlUrl="https://flowingdata.com" />
     <outline type="rss" text="Our World in Data" title="Our World in Data" xmlUrl="https://ourworldindata.org/feed" htmlUrl="https://ourworldindata.org" />
     <outline type="rss" text="FiveThirtyEight" title="FiveThirtyEight" xmlUrl="https://fivethirtyeight.com/feed/" htmlUrl="https://fivethirtyeight.com" />
-    <outline type="rss" text="The Breach" title="The Breach" xmlUrl="https://breachmedia.ca/feed/" htmlUrl="https://breachmedia.ca/" />
+    <!-- The Breach: 520 Server Error (Cloudflare block) on every run since 2026-02-24; disabled. -->
+    <!-- <outline type="rss" text="The Breach" title="The Breach" xmlUrl="https://breachmedia.ca/feed/" htmlUrl="https://breachmedia.ca/" /> -->
     <outline type="rss" text="The Narwhal" title="The Narwhal" xmlUrl="https://thenarwhal.ca/feed/" htmlUrl="https://thenarwhal.ca" />
     <outline type="rss" text="Yellowhead Institute" title="Yellowhead Institute" xmlUrl="https://yellowheadinstitute.org/feed/" htmlUrl="https://yellowheadinstitute.org/" />
     <outline type="rss" text="The Maple" title="The Maple" xmlUrl="https://www.readthemaple.com/rss/" htmlUrl="https://www.readthemaple.com/" />
@@ -84,12 +87,14 @@
     <outline type="rss" text="Cool Tools" title="Cool Tools" xmlUrl="https://kk.org/cooltools/feed" htmlUrl="https://kk.org/cooltools" />
     <!-- All About Bambu: DNS resolution failures on every run since 2026-02-24; GN 3D Printing feed covers Bambu Lab news -->
     <!-- <outline type="rss" text="All About Bambu" title="All About Bambu" xmlUrl="https://www.allaboutbambu.com/feed/" htmlUrl="https://www.allaboutbambu.com" /> -->
-    <outline type="rss" text="Yale Climate Connections" title="Yale Climate Connections" xmlUrl="https://yaleclimateconnections.org/feed/" htmlUrl="https://yaleclimateconnections.org" />
-    <!-- Treehugger returns 402 Payment Required; removed. CleanTechnica and Yale Climate still cover this -->
+    <!-- Yale Climate Connections: RemoteDisconnected on every run since 2026-02-24; GN Climate Science Research feed covers this topic. -->
+    <!-- <outline type="rss" text="Yale Climate Connections" title="Yale Climate Connections" xmlUrl="https://yaleclimateconnections.org/feed/" htmlUrl="https://yaleclimateconnections.org" /> -->
+    <!-- Treehugger returns 402 Payment Required; removed. CleanTechnica and GN Climate Science Research cover this -->
     <outline type="rss" text="Pluralistic" title="Pluralistic" xmlUrl="https://pluralistic.net/feed/" htmlUrl="https://pluralistic.net" />
     <outline type="rss" text="TechCrunch" title="TechCrunch" xmlUrl="https://techcrunch.com/feed/" htmlUrl="https://techcrunch.com" />
     <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="http://krebsonsecurity.com/feed/" htmlUrl="https://krebsonsecurity.com" />
-    <outline type="rss" text="Longreads" title="Longreads" xmlUrl="https://longreads.com/feed/" htmlUrl="https://longreads.com" />
+    <!-- Longreads: RemoteDisconnected on every run since 2026-02-24; disabled. -->
+    <!-- <outline type="rss" text="Longreads" title="Longreads" xmlUrl="https://longreads.com/feed/" htmlUrl="https://longreads.com" /> -->
 
     <!-- Google News Discovery Feeds -->
     <outline type="rss" text="GN Smart Home and Automation" title="GN Smart Home and Automation" xmlUrl="https://news.google.com/rss/search?q=smart+home+OR+homekit+OR+home+automation+OR+philips+hue+OR+homebridge&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
@@ -109,7 +114,8 @@
     <outline text="BC Gov News" title="BC Gov News" type="rss" xmlUrl="https://news.gov.bc.ca/feed" htmlUrl="https://news.gov.bc.ca" />
 
     <!-- HEALTH & WELLNESS SOURCES -->
-    <outline type="rss" text="Harvard Health Blog" title="Harvard Health Blog" xmlUrl="https://www.health.harvard.edu/blog/feed" htmlUrl="https://www.health.harvard.edu/blog" />
+    <!-- Harvard Health Blog: 404 on every run since 2026-03-01; feed URL appears permanently dead. -->
+    <!-- <outline type="rss" text="Harvard Health Blog" title="Harvard Health Blog" xmlUrl="https://www.health.harvard.edu/blog/feed" htmlUrl="https://www.health.harvard.edu/blog" /> -->
     <outline type="rss" text="STAT News" title="STAT News" xmlUrl="https://www.statnews.com/feed/" htmlUrl="https://www.statnews.com" />
     <outline type="rss" text="NPR Health News" title="NPR Health News" xmlUrl="https://feeds.npr.org/1128/rss.xml" htmlUrl="https://www.npr.org/sections/health-shots/" />
     <outline type="rss" text="NYT Well" title="NYT Well" xmlUrl="https://well.blogs.nytimes.com/feed/" htmlUrl="https://well.blogs.nytimes.com" />
