@@ -8,6 +8,25 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-07 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-03-07 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-03-07 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-03-07 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-07 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-07 | 🌅 4:30 AM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
+| 2026-03-07 | 🌞 12:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-03-07 | 🌞 12:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-03-07 | 🌞 12:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-03-07 | 🌞 12:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-07 | 🌞 12:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-07 | 🌞 12:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **Engadget** failed | `HTTPSConnectionPool(host='www.engadget.com', port=443): Read timed out. (read timeout=10)` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-03-07 | 🌙 8:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
 | 2026-03-06 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
 | 2026-03-06 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
 | 2026-03-06 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
@@ -120,28 +139,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
 | 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-03-01 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-02-28 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-02-28 | 🌞 12:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-02-28 | 🌞 12:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-02-28 | 🌞 12:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-02-28 | 🌞 12:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-02-28 | 🌞 12:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-02-28 | 🌞 12:30 PM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
-| 2026-02-28 | 🌙 8:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-02-28 | 🌙 8:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-02-28 | 🌙 8:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-02-28 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-02-28 | 🌙 8:30 PM Pacific | ⚠️ **Krebs on Security** failed | `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/` |
-| 2026-02-28 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-07 | 🌅 morning | 128 | news:50(45%), ai-tech:27(24%), homelab:26(23%) |
+| 2026-03-07 | 🌞 afternoon | 96 | news:37(43%), homelab:21(24%), ai-tech:18(21%) |
+| 2026-03-07 | 🌙 evening | 83 | news:38(51%), homelab:18(24%), ai-tech:7(9%) |
 | 2026-03-06 | 🌅 morning | 201 | news:73(40%), ai-tech:54(30%), homelab:27(15%) |
 | 2026-03-06 | 🌞 afternoon | 300 | news:132(49%), ai-tech:53(20%), homelab:36(13%) |
 | 2026-03-06 | 🌙 evening | 144 | news:73(56%), ai-tech:24(18%), local:12(9%) |
@@ -160,13 +165,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-01 | 🌅 morning | 93 | news:52(56%), ai-tech:20(22%), homelab:15(16%) |
 | 2026-03-01 | 🌞 afternoon | 110 | news:60(55%), ai-tech:21(19%), homelab:20(18%) |
 | 2026-03-01 | 🌙 evening | 93 | news:51(55%), ai-tech:17(18%), homelab:16(17%) |
-| 2026-02-28 | 🌅 morning | 129 | news:52(40%), ai-tech:35(27%), homelab:24(19%) |
-| 2026-02-28 | 🌞 afternoon | 101 | news:53(52%), homelab:19(19%), ai-tech:17(17%) |
-| 2026-02-28 | 🌙 evening | 77 | news:26(34%), ai-tech:21(27%), homelab:16(21%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-07 20:46 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-08 05:28 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
