@@ -860,7 +860,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         print(f"\n🤖 Scoring {len(uncached)} new articles with Claude...")
         print(f"   (using cache for {len(scored_articles)} articles)")
 
-        batch_size = 10
+        batch_size = 15
         for i in range(0, len(uncached), batch_size):
             batch = uncached[i:i + batch_size]
 
@@ -883,7 +883,7 @@ Articles to evaluate:
             try:
                 response = client.messages.create(
                     model="claude-haiku-4-5",
-                    max_tokens=500,
+                    max_tokens=750,
                     system=[
                         {
                             "type": "text",
@@ -904,9 +904,9 @@ Articles to evaluate:
                     response_text = '\n'.join(inner).strip()
 
                 scores = json.loads(response_text)
-                
+
                 timestamp = datetime.now(timezone.utc).timestamp()
-                
+
                 for score_data in scores:
                     idx = score_data['article'] - 1
                     if 0 <= idx < len(batch):
@@ -1120,7 +1120,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
         f"{theme_prompt}"
     )
 
-    batch_size = 10
+    batch_size = 15
 
     for i in range(0, len(uncached), batch_size):
         batch = uncached[i:i + batch_size]
@@ -1145,7 +1145,7 @@ Articles to evaluate:
 
             response = client.messages.create(
                 model="claude-haiku-4-5",
-                max_tokens=500,
+                max_tokens=750,
                 system=[
                     {
                         "type": "text",
@@ -1246,7 +1246,7 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
 
     day_schema = ", ".join(f'"{d}": 0' for d in day_keys)
 
-    batch_size = 10
+    batch_size = 15
     for i in range(0, len(uncached), batch_size):
         batch = uncached[i:i + batch_size]
 
@@ -1269,7 +1269,7 @@ Articles to evaluate:
         try:
             response = client.messages.create(
                 model="claude-haiku-4-5",
-                max_tokens=800,
+                max_tokens=1200,
                 system=[
                     {
                         "type": "text",
