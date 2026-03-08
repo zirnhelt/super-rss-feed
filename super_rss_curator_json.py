@@ -123,6 +123,21 @@ def canonicalize_url(url: str) -> str:
         return url
 
 
+_AGGREGATOR_DOMAINS = frozenset({'news.google.com'})
+
+def _is_aggregator_url(url: str) -> bool:
+    """Return True if the URL routes through a search-engine aggregator.
+
+    Google News RSS entries use opaque encoded proxy URLs
+    (news.google.com/rss/articles/CBMi…) rather than the publisher's
+    canonical link, which makes cross-episode deduplication unreliable.
+    """
+    try:
+        return urlparse(url).netloc in _AGGREGATOR_DOMAINS
+    except Exception:
+        return False
+
+
 # ---------------------------------------------------------------------------
 # Term-set utilities for story-level deduplication
 # ---------------------------------------------------------------------------
@@ -1400,6 +1415,16 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     shown_excluded = before_shown_filter - len(theme_pool)
     if shown_excluded:
         print(f"  🔄 Excluded {shown_excluded} articles already shown in recent podcast episodes")
+
+    # Exclude articles whose link goes through a search-engine aggregator
+    # (e.g. Google News encoded proxy URLs). These opaque URLs defeat
+    # cross-episode deduplication since the same story can have different
+    # encoded links on different runs.
+    before_agg = len(theme_pool)
+    theme_pool = [a for a in theme_pool if not _is_aggregator_url(a.link)]
+    agg_excluded = before_agg - len(theme_pool)
+    if agg_excluded:
+        print(f"  🚫 Excluded {agg_excluded} aggregator-URL articles (e.g. Google News)")
 
     # Cap the pool: sort by quality score and keep only the top candidates.
     # Articles with lower quality scores are unlikely to beat well-scored candidates
