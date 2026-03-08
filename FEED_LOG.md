@@ -24,6 +24,25 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🔧 Manual Run
+- Fetched **669** → dedup **592** → new **229** → quality **70**
+- Mix: local:1(2%), ai-tech:10(16%), climate:3(5%), homelab:15(25%), scifi:1(2%), news:31(51%)
+- Feeds: local:118, ai-tech:500, climate:193, homelab:500, science:216, scifi:34, news:500
+- Images: 70/70
+- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
+- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
+- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
+- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+- ⚠️ ⚠️ JSON parsing error: Extra data: line 4 column 1 (char 54)
+
+
+---
+
+
+
 ## 2026-03-07 (Saturday)
 
 #### 🌅 4:30 AM Pacific
@@ -74,6 +93,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+
+
+---
 
 
 ---
@@ -133,6 +155,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+
+
+---
 
 
 ---
@@ -228,6 +253,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-03-04 (Wednesday)
 
@@ -287,6 +315,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+
+
+---
 
 
 ---
@@ -416,6 +447,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## 2026-03-02 (Monday)
 
@@ -467,6 +501,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
 - ⚠️ ⚠️ JSON parsing error: Extra data: line 18 column 1 (char 204)
+
+
+---
 
 
 ---
@@ -649,6 +686,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## Week of 2026-02-24–2026-02-24
 - 2 runs · avg fetched 805 · avg quality 362
@@ -682,6 +722,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - - ⚠️ Techdirt failed — 520 Server Error: <none> for url: https://www.techdirt.com/feed/
 - - ⚠️ Castanet Kelowna failed — 404 Client Error: Not Found for url: https://www.castanet.net/rss/news/
 - - ⚠️ The Breach failed — 520 Server Error: <none> for url: https://breachmedia.ca/feed/
+
+
+---
 
 
 ---
@@ -768,6 +811,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## Week of 2026-02-26–2026-02-26
 - 3 runs · avg fetched 902 · avg quality 181
@@ -783,6 +829,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - - ⚠️ Longreads failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 - - ⚠️ Resilience.org failed — 521 Server Error: <none> for url: https://www.resilience.org/feed/
 - - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
+
+
+---
 
 
 ---
@@ -830,6 +879,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 ---
 
 
+---
+
+
 
 ## Week of 2026-02-28–2026-02-28
 - 3 runs · avg fetched 784 · avg quality 102
@@ -842,6 +894,9 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
 - - ⚠️ ⚠️ Failed to scrape Williams Lake Tribune: HTTPSConnectionPool(host='wltribune.com', port=443): Read timed out. (re
 - - ⚠️ Krebs on Security failed — 502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/
+
+
+---
 
 
 ---
