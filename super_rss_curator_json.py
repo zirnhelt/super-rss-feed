@@ -18,6 +18,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from fuzzywuzzy import fuzz
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 import anthropic
 from fetch_images import batch_fetch_images
 
@@ -85,10 +86,88 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
+SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
 WLT_NEWS_URL = SYSTEM['urls']['wlt_news']
+
+# ---------------------------------------------------------------------------
+# URL canonicalization
+# ---------------------------------------------------------------------------
+_TRACKING_PARAMS = frozenset({
+    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+    'utm_id', 'utm_reader', 'utm_name', 'utm_place',
+    'traffic_source', 'traffic_type',
+    'ref', 'referrer', 'ref_src', 'ref_url',
+    'fbclid', 'gclid', 'msclkid', 'twclid',
+    'mc_cid', 'mc_eid',
+    '_ga', '_gl',
+    'source', 'via',
+})
+
+def canonicalize_url(url: str) -> str:
+    """Strip known tracking parameters from a URL before hashing.
+
+    Two URLs that differ only in UTM tags or similar tracking parameters
+    should be treated as the same article.
+    """
+    try:
+        parsed = urlparse(url)
+        if not parsed.query:
+            return url
+        params = parse_qs(parsed.query, keep_blank_values=True)
+        clean = {k: v for k, v in params.items() if k.lower() not in _TRACKING_PARAMS}
+        return urlunparse(parsed._replace(query=urlencode(clean, doseq=True)))
+    except Exception:
+        return url
+
+
+# ---------------------------------------------------------------------------
+# Term-set utilities for story-level deduplication
+# ---------------------------------------------------------------------------
+_STOPWORDS = frozenset({
+    # Articles / conjunctions / prepositions
+    'a', 'an', 'the', 'and', 'or', 'but', 'nor', 'so', 'yet',
+    'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from',
+    'up', 'about', 'into', 'through', 'during', 'before', 'after',
+    'above', 'below', 'between', 'out', 'off', 'over', 'under',
+    'again', 'further', 'then', 'once', 'per',
+    # Verbs / auxiliaries
+    'is', 'are', 'was', 'were', 'be', 'been', 'being',
+    'have', 'has', 'had', 'do', 'does', 'did',
+    'will', 'would', 'could', 'should', 'may', 'might', 'must', 'shall',
+    'get', 'gets', 'got', 'make', 'made', 'says', 'said',
+    # Pronouns / determiners
+    'it', 'its', 'this', 'that', 'these', 'those',
+    'i', 'you', 'he', 'she', 'we', 'they', 'them', 'their', 'our', 'your',
+    'what', 'which', 'who', 'whom', 'whose',
+    'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other',
+    'some', 'such', 'no', 'not', 'only', 'own', 'same', 'than',
+    'too', 'very', 'just', 'as', 'if', 'can',
+    # Common news-headline filler (too generic to identify a story)
+    'new', 'now', 'how', 'why', 'when', 'where', 'here', 'there',
+    'latest', 'update', 'report', 'reports', 'week', 'day', 'year', 'month',
+    'vs', 'via', 'amid', 'amid', 'inside', 'following',
+})
+
+def _term_set(text: str) -> frozenset:
+    """Return the set of meaningful words from a headline."""
+    words = re.findall(r'[a-z0-9]+', text.lower())
+    return frozenset(w for w in words if len(w) > 2 and w not in _STOPWORDS)
+
+
+def _story_overlap(a: frozenset, b: frozenset) -> float:
+    """Containment similarity: |A∩B| / min(|A|,|B|).
+
+    Returns a value in [0, 1].  Unlike Jaccard this is invariant to one
+    set being a subset of the other, which handles cases where one
+    headline is a sub-phrase of another.
+    """
+    if not a or not b:
+        return 0.0
+    return len(a & b) / min(len(a), len(b))
+
 
 class Article:
     """Represents a single article"""
@@ -121,8 +200,9 @@ class Article:
         self.category = None
         self.image = self._extract_image(entry)
 
-        self.url_hash = hashlib.md5(self.link.encode()).hexdigest()
+        self.url_hash = hashlib.md5(canonicalize_url(self.link).encode()).hexdigest()
         self.title_normalized = self.title.lower().strip()
+        self.title_terms = _term_set(self.title_normalized)
     
     def _parse_date(self, entry) -> datetime:
         """Parse publication date from entry"""
@@ -238,6 +318,32 @@ def save_shown_cache(shown_urls):
             json.dump(cache, f, indent=2)
     except Exception as e:
         print(f"⚠️ Failed to save shown cache: {e}")
+
+
+def load_shown_terms_cache() -> dict:
+    """Load per-article term sets used for cross-run story deduplication.
+
+    Format: {url_hash: {"ts": float, "terms": [str, ...]}}
+    Entries older than the shown-cache window are dropped on load.
+    """
+    try:
+        with open(SHOWN_TERMS_CACHE_FILE) as f:
+            raw = json.load(f)
+        cutoff = (datetime.now(timezone.utc)
+                  - timedelta(days=SYSTEM['cache_expiry']['shown_days'])).timestamp()
+        return {k: v for k, v in raw.items()
+                if isinstance(v, dict) and v.get('ts', 0) > cutoff}
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def save_shown_terms_cache(cache: dict):
+    """Persist the shown-terms cache."""
+    try:
+        with open(SHOWN_TERMS_CACHE_FILE, 'w') as f:
+            json.dump(cache, f)
+    except Exception as e:
+        print(f"⚠️ Failed to save shown terms cache: {e}")
 
 
 def load_podcast_cache():
@@ -607,14 +713,24 @@ def _source_priority(article: Article) -> int:
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
     """Remove duplicate articles based on URL and title similarity.
 
-    Sorts by source preference first so that local-priority and print
-    sources win when two outlets cover the same story.
+    Uses three complementary signals, checked in order:
+      1. Exact URL hash match (canonical URL, tracking params stripped).
+      2. Fuzzy string similarity on the full title (fuzz.ratio /
+         token_sort_ratio > 78%).  Catches wire-service reprints with
+         near-identical wording.
+      3. Term-set containment similarity ≥ 45% with at least 3 shared
+         significant words.  Catches same-story coverage across outlets
+         that write completely different headlines (e.g. five tech blogs
+         all covering the same product launch with unique titles).
+
+    Sorts by source preference first so that local / print sources win
+    when two outlets cover the same story.
     """
     # Preferred sources get processed first so they survive dedup
     sorted_articles = sorted(articles, key=_source_priority)
 
     seen_urls = set()
-    seen_titles = {}  # normalized_title -> Article
+    seen_entries = []   # list of (title_normalized, title_terms, Article)
     unique = []
 
     for article in sorted_articles:
@@ -622,26 +738,45 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
             continue
 
         is_duplicate = False
-        for seen_title, seen_article in seen_titles.items():
-            # Use both ratio and token_sort_ratio: the latter catches wire-service
-            # reprints where the same story has reordered title words.
-            similarity = max(
+        swap_idx = None
+
+        for idx, (seen_title, seen_terms, seen_article) in enumerate(seen_entries):
+            # Signal 1 & 2: fuzzy string similarity on full title
+            string_sim = max(
                 fuzz.ratio(article.title_normalized, seen_title),
                 fuzz.token_sort_ratio(article.title_normalized, seen_title),
             )
-            if similarity > 85:
-                # If the current article is local-priority and the already-kept
-                # one is not, swap: replace the weaker duplicate with this one.
+            # Signal 3: term-set containment (handles completely different headlines)
+            overlap = (
+                _story_overlap(article.title_terms, seen_terms)
+                if len(article.title_terms) >= 3 and len(seen_terms) >= 3
+                else 0.0
+            )
+            shared_terms = len(article.title_terms & seen_terms) if seen_terms else 0
+
+            is_story_match = (
+                string_sim > 78
+                or (overlap >= 0.40 and shared_terms >= 3)
+            )
+
+            if is_story_match:
+                # Keep the higher-priority source; swap if current article wins.
                 if _source_priority(article) < _source_priority(seen_article):
-                    unique.remove(seen_article)
-                    seen_titles.pop(seen_title)
-                    break  # fall through to add the current article
-                is_duplicate = True
+                    swap_idx = idx
+                else:
+                    is_duplicate = True
                 break
+
+        if swap_idx is not None:
+            # Replace the weaker duplicate in-place
+            replaced = seen_entries[swap_idx][2]
+            unique.remove(replaced)
+            seen_entries.pop(swap_idx)
+            # Fall through to add the current article below
 
         if not is_duplicate:
             seen_urls.add(article.url_hash)
-            seen_titles[article.title_normalized] = article
+            seen_entries.append((article.title_normalized, article.title_terms, article))
             unique.append(article)
 
     print(f"🔄 Deduplication: {len(articles)} → {len(unique)} articles")
@@ -1505,8 +1640,37 @@ def main():
     unique_articles = deduplicate_articles(all_articles)
     
     shown_cache = load_shown_cache()
-    new_articles = [a for a in unique_articles if a.url_hash not in shown_cache]
-    print(f"🆕 New articles (not previously shown): {len(unique_articles)} → {len(new_articles)}")
+    shown_terms_cache = load_shown_terms_cache()
+
+    # Build a list of term-sets for all recently-shown articles so we can
+    # detect the same story arriving from a new source / URL on a later run.
+    stored_term_sets = [
+        frozenset(v['terms'])
+        for v in shown_terms_cache.values()
+        if v.get('terms')
+    ]
+
+    new_articles = []
+    story_dupes = 0
+    for a in unique_articles:
+        if a.url_hash in shown_cache:
+            continue
+        # Cross-run story dedup: skip if ≥3 significant terms overlap with a
+        # recently-shown article at ≥50% containment similarity.
+        if (a.title_terms
+                and len(a.title_terms) >= 3
+                and any(
+                    _story_overlap(a.title_terms, stored) >= 0.50
+                    for stored in stored_term_sets
+                )):
+            story_dupes += 1
+            continue
+        new_articles.append(a)
+
+    print(
+        f"🆕 New articles (not previously shown): {len(unique_articles)} → {len(new_articles)}"
+        + (f"  ({story_dupes} cross-run story dupes suppressed)" if story_dupes else "")
+    )
     
     scored_articles = score_articles_with_claude(new_articles, api_key)
 
@@ -1612,7 +1776,12 @@ def main():
     now_ts = datetime.now(timezone.utc).timestamp()
     for article in quality_articles:
         shown_cache[article.url_hash] = now_ts
+        shown_terms_cache[article.url_hash] = {
+            'ts': now_ts,
+            'terms': list(article.title_terms),
+        }
     save_shown_cache(shown_cache)
+    save_shown_terms_cache(shown_terms_cache)
     
     generate_opml()
     
