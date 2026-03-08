@@ -41,3 +41,146 @@ AVOID (Score 0-20):
 - Clickbait and engagement farming
 - Pure lifestyle content without systems thinking
 - Wire service entertainment/celebrity stories syndicated through local news sources
+
+---
+
+SCORE RANGE EXAMPLES:
+
+Score 85-100 (Excellent Match — include without hesitation):
+- "Williams Lake Transit Rolls Out New Rural Bus Routes" → Local Cariboo community news, automatic high score
+- "Starlink Expands Rural BC Coverage: What It Means for Remote Workers" → Rural connectivity + practical local angle
+- "Bambu Lab X1C vs P1S: Which Should a Cariboo Maker Choose?" → 3D printing with rural/practical framing
+- "BC Wildfire Service Launches AI Early Detection System for Interior Forests" → AI + rural emergency management + local BC
+- "Horsefly Community Builds Meshtastic Network for Emergency Comms" → Mesh networking + local Cariboo community
+- "Precision Grazing Tech Is Changing Cariboo Cattle Ranching" → AgTech + Cariboo resource economy
+- "Off-Grid Solar + Battery Storage: Full Cabin Build Walkthrough" → Homelab + off-grid + technical depth
+- "SD27 Pilots AI Tutoring Tools in Rural Classrooms" → EdTech + local governance + Cariboo
+
+Score 65-84 (Good Match — include):
+- "How LoRa Mesh Networks Are Helping Remote Australian Farms" → Meshtastic topic, rural context (not local), still relevant
+- "HomePod Mini as a HomeKit Hub: Full Setup Guide" → Smart home/HomeKit with technical depth
+- "Regenerative Agriculture Research Shows Promise in Dryland Climates" → Sustainable ag, research-backed
+- "BC Government Funds Rural Broadband Expansion for Underserved Communities" → Rural connectivity, BC but not Cariboo-specific
+- "New Study: Intermittent Fasting and Long-Term Metabolic Health" → Health + research backing
+- "Omada SDN Configuration for a Home Network Lab" → Homelab/networking, technical depth
+- "Hard Science Fiction That Gets Climate Engineering Right" → Sci-fi worldbuilding with systems thinking
+- "MLOps Observability for Small Teams: A Practical Guide" → AI/ML infrastructure, practical angle
+
+Score 40-64 (Moderate Match — include if pool is thin, otherwise borderline):
+- "OpenAI Announces New Model Pricing Tiers" → AI insider news, no community/rural angle
+- "Urban Vertical Farming Company Raises $50M" → Sustainable ag but urban/corporate focus
+- "Google Updates Search Algorithm: SEO Implications" → Tangential tech, low personal relevance
+- "Gut Microbiome Research: How Fermented Foods Help" → Health + research but lifestyle-adjacent, generic
+- "Tesla Model Y Software Update Adds New Features" → Consumer tech, no systems/community angle
+- "Vancouver Housing Market Analysis" → Urban BC, not Cariboo, limited systems relevance
+
+Score 20-39 (Low Match — skip unless very slow news day):
+- "10 Productivity Tips for Remote Workers" → Generic lifestyle, no systems thinking
+- "Review: The Best Smart Speakers of 2025" → Consumer product roundup, no technical depth
+- "Hollywood Studio Announces Marvel Sequel" → Entertainment, completely off-topic
+- "NHL Playoff Standings Update" → Sports, no technology/systems angle
+- "Opinion: Why Millennials Are Struggling" → Vague lifestyle commentary
+
+Score 0-19 (Never include):
+- "Adele's New Album Review"
+- "Your Weekly Horoscope"
+- "Which Marvel Character Are You? [Quiz]"
+- "Golden Globes Red Carpet Best Dressed"
+- "Vancouver Canucks Pre-Season Roster Moves"
+
+---
+
+QUALITY MODIFIERS (apply on top of base score):
+
++10: Primary-source journalism — reporter on-site, interviews with named sources, original investigation
++10: Williams Lake Tribune or Cariboo-dateline content regardless of topic
++5 to +10: Peer-reviewed study or government-funded research cited as primary source
++5: Article bridges two or more SECONDARY INTERESTS (e.g. solar + homestead + off-grid connectivity)
++5: Hands-on technical depth — config files, commands, measurements, benchmarks, build photos
++5: Systems-thinking framing — identifies feedback loops, emergent properties, interdependencies
+
+-5: Content clearly truncated, paywalled with no preview, or promotional disguised as editorial
+-10: Wire service reprint (AP, Reuters, CP) with no added local analysis or context
+-10: Health/wellness content with no cited research (generic advice, anecdote-only)
+-15: Breaking news with no analysis — pure event log without context or implications
+
+---
+
+GEOGRAPHIC SCORING RULES:
+
+Williams Lake / Cariboo region (score 80+ regardless of topic, add +20 to calculated score):
+Exact matches: Williams Lake, 100 Mile House, Quesnel, Horsefly, Lac la Hache, Likely, Big Lake,
+Alexis Creek, Anahim Lake, Tatla Lake, Bella Coola corridor, Chilcotin, Cariboo Regional District.
+Indigenous nations in the region: Xatśūll (Soda Creek), Williams Lake First Nation, Tsilhqot'in
+National Government, Secwépemc, Lheidli T'enneh, Carrier Sekani Tribal Council.
+
+BC but not Cariboo (score purely on topic merit, no geographic bonus):
+Kamloops, Kelowna, Prince George, Vancouver, Victoria, Surrey, Abbotsford, Nanaimo, Okanagan,
+Kootenays, Lower Mainland, Vancouver Island, Metro Vancouver. BC-wide stories with no Cariboo mention.
+
+Rural but not local (score on topic merit + small +5 rural affinity):
+Rural Manitoba, Saskatchewan prairies, Northern Ontario, Australian outback, US rural West,
+Northern European small-town tech adoption. Rural = relevant context, not a geographic bonus.
+
+---
+
+CONTENT TYPE PREFERENCES:
+
+Strongly prefer:
+- Long-form journalism with narrative depth and named sources
+- Technical tutorials with real implementation steps, commands, or configs
+- Community-impact stories showing how people or places changed
+- Policy analysis with local-government or rural-service implications
+- Scientist or researcher interviews explaining implications in plain language
+- Case studies and project retrospectives ("what we learned building X")
+- Academic or government report coverage (not the press release — the analysis)
+
+Deprioritize:
+- Press releases thinly disguised as news articles
+- Listicles without substantive depth ("5 reasons why...")
+- Social media reaction roundups ("Twitter responds to...")
+- Conference or product announcements with no content yet
+- Quarterly earnings and financial performance reports
+- Pure opinion/hot-take without factual grounding or data
+
+---
+
+TIE-BREAKING AND EDGE CASES:
+
+When an article sits on the boundary between two score ranges:
+- Cariboo/local content: always round UP to next range
+- Pure tech insider content with no community angle: round DOWN
+- Health content without cited research: subtract 10 points from calculated score
+- Syndicated wire story from outside BC: subtract 10 points
+- Content explicitly bridging two SECONDARY interests: add 5 points
+- Rural content from anywhere in Canada: add 5 points
+
+When a story is covered by multiple sources:
+- Prefer the source with the most original reporting and local context
+- Williams Lake Tribune beats every other source for local stories
+- Print sources beat broadcast sources for analytical depth
+
+---
+
+CATEGORY ASSIGNMENT NOTES:
+
+local: Any article mentioning Williams Lake, Cariboo Regional District, 100 Mile House, Quesnel,
+or surrounding Cariboo communities. Indigenous nation news in the region. SD27, CRD, WL council.
+
+ai-tech: Artificial intelligence, machine learning, automation, robotics, developer tools,
+software engineering, cybersecurity, cloud infrastructure, hardware innovation.
+
+climate: Climate change science, renewable energy, clean tech, carbon policy, environmental
+monitoring, wildfire ecology, water systems, biodiversity, conservation technology.
+
+homelab: Self-hosted software, home networking, Raspberry Pi, NAS, home servers, privacy tools,
+VPNs, network segmentation, home automation, 3D printing, maker projects.
+
+science: Peer-reviewed research, scientific discoveries, space exploration, physics, biology,
+medicine, materials science, earth sciences, academic findings with practical implications.
+
+scifi: Science fiction books, films, TV, podcasts, worldbuilding, speculative fiction, futures
+studies, technology forecasting, solarpunk, cli-fi, hard SF with rigorous science.
+
+news: General news that does not fit the above categories — politics, economy, social issues,
+community events, national/international affairs relevant to rural British Columbia.
