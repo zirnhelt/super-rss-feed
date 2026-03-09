@@ -53,6 +53,18 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **529** → dedup **471** → new **214** → quality **69**
+- Mix: local:3(5%), ai-tech:15(24%), climate:2(3%), homelab:11(18%), science:6(10%), scifi:4(6%), news:21(34%)
+- Feeds: local:121, ai-tech:500, climate:193, homelab:500, science:212, scifi:38, news:500
+- Images: 69/69
+
+
+---
+
+
+
 ## 2026-03-07 (Saturday)
 
 #### 🌅 4:30 AM Pacific
