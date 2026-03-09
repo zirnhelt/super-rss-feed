@@ -3,6 +3,19 @@
 _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-09 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **650** → dedup **556** → new **356** → quality **207**
+- Mix: local:4(2%), ai-tech:76(42%), climate:8(4%), homelab:31(17%), science:9(5%), scifi:2(1%), news:53(29%)
+- Feeds: local:118, ai-tech:500, climate:189, homelab:500, science:210, scifi:39, news:500
+- Images: 207/207
+
+
+---
+
+
+
 ## 2026-03-08 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -409,78 +422,6 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
-## 2026-03-01 (Sunday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **675** → dedup **658** → new **329** → quality **93**
-- Mix: local:2(2%), ai-tech:20(22%), climate:1(1%), homelab:15(16%), science:2(2%), scifi:1(1%), news:52(56%)
-- Feeds: local:52, ai-tech:317, climate:47, homelab:221, science:91, scifi:13, news:493
-- Images: 93/93
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
-
-
----
-
-
-
-
-#### 🌞 12:30 PM Pacific
-- Fetched **581** → dedup **565** → new **311** → quality **110**
-- Mix: local:3(3%), ai-tech:21(19%), climate:2(2%), homelab:20(18%), science:4(4%), news:60(55%)
-- Feeds: local:44, ai-tech:294, climate:40, homelab:203, science:76, scifi:12, news:474
-- Images: 110/110
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ ⚠️ Williams Lake Tribune: 0 articles scraped — possible layout change, check CSS selectors
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **563** → dedup **540** → new **284** → quality **93**
-- Mix: ai-tech:17(18%), climate:1(1%), homelab:16(17%), science:8(9%), news:51(55%)
-- Feeds: local:44, ai-tech:311, climate:41, homelab:219, science:84, scifi:12, news:500
-- Images: 93/93
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-
-
----
-
-
-
-
-#### 🔧 Manual Run
-- Fetched **604** → dedup **581** → new **241** → quality **48**
-- Mix: ai-tech:6(21%), homelab:1(4%), science:5(18%), scifi:1(4%), news:15(54%)
-- Feeds: local:44, ai-tech:317, climate:41, homelab:220, science:89, scifi:13, news:500
-- Images: 48/48
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
-
-
----
-
-
-
 ## Week of 2026-02-24–2026-02-24
 - 2 runs · avg fetched 805 · avg quality 362
 - Dominant: **news** (100%) local:2 / news:723
@@ -583,6 +524,21 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
 - - ⚠️ ⚠️ Failed to scrape Williams Lake Tribune: HTTPSConnectionPool(host='wltribune.com', port=443): Read timed out. (re
 - - ⚠️ Krebs on Security failed — 502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/
+
+
+---
+
+
+
+## Week of 2026-03-01–2026-03-01
+- 4 runs · avg fetched 606 · avg quality 86
+- Dominant: **news** (55%) local:5 / ai-tech:64 / climate:4 / homelab:52 / science:19 / scifi:2 / news:178
+- - ⚠️ Scientific American failed — HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /S
+- - ⚠️ Techdirt failed — 520 Server Error: <none> for url: https://www.techdirt.com/feed/
+- - ⚠️ The Breach failed — 520 Server Error: <none> for url: https://breachmedia.ca/feed/
+- - ⚠️ Yale Climate Connections failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without 
+- - ⚠️ Longreads failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+- - ⚠️ Harvard Health Blog failed — 404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed
 
 
 ---
