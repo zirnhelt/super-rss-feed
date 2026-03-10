@@ -22,38 +22,218 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' through a RURAL TECH AND INNOVATION lens. Strong fits include: precision forestry and remote sensing in Cariboo logging, AgTech and ranch management systems, mining automation and safety technology, farm sensors and soil monitoring, sawmill modernization and automation, drone surveys for resource management, IoT in agriculture and ranching, climate adaptation tech for working lands, workforce training for industrial tech, commodity tracking and supply chain tech, and how Cariboo resource industries adopt innovation. Prefer articles that bridge resource economy AND technology in rural/industrial contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-03-03T20:56:03.821874+00:00",
-    "article_count": 10,
-    "bonus_count": 2,
+    "generated_at": "2026-03-10T05:31:51.171844+00:00",
+    "article_count": 40,
+    "bonus_count": 15,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://thenarwhal.ca/rare-canadian-rainforest-at-risk-logging/",
-      "url": "https://thenarwhal.ca/rare-canadian-rainforest-at-risk-logging/",
-      "title": "[The Narwhal] &#8216;No reason on earth&#8217; to log endangered Canadian rainforest: scientist",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/02/InteriorRainforestTrip_July2023_LouisBockner-53-1024x659.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nForestry companies hold licences to log in Canada’s inland temperate rainforest, home to endangered caribou and rare lichens. That makes a proposal for a new provincial park more urgent than ever",
-      "date_published": "2026-03-03T17:33:09+00:00",
+      "id": "https://news.gov.bc.ca/releases/2026TACS0002-000212",
+      "url": "https://news.gov.bc.ca/releases/2026TACS0002-000212",
+      "title": "[BC Gov News] Growing tourism, unlocking opportunities for people in B.C",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLook West: Tourism Sector Action Plan boosts visitor economy, strengthens communities",
+      "date_published": "2026-03-04T20:30:00+00:00",
       "authors": [
         {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
         }
       ],
-      "_quality_score": 70,
-      "_theme_score": 45,
-      "_final_score": 45,
+      "_quality_score": 50,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/02/InteriorRainforestTrip_July2023_LouisBockner-53-1024x659.jpg"
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/03/03/b-c-southern-interior-businesses-share-13m-in-federal-tariff-funding/",
-      "url": "https://wltribune.com/2026/03/03/b-c-southern-interior-businesses-share-13m-in-federal-tariff-funding/",
-      "title": "[Williams Lake Tribune] B.C. Southern Interior businesses share $13M in federal tariff funding",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41719869_web1_260305-CAN-funding-local-kalesnikoff_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Funding provides businesses with interest-free loans </p>",
-      "date_published": "2026-03-03T10:05:00+00:00",
+      "id": "https://www.sciencealert.com/pesticide-exposure-could-increase-disease-risk-for-the-next-20-generations",
+      "url": "https://www.sciencealert.com/pesticide-exposure-could-increase-disease-risk-for-the-next-20-generations",
+      "title": "[ScienceAlert] Pesticide Exposure Could Increase Disease Risk For The Next 20 Generations",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/02/pesticide_exposure_generations_header.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"photos of generations\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/02/pesticide_exposure_generations_header.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />It won't just go away.</p>",
+      "date_published": "2026-03-09T12:00:34+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/02/pesticide_exposure_generations_header.jpg"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/03/09/How-Ottawa-Tariff-Response-Working-BC/",
+      "url": "https://thetyee.ca/News/2026/03/09/How-Ottawa-Tariff-Response-Working-BC/",
+      "title": "[The Tyee] How Is Ottawa’s Tariff Response Working for BC?",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/03/07/MarkCarneyWorkers.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUnited Steelworkers’ Jeff Bromley says efforts on trade and EI are welcome but hundreds of workers are still falling through the cracks.",
+      "date_published": "2026-03-09T07:30:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/News/2026/03/07/MarkCarneyWorkers.jpg"
+    },
+    {
+      "id": "https://techcrunch.com/2026/03/08/owner-of-ice-detention-facility-sees-big-opportunity-in-ai-man-camps/",
+      "url": "https://techcrunch.com/2026/03/08/owner-of-ice-detention-facility-sees-big-opportunity-in-ai-man-camps/",
+      "title": "[TechCrunch] Owner of ICE detention facility sees big opportunity in AI man camps",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2203455424.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI data center developers are increasingly relying on a style of camp popularized as housing for men working in remote oil fields.",
+      "date_published": "2026-03-08T16:30:00+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2203455424.jpg?w=1024"
+    },
+    {
+      "id": "https://makezine.com/article/digital-fabrication/3d-printing-workshop/review-creality-raptor-pro-3d-scanner/",
+      "url": "https://makezine.com/article/digital-fabrication/3d-printing-workshop/review-creality-raptor-pro-3d-scanner/",
+      "title": "[Make Magazine] Review: Creality Raptor Pro 3D Scanner",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=makezine.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Review: Creality Raptor Pro 3D Scanner\" class=\"attachment-medium size-medium wp-post-image\" height=\"500\" src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2026/03/CrealityRaptorPro3DScanner.jpg?fit=750%2C500&amp;ssl=1\" style=\"margin-bottom: 15px;\" width=\"750\" /></div>\n<p>The Raptor Pro is a great 3D scanner option, if you have the money.</p>\n<p>The post <a href=\"https://makezine.com/article/digital-fabrication/3d-printing-workshop/review-creality-raptor-pro-3d-scanner/\">Review: Creality Raptor Pro 3D Scanner</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
+      "date_published": "2026-03-03T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "Make Magazine",
+          "url": "https://makezine.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=makezine.com&sz=128"
+    },
+    {
+      "id": "https://civileats.com/2026/03/04/as-louisianas-wetlands-erode-its-fishing-culture-fights-to-survive/",
+      "url": "https://civileats.com/2026/03/04/as-louisianas-wetlands-erode-its-fishing-culture-fights-to-survive/",
+      "title": "[Civil Eats] As Louisiana’s Wetlands Erode, A Fishing Culture Fights to Survive",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=civileats.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Photography by Jake Price “I grew up fishing these waters down here just like everyone down in Shell Beach,” says Brad Robin, whose family has lived here for generations. “We never had a bike ride in the streets. We had a pirogue battle in the canals,” he says, referring to the lightweight canoes used to [&#8230;]</p>\n<p>The post <a href=\"https://civileats.com/2026/03/04/as-louisianas-wetlands-erode-its-fishing-culture-fights-to-survive/\">As Louisiana&#8217;s Wetlands Erode, A Fishing Culture Fights to&nbsp;Survive</a> appeared first on <a href=\"https://civileats.com\">Civil Eats</a>.</p>",
+      "date_published": "2026-03-04T09:00:27+00:00",
+      "authors": [
+        {
+          "name": "Civil Eats",
+          "url": "https://civileats.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=civileats.com&sz=128"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/09/building-a-class-100-semiconductor-cleanroom-inside-a-shed/",
+      "url": "https://hackaday.com/2026/03/09/building-a-class-100-semiconductor-cleanroom-inside-a-shed/",
+      "title": "[Hackaday] Building a Class 100 Semiconductor Cleanroom Inside a Shed",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/shed_cleanroom_dr.semiconductor_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"454\" src=\"https://hackaday.com/wp-content/uploads/2026/03/shed_cleanroom_dr.semiconductor_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Most people see that garden shed as little more than a place to store some gardening tools in, but if you&#8217;re like [Dr. Semiconductor], then what you see is a <a class=\"read-more\" href=\"https://hackaday.com/2026/03/09/building-a-class-100-semiconductor-cleanroom-inside-a-shed/\">&#8230;read more</a>",
+      "date_published": "2026-03-09T23:00:09+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/shed_cleanroom_dr.semiconductor_youtube.jpg"
+    },
+    {
+      "id": "https://insideevs.com/news/788910/stellantis-leapmotor-b10-spain-production/",
+      "url": "https://insideevs.com/news/788910/stellantis-leapmotor-b10-spain-production/",
+      "title": "[InsideEVs] Stellantis, Battled And Bruised, Will Build Chinese EVs In Europe",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/404VOk/s3/leapmotor-b10---lancamento-no-brasil.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStellantis lost billions on its EV plan. Now, it’s leaning on its Chinese joint venture to try and turn things around.",
+      "date_published": "2026-03-04T09:30:40+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/404VOk/s3/leapmotor-b10---lancamento-no-brasil.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/09/quesnel-river-rush-tied-1-1-with-williams-lake-mustangs-in-playoff-series/",
+      "url": "https://wltribune.com/2026/03/09/quesnel-river-rush-tied-1-1-with-williams-lake-mustangs-in-playoff-series/",
+      "title": "[Williams Lake Tribune] Quesnel River Rush tied 1-1 with Williams Lake Mustangs in playoff series",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41766375_web1_mustangs-riverrush.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFriday, March 6 – Quesnel River Rush 3, Williams Lake Mustangs 2 (OT)",
+      "date_published": "2026-03-10T05:30:21.796262+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41766375_web1_mustangs-riverrush.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/09/williams-lake-rcmp-looking-for-missing-25-year-old-woman/",
+      "url": "https://wltribune.com/2026/03/09/williams-lake-rcmp-looking-for-missing-25-year-old-woman/",
+      "title": "[Williams Lake Tribune] Williams Lake RCMP looking for missing 25-year-old woman",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41770240_web1_260312-WLT-Missing-Person-Zoe-Bedard-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Police are concerned for the health and well-being of Zoe Bedard </p>",
+      "date_published": "2026-03-09T14:03:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41770240_web1_260312-WLT-Missing-Person-Zoe-Bedard-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/09/b-c-introduces-bills-to-restrict-protest-rights-near-schools-religious-institutions/",
+      "url": "https://wltribune.com/2026/03/09/b-c-introduces-bills-to-restrict-protest-rights-near-schools-religious-institutions/",
+      "title": "[Williams Lake Tribune] B.C. introduces bills to restrict protest rights near schools, religious institutions",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41768226_web1_260309-BPD-bubblezones-Eby_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Newly introduced legislation would allow police to arrest protesters without a warrant </p>",
+      "date_published": "2026-03-09T16:06:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -61,172 +241,592 @@
         }
       ],
       "_quality_score": 95,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41719869_web1_260305-CAN-funding-local-kalesnikoff_1.jpg?w=1024"
-    },
-    {
-      "id": "https://indiginews.com/winnipeg/growing-wood-bison-herd-manitoba/",
-      "url": "https://indiginews.com/winnipeg/growing-wood-bison-herd-manitoba/",
-      "title": "[IndigiNews] In Manitoba, a growing herd of bagwaji-bizhikiwag offers lessons in community",
-      "content_html": "<img src=\"https://indiginews.com/wp-content/uploads/2026/03/Screenshot-2026-03-02-at-11.24.09-AM-1024x746.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>‘A proud moment,’ says Skownan First Nation's operations director, as ten wood bison make long journey across provinces to join a herd under the community’s care</p>\n<p>The post <a href=\"https://indiginews.com/winnipeg/growing-wood-bison-herd-manitoba/\">In Manitoba, a growing herd of bagwaji-bizhikiwag offers lessons in community</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
-      "date_published": "2026-03-03T18:00:56+00:00",
-      "authors": [
-        {
-          "name": "IndigiNews",
-          "url": "https://indiginews.com/"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 25,
-      "_final_score": 25,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://indiginews.com/wp-content/uploads/2026/03/Screenshot-2026-03-02-at-11.24.09-AM-1024x746.png"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41768226_web1_260309-BPD-bubblezones-Eby_1.jpeg?w=1024"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOMG83dU9Xd19abjE5WmNNY3h4UDBleTVTTHdISDhvN0dJTjlIQ1I5bmU3ZzhVdUpIUUpoN0FRTDFZNzRvb1BIR3pGWFowa3Bjd1k5MVgzbHB1RkpxeUNGMkUyeEw4TUwzWjFPX0w5cXJET2xKNzF4RDBpN0I2UEZJSUtYcTNqSlE?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOMG83dU9Xd19abjE5WmNNY3h4UDBleTVTTHdISDhvN0dJTjlIQ1I5bmU3ZzhVdUpIUUpoN0FRTDFZNzRvb1BIR3pGWFowa3Bjd1k5MVgzbHB1RkpxeUNGMkUyeEw4TUwzWjFPX0w5cXJET2xKNzF4RDBpN0I2UEZJSUtYcTNqSlE?oc=5",
-      "title": "[Interesting Engineering] ‘World’s largest battery’ to help run Google’s new clean energy data center",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxOMG83dU9Xd19abjE5WmNNY3h4UDBleTVTTHdISDhvN0dJTjlIQ1I5bmU3ZzhVdUpIUUpoN0FRTDFZNzRvb1BIR3pGWFowa3Bjd1k5MVgzbHB1RkpxeUNGMkUyeEw4TUwzWjFPX0w5cXJET2xKNzF4RDBpN0I2UEZJSUtYcTNqSlE?oc=5\" target=\"_blank\">‘World’s largest battery’ to help run Google’s new clean energy data center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Interesting Engineering</font>",
-      "date_published": "2026-02-25T08:52:00+00:00",
+      "id": "https://www.mycariboonow.com/211030/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-member-receives-quite-an-honour/",
+      "url": "https://www.mycariboonow.com/211030/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-member-receives-quite-an-honour/",
+      "title": "[My Cariboo Now] Quesnel Search and Rescue member receives quite an honour",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/12/QUE-SARS-DEC-29-2022-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"346\" src=\"https://www.mycariboonow.com/wp-content/uploads/2022/12/QUE-SARS-DEC-29-2022-.jpg\" width=\"696\" />A member of Quesnel Search and Rescue is representing B.C. at the Search and Rescue Volunteers of Canada Humanitarian Workforce workshop in Toronto.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/211030/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-member-receives-quite-an-honour/\">Quesnel Search and Rescue member receives quite an honour</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-03-09T22:02:03+00:00",
       "authors": [
         {
-          "name": "Interesting Engineering",
-          "url": "https://news.google.com"
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
         }
       ],
-      "_quality_score": 72,
-      "_theme_score": 12,
-      "_final_score": 12,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_quality_score": 87,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/12/QUE-SARS-DEC-29-2022-.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/whats-the-deal-with-bambu-lab-3d-printers-and-why-is-everyone-buying-them/",
-      "url": "https://www.howtogeek.com/whats-the-deal-with-bambu-lab-3d-printers-and-why-is-everyone-buying-them/",
-      "title": "[How-To Geek] What's the deal with Bambu Lab 3D printers and why is everyone buying them?",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/bambu-lab-p2s-3d-printer-handle-logo-closeup.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHere's why everyone is telling you to “just get a Bambu.\"",
-      "date_published": "2026-02-27T13:15:15+00:00",
+      "id": "https://www.mycariboonow.com/211821/politics/b-c-tables-legislation-to-expand-protest-restrictions-near-schools-and-places-of-worship/",
+      "url": "https://www.mycariboonow.com/211821/politics/b-c-tables-legislation-to-expand-protest-restrictions-near-schools-and-places-of-worship/",
+      "title": "[My Cariboo Now] B.C. tables legislation to expand protest restrictions near schools and places of worship",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/IMG_0965-scaled-1-1024x576.jpeg\" width=\"696\" />British Columbia’s NDP government tabled legislation Monday to extend restrictions on protests and other “disruptive behaviour” near schools and expand the rules to public places of worship.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/211821/politics/b-c-tables-legislation-to-expand-protest-restrictions-near-schools-and-places-of-worship/\">B.C. tables legislation to expand protest restrictions near schools and places of worship</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-03-10T03:48:48+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
         }
       ],
       "_quality_score": 85,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
+    },
+    {
+      "id": "https://www.mycariboonow.com/210981/news/rcmp/have-you-seen-zoe-bedard/",
+      "url": "https://www.mycariboonow.com/210981/news/rcmp/have-you-seen-zoe-bedard/",
+      "title": "[My Cariboo Now] Have you seen Zoe Bedard",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/bedard-800px.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"480\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/bedard-800px.jpeg\" width=\"472\" />RCMP is seeking the public's assistance in locating a missing Alberta woman believed to be in the Williams Lake area.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/210981/news/rcmp/have-you-seen-zoe-bedard/\">Have you seen Zoe Bedard</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-03-09T21:46:48+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/bedard-800px.jpeg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/09/kimberleys-eriksson-and-guide-smith-win-two-medals-at-paralympic-winter-games/",
+      "url": "https://wltribune.com/2026/03/09/kimberleys-eriksson-and-guide-smith-win-two-medals-at-paralympic-winter-games/",
+      "title": "[Williams Lake Tribune] Kimberley’s Eriksson and guide Smith win two medals at Paralympic Winter Games",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41770446_web1_260317-KDB-KalleErikssonParalympicMedals-KalleEriksson_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Kimberley&#8217;s Kalle Eriksson and his guide Sierra Smith have won two medals at the Milano-Cortina Paralympics.</p>",
+      "date_published": "2026-03-09T12:55:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 80,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41770446_web1_260317-KDB-KalleErikssonParalympicMedals-KalleEriksson_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/03/09/alexander-fishing-and-playing-enjoyed-during-ice-fishing-derby/",
+      "url": "https://100milefreepress.net/2026/03/09/alexander-fishing-and-playing-enjoyed-during-ice-fishing-derby/",
+      "title": "[100 Mile Free Press] ALEXANDER: Fishing and playing enjoyed during ice fishing derby",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41765723_web1_260312-OMH-Alexander-70-Mile_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Ken Alexander&#8217;s regular column to the 100 Mile Free Press </p>",
+      "date_published": "2026-03-10T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41765723_web1_260312-OMH-Alexander-70-Mile_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/03/09/womens-health-roundtable-discusses-need-to-combat-misinformation-in-b-c/",
+      "url": "https://100milefreepress.net/2026/03/09/womens-health-roundtable-discusses-need-to-combat-misinformation-in-b-c/",
+      "title": "[100 Mile Free Press] Women’s health roundtable discusses need to combat misinformation in B.C.",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41765365_web1_260309-BPD-Healthpanel-Osborne_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>&#8216;Misinformation is misogyny,&#8217; says gynecologist and author Dr. Jen Gunter </p>",
+      "date_published": "2026-03-09T18:45:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 73,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41765365_web1_260309-BPD-Healthpanel-Osborne_1.jpeg?w=1024"
+    },
+    {
+      "id": "https://www.zdnet.com/article/xtar-link-mp158-starlink-mini-power-bank-review/",
+      "url": "https://www.zdnet.com/article/xtar-link-mp158-starlink-mini-power-bank-review/",
+      "title": "[ZDNet] How I turned my Starlink Mini into the ultimate off-grid internet device",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/ed23fe563a84d7b0d24821c3a6f6024ee8b507d1/2026/02/12/e610c412-11a7-437c-81b7-6e6dc406a1ae/img-2220.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe XTAR-Link MP158 power bank makes using the Starlink Mink without a nearby outlet actually viable.",
+      "date_published": "2026-03-10T00:30:40+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/bambu-lab-p2s-3d-printer-handle-logo-closeup.jpg"
+      "image": "https://www.zdnet.com/a/img/resize/ed23fe563a84d7b0d24821c3a6f6024ee8b507d1/2026/02/12/e610c412-11a7-437c-81b7-6e6dc406a1ae/img-2220.jpg?auto=webp&fit=crop&height=675&width=1200"
     },
     {
-      "id": "https://www.howtogeek.com/your-3d-printer-is-lying-to-you/",
-      "url": "https://www.howtogeek.com/your-3d-printer-is-lying-to-you/",
-      "title": "[How-To Geek] 6 ways your 3D printer is lying to you",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/3d-printing-tree-supports-inside-a-bambu-lab-p2s-3d-printer.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou print on a bed of lies.",
-      "date_published": "2026-02-25T12:00:16+00:00",
+      "id": "https://www.xda-developers.com/carried-thinknode-m5-everywhere-want-build-mesh/",
+      "url": "https://www.xda-developers.com/carried-thinknode-m5-everywhere-want-build-mesh/",
+      "title": "[XDA Developers] I carried the $54 Thinknode M5 everywhere for weeks, and now I want to build my own mesh network",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/elecrow-thinknode-m5-1.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's a first-entry to the world of Meshtastic.",
+      "date_published": "2026-03-10T00:00:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/elecrow-thinknode-m5-1.JPG"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/10/business/energy-environment/donald-trump-solar-energy-batteries.html",
+      "url": "https://www.nytimes.com/2026/03/10/business/energy-environment/donald-trump-solar-energy-batteries.html",
+      "title": "[NYT Business] U.S. Solar Installations Fell in 2025 as Trump Attacked Clean Energy",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/10/multimedia/10biz-solar-trump-pzbl/10biz-solar-trump-pzbl-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMore solar energy was added to U.S. grids than any other technology, but the amount installed fell by 14 percent, according to a new report.",
+      "date_published": "2026-03-10T04:01:04+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_quality_score": 70,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/03/10/multimedia/10biz-solar-trump-pzbl/10biz-solar-trump-pzbl-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/i-use-esp32-as-a-vpn-gateway-for-my-whole-network-heres-how/",
+      "url": "https://www.xda-developers.com/i-use-esp32-as-a-vpn-gateway-for-my-whole-network-heres-how/",
+      "title": "[XDA Developers] I use ESP32 as a VPN gateway for my whole network — here’s how",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/using-esp32-as-vpn-gateway-for-home-lab.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLightweight functions without Linux.",
+      "date_published": "2026-03-10T00:00:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/using-esp32-as-vpn-gateway-for-home-lab.JPG"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/03/10/Tracking-Hospital-Overdoses-Bonnie-Henry/",
+      "url": "https://thetyee.ca/News/2026/03/10/Tracking-Hospital-Overdoses-Bonnie-Henry/",
+      "title": "[The Tyee] Tracking Hospital Overdoses Isn’t Easy as It Seems: Dr. Bonnie Henry",
+      "content_html": "<img src=\"https://thetyee.ca/News/2024/02/02/DrBonnieHenryDecriminalization.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBC’s top doctor explains why health authorities may not be collecting this data. A Tyee Q&amp;A.",
+      "date_published": "2026-03-10T07:40:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 67,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/News/2024/02/02/DrBonnieHenryDecriminalization.jpg"
+    },
+    {
+      "id": "https://insideevs.com/news/789066/buick-gl8-ls-phev-range-record-china/",
+      "url": "https://insideevs.com/news/789066/buick-gl8-ls-phev-range-record-china/",
+      "title": "[InsideEVs] A Buick Plug-In Hybrid Minivan Just Set A New Range Record",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/NGPG6y/s3/buick-gl8-ls-phev.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTo make matters even more interesting, the record run was done at a constant speed of 74.5 mph.",
+      "date_published": "2026-03-05T12:29:03+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/NGPG6y/s3/buick-gl8-ls-phev.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/your-should-turn-on-snapshot-replication/",
+      "url": "https://www.xda-developers.com/your-should-turn-on-snapshot-replication/",
+      "title": "[XDA Developers] Your NAS has a feature called snapshot replication, and you should turn it on right now",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/terramaster-f2-425-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's worth enabling even if you're not a hardcore data hoarder",
+      "date_published": "2026-03-04T18:30:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/terramaster-f2-425-2.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/scientists-discover-new-evidence-a-common-virus-helps-trigger-ms",
+      "url": "https://www.sciencealert.com/scientists-discover-new-evidence-a-common-virus-helps-trigger-ms",
+      "title": "[ScienceAlert] Scientists Discover New Evidence a Common Virus Helps Trigger MS",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/02/EBVMS.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Scientists Discover New Evidence a Common Virus Helps Trigger MS\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/02/EBVMS.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A virtually unavoidable infection.</p>",
+      "date_published": "2026-03-03T23:02:46+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/02/EBVMS.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/megawatt-charging-is-go-byd-tests-1-500kw-network-that-can-add-249-miles-of-ev-range-in-just-5-minutes",
+      "url": "https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/megawatt-charging-is-go-byd-tests-1-500kw-network-that-can-add-249-miles-of-ev-range-in-just-5-minutes",
+      "title": "[TechRadar] Megawatt charging is go — BYD tests 1,500kW network that can add 249 miles of EV range in just 5 minutes",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/5Fp8j2UZeRRzC3MLAHmtjb-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBYD has been testing its megawatt EV charging network with some select owners in China — and it's a glimpse of the gas station-style charging to come.",
+      "date_published": "2026-03-03T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/5Fp8j2UZeRRzC3MLAHmtjb-1280-80.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/setting-up-your-smart-home-motion-sensors-backwards/",
+      "url": "https://www.howtogeek.com/setting-up-your-smart-home-motion-sensors-backwards/",
+      "title": "[How-To Geek] You're setting up your smart home's motion sensors backwards—literally",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/08/sensor.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWatch where you're pointing that thing.",
+      "date_published": "2026-03-03T18:30:16+00:00",
       "authors": [
         {
           "name": "How-To Geek",
           "url": "https://www.howtogeek.com"
         }
       ],
-      "_quality_score": 72,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/3d-printing-tree-supports-inside-a-bambu-lab-p2s-3d-printer.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/08/sensor.jpg"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1KLXA1Z0lHdGRWWERPMlhrblYtQzBadndUMGplXzdJS190d2dBLXgySW5MUlNDeHJmZlhnS1k0UEpsRGIxR2pHWkw4SDdKcTRoTjRtQ25VbnAwT29yZ25JYXBRS3dYX1NZRHZzd1FTc0NqRTE4Ykd6YjJPMA?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1KLXA1Z0lHdGRWWERPMlhrblYtQzBadndUMGplXzdJS190d2dBLXgySW5MUlNDeHJmZlhnS1k0UEpsRGIxR2pHWkw4SDdKcTRoTjRtQ25VbnAwT29yZ25JYXBRS3dYX1NZRHZzd1FTc0NqRTE4Ykd6YjJPMA?oc=5",
-      "title": "[Barron's] Google Bets Big on a Novel Technology—Iron Batteries",
-      "content_html": "<img src=\"https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMie0FVX3lxTE1KLXA1Z0lHdGRWWERPMlhrblYtQzBadndUMGplXzdJS190d2dBLXgySW5MUlNDeHJmZlhnS1k0UEpsRGIxR2pHWkw4SDdKcTRoTjRtQ25VbnAwT29yZ25JYXBRS3dYX1NZRHZzd1FTc0NqRTE4Ykd6YjJPMA?oc=5\" target=\"_blank\">Google Bets Big on a Novel Technology—Iron Batteries</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Barron's</font>",
-      "date_published": "2026-02-24T23:34:00+00:00",
+      "id": "https://hackaday.com/2026/03/09/diagnosing-a-mysterious-fault-with-a-commodore-1541-disk-drive/",
+      "url": "https://hackaday.com/2026/03/09/diagnosing-a-mysterious-fault-with-a-commodore-1541-disk-drive/",
+      "title": "[Hackaday] Diagnosing a Mysterious Fault with a Commodore 1541 Disk Drive",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/commodore_1541_fdd_fault_theretrochannel_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://hackaday.com/wp-content/uploads/2026/03/commodore_1541_fdd_fault_theretrochannel_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Recently [TheRetroChannel] came across an interesting failure mode on a Commodore 1541 5.25&#8243; floppy disk drive, in the form of the activity LED blinking just once after power-up with the <a class=\"read-more\" href=\"https://hackaday.com/2026/03/09/diagnosing-a-mysterious-fault-with-a-commodore-1541-disk-drive/\">&#8230;read more</a>",
+      "date_published": "2026-03-10T05:00:00+00:00",
       "authors": [
         {
-          "name": "Barron's",
-          "url": "https://news.google.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
-      "_quality_score": 72,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/commodore_1541_fdd_fault_theretrochannel_youtube.jpg"
+    },
+    {
+      "id": "https://insideevs.com/news/789433/tesla-first-megacharger-first-location/",
+      "url": "https://insideevs.com/news/789433/tesla-first-megacharger-first-location/",
+      "title": "[InsideEVs] Tesla Opened Its First Semi Truck Megacharger That's Not At A Tesla Factory",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/0ege22/s3/tesla-megacharger.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTesla's new Megacharger is near Los Angeles and is open to Semi customers.",
+      "date_published": "2026-03-09T21:47:55+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300"
+      "image": "https://cdn.motor1.com/images/mgl/0ege22/s3/tesla-megacharger.jpg"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOREE4WWhJVG9wNHoySGJaeWdXRVl6eEF2aG12MWpyd1oxMW5rU3V4RXRReERTNnlJcTdJSXhLS1kwOU9oTlZRZmlyMVRPMzJja3E0VnlsWWJuWnVoQ2Q5NGRYSWZtSG1wNDZmdG9xbU5lRTZTenVheV9EbzNNYUZiU3RHT1B1NlgtVlJfQVlzMzFzUlR2MzJMNWdvU0x5SmNxREUwbHEtcktka1gybnpQNVZZdFpoRWJybW43WXlFdGwyN2dFd0lodTR1MUtqOHVHZU15Y19BbmtYVlcxVTdUaU80bFhFM3BnRDl5eVg2NTI1MXBLb3c?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOREE4WWhJVG9wNHoySGJaeWdXRVl6eEF2aG12MWpyd1oxMW5rU3V4RXRReERTNnlJcTdJSXhLS1kwOU9oTlZRZmlyMVRPMzJja3E0VnlsWWJuWnVoQ2Q5NGRYSWZtSG1wNDZmdG9xbU5lRTZTenVheV9EbzNNYUZiU3RHT1B1NlgtVlJfQVlzMzFzUlR2MzJMNWdvU0x5SmNxREUwbHEtcktka1gybnpQNVZZdFpoRWJybW43WXlFdGwyN2dFd0lodTR1MUtqOHVHZU15Y19BbmtYVlcxVTdUaU80bFhFM3BnRDl5eVg2NTI1MXBLb3c?oc=5",
-      "title": "[SolarQuarter] HEX Battery Project In Worcester Stabilizes Grid, Supports Farms, And Marks Africa’s First Utility-Scale Energy Storage Milestone",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMi9gFBVV95cUxOREE4WWhJVG9wNHoySGJaeWdXRVl6eEF2aG12MWpyd1oxMW5rU3V4RXRReERTNnlJcTdJSXhLS1kwOU9oTlZRZmlyMVRPMzJja3E0VnlsWWJuWnVoQ2Q5NGRYSWZtSG1wNDZmdG9xbU5lRTZTenVheV9EbzNNYUZiU3RHT1B1NlgtVlJfQVlzMzFzUlR2MzJMNWdvU0x5SmNxREUwbHEtcktka1gybnpQNVZZdFpoRWJybW43WXlFdGwyN2dFd0lodTR1MUtqOHVHZU15Y19BbmtYVlcxVTdUaU80bFhFM3BnRDl5eVg2NTI1MXBLb3c?oc=5\" target=\"_blank\">HEX Battery Project In Worcester Stabilizes Grid, Supports Farms, And Marks Africa’s First Utility-Scale Energy Storage Milestone</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">SolarQuarter</font>",
-      "date_published": "2026-03-02T12:24:56+00:00",
+      "id": "https://kottke.org/26/03/0048518-what-if-we-taught-student",
+      "url": "https://kottke.org/26/03/0048518-what-if-we-taught-student",
+      "title": "[Kottke.org] &#8220;What if we taught students to use AI critically,...",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>&#8220;What if we taught students to use AI critically, rather than insisting they ignore it or assume they&#8217;re using it to cheat?&#8221; <a href=\"https://www.npr.org/2026/03/06/nx-s1-5732793/college-student-perspective-using-ai-in-class\">asks college freshman Maximilian Milovidov</a>. &#8220;Students will reach for these tools, whether universities ban them or not.&#8221;\n</p>",
+      "date_published": "2026-03-09T19:01:12+00:00",
       "authors": [
         {
-          "name": "SolarQuarter",
-          "url": "https://news.google.com"
+          "name": "Kottke.org",
+          "url": "https://kottke.org/"
         }
       ],
-      "_quality_score": 68,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/09/last-year-in-sbcs/",
+      "url": "https://hackaday.com/2026/03/09/last-year-in-sbcs/",
+      "title": "[Hackaday] Last Year in SBCs",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/riscsq.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"600\" src=\"https://hackaday.com/wp-content/uploads/2026/03/riscsq.png?w=600\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"600\" /></div>While it might not be comprehensive, [Bret.dk] recently posted a retrospective titled &#8220;Every Single Board Computer I Tested in 2025.&#8221; The post covers 15 boards from 8 different companies. The <a class=\"read-more\" href=\"https://hackaday.com/2026/03/09/last-year-in-sbcs/\">&#8230;read more</a>",
+      "date_published": "2026-03-09T18:30:00+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/riscsq.png"
+    },
+    {
+      "id": "https://www.sciencealert.com/trees-seen-emitting-a-ghostly-light-during-a-thunderstorm-for-the-first-time",
+      "url": "https://www.sciencealert.com/trees-seen-emitting-a-ghostly-light-during-a-thunderstorm-for-the-first-time",
+      "title": "[ScienceAlert] Trees Seen Emitting a Ghostly Light During a Thunderstorm For The First Time",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/pine-coronae.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Trees Seen Emitting a Ghostly Light During a Thunderstorm For The First Time\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/pine-coronae.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Spooky.</p>",
+      "date_published": "2026-03-09T18:00:03+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/03/pine-coronae.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/your-first-year-of-homelabbing-what-to-expect-what-to-break-and-what-to-learn/",
+      "url": "https://www.howtogeek.com/your-first-year-of-homelabbing-what-to-expect-what-to-break-and-what-to-learn/",
+      "title": "[How-To Geek] Your first year of homelabbing: What to expect, what to break, and what to learn",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/ugreen-nas-and-geekom-mini-pcs-on-a-wooden-homelab-shelf.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou're going to break stuff, and that's okay.",
+      "date_published": "2026-03-09T13:30:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/ugreen-nas-and-geekom-mini-pcs-on-a-wooden-homelab-shelf.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/stem-cell-treatments-for-parkinsons-and-heart-failure-approved-in-world-first",
+      "url": "https://www.sciencealert.com/stem-cell-treatments-for-parkinsons-and-heart-failure-approved-in-world-first",
+      "title": "[ScienceAlert] Stem Cell Treatments For Parkinson's And Heart Failure Approved in World First",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/abstract_stem_cells_header.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"abstract illustration of stem cells against a black background\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/abstract_stem_cells_header.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Could be on the market as early as this summer.</p>",
+      "date_published": "2026-03-09T00:46:07+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/03/abstract_stem_cells_header.jpg"
+    },
+    {
+      "id": "https://newatlas.com/materials/bio-based-wooden-plastic-resins/",
+      "url": "https://newatlas.com/materials/bio-based-wooden-plastic-resins/",
+      "title": "[New Atlas] Bio-based, recyclable resins outperform their fossil-fuel counterparts",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/efe8f97/2147483647/strip/true/crop/2000x1050+0+38/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F43%2F14%2F668e10e44f7e9b8482305d9dab74%2Ffurbio-satamakomposiitit-1920x1080-edit.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Panels made from the resins were weather-tested in a harbor for 90 days to gauge the effects of water, ultraviolet radiation, temperature, and humidity\" src=\"https://assets.newatlas.com/dims4/default/eb905cc/2147483647/strip/true/crop/2000x1125+0+0/resize/1440x810!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F43%2F14%2F668e10e44f7e9b8482305d9dab74%2Ffurbio-satamakomposiitit-1920x1080-edit.jpg\" /><p>To wood or not to wood, that's been the question! Ever since oil-based plastics burst onto the manufacturing scene, cost, sustainability, and performance have defined the ongoing woods vs. plastics war. In many applications, plastics tend to dominate in cost efficiency and durability, while wood retains a clear edge in sustainability.</p><p><a href=\"https://newatlas.com/materials/bio-based-wooden-plastic-resins/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/materials/\">Materials</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/university-of-oulu/\" rel=\"tag\">University of Oulu</a>, <a href=\"https://newatlas.com/tag/biodegradable/\" rel=\"tag\">Biodegradable</a></p>",
+      "date_published": "2026-03-08T18:03:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
+      "image": "https://assets.newatlas.com/dims4/default/efe8f97/2147483647/strip/true/crop/2000x1050+0+38/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F43%2F14%2F668e10e44f7e9b8482305d9dab74%2Ffurbio-satamakomposiitit-1920x1080-edit.jpg&na.image_optimisation=0"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPT29icTlKaDdPMWxwTk0xbUhHYUIydkV1d09RUERMdlZ6dlpJX2YwRmtISk1hXzhhSWk3R3NHeS0yVExnUGRRSl9yaWVCYU10QmM0TGVEX2lfOEFfcVg3T1pBbUJiRTZVLS1MQ05lMFFCVUVRemY0emkwT3F5SWJDYnVjNDFVUUVSakVzYXozRlRpcjJvcVpFYXZzc21hT0hoNE9VOFJVUEVvczlzUlMxTjRRM3FJYjNkZDE5SlJRanEwMlVZWXdKenY5dHZTUQ?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPT29icTlKaDdPMWxwTk0xbUhHYUIydkV1d09RUERMdlZ6dlpJX2YwRmtISk1hXzhhSWk3R3NHeS0yVExnUGRRSl9yaWVCYU10QmM0TGVEX2lfOEFfcVg3T1pBbUJiRTZVLS1MQ05lMFFCVUVRemY0emkwT3F5SWJDYnVjNDFVUUVSakVzYXozRlRpcjJvcVpFYXZzc21hT0hoNE9VOFJVUEVvczlzUlMxTjRRM3FJYjNkZDE5SlJRanEwMlVZWXdKenY5dHZTUQ?oc=5",
-      "title": "[Saur Energy] Maharashtra Renewable Energy and Storage Policy 2025–2035 Targets 65% Green Power",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxPT29icTlKaDdPMWxwTk0xbUhHYUIydkV1d09RUERMdlZ6dlpJX2YwRmtISk1hXzhhSWk3R3NHeS0yVExnUGRRSl9yaWVCYU10QmM0TGVEX2lfOEFfcVg3T1pBbUJiRTZVLS1MQ05lMFFCVUVRemY0emkwT3F5SWJDYnVjNDFVUUVSakVzYXozRlRpcjJvcVpFYXZzc21hT0hoNE9VOFJVUEVvczlzUlMxTjRRM3FJYjNkZDE5SlJRanEwMlVZWXdKenY5dHZTUQ?oc=5\" target=\"_blank\">Maharashtra Renewable Energy and Storage Policy 2025–2035 Targets 65% Green Power</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Saur Energy</font>",
-      "date_published": "2026-03-02T01:07:44+00:00",
+      "id": "https://www.sciencealert.com/popular-anti-aging-supplement-may-fuel-cancer-growth-heres-why",
+      "url": "https://www.sciencealert.com/popular-anti-aging-supplement-may-fuel-cancer-growth-heres-why",
+      "title": "[ScienceAlert] Popular Anti-Aging Supplement May Fuel Cancer Growth – Here's Why",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/CancerCell.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Cancer cell 3D render\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/CancerCell.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A tale of two proteins.</p>",
+      "date_published": "2026-03-08T18:00:45+00:00",
       "authors": [
         {
-          "name": "Saur Energy",
-          "url": "https://news.google.com"
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
-      "_quality_score": 68,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
+      "image": "https://www.sciencealert.com/images/2026/03/CancerCell.jpg"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa0QyMk1FQ2NlUkVJU3d4bU8wRkZ4MWNIRzBURHlFcUQzd3Q4OEQxV1d5UVpKZnh3QVJnaHdIWGlTSU8zVzJyaU5XeHNrVFQzSG5yVlZMY1p5eEdZZ3IwUXRYQ01iYXZUa3RNMDdBNDQwTkdHcmVRUkt3ZVU2S2dmTEVFUS1qbE9WREE1djdXVTJKRDZBVFdzR3pwMjVyS2J1bVVLQkhoY3F6Sm8?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa0QyMk1FQ2NlUkVJU3d4bU8wRkZ4MWNIRzBURHlFcUQzd3Q4OEQxV1d5UVpKZnh3QVJnaHdIWGlTSU8zVzJyaU5XeHNrVFQzSG5yVlZMY1p5eEdZZ3IwUXRYQ01iYXZUa3RNMDdBNDQwTkdHcmVRUkt3ZVU2S2dmTEVFUS1qbE9WREE1djdXVTJKRDZBVFdzR3pwMjVyS2J1bVVLQkhoY3F6Sm8?oc=5",
-      "title": "[Environment America] Clean energy additions to break records in 2026",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=news.google.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa0QyMk1FQ2NlUkVJU3d4bU8wRkZ4MWNIRzBURHlFcUQzd3Q4OEQxV1d5UVpKZnh3QVJnaHdIWGlTSU8zVzJyaU5XeHNrVFQzSG5yVlZMY1p5eEdZZ3IwUXRYQ01iYXZUa3RNMDdBNDQwTkdHcmVRUkt3ZVU2S2dmTEVFUS1qbE9WREE1djdXVTJKRDZBVFdzR3pwMjVyS2J1bVVLQkhoY3F6Sm8?oc=5\" target=\"_blank\">Clean energy additions to break records in 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Environment America</font>",
-      "date_published": "2026-03-02T17:26:27+00:00",
+      "id": "https://yellowheadinstitute.org/2026/the-prison-as-reconciliation-considering-the-indigenization-of-carceral-spaces-in-canada/?utm_source=rss&utm_medium=rss&utm_campaign=the-prison-as-reconciliation-considering-the-indigenization-of-carceral-spaces-in-canada",
+      "url": "https://yellowheadinstitute.org/2026/the-prison-as-reconciliation-considering-the-indigenization-of-carceral-spaces-in-canada/?utm_source=rss&utm_medium=rss&utm_campaign=the-prison-as-reconciliation-considering-the-indigenization-of-carceral-spaces-in-canada",
+      "title": "[Yellowhead Institute] The Prison as Reconciliation? Considering the “Indigenization” of Carceral Spaces in Canada",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=yellowheadinstitute.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In this Brief, Ashley Kyne and Justin Piché challenge the “Indigenization” of prisons – often framed as collaborative initiatives with Indigenous communities – arguing that these efforts reproduce colonial space through carceral policies to create ‘culturally meaningful spaces’ that misrepresent Indigenous histories, worldviews, and lived realities, normalizing confinement .</p>\n<p>The post <a href=\"https://yellowheadinstitute.org/2026/the-prison-as-reconciliation-considering-the-indigenization-of-carceral-spaces-in-canada/\">The Prison as Reconciliation? Considering the “Indigenization” of Carceral Spaces in Canada</a> appeared first on <a href=\"https://yellowheadinstitute.org\">Yellowhead Institute</a>.</p>",
+      "date_published": "2026-03-08T16:05:38+00:00",
       "authors": [
         {
-          "name": "Environment America",
-          "url": "https://news.google.com"
+          "name": "Yellowhead Institute",
+          "url": "https://yellowheadinstitute.org/"
         }
       ],
-      "_quality_score": 65,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=news.google.com&sz=128"
+      "image": "https://www.google.com/s2/favicons?domain=yellowheadinstitute.org&sz=128"
+    },
+    {
+      "id": "https://www.howtogeek.com/who-needs-airdrop-on-android-when-this-open-source-alternative-exists/",
+      "url": "https://www.howtogeek.com/who-needs-airdrop-on-android-when-this-open-source-alternative-exists/",
+      "title": "[How-To Geek] Who needs AirDrop on Android when this open-source alternative exists",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/a-google-pixel-phone-surrounded-by-document-icons-and-android-mascots-with-the-localsend-logo-in-the-background.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis app lets you transfer files across various devices without compression.",
+      "date_published": "2026-03-06T17:45:15+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/a-google-pixel-phone-surrounded-by-document-icons-and-android-mascots-with-the-localsend-logo-in-the-background.png"
+    },
+    {
+      "id": "https://www.wired.com/story/openai-defense-department-ban-military-use-microsoft/",
+      "url": "https://www.wired.com/story/openai-defense-department-ban-military-use-microsoft/",
+      "title": "[WIRED] OpenAI Had Banned Military Use. The Pentagon Tested Its Models Through Microsoft Anyway",
+      "content_html": "<img src=\"https://media.wired.com/photos/69a887d2900eb391be83a12d/master/pass/Model-Behavior-AI-Companies-Cant-Negotiate-With-Pentagon-Business.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSources allege the Defense Department experimented with Microsoft’s version of OpenAI technology before the ChatGPT-maker lifted its prohibition on military applications.",
+      "date_published": "2026-03-05T22:00:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://media.wired.com/photos/69a887d2900eb391be83a12d/master/pass/Model-Behavior-AI-Companies-Cant-Negotiate-With-Pentagon-Business.jpg"
+    },
+    {
+      "id": "https://www.npr.org/2026/03/05/nx-s1-5736550/medical-schools-agree-to-expand-their-nutrition-curriculum-this-fall",
+      "url": "https://www.npr.org/2026/03/05/nx-s1-5736550/medical-schools-agree-to-expand-their-nutrition-curriculum-this-fall",
+      "title": "[NPR Health News] Medical schools agree to expand their nutrition curriculum this fall",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.npr.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHealth Secretary Robert F. Kennedy Jr. announced that 53 medical schools in 31 states will expand their nutrition curriculum to 40 hours. Most medical schools fall short of the recommended 25 hours.",
+      "date_published": "2026-03-05T21:53:22+00:00",
+      "authors": [
+        {
+          "name": "NPR Health News",
+          "url": "https://www.npr.org/sections/health-shots/"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.npr.org&sz=128"
     }
   ]
 }
