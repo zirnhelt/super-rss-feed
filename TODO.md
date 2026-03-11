@@ -94,29 +94,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-04 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-03-04 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-03-04 | 🌙 8:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
-| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-03 | 🌅 4:30 AM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
-| 2026-03-03 | 🌞 12:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-03 | 🌞 12:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-03 | 🌞 12:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-03 | 🌞 12:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-03 | 🌞 12:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-03 | 🌞 12:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
-| 2026-03-03 | 🌙 8:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-03 | 🌙 8:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-03 | 🌙 8:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-03 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-03 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-03 | 🌙 8:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-10 | 🌅 morning | 263 | ai-tech:93(41%), news:65(28%), homelab:43(19%) |
+| 2026-03-10 | 🌞 afternoon | 297 | ai-tech:108(39%), news:74(27%), homelab:48(18%) |
+| 2026-03-10 | 🌙 evening | 157 | ai-tech:49(36%), news:45(33%), homelab:21(15%) |
 | 2026-03-09 | 🌅 morning | 207 | ai-tech:76(42%), news:53(29%), homelab:31(17%) |
 | 2026-03-09 | 🌞 afternoon | 285 | ai-tech:86(32%), news:81(30%), homelab:54(20%) |
 | 2026-03-09 | 🌙 evening | 164 | ai-tech:49(33%), homelab:31(21%), news:31(21%) |
@@ -135,13 +120,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-04 | 🌅 morning | 228 | news:77(38%), ai-tech:63(32%), homelab:27(14%) |
 | 2026-03-04 | 🌞 afternoon | 330 | news:155(51%), ai-tech:72(24%), homelab:40(13%) |
 | 2026-03-04 | 🌙 evening | 192 | news:76(44%), ai-tech:48(28%), homelab:16(9%) |
-| 2026-03-03 | 🌅 morning | 205 | news:84(45%), ai-tech:61(32%), homelab:22(12%) |
-| 2026-03-03 | 🌞 afternoon | 316 | news:151(52%), ai-tech:66(23%), homelab:39(13%) |
-| 2026-03-03 | 🌙 evening | 175 | news:74(45%), ai-tech:46(28%), science:17(10%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-10 20:57 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-11 05:31 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
