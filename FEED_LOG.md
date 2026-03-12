@@ -28,6 +28,20 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1015** → dedup **866** → new **359** → quality **150**
+- Mix: local:2(2%), ai-tech:44(34%), climate:7(5%), homelab:15(12%), science:10(8%), scifi:3(2%), news:49(38%)
+- Feeds: local:122, ai-tech:500, climate:190, homelab:500, science:207, scifi:44, news:500
+- Images: 150/150
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **BC Gov News** failed — `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionErro`
+
+
+---
+
+
+
 ## 2026-03-10 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
