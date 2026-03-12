@@ -3,6 +3,21 @@
 _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-12 (Thursday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1017** → dedup **854** → new **447** → quality **247**
+- Mix: ai-tech:75(34%), climate:14(6%), homelab:50(23%), science:9(4%), news:72(33%)
+- Feeds: local:115, ai-tech:500, climate:177, homelab:500, science:194, scifi:39, news:500
+- Images: 247/247
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
+
+
+---
+
+
+
 ## 2026-03-11 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
@@ -347,70 +362,6 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
-## 2026-03-04 (Wednesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1006** → dedup **978** → new **497** → quality **228**
-- Mix: local:4(2%), ai-tech:63(32%), climate:14(7%), homelab:27(14%), science:12(6%), scifi:3(2%), news:77(38%)
-- Feeds: local:90, ai-tech:500, climate:111, homelab:402, science:184, scifi:22, news:500
-- Images: 228/228
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
-- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
-- ⚠️ ⚠️ JSON parsing error: Extra data: line 13 column 1 (char 541)
-
-
----
-
-
-
-
-#### 🌞 12:30 PM Pacific
-- Fetched **1006** → dedup **983** → new **597** → quality **330**
-- Mix: local:11(4%), ai-tech:72(24%), climate:5(2%), homelab:40(13%), science:18(6%), scifi:3(1%), news:155(51%)
-- Feeds: local:101, ai-tech:500, climate:116, homelab:442, science:202, scifi:25, news:500
-- Images: 330/330
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
-- ⚠️ ⚠️ JSON parsing error: Extra data: line 13 column 1 (char 539)
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1006** → dedup **980** → new **451** → quality **192**
-- Mix: local:10(6%), ai-tech:48(28%), climate:14(8%), homelab:16(9%), science:6(3%), scifi:3(2%), news:76(44%)
-- Feeds: local:111, ai-tech:500, climate:130, homelab:458, science:208, scifi:28, news:500
-- Images: 192/192
-- ⚠️ **Scientific American** failed — `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S`
-- ⚠️ **Techdirt** failed — `520 Server Error: <none> for url: https://www.techdirt.com/feed/`
-- ⚠️ **The Breach** failed — `520 Server Error: <none> for url: https://breachmedia.ca/feed/`
-- ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ **Yale Climate Connections** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Longreads** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
-
-
----
-
-
-
 ## Week of 2026-02-24–2026-02-24
 - 2 runs · avg fetched 805 · avg quality 362
 - Dominant: **news** (100%) local:2 / news:723
@@ -558,6 +509,25 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 - - ⚠️ Yale Climate Connections failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without 
 - - ⚠️ Longreads failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 - - ⚠️ Harvard Health Blog failed — 404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed
+
+
+---
+
+
+
+## Week of 2026-03-04–2026-03-04
+- 3 runs · avg fetched 1006 · avg quality 250
+- Dominant: **news** (45%) local:25 / ai-tech:183 / climate:33 / homelab:83 / science:36 / scifi:9 / news:308
+- - ⚠️ Scientific American failed — HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /S
+- - ⚠️ Techdirt failed — 520 Server Error: <none> for url: https://www.techdirt.com/feed/
+- - ⚠️ The Breach failed — 520 Server Error: <none> for url: https://breachmedia.ca/feed/
+- - ⚠️ Yale Climate Connections failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without 
+- - ⚠️ Longreads failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+- - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
+- - ⚠️ Harvard Health Blog failed — 404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed
+- - ⚠️ The Narwhal failed — 415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/
+- - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
+- - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
 
 
 ---
