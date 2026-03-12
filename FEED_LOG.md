@@ -18,6 +18,20 @@ _Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the 
 
 
 
+
+#### 🌞 12:30 PM Pacific
+- Fetched **1000** → dedup **847** → new **493** → quality **320**
+- Mix: local:16(5%), ai-tech:104(35%), climate:16(5%), homelab:32(11%), science:11(4%), scifi:1(0%), news:121(40%)
+- Feeds: local:123, ai-tech:500, climate:178, homelab:500, science:190, scifi:35, news:500
+- Images: 320/320
+- ⚠️ **Boing Boing** failed — `HTTPSConnectionPool(host='boingboing.net', port=443): Read timed out. (read timeout=10)`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+
+
+---
+
+
+
 ## 2026-03-11 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
