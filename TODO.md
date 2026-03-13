@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-12 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-12 | 🌅 4:30 AM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
+| 2026-03-12 | 🌞 12:30 PM Pacific | ⚠️ **Boing Boing** failed | `HTTPSConnectionPool(host='boingboing.net', port=443): Read timed out. (read timeout=10)` |
+| 2026-03-12 | 🌞 12:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-12 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-11 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-11 | 🌙 8:30 PM Pacific | ⚠️ **BC Gov News** failed | `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionErro` |
 | 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
@@ -53,29 +58,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-06 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-03-06 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-03-06 | 🌙 8:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
-| 2026-03-05 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-05 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-05 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-05 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-05 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-05 | 🌅 4:30 AM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
-| 2026-03-05 | 🌞 12:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-05 | 🌞 12:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-05 | 🌞 12:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-05 | 🌞 12:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-05 | 🌞 12:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-05 | 🌞 12:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
-| 2026-03-05 | 🌙 8:30 PM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-05 | 🌙 8:30 PM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-05 | 🌙 8:30 PM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-05 | 🌙 8:30 PM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-05 | 🌙 8:30 PM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-05 | 🌙 8:30 PM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-12 | 🌅 morning | 247 | ai-tech:75(34%), news:72(33%), homelab:50(23%) |
+| 2026-03-12 | 🌞 afternoon | 320 | news:121(40%), ai-tech:104(35%), homelab:32(11%) |
+| 2026-03-12 | 🌙 evening | 170 | news:58(39%), ai-tech:53(35%), homelab:17(11%) |
 | 2026-03-11 | 🌅 morning | 273 | ai-tech:100(40%), homelab:63(25%), news:63(25%) |
 | 2026-03-11 | 🌞 afternoon | 272 | ai-tech:101(40%), news:67(26%), homelab:40(16%) |
 | 2026-03-11 | 🌙 evening | 150 | news:49(38%), ai-tech:44(34%), homelab:15(12%) |
@@ -94,13 +84,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-06 | 🌅 morning | 201 | news:73(40%), ai-tech:54(30%), homelab:27(15%) |
 | 2026-03-06 | 🌞 afternoon | 300 | news:132(49%), ai-tech:53(20%), homelab:36(13%) |
 | 2026-03-06 | 🌙 evening | 144 | news:73(56%), ai-tech:24(18%), local:12(9%) |
-| 2026-03-05 | 🌅 morning | 253 | news:87(39%), ai-tech:70(32%), homelab:32(14%) |
-| 2026-03-05 | 🌞 afternoon | 295 | news:120(45%), ai-tech:68(25%), homelab:33(12%) |
-| 2026-03-05 | 🌙 evening | 156 | news:56(41%), ai-tech:29(21%), homelab:16(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-12 21:00 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-13 05:32 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
