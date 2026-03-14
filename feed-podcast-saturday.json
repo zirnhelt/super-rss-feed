@@ -22,211 +22,811 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Score 0-100 where 100 is a perfect thematic match.",
     "day": "saturday",
-    "generated_at": "2026-03-07T20:46:25.283897+00:00",
-    "article_count": 10,
-    "bonus_count": 0,
+    "generated_at": "2026-03-14T05:29:34.269619+00:00",
+    "article_count": 40,
+    "bonus_count": 14,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.mycariboonow.com/201309/news/business/agriculture/indoor-winter-farmers-market-a-big-hit-with-williams-lake-residents/",
-      "url": "https://www.mycariboonow.com/201309/news/business/agriculture/indoor-winter-farmers-market-a-big-hit-with-williams-lake-residents/",
-      "title": "[My Cariboo Now] Indoor Winter Farmers Market a big hit with Williams Lake residents",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/INDOOR-MARKET-COORDINATOR-e1772834923160.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/INDOOR-MARKET-COORDINATOR-1024x768.jpeg\" width=\"696\" />There is a lot of growing interest in people attending the Williams Lake Indoor Winter Farmers Market.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/201309/news/business/agriculture/indoor-winter-farmers-market-a-big-hit-with-williams-lake-residents/\">Indoor Winter Farmers Market a big hit with Williams Lake residents</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-07T15:00:15+00:00",
+      "id": "https://100milefreepress.net/2026/03/13/100-mile-house-er-closed-for-second-straight-day-in-a-row/",
+      "url": "https://100milefreepress.net/2026/03/13/100-mile-house-er-closed-for-second-straight-day-in-a-row/",
+      "title": "[100 Mile Free Press] 100 Mile House ER closed for second straight day in a row",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41816464_web1_260108-OMH-Hospital-Closure-Images_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The emergency room will be unavailable from 7 a.m. to 8 p.m. on Saturday, March 14 </p>",
+      "date_published": "2026-03-13T23:30:00+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
         }
       ],
-      "_quality_score": 91,
+      "_quality_score": 85,
       "_theme_score": 82,
       "_final_score": 82,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/INDOOR-MARKET-COORDINATOR-e1772834923160.jpeg"
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41816464_web1_260108-OMH-Hospital-Closure-Images_1.jpg?w=1024"
     },
     {
-      "id": "https://www.mycariboonow.com/203936/news/health-care/100-mile-district-general-temporarily-closed-saturday/",
-      "url": "https://www.mycariboonow.com/203936/news/health-care/100-mile-district-general-temporarily-closed-saturday/",
-      "title": "[My Cariboo Now] 100 Mile District General temporarily closed Saturday",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-District-Hospital_IMG_2224-e1759356237386.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-District-Hospital_IMG_2224-1024x768.jpg\" width=\"696\" />Interior Health cautions 100 Mile and District residents that the emergency department at 100 Mile House District General Hospital will be closed from 7 a.m. until 8 p.m. on Saturday, Mar. 7.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/203936/news/health-care/100-mile-district-general-temporarily-closed-saturday/\">100 Mile District General temporarily closed Saturday</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-07T15:00:20+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "_quality_score": 93,
-      "_theme_score": 80,
-      "_final_score": 80,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-District-Hospital_IMG_2224-e1759356237386.jpg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/03/07/cariboo-brain-injury-association-provides-community-healing-to-members/",
-      "url": "https://100milefreepress.net/2026/03/07/cariboo-brain-injury-association-provides-community-healing-to-members/",
-      "title": "[100 Mile Free Press] Cariboo Brain Injury Association provides community, healing to members",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41754737_web1_260312-OMH-CBIA-Awareness_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>March is Brain Injury Awareness Month in the Cariboo </p>",
-      "date_published": "2026-03-07T19:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 90,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41754737_web1_260312-OMH-CBIA-Awareness_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.mycariboonow.com/195251/news/municipal-news/city-of-quesnel/quesnel-council-supports-bid-to-host-major-event-in-2028/",
-      "url": "https://www.mycariboonow.com/195251/news/municipal-news/city-of-quesnel/quesnel-council-supports-bid-to-host-major-event-in-2028/",
-      "title": "[My Cariboo Now] Quesnel Council supports bid to host major event in 2028",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2023/01/QUESNEL-CITY-COUNCIL-2023.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"300\" src=\"https://www.mycariboonow.com/wp-content/uploads/2023/01/QUESNEL-CITY-COUNCIL-2023.jpg\" width=\"696\" />Quesnel City Council has endorsed a bid to host the 2028 North Central Local Government Association AGM and Convention.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/195251/news/municipal-news/city-of-quesnel/quesnel-council-supports-bid-to-host-major-event-in-2028/\">Quesnel Council supports bid to host major event in 2028</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-05T14:00:10+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2023/01/QUESNEL-CITY-COUNCIL-2023.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/194811/on-air/made-and-played-in-canada/",
-      "url": "https://www.mycariboonow.com/194811/on-air/made-and-played-in-canada/",
-      "title": "[My Cariboo Now] Made and Played in Canada",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/MPC-FB-Cover-racoon-submit-1-1024x576.png\" width=\"696\" />Vista Radio is proud to present Made and Played in Canada in partnership with The Needful Music, a national initiative dedicated to supporting, showcasing, and amplifying emerging Canadian artists across the country. At the heart of the initiative is a new digital hub, MadeAndPlayedInCanada.ca, where Canadian musicians of all genres can submit their original music [&#8230;]</p>\n<p>The post <a href=\"https://www.mycariboonow.com/194811/on-air/made-and-played-in-canada/\">Made and Played in Canada</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-04T22:20:37+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
-    },
-    {
-      "id": "https://www.mycariboonow.com/192557/politics/coroners-inquest-to-examine-tumbler-ridge-shootings/",
-      "url": "https://www.mycariboonow.com/192557/politics/coroners-inquest-to-examine-tumbler-ridge-shootings/",
-      "title": "[My Cariboo Now] Coroner’s inquest to examine Tumbler Ridge shootings",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/IMG_0937-scaled-1.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/IMG_0937-scaled-1-1024x576.jpeg\" width=\"696\" />B.C.’s chief coroner says there will be an inquest into the Tumbler Ridge shootings.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/192557/politics/coroners-inquest-to-examine-tumbler-ridge-shootings/\">Coroner’s inquest to examine Tumbler Ridge shootings</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-04T05:19:32+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/IMG_0937-scaled-1.jpeg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/03/03/100-mile-house-rcmp-pull-over-driver-impaired-by-cannabis/",
-      "url": "https://100milefreepress.net/2026/03/03/100-mile-house-rcmp-pull-over-driver-impaired-by-cannabis/",
-      "title": "[100 Mile Free Press] 100 Mile House RCMP pull over driver impaired by cannabis",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41726819_web1_web1_220818-omh-rcmp-108-mile-_1.jpeg?w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The incident was one of 86 calls for service the RCMP responded to between Feb. 23 and March 3 </p>",
-      "date_published": "2026-03-03T23:30:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41726819_web1_web1_220818-omh-rcmp-108-mile-_1.jpeg?w=960"
-    },
-    {
-      "id": "https://www.mycariboonow.com/188578/news/rcmp/bc-highway-patrol-watching-for-seatbelt-safety-and-distracted-driving-in-march/",
-      "url": "https://www.mycariboonow.com/188578/news/rcmp/bc-highway-patrol-watching-for-seatbelt-safety-and-distracted-driving-in-march/",
-      "title": "[My Cariboo Now] BC Highway Patrol watching for seatbelt safety and distracted driving in March",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/11/now-cow-police-rcmp-640x420-1-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"420\" src=\"https://www.mycariboonow.com/wp-content/uploads/2025/11/now-cow-police-rcmp-640x420-1-1.jpg\" width=\"640\" />BC Highway Patrol and Mountie presence may be a bit more noticeable during March.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/188578/news/rcmp/bc-highway-patrol-watching-for-seatbelt-safety-and-distracted-driving-in-march/\">BC Highway Patrol watching for seatbelt safety and distracted driving in March</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-03-03T12:00:02+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/11/now-cow-police-rcmp-640x420-1-1.jpg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/03/07/rotary-club-president-brought-past-experience-to-100-mile-to-help-out-community/",
-      "url": "https://100milefreepress.net/2026/03/07/rotary-club-president-brought-past-experience-to-100-mile-to-help-out-community/",
-      "title": "[100 Mile Free Press] Rotary Club president brought past experience to 100 Mile to help out community",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41619134_web1_251106-OMH-Rotary-Turkey-Dinner_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Jim Carter has been a member of the 100 Mile Rotary Club since 2020 </p>",
-      "date_published": "2026-03-07T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 83,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41619134_web1_251106-OMH-Rotary-Turkey-Dinner_1.jpg?w=1024"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/03/06/2-arrests-made-in-3-year-drug-trafficking-investigation-by-prince-george-rcmp/",
-      "url": "https://quesnelobserver.com/2026/03/06/2-arrests-made-in-3-year-drug-trafficking-investigation-by-prince-george-rcmp/",
-      "title": "[Quesnel Cariboo Observer] 2 arrests made in 3-year drug trafficking investigation by Prince George RCMP",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41751624_web1_prince-george_0.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Kerridge Andrew Lowley and Robyn Ann Bradley have been charged with 31 offences </p>",
-      "date_published": "2026-03-06T18:35:00+00:00",
+      "id": "https://quesnelobserver.com/2026/03/12/150-people-died-in-b-c-in-january-from-toxic-drugs-coroner/",
+      "url": "https://quesnelobserver.com/2026/03/12/150-people-died-in-b-c-in-january-from-toxic-drugs-coroner/",
+      "title": "[Quesnel Cariboo Observer] 150 people died in B.C. in January from toxic drugs: Coroner",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41805279_web1_230414-BPD-Oppenheimer-drug-death-march_6.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Province approaching 10 years of the toxic drug public health emergency </p>",
+      "date_published": "2026-03-12T23:36:00+00:00",
       "authors": [
         {
           "name": "Quesnel Cariboo Observer",
           "url": "https://quesnelobserver.com"
         }
       ],
-      "_quality_score": 83,
+      "_quality_score": 85,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41805279_web1_230414-BPD-Oppenheimer-drug-death-march_6.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/hundreds-of-troops-train-west-of-williams-lake-in-cougar-fortress-exercise/",
+      "url": "https://wltribune.com/2026/03/13/hundreds-of-troops-train-west-of-williams-lake-in-cougar-fortress-exercise/",
+      "title": "[Williams Lake Tribune] Hundreds of troops train west of Williams Lake in Cougar Fortress exercise",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41817001_web1_190130-WLT-RockyMountainRangersTrainingweb.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>There are expected to be 350 Canadian Armed Forces members in the region </p>",
+      "date_published": "2026-03-13T18:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
       "_theme_score": 75,
       "_final_score": 75,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41751624_web1_prince-george_0.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41817001_web1_190130-WLT-RockyMountainRangersTrainingweb.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/williams-lake-students-race-duct-tape-cardboard-canoes-in-school-challenge/",
+      "url": "https://wltribune.com/2026/03/13/williams-lake-students-race-duct-tape-cardboard-canoes-in-school-challenge/",
+      "title": "[Williams Lake Tribune] Williams Lake students race duct-tape, cardboard canoes in school challenge",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41792887_web1_260319-WLT-Cardboard-Canoe-Engineering-Challenge-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Power technology students tested their designs at Cariboo Memorial Recreation Complex </p>",
+      "date_published": "2026-03-13T16:52:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41792887_web1_260319-WLT-Cardboard-Canoe-Engineering-Challenge-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/03/13/b-c-wheelchair-curler-team-canada-guaranteed-paralympics-medal-in-italy/",
+      "url": "https://quesnelobserver.com/2026/03/13/b-c-wheelchair-curler-team-canada-guaranteed-paralympics-medal-in-italy/",
+      "title": "[Quesnel Cariboo Observer] B.C. wheelchair curler, Team Canada guaranteed Paralympics medal in Italy",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41808647_web1_260319-VMS-ina-fridayPUSH-FORREST_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Ina Forrest, from Spallumcheen, and Canada steal semifinal victory, 8-7, over Korea Friday March 13 </p>",
+      "date_published": "2026-03-13T16:09:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 77,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41808647_web1_260319-VMS-ina-fridayPUSH-FORREST_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/city-of-williams-lake-challenges-city-of-quesnel-in-friendly-playoff-rivalry/",
+      "url": "https://wltribune.com/2026/03/13/city-of-williams-lake-challenges-city-of-quesnel-in-friendly-playoff-rivalry/",
+      "title": "[Williams Lake Tribune] City of Williams Lake challenges City of Quesnel in friendly playoff rivalry",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41792785_web1_260319-WLT-Hockey-Challenge-Mustangs-River-Rush-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1 MIN READ",
+      "date_published": "2026-03-14T05:28:14.193775+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41792785_web1_260319-WLT-Hockey-Challenge-Mustangs-River-Rush-_2.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/03/13/mieke-reelick/",
+      "url": "https://100milefreepress.net/2026/03/13/mieke-reelick/",
+      "title": "[100 Mile Free Press] Mieke Reelick",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41814595_260313-digitalobit-omh-Reelick-pic_1.png?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>We are saddened to announce the passing of Mieke Reelick on 7 March 2026. A devoted mother and a valued member of the 100 Mile House community. Born in The Hague, Netherlands, in 1942, she later made Canada her home, where she raised her son Armand (Elicia) and daughter Nicole.</p>",
+      "date_published": "2026-03-13T20:30:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41814595_260313-digitalobit-omh-Reelick-pic_1.png?w=400"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/rezoning-approved-for-building-60-site-b-c-campground-of-trans-canada/",
+      "url": "https://wltribune.com/2026/03/13/rezoning-approved-for-building-60-site-b-c-campground-of-trans-canada/",
+      "title": "[Williams Lake Tribune] Rezoning approved for building 60-site B.C. campground of Trans-Canada",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41817231_web1_221124-VMS-trumbley-CSRD_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Land near Revelstoke could get five-dozen campsites off Highway 1, to &#8220;help fill a void&#8221; </p>",
+      "date_published": "2026-03-13T18:20:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 95,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41817231_web1_221124-VMS-trumbley-CSRD_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/infant-from-fort-st-john-spends-240-days-in-bc-childrens-hospital/",
+      "url": "https://wltribune.com/2026/03/13/infant-from-fort-st-john-spends-240-days-in-bc-childrens-hospital/",
+      "title": "[Williams Lake Tribune] Infant from Fort St. John spends 240 days in BC Children’s Hospital",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41815028_web1_260319-CCO-Bensyn_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Bensyn was born with Down syndrome </p>",
+      "date_published": "2026-03-13T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 98,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41815028_web1_260319-CCO-Bensyn_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/slow-moving-kelowna-murder-trial-returned-for-week-will-continue-in-june/",
+      "url": "https://wltribune.com/2026/03/13/slow-moving-kelowna-murder-trial-returned-for-week-will-continue-in-june/",
+      "title": "[Williams Lake Tribune] Slow moving Kelowna murder trial returned for week, will continue in June",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41814473_web1_231101-KCN-Searsmurderautops_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Gabriella Sears is standing trial for second-degree murder for the 2021 death of Darren Middleton </p>",
+      "date_published": "2026-03-13T14:15:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 88,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41814473_web1_231101-KCN-Searsmurderautops_1.jpeg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/07/man-charged-for-2022-okanagan-double-homicide/",
+      "url": "https://wltribune.com/2026/03/07/man-charged-for-2022-okanagan-double-homicide/",
+      "title": "[Williams Lake Tribune] Man charged for 2022 Okanagan double homicide",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41759235_web1_260312-PWN-double-homicide-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Yves &#8216;Oliver&#8217; Grenier, 36, faces two counts of first-degree murder in connection to the deaths of Douglas Barker and Alannah Brown </p>",
+      "date_published": "2026-03-07T11:40:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41759235_web1_260312-PWN-double-homicide-1_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/high-streamflow-advisories-in-place-for-coastal-b-c-ahead-of-heavy-rainfall/",
+      "url": "https://wltribune.com/2026/03/13/high-streamflow-advisories-in-place-for-coastal-b-c-ahead-of-heavy-rainfall/",
+      "title": "[Williams Lake Tribune] High streamflow advisories in place for coastal B.C. ahead of heavy rainfall",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41816902_web1_260313-BPD-Flood-warnings-advisories_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>River Forecast Centre says heavy precipitation to begin on Sunday </p>",
+      "date_published": "2026-03-13T16:51:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 92,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41816902_web1_260313-BPD-Flood-warnings-advisories_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/13/new-study-argues-cost-effectiveness-of-enloe-dam-removal-from-similkameen-river/",
+      "url": "https://wltribune.com/2026/03/13/new-study-argues-cost-effectiveness-of-enloe-dam-removal-from-similkameen-river/",
+      "title": "[Williams Lake Tribune] New study argues cost-effectiveness of Enloe Dam removal from Similkameen River",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41816740_web1_210616-PWN-EnloeDam-Enloe_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The new feasibility study said removing the dam would open 2,500 km of salmon habitat </p>",
+      "date_published": "2026-03-13T16:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41816740_web1_210616-PWN-EnloeDam-Enloe_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/10/threat-made-to-chetwynd-high-school-unfounded/",
+      "url": "https://wltribune.com/2026/03/10/threat-made-to-chetwynd-high-school-unfounded/",
+      "title": "[Williams Lake Tribune] Threat made to Chetwynd high school unfounded",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41779924_web1_260319-CCO-Chetwynd_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>An anonymous email detailed vague and unsubstantiated claims </p>",
+      "date_published": "2026-03-10T11:16:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 95,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41779924_web1_260319-CCO-Chetwynd_1.jpg?w=1024"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026CITZ0003-000262",
+      "url": "https://news.gov.bc.ca/releases/2026CITZ0003-000262",
+      "title": "[BC Gov News] Strengthening Haida Gwaii connectivity through new subsea fibre-optic link",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew link brings internet resilience to Haida Gwaii communities",
+      "date_published": "2026-03-13T21:15:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 67,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/09/5-okanagan-residents-groups-recognized-with-als-society-of-b-c-2025-awards/",
+      "url": "https://wltribune.com/2026/03/09/5-okanagan-residents-groups-recognized-with-als-society-of-b-c-2025-awards/",
+      "title": "[Williams Lake Tribune] 5 Okanagan residents, groups recognized with ALS Society of B.C. 2025 awards",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41774010_web1_dsc_0934.JPG?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Winners will be celebrated with an event in Richmond on Apr. 10 </p>",
+      "date_published": "2026-03-09T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41774010_web1_dsc_0934.JPG?w=1024"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026ECS0008-000258",
+      "url": "https://news.gov.bc.ca/releases/2026ECS0008-000258",
+      "title": "[BC Gov News] Advancing clean-energy goals of remote First Nations",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThirteen remote First Nations invest in clean-energy projects to reduce reliance on diesel",
+      "date_published": "2026-03-12T21:30:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 83,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://www.tomsguide.com/wellness/sleep-problems/experts-share-7-major-sleep-hygiene-mistakes-that-cause-3-a-m-wake-ups-and-insomnia-and-how-to-fix-them",
+      "url": "https://www.tomsguide.com/wellness/sleep-problems/experts-share-7-major-sleep-hygiene-mistakes-that-cause-3-a-m-wake-ups-and-insomnia-and-how-to-fix-them",
+      "title": "[Toms Guide] Experts share 7 major sleep hygiene mistakes that cause 3 a.m. wake-ups and insomnia — and how to fix them",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/8SH3NM7i4uN9BkZwuUu4Gb-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI speak to two doctors to find out the biggest sleep hygiene mistakes we're making and how they're causing 3.a.m. wakeups and insomnia",
+      "date_published": "2026-03-14T05:05:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/8SH3NM7i4uN9BkZwuUu4Gb-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/14/business/china-oil-cars.html",
+      "url": "https://www.nytimes.com/2026/03/14/business/china-oil-cars.html",
+      "title": "[NYT Business] China’s Edge in an Oil Shock: Electric Cars and Renewables",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/12/multimedia/00biz-china-peak-gas-01-fptg/00biz-china-peak-gas-01-fptg-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBeijing’s decades-long push to reduce its dependence on foreign oil with huge investments in clean energy sources like electric vehicles is now paying off.",
+      "date_published": "2026-03-14T04:00:07+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_quality_score": 63,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/03/12/multimedia/00biz-china-peak-gas-01-fptg/00biz-china-peak-gas-01-fptg-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://newatlas.com/motorcycles/yozma-in10pro/",
+      "url": "https://newatlas.com/motorcycles/yozma-in10pro/",
+      "title": "[New Atlas] Torque-rich e-moto has 60-mile range, 50-mph top speed – all for $1,899",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/f536fb3/2147483647/strip/true/crop/1270x667+226+0/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F23%2Ff5%2F456396b14d19a252109d98c25ba4%2Fyozma-in-10-pro.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The IN10 Pro+ gets proper off-road wheels, a high-capacity battery, and enough power to beat full-blown ICE dirt bikes\" src=\"https://assets.newatlas.com/dims4/default/40eeed0/2147483647/strip/true/crop/1600x667+0+0/resize/1440x600!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F23%2Ff5%2F456396b14d19a252109d98c25ba4%2Fyozma-in-10-pro.jpg\" /><p>There’s no way a sub-$2,000 electric motorcycle can be any good … or so you thought. And it’s not even Chinese! It comes from an American company called Yozma that’s based in Denver, Colorado.</p><p><a href=\"https://newatlas.com/motorcycles/yozma-in10pro/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/motorcycles/\">Motorcycles</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/electric+motorcycle/\" rel=\"tag\">Electric Motorcycles</a>, <a href=\"https://newatlas.com/tag/dirtbike/\" rel=\"tag\">Dirtbikes</a>, <a href=\"https://newatlas.com/tag/enduro/\" rel=\"tag\">Enduro</a>, <a href=\"https://newatlas.com/tag/ebikes/\" rel=\"tag\">ebikes</a>, <a href=\"https://newatlas.com/tag/off-road/\" rel=\"tag\">Off-road</a></p>",
+      "date_published": "2026-03-14T03:03:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://assets.newatlas.com/dims4/default/f536fb3/2147483647/strip/true/crop/1270x667+226+0/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F23%2Ff5%2F456396b14d19a252109d98c25ba4%2Fyozma-in-10-pro.jpg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/13/ford-take-note-classic-pickup-becomes-the-ev-we-want/",
+      "url": "https://hackaday.com/2026/03/13/ford-take-note-classic-pickup-becomes-the-ev-we-want/",
+      "title": "[Hackaday] Ford, Take Note: Classic Pickup Becomes the EV We Want",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/ScottenMotors-feat.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/ScottenMotors-feat.webp?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Ford does sell an electric pickup, but not very many of them. We can&#8217;t say for sure, but it&#8217;s possible that if the F150 Lightning had the classic cool of <a class=\"read-more\" href=\"https://hackaday.com/2026/03/13/ford-take-note-classic-pickup-becomes-the-ev-we-want/\">&#8230;read more</a>",
+      "date_published": "2026-03-14T02:00:32+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/ScottenMotors-feat.webp"
+    },
+    {
+      "id": "https://www.tomsguide.com/computing/smart-glasses/googles-new-android-xr-smart-glasses-use-gemini-to-ai-edit-your-world-while-youre-still-taking-the-photo",
+      "url": "https://www.tomsguide.com/computing/smart-glasses/googles-new-android-xr-smart-glasses-use-gemini-to-ai-edit-your-world-while-youre-still-taking-the-photo",
+      "title": "[Toms Guide] Google's new Android XR smart glasses use Gemini to AI-edit your world while you’re still taking the photo",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/fKCbP28rsahvFprF9cuqWC-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGoogle demoed its prototype Android XR smart glasses recently, showing off several Gemini-powered features.",
+      "date_published": "2026-03-14T00:59:30+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/fKCbP28rsahvFprF9cuqWC-1280-80.jpg"
+    },
+    {
+      "id": "https://nautil.us/the-genetic-secrets-of-sperm-warfare-1278928/",
+      "url": "https://nautil.us/the-genetic-secrets-of-sperm-warfare-1278928/",
+      "title": "[Nautilus] The Genetic Secrets of Sperm Warfare",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/03/Currie_HERO_aa58ca.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>How some genes can rig the system</p>\n<p>The post <a href=\"https://nautil.us/the-genetic-secrets-of-sperm-warfare-1278928/\">The Genetic Secrets of Sperm Warfare</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-03-13T23:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/03/Currie_HERO_aa58ca.png?w=564"
+    },
+    {
+      "id": "https://gizmodo.com/divine-incursions-is-a-brainy-monster-of-the-week-thriller-that-will-scratch-your-x-files-itch-2000733289",
+      "url": "https://gizmodo.com/divine-incursions-is-a-brainy-monster-of-the-week-thriller-that-will-scratch-your-x-files-itch-2000733289",
+      "title": "[Gizmodo] ‘Divine Incursions’ Is a Brainy Monster-of-the-Week Thriller That Will Scratch Your ‘X-Files’ Itch",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/Divine-Incursions-Yen-Pressio9-template-circle-light-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis detective-style sci-fi Yen Press series channels classic genre paranoia without throwing hands to solve supernatural problems.",
+      "date_published": "2026-03-13T22:15:50+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/03/Divine-Incursions-Yen-Pressio9-template-circle-light-1280x853.jpg"
+    },
+    {
+      "id": "https://insideevs.com/features/790001/rivian-r2-and-chevy-bolt-drive-podcast/",
+      "url": "https://insideevs.com/features/790001/rivian-r2-and-chevy-bolt-drive-podcast/",
+      "title": "[InsideEVs] Everything You Need To Know About The Rivian R2, Plus We Drive The 2027 Chevy Bolt",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/8A3POq/s3/rivian-r2-podcast.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOn this week's Plugged-In Podcast: Rivian's make-or-break moment arrives, and Mack drives the reworked 2027 Chevy Bolt EV.",
+      "date_published": "2026-03-13T22:13:29+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.motor1.com/images/mgl/8A3POq/s3/rivian-r2-podcast.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/13/us/politics/ai-ads-campaign-deepfake.html",
+      "url": "https://www.nytimes.com/2026/03/13/us/politics/ai-ads-campaign-deepfake.html",
+      "title": "[NYT Top Stories] What to Know About AI Political Campaign Ads During Election Season",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/13/multimedia/13pol-on-politics-newsletter-lgcb/13pol-on-politics-newsletter-lgcb-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWait, that’s not the real James Talarico …",
+      "date_published": "2026-03-13T22:13:01+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/03/13/multimedia/13pol-on-politics-newsletter-lgcb/13pol-on-politics-newsletter-lgcb-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/this-llm-service-promises-the-privacy-of-local-ai/",
+      "url": "https://www.xda-developers.com/this-llm-service-promises-the-privacy-of-local-ai/",
+      "title": "[XDA Developers] This LLM service promises the privacy of local AI, and that's just what I needed",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/venice-ai-main-image.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThere's a new AI service in town, and it's not asking you to pay in data",
+      "date_published": "2026-03-13T22:00:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/venice-ai-main-image.jpeg"
+    },
+    {
+      "id": "https://www.howtogeek.com/your-smart-home-needs-a-mesh-network-heres-what-that-means/",
+      "url": "https://www.howtogeek.com/your-smart-home-needs-a-mesh-network-heres-what-that-means/",
+      "title": "[How-To Geek] Your smart home needs a mesh network, here’s what that means",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/ikea-bilresa-remote-controlling-a-tradfri-light.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhat a mesh.",
+      "date_published": "2026-03-13T22:00:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/ikea-bilresa-remote-controlling-a-tradfri-light.jpg"
+    },
+    {
+      "id": "https://lifehacker.com/tech/how-to-spot-living-off-the-land-computer-attacks?utm_medium=RSS",
+      "url": "https://lifehacker.com/tech/how-to-spot-living-off-the-land-computer-attacks?utm_medium=RSS",
+      "title": "[Lifehacker] How to Spot 'Living Off the Land' Computer Attacks",
+      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01KKM5MTD8TA6GBV41Z65SWH9X/hero-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n\"Living Off the Land\" attacks use built-in tools and processes instead of traditional malware.",
+      "date_published": "2026-03-13T21:02:17+00:00",
+      "authors": [
+        {
+          "name": "Lifehacker",
+          "url": "https://lifehacker.com/feed/rss"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://lifehacker.com/imagery/articles/01KKM5MTD8TA6GBV41Z65SWH9X/hero-image.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/pc-building-survive-ai-crisis-but-changed-forever/",
+      "url": "https://www.xda-developers.com/pc-building-survive-ai-crisis-but-changed-forever/",
+      "title": "[XDA Developers] PC building will survive the AI crisis, but it will be forever changed",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/08/stack-of-parts-kids-pc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExpect to pay a lot more for your next PC build",
+      "date_published": "2026-03-13T21:01:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/08/stack-of-parts-kids-pc.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/13/running-a-pc-off-aa-cells-with-buck-converters-really-boosts-performance/",
+      "url": "https://hackaday.com/2026/03/13/running-a-pc-off-aa-cells-with-buck-converters-really-boosts-performance/",
+      "title": "[Hackaday] Running a PC off AA Cells With Buck Converters Really Boosts Performance",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/aa_battery_powered_pc_second_try_scuffedbits_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"388\" src=\"https://hackaday.com/wp-content/uploads/2026/03/aa_battery_powered_pc_second_try_scuffedbits_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>After the previous attempt of running a PC off AA cells got a lot of comments, [ScuffedBits] decided to do the scientifically responsible thing and re-ran the experiment with all <a class=\"read-more\" href=\"https://hackaday.com/2026/03/13/running-a-pc-off-aa-cells-with-buck-converters-really-boosts-performance/\">&#8230;read more</a>",
+      "date_published": "2026-03-13T15:30:34+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/aa_battery_powered_pc_second_try_scuffedbits_youtube.jpg"
+    },
+    {
+      "id": "https://www.zdnet.com/article/how-to-delete-or-hide-yourself-from-the-internet/",
+      "url": "https://www.zdnet.com/article/how-to-delete-or-hide-yourself-from-the-internet/",
+      "title": "[ZDNet] How to delete or hide yourself from the internet",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/45b089bc0a90428e1bdb8e0ddc7bf161232e000c/2025/11/04/67402ec2-b1c1-48bc-ae3d-df121a88fafc/10-tips-to-delete-yourself-from-the-internet-and-hide-yourself-online2.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTake control of your privacy, cut off data trackers, and erase your online presence with these expert-approved tips.",
+      "date_published": "2026-03-13T15:21:00+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.zdnet.com/a/img/resize/45b089bc0a90428e1bdb8e0ddc7bf161232e000c/2025/11/04/67402ec2-b1c1-48bc-ae3d-df121a88fafc/10-tips-to-delete-yourself-from-the-internet-and-hide-yourself-online2.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.zdnet.com/article/jackery-explorer-2000-power-station-amazon-deal/",
+      "url": "https://www.zdnet.com/article/jackery-explorer-2000-power-station-amazon-deal/",
+      "title": "[ZDNet] Jackery's Explorer 2000 power station is 50% on Amazon right now",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/4ba7987788bdd201d3d3b8b6525e9bc428964073/2025/06/05/c2dfd20f-3be1-4324-8c50-0d9cf0989605/jackery-explorer-2000-v2.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSave $750 on the Explorer 2000 v2, Jackery's compact LiFePO4-powered backup power unit that's perfect for in-home use, camping, and outdoor work tasks.",
+      "date_published": "2026-03-13T15:02:23+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.zdnet.com/a/img/resize/4ba7987788bdd201d3d3b8b6525e9bc428964073/2025/06/05/c2dfd20f-3be1-4324-8c50-0d9cf0989605/jackery-explorer-2000-v2.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://insideevs.com/news/789730/europe-electric-truck-industry-china/",
+      "url": "https://insideevs.com/news/789730/europe-electric-truck-industry-china/",
+      "title": "[InsideEVs] 'The Chinese Will Eat Our Lunch': Europe's EV Trucking Industry Is Scared As Hell",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/L3y0g3/s3/windrose-hero.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChinese EV makers are now bringing their low-cost advantage to the heavy-duty truck market.",
+      "date_published": "2026-03-13T14:41:42+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.motor1.com/images/mgl/L3y0g3/s3/windrose-hero.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/vpn/vpn-privacy-security/russias-crackdown-on-vpns-reaches-new-heights-as-internet-restrictions-intensify",
+      "url": "https://www.techradar.com/vpn/vpn-privacy-security/russias-crackdown-on-vpns-reaches-new-heights-as-internet-restrictions-intensify",
+      "title": "[TechRadar] Russia’s crackdown on VPNs reaches new heights as internet restrictions intensify",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/MXqmsVRQzx9hefCvT8TupP-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMoscow has been rocked by a week-long mobile internet outage as authorities announce new plans to restrict Telegram and VPNs.",
+      "date_published": "2026-03-13T14:41:22+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/MXqmsVRQzx9hefCvT8TupP-1280-80.jpg"
+    },
+    {
+      "id": "https://www.quantamagazine.org/why-do-humanoid-robots-still-struggle-with-the-small-stuff-20260313/",
+      "url": "https://www.quantamagazine.org/why-do-humanoid-robots-still-struggle-with-the-small-stuff-20260313/",
+      "title": "[Quanta Magazine] Why Do Humanoid Robots Still Struggle With the Small Stuff?",
+      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/03/Qualia-AI-and-Robots-cr-Henry-Flores-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe last decade has seen vast improvements in humanoid robots, but graduating to widespread use might require going back to the fundamentals.            <p>The post <a href=\"https://www.quantamagazine.org/why-do-humanoid-robots-still-struggle-with-the-small-stuff-20260313/\" target=\"_blank\">Why Do Humanoid Robots Still Struggle With the Small Stuff?</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
+      "date_published": "2026-03-13T14:37:02+00:00",
+      "authors": [
+        {
+          "name": "Quanta Magazine",
+          "url": "https://www.quantamagazine.org"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/03/Qualia-AI-and-Robots-cr-Henry-Flores-Default.webp"
+    },
+    {
+      "id": "https://kottke.org/26/03/0048564-balcony-solar-finally-see",
+      "url": "https://kottke.org/26/03/0048564-balcony-solar-finally-see",
+      "title": "[Kottke.org] Balcony solar finally seems to be taking off in the US ....",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://www.canarymedia.com/articles/solar/balcony-solar-taking-state-legislatures-by-storm\">Balcony solar finally seems to be taking off in the US</a>. &#8220;As of Wednesday, Democratic and Republican lawmakers in 28 states and Washington, D.C., have announced their own legislation to make these systems permissible.&#8221;\n</p>",
+      "date_published": "2026-03-13T14:15:58+00:00",
+      "authors": [
+        {
+          "name": "Kottke.org",
+          "url": "https://kottke.org/"
+        }
+      ],
+      "_quality_score": 78,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+    },
+    {
+      "id": "https://gizmodo.com/our-sun-was-born-in-a-hellish-part-of-the-milky-way-new-research-explains-how-it-escaped-2000733122",
+      "url": "https://gizmodo.com/our-sun-was-born-in-a-hellish-part-of-the-milky-way-new-research-explains-how-it-escaped-2000733122",
+      "title": "[Gizmodo] Our Sun Was Born in a Hellish Part of the Milky Way. New Research Explains How It Escaped",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/stellar-twins-migration-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWithout the mass stellar migration, life may not have been able to form on Earth.",
+      "date_published": "2026-03-13T14:10:04+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/03/stellar-twins-migration-1280x853.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/autisms-link-to-parkinsons-risk-may-finally-be-explained",
+      "url": "https://www.sciencealert.com/autisms-link-to-parkinsons-risk-may-finally-be-explained",
+      "title": "[ScienceAlert] Autism's Link to Parkinson's Risk May Finally Be Explained",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/FiringNeuron.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Firing neurons image\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/FiringNeuron.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Decades of early warning.</p>",
+      "date_published": "2026-03-13T14:00:40+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/03/FiringNeuron.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/the-7-top-3d-printer-deals-for-beginners-from-gbp149-in-the-spring-sales",
+      "url": "https://www.techradar.com/pro/the-7-top-3d-printer-deals-for-beginners-from-gbp149-in-the-spring-sales",
+      "title": "[TechRadar] The 7 top 3D printer deals for beginners from £149 in the Spring Sales",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/7GrUSiLXE9qEjD3twHZh5Z-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese beginner-friendly 3D printers from Bambu Lab, Creality, and more are a steal right now.",
+      "date_published": "2026-03-13T13:38:35+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/7GrUSiLXE9qEjD3twHZh5Z-1280-80.jpg"
     }
   ]
 }
