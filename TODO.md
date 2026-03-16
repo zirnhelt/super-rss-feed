@@ -8,6 +8,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-15 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-15 | 🌞 12:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-15 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-14 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-14 | 🌞 12:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-14 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -21,17 +24,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-12 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-11 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-11 | 🌙 8:30 PM Pacific | ⚠️ **BC Gov News** failed | `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionErro` |
-| 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **Scientific American** failed | `HTTPSConnectionPool(host='rss.sciam.com', port=443): Max retries exceeded with url: /ScientificAmericanNews (Caused by S` |
-| 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **Techdirt** failed | `520 Server Error: <none> for url: https://www.techdirt.com/feed/` |
-| 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **The Breach** failed | `520 Server Error: <none> for url: https://breachmedia.ca/feed/` |
-| 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **Yale Climate Connections** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **Longreads** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-03-08 | 🌅 4:30 AM Pacific | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-15 | 🌅 morning | 126 | news:41(37%), homelab:33(30%), ai-tech:26(24%) |
+| 2026-03-15 | 🌞 afternoon | 97 | ai-tech:29(33%), homelab:26(29%), news:25(28%) |
+| 2026-03-15 | 🌙 evening | 103 | ai-tech:34(37%), news:31(34%), homelab:12(13%) |
 | 2026-03-14 | 🌅 morning | 132 | ai-tech:34(29%), homelab:34(29%), news:32(27%) |
 | 2026-03-14 | 🌞 afternoon | 100 | news:29(32%), ai-tech:27(30%), homelab:21(23%) |
 | 2026-03-14 | 🌙 evening | 74 | ai-tech:24(36%), news:21(31%), homelab:10(15%) |
@@ -50,13 +50,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-09 | 🌅 morning | 207 | ai-tech:76(42%), news:53(29%), homelab:31(17%) |
 | 2026-03-09 | 🌞 afternoon | 285 | ai-tech:86(32%), news:81(30%), homelab:54(20%) |
 | 2026-03-09 | 🌙 evening | 164 | ai-tech:49(33%), homelab:31(21%), news:31(21%) |
-| 2026-03-08 | 🌅 morning | 124 | news:47(43%), homelab:27(25%), ai-tech:25(23%) |
-| 2026-03-08 | 🌞 afternoon | 44 | news:20(51%), homelab:12(31%), ai-tech:4(10%) |
-| 2026-03-08 | 🌙 evening | 69 | news:21(34%), ai-tech:15(24%), homelab:11(18%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-15 20:51 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-16 06:01 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
