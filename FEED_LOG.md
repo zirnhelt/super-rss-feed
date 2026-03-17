@@ -1,6 +1,6 @@
 # Feed Generation Log
 
-_Auto-updated 3× daily (6 AM / 2 PM / 10 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
+_Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
 ## 2026-03-16 (Monday)

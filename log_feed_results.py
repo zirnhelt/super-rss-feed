@@ -37,11 +37,10 @@ RETENTION_DAYS = 7
 
 # GitHub Actions cron schedule -> Pacific slots (UTC hours)
 # 30 12 * * *  = 4:30 AM Pacific  (12:30 UTC)
-# 30 20 * * *  = 12:30 PM Pacific (20:30 UTC)
 # 30 4  * * *  = 8:30 PM Pacific  (04:30 UTC)
-SLOT_BY_UTC_HOUR = {12: 'morning', 20: 'afternoon', 4: 'evening'}
-SLOT_EMOJIS  = {'morning': '🌅', 'afternoon': '🌞', 'evening': '🌙', 'manual': '🔧'}
-SLOT_LABELS  = {'morning': '4:30 AM Pacific', 'afternoon': '12:30 PM Pacific', 'evening': '8:30 PM Pacific', 'manual': 'Manual Run'}
+SLOT_BY_UTC_HOUR = {12: 'morning', 4: 'evening'}
+SLOT_EMOJIS  = {'morning': '🌅', 'evening': '🌙', 'manual': '🔧'}
+SLOT_LABELS  = {'morning': '4:30 AM Pacific', 'evening': '8:30 PM Pacific', 'manual': 'Manual Run'}
 CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'science', 'scifi', 'news']
 
 AUTO_START = '<!-- AUTO:START -->'
@@ -61,8 +60,6 @@ def detect_slot() -> str:
     # Rough fallback
     if 8 <= hour < 16:
         return 'morning'
-    if 16 <= hour <= 23:
-        return 'afternoon'
     return 'evening'
 
 
@@ -209,7 +206,7 @@ def format_run_section(slot: str, metrics: dict) -> str:
 
 LOG_HEADER = (
     '# Feed Generation Log\n\n'
-    '_Auto-updated 3× daily (4:30 AM / 12:30 PM / 8:30 PM Pacific). '
+    '_Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). '
     'Full detail kept for the last 7 days; older entries are compressed to weekly summaries._\n\n'
     '---\n\n'
 )
@@ -429,7 +426,7 @@ def extract_recent_entries() -> list:
 
             results.append((day_date, slot, metrics))
 
-    return results[-21:]  # cap at 7 days × 3 runs
+    return results[-14:]  # cap at 7 days × 2 runs
 
 
 def build_auto_section(entries: list) -> str:
@@ -506,7 +503,7 @@ def main():
     parser = argparse.ArgumentParser(description='Log feed generation results to FEED_LOG.md and TODO.md')
     parser.add_argument('output_file', nargs='?', default='-',
                         help='Path to captured feed output (default: stdin)')
-    parser.add_argument('--slot', choices=['morning', 'afternoon', 'evening', 'manual'],
+    parser.add_argument('--slot', choices=['morning', 'evening', 'manual'],
                         help='Override run-slot detection; use "manual" for workflow_dispatch runs')
     parser.add_argument('--date', help='Override date as YYYY-MM-DD')
     args = parser.parse_args()
