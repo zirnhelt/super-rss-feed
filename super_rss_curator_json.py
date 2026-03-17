@@ -860,7 +860,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         print(f"\n🤖 Scoring {len(uncached)} new articles with Claude...")
         print(f"   (using cache for {len(scored_articles)} articles)")
 
-        batch_size = 15
+        batch_size = 30
         for i in range(0, len(uncached), batch_size):
             batch = uncached[i:i + batch_size]
 
@@ -883,7 +883,7 @@ Articles to evaluate:
             try:
                 response = client.messages.create(
                     model="claude-haiku-4-5",
-                    max_tokens=750,
+                    max_tokens=1500,
                     system=[
                         {
                             "type": "text",
@@ -893,6 +893,13 @@ Articles to evaluate:
                     ],
                     messages=[{"role": "user", "content": prompt}]
                 )
+
+                # Log cache token usage to verify prompt caching is working
+                usage = response.usage
+                cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
+                cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
+                if cache_write or cache_read:
+                    print(f"   💾 Cache: {cache_write} written, {cache_read} read, {usage.input_tokens} uncached")
 
                 response_text = response.content[0].text.strip()
                 # Strip markdown code fences if model wraps the JSON
@@ -1124,7 +1131,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
         f"{theme_prompt}"
     )
 
-    batch_size = 15
+    batch_size = 30
 
     for i in range(0, len(uncached), batch_size):
         batch = uncached[i:i + batch_size]
@@ -1254,7 +1261,7 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
 
     day_schema = ", ".join(f'"{d}": 0' for d in day_keys)
 
-    batch_size = 15
+    batch_size = 30
     for i in range(0, len(uncached), batch_size):
         batch = uncached[i:i + batch_size]
 
@@ -1277,7 +1284,7 @@ Articles to evaluate:
         try:
             response = client.messages.create(
                 model="claude-haiku-4-5",
-                max_tokens=1200,
+                max_tokens=2500,
                 system=[
                     {
                         "type": "text",
@@ -1287,6 +1294,13 @@ Articles to evaluate:
                 ],
                 messages=[{"role": "user", "content": prompt}]
             )
+
+            # Log cache token usage to verify prompt caching is working
+            usage = response.usage
+            cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
+            cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
+            if cache_write or cache_read:
+                print(f"   💾 Cache: {cache_write} written, {cache_read} read, {usage.input_tokens} uncached")
 
             response_text = response.content[0].text.strip()
             if response_text.startswith('```'):
