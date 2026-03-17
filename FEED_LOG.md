@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-17 (Tuesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **896** → dedup **755** → new **433** → quality **272**
+- Mix: local:3(1%), ai-tech:83(35%), climate:14(6%), homelab:46(19%), science:9(4%), news:85(35%)
+- Feeds: local:104, ai-tech:500, climate:190, homelab:500, science:175, scifi:34, news:500
+- Images: 272/272
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+
+
+---
+
+
+
 ## 2026-03-16 (Monday)
 
 #### 🌅 4:30 AM Pacific
@@ -281,43 +295,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
-## 2026-03-09 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **650** → dedup **556** → new **356** → quality **207**
-- Mix: local:4(2%), ai-tech:76(42%), climate:8(4%), homelab:31(17%), science:9(5%), scifi:2(1%), news:53(29%)
-- Feeds: local:118, ai-tech:500, climate:189, homelab:500, science:210, scifi:39, news:500
-- Images: 207/207
-
-
----
-
-
-
-
-#### 🌞 12:30 PM Pacific
-- Fetched **803** → dedup **660** → new **439** → quality **285**
-- Mix: local:13(5%), ai-tech:86(32%), climate:11(4%), homelab:54(20%), science:15(6%), scifi:6(2%), news:81(30%)
-- Feeds: local:125, ai-tech:500, climate:186, homelab:500, science:208, scifi:44, news:500
-- Images: 285/285
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **863** → dedup **712** → new **322** → quality **164**
-- Mix: local:7(5%), ai-tech:49(33%), climate:11(7%), homelab:31(21%), science:16(11%), scifi:3(2%), news:31(21%)
-- Feeds: local:126, ai-tech:500, climate:190, homelab:500, science:213, scifi:46, news:500
-- Images: 164/164
-
-
----
-
-
-
 ## Week of 2026-02-24–2026-02-24
 - 2 runs · avg fetched 805 · avg quality 362
 - Dominant: **news** (100%) local:2 / news:723
@@ -545,6 +522,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ Yale Climate Connections failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without 
 - - ⚠️ Longreads failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 - - ⚠️ Harvard Health Blog failed — 404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed
+
+
+---
+
+
+
+## Week of 2026-03-09–2026-03-09
+- 3 runs · avg fetched 772 · avg quality 219
+- Dominant: **ai-tech** (35%) local:24 / ai-tech:211 / climate:30 / homelab:116 / science:40 / scifi:11 / news:165
 
 
 ---
