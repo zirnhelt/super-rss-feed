@@ -8,6 +8,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-15 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-15 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-14 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-14 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-14 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-13 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -25,6 +28,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-15 |  unknown | 97 | ai-tech:29(33%), homelab:26(29%), news:25(28%) |
+| 2026-03-15 | 🌙 evening | 103 | ai-tech:34(37%), news:31(34%), homelab:12(13%) |
+| 2026-03-14 | 🌅 morning | 132 | ai-tech:34(29%), homelab:34(29%), news:32(27%) |
 | 2026-03-14 |  unknown | 100 | news:29(32%), ai-tech:27(30%), homelab:21(23%) |
 | 2026-03-14 | 🌙 evening | 74 | ai-tech:24(36%), news:21(31%), homelab:10(15%) |
 | 2026-03-13 | 🌅 morning | 228 | ai-tech:84(40%), news:61(29%), homelab:41(20%) |
@@ -36,13 +42,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-11 | 🌅 morning | 273 | ai-tech:100(40%), homelab:63(25%), news:63(25%) |
 | 2026-03-11 |  unknown | 272 | ai-tech:101(40%), news:67(26%), homelab:40(16%) |
 | 2026-03-11 | 🌙 evening | 150 | news:49(38%), ai-tech:44(34%), homelab:15(12%) |
-| 2026-03-10 | 🌅 morning | 263 | ai-tech:93(41%), news:65(28%), homelab:43(19%) |
-| 2026-03-10 |  unknown | 297 | ai-tech:108(39%), news:74(27%), homelab:48(18%) |
-| 2026-03-10 | 🌙 evening | 157 | ai-tech:49(36%), news:45(33%), homelab:21(15%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-17 13:58 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-18 05:47 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
