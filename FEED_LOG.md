@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-18 (Wednesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1023** → dedup **850** → new **447** → quality **262**
+- Mix: local:2(1%), ai-tech:83(35%), climate:17(7%), homelab:53(22%), science:13(5%), scifi:1(0%), news:68(29%)
+- Feeds: local:90, ai-tech:500, climate:200, homelab:500, science:177, scifi:33, news:500
+- Images: 262/262
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+
+
+---
+
+
+
 ## 2026-03-17 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
@@ -271,43 +285,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
-## 2026-03-10 (Tuesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **940** → dedup **791** → new **430** → quality **263**
-- Mix: local:2(1%), ai-tech:93(41%), climate:18(8%), homelab:43(19%), science:8(3%), news:65(28%)
-- Feeds: local:123, ai-tech:500, climate:197, homelab:500, science:211, scifi:45, news:500
-- Images: 263/263
-
-
----
-
-
-
-
-#### 🌞 12:30 PM Pacific
-- Fetched **1003** → dedup **845** → new **501** → quality **297**
-- Mix: local:12(4%), ai-tech:108(39%), climate:7(3%), homelab:48(18%), science:18(7%), scifi:7(3%), news:74(27%)
-- Feeds: local:127, ai-tech:500, climate:196, homelab:500, science:208, scifi:49, news:500
-- Images: 297/297
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1030** → dedup **858** → new **350** → quality **157**
-- Mix: local:11(8%), ai-tech:49(36%), climate:5(4%), homelab:21(15%), science:7(5%), news:45(33%)
-- Feeds: local:126, ai-tech:500, climate:197, homelab:500, science:202, scifi:48, news:500
-- Images: 157/157
-
-
----
-
-
-
 ## Week of 2026-02-24–2026-02-24
 - 2 runs · avg fetched 805 · avg quality 362
 - Dominant: **news** (100%) local:2 / news:723
@@ -544,6 +521,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-03-09–2026-03-09
 - 3 runs · avg fetched 772 · avg quality 219
 - Dominant: **ai-tech** (35%) local:24 / ai-tech:211 / climate:30 / homelab:116 / science:40 / scifi:11 / news:165
+
+
+---
+
+
+
+## Week of 2026-03-10–2026-03-10
+- 3 runs · avg fetched 991 · avg quality 239
+- Dominant: **ai-tech** (39%) local:25 / ai-tech:250 / climate:30 / homelab:112 / science:33 / scifi:7 / news:184
 
 
 ---
