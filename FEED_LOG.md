@@ -17,6 +17,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1011** → dedup **875** → new **557** → quality **390**
+- Mix: local:5(1%), ai-tech:114(31%), climate:13(4%), homelab:66(18%), science:27(7%), scifi:2(1%), news:142(38%)
+- Feeds: local:88, ai-tech:500, climate:200, homelab:500, science:183, scifi:32, news:500
+- Images: 390/390
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+
+
+---
+
+
+
 ## 2026-03-17 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
