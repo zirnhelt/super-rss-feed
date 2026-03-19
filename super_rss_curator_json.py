@@ -86,6 +86,7 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
+PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 
 # URLs
@@ -486,6 +487,113 @@ def save_theme_score_cache(cache: Dict):
         print(f"⚠️ Failed to save theme score cache: {e}")
 
 
+def load_pending_theme_batch() -> Optional[Dict]:
+    if not os.path.exists(PENDING_THEME_BATCH_FILE):
+        return None
+    try:
+        with open(PENDING_THEME_BATCH_FILE, 'r') as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def save_pending_theme_batch(data: Dict):
+    try:
+        with open(PENDING_THEME_BATCH_FILE, 'w') as f:
+            json.dump(data, f)
+    except Exception as e:
+        print(f"⚠️ Failed to save pending theme batch metadata: {e}")
+
+
+def clear_pending_theme_batch():
+    try:
+        if os.path.exists(PENDING_THEME_BATCH_FILE):
+            os.remove(PENDING_THEME_BATCH_FILE)
+    except Exception:
+        pass
+
+
+def process_pending_theme_batch(api_key: str):
+    """Check if a previously submitted theme batch has completed and cache its results."""
+    pending = load_pending_theme_batch()
+    if not pending:
+        return
+
+    batch_id = pending['batch_id']
+    print(f"🔄 Checking pending theme batch {batch_id}...")
+
+    client = anthropic.Anthropic(api_key=api_key)
+    try:
+        batch_job = client.messages.batches.retrieve(batch_id)
+    except Exception as e:
+        print(f"  ⚠️ Failed to retrieve batch: {e}")
+        return
+
+    if batch_job.processing_status != "ended":
+        print(f"  ⏳ Batch still processing ({batch_job.processing_status}), will retry next run")
+        return
+
+    print(f"  ✅ Batch complete, writing theme scores to cache...")
+
+    theme_cache = load_theme_score_cache()
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    article_batches = {b['custom_id']: b['articles'] for b in pending['article_batches']}
+    schedule_labels = pending['schedule_labels']
+
+    results_processed = 0
+    for result in client.messages.batches.results(batch_id):
+        custom_id = result.custom_id
+        batch_articles = article_batches.get(custom_id, [])
+
+        if result.result.type != "succeeded":
+            for art in batch_articles:
+                for label in schedule_labels.values():
+                    key = f"{art['link']}:::{label}"
+                    if key not in theme_cache:
+                        theme_cache[key] = {'score': 50, 'cached_at': now_iso}
+            continue
+
+        response_text = result.result.message.content[0].text.strip()
+        if response_text.startswith('```'):
+            lines = response_text.splitlines()
+            inner = lines[1:]
+            if inner and inner[-1].strip() == '```':
+                inner = inner[:-1]
+            response_text = '\n'.join(inner).strip()
+        _start, _end = response_text.find('['), response_text.rfind(']') + 1
+        if _start != -1 and _end > _start:
+            response_text = response_text[_start:_end]
+
+        try:
+            scores = json.loads(response_text)
+            scored_in_batch = set()
+            for score_data in scores:
+                idx = score_data.get('article', 0) - 1
+                if 0 <= idx < len(batch_articles):
+                    art = batch_articles[idx]
+                    scored_in_batch.add(idx)
+                    for day, label in schedule_labels.items():
+                        theme_score = int(score_data.get(day, 50))
+                        theme_cache[f"{art['link']}:::{label}"] = {
+                            'score': theme_score,
+                            'cached_at': now_iso
+                        }
+            for idx, art in enumerate(batch_articles):
+                if idx not in scored_in_batch:
+                    for label in schedule_labels.values():
+                        key = f"{art['link']}:::{label}"
+                        if key not in theme_cache:
+                            theme_cache[key] = {'score': 50, 'cached_at': now_iso}
+            results_processed += len(batch_articles)
+        except (json.JSONDecodeError, Exception) as e:
+            print(f"  ⚠️ Error parsing results for {custom_id}: {e}")
+
+    save_theme_score_cache(theme_cache)
+    clear_pending_theme_batch()
+    print(f"  📊 Cached theme scores for {results_processed} articles from completed batch")
+
+
 def parse_opml(opml_path: str) -> List[Dict[str, str]]:
     """Extract RSS feed URLs from OPML file"""
     import xml.etree.ElementTree as ET
@@ -860,7 +968,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         print(f"\n🤖 Scoring {len(uncached)} new articles with Claude...")
         print(f"   (using cache for {len(scored_articles)} articles)")
 
-        batch_size = 30
+        batch_size = 15
         for i in range(0, len(uncached), batch_size):
             batch = uncached[i:i + batch_size]
 
@@ -1241,12 +1349,10 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
         print(f"🎯 Ingest theme scoring: all {len(articles)} articles already cached for all themes")
         return
 
-    print(f"🎯 Ingest theme scoring: {len(uncached)} articles × {len(schedule)} themes...")
+    print(f"🎯 Ingest theme scoring: {len(uncached)} articles × {len(schedule)} themes (async batch)...")
 
     client = anthropic.Anthropic(api_key=api_key)
 
-    # Build one combined system prompt covering all themes, then cache it so
-    # subsequent batches in the same run pay only the (cheaper) cache-read rate.
     theme_descriptions = "\n\n".join(
         f"Theme key \"{day}\" — {cfg['label']}:\n{cfg.get('scoring_prompt', '')}"
         for day, cfg in schedule.items()
@@ -1260,16 +1366,17 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
     )
 
     day_schema = ", ".join(f'"{d}": 0' for d in day_keys)
-
     batch_size = 30
+
+    batch_requests = []
+    article_batches_meta = []
+
     for i in range(0, len(uncached), batch_size):
         batch = uncached[i:i + batch_size]
-
         articles_text = "\n\n".join(
             f"Article {j+1}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {(a.description or '')[:300]}"
             for j, a in enumerate(batch)
         )
-
         prompt = f"""Rate each article 0-100 for every theme key listed in the system prompt.
 
 Respond with ONLY a JSON array (no other text):
@@ -1280,74 +1387,97 @@ Respond with ONLY a JSON array (no other text):
 
 Articles to evaluate:
 {articles_text}"""
+        custom_id = f"themes_{i // batch_size}"
+        batch_requests.append({
+            "custom_id": custom_id,
+            "params": {
+                "model": "claude-haiku-4-5",
+                "max_tokens": 2500,
+                "system": [{"type": "text", "text": combined_system}],
+                "messages": [{"role": "user", "content": prompt}]
+            }
+        })
+        article_batches_meta.append({
+            "custom_id": custom_id,
+            "articles": [{"link": a.link, "title": a.title} for a in batch]
+        })
 
-        try:
-            response = client.messages.create(
-                model="claude-haiku-4-5",
-                max_tokens=2500,
-                system=[
-                    {
-                        "type": "text",
-                        "text": combined_system,
-                        "cache_control": {"type": "ephemeral"}
-                    }
-                ],
-                messages=[{"role": "user", "content": prompt}]
+    try:
+        batch_job = client.messages.batches.create(requests=batch_requests)
+        save_pending_theme_batch({
+            "batch_id": batch_job.id,
+            "submitted_at": now_iso,
+            "article_batches": article_batches_meta,
+            "day_keys": day_keys,
+            "schedule_labels": {day: cfg['label'] for day, cfg in schedule.items()}
+        })
+        print(f"   📤 Submitted async batch {batch_job.id} — results will be cached next run"
+              f" ({len(uncached)} articles × {len(schedule)} themes)")
+    except Exception as e:
+        print(f"  ⚠️ Batch submission failed, falling back to synchronous scoring: {e}")
+        for i in range(0, len(uncached), batch_size):
+            batch = uncached[i:i + batch_size]
+            articles_text = "\n\n".join(
+                f"Article {j+1}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {(a.description or '')[:300]}"
+                for j, a in enumerate(batch)
             )
+            prompt = f"""Rate each article 0-100 for every theme key listed in the system prompt.
 
-            # Log cache token usage to verify prompt caching is working
-            usage = response.usage
-            cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
-            cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
-            if cache_write or cache_read:
-                print(f"   💾 Cache: {cache_write} written, {cache_read} read, {usage.input_tokens} uncached")
+Respond with ONLY a JSON array (no other text):
+[
+  {{"article": 1, {day_schema}}},
+  {{"article": 2, {day_schema}}}
+]
 
-            response_text = response.content[0].text.strip()
-            if response_text.startswith('```'):
-                lines = response_text.splitlines()
-                inner = lines[1:]
-                if inner and inner[-1].strip() == '```':
-                    inner = inner[:-1]
-                response_text = '\n'.join(inner).strip()
-            # Extract just the JSON array to ignore any trailing text
-            _start, _end = response_text.find('['), response_text.rfind(']') + 1
-            if _start != -1 and _end > _start:
-                response_text = response_text[_start:_end]
-
-            scores = json.loads(response_text)
-
-            scored_in_batch = set()
-            for score_data in scores:
-                idx = score_data.get('article', 0) - 1
-                if 0 <= idx < len(batch):
-                    article = batch[idx]
-                    scored_in_batch.add(idx)
-                    for day, cfg in schedule.items():
-                        label = cfg['label']
-                        theme_score = int(score_data.get(day, 50))
-                        theme_cache[f"{article.link}:::{label}"] = {
-                            'score': theme_score,
-                            'cached_at': now_iso
-                        }
-
-            # Fallback score for any articles Claude omitted from the response
-            for idx, article in enumerate(batch):
-                if idx not in scored_in_batch:
+Articles to evaluate:
+{articles_text}"""
+            try:
+                response = client.messages.create(
+                    model="claude-haiku-4-5",
+                    max_tokens=2500,
+                    system=[{"type": "text", "text": combined_system,
+                             "cache_control": {"type": "ephemeral"}}],
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                response_text = response.content[0].text.strip()
+                if response_text.startswith('```'):
+                    lines = response_text.splitlines()
+                    inner = lines[1:]
+                    if inner and inner[-1].strip() == '```':
+                        inner = inner[:-1]
+                    response_text = '\n'.join(inner).strip()
+                _start, _end = response_text.find('['), response_text.rfind(']') + 1
+                if _start != -1 and _end > _start:
+                    response_text = response_text[_start:_end]
+                scores = json.loads(response_text)
+                scored_in_batch = set()
+                for score_data in scores:
+                    idx = score_data.get('article', 0) - 1
+                    if 0 <= idx < len(batch):
+                        article = batch[idx]
+                        scored_in_batch.add(idx)
+                        for day, cfg in schedule.items():
+                            label = cfg['label']
+                            theme_score = int(score_data.get(day, 50))
+                            theme_cache[f"{article.link}:::{label}"] = {
+                                'score': theme_score,
+                                'cached_at': now_iso
+                            }
+                for idx, article in enumerate(batch):
+                    if idx not in scored_in_batch:
+                        for cfg in schedule.values():
+                            key = f"{article.link}:::{cfg['label']}"
+                            if key not in theme_cache:
+                                theme_cache[key] = {'score': 50, 'cached_at': now_iso}
+            except (json.JSONDecodeError, Exception) as sync_err:
+                print(f"  ⚠️ Sync fallback error (batch {i//batch_size + 1}): {sync_err}")
+                for article in batch:
                     for cfg in schedule.values():
                         key = f"{article.link}:::{cfg['label']}"
                         if key not in theme_cache:
                             theme_cache[key] = {'score': 50, 'cached_at': now_iso}
-
-        except (json.JSONDecodeError, Exception) as e:
-            print(f"  ⚠️ Ingest theme scoring error (batch {i//batch_size + 1}): {e}")
-            for article in batch:
-                for cfg in schedule.values():
-                    key = f"{article.link}:::{cfg['label']}"
-                    if key not in theme_cache:
-                        theme_cache[key] = {'score': 50, 'cached_at': now_iso}
-
-    save_theme_score_cache(theme_cache)
-    print(f"   ✅ Ingest theme scoring complete ({len(uncached)} articles × {len(schedule)} themes cached)")
+        save_theme_score_cache(theme_cache)
+        print(f"   ✅ Sync fallback complete ({len(uncached)} articles × {len(schedule)} themes cached)")
 
 
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict) -> set:
@@ -1753,7 +1883,9 @@ def main():
 
     # Score new articles for all themes at ingest time so daily podcast generation
     # is a pure cache read with zero additional API calls (Options B + D).
+    # First, flush any completed async batch from the previous run into the cache.
     schedule_config = load_podcast_schedule()
+    process_pending_theme_batch(api_key)
     score_all_themes_at_ingest(quality_articles, schedule_config, api_key)
 
     # Load weekly cache for podcast feed generation
