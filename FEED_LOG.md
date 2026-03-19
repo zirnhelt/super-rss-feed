@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-19 (Thursday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **991** → dedup **860** → new **403** → quality **234**
+- Mix: local:2(1%), ai-tech:64(30%), climate:20(9%), homelab:40(19%), science:12(6%), scifi:3(1%), news:71(33%)
+- Feeds: local:82, ai-tech:500, climate:206, homelab:500, science:188, scifi:35, news:500
+- Images: 234/234
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-03-18 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
@@ -259,45 +274,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
-## 2026-03-11 (Wednesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1037** → dedup **883** → new **440** → quality **273**
-- Mix: local:3(1%), ai-tech:100(40%), climate:9(4%), homelab:63(25%), science:10(4%), news:63(25%)
-- Feeds: local:123, ai-tech:500, climate:192, homelab:500, science:197, scifi:45, news:500
-- Images: 273/273
-
-
----
-
-
-
-
-#### 🌞 12:30 PM Pacific
-- Fetched **1035** → dedup **873** → new **467** → quality **272**
-- Mix: local:13(5%), ai-tech:101(40%), climate:11(4%), homelab:40(16%), science:21(8%), scifi:2(1%), news:67(26%)
-- Feeds: local:127, ai-tech:500, climate:195, homelab:500, science:201, scifi:43, news:500
-- Images: 272/272
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1015** → dedup **866** → new **359** → quality **150**
-- Mix: local:2(2%), ai-tech:44(34%), climate:7(5%), homelab:15(12%), science:10(8%), scifi:3(2%), news:49(38%)
-- Feeds: local:122, ai-tech:500, climate:190, homelab:500, science:207, scifi:44, news:500
-- Images: 150/150
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **BC Gov News** failed — `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by NameResolutionErro`
-
-
----
-
-
-
 ## Week of 2026-02-24–2026-02-24
 - 2 runs · avg fetched 805 · avg quality 362
 - Dominant: **news** (100%) local:2 / news:723
@@ -543,6 +519,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-03-10–2026-03-10
 - 3 runs · avg fetched 991 · avg quality 239
 - Dominant: **ai-tech** (39%) local:25 / ai-tech:250 / climate:30 / homelab:112 / science:33 / scifi:7 / news:184
+
+
+---
+
+
+
+## Week of 2026-03-11–2026-03-11
+- 3 runs · avg fetched 1029 · avg quality 232
+- Dominant: **ai-tech** (39%) local:18 / ai-tech:245 / climate:27 / homelab:118 / science:41 / scifi:5 / news:179
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ BC Gov News failed — HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Ca
 
 
 ---
