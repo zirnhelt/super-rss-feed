@@ -8,6 +8,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-17 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-17 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-16 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-16 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-16 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-15 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -19,16 +22,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-13 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-13 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-13 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-12 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-12 | 🌅 4:30 AM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
-| 2026-03-12 |  unknown | ⚠️ **Boing Boing** failed | `HTTPSConnectionPool(host='boingboing.net', port=443): Read timed out. (read timeout=10)` |
-| 2026-03-12 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-12 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-17 | 🌅 morning | 272 | news:85(35%), ai-tech:83(35%), homelab:46(19%) |
+| 2026-03-17 | 🌙 evening | 369 | ai-tech:115(34%), news:114(34%), homelab:56(17%) |
+| 2026-03-16 | 🌅 morning | 233 | news:72(35%), ai-tech:67(33%), homelab:35(17%) |
 | 2026-03-16 |  unknown | 271 | ai-tech:103(42%), news:74(30%), homelab:41(17%) |
 | 2026-03-16 | 🌙 evening | 151 | ai-tech:46(35%), news:45(34%), homelab:18(14%) |
 | 2026-03-15 | 🌅 morning | 126 | news:41(37%), homelab:33(30%), ai-tech:26(24%) |
@@ -40,13 +41,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-13 | 🌅 morning | 228 | ai-tech:84(40%), news:61(29%), homelab:41(20%) |
 | 2026-03-13 |  unknown | 278 | ai-tech:91(36%), news:68(27%), homelab:50(20%) |
 | 2026-03-13 | 🌙 evening | 143 | news:48(37%), ai-tech:32(25%), homelab:16(12%) |
-| 2026-03-12 | 🌅 morning | 247 | ai-tech:75(34%), news:72(33%), homelab:50(23%) |
-| 2026-03-12 |  unknown | 320 | news:121(40%), ai-tech:104(35%), homelab:32(11%) |
-| 2026-03-12 | 🌙 evening | 170 | news:58(39%), ai-tech:53(35%), homelab:17(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-19 13:48 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-20 05:35 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
