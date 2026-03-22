@@ -8,6 +8,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-20 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-20 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-19 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-19 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-18 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-18 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -19,14 +22,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-15 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-15 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-15 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-14 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-14 |  unknown | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-14 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-20 | 🌅 morning | 220 | ai-tech:67(34%), news:58(29%), homelab:51(26%) |
+| 2026-03-20 | 🌙 evening | 352 | news:117(36%), ai-tech:114(35%), homelab:48(15%) |
+| 2026-03-19 | 🌅 morning | 234 | news:71(33%), ai-tech:64(30%), homelab:40(19%) |
 | 2026-03-19 | 🌙 evening | 383 | ai-tech:152(43%), news:94(27%), homelab:56(16%) |
 | 2026-03-18 | 🌅 morning | 262 | ai-tech:83(35%), news:68(29%), homelab:53(22%) |
 | 2026-03-18 | 🌙 evening | 390 | news:142(38%), ai-tech:114(31%), homelab:66(18%) |
@@ -38,13 +41,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-15 | 🌅 morning | 126 | news:41(37%), homelab:33(30%), ai-tech:26(24%) |
 | 2026-03-15 |  unknown | 97 | ai-tech:29(33%), homelab:26(29%), news:25(28%) |
 | 2026-03-15 | 🌙 evening | 103 | ai-tech:34(37%), news:31(34%), homelab:12(13%) |
-| 2026-03-14 | 🌅 morning | 132 | ai-tech:34(29%), homelab:34(29%), news:32(27%) |
-| 2026-03-14 |  unknown | 100 | news:29(32%), ai-tech:27(30%), homelab:21(23%) |
-| 2026-03-14 | 🌙 evening | 74 | ai-tech:24(36%), news:21(31%), homelab:10(15%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-21 13:25 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-22 05:37 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
