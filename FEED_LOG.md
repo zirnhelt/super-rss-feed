@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-24 (Tuesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **872** → dedup **746** → new **410** → quality **278**
+- Mix: local:3(1%), ai-tech:95(37%), climate:14(5%), homelab:52(20%), science:9(3%), scifi:2(1%), news:85(33%)
+- Feeds: local:72, ai-tech:500, climate:172, homelab:500, science:183, scifi:30, news:500
+- Images: 278/278
+- ⚠️ **Boing Boing** failed — `HTTPSConnectionPool(host='boingboing.net', port=443): Read timed out. (read timeout=10)`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-03-23 (Monday)
 
 #### 🌅 4:30 AM Pacific
@@ -199,46 +215,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:9(3%), ai-tech:115(34%), climate:13(4%), homelab:56(17%), science:27(8%), scifi:4(1%), news:114(34%)
 - Feeds: local:93, ai-tech:500, climate:189, homelab:500, science:174, scifi:32, news:500
 - Images: 369/369
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-
-
----
-
-
-
-## 2026-03-16 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **626** → dedup **522** → new **342** → quality **233**
-- Mix: local:2(1%), ai-tech:67(33%), climate:19(9%), homelab:35(17%), science:9(4%), scifi:2(1%), news:72(35%)
-- Feeds: local:110, ai-tech:500, climate:195, homelab:500, science:182, scifi:42, news:500
-- Images: 233/233
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-
-
----
-
-
-
-
-#### 🌞 12:30 PM Pacific
-- Fetched **778** → dedup **625** → new **425** → quality **271**
-- Mix: local:5(2%), ai-tech:103(42%), climate:11(4%), homelab:41(17%), science:11(4%), news:74(30%)
-- Feeds: local:110, ai-tech:500, climate:195, homelab:500, science:178, scifi:35, news:500
-- Images: 271/271
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **816** → dedup **646** → new **311** → quality **151**
-- Mix: local:5(4%), ai-tech:46(35%), climate:8(6%), homelab:18(14%), science:11(8%), news:45(34%)
-- Feeds: local:110, ai-tech:500, climate:192, homelab:500, science:176, scifi:34, news:500
-- Images: 151/151
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 
 
@@ -543,6 +519,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-03-15–2026-03-15
 - 3 runs · avg fetched 594 · avg quality 109
 - Dominant: **news** (33%) local:5 / ai-tech:89 / climate:13 / homelab:71 / science:12 / scifi:4 / news:97
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+
+
+---
+
+
+
+## Week of 2026-03-16–2026-03-16
+- 3 runs · avg fetched 740 · avg quality 218
+- Dominant: **ai-tech** (37%) local:12 / ai-tech:216 / climate:38 / homelab:94 / science:31 / scifi:2 / news:191
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 
 
