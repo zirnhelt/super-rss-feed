@@ -22,422 +22,562 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' through a RURAL TECH AND INNOVATION lens. Strong fits include: precision forestry and remote sensing in Cariboo logging, AgTech and ranch management systems, mining automation and safety technology, farm sensors and soil monitoring, sawmill modernization and automation, drone surveys for resource management, IoT in agriculture and ranching, climate adaptation tech for working lands, workforce training for industrial tech, commodity tracking and supply chain tech, and how Cariboo resource industries adopt innovation. Prefer articles that bridge resource economy AND technology in rural/industrial contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-03-17T13:58:11.404836+00:00",
+    "generated_at": "2026-03-24T05:43:23.486970+00:00",
     "article_count": 40,
-    "bonus_count": 27,
+    "bonus_count": 24,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://civileats.com/2026/03/17/op-ed-the-ai-revolution-is-a-false-promise-for-food-systems/",
-      "url": "https://civileats.com/2026/03/17/op-ed-the-ai-revolution-is-a-false-promise-for-food-systems/",
-      "title": "[Civil Eats] Op-ed: The AI ‘Revolution’ Is a False Promise for Food Systems",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=civileats.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A version of this article originally appeared in The Deep Dish, our members-only newsletter. Become a member today and get the next issue directly in your inbox. The intrusion of AI has spread to our food systems. In agriculture, an AI revolution is being widely promoted by those who stand to benefit: transnational corporations, banks, big NGOs, and governing [&#8230;]</p>\n<p>The post <a href=\"https://civileats.com/2026/03/17/op-ed-the-ai-revolution-is-a-false-promise-for-food-systems/\">Op-ed: The AI ‘Revolution’ Is a False Promise for Food&nbsp;Systems</a> appeared first on <a href=\"https://civileats.com\">Civil Eats</a>.</p>",
-      "date_published": "2026-03-17T08:00:33+00:00",
+      "id": "https://thetyee.ca/Analysis/2026/03/17/Harvesting-Burned-Trees/",
+      "url": "https://thetyee.ca/Analysis/2026/03/17/Harvesting-Burned-Trees/",
+      "title": "[The Tyee] Harvesting Burned Trees May Seem a No-Brainer. But It Poses Big Risks",
+      "content_html": "<img src=\"https://thetyee.ca/Analysis/2026/03/16/BurnedTreeStumpClearcut.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHow aggressive salvage logging after fires may harm BC’s future forest industry.",
+      "date_published": "2026-03-17T07:20:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 63,
+      "_theme_score": 62,
+      "_final_score": 62,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/Analysis/2026/03/16/BurnedTreeStumpClearcut.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/23/climate/offshore-wind-gas-trump-total.html",
+      "url": "https://www.nytimes.com/2026/03/23/climate/offshore-wind-gas-trump-total.html",
+      "title": "[NYT Top Stories] Trump Administration to Pay $1 Billion to Energy Giant to Cancel Wind Farms",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/23/multimedia/23cli-trump-gas-whvf/23cli-trump-gas-whvf-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn exchange, the French company TotalEnergies would invest in oil and natural gas projects in Texas and elsewhere.",
+      "date_published": "2026-03-23T23:58:47+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 53,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/03/23/multimedia/23cli-trump-gas-whvf/23cli-trump-gas-whvf-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/23/b-c-ubc-partnering-on-40m-fund-to-help-spin-off-businesses-from-research/",
+      "url": "https://wltribune.com/2026/03/23/b-c-ubc-partnering-on-40m-fund-to-help-spin-off-businesses-from-research/",
+      "title": "[Williams Lake Tribune] B.C., UBC partnering on $40M fund to help spin off businesses from research",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41884571_web1_260323-BPD-InBCFund-ravikahlon_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>New Catalyst Ventures Fund aims to help grow businesses in life sciences and deep tech </p>",
+      "date_published": "2026-03-23T14:12:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 75,
+      "_theme_score": 40,
+      "_final_score": 10,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41884571_web1_260323-BPD-InBCFund-ravikahlon_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.xda-developers.com/built-gesture-controlled-desk-buddy-esp32-grove/",
+      "url": "https://www.xda-developers.com/built-gesture-controlled-desk-buddy-esp32-grove/",
+      "title": "[XDA Developers] I built a gesture-controlled desk buddy with an $8 ESP32 and Grove sensors",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/xiao-esp32-c5-expansion-board.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's silly, entertaining, and it works.",
+      "date_published": "2026-03-24T00:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/xiao-esp32-c5-expansion-board.JPG"
+    },
+    {
+      "id": "https://civileats.com/2026/03/23/nearly-150-usda-county-offices-have-no-conservation-staff-new-data-shows/",
+      "url": "https://civileats.com/2026/03/23/nearly-150-usda-county-offices-have-no-conservation-staff-new-data-shows/",
+      "title": "[Civil Eats] Nearly 150 USDA County Offices Have No Conservation Staff, New Data Shows",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=civileats.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>March 23, 2026 – According to a new analysis, 144 U.S. Department of Agriculture (USDA) county offices lost all of their conservation staff in 2025, prompting questions around who will assist farmers looking to enroll in popular programs that boost farm resilience and improve the environment. The analysis, shared first with Civil Eats, was conducted [&#8230;]</p>\n<p>The post <a href=\"https://civileats.com/2026/03/23/nearly-150-usda-county-offices-have-no-conservation-staff-new-data-shows/\">Nearly 150 USDA County Offices Have No Conservation Staff, New Data&nbsp;Shows</a> appeared first on <a href=\"https://civileats.com\">Civil Eats</a>.</p>",
+      "date_published": "2026-03-23T19:12:46+00:00",
       "authors": [
         {
           "name": "Civil Eats",
           "url": "https://civileats.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 35,
-      "_final_score": 35,
+      "_quality_score": 58,
+      "_theme_score": 5,
+      "_final_score": 5,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://www.google.com/s2/favicons?domain=civileats.com&sz=128"
     },
     {
-      "id": "https://www.nytimes.com/2026/03/17/nyregion/ai-data-center-new-york.html",
-      "url": "https://www.nytimes.com/2026/03/17/nyregion/ai-data-center-new-york.html",
-      "title": "[NYT Top Stories] In Rural New York, Some See Proposed A.I. Center as a Needless Intrusion",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/11/multimedia/met-data-centers--01-gztk/met-data-centers--01-gztk-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe data center, to be built between Buffalo and Rochester, will raise electric bills and harm a nearby tribal reservation, opponents argue. “I can’t think of one good reason for it,” a local resident said.",
-      "date_published": "2026-03-17T07:00:07+00:00",
+      "id": "https://thetyee.ca/News/2026/03/24/Half-BC-Community-Paramedic-Positions-Unfilled/",
+      "url": "https://thetyee.ca/News/2026/03/24/Half-BC-Community-Paramedic-Positions-Unfilled/",
+      "title": "[The Tyee] Half of BC’s Community Paramedic Positions Are Unfilled",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/03/23/FortNelsonMedevac.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThey offer vital preventive medicine to patients in rural and remote communities. But the program is struggling to scale up.",
+      "date_published": "2026-03-24T07:40:00+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 67,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/03/11/multimedia/met-data-centers--01-gztk/met-data-centers--01-gztk-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.resilience.org/stories/2026-03-17/the-whole-food-system-must-be-converted-not-just-the-farming-system/",
-      "url": "https://www.resilience.org/stories/2026-03-17/the-whole-food-system-must-be-converted-not-just-the-farming-system/",
-      "title": "[Resilience.org] The whole food system must be converted – not just the farming system",
-      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/03/d60eea7e-c5e5-48af-817b-04df12e0b08c_2896x1944.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt is essential to re-connect food to the land and the process of farming. This will give food an enhanced value not only as a supplier of energy and essential nutrients, but also as a source of meaning and experience of the land, of the living and of the people producing food.",
-      "date_published": "2026-03-17T11:03:15+00:00",
-      "authors": [
-        {
-          "name": "Resilience.org",
-          "url": "https://www.resilience.org"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 28,
-      "_final_score": 28,
+      "_quality_score": 73,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.resilience.org/wp-content/uploads/2026/03/d60eea7e-c5e5-48af-817b-04df12e0b08c_2896x1944.webp"
+      "image": "https://thetyee.ca/News/2026/03/23/FortNelsonMedevac.jpg"
     },
     {
-      "id": "https://techcrunch.com/2026/03/17/hm-wants-to-make-clothing-from-co2-using-this-startups-tech/",
-      "url": "https://techcrunch.com/2026/03/17/hm-wants-to-make-clothing-from-co2-using-this-startups-tech/",
-      "title": "[TechCrunch] H&M wants to make clothing from CO2 using this startup’s tech",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/03/rubi-scientists.jpeg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRubi has developed an enzymatic process to turn carbon dioxide into cellulose that's ready to be spun into lyocell or viscose.",
-      "date_published": "2026-03-17T13:00:00+00:00",
+      "id": "https://wltribune.com/2026/03/23/williams-lake-fire-department-responds-to-vehicle-fire-in-dairy-fields/",
+      "url": "https://wltribune.com/2026/03/23/williams-lake-fire-department-responds-to-vehicle-fire-in-dairy-fields/",
+      "title": "[Williams Lake Tribune] Williams Lake Fire Department responds to vehicle fire in Dairy Fields",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41881571_web1_260326-WLT-Vehicle-Fire-Dairy-Fields-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1 MIN READ",
+      "date_published": "2026-03-24T05:40:51.771367+00:00",
       "authors": [
         {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 62,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/03/rubi-scientists.jpeg?resize=1200,800"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41881571_web1_260326-WLT-Vehicle-Fire-Dairy-Fields-_1.jpg?w=1024"
     },
     {
-      "id": "https://www.nytimes.com/2026/03/17/climate/offshore-wind-settlements-trump.html",
-      "url": "https://www.nytimes.com/2026/03/17/climate/offshore-wind-settlements-trump.html",
-      "title": "[NYT Top Stories] Trump Officials Weigh New Plan to Stop Offshore Wind Farms",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/17/multimedia/17cli-offshore-wind-mztp/17cli-offshore-wind-mztp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProposed settlements would block wind farms off New York State and North Carolina, according to documents reviewed by The New York Times.",
-      "date_published": "2026-03-17T11:39:52+00:00",
+      "id": "https://wltribune.com/2026/03/23/hockey-bet-brings-cariboo-communities-together-in-mayoral-jersey-swap/",
+      "url": "https://wltribune.com/2026/03/23/hockey-bet-brings-cariboo-communities-together-in-mayoral-jersey-swap/",
+      "title": "[Williams Lake Tribune] Hockey bet brings Cariboo communities together in mayoral jersey swap",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41883268_web1_260325-QCO-Jersey-standalone_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWilliams Lake and Quesnel mayors follow through on playful wager after intense playoff series",
+      "date_published": "2026-03-24T05:40:51.771059+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41883268_web1_260325-QCO-Jersey-standalone_1.jpg?w=1024"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/23/venus-flytrap-takes-ride-through-a-particle-accelerator/",
+      "url": "https://hackaday.com/2026/03/23/venus-flytrap-takes-ride-through-a-particle-accelerator/",
+      "title": "[Hackaday] Venus Flytrap Takes Ride Through a Particle Accelerator",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/Particle-Accelerator-VS.-Plant-6-27-screenshot-1.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/Particle-Accelerator-VS.-Plant-6-27-screenshot-1.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In the blue corner, we have the VENUS FLYTRAP! In the red corner, we have the underdog of the century, AN ENTIRE PARTICLE ACCELERATOR. Yes, you read that right. When <a class=\"read-more\" href=\"https://hackaday.com/2026/03/23/venus-flytrap-takes-ride-through-a-particle-accelerator/\">&#8230;read more</a>",
+      "date_published": "2026-03-24T05:00:26+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/Particle-Accelerator-VS.-Plant-6-27-screenshot-1.png"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/24/health/mdma-therapy-ptsd-psychedelic-australia.html",
+      "url": "https://www.nytimes.com/2026/03/24/health/mdma-therapy-ptsd-psychedelic-australia.html",
+      "title": "[NYT Top Stories] MDMA Therapy in Australia Shows Results for PTSD Patients, but the Cost Is Limiting Access",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/24/multimedia/00hs-mdma-oz-01-tklj/00hs-mdma-oz-01-tklj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe country’s experiment with psychedelic medicine has led to positive outcomes, psychiatrists say, but also highlights the limitations of the nascent field.",
+      "date_published": "2026-03-24T04:00:12+00:00",
       "authors": [
         {
           "name": "NYT Top Stories",
           "url": "https://nytimes.com"
         }
       ],
-      "_quality_score": 70,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/03/17/multimedia/17cli-offshore-wind-mztp/17cli-offshore-wind-mztp-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/03/17/business/self-driving-semi-trucks-texas-us.html",
-      "url": "https://www.nytimes.com/2026/03/17/business/self-driving-semi-trucks-texas-us.html",
-      "title": "[NYT Business] Driverless Big Rigs Are Coming to American Highways, and Soon",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/03/business/00wheels-trucks/00wheels-trucks-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThere are active test runs in Texas, and a handful of companies are banking on making a big entry into the market as early as next year.",
-      "date_published": "2026-03-17T09:00:31+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 35,
-      "_final_score": 5,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/03/03/business/00wheels-trucks/00wheels-trucks-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.statnews.com/2026/03/17/cigarette-smoking-rate-below-10-percent-cdc-data-says/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/03/17/cigarette-smoking-rate-below-10-percent-cdc-data-says/?utm_campaign=rss",
-      "title": "[STAT News] Smoking rates are at a historic low. You’re not hearing about it from the government",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/03/GettyImages-2217673014-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe CDC had remarkable data on smoking rates last fall, but it no longer had smoking experts available to review it and disseminate it.",
-      "date_published": "2026-03-17T13:32:08+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 2,
-      "_final_score": 2,
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/03/GettyImages-2217673014-645x645.jpg"
+      "image": "https://static01.nyt.com/images/2026/03/24/multimedia/00hs-mdma-oz-01-tklj/00hs-mdma-oz-01-tklj-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://www.statnews.com/2026/03/17/beacon-casp-coalition-tackle-science-reproducibility-crisis/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/03/17/beacon-casp-coalition-tackle-science-reproducibility-crisis/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: For decades, they’ve set the record straight in biology. Next up: science’s reproducibility crisis",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/03/AdobeStock_237619432-645x645.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA group of researchers are launching an effort to validate big scientific claims, with help from artificial intelligence.",
-      "date_published": "2026-03-17T08:30:00+00:00",
+      "id": "https://www.xda-developers.com/claude-can-now-automate-your-entire-desktop-but-with-a-serious-limitation/",
+      "url": "https://www.xda-developers.com/claude-can-now-automate-your-entire-desktop-but-with-a-serious-limitation/",
+      "title": "[XDA Developers] Claude can now automate your entire desktop, but with a serious limitation",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/claude-code.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's likely a temporary one, though.",
+      "date_published": "2026-03-24T02:16:27+00:00",
       "authors": [
         {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
         }
       ],
       "_quality_score": 58,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/03/AdobeStock_237619432-645x645.jpeg"
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/claude-code.jpg"
     },
     {
-      "id": "https://indiginews.com/arts/indigenous-leaders-celebrate-belongings-returned-from-the-vatican/",
-      "url": "https://indiginews.com/arts/indigenous-leaders-celebrate-belongings-returned-from-the-vatican/",
-      "title": "[IndigiNews] In ‘Gatineau,’ Indigenous leaders celebrate belongings returned from the Vatican: ‘We welcome them home’",
-      "content_html": "<img src=\"https://indiginews.com/wp-content/uploads/2026/03/Chief-Leonard-Lazore-birchbark-sap-collector-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Five of the objects were ceremonially uncrated at the Canadian Museum of History last week, while a total of 62 items will be transferred to their home communities across the country</p>\n<p>The post <a href=\"https://indiginews.com/arts/indigenous-leaders-celebrate-belongings-returned-from-the-vatican/\">In ‘Gatineau,’ Indigenous leaders celebrate belongings returned from the Vatican: ‘We welcome them home’</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
-      "date_published": "2026-03-17T13:50:06+00:00",
+      "id": "https://www.zdnet.com/article/opera-gx-browser-linux/",
+      "url": "https://www.zdnet.com/article/opera-gx-browser-linux/",
+      "title": "[ZDNet] Opera GX for Linux is way more than great gaming browser",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/bf5b1fc78dc2c006f3f9a09453ef30afdcfc0249/2026/03/23/4b9711f7-60f4-4e8f-8a0e-e01500e02b27/operagxhero.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou don't have to be a Linux gamer to enjoy Opera's GX browser because it makes for a brilliant regular browser.",
+      "date_published": "2026-03-24T02:00:33+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.zdnet.com/a/img/resize/bf5b1fc78dc2c006f3f9a09453ef30afdcfc0249/2026/03/23/4b9711f7-60f4-4e8f-8a0e-e01500e02b27/operagxhero.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/23/low-self-discharge-high-voltage-supercapacitors-using-porous-carbon/",
+      "url": "https://hackaday.com/2026/03/23/low-self-discharge-high-voltage-supercapacitors-using-porous-carbon/",
+      "title": "[Hackaday] Low Self-Discharge, High-Voltage Supercapacitors Using Porous Carbon",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/new_lignin_supercapacitor_zhang_et_al_2026_carbon_research.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"374\" src=\"https://hackaday.com/wp-content/uploads/2026/03/new_lignin_supercapacitor_zhang_et_al_2026_carbon_research.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Supercapacitors rely mostly on double-layer capacitance to bridge the divide between chemical batteries and traditional capacitors, but they come with a number of weaknesses. Paramount among these are their relatively <a class=\"read-more\" href=\"https://hackaday.com/2026/03/23/low-self-discharge-high-voltage-supercapacitors-using-porous-carbon/\">&#8230;read more</a>",
+      "date_published": "2026-03-24T02:00:11+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/new_lignin_supercapacitor_zhang_et_al_2026_carbon_research.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/the-biggest-mistake-people-make-with-glp-1-drugs-and-how-to-avoid-it",
+      "url": "https://www.sciencealert.com/the-biggest-mistake-people-make-with-glp-1-drugs-and-how-to-avoid-it",
+      "title": "[ScienceAlert] The 'Biggest Mistake' People Make With GLP-1 Drugs, And How to Avoid It",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/woman-holds-injector.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"woman holds injector\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/woman-holds-injector.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />The evidence is clear.</p>",
+      "date_published": "2026-03-24T00:39:37+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/03/woman-holds-injector.jpg"
+    },
+    {
+      "id": "https://newatlas.com/outdoors/invader-viator-60-second-camper/",
+      "url": "https://newatlas.com/outdoors/invader-viator-60-second-camper/",
+      "title": "[New Atlas] 60-sec cube camper rises & slides into much more than meets the eye",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/58f5d38/2147483647/strip/true/crop/1351x709+0+94/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa9%2F4e%2Fe4d849604c4d8f1076a5625fb03c%2Fscreenshot-2026-03-23-at-1-31-58-pm.png&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The Viator joins Invader's lineup as a roomier luxury model with full off-road readiness\" src=\"https://assets.newatlas.com/dims4/default/65a9f50/2147483647/strip/true/crop/1351x898+0+0/resize/1351x898!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa9%2F4e%2Fe4d849604c4d8f1076a5625fb03c%2Fscreenshot-2026-03-23-at-1-31-58-pm.png\" /><p>South African camping trailer specialist Invader is developing the all-new Viator as a roomier, more luxurious alternative to its smaller fold-out trailers. Like its other models, the Viator packs low and rugged for on/off-road travel and expands at camp. But it features a longer body and transformable furnishings that combine for a more complete floor plan that includes a bathroom, retractable dining area, queen bedroom and oversized multi-slide outdoor kitchen.</p><p><a href=\"https://newatlas.com/outdoors/invader-viator-60-second-camper/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/outdoors/\">Outdoors</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/caravan/\" rel=\"tag\">Caravan</a>, <a href=\"https://newatlas.com/tag/camping/\" rel=\"tag\">Camping</a>, <a href=\"https://newatlas.com/tag/trailer/\" rel=\"tag\">Trailer</a>, <a href=\"https://newatlas.com/tag/trailers/\" rel=\"tag\">trailers</a>, <a href=\"https://newatlas.com/tag/off-road/\" rel=\"tag\">Off-road</a>, <a href=\"https://newatlas.com/tag/rv/\" rel=\"tag\">RV</a>, <a href=\"https://newatlas.com/tag/outdoor/\" rel=\"tag\">Outdoors and Camping</a></p>",
+      "date_published": "2026-03-24T00:12:29+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 54,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://assets.newatlas.com/dims4/default/58f5d38/2147483647/strip/true/crop/1351x709+0+94/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa9%2F4e%2Fe4d849604c4d8f1076a5625fb03c%2Fscreenshot-2026-03-23-at-1-31-58-pm.png&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.sciencealert.com/gigantic-heat-dome-baking-the-whole-us-may-be-historic-scientists-say",
+      "url": "https://www.sciencealert.com/gigantic-heat-dome-baking-the-whole-us-may-be-historic-scientists-say",
+      "title": "[ScienceAlert] Gigantic 'Heat Dome' Baking The Whole US May Be Historic, Scientists Say",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/hot-sun-in-sky.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"hot sun in sky\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/hot-sun-in-sky.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"The entire US is going to be hot... that's really bizarre.”</p>",
+      "date_published": "2026-03-24T00:03:40+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/03/hot-sun-in-sky.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/stop-wasting-your-modern-ssd-on-over-provisioning/",
+      "url": "https://www.xda-developers.com/stop-wasting-your-modern-ssd-on-over-provisioning/",
+      "title": "[XDA Developers] Stop wasting 10% of your SSD on an old trick that modern drives don't need anymore",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/05/corsair-mp700-pro-se-micron-nand.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe used to set aside a significant chunk of our SSDs to keep them from dying. In 2026, it's time to reclaim that space.",
+      "date_published": "2026-03-23T23:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/05/corsair-mp700-pro-se-micron-nand.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/23/picoz80-is-a-drop-in-replacement-for-everyones-favorite-zilog-cpu/",
+      "url": "https://hackaday.com/2026/03/23/picoz80-is-a-drop-in-replacement-for-everyones-favorite-zilog-cpu/",
+      "title": "[Hackaday] PicoZ80 is a Drop-in Replacement for Everyone’s Favorite Zilog CPU",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/picoZ80_vs_realZ80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"357\" src=\"https://hackaday.com/wp-content/uploads/2026/03/picoZ80_vs_realZ80.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The Z80 has been gone a couple of years now, but it&#8217;s very much not forgotten. Still, the day when new-old-stock and salvaged DIP-40 packaged Z80s will be hard to <a class=\"read-more\" href=\"https://hackaday.com/2026/03/23/picoz80-is-a-drop-in-replacement-for-everyones-favorite-zilog-cpu/\">&#8230;read more</a>",
+      "date_published": "2026-03-23T23:00:08+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/picoZ80_vs_realZ80.png"
+    },
+    {
+      "id": "https://www.macrumors.com/2026/03/23/kwikset-carplay-integration/",
+      "url": "https://www.macrumors.com/2026/03/23/kwikset-carplay-integration/",
+      "title": "[MacRumors] Kwikset Smart Locks Can Now Be Controlled Through Apple CarPlay",
+      "content_html": "<img src=\"https://images.macrumors.com/t/RdWVmfpHa72tD2VwoMB7IpDdsoM=/2000x/article-new/2026/03/kwikset-carplay.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLock maker Kwikset today added <a href=\"https://www.macrumors.com/roundup/carplay/\">CarPlay</a> integration to the Kwikset app, which means iPhone owners can lock or unlock Kwikset smart locks directly from the car's dashboard. \n<br />\n\n<br />\n<img alt=\"\" class=\"aligncenter size-full wp-image-1042188\" height=\"1125\" src=\"https://images.macrumors.com/article-new/2026/03/kwikset-carplay.jpg\" width=\"2000\" />\n<br />\nThe feature works with Kwikset locks that are controlled with the Kwikset app, and it allows locks to be accessed without the need to open the app on an iPhone. When arriving home or leaving, vehicle owners can use &zwnj;CarPlay&zwnj; to unlock or lock their home's doors. \n<br />\n\n<br />\nWhen an iPhone is connected to &zwnj;CarPlay&zwnj;, the Kwikset app is shown alongside other third-party apps, so users can choose their home and lock or unlock their home door with a tap. \n<br />\n\n<br />\nKwikset new &zwnj;CarPlay&zwnj; functionality is designed for Kwikset locks that include the Halo Touch, Halo Keypad, Halo Touchscreen, Halo Select, and Halo Select Plus. The feature does not work with Kwikset Halo locks that are set to Matter mode. Kwikset is also adding the same integration for Android Auto.<div class=\"linkback\">Related Roundup: <a href=\"https://www.macrumors.com/roundup/carplay/\">CarPlay</a></div><div class=\"linkback\">Tag: <a href=\"https://www.macrumors.com/guide/kwikset/\">Kwikset</a></div><div class=\"linkback\">Related Forum: <a href=\"https://forums.macrumors.com/forums/homepod-homekit-carplay-home-auto-technology.193\">HomePod, HomeKit, CarPlay, Home & Auto Technology</a></div><br />This article, &quot;<a href=\"https://www.macrumors.com/2026/03/23/kwikset-carplay-integration/\">Kwikset Smart Locks Can Now Be Controlled Through Apple CarPlay</a>&quot; first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br /><br /><a href=\"https://forums.macrumors.com/threads/kwikset-smart-locks-can-now-be-controlled-through-apple-carplay.2479795/\">Discuss this article</a> in our forums<br /><br />",
+      "date_published": "2026-03-23T22:47:43+00:00",
+      "authors": [
+        {
+          "name": "MacRumors",
+          "url": "https://www.macrumors.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://images.macrumors.com/t/RdWVmfpHa72tD2VwoMB7IpDdsoM=/2000x/article-new/2026/03/kwikset-carplay.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/tecno-openclaw-on-android-3651043/",
+      "url": "https://www.androidauthority.com/tecno-openclaw-on-android-3651043/",
+      "title": "[Android Authority] This Android brand is launching the first true OpenClaw-powered AI agent on a phone",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/03/Ella-Claw-main-TECNO.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOpenClaw will soon automate mundane tasks on TECNO phones with agentic capabilities.",
+      "date_published": "2026-03-23T22:00:19+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/03/Ella-Claw-main-TECNO.jpg"
+    },
+    {
+      "id": "https://indiginews.com/food/west-moberly-first-nations-food-security-geothermal/",
+      "url": "https://indiginews.com/food/west-moberly-first-nations-food-security-geothermal/",
+      "title": "[IndigiNews] First Nation aims to grow its food security in northern ‘B.C.’ — with geothermal heat",
+      "content_html": "<img src=\"https://indiginews.com/wp-content/uploads/2026/03/21193967133_9ed462957d_o.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>West Moberly leaders look deep underground for clean energy solutions, in a project that would be the first-of-its-kind in 'Canada'</p>\n<p>The post <a href=\"https://indiginews.com/food/west-moberly-first-nations-food-security-geothermal/\">First Nation aims to grow its food security in northern &#8216;B.C.&#8217; — with geothermal heat</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
+      "date_published": "2026-03-23T21:26:31+00:00",
       "authors": [
         {
           "name": "IndigiNews",
           "url": "https://indiginews.com/"
         }
       ],
-      "_quality_score": 63,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://indiginews.com/wp-content/uploads/2026/03/21193967133_9ed462957d_o.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026EMCR0005-000298",
+      "url": "https://news.gov.bc.ca/releases/2026EMCR0005-000298",
+      "title": "[BC Gov News] Strengthening flood resilience in East Kootenay region",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProvincially supported flood-mitigation projects completed",
+      "date_published": "2026-03-23T21:25:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 60,
       "_theme_score": 0,
       "_final_score": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://indiginews.com/wp-content/uploads/2026/03/Chief-Leonard-Lazore-birchbark-sap-collector-1024x683.jpg"
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/4-reasons-i-refuse-to-move-from-hdds-to-ssds-in-my-nas/",
-      "url": "https://www.xda-developers.com/4-reasons-i-refuse-to-move-from-hdds-to-ssds-in-my-nas/",
-      "title": "[XDA Developers] 4 reasons I refuse to move from HDDs to SSDs in my NAS",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/11/hdd.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou just can't beat hard drives for storing lots of data ... Well, I can't, anyway.",
-      "date_published": "2026-03-17T13:31:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/11/hdd.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/this-is-the-docker-setting-that-plex-users-always-get-wrong/",
-      "url": "https://www.howtogeek.com/this-is-the-docker-setting-that-plex-users-always-get-wrong/",
-      "title": "[How-To Geek] This is the Docker setting that Plex users always get wrong",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/10/plex-logo-surrounded-by-some-movies-and-several-screens-in-the-background.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAll it takes is one mistyped environment variable and hardware transcoding stops working.",
-      "date_published": "2026-03-17T13:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/10/plex-logo-surrounded-by-some-movies-and-several-screens-in-the-background.jpg"
-    },
-    {
-      "id": "https://gizmodo.com/a-clever-software-patch-gave-this-ice-satellite-a-wild-new-trick-2000734135",
-      "url": "https://gizmodo.com/a-clever-software-patch-gave-this-ice-satellite-a-wild-new-trick-2000734135",
-      "title": "[Gizmodo] A Clever Software Patch Gave This Ice Satellite a Wild New Trick",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/CryoSat_key_to_measuring_sea-ice_thickness-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA software upgrade allowed CryoSat to monitor disturbances caused by a geomagnetic storm.",
-      "date_published": "2026-03-17T13:15:08+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/03/CryoSat_key_to_measuring_sea-ice_thickness-1280x853.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/home/internet/wi-fi-home-internet-security-network-routers-hackers/",
-      "url": "https://www.cnet.com/home/internet/wi-fi-home-internet-security-network-routers-hackers/",
-      "title": "[CNET] Don't Let Hackers Access Your Home Wi-Fi Network. Here's How to Lock It Down",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/4abc01181ac48274bbeb5f8adf24406db697fc6b/hub/2025/07/09/f7aa451e-42f0-43c8-9a23-963b47684fec/gettyimages-1098315096-3.jpg?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFollow these 10 simple steps to help prevent unauthorized use of your home internet network.",
-      "date_published": "2026-03-17T13:05:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/4abc01181ac48274bbeb5f8adf24406db697fc6b/hub/2025/07/09/f7aa451e-42f0-43c8-9a23-963b47684fec/gettyimages-1098315096-3.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.zdnet.com/article/1password-introduces-unified-credential-security-platform/",
-      "url": "https://www.zdnet.com/article/1password-introduces-unified-credential-security-platform/",
-      "title": "[ZDNet] As AI agents spread, 1Password's new tool tackles a rising security threat",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/1e04d71d043363cafc4030b24e34660938eb81af/2026/03/16/13a6fbb4-1329-4374-940d-0033cb371d3f/use-as-ai-agents-spread-1password-introduces-unified-credential-security-platform.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI agents increasingly need credentials to log into your systems. 1Password wants to help secure them. Here's how.",
-      "date_published": "2026-03-17T13:00:44+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/1e04d71d043363cafc4030b24e34660938eb81af/2026/03/16/13a6fbb4-1329-4374-940d-0033cb371d3f/use-as-ai-agents-spread-1password-introduces-unified-credential-security-platform.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://www.xda-developers.com/thought-proxmox-would-overcomplicate-my-home-lab-but-did-opposite/",
-      "url": "https://www.xda-developers.com/thought-proxmox-would-overcomplicate-my-home-lab-but-did-opposite/",
-      "title": "[XDA Developers] I thought Proxmox would overcomplicate my home lab, but it did the opposite",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/12/proxmox-datacenter-manager-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProxmox became my home lab.",
-      "date_published": "2026-03-17T13:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/12/proxmox-datacenter-manager-2.jpg"
-    },
-    {
-      "id": "https://www.engadget.com/home/smart-home/aqaras-matter-compatible-camera-promises-easier-smart-home-integration-124500865.html?src=rss",
-      "url": "https://www.engadget.com/home/smart-home/aqaras-matter-compatible-camera-promises-easier-smart-home-integration-124500865.html?src=rss",
-      "title": "[Engadget] Aqara's Matter-compatible camera promises easier smart home integration",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Faqara-6350.jpg&resize=1400%2C866&client=19f2b5e49a271b2bde77&signature=bd558059d4e4b9794dceeb2bcec939d6b628d68c\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Smart home company Aqara has launched what it says is the first camera certified for <a class=\"link\" href=\"https://www.engadget.com/home/smart-home/ikea-announces-new-matter-compatible-smart-home-products-120013040.html\" target=\"_blank\">Matter</a>, the open source standard that enables interoperability across brands, like Google and Amazon. The Aqara G350 is an indoor security cam that also functions as a Zigbee and Matter hub in the Aqara Home app, which means the camera will enable you to control various devices across smart home protocols from different brands within one location. </p><p>The camera itself comes with a 4K wide-angle and a 2.5K telephoto lens, providing both panoramic and closeup views. It also has 9x hybrid zoom and a pan-tilt mechanism that can give you 360-degree coverage of the room it’s in. The camera uses AI-powered tracking to keep people and pets in frame, as well as to determine which events and sounds are truly meaningful before sending you an alert. The Camera Hub G350 is now available via <a class=\"link\" href=\"https://us.aqara.com/products/camera-hub-g350?utm_source=PR_GENERAL&amp;utm_medium=PR&amp;utm_campaign=G350\" target=\"_blank\">Aqara’s website</a>, <a class=\"link rapid-with-clickid\" href=\"https://shopping.yahoo.com/rdlw?merchantId=66ea567a-c987-4c2e-a2ff-02904efde6ea&amp;itemId=amazon_B0G4W6R4SG&amp;siteId=us-engadget&amp;pageId=1p-autolink&amp;contentUuid=e69a3979-e0a5-47d6-a3f9-f83a782ec2f1&amp;featureId=text-link&amp;merchantName=Amazon&amp;linkText=Amazon&amp;custData=eyJzb3VyY2VOYW1lIjoiV2ViLURlc2t0b3AtVmVyaXpvbiIsImxhbmRpbmdVcmwiOiJodHRwczovL3d3dy5hbWF6b24uY29tL2RwL0IwRzRXNlI0U0c_dGFnPWdkZ3QwYy0yMCIsImNvbnRlbnRVdWlkIjoiZTY5YTM5NzktZTBhNS00N2Q2LWEzZjktZjgzYTc4MmVjMmYxIiwib3JpZ2luYWxVcmwiOiJodHRwczovL3d3dy5hbWF6b24uY29tL2RwL0IwRzRXNlI0U0ciLCJkeW5hbWljQ2VudHJhbFRyYWNraW5nSWQiOnRydWUsInNpdGVJZCI6InVzLWVuZ2FkZ2V0IiwicGFnZUlkIjoiMXAtYXV0b2xpbmsiLCJmZWF0dXJlSWQiOiJ0ZXh0LWxpbmsifQ&amp;signature=AQAAAfWTHg1vmvCtmXdexI-RcAaEqdbT07tm_1h9tNHhvVnG&amp;gcReferrer=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0G4W6R4SG\" target=\"_blank\">Amazon</a> and other retailers for $140. </p><p>Aqara has also introduced the G400 wired doorbell camera that can connect to the internet either via Ethernet or dual-band Wi-Fi 6. It has a lens with 2K resolution and 165-degree ultra-wide field of view, so that it can capture visitors even when they’re standing close. The camera has on-device detection capabilities to recognize people and motion even without being connected to the internet. Connected, its cloud-based AI features enable it to identify faces, packages, vehicles and animals. You can connect the Aqara G400 doorbell camera to major smart home platforms, such as Apple Home with Homekit, Amazon Alexa, Google Home and Samsung SmartThings. It’s now available for sale on <a class=\"link\" href=\"https://us.aqara.com/products/doorbell-camera-g400-wired?utm_source=PR_GENERAL&amp;utm_medium=PR&amp;utm_campaign=G350\" target=\"_blank\">Aqara’s website</a>, <a class=\"link rapid-with-clickid\" href=\"https://shopping.yahoo.com/rdlw?merchantId=66ea567a-c987-4c2e-a2ff-02904efde6ea&amp;itemId=amazon_B0G52BVRLQ&amp;siteId=us-engadget&amp;pageId=1p-autolink&amp;contentUuid=e69a3979-e0a5-47d6-a3f9-f83a782ec2f1&amp;featureId=text-link&amp;merchantName=Amazon&amp;linkText=Amazon&amp;custData=eyJzb3VyY2VOYW1lIjoiV2ViLURlc2t0b3AtVmVyaXpvbiIsImxhbmRpbmdVcmwiOiJodHRwczovL3d3dy5hbWF6b24uY29tL2RwL0IwRzUyQlZSTFE_dGFnPWdkZ3QwYy0yMCIsImNvbnRlbnRVdWlkIjoiZTY5YTM5NzktZTBhNS00N2Q2LWEzZjktZjgzYTc4MmVjMmYxIiwib3JpZ2luYWxVcmwiOiJodHRwczovL3d3dy5hbWF6b24uY29tL2RwL0IwRzUyQlZSTFEiLCJkeW5hbWljQ2VudHJhbFRyYWNraW5nSWQiOnRydWUsInNpdGVJZCI6InVzLWVuZ2FkZ2V0IiwicGFnZUlkIjoiMXAtYXV0b2xpbmsiLCJmZWF0dXJlSWQiOiJ0ZXh0LWxpbmsifQ&amp;signature=AQAAARy_DtPawKyJBCZu6uXm9GRCTHMeM5eAHSjNoP9LMg4S&amp;gcReferrer=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0G52BVRLQ\" target=\"_blank\">Amazon</a> and other retails for $100.</p>This article originally appeared on Engadget at https://www.engadget.com/home/smart-home/aqaras-matter-compatible-camera-promises-easier-smart-home-integration-124500865.html?src=rss",
-      "date_published": "2026-03-17T12:45:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Faqara-6350.jpg&resize=1400%2C866&client=19f2b5e49a271b2bde77&signature=bd558059d4e4b9794dceeb2bcec939d6b628d68c"
-    },
-    {
-      "id": "https://www.xda-developers.com/glance-replaced-multiple-browser-tabs-needed-to-monitor-home-lab/",
-      "url": "https://www.xda-developers.com/glance-replaced-multiple-browser-tabs-needed-to-monitor-home-lab/",
-      "title": "[XDA Developers] Glance replaced the 12 browser tabs I used to monitor my home lab",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/glance-dashboard-on-a-laptop-screen.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGlance solved my problem by building a custom dashboard that shows all my services with direct links and current status with additional feeds.",
-      "date_published": "2026-03-17T12:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/glance-dashboard-on-a-laptop-screen.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/4-linux-init-systems-that-almost-replaced-systemd-and-why-they-failed/",
-      "url": "https://www.howtogeek.com/4-linux-init-systems-that-almost-replaced-systemd-and-why-they-failed/",
-      "title": "[How-To Geek] 4 Linux init systems that almost replaced systemd (and why they failed)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/05/systemd-logo-linux-mascots.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe other ways Linux handled startup before everything converged.",
-      "date_published": "2026-03-17T12:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/05/systemd-logo-linux-mascots.png"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/03/17/a-look-back-at-historic-quesnel-reid-street/",
-      "url": "https://quesnelobserver.com/2026/03/17/a-look-back-at-historic-quesnel-reid-street/",
-      "title": "[Quesnel Cariboo Observer] A look back at historic Quesnel: Reid Street",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41778077_web1_reid-street.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>This is a historic look back at Quesnel </p>",
-      "date_published": "2026-03-17T12:30:00+00:00",
+      "id": "https://quesnelobserver.com/2026/03/23/prince-george-rcmp-seeking-witnesses-for-shooting-in-moccasin-flats/",
+      "url": "https://quesnelobserver.com/2026/03/23/prince-george-rcmp-seeking-witnesses-for-shooting-in-moccasin-flats/",
+      "title": "[Quesnel Cariboo Observer] Prince George RCMP seeking witnesses for shooting in Moccasin Flats",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41886490_web1_pg-rcmp.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Police are seeking anyone with video surveillance or dash camera footage of the incident </p>",
+      "date_published": "2026-03-23T21:05:00+00:00",
       "authors": [
         {
           "name": "Quesnel Cariboo Observer",
           "url": "https://quesnelobserver.com"
         }
       ],
-      "_quality_score": 87,
+      "_quality_score": 80,
       "_theme_score": 0,
       "_final_score": 0,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41778077_web1_reid-street.jpg?w=1024"
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41886490_web1_pg-rcmp.jpg?w=1024"
     },
     {
-      "id": "https://www.tomsguide.com/computing/vpns/how-to-bind-your-vpn-to-your-torrent-client-on-windows-and-mac",
-      "url": "https://www.tomsguide.com/computing/vpns/how-to-bind-your-vpn-to-your-torrent-client-on-windows-and-mac",
-      "title": "[Toms Guide] How to bind your VPN to your torrent client on Windows and Mac",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/XvurGzjaNdhSt34pBP72pQ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVPNs and torrenting go hand in hand, but binding your VPN to your torrent client is a key step for protecting your privacy. Here's how to set it up.",
-      "date_published": "2026-03-17T12:22:13+00:00",
+      "id": "https://www.cnet.com/tech/services-and-software/claude-control-your-computer-to-perform-tasks/",
+      "url": "https://www.cnet.com/tech/services-and-software/claude-control-your-computer-to-perform-tasks/",
+      "title": "[CNET] Anthropic's Claude Can Now Control Your Computer",
+      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/ff6033521c46cf3bdeedd8724620b8af11abd94c/hub/2026/03/23/8e5ad5f8-b8d5-402f-9db7-7d6d49fd53c6/cowork-dispatch-blog-permissions.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe developer is boosting Claude's agentic capabilities in an apparent effort to compete with platforms like OpenClaw.",
+      "date_published": "2026-03-23T21:00:48+00:00",
+      "authors": [
+        {
+          "name": "CNET",
+          "url": "https://www.cnet.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.cnet.com/a/img/resize/ff6033521c46cf3bdeedd8724620b8af11abd94c/hub/2026/03/23/8e5ad5f8-b8d5-402f-9db7-7d6d49fd53c6/cowork-dispatch-blog-permissions.png?auto=webp&width=300"
+    },
+    {
+      "id": "https://www.xda-developers.com/pc-building-blunders-that-haunt-upgrade-path-for-years/",
+      "url": "https://www.xda-developers.com/pc-building-blunders-that-haunt-upgrade-path-for-years/",
+      "title": "[XDA Developers] I still regret these 4 PC building blunders that haunted my upgrade path for years",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/03/gaming-pc-rtx-3080-and-ryzen-7-5700x.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWrong PC components can lock you out of future upgrades",
+      "date_published": "2026-03-23T21:00:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/03/gaming-pc-rtx-3080-and-ryzen-7-5700x.jpg"
+    },
+    {
+      "id": "https://www.engadget.com/ai/claude-code-and-cowork-can-now-use-your-computer-210000126.html?src=rss",
+      "url": "https://www.engadget.com/ai/claude-code-and-cowork-can-now-use-your-computer-210000126.html?src=rss",
+      "title": "[Engadget] Claude Code and Cowork can now use your computer",
+      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Fcowork-dispatch-blog-permissions.png&resize=1400%2C787&client=19f2b5e49a271b2bde77&signature=3b4821e9e34186b35683ccdaaf65734b4a66e8d2\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Anthropic announced today that its Claude Code and Claude Cowork tools are being updated to accomplish tasks using your computer. The latest update will see these AI resources become capable of opening files, using the browser and running dev tools.&nbsp;</p><p>When enabled, the Claude AI chatbot will first prioritize connectors to supported services such as the Google workplace suite or Slack, but if a connector isn't available, it will be able to still execute an assigned task. Claude should ask for permission before taking these actions, but Anthropic still recommended not using this feature to handle sensitive information as a precaution.</p><div><div style=\"width: 100%; height: 0; padding-bottom: 56.25%;\"></div></div><p>Claude computer use will initially be available to Claude Pro and Claude Max subscribers on macOS. This feature is still in a research preview, so will continue to be adjusted based on Anthropic's user feedback. It will also support use with Anthropic's Dispatch feature, which allows a person to message the chatbot in a single continuous conversation across phone and desktop.&nbsp;</p><p><a class=\"link\" href=\"https://www.engadget.com/ai/anthropic-launches-claude-cowork-a-version-of-its-coding-ai-for-regular-people-193000849.html\" target=\"_blank\">Claude Cowork</a> was introduced in January. It's an iteration of the <a class=\"link\" href=\"https://www.engadget.com/ai/anthropics-new-claude-model-can-think-both-fast-and-slow-203307140.html\" target=\"_blank\">Claude Code AI agent</a> for programmers that is designed for more casual users. </p>This article originally appeared on Engadget at https://www.engadget.com/ai/claude-code-and-cowork-can-now-use-your-computer-210000126.html?src=rss",
+      "date_published": "2026-03-23T21:00:00+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Fcowork-dispatch-blog-permissions.png&resize=1400%2C787&client=19f2b5e49a271b2bde77&signature=3b4821e9e34186b35683ccdaaf65734b4a66e8d2"
+    },
+    {
+      "id": "https://www.tomsguide.com/ai/not-ready-to-quitgpt-i-tried-this-new-tool-that-slows-chatgpt-on-purpose-and-it-says-a-lot-about-ai-backlash",
+      "url": "https://www.tomsguide.com/ai/not-ready-to-quitgpt-i-tried-this-new-tool-that-slows-chatgpt-on-purpose-and-it-says-a-lot-about-ai-backlash",
+      "title": "[Toms Guide] Not ready to QuitGPT? I tried this new tool that slows ChatGPT on purpose — and it says a lot about AI backlash",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/YsxBpeimxPkqswGNmFFkjc-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new tool called “Slow LLM” intentionally slows ChatGPT, Claude and Gemini to a crawl — here’s how it works and why it’s sparking debate about AI dependence.",
+      "date_published": "2026-03-23T20:40:17+00:00",
       "authors": [
         {
           "name": "Toms Guide",
           "url": "https://www.tomsguide.com"
         }
       ],
-      "_quality_score": 65,
+      "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/XvurGzjaNdhSt34pBP72pQ-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/YsxBpeimxPkqswGNmFFkjc-1280-80.png"
     },
     {
-      "id": "https://gizmodo.com/smart-glasses-have-privacy-advocates-scrambling-2000734146",
-      "url": "https://gizmodo.com/smart-glasses-have-privacy-advocates-scrambling-2000734146",
-      "title": "[Gizmodo] Smart Glasses Have Privacy Advocates Scrambling",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2025/09/ray-ban-meta-gen-2-14-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's getting to the point of state-level legislation.",
-      "date_published": "2026-03-17T12:20:55+00:00",
+      "id": "https://techcrunch.com/2026/03/23/zipline-snaps-up-another-200m-to-fuel-its-drone-delivery-expansion/",
+      "url": "https://techcrunch.com/2026/03/23/zipline-snaps-up-another-200m-to-fuel-its-drone-delivery-expansion/",
+      "title": "[TechCrunch] Zipline snaps up another $200M to fuel its drone delivery expansion",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe funding adds to a previous round, announced in January,  that valued the drone startup at $7.6 billion.",
+      "date_published": "2026-03-23T20:37:52+00:00",
       "authors": [
         {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
         }
       ],
       "_quality_score": 50,
@@ -446,194 +586,54 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2025/09/ray-ban-meta-gen-2-14-1280x853.jpg"
+      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
     },
     {
-      "id": "https://qz.com/success-trap-companies-businesses-management-leadership",
-      "url": "https://qz.com/success-trap-companies-businesses-management-leadership",
-      "title": "[Quartz] The success trap",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/money%2520success%2520trap.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBusinesses tend to overinvest in what already works, which can weaken adaptation over time. Success and stability can set up some organizations for failure",
-      "date_published": "2026-03-17T12:14:18+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/money%2520success%2520trap.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/ml4w-hyprland-custom-desktop-easy-setup-minutes/",
-      "url": "https://www.zdnet.com/article/ml4w-hyprland-custom-desktop-easy-setup-minutes/",
-      "title": "[ZDNet] I tried ML4W and got a super-customized Hyprland desktop in minutes",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/3ac2f3ff600bf6946112b3071dac4d30bfabb9e2/2026/03/16/5afbb547-7072-42ff-85b1-0ec6e3a2514f/ml4w-simplifies-customizing-hyprland-so-you-can-have-an-efficient-and-crazy-cool-desktop.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWant to customize Hyprland without editing config files? This Linux distro makes it simple. Here's how.",
-      "date_published": "2026-03-17T12:05:15+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 64,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/3ac2f3ff600bf6946112b3071dac4d30bfabb9e2/2026/03/16/5afbb547-7072-42ff-85b1-0ec6e3a2514f/ml4w-simplifies-customizing-hyprland-so-you-can-have-an-efficient-and-crazy-cool-desktop.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://lifehacker.com/health/how-much-stretching-it-takes-to-make-you-more-flexible?utm_medium=RSS",
-      "url": "https://lifehacker.com/health/how-much-stretching-it-takes-to-make-you-more-flexible?utm_medium=RSS",
-      "title": "[Lifehacker] How Much Stretching It Takes to Make You More Flexible, According to Science",
-      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01JEP80HWHE5F0YVVEYFXTWKYG/hero-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIncluding weekly targets, and a secret to unlock some of your flexibility within minutes.",
-      "date_published": "2026-03-17T12:00:46+00:00",
+      "id": "https://lifehacker.com/tech/google-search-ai-rewriting-headlines?utm_medium=RSS",
+      "url": "https://lifehacker.com/tech/google-search-ai-rewriting-headlines?utm_medium=RSS",
+      "title": "[Lifehacker] Google Is Using AI to Mess With Headlines (Again)",
+      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01KME5DB6G3HBQ6FYZM1ZNRA3M/hero-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis news follows the AI-generated headlines previously seen in Google Discover.",
+      "date_published": "2026-03-23T20:30:00+00:00",
       "authors": [
         {
           "name": "Lifehacker",
           "url": "https://lifehacker.com/feed/rss"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://lifehacker.com/imagery/articles/01JEP80HWHE5F0YVVEYFXTWKYG/hero-image.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/replace-mesh-wifi-single-router-better/",
-      "url": "https://www.xda-developers.com/replace-mesh-wifi-single-router-better/",
-      "title": "[XDA Developers] I replaced my mesh Wi-Fi with a single high-end router, and the results surpassed my expectations",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/01/asus-zenwifi-gaming-router-window-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPerformance improvements were well worth the switch.",
-      "date_published": "2026-03-17T12:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/01/asus-zenwifi-gaming-router-window-1.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/clever-ways-to-use-your-leftover-ends-of-3d-printing-filament/",
-      "url": "https://www.howtogeek.com/clever-ways-to-use-your-leftover-ends-of-3d-printing-filament/",
-      "title": "[How-To Geek] 6 clever ways to use your leftover ends of 3D printing filament",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/a-spool-of-bambu-lab-pla-matte-filament-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDon't waste a drop.",
-      "date_published": "2026-03-17T12:00:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/a-spool-of-bambu-lab-pla-matte-filament-1.jpg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/03/17/100-mile-elementary-school-welcomes-return-of-science-fair/",
-      "url": "https://100milefreepress.net/2026/03/17/100-mile-elementary-school-welcomes-return-of-science-fair/",
-      "title": "[100 Mile Free Press] 100 Mile Elementary School welcomes return of science fair",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41795311_web1_260319-OMH-Science-Fair-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The science fair was last held a few years before the COVID-19 pandemic  </p>",
-      "date_published": "2026-03-17T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 83,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41795311_web1_260319-OMH-Science-Fair-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://thenarwhal.ca/santana-dreaver-indigenous-journalism-fellow/",
-      "url": "https://thenarwhal.ca/santana-dreaver-indigenous-journalism-fellow/",
-      "title": "[The Narwhal] Meet Santana Dreaver, The Narwhal’s 2026 Indigenous Journalism Fellow",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/03/Falsetti-20260314-Santana-18-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith a background in emergency management and youth advocacy as well as journalism, Santana is spending a year at The Narwhal reporting all across B.C.",
-      "date_published": "2026-03-17T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
-        }
-      ],
-      "_quality_score": 67,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/03/Falsetti-20260314-Santana-18-1024x683.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/why-your-local-ai-app-feels-slow-and-its-not-gpu/",
-      "url": "https://www.xda-developers.com/why-your-local-ai-app-feels-slow-and-its-not-gpu/",
-      "title": "[XDA Developers] Why your local AI app feels slow (and it’s not your GPU)",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/macbook-air-running-deepseekr1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe delay hides outside the model.",
-      "date_published": "2026-03-17T11:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 58,
+      "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/macbook-air-running-deepseekr1.jpg"
+      "image": "https://lifehacker.com/imagery/articles/01KME5DB6G3HBQ6FYZM1ZNRA3M/hero-image.jpg"
     },
     {
-      "id": "https://www.techradar.com/pro/phone-communications/oukitel-wp61-plus-rugged-phone-review",
-      "url": "https://www.techradar.com/pro/phone-communications/oukitel-wp61-plus-rugged-phone-review",
-      "title": "[TechRadar] My testing of the Oukitel WP61 Plus revealed that while it’s not a daily driver, this rugged walkie-talkie phone could be perfect for operating off-grid",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/MKQPbCHTFteTnFNcS6uVw9-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Oukitel WP61 Plus is a rugged, heavyweight design ideal for those operating in harsh, remote environments.",
-      "date_published": "2026-03-17T11:05:54+00:00",
+      "id": "https://www.techradar.com/phones/iphone/apple-sets-wwdc-for-june-8-and-this-may-be-its-last-best-chance-to-fix-siri-and-deliver-the-ai-we-were-promised",
+      "url": "https://www.techradar.com/phones/iphone/apple-sets-wwdc-for-june-8-and-this-may-be-its-last-best-chance-to-fix-siri-and-deliver-the-ai-we-were-promised",
+      "title": "[TechRadar] Apple sets WWDC for June 8 — and this may be its last best chance to fix Siri and deliver the AI we were promised",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/WBTzyEYUbHDGQkHRrxSZn3-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApple set the week of June 8 for its World Wide Developers Conference, and we're expecting big things in AI, as well as significant updates to every major Apple platform.",
+      "date_published": "2026-03-23T20:25:02+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 58,
+      "_quality_score": 50,
       "_theme_score": 0,
       "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/MKQPbCHTFteTnFNcS6uVw9-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/WBTzyEYUbHDGQkHRrxSZn3-1280-80.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/03/17/fullspectrum-is-like-hueforge-for-3d-models-but-bring-your-toolchanger/",
-      "url": "https://hackaday.com/2026/03/17/fullspectrum-is-like-hueforge-for-3d-models-but-bring-your-toolchanger/",
-      "title": "[Hackaday] FullSpectrum is Like HueForge for 3D Models, but Bring Your Toolchanger",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/FullSpectrum-feat.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Two test towers, showing the palette potential of three (R, B, Y) filaments.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/FullSpectrum-feat.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Full-color 3D printing is something of a holy grail, if nothing else just because of how much it impresses the normies. We&#8217;ve seen a lot of multi-material units the past <a class=\"read-more\" href=\"https://hackaday.com/2026/03/17/fullspectrum-is-like-hueforge-for-3d-models-but-bring-your-toolchanger/\">&#8230;read more</a>",
-      "date_published": "2026-03-17T11:00:42+00:00",
+      "id": "https://hackaday.com/2026/03/23/acoustic-drone-detection-on-the-cheap-with-esp32/",
+      "url": "https://hackaday.com/2026/03/23/acoustic-drone-detection-on-the-cheap-with-esp32/",
+      "title": "[Hackaday] Acoustic Drone Detection On the Cheap with ESP32",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/BatEar-feat.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"500\" src=\"https://hackaday.com/wp-content/uploads/2026/03/BatEar-feat.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>We don&#8217;t usually speculate on the true identity of the hackers behind these projects, but when [TN666]&#8217;s accoustic drone-detector crossed our desk with the name &#8220;Batear&#8221;, we couldn&#8217;t help but <a class=\"read-more\" href=\"https://hackaday.com/2026/03/23/acoustic-drone-detection-on-the-cheap-with-esp32/\">&#8230;read more</a>",
+      "date_published": "2026-03-23T20:00:34+00:00",
       "authors": [
         {
           "name": "Hackaday",
@@ -646,38 +646,78 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/FullSpectrum-feat.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/BatEar-feat.png"
     },
     {
-      "id": "https://www.cnet.com/news/i-was-shocked-to-discover-home-worst-energy-vampire/",
-      "url": "https://www.cnet.com/news/i-was-shocked-to-discover-home-worst-energy-vampire/",
-      "title": "[CNET] How to Find and Slay the Energy Vampires Hiding in Your Home",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/1ae44399029294e34fd401e4236e7d3259190baa/hub/2026/02/05/aa2ef49a-2a85-4775-828d-2f5c4f751325/image-1.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhat's sucking the life from your bank account? This could be the culprit.",
-      "date_published": "2026-03-17T11:00:37+00:00",
+      "id": "https://100milefreepress.net/2026/03/23/undercover-officer-testifies-at-gangsters-murder-trial-in-kelowna/",
+      "url": "https://100milefreepress.net/2026/03/23/undercover-officer-testifies-at-gangsters-murder-trial-in-kelowna/",
+      "title": "[100 Mile Free Press] Undercover officer testifies at gangster’s murder trial in Kelowna",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41885276_web1_240523-KCN-falkangibo-cxz_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Ekene Anigbo is facing charges of second-degree murder for the death of Kathleen Richardson </p>",
+      "date_published": "2026-03-23T20:00:00+00:00",
       "authors": [
         {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41885276_web1_240523-KCN-falkangibo-cxz_3.jpg?w=1024"
+    },
+    {
+      "id": "https://nautil.us/why-we-dont-have-a-lyme-disease-vaccine-1279152/",
+      "url": "https://nautil.us/why-we-dont-have-a-lyme-disease-vaccine-1279152/",
+      "title": "[Nautilus] Why We Don’t Have a Lyme Disease Vaccine",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/03/Currie_HERO_b660ff.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Dogs can get them, why can’t we?</p>\n<p>The post <a href=\"https://nautil.us/why-we-dont-have-a-lyme-disease-vaccine-1279152/\">Why We Don’t Have a Lyme Disease Vaccine</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-03-23T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/03/Currie_HERO_b660ff.png?w=564"
+    },
+    {
+      "id": "https://www.techradar.com/pro/this-framework-can-succeed-only-if-it-is-applied-uniformly-across-the-united-states-white-house-rolls-out-national-legislative-ai-framework-that-looks-to-trump-state-level-rules",
+      "url": "https://www.techradar.com/pro/this-framework-can-succeed-only-if-it-is-applied-uniformly-across-the-united-states-white-house-rolls-out-national-legislative-ai-framework-that-looks-to-trump-state-level-rules",
+      "title": "[TechRadar] \"This framework can succeed only if it is applied uniformly across the United States\": White House rolls out national legislative AI framework that looks to trump state level rules",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/TuSkkh78rNYoBw35HAVdnX-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDonald Trump wants to take ownership of some AI legislation, agreeing to keep states in control of fraud and consumer protection.",
+      "date_published": "2026-03-23T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
       "_quality_score": 55,
       "_theme_score": 0,
       "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/1ae44399029294e34fd401e4236e7d3259190baa/hub/2026/02/05/aa2ef49a-2a85-4775-828d-2f5c4f751325/image-1.png?auto=webp&width=300"
+      "image": "https://cdn.mos.cms.futurecdn.net/TuSkkh78rNYoBw35HAVdnX-1280-80.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/you-could-be-buying-the-wrong-gpu/",
-      "url": "https://www.xda-developers.com/you-could-be-buying-the-wrong-gpu/",
-      "title": "[XDA Developers] You could be buying the wrong GPU",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/03/asrock-radeon-rx-9070-xt-steel-legend-infront-of-box.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDon't waste your money (and power).",
-      "date_published": "2026-03-17T11:00:19+00:00",
+      "id": "https://www.zdnet.com/article/cisco-defenseclaw-to-govern-agentic-ai/",
+      "url": "https://www.zdnet.com/article/cisco-defenseclaw-to-govern-agentic-ai/",
+      "title": "[ZDNet] 3 ways Cisco's DefenseClaw aims to make agentic AI safer",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/96477c296d35447fb7f0176d65ac2f9b6fa9070c/2026/03/23/55ca1c0b-3d54-40f3-8206-ee1f1b280c7d/bueclawscreenshot-2026-03-23-153726.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe reason agentic AI has seen slow enterprise adoption is the lack of an orchestration layer to track what agents are doing, the networking giant says.",
+      "date_published": "2026-03-23T19:58:55+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
         }
       ],
       "_quality_score": 52,
@@ -686,147 +726,107 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/03/asrock-radeon-rx-9070-xt-steel-legend-infront-of-box.jpg"
+      "image": "https://www.zdnet.com/a/img/resize/96477c296d35447fb7f0176d65ac2f9b6fa9070c/2026/03/23/55ca1c0b-3d54-40f3-8206-ee1f1b280c7d/bueclawscreenshot-2026-03-23-153726.jpg?auto=webp&fit=crop&height=675&width=1200"
     },
     {
-      "id": "https://www.howtogeek.com/stopped-fearing-home-assistant-updates-following-this-rule/",
-      "url": "https://www.howtogeek.com/stopped-fearing-home-assistant-updates-following-this-rule/",
-      "title": "[How-To Geek] I stopped fearing Home Assistant updates once I started following this one simple rule",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/01/home-assistant-release-notes.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLet others be the guinea pigs.",
-      "date_published": "2026-03-17T11:00:16+00:00",
+      "id": "https://boingboing.net/2026/03/23/guy-built-an-e-ink-subway-display-so-he-didnt-have-to-keep-unlocking-his-phone.html",
+      "url": "https://boingboing.net/2026/03/23/guy-built-an-e-ink-subway-display-so-he-didnt-have-to-keep-unlocking-his-phone.html",
+      "title": "[Boing Boing] Guy built an e-ink subway display so he didn't have to keep unlocking his phone",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/subway-1.jpg?fit=1200%2C675&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/03/23/guy-built-an-e-ink-subway-display-so-he-didnt-have-to-keep-unlocking-his-phone.html\" rel=\"nofollow\" title=\"Guy built an e-ink subway display so he didn&#039;t have to keep unlocking his phone\"><img alt=\"Dogora Sun/shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"675\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/subway-1.jpg?fit=1200%2C675&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>Daniel Pyrathon lives near three New York City subway lines and got sick of unlocking his phone every time he wanted to check the next train. So he did the obvious (to a tinkerer) thing: he built a wall-mounted e-ink display that shows live departure times for his nearest stops, <a href=\"https://x.com/pirosb3/status/2034370959977619513\">he wrote on X</a>. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/03/23/guy-built-an-e-ink-subway-display-so-he-didnt-have-to-keep-unlocking-his-phone.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/03/23/guy-built-an-e-ink-subway-display-so-he-didnt-have-to-keep-unlocking-his-phone.html\">Guy built an e-ink subway display so he didn&#039;t have to keep unlocking his phone</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-03-23T19:52:00+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/01/home-assistant-release-notes.jpg"
-    },
-    {
-      "id": "https://www.tomsguide.com/wellness/sleep/how-much-deep-sleep-do-you-need",
-      "url": "https://www.tomsguide.com/wellness/sleep/how-much-deep-sleep-do-you-need",
-      "title": "[Toms Guide] How much deep sleep do you need and are you getting enough? Here's how to tell",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/b4Sqv3caiSuA5MVGEtS4v-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDeep sleep goes hand-in-hand with repair and recovery. But are you getting enough of it each night? Here's how to tell.",
-      "date_published": "2026-03-17T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
       "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/b4Sqv3caiSuA5MVGEtS4v-1280-80.jpg"
-    },
-    {
-      "id": "https://www.tomsguide.com/computing/vpns/87-percent-of-vpn-privacy-policies-are-too-complex-for-the-average-american-and-thats-a-problem",
-      "url": "https://www.tomsguide.com/computing/vpns/87-percent-of-vpn-privacy-policies-are-too-complex-for-the-average-american-and-thats-a-problem",
-      "title": "[Toms Guide] 87% of VPN privacy policies are too complex for the average American – and that's a problem",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Bgm9Y8s2KV4PsA5BHrichW-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe graded how difficult 24 VPN privacy policies are to read to see which ones lay it out clearly, and which are near-impossible to understand.",
-      "date_published": "2026-03-17T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/Bgm9Y8s2KV4PsA5BHrichW-1280-80.jpg"
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/subway-1.jpg?fit=1200%2C675&quality=60&ssl=1"
     },
     {
-      "id": "https://www.techradar.com/pro/britains-broadband-roll-out-enters-final-stage-with-final-fiber-rules-confirmed",
-      "url": "https://www.techradar.com/pro/britains-broadband-roll-out-enters-final-stage-with-final-fiber-rules-confirmed",
-      "title": "[TechRadar] Britain's broadband roll-out enters final stage with final fiber rules confirmed",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/2vh7uzXYUsV7ebnaxch5cV-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOfcom wants to focus on getting full-fiber into the hands of more UK consumers, targeting hard-to-reach areas.",
-      "date_published": "2026-03-17T11:00:00+00:00",
+      "id": "https://www.theverge.com/ai-artificial-intelligence/899086/jensen-huang-nvidia-agi",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/899086/jensen-huang-nvidia-agi",
+      "title": "[The Verge] Nvidia CEO Jensen Huang says &#8216;I think we&#8217;ve achieved AGI&#8217;",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25835739/STKP210_JENSEN_HUANG_B.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOn a Monday episode of the Lex Fridman podcast, Nvidia CEO Jensen Huang made a hot-button statement: \"I think we've achieved AGI.\" AGI, or artificial general intelligence, is a vaguely defined term that has incited a lot of discussion by tech CEOs, tech workers, and the general public in recent years, as it typically denotes [&#8230;]",
+      "date_published": "2026-03-23T19:42:33+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/2vh7uzXYUsV7ebnaxch5cV-1280-80.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/st-patricks-day-textbooks-might-be-wrong-about-why-plants-are-green",
-      "url": "https://www.sciencealert.com/st-patricks-day-textbooks-might-be-wrong-about-why-plants-are-green",
-      "title": "[ScienceAlert] St Patrick's Day: Textbooks Might Be Wrong About Why Plants Are Green",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/FourLeafCloverHeldBetweenFingertips.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Close up of a hand holding a four-leaf clover against a high contrast background\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/FourLeafCloverHeldBetweenFingertips.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Even the hills of Ireland are tricksters.</p>",
-      "date_published": "2026-03-17T10:59:57+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
         }
       ],
       "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/03/FourLeafCloverHeldBetweenFingertips.jpg"
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25835739/STKP210_JENSEN_HUANG_B.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
     },
     {
-      "id": "https://www.techradar.com/vpn/vpn-services/exclusive-expressvpn-code-hints-at-upcoming-shadowsocks-support",
-      "url": "https://www.techradar.com/vpn/vpn-services/exclusive-expressvpn-code-hints-at-upcoming-shadowsocks-support",
-      "title": "[TechRadar] Exclusive: ExpressVPN code hints at upcoming Shadowsocks support",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/z2E2ncMuNQRLdEUTj8HDdU-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNetwork traffic analysis points to an unannounced feature that could give power users the ultimate tool to defeat strict censorship",
-      "date_published": "2026-03-17T10:51:24+00:00",
+      "id": "https://gizmodo.com/sunken-soviet-submarine-is-quietly-leaking-radiation-decades-later-study-finds-2000737006",
+      "url": "https://gizmodo.com/sunken-soviet-submarine-is-quietly-leaking-radiation-decades-later-study-finds-2000737006",
+      "title": "[Gizmodo] Sunken Soviet Submarine Is Quietly Leaking Radiation Decades Later, Study Finds",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/High-res-sonar-image-of-Komsomolets-Soviet-Sub-on-the-seafloor-of-the-Norwegian-Sea-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhile the nuclear-powered attack sub’s reactor appears to be ‘corroded,’ years of collaboration with Russian authorities has avoided a true marine disaster.",
+      "date_published": "2026-03-23T19:00:46+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
         }
       ],
       "_quality_score": 55,
       "_theme_score": 0,
       "_final_score": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://gizmodo.com/app/uploads/2026/03/High-res-sonar-image-of-Komsomolets-Soviet-Sub-on-the-seafloor-of-the-Norwegian-Sea-1280x853.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/03/23/hoover-dam-could-lose-most-of-its-power-as-lake-mead-plummets.html",
+      "url": "https://boingboing.net/2026/03/23/hoover-dam-could-lose-most-of-its-power-as-lake-mead-plummets.html",
+      "title": "[Boing Boing] Hoover Dam could lose most of its power as Lake Mead plummets",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2022/04/lakemead-e1774292088194.jpeg?fit=768%2C512&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/03/23/hoover-dam-could-lose-most-of-its-power-as-lake-mead-plummets.html\" rel=\"nofollow\" title=\"Hoover Dam could lose most of its power as Lake Mead plummets\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"512\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2022/04/lakemead-e1774292088194.jpeg?fit=768%2C512&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"768\" /></a><p><a href=\"https://www.youtube.com/watch?v=rbYXL8Rjono\">This video breakdown of federal data</a> shows Lake Mead falling faster than even recent forecasts predicted. The lake is on track to drop low enough to knock out most of Hoover Dam's turbines within a couple of years: a cascading failure that would cripple power generation across the Southwest while the water managers of seven southwestern states bicker over who cuts back first. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/03/23/hoover-dam-could-lose-most-of-its-power-as-lake-mead-plummets.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/03/23/hoover-dam-could-lose-most-of-its-power-as-lake-mead-plummets.html\">Hoover Dam could lose most of its power as Lake Mead plummets</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-03-23T18:55:31+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2022/04/lakemead-e1774292088194.jpeg?fit=768%2C512&quality=60&ssl=1"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/23/build-this-open-source-graphics-calculator/",
+      "url": "https://hackaday.com/2026/03/23/build-this-open-source-graphics-calculator/",
+      "title": "[Hackaday] Build This Open-Source Graphics Calculator",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/Screenshot-2026-03-23-142703-e1774236443456.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"449\" src=\"https://hackaday.com/wp-content/uploads/2026/03/Screenshot-2026-03-23-142703-e1774236443456.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Graphics calculators are one of those strange technological cul-de-sacs. They rely on outdated technology and should not be nearly as expensive as they are, but market effects somehow keep prices <a class=\"read-more\" href=\"https://hackaday.com/2026/03/23/build-this-open-source-graphics-calculator/\">&#8230;read more</a>",
+      "date_published": "2026-03-23T18:30:18+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/z2E2ncMuNQRLdEUTj8HDdU-1280-80.png"
-    },
-    {
-      "id": "https://www.macrumors.com/2026/03/17/apple-watch-afib-history-feature-mainland-china/",
-      "url": "https://www.macrumors.com/2026/03/17/apple-watch-afib-history-feature-mainland-china/",
-      "title": "[MacRumors] Apple Watch AFib History Feature Launches in Mainland China",
-      "content_html": "<img src=\"https://images.macrumors.com/t/Vwl_b2n4-7Fa7S9_b2b_u7eKSGQ=/2676x/article-new/2022/06/watchos-9-afib-history.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApple today <a href=\"https://www.apple.com.cn/newsroom/2026/03/afib-history-feature-now-available-on-apple-watch-in-china/\">launched</a> its atrial fibrillation history feature for Apple Watch in mainland China.\n<br />\n\n<br />\n<img alt=\"\" class=\"aligncenter size-full wp-image-849842\" height=\"1502\" src=\"https://images.macrumors.com/article-new/2022/06/watchos-9-afib-history.jpg\" width=\"2676\" />\n<br />\nSince 2022, Apple Watch in the U.S. has supported AFib History, which allows users diagnosed with atrial fibrillation to view an estimate of how frequently their heart is in this type of irregular rhythm.\n<br />\n\n<br />\nThe feature analyzes pulse rate data collected by a photoplethysmography (PPG) sensor to identify episodes consistent with AFib and provides the user with a retrospective estimate of AFib burden (a measure of the amount of time spent in AFib during past Apple Watch wear). Apple says the feature is intended for individuals aged 22 years or older who have been diagnosed with atrial fibrillation by a physician.\n<br />\n\n<br />\nCapabilities like ECG and AFib tracking are typically classified as medical or quasi-medical functions, requiring approval from China's National Medical Products Administration (NMPA), hence the delayed launch.\n<br />\n\n<br />\nECG, Irregular Heart Rhythm Notifications, and AFib History are features that can be used by Apple Watch owners in over 150 countries worldwide. Apple maintains a dedicated list of Apple Watch <a href=\"https://www.apple.com/watchos/feature-availability/\">feature availability on its website</a>.<div class=\"linkback\">Related Roundup: <a href=\"https://www.macrumors.com/roundup/apple-watch/\">Apple Watch 11</a></div><div class=\"linkback\">Tag: <a href=\"https://www.macrumors.com/guide/china/\">China</a></div><div class=\"linkback\">Buyer's Guide: <a href=\"https://buyersguide.macrumors.com/#Apple_Watch\">Apple Watch (Neutral)</a></div><br />This article, &quot;<a href=\"https://www.macrumors.com/2026/03/17/apple-watch-afib-history-feature-mainland-china/\">Apple Watch AFib History Feature Launches in Mainland China</a>&quot; first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br /><br /><a href=\"https://forums.macrumors.com/threads/apple-watch-afib-history-feature-launches-in-mainland-china.2479413/\">Discuss this article</a> in our forums<br /><br />",
-      "date_published": "2026-03-17T10:32:17+00:00",
-      "authors": [
-        {
-          "name": "MacRumors",
-          "url": "https://www.macrumors.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://images.macrumors.com/t/Vwl_b2n4-7Fa7S9_b2b_u7eKSGQ=/2676x/article-new/2022/06/watchos-9-afib-history.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/Screenshot-2026-03-23-142703-e1774236443456.png"
     }
   ]
 }
