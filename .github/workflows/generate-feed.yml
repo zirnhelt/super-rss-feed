@@ -66,6 +66,7 @@ jobs:
           download_json "${BASE}/theme_scores_cache.json"      "theme_scores_cache.json"
           download_json "${BASE}/podcast_shown_cache.json"     "podcast_shown_cache.json"
           download_json "${BASE}/image_cache.json"             "image_cache.json"
+          download_json "${BASE}/shown_terms_cache.json"      "shown_terms_cache.json"
 
           echo "Download complete. Feed sizes:"
           wc -l feed-*.json 2>/dev/null || echo "(no feed files yet)"
@@ -109,6 +110,7 @@ jobs:
           cp theme_scores_cache.json output/ 2>/dev/null || true
           cp podcast_shown_cache.json output/ 2>/dev/null || true
           cp image_cache.json output/ 2>/dev/null || true
+          cp shown_terms_cache.json output/ 2>/dev/null || true
 
           echo "Files in output directory:"
           ls -la output/
@@ -117,7 +119,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json
+          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json
           git add FEED_LOG.md TODO.md 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache and feed log [skip ci]"
           git push
