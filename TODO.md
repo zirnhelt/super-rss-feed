@@ -8,6 +8,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-24 | 🌅 4:30 AM Pacific | ⚠️ **Boing Boing** failed | `HTTPSConnectionPool(host='boingboing.net', port=443): Read timed out. (read timeout=10)` |
+| 2026-03-24 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-24 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-24 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-03-23 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-23 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-22 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -24,13 +28,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-19 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-18 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-18 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-17 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-17 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-24 | 🌅 morning | 278 | ai-tech:95(37%), news:85(33%), homelab:52(20%) |
+| 2026-03-24 | 🌙 evening | 403 | ai-tech:140(37%), news:121(32%), homelab:55(15%) |
 | 2026-03-23 | 🌅 morning | 231 | news:65(31%), ai-tech:61(29%), homelab:50(24%) |
 | 2026-03-23 | 🌙 evening | 348 | ai-tech:123(37%), news:100(30%), homelab:58(18%) |
 | 2026-03-22 | 🌅 morning | 111 | ai-tech:39(40%), homelab:29(30%), news:25(26%) |
@@ -43,12 +47,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-19 | 🌙 evening | 383 | ai-tech:152(43%), news:94(27%), homelab:56(16%) |
 | 2026-03-18 | 🌅 morning | 262 | ai-tech:83(35%), news:68(29%), homelab:53(22%) |
 | 2026-03-18 | 🌙 evening | 390 | news:142(38%), ai-tech:114(31%), homelab:66(18%) |
-| 2026-03-17 | 🌅 morning | 272 | news:85(35%), ai-tech:83(35%), homelab:46(19%) |
-| 2026-03-17 | 🌙 evening | 369 | ai-tech:115(34%), news:114(34%), homelab:56(17%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-24 13:57 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-25 05:52 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
