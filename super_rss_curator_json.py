@@ -1512,8 +1512,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     today = schedule[theme_name]
     theme_categories = today['categories']
     theme_label = today['label']
-    theme_description = today.get('description', '')
+    theme_description = today.get('theme_description', today.get('description', ''))
     theme_scoring_prompt = today.get('scoring_prompt', '')
+    theme_keywords = [kw.lower() for kw in today.get('keywords', [])]
     max_articles = schedule_config.get('max_articles', 10)
     min_score = schedule_config.get('min_score', 25)
     include_bonus = schedule_config.get('include_top_from_other', 0)
@@ -1670,11 +1671,28 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
         return set()
 
+    # Local BC sources that should never be marked _is_bonus on the Saturday feed
+    LOCAL_BC_SOURCES = {
+        "Williams Lake Tribune", "Quesnel Cariboo Observer", "100 Mile Free Press",
+        "My Cariboo Now", "My East Kootenay Now", "CFJC Today Kamloops", "CBC Kamloops",
+    }
+
     # Build the JSON Feed with podcast-specific metadata
     feed_config = FEEDS_CONFIG['feeds'].get('podcast', {})
-    # Mark articles whose category is outside the day's primary category list as bonus
-    bonus_urls = {a.link for a, _, _ in all_entries if a.category not in theme_set}
     feed_filename = f"feed-podcast-{theme_name}.json"
+
+    # Compute bonus_count for metadata using keyword-based logic
+    def _is_bonus_article(article: object) -> bool:
+        text = f"{article.title} {article.description or ''}".lower()
+        kw_hits = _keyword_match_count(text, theme_keywords)
+        if kw_hits > 0:
+            return False
+        # Local BC sources are never bonus on Saturday regardless of keyword score
+        if theme_name == "saturday" and article.source in LOCAL_BC_SOURCES:
+            return False
+        return True
+
+    bonus_count = sum(1 for a, _, _ in all_entries if _is_bonus_article(a))
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": f"🎙️ {theme_label}",
@@ -1692,14 +1710,17 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "day": theme_name,
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "article_count": len(all_entries),
-            "bonus_count": len(bonus_urls),
+            "bonus_count": bonus_count,
             "scoring_method": "claude_theme_evaluation_weekly_cache"
         },
         "items": []
     }
 
     for article, final_score, theme_score in all_entries:
-        is_bonus = article.link in bonus_urls
+        text = f"{article.title} {article.description or ''}".lower()
+        kw_matches = _keyword_match_count(text, theme_keywords)
+        boosted_score = min(100, kw_matches * 20 + article.score * 0.3)
+        is_bonus = _is_bonus_article(article)
         item = {
             "id": article.link,
             "url": article.link,
@@ -1710,6 +1731,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "_quality_score": article.score,
             "_theme_score": theme_score,
             "_final_score": final_score,
+            "_keyword_matches": kw_matches,
+            "_boosted_score": int(boosted_score),
             "_category": article.category,
             "_source_category": article.category,
             "_is_bonus": is_bonus
@@ -1723,7 +1746,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
-    cross_cat = len(bonus_urls)
+    cross_cat = bonus_count
     print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(all_entries)} articles (avg theme score: {avg_theme_score:.1f}, {cross_cat} cross-category)")
 
     return {a.link for a, _, _ in all_entries}
