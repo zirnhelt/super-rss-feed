@@ -3,7 +3,7 @@
   "title": "🎙️ Wild Spaces & Outdoor Life",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-podcast-friday.json",
-  "description": "Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate - Daily themed article selection for podcast generation",
+  "description": "Today we head into the wild — the Chilcotin plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed. - Daily themed article selection for podcast generation",
   "icon": "https://zirnhelt.github.io/super-rss-feed/favicon.ico",
   "authors": [
     {
@@ -13,7 +13,7 @@
   "language": "en",
   "_podcast": {
     "theme": "Wild Spaces & Outdoor Life",
-    "theme_description": "Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate",
+    "theme_description": "Today we head into the wild — the Chilcotin plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed.",
     "theme_categories": [
       "local",
       "climate",
@@ -22,418 +22,40 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "friday",
-    "generated_at": "2026-03-20T13:41:09.264674+00:00",
+    "generated_at": "2026-03-27T05:57:22.038368+00:00",
     "article_count": 40,
-    "bonus_count": 26,
+    "bonus_count": 32,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.nytimes.com/2026/03/20/science/spider-cordyceps-fungus-zombies.html",
-      "url": "https://www.nytimes.com/2026/03/20/science/spider-cordyceps-fungus-zombies.html",
-      "title": "[NYT Top Stories] New Spider Mimics ‘The Last of Us’ Zombie Fungus Cordyceps",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA newly discovered species of spider in the Ecuadorean Amazon mimics a pathogen, known as a zombie fungus, to protect itself.",
-      "date_published": "2026-03-20T09:02:28+00:00",
+      "id": "https://wltribune.com/2026/03/23/three-dead-one-injured-after-avalanche-in-northwest-b-c/",
+      "url": "https://wltribune.com/2026/03/23/three-dead-one-injured-after-avalanche-in-northwest-b-c/",
+      "title": "[Williams Lake Tribune] Three dead, one injured after avalanche in northwest B.C.",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41886880_web1_rcmp-logoC.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The incident occurred in a heliskiing area on the afternoon on March 22 </p>",
+      "date_published": "2026-03-23T14:15:00+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 53,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/3/20/long-before-trump-how-us-policy-has-harmed-the-environment-for-decades?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/3/20/long-before-trump-how-us-policy-has-harmed-the-environment-for-decades?traffic_source=rss",
-      "title": "[Al Jazeera English] Long before Trump: How US policy has harmed the environment for decades",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/03/2013-08-23T120000Z_437756648_GM1E98O07A801_RTRMADP_3_OBAMA-1773923428.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEnvironment advocacy groups are suing the US government over climate change policy rollback.",
-      "date_published": "2026-03-20T08:28:07+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/03/2013-08-23T120000Z_437756648_GM1E98O07A801_RTRMADP_3_OBAMA-1773923428.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.xda-developers.com/5-of-the-best-self-hosted-services-to-automate-your-life/",
-      "url": "https://www.xda-developers.com/5-of-the-best-self-hosted-services-to-automate-your-life/",
-      "title": "[XDA Developers] 5 of the best self-hosted services to automate your life",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/10/micro-automation-hacks-with-n8n.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTired of tedious tasks taking up your free time? You're going to love these amazing automation tools",
-      "date_published": "2026-03-20T13:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/10/micro-automation-hacks-with-n8n.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/vpn/vpn-privacy-security/the-uk-doesnt-want-to-force-you-to-have-a-digital-id-but-a-trust-me-bro-approach-wont-make-the-cut",
-      "url": "https://www.techradar.com/vpn/vpn-privacy-security/the-uk-doesnt-want-to-force-you-to-have-a-digital-id-but-a-trust-me-bro-approach-wont-make-the-cut",
-      "title": "[TechRadar] The UK doesn't want to force you to have a digital ID — but a 'trust me bro' approach won't make the cut",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/zA5i9upKtgujRKbmMkoakX-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe new voluntary approach to UK digital IDs is a welcome change. But is it enough to ensure our most sensitive data remains private, secured, and free from abuse? The government wants to hear your say.",
-      "date_published": "2026-03-20T13:20:49+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/zA5i9upKtgujRKbmMkoakX-1280-80.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/how-chainguard-is-fixing-trust-in-ai-built-software/",
-      "url": "https://www.zdnet.com/article/how-chainguard-is-fixing-trust-in-ai-built-software/",
-      "title": "[ZDNet] Chainguard is racing to fix trust in AI-built software",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/f6496f7da2541b432294e2521030848f2cf79544/2026/03/20/65bee8d6-9bb3-4810-b1ce-5ed9e7b0435d/gettyimages-1141552310.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChainguard is expanding beyond open-source security to protect open-core software, AI agent skills, and GitHub Actions.",
-      "date_published": "2026-03-20T13:09:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/f6496f7da2541b432294e2521030848f2cf79544/2026/03/20/65bee8d6-9bb3-4810-b1ce-5ed9e7b0435d/gettyimages-1141552310.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/us-and-friends-disrupt-worlds-largest-ddos-botnet-responsible-for-record-31-4-tbps-global-attacks",
-      "url": "https://www.techradar.com/pro/security/us-and-friends-disrupt-worlds-largest-ddos-botnet-responsible-for-record-31-4-tbps-global-attacks",
-      "title": "[TechRadar] US and friends disrupt world's largest DDoS botnet responsible for record 31.4 Tbps global attacks",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/YW6PMc8h5hemu6RuMarRq3-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUS law enforcement, with help from partners in Canada and Germany, disrupted four of the largest DDoS botnets.",
-      "date_published": "2026-03-20T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/YW6PMc8h5hemu6RuMarRq3-1280-80.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/03/19/books/ai-fiction-shy-girl.html",
-      "url": "https://www.nytimes.com/2026/03/19/books/ai-fiction-shy-girl.html",
-      "title": "[NYT Top Stories] A.I. Is Writing Fiction. Publishers Are Unprepared.",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBook publishing has few safeguards in place to prevent the unwitting publication of a novel heavily generated by artificial intelligence.",
-      "date_published": "2026-03-20T12:59:04+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.howtogeek.com/home-assistant-just-cant-match-my-favorite-things-about-samsung-smartthings/",
-      "url": "https://www.howtogeek.com/home-assistant-just-cant-match-my-favorite-things-about-samsung-smartthings/",
-      "title": "[How-To Geek] Home Assistant just can't match my favorite things about Samsung SmartThings",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/04/a-close-up-of-samsung-smartthings-on-a-frame-tv.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI wouldn't say SmartThings is perfect for everyone, but there's a lot here to love.",
-      "date_published": "2026-03-20T12:15:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/04/a-close-up-of-samsung-smartthings-on-a-frame-tv.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/this-one-docker-compose-mistake-silently-breaks-your-networking/",
-      "url": "https://www.xda-developers.com/this-one-docker-compose-mistake-silently-breaks-your-networking/",
-      "title": "[XDA Developers] Most people make this one Docker Compose mistake, and it tanks their self-hosted apps",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/my-home-lab-wouldnt-be-the-same-without-these-7-docker-containers-featured-jpeg.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHi, I'm the \"most people\" in this scenario",
-      "date_published": "2026-03-20T12:00:23+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/my-home-lab-wouldnt-be-the-same-without-these-7-docker-containers-featured-jpeg.jpeg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/03/20/south-cariboo-author-explores-midlife-reinvention-in-debut-book/",
-      "url": "https://100milefreepress.net/2026/03/20/south-cariboo-author-explores-midlife-reinvention-in-debut-book/",
-      "title": "[100 Mile Free Press] South Cariboo author explores midlife reinvention in debut book",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41831509_web1_260326-OMH-Novelist-Tracy-Orobko_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Tracy Orobko shares a heartfelt and humorous look at life in <em>55 Shades of Me</em> </p>",
-      "date_published": "2026-03-20T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 87,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 72,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41831509_web1_260326-OMH-Novelist-Tracy-Orobko_2.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41886880_web1_rcmp-logoC.jpg?w=1024"
     },
     {
-      "id": "https://techcrunch.com/2026/03/20/the-best-ai-investment-might-be-in-energy-tech/",
-      "url": "https://techcrunch.com/2026/03/20/the-best-ai-investment-might-be-in-energy-tech/",
-      "title": "[TechCrunch] The best AI investment might be in energy tech",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-1316185179.jpeg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPower has become one of the biggest bottlenecks in rolling out new AI data centers. That's creating an opening for investors.",
-      "date_published": "2026-03-20T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-1316185179.jpeg?resize=1200,800"
-    },
-    {
-      "id": "https://www.tomsguide.com/computing/gpus/what-is-nvidia-dlss-explaining-the-ai-tech-transforming-pc-gaming-and-why-its-getting-controversial",
-      "url": "https://www.tomsguide.com/computing/gpus/what-is-nvidia-dlss-explaining-the-ai-tech-transforming-pc-gaming-and-why-its-getting-controversial",
-      "title": "[Toms Guide] What is Nvidia DLSS? Explaining the AI tech transforming PC gaming — and why it’s getting controversial",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/jynyHynRrJqeZnrVF22ueL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhat is Nvidia DLSS? Learn how to master Super Resolution and Frame Generation to boost your PC's performance, and discover why the new DLSS 5 is sparking controversy in the gaming community.",
-      "date_published": "2026-03-20T11:47:10+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/jynyHynRrJqeZnrVF22ueL-1280-80.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/love-power-tools-heres-why-your-next-buy-should-be-a-3d-printer/",
-      "url": "https://www.howtogeek.com/love-power-tools-heres-why-your-next-buy-should-be-a-3d-printer/",
-      "title": "[How-To Geek] Love your power tools? Here's why you need a 3D printer",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/a-person-holding-a-black-decker-hammer-drill.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDon't blame your tools, improve them.",
-      "date_published": "2026-03-20T11:30:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/a-person-holding-a-black-decker-hammer-drill.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/worlds-longest-study-on-happiness-still-going-strong-after-88-years",
-      "url": "https://www.sciencealert.com/worlds-longest-study-on-happiness-still-going-strong-after-88-years",
-      "title": "[ScienceAlert] World's Longest Study on Happiness Still Going Strong After 88 Years",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/HappinessHealth.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"World&#039;s Longest Study on Happiness Still Going Strong After 88 Years\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/HappinessHealth.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Did you know today is the International Day of Happiness?</p>",
-      "date_published": "2026-03-20T11:00:57+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/03/HappinessHealth.jpg"
-    },
-    {
-      "id": "https://www.theguardian.com/global-development/2026/mar/20/agriculture-of-life-the-rio-families-growing-bananas-to-protect-the-worlds-largest-urban-forest",
-      "url": "https://www.theguardian.com/global-development/2026/mar/20/agriculture-of-life-the-rio-families-growing-bananas-to-protect-the-worlds-largest-urban-forest",
-      "title": "[The Guardian Global Development] ‘Agriculture of life’: the Rio families growing bananas to protect the world’s largest urban forest",
-      "content_html": "<img src=\"https://i.guim.co.uk/img/media/9ba46dc2a7aa9771b2989eed969f7cf36c74044c/101_0_945_756/master/945.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6332dd25f45b527c36df08347b563e0d\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In the middle of the city, traditional growers blend crops with native species to preserve Pedra Branca state park’s biodiversity</p><p>The sound of the scythes wielded by brothers Jorge and Ubirajara Cardia breaks the silence in the hills of Vargem Grande, in the south-west zone of Rio de Janeiro city. <em><a href=\"https://www.theguardian.com/world/2023/jul/27/brazil-census-slavery-quilombola-population\">Q</a></em><em><a href=\"https://www.theguardian.com/world/2023/jul/27/brazil-census-slavery-quilombola-population\">uilombola</a></em> from the <a href=\"https://www.instagram.com/quilombo_cafunda_astrogilda/?hl=en\">Cafundá Astrogilda</a> community, they harvest bananas the same way their ancestors used to. Every week, they select the bunches of <em>prata</em>, <em>maçã,</em> and Cavendish bananas, cut them down and, on the back of their mules, go down the hillside with the newly harvested crop.</p><p>Through sloping ways in the forest, they travel about 5km (3 miles) along paths first opened by the Indigenous <em>Tupinambá </em>people and enslaved workers of African descent.</p> <a href=\"https://www.theguardian.com/global-development/2026/mar/20/agriculture-of-life-the-rio-families-growing-bananas-to-protect-the-worlds-largest-urban-forest\">Continue reading...</a>",
-      "date_published": "2026-03-20T11:00:34+00:00",
-      "authors": [
-        {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
-        }
-      ],
-      "_quality_score": 63,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://i.guim.co.uk/img/media/9ba46dc2a7aa9771b2989eed969f7cf36c74044c/101_0_945_756/master/945.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6332dd25f45b527c36df08347b563e0d"
-    },
-    {
-      "id": "https://www.techradar.com/pro/ai-is-helping-uk-sme-workers-save-5-2-hours-a-week-but-some-businesses-are-really-struggling-to-keep-up",
-      "url": "https://www.techradar.com/pro/ai-is-helping-uk-sme-workers-save-5-2-hours-a-week-but-some-businesses-are-really-struggling-to-keep-up",
-      "title": "[TechRadar] AI is helping UK SME workers save 5.2 hours a week, but some businesses are really struggling to keep up",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/PB5R692ChqyHSzKEtqDyYe-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSmaller businesses, older workers and some British regions need more support to encourage AI adoption.",
-      "date_published": "2026-03-20T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/PB5R692ChqyHSzKEtqDyYe-1280-80.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/shadow-ai-double-agents-are-outpacing-security-visibility-and-thats-a-serious-concern-for-uk-businesses",
-      "url": "https://www.techradar.com/pro/security/shadow-ai-double-agents-are-outpacing-security-visibility-and-thats-a-serious-concern-for-uk-businesses",
-      "title": "[TechRadar] Shadow AI 'double agents' are outpacing security visibility – and that's a serious concern for UK businesses",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/wcLPoTmRpZBBYRbcXvhH3m-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMaintaining visibility on autonomous AI agents is now a priority for security teams.",
-      "date_published": "2026-03-20T10:21:16+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/wcLPoTmRpZBBYRbcXvhH3m-1280-80.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/the-danger-behind-metas-decision-to-kill-end-to-end-encrypted-instagram-dms/",
-      "url": "https://www.wired.com/story/the-danger-behind-metas-decision-to-kill-end-to-end-encrypted-instagram-dms/",
-      "title": "[WIRED] The Danger Behind Meta Killing End-to-End Encryption for Instagram DMs",
-      "content_html": "<img src=\"https://media.wired.com/photos/69b983df93d7de0b35f1edaf/master/pass/031726-meta-instagram-encryption-end-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMeta blamed users for not opting into the privacy-protecting feature. Experts fear the move could be the first major domino to fall for end-to-end encryption tech worldwide.",
-      "date_published": "2026-03-20T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69b983df93d7de0b35f1edaf/master/pass/031726-meta-instagram-encryption-end-2.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/03/20/a-candle-powered-game-boy-for-post-apocalyptic-tetris/",
-      "url": "https://hackaday.com/2026/03/20/a-candle-powered-game-boy-for-post-apocalyptic-tetris/",
-      "title": "[Hackaday] A Candle-Powered Game Boy For Post-Apocalyptic Tetris",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/gbcandle_feat.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/gbcandle_feat.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>We&#8217;re not exactly worried about Armageddon here at Hackaday, but should we end up facing the end of the world as we know it, having something to pass the time <a class=\"read-more\" href=\"https://hackaday.com/2026/03/20/a-candle-powered-game-boy-for-post-apocalyptic-tetris/\">&#8230;read more</a>",
-      "date_published": "2026-03-20T08:00:37+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/gbcandle_feat.jpg"
-    },
-    {
-      "id": "https://sciencebasedmedicine.org/normalpeoplecare/?utm_source=rss&utm_medium=rss&utm_campaign=normalpeoplecare",
-      "url": "https://sciencebasedmedicine.org/normalpeoplecare/?utm_source=rss&utm_medium=rss&utm_campaign=normalpeoplecare",
-      "title": "[Science-Based Medicine] Vaccines Work. Here’s Why We Care About Your Unvaccinated Child.",
-      "content_html": "<img src=\"https://sciencebasedmedicine.org/wp-content/uploads/2026/03/image-10.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>While normal people don't want any child to suffer or die because their parents were tricked by disinformation, the leaders of the anti-vaccine movement, who profit by lying about vaccines, don't care at all.</p>\nThe post <a href=\"https://sciencebasedmedicine.org/normalpeoplecare/\">Vaccines Work. Here’s Why We Care About Your Unvaccinated Child.</a> first appeared on <a href=\"https://sciencebasedmedicine.org\">Science-Based Medicine</a>.",
-      "date_published": "2026-03-20T07:33:00+00:00",
-      "authors": [
-        {
-          "name": "Science-Based Medicine",
-          "url": "https://sciencebasedmedicine.org"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://sciencebasedmedicine.org/wp-content/uploads/2026/03/image-10.png"
-    },
-    {
-      "id": "https://wltribune.com/2026/03/20/university-of-victoria-students-rope-in-climbers-for-rising-business-venture/",
-      "url": "https://wltribune.com/2026/03/20/university-of-victoria-students-rope-in-climbers-for-rising-business-venture/",
-      "title": "[Williams Lake Tribune] University of Victoria students rope in climbers for rising business venture",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41857437_web1_260317-VNE-StokedWorks_6.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>StokedWorks upcycles gear with &#8216;story and memories&#8217; </p>",
-      "date_published": "2026-03-20T05:30:00+00:00",
+      "id": "https://wltribune.com/2026/03/24/bc-wildfire-service-to-conduct-prescribed-burn-along-highway-20/",
+      "url": "https://wltribune.com/2026/03/24/bc-wildfire-service-to-conduct-prescribed-burn-along-highway-20/",
+      "title": "[Williams Lake Tribune] BC Wildfire Service to conduct prescribed burn along Highway 20",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41898606_web1_260326-WLT-Prescribed-burn_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The prescribed burn is expected to begin as early as Friday, March 27 </p>",
+      "date_published": "2026-03-24T15:05:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -441,139 +63,329 @@
         }
       ],
       "_quality_score": 98,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 49,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41857437_web1_260317-VNE-StokedWorks_6.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41898606_web1_260326-WLT-Prescribed-burn_1.jpg?w=1024"
     },
     {
-      "id": "https://boingboing.net/2026/03/19/all-five-dna-rna-building-blocks-found-in-asteroid-ryugu-samples.html",
-      "url": "https://boingboing.net/2026/03/19/all-five-dna-rna-building-blocks-found-in-asteroid-ryugu-samples.html",
-      "title": "[Boing Boing] All five DNA/RNA building blocks found in asteroid Ryugu samples",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2025/01/asteroid-1.jpg?fit=1200%2C800&quality=60&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/03/19/all-five-dna-rna-building-blocks-found-in-asteroid-ryugu-samples.html\" rel=\"nofollow\" title=\"All five DNA/RNA building blocks found in asteroid Ryugu samples\"><img alt=\"Representational image (Boing Boing/Midjourney)\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2025/01/asteroid-1.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>Every nucleobase needed to build DNA and RNA — adenine, guanine, cytosine, thymine, and uracil — has been found in rock samples from the asteroid Ryugu, <a href=\"https://phys.org/news/2026-03-ryugu-asteroid-samples-dna-rna.html\">according to a study published in <em>Nature Astronomy</em></a>. Previous research in 2023 had found only uracil. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/03/19/all-five-dna-rna-building-blocks-found-in-asteroid-ryugu-samples.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/03/19/all-five-dna-rna-building-blocks-found-in-asteroid-ryugu-samples.html\">All five DNA/RNA building blocks found in asteroid Ryugu samples</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-03-19T22:46:40+00:00",
+      "id": "https://wltribune.com/2026/03/23/1-dead-following-avalanche-near-b-c-alaska-border/",
+      "url": "https://wltribune.com/2026/03/23/1-dead-following-avalanche-near-b-c-alaska-border/",
+      "title": "[Williams Lake Tribune] 1 dead following avalanche near B.C.- Alaska border",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41887003_web1_260326-BPD-Atlin-Avalanche_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>RCMP and Atlin Search and Rescue responded to the incident </p>",
+      "date_published": "2026-03-23T14:30:00+00:00",
       "authors": [
         {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 72,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41887003_web1_260326-BPD-Atlin-Avalanche_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/26/cariboo-chicotin-area-first-nations-help-test-bighorn-sheep-for-deadly-respiratory-disease/",
+      "url": "https://wltribune.com/2026/03/26/cariboo-chicotin-area-first-nations-help-test-bighorn-sheep-for-deadly-respiratory-disease/",
+      "title": "[Williams Lake Tribune] Cariboo Chicotin area First Nations help test bighorn sheep for deadly respiratory disease",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41904342_web1_260326-WLT-Movi-Sheep-Testing-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>M-ovi causes large die-offs and long-time herd declines </p>",
+      "date_published": "2026-03-26T14:23:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41904342_web1_260326-WLT-Movi-Sheep-Testing-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/23/kelowna-drone-operator-fined-5k-for-helicopter-interference-during-2023-wildfire/",
+      "url": "https://wltribune.com/2026/03/23/kelowna-drone-operator-fined-5k-for-helicopter-interference-during-2023-wildfire/",
+      "title": "[Williams Lake Tribune] Kelowna drone operator fined $5K for helicopter interference during 2023 wildfire",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41887515_web1_230921-KCN-lake-tour-fire-damage-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Derek Leippi has one year to pay the fine </p>",
+      "date_published": "2026-03-23T15:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 47,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41887515_web1_230921-KCN-lake-tour-fire-damage-_2.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/24/baby-bear-cub-rescued-from-heffley-lake-on-world-bear-day/",
+      "url": "https://wltribune.com/2026/03/24/baby-bear-cub-rescued-from-heffley-lake-on-world-bear-day/",
+      "title": "[Williams Lake Tribune] Baby bear cub rescued from Heffley Lake on World Bear Day",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41898968_web1_260402-NTC-Bear-Cub-Rescue-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Multiple people helped care for the black bear cub and transport him to a shelter in Smithers </p>",
+      "date_published": "2026-03-24T16:33:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 78,
+      "_theme_score": 55,
+      "_final_score": 55,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41898968_web1_260402-NTC-Bear-Cub-Rescue-1_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/26/13-miniature-dachshund-rescued-from-irresponsible-breeder-in-south-cariboo/",
+      "url": "https://wltribune.com/2026/03/26/13-miniature-dachshund-rescued-from-irresponsible-breeder-in-south-cariboo/",
+      "title": "[Williams Lake Tribune] 13 miniature Dachshund rescued from irresponsible breeder in South Cariboo",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41916167_web1_260402-OMH-Daschund-Rescue_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
+      "date_published": "2026-03-27T05:54:47.915893+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41916167_web1_260402-OMH-Daschund-Rescue_3.jpg?w=1024"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/3/27/endangered-monarch-butterfly-population-surges-64-percent?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/3/27/endangered-monarch-butterfly-population-surges-64-percent?traffic_source=rss",
+      "title": "[Al Jazeera English] Endangered monarch butterfly population surges 64 percent",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/03/AP22343487544827_cropped-1774580303.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMexico&#039;s monarch butterfly population surged 64 percent this winter.",
+      "date_published": "2026-03-27T03:05:27+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
       "_category": "science",
       "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/03/AP22343487544827_cropped-1774580303.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://thetyee.ca/Opinion/2026/03/27/Have-We-Chosen-Forget-2021-Heat-Dome-Lytton/",
+      "url": "https://thetyee.ca/Opinion/2026/03/27/Have-We-Chosen-Forget-2021-Heat-Dome-Lytton/",
+      "title": "[The Tyee] Have We Chosen to Forget the 2021 Heat Dome and Lytton Disaster?",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/03/26/LyttonFireCloud.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn auditor general’s report could add to understanding. If people paid attention.",
+      "date_published": "2026-03-27T07:10:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 67,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/Opinion/2026/03/26/LyttonFireCloud.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/25/revelstoke-entrepreneur-stringing-new-public-tree-hammocks-in-greenbelt/",
+      "url": "https://wltribune.com/2026/03/25/revelstoke-entrepreneur-stringing-new-public-tree-hammocks-in-greenbelt/",
+      "title": "[Williams Lake Tribune] Revelstoke entrepreneur stringing new public tree hammocks in greenbelt",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41912042_web1_260326-RTR-New-nets-photos_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Nathan Baril and Illecillewaet Greenbelt Society hatch plan for three recreational TreeNets </p>",
+      "date_published": "2026-03-25T15:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2025/01/asteroid-1.jpg?fit=1200%2C800&quality=60&ssl=1"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41912042_web1_260326-RTR-New-nets-photos_3.jpg?w=1024"
     },
     {
-      "id": "https://boingboing.net/2026/03/19/wander-a-decentralized-console-for-the-small-web.html",
-      "url": "https://boingboing.net/2026/03/19/wander-a-decentralized-console-for-the-small-web.html",
-      "title": "[Boing Boing] Wander: a decentralized console for the small web",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/wander.png?fit=1200%2C730&quality=55&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/03/19/wander-a-decentralized-console-for-the-small-web.html\" rel=\"nofollow\" title=\"Wander: a decentralized console for the small web\"><img alt=\"Wander\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"730\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/wander.png?fit=1200%2C730&amp;quality=55&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>A new project called <a href=\"https://codeberg.org/susam/wander\">Wander</a> lets you drop two files onto your personal website — an index.html and a wander.js — and turn it into a node in a decentralized web console. Visitors click a button and are sent to a random page on your site, then to a site you've linked to, then to a site that one links to, going one hop deeper into the network with each click. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/03/19/wander-a-decentralized-console-for-the-small-web.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/03/19/wander-a-decentralized-console-for-the-small-web.html\">Wander: a decentralized console for the small web</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-03-19T22:30:58+00:00",
+      "id": "https://thenarwhal.ca/mikmaq-parks-canada-nova-scotia/",
+      "url": "https://thenarwhal.ca/mikmaq-parks-canada-nova-scotia/",
+      "title": "[The Narwhal] Decades in the making: Mi’kmaq and Parks Canada strike historic partnership in Nova Scotia",
+      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/03/CP219039032-1-1024x653.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Toqi’maliaptmu’k Arrangement allows both groups to jointly care for Nova Scotia’s parks and heritage sites for the first time, after years of relationship-building",
+      "date_published": "2026-03-26T19:27:45+00:00",
       "authors": [
         {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
+          "name": "The Narwhal",
+          "url": "https://thenarwhal.ca"
         }
       ],
       "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/wander.png?fit=1200%2C730&quality=55&ssl=1"
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://thenarwhal.ca/wp-content/uploads/2026/03/CP219039032-1-1024x653.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/hr-leaders-growing-concern-ai-2026-3",
-      "url": "https://www.businessinsider.com/hr-leaders-growing-concern-ai-2026-3",
-      "title": "[Business Insider] HR execs share a growing concern about doubling down on AI",
-      "content_html": "<img src=\"https://i.insider.com/69bc0b37ebc245a53a811d7a?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHR executives say AI adoption is driving up costs, placing pressure on productivity gains and long-term profitability.",
-      "date_published": "2026-03-19T22:18:37+00:00",
+      "id": "https://wltribune.com/2026/03/24/okanagan-lake-resort-insurer-disputes-liability-in-wildfire-lawsuit/",
+      "url": "https://wltribune.com/2026/03/24/okanagan-lake-resort-insurer-disputes-liability-in-wildfire-lawsuit/",
+      "title": "[Williams Lake Tribune] Okanagan Lake Resort insurer disputes liability in wildfire lawsuit",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41902574_web1_230921-KCN-lake-tour-fire-damage-_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Lake Okanagan Resort burnt down in August 2023 </p>",
+      "date_published": "2026-03-24T18:30:00+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69bc0b37ebc245a53a811d7a?format=jpeg"
+      "_quality_score": 82,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41902574_web1_230921-KCN-lake-tour-fire-damage-_3.jpg?w=1024"
     },
     {
-      "id": "https://www.neowin.net/deals/bluettis-massive-27kwh-charging-station-is-256-off/",
-      "url": "https://www.neowin.net/deals/bluettis-massive-27kwh-charging-station-is-256-off/",
-      "title": "[Neowin] BLUETTI's massive 2.7kWh charging station is $256 off",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/03/1773955805_bluetti_apex_300_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/03/1773955805_bluetti_apex_300_medium.webp\" /></div>BLUETTI is offering a big discount on one of its charging stations with a large 2.7kWh LFP battery and a massive power output. <a href=\"https://www.neowin.net/deals/bluettis-massive-27kwh-charging-station-is-256-off/\">Read more...</a>",
-      "date_published": "2026-03-19T21:52:01+00:00",
+      "id": "https://wltribune.com/2026/03/26/williams-lake-speed-skating-coach-wins-b-c-coach-of-the-year/",
+      "url": "https://wltribune.com/2026/03/26/williams-lake-speed-skating-coach-wins-b-c-coach-of-the-year/",
+      "title": "[Williams Lake Tribune] Williams Lake speed skating coach wins B.C. Coach of the Year",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41856318_web1_1000008458.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
+      "date_published": "2026-03-27T05:54:47.915865+00:00",
       "authors": [
         {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_quality_score": 100,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/03/1773955805_bluetti_apex_300_story.webp"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41856318_web1_1000008458.jpg?w=1024"
     },
     {
-      "id": "https://gizmodo.com/quantum-computers-will-tap-out-before-breaking-encryption-theory-claims-2000735809",
-      "url": "https://gizmodo.com/quantum-computers-will-tap-out-before-breaking-encryption-theory-claims-2000735809",
-      "title": "[Gizmodo] Quantum Computers Will Tap Out Before Breaking Encryption, Theory Claims",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/02/IBM-system-2-e1773952754138-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA small mathematical revision to quantum mechanics could effectively limit the purported infinite capacities of quantum computers—if validated, that is.",
-      "date_published": "2026-03-19T21:30:56+00:00",
+      "id": "https://gizmodo.com/astronomers-say-recent-rash-of-meteor-sightings-warrants-serious-investigation-2000738638",
+      "url": "https://gizmodo.com/astronomers-say-recent-rash-of-meteor-sightings-warrants-serious-investigation-2000738638",
+      "title": "[Gizmodo] Astronomers Say Recent Rash of Meteor Sightings ‘Warrants Serious Investigation’",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/2026-March-08-western-europe-meteor-sonic-boom-cropped--1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAbout a dozen of the biggest fireballs spotted by hundreds of witnesses across the sky are all coming from the same place, according to a new trajectory analysis.",
+      "date_published": "2026-03-26T19:35:21+00:00",
       "authors": [
         {
           "name": "Gizmodo",
           "url": "https://gizmodo.com/"
         }
       ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 55,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/02/IBM-system-2-e1773952754138-1280x853.jpg"
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/03/2026-March-08-western-europe-meteor-sonic-boom-cropped--1280x853.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/linux-package-managers-main-reason-never-switch-to-windows/",
-      "url": "https://www.xda-developers.com/linux-package-managers-main-reason-never-switch-to-windows/",
-      "title": "[XDA Developers] Linux package managers are the main reason I'll never switch back to Windows, ever",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/arch-linux-pacman-install-command.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou'll have to pry them out my CLI.",
-      "date_published": "2026-03-19T21:30:22+00:00",
+      "id": "https://thetyee.ca/Opinion/2026/03/26/Alberta-First-Nations-Farmers-Want-Review-Carbon-Capture-Project/",
+      "url": "https://thetyee.ca/Opinion/2026/03/26/Alberta-First-Nations-Farmers-Want-Review-Carbon-Capture-Project/",
+      "title": "[The Tyee] Alberta First Nations and Farmers Want Review of Massive Carbon Capture Project",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/03/26/ChiefAllanAdam.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe groups fear governments will skip an environmental assessment as part of a plan to fast-track a pipeline to the West Coast.",
+      "date_published": "2026-03-26T19:27:00+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/arch-linux-pacman-install-command.jpg"
+      "_quality_score": 60,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/Opinion/2026/03/26/ChiefAllanAdam.jpg"
     },
     {
-      "id": "https://www.sciencealert.com/study-reveals-a-turning-point-when-your-bodys-aging-accelerates",
-      "url": "https://www.sciencealert.com/study-reveals-a-turning-point-when-your-bodys-aging-accelerates",
-      "title": "[ScienceAlert] Study Reveals a Turning Point When Your Body's Aging Accelerates",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2025/11/Little-Girl-and-Senior-Woman-with-Faces-Pressed-Together-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Close up showing the eyes of a young child and an elderly person, with their faces pressed side to side\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/11/Little-Girl-and-Senior-Woman-with-Faces-Pressed-Together-.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Brace yourself.</p>",
-      "date_published": "2026-03-19T21:26:11+00:00",
+      "id": "https://gizmodo.com/unprecedented-images-show-sperm-whales-acting-as-midwives-to-help-a-mom-give-birth-2000738515",
+      "url": "https://gizmodo.com/unprecedented-images-show-sperm-whales-acting-as-midwives-to-help-a-mom-give-birth-2000738515",
+      "title": "[Gizmodo] Unprecedented Images Show Sperm Whales Acting as Midwives to Help a Mom Give Birth",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/Ceti-birth-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe origins of whale midwifery might date back millions of years, the researchers say.",
+      "date_published": "2026-03-26T18:55:29+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/03/Ceti-birth-1280x853.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/the-true-story-of-a-tornado-scientist-who-got-trapped-inside-one",
+      "url": "https://www.sciencealert.com/the-true-story-of-a-tornado-scientist-who-got-trapped-inside-one",
+      "title": "[ScienceAlert] The True Story of a Tornado Scientist Who Got Trapped Inside One",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"tornado in oklahoma\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/tornado-in-oklahoma.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"I do not want to ever be in that situation again.\"</p>",
+      "date_published": "2026-03-24T14:00:31+00:00",
       "authors": [
         {
           "name": "ScienceAlert",
@@ -581,99 +393,43 @@
         }
       ],
       "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2025/11/Little-Girl-and-Senior-Woman-with-Faces-Pressed-Together-.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/not-a-fan-of-plexs-apps-the-plezy-client-is-even-better-now/",
-      "url": "https://www.howtogeek.com/not-a-fan-of-plexs-apps-the-plezy-client-is-even-better-now/",
-      "title": "[How-To Geek] Not a fan of Plex’s apps? The Plezy client is even better now on desktop, mobile, and TV",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/plezy.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe cross-platform Plex client has been updated several times over the past few weeks.",
-      "date_published": "2026-03-19T21:07:10+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/03/plezy.jpg"
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128"
     },
     {
-      "id": "https://gizmodo.com/meta-is-building-an-encrypted-chatbot-after-ai-agents-went-rogue-and-expose-sensitive-data-2000735696",
-      "url": "https://gizmodo.com/meta-is-building-an-encrypted-chatbot-after-ai-agents-went-rogue-and-expose-sensitive-data-2000735696",
-      "title": "[Gizmodo] Meta Is Building an Encrypted Chatbot After AI Agents Went Rogue and Expose Sensitive Data",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/02/meta_sign-1280x854.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLate is better than never.",
-      "date_published": "2026-03-19T20:45:07+00:00",
+      "id": "https://thetyee.ca/News/2026/03/20/Mining-Created-BC-Town-Opposes-New-Project/",
+      "url": "https://thetyee.ca/News/2026/03/20/Mining-Created-BC-Town-Opposes-New-Project/",
+      "title": "[The Tyee] Mining Created This BC Town. Now It Opposes a New Project",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/03/19/RosslandMainStreet.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter transitioning its economy to tourism, Rossland sees more risks than rewards in a proposed mine.",
+      "date_published": "2026-03-20T07:30:00+00:00",
       "authors": [
         {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_quality_score": 53,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/02/meta_sign-1280x854.jpg"
+      "image": "https://thetyee.ca/News/2026/03/19/RosslandMainStreet.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/found-a-free-open-source-alternative-to-claude-code/",
-      "url": "https://www.xda-developers.com/found-a-free-open-source-alternative-to-claude-code/",
-      "title": "[XDA Developers] I found a free, open-source alternative to Claude Code, and it works with everything",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/opencode-on-macos.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSame energy for completely free.",
-      "date_published": "2026-03-19T20:30:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/opencode-on-macos.jpeg"
-    },
-    {
-      "id": "https://qz.com/eei-ceo-drew-maloney-energy-outlook",
-      "url": "https://qz.com/eei-ceo-drew-maloney-energy-outlook",
-      "title": "[Quartz] EEI CEO Drew Maloney provides energy outlook for industry after ringing bell",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/EEI%2520CEO%2520Drew%2520Maloney%2520Provides%2520Energy%2520Outlook%2520for%2520Industry%2520after%2520Ringing%2520Bell.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEEI CEO Drew Maloney provides energy outlook for industry after ringing bell",
-      "date_published": "2026-03-19T20:29:16+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/EEI%2520CEO%2520Drew%2520Maloney%2520Provides%2520Energy%2520Outlook%2520for%2520Industry%2520after%2520Ringing%2520Bell.mp4"
-    },
-    {
-      "id": "https://gizmodo.com/nasa-backed-startup-to-try-ingenious-asteroid-mining-idea-just-bag-it-2000735650",
-      "url": "https://gizmodo.com/nasa-backed-startup-to-try-ingenious-asteroid-mining-idea-just-bag-it-2000735650",
-      "title": "[Gizmodo] NASA-Backed Startup to Try Ingenious Asteroid Mining Idea: Just Bag It",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/transastra-asteroid-collection-1280x853.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTransAstra has developed a plan to bag an asteroid and move it to a stable near-Earth orbit for processing.",
-      "date_published": "2026-03-19T19:45:02+00:00",
+      "id": "https://gizmodo.com/study-challenges-popular-theory-on-why-primordial-bugs-were-so-darn-huge-2000738537",
+      "url": "https://gizmodo.com/study-challenges-popular-theory-on-why-primordial-bugs-were-so-darn-huge-2000738537",
+      "title": "[Gizmodo] Study Challenges Popular Theory on Why Primordial Bugs Were So Darn Huge",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/mega-griffinfly-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe're now back to square one on understanding how ancient insects were able to grow so monstrously large.",
+      "date_published": "2026-03-26T17:30:20+00:00",
       "authors": [
         {
           "name": "Gizmodo",
@@ -681,19 +437,439 @@
         }
       ],
       "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/03/transastra-asteroid-collection-1280x853.jpeg"
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/03/mega-griffinfly-1280x853.jpg"
     },
     {
-      "id": "https://www.techradar.com/pro/another-win-for-intel-as-gmktec-demos-openclaw-capable-mini-pc-that-reaches-180-tops-supports-10gbe-ethernet-usb4-and-oculink-oh-and-theres-a-nifty-pseudo-memory-feature-as-well-that-will-help-you-forget-ram-nightmares",
-      "url": "https://www.techradar.com/pro/another-win-for-intel-as-gmktec-demos-openclaw-capable-mini-pc-that-reaches-180-tops-supports-10gbe-ethernet-usb4-and-oculink-oh-and-theres-a-nifty-pseudo-memory-feature-as-well-that-will-help-you-forget-ram-nightmares",
-      "title": "[TechRadar] Another win for Intel as GMKTec demos Openclaw-capable mini PC that reaches 180 TOPS, supports 10GbE Ethernet, USB4, and OCuLink — oh, and there's a nifty pseudo-memory feature as well that will help you forget RAM nightmares",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/CDGWon5XthaM2PqRzPuyeB-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGMKtec introduces EVO-T2 mini PC with 180 TOPS performance, fast PCIe storage, and SSD-assisted memory to handle large AI models locally.",
-      "date_published": "2026-03-19T19:40:00+00:00",
+      "id": "https://www.techradar.com/pro/bluetti-elite-300-portable-power-station-review",
+      "url": "https://www.techradar.com/pro/bluetti-elite-300-portable-power-station-review",
+      "title": "[TechRadar] Bluetti Elite 300 portable power station review: A serious step-up in power",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Yjjn8cmaWPtn86GbuoHNqB-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPowerful, flexible, rugged, and heavy.",
+      "date_published": "2026-03-26T18:44:45+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/Yjjn8cmaWPtn86GbuoHNqB-1280-80.jpg"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/03/20/Public-Transit-Expansion-Plans-Shelved-BC/",
+      "url": "https://thetyee.ca/News/2026/03/20/Public-Transit-Expansion-Plans-Shelved-BC/",
+      "title": "[The Tyee] Public Transit Expansion Plans Shelved Across BC",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/03/19/GhostBusCollage.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs BC tightens its belt, plans to boost bus routes in mid-sized cities and rural areas are taking a hit.",
+      "date_published": "2026-03-20T07:20:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 70,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/News/2026/03/19/GhostBusCollage.jpg"
+    },
+    {
+      "id": "https://thetyee.ca/Analysis/2026/03/27/Human-Cost-Failing-Name-COVID-Airborne/",
+      "url": "https://thetyee.ca/Analysis/2026/03/27/Human-Cost-Failing-Name-COVID-Airborne/",
+      "title": "[The Tyee] The Human Cost of Failing to Name COVID ‘Airborne’",
+      "content_html": "<img src=\"https://thetyee.ca/Analysis/2026/03/26/MaskVirusPhotoIllustration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSafety laws are being sidestepped. One doctor’s nightmare shows how health-care workers pay the price.",
+      "date_published": "2026-03-27T07:30:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 53,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/Analysis/2026/03/26/MaskVirusPhotoIllustration.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/03/26/williams-lake-mustangs-dominate-playoffs-with-kamloops-storm/",
+      "url": "https://wltribune.com/2026/03/26/williams-lake-mustangs-dominate-playoffs-with-kamloops-storm/",
+      "title": "[Williams Lake Tribune] Williams Lake Mustangs dominate playoffs with Kamloops Storm",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41892701_web1_TwO.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
+      "date_published": "2026-03-27T05:54:47.915919+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41892701_web1_TwO.jpg?w=1024"
+    },
+    {
+      "id": "https://www.techradar.com/computing/wi-fi-broadband/forget-2gbps-nbn-nbn-cos-latest-full-fibre-speed-trial-proves-the-network-can-go-much-much-faster",
+      "url": "https://www.techradar.com/computing/wi-fi-broadband/forget-2gbps-nbn-nbn-cos-latest-full-fibre-speed-trial-proves-the-network-can-go-much-much-faster",
+      "title": "[TechRadar] Forget 2Gbps NBN — NBN Co’s latest full-fibre speed trial proves the network can go much, much faster",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/gyMF9xJmVhLiq3pdnvAhRc-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's taken years to get multi-gigabit internet in Australia, but now they're already achieving over 200 gigabits per second!",
+      "date_published": "2026-03-27T04:39:54+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/gyMF9xJmVhLiq3pdnvAhRc-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/27/business/helium-chips-iran-war.html",
+      "url": "https://www.nytimes.com/2026/03/27/business/helium-chips-iran-war.html",
+      "title": "[NYT Business] An Invisible Bottleneck: A Helium Shortage Threatens the Chip Industry",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/25/multimedia/Biz-Chips-Helium-01-vfgz/Biz-Chips-Helium-01-vfgz-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith a third of the global supply offline because of the war in Iran, gas companies are scrambling to assure critical A.I. chip makers there will be no disruptions.",
+      "date_published": "2026-03-27T04:00:21+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/03/25/multimedia/Biz-Chips-Helium-01-vfgz/Biz-Chips-Helium-01-vfgz-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/this-9-switch-makes-it-a-breeze-to-add-ports-to-your-network/",
+      "url": "https://www.xda-developers.com/this-9-switch-makes-it-a-breeze-to-add-ports-to-your-network/",
+      "title": "[XDA Developers] This $9 switch makes it a breeze to add ports to your network",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/12/copy-of-169-2-5.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExpand your network effortlessly",
+      "date_published": "2026-03-27T03:03:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/12/copy-of-169-2-5.png"
+    },
+    {
+      "id": "https://www.sciencealert.com/oral-alternative-to-ozempic-may-be-even-more-effective-for-weight-loss",
+      "url": "https://www.sciencealert.com/oral-alternative-to-ozempic-may-be-even-more-effective-for-weight-loss",
+      "title": "[ScienceAlert] Oral Alternative to Ozempic May Be Even More Effective For Weight Loss",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Oral Alternative to Ozempic May Be Even More Effective For Weight Loss\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/pills-hand.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Meet orforglipron.</p>",
+      "date_published": "2026-03-27T02:00:45+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128"
+    },
+    {
+      "id": "https://www.xda-developers.com/terramaster-f2-425-affordable-way-to-move-away-from-synology/",
+      "url": "https://www.xda-developers.com/terramaster-f2-425-affordable-way-to-move-away-from-synology/",
+      "title": "[XDA Developers] Ready to ditch Synology? This 2-bay NAS makes it easy to do so at its new low price",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/terramaster-f2-425-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA great way to store your data without breaking the bank",
+      "date_published": "2026-03-27T01:38:15+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/terramaster-f2-425-2.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/caffeine-may-reverse-memory-loss-from-lack-of-sleep-study-suggests",
+      "url": "https://www.sciencealert.com/caffeine-may-reverse-memory-loss-from-lack-of-sleep-study-suggests",
+      "title": "[ScienceAlert] Caffeine May Reverse Memory Loss From Lack of Sleep, Study Suggests",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Shot of a young woman yawning while having coffee\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/SleepyWoman.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"Caffeine can reverse these disruptions at both the molecular and behavioral levels.\"</p>",
+      "date_published": "2026-03-27T01:30:23+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/03/26/technology/anthropic-pentagon-risk-injunction.html",
+      "url": "https://www.nytimes.com/2026/03/26/technology/anthropic-pentagon-risk-injunction.html",
+      "title": "[NYT Top Stories] Judge Stays Pentagon’s Labeling of Anthropic as ‘Supply Chain Risk’",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/26/multimedia/BIZ-ANTHROPIC-DOD-HFO-zvlk/BIZ-ANTHROPIC-DOD-HFO-zvlk-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe decision is an early victory for the artificial intelligence company in a rancorous legal battle with the Department of Defense.",
+      "date_published": "2026-03-27T01:06:17+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/03/26/multimedia/BIZ-ANTHROPIC-DOD-HFO-zvlk/BIZ-ANTHROPIC-DOD-HFO-zvlk-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/ai-is-giving-you-bad-advice-to-make-you-feel-validated-scientists-warn",
+      "url": "https://www.sciencealert.com/ai-is-giving-you-bad-advice-to-make-you-feel-validated-scientists-warn",
+      "title": "[ScienceAlert] AI Is Giving You Bad Advice to Make You Feel Validated, Scientists Warn",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"woman looks at computer\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/woman-looks-at-computer.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Flattery will get you nowhere.</p>",
+      "date_published": "2026-03-27T00:45:05+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128"
+    },
+    {
+      "id": "https://www.statnews.com/2026/03/26/rocket-pharma-kresladi-lad-1-fda-approval/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/03/26/rocket-pharma-kresladi-lad-1-fda-approval/?utm_campaign=rss",
+      "title": "[STAT News] STAT+: FDA approves Rocket gene therapy for rare immune disorder",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2025/11/AdobeStock_917911475-645x645.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKresladi has been tested in just nine patients but has had positive results.",
+      "date_published": "2026-03-27T00:42:07+00:00",
+      "authors": [
+        {
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.statnews.com/wp-content/uploads/2025/11/AdobeStock_917911475-645x645.jpeg"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/03/26/100-mile-houses-emergency-room-woes-continue/",
+      "url": "https://100milefreepress.net/2026/03/26/100-mile-houses-emergency-room-woes-continue/",
+      "title": "[100 Mile Free Press] 100 Mile House’s emergency room woes continue",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41867172_web1_web1_230316-omh-healthcare-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The 100 Mile Free Press&#8217; editorial from the Thursday, March 26, 2026 edition </p>",
+      "date_published": "2026-03-27T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 27,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41867172_web1_web1_230316-omh-healthcare-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.xda-developers.com/pcie-card-running-half-speed-motherboard-doesnt-warn-you/",
+      "url": "https://www.xda-developers.com/pcie-card-running-half-speed-motherboard-doesnt-warn-you/",
+      "title": "[XDA Developers] Your PCIe expansion card might be running at half speed, and your motherboard probably didn't warn you",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/07/pcie-connector-motherboard.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour high-speed PCIe card might only be using half the PCIe lanes than it's capable of",
+      "date_published": "2026-03-26T23:00:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/07/pcie-connector-motherboard.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/03/26/comparing-the-power-usage-of-12-vdc-and-240-vac-kettles/",
+      "url": "https://hackaday.com/2026/03/26/comparing-the-power-usage-of-12-vdc-and-240-vac-kettles/",
+      "title": "[Hackaday] Comparing the Power Usage of 12 VDC and 240 VAC Kettles",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/ac_vs_dc_electric_kettle_turner_way_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"465\" src=\"https://hackaday.com/wp-content/uploads/2026/03/ac_vs_dc_electric_kettle_turner_way_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you have a 12 VDC power system, like the battery of a PV solar system or car, would it be more efficient to boil water for that cup of <a class=\"read-more\" href=\"https://hackaday.com/2026/03/26/comparing-the-power-usage-of-12-vdc-and-240-vac-kettles/\">&#8230;read more</a>",
+      "date_published": "2026-03-26T23:00:09+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/ac_vs_dc_electric_kettle_turner_way_youtube.jpg"
+    },
+    {
+      "id": "https://qz.com/inrix-ceo-bryan-mistele-ai-transportation-systems",
+      "url": "https://qz.com/inrix-ceo-bryan-mistele-ai-transportation-systems",
+      "title": "[Quartz] INRIX CEO Bryan Mistele on how AI is enhancing transportation systems globally",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/INRIX%2520CEO%2520Bryan%2520Mistele%2520on%2520How%2520AI%2520is%2520Enhancing%2520Transportation%2520Systems%2520Globally.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nINRIX CEO Bryan Mistele on how AI is enhancing transportation systems globally",
+      "date_published": "2026-03-26T22:50:00+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/INRIX%2520CEO%2520Bryan%2520Mistele%2520on%2520How%2520AI%2520is%2520Enhancing%2520Transportation%2520Systems%2520Globally.mp4"
+    },
+    {
+      "id": "https://insideevs.com/news/791253/ev-sales-used-new-hybrids-q1-2026/",
+      "url": "https://insideevs.com/news/791253/ev-sales-used-new-hybrids-q1-2026/",
+      "title": "[InsideEVs] New EV Sales Dropped 28%. But Used EVs Are Booming.",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/8A3p7v/s3/polestar-3-test-drive-review.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe new EV market is struggling after the end of the tax credit in September. But that doesn't tell the whole electrification story.",
+      "date_published": "2026-03-26T22:40:53+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.motor1.com/images/mgl/8A3p7v/s3/polestar-3-test-drive-review.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/chernobyl-fungus-seems-to-have-evolved-an-incredible-ability",
+      "url": "https://www.sciencealert.com/chernobyl-fungus-seems-to-have-evolved-an-incredible-ability",
+      "title": "[ScienceAlert] Chernobyl Fungus Seems to Have Evolved an Incredible Ability",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Chernobyl Fungus Appears to Have Evolved an Incredible Ability\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/11/melanized-fungus.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />It's thriving.</p>",
+      "date_published": "2026-03-26T22:26:20+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencealert.com&sz=128"
+    },
+    {
+      "id": "https://www.techradar.com/pro/a-dream-come-true-revolutionary-ai-smart-glasses-win-usd1-4-million-nobel-prize-to-combat-dementia",
+      "url": "https://www.techradar.com/pro/a-dream-come-true-revolutionary-ai-smart-glasses-win-usd1-4-million-nobel-prize-to-combat-dementia",
+      "title": "[TechRadar] 'A dream come true': Revolutionary AI smart glasses win $1.4 million ‘Nobel Prize’ to combat dementia",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/yGeKDfp8er8kxC94QeUMsX-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI smart glasses win major funding to support dementia care, though real-world effectiveness and long-term impact remain uncertain despite early promising observations.",
+      "date_published": "2026-03-26T22:20:00+00:00",
       "authors": [
         {
           "name": "TechRadar",
@@ -703,130 +879,34 @@
       "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/CDGWon5XthaM2PqRzPuyeB-1280-80.png"
+      "image": "https://cdn.mos.cms.futurecdn.net/yGeKDfp8er8kxC94QeUMsX-1280-80.png"
     },
     {
-      "id": "https://quesnelobserver.com/2026/03/19/kelowna-pastor-businesses-face-70k-civil-suit-due-to-unpaid-rent/",
-      "url": "https://quesnelobserver.com/2026/03/19/kelowna-pastor-businesses-face-70k-civil-suit-due-to-unpaid-rent/",
-      "title": "[Quesnel Cariboo Observer] Kelowna pastor, businesses face $70K civil suit due to unpaid rent",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41859704_web1_intro-article-cover-image.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>John Perks and three of his businesses are named in the civil suit </p>",
-      "date_published": "2026-03-19T19:00:00+00:00",
+      "id": "https://www.cnet.com/tech/services-and-software/senators-warren-hawley-push-data-center-energy-transparency/",
+      "url": "https://www.cnet.com/tech/services-and-software/senators-warren-hawley-push-data-center-energy-transparency/",
+      "title": "[CNET] Senators Elizabeth Warren and Josh Hawley Push for Data Center Energy Transparency",
+      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/1a6f12866b2c45a59b8dd9b9994bffe76f1a9491/hub/2026/03/26/0ff07cd0-b666-4d9d-be8c-544b948608e2/image-2.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe rapid growth of artificial intelligence is ramping up the need for more data centers across the US.",
+      "date_published": "2026-03-26T22:11:00+00:00",
       "authors": [
         {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "_quality_score": 67,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/03/41859704_web1_intro-article-cover-image.jpg?w=1024"
-    },
-    {
-      "id": "https://www.techradar.com/pro/mini-pc-vendors-jumping-on-the-open-claw-bandwagon-with-minisforums-m2-pro-the-latest-to-offer-intels-core-ultra-x9-388h-cpu-with-96gb-of-ram-but-it-wont-be-cheap",
-      "url": "https://www.techradar.com/pro/mini-pc-vendors-jumping-on-the-open-claw-bandwagon-with-minisforums-m2-pro-the-latest-to-offer-intels-core-ultra-x9-388h-cpu-with-96gb-of-ram-but-it-wont-be-cheap",
-      "title": "[TechRadar] Mini PC vendors jump on the OpenClaw bandwagon as Minisforum’s M2 Pro arrives with Intel’s Core Ultra X9 388H CPU and 96GB of RAM — but it won’t be cheap",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/JATG5Foemk7FBrVdZ9zMT8-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMinisforum M2 Pro offers powerful local AI processing with hybrid mode, balancing privacy, cloud use, and addressing concerns over OpenClaw vulnerabilities.",
-      "date_published": "2026-03-19T18:35:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "CNET",
+          "url": "https://www.cnet.com"
         }
       ],
       "_quality_score": 55,
       "_theme_score": 0,
       "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/JATG5Foemk7FBrVdZ9zMT8-1280-80.png"
-    },
-    {
-      "id": "https://gizmodo.com/python-blood-could-kickstart-the-next-big-thing-in-weight-loss-2000735667",
-      "url": "https://gizmodo.com/python-blood-could-kickstart-the-next-big-thing-in-weight-loss-2000735667",
-      "title": "[Gizmodo] Python Blood Could Kickstart the Next Big Thing in Weight Loss",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2025/07/burmese-python-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers have found a metabolite in Burmese pythons that suppresses appetite in mice without some of GLP-1's side effects. And humans make it, too.",
-      "date_published": "2026-03-19T18:30:31+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 56,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2025/07/burmese-python-1280x853.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/03/19/reading-the-worlds-smallest-hard-drive/",
-      "url": "https://hackaday.com/2026/03/19/reading-the-worlds-smallest-hard-drive/",
-      "title": "[Hackaday] Reading the World’s Smallest Hard Drive",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/tiny-hdd-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/tiny-hdd-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>You have a tiny twenty-year-old hard drive with a weird interface. How do you read it? If you&#8217;re [Will Whang], by reverse engineering, and building an interface board. In many <a class=\"read-more\" href=\"https://hackaday.com/2026/03/19/reading-the-worlds-smallest-hard-drive/\">&#8230;read more</a>",
-      "date_published": "2026-03-19T18:30:02+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/tiny-hdd-featured.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/03/19/geothermal-startup-fervo-catapults-itself-over-the-valley-of-death/",
-      "url": "https://techcrunch.com/2026/03/19/geothermal-startup-fervo-catapults-itself-over-the-valley-of-death/",
-      "title": "[TechCrunch] Geothermal startup Fervo catapults itself over the ‘valley of death’",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFervo landed a large new loan with terms that strongly suggest the company's most turbulent days are behind it.",
-      "date_published": "2026-03-19T18:26:26+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
-    },
-    {
-      "id": "https://qz.com/ai-capex-spending-thinking-machines-yann-lecun-power",
-      "url": "https://qz.com/ai-capex-spending-thinking-machines-yann-lecun-power",
-      "title": "[Quartz] The AI spending spree just keeps getting weirder",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2233610941.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe binge has outgrown its data-center-only era, dragging turbines, pipelines, private credit, and anti-LLM moonshots into AI’s widening orbit",
-      "date_published": "2026-03-19T18:23:22+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2233610941.jpg"
+      "image": "https://www.cnet.com/a/img/resize/1a6f12866b2c45a59b8dd9b9994bffe76f1a9491/hub/2026/03/26/0ff07cd0-b666-4d9d-be8c-544b948608e2/image-2.png?auto=webp&width=300"
     }
   ]
 }
