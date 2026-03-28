@@ -8,6 +8,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-03-27 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-27 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-03-27 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-03-27 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-03-26 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-26 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-03-26 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -30,13 +34,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-22 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-21 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-21 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-20 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-20 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-03-27 | 🌅 morning | 201 | ai-tech:61(32%), news:61(32%), homelab:41(22%) |
+| 2026-03-27 | 🌙 evening | 256 | news:83(35%), ai-tech:68(29%), homelab:43(18%) |
 | 2026-03-26 | 🌅 morning | 225 | ai-tech:75(37%), news:61(30%), homelab:44(22%) |
 | 2026-03-26 | 🌙 evening | 342 | ai-tech:113(35%), news:102(31%), homelab:58(18%) |
 | 2026-03-25 | 🌅 morning | 258 | ai-tech:81(34%), news:71(30%), homelab:56(23%) |
@@ -49,12 +53,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-22 | 🌙 evening | 189 | news:62(36%), ai-tech:50(29%), homelab:32(19%) |
 | 2026-03-21 | 🌅 morning | 136 | news:40(34%), homelab:35(30%), ai-tech:30(26%) |
 | 2026-03-21 | 🌙 evening | 159 | news:50(35%), ai-tech:35(25%), homelab:32(23%) |
-| 2026-03-20 | 🌅 morning | 220 | ai-tech:67(34%), news:58(29%), homelab:51(26%) |
-| 2026-03-20 | 🌙 evening | 352 | news:117(36%), ai-tech:114(35%), homelab:48(15%) |
 
-_Last updated by log\_feed\_results.py · 2026-03-27 13:50 UTC_
+_Last updated by log\_feed\_results.py · 2026-03-28 05:40 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
