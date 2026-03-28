@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-28 (Saturday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **973** → dedup **813** → new **312** → quality **129**
+- Mix: local:4(4%), ai-tech:33(29%), climate:10(9%), homelab:29(26%), science:2(2%), scifi:1(1%), news:33(29%)
+- Feeds: local:79, ai-tech:500, climate:171, homelab:500, science:172, scifi:45, news:500
+- Images: 129/129
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-03-27 (Friday)
 
 #### 🌅 4:30 AM Pacific
@@ -210,35 +226,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:7(5%), ai-tech:35(25%), climate:9(6%), homelab:32(23%), science:5(4%), scifi:3(2%), news:50(35%)
 - Feeds: local:69, ai-tech:500, climate:184, homelab:500, science:186, scifi:23, news:500
 - Images: 159/159
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-03-20 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **971** → dedup **852** → new **406** → quality **220**
-- Mix: local:3(2%), ai-tech:67(34%), climate:10(5%), homelab:51(26%), science:8(4%), news:58(29%)
-- Feeds: local:74, ai-tech:500, climate:190, homelab:500, science:194, scifi:32, news:500
-- Images: 220/220
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **963** → dedup **846** → new **539** → quality **352**
-- Mix: local:11(3%), ai-tech:114(35%), climate:14(4%), homelab:48(15%), science:23(7%), scifi:1(0%), news:117(36%)
-- Feeds: local:69, ai-tech:500, climate:177, homelab:500, science:194, scifi:23, news:500
-- Images: 352/352
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
@@ -584,6 +571,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-03-19–2026-03-19
 - 2 runs · avg fetched 994 · avg quality 308
 - Dominant: **ai-tech** (38%) local:12 / ai-tech:216 / climate:38 / homelab:96 / science:31 / scifi:5 / news:165
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-03-20–2026-03-20
+- 2 runs · avg fetched 967 · avg quality 286
+- Dominant: **ai-tech** (34%) local:14 / ai-tech:181 / climate:24 / homelab:99 / science:31 / scifi:1 / news:175
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
