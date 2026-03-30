@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-03-30 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **679** → dedup **588** → new **323** → quality **200**
+- Mix: local:1(1%), ai-tech:74(42%), climate:16(9%), homelab:33(19%), science:5(3%), scifi:4(2%), news:45(25%)
+- Feeds: local:70, ai-tech:500, climate:163, homelab:500, science:166, scifi:45, news:500
+- Images: 200/200
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-03-29 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -210,39 +226,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:11(3%), ai-tech:123(37%), climate:15(5%), homelab:58(18%), science:17(5%), scifi:5(2%), news:100(30%)
 - Feeds: local:74, ai-tech:500, climate:176, homelab:500, science:182, scifi:28, news:500
 - Images: 348/348
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-03-22 (Sunday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **694** → dedup **614** → new **273** → quality **111**
-- Mix: local:1(1%), ai-tech:39(40%), climate:2(2%), homelab:29(30%), science:1(1%), scifi:1(1%), news:25(26%)
-- Feeds: local:67, ai-tech:500, climate:181, homelab:500, science:184, scifi:23, news:500
-- Images: 111/111
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ **BC Gov News** failed — `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Read timed out. (read timeout=10)`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **585** → dedup **523** → new **329** → quality **189**
-- Mix: local:4(2%), ai-tech:50(29%), climate:7(4%), homelab:32(19%), science:13(8%), scifi:2(1%), news:62(36%)
-- Feeds: local:69, ai-tech:500, climate:179, homelab:500, science:189, scifi:23, news:500
-- Images: 189/189
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
@@ -611,6 +594,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 2 runs · avg fetched 837 · avg quality 148
 - Dominant: **news** (35%) local:9 / ai-tech:65 / climate:16 / homelab:67 / science:6 / scifi:5 / news:90
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-03-22–2026-03-22
+- 2 runs · avg fetched 640 · avg quality 150
+- Dominant: **ai-tech** (33%) local:5 / ai-tech:89 / climate:9 / homelab:61 / science:14 / scifi:3 / news:87
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ The Narwhal failed — 415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/
+- - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
+- - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
+- - ⚠️ BC Gov News failed — HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Read timed out. (read timeout=10)
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
