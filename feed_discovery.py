@@ -114,7 +114,7 @@ No explanations, just the numbers."""
         
         try:
             response = client.messages.create(
-                model="claude-3-sonnet-20240229",
+                model="claude-haiku-4-5",
                 max_tokens=100,
                 messages=[{"role": "user", "content": prompt}]
             )
