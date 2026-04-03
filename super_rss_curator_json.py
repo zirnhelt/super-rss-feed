@@ -820,17 +820,24 @@ def _source_priority(article: Article) -> int:
     """Return sort key for dedup ordering. Lower = processed first = wins ties."""
     source_map = SOURCE_PREFS.get('source_map', {})
     source_type = source_map.get(article.source)
-    # Subscribed / preferred local paper always wins dedup
-    if source_type == 'preferred_local':
+    # WLT scraper articles are pre-scored at local_priority_score before dedup runs.
+    # RSS feeds for the same paper (e.g. www.wltribune.com/feed/) share the same
+    # source name and therefore the same preferred_local type, so without this
+    # check the RSS version (fetched first) would win and the richer scraper
+    # version would be silently dropped as a duplicate.
+    if source_type == 'preferred_local' and article.score == LIMITS.get('local_priority_score', 100):
         return 0
+    # Subscribed / preferred local paper via RSS
+    if source_type == 'preferred_local':
+        return 1
     # Other explicitly local-priority articles
     if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
-        return 1
-    if source_type == 'print':
         return 2
+    if source_type == 'print':
+        return 3
     if source_type == 'broadcast':
-        return 4
-    return 3  # unclassified sources
+        return 5
+    return 4  # unclassified sources
 
 
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
