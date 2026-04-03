@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-04-02 | 🌅 4:30 AM Pacific | ⚠️ **Julia Evans Blog** failed | `HTTPSConnectionPool(host='jvns.ca', port=443): Read timed out. (read timeout=10)` |
+| 2026-04-02 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-02 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-02 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-02 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-04-01 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-04-01 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-04-01 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -33,15 +38,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-27 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-03-27 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-03-27 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-03-26 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-26 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-03-26 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-03-26 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-04-02 | 🌅 morning | 151 | ai-tech:40(30%), news:39(30%), homelab:31(23%) |
+| 2026-04-02 | 🌙 evening | 223 | news:81(39%), ai-tech:59(28%), homelab:27(13%) |
 | 2026-04-01 | 🌅 morning | 166 | news:49(34%), ai-tech:45(31%), homelab:34(23%) |
 | 2026-04-01 | 🌙 evening | 233 | news:71(32%), ai-tech:55(25%), homelab:39(18%) |
 | 2026-03-31 | 🌅 morning | 198 | ai-tech:63(34%), news:59(32%), homelab:42(23%) |
@@ -54,12 +57,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-03-28 | 🌙 evening | 101 | ai-tech:30(34%), homelab:23(26%), news:22(25%) |
 | 2026-03-27 | 🌅 morning | 201 | ai-tech:61(32%), news:61(32%), homelab:41(22%) |
 | 2026-03-27 | 🌙 evening | 256 | news:83(35%), ai-tech:68(29%), homelab:43(18%) |
-| 2026-03-26 | 🌅 morning | 225 | ai-tech:75(37%), news:61(30%), homelab:44(22%) |
-| 2026-03-26 | 🌙 evening | 342 | ai-tech:113(35%), news:102(31%), homelab:58(18%) |
 
-_Last updated by log\_feed\_results.py · 2026-04-02 14:02 UTC_
+_Last updated by log\_feed\_results.py · 2026-04-03 05:56 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
