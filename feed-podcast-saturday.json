@@ -22,418 +22,132 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Score 0-100 where 100 is a perfect thematic match.",
     "day": "saturday",
-    "generated_at": "2026-03-28T13:32:26.019806+00:00",
-    "article_count": 40,
-    "bonus_count": 38,
+    "generated_at": "2026-04-04T05:40:07.000269+00:00",
+    "article_count": 28,
+    "bonus_count": 23,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://100milefreepress.net/2026/03/28/100-mile-house-dress-the-dream-renews-call-for-new-storage-space/",
-      "url": "https://100milefreepress.net/2026/03/28/100-mile-house-dress-the-dream-renews-call-for-new-storage-space/",
-      "title": "[100 Mile Free Press] 100 Mile House Dress the Dream renews call for new storage space",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41918962_web1_260212-OMH-Dress-the-Dream_4.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The program also aims to expand to Clinton and Ashcroft later this year  </p>",
-      "date_published": "2026-03-28T12:00:00+00:00",
+      "id": "https://quesnelobserver.com/2026/04/03/prince-george-north-cariboo-mla-fined-1500-for-exceeding-anonymous-donation-limit-elections-bc-says/",
+      "url": "https://quesnelobserver.com/2026/04/03/prince-george-north-cariboo-mla-fined-1500-for-exceeding-anonymous-donation-limit-elections-bc-says/",
+      "title": "[Quesnel Cariboo Observer] Prince George-North Cariboo MLA fined $1,500 for exceeding anonymous donation limit, Elections BC says",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/41982349_web1_sheldon-clare.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Sheldon Clare accepted over $7K in anonymous contributions </p>",
+      "date_published": "2026-04-03T19:00:00+00:00",
       "authors": [
         {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
         }
       ],
       "_quality_score": 87,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 1,
       "_boosted_score": 46,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/03/41918962_web1_260212-OMH-Dress-the-Dream_4.jpg?w=1024"
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/41982349_web1_sheldon-clare.jpg?w=1024"
     },
     {
-      "id": "https://wltribune.com/2026/03/25/potential-risk-canada-ends-longtime-weatheradio-service-leaving-some-forecast-less-2/",
-      "url": "https://wltribune.com/2026/03/25/potential-risk-canada-ends-longtime-weatheradio-service-leaving-some-forecast-less-2/",
-      "title": "[Williams Lake Tribune] ‘Potential risk’: Canada ends longtime Weatheradio service, leaving some forecast-less",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/03/41910052_web1_260326-RTR-Weather-radio-photos_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDaily weather updates ended March 16 due to budget cuts, but MP says little money is saved",
-      "date_published": "2026-03-28T13:31:15.335196+00:00",
+      "id": "https://wltribune.com/2026/04/03/crash-involving-semi-closes-highway-1-at-chase-no-detour-available/",
+      "url": "https://wltribune.com/2026/04/03/crash-involving-semi-closes-highway-1-at-chase-no-detour-available/",
+      "title": "[Williams Lake Tribune] UPDATE: Highway 1 near Chase re-opens to all traffic following morning crash",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41982127_web1_260409-SAA-Highway1-closure-crash_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Road fully re-opened at 3 p.m. </p>",
+      "date_published": "2026-04-03T10:35:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 98,
-      "_theme_score": 80,
-      "_final_score": 80,
+      "_quality_score": 52,
+      "_theme_score": 50,
+      "_final_score": 50,
       "_keyword_matches": 0,
-      "_boosted_score": 29,
-      "_category": "local",
-      "_source_category": "local",
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/03/41910052_web1_260326-RTR-Weather-radio-photos_2.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41982127_web1_260409-SAA-Highway1-closure-crash_1.jpg?w=1024"
     },
     {
-      "id": "https://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/",
-      "url": "https://techcrunch.com/2026/03/28/what-will-power-the-grid-in-2035-the-race-is-wide-open/",
-      "title": "[TechCrunch] What will power the grid in 2035? The race is wide open",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2022/08/electrical-grid-at-night.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFusion, fission, and even natural gas are appeared tied in the race to deliver new power to the grid in the early 2030s.",
-      "date_published": "2026-03-28T13:05:00+00:00",
+      "id": "https://wltribune.com/2026/04/03/canadas-7th-most-wanted-arrested-in-surrey-b-c/",
+      "url": "https://wltribune.com/2026/04/03/canadas-7th-most-wanted-arrested-in-surrey-b-c/",
+      "title": "[Williams Lake Tribune] Canada’s 7th Most Wanted Arrested in Surrey, B.C.",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41983808_web1_260409-SUL-Bolo-arrested_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Chad Dandan was arrested in connection with a homicide in Manitoba </p>",
+      "date_published": "2026-04-03T14:43:00+00:00",
       "authors": [
         {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2022/08/electrical-grid-at-night.jpg?resize=1200,800"
-    },
-    {
-      "id": "https://www.xda-developers.com/self-hosting-freed-me-from-the-os-lock-in-trap/",
-      "url": "https://www.xda-developers.com/self-hosting-freed-me-from-the-os-lock-in-trap/",
-      "title": "[XDA Developers] Self-hosting freed me from the OS lock-in trap (and made my devices clutter-free)",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/cosmos-1-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBetter privacy isn't the only game-changing aspect of self-hosted apps",
-      "date_published": "2026-03-28T13:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/cosmos-1-1.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/03/28/business/silicon-valley-tiny-team-two-slice.html",
-      "url": "https://www.nytimes.com/2026/03/28/business/silicon-valley-tiny-team-two-slice.html",
-      "title": "[NYT Business] Smaller Is Better in Silicon Valley’s ‘Tiny Team’ Moment",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/03/29/business/29shoptalk-2slice-illo/29shoptalk-2slice-illo-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs artificial intelligence takes on more and more tasks, tech executives are embracing teams as small as two: one person plus A.I.",
-      "date_published": "2026-03-28T12:53:20+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/03/29/business/29shoptalk-2slice-illo/29shoptalk-2slice-illo-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/fedora-quietly-solved-linuxs-update-problem/",
-      "url": "https://www.howtogeek.com/fedora-quietly-solved-linuxs-update-problem/",
-      "title": "[How-To Geek] Fedora quietly solved Linux's update problem",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/01/laptop-displaying-ubuntu-desktop-flanked-by-fedora-and-linux-mint-screens-with-a-smiling-tux-penguin.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFedora's innovative approach to system updates ensures that your desktop remains stable and unbroken, even in the face of network failures or power losses.",
-      "date_published": "2026-03-28T12:30:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/01/laptop-displaying-ubuntu-desktop-flanked-by-fedora-and-linux-mint-screens-with-a-smiling-tux-penguin.png"
-    },
-    {
-      "id": "https://www.howtogeek.com/raspberry-pi-projects-that-can-save-you-money/",
-      "url": "https://www.howtogeek.com/raspberry-pi-projects-that-can-save-you-money/",
-      "title": "[How-To Geek] 10 Raspberry Pi projects that can actually save you money",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/raspberry-pi-500-with-cash.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSave your money for future Raspberry Pi purchases.",
-      "date_published": "2026-03-28T12:15:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/raspberry-pi-500-with-cash.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/stop-buying-smart-home-networking-gear-fails-practice/",
-      "url": "https://www.xda-developers.com/stop-buying-smart-home-networking-gear-fails-practice/",
-      "title": "[XDA Developers] Stop buying networking gear for your smart home that looks good on paper but fails in practice",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/12/network-cabinet-hardware.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSome networking gear sounds perfect for a smart home until real-world performance exposes the compromises hiding behind the specs.",
-      "date_published": "2026-03-28T12:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/12/network-cabinet-hardware.jpg"
-    },
-    {
-      "id": "https://newatlas.com/wearables/citizen-photon-celebrates-half-century-solar-watch-power/",
-      "url": "https://newatlas.com/wearables/citizen-photon-celebrates-half-century-solar-watch-power/",
-      "title": "[New Atlas] Citizen Photon celebrates half a century of solar watch power",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/27e8297/2147483647/strip/true/crop/1670x877+7+0/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fdd%2Fcf%2Fd2cbeebf4524b9699b070b213084%2Fscreenshot-2026-03-24-215946.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The Citizen Photon\" src=\"https://assets.newatlas.com/dims4/default/19f088f/2147483647/strip/true/crop/1684x877+0+0/resize/1440x750!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fdd%2Fcf%2Fd2cbeebf4524b9699b070b213084%2Fscreenshot-2026-03-24-215946.jpg\" /><p>Citizen is celebrating the 50th anniversary of its first analog light-powered watch with the release of its Eco-Drive Photon watch in a limited edition, with two variants of 5,000 units each that pay homage to the peculiar physics of light.</p><p><a href=\"https://newatlas.com/wearables/citizen-photon-celebrates-half-century-solar-watch-power/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/wearables/\">Wearables</a>, <a href=\"https://newatlas.com/consumer-tech/\">Consumer Tech</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/watches/\" rel=\"tag\">Watches</a>, <a href=\"https://newatlas.com/tag/history/\" rel=\"tag\">History</a></p>",
-      "date_published": "2026-03-28T11:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://assets.newatlas.com/dims4/default/27e8297/2147483647/strip/true/crop/1670x877+7+0/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fdd%2Fcf%2Fd2cbeebf4524b9699b070b213084%2Fscreenshot-2026-03-24-215946.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.howtogeek.com/more-smart-home-brands-to-avoid-if-you-use-home-assistant/",
-      "url": "https://www.howtogeek.com/more-smart-home-brands-to-avoid-if-you-use-home-assistant/",
-      "title": "[How-To Geek] 7 more smart home brands to avoid if you use Home Assistant",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/10/a-hand-holding-a-google-nest-speaker.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBuild a better smart home by process of elimination.",
-      "date_published": "2026-03-28T11:00:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/10/a-hand-holding-a-google-nest-speaker.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/03/28/magic-less-8-ball-finds-new-life-with-pi-pico-inside/",
-      "url": "https://hackaday.com/2026/03/28/magic-less-8-ball-finds-new-life-with-pi-pico-inside/",
-      "title": "[Hackaday] Magic-less 8 Ball Finds New Life With Pi Pico Inside",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/hardware_7.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"400\" src=\"https://hackaday.com/wp-content/uploads/2026/03/hardware_7.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>There&#8217;s an old saying that goes: when life gives you lemons, make lemonade. [lds133] must have heard that saying, because when life took the magic liquid out of his Magic <a class=\"read-more\" href=\"https://hackaday.com/2026/03/28/magic-less-8-ball-finds-new-life-with-pi-pico-inside/\">&#8230;read more</a>",
-      "date_published": "2026-03-28T11:00:13+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/hardware_7.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/nutrition-scientist-shared-food-swaps-heart-healthy-meals-cardiovascular-disease-2026-3",
-      "url": "https://www.businessinsider.com/nutrition-scientist-shared-food-swaps-heart-healthy-meals-cardiovascular-disease-2026-3",
-      "title": "[Business Insider] A nutrition scientist shared 3 easy food swaps to make your meals heart-healthy",
-      "content_html": "<img src=\"https://i.insider.com/69c6577bb87081653c9a67eb?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProfessor Sarah Berry, a nutrition scientist who specializes in cardiovascular disease, said getting the basics right can go a long way toward supporting our heart health.",
-      "date_published": "2026-03-28T10:29:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69c6577bb87081653c9a67eb?format=jpeg"
-    },
-    {
-      "id": "https://gizmodo.com/should-we-be-hyped-or-freaked-out-about-nuclear-microreactors-2000738041",
-      "url": "https://gizmodo.com/should-we-be-hyped-or-freaked-out-about-nuclear-microreactors-2000738041",
-      "title": "[Gizmodo] Should We Be Hyped—or Freaked Out—About Nuclear Microreactors?",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/microreactors-giz-asks-top-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMicroreactors could be coming very soon to commercial grids. Is that a good thing? We asked the experts.",
-      "date_published": "2026-03-28T10:00:17+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/03/microreactors-giz-asks-top-1280x853.jpg"
-    },
-    {
-      "id": "https://www.androidauthority.com/i-ditched-google-drive-for-proton-drive-3647483/",
-      "url": "https://www.androidauthority.com/i-ditched-google-drive-for-proton-drive-3647483/",
-      "title": "[Android Authority] I ditched Google Drive and Photos for this privacy-focused app, and I couldn’t be happier",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/03/pixel-launcher-custom-icons-scribbles-google-drive.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's not without faults, though.",
-      "date_published": "2026-03-28T10:00:02+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/03/pixel-launcher-custom-icons-scribbles-google-drive.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-deskilling-impact-on-worker-skills-productivity-2026-3",
-      "url": "https://www.businessinsider.com/ai-deskilling-impact-on-worker-skills-productivity-2026-3",
-      "title": "[Business Insider] The Great AI Deskilling has begun",
-      "content_html": "<img src=\"https://i.insider.com/69a858befd4fbd083f298095?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI is boosting output while quietly chipping away at the skills behind it.",
-      "date_published": "2026-03-28T09:11:11+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69a858befd4fbd083f298095?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-agents-one-person-companies-china-openclaw-alibaba-president-2026-3",
-      "url": "https://www.businessinsider.com/ai-agents-one-person-companies-china-openclaw-alibaba-president-2026-3",
-      "title": "[Business Insider] China's 'one-person companies' have exploded. An Alibaba exec explains how AI agents make that possible.",
-      "content_html": "<img src=\"https://i.insider.com/69c47efa732a0245147134be?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAlibaba.com president Kuo Zhang discusses the rise of one-person companies, aided by AI agents OpenClaw.",
-      "date_published": "2026-03-28T09:00:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
       "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 45,
+      "_final_score": 45,
       "_keyword_matches": 0,
       "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69c47efa732a0245147134be?format=jpeg"
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41983808_web1_260409-SUL-Bolo-arrested_1.jpg?w=1024"
     },
     {
-      "id": "https://www.techradar.com/pro/how-i-built-an-ai-operating-system-to-run-my-publishing-company",
-      "url": "https://www.techradar.com/pro/how-i-built-an-ai-operating-system-to-run-my-publishing-company",
-      "title": "[TechRadar] How I built an AI operating system to run my publishing company",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/gWr6NrfMqA5kB42af2aice-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf an AI agent can do the work of ten people, why would you pay for ten software seats?",
-      "date_published": "2026-03-28T09:00:00+00:00",
+      "id": "https://wltribune.com/2026/04/03/prince-george-rcmp-investigate-after-object-strikes-paramedic-inside-ambulance/",
+      "url": "https://wltribune.com/2026/04/03/prince-george-rcmp-investigate-after-object-strikes-paramedic-inside-ambulance/",
+      "title": "[Williams Lake Tribune] Prince George RCMP investigate after object strikes paramedic inside ambulance",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41981427_web1_pg-rcmp.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The incident occurred on April 2 afternoon </p>",
+      "date_published": "2026-04-03T09:05:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 52,
+      "_theme_score": 35,
+      "_final_score": 35,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/gWr6NrfMqA5kB42af2aice-1280-80.jpg"
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41981427_web1_pg-rcmp.jpg?w=1024"
     },
     {
-      "id": "https://www.theverge.com/reviews/899289/bluetti-sora-500-review-portable-solar-panel",
-      "url": "https://www.theverge.com/reviews/899289/bluetti-sora-500-review-portable-solar-panel",
-      "title": "[The Verge] Bluetti’s Sora 500 solar panel is incredibly powerful for its size",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/IMG_7424.jpeg?quality=90&strip=all&crop=0%2C29.998131490146%2C100%2C69.808027923211&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe don't review many solar panels at The Verge, but the tech inside Bluetti's incredibly portable Sora 500 panel makes it worth a deeper look. The new N-Type panels made by Bluetti and others give you more bang for the buck, pound, and square inch. That's a big deal for vanlifers like me who depend [&#8230;]",
-      "date_published": "2026-03-28T07:00:00+00:00",
+      "id": "https://wltribune.com/2026/04/02/repeat-offender-sentenced-to-5-years-after-b-c-bomb-attack/",
+      "url": "https://wltribune.com/2026/04/02/repeat-offender-sentenced-to-5-years-after-b-c-bomb-attack/",
+      "title": "[Williams Lake Tribune] Repeat offender sentenced to 5 years after B.C. bomb attack",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41984626_web1_RCMP-handcuffs-jan2018_0612.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Worker at Port Alberni overdose prevention site injured by explosive device </p>",
+      "date_published": "2026-04-02T17:00:00+00:00",
       "authors": [
         {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 52,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/IMG_7424.jpeg?quality=90&strip=all&crop=0%2C29.998131490146%2C100%2C69.808027923211&w=1200"
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41984626_web1_RCMP-handcuffs-jan2018_0612.jpg?w=1024"
     },
     {
-      "id": "https://www.xda-developers.com/framework-is-funding-kde-to-build-linux-laptops-you-can-actually-customize/",
-      "url": "https://www.xda-developers.com/framework-is-funding-kde-to-build-linux-laptops-you-can-actually-customize/",
-      "title": "[XDA Developers] Framework is funding KDE to build Linux laptops you can actually customize",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/10/framework-laptop-13-amd-cooler.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCustomizable software and hardware? Sounds good to me.",
-      "date_published": "2026-03-28T06:54:44+00:00",
+      "id": "https://hackaday.com/2026/04/03/reverse-engineering-a-handheld-car-tire-pressure-gauge/",
+      "url": "https://hackaday.com/2026/04/03/reverse-engineering-a-handheld-car-tire-pressure-gauge/",
+      "title": "[Hackaday] Reverse-Engineering a Handheld Car Tire Pressure Gauge",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/tire_pressure_gauge_teardown_electronupdate_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"532\" src=\"https://hackaday.com/wp-content/uploads/2026/04/tire_pressure_gauge_teardown_electronupdate_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In this wonderful world of MEMS technology, sensor technology has been downsized and reduced in cost to the point where you can buy a car tire pressure sensor for less <a class=\"read-more\" href=\"https://hackaday.com/2026/04/03/reverse-engineering-a-handheld-car-tire-pressure-gauge/\">&#8230;read more</a>",
+      "date_published": "2026-04-04T02:00:41+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
       "_quality_score": 52,
@@ -444,18 +158,40 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/10/framework-laptop-13-amd-cooler.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/tire_pressure_gauge_teardown_electronupdate_youtube.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/03/27/use-a-gap-cap-to-embed-hardware-in-your-next-3d-print/",
-      "url": "https://hackaday.com/2026/03/27/use-a-gap-cap-to-embed-hardware-in-your-next-3d-print/",
-      "title": "[Hackaday] Use a Gap-Cap to Embed Hardware In Your Next 3D Print",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/gap-cap-for-embedded-hardware-1.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"320\" src=\"https://hackaday.com/wp-content/uploads/2026/03/gap-cap-for-embedded-hardware-1.png?w=570\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"570\" /></div>Embedding fasteners or other hardware into 3D prints is a useful technique, but it can bring challenges when applied to large or non-flat objects. The solution? Use a gap-cap. The <a class=\"read-more\" href=\"https://hackaday.com/2026/03/27/use-a-gap-cap-to-embed-hardware-in-your-next-3d-print/\">&#8230;read more</a>",
-      "date_published": "2026-03-27T18:30:23+00:00",
+      "id": "https://hackaday.com/2026/04/03/simulating-a-glowing-fireplace-with-an-rp2040/",
+      "url": "https://hackaday.com/2026/04/03/simulating-a-glowing-fireplace-with-an-rp2040/",
+      "title": "[Hackaday] Simulating a glowing fireplace with an RP2040",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/firestring.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"A jar of pine cones that appears to glow like the embers of a fire\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/firestring.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Today, fireplaces, their cozy glow once a household staple, are mostly a thing of the past. In fact, a decent amount of old fireplaces are completely blocked up! [David Capper] <a class=\"read-more\" href=\"https://hackaday.com/2026/04/03/simulating-a-glowing-fireplace-with-an-rp2040/\">&#8230;read more</a>",
+      "date_published": "2026-04-03T23:00:19+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/firestring.jpg"
+    },
+    {
+      "id": "https://nautil.us/cosmic-mysteries-swirl-around-forbidden-planet-1279538/",
+      "url": "https://nautil.us/cosmic-mysteries-swirl-around-forbidden-planet-1279538/",
+      "title": "[Nautilus] Cosmic Mysteries Swirl Around “Forbidden Planet”",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_9b093f.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>What’s going on here?</p>\n<p>The post <a href=\"https://nautil.us/cosmic-mysteries-swirl-around-forbidden-planet-1279538/\">Cosmic Mysteries Swirl Around “Forbidden Planet”</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-03T22:30:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
         }
       ],
       "_quality_score": 75,
@@ -463,87 +199,65 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 22,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/gap-cap-for-embedded-hardware-1.png"
-    },
-    {
-      "id": "https://hackaday.com/2026/03/27/hackaday-podcast-episode-363-the-history-of-pla-laser-diy-pcbs-and-corporate-craziness/",
-      "url": "https://hackaday.com/2026/03/27/hackaday-podcast-episode-363-the-history-of-pla-laser-diy-pcbs-and-corporate-craziness/",
-      "title": "[Hackaday] Hackaday Podcast Episode 363: The History of PLA, Laser DIY PCBs, and Corporate Craziness",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2016/05/microphone.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"484\" src=\"https://hackaday.com/wp-content/uploads/2016/05/microphone.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>What did Elliot Williams and Al Williams read on Hackaday last week? Tune in and find out. After a bit of news, [Vik Oliver] chimes in with some deep PLA <a class=\"read-more\" href=\"https://hackaday.com/2026/03/27/hackaday-podcast-episode-363-the-history-of-pla-laser-diy-pcbs-and-corporate-craziness/\">&#8230;read more</a>",
-      "date_published": "2026-03-27T18:00:21+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2016/05/microphone.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/excess-brain-waste-may-lead-to-psychosis-and-the-risks-could-start-in-childhood",
-      "url": "https://www.sciencealert.com/excess-brain-waste-may-lead-to-psychosis-and-the-risks-could-start-in-childhood",
-      "title": "[ScienceAlert] Excess Brain Waste May Lead to Psychosis, And The Risks Could Start in Childhood",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/PinkBrain.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Pink brain illustration\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/PinkBrain.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />When waste removal fails.</p>",
-      "date_published": "2026-03-27T18:00:11+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/03/PinkBrain.jpg"
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_9b093f.png?w=564"
     },
     {
-      "id": "https://www.techradar.com/pro/security/no-clicks-no-permission-prompts-just-visit-a-page-and-an-attacker-completely-controls-your-browser-experts-warn-claude-chrome-extension-could-let-hackers-hijack-your-online-browsing",
-      "url": "https://www.techradar.com/pro/security/no-clicks-no-permission-prompts-just-visit-a-page-and-an-attacker-completely-controls-your-browser-experts-warn-claude-chrome-extension-could-let-hackers-hijack-your-online-browsing",
-      "title": "[TechRadar] 'No clicks, no permission prompts. Just visit a page, and an attacker completely controls your browser': Experts warn Claude Chrome extension could let hackers hijack your online browsing",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/9YhV9JTvHHHB3MMDhxYpoj-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPrompt injection attacks can now be carried out in browser extensions, experts warn.",
-      "date_published": "2026-03-27T17:55:00+00:00",
+      "id": "https://www.techradar.com/pro/forget-the-tower-dells-palm-sized-desktop-draws-100w-through-usb-c-and-still-manages-50-tops-of-ai-computing-power",
+      "url": "https://www.techradar.com/pro/forget-the-tower-dells-palm-sized-desktop-draws-100w-through-usb-c-and-still-manages-50-tops-of-ai-computing-power",
+      "title": "[TechRadar] Forget the tower: Dell’s palm-sized desktop draws 100W through USB-C and still manages 50 TOPS of AI computing power",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/fbbXGH5RUcqQ3MgBzmEAaF-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDell’s Pro 5 Micro Desktop delivers AI acceleration, high-speed DDR5 memory, and USB-C powered compact design for tight office spaces.",
+      "date_published": "2026-04-03T22:10:00+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 58,
+      "_quality_score": 55,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 17,
+      "_boosted_score": 16,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/9YhV9JTvHHHB3MMDhxYpoj-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/fbbXGH5RUcqQ3MgBzmEAaF-1280-80.png"
     },
     {
-      "id": "https://www.npr.org/2026/03/27/nx-s1-5763017/social-media-teens-addictive-design",
-      "url": "https://www.npr.org/2026/03/27/nx-s1-5763017/social-media-teens-addictive-design",
-      "title": "[NPR Health News] Research points to how companies could make social media less addictive for teens",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.npr.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nJuries in two big cases have affirmed what research is finding: The design of social media platforms is particularly compelling and hard to resist for kids. There are growing calls to change it.",
-      "date_published": "2026-03-27T17:50:47+00:00",
+      "id": "https://gizmodo.com/utah-is-giving-dr-ai-the-power-to-renew-drug-prescriptions-2000742164",
+      "url": "https://gizmodo.com/utah-is-giving-dr-ai-the-power-to-renew-drug-prescriptions-2000742164",
+      "title": "[Gizmodo] Utah Is Giving Dr. AI the Power to Renew Drug Prescriptions",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2021/05/d8191586a62124df401056fec3fe4899-1024x576.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDr. AI will see you now.",
+      "date_published": "2026-04-03T21:15:36+00:00",
       "authors": [
         {
-          "name": "NPR Health News",
-          "url": "https://www.npr.org/sections/health-shots/"
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2021/05/d8191586a62124df401056fec3fe4899-1024x576.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/this-new-sensor-could-sniff-out-pneumonia-on-a-persons-breath",
+      "url": "https://www.sciencealert.com/this-new-sensor-could-sniff-out-pneumonia-on-a-persons-breath",
+      "title": "[ScienceAlert] This New Sensor Could Sniff Out Pneumonia on a Person's Breath",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/WomanBreathing.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Woman using an oxygen mask\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/WomanBreathing.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />You are what you breathe out.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-03T21:00:44+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
       "_quality_score": 62,
@@ -551,109 +265,153 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 18,
-      "_category": "wellness",
-      "_source_category": "wellness",
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.npr.org&sz=128"
+      "image": "https://www.sciencealert.com/images/2026/03/WomanBreathing.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/nasa-ai-digital-twins-mars-rover-space-missions-2026-3",
-      "url": "https://www.businessinsider.com/nasa-ai-digital-twins-mars-rover-space-missions-2026-3",
-      "title": "[Business Insider] From NASA's rover routes to jetliners' aircraft sensors, AI is changing how the aerospace industry tests risk",
-      "content_html": "<img src=\"https://i.insider.com/69c573ea732a02451471389f?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe aerospace industry is high-stakes. To help chart a course for Perseverance, NASA has enlisted AI and a digital twin.",
-      "date_published": "2026-03-27T17:11:24+00:00",
+      "id": "https://insideevs.com/news/792049/evs-vs-hybrid-depreciation/",
+      "url": "https://insideevs.com/news/792049/evs-vs-hybrid-depreciation/",
+      "title": "[InsideEVs] EV Depreciation Is Still Brutal. But Hybrids Should Give Us Hope",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/BXexjA/s3/nissan-leaf-12.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSeven years ago, hybrids suffered terrible depreciation. Now they depreciate less than gas cars.",
+      "date_published": "2026-04-03T20:14:33+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.motor1.com/images/mgl/BXexjA/s3/nissan-leaf-12.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/copilot-entertainment-only-3654882/",
+      "url": "https://www.androidauthority.com/copilot-entertainment-only-3654882/",
+      "title": "[Android Authority] Microsoft put the same disclaimer on Copilot that a psychic uses to avoid getting sued",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2024/03/microsoft-copilot-app-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMicrosoft's terms say Copilot is for 'entertainment purposes only' — does the ad team know?",
+      "date_published": "2026-04-03T20:03:02+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2024/03/microsoft-copilot-app-scaled.jpg"
+    },
+    {
+      "id": "https://nautil.us/your-biological-clock-can-be-measured-with-a-hair-sample-1279506/",
+      "url": "https://nautil.us/your-biological-clock-can-be-measured-with-a-hair-sample-1279506/",
+      "title": "[Nautilus] Your Biological Clock Can be Measured With a Hair Sample",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_8e5875.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The new test opens opportunities for circadian medicine</p>\n<p>The post <a href=\"https://nautil.us/your-biological-clock-can-be-measured-with-a-hair-sample-1279506/\">Your Biological Clock Can be Measured With a Hair Sample</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-03T19:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_8e5875.png?w=564"
+    },
+    {
+      "id": "https://www.howtogeek.com/my-ethernet-cable-was-ruining-my-internet-speedsheres-how-i-caught-it-in-the-act/",
+      "url": "https://www.howtogeek.com/my-ethernet-cable-was-ruining-my-internet-speedsheres-how-i-caught-it-in-the-act/",
+      "title": "[How-To Geek] My flat Ethernet cable was silently cutting my speeds in half",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/cat6-ethernet-crossover-cable.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA damaged Ethernet cable dropped my speeds to 100 Mbps, and here's how I found it",
+      "date_published": "2026-04-03T18:30:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/cat6-ethernet-crossover-cable.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/car-companies-ai-production-rising-costs-new-york-auto-show-2026-4",
+      "url": "https://www.businessinsider.com/car-companies-ai-production-rising-costs-new-york-auto-show-2026-4",
+      "title": "[Business Insider] Automakers are teaming up, speeding up, and hoping AI can help them down a tough road ahead",
+      "content_html": "<img src=\"https://i.insider.com/69ced1e5c02a678bd7e47876?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExecutives at the New York Auto Show are all saying the same thing: The industry needs AI to speed up production and reduce costs in order to survive.",
+      "date_published": "2026-04-03T18:11:03+00:00",
       "authors": [
         {
           "name": "Business Insider",
           "url": "https://www.businessinsider.com"
         }
       ],
-      "_quality_score": 68,
+      "_quality_score": 50,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
+      "_boosted_score": 15,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69c573ea732a02451471389f?format=jpeg"
+      "image": "https://i.insider.com/69ced1e5c02a678bd7e47876?format=jpeg"
     },
     {
-      "id": "https://www.techradar.com/pro/security/each-vulnerability-exposes-a-different-class-of-enterprise-data-langchain-framework-hit-by-several-worrying-security-issues-heres-what-we-know",
-      "url": "https://www.techradar.com/pro/security/each-vulnerability-exposes-a-different-class-of-enterprise-data-langchain-framework-hit-by-several-worrying-security-issues-heres-what-we-know",
-      "title": "[TechRadar] 'Each vulnerability exposes a different class of enterprise data': LangChain framework hit by several worrying security issues — here's what we know",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/mfPaYGQmks2VALWFFBnSej-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLangChain and LangGraph have patched three high-severity and critical bugs.",
-      "date_published": "2026-03-27T17:10:00+00:00",
+      "id": "https://www.sciencealert.com/eerie-cosmic-ray-cavity-found-lurking-in-earth-moon-space",
+      "url": "https://www.sciencealert.com/eerie-cosmic-ray-cavity-found-lurking-in-earth-moon-space",
+      "title": "[ScienceAlert] Eerie Cosmic-Ray 'Cavity' Found Lurking in Earth-Moon Space",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/earth-moon.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Eerie Cosmic-Ray &#039;Cavity&#039; Found Lurking in Earth-Moon Space\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/earth-moon.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />This could be a good thing.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-03T18:00:44+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
-      "_quality_score": 54,
+      "_quality_score": 58,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_boosted_score": 17,
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/mfPaYGQmks2VALWFFBnSej-1280-80.jpg"
+      "image": "https://www.sciencealert.com/images/2026/03/earth-moon.jpg"
     },
     {
-      "id": "https://boingboing.net/2026/03/27/judge-blasts-doj-for-using-ai-to-write-filings-with-fake-citations.html",
-      "url": "https://boingboing.net/2026/03/27/judge-blasts-doj-for-using-ai-to-write-filings-with-fake-citations.html",
-      "title": "[Boing Boing] Judge blasts DOJ for using AI to write filings with fake citations",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2014/11/doj.png?fit=400%2C400&quality=55&ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/03/27/judge-blasts-doj-for-using-ai-to-write-filings-with-fake-citations.html\" rel=\"nofollow\" title=\"Judge blasts DOJ for using AI to write filings with fake citations\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"400\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2014/11/doj.png?fit=400%2C400&amp;quality=55&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"400\" /></a><p>A federal judge tore into Justice Department lawyers after finding their court filing relied on nonexistent legal precedent, raising serious questions about whether AI-generated text, complete with hallucinated citations, made its way into official arguments.</p>\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>\"Neither of these quotes appear in Planned Parenthood, nor in any Eighth Circuit case the Court has found that addresses injunctions,\" Brasel wrote flatly.</p>\n</blockquote>\n<p> &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/03/27/judge-blasts-doj-for-using-ai-to-write-filings-with-fake-citations.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/03/27/judge-blasts-doj-for-using-ai-to-write-filings-with-fake-citations.html\">Judge blasts DOJ for using AI to write filings with fake citations</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-03-27T17:04:22+00:00",
+      "id": "https://gizmodo.com/rubin-observatory-spots-over-11000-asteroids-in-record-haul-2000742109",
+      "url": "https://gizmodo.com/rubin-observatory-spots-over-11000-asteroids-in-record-haul-2000742109",
+      "title": "[Gizmodo] Rubin Observatory Spots Over 11,000 Asteroids in Record Haul",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/vera-rubin-asteroid-haul-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAstronomers just can’t catch a break from Rubin.",
+      "date_published": "2026-04-03T16:50:28+00:00",
       "authors": [
         {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2014/11/doj.png?fit=400%2C400&quality=55&ssl=1"
-    },
-    {
-      "id": "https://www.theverge.com/gadgets/902276/nuki-smart-lock-thread-matter-smart-home-amazon-big-spring-sale-2026-deal",
-      "url": "https://www.theverge.com/gadgets/902276/nuki-smart-lock-thread-matter-smart-home-amazon-big-spring-sale-2026-deal",
-      "title": "[The Verge] Nuki’s one-touch retrofit smart lock got its first-ever discount",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/07/257834_Nuki_Smart_Lock_JTuohy_0005.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Nuki Smart Lock is the best retrofit smart lock currently available for people who want a minimalist, feature-packed upgrade to their preexisting deadlock. It’s currently selling for $149 at Amazon — its cheapest price ever — during the Big Spring Sale. Its fast unlocking speed, Matter-over-Thread support, and broad smart home compatibility impressed my [&#8230;]",
-      "date_published": "2026-03-27T16:30:00+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/07/257834_Nuki_Smart_Lock_JTuohy_0005.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
-    },
-    {
-      "id": "https://nautil.us/how-science-fiction-can-save-us-1279301/",
-      "url": "https://nautil.us/how-science-fiction-can-save-us-1279301/",
-      "title": "[Nautilus] How Science Fiction Can Save Us",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/03/RahwanShariffBonnefon_HERO.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Three scientists share their bold vision for turning stories into testable experiments</p>\n<p>The post <a href=\"https://nautil.us/how-science-fiction-can-save-us-1279301/\">How Science Fiction Can Save Us</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-03-27T16:05:23+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
         }
       ],
       "_quality_score": 72,
@@ -661,244 +419,68 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 21,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/03/RahwanShariffBonnefon_HERO.png?w=564"
-    },
-    {
-      "id": "https://kk.org/cooltools/book-freak-202-determined/",
-      "url": "https://kk.org/cooltools/book-freak-202-determined/",
-      "title": "[Cool Tools] Book Freak #202: Determined",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kk.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGet Determined Stanford neuroscientist Robert Sapolsky mounts a full-frontal assault on free will, arguing that every choice you’ve ever made ...",
-      "date_published": "2026-03-27T16:00:00+00:00",
-      "authors": [
-        {
-          "name": "Cool Tools",
-          "url": "https://kk.org/cooltools"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kk.org&sz=128"
+      "image": "https://gizmodo.com/app/uploads/2026/04/vera-rubin-asteroid-haul-1280x853.jpg"
     },
     {
-      "id": "https://www.techradar.com/pro/anycubic-photon-p1-3d-printer-review",
-      "url": "https://www.techradar.com/pro/anycubic-photon-p1-3d-printer-review",
-      "title": "[TechRadar] Anycubic Photon P1 3D printer review: A huge step up for the company, and while aspects are simplistic, I can't argue with the print quality",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/TpyZiiyb772inHDVUNQwoj-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIncredible quality from this compact desktop resin 3D printer.",
-      "date_published": "2026-03-27T15:51:29+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/TpyZiiyb772inHDVUNQwoj-1280-80.jpg"
-    },
-    {
-      "id": "https://gizmodo.com/scientists-create-living-pharmacy-implant-that-doses-3-drugs-at-once-2000738925",
-      "url": "https://gizmodo.com/scientists-create-living-pharmacy-implant-that-doses-3-drugs-at-once-2000738925",
-      "title": "[Gizmodo] Scientists Create ‘Living Pharmacy’ Implant That Doses 3 Drugs at Once",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/03/HOBIT-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn their latest research, scientists showed the HOBIT implant could remain effective inside rats for at least a month.",
-      "date_published": "2026-03-27T15:35:47+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/03/HOBIT-1280x853.jpg"
-    },
-    {
-      "id": "https://www.theverge.com/tech/902369/xtool-wonderpress-heat-press-vacuum-former-oven-crafting-preorder",
-      "url": "https://www.theverge.com/tech/902369/xtool-wonderpress-heat-press-vacuum-former-oven-crafting-preorder",
-      "title": "[The Verge] This modular crafting machine can create custom shirts, phone cases, and molds",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/xtool_wonderpress1.jpg?quality=90&strip=all&crop=0%2C10.740836125969%2C100%2C78.518327748063&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nxTool, a company best known amongst makers for its laser-based cutting and engraving tools, has announced a new multi-function crafting machine called the WonderPress. It's not an all-in-one device that can help you get an Etsy store off the ground, but the WonderPress can help turn designs from other machines, like Cricuts or sublimation printers, [&#8230;]",
-      "date_published": "2026-03-27T15:32:57+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/xtool_wonderpress1.jpg?quality=90&strip=all&crop=0%2C10.740836125969%2C100%2C78.518327748063&w=1200"
-    },
-    {
-      "id": "https://www.quantamagazine.org/when-coupled-volcanoes-talk-these-researchers-listen-20260327/",
-      "url": "https://www.quantamagazine.org/when-coupled-volcanoes-talk-these-researchers-listen-20260327/",
-      "title": "[Quanta Magazine] When Coupled Volcanoes Talk, These Researchers Listen",
-      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/03/Fagradalsfjalls-2022-Eruption-cr.Guide-to-Iceland-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAround the world, volcanologists are following the path of magma as it travels between connected volcanoes, in an effort that could lead to improved eruption forecasts.            <p>The post <a href=\"https://www.quantamagazine.org/when-coupled-volcanoes-talk-these-researchers-listen-20260327/\" target=\"_blank\">When Coupled Volcanoes Talk, These Researchers Listen</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
-      "date_published": "2026-03-27T14:38:32+00:00",
-      "authors": [
-        {
-          "name": "Quanta Magazine",
-          "url": "https://www.quantamagazine.org"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/03/Fagradalsfjalls-2022-Eruption-cr.Guide-to-Iceland-Default.webp"
-    },
-    {
-      "id": "https://www.sciencealert.com/the-4-rarer-kinds-of-dementia-most-people-dont-know-exist",
-      "url": "https://www.sciencealert.com/the-4-rarer-kinds-of-dementia-most-people-dont-know-exist",
-      "title": "[ScienceAlert] The 4 Rarer Kinds of Dementia Most People Don't Know Exist",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/03/brain-in-dish-illustration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"brain in dish illustration\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/03/brain-in-dish-illustration.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />This goes beyond Alzheimer's.</p>",
-      "date_published": "2026-03-27T14:00:09+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/03/brain-in-dish-illustration.jpg"
-    },
-    {
-      "id": "https://insideevs.com/news/791235/home-charging-jdpower-survey-study/",
-      "url": "https://insideevs.com/news/791235/home-charging-jdpower-survey-study/",
-      "title": "[InsideEVs] Home Charging Prices Are Going Up, But Charging At Home Is Still Cheaper",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/2N0yzk/s3/rural-level-2-home-charger-installation.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nJD Power’s Electric Vehicle Experience (EVX) Home Charging Study revealed that energy costs are making EV owners less satisfied with home charging.",
-      "date_published": "2026-03-26T17:13:56+00:00",
+      "id": "https://insideevs.com/news/791930/byd-charging-network-5000-flash/",
+      "url": "https://insideevs.com/news/791930/byd-charging-network-5000-flash/",
+      "title": "[InsideEVs] BYD Has Already Built 5,000 Of Its New Megawatt 'Flash' Charging Stations",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/zxJxk6/s3/byd-megawatt-flash-charger.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLess than a month ago, BYD introduced its second-generation \"Flash\" charging system, which delivers unheard-of EV charging speeds.",
+      "date_published": "2026-04-03T16:44:45+00:00",
       "authors": [
         {
           "name": "InsideEVs",
           "url": "https://www.insideevs.com"
         }
       ],
-      "_quality_score": 62,
+      "_quality_score": 68,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "_boosted_score": 20,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/2N0yzk/s3/rural-level-2-home-charger-installation.jpg"
+      "image": "https://cdn.motor1.com/images/mgl/zxJxk6/s3/byd-megawatt-flash-charger.jpg"
     },
     {
-      "id": "https://gizmodo.com/scientists-just-found-the-salt-limit-that-pushes-your-heart-to-the-breaking-point-2000738474",
-      "url": "https://gizmodo.com/scientists-just-found-the-salt-limit-that-pushes-your-heart-to-the-breaking-point-2000738474",
-      "title": "[Gizmodo] Scientists Just Found the Salt Limit That Pushes Your Heart to the Breaking Point",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/01/saltyfries-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEven a modest drop in daily sodium intake on a population level could prevent many new cases of heart failure, a new study finds.",
-      "date_published": "2026-03-26T17:00:19+00:00",
+      "id": "https://gizmodo.com/that-teenage-bout-of-mono-may-have-a-troubling-second-act-2000742050",
+      "url": "https://gizmodo.com/that-teenage-bout-of-mono-may-have-a-troubling-second-act-2000742050",
+      "title": "[Gizmodo] That Teenage Bout of Mono May Have a Troubling Second Act",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/Mono-rash_20260403_110902_0000-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists are uncovering a possible link between teenage mononucleosis and a chronic condition years later.",
+      "date_published": "2026-04-03T16:10:49+00:00",
       "authors": [
         {
           "name": "Gizmodo",
           "url": "https://gizmodo.com/"
         }
       ],
-      "_quality_score": 52,
+      "_quality_score": 58,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "_boosted_score": 17,
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/01/saltyfries-1280x853.jpg"
+      "image": "https://gizmodo.com/app/uploads/2026/04/Mono-rash_20260403_110902_0000-1280x853.jpg"
     },
     {
-      "id": "https://www.cnet.com/home/internet/best-mesh-wifi-routers/",
-      "url": "https://www.cnet.com/home/internet/best-mesh-wifi-routers/",
-      "title": "[CNET] Best Mesh Wi-Fi Routers for 2026: Our Top Picks After Testing Range and Speed",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/2e775954108b7c68442d2ccd5930ad061b657b50/hub/2026/03/10/11d7efbd-e1a1-4dce-a771-040d1888a068/orbi-870.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you want to completely eliminate dead zones in your home, upgrading to a full-fledged mesh system is the best option. We lab-tested these mesh routers to see which had the best range and speeds.",
-      "date_published": "2026-03-26T17:00:00+00:00",
+      "id": "https://www.techradar.com/pro/copilot-is-for-entertainment-purposes-only-even-microsofts-official-terms-and-conditions-say-you-really-shouldnt-be-using-its-ai-at-work",
+      "url": "https://www.techradar.com/pro/copilot-is-for-entertainment-purposes-only-even-microsofts-official-terms-and-conditions-say-you-really-shouldnt-be-using-its-ai-at-work",
+      "title": "[TechRadar] 'Copilot is for entertainment purposes only': Even Microsoft's official terms and conditions say you really shouldn't be using its AI at work",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/GxSNrV6MwnmZHmLEQHF58B-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMicrosoft notes Copilot is for \"entertainment purposes only\" and to be used \"at your own risk,\" but nothing has changed to its availability.",
+      "date_published": "2026-04-03T16:05:00+00:00",
       "authors": [
         {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/2e775954108b7c68442d2ccd5930ad061b657b50/hub/2026/03/10/11d7efbd-e1a1-4dce-a771-040d1888a068/orbi-870.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.cnet.com/home/internet/are-wi-fi-7-routers-worth-hype/",
-      "url": "https://www.cnet.com/home/internet/are-wi-fi-7-routers-worth-hype/",
-      "title": "[CNET] I Used to Tell People to Skip Wi-Fi 7 Routers. CNET's Lab Testing Changed My Mind",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/7f70ad7e2b3697c772c7aa12f6e8523629b7d4b5/hub/2026/03/06/55250df0-b0d5-425a-b249-c0d96ad0f6ca/router-lab-test-winner.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI used CNET's lab test data to calculate the cost-per-megabit for each router generation. The results showed me I was wrong about the value of Wi-Fi 7 routers.",
-      "date_published": "2026-03-26T17:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/7f70ad7e2b3697c772c7aa12f6e8523629b7d4b5/hub/2026/03/06/55250df0-b0d5-425a-b249-c0d96ad0f6ca/router-lab-test-winner.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-sales-coaching-tools-enterprise-training-2026-3",
-      "url": "https://www.businessinsider.com/ai-sales-coaching-tools-enterprise-training-2026-3",
-      "title": "[Business Insider] As middle managers thin out, companies hand sales training to AI simulations",
-      "content_html": "<img src=\"https://i.insider.com/69c43f84299090a8c09b6526?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCompanies like ServiceNow and Braintrust are embedding AI sales coaches into training. It raises questions about how much can be scaled.",
-      "date_published": "2026-03-26T15:55:42+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 50,
+      "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
@@ -906,7 +488,161 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69c43f84299090a8c09b6526?format=jpeg"
+      "image": "https://cdn.mos.cms.futurecdn.net/GxSNrV6MwnmZHmLEQHF58B-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/03/fixing-an-e-waste-asus-p5a-b-socket-7-mainboard/",
+      "url": "https://hackaday.com/2026/04/03/fixing-an-e-waste-asus-p5a-b-socket-7-mainboard/",
+      "title": "[Hackaday] Fixing an E-Waste ASUS P5A-B Socket 7 Mainboard",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/asus_p5a_-b_socket_7_damaged_bits_und_bolts_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"547\" src=\"https://hackaday.com/wp-content/uploads/2026/04/asus_p5a_-b_socket_7_damaged_bits_und_bolts_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>A fun part of retro computing is saving &#8216;e-waste&#8217; that was headed for certain destruction. These boards can have any number of defects, modifications and more that have to be <a class=\"read-more\" href=\"https://hackaday.com/2026/04/03/fixing-an-e-waste-asus-p5a-b-socket-7-mainboard/\">&#8230;read more</a>",
+      "date_published": "2026-04-03T15:30:46+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/asus_p5a_-b_socket_7_damaged_bits_und_bolts_youtube.jpg"
+    },
+    {
+      "id": "https://kottke.org/26/04/0048657-tracker-dashboard-for-the",
+      "url": "https://kottke.org/26/04/0048657-tracker-dashboard-for-the",
+      "title": "[Kottke.org] Tracker dashboard for the Artemis II mission  using...",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://artemis-tracker.netlify.app/\">Tracker dashboard for the Artemis II mission</a> using real-time data from JPL.\n</p>",
+      "date_published": "2026-04-03T15:30:28+00:00",
+      "authors": [
+        {
+          "name": "Kottke.org",
+          "url": "https://kottke.org/"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+    },
+    {
+      "id": "https://newatlas.com/architecture/vertingreen-living-green-walls/",
+      "url": "https://newatlas.com/architecture/vertingreen-living-green-walls/",
+      "title": "[New Atlas] Novel system predicts how living walls will help specific buildings",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/fb7ada9/2147483647/strip/true/crop/5184x2722+0+367/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F7a%2F79%2F357129be4c0d8989029266356326%2Fimg-0097-credit-david-helman-lab.jpeg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A vertical green living wall utilized in the study\" src=\"https://assets.newatlas.com/dims4/default/375e067/2147483647/strip/true/crop/5184x3456+0+0/resize/1440x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F7a%2F79%2F357129be4c0d8989029266356326%2Fimg-0097-credit-david-helman-lab.jpeg\" /><p>Vertical living green walls comprised of live plants are a natural energy-saving method for improving indoor air quality and enhancing interior design, but they're hampered by inconsistent performance.</p><p><a href=\"https://newatlas.com/architecture/vertingreen-living-green-walls/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/architecture/\">Architecture</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/hebrew-university-of-jerusalem/\" rel=\"tag\">Hebrew University of Jerusalem</a>, <a href=\"https://newatlas.com/tag/plants/\" rel=\"tag\">Plants</a>, <a href=\"https://newatlas.com/tag/living-wall/\" rel=\"tag\">Living Wall</a></p>",
+      "date_published": "2026-04-03T15:03:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 59,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://assets.newatlas.com/dims4/default/fb7ada9/2147483647/strip/true/crop/5184x2722+0+367/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F7a%2F79%2F357129be4c0d8989029266356326%2Fimg-0097-credit-david-helman-lab.jpeg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.theverge.com/tech/905946/windows-11-forced-obsolescence-linux-thinkpad",
+      "url": "https://www.theverge.com/tech/905946/windows-11-forced-obsolescence-linux-thinkpad",
+      "title": "[The Verge] I saved a doomed Windows laptop by embracing Linux",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268414_Linux_on_2017_ThinkPad_AKrales_0050.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTwo weeks ago I set aside my M4 MacBook Air and picked up a nine-year-old ThinkPad. It's one of an estimated 200 to 400 million Windows 10 PCs that don't meet Microsoft's requirements for Windows 11. When Microsoft officially ended support for Windows 10 in October, it became \"obsolete.\" The solution, according to Microsoft, is [&#8230;]",
+      "date_published": "2026-04-03T15:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268414_Linux_on_2017_ThinkPad_AKrales_0050.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
+    },
+    {
+      "id": "https://www.techradar.com/pro/why-traditional-metrics-are-giving-cisos-a-false-sense-of-security",
+      "url": "https://www.techradar.com/pro/why-traditional-metrics-are-giving-cisos-a-false-sense-of-security",
+      "title": "[TechRadar] Why traditional metrics are giving CISOs a false sense of security",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/UNBhCvCBZ47GpjzV7AN5mG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCounting scans and alerts isn’t security progress—it's masking unresolved vulnerabilities and rising cyber risk.",
+      "date_published": "2026-04-03T14:19:42+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 51,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/UNBhCvCBZ47GpjzV7AN5mG-1280-80.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/guides/tech/are-free-vpns-safe",
+      "url": "https://www.businessinsider.com/guides/tech/are-free-vpns-safe",
+      "title": "[Business Insider] Are free VPNs safe, and should you pay for one?",
+      "content_html": "<img src=\"https://i.insider.com/69c52ddc299090a8c09b6790?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFree VPNs can encrypt your traffic and mask your IP address, but they don't make you anonymous. Here's when a free VPN is enough and when paying makes more sense.",
+      "date_published": "2026-04-03T14:10:17+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/69c52ddc299090a8c09b6790?format=jpeg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/agentic-ai-transforming-industries-and-tackling-the-interoperability-imperative",
+      "url": "https://www.techradar.com/pro/agentic-ai-transforming-industries-and-tackling-the-interoperability-imperative",
+      "title": "[TechRadar] Agentic AI: Transforming industries and tackling the interoperability imperative",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/osBMdrVYkfyWMZENMbihE8-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAgentic AI is reshaping work, but interoperability will determine its true enterprise impact.",
+      "date_published": "2026-04-03T14:07:47+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/osBMdrVYkfyWMZENMbihE8-1280-80.jpg"
     }
   ]
 }
