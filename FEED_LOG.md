@@ -3,6 +3,23 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-08 (Wednesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1028** → dedup **879** → new **265** → quality **154**
+- Mix: local:4(3%), ai-tech:37(26%), climate:12(9%), homelab:23(16%), science:5(4%), scifi:3(2%), news:56(40%)
+- Feeds: local:55, ai-tech:400, climate:110, homelab:342, science:134, scifi:31, news:500
+- Images: 154/154
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-07 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
@@ -221,37 +238,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ **FlowingData** failed — `500 Server Error: Internal Server Error for url: https://flowingdata.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-03-31 (Tuesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **925** → dedup **776** → new **337** → quality **198**
-- Mix: local:3(2%), ai-tech:63(34%), climate:9(5%), homelab:42(23%), science:8(4%), scifi:1(1%), news:59(32%)
-- Feeds: local:72, ai-tech:500, climate:160, homelab:500, science:177, scifi:41, news:500
-- Images: 198/198
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1012** → dedup **818** → new **424** → quality **267**
-- Mix: local:11(5%), ai-tech:64(27%), climate:15(6%), homelab:44(18%), science:20(8%), scifi:2(1%), news:82(34%)
-- Feeds: local:65, ai-tech:500, climate:155, homelab:500, science:175, scifi:39, news:500
-- Images: 267/267
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -728,6 +714,18 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-03-30–2026-03-30
 - 2 runs · avg fetched 770 · avg quality 244
 - Dominant: **ai-tech** (35%) local:13 / ai-tech:156 / climate:32 / homelab:77 / science:33 / scifi:6 / news:126
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-03-31–2026-03-31
+- 2 runs · avg fetched 968 · avg quality 232
+- Dominant: **news** (33%) local:14 / ai-tech:127 / climate:24 / homelab:86 / science:28 / scifi:3 / news:141
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
