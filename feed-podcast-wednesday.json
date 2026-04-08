@@ -22,18 +22,84 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Community Tech & Governance' through a RURAL TECH AND INNOVATION lens. Strong fits include: municipal broadband and fiber projects in Cariboo communities, SD27 education technology and digital learning, civic tech platforms and open data initiatives, community-owned networks and ISPs, smart rural infrastructure (water, waste, transit), digital government services for rural areas, council decisions on technology spending, public Wi-Fi and connectivity programs, election technology and civic engagement platforms, rural innovation hubs, and how Williams Lake/Quesnel/100 Mile/CRD use technology for public services. Prefer articles that bridge governance AND technology in rural civic contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-04-08T06:04:20.453882+00:00",
-    "article_count": 26,
-    "bonus_count": 25,
+    "generated_at": "2026-04-08T14:09:52.561412+00:00",
+    "article_count": 24,
+    "bonus_count": 20,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://wltribune.com/2026/04/07/annual-cleaning-of-water-mains-and-reservoirs-begins-in-williams-lake/",
-      "url": "https://wltribune.com/2026/04/07/annual-cleaning-of-water-mains-and-reservoirs-begins-in-williams-lake/",
-      "title": "[Williams Lake Tribune] Annual cleaning of water mains and reservoirs begins in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42003444_web1_251204-WLT-Budget-talks_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1 MIN READ",
-      "date_published": "2026-04-08T06:02:29.688871+00:00",
+      "id": "https://100milefreepress.net/2026/04/08/70-mile-watch-north-green-lake-get-new-air-quality-monitors/",
+      "url": "https://100milefreepress.net/2026/04/08/70-mile-watch-north-green-lake-get-new-air-quality-monitors/",
+      "title": "[100 Mile Free Press] 70 Mile, Watch-North Green Lake get new air quality monitors",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/41982994_web1_260409-ACC-Air-quality-monitors-CartersProject_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Monitors installed thanks to Carters Project, BC Lung Foundation, and fire departments </p>",
+      "date_published": "2026-04-08T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 87,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/41982994_web1_260409-ACC-Air-quality-monitors-CartersProject_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/04/08/mobile-mammography-clinic-coming-to-100-mile-house/",
+      "url": "https://100milefreepress.net/2026/04/08/mobile-mammography-clinic-coming-to-100-mile-house/",
+      "title": "[100 Mile Free Press] Mobile mammography clinic coming to 100 Mile House",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/41847526_web1_260326-OMH-Mammography-Clinic-Images_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The clinic will be coming to 100 Mile House in May </p>",
+      "date_published": "2026-04-08T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 90,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 27,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/41847526_web1_260326-OMH-Mammography-Clinic-Images_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.techradar.com/pro/costs-go-up-by-gbp20-per-month-check-your-broadband-contract-now-to-beat-the-gbp1bn-april-hike",
+      "url": "https://www.techradar.com/pro/costs-go-up-by-gbp20-per-month-check-your-broadband-contract-now-to-beat-the-gbp1bn-april-hike",
+      "title": "[TechRadar] 'Costs go up by £20 per month': Check your broadband contract now to beat the £1bn April hike",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/okt5myc3MwKUsdMaigYsi8-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMillions overpay on out-of-contract broadband as April price hikes loom, with some facing £50 monthly jumps for doing nothing.",
+      "date_published": "2026-04-08T07:44:38+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/okt5myc3MwKUsdMaigYsi8-1280-80.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/08/easter-orienteering-at-scout-island-in-williams-lake-draws-many-families/",
+      "url": "https://wltribune.com/2026/04/08/easter-orienteering-at-scout-island-in-williams-lake-draws-many-families/",
+      "title": "[Williams Lake Tribune] Easter orienteering at Scout Island in Williams Lake draws many families",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41993987_web1_260409-WLT-Easter-Orienteering-_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA map led to treats at marked locations along the trails",
+      "date_published": "2026-04-08T14:08:26.826992+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -41,69 +107,47 @@
         }
       ],
       "_quality_score": 100,
-      "_theme_score": 70,
-      "_final_score": 70,
+      "_theme_score": 15,
+      "_final_score": 15,
       "_keyword_matches": 0,
       "_boosted_score": 30,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42003444_web1_251204-WLT-Budget-talks_1.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41993987_web1_260409-WLT-Easter-Orienteering-_3.jpg?w=1024"
     },
     {
-      "id": "https://quesnelobserver.com/2026/04/07/arbitrator-finds-okanagan-college-at-fault-for-layoffs/",
-      "url": "https://quesnelobserver.com/2026/04/07/arbitrator-finds-okanagan-college-at-fault-for-layoffs/",
-      "title": "[Quesnel Cariboo Observer] UPDATE: 3 arts positions reinstated at Okanagan College following arbitration",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42006499_web1_28042840_web1_220203-KCN-OC-online-reporting_1.jpeg?w=900\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>2025 decision breached OC Faculty Association agreement </p>",
-      "date_published": "2026-04-07T20:00:00+00:00",
+      "id": "https://www.cnet.com/home/security/when-flock-comes-to-town-why-cities-are-axing-the-controversial-surveillance-technology/",
+      "url": "https://www.cnet.com/home/security/when-flock-comes-to-town-why-cities-are-axing-the-controversial-surveillance-technology/",
+      "title": "[CNET] When Flock Comes to Town: Why Cities Are Axing the Controversial Surveillance Technology",
+      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/d4c5160cf6c009883b8036b58b9ef0a785514061/hub/2026/03/30/20f18d29-c3e9-47d3-8467-1a0ba718fa78/flock-surveillance.png?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFlock Safety surveillance equipment is appearing in neighborhoods across the country. I spoke with experts about the tech, laws and privacy issues at play.",
+      "date_published": "2026-04-08T10:00:00+00:00",
       "authors": [
         {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
+          "name": "CNET",
+          "url": "https://www.cnet.com"
         }
       ],
-      "_quality_score": 77,
-      "_theme_score": 35,
-      "_final_score": 35,
+      "_quality_score": 52,
+      "_theme_score": 15,
+      "_final_score": 15,
       "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "local",
-      "_source_category": "local",
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42006499_web1_28042840_web1_220203-KCN-OC-online-reporting_1.jpeg?w=900"
+      "image": "https://www.cnet.com/a/img/resize/d4c5160cf6c009883b8036b58b9ef0a785514061/hub/2026/03/30/20f18d29-c3e9-47d3-8467-1a0ba718fa78/flock-surveillance.png?auto=webp&width=300"
     },
     {
-      "id": "https://wltribune.com/2026/04/07/george-abbott-named-chief-commissioner-of-b-c-treaty-commission/",
-      "url": "https://wltribune.com/2026/04/07/george-abbott-named-chief-commissioner-of-b-c-treaty-commission/",
-      "title": "[Williams Lake Tribune] George Abbott named chief commissioner of B.C. Treaty Commission",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42010576_web1_20191028-BPD-rrussell-Don-Tom-Abbott.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Abbott, a former B.C. cabinet minister, still needs federal approval for the role </p>",
-      "date_published": "2026-04-07T16:48:00+00:00",
+      "id": "https://hackaday.com/2026/04/08/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/",
+      "url": "https://hackaday.com/2026/04/08/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/",
+      "title": "[Hackaday] Espressif’s New ESP32-S31: Dual-Core RISC-V with WiFi 6 and GBit Ethernet",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"527\" src=\"https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In a move that&#8217;s no doubt going to upset and confuse many, Espressif has released its newest microcontroller &#8212; the ESP32-S31. The confusing part here is that the ESP32-S series <a class=\"read-more\" href=\"https://hackaday.com/2026/04/08/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/\">&#8230;read more</a>",
+      "date_published": "2026-04-08T08:00:56+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_quality_score": 95,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_keyword_matches": 0,
-      "_boosted_score": 28,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42010576_web1_20191028-BPD-rrussell-Don-Tom-Abbott.jpg?w=1024"
-    },
-    {
-      "id": "https://www.xda-developers.com/tiny-docker-container-monitors-entire-network-alerts-me/",
-      "url": "https://www.xda-developers.com/tiny-docker-container-monitors-entire-network-alerts-me/",
-      "title": "[XDA Developers] This tiny Docker container monitors my entire network and alerts me before things break",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/uptime-kuma.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOne container to watch them all.",
-      "date_published": "2026-04-07T20:30:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
       "_quality_score": 55,
@@ -114,36 +158,58 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/uptime-kuma.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/04/07/williams-lake-invited-to-eat-around-the-world-at-the-international-food-fair/",
-      "url": "https://wltribune.com/2026/04/07/williams-lake-invited-to-eat-around-the-world-at-the-international-food-fair/",
-      "title": "[Williams Lake Tribune] Williams Lake invited to eat around the world at the International Food Fair",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42006192_web1_260409-International-food-fair_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe funds raised from the fair will go towards building a church in Mongolia",
-      "date_published": "2026-04-08T06:02:29.688603+00:00",
+      "id": "https://www.nytimes.com/2026/04/08/climate/heat-snow-drought-west.html",
+      "url": "https://www.nytimes.com/2026/04/08/climate/heat-snow-drought-west.html",
+      "title": "[NYT Top Stories] Heat Wipes Out Western Snowpack, Raising Fears of Summer Drought",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/07/multimedia/00cli-SNOWPACK-PLUMMET-twzq/00cli-SNOWPACK-PLUMMET-twzq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA record-mild winter and blistering spring heat will mean higher risks of water shortages and wildfires in the months ahead.",
+      "date_published": "2026-04-08T14:01:48+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
-      "_quality_score": 100,
+      "_quality_score": 77,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 30,
+      "_boosted_score": 23,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/04/07/multimedia/00cli-SNOWPACK-PLUMMET-twzq/00cli-SNOWPACK-PLUMMET-twzq-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://cfjctoday.com/2026/04/08/mustangs-swept-by-posse-in-kijhl-okanagan-shuswap-conference-finals/",
+      "url": "https://cfjctoday.com/2026/04/08/mustangs-swept-by-posse-in-kijhl-okanagan-shuswap-conference-finals/",
+      "title": "[CFJC Today Kamloops] Mustangs swept by Posse in KIJHL Okanagan-Shuswap Conference Finals",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/04/3555052e-b197-47ea-a87f-7f53994d9a16.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Image Credit: Facebook/Williams Lake Mustangs)",
+      "date_published": "2026-04-08T14:01:02+00:00",
+      "authors": [
+        {
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42006192_web1_260409-International-food-fair_1.jpg?w=1024"
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/04/3555052e-b197-47ea-a87f-7f53994d9a16.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/esp32-flash-bee-palm-sized-lightning-radar-you-can-build-yourself/",
-      "url": "https://www.xda-developers.com/esp32-flash-bee-palm-sized-lightning-radar-you-can-build-yourself/",
-      "title": "[XDA Developers] The ESP32 Flash Bee is a palm-sized lightning radar you can build yourself",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/04/flash-bee-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's pretty accurate, too.",
-      "date_published": "2026-04-08T01:51:34+00:00",
+      "id": "https://www.xda-developers.com/misconceptions-about-home-networking-you-still-believe/",
+      "url": "https://www.xda-developers.com/misconceptions-about-home-networking-you-still-believe/",
+      "title": "[XDA Developers] 5 misconceptions about home networking you still believe",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/martinelle-network-1572617-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRighting these networking wrongs can do wonders for your performance",
+      "date_published": "2026-04-08T14:00:20+00:00",
       "authors": [
         {
           "name": "XDA Developers",
@@ -158,216 +224,40 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/04/flash-bee-featured.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/martinelle-network-1572617-1.jpg"
     },
     {
-      "id": "https://qz.com/rklb-s-neutron-launch-vehicle-is-it-driving-the-next-phase-of-growth",
-      "url": "https://qz.com/rklb-s-neutron-launch-vehicle-is-it-driving-the-next-phase-of-growth",
-      "title": "[Quartz] RKLB's Neutron Launch Vehicle: Is It Driving the Next Phase of Growth?",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=qz.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRocket Lab pushes into medium-lift launches with Neutron, aiming to expand beyond small satellites and capture growing demand for larger, complex space missions",
-      "date_published": "2026-04-08T00:21:22+00:00",
+      "id": "https://www.howtogeek.com/qr-codes-were-stupid-home-assistant-automation-proved-me-wrong/",
+      "url": "https://www.howtogeek.com/qr-codes-were-stupid-home-assistant-automation-proved-me-wrong/",
+      "title": "[How-To Geek] I thought QR codes were stupid, but this Home Assistant automation proved me wrong",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/08/stylized_qr_code_with_colored_lines_on_an_orange_background_and_the_text__scan_me__below.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou're amazing, just the way QR.",
+      "date_published": "2026-04-08T13:45:16+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=qz.com&sz=128"
-    },
-    {
-      "id": "https://nautil.us/the-mystery-of-water-on-the-moon-1279617/",
-      "url": "https://nautil.us/the-mystery-of-water-on-the-moon-1279617/",
-      "title": "[Nautilus] The Mystery of Water on the Moon",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_67cf28.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Where it is, and how it got there </p>\n<p>The post <a href=\"https://nautil.us/the-mystery-of-water-on-the-moon-1279617/\">The Mystery of Water on the Moon</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-04-07T22:00:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_67cf28.png?w=564"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/stolen-session-cookies-render-mfa-irrelevant-how-usd900-per-month-turnkey-malware-is-putting-enterprise-grade-account-hijacking-in-the-hands-of-rookie-hackers",
-      "url": "https://www.techradar.com/pro/security/stolen-session-cookies-render-mfa-irrelevant-how-usd900-per-month-turnkey-malware-is-putting-enterprise-grade-account-hijacking-in-the-hands-of-rookie-hackers",
-      "title": "[TechRadar] 'Stolen session cookies render MFA irrelevant': How $900-per-month turnkey malware is putting enterprise-grade account hijacking in the hands of rookie hackers",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/5pmsJs3KfnrtbsM98UsnG9-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStorm infostealer hijacks session cookies, bypassing multi-factor authentication, harvesting credentials, and enabling persistent account access across enterprise and cryptocurrency systems globally.",
-      "date_published": "2026-04-07T21:20:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/5pmsJs3KfnrtbsM98UsnG9-1280-80.jpg"
-    },
-    {
-      "id": "https://insideevs.com/news/792296/bmw-i7-neue-klasse-rimac-batteries/",
-      "url": "https://insideevs.com/news/792296/bmw-i7-neue-klasse-rimac-batteries/",
-      "title": "[InsideEVs] The Next BMW i7 Will Get Its Batteries From An Unexpected Source",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/Oo9Jme/s3/bmw-rimac-battery-i7.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRimac will make the battery packs for BMW's upcoming flagship sedan.",
-      "date_published": "2026-04-07T21:16:26+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/Oo9Jme/s3/bmw-rimac-battery-i7.jpg"
-    },
-    {
-      "id": "https://gizmodo.com/for-the-first-time-astronomers-spot-two-supermassive-black-holes-locked-in-a-death-spiral-2000743581",
-      "url": "https://gizmodo.com/for-the-first-time-astronomers-spot-two-supermassive-black-holes-locked-in-a-death-spiral-2000743581",
-      "title": "[Gizmodo] Unprecedented Observation Reveals 2 Supermassive Black Holes Locked in a Tight Death Spiral",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/markarian-501-galaxy-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew research describes an unexpected double jet in a distant galaxy, revealing a pair of supermassive black holes on the verge of colliding.",
-      "date_published": "2026-04-07T20:50:16+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/04/markarian-501-galaxy-1280x853.jpg"
-    },
-    {
-      "id": "https://gizmodo.com/tiny-robots-reveal-hidden-ocean-chemistry-in-low-oxygen-waters-2000743589",
-      "url": "https://gizmodo.com/tiny-robots-reveal-hidden-ocean-chemistry-in-low-oxygen-waters-2000743589",
-      "title": "[Gizmodo] Tiny Robots Reveal Hidden Ocean Chemistry in Low-Oxygen Waters",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/GO-BGC_Float-Deployment-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA trove of robotic floats is bringing our knowledge of the deep sea to new depths.",
-      "date_published": "2026-04-07T20:20:07+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 70,
+      "_quality_score": 72,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 21,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/04/GO-BGC_Float-Deployment-1280x853.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/04/07/tinygo-boldly-goes-where-no-go-ever-did-go-before/",
-      "url": "https://hackaday.com/2026/04/07/tinygo-boldly-goes-where-no-go-ever-did-go-before/",
-      "title": "[Hackaday] TinyGo Boldly Goes Where No Go Ever Did Go Before",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2019/09/golang.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"250\" src=\"https://hackaday.com/wp-content/uploads/2019/09/golang.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>When you&#8217;re programming microcontrollers, you&#8217;re likely to think in C if you&#8217;re old-school, Rust if you&#8217;re trendy, or Python if you want it done quick and have resources to spare. <a class=\"read-more\" href=\"https://hackaday.com/2026/04/07/tinygo-boldly-goes-where-no-go-ever-did-go-before/\">&#8230;read more</a>",
-      "date_published": "2026-04-07T20:00:26+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2019/09/golang.png"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/08/stylized_qr_code_with_colored_lines_on_an_orange_background_and_the_text__scan_me__below.png"
     },
     {
-      "id": "https://thetyee.ca/News/2026/04/07/Piikani-Member-Vows-To-Sue/",
-      "url": "https://thetyee.ca/News/2026/04/07/Piikani-Member-Vows-To-Sue/",
-      "title": "[The Tyee] A Piikani Member Vows to Sue to Stop Selenium Pollution",
-      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/07/CrowsnestLakeMain.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTrevor Bastien accuses governments and Evolve Power of violating his right to harvest fish in Crowsnest Lake.",
-      "date_published": "2026-04-07T19:41:00+00:00",
+      "id": "https://ricochet.media/climate/carneys-plan-to-militarize-the-melting-arctic-threatens-peace-at-the-top-of-the-world/",
+      "url": "https://ricochet.media/climate/carneys-plan-to-militarize-the-melting-arctic-threatens-peace-at-the-top-of-the-world/",
+      "title": "[Ricochet] Carney’s plan to militarize the melting Arctic threatens peace at the top of the world",
+      "content_html": "<img src=\"https://ricochet.media/wp-content/uploads/2026/04/0402-OCARNEY-arctic.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A $40-billion plan to arm and extract from the North ignores Indigenous calls for stewardship, risks accelerating climate collapse, and turns a fragile ecosystem into a geopolitical battleground</p>\n<p>The post <a href=\"https://ricochet.media/climate/carneys-plan-to-militarize-the-melting-arctic-threatens-peace-at-the-top-of-the-world/\">Carney’s plan to militarize the melting Arctic threatens peace at the top of the world</a> appeared first on <a href=\"https://ricochet.media\">Ricochet</a>.</p>",
+      "date_published": "2026-04-08T13:44:41+00:00",
       "authors": [
         {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 53,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://thetyee.ca/News/2026/04/07/CrowsnestLakeMain.jpg"
-    },
-    {
-      "id": "https://newatlas.com/energy/new-electrolyte-double-ev-range/",
-      "url": "https://newatlas.com/energy/new-electrolyte-double-ev-range/",
-      "title": "[New Atlas] New cold-hardy electrolyte could potentially double battery range of EVs",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/178e719/2147483647/strip/true/crop/7952x4175+0+565/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ff0%2F6f%2F66b988834f8a9f64747e4c7071f8%2Fdepositphotos-692272208-xl.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"With existing battery electrolytes, many electric vehicles struggle to maintain decent range in cold temperatures\" src=\"https://assets.newatlas.com/dims4/default/27135fc/2147483647/strip/true/crop/7952x5304+0+0/resize/1439x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ff0%2F6f%2F66b988834f8a9f64747e4c7071f8%2Fdepositphotos-692272208-xl.jpg\" /><p>White walkers can't have EVs. Not because they are lifeless zombies who probably can't drive, but because the extreme cold of the north would severely impact the lithium batteries. Also, the region is quite large, so EVs would likely run out of juice before they could cover a good portion of its 1,100-mile length. Scientists in China may have solved both problems with a new lithium battery electrolyte that withstands cold temperatures and could double EV range.</p><p><a href=\"https://newatlas.com/energy/new-electrolyte-double-ev-range/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/energy/\">Energy</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/electric+vehicle/\" rel=\"tag\">Electric Vehicles</a>, <a href=\"https://newatlas.com/tag/electrolyte/\" rel=\"tag\">Electrolyte</a>, <a href=\"https://newatlas.com/tag/range/\" rel=\"tag\">Range</a>, <a href=\"https://newatlas.com/tag/batteries/\" rel=\"tag\">Batteries</a></p>",
-      "date_published": "2026-04-07T19:00:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://assets.newatlas.com/dims4/default/178e719/2147483647/strip/true/crop/7952x4175+0+565/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ff0%2F6f%2F66b988834f8a9f64747e4c7071f8%2Fdepositphotos-692272208-xl.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://hackaday.com/2026/04/07/magnetic-levitation-using-an-induction-cooktop/",
-      "url": "https://hackaday.com/2026/04/07/magnetic-levitation-using-an-induction-cooktop/",
-      "title": "[Hackaday] Magnetic Levitation using an Induction Cooktop",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/aluminium_levitation_induction_hob_brainiac75_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"485\" src=\"https://hackaday.com/wp-content/uploads/2026/04/aluminium_levitation_induction_hob_brainiac75_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Adding another item on the list of things you probably shouldn&#8217;t be trying at home, we got [Brainiac75] giving magnetic levitation a shot using an unmodified induction cooktop and aluminium <a class=\"read-more\" href=\"https://hackaday.com/2026/04/07/magnetic-levitation-using-an-induction-cooktop/\">&#8230;read more</a>",
-      "date_published": "2026-04-07T18:30:26+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "Ricochet",
+          "url": "https://ricochet.media/"
         }
       ],
       "_quality_score": 58,
@@ -375,43 +265,21 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/aluminium_levitation_induction_hob_brainiac75_youtube.jpg"
+      "image": "https://ricochet.media/wp-content/uploads/2026/04/0402-OCARNEY-arctic.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/ways-to-use-nas-usb-ports/",
-      "url": "https://www.howtogeek.com/ways-to-use-nas-usb-ports/",
-      "title": "[How-To Geek] Your NAS has USB ports: 4 practical uses most people miss",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/the-rear-io-panel-of-the-ugreen-idx6011-pro-nas-showing-usb-dual-10gbe-lan-hdmi-and-oculink-ports.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStop leaving your NAS USB ports empty—4 brilliant ways to instantly upgrade your home server",
-      "date_published": "2026-04-07T18:00:16+00:00",
+      "id": "https://www.nytimes.com/2026/04/08/well/seasonal-allergies.html",
+      "url": "https://www.nytimes.com/2026/04/08/well/seasonal-allergies.html",
+      "title": "[NYT Top Stories] What Do Seasonal Allergies Do to the Body?",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA breakdown of why your immune system treats pollen like a parasite — and what happens next.",
+      "date_published": "2026-04-08T12:33:32+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/the-rear-io-panel-of-the-ugreen-idx6011-pro-nas-showing-usb-dual-10gbe-lan-hdmi-and-oculink-ports.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/what-is-a-tiling-window-manager/",
-      "url": "https://www.zdnet.com/article/what-is-a-tiling-window-manager/",
-      "title": "[ZDNet] Love window snapping on Linux? You should try a tiling window manager",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/aa21b1047ab635561f176c1567554788ad36d1bb/2026/04/07/767bf8db-2ce0-4055-b7aa-1be55c47c2d2/the-best-tiling-window-managers-for-linux-and-what-they-can-do-for-you.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLinux tiling window managers can supercharge your productivity in several ways. Here's how they work and six I recommend.",
-      "date_published": "2026-04-07T16:31:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
       "_quality_score": 55,
@@ -419,21 +287,153 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "wellness",
+      "_source_category": "wellness",
       "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/aa21b1047ab635561f176c1567554788ad36d1bb/2026/04/07/767bf8db-2ce0-4055-b7aa-1be55c47c2d2/the-best-tiling-window-managers-for-linux-and-what-they-can-do-for-you.jpg?auto=webp&fit=crop&height=675&width=1200"
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
     },
     {
-      "id": "https://www.zdnet.com/article/elive-linux/",
-      "url": "https://www.zdnet.com/article/elive-linux/",
-      "title": "[ZDNet] Why I returned to Enlightenment Linux after 30 years: Testing the new Elive beta",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/5066755368b6b60e2487d365543d4846790dbec2/2026/04/07/22036a3a-6fb6-4da7-bcbc-b43dd65a20c8/elivehero.jpg?auto=webp&fit=crop&height=675&width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis Debian-based distro brings back the old-school desktop environment but shrugs off the boring UI. I just wish I could've tried voice control.",
-      "date_published": "2026-04-07T15:56:00+00:00",
+      "id": "https://sciencebasedmedicine.org/more-on-raw-milk/?utm_source=rss&utm_medium=rss&utm_campaign=more-on-raw-milk",
+      "url": "https://sciencebasedmedicine.org/more-on-raw-milk/?utm_source=rss&utm_medium=rss&utm_campaign=more-on-raw-milk",
+      "title": "[Science-Based Medicine] More On Raw Milk",
+      "content_html": "<img src=\"https://sciencebasedmedicine.org/wp-content/uploads/2026/04/cowmilking2.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Our current HHS secretary has been pushing the narrative that raw unpasteurized milk is good for your health, and the FDA is wrong to overregulate it they way it does (what he calls &#8220;aggressive suppression&#8221;). He is objectively wrong, but this has resurfaced the public misinformation fight over raw milk. I last wrote about the topic six years ago, focusing on the [&#8230;]</p>\nThe post <a href=\"https://sciencebasedmedicine.org/more-on-raw-milk/\">More On Raw Milk</a> first appeared on <a href=\"https://sciencebasedmedicine.org\">Science-Based Medicine</a>.",
+      "date_published": "2026-04-08T12:26:11+00:00",
       "authors": [
         {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
+          "name": "Science-Based Medicine",
+          "url": "https://sciencebasedmedicine.org"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://sciencebasedmedicine.org/wp-content/uploads/2026/04/cowmilking2.png"
+    },
+    {
+      "id": "https://www.sciencealert.com/alzheimers-risk-gene-alters-brain-activity-early-but-it-may-be-reversible",
+      "url": "https://www.sciencealert.com/alzheimers-risk-gene-alters-brain-activity-early-but-it-may-be-reversible",
+      "title": "[ScienceAlert] Alzheimer's Risk Gene Alters Brain Activity Early – But It May Be Reversible",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/01/NeuronsGlowingPurple.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"illustration of purple glow\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/01/NeuronsGlowingPurple.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" /><em>APOE4</em>, we meet again.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-08T12:00:51+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/01/NeuronsGlowingPurple.jpg"
+    },
+    {
+      "id": "https://thenarwhal.ca/alaska-bc-fisheries-stores-sustainability/",
+      "url": "https://thenarwhal.ca/alaska-bc-fisheries-stores-sustainability/",
+      "title": "[The Narwhal] Why are you mostly being sold Alaska-caught salmon in British Columbia?",
+      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2023/09/20230824-Lake-Babine-Nation-Simmons_5-1024x681.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMany critics argue Alaska takes too many salmon and is harming populations — but it’s easier to find Alaska-caught fish in B.C. stores and Alaskan salmon fisheries have global sustainability certification that B.C. salmon fisheries don’t. What gives?",
+      "date_published": "2026-04-08T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Narwhal",
+          "url": "https://thenarwhal.ca"
+        }
+      ],
+      "_quality_score": 63,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://thenarwhal.ca/wp-content/uploads/2023/09/20230824-Lake-Babine-Nation-Simmons_5-1024x681.jpg"
+    },
+    {
+      "id": "https://qz.com/holganix-ceo-barrett-ersek-soil-health-farmer-wealth",
+      "url": "https://qz.com/holganix-ceo-barrett-ersek-soil-health-farmer-wealth",
+      "title": "[Quartz] Holganix CEO Barrett Ersek on how soil health leads to wealth for farmers",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Holganix%2520CEO%2520Barret%2520Ersek%2520on%2520How%2520Soil%2520Health%2520Leads%2520to%2520Wealth%2520for%2520Farmers.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHolganix CEO Barrett Ersek on how soil health leads to wealth for farmers",
+      "date_published": "2026-04-08T11:20:21+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Holganix%2520CEO%2520Barret%2520Ersek%2520on%2520How%2520Soil%2520Health%2520Leads%2520to%2520Wealth%2520for%2520Farmers.mp4"
+    },
+    {
+      "id": "https://www.sciencealert.com/scientists-think-our-eyes-began-as-a-single-eye-on-top-of-the-head",
+      "url": "https://www.sciencealert.com/scientists-think-our-eyes-began-as-a-single-eye-on-top-of-the-head",
+      "title": "[ScienceAlert] Scientists Think Our Eyes Began as a Single Eye on Top of The Head",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/Closeup-Eye-of-a-Fish.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Scientists Think Your Eyes Evolved From a Cyclops &#039;Worm&#039; 600 Million Years Ago\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/Closeup-Eye-of-a-Fish.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />The eyes have it.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-08T11:00:19+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/04/Closeup-Eye-of-a-Fish.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/turned-wi-fi-network-into-presence-sensor-home-assistant/",
+      "url": "https://www.howtogeek.com/turned-wi-fi-network-into-presence-sensor-home-assistant/",
+      "title": "[How-To Geek] I turned my Wi-Fi network into a presence sensor, and it works shockingly well with Home Assistant",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/07/status-lights-on-an-tp-link-archer-ax-72-pro.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNo-fuss presence detection for any Wi-Fi device.",
+      "date_published": "2026-04-08T11:00:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/07/status-lights-on-an-tp-link-archer-ax-72-pro.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/04/08/opinion/ai-wealth-inequality-jobs-investment.html",
+      "url": "https://www.nytimes.com/2026/04/08/opinion/ai-wealth-inequality-jobs-investment.html",
+      "title": "[NYT Top Stories] A.I. May Worsen Wealth Inequality",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA.I. will further enrich the winners and impoverish the losers, with inevitable societal impacts.",
+      "date_published": "2026-04-08T10:38:50+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
       "_quality_score": 50,
@@ -441,164 +441,120 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://www.xda-developers.com/i-stopped-recommending-3gb-raspberry-pi-4-heres-why/",
+      "url": "https://www.xda-developers.com/i-stopped-recommending-3gb-raspberry-pi-4-heres-why/",
+      "title": "[XDA Developers] I stopped recommending the 3GB Raspberry Pi 4, and here's why",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/turning-raspberry-pi-in-to-travel-router.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTiming couldn't be worse.",
+      "date_published": "2026-04-08T10:00:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/5066755368b6b60e2487d365543d4846790dbec2/2026/04/07/22036a3a-6fb6-4da7-bcbc-b43dd65a20c8/elivehero.jpg?auto=webp&fit=crop&height=675&width=1200"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/turning-raspberry-pi-in-to-travel-router.JPG"
     },
     {
-      "id": "https://hackaday.com/2026/04/07/thermostat-do-it-with-a-555/",
-      "url": "https://hackaday.com/2026/04/07/thermostat-do-it-with-a-555/",
-      "title": "[Hackaday] Thermostat? Do It With a 555!",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/t555.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"458\" src=\"https://hackaday.com/wp-content/uploads/2026/04/t555.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>It is a running gag around here that whenever a project posts, someone will inevitably point out that it could have been done with a 555 timer IC. [Stephen Woodward] <a class=\"read-more\" href=\"https://hackaday.com/2026/04/07/thermostat-do-it-with-a-555/\">&#8230;read more</a>",
-      "date_published": "2026-04-07T15:30:51+00:00",
+      "id": "https://www.techradar.com/pro/why-agentic-ai-demands-business-process-re-engineering",
+      "url": "https://www.techradar.com/pro/why-agentic-ai-demands-business-process-re-engineering",
+      "title": "[TechRadar] Why Agentic AI demands business process re-engineering",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/mfPaYGQmks2VALWFFBnSej-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe real challenge with agentic AI isn’t technology, but organizational readiness and business process change.",
+      "date_published": "2026-04-08T08:58:09+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 55,
+      "_quality_score": 50,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/t555.png"
+      "image": "https://cdn.mos.cms.futurecdn.net/mfPaYGQmks2VALWFFBnSej-1280-80.jpg"
     },
     {
-      "id": "https://indiginews.com/arts/nuxalk-sputc-ooligan-documentary/",
-      "url": "https://indiginews.com/arts/nuxalk-sputc-ooligan-documentary/",
-      "title": "[IndigiNews] Film uplifts ceremonies for the return of ooligan, a vital fish for Nuxalk Nation",
-      "content_html": "<img src=\"https://indiginews.com/wp-content/uploads/2026/04/ceremony-qwaxw-brushes-pole-1024x577.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Slts'lani (Banchi Hanuse)’s new documentary 'Ceremony' about sputc — a once-plentiful fish in Bella Coola — will screen in Tkarón:to later this month</p>\n<p>The post <a href=\"https://indiginews.com/arts/nuxalk-sputc-ooligan-documentary/\">Film uplifts ceremonies for the return of ooligan, a vital fish for Nuxalk Nation</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
-      "date_published": "2026-04-07T15:09:58+00:00",
+      "id": "https://insideevs.com/news/792338/walmart-ev-charging-development/",
+      "url": "https://insideevs.com/news/792338/walmart-ev-charging-development/",
+      "title": "[InsideEVs] Walmart’s DC Fast Charging Network Already Has Hundreds Of Ports",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/W8qQ96/s3/walmart-ev-charging-network.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe retail giant is putting its EV charging infrastructure plans into overdrive.",
+      "date_published": "2026-04-08T08:55:25+00:00",
       "authors": [
         {
-          "name": "IndigiNews",
-          "url": "https://indiginews.com/"
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
         }
       ],
-      "_quality_score": 70,
+      "_quality_score": 65,
       "_theme_score": 0,
       "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://indiginews.com/wp-content/uploads/2026/04/ceremony-qwaxw-brushes-pole-1024x577.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/new-breakthrough-in-solar-cell-efficiency-hits-130-quantum-yield",
-      "url": "https://www.sciencealert.com/new-breakthrough-in-solar-cell-efficiency-hits-130-quantum-yield",
-      "title": "[ScienceAlert] New Breakthrough in Solar Cell Efficiency Hits 130% Quantum Yield",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/SolarPanels.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Solar cell graphic\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/SolarPanels.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />The future looks bright. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-07T15:00:37+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
       "_category": "climate",
       "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/SolarPanels.jpg"
+      "_is_bonus": false,
+      "image": "https://cdn.motor1.com/images/mgl/W8qQ96/s3/walmart-ev-charging-network.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/04/07/b-c-based-mining-company-confirms-9-of-10-workers-abducted-in-mexico-have-died/",
-      "url": "https://wltribune.com/2026/04/07/b-c-based-mining-company-confirms-9-of-10-workers-abducted-in-mexico-have-died/",
-      "title": "[Williams Lake Tribune] B.C.-based mining company confirms 9 of 10 workers abducted in Mexico have died",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42008334_web1_260407-BPD-Miners-dead_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Vancouver&#8217;s Vizsla Silver first disclosed the workers were taken at the end of January </p>",
-      "date_published": "2026-04-07T14:56:00+00:00",
+      "id": "https://www.resilience.org/stories/2026-04-08/why-were-still-marching-toward-collapse-and-how-to-break-the-trance/",
+      "url": "https://www.resilience.org/stories/2026-04-08/why-were-still-marching-toward-collapse-and-how-to-break-the-trance/",
+      "title": "[Resilience.org] Why we’re still marching toward collapse—and how to break the trance",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/04/10094847976_e330b65783_k-1024x768.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe continue down a path of collective destruction, in part because of a belief system so pervasive it feels like reality itself. Recognizing our deep interconnectedness is essential to building a more just and sustainable future.",
+      "date_published": "2026-04-08T06:00:00+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
         }
       ],
-      "_quality_score": 92,
+      "_quality_score": 58,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 27,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42008334_web1_260407-BPD-Miners-dead_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/07/1-pleads-not-guilty-in-kelowna-court-for-2021-homicide-of-penticton-man/",
-      "url": "https://wltribune.com/2026/04/07/1-pleads-not-guilty-in-kelowna-court-for-2021-homicide-of-penticton-man/",
-      "title": "[Williams Lake Tribune] 1 pleads not guilty in Kelowna court for 2021 homicide of Penticton man",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42007283_web1_26477193_web1_210915-PWN-MurderVicID-d-_1.jpeg?w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Taig Savage was killed Sept. 5, 2021 </p>",
-      "date_published": "2026-04-07T13:45:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_quality_score": 85,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42007283_web1_26477193_web1_210915-PWN-MurderVicID-d-_1.jpeg?w=960"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/07/b-c-country-singer-vying-for-top-three-spot-in-national-competition/",
-      "url": "https://wltribune.com/2026/04/07/b-c-country-singer-vying-for-top-three-spot-in-national-competition/",
-      "title": "[Williams Lake Tribune] B.C. country singer vying for top-three spot in national competition",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42006791_web1_260226-ABB-Country-singer-a-finalist_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Online voting now open in national SiriusXM Top of the Country contest </p>",
-      "date_published": "2026-04-07T13:25:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_quality_score": 78,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42006791_web1_260226-ABB-Country-singer-a-finalist_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/07/two-bald-eagles-rescued-from-power-line-after-mid-air-fight-in-surrey-b-c/",
-      "url": "https://wltribune.com/2026/04/07/two-bald-eagles-rescued-from-power-line-after-mid-air-fight-in-surrey-b-c/",
-      "title": "[Williams Lake Tribune] Two bald eagles rescued from power line after mid-air fight in Surrey, B.C.",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42006594_web1_260409-SUL-eagles-resuced_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>OWL Orphaned Wildlife Rehabilitiation Society, BC Hydro and Surrey Fire Services worked together </p>",
-      "date_published": "2026-04-07T13:17:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
+      "_boosted_score": 17,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42006594_web1_260409-SUL-eagles-resuced_2.jpg?w=1024"
+      "image": "https://www.resilience.org/wp-content/uploads/2026/04/10094847976_e330b65783_k-1024x768.jpg"
+    },
+    {
+      "id": "https://www.resilience.org/stories/2026-04-07/how-californias-war-on-smog-and-its-ambitious-car-pollution-rules-made-everyones-air-cleaner/",
+      "url": "https://www.resilience.org/stories/2026-04-07/how-californias-war-on-smog-and-its-ambitious-car-pollution-rules-made-everyones-air-cleaner/",
+      "title": "[Resilience.org] How California’s war on smog and its ambitious car pollution rules made everyone’s air cleaner",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/04/1-pexels-alexeydemidov-10658552-1024x672.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Clean Air Act gave California the authority to issue tough pollution standards for vehicles, spurring the development of the catalytic converter and cleaning up America’s air.",
+      "date_published": "2026-04-07T06:00:10+00:00",
+      "authors": [
+        {
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.resilience.org/wp-content/uploads/2026/04/1-pexels-alexeydemidov-10658552-1024x672.jpg"
     }
   ]
 }
