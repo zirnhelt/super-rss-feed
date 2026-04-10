@@ -24,6 +24,23 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1050** → dedup **872** → new **351** → quality **210**
+- Mix: local:2(1%), ai-tech:48(24%), climate:13(7%), homelab:33(17%), science:20(10%), scifi:4(2%), news:79(40%)
+- Feeds: local:41, ai-tech:431, climate:106, homelab:344, science:137, scifi:28, news:500
+- Images: 210/210
+- ⚠️ **Open Culture** failed — `HTTPSConnectionPool(host='www.openculture.com', port=443): Read timed out. (read timeout=10)`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-08 (Wednesday)
 
 #### 🌅 4:30 AM Pacific

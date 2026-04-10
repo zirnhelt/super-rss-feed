@@ -8,6 +8,17 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **The Narwhal** failed | `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/` |
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **IndigiNews** failed | `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/` |
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **Cool Tools** failed | `HTTPSConnectionPool(host='kk.org', port=443): Read timed out. (read timeout=10)` |
+| 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-04-09 | 🌙 8:30 PM Pacific | ⚠️ **Open Culture** failed | `HTTPSConnectionPool(host='www.openculture.com', port=443): Read timed out. (read timeout=10)` |
+| 2026-04-09 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-09 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-09 | 🌙 8:30 PM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
 | 2026-04-08 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-04-08 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-04-08 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
@@ -40,16 +51,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-03 | 🌅 4:30 AM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
 | 2026-04-03 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-04-03 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-02 | 🌅 4:30 AM Pacific | ⚠️ **Julia Evans Blog** failed | `HTTPSConnectionPool(host='jvns.ca', port=443): Read timed out. (read timeout=10)` |
-| 2026-04-02 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-02 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-02 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-02 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-04-09 | 🌅 morning | 154 | news:48(35%), ai-tech:33(24%), homelab:28(20%) |
+| 2026-04-09 | 🌙 evening | 210 | news:79(40%), ai-tech:48(24%), homelab:33(17%) |
 | 2026-04-08 | 🌅 morning | 154 | news:56(40%), ai-tech:37(26%), homelab:23(16%) |
 | 2026-04-08 | 🌙 evening | 221 | news:81(40%), ai-tech:55(27%), homelab:38(19%) |
 | 2026-04-07 | 🌅 morning | 167 | news:54(35%), ai-tech:51(33%), homelab:22(14%) |
@@ -62,12 +70,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-04 | 🌙 evening | 77 | news:21(32%), homelab:15(23%), ai-tech:14(21%) |
 | 2026-04-03 | 🌅 morning | 110 | news:38(38%), ai-tech:34(34%), homelab:14(14%) |
 | 2026-04-03 | 🌙 evening | 146 | news:50(37%), ai-tech:33(24%), homelab:27(20%) |
-| 2026-04-02 | 🌅 morning | 151 | ai-tech:40(30%), news:39(30%), homelab:31(23%) |
-| 2026-04-02 | 🌙 evening | 223 | news:81(39%), ai-tech:59(28%), homelab:27(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-04-09 14:21 UTC_
+_Last updated by log\_feed\_results.py · 2026-04-10 06:15 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
