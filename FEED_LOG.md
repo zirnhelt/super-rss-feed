@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-10 (Friday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1055** → dedup **892** → new **267** → quality **125**
+- Mix: local:4(4%), ai-tech:38(33%), climate:5(4%), homelab:21(18%), science:7(6%), scifi:1(1%), news:38(33%)
+- Feeds: local:43, ai-tech:435, climate:106, homelab:352, science:136, scifi:28, news:500
+- Images: 125/125
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-09 (Thursday)
 
 #### 🌅 4:30 AM Pacific
@@ -226,38 +242,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:1(1%), ai-tech:33(24%), climate:7(5%), homelab:27(20%), science:13(10%), scifi:5(4%), news:50(37%)
 - Feeds: local:64, ai-tech:147, climate:144, homelab:445, science:141, scifi:34, news:500
 - Images: 146/146
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-02 (Thursday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1020** → dedup **838** → new **307** → quality **151**
-- Mix: local:2(2%), ai-tech:40(30%), climate:11(8%), homelab:31(23%), science:7(5%), scifi:2(2%), news:39(30%)
-- Feeds: local:68, ai-tech:40, climate:149, homelab:500, science:162, scifi:37, news:500
-- Images: 151/151
-- ⚠️ **Julia Evans Blog** failed — `HTTPSConnectionPool(host='jvns.ca', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **984** → dedup **832** → new **355** → quality **223**
-- Mix: local:11(5%), ai-tech:59(28%), climate:14(7%), homelab:27(13%), science:11(5%), scifi:7(3%), news:81(39%)
-- Feeds: local:70, ai-tech:80, climate:154, homelab:490, science:153, scifi:37, news:500
-- Images: 223/223
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
@@ -764,6 +748,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 - - ⚠️ FlowingData failed — 500 Server Error: Internal Server Error for url: https://flowingdata.com/feed/
+
+
+---
+
+
+
+## Week of 2026-04-02–2026-04-02
+- 2 runs · avg fetched 1002 · avg quality 187
+- Dominant: **news** (35%) local:13 / ai-tech:99 / climate:25 / homelab:58 / science:18 / scifi:9 / news:120
+- - ⚠️ Julia Evans Blog failed — HTTPSConnectionPool(host='jvns.ca', port=443): Read timed out. (read timeout=10)
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
 ---
