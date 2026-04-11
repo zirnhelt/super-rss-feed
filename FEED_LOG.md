@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-11 (Saturday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1001** → dedup **836** → new **214** → quality **86**
+- Mix: local:1(1%), ai-tech:19(27%), climate:6(8%), homelab:16(23%), science:3(4%), scifi:2(3%), news:24(34%)
+- Feeds: local:44, ai-tech:446, climate:118, homelab:350, science:138, scifi:25, news:500
+- Images: 86/86
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-10 (Friday)
 
 #### 🌅 4:30 AM Pacific
@@ -228,38 +244,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
 - ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
 - ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-03 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **957** → dedup **816** → new **227** → quality **110**
-- Mix: local:2(2%), ai-tech:34(34%), climate:6(6%), homelab:14(14%), science:6(6%), scifi:1(1%), news:38(38%)
-- Feeds: local:72, ai-tech:114, climate:145, homelab:462, science:144, scifi:37, news:500
-- Images: 110/110
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **935** → dedup **790** → new **284** → quality **146**
-- Mix: local:1(1%), ai-tech:33(24%), climate:7(5%), homelab:27(20%), science:13(10%), scifi:5(4%), news:50(37%)
-- Feeds: local:64, ai-tech:147, climate:144, homelab:445, science:141, scifi:34, news:500
-- Images: 146/146
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -776,6 +760,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ Julia Evans Blog failed — HTTPSConnectionPool(host='jvns.ca', port=443): Read timed out. (read timeout=10)
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-04-03–2026-04-03
+- 2 runs · avg fetched 946 · avg quality 128
+- Dominant: **news** (37%) local:3 / ai-tech:67 / climate:13 / homelab:41 / science:19 / scifi:6 / news:88
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
