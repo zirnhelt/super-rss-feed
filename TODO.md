@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-04-10 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-10 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-10 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-10 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-10 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-04-09 | 🌅 4:30 AM Pacific | ⚠️ **The Narwhal** failed | `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/` |
@@ -46,16 +51,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-04 | 🌙 8:30 PM Pacific | ⚠️ **The Narwhal** failed | `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/` |
 | 2026-04-04 | 🌙 8:30 PM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
 | 2026-04-04 | 🌙 8:30 PM Pacific | ⚠️ **IndigiNews** failed | `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/` |
-| 2026-04-03 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-03 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-03 | 🌅 4:30 AM Pacific | ⚠️ **Modern Farmer** failed | `520 Server Error: <none> for url: https://modernfarmer.com/feed/` |
-| 2026-04-03 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-03 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-04-10 | 🌅 morning | 125 | ai-tech:38(33%), news:38(33%), homelab:21(18%) |
+| 2026-04-10 | 🌙 evening | 190 | news:71(41%), ai-tech:38(22%), homelab:31(18%) |
 | 2026-04-09 | 🌅 morning | 154 | news:48(35%), ai-tech:33(24%), homelab:28(20%) |
 | 2026-04-09 | 🌙 evening | 210 | news:79(40%), ai-tech:48(24%), homelab:33(17%) |
 | 2026-04-08 | 🌅 morning | 154 | news:56(40%), ai-tech:37(26%), homelab:23(16%) |
@@ -68,12 +70,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-05 | 🌙 evening | 80 | news:30(41%), homelab:24(33%), ai-tech:12(16%) |
 | 2026-04-04 | 🌅 morning | 79 | homelab:23(34%), news:21(31%), ai-tech:14(21%) |
 | 2026-04-04 | 🌙 evening | 77 | news:21(32%), homelab:15(23%), ai-tech:14(21%) |
-| 2026-04-03 | 🌅 morning | 110 | news:38(38%), ai-tech:34(34%), homelab:14(14%) |
-| 2026-04-03 | 🌙 evening | 146 | news:50(37%), ai-tech:33(24%), homelab:27(20%) |
 
-_Last updated by log\_feed\_results.py · 2026-04-10 13:55 UTC_
+_Last updated by log\_feed\_results.py · 2026-04-11 05:45 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
