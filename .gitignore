@@ -26,4 +26,8 @@ Thumbs.db
 *.log
 *.backup
 super-feed.json
-super-feed.json
+
+# Environment / secrets — never commit
+.env
+*.env
+.env.*

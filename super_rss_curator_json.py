@@ -9,6 +9,7 @@ import sys
 import json
 import hashlib
 import re
+from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 from collections import defaultdict
 from typing import List, Dict, Optional
@@ -1175,8 +1176,8 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
-            item["content_html"] = f'<img src="{article.image}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
-        
+            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
+
         if category == 'local':
             item["tags"] = ["local-priority"]
         
@@ -1746,7 +1747,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         }
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
-            item["content_html"] = f'<img src="{article.image}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
+            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
         feed["items"].append(item)
 
     with open(feed_filename, 'w', encoding='utf-8') as f:

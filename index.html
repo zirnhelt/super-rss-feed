@@ -249,19 +249,58 @@
         const baseUrl = window.location.href.replace(/\/$/, '');
         const feedsContainer = document.getElementById('feedsList');
         
+        function buildFeedItem(feed, itemCount, lastUpdate) {
+            const feedUrl = `${baseUrl}/${feed.file}`;
+
+            const item = document.createElement('div');
+            item.className = 'feed-item';
+
+            const header = document.createElement('div');
+            header.className = 'feed-header';
+
+            const nameEl = document.createElement('div');
+            nameEl.className = 'feed-name';
+            nameEl.textContent = feed.name;
+            header.appendChild(nameEl);
+
+            const meta = document.createElement('div');
+            meta.className = 'feed-meta';
+            const countEl = document.createElement('span');
+            countEl.className = 'feed-count';
+            countEl.textContent = `${itemCount} items`;
+            const updatedEl = document.createElement('span');
+            updatedEl.className = 'feed-updated';
+            updatedEl.textContent = `Updated: ${lastUpdate}`;
+            meta.appendChild(countEl);
+            meta.appendChild(updatedEl);
+            header.appendChild(meta);
+            item.appendChild(header);
+
+            const desc = document.createElement('div');
+            desc.className = 'feed-description';
+            desc.textContent = feed.description;
+            item.appendChild(desc);
+
+            const urlDiv = document.createElement('div');
+            urlDiv.className = 'feed-url';
+            urlDiv.title = 'Click to copy';
+            urlDiv.textContent = feedUrl;
+            urlDiv.addEventListener('click', () => copyToClipboard(feedUrl));
+            item.appendChild(urlDiv);
+
+            return item;
+        }
+
         async function loadFeedInfo() {
             feedsContainer.innerHTML = '';
-            
+
             for (const feed of feeds) {
-                const feedItem = document.createElement('div');
-                feedItem.className = 'feed-item';
-                
                 try {
                     const response = await fetch(feed.file);
                     const data = await response.json();
-                    
+
                     const itemCount = data.items?.length || 0;
-                    const lastUpdate = data.items?.[0]?.date_published 
+                    const lastUpdate = data.items?.[0]?.date_published
                         ? new Date(data.items[0].date_published).toLocaleString('en-US', {
                             month: 'short',
                             day: 'numeric',
@@ -269,31 +308,32 @@
                             minute: '2-digit'
                           })
                         : 'Unknown';
-                    
-                    feedItem.innerHTML = `
-                        <div class="feed-header">
-                            <div class="feed-name">${feed.name}</div>
-                            <div class="feed-meta">
-                                <span class="feed-count">${itemCount} items</span>
-                                <span class="feed-updated">Updated: ${lastUpdate}</span>
-                            </div>
-                        </div>
-                        <div class="feed-description">${feed.description}</div>
-                        <div class="feed-url" onclick="copyToClipboard('${baseUrl}/${feed.file}')" title="Click to copy">
-                            ${baseUrl}/${feed.file}
-                        </div>
-                    `;
+
+                    feedsContainer.appendChild(buildFeedItem(feed, itemCount, lastUpdate));
                 } catch (error) {
-                    feedItem.innerHTML = `
-                        <div class="feed-header">
-                            <div class="feed-name">${feed.name}</div>
-                        </div>
-                        <div class="feed-description">${feed.description}</div>
-                        <div class="error">Feed not yet generated</div>
-                    `;
+                    const feedItem = document.createElement('div');
+                    feedItem.className = 'feed-item';
+
+                    const header = document.createElement('div');
+                    header.className = 'feed-header';
+                    const nameEl = document.createElement('div');
+                    nameEl.className = 'feed-name';
+                    nameEl.textContent = feed.name;
+                    header.appendChild(nameEl);
+                    feedItem.appendChild(header);
+
+                    const desc = document.createElement('div');
+                    desc.className = 'feed-description';
+                    desc.textContent = feed.description;
+                    feedItem.appendChild(desc);
+
+                    const err = document.createElement('div');
+                    err.className = 'error';
+                    err.textContent = 'Feed not yet generated';
+                    feedItem.appendChild(err);
+
+                    feedsContainer.appendChild(feedItem);
                 }
-                
-                feedsContainer.appendChild(feedItem);
             }
         }
         
