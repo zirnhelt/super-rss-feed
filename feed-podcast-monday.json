@@ -22,44 +22,88 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "monday",
-    "generated_at": "2026-04-06T13:51:46.498263+00:00",
-    "article_count": 16,
-    "bonus_count": 14,
+    "generated_at": "2026-04-13T06:30:21.531212+00:00",
+    "article_count": 11,
+    "bonus_count": 10,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://thenarwhal.ca/salish-fire-keeper-society-spring-meeting/",
-      "url": "https://thenarwhal.ca/salish-fire-keeper-society-spring-meeting/",
-      "title": "[The Narwhal] Before wildfire season begins again, Indigenous firekeepers gather in Interior B.C. to share knowledge",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/04/SalishFireKeepersGatheringMarch2025-10-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn March, attendees of a Salish Fire Keepers Society gathering learned about decolonizing fire management, working with blazes to protect the land and more",
-      "date_published": "2026-04-06T12:00:00+00:00",
+      "id": "https://thetyee.ca/Analysis/2026/04/13/Does-Burning-Wood-Fight-Climate-Change/",
+      "url": "https://thetyee.ca/Analysis/2026/04/13/Does-Burning-Wood-Fight-Climate-Change/",
+      "title": "[The Tyee] Does Burning Wood Actually Fight Climate Change?",
+      "content_html": "<img src=\"https://thetyee.ca/Analysis/2026/04/11/WoodPellets.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDespite industry claims, scientists say using wood pellets is little better than fossil fuels.",
+      "date_published": "2026-04-13T07:30:00+00:00",
       "authors": [
         {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 87,
-      "_theme_score": 20,
-      "_final_score": 20,
+      "_quality_score": 73,
+      "_theme_score": 15,
+      "_final_score": 15,
       "_keyword_matches": 0,
-      "_boosted_score": 26,
-      "_category": "local",
-      "_source_category": "local",
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/04/SalishFireKeepersGatheringMarch2025-10-1024x683.jpg"
+      "image": "https://thetyee.ca/Analysis/2026/04/11/WoodPellets.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/one-raspberry-pi-project-leave-running-247-in-homelab/",
-      "url": "https://www.howtogeek.com/one-raspberry-pi-project-leave-running-247-in-homelab/",
-      "title": "[How-To Geek] This is the one Raspberry Pi project I leave running 24/7 in my homelab",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/raspberry-pi-zero-w-on-a-table.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAny Raspberry Pi will do to start, even a Pi Zero.",
-      "date_published": "2026-04-06T12:15:16+00:00",
+      "id": "https://thetyee.ca/WhatWorks/2026/04/06/New-Way-Recycle-Old-Homes/",
+      "url": "https://thetyee.ca/WhatWorks/2026/04/06/New-Way-Recycle-Old-Homes/",
+      "title": "[The Tyee] Trash or Treasures? This Man Offers a New Way to Recycle Old Homes",
+      "content_html": "<img src=\"https://thetyee.ca/WhatWorks/2026/04/04/ErickSerpasVentura.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWatch Erick Serpas Ventura explain his planet-friendly method of house ‘deconstruction.’",
+      "date_published": "2026-04-06T07:40:00+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 53,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/WhatWorks/2026/04/04/ErickSerpasVentura.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/turned-100-screen-self-hosted-photo-frame-never-touches-cloud/",
+      "url": "https://www.xda-developers.com/turned-100-screen-self-hosted-photo-frame-never-touches-cloud/",
+      "title": "[XDA Developers] I built a $100 ePaper photo frame that never touches the cloud, and it looks like a real print",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/reterminal-e1002-immich-photo-2.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe reTerminal E1002 makes for a great photo frame with a lot of character.",
+      "date_published": "2026-04-13T00:00:23+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/reterminal-e1002-immich-photo-2.JPG"
+    },
+    {
+      "id": "https://www.sciencealert.com/this-tiny-wildflower-could-be-a-secret-weapon-against-superbugs",
+      "url": "https://www.sciencealert.com/this-tiny-wildflower-could-be-a-secret-weapon-against-superbugs",
+      "title": "[ScienceAlert] This Tiny Wildflower Could Be a Secret Weapon Against Superbugs",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/yellow-flower.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"yellow flower\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/yellow-flower.png\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A traditional medicine reveals a potent surprise.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-12T14:00:22+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
       "_quality_score": 55,
@@ -67,153 +111,21 @@
       "_final_score": 5,
       "_keyword_matches": 0,
       "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/raspberry-pi-zero-w-on-a-table.jpg"
-    },
-    {
-      "id": "https://gizmodo.com/how-to-watch-artemis-2-reach-the-moon-and-make-spaceflight-history-today-2000742330",
-      "url": "https://gizmodo.com/how-to-watch-artemis-2-reach-the-moon-and-make-spaceflight-history-today-2000742330",
-      "title": "[Gizmodo] How to Watch Artemis 2 Reach the Moon and Make Spaceflight History Today",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/Moon-seen-from-Orion-capsule-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Artemis 2 crew will spend six hours observing the lunar far side today, seeing parts of the Moon no human has ever laid eyes on.",
-      "date_published": "2026-04-06T13:07:10+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://gizmodo.com/app/uploads/2026/04/Moon-seen-from-Orion-capsule-1280x853.jpg"
-    },
-    {
-      "id": "https://www.theguardian.com/global-development/2026/apr/06/maasai-lands-drought-kenya-extreme-climate-patterns-livestock-deaths-herders-poverty-early-marriage",
-      "url": "https://www.theguardian.com/global-development/2026/apr/06/maasai-lands-drought-kenya-extreme-climate-patterns-livestock-deaths-herders-poverty-early-marriage",
-      "title": "[The Guardian Global Development] ‘All we can do now is pray they continue’: Maasai welcome the first rains but know that drought is far from over",
-      "content_html": "<img src=\"https://i.guim.co.uk/img/media/ca44a398af6f66151b20117a3b2badf028ddd63f/1031_0_6065_4852/master/6065.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8739139a53b08e264510d16ac6c29409\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Harsh weather is nothing new in Kenya but the country’s climate is showing clear signs of getting hotter and drier</p><p>The day is hot and dry but the soil underfoot is soft. “After four months of drought, we received the first rains yesterday,” says Maasai elder Abraham Kampalei. “All we can do now is pray that they continue.”</p><p>Kampalei has lived for more than 50 of his 70 years with his family and animals in Oldonyonyokie, a hamlet in southern Kenya’s Kajiado county. He has witnessed the slow decline of the pastures. “I came here because of the abundance of grass for my livestock to graze. Today, there is almost nothing left of it,” he says.</p> <a href=\"https://www.theguardian.com/global-development/2026/apr/06/maasai-lands-drought-kenya-extreme-climate-patterns-livestock-deaths-herders-poverty-early-marriage\">Continue reading...</a>",
-      "date_published": "2026-04-06T12:00:19+00:00",
-      "authors": [
-        {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
-        }
-      ],
-      "_quality_score": 63,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "climate",
-      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://i.guim.co.uk/img/media/ca44a398af6f66151b20117a3b2badf028ddd63f/1031_0_6065_4852/master/6065.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8739139a53b08e264510d16ac6c29409"
+      "image": "https://www.sciencealert.com/images/2026/04/yellow-flower.png"
     },
     {
-      "id": "https://www.tomsguide.com/ai/im-a-power-user-this-7-line-prompt-finally-stops-ai-from-being-a-yes-man",
-      "url": "https://www.tomsguide.com/ai/im-a-power-user-this-7-line-prompt-finally-stops-ai-from-being-a-yes-man",
-      "title": "[Toms Guide] I’m an AI power user — this 7-line ‘critical thinking’ prompt finally stops chatbots from being a ‘Yes-Man’",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/vNbWRhKxBtcLQwSLGmHWgY-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis simple “critical thinking prompt” forces AI to challenge your assumptions instead of agreeing with you — and it completely changed how I make decisions.",
-      "date_published": "2026-04-06T11:03:08+00:00",
+      "id": "https://hackaday.com/2026/04/12/were-all-abuzz-about-the-bee-write-back-writerdeck/",
+      "url": "https://hackaday.com/2026/04/12/were-all-abuzz-about-the-bee-write-back-writerdeck/",
+      "title": "[Hackaday] We’re All Abuzz About the Bee Write Back Writerdeck",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/bee-write-back-800.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"600\" src=\"https://hackaday.com/wp-content/uploads/2026/04/bee-write-back-800.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Friends, there will likely come a time in your life when you have trouble sleeping. When this happens, it may behoove you to do some writing, any kind of writing. <a class=\"read-more\" href=\"https://hackaday.com/2026/04/12/were-all-abuzz-about-the-bee-write-back-writerdeck/\">&#8230;read more</a>",
+      "date_published": "2026-04-13T05:00:00+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/vNbWRhKxBtcLQwSLGmHWgY-1280-80.png"
-    },
-    {
-      "id": "https://modernfarmer.com/2026/04/kill-cover-crop/",
-      "url": "https://modernfarmer.com/2026/04/kill-cover-crop/",
-      "title": "[Modern Farmer] How to Kill Winter Crops Without Losing Soil Gains",
-      "content_html": "<img src=\"https://modernfarmer.com/wp-content/uploads/2026/03/A-farmer-driving-a-machine-to-kill-cover-crop.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>As spring arrives, it’s time to kill cover crop plantings and either incorporate the plant matter into the soil or use it as mulch. In this article, I share the best methods for your farm's specific crop and conditions. </p>\n<p>The post <a href=\"https://modernfarmer.com/2026/04/kill-cover-crop/\">How to Kill Winter Crops Without Losing Soil Gains</a> appeared first on <a href=\"https://modernfarmer.com\">Modern Farmer</a>.</p>",
-      "date_published": "2026-04-06T11:00:50+00:00",
-      "authors": [
-        {
-          "name": "Modern Farmer",
-          "url": "https://modernfarmer.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://modernfarmer.com/wp-content/uploads/2026/03/A-farmer-driving-a-machine-to-kill-cover-crop.webp"
-    },
-    {
-      "id": "https://www.androidpolice.com/notebooklm-interactive-audio-make-me-feel-like-i-have-a-private-tutor/",
-      "url": "https://www.androidpolice.com/notebooklm-interactive-audio-make-me-feel-like-i-have-a-private-tutor/",
-      "title": "[Android Police] NotebookLM's Interactive Audio views make me feel like I have a private tutor",
-      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/04/a-woman-wearing-headphones-studying-overlaid-with-the-notebooklm-logo-audio-waveforms-and-a-blue-join-button.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt doesn't make me feel like I'm talking to AI",
-      "date_published": "2026-04-06T11:00:10+00:00",
-      "authors": [
-        {
-          "name": "Android Police",
-          "url": "https://www.androidpolice.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/04/a-woman-wearing-headphones-studying-overlaid-with-the-notebooklm-logo-audio-waveforms-and-a-blue-join-button.png"
-    },
-    {
-      "id": "https://www.xda-developers.com/ran-same-prompts-through-claude-and-local-llm-unexpected-results/",
-      "url": "https://www.xda-developers.com/ran-same-prompts-through-claude-and-local-llm-unexpected-results/",
-      "title": "[XDA Developers] I ran the same prompts through Claude and my local LLM, and the results weren't what I expected",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/claude-for-desktop-lego-and-lamp-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI got my answer, just not the one I was expecting",
-      "date_published": "2026-04-06T10:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/claude-for-desktop-lego-and-lamp-in-view.jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/has-an-ai-agent-interviewed-you-survey-2026-4",
-      "url": "https://www.businessinsider.com/has-an-ai-agent-interviewed-you-survey-2026-4",
-      "title": "[Business Insider] Has an AI agent interviewed you for a job? Take our survey.",
-      "content_html": "<img src=\"https://i.insider.com/69d01b9cc02a678bd7e47e9e?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSome employers are tapping the tech to act as a human recruiter. If you've been in the hot seat, Business Insider would like to hear from you.",
-      "date_published": "2026-04-06T09:32:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
       "_quality_score": 50,
@@ -221,164 +133,142 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/bee-write-back-800.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/ai-tools-may-be-why-linux-70s-rc-cycle-was-so-choppy/",
+      "url": "https://www.xda-developers.com/ai-tools-may-be-why-linux-70s-rc-cycle-was-so-choppy/",
+      "title": "[XDA Developers] AI tools may be why Linux 7.0's RC cycle was so choppy, but Linus just shipped it anyway",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/linux-laptop-with-kde-plasma.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe may be entering a new era of Linux kernel development.",
+      "date_published": "2026-04-13T03:05:54+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 5,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69d01b9cc02a678bd7e47e9e?format=jpeg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/linux-laptop-with-kde-plasma.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/ai-jobs-product-engineers-managers-2026-4",
-      "url": "https://www.businessinsider.com/ai-jobs-product-engineers-managers-2026-4",
-      "title": "[Business Insider] The next big job in tech may be the 'product engineer'",
-      "content_html": "<img src=\"https://i.insider.com/69d2f1f5c02a678bd7e48263?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs engineers ramp up their efficiency using AI, product managers now have to manage more. A new hybrid role has arrived: the product engineer.",
-      "date_published": "2026-04-06T09:09:01+00:00",
+      "id": "https://www.sciencealert.com/ocean-heat-waves-are-supercharging-hurricane-damage-scientists-warn",
+      "url": "https://www.sciencealert.com/ocean-heat-waves-are-supercharging-hurricane-damage-scientists-warn",
+      "title": "[ScienceAlert] Ocean Heat Waves Are 'Supercharging' Hurricane Damage, Scientists Warn",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/hurricane-from-space.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"hurricane from space\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/hurricane-from-space.png\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"This is shocking but should also be alarming for people.”</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-13T01:24:43+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
-      "_quality_score": 55,
+      "_quality_score": 68,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_boosted_score": 20,
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69d2f1f5c02a678bd7e48263?format=jpeg"
+      "image": "https://www.sciencealert.com/images/2026/04/hurricane-from-space.png"
     },
     {
-      "id": "https://www.techradar.com/pro/how-to-manage-the-employees-that-dont-clock-in",
-      "url": "https://www.techradar.com/pro/how-to-manage-the-employees-that-dont-clock-in",
-      "title": "[TechRadar] How to manage the employees that don’t clock in",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/zGzUakkaqN9qpGHRNY8So7-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI agents are joining the workforce, so how should organizations manage and secure them?",
-      "date_published": "2026-04-06T09:06:52+00:00",
+      "id": "https://www.xda-developers.com/i-switched-my-home-server-from-proxmox-to-its-freebsd-counterpart/",
+      "url": "https://www.xda-developers.com/i-switched-my-home-server-from-proxmox-to-its-freebsd-counterpart/",
+      "title": "[XDA Developers] I switched from Proxmox to its FreeBSD counterpart on my home server – here's how it went",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/sylve-25.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDespite its FreeBSD origins, I adore this virtualization platform",
+      "date_published": "2026-04-12T21:30:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/sylve-25.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/71-of-u-s-households-get-routers-from-isps-why-new-fcc-rules-could-leave-millions-stuck-with-outdated-insecure-hardware",
+      "url": "https://www.techradar.com/pro/71-of-u-s-households-get-routers-from-isps-why-new-fcc-rules-could-leave-millions-stuck-with-outdated-insecure-hardware",
+      "title": "[TechRadar] '71% of US households get routers from ISPs': Why new FCC rules could leave millions stuck with outdated, insecure hardware",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/8bKb47fzPjabkZ7EVXnQ6K-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFCC rules restrict new foreign routers, leaving ISP-controlled households stuck with existing devices despite security concerns and no immediate replacement options",
+      "date_published": "2026-04-12T20:05:00+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/zGzUakkaqN9qpGHRNY8So7-1280-80.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/alixpartners-scorecard-shows-which-software-companies-win-lose-ai-2026-4",
-      "url": "https://www.businessinsider.com/alixpartners-scorecard-shows-which-software-companies-win-lose-ai-2026-4",
-      "title": "[Business Insider] A new scorecard shows which software companies will win or lose in AI",
-      "content_html": "<img src=\"https://i.insider.com/69cfdbd7c02a678bd7e47c2d?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAlixPartners' AI Disruption Score reveals SaaS facing a structural reset, impacting private equity as AI commoditizes software sectors.",
-      "date_published": "2026-04-06T09:00:02+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69cfdbd7c02a678bd7e47c2d?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-demand-boosts-gpu-prices-silicon-data-ceo-carmen-li-2026-4",
-      "url": "https://www.businessinsider.com/ai-demand-boosts-gpu-prices-silicon-data-ceo-carmen-li-2026-4",
-      "title": "[Business Insider] This CEO left Bloomberg to track GPUs. She explains why prices are 'going nuts.'",
-      "content_html": "<img src=\"https://i.insider.com/69d04739e762ed6cfe44a43c?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGPU prices are rising fast as AI demand outpaces supply, with even older chips holding value and cloud giants charging steep premiums.",
-      "date_published": "2026-04-06T09:00:02+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
       "_quality_score": 58,
       "_theme_score": 0,
       "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69d04739e762ed6cfe44a43c?format=jpeg"
-    },
-    {
-      "id": "https://www.wired.com/story/why-chip-packaging-could-decide-the-next-phase-of-the-ai-boom/",
-      "url": "https://www.wired.com/story/why-chip-packaging-could-decide-the-next-phase-of-the-ai-boom/",
-      "title": "[WIRED] The Ridiculously Nerdy Intel Bet That Could Rake in Billions",
-      "content_html": "<img src=\"https://media.wired.com/photos/69d0010ebd20ea771b0078c1/master/pass/Intel-Copackaging-Business-DSC01068.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAdvanced chip packaging is suddenly at the center of the AI boom. Intel is going all in.",
-      "date_published": "2026-04-06T09:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69d0010ebd20ea771b0078c1/master/pass/Intel-Copackaging-Business-DSC01068.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/delivery-robot-mishaps-screw-ups-videos-coco-serve-starship-2026-4",
-      "url": "https://www.businessinsider.com/delivery-robot-mishaps-screw-ups-videos-coco-serve-starship-2026-4",
-      "title": "[Business Insider] Can humans and robots peacefully co-exist? Delivery bot CEOs say people are nicer than you'd think.",
-      "content_html": "<img src=\"https://i.insider.com/69d1e1ebc02a678bd7e4812b?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCEOs of the largest delivery robot companies say human interference and vandalism doesn't occur as often as people might think.",
-      "date_published": "2026-04-06T08:11:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69d1e1ebc02a678bd7e4812b?format=jpeg"
-    },
-    {
-      "id": "https://civileats.com/2026/04/06/for-aquaculture-will-ai-be-a-net-positive/",
-      "url": "https://civileats.com/2026/04/06/for-aquaculture-will-ai-be-a-net-positive/",
-      "title": "[Civil Eats] Will AI Be a Net Positive For Aquaculture?",
-      "content_html": "<img src=\"https://civileats.com/wp-content/uploads/2026/04/for-aquaculture-will-ai-be-a-net-positive-hero.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Some AI models try to predict disease outbreaks or track when nets need repairing. Some are also programmed to act without human input—for example, administering laser energy to kill sea lice, a major problem in the salmon industry. Most, however, focus on improving feed efficiencies, since feed averages 60 percent of a fish farm’s costs. [&#8230;]</p>\n<p>The post <a href=\"https://civileats.com/2026/04/06/for-aquaculture-will-ai-be-a-net-positive/\">Will AI Be a Net Positive For Aquaculture?</a> appeared first on <a href=\"https://civileats.com\">Civil Eats</a>.</p>",
-      "date_published": "2026-04-06T08:00:04+00:00",
-      "authors": [
-        {
-          "name": "Civil Eats",
-          "url": "https://civileats.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 38,
+      "_boosted_score": 37,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
-      "image": "https://civileats.com/wp-content/uploads/2026/04/for-aquaculture-will-ai-be-a-net-positive-hero.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/8bKb47fzPjabkZ7EVXnQ6K-1280-80.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/everyday-items-i-no-longer-have-to-buy-thanks-to-3d-printing/",
+      "url": "https://www.howtogeek.com/everyday-items-i-no-longer-have-to-buy-thanks-to-3d-printing/",
+      "title": "[How-To Geek] 6 everyday items I no longer have to buy thanks to 3D printing",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/06/an-elegoo-centauri-carbon-3d-printer-and-some-organized-cables-beside-it.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBy Grabthar's hammer... what a savings.",
+      "date_published": "2026-04-12T18:45:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/06/an-elegoo-centauri-carbon-3d-printer-and-some-organized-cables-beside-it.png"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/12/green-powered-challenge-solar-powered-pi-hosts-websites-in-ram/",
+      "url": "https://hackaday.com/2026/04/12/green-powered-challenge-solar-powered-pi-hosts-websites-in-ram/",
+      "title": "[Hackaday] Green Powered Challenge: Solar Powered Pi Hosts Websites in RAM",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/solar-pi-feat.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"486\" src=\"https://hackaday.com/wp-content/uploads/2026/04/solar-pi-feat.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you started with computers early enough, you&#8217;ll remember the importance of the RAMdisk concept: without a hard drive and with floppies slow and swapping constantly, everything had to live <a class=\"read-more\" href=\"https://hackaday.com/2026/04/12/green-powered-challenge-solar-powered-pi-hosts-websites-in-ram/\">&#8230;read more</a>",
+      "date_published": "2026-04-12T14:00:00+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/solar-pi-feat.png"
     }
   ]
 }
