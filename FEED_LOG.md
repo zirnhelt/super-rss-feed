@@ -3,6 +3,23 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-13 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **682** → dedup **588** → new **227** → quality **144**
+- Mix: local:1(1%), ai-tech:40(30%), climate:10(7%), homelab:31(23%), science:9(7%), scifi:4(3%), news:39(29%)
+- Feeds: local:44, ai-tech:447, climate:129, homelab:344, science:141, scifi:28, news:500
+- Images: 144/144
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-12 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -228,37 +245,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:9(6%), ai-tech:39(26%), climate:10(7%), homelab:22(15%), science:18(12%), scifi:3(2%), news:50(33%)
 - Feeds: local:57, ai-tech:283, climate:113, homelab:384, science:135, scifi:28, news:500
 - Images: 164/164
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-05 (Sunday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **689** → dedup **614** → new **207** → quality **93**
-- Mix: local:2(2%), ai-tech:21(26%), climate:1(1%), homelab:27(33%), science:2(2%), news:29(35%)
-- Feeds: local:63, ai-tech:196, climate:136, homelab:431, science:146, scifi:33, news:500
-- Images: 93/93
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **544** → dedup **486** → new **171** → quality **80**
-- Mix: ai-tech:12(16%), climate:1(1%), homelab:24(33%), science:6(8%), news:30(41%)
-- Feeds: local:61, ai-tech:208, climate:128, homelab:423, science:145, scifi:31, news:500
-- Images: 80/80
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
@@ -806,6 +792,18 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ The Narwhal failed — 415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/
 - - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
 - - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
+
+
+---
+
+
+
+## Week of 2026-04-05–2026-04-05
+- 2 runs · avg fetched 616 · avg quality 86
+- Dominant: **news** (38%) local:2 / ai-tech:33 / climate:2 / homelab:51 / science:8 / news:59
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
 ---
