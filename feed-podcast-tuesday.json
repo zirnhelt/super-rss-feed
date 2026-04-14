@@ -22,62 +22,106 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' through a RURAL TECH AND INNOVATION lens. Strong fits include: precision forestry and remote sensing in Cariboo logging, AgTech and ranch management systems, mining automation and safety technology, farm sensors and soil monitoring, sawmill modernization and automation, drone surveys for resource management, IoT in agriculture and ranching, climate adaptation tech for working lands, workforce training for industrial tech, commodity tracking and supply chain tech, and how Cariboo resource industries adopt innovation. Prefer articles that bridge resource economy AND technology in rural/industrial contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-04-07T14:08:39.842915+00:00",
-    "article_count": 24,
-    "bonus_count": 23,
+    "generated_at": "2026-04-14T06:16:30.992324+00:00",
+    "article_count": 38,
+    "bonus_count": 30,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://qz.com/holganix-exec-magic-farmers-us",
-      "url": "https://qz.com/holganix-exec-magic-farmers-us",
-      "title": "[Quartz] Holganix exec: 'We've unlocked some magic for farmers in the U.S.'",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Holganix%2520Exec-%2520%E2%80%98We%E2%80%99ve%2520Unlocked%2520Some%2520Magic%2520for%2520Farmers%2520in%2520the%2520U.S.%E2%80%99.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHolganix exec: 'We've unlocked some magic for farmers in the U.S.'",
-      "date_published": "2026-04-07T11:50:00+00:00",
+      "id": "https://news.gov.bc.ca/releases/2026FOR0012-000403",
+      "url": "https://news.gov.bc.ca/releases/2026FOR0012-000403",
+      "title": "[BC Gov News] Inviting Cariboo-Chilcotin residents to help guide forest management",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSurvey, open houses will collect feedback on what people value in local forests",
+      "date_published": "2026-04-13T15:15:00+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 93,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 1,
+      "_boosted_score": 47,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/04/07/Cattle-Poisoned-BC-Forest-Fertilizer/",
+      "url": "https://thetyee.ca/News/2026/04/07/Cattle-Poisoned-BC-Forest-Fertilizer/",
+      "title": "[The Tyee] Cattle Were Poisoned by BC’s Forest Fertilizer. Now Someone Will Pay",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/05/BlackCow.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nInvestigators recommend a fine. But the province hasn't disclosed who is believed to be responsible.",
+      "date_published": "2026-04-07T07:10:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 2,
+      "_boosted_score": 58,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/News/2026/04/05/BlackCow.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026AF0013-000329",
+      "url": "https://news.gov.bc.ca/releases/2026AF0013-000329",
+      "title": "[BC Gov News] Aerial spraying will curb invasive spongy moths in Delta, Squamish",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTreatments will protect agriculture, forestry sectors, natural environment",
+      "date_published": "2026-04-13T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 57,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_keyword_matches": 3,
+      "_boosted_score": 77,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://gizmodo.com/this-memory-chip-survives-temperatures-hotter-than-lava-2000745819",
+      "url": "https://gizmodo.com/this-memory-chip-survives-temperatures-hotter-than-lava-2000745819",
+      "title": "[Gizmodo] This Memory Chip Survives Temperatures Hotter Than Lava",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/usc-yang-et-al-memory-chip-optical-image-1280x854.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n“You may call it a revolution. It is the best high-temperature memory ever demonstrated.”",
+      "date_published": "2026-04-13T22:00:40+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
         }
       ],
       "_quality_score": 52,
-      "_theme_score": 25,
-      "_final_score": 25,
+      "_theme_score": 15,
+      "_final_score": 15,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Holganix%2520Exec-%2520%E2%80%98We%E2%80%99ve%2520Unlocked%2520Some%2520Magic%2520for%2520Farmers%2520in%2520the%2520U.S.%E2%80%99.mp4"
+      "image": "https://gizmodo.com/app/uploads/2026/04/usc-yang-et-al-memory-chip-optical-image-1280x854.jpg"
     },
     {
-      "id": "https://insideevs.com/news/792230/rivian-r2-epa-range-efficiency/",
-      "url": "https://insideevs.com/news/792230/rivian-r2-epa-range-efficiency/",
-      "title": "[InsideEVs] The Rivian R2’s EPA Numbers Are In, And It Beats The Model Y Where It Counts",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/rK7P1r/s3/2026-rivian-r2-prototype-drive.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRivian’s most powerful R2 has more range than initially estimated, and it's more efficient than the Tesla Model Y.",
-      "date_published": "2026-04-07T10:00:06+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/rK7P1r/s3/2026-rivian-r2-prototype-drive.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/07/362000-operational-deficit-identified-at-cariboo-memorial-recreation-complex/",
-      "url": "https://wltribune.com/2026/04/07/362000-operational-deficit-identified-at-cariboo-memorial-recreation-complex/",
-      "title": "[Williams Lake Tribune] $362,000 operational deficit identified at Cariboo Memorial Recreation Complex",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41977123_web1_cmrcimg_8104.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProjected revenues fell short and expenses were over",
-      "date_published": "2026-04-07T14:07:16.162676+00:00",
+      "id": "https://wltribune.com/2026/04/13/williams-lake-fire-department-extinguishes-fire-in-river-valley/",
+      "url": "https://wltribune.com/2026/04/13/williams-lake-fire-department-extinguishes-fire-in-river-valley/",
+      "title": "[Williams Lake Tribune] Williams Lake Fire Department extinguishes fire in River Valley",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42048543_web1_33086564_web1_230622-WLT-fire-call-wlfd_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1 MIN READ",
+      "date_published": "2026-04-14T06:14:58.825358+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -92,18 +136,150 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41977123_web1_cmrcimg_8104.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42048543_web1_33086564_web1_230622-WLT-fire-call-wlfd_1.jpg?w=1024"
     },
     {
-      "id": "https://hackaday.com/2026/04/07/cca-ethernet-cables-not-up-to-scratch-but-are-they-dangerous/",
-      "url": "https://hackaday.com/2026/04/07/cca-ethernet-cables-not-up-to-scratch-but-are-they-dangerous/",
-      "title": "[Hackaday] CCA Ethernet Cables: Not Up To Scratch, But Are They Dangerous?",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/CCA.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"484\" src=\"https://hackaday.com/wp-content/uploads/2026/03/CCA.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you&#8217;ve ever bought a suspiciously cheap Ethernet cable from an online listing, there&#8217;s a decent chance you&#8217;ve encountered Copper Clad Aluminum. Better known as CCA, it&#8217;s exactly what it <a class=\"read-more\" href=\"https://hackaday.com/2026/04/07/cca-ethernet-cables-not-up-to-scratch-but-are-they-dangerous/\">&#8230;read more</a>",
-      "date_published": "2026-04-07T14:00:04+00:00",
+      "id": "https://wltribune.com/2026/04/13/bouldering-competition-entices-climbers-in-williams-lake/",
+      "url": "https://wltribune.com/2026/04/13/bouldering-competition-entices-climbers-in-williams-lake/",
+      "title": "[Williams Lake Tribune] Bouldering competition entices climbers in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42050096_web1_260416-WLT-Bouldering-Competition_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMembers of the Williams Lake Climbing Association can participate in the competition and win prizes",
+      "date_published": "2026-04-14T06:14:58.825087+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42050096_web1_260416-WLT-Bouldering-Competition_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.tomsguide.com/vehicle-tech/evs/i-tested-30-electric-cars-in-the-last-year-heres-the-5-most-efficient-evs-under-usd40-000-you-can-buy-right-now",
+      "url": "https://www.tomsguide.com/vehicle-tech/evs/i-tested-30-electric-cars-in-the-last-year-heres-the-5-most-efficient-evs-under-usd40-000-you-can-buy-right-now",
+      "title": "[Toms Guide] I tested 30+ electric cars in the last year — here’s the 5 most efficient EVs under $40,000 you can buy right now",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/8GbhvGKj9j96bVtWQoveae-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith gas prices rising, I’ve rounded up the five most efficient EVs I've tested under $40,000 that prove you don't have to sacrifice range or performance to save money.",
+      "date_published": "2026-04-14T05:15:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/8GbhvGKj9j96bVtWQoveae-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/13/electric-truck-sets-racing-record/",
+      "url": "https://hackaday.com/2026/04/13/electric-truck-sets-racing-record/",
+      "title": "[Hackaday] Electric Truck Sets Racing Record",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/ev-truck-main.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/ev-truck-main.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The 24 Hours of Le Mans races is an extremely prestigious endurance motorsport event which attracts the best cars and drivers from around the world. It&#8217;s one of the longest-running <a class=\"read-more\" href=\"https://hackaday.com/2026/04/13/electric-truck-sets-racing-record/\">&#8230;read more</a>",
+      "date_published": "2026-04-14T05:00:18+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/ev-truck-main.png"
+    },
+    {
+      "id": "https://www.xda-developers.com/this-esp32-macintosh-plus-emulator-can-pull-weather-from-home-assistant/",
+      "url": "https://www.xda-developers.com/this-esp32-macintosh-plus-emulator-can-pull-weather-from-home-assistant/",
+      "title": "[XDA Developers] This ESP32 Macintosh Plus emulator can pull weather from Home Assistant",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/04/esp32-macintosh-ha-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBring some modern updates to your retro devices.",
+      "date_published": "2026-04-14T03:22:43+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/04/esp32-macintosh-ha-featured.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/a-new-computer-chip-could-finally-withstand-the-hellscape-of-venus",
+      "url": "https://www.sciencealert.com/a-new-computer-chip-could-finally-withstand-the-hellscape-of-venus",
+      "title": "[ScienceAlert] A New Computer Chip Could Finally Withstand The Hellscape of Venus",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/Venus-radar-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A New Computer Chip Could Finally Withstand The Hellscape of Venus\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/Venus-radar-1.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Venus is too rough with our toys.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-14T01:59:48+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/04/Venus-radar-1.jpg"
+    },
+    {
+      "id": "https://newatlas.com/energy/spin-flip-solar-cell-energy-conversion-efficiency/",
+      "url": "https://newatlas.com/energy/spin-flip-solar-cell-energy-conversion-efficiency/",
+      "title": "[New Atlas] \"Spin-flip\" system pushes solar cell energy conversion efficiency past 100%",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/5543a0d/2147483647/strip/true/crop/5616x2948+0+398/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F41%2Ff6%2Fd96f11904b18b40dd25739d6296a%2Fdepositphotos-22942546-xl.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Photovoltaic panels could soon be capable of generating significantly more electricity, thanks to a new system that radically boosts the energy conversion efficiency of solar cells\" src=\"https://assets.newatlas.com/dims4/default/b3c1b36/2147483647/strip/true/crop/5616x3744+0+0/resize/1440x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F41%2Ff6%2Fd96f11904b18b40dd25739d6296a%2Fdepositphotos-22942546-xl.jpg\" /><p>Energy can never be created or destroyed. That's basic Physics 101. You simply cannot create energy out of thin air. Yet researchers at Kyushu University in Japan say they have developed a technology that pushes the energy conversion efficiency of solar cells to 130%!</p><p><a href=\"https://newatlas.com/energy/spin-flip-solar-cell-energy-conversion-efficiency/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/energy/\">Energy</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/solar-cell/\" rel=\"tag\">Solar Cell</a>, <a href=\"https://newatlas.com/tag/solar-power/\" rel=\"tag\">Solar Power</a>, <a href=\"https://newatlas.com/tag/kyushu-university/\" rel=\"tag\">Kyushu University</a>, <a href=\"https://newatlas.com/tag/johannes-gutenberg-university-mainz/\" rel=\"tag\">Johannes Gutenberg University Mainz</a>, <a href=\"https://newatlas.com/tag/american-chemical-society/\" rel=\"tag\">American Chemical Society</a></p>",
+      "date_published": "2026-04-14T01:27:33+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/5543a0d/2147483647/strip/true/crop/5616x2948+0+398/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F41%2Ff6%2Fd96f11904b18b40dd25739d6296a%2Fdepositphotos-22942546-xl.jpg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.sciencealert.com/whats-the-difference-between-anxiety-and-ocd-psychologists-explain",
+      "url": "https://www.sciencealert.com/whats-the-difference-between-anxiety-and-ocd-psychologists-explain",
+      "title": "[ScienceAlert] What's The Difference Between Anxiety And OCD? Psychologists Explain",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/anxiety.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"What&#039;s The Difference Between Anxiety And OCD? Psychologists Explain\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/anxiety.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />They can have similar symptoms.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-14T01:05:02+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
         }
       ],
       "_quality_score": 55,
@@ -111,65 +287,87 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "wellness",
+      "_source_category": "wellness",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/03/CCA.jpg"
+      "image": "https://www.sciencealert.com/images/2026/04/anxiety.jpg"
     },
     {
-      "id": "https://gizmodo.com/astronomers-found-the-closest-thing-yet-to-the-universes-first-stars-2000742791",
-      "url": "https://gizmodo.com/astronomers-found-the-closest-thing-yet-to-the-universes-first-stars-2000742791",
-      "title": "[Gizmodo] Astronomers Found the Closest Thing Yet to the Universe’s First Stars",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/star-sdss-j0915-7334-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pristine star formed outside the Milky Way and later drifted into our galaxy.",
-      "date_published": "2026-04-07T13:45:11+00:00",
+      "id": "https://100milefreepress.net/2026/04/13/mount-timothy-ends-winter-season-with-snow-drags/",
+      "url": "https://100milefreepress.net/2026/04/13/mount-timothy-ends-winter-season-with-snow-drags/",
+      "title": "[100 Mile Free Press] Mount Timothy ends winter season with snow drags",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42051523_web1_260416-OMH-Mount-Tim-Snow-Drags_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The South Cariboo ski hill saw dozens of competitors on Saturday, April 11 and Sunday, April 12 </p>",
+      "date_published": "2026-04-14T00:00:00+00:00",
       "authors": [
         {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
         }
       ],
-      "_quality_score": 72,
+      "_quality_score": 85,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "science",
-      "_source_category": "science",
+      "_boosted_score": 25,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/04/star-sdss-j0915-7334-1280x853.jpg"
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42051523_web1_260416-OMH-Mount-Tim-Snow-Drags_3.jpg?w=1024"
     },
     {
-      "id": "https://www.sciencealert.com/one-of-earths-most-explosive-volcanoes-is-quietly-refilling-with-magma",
-      "url": "https://www.sciencealert.com/one-of-earths-most-explosive-volcanoes-is-quietly-refilling-with-magma",
-      "title": "[ScienceAlert] One of Earth's Most Explosive Volcanoes Is Quietly Refilling With Magma",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/20260327_press_seama-enthumb.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"image of underwater Kikai caldera, Japan\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/20260327_press_seama-enthumb.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />It unleashed the largest known eruption of the Holocene.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-07T13:00:54+00:00",
+      "id": "https://www.sciencealert.com/marriage-linked-to-lower-cancer-risk-in-study-of-4-million-cases",
+      "url": "https://www.sciencealert.com/marriage-linked-to-lower-cancer-risk-in-study-of-4-million-cases",
+      "title": "[ScienceAlert] Marriage Linked to Lower Cancer Risk In Study of 4 Million Cases",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/GettingMarried.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Exchanging wedding rings\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/GettingMarried.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />But there are caveats.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-13T23:30:36+00:00",
       "authors": [
         {
           "name": "ScienceAlert",
           "url": "https://www.sciencealert.com"
         }
       ],
-      "_quality_score": 70,
+      "_quality_score": 60,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/04/GettingMarried.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/nvidia-shield-replacement-solution-nas/",
+      "url": "https://www.xda-developers.com/nvidia-shield-replacement-solution-nas/",
+      "title": "[XDA Developers] I stopped trying to replace my Nvidia Shield and built something better instead",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/hisense-google-tv-header-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Shield did it all, and that approach has its problems.",
+      "date_published": "2026-04-13T23:01:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 68,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "science",
-      "_source_category": "science",
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/20260327_press_seama-enthumb.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/hisense-google-tv-header-1.jpg"
     },
     {
-      "id": "https://techcrunch.com/2026/04/07/why-a-former-airpods-engineer-is-now-building-heat-pumps/",
-      "url": "https://techcrunch.com/2026/04/07/why-a-former-airpods-engineer-is-now-building-heat-pumps/",
-      "title": "[TechCrunch] Why a former AirPods engineer is now building heat pumps",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/04/merino-mono-installation.jpeg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMerino Energy has simplified the heat pump dramatically in a quest to make them cheaper and easier to install.",
-      "date_published": "2026-04-07T13:00:27+00:00",
+      "id": "https://hackaday.com/2026/04/13/your-own-tool-changer/",
+      "url": "https://hackaday.com/2026/04/13/your-own-tool-changer/",
+      "title": "[Hackaday] Your Own Tool Changer",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/tool.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/tool.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>All the cool new 3D printers have tool-changing heads. Instead of multiplexing filament through one hot end, you simply park one hot end and pick up another. Or pick up <a class=\"read-more\" href=\"https://hackaday.com/2026/04/13/your-own-tool-changer/\">&#8230;read more</a>",
+      "date_published": "2026-04-13T23:00:09+00:00",
       "authors": [
         {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
       "_quality_score": 72,
@@ -177,21 +375,21 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_category": "homelab",
+      "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/merino-mono-installation.jpeg?resize=1200,800"
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/tool.png"
     },
     {
-      "id": "https://www.howtogeek.com/i-thought-my-windows-10-pc-was-dying-until-i-gave-it-this-zero-dollar-deep-clean/",
-      "url": "https://www.howtogeek.com/i-thought-my-windows-10-pc-was-dying-until-i-gave-it-this-zero-dollar-deep-clean/",
-      "title": "[How-To Geek] My Windows 10 PC was dying until I spent two hours and exactly zero dollars",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/10/rsz_img20251010115627.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStop upgrading your old PC—here's how dust and clutter nearly killed mine",
-      "date_published": "2026-04-07T13:00:16+00:00",
+      "id": "https://boingboing.net/2026/04/13/how-did-the-fbi-recover-signal-messages-from-a-deleted-app.html",
+      "url": "https://boingboing.net/2026/04/13/how-did-the-fbi-recover-signal-messages-from-a-deleted-app.html",
+      "title": "[Boing Boing] How did the FBI recover Signal messages from a deleted app?",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/signal.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/13/how-did-the-fbi-recover-signal-messages-from-a-deleted-app.html\" rel=\"nofollow\" title=\"How did the FBI recover Signal messages from a deleted app?\"><img alt=\"BigTunaOnline / Shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/signal.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>Deleting a Signal message from your iPhone doesn't necessarily delete the message. That's the takeaway from a federal case in Texas, where the FBI recovered Signal messages that had already been erased by pulling them from iOS's internal push notification storage. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/13/how-did-the-fbi-recover-signal-messages-from-a-deleted-app.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/13/how-did-the-fbi-recover-signal-messages-from-a-deleted-app.html\">How did the FBI recover Signal messages from a deleted app?</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-04-13T22:35:33+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
       "_quality_score": 52,
@@ -202,18 +400,62 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/10/rsz_img20251010115627.png"
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/signal.jpg?fit=1200%2C800&quality=60&ssl=1"
     },
     {
-      "id": "https://gizmodo.com/aqara-thermostat-hub-w200-review-almost-better-than-my-ecobee-2000735552",
-      "url": "https://gizmodo.com/aqara-thermostat-hub-w200-review-almost-better-than-my-ecobee-2000735552",
-      "title": "[Gizmodo] Aqara Thermostat Hub W200 Review: Almost Better than My Ecobee",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/Aqara-Hub-W200-Smart-Thermostat-review-05-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAqara’s first smart thermostat is a stellar first effort, but has work to do to catch the best thermostats out there.",
-      "date_published": "2026-04-07T13:00:13+00:00",
+      "id": "https://www.theverge.com/transportation/911196/mercedes-benz-eqs-ev-range-battery-charging-2027",
+      "url": "https://www.theverge.com/transportation/911196/mercedes-benz-eqs-ev-range-battery-charging-2027",
+      "title": "[The Verge] The Mercedes EQS returns with massive range and charging gains",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/pre-media-26c0110_003.jpg?quality=90&amp;strip=all&amp;crop=0%2C4.2609019140288%2C100%2C91.478196171942&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA year ago, Mercedes-Benz did the prudent thing and paused its EQ lineup of electric vehicles in the US. With customer demand drying up for luxury EVs, and federal incentives getting axed by vengeful Republicans, Mercedes put its first-generation EVs on ice. But then, in January, Mercedes quietly reintroduced the EQS brand in the US, [&#8230;]",
+      "date_published": "2026-04-13T22:01:00+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "_quality_score": 61,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/pre-media-26c0110_003.jpg?quality=90&strip=all&crop=0%2C4.2609019140288%2C100%2C91.478196171942&w=1200"
+    },
+    {
+      "id": "https://gizmodo.com/some-good-news-about-the-upcoming-atlantic-hurricane-season-2000745867",
+      "url": "https://gizmodo.com/some-good-news-about-the-upcoming-atlantic-hurricane-season-2000745867",
+      "title": "[Gizmodo] Some Good News About the Upcoming Atlantic Hurricane Season",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/Hurricane-Milton-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nForecasters at Colorado State University expect to see below-normal cyclone activity in the Atlantic basin this season.",
+      "date_published": "2026-04-13T21:05:33+00:00",
       "authors": [
         {
           "name": "Gizmodo",
           "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/04/Hurricane-Milton-1280x853.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/the-back-of-your-monitor-is-wasted-space-if-you-own-a-mini-pc/",
+      "url": "https://www.xda-developers.com/the-back-of-your-monitor-is-wasted-space-if-you-own-a-mini-pc/",
+      "title": "[XDA Developers] I mounted my mini PC behind my monitor and cleared my entire desk in the process",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/03/geekom-mini-it13-21.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFree up room on your desk with this simple trick.",
+      "date_published": "2026-04-13T21:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
         }
       ],
       "_quality_score": 65,
@@ -224,18 +466,18 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/04/Aqara-Hub-W200-Smart-Thermostat-review-05-1280x853.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/03/geekom-mini-it13-21.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/cloudflare-godaddy-ai-bot-swarms-crawlers-google-openai-anthropic-2026-4",
-      "url": "https://www.businessinsider.com/cloudflare-godaddy-ai-bot-swarms-crawlers-google-openai-anthropic-2026-4",
-      "title": "[Business Insider] Cloudflare and GoDaddy team up to help websites fend off Big Tech's AI bot swarm",
-      "content_html": "<img src=\"https://i.insider.com/69d3fcf1c02a678bd7e48584?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCloudflare and GoDaddy are partnering to give websites control over AI crawlers, aiming to fix the web's broken business model in the AI era.",
-      "date_published": "2026-04-07T13:00:01+00:00",
+      "id": "https://www.techradar.com/pro/accuracy-over-volume-heres-why-high-value-pros-are-using-ai-to-work-slower-not-faster",
+      "url": "https://www.techradar.com/pro/accuracy-over-volume-heres-why-high-value-pros-are-using-ai-to-work-slower-not-faster",
+      "title": "[TechRadar] 'Accuracy over volume': Here's why high-value pros are using AI to work slower, not faster",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/h8ZQHernNUVpnGYX7QnxVM-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHigh-earning professionals increasingly use AI tools for validation and error prevention rather than speed, reflecting a shift toward accuracy-focused workflows.",
+      "date_published": "2026-04-13T20:15:00+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
       "_quality_score": 52,
@@ -246,40 +488,348 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69d3fcf1c02a678bd7e48584?format=jpeg"
+      "image": "https://cdn.mos.cms.futurecdn.net/h8ZQHernNUVpnGYX7QnxVM-1280-80.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/replaced-babbel-claude-projects-italian/",
-      "url": "https://www.xda-developers.com/replaced-babbel-claude-projects-italian/",
-      "title": "[XDA Developers] I replaced Babbel with Claude Projects for Italian, and I'm not going back",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/italian-claude-projects-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI replaced Babbel with Claude Projects for Italian, and now I'm canceling the paid language app. Here's how Claude Pro outperformed Babbel for me.",
-      "date_published": "2026-04-07T12:30:21+00:00",
+      "id": "https://100milefreepress.net/2026/04/13/100-mile-fire-rescue-celebrating-70th-anniversary-may-2/",
+      "url": "https://100milefreepress.net/2026/04/13/100-mile-fire-rescue-celebrating-70th-anniversary-may-2/",
+      "title": "[100 Mile Free Press] 100 Mile Fire Rescue celebrating 70th anniversary May 2",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42046645_web1_260416-OMH-100-Mile-Fire-Rescue_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The department is running an open house and is inviting the public to attend </p>",
+      "date_published": "2026-04-13T20:00:00+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
         }
       ],
-      "_quality_score": 50,
+      "_quality_score": 85,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42046645_web1_260416-OMH-100-Mile-Fire-Rescue_1.jpg?w=1024"
+    },
+    {
+      "id": "https://nautil.us/the-centuries-old-history-of-the-super-el-nino-1279783/",
+      "url": "https://nautil.us/the-centuries-old-history-of-the-super-el-nino-1279783/",
+      "title": "[Nautilus] The Centuries-Old History of the Super El Niño",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Grant_HERO_2d47ba.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>We may get an exceptionally strong El Niño this year, but we’ve been tracking the climatic cycle since 1578</p>\n<p>The post <a href=\"https://nautil.us/the-centuries-old-history-of-the-super-el-nino-1279783/\">The Centuries-Old History of the Super El Niño</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-13T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Grant_HERO_2d47ba.png?w=564"
+    },
+    {
+      "id": "https://www.sciencealert.com/ancient-landscape-reveals-bones-of-humans-who-lived-100000-years-ago",
+      "url": "https://www.sciencealert.com/ancient-landscape-reveals-bones-of-humans-who-lived-100000-years-ago",
+      "title": "[ScienceAlert] Ancient Landscape Reveals Bones of Humans Who Lived 100,000 Years Ago",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/obsidian-point.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Ancient Landscape Reveals Bones of Humans Who Lived 100,000 Years Ago\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/obsidian-point.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Their remains survived the ravages of millennia. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-13T19:00:07+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/04/obsidian-point.jpg"
+    },
+    {
+      "id": "https://nautil.us/two-supermassive-black-holes-are-on-a-cosmic-collision-course-1279779/",
+      "url": "https://nautil.us/two-supermassive-black-holes-are-on-a-cosmic-collision-course-1279779/",
+      "title": "[Nautilus] Two Supermassive Black Holes Are on a Cosmic Collision Course",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_6ff5b5.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Astronomers find a pair of super close, supermassive black holes for the first time</p>\n<p>The post <a href=\"https://nautil.us/two-supermassive-black-holes-are-on-a-cosmic-collision-course-1279779/\">Two Supermassive Black Holes Are on a Cosmic Collision Course</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-13T19:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_6ff5b5.png?w=564"
+    },
+    {
+      "id": "https://techcrunch.com/2026/04/13/stanford-report-highlights-growing-disconnect-between-ai-insiders-and-everyone-else/",
+      "url": "https://techcrunch.com/2026/04/13/stanford-report-highlights-growing-disconnect-between-ai-insiders-and-everyone-else/",
+      "title": "[TechCrunch] Stanford report highlights growing disconnect between AI insiders and everyone else",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStanford’s latest AI Index shows a widening gap between experts and the public, with rising anxiety over jobs, healthcare, and the economy.",
+      "date_published": "2026-04-13T18:55:37+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
+    },
+    {
+      "id": "https://gizmodo.com/a-diarrhea-causing-superbug-is-on-the-rise-health-officials-warn-2000745651",
+      "url": "https://gizmodo.com/a-diarrhea-causing-superbug-is-on-the-rise-health-officials-warn-2000745651",
+      "title": "[Gizmodo] A Diarrhea-Causing Superbug Is on the Rise, Health Officials Warn",
+      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/Shigella-bacteria-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nShigella bacteria are increasingly resisting all antibiotics that can easily treat them, a recent report shows.",
+      "date_published": "2026-04-13T18:30:29+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://gizmodo.com/app/uploads/2026/04/Shigella-bacteria-1280x853.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/mesh-wi-fi-isnt-overkill-its-the-new-default/",
+      "url": "https://www.howtogeek.com/mesh-wi-fi-isnt-overkill-its-the-new-default/",
+      "title": "[How-To Geek] Your single router is why Wi-Fi dies in your bedroom—why a mesh network is the only real fix",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/eero-mesh.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMesh Wi-Fi isn't overkill, it's the new default",
+      "date_published": "2026-04-13T18:00:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/eero-mesh.jpeg"
+    },
+    {
+      "id": "https://www.businessinsider.com/slate-raises-funding-round-ev-pickup-preorders-hit-160000-2026-4",
+      "url": "https://www.businessinsider.com/slate-raises-funding-round-ev-pickup-preorders-hit-160000-2026-4",
+      "title": "[Business Insider] Slate raises fresh $650 million as reservations for its mid-$20,000 truck cross 160,000",
+      "content_html": "<img src=\"https://i.insider.com/69dcf6aa899c9d3be050fefc?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nInvestors are betting a fresh $650 million that Slate can make its proudly bare-bones EV pickup a hit. The company is targeting a 2026 launch.",
+      "date_published": "2026-04-13T15:25:19+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/69dcf6aa899c9d3be050fefc?format=jpeg"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/04/13/quick-ears-and-fast-rowing-by-good-samaritans-aid-in-saanich-water-rescue/",
+      "url": "https://quesnelobserver.com/2026/04/13/quick-ears-and-fast-rowing-by-good-samaritans-aid-in-saanich-water-rescue/",
+      "title": "[Quesnel Cariboo Observer] ‘Quick ears and fast rowing’ by Good Samaritans aid in Saanich water rescue",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42044525_web1_260413-SNE-PersonOverboardRescue_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Oak Bay rescue team reminds residents &#8216;accidents can happen in a split second, especially in the dark&#8217; </p>",
+      "date_published": "2026-04-13T15:20:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 87,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42044525_web1_260413-SNE-PersonOverboardRescue_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.zdnet.com/article/artix-linux-distribution-review/",
+      "url": "https://www.zdnet.com/article/artix-linux-distribution-review/",
+      "title": "[ZDNet] I tested Artix Linux: An enjoyable systemd-free distro for experienced users (and ChromeOS speeds)",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/69192eb2c8d845488e7b8bb34a454edfbd22b59f/2026/04/13/03cedca3-878e-47dd-a470-96eed2c1823a/artixhero.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you want a stable Linux distribution with a unique take, Artix is one of the fastest and most reliable I've tested.",
+      "date_published": "2026-04-13T15:17:00+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.zdnet.com/a/img/resize/69192eb2c8d845488e7b8bb34a454edfbd22b59f/2026/04/13/03cedca3-878e-47dd-a470-96eed2c1823a/artixhero.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/13/dropping-off-unsecured-unregistered-firearms-at-detachment-a-criminal-offence-in-b-c-rcmp-says/",
+      "url": "https://wltribune.com/2026/04/13/dropping-off-unsecured-unregistered-firearms-at-detachment-a-criminal-offence-in-b-c-rcmp-says/",
+      "title": "[Williams Lake Tribune] Dropping off ‘unsecured, unregistered’ firearms at detachment a criminal offence in B.C., RCMP says",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42053153_web1_260224-BPD-gunbuyback-Vicpdguns_1.jpeg?w=900\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>RCMP issues reminder about how federal buyback program for assault-style weapons actually works </p>",
+      "date_published": "2026-04-13T15:13:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 98,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 29,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42053153_web1_260224-BPD-gunbuyback-Vicpdguns_1.jpeg?w=900"
+    },
+    {
+      "id": "https://www.sciencealert.com/sibling-stem-cell-transplant-leads-to-rare-hiv-remission-in-oslo-patient",
+      "url": "https://www.sciencealert.com/sibling-stem-cell-transplant-leads-to-rare-hiv-remission-in-oslo-patient",
+      "title": "[ScienceAlert] Sibling Stem Cell Transplant Leads to Rare HIV Remission in 'Oslo Patient'",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/HIVVirus.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"3D illustration of HIV virus\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/HIVVirus.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Another step towards a cure.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-13T15:00:15+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/04/HIVVirus.jpg"
+    },
+    {
+      "id": "https://www.quantamagazine.org/the-ai-revolution-in-math-has-arrived-20260413/",
+      "url": "https://www.quantamagazine.org/the-ai-revolution-in-math-has-arrived-20260413/",
+      "title": "[Quanta Magazine] The AI Revolution in Math Has Arrived",
+      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/04/Math-AI-Update-cr-Nash-Weerasekera-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI is being used to prove new results at a rapid pace. Mathematicians think this is just the beginning.            <p>The post <a href=\"https://www.quantamagazine.org/the-ai-revolution-in-math-has-arrived-20260413/\" target=\"_blank\">The AI Revolution in Math Has Arrived</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
+      "date_published": "2026-04-13T14:54:41+00:00",
+      "authors": [
+        {
+          "name": "Quanta Magazine",
+          "url": "https://www.quantamagazine.org"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/italian-claude-projects-2.jpg"
+      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/04/Math-AI-Update-cr-Nash-Weerasekera-Default.webp"
     },
     {
-      "id": "https://www.techradar.com/computing/internet/usd45-mo-for-phone-and-internet-mint-mobile-just-changed-the-game-with-its-new-unf-your-bills-plan",
-      "url": "https://www.techradar.com/computing/internet/usd45-mo-for-phone-and-internet-mint-mobile-just-changed-the-game-with-its-new-unf-your-bills-plan",
-      "title": "[TechRadar] $45/mo for phone and internet? Mint Mobile just changed the game with its new 'Unf*! your bills' plan",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/oBGKupPb9VnckGXHWbZQRZ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMint Mobile's new 'Unf*! your bills' deal gets you home internet and an unlimited 5G phone plan for just $45/mo - pretty incredible value.",
-      "date_published": "2026-04-07T12:21:51+00:00",
+      "id": "https://www.wired.com/story/shingles-is-a-bigger-deal-than-you-think/",
+      "url": "https://www.wired.com/story/shingles-is-a-bigger-deal-than-you-think/",
+      "title": "[WIRED] You Should Be More Freaked Out by Shingles",
+      "content_html": "<img src=\"https://media.wired.com/photos/69d92f4d4201306cf06bd0fc/master/pass/Shingles-Series-Why-Shingles-Is-Bigger-Deal-Than-You-Think-Science.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe viral infection leaves millions with chronic pain, increased stroke risk, and lifelong nerve damage—yet vaccination rates remain dangerously low.",
+      "date_published": "2026-04-13T14:00:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://media.wired.com/photos/69d92f4d4201306cf06bd0fc/master/pass/Shingles-Series-Why-Shingles-Is-Bigger-Deal-Than-You-Think-Science.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/13/b-c-s-ndp-government-nixes-plan-for-dripa-confidence-vote-delays-bill/",
+      "url": "https://wltribune.com/2026/04/13/b-c-s-ndp-government-nixes-plan-for-dripa-confidence-vote-delays-bill/",
+      "title": "[Williams Lake Tribune] B.C.’s NDP government nixes plan for DRIPA confidence vote, delays bill",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42050629_web1_260226-SUL-Eby-slams-senate-david-eby_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Most First Nations were strongly opposed to the plan </p>",
+      "date_published": "2026-04-13T13:24:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 96,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 28,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42050629_web1_260226-SUL-Eby-slams-senate-david-eby_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/13/rcmp-man-wanted-on-canada-wide-warrant-could-be-in-kamloops-or-abbotsford/",
+      "url": "https://wltribune.com/2026/04/13/rcmp-man-wanted-on-canada-wide-warrant-could-be-in-kamloops-or-abbotsford/",
+      "title": "[Williams Lake Tribune] RCMP: Man wanted on Canada-wide warrant could be in Kamloops or Abbotsford",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42050657_web1_260416-ABB-Wanted-man_1.jpeg?w=1000\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Kamloops RCMP report that Kurtis Billy failed to comply with curfew </p>",
+      "date_published": "2026-04-13T13:07:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
       "_quality_score": 55,
@@ -290,271 +840,29 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/oBGKupPb9VnckGXHWbZQRZ-1280-80.jpg"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42050657_web1_260416-ABB-Wanted-man_1.jpeg?w=1000"
     },
     {
-      "id": "https://www.cnet.com/home/internet/wi-fi-home-internet-security-network-routers-hackers/",
-      "url": "https://www.cnet.com/home/internet/wi-fi-home-internet-security-network-routers-hackers/",
-      "title": "[CNET] Stop Hackers in Their Tracks: How to Secure Your Wi-Fi Router",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/4abc01181ac48274bbeb5f8adf24406db697fc6b/hub/2025/07/09/f7aa451e-42f0-43c8-9a23-963b47684fec/gettyimages-1098315096-3.jpg?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKeep intruders out and your home internet traffic safe with these tips.",
-      "date_published": "2026-04-07T12:01:09+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/4abc01181ac48274bbeb5f8adf24406db697fc6b/hub/2025/07/09/f7aa451e-42f0-43c8-9a23-963b47684fec/gettyimages-1098315096-3.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.cnet.com/videos/stop-your-tv-from-spying-how-to-turn-off-automatic-content-recognition/",
-      "url": "https://www.cnet.com/videos/stop-your-tv-from-spying-how-to-turn-off-automatic-content-recognition/",
-      "title": "[CNET] Stop Your TV From Spying: How to Turn Off Automatic Content Recognition video",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/52c533a28c8f9f5ac1174f94b736bce14dc1ed4d/hub/2026/04/07/7ab63281-11e7-4092-bd62-491727df4555/automatic-content-recognition-videoopt-01.jpg?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStop your smart TV from tracking your viewing habits by disabling Automatic Content Recognition. This step-by-step guide shows you exactly how to find and toggle these hidden privacy settings on an Amazon Fire TV.",
-      "date_published": "2026-04-07T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/52c533a28c8f9f5ac1174f94b736bce14dc1ed4d/hub/2026/04/07/7ab63281-11e7-4092-bd62-491727df4555/automatic-content-recognition-videoopt-01.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-ditched-portainer-for-dockhand/",
-      "url": "https://www.xda-developers.com/i-ditched-portainer-for-dockhand/",
-      "title": "[XDA Developers] I ditched Portainer for Dockhand and I regret not doing it sooner",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/windows-11-pc-running-dockhand-dashboard.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDiscover why Dockhand has become the perfect alternative to Portainer for small-scale projects, with its intuitive UI and essential features.",
-      "date_published": "2026-04-07T11:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/windows-11-pc-running-dockhand-dashboard.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/why-most-agentic-ai-projects-fail-and-how-to-avoid-being-one-of-them",
-      "url": "https://www.techradar.com/pro/why-most-agentic-ai-projects-fail-and-how-to-avoid-being-one-of-them",
-      "title": "[TechRadar] Why most agentic AI projects fail, and how to avoid being one of them",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMost agentic AI pilots stall. Data quality, governance and integration determine whether they scale successfully.",
-      "date_published": "2026-04-07T10:51:18+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1280-80.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/home/security/set-worries-about-radon-to-rest-with-one-new-gadget-thats-way-better-than-testing-kits/",
-      "url": "https://www.cnet.com/home/security/set-worries-about-radon-to-rest-with-one-new-gadget-thats-way-better-than-testing-kits/",
-      "title": "[CNET] I Set My Radon Worries to Rest With a Gadget That Puts Testing Kits to Shame",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/c20b8659426a04beb913ca56b91c0b4c3b9dc730/hub/2026/04/03/6b500151-7852-4647-9d52-d86fba5253c5/airthings-radon-detector.jpg?auto=webp&width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAirthings offers a permanent solution for monitoring radon gas levels anywhere in your home, along with ways to track humidity, temperature and pollen levels.",
-      "date_published": "2026-04-07T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/c20b8659426a04beb913ca56b91c0b4c3b9dc730/hub/2026/04/03/6b500151-7852-4647-9d52-d86fba5253c5/airthings-radon-detector.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/07/technology/google-ai-overviews-accuracy.html",
-      "url": "https://www.nytimes.com/2026/04/07/technology/google-ai-overviews-accuracy.html",
-      "title": "[NYT Top Stories] How Accurate Are Google’s A.I. Overviews?",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/06/multimedia/2026-03-25-ai-overviews-index/2026-03-25-ai-overviews-index-mediumSquareAt3X.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe company’s A.I.-generated answers look authoritative, but they draw on an array of sources, from trustworthy sites to Facebook posts.",
-      "date_published": "2026-04-07T09:00:17+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 53,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/06/multimedia/2026-03-25-ai-overviews-index/2026-03-25-ai-overviews-index-mediumSquareAt3X.png"
-    },
-    {
-      "id": "https://www.npr.org/2026/04/07/nx-s1-5771707/mental-health-care-workforce-artificial-intelligence-ai",
-      "url": "https://www.npr.org/2026/04/07/nx-s1-5771707/mental-health-care-workforce-artificial-intelligence-ai",
-      "title": "[NPR Health News] AI in the mental health care workforce is met with fear, pushback — and enthusiasm",
-      "content_html": "<img src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2033x1144+0+112/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fe7%2Fe1%2F2f5e2e244a11a2cb7b7d74dd3b95%2Fgettyimages-1609437924.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nArtificial intelligence tools that help mental health therapists take notes and keep records are quickly entering the marketplace. But some question the safety of AI in mental health care delivery.",
-      "date_published": "2026-04-07T09:00:00+00:00",
-      "authors": [
-        {
-          "name": "NPR Health News",
-          "url": "https://www.npr.org/sections/health-shots/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2033x1144+0+112/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fe7%2Fe1%2F2f5e2e244a11a2cb7b7d74dd3b95%2Fgettyimages-1609437924.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/04/07/934-mhz-when-the-government-really-doesnt-want-you-to-have-cb/",
-      "url": "https://hackaday.com/2026/04/07/934-mhz-when-the-government-really-doesnt-want-you-to-have-cb/",
-      "title": "[Hackaday] 934 MHz: When The Government Really Doesn’t Want You To Have CB",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/cybernet-delta-one-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/cybernet-delta-one-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In the mid 1970s there were a spate of movies depicting the romance and lifestyle of truck drivers in the southern half of the United States. Over on the other <a class=\"read-more\" href=\"https://hackaday.com/2026/04/07/934-mhz-when-the-government-really-doesnt-want-you-to-have-cb/\">&#8230;read more</a>",
-      "date_published": "2026-04-07T08:00:36+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/cybernet-delta-one-featured.jpg"
-    },
-    {
-      "id": "https://newatlas.com/bicycles/cyrusher-kommoda-3-ebike-review/",
-      "url": "https://newatlas.com/bicycles/cyrusher-kommoda-3-ebike-review/",
-      "title": "[New Atlas] The ebike that's basically an e-moped – Cyrusher Kommoda 3.0 review",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/6850219/2147483647/strip/true/crop/2766x1452+0+196/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fe0%2F74%2Fd7cf504d4b419fcb58629ea87ed8%2F0-20260406-165421.jpg&na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The headlight is massive, nearly as big as a motorcycle headlight, but it only puts out about 250 lumens ... which isn't a lot\" src=\"https://assets.newatlas.com/dims4/default/ba299d7/2147483647/strip/true/crop/2766x1844+0+0/resize/1440x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fe0%2F74%2Fd7cf504d4b419fcb58629ea87ed8%2F0-20260406-165421.jpg\" /><p>Calling the Cyrusher Kommoda 3.0 a \"bicycle\" almost feels a little dishonest. Sure, it has pedals and technically fits into the ebike category, but when you twist the throttle, the whole experience leans a little more towards an electric moped that just happens to have pedals. The fat Arisun 20x4-inch tires, the 6061 aluminum step-through frame, and the 750-watt rear hub motor with nearly 63 lb-ft (85 Nm) of torque ... yeah, that all supports what I'm trying to illustrate here.</p><p><a href=\"https://newatlas.com/bicycles/cyrusher-kommoda-3-ebike-review/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/bicycles/\">Bicycles</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/reviews/\" rel=\"tag\">Reviews</a>, <a href=\"https://newatlas.com/tag/ebikes/\" rel=\"tag\">ebikes</a>, <a href=\"https://newatlas.com/tag/bicycle/\" rel=\"tag\">Bicycle</a>, <a href=\"https://newatlas.com/tag/hub-motors/\" rel=\"tag\">Hub Motors</a></p>",
-      "date_published": "2026-04-07T07:44:10+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/6850219/2147483647/strip/true/crop/2766x1452+0+196/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fe0%2F74%2Fd7cf504d4b419fcb58629ea87ed8%2F0-20260406-165421.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.businessinsider.com/memorable-moments-from-the-artemis-ii-lunar-flyby-mission-photos-2026-4",
-      "url": "https://www.businessinsider.com/memorable-moments-from-the-artemis-ii-lunar-flyby-mission-photos-2026-4",
-      "title": "[Business Insider] Memorable moments from the Artemis II mission: from a Microsoft Outlook outage to an emotional crater naming",
-      "content_html": "<img src=\"https://i.insider.com/69d44258c02a678bd7e487a2?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHere are some of the best highlights and photos from the Artemis II mission that surpassed the distance records set by Apollo 13.",
-      "date_published": "2026-04-07T05:52:14+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69d44258c02a678bd7e487a2?format=jpeg"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/07/litter-of-puppies-2-with-bullet-wounds-found-abandoned-near-grand-forks/",
-      "url": "https://wltribune.com/2026/04/07/litter-of-puppies-2-with-bullet-wounds-found-abandoned-near-grand-forks/",
-      "title": "[Williams Lake Tribune] Litter of puppies, 2 with bullet wounds, found abandoned near Grand Forks",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/41995810_web1_260409-KWS-Dogs_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The dogs are now being cared for by the Kootenay Animal Assistance Program </p>",
-      "date_published": "2026-04-07T05:30:00+00:00",
+      "id": "https://wltribune.com/2026/04/13/driver-allegedly-flees-from-fort-st-james-rcmp-crashes-vehicle/",
+      "url": "https://wltribune.com/2026/04/13/driver-allegedly-flees-from-fort-st-james-rcmp-crashes-vehicle/",
+      "title": "[Williams Lake Tribune] Driver allegedly flees from Fort St. James RCMP, crashes vehicle",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42048691_web1_250314-bpd-rcmp-e-division3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Police were first called to a report of threats at a home </p>",
+      "date_published": "2026-04-13T11:31:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 72,
+      "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "local",
-      "_source_category": "local",
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/41995810_web1_260409-KWS-Dogs_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.engadget.com/science/space/how-to-watch-the-historic-artemis-ii-lunar-flyby-155114417.html?src=rss",
-      "url": "https://www.engadget.com/science/space/how-to-watch-the-historic-artemis-ii-lunar-flyby-155114417.html?src=rss",
-      "title": "[Engadget] How to watch the historic Artemis II lunar flyby",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2026-04%2F9720c840-2f3b-11f1-aaa5-57ff2f1b8da7&resize=1400%2C787&client=19f2b5e49a271b2bde77&signature=c9cec8ca315d4c4e34fabf59e5ab7ddacaf1dfa0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>NASA's Artemis II mission is about to make history. After a successful <a class=\"link\" href=\"https://www.engadget.com/science/space/the-artemis-ii-mission-has-started-its-10-day-journey-around-the-moon-033412865.html\" target=\"_blank\">April 1 launch</a>, and a trip of <a class=\"link\" href=\"https://www.engadget.com/science/space/artemis-ii-arrives-in-lunar-space-ahead-of-its-trip-around-the-moon-211919381.html\" target=\"_blank\">39,000 miles through space</a>, astronauts Reid Wiseman, Christina Koch, Victor Glover and Jeremy Hansen are about to travel farther from Earth than any human beings have before, and you can watch the entire thing unfold online. NASA will stream the entire flyby on <a class=\"link\" href=\"https://www.youtube.com/@NASA\" target=\"_blank\">YouTube</a> and its own <a class=\"link\" href=\"https://plus.nasa.gov/\" target=\"_blank\">NASA+ website</a>, with coverage beginning at 1PM ET.&nbsp; You can also watch NASA+ <a class=\"link rapid-with-clickid\" href=\"https://shopping.yahoo.com/rdlw?merchantId=2a170a1e-7e5c-4edd-b5dd-ea6d3bd9416a&amp;siteId=us-engadget&amp;pageId=1p-autolink&amp;contentUuid=e840472d-7491-4097-ad6f-cd82889fcf43&amp;featureId=text-link&amp;merchantName=Netflix&amp;linkText=through+Netflix&amp;custData=eyJzb3VyY2VOYW1lIjoiV2ViLURlc2t0b3AtVmVyaXpvbiIsImxhbmRpbmdVcmwiOiJodHRwczovL3d3dy5uZXRmbGl4LmNvbS90aXRsZS84MjA2NjU0OCIsImNvbnRlbnRVdWlkIjoiZTg0MDQ3MmQtNzQ5MS00MDk3LWFkNmYtY2Q4Mjg4OWZjZjQzIiwib3JpZ2luYWxVcmwiOiJodHRwczovL3d3dy5uZXRmbGl4LmNvbS90aXRsZS84MjA2NjU0OCJ9&amp;signature=AQAAAaeDyqQeLlXgQe2iFJnzdevCYs4egTCNUYD1Z00fMQ4A&amp;gcReferrer=https%3A%2F%2Fwww.netflix.com%2Ftitle%2F82066548\" target=\"_blank\">through Netflix</a>. </p><div><div style=\"width: 100%; height: 0; padding-bottom: 56.25%;\"></div></div><p>It's going to take some time for things to get underway, so if you're working or have plans this evening but don't want to miss seeing history being made, your best bet is to try and catch a handful of key moments. At approximately 1:56PM ET, Artemis II will fly farther than any crewed mission has before, breaking the previous record set by Apollo 13 in 1970. Then, the Orion spacecraft will begin its flyby of the Moon at 2:45PM ET, with the craft expected to make its closest approach to the lunar surface at approximately 7:02PM ET.  A few short minutes later, the spacecraft will reach its maximum distance from Earth at about 7:07PM ET.&nbsp;</p><p>A little more than an hour later at 8:35PM, the Artemis II crew will get a chance to see a total solar eclipse from the far side of the Moon. This is something that won't be visible from Earth. So if you can only catch one part of the broadcast, this is the one to watch.</p>This article originally appeared on Engadget at https://www.engadget.com/science/space/how-to-watch-the-historic-artemis-ii-lunar-flyby-155114417.html?src=rss",
-      "date_published": "2026-04-06T15:51:14+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2026-04%2F9720c840-2f3b-11f1-aaa5-57ff2f1b8da7&resize=1400%2C787&client=19f2b5e49a271b2bde77&signature=c9cec8ca315d4c4e34fabf59e5ab7ddacaf1dfa0"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42048691_web1_250314-bpd-rcmp-e-division3.jpg?w=1024"
     }
   ]
 }
