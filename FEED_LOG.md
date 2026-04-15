@@ -20,6 +20,24 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1018** → dedup **863** → new **382** → quality **239**
+- Mix: local:5(2%), ai-tech:73(34%), climate:11(5%), homelab:35(16%), science:13(6%), scifi:2(1%), news:75(35%)
+- Feeds: local:41, ai-tech:453, climate:129, homelab:344, science:130, scifi:26, news:500
+- Images: 239/239
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
+- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
+- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-13 (Monday)
 
 #### 🌅 4:30 AM Pacific
