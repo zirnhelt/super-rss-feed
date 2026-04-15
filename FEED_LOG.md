@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-15 (Wednesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1002** → dedup **888** → new **320** → quality **199**
+- Mix: local:2(1%), ai-tech:71(38%), climate:12(6%), homelab:38(20%), science:7(4%), scifi:4(2%), news:52(28%)
+- Feeds: local:39, ai-tech:452, climate:131, homelab:356, science:133, scifi:28, news:500
+- Images: 199/199
+- ⚠️ **Engadget** failed — `HTTPConnectionPool(host='www.engadget.com', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-14 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
@@ -230,39 +248,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:3(1%), ai-tech:55(27%), climate:8(4%), homelab:38(19%), science:17(8%), scifi:3(1%), news:81(40%)
 - Feeds: local:47, ai-tech:439, climate:100, homelab:343, science:128, scifi:31, news:500
 - Images: 221/221
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-07 (Tuesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **896** → dedup **754** → new **281** → quality **167**
-- Mix: local:2(1%), ai-tech:51(33%), climate:11(7%), homelab:22(14%), science:13(8%), scifi:3(2%), news:54(35%)
-- Feeds: local:56, ai-tech:323, climate:112, homelab:364, science:139, scifi:30, news:500
-- Images: 167/167
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `HTTPSConnectionPool(host='civileats.com', port=443): Read timed out. (read timeout=10)`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1007** → dedup **841** → new **345** → quality **201**
-- Mix: local:8(5%), ai-tech:56(32%), climate:10(6%), homelab:35(20%), science:11(6%), scifi:2(1%), news:54(31%)
-- Feeds: local:57, ai-tech:363, climate:110, homelab:355, science:131, scifi:30, news:500
-- Images: 201/201
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
@@ -835,6 +820,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-04-07–2026-04-07
+- 2 runs · avg fetched 952 · avg quality 184
+- Dominant: **news** (33%) local:10 / ai-tech:107 / climate:21 / homelab:57 / science:24 / scifi:5 / news:108
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Civil Eats failed — HTTPSConnectionPool(host='civileats.com', port=443): Read timed out. (read timeout=10)
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
 
 
 ---
