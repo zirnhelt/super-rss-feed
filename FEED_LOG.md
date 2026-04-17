@@ -3,6 +3,23 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-17 (Friday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1048** → dedup **890** → new **285** → quality **149**
+- Mix: local:3(2%), ai-tech:38(28%), climate:12(9%), homelab:26(19%), science:12(9%), scifi:3(2%), news:43(31%)
+- Feeds: local:41, ai-tech:457, climate:140, homelab:362, science:140, scifi:27, news:500
+- Images: 149/149
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-16 (Thursday)
 
 #### 🌅 4:30 AM Pacific
@@ -231,44 +248,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-09 (Thursday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1061** → dedup **901** → new **302** → quality **154**
-- Mix: local:4(3%), ai-tech:33(24%), climate:17(12%), homelab:28(20%), science:5(4%), scifi:2(1%), news:48(35%)
-- Feeds: local:48, ai-tech:430, climate:106, homelab:339, science:127, scifi:31, news:500
-- Images: 154/154
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ **Cool Tools** failed — `HTTPSConnectionPool(host='kk.org', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1050** → dedup **872** → new **351** → quality **210**
-- Mix: local:2(1%), ai-tech:48(24%), climate:13(7%), homelab:33(17%), science:20(10%), scifi:4(2%), news:79(40%)
-- Feeds: local:41, ai-tech:431, climate:106, homelab:344, science:137, scifi:28, news:500
-- Images: 210/210
-- ⚠️ **Open Culture** failed — `HTTPSConnectionPool(host='www.openculture.com', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Modern Farmer** failed — `520 Server Error: <none> for url: https://modernfarmer.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -865,6 +844,25 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
 - - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-04-09–2026-04-09
+- 2 runs · avg fetched 1056 · avg quality 182
+- Dominant: **news** (38%) local:6 / ai-tech:81 / climate:30 / homelab:61 / science:25 / scifi:6 / news:127
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ The Narwhal failed — 415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/
+- - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
+- - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
+- - ⚠️ Cool Tools failed — HTTPSConnectionPool(host='kk.org', port=443): Read timed out. (read timeout=10)
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ Open Culture failed — HTTPSConnectionPool(host='www.openculture.com', port=443): Read timed out. (read timeout=10)
+- - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
 
 
 ---
