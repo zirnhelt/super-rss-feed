@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-18 (Saturday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **939** → dedup **811** → new **200** → quality **85**
+- Mix: ai-tech:22(29%), climate:4(5%), homelab:17(22%), science:6(8%), news:28(36%)
+- Feeds: local:42, ai-tech:465, climate:135, homelab:356, science:142, scifi:27, news:500
+- Images: 85/85
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-17 (Friday)
 
 #### 🌅 4:30 AM Pacific
@@ -232,38 +250,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
 - ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
 - ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-10 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1055** → dedup **892** → new **267** → quality **125**
-- Mix: local:4(4%), ai-tech:38(33%), climate:5(4%), homelab:21(18%), science:7(6%), scifi:1(1%), news:38(33%)
-- Feeds: local:43, ai-tech:435, climate:106, homelab:352, science:136, scifi:28, news:500
-- Images: 125/125
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1045** → dedup **847** → new **330** → quality **190**
-- Mix: local:4(2%), ai-tech:38(22%), climate:14(8%), homelab:31(18%), science:17(10%), news:71(41%)
-- Feeds: local:44, ai-tech:441, climate:115, homelab:356, science:139, scifi:23, news:500
-- Images: 190/190
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -879,6 +865,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 - - ⚠️ Open Culture failed — HTTPSConnectionPool(host='www.openculture.com', port=443): Read timed out. (read timeout=10)
 - - ⚠️ Modern Farmer failed — 520 Server Error: <none> for url: https://modernfarmer.com/feed/
+
+
+---
+
+
+
+## Week of 2026-04-10–2026-04-10
+- 2 runs · avg fetched 1050 · avg quality 158
+- Dominant: **news** (38%) local:8 / ai-tech:76 / climate:19 / homelab:52 / science:24 / scifi:1 / news:109
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
 
 
 ---
