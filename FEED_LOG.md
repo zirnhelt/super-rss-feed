@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-19 (Sunday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **701** → dedup **630** → new **180** → quality **80**
+- Mix: local:3(4%), ai-tech:14(19%), climate:2(3%), homelab:22(31%), science:5(7%), scifi:1(1%), news:25(35%)
+- Feeds: local:46, ai-tech:465, climate:136, homelab:368, science:142, scifi:27, news:500
+- Images: 80/80
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-18 (Saturday)
 
 #### 🌅 4:30 AM Pacific
@@ -233,40 +251,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ **Ricochet** failed — `HTTPSConnectionPool(host='ricochet.media', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutErr`
 - ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-11 (Saturday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1001** → dedup **836** → new **214** → quality **86**
-- Mix: local:1(1%), ai-tech:19(27%), climate:6(8%), homelab:16(23%), science:3(4%), scifi:2(3%), news:24(34%)
-- Feeds: local:44, ai-tech:446, climate:118, homelab:350, science:138, scifi:25, news:500
-- Images: 86/86
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **790** → dedup **677** → new **199** → quality **83**
-- Mix: local:2(3%), ai-tech:14(18%), climate:4(5%), homelab:15(20%), science:8(11%), news:33(43%)
-- Feeds: local:46, ai-tech:447, climate:119, homelab:350, science:137, scifi:23, news:500
-- Images: 83/83
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -895,6 +879,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 - - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+
+
+---
+
+
+
+## Week of 2026-04-11–2026-04-11
+- 2 runs · avg fetched 896 · avg quality 84
+- Dominant: **news** (39%) local:3 / ai-tech:33 / climate:10 / homelab:31 / science:11 / scifi:2 / news:57
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ The Narwhal failed — 415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/
+- - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
+- - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
 
 
 ---
