@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-20 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **652** → dedup **568** → new **246** → quality **158**
+- Mix: ai-tech:43(29%), climate:16(11%), homelab:26(18%), science:14(10%), news:48(33%)
+- Feeds: local:45, ai-tech:472, climate:139, homelab:362, science:146, scifi:22, news:500
+- Images: 158/158
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-19 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -235,39 +253,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 190/190
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-12 (Sunday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **728** → dedup **619** → new **169** → quality **65**
-- Mix: local:1(2%), ai-tech:16(29%), climate:4(7%), homelab:12(21%), science:3(5%), scifi:1(2%), news:19(34%)
-- Feeds: local:45, ai-tech:442, climate:122, homelab:335, science:138, scifi:24, news:500
-- Images: 65/65
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **586** → dedup **497** → new **165** → quality **68**
-- Mix: ai-tech:19(29%), climate:6(9%), homelab:18(27%), science:6(9%), news:17(26%)
-- Feeds: local:45, ai-tech:448, climate:128, homelab:329, science:139, scifi:24, news:500
-- Images: 68/68
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Ricochet** failed — `HTTPSConnectionPool(host='ricochet.media', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutErr`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -911,6 +896,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ The Narwhal failed — 415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/
 - - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
 - - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
+
+
+---
+
+
+
+## Week of 2026-04-12–2026-04-12
+- 2 runs · avg fetched 657 · avg quality 66
+- Dominant: **news** (30%) local:1 / ai-tech:35 / climate:10 / homelab:30 / science:9 / scifi:1 / news:36
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ Ricochet failed — HTTPSConnectionPool(host='ricochet.media', port=443): Max retries exceeded with url: /feed/ (Caus
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
 
 
 ---
