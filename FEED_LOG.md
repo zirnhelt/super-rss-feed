@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-04-21 (Tuesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **931** → dedup **779** → new **301** → quality **188**
+- Mix: ai-tech:63(36%), climate:11(6%), homelab:30(17%), science:9(5%), scifi:2(1%), news:61(35%)
+- Feeds: local:41, ai-tech:477, climate:138, homelab:378, science:157, scifi:21, news:500
+- Images: 188/188
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-04-20 (Monday)
 
 #### 🌅 4:30 AM Pacific
@@ -238,38 +256,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **The Narwhal** failed — `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/`
 - ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
 - ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-13 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **682** → dedup **588** → new **227** → quality **144**
-- Mix: local:1(1%), ai-tech:40(30%), climate:10(7%), homelab:31(23%), science:9(7%), scifi:4(3%), news:39(29%)
-- Feeds: local:44, ai-tech:447, climate:129, homelab:344, science:141, scifi:28, news:500
-- Images: 144/144
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **844** → dedup **723** → new **312** → quality **190**
-- Mix: local:8(5%), ai-tech:47(27%), climate:14(8%), homelab:19(11%), science:16(9%), scifi:3(2%), news:67(39%)
-- Feeds: local:43, ai-tech:454, climate:131, homelab:340, science:137, scifi:28, news:500
-- Images: 190/190
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -927,6 +913,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 - - ⚠️ Ricochet failed — HTTPSConnectionPool(host='ricochet.media', port=443): Max retries exceeded with url: /feed/ (Caus
 - - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+
+
+---
+
+
+
+## Week of 2026-04-13–2026-04-13
+- 2 runs · avg fetched 763 · avg quality 167
+- Dominant: **news** (34%) local:9 / ai-tech:87 / climate:24 / homelab:50 / science:25 / scifi:7 / news:106
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
 ---
