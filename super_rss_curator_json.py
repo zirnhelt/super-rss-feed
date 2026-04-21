@@ -89,6 +89,8 @@ THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article them
 THEME_SCORE_CACHE_TTL_DAYS = 7
 PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
+THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
+THEME_HOLDOVER_TTL_DAYS = 28                         # 4 weeks — covers monthly themed episode cycles
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
@@ -431,6 +433,74 @@ def save_podcast_cache(articles):
 
     except Exception as e:
         print(f"⚠️ Failed to save podcast cache: {e}")
+
+
+def load_theme_holdover_cache() -> Dict:
+    """Load cross-week theme holdover cache (28-day retention).
+
+    Format: {day_name: [{article_data..., "theme_score": int, "banked_at": ISO}]}
+    Articles here bypassed the base-score filter because they scored well on the
+    day's theme; they stay available for up to 4 weekly episodes.
+    """
+    if not os.path.exists(THEME_HOLDOVER_FILE):
+        return {}
+    try:
+        with open(THEME_HOLDOVER_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        cutoff = datetime.now(timezone.utc) - timedelta(days=THEME_HOLDOVER_TTL_DAYS)
+        pruned = {}
+        for day, articles in data.items():
+            valid = [a for a in articles if datetime.fromisoformat(a['banked_at']) > cutoff]
+            if valid:
+                pruned[day] = valid
+        return pruned
+    except (json.JSONDecodeError, FileNotFoundError, KeyError) as e:
+        print(f"⚠️ Error loading theme holdover cache: {e}")
+        return {}
+
+
+def save_theme_holdover_cache(holdover: Dict):
+    try:
+        with open(THEME_HOLDOVER_FILE, 'w', encoding='utf-8') as f:
+            json.dump(holdover, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"⚠️ Failed to save theme holdover cache: {e}")
+
+
+def update_theme_holdover(theme_name: str, theme_label: str,
+                          scored_articles: List[tuple], threshold: int):
+    """Bank articles scoring >= threshold on a theme for future episodes.
+
+    Args:
+        theme_name: Day key e.g. 'tuesday'
+        theme_label: Human label e.g. 'Working Lands & Industry'
+        scored_articles: List of (article, theme_score) from score_articles_for_theme
+        threshold: Minimum theme score to bank an article
+    """
+    holdover = load_theme_holdover_cache()
+    existing_urls = {a['link'] for a in holdover.get(theme_name, [])}
+    now_iso = datetime.now(timezone.utc).isoformat()
+    banked = 0
+    for article, theme_score in scored_articles:
+        if theme_score >= threshold and article.link not in existing_urls:
+            holdover.setdefault(theme_name, []).append({
+                'link': article.link,
+                'title': article.title,
+                'description': article.description,
+                'pub_date': article.pub_date.isoformat(),
+                'source': article.source,
+                'source_url': article.source_url,
+                'score': article.score,
+                'category': article.category,
+                'image': getattr(article, 'image', None),
+                'theme_score': theme_score,
+                'banked_at': now_iso,
+            })
+            existing_urls.add(article.link)
+            banked += 1
+    if banked:
+        save_theme_holdover_cache(holdover)
+        print(f"  📦 Banked {banked} articles for future {theme_label} episodes")
 
 
 def load_podcast_shown_cache() -> Dict:
@@ -1527,6 +1597,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     min_score = schedule_config.get('min_score', 25)
     include_bonus = schedule_config.get('include_top_from_other', 0)
     bonus_min_score = schedule_config.get('other_min_score', 70)
+    holdover_threshold = schedule_config.get('holdover_threshold', 30)
 
     # Get API key for theme scoring
     api_key = os.getenv('ANTHROPIC_API_KEY')
@@ -1564,6 +1635,20 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.image = data.get('image')
 
     all_cached = [CachedArticle(item) for item in cached_articles]
+    all_cached_urls = {a.link for a in all_cached}
+
+    # Load cross-week holdover: articles that scored well on this theme in previous
+    # runs and were banked for future episodes (28-day retention, bypasses base filter).
+    holdover_cache = load_theme_holdover_cache()
+    holdover_raw = holdover_cache.get(theme_name, [])
+    holdover_pool = [
+        CachedArticle(item) for item in holdover_raw
+        if item['link'] not in podcast_shown_cache
+        and not _is_aggregator_url(item['link'])
+        and item['link'] not in all_cached_urls  # already in 7-day pool
+    ]
+    if holdover_pool:
+        print(f"  📦 +{len(holdover_pool)} holdover articles from previous weeks")
 
     # The theme scoring prompt is the real semantic filter, so score ALL
     # quality-eligible articles — not just those in the day's primary categories.
@@ -1573,6 +1658,24 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     # Filter by minimum quality score
     theme_pool = [a for a in theme_pool if a.score >= min_score]
+
+    # Rescue: include articles below the base threshold when they already have a
+    # cached theme score >= holdover_threshold.  These proved their thematic fit
+    # even though their general quality score is low (e.g. niche local sources).
+    theme_score_cache = load_theme_score_cache()
+    rescued = [
+        a for a in all_cached
+        if a.score < min_score
+        and not _is_aggregator_url(a.link)
+        and a.link not in podcast_shown_cache
+        and theme_score_cache.get(f"{a.link}:::{theme_label}", {}).get('score', 0) >= holdover_threshold
+    ]
+    if rescued:
+        print(f"  🌾 +{len(rescued)} theme-relevant articles rescued (base score < {min_score})")
+        theme_pool.extend(rescued)
+
+    # Merge holdover articles into the pool (already theme-qualified, skip base filter)
+    theme_pool.extend(holdover_pool)
 
     # Exclude articles already used in a recent podcast episode
     before_shown_filter = len(theme_pool)
@@ -1608,6 +1711,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         print(f"  ⚠️ Theme scoring returned empty for {theme_label}, falling back to quality scores")
         theme_scored = [(article, article.score) for article in theme_pool]
 
+    # Bank articles with strong theme scores for future episodes of this day's theme.
+    # This builds the cross-week holdover pool so good content accumulates over time.
+    update_theme_holdover(theme_name, theme_label, theme_scored, holdover_threshold)
+
     # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
     ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
     scored_pool = []
@@ -1622,6 +1729,19 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                 final_score = max(0, final_score - ai_tech_penalty)
 
         scored_pool.append((article, final_score, theme_score))
+
+    # Relative scoring: if even the best article in the pool scores below the
+    # absolute threshold, scale all scores so the top scorer reaches min_score.
+    # This ensures theme-relevant articles always outrank zero-relevance filler
+    # on thin news days rather than losing to tiebreaker (base score).
+    best_final = max((fs for _, fs, _ in scored_pool), default=0)
+    if 0 < best_final < min_score:
+        scale = min_score / best_final
+        print(f"  📈 Relative scoring: pool max was {best_final}, scaled ×{scale:.1f}")
+        scored_pool = [
+            (a, min(100, round(fs * scale)), min(100, round(ts * scale)))
+            for a, fs, ts in scored_pool
+        ]
 
     # Sort by final score descending
     scored_pool.sort(key=lambda x: x[1], reverse=True)
