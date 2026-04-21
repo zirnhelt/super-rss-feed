@@ -8,6 +8,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-04-20 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-04-20 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-20 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-20 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-04-20 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-04-20 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-04-20 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-04-20 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-04-19 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-04-19 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-04-19 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -51,16 +59,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-14 | 🌙 8:30 PM Pacific | ⚠️ **The Narwhal** failed | `415 Client Error: Unsupported Media Type for url: https://thenarwhal.ca/feed/` |
 | 2026-04-14 | 🌙 8:30 PM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
 | 2026-04-14 | 🌙 8:30 PM Pacific | ⚠️ **IndigiNews** failed | `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/` |
-| 2026-04-13 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-13 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-13 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-04-13 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-13 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-04-20 | 🌅 morning | 158 | news:48(33%), ai-tech:43(29%), homelab:26(18%) |
+| 2026-04-20 | 🌙 evening | 233 | ai-tech:82(37%), news:67(31%), homelab:31(14%) |
 | 2026-04-19 | 🌅 morning | 80 | news:25(35%), homelab:22(31%), ai-tech:14(19%) |
 | 2026-04-19 | 🌙 evening | 103 | news:44(46%), ai-tech:26(27%), homelab:18(19%) |
 | 2026-04-18 | 🌅 morning | 85 | news:28(36%), ai-tech:22(29%), homelab:17(22%) |
@@ -73,12 +78,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-15 | 🌙 evening | 232 | ai-tech:82(38%), news:66(31%), homelab:28(13%) |
 | 2026-04-14 | 🌅 morning | 178 | ai-tech:74(46%), news:48(30%), homelab:25(16%) |
 | 2026-04-14 | 🌙 evening | 239 | news:75(35%), ai-tech:73(34%), homelab:35(16%) |
-| 2026-04-13 | 🌅 morning | 144 | ai-tech:40(30%), news:39(29%), homelab:31(23%) |
-| 2026-04-13 | 🌙 evening | 190 | news:67(39%), ai-tech:47(27%), homelab:19(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-04-20 14:20 UTC_
+_Last updated by log\_feed\_results.py · 2026-04-21 06:19 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
