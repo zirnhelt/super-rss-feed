@@ -22,150 +22,106 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Community Tech & Governance' through a RURAL TECH AND INNOVATION lens. Strong fits include: municipal broadband and fiber projects in Cariboo communities, SD27 education technology and digital learning, civic tech platforms and open data initiatives, community-owned networks and ISPs, smart rural infrastructure (water, waste, transit), digital government services for rural areas, council decisions on technology spending, public Wi-Fi and connectivity programs, election technology and civic engagement platforms, rural innovation hubs, and how Williams Lake/Quesnel/100 Mile/CRD use technology for public services. Prefer articles that bridge governance AND technology in rural civic contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-04-22T14:16:43.427383+00:00",
+    "generated_at": "2026-04-29T06:44:25.751809+00:00",
     "article_count": 40,
-    "bonus_count": 34,
+    "bonus_count": 38,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.nytimes.com/2026/04/15/us/politics/trump-iran-war.html",
-      "url": "https://www.nytimes.com/2026/04/15/us/politics/trump-iran-war.html",
-      "title": "[NYT Top Stories] Trump’s Portrayal of the War in Iran Collides With Reality",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/15/multimedia/15DC-PREXY-mftq/15DC-PREXY-mftq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPresident Trump is confronting a crisis that is not bending to his narrative of a “pretty reasonable” new regime in Iran and all-but-assured victory for the United States.",
-      "date_published": "2026-04-15T22:26:55+00:00",
+      "id": "https://thetyee.ca/News/2026/04/23/Vancouver-Rejects-Funding-Plan-Beach-Lifeguards-Cuts-Loom/",
+      "url": "https://thetyee.ca/News/2026/04/23/Vancouver-Rejects-Funding-Plan-Beach-Lifeguards-Cuts-Loom/",
+      "title": "[The Tyee] As Cuts Loom, Vancouver Rejects Plan to Fund Beach Lifeguards",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/23/LifeguardMotionSunsetBeach.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nABC Vancouver councillors referred a motion to pay for lifeguards back to park board.",
+      "date_published": "2026-04-23T18:47:00+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 17,
+      "_quality_score": 30,
       "_theme_score": 50,
       "_final_score": 50,
+      "_keyword_matches": 1,
+      "_boosted_score": 29,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://thetyee.ca/News/2026/04/23/LifeguardMotionSunsetBeach.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026PSSG0037-000460",
+      "url": "https://news.gov.bc.ca/releases/2026PSSG0037-000460",
+      "title": "[BC Gov News] Cracking down on organized crime, gun violence",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew regulations for Firearm Violence Prevention Act will help keep communities safe",
+      "date_published": "2026-04-27T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 33,
+      "_theme_score": 30,
+      "_final_score": 30,
       "_keyword_matches": 0,
-      "_boosted_score": 5,
+      "_boosted_score": 9,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/15/multimedia/15DC-PREXY-mftq/15DC-PREXY-mftq-mediumSquareAt3X.jpg"
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
     },
     {
-      "id": "https://www.nytimes.com/2026/04/15/business/trump-federal-bank-fresh-hurdles.html",
-      "url": "https://www.nytimes.com/2026/04/15/business/trump-federal-bank-fresh-hurdles.html",
-      "title": "[NYT Business] Trump’s Quest for More Sway Over Fed Faces Fresh Hurdles",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/15/multimedia/15dc-fed-transition-01-tbfv/15dc-fed-transition-01-tbfv-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nJerome H. Powell’s term as chair of the Federal Reserve ends on May 15, but it appears increasingly likely that he will stay on in some capacity at the central bank after that.",
-      "date_published": "2026-04-15T19:27:34+00:00",
+      "id": "https://news.gov.bc.ca/releases/2026TT0043-000446",
+      "url": "https://news.gov.bc.ca/releases/2026TT0043-000446",
+      "title": "[BC Gov News] Dewdney Bridge replacement reaches completion",
+      "content_html": "<img src=\"https://live.staticflickr.com/65535/55223465957_a51acd4a7c_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew bridge brings better reliability, safer crossing for Fraser Valley travellers",
+      "date_published": "2026-04-23T20:30:00+00:00",
       "authors": [
         {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
         }
       ],
-      "_quality_score": 20,
-      "_theme_score": 50,
-      "_final_score": 50,
+      "_quality_score": 27,
+      "_theme_score": 30,
+      "_final_score": 30,
       "_keyword_matches": 0,
-      "_boosted_score": 6,
+      "_boosted_score": 8,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/15/multimedia/15dc-fed-transition-01-tbfv/15dc-fed-transition-01-tbfv-mediumSquareAt3X.jpg"
+      "image": "https://live.staticflickr.com/65535/55223465957_a51acd4a7c_b.jpg"
     },
     {
-      "id": "https://www.nytimes.com/2026/04/15/business/trump-powell-fed-fire.html",
-      "url": "https://www.nytimes.com/2026/04/15/business/trump-powell-fed-fire.html",
-      "title": "[NYT Business] Trump Threatens to Fire Powell if He Does Not Resign From Fed",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/15/multimedia/15dc-trump-powell-mzct/15dc-trump-powell-mzct-mediumSquareAt3X-v2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAlthough Jerome H. Powell’s term as Fed chair officially ends on May 15, he can stay on as a governor until 2028 and said he would not leave until a criminal investigation was over.",
-      "date_published": "2026-04-15T18:30:36+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "_quality_score": 20,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/15/multimedia/15dc-trump-powell-mzct/15dc-trump-powell-mzct-mediumSquareAt3X-v2.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/21/5-b-c-cities-receive-funding-to-keep-streets-clean-and-safe/",
-      "url": "https://wltribune.com/2026/04/21/5-b-c-cities-receive-funding-to-keep-streets-clean-and-safe/",
-      "title": "[Williams Lake Tribune] 5 B.C. cities receive funding to keep streets clean and safe",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42122755_web1_210624-KCN-MeetMeOnBernard-MeetMeOnBernard_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1 MIN READ",
-      "date_published": "2026-04-22T06:17:05.405853+00:00",
+      "id": "https://wltribune.com/2026/04/28/22-incarcerated-people-died-in-correctional-facilities-in-b-c-in-2025/",
+      "url": "https://wltribune.com/2026/04/28/22-incarcerated-people-died-in-correctional-facilities-in-b-c-in-2025/",
+      "title": "[Williams Lake Tribune] 22 incarcerated people died in correctional facilities in B.C. in 2025",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42186753_web1_30905861_web1_181212-ABB-Pacific-Institution_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>B.C. Coroners Service report finds most deaths among people aged 70 or older </p>",
+      "date_published": "2026-04-28T16:13:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 98,
-      "_theme_score": 45,
-      "_final_score": 45,
+      "_quality_score": 96,
+      "_theme_score": 20,
+      "_final_score": 20,
       "_keyword_matches": 0,
-      "_boosted_score": 29,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42122755_web1_210624-KCN-MeetMeOnBernard-MeetMeOnBernard_1.jpeg?w=1024"
-    },
-    {
-      "id": "https://thetyee.ca/Opinion/2026/04/20/Smith-Meddling-Electoral-Boundaries-Grim-Pattern/",
-      "url": "https://thetyee.ca/Opinion/2026/04/20/Smith-Meddling-Electoral-Boundaries-Grim-Pattern/",
-      "title": "[The Tyee] Smith’s Meddling in Electoral Boundaries Is Part of a Grim Pattern",
-      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/04/20/DanielleSmithBlue.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe goal is power for the UCP, not democracy.",
-      "date_published": "2026-04-20T19:42:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 17,
-      "_theme_score": 40,
-      "_final_score": 40,
-      "_keyword_matches": 0,
-      "_boosted_score": 5,
+      "_boosted_score": 28,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://thetyee.ca/Opinion/2026/04/20/DanielleSmithBlue.jpg"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42186753_web1_30905861_web1_181212-ABB-Pacific-Institution_1.jpg?w=1024"
     },
     {
-      "id": "https://thetyee.ca/Opinion/2026/04/17/Plan-Cheat-Pure-Simple/",
-      "url": "https://thetyee.ca/Opinion/2026/04/17/Plan-Cheat-Pure-Simple/",
-      "title": "[The Tyee] ‘This Is Just a Plan to Cheat, Pure and Simple’",
-      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/04/17/DanielleSmithCloseup.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe UCP is spiking an independent Electoral Boundaries Commission report and rigging the next vote.",
-      "date_published": "2026-04-17T17:36:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 40,
-      "_final_score": 40,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://thetyee.ca/Opinion/2026/04/17/DanielleSmithCloseup.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/22/cariboo-shriners-crab-fest-in-williams-lake-raises-over-60000/",
-      "url": "https://wltribune.com/2026/04/22/cariboo-shriners-crab-fest-in-williams-lake-raises-over-60000/",
-      "title": "[Williams Lake Tribune] Cariboo Shriners Crab Fest in Williams Lake raises over $60,000",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42101732_web1_260423-WLT-Shriners-Crab-Fest-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe well-supported annual fundraiser on Saturday, April 11 was previously held in 100 Mile",
-      "date_published": "2026-04-22T14:15:00.518625+00:00",
+      "id": "https://wltribune.com/2026/04/28/tear-down-begins-on-fire-damaged-structure-in-downtown-williams-lake/",
+      "url": "https://wltribune.com/2026/04/28/tear-down-begins-on-fire-damaged-structure-in-downtown-williams-lake/",
+      "title": "[Williams Lake Tribune] Tear down begins on fire-damaged structure in downtown Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42174772_web1_260430-WLT-Hamilton-Hotel-Tear-Down-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRemedial action was approved earlier this year for the property located on 6th Avenue South",
+      "date_published": "2026-04-29T06:41:48.522209+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -173,685 +129,91 @@
         }
       ],
       "_quality_score": 100,
-      "_theme_score": 35,
-      "_final_score": 35,
+      "_theme_score": 15,
+      "_final_score": 15,
       "_keyword_matches": 0,
       "_boosted_score": 30,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42101732_web1_260423-WLT-Shriners-Crab-Fest-_1.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42174772_web1_260430-WLT-Hamilton-Hotel-Tear-Down-_1.jpg?w=1024"
     },
     {
-      "id": "https://thetyee.ca/News/2026/04/21/BC-Defends-Firing-Premier-Office-Staffer/",
-      "url": "https://thetyee.ca/News/2026/04/21/BC-Defends-Firing-Premier-Office-Staffer/",
-      "title": "[The Tyee] BC Defends Firing Premier’s Office Staffer over Leak Allegations",
-      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/20/BCLegislatureDomes.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn RCMP probe is looking into John Pratt’s actions in a federal government job.",
-      "date_published": "2026-04-21T07:10:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 23,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 1,
-      "_boosted_score": 26,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://thetyee.ca/News/2026/04/20/BCLegislatureDomes.jpg"
-    },
-    {
-      "id": "https://thetyee.ca/News/2026/04/17/Alberta-Prosperity-Project-Court-Date-Separation-Referendum-Role/",
-      "url": "https://thetyee.ca/News/2026/04/17/Alberta-Prosperity-Project-Court-Date-Separation-Referendum-Role/",
-      "title": "[The Tyee] Alberta Prosperity Project Faces Court Date over Separation Referendum Role",
-      "content_html": "<img src=\"https://thetyee.ca/Opinion/2025/07/07/JeffreyRath.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nElection commissioner alleges the organization has stonewalled investigations into potential referendum petition spending.",
-      "date_published": "2026-04-17T22:40:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 33,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 9,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://thetyee.ca/Opinion/2025/07/07/JeffreyRath.jpg"
-    },
-    {
-      "id": "https://thetyee.ca/News/2026/04/21/Vancouver-Progressive-Parties-Trying-Work-Together/",
-      "url": "https://thetyee.ca/News/2026/04/21/Vancouver-Progressive-Parties-Trying-Work-Together/",
-      "title": "[The Tyee] Vancouver’s Progressive Parties Are Trying to Work Together",
-      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/20/MaloneyFryOrrAzaroffComposite.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThree civic parties are limiting their number of candidates in an attempt to win.",
-      "date_published": "2026-04-21T07:20:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 20,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 1,
-      "_boosted_score": 26,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://thetyee.ca/News/2026/04/20/MaloneyFryOrrAzaroffComposite.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/fcc-router-ban-begs-the-question-do-you-know-whats-running-in-your-network",
-      "url": "https://www.techradar.com/pro/fcc-router-ban-begs-the-question-do-you-know-whats-running-in-your-network",
-      "title": "[TechRadar] FCC router ban begs the question: Do you know what’s running in your network?",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/GwfBA5FJJWQSsrqCuLz3gL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn March 2026, the FCC banned authorization for new, foreign-made consumer routers, citing national security risks. How should organizations respond?",
-      "date_published": "2026-04-22T11:04:49+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/GwfBA5FJJWQSsrqCuLz3gL-1280-80.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/canva-create-2026-news-ai-connectors-scheduling/",
-      "url": "https://www.cnet.com/tech/services-and-software/canva-create-2026-news-ai-connectors-scheduling/",
-      "title": "[CNET] Canva Really Wants to Be Your Workplace AI Bestie",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/05d97778ef4eaa15d84a9456cb235c7791e77050/hub/2026/04/14/73535fc5-4387-4ebe-9ba5-a9968d54ab7d/canva-ai-2-0-hero-image.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe new Canva feels AI-first, design second.",
-      "date_published": "2026-04-16T13:01:09+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 42,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/05d97778ef4eaa15d84a9456cb235c7791e77050/hub/2026/04/14/73535fc5-4387-4ebe-9ba5-a9968d54ab7d/canva-ai-2-0-hero-image.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.engadget.com/ai/canva-starts-previewing-a-more-powerful-version-of-its-ai-assistant-130000966.html?src=rss",
-      "url": "https://www.engadget.com/ai/canva-starts-previewing-a-more-powerful-version-of-its-ai-assistant-130000966.html?src=rss",
-      "title": "[Engadget] Canva starts previewing a more powerful version of its AI assistant",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Fproduct_collage_0682.png&amp;resize=1400%2C787&amp;client=19f2b5e49a271b2bde77&amp;signature=b6cb586122b4088cfc6196495bba11adeb90800b\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Adobe isn't the only company <a class=\"link\" href=\"https://www.engadget.com/apps/adobes-firefly-ai-assistant-works-across-photoshop-premiere-and-other-apps-130055883.html\" target=\"_blank\">releasing a new AI assistant this week</a>. Ahead of its Create event in Los Angeles today, Canva announced Canva AI 2.0.  Building on its <a class=\"link rapid-with-clickid\" href=\"https://shopping.yahoo.com/rdlw?merchantId=c412d544-a5e8-4f88-81a9-6cc2d98fc67c&amp;siteId=us-engadget&amp;pageId=1p-autolink&amp;contentUuid=9c3078e4-2eb6-4692-a18a-4b33ce67ea85&amp;featureId=text-link&amp;merchantName=Canva&amp;linkText=existing+AI+assistant&amp;custData=eyJzb3VyY2VOYW1lIjoiV2ViLURlc2t0b3AtVmVyaXpvbiIsImxhbmRpbmdVcmwiOiJodHRwczovL3d3dy5jYW52YS5jb20vYWktYXNzaXN0YW50LyIsImNvbnRlbnRVdWlkIjoiOWMzMDc4ZTQtMmViNi00NjkyLWExOGEtNGIzM2NlNjdlYTg1Iiwib3JpZ2luYWxVcmwiOiJodHRwczovL3d3dy5jYW52YS5jb20vYWktYXNzaXN0YW50LyJ9&amp;signature=AQAAARzvo-UcVoggyT8HSbA7u2lgH44hW_jMzbmmP2_seKi5&amp;gcReferrer=https%3A%2F%2Fwww.canva.com%2Fai-assistant%2F\" target=\"_blank\">existing AI assistant</a>, the company is billing the release as its most significant update since the platform first launched in 2013, and the culmination of years of investment to build its own foundational design models.&nbsp;</p><p>As you might imagine, it all starts with a conversational interface that allows you to describe an idea or goal and the system will start generating a design to match. Under the hood, there's a new orchestration layer that allows the model to use all of Canva's disparate tools to accomplish complex, multi-step tasks. For instance, the company suggests you could use Canva AI to create a multi-channel advertising campaign, and the software will generate everything you need to get that off the ground.&nbsp;</p><figure><img alt=\"For brands, Canva AI 2.0 can adapt to their design needs. \" src=\"https://d29szjachogqwa.cloudfront.net/images/user-uploaded/brand_intelligence_5255.png\" style=\"height: 1080px; width: 1920px;\" /><figcaption>For brands, Canva AI 2.0 can adapt to their design needs. </figcaption><div class=\"photo-credit\">Canva</div></figure><p>If edits are required, the company says Canva AI avoids one of the pitfalls of many other image generation models. It's possible to edit every visual element the system generates, just like if they were created with a traditional image editor. As a result, you can do things like swap out images and tweak fonts without affecting any other part of a design. To bring everything together, Canva has built persistent memory into the tool. The more you use Canva AI, the better the system will get at applying your personal taste and style to future generations. According to the company, it also has a context window that is long enough to maintain coherence until you arrive at a final design.&nbsp;&nbsp;&nbsp;&nbsp;</p><p>Alongside those enhancements, Canva is adding support for new workflows that expand what you can do with its software, starting with connections that allow its models to pull data from other apps, including Notion, Slack, Zoom, Gmail, Google Calendar and more. Users can also schedule tasks for Canva AI to complete in the background, and the company has even baked in deep research capabilities into the tool. </p><p>The coding function Canva previously offered has been upgraded to include support for HTML imports, allowing users to bring any HTML file or AI-generated experience into Canva's visual editor to tweak the design of it without breaking things. For brands, the company is also offering a tool that can process their visual identity and apply it to new and existing designs.&nbsp;&nbsp;&nbsp;</p><figure><img alt=\"\" src=\"https://d29szjachogqwa.cloudfront.net/images/user-uploaded/canva_code_2.0_9847.png\" style=\"height: 1084px; width: 1927px;\" /><figcaption>Canva's updated coding agent now support HTML imports. </figcaption><div class=\"photo-credit\">Canva</div></figure><p>As a casual observer, it might seem like Canva is trend chasing, but Danny Wu, the company's head of AI, argues the new AI tools represent a natural evolution for Canva. \"This is something we've been dreaming of and working towards for quite a while,\" he tells Engadget. \"Even before ChatGPT was a thing, we were thinking, 'what if we don't have a template that matches your needs?' … So I wouldn't describe this as a pivot or shift, we've been wanting to offer these kinds of capabilities all along as part of our mission to make design simple.\"</p><p>If you want to give Canva's new tools a try for yourself, Canva AI 2.0 is available as a research preview starting today. The first 1 million people who visit the Canva website will get first access, with availability gradually&nbsp;expanding to more users over the coming weeks. As before, access to Canva’s AI features remains included in the company’s free offering, though it’s also introducing a new AI Pass add-on that significantly increases rate limits for users. </p>This article originally appeared on Engadget at https://www.engadget.com/ai/canva-starts-previewing-a-more-powerful-version-of-its-ai-assistant-130000966.html?src=rss",
-      "date_published": "2026-04-16T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Fproduct_collage_0682.png&resize=1400%2C787&client=19f2b5e49a271b2bde77&signature=b6cb586122b4088cfc6196495bba11adeb90800b"
-    },
-    {
-      "id": "https://www.businessinsider.com/box-ceo-monitors-ai-power-slack-channel-not-tokenmaxxing-leaderboard-2026-4",
-      "url": "https://www.businessinsider.com/box-ceo-monitors-ai-power-slack-channel-not-tokenmaxxing-leaderboard-2026-4",
-      "title": "[Business Insider] Box CEO says he looks at a Slack channel to see who is using AI the most — not a token leaderboard",
-      "content_html": "<img src=\"https://i.insider.com/69de7df6bb50bc96d0b4d0d8?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBox CEO Aaron Levie told Business Insider that tokenmaxxing was a \"fun, novel thing.\" His company  tracks token usage, but doesn't have a leaderboard.",
-      "date_published": "2026-04-16T12:50:28+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 45,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69de7df6bb50bc96d0b4d0d8?format=jpeg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/little-caesars-chatgpt-app/",
-      "url": "https://www.cnet.com/tech/services-and-software/little-caesars-chatgpt-app/",
-      "title": "[CNET] Little Caesars Wants ChatGPT to Order Your Pizza for You",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/dd6495a8d641ec3823b7d63ba2f008a848c15e18/hub/2026/04/14/7e8e6747-d8de-4af4-8577-64129d3503ab/screenshot-2026-04-14-at-11-53-20am.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou can personalize your pie and place your order without leaving the chatbot.",
-      "date_published": "2026-04-16T12:00:47+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/dd6495a8d641ec3823b7d63ba2f008a848c15e18/hub/2026/04/14/7e8e6747-d8de-4af4-8577-64129d3503ab/screenshot-2026-04-14-at-11-53-20am.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://gizmodo.com/reebok-wants-a-piece-of-the-ray-ban-meta-smart-glasses-action-2000747063",
-      "url": "https://gizmodo.com/reebok-wants-a-piece-of-the-ray-ban-meta-smart-glasses-action-2000747063",
-      "title": "[Gizmodo] Reebok Wants a Piece of the Ray-Ban Meta Smart Glasses Action",
-      "content_html": "<img src=\"https://gizmodo.com/app/uploads/2026/04/reebok-glasses-1280x853.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new line of smart eyewear with Reebok branding acts as an alternative to Meta's Ray-Ban AI glasses.",
-      "date_published": "2026-04-16T12:00:22+00:00",
-      "authors": [
-        {
-          "name": "Gizmodo",
-          "url": "https://gizmodo.com/"
-        }
-      ],
-      "_quality_score": 32,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 9,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://gizmodo.com/app/uploads/2026/04/reebok-glasses-1280x853.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/16/briefing/national-security-artificial-intelligence-and-your-dumb-dog.html",
-      "url": "https://www.nytimes.com/2026/04/16/briefing/national-security-artificial-intelligence-and-your-dumb-dog.html",
-      "title": "[NYT Top Stories] National Security. Artificial Intelligence. And Your Dumb Dog.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/14/us/politics/16themorning-nl-ballroom/dc-national-security-01-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe’re covering today’s top stories.",
-      "date_published": "2026-04-16T11:09:45+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 20,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/14/us/politics/16themorning-nl-ballroom/dc-national-security-01-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/companies-layoffs-ai-snap-block-atlassian-2026-4",
-      "url": "https://www.businessinsider.com/companies-layoffs-ai-snap-block-atlassian-2026-4",
-      "title": "[Business Insider] We made a Mad Libs for AI-driven layoff announcements",
-      "content_html": "<img src=\"https://i.insider.com/69e0d5e116ad6f0000dc50ea?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLayoff announcements are generally boilerplate, but recent layoff-turned-AI-manifestos are all melding together.",
-      "date_published": "2026-04-16T10:06:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 18,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 5,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69e0d5e116ad6f0000dc50ea?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/tech-companies-layoff-announcements-sound-similar-2026-4",
-      "url": "https://www.businessinsider.com/tech-companies-layoff-announcements-sound-similar-2026-4",
-      "title": "[Business Insider] The AI layoff playbook is here",
-      "content_html": "<img src=\"https://i.insider.com/69dff19816ad6f0000dc4e02?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLayoff memos at tech giants Atlassian, Snap, and Block have hit on similar themes, including AI efficiency and being nimble.",
-      "date_published": "2026-04-16T09:55:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69dff19816ad6f0000dc4e02?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/allbirds-meme-stock-price-spike-ai-pivot-copycats-gpus-2026-4",
-      "url": "https://www.businessinsider.com/allbirds-meme-stock-price-spike-ai-pivot-copycats-gpus-2026-4",
-      "title": "[Business Insider] Allbirds' last-ditch AI pivot played out perfectly. Now here come the copycats.",
-      "content_html": "<img src=\"https://i.insider.com/69e005c53c23517615b2f8db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAllbirds joins a long line of companies that made surprising and lucrative pivots towards trendy industries.",
-      "date_published": "2026-04-16T09:50:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 22,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69e005c53c23517615b2f8db?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/snap-layoffs-highlight-workplace-trend-ai-powered-tiny-teams-2026-4",
-      "url": "https://www.businessinsider.com/snap-layoffs-highlight-workplace-trend-ai-powered-tiny-teams-2026-4",
-      "title": "[Business Insider] Snap's layoffs highlight growing work trend: AI-powered tiny teams",
-      "content_html": "<img src=\"https://i.insider.com/69dff4cb3c23517615b2f818?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe AI-fueled strategy of getting more work done with fewer people is also popular at Meta, Block, and JPMorgan.",
-      "date_published": "2026-04-16T09:30:02+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 40,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69dff4cb3c23517615b2f818?format=jpeg"
-    },
-    {
-      "id": "https://www.engadget.com/ai/opera-adds-browser-connector-for-integrating-ai-chatbots-080000153.html?src=rss",
-      "url": "https://www.engadget.com/ai/opera-adds-browser-connector-for-integrating-ai-chatbots-080000153.html?src=rss",
-      "title": "[Engadget] Opera adds Browser Connector for integrating AI chatbots",
-      "content_html": "<img src=\"https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Fpr_browser_connector_5_3694.png&amp;resize=1400%2C787&amp;client=19f2b5e49a271b2bde77&amp;signature=3a65d56796d49f58324e623169eb2e01418116bd\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Opera is offering a new choice for looping in an AI assistant during browsing. Today, the company introduced Browser Connector, which allows Opera One and Opera GX users to integrate either ChatGPT or Claude into the platform. The chatbots will be able to access page content while a person is browsing and will draw context for queries from the information in your open tabs. The free new feature can be enabled through the AI Services section of the Settings menu.&nbsp;</p><p>Opera is one of the many browser companies that has been experimenting with an AI-focused service. It began rolling out the $20-a-month <a class=\"link\" href=\"https://www.engadget.com/ai/operas-ai-browser-will-cost-you-20-a-month-123022110.html\" target=\"_blank\">Opera Neon</a> agentic AI browser last year. The benefit of something like Browser Connector means you aren't limited to a single brand's product offerings and can switch things up at will.</p>This article originally appeared on Engadget at https://www.engadget.com/ai/opera-adds-browser-connector-for-integrating-ai-chatbots-080000153.html?src=rss",
-      "date_published": "2026-04-16T08:00:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "_quality_score": 38,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 11,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://o.aolcdn.com/images/dims?image_uri=https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2Fpr_browser_connector_5_3694.png&resize=1400%2C787&client=19f2b5e49a271b2bde77&signature=3a65d56796d49f58324e623169eb2e01418116bd"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-software-pricing-change-labor-productivity-not-users-goldman-sachs-2026-4",
-      "url": "https://www.businessinsider.com/ai-software-pricing-change-labor-productivity-not-users-goldman-sachs-2026-4",
-      "title": "[Business Insider] AI companies are rethinking how they charge to win a bigger slice of business spending",
-      "content_html": "<img src=\"https://i.insider.com/69e053ee3c23517615b2fa04?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI firms are altering software pricing models, moving from per user fees to work-based charges.",
-      "date_published": "2026-04-16T07:03:27+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 48,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69e053ee3c23517615b2fa04?format=jpeg"
-    },
-    {
-      "id": "https://boingboing.net/2026/04/21/this-wooden-smart-home-panel-hides-its-screen-until-you-touch-it.html",
-      "url": "https://boingboing.net/2026/04/21/this-wooden-smart-home-panel-hides-its-screen-until-you-touch-it.html",
-      "title": "[Boing Boing] This wooden smart home panel hides its screen until you touch it",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Taxus_wood.jpg?fit=2000%2C2029&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/21/this-wooden-smart-home-panel-hides-its-screen-until-you-touch-it.html\" rel=\"nofollow\" title=\"This wooden smart home panel hides its screen until you touch it\"><img alt=\"By MPF - copied from en.wikipedia 17:13, 5 November 2004 . . MPF . . 421x427 (38110 bytes)Original source: Photo: MPF, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=539591\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"2029\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Taxus_wood.jpg?fit=2000%2C2029&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"2000\" /></a><p>Hiding a screen inside a decorative panel is a clever design. Most smart home displays sit there blinking at you all day. The Mui Board just looks like a nice piece of wood until you need it.</p>\n<p>This <a href=\"https://www.instagram.com/p/DW8rUj0AdK8/\">Japanese home controller</a> combines technology with organic-looking materials so you can have the best of both worlds. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/21/this-wooden-smart-home-panel-hides-its-screen-until-you-touch-it.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/21/this-wooden-smart-home-panel-hides-its-screen-until-you-touch-it.html\">This wooden smart home panel hides its screen until you touch it</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-04-21T17:16:18+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Taxus_wood.jpg?fit=2000%2C2029&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.howtogeek.com/this-meme-distro-actually-laid-the-groundwork-for-modern-desktop-linux/",
-      "url": "https://www.howtogeek.com/this-meme-distro-actually-laid-the-groundwork-for-modern-desktop-linux/",
-      "title": "[How-To Geek] This \"meme\" distro actually laid the groundwork for modern desktop Linux",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/04/rebecca-black-friday-screenshot-2019-billboard-1500.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n14 years later, it's still going strong and it actually helps the Linux community.",
-      "date_published": "2026-04-22T12:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/04/rebecca-black-friday-screenshot-2019-billboard-1500.webp"
-    },
-    {
-      "id": "https://www.aptnnews.ca/infocus/infocus-whats-behind-canadas-sovereign-ai-plan/",
-      "url": "https://www.aptnnews.ca/infocus/infocus-whats-behind-canadas-sovereign-ai-plan/",
-      "title": "[APTN News] InFocus: What’s behind Canada’s ‘sovereign’ AI plan?",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.aptnnews.ca&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Canada is injecting over $2 billion to support its plan to build national, and in...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/infocus/infocus-whats-behind-canadas-sovereign-ai-plan/\">InFocus: What’s behind Canada’s &#8216;sovereign&#8217; AI plan?</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
-      "date_published": "2026-04-20T17:44:15+00:00",
-      "authors": [
-        {
-          "name": "APTN News",
-          "url": "https://www.aptnnews.ca"
-        }
-      ],
-      "_quality_score": 33,
-      "_theme_score": 35,
-      "_final_score": 5,
-      "_keyword_matches": 0,
-      "_boosted_score": 9,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.aptnnews.ca&sz=128"
-    },
-    {
-      "id": "https://qz.com/rockefeller-foundation-100-million-good-jobs-ai-disruption-042226",
-      "url": "https://qz.com/rockefeller-foundation-100-million-good-jobs-ai-disruption-042226",
-      "title": "[Quartz] Rockefeller Foundation is committing $100 million to connect workers to jobs amid AI disruption",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Untitled%2520design.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe 3-year strategy targets up to 250 distressed communities and aims to benefit as many as 20 million people nationwide",
-      "date_published": "2026-04-22T14:10:51+00:00",
+      "id": "https://qz.com/t-mobile-is-rolling-out-broadband-for-business-customers-with-starlink-as-a-satellite-backup",
+      "url": "https://qz.com/t-mobile-is-rolling-out-broadband-for-business-customers-with-starlink-as-a-satellite-backup",
+      "title": "[Quartz] T-Mobile is rolling out broadband for business customers with Starlink as a satellite backup",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/24PC6022890_CoffeeJag_remote_hiking_JA_210_v01_CMYK_R_1280x720.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe service combines T-Mobile's 5G network with SpaceX's Starlink satellites and claims to reach every ZIP code in the U.S.",
+      "date_published": "2026-04-28T13:50:32+00:00",
       "authors": [
         {
           "name": "Quartz",
           "url": "https://qz.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Untitled%2520design.jpg"
-    },
-    {
-      "id": "https://www.androidauthority.com/fairphone-growth-repairable-smartphone-revolution-3659850/",
-      "url": "https://www.androidauthority.com/fairphone-growth-repairable-smartphone-revolution-3659850/",
-      "title": "[Android Authority] The repairable smartphone revolution is finally picking up speed",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/01/Fairphone-6-Nothing-Phone-Comparison-3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFairphone reports a 42% surge in shipments as modular, sustainable tech moves toward the mainstream.",
-      "date_published": "2026-04-22T14:08:07+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/01/Fairphone-6-Nothing-Phone-Comparison-3.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/turned-old-router-wi-fi-extender-openwrt-easier-thought/",
-      "url": "https://www.xda-developers.com/turned-old-router-wi-fi-extender-openwrt-easier-thought/",
-      "title": "[XDA Developers] I turned my old router into a Wi-Fi extender with OpenWrt, and it was easier than I thought",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/router-with-openwrt-and-laptop.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour old router may have been abandoned by the manufacturer, but OpenWrt can breathe some new life into it and make it useful again.",
-      "date_published": "2026-04-22T14:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/router-with-openwrt-and-laptop.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/your-new-windows-laptop-isnt-running-at-full-speed-make-these-fixes-now/",
-      "url": "https://www.howtogeek.com/your-new-windows-laptop-isnt-running-at-full-speed-make-these-fixes-now/",
-      "title": "[How-To Geek] These 4 Windows laptop fixes unlock performance your manufacturer didn't want you to know about",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/12/man-using-a-laptop-on-a-roller-coaster-with-a-windows-performance-graph-in-the-background.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour new Windows laptop isn't running at full speed—let's change that",
-      "date_published": "2026-04-22T13:00:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/12/man-using-a-laptop-on-a-roller-coaster-with-a-windows-performance-graph-in-the-background.png"
-    },
-    {
-      "id": "https://techcrunch.com/2026/04/22/ai-is-spitting-out-more-potential-drugs-than-ever-this-start-up-wants-to-figure-out-which-ones-matter/",
-      "url": "https://techcrunch.com/2026/04/22/ai-is-spitting-out-more-potential-drugs-than-ever-this-start-up-wants-to-figure-out-which-ones-matter/",
-      "title": "[TechCrunch] AI is spitting out more potential drugs than ever. This start-up wants to figure out which ones matter.",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/04/10xScience_Team_Picture_1.png?w=1182\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n10x Science has raised a $4.8 million seed round to help pharmaceutical researchers understand complex molecules.",
-      "date_published": "2026-04-22T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/10xScience_Team_Picture_1.png?w=1182"
-    },
-    {
-      "id": "https://sciencebasedmedicine.org/new-review-casts-doubt-on-alzheimers-drugs-but-is-controversial/?utm_source=rss&utm_medium=rss&utm_campaign=new-review-casts-doubt-on-alzheimers-drugs-but-is-controversial",
-      "url": "https://sciencebasedmedicine.org/new-review-casts-doubt-on-alzheimers-drugs-but-is-controversial/?utm_source=rss&utm_medium=rss&utm_campaign=new-review-casts-doubt-on-alzheimers-drugs-but-is-controversial",
-      "title": "[Science-Based Medicine] New Review Casts Doubt On Alzheimers Drugs But Is Controversial",
-      "content_html": "<img src=\"https://sciencebasedmedicine.org/wp-content/uploads/2021/07/Alzheimers-Plaque.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>I have been following the story here of the newest Alzheimers drugs, the first to show that they can actually slow the progression of Alzheimer&#8217;s disease (AD). The benefits are modest, and come with the potential for serious side effects and a high price tag, but after decades of disappointment it was good to at least have a proof of concept that [&#8230;]</p>\nThe post <a href=\"https://sciencebasedmedicine.org/new-review-casts-doubt-on-alzheimers-drugs-but-is-controversial/\">New Review Casts Doubt On Alzheimers Drugs But Is Controversial</a> first appeared on <a href=\"https://sciencebasedmedicine.org\">Science-Based Medicine</a>.",
-      "date_published": "2026-04-22T12:49:42+00:00",
-      "authors": [
-        {
-          "name": "Science-Based Medicine",
-          "url": "https://sciencebasedmedicine.org"
-        }
-      ],
       "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://sciencebasedmedicine.org/wp-content/uploads/2021/07/Alzheimers-Plaque.png"
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/24PC6022890_CoffeeJag_remote_hiking_JA_210_v01_CMYK_R_1280x720.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/lm-studios-frontend-was-slowing-me-down-so-i-switched-to-this-instead/",
-      "url": "https://www.xda-developers.com/lm-studios-frontend-was-slowing-me-down-so-i-switched-to-this-instead/",
-      "title": "[XDA Developers] LM Studio's frontend was slowing me down, so I switched to this instead",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/vllm-github.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhen you get past the playing around stage, you need a more powerful solution",
-      "date_published": "2026-04-22T12:30:20+00:00",
+      "id": "https://thetyee.ca/Analysis/2026/04/29/Canada-Should-Be-Leading-Geothermal/",
+      "url": "https://thetyee.ca/Analysis/2026/04/29/Canada-Should-Be-Leading-Geothermal/",
+      "title": "[The Tyee] Canada Should Be Leading a Geothermal Power Boom",
+      "content_html": "<img src=\"https://thetyee.ca/Analysis/2026/04/28/NewberryProjectAerial.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe have all it takes to wake a sleeping giant of clean energy. What’s in the way?",
+      "date_published": "2026-04-29T07:30:00+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 77,
+      "_theme_score": 10,
+      "_final_score": 10,
       "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/vllm-github.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/almost-30-of-us-face-5x-more-heat-drought-extremes-by-end-of-century",
-      "url": "https://www.sciencealert.com/almost-30-of-us-face-5x-more-heat-drought-extremes-by-end-of-century",
-      "title": "[ScienceAlert] Almost 30% of Us Face 5x More Heat-Drought Extremes by End of Century",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/HotSun.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Bright yellow Sun in the sky\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/HotSun.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A dangerous double crisis for 2.6 billion people. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-22T12:00:48+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
+      "_boosted_score": 23,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/HotSun.jpg"
+      "image": "https://thetyee.ca/Analysis/2026/04/28/NewberryProjectAerial.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/ethernet-is-forgiving-when-you-diy-it-and-fiber-absolutely-is-not/",
-      "url": "https://www.xda-developers.com/ethernet-is-forgiving-when-you-diy-it-and-fiber-absolutely-is-not/",
-      "title": "[XDA Developers] Ethernet will tolerate your mistakes, but fiber optic cabling absolutely won't",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/optical-dac-5.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOne's easier to work with than the other",
-      "date_published": "2026-04-22T12:00:22+00:00",
+      "id": "https://www.aljazeera.com/news/2026/4/29/europe-named-fastest-warming-continent-in-latest-climate-change-report?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/4/29/europe-named-fastest-warming-continent-in-latest-climate-change-report?traffic_source=rss",
+      "title": "[Al Jazeera English] Europe named ‘fastest-warming continent’ in latest climate change report",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/04/2022-07-26T054632Z_2102684486_RC28GV946GJM_RTRMADP_3_CLIMATE-CHANGE-EUROPE-GLACIERS-1777440655.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom heatwaves to wildfires and shrinking ice cover, Europe is facing &#039;severe&#039; impact from climate change, UN body says.",
+      "date_published": "2026-04-29T06:33:58+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
       "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/optical-dac-5.jpg"
-    },
-    {
-      "id": "https://thenarwhal.ca/space-junk-falling-50th-parallel/",
-      "url": "https://thenarwhal.ca/space-junk-falling-50th-parallel/",
-      "title": "[The Narwhal] SpaceX satellites half the size of pickup trucks are falling from the sky — every day",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/04/QA_Space-Junk_Night_Sky_3_WEB-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs space junk accumulates, astronomer Sam Lawler explains why we should be concerned about the rapid proliferation of private satellites in low orbit",
-      "date_published": "2026-04-22T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 5,
+      "_final_score": 5,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/04/QA_Space-Junk_Night_Sky_3_WEB-1024x683.jpg"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/04/2022-07-26T054632Z_2102684486_RC28GV946GJM_RTRMADP_3_CLIMATE-CHANGE-EUROPE-GLACIERS-1777440655.jpg?resize=1920%2C1440"
     },
     {
-      "id": "https://www.cnet.com/home/security/best-off-grid-home-security-tech-for-cabins-camping-and-home-generators/",
-      "url": "https://www.cnet.com/home/security/best-off-grid-home-security-tech-for-cabins-camping-and-home-generators/",
-      "title": "[CNET] My Top Off-the-Grid Home Security Picks for Self-Reliant Living",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/12a294c284a4d453caafbbef34f06495fa0b2699/hub/2026/04/21/0d870582-0822-490e-96a2-598697443a0c/gettyimages-2212255285.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom remote cabins to homes that rely on generators, this security tech is a good fit without needing Wi-Fi or constant electricity.",
-      "date_published": "2026-04-22T12:00:00+00:00",
+      "id": "https://thetyee.ca/WhatWorks/2026/04/29/Finding-Food-Forest/",
+      "url": "https://thetyee.ca/WhatWorks/2026/04/29/Finding-Food-Forest/",
+      "title": "[The Tyee] Finding Food in the Forest",
+      "content_html": "<img src=\"https://thetyee.ca/WhatWorks/2026/04/28/BenjaminPatarinMorels.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese Vancouver Island foragers make everything from mushroom powders to pickled spruce tips. Thank you, wild places.",
+      "date_published": "2026-04-29T07:20:00+00:00",
       "authors": [
         {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 39,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/12a294c284a4d453caafbbef34f06495fa0b2699/hub/2026/04/21/0d870582-0822-490e-96a2-598697443a0c/gettyimages-2212255285.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/22/business/dealbook/spacex-ai-cursor.html",
-      "url": "https://www.nytimes.com/2026/04/22/business/dealbook/spacex-ai-cursor.html",
-      "title": "[NYT Business] The Consequences of SpaceX’s Latest A.I. Moonshot",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/22/multimedia/22db-spacex-zlpc/22db-spacex-zlpc-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nElon Musk’s rocket and satellite internet titan may pay $60 billion for an A.I. coding start-up. It further clouds SpaceX’s once-simple business plan.",
-      "date_published": "2026-04-22T11:52:04+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
       "_quality_score": 53,
@@ -859,43 +221,571 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/22/multimedia/22db-spacex-zlpc/22db-spacex-zlpc-mediumSquareAt3X.jpg"
+      "image": "https://thetyee.ca/WhatWorks/2026/04/28/BenjaminPatarinMorels.jpg"
     },
     {
-      "id": "https://www.theguardian.com/global-development/2026/apr/22/mining-agriculture-cacao-farmers-resisting-bolivia-gold-rush",
-      "url": "https://www.theguardian.com/global-development/2026/apr/22/mining-agriculture-cacao-farmers-resisting-bolivia-gold-rush",
-      "title": "[The Guardian Global Development] How Bolivia’s cacao farmers took on the gold-mining industry – and won",
-      "content_html": "<img src=\"https://i.guim.co.uk/img/media/258bc546a828c8ba40075d6d4c4e65552123f3f4/0_0_4320_3456/master/4320.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=8caacd2ed52a714c64980caf9f287ab0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>As rising gold prices fuel environmental destruction, communities in the country’s biodiverse heartland are passing laws against mining </p><p>Mahogany trees tower above Herminio Mamani as he tends his cacao farm in <a href=\"https://www.theguardian.com/world/bolivia\">Bolivia</a>’s biodiverse north-west. A former president of <a href=\"https://elceibo.com\">El Ceibo</a>, the country’s largest organic cacao co-operative, he says the agroforestry model used by its 1,300 members is vital not only to maintain the quality of the cacao they grow, which is used for chocolate and other products, but also for keeping gold mining at bay.</p><p>“We cacao producers would never kill an animal here,” he says, parrots squawking nearby. “The parcels [of land] can never be monocultures – all the crops grow together.”</p> <a href=\"https://www.theguardian.com/global-development/2026/apr/22/mining-agriculture-cacao-farmers-resisting-bolivia-gold-rush\">Continue reading...</a>",
-      "date_published": "2026-04-22T11:45:23+00:00",
+      "id": "https://wltribune.com/2026/04/28/cariboo-archers-shoot-multiple-wins-at-kamloops-bowbenders-competition/",
+      "url": "https://wltribune.com/2026/04/28/cariboo-archers-shoot-multiple-wins-at-kamloops-bowbenders-competition/",
+      "title": "[Williams Lake Tribune] Cariboo Archers shoot multiple wins at Kamloops Bowbenders’ competition",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42177960_web1_260430-WLT-Cariboo-Archers-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1 MIN READ",
+      "date_published": "2026-04-29T06:41:48.522381+00:00",
       "authors": [
         {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 60,
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42177960_web1_260430-WLT-Cariboo-Archers-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/28/south-cariboo-resident-jennifer-provencal-still-missing-1-year-later/",
+      "url": "https://wltribune.com/2026/04/28/south-cariboo-resident-jennifer-provencal-still-missing-1-year-later/",
+      "title": "[Williams Lake Tribune] South Cariboo resident Jennifer Provencal still missing 1 year later",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42179542_web1_260430-OMH-Walk-For-Jen_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
+      "date_published": "2026-04-29T06:41:48.522358+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42179542_web1_260430-OMH-Walk-For-Jen_1.jpeg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/28/10-years-of-forest-work-by-b-c-society-reduces-fire-risk-carbon-output/",
+      "url": "https://wltribune.com/2026/04/28/10-years-of-forest-work-by-b-c-society-reduces-fire-risk-carbon-output/",
+      "title": "[Williams Lake Tribune] 10 years of forest work by B.C. society reduces fire risk, carbon output",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42172378_web1_260430-WLT-FESBC-Impact_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n5 MIN READ",
+      "date_published": "2026-04-29T06:41:48.522329+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42172378_web1_260430-WLT-FESBC-Impact_1.jpg?w=1024"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/28/compact-vga-output-board-for-the-pi-pico/",
+      "url": "https://hackaday.com/2026/04/28/compact-vga-output-board-for-the-pi-pico/",
+      "title": "[Hackaday] Compact VGA Output Board For The Pi Pico",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/IMG_E6755-e1777276948914.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/IMG_E6755-e1777276948914.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Many microcontrollers can spit out simple analog video signals if that&#8217;s something you desire. However, it normally requires a bit of supporting hardware and, of course, the right connectors to <a class=\"read-more\" href=\"https://hackaday.com/2026/04/28/compact-vga-output-board-for-the-pi-pico/\">&#8230;read more</a>",
+      "date_published": "2026-04-29T05:00:55+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 62,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 18,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/IMG_E6755-e1777276948914.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/04/29/climate/wri-report-forest-loss.html",
+      "url": "https://www.nytimes.com/2026/04/29/climate/wri-report-forest-loss.html",
+      "title": "[NYT Top Stories] Global Deforestation Slows, W.R.I. Report Finds. But Wildfires Are Taking a Toll.",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/28/multimedia/2026-04-24-cli-forest-loss-index/2026-04-24-cli-forest-loss-index-mediumSquareAt3X-v4.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn 2025, the world razed less forest than any other year in the last decade. The bad news: global warming is making wildfires more frequent and intense.",
+      "date_published": "2026-04-29T04:01:02+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://i.guim.co.uk/img/media/258bc546a828c8ba40075d6d4c4e65552123f3f4/0_0_4320_3456/master/4320.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8caacd2ed52a714c64980caf9f287ab0"
+      "image": "https://static01.nyt.com/images/2026/04/28/multimedia/2026-04-24-cli-forest-loss-index/2026-04-24-cli-forest-loss-index-mediumSquareAt3X-v4.png"
     },
     {
-      "id": "https://www.sciencealert.com/researchers-say-were-missing-something-important-about-autism",
-      "url": "https://www.sciencealert.com/researchers-say-were-missing-something-important-about-autism",
-      "title": "[ScienceAlert] Researchers Say We're Missing Something Important About Autism",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/Sillhouetted-faces-on-Blue.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Researchers Say We&#039;re Missing Something Important About Autism\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/Sillhouetted-faces-on-Blue.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />One finding is consistent. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-22T11:00:38+00:00",
+      "id": "https://www.cnet.com/tech/services-and-software/google-reportedly-signs-pentagon-ai-deal-despite-worker-pushback/",
+      "url": "https://www.cnet.com/tech/services-and-software/google-reportedly-signs-pentagon-ai-deal-despite-worker-pushback/",
+      "title": "[CNET] Google Moves Forward With Pentagon AI Deal Despite Employee Pushback",
+      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/da8ababfcb05b6c340c6bce3f32fd71d1d5f6a2b/hub/2026/04/29/472670dc-0aad-430d-8ae7-78b087b8754e/gettyimages-2232540855.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMore than 600 Google employees urge Alphabet CEO Sundar Pichai not to make the company's AI systems available for classified military work.",
+      "date_published": "2026-04-29T03:22:17+00:00",
+      "authors": [
+        {
+          "name": "CNET",
+          "url": "https://www.cnet.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.cnet.com/a/img/resize/da8ababfcb05b6c340c6bce3f32fd71d1d5f6a2b/hub/2026/04/29/472670dc-0aad-430d-8ae7-78b087b8754e/gettyimages-2232540855.jpg?auto=webp&width=300"
+    },
+    {
+      "id": "https://www.sciencealert.com/ultra-processed-foods-may-be-quietly-affecting-your-brains-ability-to-focus",
+      "url": "https://www.sciencealert.com/ultra-processed-foods-may-be-quietly-affecting-your-brains-ability-to-focus",
+      "title": "[ScienceAlert] Ultra-Processed Foods May Be Quietly Affecting Your Brain's Ability to Focus",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/microwave-meal.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Ultra-Processed Foods May Be Quietly Affecting Your Brain&#039;s Ability to Focus\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/microwave-meal.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Even if your diet is 'healthy'. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-04-29T02:51:19+00:00",
       "authors": [
         {
           "name": "ScienceAlert",
           "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_quality_score": 54,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://www.sciencealert.com/images/2026/04/microwave-meal.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/28/recycling-pla-and-other-plastic-waste-with-compression-molding/",
+      "url": "https://hackaday.com/2026/04/28/recycling-pla-and-other-plastic-waste-with-compression-molding/",
+      "title": "[Hackaday] Recycling PLA and Other Plastic Waste with Compression Molding",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/compression_moulding_different_plastics_future_things_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"484\" src=\"https://hackaday.com/wp-content/uploads/2026/04/compression_moulding_different_plastics_future_things_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>After previously trying out low-tech compression molding with a toaster oven and 3D printed molds, [future things] is back with a video that seeks to explore some of the questions <a class=\"read-more\" href=\"https://hackaday.com/2026/04/28/recycling-pla-and-other-plastic-waste-with-compression-molding/\">&#8230;read more</a>",
+      "date_published": "2026-04-29T02:00:31+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/compression_moulding_different_plastics_future_things_youtube.jpg"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/04/28/popular-carriage-event-will-be-held-in-70-mile-house-in-mid-may/",
+      "url": "https://100milefreepress.net/2026/04/28/popular-carriage-event-will-be-held-in-70-mile-house-in-mid-may/",
+      "title": "[100 Mile Free Press] Popular carriage event will be held in 70 Mile House in mid-May",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42178896_web1_260430-OMH-Alexander-70-Mile_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Ken Alexander&#8217;s regular column to the 100 Mile Free Press </p>",
+      "date_published": "2026-04-29T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42178896_web1_260430-OMH-Alexander-70-Mile_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/04/28/technology/openai-trial-elon-musk-sam-altman.html",
+      "url": "https://www.nytimes.com/2026/04/28/technology/openai-trial-elon-musk-sam-altman.html",
+      "title": "[NYT Top Stories] OpenAI Trial Starts With Two Very Different Tales of a Company’s Early Years",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/28/multimedia/28biz-ai-trial-ledeall-musk-kblp/28biz-ai-trial-ledeall-musk-kblp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn the trial’s first day of testimony, Elon Musk said greed led co-founder Sam Altman to pull the A.I. lab away from its nonprofit roots. OpenAI says that’s nonsense.",
+      "date_published": "2026-04-28T23:45:07+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/04/28/multimedia/28biz-ai-trial-ledeall-musk-kblp/28biz-ai-trial-ledeall-musk-kblp-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/a-significant-threat-these-tiny-trained-robots-can-catch-invisible-plastic-dust-from-your-drinking-water",
+      "url": "https://www.techradar.com/pro/a-significant-threat-these-tiny-trained-robots-can-catch-invisible-plastic-dust-from-your-drinking-water",
+      "title": "[TechRadar] 'A significant threat': These tiny 'trained' robots can catch invisible plastic dust in your drinking water",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/2YkQ9b98Brgbzx9QdeWoRM-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers developed magnetic nanorobots that actively capture nanoplastics in water, achieving strong lab results while facing major efficiency and scalability challenges.",
+      "date_published": "2026-04-28T22:20:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 61,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/2YkQ9b98Brgbzx9QdeWoRM-1280-80.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/04/28/study-finds-infrasound-the-likely-horror-in-hauntings.html",
+      "url": "https://boingboing.net/2026/04/28/study-finds-infrasound-the-likely-horror-in-hauntings.html",
+      "title": "[Boing Boing] Study finds infrasound the likely horror in hauntings",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/09/image-42.png?fit=1280%2C537&amp;quality=55&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/28/study-finds-infrasound-the-likely-horror-in-hauntings.html\" rel=\"nofollow\" title=\"Study finds infrasound the likely horror in hauntings\"><img alt=\"Twinkie\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"537\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/09/image-42.png?fit=1280%2C537&amp;quality=55&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1280\" /></a><p>Noise below the range of human hearing from old pipes and mechanical systems can induce stressful sensations, according to <a href=\"https://www.frontiersin.org/journals/behavioral-neuroscience/articles/10.3389/fnbeh.2026.1729876/full\">a study</a> published by Canadian researchers in <em>Frontiers in Behavioral Neuroscience</em>. The findings offer a compelling scientific explanation for why I feel ill-at-ease in the basement of the abandoned 19th-century sanitarium, built over an old cemetery, that I've been squatting in rural West Pennsylvania. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/28/study-finds-infrasound-the-likely-horror-in-hauntings.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/28/study-finds-infrasound-the-likely-horror-in-hauntings.html\">Study finds infrasound the likely horror in hauntings</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-04-28T22:04:37+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2023/09/image-42.png?fit=1280%2C537&quality=55&ssl=1"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/04/28/health/depression-at-home-brain-stimulation-fda.html",
+      "url": "https://www.nytimes.com/2026/04/28/health/depression-at-home-brain-stimulation-fda.html",
+      "title": "[NYT Top Stories] Could At-Home Brain Stimulation Reduce Psychiatry’s Reliance on S.S.R.I.s?",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/22/multimedia/00sci-brain-stimulation-01-bklt/00sci-brain-stimulation-01-bklt-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA headset recently approved by the Food and Drug Administration uses a weak electric current to shock the brain. Some researchers hope it could challenge the current pill-centric paradigm.",
+      "date_published": "2026-04-28T22:02:41+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/04/22/multimedia/00sci-brain-stimulation-01-bklt/00sci-brain-stimulation-01-bklt-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/replaced-notebooklm-with-local-llm-difference-is-night-and-day/",
+      "url": "https://www.xda-developers.com/replaced-notebooklm-with-local-llm-difference-is-night-and-day/",
+      "title": "[XDA Developers] I replaced NotebookLM with a local LLM, and the difference is night and day",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/qwen-3-5-9b-in-lm-studio-on-desktop-pc-lamp-and-lego-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNotebookLM is only as useful as what you’re willing to give it",
+      "date_published": "2026-04-28T22:00:28+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/qwen-3-5-9b-in-lm-studio-on-desktop-pc-lamp-and-lego-in-view.jpeg"
+    },
+    {
+      "id": "https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/i-watched-a-joby-electric-air-taxi-take-off-and-land-in-new-york-city-and-now-i-cant-wait-for-our-uber-of-the-skies-future",
+      "url": "https://www.techradar.com/vehicle-tech/hybrid-electric-vehicles/i-watched-a-joby-electric-air-taxi-take-off-and-land-in-new-york-city-and-now-i-cant-wait-for-our-uber-of-the-skies-future",
+      "title": "[TechRadar] I watched a Joby electric Air Taxi take off and land in New York City, and now I can't wait for our Uber of the skies future",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/vwmombf7gxxL3ZPuxUzjvn-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nJoby completes the first point-to-point EV Air Taxi flight in New York City history and it could mean the eVOTL future is here now.",
+      "date_published": "2026-04-28T21:45:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/vwmombf7gxxL3ZPuxUzjvn-1280-80.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/why-ai-startup-founder-switched-chatgpt-to-claude-2026-3",
+      "url": "https://www.businessinsider.com/why-ai-startup-founder-switched-chatgpt-to-claude-2026-3",
+      "title": "[Business Insider] I run an AI-powered startup, and we canceled our ChatGPT plan months ago. Claude feels more like the promise of AI.",
+      "content_html": "<img src=\"https://i.insider.com/69b2ed9da96e437d6eb83712?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn AI startup cofounder explains why they canceled their ChatGPT plan, and are among a growing group of AI user's choosing Claude over ChatGPT.",
+      "date_published": "2026-04-28T20:38:23+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/69b2ed9da96e437d6eb83712?format=jpeg"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/04/28/quesnel-resident-laces-up-again-for-million-reasons-run-challenge/",
+      "url": "https://quesnelobserver.com/2026/04/28/quesnel-resident-laces-up-again-for-million-reasons-run-challenge/",
+      "title": "[Quesnel Cariboo Observer] Quesnel resident laces up again for Million Reasons Run challenge",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42172391_web1_1000051824.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Maybe Rob Yager may not have exactly a million reasons to run, but he&#8217;s found more than a few over the last five years.</p>",
+      "date_published": "2026-04-28T20:30:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 87,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42172391_web1_1000051824.jpg?w=1024"
+    },
+    {
+      "id": "https://www.statnews.com/2026/04/28/fda-real-time-clinical-trials-pilot-project-astrazeneca-amgen-cancer-drugs/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/04/28/fda-real-time-clinical-trials-pilot-project-astrazeneca-amgen-cancer-drugs/?utm_campaign=rss",
+      "title": "[STAT News] STAT+: FDA launches effort to speed up clinical trials, using AI",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/04/GettyImages-2237911300-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMonitoring trials in real time may help shorten the time interval between trial phases.",
+      "date_published": "2026-04-28T19:24:35+00:00",
+      "authors": [
+        {
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.statnews.com/wp-content/uploads/2026/04/GettyImages-2237911300-645x645.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/powertoys-099-makes-it-easier-to-drag-windows-and-manage-monitor-settings/",
+      "url": "https://www.howtogeek.com/powertoys-099-makes-it-easier-to-drag-windows-and-manage-monitor-settings/",
+      "title": "[How-To Geek] PowerToys 0.99 makes it easier to drag windows and manage monitor settings",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/illustration-of-the-microsoft-powertoys-logo-surrounded-by-interface-snippets-showing-features-like-paste-as-plain-text-color-picker-and-dark-mode.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTwo new utilities fixing everyday annoyances along with smaller tweaks across the toolkit.",
+      "date_published": "2026-04-28T19:09:23+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/illustration-of-the-microsoft-powertoys-logo-surrounded-by-interface-snippets-showing-features-like-paste-as-plain-text-color-picker-and-dark-mode.png"
+    },
+    {
+      "id": "https://nautil.us/our-eyes-originated-in-a-600-million-year-old-cyclops-1280279/",
+      "url": "https://nautil.us/our-eyes-originated-in-a-600-million-year-old-cyclops-1280279/",
+      "title": "[Nautilus] Our Eyes Originated in a 600-Million-Year-Old Cyclops",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_aa4943.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>There was a time when one eye was better than two</p>\n<p>The post <a href=\"https://nautil.us/our-eyes-originated-in-a-600-million-year-old-cyclops-1280279/\">Our Eyes Originated in a 600-Million-Year-Old Cyclops</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-28T18:43:48+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_aa4943.png?w=564"
+    },
+    {
+      "id": "https://qz.com/aws-amazon-connect-talent-decisions-ai-hiring-supply-chain-042826",
+      "url": "https://qz.com/aws-amazon-connect-talent-decisions-ai-hiring-supply-chain-042826",
+      "title": "[Quartz] Amazon's cloud unit is launching AI software to conduct job interviews and manage supply chains",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2263890387.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAmazon Web Services packaged its own hiring and logistics expertise into 2 new products called Connect Talent and Connect Decisions",
+      "date_published": "2026-04-28T18:40:35+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2263890387.jpg"
+    },
+    {
+      "id": "https://qz.com/us-commerce-chip-equipment-hua-hong-lam-applied-materials-kla-042826",
+      "url": "https://qz.com/us-commerce-chip-equipment-hua-hong-lam-applied-materials-kla-042826",
+      "title": "[Quartz] U.S. ordered chip equipment makers to halt some shipments to China's No. 2 chipmaker",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2213380947.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApplied Materials, Lam Research, and KLA were among companies receiving Commerce Department letters restricting tool shipments to Hua Hong",
+      "date_published": "2026-04-28T18:40:31+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2213380947.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/google-home-rgb-smart-bulb-problem-3661539/",
+      "url": "https://www.androidauthority.com/google-home-rgb-smart-bulb-problem-3661539/",
+      "title": "[Android Authority] Google Home is stripping RGB color controls from smart bulbs, but this workaround can bring it back",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2022/04/Book-case-with-all-RGB-lights-on-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour lights are still smart, they just need a little reminder of their colors.",
+      "date_published": "2026-04-28T17:59:44+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2022/04/Book-case-with-all-RGB-lights-on-scaled.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/04/28/tor-browsers-new-identity-button-didnt-actually-reset-your-fingerprint.html",
+      "url": "https://boingboing.net/2026/04/28/tor-browsers-new-identity-button-didnt-actually-reset-your-fingerprint.html",
+      "title": "[Boing Boing] Tor Browser's \"New Identity\" button didn't actually reset your fingerprint",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/tor.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/28/tor-browsers-new-identity-button-didnt-actually-reset-your-fingerprint.html\" rel=\"nofollow\" title=\"Tor Browser&#039;s &quot;New Identity&quot; button didn&#039;t actually reset your fingerprint\"><img alt=\"DANIEL CONSTANTE / Shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/tor.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>Tor Browser has a \"New Identity\" button that's supposed to give you a completely fresh start — like opening a brand-new browser with no memory of what you were doing before. But it turns out it didn't fully do that.</p>\n<p><a href=\"https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/\">Researchers</a> discovered that a built-in browser feature (called IndexedDB, which websites use to store data on your device) could leave behind a kind of hidden \"fingerprint.\" &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/28/tor-browsers-new-identity-button-didnt-actually-reset-your-fingerprint.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/28/tor-browsers-new-identity-button-didnt-actually-reset-your-fingerprint.html\">Tor Browser&#039;s &quot;New Identity&quot; button didn&#039;t actually reset your fingerprint</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-04-28T17:49:22+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/tor.jpg?fit=1200%2C800&quality=60&ssl=1"
+    },
+    {
+      "id": "https://lifehacker.com/entertainment/best-shows-like-for-all-mankind?utm_medium=RSS",
+      "url": "https://lifehacker.com/entertainment/best-shows-like-for-all-mankind?utm_medium=RSS",
+      "title": "[Lifehacker] 10 Shows Like 'For All Mankind' You Should Watch Next",
+      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01KQ7PRGC2SZ7EEAEPCNXK1JCG/hero-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGrounded sci-fi and roads less travelled by.",
+      "date_published": "2026-04-28T17:30:00+00:00",
+      "authors": [
+        {
+          "name": "Lifehacker",
+          "url": "https://lifehacker.com/feed/rss"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://lifehacker.com/imagery/articles/01KQ7PRGC2SZ7EEAEPCNXK1JCG/hero-image.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/04/28/scientists-finally-cracked-how-bacterias-spinning-motor-actually-works.html",
+      "url": "https://boingboing.net/2026/04/28/scientists-finally-cracked-how-bacterias-spinning-motor-actually-works.html",
+      "title": "[Boing Boing] Scientists finally cracked how bacteria's spinning motor actually works",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/bacteria.jpg?fit=1200%2C798&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/28/scientists-finally-cracked-how-bacterias-spinning-motor-actually-works.html\" rel=\"nofollow\" title=\"Scientists finally cracked how bacteria&#039;s spinning motor actually works\"><img alt=\"NatalieIme/shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"798\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/bacteria.jpg?fit=1200%2C798&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>Mike Manson has spent 50 years at Texas A&#38;M studying the bacterial flagellar motor — a molecular machine that spins hundreds of times per second, outpacing a race car's spinning crankshaft, to drive bacteria through water. He finally understands it. \"My lifelong quest is now fulfilled,\" he told <a href=\"https://www.quantamagazine.org/what-physical-life-force-turns-biologys-wheels-20260420/\">Quanta Magazine</a>. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/28/scientists-finally-cracked-how-bacterias-spinning-motor-actually-works.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/28/scientists-finally-cracked-how-bacterias-spinning-motor-actually-works.html\">Scientists finally cracked how bacteria&#039;s spinning motor actually works</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-04-28T17:29:23+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
       "_quality_score": 58,
@@ -906,7 +796,117 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/Sillhouetted-faces-on-Blue.jpg"
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/bacteria.jpg?fit=1200%2C798&quality=60&ssl=1"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/28/those-deaths-were-preventable-b-c-mourns-138-workplace-deaths-in-2025/",
+      "url": "https://wltribune.com/2026/04/28/those-deaths-were-preventable-b-c-mourns-138-workplace-deaths-in-2025/",
+      "title": "[Williams Lake Tribune] ‘Those deaths were preventable’: B.C. mourns 138 workplace deaths in 2025",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42187851_web1_260428-VNE-2026-Day-of-Mourning-1_10.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>National Day of Mourning honours workers who were killed, injured or made ill in the workplace in 2025 </p>",
+      "date_published": "2026-04-28T16:40:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 98,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 29,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42187851_web1_260428-VNE-2026-Day-of-Mourning-1_10.jpg?w=1024"
+    },
+    {
+      "id": "https://www.techradar.com/ai-platforms-assistants/i-stopped-asking-ai-for-answers-and-started-asking-for-frameworks-and-suddenly-it-all-clicked",
+      "url": "https://www.techradar.com/ai-platforms-assistants/i-stopped-asking-ai-for-answers-and-started-asking-for-frameworks-and-suddenly-it-all-clicked",
+      "title": "[TechRadar] I stopped asking AI for answers and started asking for frameworks — and suddenly it all clicked",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/JAKXESDBvTfifu6GvidSLd-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThere’s a better way to use AI, and it involves asking it not to give you the answers you're after.",
+      "date_published": "2026-04-28T15:45:48+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/JAKXESDBvTfifu6GvidSLd-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/28/a-tube-amplifier-thats-oven-ready/",
+      "url": "https://hackaday.com/2026/04/28/a-tube-amplifier-thats-oven-ready/",
+      "title": "[Hackaday] A Tube Amplifier That’s Oven Ready",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/tube-amp-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/tube-amp-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The problem with tube based audio is that it has so often been hijacked by people for whom the bragging rights of having a tube amplifier outweigh the benefits, or <a class=\"read-more\" href=\"https://hackaday.com/2026/04/28/a-tube-amplifier-thats-oven-ready/\">&#8230;read more</a>",
+      "date_published": "2026-04-28T15:30:09+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/tube-amp-featured.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/04/28/business/dealbook/openai-misses-targets.html",
+      "url": "https://www.nytimes.com/2026/04/28/business/dealbook/openai-misses-targets.html",
+      "title": "[NYT Business] If OpenAI Is Missing User and Revenue Targets, Are They Falling Behind the AI Race?",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/28/multimedia/28db-altman-zmpg/28db-altman-zmpg-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe artificial intelligence giant has reportedly fallen behind on its own user and revenue targets, raising questions about its data center and I.P.O. plans",
+      "date_published": "2026-04-28T15:19:18+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/04/28/multimedia/28db-altman-zmpg/28db-altman-zmpg-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://nautil.us/where-brains-process-smell-1280267/",
+      "url": "https://nautil.us/where-brains-process-smell-1280267/",
+      "title": "[Nautilus] Where Brains Process Smell",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_6ce0f6.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>First “smell map” reveals organization where scientists had predicted chaos</p>\n<p>The post <a href=\"https://nautil.us/where-brains-process-smell-1280267/\">Where Brains Process Smell</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-28T15:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_6ce0f6.png?w=564"
     }
   ]
 }
