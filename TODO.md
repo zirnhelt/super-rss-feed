@@ -56,14 +56,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-22 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-04-22 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-04-22 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-04-21 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-04-21 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-21 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-21 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-04-21 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-04-21 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-21 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-21 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
@@ -81,12 +73,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-04-23 | 🌙 evening | 237 | news:80(35%), ai-tech:69(31%), homelab:33(15%) |
 | 2026-04-22 | 🌅 morning | 202 | ai-tech:71(39%), news:58(32%), homelab:23(13%) |
 | 2026-04-22 | 🌙 evening | 263 | news:81(33%), ai-tech:78(32%), homelab:33(14%) |
-| 2026-04-21 | 🌅 morning | 188 | ai-tech:63(36%), news:61(35%), homelab:30(17%) |
-| 2026-04-21 | 🌙 evening | 244 | news:80(35%), ai-tech:71(31%), homelab:37(16%) |
 
-_Last updated by log\_feed\_results.py · 2026-04-28 07:13 UTC_
+_Last updated by log\_feed\_results.py · 2026-04-29 06:44 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
