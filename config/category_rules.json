@@ -6,7 +6,7 @@
     "description": "Williams Lake and Cariboo region local news only"
   },
   "homelab": {
-    "include": ["self-hosting", "home server", "3D printing", "Bambu Lab", "home automation", "HomeKit", "HomeBridge", "Omada", "mesh networking", "Meshtastic"],
+    "include": ["self-hosting", "self-hosted", "home server", "3D printing", "Bambu Lab", "home automation", "HomeKit", "HomeBridge", "Omada", "mesh networking", "Meshtastic", "proxmox", "home assistant", "truenas", "jellyfin", "plex server", "docker compose", "wireguard vpn", "kubernetes homelab", "NAS storage"],
     "exclude": ["consumer tips", "phone accessories", "charging cables", "AirTag", "product reviews"],
     "description": "Self-hosted infrastructure, 3D printing, serious home automation - NOT consumer gadgets or tips"
   },
@@ -31,9 +31,9 @@
     "description": "Science fiction and fantasy ONLY - NOT tech lifestyle or productivity apps"
   },
   "ai-tech": {
-    "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure"],
+    "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "large language model", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure", "ChatGPT", "OpenAI", "Gemini", "Claude AI", "foundation model", "neural network", "deep learning", "computer vision", "natural language processing", "generative AI", "model training", "fine-tuning", "transformer model", "Microsoft Copilot", "Google AI", "Apple Intelligence", "AI agent", "AI model", "language model"],
     "exclude": ["consumer apps", "phone reviews", "gadget reviews", "charging tips"],
-    "description": "AI/ML systems, platform engineering, infrastructure - NOT consumer tech or app reviews"
+    "description": "AI/ML systems, platform engineering, infrastructure, and AI product news - NOT consumer tech reviews unrelated to AI"
   },
   "news": {
     "description": "Default category for everything else: politics, business, product reviews, consumer tech tips, general technology news",

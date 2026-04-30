@@ -222,6 +222,7 @@ class Article:
         self.url_hash = hashlib.md5(canonicalize_url(self.link).encode()).hexdigest()
         self.title_normalized = self.title.lower().strip()
         self.title_terms = _term_set(self.title_normalized)
+        self.story_group: Optional[str] = None  # Claude-assigned event label for dedup
     
     def _parse_date(self, entry) -> datetime:
         """Parse publication date from entry"""
@@ -956,8 +957,9 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
             shared_terms = len(article.title_terms & seen_terms) if seen_terms else 0
 
             is_story_match = (
-                string_sim > 78
-                or (overlap >= 0.40 and shared_terms >= 3)
+                string_sim > LIMITS.get('dedup_fuzzy_threshold', 78)
+                or (overlap >= LIMITS.get('dedup_overlap_high', 0.55) and shared_terms >= LIMITS.get('dedup_min_terms_high', 2))
+                or (overlap >= LIMITS.get('dedup_overlap_low', 0.40) and shared_terms >= LIMITS.get('dedup_min_terms_low', 3))
             )
 
             if is_story_match:
@@ -982,6 +984,83 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
 
     print(f"🔄 Deduplication: {len(articles)} → {len(unique)} articles")
     return unique
+
+
+def dedup_across_categories(categorized: dict) -> dict:
+    """Drop news articles that are covered by a more specific category.
+
+    After categorization, the same story can appear in both 'news' (via a
+    Google News proxy URL or generic outlet) and a specific category (via the
+    original source).  Specific categories always win: any news article whose
+    title is a story-match for an article in ai-tech, climate, homelab, etc.
+    is silently dropped from news.
+    """
+    overlap_thresh = LIMITS.get('cross_category_overlap_threshold', 0.45)
+    min_terms = LIMITS.get('cross_category_min_terms', 2)
+    fuzzy_thresh = LIMITS.get('dedup_fuzzy_threshold', 78)
+
+    specific_cats = [c for c in CATEGORIES if c not in ('news', 'local')]
+    specific_articles = [a for cat in specific_cats for a in categorized.get(cat, [])]
+
+    if not specific_articles:
+        return categorized
+
+    filtered_news = []
+    dropped = 0
+    for news_art in categorized.get('news', []):
+        dominated = False
+        for spec_art in specific_articles:
+            sim = max(
+                fuzz.ratio(news_art.title_normalized, spec_art.title_normalized),
+                fuzz.token_sort_ratio(news_art.title_normalized, spec_art.title_normalized),
+            )
+            ov = (
+                _story_overlap(news_art.title_terms, spec_art.title_terms)
+                if len(news_art.title_terms) >= min_terms and len(spec_art.title_terms) >= min_terms
+                else 0.0
+            )
+            shared = len(news_art.title_terms & spec_art.title_terms)
+            if sim > fuzzy_thresh or (ov >= overlap_thresh and shared >= min_terms):
+                dominated = True
+                break
+        if dominated:
+            dropped += 1
+        else:
+            filtered_news.append(news_art)
+
+    if dropped:
+        print(f"🔀 Cross-category dedup: removed {dropped} news articles covered by specific categories")
+    categorized['news'] = filtered_news
+    return categorized
+
+
+def dedup_by_story_group(articles: List[Article]) -> List[Article]:
+    """Collapse articles that Claude labelled with the same story_group.
+
+    Within a single category's article list, when multiple pieces cover the
+    same discrete news event (identical story_group string), only the
+    highest-scored article is kept.  Articles with no story_group (null) are
+    left untouched.
+    """
+    groups: dict = defaultdict(list)
+    ungrouped = []
+    for a in articles:
+        sg = getattr(a, 'story_group', None)
+        if sg:
+            groups[sg.lower().strip()].append(a)
+        else:
+            ungrouped.append(a)
+
+    result = ungrouped[:]
+    collapsed = 0
+    for group_articles in groups.values():
+        best = max(group_articles, key=lambda x: x.score)
+        result.append(best)
+        collapsed += len(group_articles) - 1
+
+    if collapsed:
+        print(f"📰 Story-group dedup: collapsed {collapsed} duplicate event articles")
+    return result
 
 
 def categorize_article(title: str, description: str) -> Optional[str]:
@@ -1028,7 +1107,11 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     cached_system_prompt = (
         f"You are a news curator. Respond only with valid JSON arrays.\n\n"
         f"Rate articles 0-100 for personal relevance and quality based on these interest priorities:\n{interests}\n\n"
-        f"Also assign each article to ONE of these categories: {categories_json}"
+        f"Also assign each article to ONE of these categories: {categories_json}\n\n"
+        f"Also provide a 'story_group': a 3-5 word label for the SPECIFIC event or product covered "
+        f"(e.g. 'Apple AirTag 2 launch', 'Williams Lake council vote', 'OpenAI GPT-5 release'). "
+        f"Use null for standalone analysis, opinion, or evergreen pieces with no discrete news event. "
+        f"Articles covering the SAME event MUST use IDENTICAL story_group strings."
     )
 
     scored_articles = []
@@ -1038,6 +1121,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         if article.url_hash in cache:
             article.score = cache[article.url_hash]['score']
             article.category = cache[article.url_hash]['category']
+            article.story_group = cache[article.url_hash].get('story_group')
             scored_articles.append(article)
         else:
             uncached.append(article)
@@ -1055,12 +1139,12 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
                 for j, article in enumerate(batch)
             ])
 
-            prompt = f"""Rate each article from 0-100 and assign a category from: {categories_json}
+            prompt = f"""Rate each article from 0-100, assign a category from: {categories_json}, and provide a story_group.
 
 Respond with ONLY a JSON array (no other text):
 [
-  {{"article": 1, "score": 75, "category": "ai-tech"}},
-  {{"article": 2, "score": 45, "category": "news"}}
+  {{"article": 1, "score": 75, "category": "ai-tech", "story_group": "Apple AirTag 2 launch"}},
+  {{"article": 2, "score": 45, "category": "news", "story_group": null}}
 ]
 
 Articles to evaluate:
@@ -1112,13 +1196,15 @@ Articles to evaluate:
                         article.category = score_data.get('category', 'news')
                         if article.category not in CATEGORIES:
                             article.category = categorize_article(article.title, article.description) or 'news'
+                        article.story_group = score_data.get('story_group') or None
 
                         cache[article.url_hash] = {
                             'score': article.score,
                             'category': article.category,
+                            'story_group': article.story_group,
                             'timestamp': timestamp
                         }
-                        
+
                         scored_articles.append(article)
                 
             except json.JSONDecodeError as e:
@@ -2029,6 +2115,8 @@ def main():
         count = len(categorized[cat_key])
         print(f"  {cat_key}: {count} articles")
 
+    categorized = dedup_across_categories(categorized)
+
     # Save quality articles to weekly podcast cache
     save_podcast_cache(quality_articles)
 
@@ -2083,12 +2171,37 @@ def main():
         
         new_items = categorized[cat_key]
         diverse_new = apply_diversity_limits(new_items, cat_key)
+        diverse_new = dedup_by_story_group(diverse_new)
 
         cat_cap = LIMITS.get('max_new_per_category', {}).get(cat_key)
         if cat_cap and len(diverse_new) > cat_cap:
             print(f"🔢 Category cap ({cat_key}): {len(diverse_new)} → {cat_cap} articles")
             diverse_new = diverse_new[:cat_cap]
-        
+
+        # Filter retained articles: drop any whose URL or story terms overlap with a new article.
+        # Prevents the same story from accumulating across runs within the 7-day window.
+        merge_overlap = LIMITS.get('feed_merge_overlap_threshold', 0.50)
+        merge_min_terms = LIMITS.get('feed_merge_min_terms', 2)
+        new_urls = {a.link for a in diverse_new}
+        new_term_sets = [(a.title_terms) for a in diverse_new]
+
+        def _retained_is_fresh(item: dict) -> bool:
+            if item['url'] in new_urls:
+                return False
+            r_terms = _term_set(re.sub(r'^\[.*?\]\s*', '', item.get('title', '')).lower())
+            if len(r_terms) < merge_min_terms:
+                return True
+            for nt in new_term_sets:
+                if len(nt) >= merge_min_terms:
+                    ov = _story_overlap(r_terms, nt)
+                    if ov >= merge_overlap and len(r_terms & nt) >= merge_min_terms:
+                        return False
+            return True
+
+        fresh_existing = [item for item in existing_articles if _retained_is_fresh(item)]
+        if len(fresh_existing) < len(existing_articles):
+            print(f"🗂️  Feed merge dedup ({cat_key}): {len(existing_articles)} → {len(fresh_existing)} retained articles")
+
         all_items = diverse_new + [
             type('Article', (), {
                 'link': item['url'],
@@ -2099,7 +2212,7 @@ def main():
                 'source_url': item['authors'][0]['url'],
                 'score': 0,
                 'image': item.get('image')
-            })() for item in existing_articles
+            })() for item in fresh_existing
         ]
         
         all_items.sort(key=lambda a: a.pub_date, reverse=True)

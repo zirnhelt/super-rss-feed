@@ -8,5 +8,14 @@
   "max_new_per_category": {
     "ai-tech": 40,
     "news": 80
-  }
+  },
+  "dedup_fuzzy_threshold": 78,
+  "dedup_overlap_high": 0.55,
+  "dedup_min_terms_high": 2,
+  "dedup_overlap_low": 0.40,
+  "dedup_min_terms_low": 3,
+  "cross_category_overlap_threshold": 0.45,
+  "cross_category_min_terms": 2,
+  "feed_merge_overlap_threshold": 0.50,
+  "feed_merge_min_terms": 2
 }
