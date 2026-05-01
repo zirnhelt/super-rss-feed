@@ -3,7 +3,7 @@
   "title": "🎙️ Wild Spaces & Outdoor Life",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-podcast-friday.json",
-  "description": "Today we head into the wild — the Chilcotin plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed. - Daily themed article selection for podcast generation",
+  "description": "Today we head into the wild — the Chilcotin (chil-KOH-tin) plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed. - Daily themed article selection for podcast generation",
   "icon": "https://zirnhelt.github.io/super-rss-feed/favicon.ico",
   "authors": [
     {
@@ -13,7 +13,7 @@
   "language": "en",
   "_podcast": {
     "theme": "Wild Spaces & Outdoor Life",
-    "theme_description": "Today we head into the wild — the Chilcotin plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed.",
+    "theme_description": "Today we head into the wild — the Chilcotin (chil-KOH-tin) plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed.",
     "theme_categories": [
       "local",
       "climate",
@@ -22,502 +22,62 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "friday",
-    "generated_at": "2026-05-01T07:12:10.982388+00:00",
+    "generated_at": "2026-05-01T14:00:17.155176+00:00",
     "article_count": 40,
-    "bonus_count": 32,
+    "bonus_count": 38,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.nytimes.com/2026/04/29/science/tourism-killer-whales-orcas.html",
-      "url": "https://www.nytimes.com/2026/04/29/science/tourism-killer-whales-orcas.html",
-      "title": "[NYT Top Stories] The Murky Ethics of Swimming With Killer Whales",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/22/multimedia/00SCI-ORCAS-stillpromo/00SCI-ORCAS-stillpromo-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOnly two places in the world allow tourists to enter the water with the ocean’s apex predator. But the safety of both species is a growing concern.",
-      "date_published": "2026-04-29T21:10:20+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 37,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 11,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/22/multimedia/00SCI-ORCAS-stillpromo/00SCI-ORCAS-stillpromo-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/health-fitness/smartwatches/garmin-tactix-8-review",
-      "url": "https://www.techradar.com/health-fitness/smartwatches/garmin-tactix-8-review",
-      "title": "[TechRadar] I've worn the Garmin Tactix 8 for 8 weeks, and elite adventurers will love this watch — but most of you probably don't need it",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/XXuFs8A85LN4p23wxEAW33-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Garmin Tactix 8 is the ultimate one-watch solution for tactical operators. With an unbelievable battery life and dedicated tactical features, there's nothing better on the market at the moment.",
-      "date_published": "2026-04-26T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 22,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/XXuFs8A85LN4p23wxEAW33-1280-80.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/4/28/at-least-20-killed-in-colombia-highway-blast?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/4/28/at-least-20-killed-in-colombia-highway-blast?traffic_source=rss",
-      "title": "[Al Jazeera English] At least 20 killed in Colombia highway blast",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/04/AP26116547863234-1777347961.jpg?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nColombia&#039;s President Gustavo Petro has blamed a &#039;narco-terrorist group&#039;, led by a former FARC fighter, for the attack.",
-      "date_published": "2026-04-28T06:30:58+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "_quality_score": 15,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/04/AP26116547863234-1777347961.jpg?resize=1200%2C675"
-    },
-    {
-      "id": "https://www.wired.com/story/best-smart-bird-feeders/",
-      "url": "https://www.wired.com/story/best-smart-bird-feeders/",
-      "title": "[WIRED] The Smart Bird Feeders Everyone’s Talking About (and Actually Buying) (2026)",
-      "content_html": "<img src=\"https://media.wired.com/photos/69ebdf79c2561fc92a314957/master/pass/The-Best-Smart-Bird-Feeders-for-Backyard-Birding.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese bird feeders come with cameras and connected apps to let you see and learn about the birds in your neighborhood.",
-      "date_published": "2026-04-26T11:04:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 28,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 8,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69ebdf79c2561fc92a314957/master/pass/The-Best-Smart-Bird-Feeders-for-Backyard-Birding.jpg"
-    },
-    {
-      "id": "https://www.theatlantic.com/books/2026/04/adventure-books-recommendations/687006/?utm_source=feed",
-      "url": "https://www.theatlantic.com/books/2026/04/adventure-books-recommendations/687006/?utm_source=feed",
-      "title": "[The Atlantic Culture] Seven Death-Defying Books for the Adventurous Reader",
-      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/X05y0lnxsUNPMJ-p5rLGd6Z69sc=/0x105:4952x2684/1200x625/media/img/mt/2026/04/2026_02_23_Seven_Books_To_Read_When_You_Want_an_Adventure/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese titles will spirit you to some of the planet’s wildest landscapes, without making you leave your armchair.",
-      "date_published": "2026-04-30T18:30:00+00:00",
-      "authors": [
-        {
-          "name": "The Atlantic Culture",
-          "url": "https://www.theatlantic.com/culture/"
-        }
-      ],
-      "_quality_score": 27,
-      "_theme_score": 40,
-      "_final_score": 40,
-      "_keyword_matches": 0,
-      "_boosted_score": 8,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://cdn.theatlantic.com/thumbor/X05y0lnxsUNPMJ-p5rLGd6Z69sc=/0x105:4952x2684/1200x625/media/img/mt/2026/04/2026_02_23_Seven_Books_To_Read_When_You_Want_an_Adventure/original.jpg"
-    },
-    {
-      "id": "https://news.gov.bc.ca/releases/2026WLRS0022-000463",
-      "url": "https://news.gov.bc.ca/releases/2026WLRS0022-000463",
-      "title": "[BC Gov News] Strengthening protections for wild sheep",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew rules help prevent disease spread from domestic to wild sheep",
-      "date_published": "2026-04-27T20:30:00+00:00",
-      "authors": [
-        {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "_quality_score": 40,
-      "_theme_score": 40,
-      "_final_score": 40,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
-    },
-    {
-      "id": "https://thetyee.ca/News/2026/04/27/BC-Going-Backwards-Ecosystem-Protections/",
-      "url": "https://thetyee.ca/News/2026/04/27/BC-Going-Backwards-Ecosystem-Protections/",
-      "title": "[The Tyee] BC ‘Going Backwards’ on Ecosystem Protections",
-      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/26/CutLogsSprayPaint.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAdvocates, the BC Greens and a former cabinet minister take aim at the NDP’s Earth Day message.",
-      "date_published": "2026-04-27T07:10:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_quality_score": 40,
-      "_theme_score": 40,
-      "_final_score": 40,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://thetyee.ca/News/2026/04/26/CutLogsSprayPaint.jpg"
-    },
-    {
-      "id": "https://www.aptnnews.ca/national-news/churchill-residents-northern-researchers-detail-risks-with-port-of-churchill-project/",
-      "url": "https://www.aptnnews.ca/national-news/churchill-residents-northern-researchers-detail-risks-with-port-of-churchill-project/",
-      "title": "[APTN News] Churchill residents, northern researchers detail risks with Port of Churchill project",
-      "content_html": "<img src=\"https://www.aptnnews.ca/wp-content/uploads/2026/04/ice-breaker.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Although the Port of Churchill expansion project would have a positive effect on Canada’s trade...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/national-news/churchill-residents-northern-researchers-detail-risks-with-port-of-churchill-project/\">Churchill residents, northern researchers detail risks with Port of Churchill project</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
-      "date_published": "2026-04-30T23:11:13+00:00",
-      "authors": [
-        {
-          "name": "APTN News",
-          "url": "https://www.aptnnews.ca"
-        }
-      ],
-      "_quality_score": 40,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aptnnews.ca/wp-content/uploads/2026/04/ice-breaker.jpg"
-    },
-    {
-      "id": "https://news.gov.bc.ca/releases/2026WLRS0024-000473",
-      "url": "https://news.gov.bc.ca/releases/2026WLRS0024-000473",
-      "title": "[BC Gov News] Making wildlife trapping more humane",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew rules limit use of “egg traps” to improve animal welfare",
-      "date_published": "2026-04-29T17:30:00+00:00",
-      "authors": [
-        {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "_quality_score": 40,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 1,
-      "_boosted_score": 32,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/emergency-kit-disaster-preparedness-guide/",
-      "url": "https://www.wired.com/story/emergency-kit-disaster-preparedness-guide/",
-      "title": "[WIRED] Essential Gear for an Emergency Kit—for Cars or Go-Bags",
-      "content_html": "<img src=\"https://media.wired.com/photos/69b1ef8740236eed04df3b5d/master/pass/What-Should-Be-in-Your-Emergency-Kit-Before-Disaster-Strikes-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe consulted preparedness experts and WIRED's team of testers for the essential gear to keep on hand in case of wildfires, earthquakes, and lord knows what else.",
-      "date_published": "2026-04-29T12:33:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 1,
-      "_boosted_score": 30,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://media.wired.com/photos/69b1ef8740236eed04df3b5d/master/pass/What-Should-Be-in-Your-Emergency-Kit-Before-Disaster-Strikes-.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/world-first-orangutan-filmed-using-a-human-made-bridge",
-      "url": "https://www.sciencealert.com/world-first-orangutan-filmed-using-a-human-made-bridge",
-      "title": "[ScienceAlert] World First: Orangutan Filmed Using a Human-Made Bridge",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/Sumatran-orangutan-crossing-bridge.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Sumatran orangutan hangs from a rope canopy bridge while crossing through dense rainforest\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/Sumatran-orangutan-crossing-bridge.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Here's why that's a \"huge milestone for conservation\".</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-29T11:00:06+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 48,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/04/Sumatran-orangutan-crossing-bridge.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/27/weather/missouri-illinois-tornado-forecast.html",
-      "url": "https://www.nytimes.com/2026/04/27/weather/missouri-illinois-tornado-forecast.html",
-      "title": "[NYT Top Stories] Missouri and Illinois Face Severe Storms and Tornado Threat",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/27/weather/2026-04-27-outlooks-index-promo/2026-04-27-outlooks-index-promo-mediumSquareAt3X-v29.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe system brought down trees and power lines across several states. A man in Michigan was killed when a tree fell on him, the authorities said.",
-      "date_published": "2026-04-28T06:04:16+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 20,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/27/weather/2026-04-27-outlooks-index-promo/2026-04-27-outlooks-index-promo-mediumSquareAt3X-v29.png"
-    },
-    {
-      "id": "https://kottke.org/26/04/0048827-livestream-of-the-big-bea",
-      "url": "https://kottke.org/26/04/0048827-livestream-of-the-big-bea",
-      "title": "[Kottke.org] Livestream of the Big Bear bald eagle nest  (perched 145...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://www.youtube.com/watch?v=B4-L2nfGcuE\">Livestream of the Big Bear bald eagle nest</a> (perched 145 feet up in a pine tree) with two fuzzy bald eagle chicks <a href=\"https://friendsofbigbearvalley.org/recap-report/\">that hatched 3 weeks ago</a>.\n</p>",
-      "date_published": "2026-04-27T18:48:00+00:00",
-      "authors": [
-        {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
-        }
-      ],
-      "_quality_score": 22,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
-    },
-    {
-      "id": "https://www.businessinsider.com/guides/home/lifestraw-water-filter-review",
-      "url": "https://www.businessinsider.com/guides/home/lifestraw-water-filter-review",
-      "title": "[Business Insider] The LifeStraw water filter deserves a place in any emergency kit",
-      "content_html": "<img src=\"https://i.insider.com/5f3152bcf0f41973b35abb14?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLifeStraw is a popular water filter for anyone who loves the outdoors and affords access to clean and drinkable water almost anywhere.",
-      "date_published": "2026-04-27T05:17:39+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 1,
-      "_boosted_score": 30,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/5f3152bcf0f41973b35abb14?format=jpeg"
-    },
-    {
-      "id": "https://news.gov.bc.ca/releases/2026HLTH0020-000474",
-      "url": "https://news.gov.bc.ca/releases/2026HLTH0020-000474",
-      "title": "[BC Gov News] Celebrating five years of B.C. supporting road safety projects",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLatest funding supports 33 projects in B.C., including 20 in Indigenous communities",
-      "date_published": "2026-04-29T16:52:00+00:00",
-      "authors": [
-        {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "_quality_score": 45,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/gallery/2026/4/29/iraqs-marshes-revived-long-awaited-rains-bring-life-back-to-wetlands?traffic_source=rss",
-      "url": "https://www.aljazeera.com/gallery/2026/4/29/iraqs-marshes-revived-long-awaited-rains-bring-life-back-to-wetlands?traffic_source=rss",
-      "title": "[Al Jazeera English] Rains revive Iraq’s wetlands after years of drought",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/04/AFP__20260426__A92H2ZQ__v2__HighRes__IraqEnvironmentMarsh-1777460657.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMuch-needed rain is bringing life back to the ancient ecosystem of the Huwaizah Marshes, after years of devastation.",
-      "date_published": "2026-04-29T12:40:22+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "_quality_score": 45,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 1,
-      "_boosted_score": 33,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/04/AFP__20260426__A92H2ZQ__v2__HighRes__IraqEnvironmentMarsh-1777460657.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.techradar.com/home/smart-home/12-gadgets-that-will-turn-your-mini-garden-into-the-perfect-spot-for-watching-nature-or-entertaining-from-usd20",
-      "url": "https://www.techradar.com/home/smart-home/12-gadgets-that-will-turn-your-mini-garden-into-the-perfect-spot-for-watching-nature-or-entertaining-from-usd20",
-      "title": "[TechRadar] 12 gadgets that will turn your mini garden into the perfect spot for watching nature or entertaining — from $20",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/9er7pdiTFqSySJ3H7qnU2H-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith the right tech, even the smallest outdoor space can become a haven for wildlife, or the coolest spot for dining al fresco this summer.",
-      "date_published": "2026-04-29T11:39:35+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 3,
-      "_boosted_score": 70,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/9er7pdiTFqSySJ3H7qnU2H-1280-80.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/cameras/photography/i-snap-them-up-award-winning-wildlife-photographer-explains-why-he-collects-second-hand-dslrs-for-his-unique-camtraptions-devices-and-why-they-are-a-better-choice-over-modern-mirrorless-cameras",
-      "url": "https://www.techradar.com/cameras/photography/i-snap-them-up-award-winning-wildlife-photographer-explains-why-he-collects-second-hand-dslrs-for-his-unique-camtraptions-devices-and-why-they-are-a-better-choice-over-modern-mirrorless-cameras",
-      "title": "[TechRadar] 'I snap them up' — award-winning wildlife photographer explains why he collects second-hand DSLRs for his unique 'Camtraptions' devices, and why they are a better choice over modern mirrorless cameras",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/YjksBSVkbCtcpKURoJRZ88-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe winner of this year's Sony World Photography Award Wildlife category explains why old DSLRs are choice gear for camera trap wildlife photography",
-      "date_published": "2026-04-25T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 28,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 1,
-      "_boosted_score": 28,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/YjksBSVkbCtcpKURoJRZ88-1280-80.jpg"
-    },
-    {
-      "id": "https://thenarwhal.ca/video-who-pays-climate-change/",
-      "url": "https://thenarwhal.ca/video-who-pays-climate-change/",
-      "title": "[The Narwhal] From $25 an hour to $4,995: salaries on either side of the climate crisis",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/04/VIDEO-PLAYBUTTON-SOCIAL-SHARE-1024x576.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA changing climate tends to leave behind a big mess. Those who sweep up after it are usually paid far less than those whose work creates heat-trapping emissions. From forest firefighters to respiratory therapists to oil giant CEOs, here’s a look at how salaries stack up",
-      "date_published": "2026-04-28T13:07:16+00:00",
-      "authors": [
-        {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/04/VIDEO-PLAYBUTTON-SOCIAL-SHARE-1024x576.jpg"
-    },
-    {
-      "id": "https://boingboing.net/2026/04/30/a-hobbyist-mounted-a-cesium-atomic-clock-on-his-raspberry-pi.html",
-      "url": "https://boingboing.net/2026/04/30/a-hobbyist-mounted-a-cesium-atomic-clock-on-his-raspberry-pi.html",
-      "title": "[Boing Boing] A hobbyist mounted a cesium atomic clock on his Raspberry Pi",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/cesium.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/30/a-hobbyist-mounted-a-cesium-atomic-clock-on-his-raspberry-pi.html\" rel=\"nofollow\" title=\"A hobbyist mounted a cesium atomic clock on his Raspberry Pi\"><img alt=\"TonelloPhotography/shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/cesium.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>A hobbyist who blogs as <a href=\"https://coverclock.blogspot.com/2017/05/my-stratum-0-atomic-clock_9.html\">Chip Overclock</a> wasn't satisfied with his GPS-disciplined desk clock. The Raspberry Pi inside it kept time within microseconds of UTC, but only when GPS satellites were available. Lose the signal during bad weather or an antenna glitch, and the Pi's standard quartz oscillator would start drifting. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/30/a-hobbyist-mounted-a-cesium-atomic-clock-on-his-raspberry-pi.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/30/a-hobbyist-mounted-a-cesium-atomic-clock-on-his-raspberry-pi.html\">A hobbyist mounted a cesium atomic clock on his Raspberry Pi</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-05-01T00:11:24+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/cesium.jpg?fit=1200%2C800&quality=60&ssl=1"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/04/30/interlakes-horse-club-hosting-barrel-race-for-neels-family/",
-      "url": "https://100milefreepress.net/2026/04/30/interlakes-horse-club-hosting-barrel-race-for-neels-family/",
-      "title": "[100 Mile Free Press] Interlakes Horse Club hosting barrel race for Neels Family",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42165900_web1_260430-OMH-Forster-Interlakes-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Diana Forster&#8217;s regular column to the 100 Mile Free Press </p>",
-      "date_published": "2026-05-01T00:00:00+00:00",
+      "id": "https://100milefreepress.net/2026/05/01/100-mile-house-implements-summer-water-restrictions/",
+      "url": "https://100milefreepress.net/2026/05/01/100-mile-house-implements-summer-water-restrictions/",
+      "title": "[100 Mile Free Press] 100 Mile House implements summer water restrictions",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42204808_web1_sprinklerlawn.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The restrictions are in place from Friday, May 1 to Wednesday, Sept. 30 </p>",
+      "date_published": "2026-05-01T12:00:00+00:00",
       "authors": [
         {
           "name": "100 Mile Free Press",
           "url": "https://www.100milefreepress.net"
         }
       ],
-      "_quality_score": 77,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "_quality_score": 87,
+      "_theme_score": 50,
+      "_final_score": 50,
       "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "_boosted_score": 26,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42165900_web1_260430-OMH-Forster-Interlakes-_1.jpg?w=1024"
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42204808_web1_sprinklerlawn.jpg?w=1024"
     },
     {
-      "id": "https://www.zdnet.com/article/bluetti-elite-400-review/",
-      "url": "https://www.zdnet.com/article/bluetti-elite-400-review/",
-      "title": "[ZDNet] This Bluetti power station with wheels has spoiled the way I charge my tools and devices",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/ae11d66388e59f76f36798a35579dc073c0e8720/2026/04/26/4885db14-2701-45ef-9e87-576afa779750/img-4048.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Bluetti Elite 400 has something that you don't see on many portable stations, and it can power just about anything.",
-      "date_published": "2026-04-28T13:02:00+00:00",
+      "id": "https://www.nytimes.com/2026/05/01/opinion/iowa-flood-warning-system-america.html",
+      "url": "https://www.nytimes.com/2026/05/01/opinion/iowa-flood-warning-system-america.html",
+      "title": "[NYT Top Stories] In a Small Iowa Town, a Solution to a National Crisis",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/29/opinion/29opinions-iowa-flooding-image/29opinions-iowa-flooding-image-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs the Trump administration guts weather agencies, a state’s low-cost flood tracking system offers a model for responding to deadly inundations.",
+      "date_published": "2026-05-01T09:02:02+00:00",
       "authors": [
         {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
-      "_quality_score": 68,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
+      "_quality_score": 73,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
       "_category": "climate",
       "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/ae11d66388e59f76f36798a35579dc073c0e8720/2026/04/26/4885db14-2701-45ef-9e87-576afa779750/img-4048.jpg?auto=webp&fit=crop&height=675&width=1200"
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/04/29/opinion/29opinions-iowa-flooding-image/29opinions-iowa-flooding-image-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/04/30/new-alliance-launches-campaign-for-full-provincial-intercity-bus-network/",
-      "url": "https://wltribune.com/2026/04/30/new-alliance-launches-campaign-for-full-provincial-intercity-bus-network/",
-      "title": "[Williams Lake Tribune] New alliance launches campaign for full provincial intercity bus network",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42196480_web1_31948892_web1_BC-Transit-Moricetown-bus-pulls-up-THUMB.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAlliance’s first campaign focuses on building a bus network connecting rural and urban areas",
-      "date_published": "2026-05-01T07:10:56.193205+00:00",
+      "id": "https://wltribune.com/2026/05/01/level-1-water-restrictions-implemented-for-communities-throughout-cariboo-regional-district/",
+      "url": "https://wltribune.com/2026/05/01/level-1-water-restrictions-implemented-for-communities-throughout-cariboo-regional-district/",
+      "title": "[Williams Lake Tribune] Level 1 water restrictions implemented for communities throughout Cariboo Regional District",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42204889_web1_260507-OMH-Water-restrictions_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe restrictions are in effect from May 1 to October 1",
+      "date_published": "2026-05-01T13:58:43.054876+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -525,47 +85,157 @@
         }
       ],
       "_quality_score": 100,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 38,
+      "_final_score": 38,
       "_keyword_matches": 0,
       "_boosted_score": 30,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42196480_web1_31948892_web1_BC-Transit-Moricetown-bus-pulls-up-THUMB.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42204889_web1_260507-OMH-Water-restrictions_1.jpg?w=1024"
     },
     {
-      "id": "https://www.tomsguide.com/ai/i-used-the-owl-prompt-to-make-chatgpt-slow-down-and-it-instantly-gave-me-smarter-answers",
-      "url": "https://www.tomsguide.com/ai/i-used-the-owl-prompt-to-make-chatgpt-slow-down-and-it-instantly-gave-me-smarter-answers",
-      "title": "[Toms Guide] I used the 'Owl' prompt to make ChatGPT slow down — and it instantly gave me smarter answers",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/9mmYDgZ3CtyVPqmKqin3hN-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI used a simple “owl prompt” to make ChatGPT slow down, think deeper and uncover hidden factors most answers miss — here’s how to try it.",
-      "date_published": "2026-05-01T06:30:00+00:00",
+      "id": "https://qz.com/pentagon-classified-ai-deals-google-openai-microsoft-amazon-spacex-050126",
+      "url": "https://qz.com/pentagon-classified-ai-deals-google-openai-microsoft-amazon-spacex-050126",
+      "title": "[Quartz] The Pentagon strikes AI deals with Nvidia, OpenAI, SpaceX, and others after Anthropic feud",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2166909594.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Pentagon designated Anthropic a supply-chain risk this year after a dispute over the terms under which the military could use its AI tools",
+      "date_published": "2026-05-01T13:50:32+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "_quality_score": 55,
+      "_quality_score": 52,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
+      "_boosted_score": 15,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/9mmYDgZ3CtyVPqmKqin3hN-1280-80.png"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2166909594.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/news/2026/5/1/what-do-ukraines-robot-soldiers-mean-for-the-future-of-warfare?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/5/1/what-do-ukraines-robot-soldiers-mean-for-the-future-of-warfare?traffic_source=rss",
-      "title": "[Al Jazeera English] What do Ukraine’s robot soldiers mean for the future of warfare?",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/04/epa_69f308d82c63-1777535192_f76ae2-1777537067.jpg?resize=1200%2C630&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRemote-controlled weapons have been used for some time, but AI is now on the cusp of making battlefield decisions.",
-      "date_published": "2026-05-01T06:29:29+00:00",
+      "id": "https://www.howtogeek.com/used-claude-to-build-raspberry-pi-project-no-idea-how-to-start/",
+      "url": "https://www.howtogeek.com/used-claude-to-build-raspberry-pi-project-no-idea-how-to-start/",
+      "title": "[How-To Geek] I used Claude to build a Raspberry Pi project I had no idea how to start",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-raspberry-pi-3b-with-an-oled-screen-displaying-a-tamagotchi-game.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy own retro productivity game.",
+      "date_published": "2026-05-01T13:31:16+00:00",
       "authors": [
         {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-raspberry-pi-3b-with-an-oled-screen-displaying-a-tamagotchi-game.png"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/01/us/politics/pentagon-ai-companies-deals.html",
+      "url": "https://www.nytimes.com/2026/05/01/us/politics/pentagon-ai-companies-deals.html",
+      "title": "[NYT Top Stories] Pentagon Makes Deals With A.I. Companies to Expand Classified Work",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/01/multimedia/01dc-military-ai-tlgj/01dc-military-ai-tlgj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe agreements with six technology companies come amid the Defense Department’s dispute with Anthropic.",
+      "date_published": "2026-05-01T13:26:59+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 60,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/05/01/multimedia/01dc-military-ai-tlgj/01dc-military-ai-tlgj-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/01/us/politics/liberals-conservatives-data-centers.html",
+      "url": "https://www.nytimes.com/2026/05/01/us/politics/liberals-conservatives-data-centers.html",
+      "title": "[NYT Top Stories] Something Liberals and Conservatives Agree On: Hatred of Data Centers",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAmericans have soured on the projects, polls show, and the sentiment is profoundly bipartisan. How that will change our politics?",
+      "date_published": "2026-05-01T13:24:55+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://www.howtogeek.com/my-homelab-disaster-would-have-taken-5-minutes-to-prevent-but-instead-took-hours-to-recover-from/",
+      "url": "https://www.howtogeek.com/my-homelab-disaster-would-have-taken-5-minutes-to-prevent-but-instead-took-hours-to-recover-from/",
+      "title": "[How-To Geek] A homelab disaster taught me why simple backups are better than complicated redundancy",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/a-cluster-of-three-mini-pcs-stacked-on-top-of-each-other-for-high-availability.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI deleted my homelab VMs by accident—here's why simple backups saved me",
+      "date_published": "2026-05-01T13:00:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/a-cluster-of-three-mini-pcs-stacked-on-top-of-each-other-for-high-availability.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/01/business/dealbook/openai-anthropic-compute.html",
+      "url": "https://www.nytimes.com/2026/05/01/business/dealbook/openai-anthropic-compute.html",
+      "title": "[NYT Business] OpenAI’s New Model Spurs Debate Over Computing Power",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/01/multimedia/01db-altman-oai-fcbj/01db-altman-oai-fcbj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSam Altman suggested it would be released more widely than a rival offering from Anthropic. Some are suggesting it’s because OpenAI has more computing power.",
+      "date_published": "2026-05-01T12:11:25+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_quality_score": 53,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/05/01/multimedia/01db-altman-oai-fcbj/01db-altman-oai-fcbj-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/security/an-hour-of-scan-time-is-all-it-took-copy-fail-flaw-impacts-all-linux-kernels-released-since-2017-so-patch-now-or-face-the-consequences",
+      "url": "https://www.techradar.com/pro/security/an-hour-of-scan-time-is-all-it-took-copy-fail-flaw-impacts-all-linux-kernels-released-since-2017-so-patch-now-or-face-the-consequences",
+      "title": "[TechRadar] 'An hour of scan time is all it took': \"Copy Fail\" flaw impacts all Linux kernels released since 2017, so patch now or face the consequences",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/5rDPr5xYvLwnkP7ZvpR2w3-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLinux users should update their servers now, or face possible attack.",
+      "date_published": "2026-05-01T12:10:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
       "_quality_score": 58,
@@ -576,14 +246,36 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/04/epa_69f308d82c63-1777535192_f76ae2-1777537067.jpg?resize=1200%2C630&quality=80"
+      "image": "https://cdn.mos.cms.futurecdn.net/5rDPr5xYvLwnkP7ZvpR2w3-1280-80.jpg"
     },
     {
-      "id": "https://www.techradar.com/pro/security/zombie-tech-continues-to-haunt-uk-networks-decade-old-vulnerabilities-fuel-67-million-attacks-exposing-outdated-insecure-systems-across-organisations-nationwide",
-      "url": "https://www.techradar.com/pro/security/zombie-tech-continues-to-haunt-uk-networks-decade-old-vulnerabilities-fuel-67-million-attacks-exposing-outdated-insecure-systems-across-organisations-nationwide",
-      "title": "[TechRadar] 'Zombie Tech continues to haunt UK networks': Decade-old vulnerabilities fuel 67 million attacks, exposing outdated, insecure systems across organisations nationwide",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/abAdPvAymwxfL59qPnT4in-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUK organisations still run decade-old vulnerable systems as attackers exploit them relentlessly, driving millions of attacks and increasing successful breaches nationwide.",
-      "date_published": "2026-05-01T06:05:00+00:00",
+      "id": "https://www.techradar.com/pro/unlocking-science-building-ai-researchers-can-trust",
+      "url": "https://www.techradar.com/pro/unlocking-science-building-ai-researchers-can-trust",
+      "title": "[TechRadar] Unlocking science: building AI researchers can trust",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/4DKiUF32YY5BX96h6fscGL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOver half of researchers now say they use AI tools in their work, but only two in ten believe generic AI tools are trustworthy.",
+      "date_published": "2026-05-01T11:01:16+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/4DKiUF32YY5BX96h6fscGL-1280-80.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/ai-tools-have-made-vulnerability-exploitation-faster-and-easier",
+      "url": "https://www.techradar.com/pro/ai-tools-have-made-vulnerability-exploitation-faster-and-easier",
+      "title": "[TechRadar] AI tools have made vulnerability exploitation faster and easier",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/mfPaYGQmks2VALWFFBnSej-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n“That world no longer exists”: AI has terminated the \"grace period\" for closing security vulnerabilities, here's what you need to know.",
+      "date_published": "2026-05-01T10:51:39+00:00",
       "authors": [
         {
           "name": "TechRadar",
@@ -598,146 +290,36 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/abAdPvAymwxfL59qPnT4in-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/mfPaYGQmks2VALWFFBnSej-1280-80.jpg"
     },
     {
-      "id": "https://www.sciencealert.com/ai-can-spot-pancreatic-cancer-years-before-diagnosis-study-finds",
-      "url": "https://www.sciencealert.com/ai-can-spot-pancreatic-cancer-years-before-diagnosis-study-finds",
-      "title": "[ScienceAlert] AI Can Spot Pancreatic Cancer Years Before Diagnosis, Study Finds",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/Pancreas-Glowing-Inside-Human-Body-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A glowing orange pancreas illustrated inside a human body\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/Pancreas-Glowing-Inside-Human-Body-.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Catching this deadly disease while it's treatable can save lives. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-01T04:29:48+00:00",
+      "id": "https://www.businessinsider.com/ai-bot-agents-tech-jobs-experiment-newsletter-2026-5",
+      "url": "https://www.businessinsider.com/ai-bot-agents-tech-jobs-experiment-newsletter-2026-5",
+      "title": "[Business Insider] Everyone keeps talking about AI taking jobs. We put it to the test.",
+      "content_html": "<img src=\"https://i.insider.com/69f484b23022d9b19bbff700?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBI's Amanda Hoover created an AI bot to see if it could replace her role at work. The experiment didn't leave her worried about losing her job to AI.",
+      "date_published": "2026-05-01T10:49:00+00:00",
       "authors": [
         {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/05/Pancreas-Glowing-Inside-Human-Body-.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/someone-installed-an-e-ink-stat-display-in-their-pc-and-it-looks-gorgeous/",
-      "url": "https://www.xda-developers.com/someone-installed-an-e-ink-stat-display-in-their-pc-and-it-looks-gorgeous/",
-      "title": "[XDA Developers] Someone installed an e-ink stat display in their PC, and it looks gorgeous",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/04/engine-block-eink-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe rest of the case is stunning, too.",
-      "date_published": "2026-05-01T03:28:48+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 52,
+      "_quality_score": 50,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/04/engine-block-eink-featured.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/30/us/california-ticket-driverless-car-violations.html",
-      "url": "https://www.nytimes.com/2026/04/30/us/california-ticket-driverless-car-violations.html",
-      "title": "[NYT Top Stories] California Police Can Start Ticketing Driverless Cars",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/30/multimedia/30nat-autonomous-vehicles-jpkc/30nat-autonomous-vehicles-jpkc-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Department of Motor Vehicles says it could suspend or revoke permits for Waymo taxis and other driverless cars for continued violations.",
-      "date_published": "2026-05-01T00:39:49+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/30/multimedia/30nat-autonomous-vehicles-jpkc/30nat-autonomous-vehicles-jpkc-mediumSquareAt3X.jpg"
+      "image": "https://i.insider.com/69f484b23022d9b19bbff700?format=jpeg"
     },
     {
-      "id": "https://www.sciencealert.com/most-people-develop-diverticulosis-in-their-gut-by-the-age-of-80-so-what-is-it",
-      "url": "https://www.sciencealert.com/most-people-develop-diverticulosis-in-their-gut-by-the-age-of-80-so-what-is-it",
-      "title": "[ScienceAlert] Most People Develop Diverticulosis in Their Gut by The Age of 80… So What Is It?",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2025/11/Diverticulosis.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Most People Develop Diverticulosis in Their Gut by Age 80&hellip; So What Is It?\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/11/Diverticulosis.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />The more you know...</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-01T00:11:23+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 54,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2025/11/Diverticulosis.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/thinner-laptops-sounded-great-until-realized-what-actually-lost/",
-      "url": "https://www.xda-developers.com/thinner-laptops-sounded-great-until-realized-what-actually-lost/",
-      "title": "[XDA Developers] Laptop makers are sacrificing ports and repairability for designs nobody asked for",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/tabby-laptop-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn pursuit of convenience, we lost upgradability and repairability",
-      "date_published": "2026-05-01T00:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/tabby-laptop-2.jpg"
-    },
-    {
-      "id": "https://boingboing.net/2026/04/30/wearable-tails-help-elderly-folks-keep-their-balance.html",
-      "url": "https://boingboing.net/2026/04/30/wearable-tails-help-elderly-folks-keep-their-balance.html",
-      "title": "[Boing Boing] Wearable tails help elderly folks keep their balance",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/arque1-1.jpeg?fit=500%2C333&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/30/wearable-tails-help-elderly-folks-keep-their-balance.html\" rel=\"nofollow\" title=\"Wearable tails help elderly folks keep their balance\"><img alt=\"The Arque tail, from 2019\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"333\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/arque1-1.jpeg?fit=500%2C333&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"500\" /></a><p>About 25 million years after our ancestors traded theirs for an upright stance, a research team at Keio University Graduate School of Media Design gave our long-lost tails a comeback tour. The prototype, dubbed Arque, <a href=\"https://www.kmd.keio.ac.jp/realprojects/arque/\">was a meter-long wearable robot designed to help elderly users with balance problems</a>. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/30/wearable-tails-help-elderly-folks-keep-their-balance.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/30/wearable-tails-help-elderly-folks-keep-their-balance.html\">Wearable tails help elderly folks keep their balance</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-04-30T23:43:18+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/arque1-1.jpeg?fit=500%2C333&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.techradar.com/ai-platforms-assistants/theyre-building-each-other-new-x1-neo-robot-video-shows-the-humanoids-assisting-in-the-robot-production-process-just-as-all-science-fiction-foretold",
-      "url": "https://www.techradar.com/ai-platforms-assistants/theyre-building-each-other-new-x1-neo-robot-video-shows-the-humanoids-assisting-in-the-robot-production-process-just-as-all-science-fiction-foretold",
-      "title": "[TechRadar] 'They're building each other': new X1 Neo robot video shows the humanoids assisting in the robot production process, just as all science fiction foretold",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/yw6f2pMpJsCt58f6x3DKX8-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n1X releases new Neo Home Robot production video that puts the robots to work — building themselves.",
-      "date_published": "2026-04-30T23:30:00+00:00",
+      "id": "https://www.techradar.com/pro/when-stability-became-strategy-the-post-upgrade-enterprise",
+      "url": "https://www.techradar.com/pro/when-stability-became-strategy-the-post-upgrade-enterprise",
+      "title": "[TechRadar] When stability became strategy: the post-upgrade enterprise",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/SjSwAU6f7Pkb5hStzepX5L-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVendors set deadlines, analysts warn of falling behind, and the rhetoric is relentless – much of it built on a misconception about what security and compliance actually require.",
+      "date_published": "2026-05-01T10:18:02+00:00",
       "authors": [
         {
           "name": "TechRadar",
@@ -752,18 +334,40 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/yw6f2pMpJsCt58f6x3DKX8-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/SjSwAU6f7Pkb5hStzepX5L-1280-80.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/guides/tech/is-proton-vpn-safe",
-      "url": "https://www.businessinsider.com/guides/tech/is-proton-vpn-safe",
-      "title": "[Business Insider] Is Proton VPN safe? Scrutinizing the free and paid versions",
-      "content_html": "<img src=\"https://i.insider.com/69f3e008ab24bc0b23a183e1?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProton VPN offers strong encryption and privacy features. We've tested its free and paid versions to examine how Proton AG ensures user data safety.",
-      "date_published": "2026-04-30T23:07:13+00:00",
+      "id": "https://www.zdnet.com/article/moving-from-ai-pilots-to-business-wide-value-accenture-research/",
+      "url": "https://www.zdnet.com/article/moving-from-ai-pilots-to-business-wide-value-accenture-research/",
+      "title": "[ZDNet] Moving from AI pilots to business-wide value requires a superhighway",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/8870d26be2a5841312ab51055229e0a026be505d/2026/04/27/f8db15c0-5dd3-43e7-8587-947f43c0d87b/colortunnel-gettyimages-2207609146.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAccenture's latest research finds that companies must demonstrate sustained early wins from AI investments to build momentum. The key is shifting from siloed AI to systemic AI.",
+      "date_published": "2026-05-01T10:00:45+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.zdnet.com/a/img/resize/8870d26be2a5841312ab51055229e0a026be505d/2026/04/27/f8db15c0-5dd3-43e7-8587-947f43c0d87b/colortunnel-gettyimages-2207609146.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.xda-developers.com/replaced-claude-pro-with-local-9b-model/",
+      "url": "https://www.xda-developers.com/replaced-claude-pro-with-local-9b-model/",
+      "title": "[XDA Developers] I replaced Claude Pro with a local 9B model for a week, and finally found out what I was paying $20 a month for",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/prompting-qwen-in-lm-studio-on-desktop-pc-lamp-and-lego-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe gap was smaller than I expected",
+      "date_published": "2026-05-01T10:00:32+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
         }
       ],
       "_quality_score": 52,
@@ -771,21 +375,43 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69f3e008ab24bc0b23a183e1?format=jpeg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/prompting-qwen-in-lm-studio-on-desktop-pc-lamp-and-lego-in-view.jpeg"
     },
     {
-      "id": "https://boingboing.net/2026/04/30/how-a-retired-technician-handed-eff-the-proof-of-nsa-mass-spying.html",
-      "url": "https://boingboing.net/2026/04/30/how-a-retired-technician-handed-eff-the-proof-of-nsa-mass-spying.html",
-      "title": "[Boing Boing] How a retired technician handed EFF the proof of NSA mass spying",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/1984.jpg?fit=1200%2C798&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/30/how-a-retired-technician-handed-eff-the-proof-of-nsa-mass-spying.html\" rel=\"nofollow\" title=\"How a retired technician handed EFF the proof of NSA mass spying\"><img alt=\"Jeff Whyte/shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"798\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/1984.jpg?fit=1200%2C798&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>On the sixth floor of an AT&#38;T building on Folsom Street in San Francisco, a locked room labeled 641A held the hardware that gave the NSA a copy of every byte of internet traffic passing through. The man who figured this out was a retired AT&#38;T technician named Mark Klein, and in January 2006 he walked into the lobby of the Electronic Frontier Foundation a few blocks away and started talking. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/30/how-a-retired-technician-handed-eff-the-proof-of-nsa-mass-spying.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/30/how-a-retired-technician-handed-eff-the-proof-of-nsa-mass-spying.html\">How a retired technician handed EFF the proof of NSA mass spying</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-04-30T23:03:06+00:00",
+      "id": "https://www.techradar.com/pro/we-need-a-cybersecurity-curriculum-taught-by-hackers",
+      "url": "https://www.techradar.com/pro/we-need-a-cybersecurity-curriculum-taught-by-hackers",
+      "title": "[TechRadar] We need a cybersecurity curriculum taught by hackers",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/x4SmwpYXk8yGgDmYCVeckL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe cybersecurity industry has spent years talking about a talent and skills shortage. Turns out the talent and skills exist. It's just being recruited by the other side.",
+      "date_published": "2026-05-01T09:48:15+00:00",
       "authors": [
         {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 51,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/x4SmwpYXk8yGgDmYCVeckL-1280-80.jpg"
+    },
+    {
+      "id": "https://www.wired.com/story/osteoarthritis-joint-damage-single-injection-treatment/",
+      "url": "https://www.wired.com/story/osteoarthritis-joint-damage-single-injection-treatment/",
+      "title": "[WIRED] This Treatment Could Reverse Osteoarthritis Joint Damage With a Single Injection",
+      "content_html": "<img src=\"https://media.wired.com/photos/69dd443e58ef52d6977d6dd8/master/pass/cartilago.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOsteoarthritis has no cure, but researchers have developed new therapies that help aging or damaged joints repair themselves in a matter of weeks.",
+      "date_published": "2026-05-01T09:30:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
         }
       ],
       "_quality_score": 62,
@@ -793,21 +419,65 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 18,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/02/1984.jpg?fit=1200%2C798&quality=60&ssl=1"
+      "image": "https://media.wired.com/photos/69dd443e58ef52d6977d6dd8/master/pass/cartilago.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/04/30/usb-c-charger-juices-up-100-devices-at-once/",
-      "url": "https://hackaday.com/2026/04/30/usb-c-charger-juices-up-100-devices-at-once/",
-      "title": "[Hackaday] USB-C Charger Juices Up 100 Devices At Once",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/I-Built-a-USB-C-Charger-that-Can-Charge-100-Devices-at-the-Same-Time.-10-45-screenshot.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/I-Built-a-USB-C-Charger-that-Can-Charge-100-Devices-at-the-Same-Time.-10-45-screenshot.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Back when phones used to ship with chargers in the box, you&#8217;d get a plugpack that could charge one device. Aftermarket manufacturers eventually started making chargers with four or five <a class=\"read-more\" href=\"https://hackaday.com/2026/04/30/usb-c-charger-juices-up-100-devices-at-once/\">&#8230;read more</a>",
-      "date_published": "2026-04-30T23:00:10+00:00",
+      "id": "https://www.tomsguide.com/wellness/sleep/new-study-reveals-that-timing-exercise-to-match-your-body-clock-chronotype-may-lower-cardiovascular-disease-and-improve-sleep-quality-heres-how",
+      "url": "https://www.tomsguide.com/wellness/sleep/new-study-reveals-that-timing-exercise-to-match-your-body-clock-chronotype-may-lower-cardiovascular-disease-and-improve-sleep-quality-heres-how",
+      "title": "[Toms Guide] New study reveals that timing exercise to match your body clock 'chronotype' may lower cardiovascular disease and improve sleep quality — here's how",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/oqY47JZSpvSTidYcMKe8DZ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWant to sleep better, deeper and for longer? Scheduling your workouts to suit your unique body clock is key, experts explain",
+      "date_published": "2026-05-01T09:30:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/oqY47JZSpvSTidYcMKe8DZ-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/01/business/electric-cars-history.html",
+      "url": "https://www.nytimes.com/2026/05/01/business/electric-cars-history.html",
+      "title": "[NYT Business] Electric Cars Were a Big Deal Over a Hundred Years Ago",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/23/multimedia/00biz-wheels-firstevs-01-lpgj/00biz-wheels-firstevs-01-lpgj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe very first E.V. was born in the 1830s. By the 1900s, electric carriages were dodging horse droppings in Manhattan streets.",
+      "date_published": "2026-05-01T09:00:48+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_quality_score": 63,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/04/23/multimedia/00biz-wheels-firstevs-01-lpgj/00biz-wheels-firstevs-01-lpgj-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.noahpinion.blog/p/roundup-81-back-to-our-regular-programming",
+      "url": "https://www.noahpinion.blog/p/roundup-81-back-to-our-regular-programming",
+      "title": "[Noahpinion] Roundup #81: Back to our regular programming",
+      "content_html": "<img src=\"https://substackcdn.com/image/fetch/$s_!bvGT!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F876ef874-a2df-4ca4-be5e-f90cc6f34569_1002x594.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNational debt; AI cyberattacks; Phone bans; AI and coding jobs; Millennials vs. Boomers; Public order; California YIMBYism",
+      "date_published": "2026-05-01T08:57:37+00:00",
+      "authors": [
+        {
+          "name": "Noahpinion",
+          "url": "https://www.noahpinion.blog"
         }
       ],
       "_quality_score": 52,
@@ -815,21 +485,21 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/I-Built-a-USB-C-Charger-that-Can-Charge-100-Devices-at-the-Same-Time.-10-45-screenshot.png"
+      "image": "https://substackcdn.com/image/fetch/$s_!bvGT!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F876ef874-a2df-4ca4-be5e-f90cc6f34569_1002x594.jpeg"
     },
     {
-      "id": "https://www.xda-developers.com/switched-vs-code-marketplace-open-vsx-microsoft-falling-behind/",
-      "url": "https://www.xda-developers.com/switched-vs-code-marketplace-open-vsx-microsoft-falling-behind/",
-      "title": "[XDA Developers] I switched from VS Code's marketplace to Open VSX, and Microsoft's is the one falling behind",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/use-these-extensions-to-turn-vs-code-into-writing-app.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTruly open-source marketplace you can use with VSCodium.",
-      "date_published": "2026-04-30T22:00:21+00:00",
+      "id": "https://www.businessinsider.com/how-us-army-is-readying-for-enemy-ai-cyberspace-attack-2026-5",
+      "url": "https://www.businessinsider.com/how-us-army-is-readying-for-enemy-ai-cyberspace-attack-2026-5",
+      "title": "[Business Insider] How the US Army is readying for a cyberspace fight against enemy AI hackers",
+      "content_html": "<img src=\"https://i.insider.com/69f3a5fb3022d9b19bbff2f7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn a hypothetical Indo-Pacific fight, simulated enemy AI agents attacked cybersecurity in waves, analyzing defenses and learning in real time.",
+      "date_published": "2026-05-01T08:21:01+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
       "_quality_score": 55,
@@ -837,61 +507,83 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 16,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/69f3a5fb3022d9b19bbff2f7?format=jpeg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/01/is-it-a-pet-no-its-a-teachers-pet/",
+      "url": "https://hackaday.com/2026/05/01/is-it-a-pet-no-its-a-teachers-pet/",
+      "title": "[Hackaday] Is it a Pet? No, it’s a Teacher’s Pet!",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/4064-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"549\" src=\"https://hackaday.com/wp-content/uploads/2026/04/4064-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Here at Hackaday we cover the world of retrocomputing, which means that we see all manner of older computers in our everyday work. We might even claim that we&#8217;ve seen <a class=\"read-more\" href=\"https://hackaday.com/2026/05/01/is-it-a-pet-no-its-a-teachers-pet/\">&#8230;read more</a>",
+      "date_published": "2026-05-01T08:00:59+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 51,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/use-these-extensions-to-turn-vs-code-into-writing-app.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/4064-featured.jpg"
     },
     {
-      "id": "https://www.statnews.com/2026/04/30/craig-venter-an-appreciation-pioneer-modern-genomics-dies-age-79/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/04/30/craig-venter-an-appreciation-pioneer-modern-genomics-dies-age-79/?utm_campaign=rss",
-      "title": "[STAT News] Remembering J. Craig Venter: a relentless scientist who changed biotech — and was all too easily misunderstood",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2015/11/VenterCraig_AP-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nJ. Craig Venter, the scientist whose relentless ambition helped turn genetics from an artisanal trade into an industrialized information machine, died at 79.",
-      "date_published": "2026-04-30T21:58:45+00:00",
+      "id": "https://www.resilience.org/stories/2026-05-01/brazils-cooperatives-show-how-local-communities-can-drive-the-climate-transition/",
+      "url": "https://www.resilience.org/stories/2026-05-01/brazils-cooperatives-show-how-local-communities-can-drive-the-climate-transition/",
+      "title": "[Resilience.org] Brazil’s cooperatives show how local communities can drive the climate transition",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/05/COP30_-_Protests_14-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom low-carbon farming to community energy and Amazon restoration, Brazil’s cooperative sector is mobilizing millions to act on climate at a local level. The model highlights how existing co-op networks could be scaled to support a more just and resilient transition.",
+      "date_published": "2026-05-01T08:00:52+00:00",
       "authors": [
         {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
         }
       ],
-      "_quality_score": 55,
+      "_quality_score": 75,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2015/11/VenterCraig_AP-645x645.jpg"
+      "image": "https://www.resilience.org/wp-content/uploads/2026/05/COP30_-_Protests_14-1024x683.jpg"
     },
     {
-      "id": "https://www.techradar.com/pro/it-quickly-becomes-an-efficient-and-economically-feasible-solution-this-wild-saltwater-hack-could-make-data-centers-cooler-cheaper-and-unexpectedly-water-positive",
-      "url": "https://www.techradar.com/pro/it-quickly-becomes-an-efficient-and-economically-feasible-solution-this-wild-saltwater-hack-could-make-data-centers-cooler-cheaper-and-unexpectedly-water-positive",
-      "title": "[TechRadar] 'It quickly becomes an efficient and economically feasible solution': This wild saltwater hack could make data centers cooler, cheaper, and unexpectedly water-positive",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ZwCa5BqPz5DpTH6kybXHyN-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA salt-based cooling system captures waste heat from data centers to generate water, reduce energy use, and improve efficiency metrics.",
-      "date_published": "2026-04-30T21:55:00+00:00",
+      "id": "https://www.resilience.org/stories/2026-05-01/what-could-possibly-go-right-episode-50-katharine-wilkinson/",
+      "url": "https://www.resilience.org/stories/2026-05-01/what-could-possibly-go-right-episode-50-katharine-wilkinson/",
+      "title": "[Resilience.org] What Could Possibly Go Right?: In conversation with writer and climate activist Katharine Wilkinson",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2021/07/Thumbnail-Resilience-FINAL.KW_.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDr. Katharine Wilkinson is an author, strategist, and teacher, working to heal the planet we call home. She addresses the question of “What Could Possibly Go Right?”",
+      "date_published": "2026-05-01T08:00:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
         }
       ],
-      "_quality_score": 65,
+      "_quality_score": 58,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_boosted_score": 17,
+      "_category": "scifi",
+      "_source_category": "scifi",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/ZwCa5BqPz5DpTH6kybXHyN-1280-80.png"
+      "image": "https://www.resilience.org/wp-content/uploads/2021/07/Thumbnail-Resilience-FINAL.KW_.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/04/30/effort-to-censure-mla-armstrong-for-using-nazi-rhetoric-in-b-c-legislature-fails/",
-      "url": "https://wltribune.com/2026/04/30/effort-to-censure-mla-armstrong-for-using-nazi-rhetoric-in-b-c-legislature-fails/",
-      "title": "[Williams Lake Tribune] Effort to censure MLA Armstrong for using Nazi rhetoric in B.C. legislature fails",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42202970_web1_260122-KCN-Armstrong-Recall_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Government house leader is now looking at other options to control &#8220;abhorrent&#8221; dialogue </p>",
-      "date_published": "2026-04-30T16:32:00+00:00",
+      "id": "https://wltribune.com/2026/04/30/c2c-forum-reinforces-relationship-between-simpcw-first-nation-and-local-municipalities/",
+      "url": "https://wltribune.com/2026/04/30/c2c-forum-reinforces-relationship-between-simpcw-first-nation-and-local-municipalities/",
+      "title": "[Williams Lake Tribune] C2C forum reinforces relationship between Simpcw First Nation and local municipalities",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42207494_web1_260507-NTC-Simpcw-Lampreau-C2C-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The forum, hosted in Valemount, brought together the Simpcw First Nation and several municipalities </p>",
+      "date_published": "2026-04-30T16:30:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -906,7 +598,315 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42202970_web1_260122-KCN-Armstrong-Recall_1.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42207494_web1_260507-NTC-Simpcw-Lampreau-C2C-1_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/30/local-officials-weigh-in-on-b-c-s-move-to-standardize-municipal-codes-of-conduct/",
+      "url": "https://wltribune.com/2026/04/30/local-officials-weigh-in-on-b-c-s-move-to-standardize-municipal-codes-of-conduct/",
+      "title": "[Williams Lake Tribune] Local officials weigh in on B.C.’s move to standardize municipal codes of conduct",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42151898_web1_210603-PRU-City-flags-truth-and-rec.-Flags-at-Prince-Rupert-City-hall_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Many still have questions, like who pays for investigations, and will penalties be fairly meted out </p>",
+      "date_published": "2026-04-30T16:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42151898_web1_210603-PRU-City-flags-truth-and-rec.-Flags-at-Prince-Rupert-City-hall_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/30/b-c-cancels-care-home-hospital-construction-contracts-amid-budget-pressure/",
+      "url": "https://wltribune.com/2026/04/30/b-c-cancels-care-home-hospital-construction-contracts-amid-budget-pressure/",
+      "title": "[Williams Lake Tribune] B.C. cancels care home, hospital construction contracts amid budget pressure",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42204653_web1_251105-NBU-cancer-centre-ground-breaking-ma_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Infrastructure Minister Bowinn Ma says projects aren&#8217;t cancelled &#8212; but gave no timelines for work to resume </p>",
+      "date_published": "2026-04-30T15:20:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42204653_web1_251105-NBU-cancer-centre-ground-breaking-ma_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/30/conservative-leadership-candidate-would-move-some-resource-officials-out-of-victoria/",
+      "url": "https://wltribune.com/2026/04/30/conservative-leadership-candidate-would-move-some-resource-officials-out-of-victoria/",
+      "title": "[Williams Lake Tribune] Conservative leadership candidate would move some resource officials out of Victoria",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42205118_web1_260507-CAN-iian-black-castlegar_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Black thinks leadership should be where the resources are </p>",
+      "date_published": "2026-04-30T15:13:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 98,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 29,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42205118_web1_260507-CAN-iian-black-castlegar_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.resilience.org/stories/2026-04-30/rethinking-self-importance-in-a-time-of-social-and-ecological-collapse/",
+      "url": "https://www.resilience.org/stories/2026-04-30/rethinking-self-importance-in-a-time-of-social-and-ecological-collapse/",
+      "title": "[Resilience.org] Rethinking self-importance in a time of social and ecological collapse",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/04/Elon_Musk_54349800344-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAcross cultures, practices that limit ego and hierarchy help sustain cooperation and trust. In an era of cascading crises, rediscovering these “social technologies” could strengthen community resilience and collective action.",
+      "date_published": "2026-04-30T08:00:38+00:00",
+      "authors": [
+        {
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
+        }
+      ],
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.resilience.org/wp-content/uploads/2026/04/Elon_Musk_54349800344-1024x683.jpg"
+    },
+    {
+      "id": "https://www.wired.com/story/chinese-ai-giant-sensetime-is-running-its-new-model-on-chinese-chips/",
+      "url": "https://www.wired.com/story/chinese-ai-giant-sensetime-is-running-its-new-model-on-chinese-chips/",
+      "title": "[WIRED] Sanctioned Chinese AI Firm SenseTime Releases Image Model Built for Speed",
+      "content_html": "<img src=\"https://media.wired.com/photos/69f11e18364b858d165e91bf/master/pass/SenseTime-AI-Models-Chinese-Chips-Business-2154581485.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith US restrictions limiting its access to advanced tech, SenseTime is doubling down on open source with a new model optimized to run on Chinese-made chips.",
+      "date_published": "2026-04-29T17:23:52+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://media.wired.com/photos/69f11e18364b858d165e91bf/master/pass/SenseTime-AI-Models-Chinese-Chips-Business-2154581485.jpg"
+    },
+    {
+      "id": "https://qz.com/waymo-portland-robotaxi-mapping-streets-042926",
+      "url": "https://qz.com/waymo-portland-robotaxi-mapping-streets-042926",
+      "title": "[Quartz] Waymo is beginning to map Portland streets ahead of a robotaxi launch",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2212932225.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Alphabet subsidiary says it won't operate driverless taxis in the city until it receives a permit, despite resistance from several city council members",
+      "date_published": "2026-04-29T17:20:42+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2212932225.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/29/relocation-of-kelownas-tent-city-residents-underway-as-rail-trail-reopening-nears/",
+      "url": "https://wltribune.com/2026/04/29/relocation-of-kelownas-tent-city-residents-underway-as-rail-trail-reopening-nears/",
+      "title": "[Williams Lake Tribune] Relocation of Kelowna’s Tent City residents underway as Rail Trail reopening nears",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42198410_web1_260507-KCN-Tent-City-Moves-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Kelowna city bylaw was at the outdoor sheltering site downtown Wednesday helping people move </p>",
+      "date_published": "2026-04-29T15:45:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 55,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 2,
+      "_boosted_score": 56,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42198410_web1_260507-KCN-Tent-City-Moves-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://hackaday.com/2026/04/29/digital-signal-processing-on-the-pi-pico/",
+      "url": "https://hackaday.com/2026/04/29/digital-signal-processing-on-the-pi-pico/",
+      "title": "[Hackaday] Digital Signal Processing on the Pi Pico",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/dsp.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"578\" src=\"https://hackaday.com/wp-content/uploads/2026/04/dsp.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you want to dabble in audio digital signal processing, you would probably think of grabbing a dedicated DSP chip. But thanks to [WeebLabs], you could just pick up a <a class=\"read-more\" href=\"https://hackaday.com/2026/04/29/digital-signal-processing-on-the-pi-pico/\">&#8230;read more</a>",
+      "date_published": "2026-04-29T15:30:40+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/dsp.png"
+    },
+    {
+      "id": "https://www.statnews.com/2026/04/29/fda-baby-formula-safety-tests-contaminants/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/04/29/fda-baby-formula-safety-tests-contaminants/?utm_campaign=rss",
+      "title": "[STAT News] Infant formula largely safe from heavy metals, FDA finds",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/04/AP25149637226987-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFDA sampled 312 major infant formula brands and found low or undetectable levels of pesticide residue, PFAS, heavy metals and phthalates.",
+      "date_published": "2026-04-29T15:20:01+00:00",
+      "authors": [
+        {
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.statnews.com/wp-content/uploads/2026/04/AP25149637226987-645x645.jpg"
+    },
+    {
+      "id": "https://nautil.us/a-treatment-for-pre-eclampsia-could-be-in-sight-1280301/",
+      "url": "https://nautil.us/a-treatment-for-pre-eclampsia-could-be-in-sight-1280301/",
+      "title": "[Nautilus] A Treatment for Pre-Eclampsia Could Be in Sight",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_6b612b.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>And it’s not a new drug</p>\n<p>The post <a href=\"https://nautil.us/a-treatment-for-pre-eclampsia-could-be-in-sight-1280301/\">A Treatment for Pre-Eclampsia Could Be in Sight</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-04-29T15:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Currie_HERO_6b612b.png?w=564"
+    },
+    {
+      "id": "https://www.quantamagazine.org/why-maths-final-axiom-proved-so-controversial-20260429/",
+      "url": "https://www.quantamagazine.org/why-maths-final-axiom-proved-so-controversial-20260429/",
+      "title": "[Quanta Magazine] Why Math’s Final Axiom Proved So Controversial",
+      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/04/ZFCExplainer-crKristinaArmitage-Default.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nZermelo-Fraenkel set theory is so widely accepted that modern mathematicians hardly think about it. But believing in its core principles didn’t come easily.            <p>The post <a href=\"https://www.quantamagazine.org/why-maths-final-axiom-proved-so-controversial-20260429/\" target=\"_blank\">Why Math’s Final Axiom Proved So Controversial</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
+      "date_published": "2026-04-29T14:54:31+00:00",
+      "authors": [
+        {
+          "name": "Quanta Magazine",
+          "url": "https://www.quantamagazine.org"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/04/ZFCExplainer-crKristinaArmitage-Default.jpg"
+    },
+    {
+      "id": "https://www.neowin.net/news/powertoys-0991-arrives-with-improvements-for-the-new-utilities/",
+      "url": "https://www.neowin.net/news/powertoys-0991-arrives-with-improvements-for-the-new-utilities/",
+      "title": "[Neowin] PowerToys 0.99.1 arrives with improvements for the new utilities",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2023/06/1685715591_9_story.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2023/06/1685715591_9_medium.jpg\" /></div>Microsoft recently introduced two very useful PowerToys utilities, and today, a new update arrived with various improvements for them. <a href=\"https://www.neowin.net/news/powertoys-0991-arrives-with-improvements-for-the-new-utilities/\">Read more...</a>",
+      "date_published": "2026-04-29T14:48:01+00:00",
+      "authors": [
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.neowin.com/news/images/uploaded/2023/06/1685715591_9_story.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/04/29/talkie-is-an-ai-language-model-trained-only-on-pre-1931-texts.html",
+      "url": "https://boingboing.net/2026/04/29/talkie-is-an-ai-language-model-trained-only-on-pre-1931-texts.html",
+      "title": "[Boing Boing] Talkie is an AI language model trained only on pre-1931 texts",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Rogistok-Shutterstock.jpg?fit=1080%2C810&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/04/29/talkie-is-an-ai-language-model-trained-only-on-pre-1931-texts.html\" rel=\"nofollow\" title=\"Talkie is an AI language model trained only on pre-1931 texts\"><img alt=\"Talkie\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"810\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Rogistok-Shutterstock.jpg?fit=1080%2C810&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1080\" /></a><p>There are various LLMs that focus on public domain texts, for ethical or experimental reasons, but most also incorporate modern material (such as Wikipedia) so they have a fully contemporary awareness of history, society, current events and the rest of it. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/04/29/talkie-is-an-ai-language-model-trained-only-on-pre-1931-texts.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/04/29/talkie-is-an-ai-language-model-trained-only-on-pre-1931-texts.html\">Talkie is an AI language model trained only on pre-1931 texts</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-04-29T14:29:32+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/04/Rogistok-Shutterstock.jpg?fit=1080%2C810&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.techradar.com/pro/evolving-observability-architecture-for-cloud-scale-event-data",
+      "url": "https://www.techradar.com/pro/evolving-observability-architecture-for-cloud-scale-event-data",
+      "title": "[TechRadar] Evolving observability architecture for cloud-scale event data",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/pSreeHEMSHqVQg2TgPqbUL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhy modern observability systems fail during incidents, and how new architectures fix them.",
+      "date_published": "2026-04-29T13:38:59+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/pSreeHEMSHqVQg2TgPqbUL-1280-80.jpg"
     }
   ]
 }
