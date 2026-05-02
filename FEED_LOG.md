@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-05-02 (Saturday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **922** → dedup **788** → new **195** → quality **110**
+- Mix: local:2(2%), ai-tech:19(19%), climate:4(4%), homelab:24(24%), science:1(1%), scifi:2(2%), news:49(49%)
+- Feeds: local:54, ai-tech:461, climate:117, homelab:400, science:160, scifi:42, news:500
+- Images: 110/110
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-05-01 (Friday)
 
 #### 🌙 8:30 PM Pacific
@@ -205,41 +223,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:1(1%), ai-tech:26(31%), climate:2(2%), homelab:24(29%), science:6(7%), scifi:1(1%), news:23(28%)
 - Feeds: local:43, ai-tech:483, climate:140, homelab:390, science:170, scifi:22, news:500
 - Images: 93/93
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-04-24 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1010** → dedup **877** → new **326** → quality **178**
-- Mix: local:1(1%), ai-tech:58(35%), climate:13(8%), homelab:29(18%), science:7(4%), scifi:1(1%), news:56(34%)
-- Feeds: local:43, ai-tech:478, climate:150, homelab:366, science:169, scifi:19, news:500
-- Images: 178/178
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **990** → dedup **844** → new **352** → quality **229**
-- Mix: local:9(4%), ai-tech:74(35%), climate:7(3%), homelab:27(13%), science:17(8%), scifi:3(1%), news:73(35%)
-- Feeds: local:45, ai-tech:478, climate:145, homelab:372, science:171, scifi:20, news:500
-- Images: 229/229
 - ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
@@ -1051,6 +1034,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-04-23–2026-04-23
 - 2 runs · avg fetched 1018 · avg quality 202
 - Dominant: **ai-tech** (33%) local:10 / ai-tech:123 / climate:18 / homelab:65 / science:32 / scifi:6 / news:122
+- - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-04-24–2026-04-24
+- 2 runs · avg fetched 1000 · avg quality 204
+- Dominant: **ai-tech** (35%) local:10 / ai-tech:132 / climate:20 / homelab:56 / science:24 / scifi:4 / news:129
 - - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
