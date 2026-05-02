@@ -3,7 +3,7 @@
   "title": "🎙️ Cariboo Voices & Local News",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-podcast-saturday.json",
-  "description": "Today is all about the Cariboo-Chilcotin: the decisions, events, and conversations happening in Williams Lake, Quesnel, 100 Mile House, Bella Coola, and the surrounding region. We're covering local government, community life, economic stories, and the digital equity challenges that shape what it means to live and work in rural BC. - Daily themed article selection for podcast generation",
+  "description": "Today is all about the Cariboo-Chilcotin (chil-KOH-tin) region: the decisions, events, and conversations happening in Williams Lake, Quesnel, 100 Mile House, Bella Coola, and the surrounding region. We're covering local government, community life, economic stories, and the digital equity challenges that shape what it means to live and work in rural BC. - Daily themed article selection for podcast generation",
   "icon": "https://zirnhelt.github.io/super-rss-feed/favicon.ico",
   "authors": [
     {
@@ -13,7 +13,7 @@
   "language": "en",
   "_podcast": {
     "theme": "Cariboo Voices & Local News",
-    "theme_description": "Today is all about the Cariboo-Chilcotin: the decisions, events, and conversations happening in Williams Lake, Quesnel, 100 Mile House, Bella Coola, and the surrounding region. We're covering local government, community life, economic stories, and the digital equity challenges that shape what it means to live and work in rural BC.",
+    "theme_description": "Today is all about the Cariboo-Chilcotin (chil-KOH-tin) region: the decisions, events, and conversations happening in Williams Lake, Quesnel, 100 Mile House, Bella Coola, and the surrounding region. We're covering local government, community life, economic stories, and the digital equity challenges that shape what it means to live and work in rural BC.",
     "theme_categories": [
       "local",
       "news",
@@ -22,308 +22,880 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Score 0-100 where 100 is a perfect thematic match.",
     "day": "saturday",
-    "generated_at": "2026-04-25T13:44:01.881847+00:00",
+    "generated_at": "2026-05-02T06:25:10.682968+00:00",
     "article_count": 40,
-    "bonus_count": 38,
+    "bonus_count": 11,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://100milefreepress.net/2026/04/25/first-audit-of-100-mile-house-recycling-program-undertaken/",
-      "url": "https://100milefreepress.net/2026/04/25/first-audit-of-100-mile-house-recycling-program-undertaken/",
-      "title": "[100 Mile Free Press] First audit of 100 Mile House recycling program undertaken",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42148713_web1_260430-OMH-Recycling-Audit-Results_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The auditers found 100 Mile House to be a welcoming community </p>",
-      "date_published": "2026-04-25T12:00:00+00:00",
+      "id": "https://100milefreepress.net/2026/05/01/fraudulent-incident-costs-shuswap-community-44536/",
+      "url": "https://100milefreepress.net/2026/05/01/fraudulent-incident-costs-shuswap-community-44536/",
+      "title": "[100 Mile Free Press] Fraudulent incident costs Shuswap community $44,536",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42214245_web1_240704-saa-chase-firesmart-curbside-pickup.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Routine payment to a supplier redirected to unauthorized accounts </p>",
+      "date_published": "2026-05-01T19:30:00+00:00",
       "authors": [
         {
           "name": "100 Mile Free Press",
           "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 87,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 2,
-      "_boosted_score": 66,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42148713_web1_260430-OMH-Recycling-Audit-Results_1.jpg?w=1024"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/04/25/2026-south-cariboo-womens-fair-on-this-weekend/",
-      "url": "https://100milefreepress.net/2026/04/25/2026-south-cariboo-womens-fair-on-this-weekend/",
-      "title": "[100 Mile Free Press] 2026 South Cariboo Women’s Fair on this weekend",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42133325_web1_img_9945.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>This year the fair is being sponsored by the South Cariboo Chamber of Commerce </p>",
-      "date_published": "2026-04-25T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 90,
-      "_theme_score": 82,
-      "_final_score": 82,
-      "_keyword_matches": 1,
-      "_boosted_score": 47,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42133325_web1_img_9945.jpg?w=1024"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-used-win11debloat-on-my-pc-and-i-could-never-install-windows-without-it-again/",
-      "url": "https://www.xda-developers.com/i-used-win11debloat-on-my-pc-and-i-could-never-install-windows-without-it-again/",
-      "title": "[XDA Developers] I used Win11Debloat on my PC, and I could never install Windows without it again",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/06/dell-xps-13-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis free tool makes Windows 11 significantly more bearable.",
-      "date_published": "2026-04-25T13:31:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/06/dell-xps-13-1.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/set-up-vlans-fix-my-network-real-problem-was-much-simpler/",
-      "url": "https://www.xda-developers.com/set-up-vlans-fix-my-network-real-problem-was-much-simpler/",
-      "title": "[XDA Developers] My network kept dropping devices until I stopped over-engineering and checked my firewall rules",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/12/network-cabinet-switches.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhen you keep overlooking the solution.",
-      "date_published": "2026-04-25T12:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/12/network-cabinet-switches.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/gut-bacteria-could-be-a-hidden-trigger-for-neurodegenerative-diseases",
-      "url": "https://www.sciencealert.com/gut-bacteria-could-be-a-hidden-trigger-for-neurodegenerative-diseases",
-      "title": "[ScienceAlert] Gut Bacteria Could Be a Hidden Trigger For Neurodegenerative Diseases",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/GutBacteria.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Bacteria in a human intestine\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/GutBacteria.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A new explanation emerges.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-25T12:00:21+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/GutBacteria.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/swapping-schedules-for-sensors-made-home-assistant-feel-human/",
-      "url": "https://www.howtogeek.com/swapping-schedules-for-sensors-made-home-assistant-feel-human/",
-      "title": "[How-To Geek] Swapping schedules for sensors made my Home Assistant setup feel human",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/an-everything-presence-lite-mmwave-presence-sensor-on-a-monitor-stand-in-front-of-a-computer.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLife doesn't always run to schedule.",
-      "date_published": "2026-04-25T12:00:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/an-everything-presence-lite-mmwave-presence-sensor-on-a-monitor-stand-in-front-of-a-computer.png"
-    },
-    {
-      "id": "https://www.howtogeek.com/things-you-wont-believe-are-possible-with-an-esp32/",
-      "url": "https://www.howtogeek.com/things-you-wont-believe-are-possible-with-an-esp32/",
-      "title": "[How-To Geek] 5 things you never thought a $5 ESP32 could do",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/pxl_20260412_061009492-raw-01-mp-cover-large.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe little board that could.",
-      "date_published": "2026-04-25T11:00:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 56,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/pxl_20260412_061009492-raw-01-mp-cover-large.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/this-week-in-science-giant-octopuses-a-promising-cancer-vaccine-and-more",
-      "url": "https://www.sciencealert.com/this-week-in-science-giant-octopuses-a-promising-cancer-vaccine-and-more",
-      "title": "[ScienceAlert] This Week in Science: Giant Octopuses, a Promising Cancer Vaccine, And More!",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/CancerCellsInGreenAndPurple.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Scientific illustration of green cancer cells being attacked by immune cells\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/CancerCellsInGreenAndPurple.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Our weekly science news roundup.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-25T11:00:04+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/CancerCellsInGreenAndPurple.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/replaced-over-1000-in-cloud-subscriptions-with-one-small-home-server/",
-      "url": "https://www.xda-developers.com/replaced-over-1000-in-cloud-subscriptions-with-one-small-home-server/",
-      "title": "[XDA Developers] I replaced over $1,000 in cloud subscriptions with one small home server",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/minisforum-ai-x1-pro-470-front.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour data is yours, why pay others to hold it for you?",
-      "date_published": "2026-04-25T10:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
         }
       ],
       "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42214245_web1_240704-saa-chase-firesmart-curbside-pickup.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/bcws-urges-caution-following-a-string-of-human-caused-wildfires-in-the-cariboo/",
+      "url": "https://wltribune.com/2026/05/01/bcws-urges-caution-following-a-string-of-human-caused-wildfires-in-the-cariboo/",
+      "title": "[Williams Lake Tribune] BCWS urges caution following a string of human-caused wildfires in the Cariboo",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42209435_web1_campfire.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
+      "date_published": "2026-05-02T06:22:53.991029+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42209435_web1_campfire.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/b-c-invests-in-playgrounds-for-quesnel-williams-lake-sun-peaks/",
+      "url": "https://wltribune.com/2026/05/01/b-c-invests-in-playgrounds-for-quesnel-williams-lake-sun-peaks/",
+      "title": "[Williams Lake Tribune] B.C. invests in playgrounds for Quesnel, Williams Lake, Sun Peaks",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42212363_web1_260507-NTC-200k-for-playgrounds-1_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
+      "date_published": "2026-05-02T06:22:53.990996+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42212363_web1_260507-NTC-200k-for-playgrounds-1_2.jpg?w=1024"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/04/30/BC-Quietly-Cuts-Penalty-Exporting-Unprocessed-Logs/",
+      "url": "https://thetyee.ca/News/2026/04/30/BC-Quietly-Cuts-Penalty-Exporting-Unprocessed-Logs/",
+      "title": "[The Tyee] BC Quietly Cuts Penalty for Exporting Unprocessed Logs",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2017/02/26/CroftonPulpMill.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe province hopes to boost logging rates. But slashing the fee on exports risks more mill closures, one advocate warns.",
+      "date_published": "2026-04-30T07:40:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 47,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/Opinion/2017/02/26/CroftonPulpMill.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/scheduled-criminal-trials-at-11-b-c-courthouses-may-not-be-able-to-proceed/",
+      "url": "https://wltribune.com/2026/05/01/scheduled-criminal-trials-at-11-b-c-courthouses-may-not-be-able-to-proceed/",
+      "title": "[Williams Lake Tribune] Scheduled criminal trials at 11 B.C. courthouses may not be able to proceed",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42215284_web1_38926westernstar47795westernstar55563westernstar16520westernstarCourthouse.jpg?w=720\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSupreme Court says at some courthouses there are no facilities available to house in-custody accused persons",
+      "date_published": "2026-05-02T06:22:53.990898+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 100,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42215284_web1_38926westernstar47795westernstar55563westernstar16520westernstarCourthouse.jpg?w=720"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/b-c-forests-minister-unveils-new-federal-grant-says-aid-needs-could-reach-6b/",
+      "url": "https://wltribune.com/2026/05/01/b-c-forests-minister-unveils-new-federal-grant-says-aid-needs-could-reach-6b/",
+      "title": "[Williams Lake Tribune] B.C. forests minister unveils new federal grant, says aid needs could reach $6B",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42216150_web1_260501-BPD-Forestrygrant-Parmar_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Minister Ravi Parmar says B.C.&#8217;s forests sector will need billions of dollars more in aid if tariffs continue </p>",
+      "date_published": "2026-05-01T15:18:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 98,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 29,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42216150_web1_260501-BPD-Forestrygrant-Parmar_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/01/table-tales-back-to-the-underhive/",
+      "url": "https://100milefreepress.net/2026/05/01/table-tales-back-to-the-underhive/",
+      "title": "[100 Mile Free Press] TABLE TALES: Back to the Underhive",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42134866_web1_260430-OMH-Table-Tales_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>100 Mile Free Press editor Patrick Davies&#8217; monthly gaming column </p>",
+      "date_published": "2026-05-02T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 40,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42134866_web1_260430-OMH-Table-Tales_3.jpg?w=1024"
+    },
+    {
+      "id": "https://cfjctoday.com/2026/04/30/minister-says-b-c-expects-billions-from-feds-for-forestry-if-u-s-talks-fail/",
+      "url": "https://cfjctoday.com/2026/04/30/minister-says-b-c-expects-billions-from-feds-for-forestry-if-u-s-talks-fail/",
+      "title": "[CFJC Today Kamloops] Minister says B.C. expects billions from feds for forestry if U.S. talks fail",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wpRssService/imageRedirect?url=http%3A%2F%2Fmapi.cp.org%2Fasset-photos%2F331d1a25-bf98-452e-a67a-6f66a959e6f4%2F38f443b609a1f44bfd6098d641855120a376df7041a570b50a1ef55a06a7d6be.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVICTORIA - British Columbia's forests minister says he expects billions in additional federal support for the timber sector if future trade talks with...",
+      "date_published": "2026-04-30T21:32:40+00:00",
+      "authors": [
+        {
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
+        }
+      ],
+      "_quality_score": 20,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wpRssService/imageRedirect?url=http%3A%2F%2Fmapi.cp.org%2Fasset-photos%2F331d1a25-bf98-452e-a67a-6f66a959e6f4%2F38f443b609a1f44bfd6098d641855120a376df7041a570b50a1ef55a06a7d6be.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/30/haunted-108-turns-108-heritage-site-into-a-paranormal-hotspot/",
+      "url": "https://wltribune.com/2026/04/30/haunted-108-turns-108-heritage-site-into-a-paranormal-hotspot/",
+      "title": "[Williams Lake Tribune] Haunted 108 turns 108 Heritage Site into a paranormal hotspot",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42149077_web1_260430-OMH-Haunted-108-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n5 MIN READ",
+      "date_published": "2026-04-30T14:31:49.220454+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 45,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 13,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42149077_web1_260430-OMH-Haunted-108-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/logan-lake-rcmp-look-for-witnesses-to-multiple-vehicle-break-and-enters/",
+      "url": "https://wltribune.com/2026/05/01/logan-lake-rcmp-look-for-witnesses-to-multiple-vehicle-break-and-enters/",
+      "title": "[Williams Lake Tribune] Logan Lake RCMP look for witnesses to multiple vehicle break and enters",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42218147_web1_11664518_web1_180427-RDA-M-Badge--RDA-RCMP-2-.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Several vehicles were broken into on May 1 </p>",
+      "date_published": "2026-05-01T15:52:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 92,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 27,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42218147_web1_11664518_web1_180427-RDA-M-Badge--RDA-RCMP-2-.jpg?w=1024"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/04/29/prince-george-rcmp-search-for-41-year-old-man-2/",
+      "url": "https://quesnelobserver.com/2026/04/29/prince-george-rcmp-search-for-41-year-old-man-2/",
+      "title": "[Quesnel Cariboo Observer] Prince George RCMP search for 41-year-old man",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42198119_web1_260506-QCO-PG-wanted_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>James Albert Weston Soare is wanted on one unendorsed warrant </p>",
+      "date_published": "2026-04-29T23:10:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "_quality_score": 30,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 9,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42198119_web1_260506-QCO-PG-wanted_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/04/29/greater-victoria-romance-con-artist-wanted-for-breaching-court-conditions/",
+      "url": "https://100milefreepress.net/2026/04/29/greater-victoria-romance-con-artist-wanted-for-breaching-court-conditions/",
+      "title": "[100 Mile Free Press] Greater Victoria romance con artist wanted for breaching court conditions",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42191665_web1_260429-VNE-DatingSwindler-Brodie_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Brodie Brooks targeted dozens of victims between 2019 and 2023 </p>",
+      "date_published": "2026-04-29T17:30:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "_quality_score": 25,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 7,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42191665_web1_260429-VNE-DatingSwindler-Brodie_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/court-finds-b-c-s-legal-professions-act-is-not-beyond-governments-powers/",
+      "url": "https://wltribune.com/2026/05/01/court-finds-b-c-s-legal-professions-act-is-not-beyond-governments-powers/",
+      "title": "[Williams Lake Tribune] Court finds B.C.’s Legal Professions Act is not beyond government’s powers",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42201346_web1_260430-BPD-lawsociety_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Bill 21, which received Royal Assent nearly 2 years ago, creates a single legal regulator </p>",
+      "date_published": "2026-05-01T13:45:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 75,
+      "_theme_score": 65,
+      "_final_score": 65,
       "_keyword_matches": 0,
       "_boosted_score": 22,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/minisforum-ai-x1-pro-470-front.jpg"
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42201346_web1_260430-BPD-lawsociety_1.jpg?w=1024"
     },
     {
-      "id": "https://www.nytimes.com/2026/04/25/business/electric-vehicles-used-leases.html",
-      "url": "https://www.nytimes.com/2026/04/25/business/electric-vehicles-used-leases.html",
-      "title": "[NYT Business] Thousands of EV Car Leases Are Ending Soon, Giving Buyers a More Affordable Option",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/23/multimedia/00biz-ev-leases-zwpt/00biz-ev-leases-zwpt-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe leases on hundreds of thousands of battery-powered cars and trucks will end in the next three years, and many will end up on used-car lots.",
-      "date_published": "2026-04-25T09:02:23+00:00",
+      "id": "https://cfjctoday.com/2026/05/01/forests-minister-parmar-touts-new-support-grant-wants-forestry-prioritized-in-cusma-renegotiations/",
+      "url": "https://cfjctoday.com/2026/05/01/forests-minister-parmar-touts-new-support-grant-wants-forestry-prioritized-in-cusma-renegotiations/",
+      "title": "[CFJC Today Kamloops] Forests Minister Parmar touts new support grant; wants forestry prioritized in CUSMA renegotiations",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/05/e68c71fc-4ea8-4703-b844-cfc69a568e3f-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Image Credit: Kent Simmonds/CFJC Today)",
+      "date_published": "2026-05-02T00:05:38+00:00",
       "authors": [
         {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
         }
       ],
-      "_quality_score": 67,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 20,
+      "_theme_score": 60,
+      "_final_score": 60,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/23/multimedia/00biz-ev-leases-zwpt/00biz-ev-leases-zwpt-mediumSquareAt3X.jpg"
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/05/e68c71fc-4ea8-4703-b844-cfc69a568e3f-1.jpg"
     },
     {
-      "id": "https://www.tomsguide.com/wellness/sleep/the-15-minute-sunlight-rule-ended-my-morning-energy-slump-and-brain-fog-and-it-can-increase-energy-levels-by-20-percent-doctors-say",
-      "url": "https://www.tomsguide.com/wellness/sleep/the-15-minute-sunlight-rule-ended-my-morning-energy-slump-and-brain-fog-and-it-can-increase-energy-levels-by-20-percent-doctors-say",
-      "title": "[Toms Guide] The 15-minute sunlight rule ended my morning energy slump and brain fog — and it can increase energy levels by 20%, doctors say",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/XYq2JZ8HR9sWkpcp8VeLPB-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI spoke to 4 doctors, including clinical psychologists and a double-board certified psychiatrist, to learn why my 15-minute morning habit reduces my daytime fatigue.",
-      "date_published": "2026-04-25T09:00:00+00:00",
+      "id": "https://wltribune.com/2026/05/01/june-carter-2/",
+      "url": "https://wltribune.com/2026/05/01/june-carter-2/",
+      "title": "[Williams Lake Tribune] June Carter",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42218520_web1_260501-digitalobit-WLT-Carter-PIC_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Celebration of Life ~</p>",
+      "date_published": "2026-05-01T16:30:00+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_quality_score": 20,
+      "_theme_score": 55,
+      "_final_score": 55,
       "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/XYq2JZ8HR9sWkpcp8VeLPB-1280-80.jpg"
+      "_boosted_score": 6,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42218520_web1_260501-digitalobit-WLT-Carter-PIC_1.jpg?w=400"
     },
     {
-      "id": "https://hackaday.com/2026/04/25/3d-print-this-retro-desktop-case/",
-      "url": "https://hackaday.com/2026/04/25/3d-print-this-retro-desktop-case/",
-      "title": "[Hackaday] 3D Print This Retro Desktop Case",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/image-1-e1777012245323.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"449\" src=\"https://hackaday.com/wp-content/uploads/2026/04/image-1-e1777012245323.webp?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Once upon a time, not every computer lived in a vertical &#8220;tower&#8221; case. Many decades back a horizontal arrangement was a popular choice, sometimes just referred to as the &#8220;desktop&#8221; <a class=\"read-more\" href=\"https://hackaday.com/2026/04/25/3d-print-this-retro-desktop-case/\">&#8230;read more</a>",
-      "date_published": "2026-04-25T08:00:46+00:00",
+      "id": "https://wltribune.com/2026/04/29/b-c-theatre-group-tackles-survivors-guilt-in-poignant-heart-transplant-story/",
+      "url": "https://wltribune.com/2026/04/29/b-c-theatre-group-tackles-survivors-guilt-in-poignant-heart-transplant-story/",
+      "title": "[Williams Lake Tribune] B.C. theatre group tackles survivor’s guilt in poignant heart transplant story",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42192473_web1_ChilliwackPlayersGuild_TheTinWoman3.0425.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Chilliwack Players Guild presents &#8216;The Tin Woman&#8217; at cultural centre </p>",
+      "date_published": "2026-04-29T10:45:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/image-1-e1777012245323.webp"
-    },
-    {
-      "id": "https://www.tomsguide.com/ai/7-0-wipeout-i-put-chatgpt-5-5-and-claude-4-7-through-7-impossible-tests-and-the-results-shocked-me",
-      "url": "https://www.tomsguide.com/ai/7-0-wipeout-i-put-chatgpt-5-5-and-claude-4-7-through-7-impossible-tests-and-the-results-shocked-me",
-      "title": "[Toms Guide] 7-0 wipeout: I put ChatGPT-5.5 vs Claude 4.7 through 7 impossible tests — and the results shocked me",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/fnDd8msJ6V8XNEFRKZUPP4-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI put the ChatGPT-5.5 and Claude 4.7 through 7 \"impossible\" benchmarks in logic, physics, and advanced math. While OpenAI’s latest model prioritized speed, it fell into a stunning 7-0 defeat against Claude’s superior reasoning.",
-      "date_published": "2026-04-25T05:15:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
       "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 50,
+      "_final_score": 50,
       "_keyword_matches": 0,
       "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42192473_web1_ChilliwackPlayersGuild_TheTinWoman3.0425.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/ky7e-cecilia-dick-derose/",
+      "url": "https://wltribune.com/2026/05/01/ky7e-cecilia-dick-derose/",
+      "title": "[Williams Lake Tribune] Kyé7e Cecilia Dick DeRose",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42215893_web1_260501-digitalobit-WLT-Derose-PIC_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In Loving Memory ~</p>",
+      "date_published": "2026-05-01T14:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 20,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42215893_web1_260501-digitalobit-WLT-Derose-PIC_1.jpg?w=400"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/edmond-edward-joseph-caissie/",
+      "url": "https://wltribune.com/2026/05/01/edmond-edward-joseph-caissie/",
+      "title": "[Williams Lake Tribune] Edmond Edward Joseph Caissie",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42215667_web1_260501-digitalobit-WLT-Caissie-PIC_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In Loving Memory ~</p>",
+      "date_published": "2026-05-01T13:50:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 20,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42215667_web1_260501-digitalobit-WLT-Caissie-PIC_1.jpg?w=400"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/29/northwood-plaza-nellys-pub-destroyed-by-fire-in-prince-george/",
+      "url": "https://wltribune.com/2026/04/29/northwood-plaza-nellys-pub-destroyed-by-fire-in-prince-george/",
+      "title": "[Williams Lake Tribune] Northwood Plaza, Nelly’s Pub destroyed by fire in Prince George",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42194057_web1_260507-QCO-PG-Nellys-Pub_7.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The cause of the blaze is not yet known </p>",
+      "date_published": "2026-04-29T11:25:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 52,
+      "_theme_score": 45,
+      "_final_score": 45,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42194057_web1_260507-QCO-PG-Nellys-Pub_7.jpg?w=1024"
+    },
+    {
+      "id": "https://cfjctoday.com/2026/04/29/counterfeit-100-bills-used-in-fraudulent-atv-purchase-100-mile-rcmp/",
+      "url": "https://cfjctoday.com/2026/04/29/counterfeit-100-bills-used-in-fraudulent-atv-purchase-100-mile-rcmp/",
+      "title": "[CFJC Today Kamloops] Counterfeit $100 bills used in fraudulent ATV purchase: 100 Mile RCMP",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/04/b52eb645-073c-4e07-a74a-59c68b17e4ba.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFile photo. (Image Credit: CFJC Today)",
+      "date_published": "2026-04-29T13:35:45+00:00",
+      "authors": [
+        {
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
+        }
+      ],
+      "_quality_score": 20,
+      "_theme_score": 45,
+      "_final_score": 45,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/04/b52eb645-073c-4e07-a74a-59c68b17e4ba.jpg"
+    },
+    {
+      "id": "https://globalnews.ca/news/11821359/tumbler-ridge-bc-lawsuit-filed-california-court-openai/",
+      "url": "https://globalnews.ca/news/11821359/tumbler-ridge-bc-lawsuit-filed-california-court-openai/",
+      "title": "[Global News] Tumbler Ridge, B.C. lawsuits filed in California court against OpenAI",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2025/10/ChatGPT-OpenAI-e1772145702249.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn February, OpenAI confirmed that an account connected with Van Rootselaar was identified the previous June and was subsequently banned for violating the usage policy.",
+      "date_published": "2026-04-29T13:13:28+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "_quality_score": 35,
+      "_theme_score": 75,
+      "_final_score": 45,
+      "_keyword_matches": 0,
+      "_boosted_score": 10,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/fnDd8msJ6V8XNEFRKZUPP4-1280-80.jpg"
+      "image": "https://globalnews.ca/wp-content/uploads/2025/10/ChatGPT-OpenAI-e1772145702249.jpg?quality=65&strip=all"
     },
     {
-      "id": "https://www.sciencealert.com/the-worlds-most-mysterious-volcano-can-finally-be-explained",
-      "url": "https://www.sciencealert.com/the-worlds-most-mysterious-volcano-can-finally-be-explained",
-      "title": "[ScienceAlert] The World's Most Mysterious Volcano Can Finally Be Explained",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/etna-eruption.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"etna eruption\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/etna-eruption.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"A unique place on Earth.\"</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-04-24T21:00:33+00:00",
+      "id": "https://wltribune.com/2026/04/25/vancouver-goldeneyes-conclude-season-with-thrilling-ot-win-over-frost/",
+      "url": "https://wltribune.com/2026/04/25/vancouver-goldeneyes-conclude-season-with-thrilling-ot-win-over-frost/",
+      "title": "[Williams Lake Tribune] Vancouver Goldeneyes conclude season with thrilling OT win over Frost",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42161870_web1_260430-SUL-Goldeneyes-Frost_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Vancouver hosted Minnesota in front of 11,310 fans at Pacific Coliseum </p>",
+      "date_published": "2026-04-25T21:29:00+00:00",
       "authors": [
         {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 25,
+      "_theme_score": 45,
+      "_final_score": 45,
+      "_keyword_matches": 0,
+      "_boosted_score": 7,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42161870_web1_260430-SUL-Goldeneyes-Frost_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/25/vancouver-rise-fc-fall-short-in-season-opener-against-afc-toronto/",
+      "url": "https://wltribune.com/2026/04/25/vancouver-rise-fc-fall-short-in-season-opener-against-afc-toronto/",
+      "title": "[Williams Lake Tribune] Vancouver Rise FC fall short in season opener against AFC Toronto",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42160769_web1_260430-SUL-Rise-Toronto_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Rise FC hosted AFC Toronto in front of a sold-out crowd at Swangard Stadium </p>",
+      "date_published": "2026-04-25T08:22:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 25,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 0,
+      "_boosted_score": 7,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42160769_web1_260430-SUL-Rise-Toronto_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/b-c-foi-complaints-surge-as-ai-tools-drive-more-review-requests/",
+      "url": "https://wltribune.com/2026/05/01/b-c-foi-complaints-surge-as-ai-tools-drive-more-review-requests/",
+      "title": "[Williams Lake Tribune] B.C. FOI complaints surge as AI tools drive more review requests",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42211896_web1_michael-harvey.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Commissioner Michael Harvey also says he does not think new FOI bill strips access rights </p>",
+      "date_published": "2026-05-01T15:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 85,
+      "_theme_score": 68,
+      "_final_score": 38,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42211896_web1_michael-harvey.jpg?w=1024"
+    },
+    {
+      "id": "https://cfjctoday.com/2026/04/30/ottawa-will-wait-for-openai-info-on-tumbler-ridge-before-regulating-solomon/",
+      "url": "https://cfjctoday.com/2026/04/30/ottawa-will-wait-for-openai-info-on-tumbler-ridge-before-regulating-solomon/",
+      "title": "[CFJC Today Kamloops] Ottawa will wait for OpenAI info on Tumbler Ridge before regulating: Solomon",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wpRssService/imageRedirect?url=http%3A%2F%2Fmapi.cp.org%2Fasset-photos%2F49ca9893-2825-459d-b807-5ea084ad0c4e%2Ff0de5f6f8bab6358fe72915fc2cb6a252c79ebfc064d450c7e3f11fe4a54accf.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOTTAWA - The federal government will weigh information provided by OpenAI on the Tumbler Ridge, B.C. shooting before taking action, Artificial Intelli...",
+      "date_published": "2026-04-30T20:51:36+00:00",
+      "authors": [
+        {
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
+        }
+      ],
+      "_quality_score": 37,
+      "_theme_score": 68,
+      "_final_score": 38,
+      "_keyword_matches": 0,
+      "_boosted_score": 11,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wpRssService/imageRedirect?url=http%3A%2F%2Fmapi.cp.org%2Fasset-photos%2F49ca9893-2825-459d-b807-5ea084ad0c4e%2Ff0de5f6f8bab6358fe72915fc2cb6a252c79ebfc064d450c7e3f11fe4a54accf.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026ECS0011-000494",
+      "url": "https://news.gov.bc.ca/releases/2026ECS0011-000494",
+      "title": "[BC Gov News] B.C., Treaty 8 First Nations build new partnerships to advance restoration",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProvince, seven Treaty 8 Nations sign restoration agreements that support land, communities, jobs",
+      "date_published": "2026-05-01T21:30:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 70,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/29/507-people-died-while-experiencing-homelessness-in-b-c-in-2024-report/",
+      "url": "https://wltribune.com/2026/04/29/507-people-died-while-experiencing-homelessness-in-b-c-in-2024-report/",
+      "title": "[Williams Lake Tribune] 507 people died while experiencing homelessness in B.C. in 2024: Report",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42193833_web1_3171697.jpg?w=600\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Vancouver records most deaths at 85, followed by 44 in Surrey, 36 in both Greater Victoria, Nanaimo </p>",
+      "date_published": "2026-04-29T12:46:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 58,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42193833_web1_3171697.jpg?w=600"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/05/01/Hundreds-Surrey-Memorial-Patients-Overdosing/",
+      "url": "https://thetyee.ca/News/2026/05/01/Hundreds-Surrey-Memorial-Patients-Overdosing/",
+      "title": "[The Tyee] Hundreds of Surrey Memorial Patients Are Overdosing Every Year",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/30/SurreyMemorialHospitalSign.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBut fatalities remain low, according to the BC Coroners Service.",
+      "date_published": "2026-05-01T07:40:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 43,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/News/2026/04/30/SurreyMemorialHospitalSign.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026PSSG0039-000480",
+      "url": "https://news.gov.bc.ca/releases/2026PSSG0039-000480",
+      "title": "[BC Gov News] Keeping people safe in Comox Valley, Port Hardy with early intervention program",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSupports being delivered to people at risk, helping build a safer, healthier community",
+      "date_published": "2026-04-30T15:30:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 40,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 32,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026PREM0020-000479",
+      "url": "https://news.gov.bc.ca/releases/2026PREM0020-000479",
+      "title": "[BC Gov News] Look West Update: Billions of dollars of investment, tens of thousands of new jobs",
+      "content_html": "<img src=\"https://live.staticflickr.com/65535/55239292110_87c6d32e2a_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Updated April 29, 2026) Building on early momentum, B.C. accelerates growth by nearly doubling priority major projects",
+      "date_published": "2026-04-29T19:47:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "_quality_score": 33,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 9,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://live.staticflickr.com/65535/55239292110_87c6d32e2a_b.jpg"
+    },
+    {
+      "id": "https://globalnews.ca/news/11822033/province-funding-primary-care-brockville/",
+      "url": "https://globalnews.ca/news/11822033/province-funding-primary-care-brockville/",
+      "title": "[Global News] Province invests $2.1M to connect 4,845 to primary care in Brockville",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/04/Brockville-Healthcare-Announcement-042826.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Ontario government is investing more than $2.1 million to help connect up to 4,845 residents in Brockville, Mallorytown and surrounding areas to primary care.",
+      "date_published": "2026-04-29T14:35:18+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "_quality_score": 20,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/04/Brockville-Healthcare-Announcement-042826.jpg?quality=65&strip=all"
+    },
+    {
+      "id": "https://www.aptnnews.ca/national-news/pacific-salmon-conservation-efforts-continue-to-spawn-in-b-c-first-nations-but-sustainable-funding-needed/",
+      "url": "https://www.aptnnews.ca/national-news/pacific-salmon-conservation-efforts-continue-to-spawn-in-b-c-first-nations-but-sustainable-funding-needed/",
+      "title": "[APTN News] Pacific salmon conservation efforts continue to spawn in B.C. but First Nations says sustainable funding needed",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.aptnnews.ca&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Salmon conservationists in British Columbia say that if Pacific salmon are going to be saved,...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/national-news/pacific-salmon-conservation-efforts-continue-to-spawn-in-b-c-first-nations-but-sustainable-funding-needed/\">Pacific salmon conservation efforts continue to spawn in B.C. but First Nations says sustainable funding needed</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
+      "date_published": "2026-05-01T19:45:54+00:00",
+      "authors": [
+        {
+          "name": "APTN News",
+          "url": "https://www.aptnnews.ca"
+        }
+      ],
+      "_quality_score": 35,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 0,
+      "_boosted_score": 10,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.aptnnews.ca&sz=128"
+    },
+    {
+      "id": "https://thetyee.ca/Opinion/2026/05/01/When-Will-Knives-Come-Out-Naheed-Nenshi/",
+      "url": "https://thetyee.ca/Opinion/2026/05/01/When-Will-Knives-Come-Out-Naheed-Nenshi/",
+      "title": "[The Tyee] When Will the Knives Come Out for Naheed Nenshi?",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/04/30/NaheedNenshiLights.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA poll offers great news for the UCP and questions about NDP leadership.",
+      "date_published": "2026-05-01T07:20:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 27,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 0,
+      "_boosted_score": 8,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/Opinion/2026/04/30/NaheedNenshiLights.jpg"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/05/01/BC-Conservative-Least-Objectionable-Challenge/",
+      "url": "https://thetyee.ca/News/2026/05/01/BC-Conservative-Least-Objectionable-Challenge/",
+      "title": "[The Tyee] BC Conservative Hopefuls Face the ‘Least Objectionable’ Challenge",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/04/30/BCConservativeLeadershipDebate.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe first two debates with all five candidates featured tough attacks.",
+      "date_published": "2026-05-01T07:10:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "_quality_score": 33,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 0,
+      "_boosted_score": 9,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/News/2026/04/30/BCConservativeLeadershipDebate.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/25/man-arrested-following-homicide-fire-at-abbotsford-homeless-encampment/",
+      "url": "https://wltribune.com/2026/04/25/man-arrested-following-homicide-fire-at-abbotsford-homeless-encampment/",
+      "title": "[Williams Lake Tribune] Man arrested following homicide, fire at Abbotsford homeless encampment",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42160879_web1_AbbyHomicideHomelessEncampment1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Incident happened on South Fraser Way; investigation handed over to IHIT </p>",
+      "date_published": "2026-04-25T09:14:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 48,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42160879_web1_AbbyHomicideHomelessEncampment1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/27/victoria-cancer-survivor-80-completes-10k-race-alongside-son/",
+      "url": "https://wltribune.com/2026/04/27/victoria-cancer-survivor-80-completes-10k-race-alongside-son/",
+      "title": "[Williams Lake Tribune] Victoria cancer survivor, 80, completes 10K race alongside son",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42173106_web1_260427-VNE-LastFinisher-Running_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Mike Heit, nearing 81, completes race alongside son Jason after cancer and stroke recovery </p>",
+      "date_published": "2026-04-27T14:50:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 80,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42173106_web1_260427-VNE-LastFinisher-Running_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/04/27/langley-mountie-convicted-twice-of-assault-has-resigned-from-force/",
+      "url": "https://wltribune.com/2026/04/27/langley-mountie-convicted-twice-of-assault-has-resigned-from-force/",
+      "title": "[Williams Lake Tribune] Langley Mountie convicted twice of assault has resigned from force",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42173692_web1_230526-LAT-DamianVolkFilePic.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Damian Volk is scheduled to be sentenced for the two attacks this summer </p>",
+      "date_published": "2026-04-27T15:20:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 88,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42173692_web1_230526-LAT-DamianVolkFilePic.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/01/behchoko-nwt-remains-on-lockdown-after-alleged-shooting-1-suspect-at-large/",
+      "url": "https://wltribune.com/2026/05/01/behchoko-nwt-remains-on-lockdown-after-alleged-shooting-1-suspect-at-large/",
+      "title": "[Williams Lake Tribune] Behchoko, NWT remains on lockdown after alleged shooting, 1 suspect at large",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42217806_web1_260506-YEL-Behchoko-update_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>RCMP say multiple people have been arrested after reports of shots fired earlier in day </p>",
+      "date_published": "2026-05-01T15:34:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42217806_web1_260506-YEL-Behchoko-update_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.theguardian.com/global-development/2026/may/02/new-drug-coartem-baby-babies-malaria-who-treatment",
+      "url": "https://www.theguardian.com/global-development/2026/may/02/new-drug-coartem-baby-babies-malaria-who-treatment",
+      "title": "[The Guardian Global Development] First malaria drug for babies is approved in ‘major public health milestone’",
+      "content_html": "<img src=\"https://i.guim.co.uk/img/media/d96baef46133aea7b12e2018eaac1a46ca7faa2a/0_1412_3863_3091/master/3863.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=3dca0c0ffd49f449ead1959d1d54c525\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>WHO prequalification of Coartem Baby means newborns can be safely treated rather than using medication for older children</p><p>The first malaria treatment for babies has been approved by the World Health Organization, opening the door to widespread use around the globe.</p><p>In parts of Africa, <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4480393/\">up to 18% of children under six months</a> will be infected with malaria, but there has historically been no safe treatment for the smallest of them. There were <a href=\"https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025\">610,000 deaths</a> from malaria in 2024, about three quarters of which were under-fives in Africa.</p> <a href=\"https://www.theguardian.com/global-development/2026/may/02/new-drug-coartem-baby-babies-malaria-who-treatment\">Continue reading...</a>",
+      "date_published": "2026-05-02T06:00:18+00:00",
+      "authors": [
+        {
+          "name": "The Guardian Global Development",
+          "url": "https://www.theguardian.com/global-development"
+        }
+      ],
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://i.guim.co.uk/img/media/d96baef46133aea7b12e2018eaac1a46ca7faa2a/0_1412_3863_3091/master/3863.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=3dca0c0ffd49f449ead1959d1d54c525"
+    },
+    {
+      "id": "https://www.tomsguide.com/ai/i-installed-a-small-llm-on-my-mac-laptop-heres-why-i-cant-go-back",
+      "url": "https://www.tomsguide.com/ai/i-installed-a-small-llm-on-my-mac-laptop-heres-why-i-cant-go-back",
+      "title": "[Toms Guide] I installed a small LLM on my Mac laptop — here's why I can't go back",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/bqpjmxpSXPM92gcmxEjC8T-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCotypist is a free tool for text suggestions on your Mac, and it’s much smarter than Apple’s iPhone version.",
+      "date_published": "2026-05-02T05:30:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
         }
       ],
       "_quality_score": 58,
@@ -331,582 +903,10 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 17,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/04/etna-eruption.jpg"
-    },
-    {
-      "id": "https://newatlas.com/space-systems/japanese-origami-cubesat/",
-      "url": "https://newatlas.com/space-systems/japanese-origami-cubesat/",
-      "title": "[New Atlas] 10-cm Japanese origami CubeSat unfolds to 25X its folded size",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/8e24c4c/2147483647/strip/true/crop/3824x2008+0+270/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa7%2F0d%2Fb8371dc54940b5d353ee047bfb66%2Fscreenshot-2026-04-24-at-11-49-16-am.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"JAXA's OrigamiSat-2, which was launched on April 23rd\" src=\"https://assets.newatlas.com/dims4/default/1637e2b/2147483647/strip/true/crop/3824x2548+0+0/resize/1440x959!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa7%2F0d%2Fb8371dc54940b5d353ee047bfb66%2Fscreenshot-2026-04-24-at-11-49-16-am.jpeg\" /><p>On April 23rd, the Japan Aerospace Exploration Agency (JAXA) launched several satellites into low-Earth orbit including a 10-cm (3.9-inch) \"origami\" cube satellite with a reflectarray antenna that unfurls, origami-like, to 25 times its size when folded.</p><p><a href=\"https://newatlas.com/space-systems/japanese-origami-cubesat/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/space-systems/\">Space Systems</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/rocket-lab/\" rel=\"tag\">Rocket Lab</a>, <a href=\"https://newatlas.com/tag/jaxa/\" rel=\"tag\">JAXA</a>, <a href=\"https://newatlas.com/tag/origami/\" rel=\"tag\">Origami</a>, <a href=\"https://newatlas.com/tag/cubesat/\" rel=\"tag\">CubeSat</a>, <a href=\"https://newatlas.com/tag/folding/\" rel=\"tag\">Folding</a></p>",
-      "date_published": "2026-04-24T20:49:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://assets.newatlas.com/dims4/default/8e24c4c/2147483647/strip/true/crop/3824x2008+0+270/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa7%2F0d%2Fb8371dc54940b5d353ee047bfb66%2Fscreenshot-2026-04-24-at-11-49-16-am.jpeg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://nautil.us/these-bees-change-color-with-the-weather-1280222/",
-      "url": "https://nautil.us/these-bees-change-color-with-the-weather-1280222/",
-      "title": "[Nautilus] These Bees Change Color with the Weather",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Reese_HERO_b201a8.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>But the biological significance of their shifts is a mystery</p>\n<p>The post <a href=\"https://nautil.us/these-bees-change-color-with-the-weather-1280222/\">These Bees Change Color with the Weather</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-04-24T20:30:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Reese_HERO_b201a8.png?w=564"
-    },
-    {
-      "id": "https://hackaday.com/2026/04/24/a-smart-thermostat-for-120v-fan-coil-systems/",
-      "url": "https://hackaday.com/2026/04/24/a-smart-thermostat-for-120v-fan-coil-systems/",
-      "title": "[Hackaday] A Smart Thermostat For 120V Fan Coil Systems",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/9491571776953398772-e1777011712955.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/9491571776953398772-e1777011712955.jpeg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Many HVAC systems in North America operate off 24V systems, which can be readily upgraded with off-the-shelf  smart thermostats quite easily. However, there are many people living in buildings with <a class=\"read-more\" href=\"https://hackaday.com/2026/04/24/a-smart-thermostat-for-120v-fan-coil-systems/\">&#8230;read more</a>",
-      "date_published": "2026-04-24T20:00:56+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/9491571776953398772-e1777011712955.jpeg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/",
-      "url": "https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/",
-      "title": "[TechCrunch] ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/04/ComfyUI-Co-founders-1.png?resize=1200,790\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.",
-      "date_published": "2026-04-24T19:49:35+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 51,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/ComfyUI-Co-founders-1.png?resize=1200,790"
-    },
-    {
-      "id": "https://www.statnews.com/2026/04/24/trump-psychedelic-drugs-fda-priority-review-mental-health-treatment/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/04/24/trump-psychedelic-drugs-fda-priority-review-mental-health-treatment/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: FDA to speed up review of three psychedelics as mental health treatments",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/04/AP23258715217530-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTrump's embrace of psychedelics and cannabis is shaking up the GOP’s relationship with mind-altering substances.",
-      "date_published": "2026-04-24T18:45:38+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/04/AP23258715217530-645x645.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/24/science/lehringen-lakebed-elephant-neanderthals.html",
-      "url": "https://www.nytimes.com/2026/04/24/science/lehringen-lakebed-elephant-neanderthals.html",
-      "title": "[NYT Top Stories] Were Neanderthals Able to Hunt Elephants? The Proof Is in an Ancient Bone",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new study found that a pachyderm skeleton, dismissed for decades as unimportant, offers evidence of careful planning, teamwork and a calculated kill.",
-      "date_published": "2026-04-24T18:42:17+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://nautil.us/when-extinct-volcanoes-reawaken-1280213/",
-      "url": "https://nautil.us/when-extinct-volcanoes-reawaken-1280213/",
-      "title": "[Nautilus] When “Extinct” Volcanoes Reawaken",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/French_HERO_130973.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>They’re filled with a lot more fury than their millennia-long slumber would suggest</p>\n<p>The post <a href=\"https://nautil.us/when-extinct-volcanoes-reawaken-1280213/\">When “Extinct” Volcanoes Reawaken</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-04-24T18:37:20+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/French_HERO_130973.png?w=564"
-    },
-    {
-      "id": "https://qz.com/jobs-skills-ai",
-      "url": "https://qz.com/jobs-skills-ai",
-      "title": "[Quartz] The jobs that AI will change, the jobs it will replace, and the ones that will survive, according to Indeed",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/shridhar-gupta-dZxQn4VEv2M-unsplash.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHow AI is reshaping the workforce, which human skills remain essential, and what the future of labor looks like in an increasingly automated world",
-      "date_published": "2026-04-24T18:11:28+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/shridhar-gupta-dZxQn4VEv2M-unsplash.jpg"
-    },
-    {
-      "id": "https://indiginews.com/news/ai-is-a-double-edged-sword-for-indigenous-land-stewardship-un-experts-warn/",
-      "url": "https://indiginews.com/news/ai-is-a-double-edged-sword-for-indigenous-land-stewardship-un-experts-warn/",
-      "title": "[IndigiNews] AI is a double-edged sword for Indigenous stewardship, say UN experts",
-      "content_html": "<img src=\"https://indiginews.com/wp-content/uploads/2026/04/unfpii-2026-ai-1024x579.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>While AI helps monitor deforestation and illegal mining, data centers powering the technology are claiming water, energy, and minerals from Indigenous lands</p>\n<p>The post <a href=\"https://indiginews.com/news/ai-is-a-double-edged-sword-for-indigenous-land-stewardship-un-experts-warn/\">AI is a double-edged sword for Indigenous stewardship, say UN experts</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
-      "date_published": "2026-04-24T17:30:52+00:00",
-      "authors": [
-        {
-          "name": "IndigiNews",
-          "url": "https://indiginews.com/"
-        }
-      ],
-      "_quality_score": 73,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://indiginews.com/wp-content/uploads/2026/04/unfpii-2026-ai-1024x579.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/the-raspberry-pi-can-now-run-local-ai-models-that-actually-work/",
-      "url": "https://www.howtogeek.com/the-raspberry-pi-can-now-run-local-ai-models-that-actually-work/",
-      "title": "[How-To Geek] The Raspberry Pi can now run local AI models that actually work",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2024/10/52676679001_d207568cdd_o-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSmall brains with big thoughts.",
-      "date_published": "2026-04-24T17:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2024/10/52676679001_d207568cdd_o-2.jpg"
-    },
-    {
-      "id": "https://www.statnews.com/2026/04/24/doctronic-ai-doctor-pilot-utah-face-backlash-medical-board/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/04/24/doctronic-ai-doctor-pilot-utah-face-backlash-medical-board/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: Utah medical board calls for immediate suspension of state’s AI doctor experiment",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/04/GettyImages-2214163274-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Utah pilot to renew prescriptions using a bot faced backlash from the state's medical board, which called for an immediate suspension.",
-      "date_published": "2026-04-24T17:24:06+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/04/GettyImages-2214163274-645x645.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/claude-ai-connectors-hands-on-planning-a-trip/",
-      "url": "https://www.zdnet.com/article/claude-ai-connectors-hands-on-planning-a-trip/",
-      "title": "[ZDNet] How I used Claude AI to plan an entire hiking trip to the Adirondacks in 30 minutes",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/f4d69c176c88b648da5d2b330fdd0f3353026c58/2026/04/24/a0f8c640-c5b2-4972-8cb6-5365c99bb9e6/i-used-claude-ai-to-plan-a-hiking-trip-for-the-summer-heres-how-it-helped.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUsing Claude's interactive connections to third-party services such as TripAdvisor and AllTrails, I mapped a summer hiking trip, including trails, hotels, tours, and even a playlist to accompany us.",
-      "date_published": "2026-04-24T17:22:25+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/f4d69c176c88b648da5d2b330fdd0f3353026c58/2026/04/24/a0f8c640-c5b2-4972-8cb6-5365c99bb9e6/i-used-claude-ai-to-plan-a-hiking-trip-for-the-summer-heres-how-it-helped.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://www.theverge.com/ai-artificial-intelligence/917996/project-maven-military-ai-katrina-manson",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/917996/project-maven-military-ai-katrina-manson",
-      "title": "[The Verge] How Project Maven taught the military to love AI",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/268484_How_the_US_embraced_AI_warfare_CVirginia.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn the first 24 hours of the assault on Iran, the US military struck more than 1,000 targets, nearly double the scale of the \"shock and awe\" attack on Iraq over two decades ago. This acceleration was made possible by AI systems that speed up the targeting process. Chief among them is the Maven Smart [&#8230;]",
-      "date_published": "2026-04-24T17:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/268484_How_the_US_embraced_AI_warfare_CVirginia.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
-    },
-    {
-      "id": "https://qz.com/flagship-pioneering-noubar-afeyan-ai-science-semafor",
-      "url": "https://qz.com/flagship-pioneering-noubar-afeyan-ai-science-semafor",
-      "title": "[Quartz] Flagship Pioneering CEO Noubar Afeyan on AI in science at Semafor World Economy",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Flagship%2520Pioneering%2520CEO%2520Noubar%2520Afeyan%2520on%2520AI%2520in%2520Science%2520at%2520Semafor%2520World%2520Economy.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFlagship Pioneering CEO Noubar Afeyan on AI in science at Semafor World Economy",
-      "date_published": "2026-04-24T16:50:13+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Flagship%2520Pioneering%2520CEO%2520Noubar%2520Afeyan%2520on%2520AI%2520in%2520Science%2520at%2520Semafor%2520World%2520Economy.mp4"
-    },
-    {
-      "id": "https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/",
-      "url": "https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/",
-      "title": "[TechCrunch] Marked-up Mac minis flood eBay amid shortages driven by AI",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2024/11/CMC_8135.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for running local AI models and tools.",
-      "date_published": "2026-04-24T16:42:19+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2024/11/CMC_8135.jpg?resize=1200,800"
-    },
-    {
-      "id": "https://www.techradar.com/vpn/vpn-privacy-security/this-hidden-sim-flaw-lets-spies-track-your-location-and-using-a-vpn-cant-help",
-      "url": "https://www.techradar.com/vpn/vpn-privacy-security/this-hidden-sim-flaw-lets-spies-track-your-location-and-using-a-vpn-cant-help",
-      "title": "[TechRadar] This hidden SIM flaw lets spies track your location, and using a VPN can't help",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/HXjwb27v3qiaB8u9JLsKiT-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new report reveals that covert surveillance actors used telecom signalling systems and SIM-based attacks to track their targets, and a VPN can't stop that.",
-      "date_published": "2026-04-24T16:39:24+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/HXjwb27v3qiaB8u9JLsKiT-1280-80.jpg"
-    },
-    {
-      "id": "https://kottke.org/26/04/0048804-how-the-heck-does-shazam",
-      "url": "https://kottke.org/26/04/0048804-how-the-heck-does-shazam",
-      "title": "[Kottke.org] How The Heck Does Shazam Work?  &#8220;By throwing away...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://perthirtysix.com/how-the-heck-does-shazam-work\">How The Heck Does Shazam Work?</a> &#8220;By throwing away almost everything and keeping only a handful of landmark peaks, a noisy 5-second clip from a coffee shop becomes a set of coordinates precise enough to pinpoint one song out of millions.&#8221; Fascinating!\n</p>",
-      "date_published": "2026-04-24T16:12:34+00:00",
-      "authors": [
-        {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
-    },
-    {
-      "id": "https://newatlas.com/engineering/roof-tiles-solar-panels-fraunhofer-shadecut/",
-      "url": "https://newatlas.com/engineering/roof-tiles-solar-panels-fraunhofer-shadecut/",
-      "title": "[New Atlas] These designer roof tiles are actually efficient solar panels",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/eefa751/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F1b%2F81%2F5e81722c4df59fa8b0d60774940a%2Ffoil-cutting-patterns-can-be-used-to-imitate-roof-tiles-without-significantly-impairing-the-efficiency-of-the-pv-module.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Foil cutting patterns can be used to imitate roof tiles without significantly impairing the efficiency of the PV module\" src=\"https://assets.newatlas.com/dims4/default/c8ee6d3/2147483647/strip/true/crop/1200x800+0+0/resize/1200x800!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F1b%2F81%2F5e81722c4df59fa8b0d60774940a%2Ffoil-cutting-patterns-can-be-used-to-imitate-roof-tiles-without-significantly-impairing-the-efficiency-of-the-pv-module.jpg\" /><p>The appearance of blocky black solar panels hasn't changed much at all in the last several years, and in the case of many buildings and roofs, they can really cramp your style.</p><p><a href=\"https://newatlas.com/engineering/roof-tiles-solar-panels-fraunhofer-shadecut/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/materials/\" rel=\"tag\">Materials</a>, <a href=\"https://newatlas.com/tag/solar-cell/\" rel=\"tag\">Solar Cell</a>, <a href=\"https://newatlas.com/tag/fraunhofer/\" rel=\"tag\">Fraunhofer</a></p>",
-      "date_published": "2026-04-24T15:33:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://assets.newatlas.com/dims4/default/eefa751/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F1b%2F81%2F5e81722c4df59fa8b0d60774940a%2Ffoil-cutting-patterns-can-be-used-to-imitate-roof-tiles-without-significantly-impairing-the-efficiency-of-the-pv-module.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.quantamagazine.org/a-new-type-of-neuroplasticity-rewires-the-brain-after-a-single-experience-20260424/",
-      "url": "https://www.quantamagazine.org/a-new-type-of-neuroplasticity-rewires-the-brain-after-a-single-experience-20260424/",
-      "title": "[Quanta Magazine] A New Type of Neuroplasticity Rewires the Brain After a Single Experience",
-      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/04/NewNeuroplasticity-crMarkBelan_YaseminSaplakoglu-Default.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n“Neurons that fire together, wire together” is not the full story. A novel mechanism explains how the brain can learn across longer timescales.            <p>The post <a href=\"https://www.quantamagazine.org/a-new-type-of-neuroplasticity-rewires-the-brain-after-a-single-experience-20260424/\" target=\"_blank\">A New Type of Neuroplasticity Rewires the Brain After a Single Experience</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
-      "date_published": "2026-04-24T14:17:44+00:00",
-      "authors": [
-        {
-          "name": "Quanta Magazine",
-          "url": "https://www.quantamagazine.org"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/04/NewNeuroplasticity-crMarkBelan_YaseminSaplakoglu-Default.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/australia-joins-countries-trialing-claude-mythos-to-make-sure-we-are-aware-of-emerging-vulnerabilities",
-      "url": "https://www.techradar.com/pro/security/australia-joins-countries-trialing-claude-mythos-to-make-sure-we-are-aware-of-emerging-vulnerabilities",
-      "title": "[TechRadar] Australia joins countries trialing Claude Mythos 'to ​make sure we are aware of emerging vulnerabilities'",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/TaxPLZc75WiicpmgZNzWzL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe country is \"working with\" Anthropic and other similar software providers, a spokesperson said.",
-      "date_published": "2026-04-23T21:30:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/TaxPLZc75WiicpmgZNzWzL-1280-80.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/guides/tech/apple-homepod-mini-price-release-date-preorder",
-      "url": "https://www.businessinsider.com/guides/tech/apple-homepod-mini-price-release-date-preorder",
-      "title": "[Business Insider] Apple's smaller, cheaper HomePod Mini launches on November 16 for just $99 – here's how to preorder your own",
-      "content_html": "<img src=\"https://i.insider.com/5f85e3b3fd1f49001964d495?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApple has just announced the HomePod Mini, a smaller, cheaper version of its first smart speaker for just $99. Here's how to preorder your own.",
-      "date_published": "2026-04-23T21:15:13+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/5f85e3b3fd1f49001964d495?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/guides/tech/google-nest-hub-max-review",
-      "url": "https://www.businessinsider.com/guides/tech/google-nest-hub-max-review",
-      "title": "[Business Insider] Google Nest Hub Max review: A smart display with a sizable screen and excellent speakers",
-      "content_html": "<img src=\"https://i.insider.com/642d9a582a659a0019a6844d?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith a 10-inch display and great sound, the Google Nest Hub Max is the largest and most entertainment-friendly smart display in Google's lineup.",
-      "date_published": "2026-04-23T21:02:55+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/642d9a582a659a0019a6844d?format=jpeg"
-    },
-    {
-      "id": "https://nautil.us/almost-a-eulogy-for-voyager-1280164/",
-      "url": "https://nautil.us/almost-a-eulogy-for-voyager-1280164/",
-      "title": "[Nautilus] (Almost) A Eulogy for Voyager",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Grant_HERO_1de7a4.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The robotic space probe is 15 billion miles away and is nearing the end of its life in the distant cosmos</p>\n<p>The post <a href=\"https://nautil.us/almost-a-eulogy-for-voyager-1280164/\">(Almost) A Eulogy for Voyager</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-04-23T21:00:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/04/Grant_HERO_1de7a4.png?w=564"
-    },
-    {
-      "id": "https://www.businessinsider.com/guides/tech/what-is-overclocking",
-      "url": "https://www.businessinsider.com/guides/tech/what-is-overclocking",
-      "title": "[Business Insider] What is overclocking? How to boost your PC's speed and power by changing its CPU settings",
-      "content_html": "<img src=\"https://i.insider.com/60358261d920880018591aa3?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOverclocking is the process of forcing your computer to run faster than it's intended to go, which can help you run advanced programs on an older PC.",
-      "date_published": "2026-04-23T20:55:26+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/60358261d920880018591aa3?format=jpeg"
-    },
-    {
-      "id": "https://www.npr.org/2026/04/23/nx-s1-5795526/deafness-gene-therapy-regeneron",
-      "url": "https://www.npr.org/2026/04/23/nx-s1-5795526/deafness-gene-therapy-regeneron",
-      "title": "[NPR Health News] The FDA gives the green light to the first gene therapy for deafness",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.npr.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe treatment, developed by Regeneron Pharmaceuticals, is for a very rare form of deafness. But it represents a medical milestone.",
-      "date_published": "2026-04-23T20:46:49+00:00",
-      "authors": [
-        {
-          "name": "NPR Health News",
-          "url": "https://www.npr.org/sections/health-shots/"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.npr.org&sz=128"
-    },
-    {
-      "id": "https://www.howtogeek.com/openai-gpt-5-5-ai-model/",
-      "url": "https://www.howtogeek.com/openai-gpt-5-5-ai-model/",
-      "title": "[How-To Geek] OpenAI's new GPT-5.5 model is built for difficult coding and computer work",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a7308611.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe agentic model is better at completing tasks across apps.",
-      "date_published": "2026-04-23T20:21:58+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a7308611.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/bqpjmxpSXPM92gcmxEjC8T-1280-80.jpg"
     }
   ]
 }
