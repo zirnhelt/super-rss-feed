@@ -1558,7 +1558,105 @@ Articles to evaluate:
         print(f"   ✅ Sync fallback complete ({len(uncached)} articles × {len(schedule)} themes cached)")
 
 
-def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict) -> set:
+def route_articles_to_best_themes(
+    cached_articles: List[Dict],
+    schedule_config: Dict,
+    today_name: str,
+) -> set:
+    """Reserve articles that clearly belong to a different day's theme.
+
+    For each article in the podcast cache that has a complete set of cached
+    theme scores (all 7 days), compare today's score against every other day.
+    When another day's score beats today's by at least ``theme_routing_gap``
+    points AND meets ``theme_routing_min_score``, the article is:
+
+      1. Proactively banked into that day's holdover cache so it surfaces on
+         the right episode even if today's feed would have consumed it first.
+      2. Added to the returned reserved set so ``generate_podcast_feed`` skips
+         it today.
+
+    Articles missing a cached score for any theme are left for normal
+    today-centric processing — routing only acts on complete data.
+    """
+    schedule = schedule_config.get('schedule', {})
+    routing_gap = schedule_config.get('theme_routing_gap', 20)
+    routing_min_score = schedule_config.get('theme_routing_min_score', 55)
+    holdover_threshold = schedule_config.get('holdover_threshold', 30)
+
+    if not schedule or today_name not in schedule:
+        return set()
+
+    theme_cache = load_theme_score_cache()
+    reserved_urls = set()
+    to_bank: Dict[str, list] = defaultdict(list)  # {day_name: [(item_dict, score)]}
+
+    for item in cached_articles:
+        url = item['link']
+        all_scores: Dict[str, int] = {}
+        complete = True
+        for day, cfg in schedule.items():
+            entry = theme_cache.get(f"{url}:::{cfg['label']}")
+            if entry is None:
+                complete = False
+                break
+            all_scores[day] = entry['score']
+
+        if not complete:
+            continue
+
+        today_score = all_scores[today_name]
+        best_day = max(all_scores, key=lambda d: all_scores[d])
+        best_score = all_scores[best_day]
+
+        if (best_day != today_name
+                and best_score - today_score >= routing_gap
+                and best_score >= routing_min_score):
+            reserved_urls.add(url)
+            to_bank[best_day].append((item, best_score))
+
+    if to_bank:
+        now_iso = datetime.now(timezone.utc).isoformat()
+        holdover = load_theme_holdover_cache()
+        total_banked = 0
+        for day_name, day_articles in to_bank.items():
+            existing_urls = {a['link'] for a in holdover.get(day_name, [])}
+            for item, theme_score in day_articles:
+                url = item['link']
+                if url not in existing_urls and theme_score >= holdover_threshold:
+                    holdover.setdefault(day_name, []).append({
+                        'link': url,
+                        'title': item['title'],
+                        'description': item['description'],
+                        'pub_date': item['pub_date'],
+                        'source': item['source'],
+                        'source_url': item['source_url'],
+                        'score': item['score'],
+                        'category': item['category'],
+                        'image': item.get('image'),
+                        'theme_score': theme_score,
+                        'banked_at': now_iso,
+                    })
+                    existing_urls.add(url)
+                    total_banked += 1
+        if total_banked:
+            save_theme_holdover_cache(holdover)
+
+        day_summary = ', '.join(
+            f"{d} ({schedule[d]['label']}): {len(arts)}"
+            for d, arts in sorted(to_bank.items())
+        )
+        print(
+            f"  🗓️  Theme routing: deferred {len(reserved_urls)} articles to better-fit days"
+            f" (gap ≥ {routing_gap}pts, min {routing_min_score}) → {day_summary}"
+        )
+        if total_banked:
+            print(f"  📦 Pre-banked {total_banked} articles into upcoming day holdovers")
+
+    return reserved_urls
+
+
+def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
+                          reserved_urls: set = None) -> set:
     """Generate a themed podcast feed from weekly cached articles.
 
     Args:
@@ -1693,6 +1791,19 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     agg_excluded = before_agg - len(theme_pool)
     if agg_excluded:
         print(f"  🚫 Excluded {agg_excluded} aggregator-URL articles (e.g. Google News)")
+
+    # Exclude articles proactively routed to a better-fit day; holdover pool
+    # articles bypass this filter since they were explicitly banked for today.
+    holdover_links = {a.link for a in holdover_pool}
+    if reserved_urls:
+        before_reserved = len(theme_pool)
+        theme_pool = [
+            a for a in theme_pool
+            if a.link not in reserved_urls or a.link in holdover_links
+        ]
+        deferred = before_reserved - len(theme_pool)
+        if deferred:
+            print(f"  🗓️  Deferred {deferred} articles to their better-fit day's episode")
 
     # Cap the pool: sort by quality score and keep only the top candidates.
     # Articles with lower quality scores are unlikely to beat well-scored candidates
@@ -2052,7 +2163,15 @@ def main():
         today_name = datetime.now(timezone.utc).strftime('%A').lower()
         if today_name in schedule_config['schedule']:
             podcast_shown_cache = load_podcast_shown_cache()
-            selected_urls = generate_podcast_feed(today_name, podcast_cache, podcast_shown_cache)
+            # Before generating today's feed, reserve articles that score
+            # significantly higher on an upcoming day's theme so they aren't
+            # consumed here and then excluded from the day they truly belong to.
+            reserved_for_other_days = route_articles_to_best_themes(
+                podcast_cache, schedule_config, today_name
+            )
+            selected_urls = generate_podcast_feed(
+                today_name, podcast_cache, podcast_shown_cache, reserved_for_other_days
+            )
             if selected_urls:
                 now_iso = datetime.now(timezone.utc).isoformat()
                 for url in selected_urls:
