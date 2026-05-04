@@ -2041,6 +2041,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         "items": []
     }
 
+    items_with_score = []
     for article, final_score, theme_score in all_entries:
         text = f"{article.title} {article.description or ''}".lower()
         kw_matches = _keyword_match_count(text, theme_keywords)
@@ -2053,6 +2054,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "content_html": article.description,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}],
+            "ai_score": article.score,
             "_quality_score": article.score,
             "_theme_score": theme_score,
             "_final_score": final_score,
@@ -2065,7 +2067,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
             item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
-        feed["items"].append(item)
+        items_with_score.append((int(boosted_score), item))
+
+    items_with_score.sort(key=lambda x: x[0], reverse=True)
+    feed["items"] = [item for _, item in items_with_score]
 
     with open(feed_filename, 'w', encoding='utf-8') as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
