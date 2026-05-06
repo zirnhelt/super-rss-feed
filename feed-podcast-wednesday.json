@@ -1,9 +1,9 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": "🎙️ Community Tech & Governance",
+  "title": "🎙️ Gear, Gadgets & Practical Tech",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-podcast-wednesday.json",
-  "description": "Today we look at how Cariboo communities govern themselves and use technology for public good — from school district digital initiatives and rural broadband projects to council decisions and civic innovation. We're interested in stories where technology and local democracy intersect, and how small municipalities are solving big problems with limited resources. - Daily themed article selection for podcast generation",
+  "description": "Today we look at the tools, gadgets, and DIY projects that make everyday life more capable — from repairable electronics and maker hardware to practical consumer tech and creative builds. We're interested in the intersection of tinkering culture and practical utility: things you can fix, build, or repurpose, especially in rural and off-grid contexts where self-sufficiency matters. - Daily themed article selection for podcast generation",
   "icon": "https://zirnhelt.github.io/super-rss-feed/favicon.ico",
   "authors": [
     {
@@ -12,901 +12,941 @@
   ],
   "language": "en",
   "_podcast": {
-    "theme": "Community Tech & Governance",
-    "theme_description": "Today we look at how Cariboo communities govern themselves and use technology for public good — from school district digital initiatives and rural broadband projects to council decisions and civic innovation. We're interested in stories where technology and local democracy intersect, and how small municipalities are solving big problems with limited resources.",
+    "theme": "Gear, Gadgets & Practical Tech",
+    "theme_description": "Today we look at the tools, gadgets, and DIY projects that make everyday life more capable — from repairable electronics and maker hardware to practical consumer tech and creative builds. We're interested in the intersection of tinkering culture and practical utility: things you can fix, build, or repurpose, especially in rural and off-grid contexts where self-sufficiency matters.",
     "theme_categories": [
-      "local",
+      "homelab",
       "ai-tech",
       "news",
-      "homelab"
+      "science"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Community Tech & Governance' through a RURAL TECH AND INNOVATION lens. Strong fits include: municipal broadband and fiber projects in Cariboo communities, SD27 education technology and digital learning, civic tech platforms and open data initiatives, community-owned networks and ISPs, smart rural infrastructure (water, waste, transit), digital government services for rural areas, council decisions on technology spending, public Wi-Fi and connectivity programs, election technology and civic engagement platforms, rural innovation hubs, and how Williams Lake/Quesnel/100 Mile/CRD use technology for public services. Prefer articles that bridge governance AND technology in rural civic contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise pure software, pure business news, and national politics with no hardware angle. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-04-29T14:38:08.944425+00:00",
+    "generated_at": "2026-05-06T07:16:55.464697+00:00",
     "article_count": 40,
-    "bonus_count": 34,
+    "bonus_count": 17,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://quesnelobserver.com/2026/04/29/virtual-pharmacy-model-in-quesnel-earns-provincial-recognition/",
-      "url": "https://quesnelobserver.com/2026/04/29/virtual-pharmacy-model-in-quesnel-earns-provincial-recognition/",
-      "title": "[Quesnel Cariboo Observer] Virtual pharmacy model in Quesnel earns provincial recognition",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42158675_web1_260429-QCO-Northern-Health_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A Northern Health (NH) virtual pharmacy team based in Quesnel is being recognized at the provincial level for transforming how patients receive medication support in acute care and for proving that virtual care can strengthen, rather than replace, relationships on the ground.</p>",
-      "date_published": "2026-04-29T12:30:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "_quality_score": 95,
-      "_theme_score": 65,
-      "_final_score": 65,
-      "_keyword_matches": 0,
-      "_boosted_score": 28,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/04/42158675_web1_260429-QCO-Northern-Health_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/04/29/williams-lake-marks-earth-day-with-community-cleanups-positive-actions/",
-      "url": "https://wltribune.com/2026/04/29/williams-lake-marks-earth-day-with-community-cleanups-positive-actions/",
-      "title": "[Williams Lake Tribune] Williams Lake marks Earth Day with community cleanups, positive actions",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/04/42136891_web1_260430-WLT-Williams-Lake-Earth-Day-_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEarth Day was Wednesday, April 22",
-      "date_published": "2026-04-29T14:36:30.801335+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_quality_score": 100,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/04/42136891_web1_260430-WLT-Williams-Lake-Earth-Day-_3.jpg?w=1024"
-    },
-    {
-      "id": "https://www.techradar.com/pro/why-scaling-connectivity-is-imperative-to-continue-meeting-demand",
-      "url": "https://www.techradar.com/pro/why-scaling-connectivity-is-imperative-to-continue-meeting-demand",
-      "title": "[TechRadar] Why scaling connectivity is imperative to continue meeting demand",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/GwfBA5FJJWQSsrqCuLz3gL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf the UK is serious about digital inclusion, it must confront a simple truth: without connectivity, inclusion fails.",
-      "date_published": "2026-04-29T14:24:28+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_keyword_matches": 1,
-      "_boosted_score": 39,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/GwfBA5FJJWQSsrqCuLz3gL-1280-80.jpg"
-    },
-    {
-      "id": "https://www.androidauthority.com/visible-5g-home-internet-3660308/",
-      "url": "https://www.androidauthority.com/visible-5g-home-internet-3660308/",
-      "title": "[Android Authority] Visible now has its own 5G home internet option, and it’s actually pretty cheap",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2025/06/visible-logo-pixel-9a-1-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFor $50, you'll get two months of service and a gateway, and just $30 a month thereafter.",
-      "date_published": "2026-04-29T13:00:42+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 20,
-      "_final_score": 20,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/06/visible-logo-pixel-9a-1-scaled.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/phone-notifications-reveal-more-than-you-realize-how-to-lock-them-down/",
-      "url": "https://www.wired.com/story/phone-notifications-reveal-more-than-you-realize-how-to-lock-them-down/",
-      "title": "[WIRED] Your Phone Notifications Reveal More Than You Realize. Here’s How to Lock Them Down",
-      "content_html": "<img src=\"https://media.wired.com/photos/69ebc2fb8bd883f99bb0f0e5/master/pass/Forensic-Searches-Can-Expose-Deleted-Signal-Messages-Gear-2264943495.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA recent case shows law enforcement can see incoming Signal messages by searching an iPhone, even after the Signal app has been deleted. Here’s what to know, and how to protect yourself.",
-      "date_published": "2026-04-29T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69ebc2fb8bd883f99bb0f0e5/master/pass/Forensic-Searches-Can-Expose-Deleted-Signal-Messages-Gear-2264943495.jpg"
-    },
-    {
-      "id": "https://www.androidauthority.com/t-mobile-dream-mvno-response-3661810/",
-      "url": "https://www.androidauthority.com/t-mobile-dream-mvno-response-3661810/",
-      "title": "[Android Authority] T-Mobile just killed your hopes for this MVNO dream team",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2023/06/starlink-dish-scaled.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe official response comes after evidence that Starlink was working on a new mobile service of sorts.",
-      "date_published": "2026-04-29T09:02:37+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2023/06/starlink-dish-scaled.jpeg"
-    },
-    {
-      "id": "https://www.theverge.com/news/920295/github-remote-code-execution-vulnerability-fix",
-      "url": "https://www.theverge.com/news/920295/github-remote-code-execution-vulnerability-fix",
-      "title": "[The Verge] GitHub rushed to fix a critical vulnerability in less than six hours",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/acastro_220504_STK121_0001.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGitHub employees fixed a critical remote code execution vulnerability in less than six hours last month. Wiz Research used AI models to uncover a vulnerability in GitHub's internal git infrastructure that could have allowed attackers to access millions of public and private code repositories. \"Our security team immediately began validating the bug bounty report. Within [&#8230;]",
-      "date_published": "2026-04-29T10:04:25+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 5,
-      "_final_score": 5,
-      "_keyword_matches": 2,
-      "_boosted_score": 55,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/acastro_220504_STK121_0001.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/29/technology/parents-school-tech-backlash.html",
-      "url": "https://www.nytimes.com/2026/04/29/technology/parents-school-tech-backlash.html",
-      "title": "[NYT Business] In Backlash Against Tech in Schools, Parents Are Winning Rollbacks",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/23/multimedia/PARENT-BACKLASH-1-bjzq/PARENT-BACKLASH-1-bjzq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom Salt Lake City to New York City, parents are demanding more sway over the digital tools that schools give children.",
-      "date_published": "2026-04-29T09:32:20+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "_quality_score": 63,
-      "_theme_score": 35,
-      "_final_score": 5,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/23/multimedia/PARENT-BACKLASH-1-bjzq/PARENT-BACKLASH-1-bjzq-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/replaced-five-paid-subscriptions-with-claude-none-were-coding-tools/",
-      "url": "https://www.xda-developers.com/replaced-five-paid-subscriptions-with-claude-none-were-coding-tools/",
-      "title": "[XDA Developers] I replaced five paid subscriptions with Claude, and none were coding tools",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/claude-ai-assistant-interface-showing-mahnoor-returns-message-on-mac-laptop-screen.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWho knew one subscription could kill five others?",
-      "date_published": "2026-04-29T14:30:19+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/claude-ai-assistant-interface-showing-mahnoor-returns-message-on-mac-laptop-screen.jpg"
-    },
-    {
-      "id": "https://kottke.org/26/04/0048843-the-intelligence-of-llms-",
-      "url": "https://kottke.org/26/04/0048843-the-intelligence-of-llms-",
-      "title": "[Kottke.org] The intelligence of LLMs is &#8220;a function of the...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The intelligence of LLMs is &#8220;a function of the social complexity of the civilization whose language it digested&#8221;, and <a href=\"https://www.theideasletter.org/essay/the-social-edge-of-intelligence/\">their widespread use will lead to a thinning of that complexity</a>, &#8220;undermining the conditions for its own advancement&#8221;. (And ours.)\n</p>",
-      "date_published": "2026-04-29T14:10:02+00:00",
-      "authors": [
-        {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
-    },
-    {
-      "id": "https://www.xda-developers.com/this-free-nas-distribution-lets-me-revive-old-pcs-as-nas-servers/",
-      "url": "https://www.xda-developers.com/this-free-nas-distribution-lets-me-revive-old-pcs-as-nas-servers/",
-      "title": "[XDA Developers] Forget Synology and DSM, this free NAS distro can revive old PCs as NAS servers",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/custom-nas.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNo, it's not XPEnology, either",
-      "date_published": "2026-04-29T14:01:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/07/custom-nas.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/digital-multimeter-saved-me-hundreds-in-airtags-batteries-remotes/",
-      "url": "https://www.howtogeek.com/digital-multimeter-saved-me-hundreds-in-airtags-batteries-remotes/",
-      "title": "[How-To Geek] A digital multimeter saved me hundreds in AirTags, dead batteries, and broken remotes",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/12/a7303429.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA digital multimeter is the surprise companion you never knew you needed.",
-      "date_published": "2026-04-29T14:00:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/12/a7303429.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/reasons-my-home-server-is-more-powerful-than-my-workstation/",
-      "url": "https://www.howtogeek.com/reasons-my-home-server-is-more-powerful-than-my-workstation/",
-      "title": "[How-To Geek] 5 reasons your home server should be more powerful than your workstation",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/itx-pc-tower.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBecause a powerful PC deserves to be used to its fullest potential.",
-      "date_published": "2026-04-29T13:29:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/itx-pc-tower.jpg"
-    },
-    {
-      "id": "https://sciencebasedmedicine.org/pnas-publishes-rank-pseudoscience/?utm_source=rss&utm_medium=rss&utm_campaign=pnas-publishes-rank-pseudoscience",
-      "url": "https://sciencebasedmedicine.org/pnas-publishes-rank-pseudoscience/?utm_source=rss&utm_medium=rss&utm_campaign=pnas-publishes-rank-pseudoscience",
-      "title": "[Science-Based Medicine] PNAS Publishes Rank Pseudoscience",
-      "content_html": "<img src=\"https://sciencebasedmedicine.org/wp-content/uploads/2019/12/Acupuncturemodel.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The <em>Proceedings of the National Academy of Sciences</em> recently published an article on acupuncture. It's a highly credulous take that tries to convince the reader that acupuncture is more than just a highly theatrical placebo. Quackademic medicine continues apace.</p>\nThe post <a href=\"https://sciencebasedmedicine.org/pnas-publishes-rank-pseudoscience/\">PNAS Publishes Rank Pseudoscience</a> first appeared on <a href=\"https://sciencebasedmedicine.org\">Science-Based Medicine</a>.",
-      "date_published": "2026-04-29T13:08:09+00:00",
-      "authors": [
-        {
-          "name": "Science-Based Medicine",
-          "url": "https://sciencebasedmedicine.org"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://sciencebasedmedicine.org/wp-content/uploads/2019/12/Acupuncturemodel.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/moved-linux-home-directory-second-drive-nothing-broke/",
-      "url": "https://www.xda-developers.com/moved-linux-home-directory-second-drive-nothing-broke/",
-      "title": "[XDA Developers] I moved my entire Linux home directory to a second drive, and nothing broke",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/this-niche-fedora-based-linux-distro-just-works-and-stays-out-of-your-way-as-much-as-possible-featurd.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOnce you separate the roles of OS and personal data, the whole system starts to feel more deliberate.",
-      "date_published": "2026-04-29T13:00:19+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/this-niche-fedora-based-linux-distro-just-works-and-stays-out-of-your-way-as-much-as-possible-featurd.jpeg"
-    },
-    {
-      "id": "https://www.npr.org/2026/04/29/nx-s1-5803561/baby-teeth-toxic-metals-brain-infants-kids",
-      "url": "https://www.npr.org/2026/04/29/nx-s1-5803561/baby-teeth-toxic-metals-brain-infants-kids",
-      "title": "[NPR Health News] Baby teeth hold clues to the harms of toxic metals for infants — and older kids",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.npr.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBy analyzing layers in these teeth, scientists have pinpointed a critical window when baby brains are most vulnerable to toxic metals — and linked that to behavior problems later in life.",
-      "date_published": "2026-04-29T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "NPR Health News",
-          "url": "https://www.npr.org/sections/health-shots/"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.npr.org&sz=128"
-    },
-    {
-      "id": "https://www.xda-developers.com/things-i-would-do-differently-setting-up-new-home-network/",
-      "url": "https://www.xda-developers.com/things-i-would-do-differently-setting-up-new-home-network/",
-      "title": "[XDA Developers] I'd do these 5 things differently if I were setting up my home network from scratch",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/flat-cat6-ethernet-cable-rj45-5.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI don't have the most efficient home network, but I intend to change that the next time",
-      "date_published": "2026-04-29T12:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/flat-cat6-ethernet-cable-rj45-5.jpg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/04/29/lone-butte-woman-gives-back-through-rescue-photography-4h/",
-      "url": "https://100milefreepress.net/2026/04/29/lone-butte-woman-gives-back-through-rescue-photography-4h/",
-      "title": "[100 Mile Free Press] Lone Butte woman gives back through rescue, photography, 4H",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42181397_web1_260430-OMH-Nikki-Community-Spirit_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Nikki Fosbery has lived in the South Cariboo for the last four years since moving from Kelowna </p>",
-      "date_published": "2026-04-29T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "_quality_score": 90,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 27,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/04/42181397_web1_260430-OMH-Nikki-Community-Spirit_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.cnet.com/home/smart-home/settings-that-make-nest-and-google-devices-useful/",
-      "url": "https://www.cnet.com/home/smart-home/settings-that-make-nest-and-google-devices-useful/",
-      "title": "[CNET] 6 Hacks to Make Nest and Google Devices the Most Useful Things in Your Home",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/793ceda008ee04132792816b04ffef1a8b6bfae6/hub/2025/02/14/16a8c656-c0a1-4773-b435-a3ae4624bf7f/nest-hub-max-video-call-1.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese tricks and settings tips helped reinvent how I used my Google devices. Here's how they could help you, too.",
-      "date_published": "2026-04-29T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/793ceda008ee04132792816b04ffef1a8b6bfae6/hub/2025/02/14/16a8c656-c0a1-4773-b435-a3ae4624bf7f/nest-hub-max-video-call-1.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.theverge.com/transportation/919532/joby-aviation-electric-air-taxi-jfk-manhattan-faa",
-      "url": "https://www.theverge.com/transportation/919532/joby-aviation-electric-air-taxi-jfk-manhattan-faa",
-      "title": "[The Verge] Electric air taxis are finally taking flight — just not with passengers",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/DSC01562.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.806933475316%2C100%2C78.386133049368&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt was the perfect day for an electric air taxi demonstration - albeit one without passengers. On Monday, an electric aircraft from Joby Aviation took off from JFK Airport for a flight demonstrating the company's future air taxi route to Manhattan. The aircraft - egg-shaped cabin, six tilt-rotor propellers, electric motor - made its way [&#8230;]",
-      "date_published": "2026-04-29T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/DSC01562.jpg?quality=90&strip=all&crop=0%2C10.806933475316%2C100%2C78.386133049368&w=1200"
-    },
-    {
-      "id": "https://www.theverge.com/news/920322/ps5-linux-project-exploit-install",
-      "url": "https://www.theverge.com/news/920322/ps5-linux-project-exploit-install",
-      "title": "[The Verge] Your PS5 can now transform into a Linux PC",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/ps5linux.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.75385989963%2C100%2C78.49228020074&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA developer has created a method to get Linux running on some versions of Sony's PlayStation 5 console. Andy Nguyen previously showed off a ported version of Ubuntu running PC games on a PS5 last month, and he's now published the installation steps on GitHub this week. This is a soft mod, so it won't [&#8230;]",
-      "date_published": "2026-04-29T11:43:55+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/ps5linux.jpg?quality=90&strip=all&crop=0%2C10.75385989963%2C100%2C78.49228020074&w=1200"
-    },
-    {
-      "id": "https://www.xda-developers.com/warps-free-tier-finally-got-good-enough-to-make-me-delete-iterm2/",
-      "url": "https://www.xda-developers.com/warps-free-tier-finally-got-good-enough-to-make-me-delete-iterm2/",
-      "title": "[XDA Developers] Warp's free tier finally got good enough to make me delete iTerm2",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/warp-running-on-a-mac.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWarp's structured output and built-in assistance reduced the time spent scrolling through errors and searching for answers.",
-      "date_published": "2026-04-29T11:31:19+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/warp-running-on-a-mac.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-rebuilt-my-home-server-and-these-mistakes-nearly-cost-me-everything/",
-      "url": "https://www.xda-developers.com/i-rebuilt-my-home-server-and-these-mistakes-nearly-cost-me-everything/",
-      "title": "[XDA Developers] I rebuilt my home server after 3 years, and these mistakes nearly cost me everything",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/proxmox-home-lab.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBut I've learned from my mistakes... for the most part",
-      "date_published": "2026-04-29T11:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/proxmox-home-lab.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/the-ai-illusion-why-businesses-are-spending-big-but-fixing-nothing",
-      "url": "https://www.techradar.com/pro/the-ai-illusion-why-businesses-are-spending-big-but-fixing-nothing",
-      "title": "[TechRadar] The AI illusion: Why businesses are spending big but fixing nothing",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/h8ZQHernNUVpnGYX7QnxVM-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBusinesses pour money into AI, but broken systems prevent real results and ROI",
-      "date_published": "2026-04-29T10:34:48+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/h8ZQHernNUVpnGYX7QnxVM-1280-80.jpg"
-    },
-    {
-      "id": "https://www.neowin.net/news/github-pivots-to-availability-first-as-ai-agent-surge-triggers-reliability-crisis/",
-      "url": "https://www.neowin.net/news/github-pivots-to-availability-first-as-ai-agent-surge-triggers-reliability-crisis/",
-      "title": "[Neowin] GitHub pivots to ‘Availability First' as AI agent surge triggers reliability crisis",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2025/08/1754930428_github_ceo_microsoft_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2025/08/1754930428_github_ceo_microsoft_medium.webp\" /></div>After a string of frustrating outages, GitHub is finally breaking its silence on what&#039;s happening behind the scenes and its plans for the future. <a href=\"https://www.neowin.net/news/github-pivots-to-availability-first-as-ai-agent-surge-triggers-reliability-crisis/\">Read more...</a>",
-      "date_published": "2026-04-29T10:34:01+00:00",
-      "authors": [
-        {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2025/08/1754930428_github_ceo_microsoft_story.webp"
-    },
-    {
-      "id": "https://www.theguardian.com/global-development/2026/apr/29/critical-minerals-are-oil-of-21st-century-as-demand-fuels-poverty-and-pollution-in-poorer-countries",
-      "url": "https://www.theguardian.com/global-development/2026/apr/29/critical-minerals-are-oil-of-21st-century-as-demand-fuels-poverty-and-pollution-in-poorer-countries",
-      "title": "[The Guardian Global Development] Critical minerals are ‘oil of 21st century’ as demand fuels poverty and pollution in poorer countries",
-      "content_html": "<img src=\"https://i.guim.co.uk/img/media/91ace38e9efc1220996b7df66f2f542858a9a52a/0_0_3747_2998/master/3747.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=950f5b9624afbe5021500acc9d62dfd6\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Rush for lithium, cobalt and nickel is ravaging livelihoods, water and health of world’s most vulnerable, UN study says </p><p>Critical minerals such as lithium, cobalt and nickel are becoming the “oil of the 21st century” as the scramble for precious metals deepens poverty and creates public health crises in some of the world’s most vulnerable communities, a <a href=\"https://doi.org/10.53328/INR25ABN002\">report by the UN’s water thinktank</a> has found.</p><p>The investigation by the United Nations University Institute for Water, Environment and Health (<a href=\"https://unu.edu/inweh\">UNU-INWEH</a>) concluded that the growing demand for <a href=\"https://www.theguardian.com/business/2023/dec/01/do-electric-cars-have-problem-mining-for-minerals\">lithium, cobalt and nickel</a> used in batteries and microchips is draining water supplies, eroding agriculture and exposing communities to toxic heavy metals.</p> <a href=\"https://www.theguardian.com/global-development/2026/apr/29/critical-minerals-are-oil-of-21st-century-as-demand-fuels-poverty-and-pollution-in-poorer-countries\">Continue reading...</a>",
-      "date_published": "2026-04-29T10:00:53+00:00",
-      "authors": [
-        {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
-        }
-      ],
-      "_quality_score": 67,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://i.guim.co.uk/img/media/91ace38e9efc1220996b7df66f2f542858a9a52a/0_0_3747_2998/master/3747.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=950f5b9624afbe5021500acc9d62dfd6"
-    },
-    {
-      "id": "https://www.wired.com/story/when-robots-have-their-chatgpt-moment-remember-these-pincers/",
-      "url": "https://www.wired.com/story/when-robots-have-their-chatgpt-moment-remember-these-pincers/",
-      "title": "[WIRED] I've Covered Robots for Years. This One Is Different",
-      "content_html": "<img src=\"https://media.wired.com/photos/69f11fc37df9442e8d9b4374/master/pass/20260320-wired-eka-robotics-0429.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom sorting chicken nuggets to screwing in lightbulbs, Eka’s robotic claw feels like we're approaching a ChatGPT moment for the physical world.",
-      "date_published": "2026-04-29T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69f11fc37df9442e8d9b4374/master/pass/20260320-wired-eka-robotics-0429.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/29/science/nose-brain-smell-olfaction.html",
-      "url": "https://www.nytimes.com/2026/04/29/science/nose-brain-smell-olfaction.html",
-      "title": "[NYT Well] Scientists Unveil ‘Long Lost’ Map for Smell",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe odor receptors in the nose are not distributed at random but organized in a precise spatial pattern, two new studies reveal.",
-      "date_published": "2026-04-29T09:02:39+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.businessinsider.com/longevity-experts-health-aging-hacks-2026-4",
-      "url": "https://www.businessinsider.com/longevity-experts-health-aging-hacks-2026-4",
-      "title": "[Business Insider] The simple health habits of top longevity doctors and scientists, who follow the science not trends",
-      "content_html": "<img src=\"https://i.insider.com/69ef97df3fecbb42897a499f?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTop longevity doctors, scientists, and investors share the simple, evidence-backed habits they use to stay healthy — from sleep and diet to exercise.",
-      "date_published": "2026-04-29T09:01:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69ef97df3fecbb42897a499f?format=jpeg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/04/29/us/ai-chatbots-biological-weapons.html",
-      "url": "https://www.nytimes.com/2026/04/29/us/ai-chatbots-biological-weapons.html",
-      "title": "[NYT Top Stories] A.I. Bots Told Scientists How to Make Biological Weapons",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists shared transcripts with The Times in which chatbots described how to assemble deadly pathogens and unleash them in public spaces.",
-      "date_published": "2026-04-29T09:00:11+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 67,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.wired.com/story/wired-health-2026-tackling-antimicrobial-resistance-ara-darzi/",
-      "url": "https://www.wired.com/story/wired-health-2026-tackling-antimicrobial-resistance-ara-darzi/",
-      "title": "[WIRED] How AI Could Help Combat Antibiotic Resistance",
-      "content_html": "<img src=\"https://media.wired.com/photos/69ea459b31b8426862a83c48/master/pass/XT502056.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAt WIRED Health, British surgeon Ara Darzi said AI is set to transform the diagnosis and treatment of drug-resistant infections. But a lack of incentives means innovation may not reach patients.",
-      "date_published": "2026-04-29T09:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69ea459b31b8426862a83c48/master/pass/XT502056.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/snap-ceo-ai-companies-spend-less-engineering-2026-4",
-      "url": "https://www.businessinsider.com/snap-ceo-ai-companies-spend-less-engineering-2026-4",
-      "title": "[Business Insider] Snap's CEO says AI will push companies to focus less on software building — and more on getting noticed",
-      "content_html": "<img src=\"https://i.insider.com/69f0bb43367066d7c2971cf2?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEvan Spiegel said two-thirds of his company's code is now built by AI. That's changed how he thinks companies will use their resources.",
-      "date_published": "2026-04-29T08:37:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69f0bb43367066d7c2971cf2?format=jpeg"
-    },
-    {
-      "id": "https://hackaday.com/2026/04/29/wipeout-clone-runs-native-on-esp32-s3/",
-      "url": "https://hackaday.com/2026/04/29/wipeout-clone-runs-native-on-esp32-s3/",
-      "title": "[Hackaday] Wipeout Clone Runs Native on ESP32-S3",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/wipeout-like-ESP32.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/wipeout-like-ESP32.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Psygnosis&#8217;s 1995 game Wipeout is remembered for two things: being one of the greatest games of all time, and taking advantage of the then-new PlayStation&#8217;s capacity for 3D graphics. The ESP32-S3 <a class=\"read-more\" href=\"https://hackaday.com/2026/04/29/wipeout-clone-runs-native-on-esp32-s3/\">&#8230;read more</a>",
-      "date_published": "2026-04-29T08:00:41+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/wipeout-like-ESP32.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/4/29/tropical-forest-loss-slows-in-2025-after-record-year-report?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/4/29/tropical-forest-loss-slows-in-2025-after-record-year-report?traffic_source=rss",
-      "title": "[Al Jazeera English] ‘Encouraging’: Global rainforest loss slows in 2025 after record year",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2025/11/Incendio-florestal-provocado-e-desmatamento-para-o-plantio-de-soja-Vilhena-Rondonia-Amazonia.-Credito-Andre-Dib-WWF-Brasil-1-1762460357.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe researchers credit the slowdown to policies implemented by Brazil&#039;s President Lula da Silva to curb deforestation.",
-      "date_published": "2026-04-29T07:48:31+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2025/11/Incendio-florestal-provocado-e-desmatamento-para-o-plantio-de-soja-Vilhena-Rondonia-Amazonia.-Credito-Andre-Dib-WWF-Brasil-1-1762460357.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://insideevs.com/news/794373/walmart-abb-400-kw-ev-chargers/",
-      "url": "https://insideevs.com/news/794373/walmart-abb-400-kw-ev-chargers/",
-      "title": "[InsideEVs] Walmart Is Rolling Out 400 kW DC Fast Chargers With Huge Screens",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/jlWBx6/s3/walmart-branded-abb-e-mobility-a400-dc-fast-chargers.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe retail giant is deploying ABB’s all-in-one chargers, complementing the Alpitornic dispensers that are already operational.",
-      "date_published": "2026-04-29T07:31:51+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/jlWBx6/s3/walmart-branded-abb-e-mobility-a400-dc-fast-chargers.jpg"
-    },
-    {
-      "id": "https://www.macrumors.com/2026/04/28/apple-vision-pro-cataract-surgery/",
-      "url": "https://www.macrumors.com/2026/04/28/apple-vision-pro-cataract-surgery/",
-      "title": "[MacRumors] Apple Vision Pro Used in World-First Cataract Surgery",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.macrumors.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApple's Vision Pro has hit another medical-use milestone, with a New York ophthalmologist becoming the first surgeon to perform cataract surgery using the spatial computing headset.\n<br />\n\n<br />\n<img alt=\"\" class=\"aligncenter size-full wp-image-1023249\" height=\"1080\" src=\"https://images.macrumors.com/article-new/2025/10/Vision-Pro-M5-Announcement.jpg\" width=\"1960\" />\n<br />\nDr. Eric Rosenberg of <a href=\"https://www.sightmd.com\">SightMD</a> completed the initial procedure in October 2025 and has since performed hundreds of additional cases using ScopeXR, a surgical platform he co-developed for Apple's mixed reality device.\n<br />\n\n<br />\nScopeXR streams live feeds from 3D digital surgical microscopes directly into the Vision Pro, which lets the surgeon view the operative field in stereoscopic 3D while overlaying preoperative diagnostic data. The platform also supports real-time remote collaboration, allowing surgeons to virtually join procedures and see exactly what the operating surgeon sees.\n<br />\n<blockquote>\"We are now able to bring the world's best surgeon into any operating room, at any hour, from anywhere on the planet,\" said Dr. Rosenberg in a company <a href=\"https://www.prnewswire.com/news-releases/sightmds-dr-eric-rosenberg-becomes-first-surgeon-in-the-world-to-perform-cataract-surgery-using-apple-vision-pro-mixed-reality-302754311.html\">press release</a>. \"From residents performing their first cases to surgeons facing unexpected complications, this technology democratizes access to expertise and that will save vision.\"</blockquote>It's another example of Apple's move toward enterprise and professional use cases for Vision Pro, with widespread consumer adoption beleaguered by the headset's &#36;3,499 starting price and bulky form factor. Apple has increasingly leaned into specialized applications in fields like <a href=\"https://www.macrumors.com/2024/03/11/apple-pitches-vision-pro-as-healthcare-solution/\">medicine</a>, <a href=\"https://www.macrumors.com/2026/03/11/apple-vision-pro-x-plane-flight-simulator/\">aviation training</a>, and <a href=\"https://www.apple.com/uk/business/enterprise/apple-vision-pro/\">industrial design</a> - markets where the device's capabilities can justify its cost, in other words.\n<br />\n\n<br />\nThe headset was never expected to be mass-market from day one, <a href=\"https://www.macrumors.com/2025/08/01/tim-cook-comments-on-apple-vision-pro/\">according to Apple</a>. Even so, enthusiasm is said to have cooled far <a href=\"https://www.macrumors.com/2025/05/16/vision-pro-buyers-feel-total-regret/\">faster than anticipated</a>. Based on the latest reports, there are now no Apple Vision headsets in active development, with the company's focus pivoting to lightweight <a href=\"https://www.macrumors.com/2026/02/17/apple-ai-wearable-development/\">smart glasses</a>, where Meta has already seen success. Last October, Apple <a href=\"https://www.macrumors.com/2025/10/15/apple-announces-vision-pro-with-m5-chip/\">introduced</a> an updated Vision Pro model featuring the M5 chip, the first hardware revision of the device.<div class=\"linkback\">Related Roundup: <a href=\"https://www.macrumors.com/roundup/apple-vision-pro/\">Apple Vision Pro</a></div><div class=\"linkback\">Buyer's Guide: <a href=\"https://buyersguide.macrumors.com/#AppleVisionPro\">Vision Pro (Buy Now)</a></div><div class=\"linkback\">Related Forum: <a href=\"https://forums.macrumors.com/forums/apple-vision-pro.209\">Apple Vision Pro</a></div><br />This article, &quot;<a href=\"https://www.macrumors.com/2026/04/28/apple-vision-pro-cataract-surgery/\">Apple Vision Pro Used in World-First Cataract Surgery</a>&quot; first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br /><br /><a href=\"https://forums.macrumors.com/threads/apple-vision-pro-used-in-world-first-cataract-surgery.2481636/\">Discuss this article</a> in our forums<br /><br />",
-      "date_published": "2026-04-28T14:51:18+00:00",
+      "id": "https://www.macrumors.com/2026/05/05/iphone-18-downgrades-rumored-yet-again/",
+      "url": "https://www.macrumors.com/2026/05/05/iphone-18-downgrades-rumored-yet-again/",
+      "title": "[MacRumors] iPhone 18 Might Look a Lot More Like an 'e' Model, Leaker Claims",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.macrumors.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe standard <a href=\"https://www.macrumors.com/roundup/iphone-18/\">iPhone 18</a> and the lower-cost iPhone 18e are said to share components, according to the leaker known as \"Fixed Focus Digital,\" as further evidence that Apple is narrowing the gap between the two devices.\n<br />\n\n<br />\n<div class=\"center-wrap\"><em><a href=\"https://www.youtube.com/user/macrumors?sub_confirmation=1\">Subscribe to the MacRumors YouTube channel</a> for more videos.</em></div>\n<br />\nIn <a href=\"https://weibo.com/5821279480/5293856049333151\">new posts</a> on Weibo, Fixed Focus Digital said that certain parts are interchangeable between the two models, adding that the information originates from a reliable manufacturing source. The leaker described the component overlap as confirmation that the specification convergence between the &zwnj;iPhone 18&zwnj; and iPhone 18e is real and measurable at the supply chain level. \"Take it from me: The standard &zwnj;iPhone 18&zwnj; model has been downgraded and its launch delayed-this decision is final and will not change,\" they added.\n<br />\n\n<br />\nThe posts also suggested that if the &zwnj;iPhone 18&zwnj; ships in spring 2027 rather than alongside the Pro models in the fall, September and October will effectively become \"flagship season\" for Apple, a window occupied by the <a href=\"https://www.macrumors.com/roundup/iphone-18-pro/\">iPhone 18 Pro</a>, &zwnj;iPhone 18 Pro&zwnj; Max, and the foldable \"<a href=\"https://www.macrumors.com/guide/foldable-iphone/\">iPhone Ultra</a>.\" A split launch strategy separating the Pro and standard models has been <a href=\"https://www.macrumors.com/2025/05/03/apple-split-iphone-launch-strategy/\">widely reported since last year</a>, with <a href=\"https://www.macrumors.com/2025/05/05/base-iphone-18-spring-2027-launch/\">Ming-Chi Kuo</a> and <a href=\"https://www.macrumors.com/2026/01/30/apples-split-iphone-launch-strategy-latest-report/\"><em>Nikkei</em></a> among those to have corroborated the plan. \n<br />\n\n<br />\nThe component sharing claim builds on a string of downgrade reports over the past two weeks. The leaker first reported that Apple is implementing <a href=\"https://www.macrumors.com/2026/04/20/apple-downgrading-iphone-18-to-cut-costs/\">certain manufacturing downgrades</a> to the &zwnj;iPhone 18&zwnj; as a cost-cutting measure, before adding that <a href=\"https://www.macrumors.com/2026/04/22/iphone-18-display-chip-downgrade-details/\">display specifications and the chip</a> will both be affected. Apple could be planning to tweak the name of the A-series chip used in the device to obscure the extent of the chip change. Engineering Validation Testing of the &zwnj;iPhone 18&zwnj; and iPhone 18e is said to be taking place simultaneously in June, which aligns with the idea that the two devices now share significant engineering overlap.\n<br />\n\n<br />\nToday, the <a href=\"https://www.macrumors.com/roundup/iphone-17/\">iPhone 17</a> and <a href=\"https://www.macrumors.com/roundup/iphone-17e/\">iPhone 17e</a> are meaningfully different devices: the standard model features a 6.3-inch display with ProMotion and up to 3,000 nits of peak outdoor brightness, the <a href=\"https://www.macrumors.com/guide/dynamic-island/\">Dynamic Island</a>, a five-core GPU, an Ultra Wide camera, and significantly better battery life. The &zwnj;iPhone 17e&zwnj;, by contrast, has a smaller 6.1-inch display, a notch rather than a &zwnj;Dynamic Island&zwnj;, no ProMotion, a four-core GPU, and no Ultra Wide camera. If Apple is now sharing components between the &zwnj;iPhone 18&zwnj; and iPhone 18e and reducing display and chip specifications on the standard model, many of those distinctions could shrink or disappear entirely in the next generation.\n<br />\n\n<br />\nThe &zwnj;iPhone 18&zwnj;, iPhone 18e, and <a href=\"https://www.macrumors.com/roundup/iphone-air/\">iPhone Air</a> 2 are all expected to launch in spring 2027, with the &zwnj;iPhone 18 Pro&zwnj;, &zwnj;iPhone 18 Pro&zwnj; Max, and <a href=\"https://www.macrumors.com/guide/iphone-ultra/\">iPhone Ultra</a> anticipated to be announced in the fall.<div class=\"linkback\">Related Roundup: <a href=\"https://www.macrumors.com/roundup/iphone-18/\">iPhone 18</a></div><div class=\"linkback\">Tag: <a href=\"https://www.macrumors.com/guide/fixed-focus-digital/\">Fixed Focus Digital</a></div><div class=\"linkback\">Related Forum: <a href=\"https://forums.macrumors.com/forums/iphone.99\">iPhone</a></div><br />This article, &quot;<a href=\"https://www.macrumors.com/2026/05/05/iphone-18-downgrades-rumored-yet-again/\">iPhone 18 Might Look a Lot More Like an &#039;e&#039; Model, Leaker Claims</a>&quot; first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br /><br /><a href=\"https://forums.macrumors.com/threads/iphone-18-might-look-a-lot-more-like-an-e-model-leaker-claims.2481921/\">Discuss this article</a> in our forums<br /><br />",
+      "date_published": "2026-05-05T13:01:02+00:00",
       "authors": [
         {
           "name": "MacRumors",
           "url": "https://www.macrumors.com"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
+      "ai_score": 18,
+      "_quality_score": 18,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 3,
+      "_boosted_score": 65,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
       "image": "https://www.google.com/s2/favicons?domain=www.macrumors.com&sz=128"
     },
     {
-      "id": "https://www.zdnet.com/article/canonical-ai-approach-thoughtful-microsoft-should-take-note/",
-      "url": "https://www.zdnet.com/article/canonical-ai-approach-thoughtful-microsoft-should-take-note/",
-      "title": "[ZDNet] Canonical's approach to AI is refreshingly thoughtful",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/13f47dc28e66d607d1c83cf456ae5de46df6efc0/2026/04/28/3209f9ba-d899-48e0-b400-1c158e558187/ubuntu.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith Ubuntu Linux 26.04, you decide how you want to use AI. What a novel idea.",
-      "date_published": "2026-04-28T14:35:24+00:00",
+      "id": "https://newatlas.com/consumer-tech/solly-power-bank-solar-panel-charging-kickstarter/",
+      "url": "https://newatlas.com/consumer-tech/solly-power-bank-solar-panel-charging-kickstarter/",
+      "title": "[New Atlas] Superfast power bank brings its own solar panel for recharging",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/7d75b89/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F87%2F85%2F6157f0c64af1ac95513dd5389496%2Fthe-solly-power-bank-can-be-topped-off-by-simply-leaving-it-out-in-the-sun.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The Solly power bank can be topped off by simply leaving it out in the sun\" src=\"https://assets.newatlas.com/dims4/default/a760cdf/2147483647/strip/true/crop/1200x800+0+0/resize/1200x800!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F87%2F85%2F6157f0c64af1ac95513dd5389496%2Fthe-solly-power-bank-can-be-topped-off-by-simply-leaving-it-out-in-the-sun.jpg\" /><p>Power banks are a dime a dozen, but this one caught my eye with a feature I haven't seen before: a built-in solar panel to recharge it using the power of the sun.</p><p><a href=\"https://newatlas.com/consumer-tech/solly-power-bank-solar-panel-charging-kickstarter/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/consumer-tech/\">Consumer Tech</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/rechargeable-battery/\" rel=\"tag\">Rechargeable+Battery</a>, <a href=\"https://newatlas.com/tag/edc/\" rel=\"tag\">EDC</a>, <a href=\"https://newatlas.com/tag/outdoor/\" rel=\"tag\">Outdoors and Camping</a>, <a href=\"https://newatlas.com/tag/charger/\" rel=\"tag\">Charger</a>, <a href=\"https://newatlas.com/tag/kickstarter/\" rel=\"tag\">Kickstarter</a>, <a href=\"https://newatlas.com/tag/xxkickbooster/\" rel=\"tag\">xxKickbooster</a></p>",
+      "date_published": "2026-05-05T14:57:11+00:00",
       "authors": [
         {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/13f47dc28e66d607d1c83cf456ae5de46df6efc0/2026/04/28/3209f9ba-d899-48e0-b400-1c158e558187/ubuntu.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://qz.com/eu-google-android-ai-interoperability-digital-markets-act-042826",
-      "url": "https://qz.com/eu-google-android-ai-interoperability-digital-markets-act-042826",
-      "title": "[Quartz] E.U. is pushing Google to give rival AI services the same Android access as Gemini",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2250476306.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe European Commission says Google reserves key Android capabilities for Gemini and must give competing AI services equal access",
-      "date_published": "2026-04-28T14:20:39+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2250476306.jpg"
-    },
-    {
-      "id": "https://kottke.org/26/04/0048835-its-the-age-of-electricit",
-      "url": "https://kottke.org/26/04/0048835-its-the-age-of-electricit",
-      "title": "[Kottke.org] It&#8217;s the Age of Electricity and America...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://www.nytimes.com/interactive/2026/04/27/opinion/electricity-power-grid-infrastructure.html?unlocked_article_code=1.eFA.VptE.oTEgtcylTk-B\">It&#8217;s the Age of Electricity and America Isn&#8217;t Ready</a>. &#8220;Our grid is too old and our supply of electricity too small. If we don&#8217;t meet this moment, we will face an impoverished future of more expensive, less reliable energy, and slower economic growth.&#8221;\n</p>",
-      "date_published": "2026-04-28T14:15:53+00:00",
-      "authors": [
-        {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 2,
+      "_boosted_score": 60,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+      "image": "https://assets.newatlas.com/dims4/default/7d75b89/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F87%2F85%2F6157f0c64af1ac95513dd5389496%2Fthe-solly-power-bank-can-be-topped-off-by-simply-leaving-it-out-in-the-sun.jpg&na.image_optimisation=0"
     },
     {
-      "id": "https://www.techradar.com/pro/trust-by-design-how-much-can-you-really-trust-your-ai-agent",
-      "url": "https://www.techradar.com/pro/trust-by-design-how-much-can-you-really-trust-your-ai-agent",
-      "title": "[TechRadar] Trust by design: How much can you really trust your AI agent",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Rb6YDzdRZjccpn6MQ26KML-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs the UK pours millions into agentic AI, trust by design is the missing piece.",
-      "date_published": "2026-04-28T14:13:21+00:00",
+      "id": "https://www.tomsguide.com/home/lawn-care/ive-been-using-this-usd1-000-robot-lawnmower-for-a-month-3-things-i-like-and-2-i-dont",
+      "url": "https://www.tomsguide.com/home/lawn-care/ive-been-using-this-usd1-000-robot-lawnmower-for-a-month-3-things-i-like-and-2-i-dont",
+      "title": "[Toms Guide] I was skeptical about whether a $1,000 robot lawnmower could actually handle my lawn without a perimeter wire, but after 30 days of testing, it’s replaced my push mower — with a few caveats",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Z22YYfLSv52p2eKLbrWnLh-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI've been testing the Worx Landroid robot lawnmower in my yard for over a month. It's a good, affordable mower if you don't have too big a yard — and its battery can be used with other Worx power tools.",
+      "date_published": "2026-05-05T09:15:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 57,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/Z22YYfLSv52p2eKLbrWnLh-1280-80.jpg"
+    },
+    {
+      "id": "https://newatlas.com/campervans/sunlight-vw-ibex-4x4-camper-van/",
+      "url": "https://newatlas.com/campervans/sunlight-vw-ibex-4x4-camper-van/",
+      "title": "[New Atlas] Adventure RV mastermind preps VW into \"most ambitious camper van\" yet",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/607c42f/2147483647/strip/true/crop/2560x1344+0+182/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ffb%2Fcd%2F3f0e4e824445888c9858fc5ff887%2Fibexfassade-163-scaled.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The production preview Ibex 4x4 camper van Sunlight revealed this week gains a striking \" src=\"https://assets.newatlas.com/dims4/default/020cb40/2147483647/strip/true/crop/2560x1708+0+0/resize/1439x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ffb%2Fcd%2F3f0e4e824445888c9858fc5ff887%2Fibexfassade-163-scaled.jpg\" /><p>German camper van and small motorhome builder Sunlight has made a name for itself as a go-to for capable adventure machines built to support formidable all-terrain excursions. With last year's Ibex 4x4 concept, it previewed how it would step things up to the next level. And now it's preparing to take the official step, readying the production Ibex for launch this summer. Inspired by prototype testing in rugged worldly destinations like Morocco and Iceland, the production camper van promises to meld a ruggedized Volkswagen Crafter 4x4 shell with a smart, homey interior built for extended living.</p><p><a href=\"https://newatlas.com/campervans/sunlight-vw-ibex-4x4-camper-van/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/campervans/\">Campervans</a>, <a href=\"https://newatlas.com/adventure-vehicles/\">Adventure Vehicles</a>, <a href=\"https://newatlas.com/outdoors/\">Outdoors</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/campervan/\" rel=\"tag\">Campervan</a>, <a href=\"https://newatlas.com/tag/rv/\" rel=\"tag\">RV</a>, <a href=\"https://newatlas.com/tag/camping/\" rel=\"tag\">Camping</a>, <a href=\"https://newatlas.com/tag/outdoor/\" rel=\"tag\">Outdoors and Camping</a>, <a href=\"https://newatlas.com/tag/off-road/\" rel=\"tag\">Off-road</a></p>",
+      "date_published": "2026-05-05T23:04:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 76,
+      "_final_score": 76,
+      "_keyword_matches": 2,
+      "_boosted_score": 50,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/607c42f/2147483647/strip/true/crop/2560x1344+0+182/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ffb%2Fcd%2F3f0e4e824445888c9858fc5ff887%2Fibexfassade-163-scaled.jpg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.tomshardware.com/pc-components/ssds/inland-qn450-1tb-ssd-review",
+      "url": "https://www.tomshardware.com/pc-components/ssds/inland-qn450-1tb-ssd-review",
+      "title": "[Tom's Hardware] Inland QN450 1TB SSD Review: Maximum efficiency, minimum spend",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/oxmooR94UWGLzpLLsmKFXV-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Inland QN450 is a surprisingly capable Gen 4 drive with strong all-around performance and exceptional power efficiency. It outshines the NV3 but has hardware uncertainty and low TBW.",
+      "date_published": "2026-05-05T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 28,
+      "_quality_score": 28,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 2,
+      "_boosted_score": 48,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/oxmooR94UWGLzpLLsmKFXV-1280-80.jpg"
+    },
+    {
+      "id": "https://www.tomshardware.com/laptops/ultrabooks-ultraportables/lenovo-yoga-slim-7i-aura-edition-2026-review",
+      "url": "https://www.tomshardware.com/laptops/ultrabooks-ultraportables/lenovo-yoga-slim-7i-aura-edition-2026-review",
+      "title": "[Tom's Hardware] Lenovo Yoga Slim 7i Aura Edition (2026) Review: Vibrant display, lightweight design, and an endurance champ",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/fU7pynxR3ZJ5i2iFHVRR7-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLenovo has focused on trimming fat and including a brilliant display and long battery life with the Yoga Slim 7i Aura Edition.",
+      "date_published": "2026-05-05T12:50:52+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 25,
+      "_quality_score": 25,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 47,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/fU7pynxR3ZJ5i2iFHVRR7-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/04/sunlight-powered-sunlight-readable-solar-case-for-nook-simple-touch/",
+      "url": "https://hackaday.com/2026/05/04/sunlight-powered-sunlight-readable-solar-case-for-nook-simple-touch/",
+      "title": "[Hackaday] Sunlight Powered, Sunlight Readable: Solar Case for Nook Simple Touch",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/solar-nook-feat-e1777661967795.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"250\" src=\"https://hackaday.com/wp-content/uploads/2026/05/solar-nook-feat-e1777661967795.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>When life gives you lemons, you make lemonade. What if life gives you a pile of old e-book readers? Well, when [spiritplumber] got box of old Nook Simple Touch devices, <a class=\"read-more\" href=\"https://hackaday.com/2026/05/04/sunlight-powered-sunlight-readable-solar-case-for-nook-simple-touch/\">&#8230;read more</a>",
+      "date_published": "2026-05-04T20:00:36+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/solar-nook-feat-e1777661967795.png"
+    },
+    {
+      "id": "https://www.tomsguide.com/computing/i-got-tired-of-waiting-for-a-touchscreen-imac-so-i-made-one-myself-heres-how-i-did-it",
+      "url": "https://www.tomsguide.com/computing/i-got-tired-of-waiting-for-a-touchscreen-imac-so-i-made-one-myself-heres-how-i-did-it",
+      "title": "[Toms Guide] I got tired of waiting for a touchscreen iMac so I made one myself — here’s how I did it",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/GYvEDpzXxQiruNwKnY9td6-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApple is rumored to be making a touchscreen Mac, but I couldn't wait — so I used a Mac mini to build the touch-enabled iMac that Apple refuses to release.",
+      "date_published": "2026-05-06T06:15:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/GYvEDpzXxQiruNwKnY9td6-1280-80.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/tech/3d-printed-y-zipper-turns-from-flexible-to-hard-in-less-time-than-it-takes-to-zip-your-fly",
+      "url": "https://www.techradar.com/tech/3d-printed-y-zipper-turns-from-flexible-to-hard-in-less-time-than-it-takes-to-zip-your-fly",
+      "title": "[TechRadar] 3D-printed Y-zipper turns from flexible to hard in less time than it takes to zip your fly",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/CSZNZBfAUXFprtQvWva9a7-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers took a 40-year-old design and applied some software and 3D printing to bring the Y-zipper to life",
+      "date_published": "2026-05-05T22:30:00+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/CSZNZBfAUXFprtQvWva9a7-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/05/cutting-steel-gears-with-homemade-edm/",
+      "url": "https://hackaday.com/2026/05/05/cutting-steel-gears-with-homemade-edm/",
+      "title": "[Hackaday] Cutting Steel Gears with Homemade EDM",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/wire_edm_gear.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"A fine steel gear is shown held between a man&#039;s fingertips.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/wire_edm_gear.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Electric discharge machining (EDM) may be slower than alternatives like laser cutting, water jets, or a milling machine, but for some applications there’s no alternative: it can cut through any <a class=\"read-more\" href=\"https://hackaday.com/2026/05/05/cutting-steel-gears-with-homemade-edm/\">&#8230;read more</a>",
+      "date_published": "2026-05-05T20:00:39+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/wire_edm_gear.png"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/04/building-a-camera-slider-instead-of-buying-one-goes-awry/",
+      "url": "https://hackaday.com/2026/05/04/building-a-camera-slider-instead-of-buying-one-goes-awry/",
+      "title": "[Hackaday] Camera Slider: Build Instead of Buy Goes Awry",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/I-Built-the-Camera-Slider-I-Couldnt-Afford-6-19-screenshot.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/I-Built-the-Camera-Slider-I-Couldnt-Afford-6-19-screenshot.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>[TheHyperFix] had a problem. He&#8217;d spied a brilliant camera slider, but didn&#8217;t want to lay out big money to acquire it. The natural solution? Build one! Only, life is seldom <a class=\"read-more\" href=\"https://hackaday.com/2026/05/04/building-a-camera-slider-instead-of-buying-one-goes-awry/\">&#8230;read more</a>",
+      "date_published": "2026-05-05T05:00:34+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 37,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/I-Built-the-Camera-Slider-I-Couldnt-Afford-6-19-screenshot.png"
+    },
+    {
+      "id": "https://www.howtogeek.com/usb-can-make-ethernet-obsolete-but-it-hasnt-for-one-simple-reason/",
+      "url": "https://www.howtogeek.com/usb-can-make-ethernet-obsolete-but-it-hasnt-for-one-simple-reason/",
+      "title": "[How-To Geek] The simple reason Ethernet will outlive USB (and every other cable)",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/close-up-of-the-rear-ports-and-cooling-fan-on-the-synology-ds225-plus-nas.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUSB can make Ethernet obsolete, but it hasn't for one simple reason",
+      "date_published": "2026-05-05T18:25:22+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/close-up-of-the-rear-ports-and-cooling-fan-on-the-synology-ds225-plus-nas.jpg"
+    },
+    {
+      "id": "https://www.wired.com/review/murena-volla-tablet/",
+      "url": "https://www.wired.com/review/murena-volla-tablet/",
+      "title": "[WIRED] Murena /e/OS Tablet Review: Privacy for a Price",
+      "content_html": "<img src=\"https://media.wired.com/photos/69f9008178155c0aab3cdc1f/master/pass/Review%20Murena%20Tablet%20top%20art%20052026%20SOURCE%20Murena.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMurena's /e/OS tablet offers an iPadOS- and Google-free, privacy-friendly tablet experience, but you'll have to pay for it.",
+      "date_published": "2026-05-05T11:32:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://media.wired.com/photos/69f9008178155c0aab3cdc1f/master/pass/Review%20Murena%20Tablet%20top%20art%20052026%20SOURCE%20Murena.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/bazzite-handheld-experience-better-than-windows/",
+      "url": "https://www.xda-developers.com/bazzite-handheld-experience-better-than-windows/",
+      "title": "[XDA Developers] I switched my gaming handheld from Windows to Bazzite, and I can't go back",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/01/bazzite-asus-rog-ally-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSame device, different OS, and a completely different experience",
+      "date_published": "2026-05-04T21:30:23+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/01/bazzite-asus-rog-ally-2.jpg"
+    },
+    {
+      "id": "https://www.tomsguide.com/phones/i-swapped-my-galaxy-s26-for-this-blackberry-clone-with-a-physical-keyboard-for-a-week-and-im-honestly-embarrassed-by-how-much-i-like-it",
+      "url": "https://www.tomsguide.com/phones/i-swapped-my-galaxy-s26-for-this-blackberry-clone-with-a-physical-keyboard-for-a-week-and-im-honestly-embarrassed-by-how-much-i-like-it",
+      "title": "[Toms Guide] I swapped my Galaxy S26 for this BlackBerry clone with a physical keyboard for a week — and I’m honestly embarrassed by how much I like it",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/VPLeh4svxYLUwy36fgUUGD-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Unihertz Titan 2 Elite is the best keyboard phone I've tested in the last decade, primarily due to its significantly smaller size, long battery life, and tactile keyboard.",
+      "date_published": "2026-05-05T05:00:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 44,
+      "_quality_score": 44,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 33,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/VPLeh4svxYLUwy36fgUUGD-1280-80.jpg"
+    },
+    {
+      "id": "https://www.tomshardware.com/desktops/pc-building/techtuber-builds-a-pc-big-enough-to-live-in-humans-in-this-rgb-lit-fish-tank-case-look-just-like-figurines",
+      "url": "https://www.tomshardware.com/desktops/pc-building/techtuber-builds-a-pc-big-enough-to-live-in-humans-in-this-rgb-lit-fish-tank-case-look-just-like-figurines",
+      "title": "[Tom's Hardware] Enthusiast builds a PC big enough to live in — humans in this RGB-lit fish tank case look just like figurines",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/P7pckwnJFV4vxDA7yMEEVZ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Chinese TechTuber scaled a tower PC large enough for a human to work and play in. It has air conditioning, too.",
+      "date_published": "2026-05-03T15:24:10+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 30,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/P7pckwnJFV4vxDA7yMEEVZ-1280-80.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/05/05/this-destroyed-nintendo-3ds-restoration-is-supernaturally-relaxing.html",
+      "url": "https://boingboing.net/2026/05/05/this-destroyed-nintendo-3ds-restoration-is-supernaturally-relaxing.html",
+      "title": "[Boing Boing] This destroyed Nintendo 3DS restoration is supernaturally relaxing",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/3DS.png?fit=1744%2C926&amp;quality=55&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/05/this-destroyed-nintendo-3ds-restoration-is-supernaturally-relaxing.html\" rel=\"nofollow\" title=\"This destroyed Nintendo 3DS restoration is supernaturally relaxing\"><img alt=\"A 3DS being restored. Image via The Retro Future\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"926\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/3DS.png?fit=1744%2C926&amp;quality=55&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1744\" /></a><p>A nearly destroyed <a href=\"https://boingboing.net/2011/05/17/nintendo-3ds-license.html\" rel=\"noreferrer noopener\" target=\"_blank\">Nintendo 3DS</a> gets a meticulous second life in this restoration video, and watching it is ASMR-level satisfying. The careful disassembly of wafer-thin circuit boards, the lineup of delicate specialized tools, the anti-yellowing washes — it's all extremely methodical in a way that scratches the brain in exactly the right spot. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/05/this-destroyed-nintendo-3ds-restoration-is-supernaturally-relaxing.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/05/this-destroyed-nintendo-3ds-restoration-is-supernaturally-relaxing.html\">This destroyed Nintendo 3DS restoration is supernaturally relaxing</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-05-05T17:04:55+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 30,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/3DS.png?fit=1744%2C926&quality=55&ssl=1"
+    },
+    {
+      "id": "https://www.techradar.com/computing/gaming-pcs/someone-has-built-a-gaming-pc-the-size-of-a-room-complete-with-giant-fans-and-air-conditioning-for-cool-operation-and-also-a-sauna-for-some-reason",
+      "url": "https://www.techradar.com/computing/gaming-pcs/someone-has-built-a-gaming-pc-the-size-of-a-room-complete-with-giant-fans-and-air-conditioning-for-cool-operation-and-also-a-sauna-for-some-reason",
+      "title": "[TechRadar] Someone has built a gaming PC the size of a room, complete with giant fans and air conditioning for cool operation — and also a sauna for some reason",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/MDPdYTaTDy9ByoFubnH27L-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis modder's gaming PC build meets the definition of unique, as it's quite literally the size of a room.",
+      "date_published": "2026-05-06T01:00:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 32,
+      "_quality_score": 32,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 29,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/MDPdYTaTDy9ByoFubnH27L-1280-80.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/xiaomi-13-series-battery-replacement-3663611/",
+      "url": "https://www.androidauthority.com/xiaomi-13-series-battery-replacement-3663611/",
+      "title": "[Android Authority] Wish you could upgrade your phone battery? This brand is making it a reality",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2023/06/Xiaomi-13-Pro_Black_1-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA proper battery boost without the painful price tag.",
+      "date_published": "2026-05-05T15:28:53+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 30,
+      "_quality_score": 30,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 29,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2023/06/Xiaomi-13-Pro_Black_1-scaled.jpg"
+    },
+    {
+      "id": "https://www.zdnet.com/article/dell-alienware-16-area-51-review/",
+      "url": "https://www.zdnet.com/article/dell-alienware-16-area-51-review/",
+      "title": "[ZDNet] Why this 16-inch gaming laptop is a smarter buy than a desktop in 2026",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/b0f0a1fd511e79cc17b3dad33649b86d724e63b5/2026/05/04/ef7a9bdb-61a4-4089-8e8e-91dbed737436/dsc05086.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDell's Alienware 16 Area-51 is a powerhouse gaming laptop with a luxurious mechanical keyboard and matte OLED display.",
+      "date_published": "2026-05-05T16:07:00+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 25,
+      "_quality_score": 25,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 27,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.zdnet.com/a/img/resize/b0f0a1fd511e79cc17b3dad33649b86d724e63b5/2026/05/04/ef7a9bdb-61a4-4089-8e8e-91dbed737436/dsc05086.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.xda-developers.com/amd-ryzen-5-5500-is-the-perfect-cpu-for-a-budget-build/",
+      "url": "https://www.xda-developers.com/amd-ryzen-5-5500-is-the-perfect-cpu-for-a-budget-build/",
+      "title": "[XDA Developers] This AMD Ryzen 5 chip proves you don't need to spend big for a solid budget build",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2024/08/169-4.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe perfect storm of affordability and functionality",
+      "date_published": "2026-05-06T02:06:53+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 22,
+      "_quality_score": 22,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 26,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2024/08/169-4.png"
+    },
+    {
+      "id": "https://www.xda-developers.com/you-cant-go-wrong-with-this-4-in-1-240w-charging-cable-thats-just-10/",
+      "url": "https://www.xda-developers.com/you-cant-go-wrong-with-this-4-in-1-240w-charging-cable-thats-just-10/",
+      "title": "[XDA Developers] Someone figured out how to pack four cables into one for just $10, and it actually works",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/copy-of-169-3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCreate the best combination for your situation",
+      "date_published": "2026-05-05T02:51:54+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 18,
+      "_quality_score": 18,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 25,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/copy-of-169-3.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/gaming/steelseries-new-arctis-nova-omni-headset-has-finally-displaced-the-nova-pro-wireless-as-my-favorite-model-from-the-brand",
+      "url": "https://www.techradar.com/gaming/steelseries-new-arctis-nova-omni-headset-has-finally-displaced-the-nova-pro-wireless-as-my-favorite-model-from-the-brand",
+      "title": "[TechRadar] SteelSeries' new Arctis Nova Omni headset has finally displaced the Nova Pro Wireless as my favorite model from the brand",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/gx2nsx6ZGZcnrbKoiRFLF6-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter championing the SteelSeries Nova Pro Wireless for years, the brand's new SteelSeries Arctis Nova Omni headset may be my new favorite from the brand.",
+      "date_published": "2026-05-05T14:00:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 15,
+      "_quality_score": 15,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 1,
+      "_boosted_score": 24,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/gx2nsx6ZGZcnrbKoiRFLF6-1280-80.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/pla-warps-winter-people-say-doesnt-why/",
+      "url": "https://www.xda-developers.com/pla-warps-winter-people-say-doesnt-why/",
+      "title": "[XDA Developers] Your PLA warps in winter even though people say it doesn't, and here's why",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/03/mech-dragon-3d-print.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPLA is beginner-friendly, but cold rooms can still cause warping, lifting, and failed prints. Here’s why winter changes everything.",
+      "date_published": "2026-05-05T23:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/03/mech-dragon-3d-print.JPG"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/04/esp32-hosts-solarpunk-message-board/",
+      "url": "https://hackaday.com/2026/05/04/esp32-hosts-solarpunk-message-board/",
+      "title": "[Hackaday] ESP32 Hosts SolarPunk Message Board",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/solarpunk-esp32-web-e1777660183563.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"531\" src=\"https://hackaday.com/wp-content/uploads/2026/05/solarpunk-esp32-web-e1777660183563.jpeg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Solarpunk is sometimes thought of as the &#8220;good ending&#8221; to cyberpunk&#8211; there&#8217;s technology, but it&#8217;s community-focused instead of in the hands of evil conglomerates, and&#8211; if the name doesn&#8217;t give <a class=\"read-more\" href=\"https://hackaday.com/2026/05/04/esp32-hosts-solarpunk-message-board/\">&#8230;read more</a>",
+      "date_published": "2026-05-04T15:30:01+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/solarpunk-esp32-web-e1777660183563.jpeg"
+    },
+    {
+      "id": "https://www.xda-developers.com/gaming-pc-running-hot-custom-fan-curve-unlocks-performance-you-already-paid-for/",
+      "url": "https://www.xda-developers.com/gaming-pc-running-hot-custom-fan-curve-unlocks-performance-you-already-paid-for/",
+      "title": "[XDA Developers] Gaming PC running hot? A custom fan curve just unlocked performance you already paid for",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/asus-bios-fan-control.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMost BIOS settings you don't need to change. This isn't one of those.",
+      "date_published": "2026-05-05T21:00:23+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/asus-bios-fan-control.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/05/defeating-the-works-by-designs-unpickable-lock/",
+      "url": "https://hackaday.com/2026/05/05/defeating-the-works-by-designs-unpickable-lock/",
+      "title": "[Hackaday] Defeating the [Works By Design]’s Unpickable Lock",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/unpickable_lock_impressioning_lock_noob_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"582\" src=\"https://hackaday.com/wp-content/uploads/2026/05/unpickable_lock_impressioning_lock_noob_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Even though the very concept of an &#8216;unpickable lock&#8217; is as plausible as making water not be wet, this doesn&#8217;t take away from the intellectual thrill of devising solutions to <a class=\"read-more\" href=\"https://hackaday.com/2026/05/05/defeating-the-works-by-designs-unpickable-lock/\">&#8230;read more</a>",
+      "date_published": "2026-05-05T23:00:46+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
       "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_category": "homelab",
+      "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/Rb6YDzdRZjccpn6MQ26KML-1280-80.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/unpickable_lock_impressioning_lock_noob_youtube.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/05/04/a-cyberdeck-to-help-you-airlock-the-alien.html",
+      "url": "https://boingboing.net/2026/05/04/a-cyberdeck-to-help-you-airlock-the-alien.html",
+      "title": "[Boing Boing] A cyberdeck to help you airlock the Alien",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Typeframe-PS-85-%E2%80%93-lead-image-Large.jpeg?fit=1280%2C964&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/04/a-cyberdeck-to-help-you-airlock-the-alien.html\" rel=\"nofollow\" title=\"A cyberdeck to help you airlock the Alien\"><img alt=\"Photo: Jeff Merrick\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"964\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Typeframe-PS-85-%E2%80%93-lead-image-Large.jpeg?fit=1280%2C964&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1280\" /></a><p>The <a href=\"https://www.typeframe.net/\">Typeframe PS-85</a> is a <a href=\"https://www.reddit.com/r/cyberDeck/\">cyberdeck</a> crafted by Jeff Merrick, inspired by <a href=\"https://en.wikipedia.org/wiki/Epson_PX-4\">Epson</a> portable computers and the design language of 1979 science fiction-horror classic <em>Alien</em>. In the movie, the MU/TH/UR computer had its own room; here's a terminal to ask it desperate questions and <a href=\"https://www.youtube.com/watch?v=-6mvwOCYJjc\">receive unhelpful answers</a>. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/04/a-cyberdeck-to-help-you-airlock-the-alien.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/04/a-cyberdeck-to-help-you-airlock-the-alien.html\">A cyberdeck to help you airlock the Alien</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-05-04T20:59:05+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Typeframe-PS-85-%E2%80%93-lead-image-Large.jpeg?fit=1280%2C964&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.howtogeek.com/i-thought-sleep-earbuds-were-a-waste-of-money-now-theyre-my-favorite-pair/",
+      "url": "https://www.howtogeek.com/i-thought-sleep-earbuds-were-a-waste-of-money-now-theyre-my-favorite-pair/",
+      "title": "[How-To Geek] I thought sleep earbuds were a waste of money—now they're my favorite pair",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/fitnexa-somnipods-3-sleep-earbuds-ear.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSleep earbuds are the best tech investment I've made for my health",
+      "date_published": "2026-05-05T19:01:18+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 81,
+      "_final_score": 81,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/fitnexa-somnipods-3-sleep-earbuds-ear.JPG"
+    },
+    {
+      "id": "https://www.cnet.com/tech/computing/need-to-share-your-wi-fi-password-heres-where-to-find-it-on-mac-and-windows/",
+      "url": "https://www.cnet.com/tech/computing/need-to-share-your-wi-fi-password-heres-where-to-find-it-on-mac-and-windows/",
+      "title": "[CNET] Forgot Your Wi-Fi Password? Here's How to Find It on Mac and Windows",
+      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/c0ff75694627883f8190b2f39eaa6443bdf287c9/hub/2022/03/25/bd72a04f-f6ac-408c-9368-57c2f99db1ff/how-to-find-a-wi-fi-password-on-any-network-1.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhether you're on a Mac or a PC, your saved Wi-Fi password is just a quick menu away.",
+      "date_published": "2026-05-06T00:00:42+00:00",
+      "authors": [
+        {
+          "name": "CNET",
+          "url": "https://www.cnet.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.cnet.com/a/img/resize/c0ff75694627883f8190b2f39eaa6443bdf287c9/hub/2022/03/25/bd72a04f-f6ac-408c-9368-57c2f99db1ff/how-to-find-a-wi-fi-password-on-any-network-1.jpg?auto=webp&width=300"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/05/a-digital-audio-recorder-for-toslink/",
+      "url": "https://hackaday.com/2026/05/05/a-digital-audio-recorder-for-toslink/",
+      "title": "[Hackaday] A Digital Audio Recorder For TOSLink",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/toslink-recorder-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/toslink-recorder-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Every now and then in our travels we come upon a project with such an obvious need that it&#8217;s almost a surprise nobody has thought of doing it before. So <a class=\"read-more\" href=\"https://hackaday.com/2026/05/05/a-digital-audio-recorder-for-toslink/\">&#8230;read more</a>",
+      "date_published": "2026-05-05T15:30:35+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 45,
+      "_quality_score": 45,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 13,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/toslink-recorder-featured.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/05/04/why-it-took-so-long-to-make-a-popular-pc-case-fan-in-black.html",
+      "url": "https://boingboing.net/2026/05/04/why-it-took-so-long-to-make-a-popular-pc-case-fan-in-black.html",
+      "title": "[Boing Boing] Why it took so long to make a popular PC case fan in black",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/the_science_of_black_nf_a12x25_g2_chromax-copy.jpg?fit=1739%2C1274&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/04/why-it-took-so-long-to-make-a-popular-pc-case-fan-in-black.html\" rel=\"nofollow\" title=\"Why it took so long to make a popular PC case fan in black\"><img alt=\"Noctua: exciting the air, and you\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1274\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/the_science_of_black_nf_a12x25_g2_chromax-copy.jpg?fit=1739%2C1274&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1739\" /></a><p><a href=\"https://en.wikipedia.org/wiki/Noctua_(company)\">Noctua</a> is a well-respected manufacturer of PC case fans and similarly unromantic cooling components. But unromantic does not mean uninteresting, as demonstrated by a lengthy article the company published explaining <a href=\"https://www.noctua.at/en/expertise/blog/how-can-it-take-so-long-to-release-black-fan-versions\">why it takes so long to release any given fan in black</a> after the company's house tan. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/04/why-it-took-so-long-to-make-a-popular-pc-case-fan-in-black.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/04/why-it-took-so-long-to-make-a-popular-pc-case-fan-in-black.html\">Why it took so long to make a popular PC case fan in black</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-05-04T16:11:18+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 42,
+      "_quality_score": 42,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/the_science_of_black_nf_a12x25_g2_chromax-copy.jpg?fit=1739%2C1274&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.techradar.com/tablets/ereaders/onyx-boox-palma-2-pro-review",
+      "url": "https://www.techradar.com/tablets/ereaders/onyx-boox-palma-2-pro-review",
+      "title": "[TechRadar] The Onyx Boox Palma 2 Pro is the phone-sized color ereader I never knew I wanted, but it won't suit everyone",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/QvxNBWULEkwHzshT5P5Vjn-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBoox’s phone-like ereader gets a flashy Pro upgrade, with color E Ink, stylus support and mobile data making it more versatile, though the even higher price stings.",
+      "date_published": "2026-05-06T06:07:14+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 38,
+      "_quality_score": 38,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 0,
+      "_boosted_score": 11,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/QvxNBWULEkwHzshT5P5Vjn-1280-80.jpg"
+    },
+    {
+      "id": "https://www.tomshardware.com/video-games/nintendo/keychain-size-gamecube-uses-genuine-nintendo-silicon-system-also-includes-a-dock-design-shared-to-github",
+      "url": "https://www.tomshardware.com/video-games/nintendo/keychain-size-gamecube-uses-genuine-nintendo-silicon-system-also-includes-a-dock-design-shared-to-github",
+      "title": "[Tom's Hardware] Keychain-size ‘GameCube’ uses genuine Nintendo silicon — system also includes a dock, design shared to GitHub",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/7En8WagyGRmiv93yaXhbsQ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVideo showcases the Nintendo Kawaii project, in which modders have shrunken a boxy GameCube down to a keychain.",
+      "date_published": "2026-05-03T11:20:12+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 36,
+      "_quality_score": 36,
+      "_theme_score": 90,
+      "_final_score": 90,
+      "_keyword_matches": 0,
+      "_boosted_score": 10,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/7En8WagyGRmiv93yaXhbsQ-1280-80.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/the-ps5-can-finally-play-ps3-discs-but-only-because-modders-made-it-happen/",
+      "url": "https://www.xda-developers.com/the-ps5-can-finally-play-ps3-discs-but-only-because-modders-made-it-happen/",
+      "title": "[XDA Developers] The PS5 can finally play PS3 discs, but only because modders made it happen",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/12/playstation-5-ps5-console-with-games-and-box.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBust out those classics.",
+      "date_published": "2026-05-06T03:41:12+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 25,
+      "_quality_score": 25,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 7,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2025/12/playstation-5-ps5-console-with-games-and-box.png"
+    },
+    {
+      "id": "https://www.androidauthority.com/iniu-pocket-rocket-p50-power-bank-2-3663496/",
+      "url": "https://www.androidauthority.com/iniu-pocket-rocket-p50-power-bank-2-3663496/",
+      "title": "[Android Authority] The INIU Pocket Rocket P50 is the smallest 10,000mAh fast-charging power bank you can buy",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/P50-lifestyle-2-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAnd you can get it for less than $30.",
+      "date_published": "2026-05-05T10:23:39+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/P50-lifestyle-2-scaled.jpg"
+    },
+    {
+      "id": "https://www.zdnet.com/article/bose-lifestyle-ultra-lineup-announcement/",
+      "url": "https://www.zdnet.com/article/bose-lifestyle-ultra-lineup-announcement/",
+      "title": "[ZDNet] Bose's new home theater system is optimized for your various TV setups",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/220d252d7cb959723c746afb5eaf2c5316c87e4e/2026/05/04/75af26c2-410a-408e-a356-2ecf9d772a39/liu.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBose's Lifestyle Ultra lineup consists of three new products, and software is both one of their greatest benefits and a major drawback.",
+      "date_published": "2026-05-05T12:00:48+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.zdnet.com/a/img/resize/220d252d7cb959723c746afb5eaf2c5316c87e4e/2026/05/04/75af26c2-410a-408e-a356-2ecf9d772a39/liu.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.techradar.com/tablets/ereaders/this-viral-ereader-has-come-out-of-nowhere-and-bookworms-cant-get-enough-of-it-but-it-could-ring-alarm-bells-for-amazon-as-it-surpasses-the-kindle-colorsoft-on-the-retailers-charts",
+      "url": "https://www.techradar.com/tablets/ereaders/this-viral-ereader-has-come-out-of-nowhere-and-bookworms-cant-get-enough-of-it-but-it-could-ring-alarm-bells-for-amazon-as-it-surpasses-the-kindle-colorsoft-on-the-retailers-charts",
+      "title": "[TechRadar] This viral ereader has come out of nowhere, and bookworms can’t get enough of it — but it ‘could ring alarm bells’ for Amazon as it surpasses the Kindle Colorsoft on the retailer’s charts",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/yPcXo5jrGmvz3XxwkKx8uh-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Xteink X4 ereader is the latest social media tech obsession, and it's emerging as a serious Kindle rival.",
+      "date_published": "2026-05-05T16:14:29+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 22,
+      "_quality_score": 22,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/yPcXo5jrGmvz3XxwkKx8uh-1280-80.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/someone-made-a-gaming-pc-so-big-you-can-live-in-it-and-yes-it-actually-plays-games/",
+      "url": "https://www.xda-developers.com/someone-made-a-gaming-pc-so-big-you-can-live-in-it-and-yes-it-actually-plays-games/",
+      "title": "[XDA Developers] Someone made a gaming PC so big you can live in it, and yes, it actually plays games",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/giant-pc-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's like Toy Story but if Woody had a Twitch career.",
+      "date_published": "2026-05-04T22:25:36+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 22,
+      "_quality_score": 22,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/giant-pc-featured.jpg"
+    },
+    {
+      "id": "https://www.neowin.net/deals/get-this-fast-2tb-wdblack-ssd-for-35-off-on-amazon-plus-more-deals/",
+      "url": "https://www.neowin.net/deals/get-this-fast-2tb-wdblack-ssd-for-35-off-on-amazon-plus-more-deals/",
+      "title": "[Neowin] Get this fast 2TB WD_Black SSD for 35% off on Amazon (plus more deals)",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1778011652_wd_black_deal_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1778011652_wd_black_deal_medium.webp\" /></div>If you&#039;re in the market for a new SSD, the fast, reliable, 2TB WD_Black SN8100 drive is now on sale on Amazon. <a href=\"https://www.neowin.net/deals/get-this-fast-2tb-wdblack-ssd-for-35-off-on-amazon-plus-more-deals/\">Read more...</a>",
+      "date_published": "2026-05-05T21:56:02+00:00",
+      "authors": [
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
+        }
+      ],
+      "ai_score": 16,
+      "_quality_score": 16,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 4,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.neowin.com/news/images/uploaded/2026/05/1778011652_wd_black_deal_story.webp"
     }
   ]
 }
