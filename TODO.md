@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-05-07 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-07 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-07 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -62,6 +67,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-05-08 | 🌅 morning | 184 | news:71(40%), ai-tech:64(36%), homelab:20(11%) |
 | 2026-05-07 | 🌙 evening | 268 | news:101(40%), ai-tech:75(30%), homelab:32(13%) |
 | 2026-05-07 | 🌅 morning | 233 | news:72(35%), ai-tech:63(30%), homelab:41(20%) |
 | 2026-05-06 | 🌙 evening | 396 | news:132(36%), ai-tech:107(29%), homelab:59(16%) |
@@ -74,9 +80,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-01 | 🌙 evening | 111 | news:46(45%), ai-tech:19(18%), homelab:18(17%) |
 | 2026-05-01 | 🌅 morning | 164 | news:57(38%), ai-tech:53(35%), homelab:20(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-08 06:16 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-08 14:23 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
