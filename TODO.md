@@ -57,11 +57,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-01 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-01 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-05-01 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-04-30 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-04-30 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-04-30 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-04-30 | 🌅 4:30 AM Pacific | ⚠️ **IndigiNews** failed | `HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)` |
-| 2026-04-30 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
@@ -78,11 +73,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-02 | 🌙 evening | 104 | news:44(47%), homelab:21(23%), ai-tech:15(16%) |
 | 2026-05-01 | 🌙 evening | 111 | news:46(45%), ai-tech:19(18%), homelab:18(17%) |
 | 2026-05-01 | 🌅 morning | 164 | news:57(38%), ai-tech:53(35%), homelab:20(13%) |
-| 2026-04-30 | 🌅 morning | 190 | news:64(37%), ai-tech:56(32%), homelab:29(17%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-07 15:13 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-08 06:16 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
