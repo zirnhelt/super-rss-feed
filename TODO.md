@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-08 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -64,6 +69,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-05-09 | 🌅 morning | 109 | news:48(45%), homelab:23(22%), ai-tech:22(21%) |
 | 2026-05-08 | 🌅 morning | 184 | news:71(40%), ai-tech:64(36%), homelab:20(11%) |
 | 2026-05-08 | 🌙 evening | 249 | news:101(42%), ai-tech:67(28%), homelab:35(15%) |
 | 2026-05-07 | 🌙 evening | 268 | news:101(40%), ai-tech:75(30%), homelab:32(13%) |
@@ -76,9 +82,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-02 | 🌅 morning | 110 | news:49(49%), homelab:24(24%), ai-tech:19(19%) |
 | 2026-05-02 | 🌙 evening | 104 | news:44(47%), homelab:21(23%), ai-tech:15(16%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-09 06:33 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-09 13:58 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
