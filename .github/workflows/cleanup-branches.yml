@@ -20,10 +20,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
-          GIT_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
-
           echo "Fetching all claude/ branches..."
-          branches=$(git ls-remote --heads "$GIT_URL" "refs/heads/claude/*" | \
+          branches=$(git ls-remote --heads \
+            "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" \
+            "refs/heads/claude/*" | \
             awk '{print $2}' | sed 's|refs/heads/||')
 
           if [ -z "$branches" ]; then
@@ -40,7 +40,7 @@ jobs:
 
             if [ "$open_prs" = "0" ]; then
               echo "Deleting ${branch} (no open PRs)"
-              git push "$GIT_URL" --delete "$branch" && \
+              gh api -X DELETE "repos/${REPO}/git/refs/heads/${branch}" && \
                 echo "  Deleted." || echo "  Failed to delete (may already be gone)."
             else
               echo "Keeping ${branch} (${open_prs} open PR(s))"
