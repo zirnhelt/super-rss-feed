@@ -1,0 +1,44 @@
+name: Cleanup Stale Branches
+
+on:
+  pull_request:
+    types: [closed]
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete stale claude/ branches with no open PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Fetching all claude/ branches..."
+          branches=$(gh api "repos/${REPO}/branches" --paginate \
+            --jq '.[].name | select(startswith("claude/"))')
+
+          if [ -z "$branches" ]; then
+            echo "No claude/ branches found."
+            exit 0
+          fi
+
+          for branch in $branches; do
+            open_prs=$(gh api "repos/${REPO}/pulls" \
+              -f state=open \
+              -f head="${REPO%%/*}:${branch}" \
+              --jq 'length')
+
+            if [ "$open_prs" = "0" ]; then
+              echo "Deleting ${branch} (no open PRs)"
+              gh api -X DELETE "repos/${REPO}/git/refs/heads/${branch}" && \
+                echo "  Deleted." || echo "  Failed to delete (may already be gone)."
+            else
+              echo "Keeping ${branch} (${open_prs} open PR(s))"
+            fi
+          done
