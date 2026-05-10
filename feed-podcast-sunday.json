@@ -22,639 +22,87 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Science, Wonder & the Natural World' — scientific discovery, ecology, natural phenomena, and the curiosity-driven study of living systems. Strong fits include: wildlife biology and species research, ecology studies and biodiversity findings, watershed and salmon research relevant to BC, astronomy and space science, new species discoveries, citizen science projects, natural history stories, wildfire science and forest ecology, climate science findings (not just policy), geology, evolution, and deep-time Earth stories, and any scientific research grounded in BC or Cariboo landscapes and ecosystems. Prefer articles that convey genuine curiosity and discovery — the 'how' and 'why' of the natural world. Penalise pure policy news, business stories, and technology without a science or ecology angle. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "sunday",
-    "generated_at": "2026-05-10T07:11:42.498117+00:00",
+    "generated_at": "2026-05-10T14:00:33.479925+00:00",
     "article_count": 40,
-    "bonus_count": 17,
+    "bonus_count": 15,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260508003121.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260508003121.htm",
-      "title": "[ScienceDaily] Scientists found the “holy grail” gene that could one day help humans regrow limbs",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists studying axolotls, zebrafish, and mice have uncovered a shared set of genes that may one day help humans regrow lost limbs. By identifying powerful “SP genes” involved in regeneration, researchers discovered that disabling these genes stopped proper bone regrowth in salamanders and mice. They then used a gene therapy inspired by zebrafish biology to partially restore regeneration in mice, marking a major step toward future treatments that could replace damaged limbs with living tissue instead of prosthetics.",
-      "date_published": "2026-05-09T05:04:19+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 82,
-      "_final_score": 82,
-      "_keyword_matches": 3,
-      "_boosted_score": 81,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260502233856.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260502233856.htm",
-      "title": "[ScienceDaily] Evolution isn’t random. Scientists find the same genes used for 120 million years",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEvolution seems to follow a script more often than expected. Researchers found that distantly related butterflies and moths have reused the same pair of genes for over 120 million years to produce strikingly similar warning colors. Rather than altering the genes themselves, evolution modifies how they’re switched on and off. This discovery hints that life may evolve in more predictable ways than previously believed.",
-      "date_published": "2026-05-04T05:09:17+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 3,
-      "_boosted_score": 80,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260504154014.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260504154014.htm",
-      "title": "[ScienceDaily] Scientists just created exotic new forms of matter that shouldn’t exist",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new quantum physics study reveals that simply changing a magnetic field over time can unlock entirely new forms of matter that don’t exist under normal conditions. By carefully “driving” materials with timed magnetic shifts, researchers created exotic quantum states that could be far more stable and resistant to errors—one of the biggest challenges in quantum computing. This breakthrough suggests that the future of quantum technology may depend not just on what materials are made of, but how they’re manipulated in time.",
-      "date_published": "2026-05-05T02:48:12+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 3,
-      "_boosted_score": 78,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260506225229.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260506225229.htm",
-      "title": "[ScienceDaily] What scientists found inside coral reefs could change the future of medicine",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/zoanthids-colony-reef-building-corals.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBeneath the beauty of coral reefs lies a hidden universe of microbes unlike anything scientists expected. Each coral species supports its own specialized microbial partners, many of which have never been studied before. These microbes produce a stunning variety of chemical compounds with potential uses in medicine and biotech. The discovery highlights just how much is at stake as coral reefs face growing threats.",
-      "date_published": "2026-05-08T04:10:10+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 82,
-      "_final_score": 82,
-      "_keyword_matches": 2,
-      "_boosted_score": 61,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencedaily.com/images/1920/zoanthids-colony-reef-building-corals.webp"
-    },
-    {
-      "id": "https://kottke.org/26/05/animated-artemis-ii-photos-reveal-satellites-buzzing-around-earth",
-      "url": "https://kottke.org/26/05/animated-artemis-ii-photos-reveal-satellites-buzzing-around-earth",
-      "title": "[Kottke.org] Animated Artemis II Photos Reveal Satellites Buzzing Around Earth",
-      "content_html": "<img src=\"https://i.ytimg.com/vi/ArDi7Y20cto/sddefault.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p></p>\n\t<p>Ok, this is incredible: <a href=\"https://www.reddit.com/r/ArtemisProgram/comments/1t3c2i3/a_timelapse_of_earths_nightside_i_created_using_a/\">this person on Reddit</a> discovered that if you take a bunch of the sequential photos of the Earth captured by the Artemis II crew and animate them, you can see that some of what appear to be stars <a href=\"https://www.youtube.com/watch?v=ArDi7Y20cto\">are actually satellites</a>, buzzing around the Earth like flies. You can see them really clearly <a href=\"https://bsky.app/profile/theseaning.bsky.social/post/3ml7vni47a22g\">in Seán Doran&#8217;s remastered animation</a>. Totally totally gobsmacking. Literally awesome.\n</p>\n \n\n        \n         <p><strong>Tags:</strong> <a href=\"https://kottke.org/tag/artemis\">artemis</a> · <a href=\"https://kottke.org/tag/astronomy\">astronomy</a> · <a href=\"https://kottke.org/tag/Earth\">Earth</a> · <a href=\"https://kottke.org/tag/photography\">photography</a> · <a href=\"https://kottke.org/tag/science\">science</a> · <a href=\"https://kottke.org/tag/Sean%20Doran\">Sean Doran</a> · <a href=\"https://kottke.org/tag/space\">space</a></p>",
-      "date_published": "2026-05-07T14:33:00+00:00",
+      "id": "https://kottke.org/26/05/the-2025-alaskan-tsunami-that-measured-1578-feet-tall",
+      "url": "https://kottke.org/26/05/the-2025-alaskan-tsunami-that-measured-1578-feet-tall",
+      "title": "[Kottke.org] The 2025 Alaskan Tsunami That Measured 1578 Feet Tall",
+      "content_html": "<img src=\"http://kottke.org/plus/misc/images/editor-1778192894-96a465f1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img src=\"https://kottke.org/cdn-cgi/image/format=auto,fit=scale-down,width=1200,metadata=none//plus/misc/images/editor-1778192894-96a465f1.jpg\" /></p>\n\t<p>Last year in an Alaskan fjord, <a href=\"https://www.popsci.com/environment/tsunami-alaskan-cruise-tracy-arm-fjord/\">a surprise landslide triggered a tsunami 1578 feet tall</a>. That&#8217;s not a typo&#8230;the wave was taller than all but 13 of the world&#8217;s tallest buildings.</p>\n\t<blockquote><p>In the early hours of August 10, 2025, an enormous landslide triggered a massive tsunami down the fjord. The tsunami was 1,578-feet-tall, or one-and-a-half times the height of the Eiffel Tower. Fortunately, no one was caught in the wave since it hit around 5:30 a.m. local time. If the tsunami hit later that day, about 20 cruise ships and numerous recreational boaters and kayakers could have been impacted by the giant wave.</p><p>In a study published today in the journal Science, researchers studied this “near miss” event, finding that the continued effects of climate change were likely the cause.</p></blockquote>\n\t<p>The mass of rock that set off the wave contained <a href=\"https://www.nytimes.com/2026/05/06/science/tsunami-landslide-alaska-climate-arctic.html\">&#8220;a volume 24 times larger than that of the great pyramid of Giza&#8221;</a>, with the initial wave moving at ~150mph. Professor Dan Shugar <a href=\"https://www.youtube.com/watch?v=ZCRM4ETPHkQ\">explains what happened</a> on that morning and shows a simulation of what happened:</p>\n\t<p></p>\n\t<p>From <a href=\"https://www.nytimes.com/2026/05/06/science/tsunami-landslide-alaska-climate-arctic.html\">this piece in the NY Times</a>:</p>\n\t<blockquote><p>The Tracy Arm landslide was preceded by an unusually rapid retreat of the South Sawyer Glacier, leaving the rock slope that ultimately collapsed bare and unsupported. That same rearrangement of land elements is increasingly occurring throughout Alaskan fjords and around the world. As glaciers retreat and thawing permafrost lubricates slopes, these giant landslides may become more frequent.</p></blockquote>\n\t<p>Incredibly, this isn&#8217;t even the largest recorded tsunami; a 1958 earthquake with a magnitude of 7.8 to 8.3 triggered a rockslide that <a href=\"https://en.wikipedia.org/wiki/1958_Lituya_Bay_earthquake_and_megatsunami\">created a wave 1,719 feet tall</a> in Lituya Bay. If you don&#8217;t want to waste a couple of hours, I&#8217;d suggest not clicking through to <a href=\"https://en.wikipedia.org/wiki/Megatsunami\">the megatsunami Wikipedia page</a>.</p>\n\t<p>See also <a href=\"https://kottke.org/22/02/when-the-mediterranean-sea-dried-up\">When the Mediterranean Sea Dried Up</a>.\n</p>\n \n\n        \n         <p><strong>Tags:</strong> <a href=\"https://kottke.org/tag/science\">science</a> · <a href=\"https://kottke.org/tag/tsunamis\">tsunamis</a> · <a href=\"https://kottke.org/tag/video\">video</a></p>",
+      "date_published": "2026-05-08T13:55:00+00:00",
       "authors": [
         {
           "name": "Kottke.org",
           "url": "https://kottke.org/"
         }
       ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 3,
+      "_boosted_score": 76,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "http://kottke.org/plus/misc/images/editor-1778192894-96a465f1.jpg"
+    },
+    {
+      "id": "https://www.wired.com/story/mexican-science-transforms-scorpion-venom-and-habanero-chile-into-antibiotics-against-resistant-bacteria/",
+      "url": "https://www.wired.com/story/mexican-science-transforms-scorpion-venom-and-habanero-chile-into-antibiotics-against-resistant-bacteria/",
+      "title": "[WIRED] Venom and Hot Peppers Offer a Key to Killing Resistant Bacteria",
+      "content_html": "<img src=\"https://media.wired.com/photos/69fc92e915dbf6752d6b34ea/master/pass/GettyImages-2217201378.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers have developed three new antibiotics from scorpion venom and habanero peppers to combat tuberculosis and other drug-resistant pathogens.",
+      "date_published": "2026-05-08T09:00:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
       "ai_score": 68,
       "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 2,
       "_boosted_score": 60,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
-      "image": "https://i.ytimg.com/vi/ArDi7Y20cto/sddefault.jpg"
+      "image": "https://media.wired.com/photos/69fc92e915dbf6752d6b34ea/master/pass/GettyImages-2217201378.jpg"
     },
     {
-      "id": "https://www.sciencealert.com/movement-triggers-a-hidden-brain-cleaning-mechanism-study-shows",
-      "url": "https://www.sciencealert.com/movement-triggers-a-hidden-brain-cleaning-mechanism-study-shows",
-      "title": "[ScienceAlert] Movement Triggers a Hidden 'Brain Cleaning' Mechanism, Study Shows",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/brain-cleaning-mechanism.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Movement Triggers a Hidden &#039;Brain Cleaning&#039; Mechanism, Study Shows\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/brain-cleaning-mechanism.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />'It could make such a difference for your brain health.'</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-06T11:00:21+00:00",
+      "id": "https://www.sciencealert.com/study-of-a-million-blood-cells-helps-explain-why-women-face-more-autoimmune-disease",
+      "url": "https://www.sciencealert.com/study-of-a-million-blood-cells-helps-explain-why-women-face-more-autoimmune-disease",
+      "title": "[ScienceAlert] Study of a Million Blood Cells Helps Explain Why Women Face More Autoimmune Disease",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/ImmuneSystem.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Illustration of human lymphocytes\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/ImmuneSystem.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"The immune system needs to be studied with sex in mind.\"</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-07T15:00:11+00:00",
       "authors": [
         {
           "name": "ScienceAlert",
           "url": "https://www.sciencealert.com"
         }
       ],
-      "ai_score": 65,
-      "_quality_score": 65,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 2,
-      "_boosted_score": 59,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/05/brain-cleaning-mechanism.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/06/climate/amazon-rain-forest-deforestation-climate.html",
-      "url": "https://www.nytimes.com/2026/05/06/climate/amazon-rain-forest-deforestation-climate.html",
-      "title": "[NYT Top Stories] New Study Shows Risks of Amazon Deforestation. And Rewards of Protection.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/06/multimedia/06CLI-AMAZON-TIPPING-POINT-blvj/06CLI-AMAZON-TIPPING-POINT-blvj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers examined the combined effects of tree loss and global warming in an effort to better understand how and when an ecosystem collapse could unfold.",
-      "date_published": "2026-05-06T18:25:04+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 63,
-      "_quality_score": 63,
-      "_theme_score": 82,
-      "_final_score": 82,
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 2,
       "_boosted_score": 58,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/05/06/multimedia/06CLI-AMAZON-TIPPING-POINT-blvj/06CLI-AMAZON-TIPPING-POINT-blvj-mediumSquareAt3X.jpg"
+      "image": "https://www.sciencealert.com/images/2026/05/ImmuneSystem.jpg"
     },
     {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260508022653.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260508022653.htm",
-      "title": "[ScienceDaily] Scientists make stunning discovery that could change our understanding of the Universe",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/universe-laws-liquids.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists may have uncovered a surprising secret behind why life exists at all. A new study suggests that the Universe’s fundamental constants — the deep physical rules that govern everything from atoms to stars — appear to sit within an incredibly narrow “sweet spot” that allows liquids to flow properly inside living cells. Even tiny shifts in these constants could make blood too thick, water too sticky, or cellular motion impossible, potentially wiping out life as we know it.",
-      "date_published": "2026-05-08T07:40:08+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 2,
-      "_boosted_score": 57,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencedaily.com/images/1920/universe-laws-liquids.webp"
-    },
-    {
-      "id": "https://refractor.io/environment/earthquake-whiplash-stopping-point/",
-      "url": "https://refractor.io/environment/earthquake-whiplash-stopping-point/",
-      "title": "[New Atlas] Earthquake 'whiplash' seen in large seismic events for the first time",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/2c61282/2147483647/strip/true/crop/6200x3255+0+119/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F03%2F99%2F93ae29544a0ba216fcac3e219718%2Fdepositphotos-639034164-xl.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"How an earthquake stops provides key insights into why some are particularly damaging\" src=\"https://assets.newatlas.com/dims4/default/0d33111/2147483647/strip/true/crop/6200x3493+0+0/resize/1440x811!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F03%2F99%2F93ae29544a0ba216fcac3e219718%2Fdepositphotos-639034164-xl.jpg\" /><p>Newly observed negative-phase waveforms in earthquake data have alerted scientists to a previously unrecognized feature of the \"big ones\" to do with tectonic plates slipping by each other: they create a kind of geological 'whiplash' that happens when a rupturing fault movement abruptly stops.</p><p><a href=\"https://refractor.io/environment/earthquake-whiplash-stopping-point/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/environment/\">Environment</a>, <a href=\"https://refractor.io/science/\">Science</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/kyoto-university/\" rel=\"tag\">Kyoto University</a>, <a href=\"https://newatlas.com/tag/earthquake/\" rel=\"tag\">Earthquake</a>, <a href=\"https://newatlas.com/tag/nature/\" rel=\"tag\">nature</a>, <a href=\"https://newatlas.com/tag/geology/\" rel=\"tag\">Geology</a>, <a href=\"https://newatlas.com/tag/disasters/\" rel=\"tag\">Disasters</a></p>",
-      "date_published": "2026-05-07T07:15:28+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 2,
-      "_boosted_score": 57,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/2c61282/2147483647/strip/true/crop/6200x3255+0+119/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F03%2F99%2F93ae29544a0ba216fcac3e219718%2Fdepositphotos-639034164-xl.jpg&rf.image_optimisation=0"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260502233918.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260502233918.htm",
-      "title": "[ScienceDaily] Physicists just found a tiny flaw in time itself",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPhysicists are rethinking one of quantum mechanics’ biggest puzzles: how fuzzy possibilities become definite reality. New research suggests that spontaneous “collapse” processes—possibly linked to gravity—could subtly blur time itself. This wouldn’t affect clocks we use today, but it reveals a hidden limit to how precise time can ever be. The findings open a new path toward uniting quantum physics with gravity.",
-      "date_published": "2026-05-03T13:40:13+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 2,
-      "_boosted_score": 56,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260508003113.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260508003113.htm",
-      "title": "[ScienceDaily] Ice age humans in China crafted surprisingly advanced stone tools 146,000 years ago",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/ancient-stone-tools-lingjing.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists in China discovered that ancient humans were making surprisingly advanced stone tools during a harsh ice age 146,000 years ago. The tools, created by Homo juluensis, show careful planning and complex thinking rather than simple stone-chipping. Researchers dated the site using tiny calcite crystals inside animal bones, revealing the tools are much older than expected. The discovery challenges the idea that human creativity only thrives in easy, prosperous times.",
-      "date_published": "2026-05-09T10:22:50+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 46,
-      "_quality_score": 46,
-      "_theme_score": 88,
-      "_final_score": 88,
-      "_keyword_matches": 2,
-      "_boosted_score": 53,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencedaily.com/images/1920/ancient-stone-tools-lingjing.webp"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260509210637.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260509210637.htm",
-      "title": "[ScienceDaily] Antarctica is melting from below and scientists say it’s worse than expected",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/giant-iceberg-melting-underwater.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists have uncovered a hidden Antarctic threat that could accelerate global sea level rise far faster than expected. Deep beneath floating ice shelves, long channels carved into the ice appear to trap warmer ocean water, dramatically speeding up melting from below. Even regions of East Antarctica once considered relatively stable may be far more vulnerable than scientists realized. Researchers warn that current climate models may be missing this dangerous process entirely, meaning future sea level rise could be underestimated.",
-      "date_published": "2026-05-10T04:28:34+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://www.sciencedaily.com/images/1920/giant-iceberg-melting-underwater.webp"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm",
-      "title": "[ScienceDaily] Scientists stunned as volcano cloud destroys methane in the atmosphere",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/hunga-tonga-hunga-haapai-eruption.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA colossal underwater volcano in the South Pacific may have revealed a surprising new weapon against climate change. After the 2022 eruption of Hunga Tonga–Hunga Ha’apai, scientists detected enormous amounts of formaldehyde in the atmosphere — a telltale sign that methane, one of the planet’s most powerful greenhouse gases, was being destroyed. Researchers now believe volcanic ash mixed with salty seawater and sunlight created reactive chlorine particles that effectively “cleaned up” some of the methane released by the eruption itself.",
-      "date_published": "2026-05-10T05:01:20+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencedaily.com/images/1920/hunga-tonga-hunga-haapai-eruption.webp"
-    },
-    {
-      "id": "https://www.techradar.com/pro/putting-the-whole-earth-into-a-computer-chinese-scientists-use-supercomputers-to-solve-one-of-yellowstone-parks-most-enduring-volcanic-mysteries-and-now-want-to-create-a-digital-twin-of-our-planet-to-predict-its-future",
-      "url": "https://www.techradar.com/pro/putting-the-whole-earth-into-a-computer-chinese-scientists-use-supercomputers-to-solve-one-of-yellowstone-parks-most-enduring-volcanic-mysteries-and-now-want-to-create-a-digital-twin-of-our-planet-to-predict-its-future",
-      "title": "[TechRadar] 'Putting the whole Earth into a computer’: Chinese scientists use supercomputers to solve one of Yellowstone’s most enduring volcanic mysteries — and now want to create a digital twin of our planet to predict its future",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ZVk9Pf6f9zkCpt573sx8u5-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChinese researchers used supercomputers to model Yellowstone, revealing that tectonic forces shaped magma pathways and sparking ambitions for full planetary simulation systems.",
-      "date_published": "2026-05-06T21:25:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/ZVk9Pf6f9zkCpt573sx8u5-1280-80.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/curiosity-drilled-into-a-rock-on-mars-and-gave-scientists-a-big-surprise",
-      "url": "https://www.sciencealert.com/curiosity-drilled-into-a-rock-on-mars-and-gave-scientists-a-big-surprise",
-      "title": "[ScienceAlert] Curiosity Drilled Into a Rock on Mars And Gave Scientists a Big Surprise",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/curiosity-drill.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Curiosity Drilled Into a Rock on Mars And Gave Scientists a Big Surprise\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/curiosity-drill.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Whoops!</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-06T18:00:15+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/05/curiosity-drill.jpg"
-    },
-    {
-      "id": "https://www.quantamagazine.org/what-causes-lightning-the-answer-keeps-getting-more-interesting-20260506/",
-      "url": "https://www.quantamagazine.org/what-causes-lightning-the-answer-keeps-getting-more-interesting-20260506/",
-      "title": "[Quanta Magazine] What Causes Lightning? The Answer Keeps Getting More Interesting.",
-      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/05/LightningIgnition-crEarthScienceAndRemoteSensingUnit_NASA-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nArmed with a slew of new instruments, physicists are closing in on one of nature’s oldest mysteries — and finding that storm clouds are seething with violent and unexpected phenomena.            <p>The post <a href=\"https://www.quantamagazine.org/what-causes-lightning-the-answer-keeps-getting-more-interesting-20260506/\" target=\"_blank\">What Causes Lightning? The Answer Keeps Getting More Interesting.</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
-      "date_published": "2026-05-06T14:48:32+00:00",
-      "authors": [
-        {
-          "name": "Quanta Magazine",
-          "url": "https://www.quantamagazine.org"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/05/LightningIgnition-crEarthScienceAndRemoteSensingUnit_NASA-Default.webp"
-    },
-    {
-      "id": "https://www.sciencealert.com/elusive-quantum-material-turns-out-to-be-something-even-stranger",
-      "url": "https://www.sciencealert.com/elusive-quantum-material-turns-out-to-be-something-even-stranger",
-      "title": "[ScienceAlert] Elusive Quantum Material Turns Out to Be Something Even Stranger",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/GlowingLines.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Concentric shapes\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/GlowingLines.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A new state of matter.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-09T12:00:29+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/05/GlowingLines.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/scientists-found-an-impossible-atmosphere-on-a-tiny-world-beyond-neptune",
-      "url": "https://www.sciencealert.com/scientists-found-an-impossible-atmosphere-on-a-tiny-world-beyond-neptune",
-      "title": "[ScienceAlert] Scientists Found An 'Impossible' Atmosphere on A Tiny World Beyond Neptune",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/occultation.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Scientists Found An &#039;Impossible&#039; Atmosphere on A Tiny World Beyond Neptune\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/occultation.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />How did it get there?</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-04T15:00:57+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/05/occultation.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/we-now-know-when-dog-brains-shrank-and-it-might-be-our-fault",
-      "url": "https://www.sciencealert.com/we-now-know-when-dog-brains-shrank-and-it-might-be-our-fault",
-      "title": "[ScienceAlert] We Now Know When Dog Brains Shrank – And It Might Be Our Fault",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/04/dog-brain.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"We Now Know When Dog Brains Shrank &ndash; And It Might Be Our Fault\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/04/dog-brain.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A reliable marker of domestication.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-05T23:30:42+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/04/dog-brain.jpg"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260508003131.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260508003131.htm",
-      "title": "[ScienceDaily] Physicists discover quantum particles that break the rules of reality",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/quantum-particle-physics-mystery.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPhysicists may have just cracked open a hidden side of the quantum world. For decades, every known particle was thought to belong to one of two categories — bosons or fermions — but researchers have now shown that bizarre “in-between” particles called anyons could also exist in a one-dimensional system. Even more exciting, these strange particles may be adjustable, allowing scientists to tune their behavior in ways never before possible.",
-      "date_published": "2026-05-09T13:00:44+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 92,
-      "_final_score": 92,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencedaily.com/images/1920/quantum-particle-physics-mystery.webp"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260504154012.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260504154012.htm",
-      "title": "[ScienceDaily] Webb space telescope reveals a scorching “super-Earth” that looks like Mercury",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA scorching, airless world just 48 light-years away is offering scientists a rare glimpse into the geology of distant planets. Using the James Webb Space Telescope, researchers studied LHS 3844 b—a tidally locked “super-Earth” with a permanent dayside hot enough to melt metal—and discovered it’s a dark, barren rock with no atmosphere.",
-      "date_published": "2026-05-06T00:57:44+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.sciencealert.com/look-up-the-halleys-comet-meteor-shower-is-just-about-to-peak",
-      "url": "https://www.sciencealert.com/look-up-the-halleys-comet-meteor-shower-is-just-about-to-peak",
-      "title": "[ScienceAlert] Look Up! The Halley's Comet Meteor Shower Is Just About to Peak",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/Eta-aquariids-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Look Up! The Halley&#039;s Comet Meteor Shower Is Just About to Peak\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/Eta-aquariids-1.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Here's how to get the best experience.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-05T03:28:14+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 38,
-      "_quality_score": 38,
-      "_theme_score": 88,
-      "_final_score": 88,
-      "_keyword_matches": 1,
-      "_boosted_score": 31,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.sciencealert.com/images/2026/05/Eta-aquariids-1.jpg"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260504154023.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260504154023.htm",
-      "title": "[ScienceDaily] A 75-million-year-old fossil reveals a shocking tyrannosaur secret",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTyrannosaurs may be famous as fearsome apex predators, but new research reveals a more opportunistic—and slightly grim—side to their behavior. Using high-resolution 3D scans, a researcher identified precise bite marks on a massive tyrannosaur foot bone, showing that a smaller tyrannosaur had fed on the remains of a much larger relative over 75 million years ago.",
-      "date_published": "2026-05-05T17:14:44+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 30,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260509210639.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260509210639.htm",
-      "title": "[ScienceDaily] Scientists say a critical Atlantic ocean current is weakening and the world could feel the impact",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/amoc-satellite-image.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists have uncovered strong evidence that a major Atlantic Ocean current system tied to global climate is weakening. The slowdown has been detected across a vast region of the North Atlantic over nearly two decades. Since this ocean circulation helps regulate weather and temperatures, changes could affect storms, rainfall, sea levels, and even winter conditions in parts of Europe and North America.",
-      "date_published": "2026-05-10T04:49:07+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.sciencedaily.com/images/1920/amoc-satellite-image.webp"
-    },
-    {
-      "id": "https://nautil.us/a-tiny-rock-in-the-outer-solar-system-has-an-atmosphere-but-it-shouldnt-1280444/",
-      "url": "https://nautil.us/a-tiny-rock-in-the-outer-solar-system-has-an-atmosphere-but-it-shouldnt-1280444/",
-      "title": "[Nautilus] A Tiny Rock in the Outer Solar System Has an Atmosphere—But It Shouldn’t",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_ab8e61.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Astronomers aren’t sure why</p>\n<p>The post <a href=\"https://nautil.us/a-tiny-rock-in-the-outer-solar-system-has-an-atmosphere-but-it-shouldnt-1280444/\">A Tiny Rock in the Outer Solar System Has an Atmosphere—But It Shouldn’t</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-05-04T21:00:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_ab8e61.png?w=564"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260505234620.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260505234620.htm",
-      "title": "[ScienceDaily] Scientists reverse diabetes in mice with lab-grown insulin cells",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists in Sweden have taken a major step toward a potential cure for type 1 diabetes by developing a more reliable way to create insulin-producing cells from human stem cells. These lab-grown cells not only respond strongly to glucose but were also able to restore blood sugar control when transplanted into diabetic mice.",
-      "date_published": "2026-05-07T02:28:45+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
-    },
-    {
-      "id": "https://www.quantamagazine.org/the-hidden-mathematical-dance-inside-plant-cells-20260504/",
-      "url": "https://www.quantamagazine.org/the-hidden-mathematical-dance-inside-plant-cells-20260504/",
-      "title": "[Quanta Magazine] The Hidden Mathematical Dance Inside Plant Cells",
-      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/05/ChloroplastPacking-crBenediktPleyer_NomadicNostoc_SciencePhotoLibrary-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe sunlight-collecting organelles known as chloroplasts solve a packing problem: how to optimize photosynthesis without sustaining damage from dangerously intense rays.            <p>The post <a href=\"https://www.quantamagazine.org/the-hidden-mathematical-dance-inside-plant-cells-20260504/\" target=\"_blank\">The Hidden Mathematical Dance Inside Plant Cells</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
-      "date_published": "2026-05-04T14:39:38+00:00",
-      "authors": [
-        {
-          "name": "Quanta Magazine",
-          "url": "https://www.quantamagazine.org"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/05/ChloroplastPacking-crBenediktPleyer_NomadicNostoc_SciencePhotoLibrary-Default.webp"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260508003115.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260508003115.htm",
-      "title": "[ScienceDaily] The Universe’s biggest black holes may be forged in violent mergers",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/two-black-holes-merging-in-space.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Universe’s biggest black holes may not be born giants after all. Scientists analyzing gravitational-wave signals from dozens of black hole collisions found evidence that the heaviest black holes are likely “cosmic recyclers” — formed through repeated smashups inside incredibly crowded star clusters. These violent chain reactions appear to create a distinct class of rapidly spinning black holes that stand apart from ordinary ones formed by dying stars.",
-      "date_published": "2026-05-08T06:16:10+00:00",
+      "id": "https://www.sciencedaily.com/releases/2026/05/260508171123.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260508171123.htm",
+      "title": "[ScienceDaily] New obesity discovery rewrites decades of fat science",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists have uncovered a surprising secret hidden inside fat cells that could reshape how we think about obesity and metabolic disease. A protein called HSL, long believed to simply release stored fat when the body needs energy, turns out to have a second job deep inside the nucleus of fat cells—helping keep those cells healthy and balanced. Even more surprising, people and mice missing this protein don’t become obese as expected; instead, they lose fat tissue in a dangerous condition called lipodystrophy.",
+      "date_published": "2026-05-08T21:21:20+00:00",
       "authors": [
         {
           "name": "ScienceDaily",
@@ -663,25 +111,577 @@
       ],
       "ai_score": 61,
       "_quality_score": 61,
-      "_theme_score": 88,
-      "_final_score": 88,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 2,
+      "_boosted_score": 58,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencedaily.com/images/1920/two-black-holes-merging-in-space.webp"
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
     },
     {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260504211848.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260504211848.htm",
-      "title": "[ScienceDaily] MIT scientists discover millions of “silent synapses” in the adult brain",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMIT neuroscientists have uncovered a surprising secret hidden in the adult brain: millions of “silent synapses,” dormant connections that lie in wait until new learning calls them into action. Once thought to exist only in early development, these inactive links make up about 30% of synapses in the adult cortex and can be rapidly activated to form fresh memories.",
-      "date_published": "2026-05-06T20:05:59+00:00",
+      "id": "https://www.sciencealert.com/magnetic-brain-pulses-help-kids-with-autism-to-communicate-study-finds",
+      "url": "https://www.sciencealert.com/magnetic-brain-pulses-help-kids-with-autism-to-communicate-study-finds",
+      "title": "[ScienceAlert] Magnetic Brain Pulses Help Kids With Autism to Communicate, Study Finds",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/young-girl-blonde-hair.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"young girl blonde hair\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/young-girl-blonde-hair.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Results can be seen after just five days.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-10T01:00:27+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 58,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/young-girl-blonde-hair.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/some-signs-of-depression-may-show-up-in-blood-study-finds",
+      "url": "https://www.sciencealert.com/some-signs-of-depression-may-show-up-in-blood-study-finds",
+      "title": "[ScienceAlert] Some Signs of Depression May Show Up in Blood, Study Finds",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2025/11/blood-vial-screen.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"blood vial held against MRI images on screen\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/11/blood-vial-screen.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Those most at risk may benefit first.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-07T11:00:49+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality_score": 60,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 58,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2025/11/blood-vial-screen.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/one-critical-factor-predicts-longevity-better-than-diet-or-exercise-study-finds",
+      "url": "https://www.sciencealert.com/one-critical-factor-predicts-longevity-better-than-diet-or-exercise-study-finds",
+      "title": "[ScienceAlert] One Critical Factor Predicts Longevity Better Than Diet or Exercise, Study Finds",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2025/12/Young-hand-holding-older-wrinkled-hand-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A young-looking hand holding an elderly person&#039;s hand\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/12/Young-hand-holding-older-wrinkled-hand-.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />It's vital for almost every aspect of our well-being.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-08T22:41:36+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 57,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2025/12/Young-hand-holding-older-wrinkled-hand-.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/a-nasa-study-about-houseplants-has-been-widely-misread-scientist-says",
+      "url": "https://www.sciencealert.com/a-nasa-study-about-houseplants-has-been-widely-misread-scientist-says",
+      "title": "[ScienceAlert] A NASA Study About Houseplants Has Been Widely Misread, Scientist Says",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/Houseplant-Ivy-in-a-White-Pot-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"NASA Helped Start a Houseplant Myth. Scientists Say The Truth Is Complicated\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/Houseplant-Ivy-in-a-White-Pot-.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />The science was sound. The problem is something else. </p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-08T18:00:09+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 2,
+      "_boosted_score": 54,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/Houseplant-Ivy-in-a-White-Pot-.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/the-y-chromosome-may-be-vanishing-what-does-it-mean-for-the-future-of-men",
+      "url": "https://www.sciencealert.com/the-y-chromosome-may-be-vanishing-what-does-it-mean-for-the-future-of-men",
+      "title": "[ScienceAlert] The Y Chromosome May Be Vanishing. What Does It Mean For The Future of Men?",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2025/11/MansEyeStaring.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Is The Y Chromosome Vanishing? A New Sex Gene May Be The Future of Men\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/11/MansEyeStaring.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Big changes are coming.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-08T11:00:11+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2025/11/MansEyeStaring.jpg"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/05/260510030950.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260510030950.htm",
+      "title": "[ScienceDaily] “Cannot be explained” – New ultra stainless steel stuns researchers",
+      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/ultra-stainless-steel.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA team at the University of Hong Kong has developed a new “super steel” that can survive the harsh conditions needed to make green hydrogen from seawater. The material uses an unexpected double-protection mechanism that resists corrosion far better than conventional stainless steel. Even more impressive, it could replace costly titanium parts used in today’s hydrogen systems.",
+      "date_published": "2026-05-10T11:39:45+00:00",
       "authors": [
         {
           "name": "ScienceDaily",
           "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencedaily.com/images/1920/ultra-stainless-steel.webp"
+    },
+    {
+      "id": "https://www.sciencealert.com/one-rare-condition-seems-to-protect-the-brain-from-schizophrenia",
+      "url": "https://www.sciencealert.com/one-rare-condition-seems-to-protect-the-brain-from-schizophrenia",
+      "title": "[ScienceAlert] One Rare Condition Seems to Protect The Brain From Schizophrenia",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/brain-inside-human-head-Science-Photo-Library-illustration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Medical illustration showing a glowing human brain inside a translucent blue head, viewed from the side\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/brain-inside-human-head-Science-Photo-Library-illustration.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A pattern emerges from more than 70 years of evidence.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-09T14:00:05+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/brain-inside-human-head-Science-Photo-Library-illustration.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/world-first-transplant-man-regains-viable-sperm-from-his-childhood-testicle-tissue",
+      "url": "https://www.sciencealert.com/world-first-transplant-man-regains-viable-sperm-from-his-childhood-testicle-tissue",
+      "title": "[ScienceAlert] World First Transplant: Man Regains Viable Sperm From His Childhood Testicle Tissue",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/SpermRestoration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"World First Transplant: Man Regains Viable Sperm From His Childhood Testicle Tissue\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/SpermRestoration.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"In reality, it's still amazing.\"</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-06T12:00:23+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/SpermRestoration.jpg"
+    },
+    {
+      "id": "https://www.quantamagazine.org/will-we-ever-be-able-to-forecast-volcanic-eruptions-like-weather-20260508/",
+      "url": "https://www.quantamagazine.org/will-we-ever-be-able-to-forecast-volcanic-eruptions-like-weather-20260508/",
+      "title": "[Quanta Magazine] Will We Ever Be Able To Forecast Volcanic Eruptions Like Weather?",
+      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/05/Qualia-Predictimg-Volcanoes-cr-Celsius-Pictor-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt should be possible, but getting there will require a greater understanding of subsurface physics.            <p>The post <a href=\"https://www.quantamagazine.org/will-we-ever-be-able-to-forecast-volcanic-eruptions-like-weather-20260508/\" target=\"_blank\">Will We Ever Be Able To Forecast Volcanic Eruptions Like Weather?</a> first appeared on <a href=\"https://www.quantamagazine.org\" target=\"_blank\">Quanta Magazine</a></p>",
+      "date_published": "2026-05-08T14:50:43+00:00",
+      "authors": [
+        {
+          "name": "Quanta Magazine",
+          "url": "https://www.quantamagazine.org"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/05/Qualia-Predictimg-Volcanoes-cr-Celsius-Pictor-Default.webp"
+    },
+    {
+      "id": "https://www.sciencealert.com/one-type-of-fat-may-accelerate-brain-aging-but-scientists-say-theres-a-fix",
+      "url": "https://www.sciencealert.com/one-type-of-fat-may-accelerate-brain-aging-but-scientists-say-theres-a-fix",
+      "title": "[ScienceAlert] One Type of Fat May Accelerate Brain Aging, But Scientists Say There's a Fix",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/Fatty-Looking-Brain-In-Water-.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A human brain model appears suspended behind blue-tinted glass or liquid, with the brain’s folds and blood vessels visible\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/Fatty-Looking-Brain-In-Water-.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Midlife actions make a difference.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-08T12:00:56+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/Fatty-Looking-Brain-In-Water-.jpg"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/05/260509210654.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260509210654.htm",
+      "title": "[ScienceDaily] Scientists discover the brain’s hidden “stop scratching” switch",
+      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/woman-scratching-itchy-arm.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists have uncovered a hidden “stop-scratching” signal in the nervous system that tells your brain when enough scratching is enough. The discovery centers on a molecule called TRPV4, which acts like part of an internal braking system for itch relief. In experiments involving chronic itch similar to eczema, mice missing this signal scratched less often—but when they did scratch, they couldn’t stop.",
+      "date_published": "2026-05-10T07:08:07+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencedaily.com/images/1920/woman-scratching-itchy-arm.webp"
+    },
+    {
+      "id": "https://www.sciencealert.com/scientists-engineer-blood-clots-that-stop-severe-bleeding-in-seconds",
+      "url": "https://www.sciencealert.com/scientists-engineer-blood-clots-that-stop-severe-bleeding-in-seconds",
+      "title": "[ScienceAlert] Scientists Engineer Blood Clots That Stop Severe Bleeding in Seconds",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/blood-clot-illustration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"blood clot illustration\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/blood-clot-illustration.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />A potential life-saver.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-08T21:00:02+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/blood-clot-illustration.jpg"
+    },
+    {
+      "id": "https://nautil.us/where-does-novelty-come-from-1280609/",
+      "url": "https://nautil.us/where-does-novelty-come-from-1280609/",
+      "title": "[Nautilus] Where Does Novelty Come From?",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/French_HERO_2a7acd.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A conversation with paleobiologist Douglas Erwin about how novelty becomes true innovation in biological and cultural evolution</p>\n<p>The post <a href=\"https://nautil.us/where-does-novelty-come-from-1280609/\">Where Does Novelty Come From?</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-05-08T16:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/French_HERO_2a7acd.png?w=564"
+    },
+    {
+      "id": "https://www.sciencealert.com/nasa-satellite-reveals-just-how-fast-mexico-city-is-sinking",
+      "url": "https://www.sciencealert.com/nasa-satellite-reveals-just-how-fast-mexico-city-is-sinking",
+      "title": "[ScienceAlert] NASA Satellite Reveals Just How Fast Mexico City Is Sinking",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/MexicoCityAngelOfIndepdenceMonument.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"NASA Satellite Reveals Just How Fast Mexico City Is Sinking\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/MexicoCityAngelOfIndepdenceMonument.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"It's a very big problem.\"</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-04T18:00:45+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/MexicoCityAngelOfIndepdenceMonument.jpg"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/05/260506225428.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260506225428.htm",
+      "title": "[ScienceDaily] New “Trojan horse” obesity drug supercharges weight loss in early tests",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers have created a next-generation obesity drug that works like a “Trojan horse,” using GLP-1/GIP signals to slip a powerful metabolic enhancer directly into target cells. In mice, it outperformed existing treatments—curbing appetite, increasing weight loss, and improving blood sugar levels. Because the extra drug acts only where it’s needed, it can be used at much lower doses, potentially reducing side effects.",
+      "date_published": "2026-05-07T10:37:46+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+    },
+    {
+      "id": "https://www.sciencealert.com/falls-after-40-may-warn-of-future-dementia-major-review-finds",
+      "url": "https://www.sciencealert.com/falls-after-40-may-warn-of-future-dementia-major-review-finds",
+      "title": "[ScienceAlert] Falls After 40 May Warn of Future Dementia, Major Review Finds",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/Elderly-fall.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Falls After 40 May Warn of Future Dementia, Major Review Finds\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/Elderly-fall.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />An early signal?</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-07T01:45:20+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/Elderly-fall.jpg"
+    },
+    {
+      "id": "https://refractor.io/learning-memory/dopamine-dilates-time-novel-events/",
+      "url": "https://refractor.io/learning-memory/dopamine-dilates-time-novel-events/",
+      "title": "[New Atlas] Dopamine bends time in our brain, making novel moments memorable",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=newatlas.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Dopamine has a time-bending effect on the brain.\" src=\"https://assets.newatlas.com/dims4/default/6341f0a/2147483647/strip/true/crop/1200x700+0+0/resize/1200x700!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2Fd5%2Fabe429b642d789407cc4bd5f76fa%2Fdopamine-time-bend-1200.jpg\" /><p>You know the saying: Time flies when you’re having fun.</p><p><a href=\"https://refractor.io/learning-memory/dopamine-dilates-time-novel-events/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/learning-memory/\">Learning &amp; Memory</a>, <a href=\"https://refractor.io/brain/\">Brain Health</a>, <a href=\"https://refractor.io/medical/\">Body and Mind</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/dopamine/\" rel=\"tag\">Dopamine</a>, <a href=\"https://newatlas.com/tag/brain/\" rel=\"tag\">Brain</a>, <a href=\"https://newatlas.com/tag/time/\" rel=\"tag\">Time</a>, <a href=\"https://newatlas.com/tag/perception/\" rel=\"tag\">Perception</a>, <a href=\"https://newatlas.com/tag/memory/\" rel=\"tag\">Memory</a>, <a href=\"https://newatlas.com/tag/neuroscience/\" rel=\"tag\">Neuroscience</a>, <a href=\"https://newatlas.com/tag/ucla/\" rel=\"tag\">UCLA</a></p>",
+      "date_published": "2026-05-05T07:02:29+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=newatlas.com&sz=128"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/05/260508211025.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260508211025.htm",
+      "title": "[ScienceDaily] New chemical kills 95% of termites without harming humans",
+      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/western-drywood-termite-colony.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScientists may have found a smarter, safer way to wipe out termites hiding inside homes. A chemical called bistrifluron prevents drywood termites from forming new exoskeletons during molting, killing entire colonies from within. In tests, it eliminated about 95% of termites while avoiding the toxic side effects of traditional fumigation. Researchers say the method could provide longer-lasting protection as termites spread into new areas.",
+      "date_published": "2026-05-09T12:24:26+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 51,
+      "_quality_score": 51,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencedaily.com/images/1920/western-drywood-termite-colony.webp"
+    },
+    {
+      "id": "https://boingboing.net/2026/05/08/no-one-knows-why-dark-side-of-venus-has-a-faint-glow.html",
+      "url": "https://boingboing.net/2026/05/08/no-one-knows-why-dark-side-of-venus-has-a-faint-glow.html",
+      "title": "[Boing Boing] No one knows why dark side of Venus has a faint glow",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/venus.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/08/no-one-knows-why-dark-side-of-venus-has-a-faint-glow.html\" rel=\"nofollow\" title=\"No one knows why dark side of Venus has a faint glow\"><img alt=\"4K-Production/shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/venus.jpg?fit=1200%2C800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>On January 9, 1643, the Italian astronomer Giovanni Battista Riccioli pointed his telescope at Venus and noticed a faint glow on the planet's unlit side. Riccioli figured it was an artifact of his glass — the same trick that makes a prism throw rainbows. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/08/no-one-knows-why-dark-side-of-venus-has-a-faint-glow.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/08/no-one-knows-why-dark-side-of-venus-has-a-faint-glow.html\">No one knows why dark side of Venus has a faint glow</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-05-08T21:02:02+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/venus.jpg?fit=1200%2C800&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.sciencealert.com/a-common-blood-pressure-medicine-could-help-fight-a-deadly-superbug",
+      "url": "https://www.sciencealert.com/a-common-blood-pressure-medicine-could-help-fight-a-deadly-superbug",
+      "title": "[ScienceAlert] A Common Blood Pressure Medicine Could Help Fight a Deadly Superbug",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2025/11/Shot-of-an-unrecognizable-person-taking-tablets-at-home.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"hand holding a pill, with another pill pouring from an orange prescription jar\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2025/11/Shot-of-an-unrecognizable-person-taking-tablets-at-home.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />\"One of the most exciting agents that we have found.\"</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-07T03:19:58+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2025/11/Shot-of-an-unrecognizable-person-taking-tablets-at-home.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/scientists-reveal-how-exercise-benefits-every-part-of-your-body",
+      "url": "https://www.sciencealert.com/scientists-reveal-how-exercise-benefits-every-part-of-your-body",
+      "title": "[ScienceAlert] Scientists Reveal How Exercise Benefits Every Part of Your Body",
+      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/Happy-Older-Woman-Exercising-LIfting-Kettlebell.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Scientists Reveal Why Exercise Benefits Almost Every Part of Your Body\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/Happy-Older-Woman-Exercising-LIfting-Kettlebell.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Your muscles may be more powerful than you realize.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-05-07T02:53:02+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://www.sciencealert.com/images/2026/05/Happy-Older-Woman-Exercising-LIfting-Kettlebell.jpg"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/05/260505234618.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260505234618.htm",
+      "title": "[ScienceDaily] Colon cancer breakthrough keeps patients cancer-free for nearly 3 years",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA short burst of immunotherapy before surgery is delivering surprisingly powerful results for a specific type of colorectal cancer. Patients in a UK-led trial who received just nine weeks of pembrolizumab prior to surgery have remained cancer-free nearly three years later—an outcome that challenges the standard approach of surgery followed by months of chemotherapy.",
+      "date_published": "2026-05-06T06:20:17+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/05/260504023852.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260504023852.htm",
+      "title": "[ScienceDaily] Greenland ice melt has surged sixfold and scientists are alarmed",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGreenland’s ice sheet is now melting in ways never seen before, with extreme events becoming more frequent, widespread, and intense. Since 1990, meltwater production has skyrocketed, and most record-breaking events have occurred in recent years. Scientists say warming temperatures are supercharging these episodes beyond natural climate patterns.",
+      "date_published": "2026-05-04T14:23:46+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/06/opinion/el-nino-climate.html",
+      "url": "https://www.nytimes.com/2026/05/06/opinion/el-nino-climate.html",
+      "title": "[NYT Top Stories] The New El Niño Might Make 2027 the Hottest Year on Record",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe El Niño brewing this year might make 2027 the hottest year on record.",
+      "date_published": "2026-05-06T20:49:32+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/10/tracing-olfactory-receptor-mapping-between-the-nose-and-brain/",
+      "url": "https://hackaday.com/2026/05/10/tracing-olfactory-receptor-mapping-between-the-nose-and-brain/",
+      "title": "[Hackaday] Tracing Olfactory Receptor Mapping Between the Nose and Brain",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/olfactory_receptor_brain_mapping_brann_et_al_cell_2026.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"484\" src=\"https://hackaday.com/wp-content/uploads/2026/05/olfactory_receptor_brain_mapping_brann_et_al_cell_2026.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The way that the sense of smell works is that olfactory sensory neurons (OSNs) are wired up to olfactory receptors (ORs) in the nasal epithelium, from which they send signals <a class=\"read-more\" href=\"https://hackaday.com/2026/05/10/tracing-olfactory-receptor-mapping-between-the-nose-and-brain/\">&#8230;read more</a>",
+      "date_published": "2026-05-10T08:00:27+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
       "ai_score": 62,
@@ -693,37 +693,83 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/olfactory_receptor_brain_mapping_brann_et_al_cell_2026.png"
     },
     {
-      "id": "https://kottke.org/26/05/0048865-here-are-some-of-the-best",
-      "url": "https://kottke.org/26/05/0048865-here-are-some-of-the-best",
-      "title": "[Kottke.org] NASA has released some 12,000 unseen photos from the...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>NASA has released some 12,000 unseen photos from the recent Artemis II mission; <a href=\"https://petapixel.com/2026/05/04/nasa-releases-thousands-of-unseen-artemis-ii-photos/\">here are some of the best shots</a>.\n</p>",
-      "date_published": "2026-05-04T17:40:00+00:00",
+      "id": "https://nautil.us/how-potatoes-shaped-the-genes-of-the-first-people-to-grow-them-1280533/",
+      "url": "https://nautil.us/how-potatoes-shaped-the-genes-of-the-first-people-to-grow-them-1280533/",
+      "title": "[Nautilus] How Potatoes Shaped the Genes of the First People to Grow Them",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_58e8f5.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Who’s domesticating who?</p>\n<p>The post <a href=\"https://nautil.us/how-potatoes-shaped-the-genes-of-the-first-people-to-grow-them-1280533/\">How Potatoes Shaped the Genes of the First People to Grow Them</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-05-06T14:23:24+00:00",
       "authors": [
         {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
         }
       ],
-      "ai_score": 60,
-      "_quality_score": 60,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 0,
       "_boosted_score": 18,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_58e8f5.png?w=564"
     },
     {
-      "id": "https://nautil.us/the-first-male-neanderthal-genome-1280463/",
-      "url": "https://nautil.us/the-first-male-neanderthal-genome-1280463/",
-      "title": "[Nautilus] The First Male Neanderthal Genome",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_ae9ae7.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Genetic insights from a 110,000-year-old individual recovered from a cave in Siberia</p>\n<p>The post <a href=\"https://nautil.us/the-first-male-neanderthal-genome-1280463/\">The First Male Neanderthal Genome</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-05-05T14:30:00+00:00",
+      "id": "https://www.sciencedaily.com/releases/2026/05/260504154019.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260504154019.htm",
+      "title": "[ScienceDaily] Oak trees are delaying spring to starve caterpillars",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOak trees have a surprising trick to fight back against hungry caterpillars: they simply wait. When trees are heavily attacked one year, they delay leaf growth by just three days the next spring—long enough to leave newly hatched caterpillars with nothing to eat. This small shift slashes insect survival and reduces leaf damage by more than half, proving even more efficient than costly chemical defenses.",
+      "date_published": "2026-05-06T03:22:07+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 61,
+      "_quality_score": 61,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+    },
+    {
+      "id": "https://nautil.us/mapping-the-illegal-wildlife-trade-using-pangolin-dna-1280563/",
+      "url": "https://nautil.us/mapping-the-illegal-wildlife-trade-using-pangolin-dna-1280563/",
+      "title": "[Nautilus] Mapping the Illegal Wildlife Trade Using Pangolin DNA",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Devin_hero.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Genetic material from these improbable creatures helps pinpoint exploitation hot spots </p>\n<p>The post <a href=\"https://nautil.us/mapping-the-illegal-wildlife-trade-using-pangolin-dna-1280563/\">Mapping the Illegal Wildlife Trade Using Pangolin DNA</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-05-07T18:02:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Devin_hero.png?w=564"
+    },
+    {
+      "id": "https://nautil.us/these-whales-are-screaming-in-the-strait-of-gibraltar-1280580/",
+      "url": "https://nautil.us/these-whales-are-screaming-in-the-strait-of-gibraltar-1280580/",
+      "title": "[Nautilus] These Whales Are Screaming in the Strait of Gibraltar",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Reese_HERO.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Critically endangered pilot whales struggle to communicate over the din of boats </p>\n<p>The post <a href=\"https://nautil.us/these-whales-are-screaming-in-the-strait-of-gibraltar-1280580/\">These Whales Are Screaming in the Strait of Gibraltar</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-05-07T22:00:00+00:00",
       "authors": [
         {
           "name": "Nautilus",
@@ -732,221 +778,175 @@
       ],
       "ai_score": 58,
       "_quality_score": 58,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
       "_boosted_score": 17,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_ae9ae7.png?w=564"
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Reese_HERO.png?w=564"
     },
     {
-      "id": "https://kottke.org/26/05/0048868-the-screeching-sound-of-p",
-      "url": "https://kottke.org/26/05/0048868-the-screeching-sound-of-p",
-      "title": "[Kottke.org] According to this peer-reviewed paper,  the...",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>According to this peer-reviewed paper, <a href=\"https://journals.aps.org/pre/abstract/10.1103/p19h-9ysx\">the &#8220;screeching sound of peeling tape&#8221; is caused by tiny sonic booms</a>. The speeds at work here are in the range of Mach 0.7–1.8. Supersonic crafts!\n</p>",
-      "date_published": "2026-05-04T18:24:00+00:00",
+      "id": "https://www.cnet.com/science/space/watch-nasas-curiosity-rover-deal-with-mars-first-extremely-clingy-rock/",
+      "url": "https://www.cnet.com/science/space/watch-nasas-curiosity-rover-deal-with-mars-first-extremely-clingy-rock/",
+      "title": "[CNET] NASA's Curiosity Mars Rover Was Stuck in a Rock: Watch It Free Itself",
+      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/c35c13ee6b2430eed85be421a650ab319aadc625/hub/2026/05/07/99378abb-90b1-4d59-903d-96c3e663103e/nasa-curiosity-rock.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe rover spent five days trying to free itself from the planet's first sword-in-the-stone moment.",
+      "date_published": "2026-05-07T21:38:04+00:00",
       "authors": [
         {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
+          "name": "CNET",
+          "url": "https://www.cnet.com"
         }
       ],
       "ai_score": 58,
       "_quality_score": 58,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
       "_boosted_score": 17,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+      "image": "https://www.cnet.com/a/img/resize/c35c13ee6b2430eed85be421a650ab319aadc625/hub/2026/05/07/99378abb-90b1-4d59-903d-96c3e663103e/nasa-curiosity-rock.jpg?auto=webp&width=300"
     },
     {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260506225135.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260506225135.htm",
-      "title": "[ScienceDaily] Webb space telescope finds a giant galaxy that doesn’t spin",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAstronomers using the James Webb Space Telescope have spotted something that shouldn’t exist—at least not so early in the universe. A massive galaxy, formed less than 2 billion years after the Big Bang, appears to have no rotation at all, a trait usually seen only in much older, evolved galaxies. This challenges current theories that young galaxies should still be spinning from their formation.",
-      "date_published": "2026-05-07T21:50:36+00:00",
+      "id": "https://nautil.us/the-mysterious-hantavirus-outbreak-that-put-the-virus-on-the-western-map-1280558/",
+      "url": "https://nautil.us/the-mysterious-hantavirus-outbreak-that-put-the-virus-on-the-western-map-1280558/",
+      "title": "[Nautilus] The Mysterious Hantavirus Outbreak That Put the Virus on the Western Map",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Grant_HERO_9f9442.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>More than 30 years ago, in the Four Corners region of the US, an Old-World pathogen was discovered in the New World</p>\n<p>The post <a href=\"https://nautil.us/the-mysterious-hantavirus-outbreak-that-put-the-virus-on-the-western-map-1280558/\">The Mysterious Hantavirus Outbreak That Put the Virus on the Western Map</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-05-06T22:02:12+00:00",
       "authors": [
         {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Grant_HERO_9f9442.png?w=564"
+    },
+    {
+      "id": "https://www.tomshardware.com/tech-industry/nasa-pushes-mars-helicopter-rotors-past-the-speed-of-sound-for-the-first-time-ever-next-gen-skyfall-aircrafts-rotors-hit-3-750-rpm-ten-times-faster-than-normal-helicopters",
+      "url": "https://www.tomshardware.com/tech-industry/nasa-pushes-mars-helicopter-rotors-past-the-speed-of-sound-for-the-first-time-ever-next-gen-skyfall-aircrafts-rotors-hit-3-750-rpm-ten-times-faster-than-normal-helicopters",
+      "title": "[Tom's Hardware] NASA pushes Mars helicopter rotors past the speed of sound for the first time ever — next-gen “SkyFall” aircraft's rotors hit 3,750 RPM, ten times faster than normal helicopters",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ztQ7Upyh4FNBmkmKXvKdNV-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNASA successfully tested Mars helicopter rotors at Mach 1.08 inside JPL’s Mars simulator chamber, paving the way for larger next-generation aircraft under the proposed SkyFall mission to explore more of the Red Planet.",
+      "date_published": "2026-05-10T10:25:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
         }
       ],
       "ai_score": 55,
       "_quality_score": 55,
-      "_theme_score": 90,
-      "_final_score": 90,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
       "_boosted_score": 16,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+      "image": "https://cdn.mos.cms.futurecdn.net/ztQ7Upyh4FNBmkmKXvKdNV-1280-80.jpg"
     },
     {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260506225132.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260506225132.htm",
-      "title": "[ScienceDaily] This strange planet pair shouldn’t exist, but it does",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA bizarre planetary pairing 190 light-years away is challenging everything astronomers thought they knew about how worlds form. A “lonely” hot Jupiter — typically found without nearby companions — is sharing its system with a smaller mini-Neptune tucked even closer to the star, a setup once thought nearly impossible.",
-      "date_published": "2026-05-07T20:53:58+00:00",
+      "id": "https://nautil.us/these-beetles-might-be-flying-ubers-for-worms-1280541/",
+      "url": "https://nautil.us/these-beetles-might-be-flying-ubers-for-worms-1280541/",
+      "title": "[Nautilus] These Beetles Might Be Flying Ubers for Worms",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_6dafe1.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Trigger warning for anyone squicked out by wriggling masses of things</p>\n<p>The post <a href=\"https://nautil.us/these-beetles-might-be-flying-ubers-for-worms-1280541/\">These Beetles Might Be Flying Ubers for Worms</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-05-06T19:30:00+00:00",
       "authors": [
         {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
         }
       ],
       "ai_score": 52,
       "_quality_score": 52,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 0,
       "_boosted_score": 15,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_6dafe1.png?w=564"
     },
     {
-      "id": "https://www.openculture.com/2026/05/how-a-volcanic-eruption-helped-unleash-the-black-death-in-europe-in-1347.html",
-      "url": "https://www.openculture.com/2026/05/how-a-volcanic-eruption-helped-unleash-the-black-death-in-europe-in-1347.html",
-      "title": "[Open Culture] How a Volcanic Eruption Helped Unleash the Black Death in Europe in 1347",
-      "content_html": "<img src=\"https://cdn8.openculture.com/2026/05/07221621/Screenshot-2026-05-07-at-10.19.04-PM-1024x587.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe flap of a butterfly’s wings on one side of the world can cause a hurricane on the other, or so they say. If we take it a bit too literally, that old observation may make us wonder what a hurricane can cause. Or if not a hurricane, how about another kind of large-scale natural [&#8230;]",
-      "date_published": "2026-05-08T16:25:58+00:00",
+      "id": "https://newatlas.com/engineering/earthquake-resistant-buildings-butterfly-wings/",
+      "url": "https://newatlas.com/engineering/earthquake-resistant-buildings-butterfly-wings/",
+      "title": "[New Atlas] Want to make earthquake-resistant buildings? Try butterfly wings",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/f001c1f/2147483647/strip/true/crop/2700x1418+0+191/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ffc%2Fb9%2F98e3028e42e18b26fb901167f1aa%2Fdepositphotos-8003854-xl.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A viceroy butterfly showing off its surprisingly strong anisotropic wing structure\" src=\"https://assets.newatlas.com/dims4/default/0d985db/2147483647/strip/true/crop/2700x1800+0+0/resize/1440x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ffc%2Fb9%2F98e3028e42e18b26fb901167f1aa%2Fdepositphotos-8003854-xl.jpeg\" /><p>When you hear about designers biomimicking butterflies, your first thought is probably about creating remote-controlled flying toys or small, artificial flying machines that could be useful in pollination, especially in regions experiencing bee colony collapse. But butterfly mimicry goes far beyond those uses to include scattering light to replace toxic paints or as an anti-fraud mechanism against counterfeiters, advancing optical computing, and even creating superior eye implants.</p><p><a href=\"https://newatlas.com/engineering/earthquake-resistant-buildings-butterfly-wings/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/tohoku-university/\" rel=\"tag\">Tohoku University</a>, <a href=\"https://newatlas.com/tag/building+and+construction/\" rel=\"tag\">Building and Construction</a>, <a href=\"https://newatlas.com/tag/biomimicry/\" rel=\"tag\">Biomimicry</a>, <a href=\"https://newatlas.com/tag/butterfly/\" rel=\"tag\">Butterfly</a></p>",
+      "date_published": "2026-05-06T19:15:34+00:00",
       "authors": [
         {
-          "name": "Open Culture",
-          "url": "https://www.openculture.com/"
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
         }
       ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 14,
+      "_boosted_score": 15,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://cdn8.openculture.com/2026/05/07221621/Screenshot-2026-05-07-at-10.19.04-PM-1024x587.png"
+      "image": "https://assets.newatlas.com/dims4/default/f001c1f/2147483647/strip/true/crop/2700x1418+0+191/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Ffc%2Fb9%2F98e3028e42e18b26fb901167f1aa%2Fdepositphotos-8003854-xl.jpeg&na.image_optimisation=0"
     },
     {
-      "id": "https://nautil.us/most-bird-wings-arent-optimized-for-flight-1280569/",
-      "url": "https://nautil.us/most-bird-wings-arent-optimized-for-flight-1280569/",
-      "title": "[Nautilus] Most Bird Wings Aren’t Optimized for Flight",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_454a5d.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>They’re flying on a wing and a prayer</p>\n<p>The post <a href=\"https://nautil.us/most-bird-wings-arent-optimized-for-flight-1280569/\">Most Bird Wings Aren’t Optimized for Flight</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-05-07T20:00:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_454a5d.png?w=564"
-    },
-    {
-      "id": "https://nautil.us/giant-squid-discovered-lurking-off-the-australian-coast-1280546/",
-      "url": "https://nautil.us/giant-squid-discovered-lurking-off-the-australian-coast-1280546/",
-      "title": "[Nautilus] Giant Squid Discovered Lurking off the Australian Coast",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_d62516.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The massive sea creature left behind some DNA</p>\n<p>The post <a href=\"https://nautil.us/giant-squid-discovered-lurking-off-the-australian-coast-1280546/\">Giant Squid Discovered Lurking off the Australian Coast</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-05-06T20:30:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_d62516.png?w=564"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/05/260508003119.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/05/260508003119.htm",
-      "title": "[ScienceDaily] Deep diving fur seals experience delayed heart surges after returning to land",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/australian-fur-seal.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFur seals may look like they’re simply resting after exhausting hunting trips at sea, but their bodies are secretly working overtime. Scientists discovered that hours after returning to land, the seals’ heart rates suddenly surge — sometimes doubling — as they recover from the intense physical stress of deep diving. The findings suggest that seals postpone much of their recovery until they’re safely ashore, likely flushing out lactic acid and rebuilding oxygen stores after days of nonstop diving and hunting.",
-      "date_published": "2026-05-09T11:35:27+00:00",
+      "id": "https://www.sciencedaily.com/releases/2026/05/260505234611.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260505234611.htm",
+      "title": "[ScienceDaily] NASA just tested a powerful new thruster that could send humans to Mars",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.sciencedaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA powerful new electromagnetic thruster has taken a major step forward after a successful high-energy test at NASA’s Jet Propulsion Laboratory. Fueled by lithium vapor and driven by intense magnetic forces, the experimental engine reached record-breaking power levels—far beyond anything currently used in space. Glowing hotter than molten lava and firing inside a specialized vacuum chamber, the thruster hints at a future where spacecraft could travel farther and more efficiently than ever before.",
+      "date_published": "2026-05-06T21:00:24+00:00",
       "authors": [
         {
           "name": "ScienceDaily",
           "url": "https://www.sciencedaily.com"
         }
       ],
-      "ai_score": 42,
-      "_quality_score": 42,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 0,
-      "_boosted_score": 12,
+      "_boosted_score": 14,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://www.sciencedaily.com/images/1920/australian-fur-seal.webp"
+      "image": "https://www.google.com/s2/favicons?domain=www.sciencedaily.com&sz=128"
     },
     {
-      "id": "https://nautil.us/hubble-captures-traveling-galaxy-in-stunning-detail-1280614/",
-      "url": "https://nautil.us/hubble-captures-traveling-galaxy-in-stunning-detail-1280614/",
-      "title": "[Nautilus] Hubble Captures Traveling Galaxy in Stunning Detail",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_5bff13.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>And it’s in a group that includes our own Milky Way</p>\n<p>The post <a href=\"https://nautil.us/hubble-captures-traveling-galaxy-in-stunning-detail-1280614/\">Hubble Captures Traveling Galaxy in Stunning Detail</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-05-08T18:00:00+00:00",
+      "id": "https://boingboing.net/2026/05/06/devils-hole-pupfish-rarest-fish-on-earth-lives-in-one-nevada-cavern.html",
+      "url": "https://boingboing.net/2026/05/06/devils-hole-pupfish-rarest-fish-on-earth-lives-in-one-nevada-cavern.html",
+      "title": "[Boing Boing] Devils Hole pupfish: rarest fish on Earth lives in one Nevada cavern",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/06/texas.jpeg?fit=1500%2C1000&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/06/devils-hole-pupfish-rarest-fish-on-earth-lives-in-one-nevada-cavern.html\" rel=\"nofollow\" title=\"Devils Hole pupfish: rarest fish on Earth lives in one Nevada cavern\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1000\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/06/texas.jpeg?fit=1500%2C1000&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1500\" /></a><p>This <a href=\"https://www.instagram.com/p/DXcMgxeDn-G/\">video</a> shows the weirdness of the Devils Hole pupfish. Deep inside a single limestone cavern in Nevada's Mojave Desert lives one of the rarest fish on Earth. The tiny, shimmering blue fish can be found in only one known natural habitat in the world: a water-filled limestone fissure called Devils Hole. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/06/devils-hole-pupfish-rarest-fish-on-earth-lives-in-one-nevada-cavern.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/06/devils-hole-pupfish-rarest-fish-on-earth-lives-in-one-nevada-cavern.html\">Devils Hole pupfish: rarest fish on Earth lives in one Nevada cavern</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-05-06T21:56:23+00:00",
       "authors": [
         {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
-      "ai_score": 38,
-      "_quality_score": 38,
-      "_theme_score": 95,
-      "_final_score": 95,
+      "ai_score": 24,
+      "_quality_score": 24,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 0,
-      "_boosted_score": 11,
+      "_boosted_score": 7,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_5bff13.png?w=564"
-    },
-    {
-      "id": "https://nautil.us/new-long-necked-dinosaur-unearthed-in-brazil-has-european-roots-1280619/",
-      "url": "https://nautil.us/new-long-necked-dinosaur-unearthed-in-brazil-has-european-roots-1280619/",
-      "title": "[Nautilus] New Long-Necked Dinosaur Unearthed in Brazil Has European Roots",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_b006ee.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>It’s the largest ever sauropod discovered in the area</p>\n<p>The post <a href=\"https://nautil.us/new-long-necked-dinosaur-unearthed-in-brazil-has-european-roots-1280619/\">New Long-Necked Dinosaur Unearthed in Brazil Has European Roots</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "date_published": "2026-05-08T20:30:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Currie_HERO_b006ee.png?w=564"
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2023/06/texas.jpeg?fit=1500%2C1000&quality=60&ssl=1"
     }
   ]
 }
