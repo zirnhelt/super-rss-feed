@@ -13,6 +13,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-10 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-05-10 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-05-10 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
+| 2026-05-10 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-05-10 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-05-10 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-05-10 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-05-10 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-09 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -67,6 +72,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-05-10 | 🌙 evening | 110 | news:37(36%), homelab:32(31%), ai-tech:15(14%) |
+| 2026-05-10 | 🌅 morning | 84 | news:30(38%), homelab:21(27%), ai-tech:18(23%) |
 | 2026-05-09 | 🌅 morning | 109 | news:48(45%), homelab:23(22%), ai-tech:22(21%) |
 | 2026-05-08 | 🌅 morning | 184 | news:71(40%), ai-tech:64(36%), homelab:20(11%) |
 | 2026-05-08 | 🌙 evening | 249 | news:101(42%), ai-tech:67(28%), homelab:35(15%) |
@@ -78,9 +84,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-04 | 🌅 morning | 170 | news:60(37%), ai-tech:45(28%), homelab:33(20%) |
 | 2026-05-03 | 🌅 morning | 97 | news:29(33%), homelab:28(31%), ai-tech:23(26%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-10 07:11 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-10 14:00 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
