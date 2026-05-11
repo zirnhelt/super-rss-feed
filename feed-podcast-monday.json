@@ -22,618 +22,393 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "monday",
-    "generated_at": "2026-05-04T14:39:19.456627+00:00",
+    "generated_at": "2026-05-11T08:00:40.648948+00:00",
     "article_count": 40,
-    "bonus_count": 36,
+    "bonus_count": 26,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://qz.com/openai-talk-show-corporate-media-brands-as-studios",
-      "url": "https://qz.com/openai-talk-show-corporate-media-brands-as-studios",
-      "title": "[Quartz] Everyone is a media brand now",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/75dd82af-09eb-4397-85c5-8d9daafd0339.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs brands build studios and buy platforms, companies are reshaping media by turning marketing into entertainment and journalism into in-house content",
-      "date_published": "2026-05-04T12:31:03+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 65,
-      "_final_score": 65,
-      "_keyword_matches": 1,
-      "_boosted_score": 30,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/75dd82af-09eb-4397-85c5-8d9daafd0339.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/phone-free-music-player-mighty-founder-story-2026-5si",
-      "url": "https://www.businessinsider.com/phone-free-music-player-mighty-founder-story-2026-5si",
-      "title": "[Business Insider] I created a screen-free streaming music device. I aimed it at runners, but it took off with kids instead.",
-      "content_html": "<img src=\"https://i.insider.com/69f0b032367066d7c2971c92?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAnthony Mendelson built a phone-free music player for runners that unexpectedly became popular with parents and kids.",
-      "date_published": "2026-05-04T12:57:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 35,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 1,
-      "_boosted_score": 30,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/69f0b032367066d7c2971c92?format=jpeg"
-    },
-    {
-      "id": "https://www.engadget.com/2162426/instagram-is-testing-optional-ai-creator-labels/",
-      "url": "https://www.engadget.com/2162426/instagram-is-testing-optional-ai-creator-labels/",
-      "title": "[Engadget] Instagram is testing optional 'AI creator' labels",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/instagram-is-testing-optional-ai-creator-labels/l-intro-1777677041.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe company is encouraging accounts that frequently post Gen AI content to use the feature, but isn't requiring it.",
-      "date_published": "2026-05-04T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 60,
-      "_final_score": 30,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.engadget.com/img/gallery/instagram-is-testing-optional-ai-creator-labels/l-intro-1777677041.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/scott-galloway-top-skills-ai-proofing-kids-careers-storytelling-relationships-2026-5",
-      "url": "https://www.businessinsider.com/scott-galloway-top-skills-ai-proofing-kids-careers-storytelling-relationships-2026-5",
-      "title": "[Business Insider] Scott Galloway says your kids need these skills to AI-proof their future careers",
-      "content_html": "<img src=\"https://i.insider.com/69f8676dab24bc0b23a18e96?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nParents should tell their kids to prioritize storytelling skills in the AI era, Scott Galloway told Steven Bartlett on \"The Diary of a CEO.\"",
-      "date_published": "2026-05-04T09:45:13+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_quality_score": 38,
-      "_theme_score": 50,
-      "_final_score": 20,
-      "_keyword_matches": 1,
-      "_boosted_score": 31,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/69f8676dab24bc0b23a18e96?format=jpeg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/04/us-healthcare-marketplaces-shared-citizenship-and-race-data-with-ad-tech-giants/",
-      "url": "https://techcrunch.com/2026/05/04/us-healthcare-marketplaces-shared-citizenship-and-race-data-with-ad-tech-giants/",
-      "title": "[TechCrunch] US healthcare marketplaces shared citizenship and race data with ad tech giants",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/05/pixel-mouse-2217637165.jpg?resize=1200,870\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVirginia and Washington D.C. paused the data collection and sharing, after Bloomberg's investigation found their health insurance marketplaces were sharing users' information with advertisers.",
-      "date_published": "2026-05-04T14:30:23+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 51,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/05/pixel-mouse-2217637165.jpg?resize=1200,870"
-    },
-    {
-      "id": "https://www.howtogeek.com/free-tool-organizes-paper-documents/",
-      "url": "https://www.howtogeek.com/free-tool-organizes-paper-documents/",
-      "title": "[How-To Geek] This free tool organizes your documents like Immich organizes photos (and it's perfect for going paperless)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-laptop-and-a-phone-showing-a-dataset-imported-from-a-paper-copy-of-a-dataset.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy paper clutter is a thing of that past.",
-      "date_published": "2026-05-04T14:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 71,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-laptop-and-a-phone-showing-a-dataset-imported-from-a-paper-copy-of-a-dataset.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/the-global-memory-shortage-the-hidden-bottleneck-behind-the-ai-boom",
-      "url": "https://www.techradar.com/pro/the-global-memory-shortage-the-hidden-bottleneck-behind-the-ai-boom",
-      "title": "[TechRadar] The global memory shortage: The hidden bottleneck behind the AI boom",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/h8ZQHernNUVpnGYX7QnxVM-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs AI demand soars, global memory shortages are driving costs up and reshaping the tech landscape.",
-      "date_published": "2026-05-04T14:22:39+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/h8ZQHernNUVpnGYX7QnxVM-1280-80.jpg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/the-rise-and-risks-of-agent-management-platforms/",
-      "url": "https://www.zdnet.com/article/the-rise-and-risks-of-agent-management-platforms/",
-      "title": "[ZDNet] The rise and risks of agent management platforms",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/020098699681e2c30f4b3e9bd4546bdc741d1016/2026/04/30/a6eea400-cfe6-4286-aa40-f29d6dd30499/the-rise-and-risks-of-agent-management-platforms-v2.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAgent management platforms offer orchestration and operational discipline to growing networks of agents.",
-      "date_published": "2026-05-04T14:09:44+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/020098699681e2c30f4b3e9bd4546bdc741d1016/2026/04/30/a6eea400-cfe6-4286-aa40-f29d6dd30499/the-rise-and-risks-of-agent-management-platforms-v2.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://lifehacker.com/tech/i-let-alexa-plus-and-gemini-power-smart-home?utm_medium=RSS",
-      "url": "https://lifehacker.com/tech/i-let-alexa-plus-and-gemini-power-smart-home?utm_medium=RSS",
-      "title": "[Lifehacker] I Let Alexa+ and Gemini Power My Smart Home, and They Were Both Great",
-      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01KQSJ816J5GVA94XGG6VG6J82/hero-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese smart home helpers worked much better than I expected.",
-      "date_published": "2026-05-04T14:00:00+00:00",
-      "authors": [
-        {
-          "name": "Lifehacker",
-          "url": "https://lifehacker.com/feed/rss"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://lifehacker.com/imagery/articles/01KQSJ816J5GVA94XGG6VG6J82/hero-image.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/using-local-llm-to-give-smart-bulb-personality/",
-      "url": "https://www.howtogeek.com/using-local-llm-to-give-smart-bulb-personality/",
-      "title": "[How-To Geek] I used a local LLM to give my smart bulb a personality (and it's starting to give me the creeps)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/a-smart-bulb-that-has-been-turned-purple-on-the-whims-of-an-llm.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLet there be light.",
-      "date_published": "2026-05-04T13:45:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/a-smart-bulb-that-has-been-turned-purple-on-the-whims-of-an-llm.png"
-    },
-    {
-      "id": "https://www.howtogeek.com/i-transformed-claude-into-the-ultimate-coding-tutor/",
-      "url": "https://www.howtogeek.com/i-transformed-claude-into-the-ultimate-coding-tutor/",
-      "title": "[How-To Geek] How to use Claude as a coding tutor that tracks my progress (Prompt included)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/close-up-of-the-claude-code-welcome-screen-on-an-ipad-connected-to-a-mac.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI built a coding tutor that won't let me cheat my way through it. Here's the prompt.",
-      "date_published": "2026-05-04T13:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/close-up-of-the-claude-code-welcome-screen-on-an-ipad-connected-to-a-mac.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/the-server-monitor-i-run-on-everything-is-5mb-and-tracks-every-metric-i-need/",
-      "url": "https://www.howtogeek.com/the-server-monitor-i-run-on-everything-is-5mb-and-tracks-every-metric-i-need/",
-      "title": "[How-To Geek] The server monitor I run on everything is 5MB and tracks every metric I need",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/04/screenshot_2026-04-12_235132-1.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMonitor all your servers, containers, and system services in one place!",
-      "date_published": "2026-05-04T13:30:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 65,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/04/screenshot_2026-04-12_235132-1.png"
-    },
-    {
-      "id": "https://www.techradar.com/pro/openai-is-making-chatgpt-accounts-much-more-secure-including-some-literal-physical-security-keys",
-      "url": "https://www.techradar.com/pro/openai-is-making-chatgpt-accounts-much-more-secure-including-some-literal-physical-security-keys",
-      "title": "[TechRadar] OpenAI is making ChatGPT accounts much more secure – including some literal physical security keys",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/rb3J3ipnkj464NZWLQLfuM-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOpenAI has been using Yubico keys internally already – with its Advanced Account Security program, now its users can too.",
-      "date_published": "2026-05-04T13:20:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/rb3J3ipnkj464NZWLQLfuM-1280-80.png"
-    },
-    {
-      "id": "https://www.howtogeek.com/the-1000tb-storage-drive-is-coming-why-the-wait-may-be-shorter-than-you-think/",
-      "url": "https://www.howtogeek.com/the-1000tb-storage-drive-is-coming-why-the-wait-may-be-shorter-than-you-think/",
-      "title": "[How-To Geek] Everyone assumes SSDs will win the next storage war (but they are secretly losing to old tech)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/05/hdd-on-an-orange-background-with-multiple-hdd-icons.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe next impossible PC storage milestone is arriving years early (but everyday builders are locked out)",
-      "date_published": "2026-05-04T13:02:23+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/05/hdd-on-an-orange-background-with-multiple-hdd-icons.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/04/barocal-can-cool-your-food-and-drink-by-squeezing-a-hunk-of-plastic-crystals/",
-      "url": "https://techcrunch.com/2026/05/04/barocal-can-cool-your-food-and-drink-by-squeezing-a-hunk-of-plastic-crystals/",
-      "title": "[TechCrunch] Barocal can cool your food and drink by squeezing a hunk of plastic crystals",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2023/04/GettyImages-1371981344.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBarocal might have discovered a cheap, nonpolluting material that could dethrone today's refrigeration technology.",
-      "date_published": "2026-05-04T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_quality_score": 61,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2023/04/GettyImages-1371981344.jpg?resize=1200,800"
-    },
-    {
-      "id": "https://www.theverge.com/tech/922877/homebridge-2-0-matter-update-robot-vacuums",
-      "url": "https://www.theverge.com/tech/922877/homebridge-2-0-matter-update-robot-vacuums",
-      "title": "[The Verge] Homebridge 2.0 is here, and it speaks Matter",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/STKB390_HOMEBRIDGE2.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.728364100735%2C100%2C78.54327179853&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHomebridge, the popular software solution that allows you to integrate non-HomeKit devices like Ring cameras into Apple Home, is adding support for the Matter smart home standard. Today, May 4th, Homebridge 2.0, which has been in beta for over three years, officially launches. Along with other improvements, the update brings the \"initial groundwork for Matter [&#8230;]",
-      "date_published": "2026-05-04T12:35:06+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "_quality_score": 81,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/STKB390_HOMEBRIDGE2.jpg?quality=90&strip=all&crop=0%2C10.728364100735%2C100%2C78.54327179853&w=1200"
-    },
-    {
-      "id": "https://insideevs.com/news/794790/china-phev-suv-amphibious-chery-jetour-g700/",
-      "url": "https://insideevs.com/news/794790/china-phev-suv-amphibious-chery-jetour-g700/",
-      "title": "[InsideEVs] China's Plug-In Hybrid SUVs Can Now Double As Boats, Apparently",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/lEGkZW/s3/chery-jetour-g700.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChery’s top-spec Jetour G700 SUV even comes with propellers for crossing rivers.",
-      "date_published": "2026-05-04T12:33:31+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/lEGkZW/s3/chery-jetour-g700.jpg"
-    },
-    {
-      "id": "https://qz.com/cerebras-ipo-roadshow-share-price-050426",
-      "url": "https://qz.com/cerebras-ipo-roadshow-share-price-050426",
-      "title": "[Quartz] AI chipmaker Cerebras is kicking off its IPO roadshow",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2239459558.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Nvidia rival is seeking to raise as much as $3.5 billion and achieve a valuation of up to $26.6 billion on the Nasdaq",
-      "date_published": "2026-05-04T12:30:43+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2239459558.jpg"
-    },
-    {
-      "id": "https://www.sciencealert.com/plants-can-sense-the-sound-of-rain",
-      "url": "https://www.sciencealert.com/plants-can-sense-the-sound-of-rain",
-      "title": "[ScienceAlert] Plant Seeds Do Something Incredible When The Sound of Rain Strikes",
-      "content_html": "<img src=\"https://www.sciencealert.com/images/2026/05/plant-in-rain.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"plant in rain\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/05/plant-in-rain.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />The first evidence of its kind.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "date_published": "2026-05-04T12:00:41+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_quality_score": 54,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.sciencealert.com/images/2026/05/plant-in-rain.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/almost-threw-away-old-laptop-most-reliable-home-assistant-server/",
-      "url": "https://www.xda-developers.com/almost-threw-away-old-laptop-most-reliable-home-assistant-server/",
-      "title": "[XDA Developers] I almost threw away my old laptop and now It’s my most reliable Home Assistant server",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/home-assistant-old-laptop.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI almost threw it away and now it quietly runs my smart home. Turns out old hardware isn’t useless, it just needed the right purpose.",
-      "date_published": "2026-05-04T12:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "_quality_score": 78,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/home-assistant-old-laptop.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/can-a-smartphone-beat-a-professional-3d-scanner-i-printed-the-results-to-find-out/",
-      "url": "https://www.howtogeek.com/can-a-smartphone-beat-a-professional-3d-scanner-i-printed-the-results-to-find-out/",
-      "title": "[How-To Geek] Can a smartphone beat a professional 3D scanner? I printed the results to find out",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/two-blue-3d-printed-owl-scans-beside-the-original-painted-owl-figurine-with-an-iphone-behind-them.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour iPhone's 3D scanner is impressive, but it's not even close to a dedicated scanner",
-      "date_published": "2026-05-04T12:00:18+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_quality_score": 70,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/two-blue-3d-printed-owl-scans-beside-the-original-painted-owl-figurine-with-an-iphone-behind-them.jpg"
-    },
-    {
-      "id": "https://thenarwhal.ca/northern-ontario-radioactive-waste-sarnia/?utm_source=rss",
-      "url": "https://thenarwhal.ca/northern-ontario-radioactive-waste-sarnia/?utm_source=rss",
-      "title": "[The Narwhal] A small northern Ontario town refused radioactive waste. It’s gone to Sarnia instead",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/04/DSC00753_edited-1-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDecades-old mine tailings in Nipissing First Nation sparked outrage after the province tried to move the material to another community without consultation, but it has quietly moved them again",
-      "date_published": "2026-05-04T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
-        }
-      ],
-      "_quality_score": 63,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/04/DSC00753_edited-1-1024x683.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/04/business/dealbook/google-ai-white-house.html",
-      "url": "https://www.nytimes.com/2026/05/04/business/dealbook/google-ai-white-house.html",
-      "title": "[NYT Business] What Was Discussed at Google’s White House Meeting About A.I.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/04/multimedia/04db-pichai-zkpl/04db-pichai-zkpl-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe technology giant met with administration officials last week to address a growing concern in Washington: insufficient computing power for artificial intelligence.",
-      "date_published": "2026-05-04T11:59:32+00:00",
+      "id": "https://www.nytimes.com/2026/05/05/business/media/james-murdoch-vox-media.html",
+      "url": "https://www.nytimes.com/2026/05/05/business/media/james-murdoch-vox-media.html",
+      "title": "[NYT Business] James Murdoch’s Company Said to Be in Talks to Acquire Major Parts of Vox Media",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/05/multimedia/05biz-vox-wjvh/05biz-vox-wjvh-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA deal for Vox Media, which generates more than $80 million through podcasts alone, would elevate Mr. Murdoch’s company, Lupa Systems, as a major player in U.S. media.",
+      "date_published": "2026-05-05T19:46:11+00:00",
       "authors": [
         {
           "name": "NYT Business",
           "url": "https://www.nytimes.com/section/business"
         }
       ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "ai_score": 29,
+      "_quality_score": 29,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 3,
+      "_boosted_score": 68,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/05/05/multimedia/05biz-vox-wjvh/05biz-vox-wjvh-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://kottke.org/26/05/0048889-flooding-the-zone-with-ai",
+      "url": "https://kottke.org/26/05/0048889-flooding-the-zone-with-ai",
+      "title": "[Kottke.org] &#8220;Podcast sloplords&#8221; are  flooding the zone...",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>&#8220;Podcast sloplords&#8221; are <a href=\"https://futurism.com/artificial-intelligence/half-ai-podcasts-slop\">flooding the zone with AI-generated podcasts</a>. By one count, almost 40% of new podcasts are written by AI chatbots and presented by &#8220;AI voice synthesizers [that] can sound eerily humanlike&#8221;.\n</p>",
+      "date_published": "2026-05-07T14:03:00+00:00",
+      "authors": [
+        {
+          "name": "Kottke.org",
+          "url": "https://kottke.org/"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 55,
+      "_final_score": 25,
+      "_keyword_matches": 1,
+      "_boosted_score": 37,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/04/multimedia/04db-pichai-zkpl/04db-pichai-zkpl-mediumSquareAt3X.jpg"
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
     },
     {
-      "id": "https://www.xda-developers.com/home-assistant-made-every-infrared-device-in-your-house-controllable/",
-      "url": "https://www.xda-developers.com/home-assistant-made-every-infrared-device-in-your-house-controllable/",
-      "title": "[XDA Developers] Home Assistant just made every infrared device in your house controllable, and you probably already own them",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/home-assistant-with-infrared-remotes.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTurns out, dumb devices were never the problem.",
-      "date_published": "2026-05-04T11:30:22+00:00",
+      "id": "https://www.engadget.com/2166997/spotify-now-lets-ai-agents-like-openclaw-generate-personal-podcasts/",
+      "url": "https://www.engadget.com/2166997/spotify-now-lets-ai-agents-like-openclaw-generate-personal-podcasts/",
+      "title": "[Engadget] Spotify now lets AI agents like OpenClaw generate personal podcasts",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/spotify-now-lets-ai-agents-like-openclaw-generate-personal-podcasts/l-intro-1778165654.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRejoice, nerds.",
+      "date_published": "2026-05-07T14:55:24+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
         }
       ],
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/home-assistant-with-infrared-remotes.JPG"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/04/tagtinker-lets-you-hack-electronic-shelf-labels/",
-      "url": "https://hackaday.com/2026/05/04/tagtinker-lets-you-hack-electronic-shelf-labels/",
-      "title": "[Hackaday] TagTinker Lets You Hack Electronic Shelf Labels",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/PXL_20260427_092219442-e1777536453335.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/PXL_20260427_092219442-e1777536453335.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Was there ever anything wrong with simple paper price labels? Absolutely not. And yet, the world invented the electronic price tag anyway. If you happen to come across some of <a class=\"read-more\" href=\"https://hackaday.com/2026/05/04/tagtinker-lets-you-hack-electronic-shelf-labels/\">&#8230;read more</a>",
-      "date_published": "2026-05-04T11:00:49+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
+      "ai_score": 52,
       "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/PXL_20260427_092219442-e1777536453335.jpg"
+      "_theme_score": 65,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://www.engadget.com/img/gallery/spotify-now-lets-ai-agents-like-openclaw-generate-personal-podcasts/l-intro-1778165654.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/raspberry-pi-5-price-hike-pushed-me-to-mini-pcs/",
-      "url": "https://www.xda-developers.com/raspberry-pi-5-price-hike-pushed-me-to-mini-pcs/",
-      "title": "[XDA Developers] Raspberry Pi 5's price hike pushed me toward mini PCs, and now I can't justify going back",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/using-raspberry-pi-and-mini-pc-as-portable-homelab.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFreedom from months of mental overhead.",
-      "date_published": "2026-05-04T11:00:21+00:00",
+      "id": "https://www.techradar.com/audio/podslop-is-a-real-and-growing-problem-data-shows-39-percent-of-new-podcasts-are-now-likely-generated-by-ai-heres-why-i-wont-be-listening",
+      "url": "https://www.techradar.com/audio/podslop-is-a-real-and-growing-problem-data-shows-39-percent-of-new-podcasts-are-now-likely-generated-by-ai-heres-why-i-wont-be-listening",
+      "title": "[TechRadar] 'Podslop' is a real and growing problem — data shows 39% of new podcasts are now 'likely' generated by AI. Here's why I won't be listening",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/S4LHWGDUdwfUmTfgtnbtmE-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhat makes podcasts special are the human hosts, and producing AI content takes that away.",
+      "date_published": "2026-05-10T01:00:00+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/using-raspberry-pi-and-mini-pc-as-portable-homelab.JPG"
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 40,
+      "_final_score": 10,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/S4LHWGDUdwfUmTfgtnbtmE-1280-80.jpg"
     },
     {
-      "id": "https://www.wired.com/story/do-lightsaber-blades-have-mass/",
-      "url": "https://www.wired.com/story/do-lightsaber-blades-have-mass/",
-      "title": "[WIRED] Do Lightsaber Blades Have Mass?",
-      "content_html": "<img src=\"https://media.wired.com/photos/69f5261c670176ac727e7310/master/pass/Do-Lightsaber-Blades-Have-Mass-Science-MSDEMST_FE001.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOn Star Wars Day, we put to rest a question that has bedeviled sci-fi nerds for years.",
-      "date_published": "2026-05-04T11:00:00+00:00",
+      "id": "https://wltribune.com/2026/05/09/new-art-installation-unveiled-at-williams-lake-regional-airport/",
+      "url": "https://wltribune.com/2026/05/09/new-art-installation-unveiled-at-williams-lake-regional-airport/",
+      "title": "[Williams Lake Tribune] New art installation unveiled at Williams Lake Regional Airport",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42277573_web1_260514-WLT-Williams-Lake-Regional-Airport-Art-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n4 MIN READ",
+      "date_published": "2026-05-10T07:10:35.069249+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42277573_web1_260514-WLT-Williams-Lake-Regional-Airport-Art-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.openculture.com/2026/05/how-yasujiro-ozu-learned-to-use-color-in-his-masterful-films-a-new-every-frame-a-painting-video-essay.html",
+      "url": "https://www.openculture.com/2026/05/how-yasujiro-ozu-learned-to-use-color-in-his-masterful-films-a-new-every-frame-a-painting-video-essay.html",
+      "title": "[Open Culture] How Yasujirō Ozu Learned to Use Color in His Masterful Films: A New Every Frame a Painting Video Essay",
+      "content_html": "<img src=\"https://cdn8.openculture.com/2026/05/06230156/maxresdefault-40-1024x576.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYasujirō Ozu was born in 1903, and made films from the late nineteen-twenties up until his death in 1963. Though not an especially long life, it spanned Japan’s pre- and postwar eras, meaning that in many ways, it ended in a very different country than it began. Not that you’d know it from Ozu’s films, [&#8230;]",
+      "date_published": "2026-05-07T08:00:01+00:00",
+      "authors": [
+        {
+          "name": "Open Culture",
+          "url": "https://www.openculture.com/"
+        }
+      ],
+      "ai_score": 28,
+      "_quality_score": 28,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 28,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": false,
+      "image": "https://cdn8.openculture.com/2026/05/06230156/maxresdefault-40-1024x576.jpg"
+    },
+    {
+      "id": "https://www.theverge.com/tech/925211/native-instruments-komplete-26-absynth-massive-kontakt",
+      "url": "https://www.theverge.com/tech/925211/native-instruments-komplete-26-absynth-massive-kontakt",
+      "title": "[The Verge] Native Instruments Komplete 26 adds weird new synths and experimental piano sounds",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/Komplete-26-hero-no-logo.jpg?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe latest version of Native Instruments' Komplete music production bundle is here with 62 new additions, including the wonderfully weird Absynth 6. Komplete 26 comes in several flavors, starting with three $99 Select bundles: Beats, Band, and Electronic. Prices jump pretty steeply from there, with Standard costing $549, Ultimate costing $1,249, and the Collector's Edition [&#8230;]",
+      "date_published": "2026-05-06T16:37:40+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 1,
+      "_boosted_score": 26,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/Komplete-26-hero-no-logo.jpg?quality=90&strip=all&crop=0%2C3.4613147178592%2C100%2C93.077370564282&w=1200"
+    },
+    {
+      "id": "https://www.businessinsider.com/gen-z-left-business-paint-full-time-air-tickets-2026-5",
+      "url": "https://www.businessinsider.com/gen-z-left-business-paint-full-time-air-tickets-2026-5",
+      "title": "[Business Insider] I walked away from running a successful social media agency to build a profitable art business",
+      "content_html": "<img src=\"https://i.insider.com/69e9beff367066d7c296ffac?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVictoria Hugo left her social media business to start an art hustle, doing commissions of famous cities and places, painted on boarding passes.",
+      "date_published": "2026-05-05T04:01:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 22,
+      "_quality_score": 22,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 1,
+      "_boosted_score": 26,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/69e9beff367066d7c296ffac?format=jpeg"
+    },
+    {
+      "id": "https://boingboing.net/2026/05/05/cardboard-wars-is-a-loving-parody-of-star-wars-all-in-cardboard.html",
+      "url": "https://boingboing.net/2026/05/05/cardboard-wars-is-a-loving-parody-of-star-wars-all-in-cardboard.html",
+      "title": "[Boing Boing] Cardboard Wars is a loving parody of Star Wars all in cardboard",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Image-Zach-King.jpg?fit=1080%2C464&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/05/cardboard-wars-is-a-loving-parody-of-star-wars-all-in-cardboard.html\" rel=\"nofollow\" title=\"Cardboard Wars is a loving parody of Star Wars all in cardboard\"><img alt=\"Cardboard Wars\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"464\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Image-Zach-King.jpg?fit=1080%2C464&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1080\" /></a><figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\">\n<div class=\"wp-block-embed__wrapper\">\n\n</div>\n</figure>\n<p>Cardboard Wars is the best fan-made Star Wars creation since <a href=\"https://en.wikipedia.org/wiki/Troops_(film)\">Troops</a>. The 52-minute Star Wars parody on <a href=\"https://youtu.be/ulVscDewRPI\">YouTube</a> is a worthy successor to Spaceballs and <a href=\"https://boingboing.net/2023/12/06/watch-hardware-wars-in-hd.html\">Hardware Wars</a>. Cardboard Wars tells the entire story of Star Wars using practical effects and cardboard. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/05/cardboard-wars-is-a-loving-parody-of-star-wars-all-in-cardboard.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/05/cardboard-wars-is-a-loving-parody-of-star-wars-all-in-cardboard.html\">Cardboard Wars is a loving parody of Star Wars all in cardboard</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-05-05T17:01:18+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 26,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Image-Zach-King.jpg?fit=1080%2C464&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.wired.com/story/this-reggae-band-is-in-a-nightmare-battle-against-ai-slop-remixes/",
+      "url": "https://www.wired.com/story/this-reggae-band-is-in-a-nightmare-battle-against-ai-slop-remixes/",
+      "title": "[WIRED] This Reggae Band Is in a Nightmare Battle Against AI Slop Remixes",
+      "content_html": "<img src=\"https://media.wired.com/photos/69fa2d5eb7705358286eaf20/master/pass/His-Song-Is-Going-Viral%E2%80%94But-Its-All-Unauthorized-AI-Slop-Remixes-Culture-2-Additional%20Photo.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhen Stick Figure’s seven-year-old song shot up the charts, the band was thrilled. But its viral moment was spurred by unauthorized AI remixes.",
+      "date_published": "2026-05-07T11:00:00+00:00",
       "authors": [
         {
           "name": "WIRED",
           "url": "https://www.wired.com"
         }
       ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 18,
+      "_quality_score": 18,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://media.wired.com/photos/69fa2d5eb7705358286eaf20/master/pass/His-Song-Is-Going-Viral%E2%80%94But-Its-All-Unauthorized-AI-Slop-Remixes-Culture-2-Additional%20Photo.jpg"
+    },
+    {
+      "id": "https://www.openculture.com/2026/05/when-francis-bacon-shocked-the-art-world.html",
+      "url": "https://www.openculture.com/2026/05/when-francis-bacon-shocked-the-art-world.html",
+      "title": "[Open Culture] When Francis Bacon Shocked the Art World: Viewers Were Horrified by His Paintings, But Couldn’t Look Away",
+      "content_html": "<img src=\"https://cdn8.openculture.com/2026/05/04231701/Screenshot-2026-05-04-at-11.18.03-PM-1024x576.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA difficult childhood and adolescence, saturated with the feeling of being an outsider, may or may not contribute to becoming a great artist. Experiencing the social and cultural ferment of Berlin and Paris in the nineteen-twenties probably wouldn’t hurt one’s chances. Nor, surely, would formative exposure in such cities to films like Metropolis, Battleship Potemkin, [&#8230;]",
+      "date_published": "2026-05-05T08:00:45+00:00",
+      "authors": [
+        {
+          "name": "Open Culture",
+          "url": "https://www.openculture.com/"
+        }
+      ],
+      "ai_score": 18,
+      "_quality_score": 18,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_keyword_matches": 1,
+      "_boosted_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn8.openculture.com/2026/05/04231701/Screenshot-2026-05-04-at-11.18.03-PM-1024x576.png"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/08/magazine/venice-biennale-american-artist.html",
+      "url": "https://www.nytimes.com/2026/05/08/magazine/venice-biennale-american-artist.html",
+      "title": "[NYT Top Stories] A Very American Controversy at the Venicle Biennale",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/24/magazine/24mag-Biennale-06/24mag-Biennale-06-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTrump has taken an active role in the arts in his second term, which may be evident in the work on display at the Venice Biennale — depending on how you look at it.",
+      "date_published": "2026-05-08T09:03:29+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 19,
+      "_quality_score": 19,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_keyword_matches": 1,
+      "_boosted_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/05/24/magazine/24mag-Biennale-06/24mag-Biennale-06-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/06/business/dealbook/justin-wolfers-media-company.html",
+      "url": "https://www.nytimes.com/2026/05/06/business/dealbook/justin-wolfers-media-company.html",
+      "title": "[NYT Business] Justin Wolfers, Cable’s Favorite Economist, Joins the Creator Economy",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/06/multimedia/06DB-WOLFERS-ECON-MEDIA-fqwm/06DB-WOLFERS-ECON-MEDIA-fqwm-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith his crisp breakdowns of President Trump’s trade moves and distinctive Aussie accent, Mr. Wolfers has become a TV constant. Now he’s starting his own media company.",
+      "date_published": "2026-05-06T11:05:07+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 17,
+      "_quality_score": 17,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/05/06/multimedia/06DB-WOLFERS-ECON-MEDIA-fqwm/06DB-WOLFERS-ECON-MEDIA-fqwm-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.neowin.net/reviews/dead-as-disco-early-access-review-brawl-to-the-beat-inside-incredible-music-videos/",
+      "url": "https://www.neowin.net/reviews/dead-as-disco-early-access-review-brawl-to-the-beat-inside-incredible-music-videos/",
+      "title": "[Neowin] Dead as Disco Early Access review: Brawl to the beat inside incredible music videos",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1777932552_pagoda___4_28_2026_3_17_47_am_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1777932552_pagoda___4_28_2026_3_17_47_am_medium.webp\" /></div>Action rhythm game Dead as Disco lands with a killer soundtrack to match its high-energy gameplay. Here&#039;s our full review of the early access launch. <a href=\"https://www.neowin.net/reviews/dead-as-disco-early-access-review-brawl-to-the-beat-inside-incredible-music-videos/\">Read more...</a>",
+      "date_published": "2026-05-05T15:00:01+00:00",
+      "authors": [
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
+        }
+      ],
+      "ai_score": 17,
+      "_quality_score": 17,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 1,
+      "_boosted_score": 25,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": false,
+      "image": "https://cdn.neowin.com/news/images/uploaded/2026/05/1777932552_pagoda___4_28_2026_3_17_47_am_story.webp"
+    },
+    {
+      "id": "https://kottke.org/26/05/the-visual-comedy-of-wes-andersons-isle-of-dogs",
+      "url": "https://kottke.org/26/05/the-visual-comedy-of-wes-andersons-isle-of-dogs",
+      "title": "[Kottke.org] The Visual Comedy of Wes Anderson&#8217;s Isle of Dogs",
+      "content_html": "<img src=\"https://i.ytimg.com/vi/eex-_BztHSE/sddefault.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p></p>\n\t<p>I&#8217;m gonna call it: Every Frame a Painting, my all-time favorite YouTube channel, is back. Tony Zhou and Taylor Ramos stopped producing their fantastic video essays <a href=\"https://kottke.org/17/12/rip-every-frame-a-painting\">back in 2017</a> and while they have <a href=\"https://kottke.org/24/08/-new-every-frame-a-painting\">popped up</a> <a href=\"https://kottke.org/24/10/every-frame-a-painting-what-would-billy-wilder-do\">here and there</a> since then, they&#8217;ve mostly stuck to their retirement.</p>\n\t<p>But for the past few months, the duo have been releasing video essays produced in partnership with Criterion: <a href=\"https://www.youtube.com/watch?v=iZ9n9SGGp48\">Night of the Living Dead: Limitations into Virtues</a>, <a href=\"https://kottke.org/26/04/criterion-x-every-frame-a-painting-the-edges-of-wuxia\">The Blade (1995): The Edges of Wuxia</a>, and just yesterday, <a href=\"https://www.youtube.com/watch?v=eex-_BztHSE\">The Visual Comedy of Isle of Dogs</a> (embedded above).</p>\n\t<blockquote><p>For the past three decades, Wes Anderson has left a distinctive fingerprint in American comedy, with his penchant for artificial worlds, deadpan performances, literary devices, and snappy narration. But there&#8217;s something else. These movies are funny to look at. Over the years, Anderson has experimented more and more with visual comedy. And none of this is more apparent than in Isle of Dogs.</p></blockquote>\n\t<p>It looks like they&#8217;re doing about one video a month. I hope they keep it up&#8230;I love their videos.</p>\n\t<p>(Ok, maybe don&#8217;t read this bit until you&#8217;ve watched the Isle of Dogs video, but did you detect that Zhou&#8217;s narration seems to be synced to the mouth movements of the characters in the clips he&#8217;s talking over? Such a great little detail of visual comedy&#8230;I clapped my hands in glee like a toddler when I noticed.)\n</p>\n \n\n        \n         <p><strong>Tags:</strong> <a href=\"https://kottke.org/tag/film%20school\">film school</a> · <a href=\"https://kottke.org/tag/Isle%20of%20Dogs\">Isle of Dogs</a> · <a href=\"https://kottke.org/tag/movies\">movies</a> · <a href=\"https://kottke.org/tag/Taylor%20Ramos\">Taylor Ramos</a> · <a href=\"https://kottke.org/tag/Tony%20Zhou\">Tony Zhou</a> · <a href=\"https://kottke.org/tag/video\">video</a> · <a href=\"https://kottke.org/tag/Wes%20Anderson\">Wes Anderson</a></p>",
+      "date_published": "2026-05-04T14:36:52+00:00",
+      "authors": [
+        {
+          "name": "Kottke.org",
+          "url": "https://kottke.org/"
+        }
+      ],
+      "ai_score": 16,
+      "_quality_score": 16,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 24,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": false,
+      "image": "https://i.ytimg.com/vi/eex-_BztHSE/sddefault.jpg"
+    },
+    {
+      "id": "https://www.engadget.com/2169030/a-new-subnautica-2-gameplay-trailer-just-dropped-ahead-of-its-early-access-release/",
+      "url": "https://www.engadget.com/2169030/a-new-subnautica-2-gameplay-trailer-just-dropped-ahead-of-its-early-access-release/",
+      "title": "[Engadget] A new Subnautica 2 gameplay trailer just dropped ahead of its Early Access release",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/a-new-subnautica-2-gameplay-trailer-just-dropped-ahead-of-its-early-access-release/l-intro-1778430287.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSubnautica 2 will be available in Early Access on May 14.",
+      "date_published": "2026-05-10T16:29:37+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 15,
+      "_final_score": 15,
       "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "_boosted_score": 20,
       "_category": "scifi",
       "_source_category": "scifi",
       "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69f5261c670176ac727e7310/master/pass/Do-Lightsaber-Blades-Have-Mass-Science-MSDEMST_FE001.jpg"
+      "image": "https://www.engadget.com/img/gallery/a-new-subnautica-2-gameplay-trailer-just-dropped-ahead-of-its-early-access-release/l-intro-1778430287.jpg"
     },
     {
-      "id": "https://www.techradar.com/pro/we-can-realistically-replicate-human-intelligence-in-ai-heres-how-well-achieve-agi",
-      "url": "https://www.techradar.com/pro/we-can-realistically-replicate-human-intelligence-in-ai-heres-how-well-achieve-agi",
-      "title": "[TechRadar] We can realistically replicate human intelligence in AI: Here’s how we’ll achieve AGI",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTrue artificial general intelligence will emerge only when humans actively teach context, judgement, and reasoning.",
-      "date_published": "2026-05-04T10:30:38+00:00",
+      "id": "https://www.tomsguide.com/ai/i-stopped-treating-chatgpt-like-google-and-everything-suddenly-clicked",
+      "url": "https://www.tomsguide.com/ai/i-stopped-treating-chatgpt-like-google-and-everything-suddenly-clicked",
+      "title": "[Toms Guide] I stopped treating ChatGPT like Google — and everything suddenly clicked",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/VeHDFRYZLPbCTxvNsZc8wG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI stopped using ChatGPT like Google and started treating it like a thinking partner — here’s why that simple shift made the AI dramatically more useful, personal and practical.",
+      "date_published": "2026-05-11T05:45:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
         }
       ],
+      "ai_score": 55,
       "_quality_score": 55,
       "_theme_score": 0,
       "_final_score": 0,
@@ -642,271 +417,536 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/VeHDFRYZLPbCTxvNsZc8wG-1280-80.jpg"
     },
     {
-      "id": "https://flowingdata.com/2026/05/04/estimating-how-much-text-on-the-internet-is-generated/",
-      "url": "https://flowingdata.com/2026/05/04/estimating-how-much-text-on-the-internet-is-generated/",
-      "title": "[FlowingData] Estimating how much text on the internet is generated",
-      "content_html": "<img src=\"https://flowingdata.com/wp-content/uploads/2026/04/generated-text-growth.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://flowingdata.com/2026/05/04/estimating-how-much-text-on-the-internet-is-generated/\"><img src=\"https://flowingdata.com/wp-content/uploads/2026/04/generated-text-growth-750x440.png\" style=\"height: auto;\" /></a></p>Researchers analyzed newly published websites from 2022 through mid-2025 to estimate what percentage&#8230;<p><strong>Tags:</strong> <a href=\"https://flowingdata.com/tag/generative/\" rel=\"tag\">generative</a>, <a href=\"https://flowingdata.com/tag/internet-archive/\" rel=\"tag\">Internet Archive</a>, <a href=\"https://flowingdata.com/tag/text/\" rel=\"tag\">text</a></p>",
-      "date_published": "2026-05-04T10:19:49+00:00",
+      "id": "https://www.xda-developers.com/debian-tampered-binaries/",
+      "url": "https://www.xda-developers.com/debian-tampered-binaries/",
+      "title": "[XDA Developers] Debian's next release just made it near-impossible for tampered binaries to sneak onto your PC",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/11/old-laptop-debian-4.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nReproducible packages are here to stay.",
+      "date_published": "2026-05-11T01:41:04+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/11/old-laptop-debian-4.jpg"
+    },
+    {
+      "id": "https://makezine.com/article/maker-news/maker-faire/made-in-delft-making-for-a-better-society/",
+      "url": "https://makezine.com/article/maker-news/maker-faire/made-in-delft-making-for-a-better-society/",
+      "title": "[Make Magazine] Made In Delft: “Making for a Better Society”",
+      "content_html": "<img src=\"https://makezine.com/wp-content/uploads/2026/05/Maker-Faire-Foto-Sander-Foederer-2432-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Made In Delft: “Making for a Better Society”\" class=\"attachment-medium size-medium wp-post-image\" height=\"500\" src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2026/05/Maker-Faire-Foto-Sander-Foederer-2432-scaled.jpg?fit=750%2C500&amp;ssl=1\" style=\"margin-bottom: 15px;\" width=\"750\" /></div>\n<p>WEBSITE I INSTAGRAM Get ready for a day packed with invention, experimentation, and creativity at Maker Faire Delft 2026! Taking over the vibrant TU Delft campus on 8 May from 12:00–20:00, an inspiring community of makers, artists, engineers, designers, researchers, students, inventors, and tech enthusiasts from across the Netherlands and beyond come together to talk [&#8230;]</p>\n<p>The post <a href=\"https://makezine.com/article/maker-news/maker-faire/made-in-delft-making-for-a-better-society/\">Made In Delft: “Making for a Better Society”</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
+      "date_published": "2026-05-07T21:30:37+00:00",
+      "authors": [
+        {
+          "name": "Make Magazine",
+          "url": "https://makezine.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://makezine.com/wp-content/uploads/2026/05/Maker-Faire-Foto-Sander-Foederer-2432-scaled.jpg"
+    },
+    {
+      "id": "https://www.engadget.com/2166965/spotify-ai-powered-personal-dj-expands-to-more-languages-and-countries/",
+      "url": "https://www.engadget.com/2166965/spotify-ai-powered-personal-dj-expands-to-more-languages-and-countries/",
+      "title": "[Engadget] Spotify's AI-powered personal DJ expands to more languages and countries",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/spotifys-ai-powered-personal-dj-expands-to-more-languages-and-countries/l-intro-1778163920.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPremium users in more than 75 markets will now have access to it.",
+      "date_published": "2026-05-07T14:27:24+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 50,
+      "_final_score": 20,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://www.engadget.com/img/gallery/spotifys-ai-powered-personal-dj-expands-to-more-languages-and-countries/l-intro-1778163920.jpg"
+    },
+    {
+      "id": "https://newatlas.com/robotics/motion-capture-exoskeletons-linked-violinists/",
+      "url": "https://newatlas.com/robotics/motion-capture-exoskeletons-linked-violinists/",
+      "title": "[New Atlas] Motion-capture exoskeletons let violinists feel each others’ subtlest moves",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/131f039/2147483647/strip/true/crop/1390x730+0+99/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fba%2F6e%2Fde34182a4baf9f9b013d0863df67%2Fimg-2089-1-4.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"For the study, 20 pairs of violinists wore upper-body exoskeletons while performing together\" src=\"https://assets.newatlas.com/dims4/default/dc7541e/2147483647/strip/true/crop/1390x927+0+0/resize/1390x927!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fba%2F6e%2Fde34182a4baf9f9b013d0863df67%2Fimg-2089-1-4.jpeg\" /><p>World-renowned science fiction author Arthur C. Clarke (2001: A Space Odyssey, Childhood’s End) once quipped that “Any teacher who can be replaced by a computer should be.” Some people think Clarke’s statement means we should replace all teachers.</p><p><a href=\"https://newatlas.com/robotics/motion-capture-exoskeletons-linked-violinists/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/robotics/\">Robotics</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/exoskeleton/\" rel=\"tag\">Exoskeleton</a>, <a href=\"https://newatlas.com/tag/education/\" rel=\"tag\">Education</a>, <a href=\"https://newatlas.com/tag/training-aid/\" rel=\"tag\">Training aid</a>, <a href=\"https://newatlas.com/tag/ghent-university/\" rel=\"tag\">Ghent University</a>, <a href=\"https://newatlas.com/tag/violin/\" rel=\"tag\">Violin</a></p>",
+      "date_published": "2026-05-04T16:00:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 45,
+      "_quality_score": 45,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 13,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://assets.newatlas.com/dims4/default/131f039/2147483647/strip/true/crop/1390x730+0+99/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fba%2F6e%2Fde34182a4baf9f9b013d0863df67%2Fimg-2089-1-4.jpeg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://thetyee.ca/Presents/2026/05/11/History-Robes-Recount-Past-Haida-Perspective/",
+      "url": "https://thetyee.ca/Presents/2026/05/11/History-Robes-Recount-Past-Haida-Perspective/",
+      "title": "[The Tyee] ‘History Robes’ Recount the Past Through a Haida Perspective",
+      "content_html": "<img src=\"https://thetyee.ca/Presents/2026/05/06/GloryJutkeNayHazelWilson.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA new exhibit at the Museum of Anthropology showcases the pioneering work of Jut-ke-Nay Hazel Wilson.",
+      "date_published": "2026-05-11T07:30:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "ai_score": 40,
+      "_quality_score": 40,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://thetyee.ca/Presents/2026/05/06/GloryJutkeNayHazelWilson.jpg"
+    },
+    {
+      "id": "https://www.themarginalian.org/2026/05/10/zadie-smith-cultural-appropriation/",
+      "url": "https://www.themarginalian.org/2026/05/10/zadie-smith-cultural-appropriation/",
+      "title": "[The Marginalian] Zadie Smith on the Courage to Be More Than Yourself",
+      "content_html": "<img src=\"https://www.themarginalian.org/wp-content/uploads/2026/05/zadiesmith_marginalian.jpg?fit=791%2C415&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEvery act of learning is an act of intellectual appropriation, incorporating someone else&#8217;s knowledge into your own mental library. Every act of empathy is an act of emotional appropriation, modeling the reality of another into your own in order to fathom it. I have appropriated the English language &#8212; not my native &#8212; in order to write these words. The tyranny of our time is that, because the hero of the modern myth is the victim, our catalogue of ways to be wounded has swelled to untenable proportions. The arsenal of possible offenses is so immense that we are left&#8230;&#160;<a class=\"h3 read_on\" href=\"https://www.themarginalian.org/2026/05/10/zadie-smith-cultural-appropriation/\">read&#160;article</a>",
+      "date_published": "2026-05-10T15:16:07+00:00",
+      "authors": [
+        {
+          "name": "The Marginalian",
+          "url": "https://www.themarginalian.org"
+        }
+      ],
+      "ai_score": 38,
+      "_quality_score": 38,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 11,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://www.themarginalian.org/wp-content/uploads/2026/05/zadiesmith_marginalian.jpg?fit=791%2C415&ssl=1"
+    },
+    {
+      "id": "https://makezine.com/article/maker-news/maker-faire-trieste-2026-la-festa-dellingegno/",
+      "url": "https://makezine.com/article/maker-news/maker-faire-trieste-2026-la-festa-dellingegno/",
+      "title": "[Make Magazine] Maker Faire Trieste 2026: La Festa dell’Ingegno",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=makezine.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Maker Faire Trieste 2026: La Festa dell&#8217;Ingegno\" class=\"attachment-medium size-medium wp-post-image\" height=\"498\" src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2026/04/Screenshot-2026-04-30-at-6.08.53-PM.png?fit=750%2C498&amp;ssl=1\" style=\"margin-bottom: 15px;\" width=\"750\" /></div>\n<p>WEBSITE I FACEBOOK I INSTGRAM Maker Faire Trieste is a reminder of what the movement can be at its best: deeply local and rooted in the unique community of a particular place and its history, radically international, scientifically aspirational and collaborative, and full of the joyful chaos that makes Maker Faire as much a way [&#8230;]</p>\n<p>The post <a href=\"https://makezine.com/article/maker-news/maker-faire-trieste-2026-la-festa-dellingegno/\">Maker Faire Trieste 2026: La Festa dell&#8217;Ingegno</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
+      "date_published": "2026-05-05T06:50:09+00:00",
+      "authors": [
+        {
+          "name": "Make Magazine",
+          "url": "https://makezine.com"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 10,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=makezine.com&sz=128"
+    },
+    {
+      "id": "https://indiginews.com/winnipeg/winnipeg-exhibition-red-river-metis-beadwork/",
+      "url": "https://indiginews.com/winnipeg/winnipeg-exhibition-red-river-metis-beadwork/",
+      "title": "[IndigiNews] Winnipeg exhibition traces the revival of Red River Métis beadwork",
+      "content_html": "<img src=\"https://indiginews.com/wp-content/uploads/2026/05/Photographer-SarahFuller-2309-1-1024x684.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>‘Beading Métis Resurgence’ brings together renowned Manitoba artist Jennine Krauchi and four emerging makers</p>\n<p>The post <a href=\"https://indiginews.com/winnipeg/winnipeg-exhibition-red-river-metis-beadwork/\">Winnipeg exhibition traces the revival of Red River Métis beadwork</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
+      "date_published": "2026-05-05T14:42:29+00:00",
+      "authors": [
+        {
+          "name": "IndigiNews",
+          "url": "https://indiginews.com/"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 0,
+      "_boosted_score": 10,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://indiginews.com/wp-content/uploads/2026/05/Photographer-SarahFuller-2309-1-1024x684.jpg"
+    },
+    {
+      "id": "https://flowingdata.com/2026/05/06/visualizing-history-within-a-grid/",
+      "url": "https://flowingdata.com/2026/05/06/visualizing-history-within-a-grid/",
+      "title": "[FlowingData] Visualizing history within a grid",
+      "content_html": "<img src=\"https://flowingdata.com/wp-content/uploads/2026/04/Jazwinski-grid.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://flowingdata.com/2026/05/06/visualizing-history-within-a-grid/\"><img src=\"https://flowingdata.com/wp-content/uploads/2026/04/Jazwinski-grid-750x624.jpg\" style=\"height: auto;\" /></a></p>For the Public Domain Review, Hunter Dukes and Adam Green visit Antoni Jażwiński&#8217;s&#8230;<p><strong>Tags:</strong> <a href=\"https://flowingdata.com/tag/grid/\" rel=\"tag\">grid</a>, <a href=\"https://flowingdata.com/tag/public-domain-review/\" rel=\"tag\">Public Domain Review</a></p>",
+      "date_published": "2026-05-06T09:21:07+00:00",
       "authors": [
         {
           "name": "FlowingData",
           "url": "https://flowingdata.com"
         }
       ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 35,
+      "_final_score": 35,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://flowingdata.com/wp-content/uploads/2026/04/generated-text-growth.png"
-    },
-    {
-      "id": "https://www.androidauthority.com/google-tv-crashing-lagging-how-fix-limiting-processes-3661520/",
-      "url": "https://www.androidauthority.com/google-tv-crashing-lagging-how-fix-limiting-processes-3661520/",
-      "title": "[Android Authority] My Google TV kept crashing and lagging — until I changed one hidden setting",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/04/a-remote-held-in-a-hand-with-the-google-tv-interface-on-a-screen-in-the-background.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI never realized how much difference a single change could make.",
-      "date_published": "2026-05-04T10:00:49+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/04/a-remote-held-in-a-hand-with-the-google-tv-interface-on-a-screen-in-the-background.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/small-language-models-trained-for-your-industry-can-deliver-more-for-your-business",
-      "url": "https://www.techradar.com/pro/small-language-models-trained-for-your-industry-can-deliver-more-for-your-business",
-      "title": "[TechRadar] Small Language Models trained for your industry can deliver more for your business",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/6t9Lsf3QWte55CdyiDs97L-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGeneric AI creates risk - domain-trained small language models deliver accuracy, efficiency, and security enterprises need.",
-      "date_published": "2026-05-04T09:58:41+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/6t9Lsf3QWte55CdyiDs97L-1280-80.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/why-software-defects-are-now-the-biggest-security-threat",
-      "url": "https://www.techradar.com/pro/why-software-defects-are-now-the-biggest-security-threat",
-      "title": "[TechRadar] Why software defects are now the biggest security threat",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/UjSNcAZ5SebctebKAMQNVF-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhy bugs and misconfigurations pose as much of a cyber threat as hackers.",
-      "date_published": "2026-05-04T09:06:02+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/UjSNcAZ5SebctebKAMQNVF-1280-80.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/04/climate/el-nino-global-warming.html",
-      "url": "https://www.nytimes.com/2026/05/04/climate/el-nino-global-warming.html",
-      "title": "[NYT Top Stories] A Strong El Niño May Be Coming. Global Warming Is Changing Its Effects.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/01/multimedia/2026-04-20-cli-super-elnino-index/2026-04-20-cli-super-elnino-index-mediumSquareAt3X-v3.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs the planet warms, past episodes of the natural weather phenomenon may no longer be a reliable guide of how the next one plays out.",
-      "date_published": "2026-05-04T09:02:19+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 60,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/01/multimedia/2026-04-20-cli-super-elnino-index/2026-04-20-cli-super-elnino-index-mediumSquareAt3X-v3.png"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/04/well/cannabis-marijuana-health-risks.html",
-      "url": "https://www.nytimes.com/2026/05/04/well/cannabis-marijuana-health-risks.html",
-      "title": "[NYT Well] What Doctors Want You to Know About Cannabis and Health",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe government recently loosened medical marijuana rules. Experts separate fact from fiction about the drug’s safety and benefits.",
-      "date_published": "2026-05-04T09:01:32+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/04/health/what-are-orphines.html",
-      "url": "https://www.nytimes.com/2026/05/04/health/what-are-orphines.html",
-      "title": "[NYT Top Stories] What to Know About Orphines, a New Class of Deadly Opioids",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/01/multimedia/00DC-orphines-explainer-wbjz/00DC-orphines-explainer-wbjz-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe drugs are 10 times more dangerous than fentanyl. They are showing up in street drugs in the South and the Midwest, and will most likely spread to other regions.",
-      "date_published": "2026-05-04T09:00:45+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/01/multimedia/00DC-orphines-explainer-wbjz/00DC-orphines-explainer-wbjz-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/04/health/knoxville-medical-examiners-drugs-cychlorphine.html",
-      "url": "https://www.nytimes.com/2026/05/04/health/knoxville-medical-examiners-drugs-cychlorphine.html",
-      "title": "[NYT Top Stories] A Medical Examiner Chases Down an Elusive Killer",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/04/13/multimedia/00hs-orphines-stillpromo-zpgb/00hs-orphines-stillpromo-zpgb-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUnusual opioids are infiltrating street drugs. Knoxville’s top forensic doctor is on the front lines, pressing to quickly identify the most lethal.",
-      "date_published": "2026-05-04T09:00:40+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 53,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/04/13/multimedia/00hs-orphines-stillpromo-zpgb/00hs-orphines-stillpromo-zpgb-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/04/world/europe/turkmenistan-door-to-hell-darvaza-crater.html",
-      "url": "https://www.nytimes.com/2026/05/04/world/europe/turkmenistan-door-to-hell-darvaza-crater.html",
-      "title": "[NYT Top Stories] The ‘Gates to Hell’ Are Dimming. That May Not Be a Good Thing.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2025/07/09/multimedia/00xp-gatewaytohell-bjcf/00xp-gatewaytohell-bjcf-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA flaming crater of gas has burned in Turkmenistan for decades. Satellite imagery suggests that the fires are decreasing, but the environmental implications are unclear.",
-      "date_published": "2026-05-04T09:00:07+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2025/07/09/multimedia/00xp-gatewaytohell-bjcf/00xp-gatewaytohell-bjcf-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/europes-relationship-with-us-big-tech-has-reached-a-breaking-point",
-      "url": "https://www.techradar.com/pro/europes-relationship-with-us-big-tech-has-reached-a-breaking-point",
-      "title": "[TechRadar] Europe’s relationship with US Big Tech has reached a breaking point",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/snacLhKPDncvV3JtXYyw7M-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt starts with upgrades. It ends with losing control of your own systems",
-      "date_published": "2026-05-04T08:50:34+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_quality_score": 54,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
+      "_boosted_score": 10,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/snacLhKPDncvV3JtXYyw7M-1280-80.jpg"
+      "_is_bonus": true,
+      "image": "https://flowingdata.com/wp-content/uploads/2026/04/Jazwinski-grid.jpg"
     },
     {
-      "id": "https://www.techradar.com/vpn/vpn-services/nymvpns-new-pay-as-you-go-option-ditches-accounts-and-subscriptions-for-true-anonymity",
-      "url": "https://www.techradar.com/vpn/vpn-services/nymvpns-new-pay-as-you-go-option-ditches-accounts-and-subscriptions-for-true-anonymity",
-      "title": "[TechRadar] NymVPN's new 'Pay as You Go' option ditches accounts and subscriptions for true anonymity",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/kFJmpmXBNvtZboJMDK5tJQ-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNymVPN's new Pay as You Go service gives users decentralized network access without an account, a subscription, or any identity details.",
-      "date_published": "2026-05-04T08:00:00+00:00",
+      "id": "https://www.theatlantic.com/culture/2026/05/neh-grants-doge-trump-ruling/687126/?utm_source=feed",
+      "url": "https://www.theatlantic.com/culture/2026/05/neh-grants-doge-trump-ruling/687126/?utm_source=feed",
+      "title": "[The Atlantic Culture] The DOGE-ing of the Humanities Is Being Reversed",
+      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/O2m6d1J0Kiq2-luGqYqCWanz-AM=/1x85:3994x2165/1200x625/media/img/mt/2026/05/2026_05_09_The_DOGE_ing_of_the_Humanities_Is_Being_Reversed/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Trump administration hastily canceled research grants last year—but just hit a roadblock in court.",
+      "date_published": "2026-05-09T18:29:27+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "The Atlantic Culture",
+          "url": "https://www.theatlantic.com/culture/"
         }
       ],
-      "_quality_score": 56,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 31,
+      "_quality_score": 31,
+      "_theme_score": 35,
+      "_final_score": 35,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_boosted_score": 9,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/kFJmpmXBNvtZboJMDK5tJQ-1280-80.png"
+      "image": "https://cdn.theatlantic.com/thumbor/O2m6d1J0Kiq2-luGqYqCWanz-AM=/1x85:3994x2165/1200x625/media/img/mt/2026/05/2026_05_09_The_DOGE_ing_of_the_Humanities_Is_Being_Reversed/original.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/04/tdr-for-auto-diagnostics-done-on-the-cheap/",
-      "url": "https://hackaday.com/2026/05/04/tdr-for-auto-diagnostics-done-on-the-cheap/",
-      "title": "[Hackaday] TDR For Auto Diagnostics Done On The Cheap",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/6708671777490542514-e1777535976200.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/6708671777490542514-e1777535976200.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>A time domain reflectometer (TDR) is a useful tool to have for finding faults in a wiring harness. However, they don&#8217;t come cheap, putting them out of reach for many <a class=\"read-more\" href=\"https://hackaday.com/2026/05/04/tdr-for-auto-diagnostics-done-on-the-cheap/\">&#8230;read more</a>",
-      "date_published": "2026-05-04T08:00:00+00:00",
+      "id": "https://www.theatlantic.com/culture/2026/05/pope-leo-war-immigration-abortion/687076/?utm_source=feed",
+      "url": "https://www.theatlantic.com/culture/2026/05/pope-leo-war-immigration-abortion/687076/?utm_source=feed",
+      "title": "[The Atlantic Culture] How the Pope Connects War, Immigration, and Abortion",
+      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/UhS4R1xm9XuHf8x8vZ1EzDfuv9g=/0x0:5990x3120/1200x625/media/img/mt/2026/05/2026_05_06_Pope_Leo_Pro_Life_Challenge_to_Conservative_Catholics/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt all comes down to a particular stance on life.",
+      "date_published": "2026-05-08T14:00:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "The Atlantic Culture",
+          "url": "https://www.theatlantic.com/culture/"
         }
       ],
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 27,
+      "_quality_score": 27,
+      "_theme_score": 40,
+      "_final_score": 40,
       "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_boosted_score": 8,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/04/6708671777490542514-e1777535976200.png"
+      "image": "https://cdn.theatlantic.com/thumbor/UhS4R1xm9XuHf8x8vZ1EzDfuv9g=/0x0:5990x3120/1200x625/media/img/mt/2026/05/2026_05_06_Pope_Leo_Pro_Life_Challenge_to_Conservative_Catholics/original.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/08/fully-clothed-arkells-play-vancouver-strip-club-18-years-after-1st-date-there/",
+      "url": "https://wltribune.com/2026/05/08/fully-clothed-arkells-play-vancouver-strip-club-18-years-after-1st-date-there/",
+      "title": "[Williams Lake Tribune] ‘Fully clothed’ Arkells play Vancouver strip club 18 years after 1st date there",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42265043_web1_260707-SUL-ArkellsPenthouse-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The Penthouse is where the Hamilton band gigged in Vancouver the first time </p>",
+      "date_published": "2026-05-08T00:45:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 28,
+      "_quality_score": 28,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 8,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42265043_web1_260707-SUL-ArkellsPenthouse-1_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.theatlantic.com/culture/2026/05/mary-cassatt-mothers-day/687090/?utm_source=feed",
+      "url": "https://www.theatlantic.com/culture/2026/05/mary-cassatt-mothers-day/687090/?utm_source=feed",
+      "title": "[The Atlantic Culture] The Forgotten Radicalism of Mary Cassatt",
+      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/1cJvS3-jj_FJ_cglkMCVcpkujOI=/0x344:3362x2095/1200x625/media/img/mt/2026/05/2026_04_08_Mary_Cassatt_Was_a_Radical/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBefore she became Mother’s Day’s safest painter, she was an artistic visionary whose concerns were political.",
+      "date_published": "2026-05-08T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Atlantic Culture",
+          "url": "https://www.theatlantic.com/culture/"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://cdn.theatlantic.com/thumbor/1cJvS3-jj_FJ_cglkMCVcpkujOI=/0x344:3362x2095/1200x625/media/img/mt/2026/05/2026_04_08_Mary_Cassatt_Was_a_Radical/original.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/08/arts/venice-biennale-protests.html",
+      "url": "https://www.nytimes.com/2026/05/08/arts/venice-biennale-protests.html",
+      "title": "[NYT Top Stories] Artists’ Strike Closes Pavilions at Venice Biennale, Adding to Upheaval",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/08/multimedia/08cul-venice-protests-mgvb/08cul-venice-protests-mgvb-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe hottest exhibitions at the world’s major art exhibition were shuttered on Friday as part of a pro-Palestinian demonstration.",
+      "date_published": "2026-05-08T13:55:27+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 21,
+      "_quality_score": 21,
+      "_theme_score": 55,
+      "_final_score": 55,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/05/08/multimedia/08cul-venice-protests-mgvb/08cul-venice-protests-mgvb-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/05/business/media/hannah-natanson-washington-post-pulitzer.html",
+      "url": "https://www.nytimes.com/2026/05/05/business/media/hannah-natanson-washington-post-pulitzer.html",
+      "title": "[NYT Business] The FBI Searched a Washington Post Reporter’s Home. She Is Now a Pulitzer Prize Winner.",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/05/multimedia/00biz-natanson-pgtw/00biz-natanson-pgtw-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHannah Natanson’s reporting anchored a package of articles from The Washington Post that won a Pulitzer on Monday, four months after agents seized her devices.",
+      "date_published": "2026-05-05T17:53:28+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 50,
+      "_final_score": 50,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/05/05/multimedia/00biz-natanson-pgtw/00biz-natanson-pgtw-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/05/business/media/avatar-ai-lawsuit.html",
+      "url": "https://www.nytimes.com/2026/05/05/business/media/avatar-ai-lawsuit.html",
+      "title": "[NYT Business] ‘Avatar’ Suit Focuses on Hot Topic in A.I. Age: A Character’s Face",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn actress accused the director James Cameron of stealing her likeness for a digitally created, blue-skinned warrior princess.",
+      "date_published": "2026-05-06T00:43:53+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 45,
+      "_final_score": 45,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=128"
+    },
+    {
+      "id": "https://www.themarginalian.org/2026/05/05/aztec-humboldt-darwin-emoji/",
+      "url": "https://www.themarginalian.org/2026/05/05/aztec-humboldt-darwin-emoji/",
+      "title": "[The Marginalian] Embodiment and the (Re)invention of Emoji, from the Aztecs to Humboldt and Darwin to AI",
+      "content_html": "<img src=\"https://www.themarginalian.org/wp-content/uploads/2025/08/aztec_emoji_Marginalian00.jpg?fit=890%2C467&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBy the time he published Vues des Cordillères, et monumens des peuples indigènes de l&#8217;Amérique, Alexander von Humboldt (September 14, 1769&#8211;May 6, 1859), barely in his forties, was the world&#8217;s most eminent and polymathic naturalist (the word scientist was yet to be coined). Napoleon hated him for his impassioned anticolonial and abolitionist views. Goethe cherished him as his greatest thinking partner, whose briefest company and conversation felt like &#8220;having lived several years.&#8221; Thoreau thought his very eyes &#8220;natural telescopes &#038; microscopes.&#8221; Whitman declared himself a &#8220;kosmos&#8221; after the title of Humboldt&#8217;s epoch-making book. Darwin, looking back on his life, readily&#8230;&#160;<a class=\"h3 read_on\" href=\"https://www.themarginalian.org/2026/05/05/aztec-humboldt-darwin-emoji/\">read&#160;article</a>",
+      "date_published": "2026-05-06T03:35:18+00:00",
+      "authors": [
+        {
+          "name": "The Marginalian",
+          "url": "https://www.themarginalian.org"
+        }
+      ],
+      "ai_score": 22,
+      "_quality_score": 22,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://www.themarginalian.org/wp-content/uploads/2025/08/aztec_emoji_Marginalian00.jpg?fit=890%2C467&ssl=1"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/06/business/media/bbc-guy-goma-interview.html",
+      "url": "https://www.nytimes.com/2026/05/06/business/media/bbc-guy-goma-interview.html",
+      "title": "[NYT Business] Guy Goma’s Accidental BBC Interview Lives On After 20 Years",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGuy Goma thought he was interviewing for an I.T. job when he found himself on air on the BBC. What came next was familiar to anyone who has been unprepared at work.",
+      "date_published": "2026-05-06T04:01:05+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 23,
+      "_quality_score": 23,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 0,
+      "_boosted_score": 6,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=128"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/05/07/arts/design/venice-biennale-us-pavilion.html",
+      "url": "https://www.nytimes.com/2026/05/07/arts/design/venice-biennale-us-pavilion.html",
+      "title": "[NYT Top Stories] At the Venice Biennale, an American Artist Plops His Sculptures on a World Stage",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/09/multimedia/07cul-venice-us-pavilion-kqml/07cul-venice-us-pavilion-kqml-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThey may be bronze and marble, but Alma Allen’s artworks at the Venice Biennale are as intangible as air.",
+      "date_published": "2026-05-07T21:24:01+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 17,
+      "_quality_score": 17,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 0,
+      "_boosted_score": 5,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/05/09/multimedia/07cul-venice-us-pavilion-kqml/07cul-venice-us-pavilion-kqml-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.engadget.com/2165098/the-creator-of-citizen-sleeper-2-is-making-two-new-games/",
+      "url": "https://www.engadget.com/2165098/the-creator-of-citizen-sleeper-2-is-making-two-new-games/",
+      "title": "[Engadget] The creator of Citizen Sleeper 2 is making two new games",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/the-creator-of-citizen-sleeper-2-is-making-two-new-games/l-intro-1777996537.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOne is a TTRPG, and the other an entirely new video game.",
+      "date_published": "2026-05-05T15:57:01+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 18,
+      "_quality_score": 18,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 5,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://www.engadget.com/img/gallery/the-creator-of-citizen-sleeper-2-is-making-two-new-games/l-intro-1777996537.jpg"
+    },
+    {
+      "id": "https://kottke.org/26/05/0048864-they-would-never-use-the-",
+      "url": "https://kottke.org/26/05/0048864-they-would-never-use-the-",
+      "title": "[Kottke.org] &#8220;They Would Never Use the Death Star on Us&#8221;:...",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kottke.org&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://www.mcsweeneys.net/articles/they-would-never-use-the-death-star-on-us-alderaan-residents-reflect-on-their-support-for-the-empire-as-a-large-imperial-installation-enters-the-system\">&#8220;They Would Never Use the Death Star on Us&#8221;: Alderaan Residents Reflect on Their Support for the Empire as a Large Imperial Installation Enters the System</a>. &#8220;The Senate was ineffective, and the liberal Jedi were out of touch&#8230;&#8221;\n</p>",
+      "date_published": "2026-05-04T15:20:00+00:00",
+      "authors": [
+        {
+          "name": "Kottke.org",
+          "url": "https://kottke.org/"
+        }
+      ],
+      "ai_score": 18,
+      "_quality_score": 18,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 0,
+      "_boosted_score": 5,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=kottke.org&sz=128"
+    },
+    {
+      "id": "https://newatlas.com/technology/audible-story-house-pop-up/",
+      "url": "https://newatlas.com/technology/audible-story-house-pop-up/",
+      "title": "[New Atlas] Audiobooks go physical in Audible’s immersive 'Story House' pop-up",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/8786bba/2147483647/strip/true/crop/1686x885+0+98/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F03%2Fc7%2F76792b8946fcb0c23ca64af56a99%2Faudiblestoryhouse-heroimg.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Audible Story House’s New York storefront, a month-long “bookless bookstore” pop-up open to the public throughout May\" src=\"https://assets.newatlas.com/dims4/default/a438448/2147483647/strip/true/crop/1686x1081+0+0/resize/1440x923!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F03%2Fc7%2F76792b8946fcb0c23ca64af56a99%2Faudiblestoryhouse-heroimg.jpg\" /><p>Audible is opening a pop-up \"bookless bookstore\" in New York City, turning audiobooks into a social experience with listening lounges and live events.</p><p><a href=\"https://newatlas.com/technology/audible-story-house-pop-up/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/store/\" rel=\"tag\">Store</a>, <a href=\"https://newatlas.com/tag/new-york/\" rel=\"tag\">New York</a>, <a href=\"https://newatlas.com/tag/immersion/\" rel=\"tag\">Immersion</a>, <a href=\"https://newatlas.com/tag/audio/\" rel=\"tag\">Audio</a>, <a href=\"https://newatlas.com/tag/dolby/\" rel=\"tag\">Dolby</a>, <a href=\"https://newatlas.com/tag/reading/\" rel=\"tag\">Reading</a></p>",
+      "date_published": "2026-05-06T15:32:35+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 15,
+      "_quality_score": 15,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 4,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://assets.newatlas.com/dims4/default/8786bba/2147483647/strip/true/crop/1686x885+0+98/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F03%2Fc7%2F76792b8946fcb0c23ca64af56a99%2Faudiblestoryhouse-heroimg.jpg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.aljazeera.com/features/2026/5/9/gaza-at-the-venice-biennale-where-language-falls-short-threads-take-over?traffic_source=rss",
+      "url": "https://www.aljazeera.com/features/2026/5/9/gaza-at-the-venice-biennale-where-language-falls-short-threads-take-over?traffic_source=rss",
+      "title": "[Al Jazeera English] Gaza at the Venice Biennale: Where language falls short, threads take over",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/A-selection-of-embroidered-panels-from-the-Gaza-Genocide-Tapestry-Courtesy-of-Palestne-Museum-US2-1778316362.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI co-commissioned the Gaza Genocide Tapestry which will be displayed at the Venice Biennale. Here&#039;s the story behind it.",
+      "date_published": "2026-05-09T10:19:31+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 15,
+      "_quality_score": 15,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 0,
+      "_boosted_score": 4,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/A-selection-of-embroidered-panels-from-the-Gaza-Genocide-Tapestry-Courtesy-of-Palestne-Museum-US2-1778316362.jpg?resize=1920%2C1440"
     }
   ]
 }
