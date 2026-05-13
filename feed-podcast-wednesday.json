@@ -22,248 +22,294 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise pure software, pure business news, and national politics with no hardware angle. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-05-13T07:37:14.411848+00:00",
+    "generated_at": "2026-05-13T15:24:23.027617+00:00",
     "article_count": 40,
-    "bonus_count": 22,
+    "bonus_count": 20,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.tomshardware.com/3d-printing/louis-rossmann-tells-3d-printer-maker-bambu-lab-to-go-bleep-yourself-over-its-lawsuit-against-enthusiast-right-to-repair-advocate-offers-to-pay-the-legal-fees-for-a-threatened-orcaslicer-developer",
-      "url": "https://www.tomshardware.com/3d-printing/louis-rossmann-tells-3d-printer-maker-bambu-lab-to-go-bleep-yourself-over-its-lawsuit-against-enthusiast-right-to-repair-advocate-offers-to-pay-the-legal-fees-for-a-threatened-orcaslicer-developer",
-      "title": "[Tom's Hardware] Louis Rossmann tells 3D printer maker Bambu Lab to ‘Go (Bleep) yourself’ over its threatened lawsuit against enthusiast — Right to Repair advocate offers to pay the legal fees for a threatened OrcaSlicer developer",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/XZSzuRYxS7bRcNPtqXALUJ-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLouis Rossmann has officially pledged $10,000 to cover the initial legal fees for an independent software developer threatened with a cease and desist letter from Bambu Lab. He posted a video on Saturday to mobilize the Right to Repair community to back the developer and crowd-fund his legal defense.",
-      "date_published": "2026-05-10T11:35:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 4,
-      "_boosted_score": 100,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/XZSzuRYxS7bRcNPtqXALUJ-1280-80.png"
-    },
-    {
-      "id": "https://www.tomshardware.com/3d-printing/3d-scanning/3dmakerpro-toucan-3d-scanner-review",
-      "url": "https://www.tomshardware.com/3d-printing/3d-scanning/3dmakerpro-toucan-3d-scanner-review",
-      "title": "[Tom's Hardware] 3DMakerPro Toucan 3D Scanner review: All-in-one 3D scanning",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/yWAqLxeNCp9rtGL8xsscig-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDesigned to be used as a standalone device, the 3DMakerPro Toucan allows users to capture a point cloud, generate a 3D model, and export it without using a computer. The hardware has a premium feel, and the Class 3R laser can create detailed point clouds quickly. However, the software lacks polish and has some quirks. Tracking loss, inconsistent export via Wi-Fi, and blurry color textures are all issues that occurred during testing.",
-      "date_published": "2026-05-10T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 4,
-      "_boosted_score": 95,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/yWAqLxeNCp9rtGL8xsscig-1280-80.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/computing/snapmakers-latest-3d-printer-has-four-different-extruders-and-its-the-best-thing-theyve-ever-made/",
-      "url": "https://www.cnet.com/tech/computing/snapmakers-latest-3d-printer-has-four-different-extruders-and-its-the-best-thing-theyve-ever-made/",
-      "title": "[CNET] This 4-Tool Head 3D Printer Is So Much Fun I Gave It an Editors' Choice Award",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/6689453c3a560baea78edbfa258f7f00535b3f75/hub/2025/08/18/47c06648-1cfb-4017-8321-9557df6d6453/snapmaker-u1-hero.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSnapmaker has made some wild 3D printers over the years, but the new U1 might be the best yet.",
-      "date_published": "2026-05-06T20:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 3,
-      "_boosted_score": 81,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/6689453c3a560baea78edbfa258f7f00535b3f75/hub/2025/08/18/47c06648-1cfb-4017-8321-9557df6d6453/snapmaker-u1-hero.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/12/trying-to-fix-a-gopro-hero-10-with-no-camera-input-issue/",
-      "url": "https://hackaday.com/2026/05/12/trying-to-fix-a-gopro-hero-10-with-no-camera-input-issue/",
-      "title": "[Hackaday] Trying to Fix a GoPro Hero 10 With No Camera Input Issue",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/gopro_hero_10_no_camera_input_teardown_hugh_jeffreys_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"526\" src=\"https://hackaday.com/wp-content/uploads/2026/05/gopro_hero_10_no_camera_input_teardown_hugh_jeffreys_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In the search for more exciting broken electronics to repair, [Hugh Jeffreys] bought a GoPro Hero 10 for US$100 with an apparently rather common issue of no camera input, along <a class=\"read-more\" href=\"https://hackaday.com/2026/05/12/trying-to-fix-a-gopro-hero-10-with-no-camera-input-issue/\">&#8230;read more</a>",
-      "date_published": "2026-05-12T23:00:11+00:00",
+      "id": "https://hackaday.com/2026/05/09/machining-a-two-stroke-engine-out-of-aluminium/",
+      "url": "https://hackaday.com/2026/05/09/machining-a-two-stroke-engine-out-of-aluminium/",
+      "title": "[Hackaday] Machining a Two-Stroke Engine out of Aluminium",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_two-stroke_engine_running_camden_brown_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"492\" src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_two-stroke_engine_running_camden_brown_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Recently [Camden Bowen] took a swing at machining a two-stroke engine out of billet aluminium, following adventures in 3D printing such an engine, as well as building one out of <a class=\"read-more\" href=\"https://hackaday.com/2026/05/09/machining-a-two-stroke-engine-out-of-aluminium/\">&#8230;read more</a>",
+      "date_published": "2026-05-09T17:00:44+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
         }
       ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 3,
-      "_boosted_score": 75,
+      "_boosted_score": 78,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/gopro_hero_10_no_camera_input_teardown_hugh_jeffreys_youtube.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/diy_two-stroke_engine_running_camden_brown_youtube.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/10/multimaterial-sla-printer-will-make-your-head-spin/",
-      "url": "https://hackaday.com/2026/05/10/multimaterial-sla-printer-will-make-your-head-spin/",
-      "title": "[Hackaday] Multimaterial SLA Printer Will Make Your Head Spin",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/resin-mmu-feat-e1778260524559.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"251\" src=\"https://hackaday.com/wp-content/uploads/2026/05/resin-mmu-feat-e1778260524559.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>For the last few years, the must-have feature that companies are competing to show off on their filament deposition 3D printers is multi-material printing. Be it tool swapping or a <a class=\"read-more\" href=\"https://hackaday.com/2026/05/10/multimaterial-sla-printer-will-make-your-head-spin/\">&#8230;read more</a>",
-      "date_published": "2026-05-10T17:00:24+00:00",
+      "id": "https://makezine.com/article/technology/computers-mobile/destroy-big-tech-with-a-salvaged-cyberdeck/",
+      "url": "https://makezine.com/article/technology/computers-mobile/destroy-big-tech-with-a-salvaged-cyberdeck/",
+      "title": "[Make Magazine] Destroy Big Tech With a Salvaged Cyberdeck",
+      "content_html": "<img src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2013/01/make_logo_rgb.jpg?fit=1024%2C768&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Destroy Big Tech With a Salvaged Cyberdeck\" class=\"attachment-medium size-medium wp-post-image\" height=\"1\" src=\"https://makezine.com/wp-content/uploads/2026/05/3DBrooklyn-Cyberdeck.tiff\" style=\"margin-bottom: 15px;\" width=\"1\" /></div>\n<p>There's plenty of tech you can recycle in to a rad cyberdeck if you know where to salvage it from.</p>\n<p>The post <a href=\"https://makezine.com/article/technology/computers-mobile/destroy-big-tech-with-a-salvaged-cyberdeck/\">Destroy Big Tech With a Salvaged Cyberdeck</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
+      "date_published": "2026-05-11T22:00:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "Make Magazine",
+          "url": "https://makezine.com"
         }
       ],
       "ai_score": 58,
       "_quality_score": 58,
-      "_theme_score": 92,
-      "_final_score": 92,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 2,
       "_boosted_score": 57,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/resin-mmu-feat-e1778260524559.jpg"
+      "image": "https://i0.wp.com/makezine.com/wp-content/uploads/2013/01/make_logo_rgb.jpg?fit=1024%2C768&ssl=1"
     },
     {
-      "id": "https://www.xda-developers.com/designing-3d-printed-anamorphic-lens-for-mirrorless-camera/",
-      "url": "https://www.xda-developers.com/designing-3d-printed-anamorphic-lens-for-mirrorless-camera/",
-      "title": "[XDA Developers] I saved $800 on an anamorphic lens by 3D printing my own for less than a day's rental",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/3d-printed-anamorphic-lens-17.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn affordable solution afforded by access to rapid prototyping tech.",
-      "date_published": "2026-05-06T21:00:22+00:00",
+      "id": "https://www.zdnet.com/article/5-home-objects-appliances-to-automate/",
+      "url": "https://www.zdnet.com/article/5-home-objects-appliances-to-automate/",
+      "title": "[ZDNet] I automated my home's most unexpected electronics",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/8c89dcd1f9cbd0a11bb1639cd58efa1c7462208f/2024/12/05/45e6a9cf-e49e-492b-ac93-03c671707c67/3.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI paired several everyday gadgets with a smart plug, and now my home runs so much more smoothly.",
+      "date_published": "2026-05-11T13:30:41+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 57,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.zdnet.com/a/img/resize/8c89dcd1f9cbd0a11bb1639cd58efa1c7462208f/2024/12/05/45e6a9cf-e49e-492b-ac93-03c671707c67/3.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.techradar.com/computing/ugreen-dxp4800-pro-4-bay-nas-review",
+      "url": "https://www.techradar.com/computing/ugreen-dxp4800-pro-4-bay-nas-review",
+      "title": "[TechRadar] Ugreen DXP4800 Pro 4-bay NAS review: A subtle upgrade from the Plus model, yet these changes have significant implications for this network-attached storage device",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/LQPrAc3iXjYo95TDxkC4pF-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Ugreen DXP4800 Pro is a sophisticated four-bay NAS at a price that makes sense for both home and small business users.",
+      "date_published": "2026-05-09T13:40:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 2,
+      "_boosted_score": 56,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/LQPrAc3iXjYo95TDxkC4pF-1280-80.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/built-first-homelab-secondhand-gear-learned-more-than-nas/",
+      "url": "https://www.howtogeek.com/built-first-homelab-secondhand-gear-learned-more-than-nas/",
+      "title": "[How-To Geek] I built my first homelab from secondhand gear, and it taught me more than a new NAS ever could",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2023/12/msi-motherboard.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEveryone thinks they need an expensive NAS to start a homelab (they're wrong)",
+      "date_published": "2026-05-09T17:30:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2023/12/msi-motherboard.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/you-too-can-build-this-arduino-nano-tamagotchi-with-a-3d-printed-shell/",
+      "url": "https://www.xda-developers.com/you-too-can-build-this-arduino-nano-tamagotchi-with-a-3d-printed-shell/",
+      "title": "[XDA Developers] You, too, can build this Arduino Nano Tamagotchi with a 3D-printed shell",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/arduino-tamagotchi-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt comes with a nice OLED upgrade, too.",
+      "date_published": "2026-05-09T04:10:33+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/3d-printed-anamorphic-lens-17.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/07/how-to-avoid-failed-screw-holes-in-3d-printed-parts/",
-      "url": "https://hackaday.com/2026/05/07/how-to-avoid-failed-screw-holes-in-3d-printed-parts/",
-      "title": "[Hackaday] How To Avoid Failed Screw Holes In 3D Printed Parts",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/20251218-095029-banner.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/20251218-095029-banner.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Screws are useful fasteners for 3D prints, but the effectiveness of a screw (not to mention the ease or hassle of insertion) depends on the hole itself. This comprehensive guide <a class=\"read-more\" href=\"https://hackaday.com/2026/05/07/how-to-avoid-failed-screw-holes-in-3d-printed-parts/\">&#8230;read more</a>",
-      "date_published": "2026-05-07T23:00:10+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
       "ai_score": 72,
       "_quality_score": 72,
-      "_theme_score": 90,
-      "_final_score": 90,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 1,
       "_boosted_score": 41,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/20251218-095029-banner.png"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/arduino-tamagotchi-featured.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/06/direct-fdm-printing-with-granules/",
-      "url": "https://hackaday.com/2026/05/06/direct-fdm-printing-with-granules/",
-      "title": "[Hackaday] Direct FDM Printing with Granules",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/direct_granules_extruder_v7_homofaciens_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"452\" src=\"https://hackaday.com/wp-content/uploads/2026/05/direct_granules_extruder_v7_homofaciens_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The idea of FDM 3D printing using granules rather than filament is an appealing one: rather than having to wrangle spools of filament that need to adhere to strict dimensions <a class=\"read-more\" href=\"https://hackaday.com/2026/05/06/direct-fdm-printing-with-granules/\">&#8230;read more</a>",
-      "date_published": "2026-05-06T20:00:35+00:00",
+      "id": "https://newatlas.com/bicycles/ride1up-revv1-evo-semi-solid-state-battery/",
+      "url": "https://newatlas.com/bicycles/ride1up-revv1-evo-semi-solid-state-battery/",
+      "title": "[New Atlas] Semi-solid-state battery tech rolls into ebike territory",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/6313d9f/2147483647/strip/true/crop/1200x630+0+283/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fe1%2F8e%2F51eabb9d46e6867e0d5cd0a1853f%2Frevv1-desert-1.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The semi-solid-state battery technology at the heart of the moto-styled Revv1 evo from Ride1Up is reckoned both safer and longer-lasting than the cells in widespread use today\" src=\"https://assets.newatlas.com/dims4/default/8aeaa68/2147483647/strip/true/crop/1200x1200+0+0/resize/960x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fe1%2F8e%2F51eabb9d46e6867e0d5cd0a1853f%2Frevv1-desert-1.jpeg\" /><p>The battery has long been the weak link of the electric bike. It degrades in the cold, ages poorly with fast charging, and rarely survives more than four years of heavy use. Ride1Up thinks it has a fix – and it's priced it for regular people.</p><p><a href=\"https://newatlas.com/bicycles/ride1up-revv1-evo-semi-solid-state-battery/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/bicycles/\">Bicycles</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/ebikes/\" rel=\"tag\">ebikes</a>, <a href=\"https://newatlas.com/tag/moped/\" rel=\"tag\">Moped</a>, <a href=\"https://newatlas.com/tag/pedal-assisted/\" rel=\"tag\">Pedal-assisted</a>, <a href=\"https://newatlas.com/tag/solid-state/\" rel=\"tag\">Solid-state</a></p>",
+      "date_published": "2026-05-08T11:16:27+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
         }
       ],
       "ai_score": 68,
       "_quality_score": 68,
-      "_theme_score": 90,
-      "_final_score": 90,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/6313d9f/2147483647/strip/true/crop/1200x630+0+283/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fe1%2F8e%2F51eabb9d46e6867e0d5cd0a1853f%2Frevv1-desert-1.jpeg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.xda-developers.com/used-enterprise-switches-are-absurdly-cheap-and-they-unlock-features-home-routers-cant-touch/",
+      "url": "https://www.xda-developers.com/used-enterprise-switches-are-absurdly-cheap-and-they-unlock-features-home-routers-cant-touch/",
+      "title": "[XDA Developers] Used enterprise switches are absurdly cheap, and they unlock features home routers can't touch",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/netgear-gs748t-48-port-switches.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWant to build a better home network? Start with an ex-enterprise network switch",
+      "date_published": "2026-05-11T12:00:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 1,
       "_boosted_score": 40,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/direct_granules_extruder_v7_homofaciens_youtube.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/netgear-gs748t-48-port-switches.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/09/the-noctua-fan-files-and-the-limits-of-3d-printing-pc-fans/",
-      "url": "https://hackaday.com/2026/05/09/the-noctua-fan-files-and-the-limits-of-3d-printing-pc-fans/",
-      "title": "[Hackaday] The Noctua Fan Files and the Limits of 3D Printing PC Fans",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/3d_printed_noctua_fan_gamers_nexus_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"480\" src=\"https://hackaday.com/wp-content/uploads/2026/05/3d_printed_noctua_fan_gamers_nexus_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>After Noctua recently released CAD files for a range of their computer fans, one of the first thoughts that popped up for most people was: Can you just to 3D <a class=\"read-more\" href=\"https://hackaday.com/2026/05/09/the-noctua-fan-files-and-the-limits-of-3d-printing-pc-fans/\">&#8230;read more</a>",
-      "date_published": "2026-05-09T23:00:12+00:00",
+      "id": "https://www.xda-developers.com/orange-pi-zero-3w-beats-raspberry-pi-5-cant-use-half-hardware/",
+      "url": "https://www.xda-developers.com/orange-pi-zero-3w-beats-raspberry-pi-5-cant-use-half-hardware/",
+      "title": "[XDA Developers] The Orange Pi Zero 3W beats the Raspberry Pi 5 on paper, but it can't use half its own hardware",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/orange-pi-zero-3w-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Orange Pi Zero 3W has some great hardware, but it doesn't work without some extreme tinkering.",
+      "date_published": "2026-05-09T00:00:23+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/orange-pi-zero-3w-1.jpg"
+    },
+    {
+      "id": "https://www.tomshardware.com/3d-printing/innovative-startup-pioneers-3d-printing-with-recycled-glass-new-binder-jet-process-combines-powder-with-adhesive-agent-in-layering-technique",
+      "url": "https://www.tomshardware.com/3d-printing/innovative-startup-pioneers-3d-printing-with-recycled-glass-new-binder-jet-process-combines-powder-with-adhesive-agent-in-layering-technique",
+      "title": "[Tom's Hardware] Innovative startup pioneers 3D printing with recycled glass — new ‘binder jet’ process combines powder with adhesive agent in layering technique",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/S6UaXDcJYbAMvbYhzDjPLQ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA startup called Vitriform3D has developed an innovative 3D printing process that makes use of the abundance of post-consumer glass for raw material.",
+      "date_published": "2026-05-13T09:40:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality_score": 60,
       "_theme_score": 85,
       "_final_score": 85,
       "_keyword_matches": 1,
-      "_boosted_score": 40,
+      "_boosted_score": 38,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/3d_printed_noctua_fan_gamers_nexus_youtube.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/S6UaXDcJYbAMvbYhzDjPLQ-1280-80.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/07/3d-printed-train-whistles-sound-out-at-full-scale/",
-      "url": "https://hackaday.com/2026/05/07/3d-printed-train-whistles-sound-out-at-full-scale/",
-      "title": "[Hackaday] 3D Printed Train Whistles Sound Out at Full Scale",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/3d-printed-whistles.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/3d-printed-whistles.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The age of steam is long gone, but there are few railfans who don&#8217;t have a soft spot for the old rolling kettles. So you&#8217;d best believe when [AeroKoi] talks <a class=\"read-more\" href=\"https://hackaday.com/2026/05/07/3d-printed-train-whistles-sound-out-at-full-scale/\">&#8230;read more</a>",
-      "date_published": "2026-05-07T20:00:36+00:00",
+      "id": "https://www.techradar.com/computing/icewhale-zimaboard-2-mini-nas-review",
+      "url": "https://www.techradar.com/computing/icewhale-zimaboard-2-mini-nas-review",
+      "title": "[TechRadar] IceWhale ZimaBoard 2 mini NAS review",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/JtgQWaxPYfEAuLGS2n3GWD-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFollowing the original ZimaBoard, version 2 has an improved processor and memory, but the same passively cooled NAS credentials.",
+      "date_published": "2026-05-09T14:15:00+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 1,
-      "_boosted_score": 40,
+      "_boosted_score": 38,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/3d-printed-whistles.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/JtgQWaxPYfEAuLGS2n3GWD-1280-80.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/i-built-the-weirdest-nas-from-hardware-i-already-owned/",
-      "url": "https://www.xda-developers.com/i-built-the-weirdest-nas-from-hardware-i-already-owned/",
-      "title": "[XDA Developers] I built the weirdest possible NAS from hardware I already owned, and it works surprisingly well",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/elecrow-pitower-7.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis project may not be good enough for a dedicated NAS, but it's a decent backup server",
-      "date_published": "2026-05-11T00:00:22+00:00",
+      "id": "https://www.howtogeek.com/its-time-for-framework-to-build-a-modular-printer/",
+      "url": "https://www.howtogeek.com/its-time-for-framework-to-build-a-modular-printer/",
+      "title": "[How-To Geek] It's time for Framework to build a modular printer",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/53468299339_4aba71a6ea_o-1-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPrinters are still a scam, and Framework is the only company brave enough to fix it",
+      "date_published": "2026-05-13T15:00:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/53468299339_4aba71a6ea_o-1-1.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/ethernet-wall-ports-already-work-but-wired-for-phones/",
+      "url": "https://www.xda-developers.com/ethernet-wall-ports-already-work-but-wired-for-phones/",
+      "title": "[XDA Developers] Your Ethernet wall ports might already work, but your builder wired them for phones",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/flat-cat6-ethernet-cable-rj45-6.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn older standard of cabling is all that's holding you back.",
+      "date_published": "2026-05-09T23:00:20+00:00",
       "authors": [
         {
           "name": "XDA Developers",
@@ -272,48 +318,48 @@
       ],
       "ai_score": 62,
       "_quality_score": 62,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 1,
       "_boosted_score": 38,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/elecrow-pitower-7.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/flat-cat6-ethernet-cable-rj45-6.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/why-i-built-my-external-ssd-instead-of-buying-one/",
-      "url": "https://www.howtogeek.com/why-i-built-my-external-ssd-instead-of-buying-one/",
-      "title": "[How-To Geek] Why I built my external SSD instead of buying a premade one",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/02/ugreen-m-2-nvme-ssd-usb-enclosure-with-wd_black-sn750-ssd-inside.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBuilding your SSD is easy, fun, and can be cheap too!",
-      "date_published": "2026-05-10T19:25:22+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 61,
-      "_quality_score": 61,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/02/ugreen-m-2-nvme-ssd-usb-enclosure-with-wd_black-sn750-ssd-inside.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/09/getting-a-proprietary-bus-gpu-onto-pcie-enables-cheaper-local-llms-for-now/",
-      "url": "https://hackaday.com/2026/05/09/getting-a-proprietary-bus-gpu-onto-pcie-enables-cheaper-local-llms-for-now/",
-      "title": "[Hackaday] Getting a Proprietary-Bus GPU onto PCIe Enables Cheaper Local LLMs, For Now",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/V100-GPU-feat.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/V100-GPU-feat.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you&#8217;ve been thinking of getting into self-hosting generative AI, but don&#8217;t have a big budget for hardware, you might want to check out [Hardware Haven]&#8217;s latest video on an <a class=\"read-more\" href=\"https://hackaday.com/2026/05/09/getting-a-proprietary-bus-gpu-onto-pcie-enables-cheaper-local-llms-for-now/\">&#8230;read more</a>",
-      "date_published": "2026-05-09T08:00:56+00:00",
+      "id": "https://hackaday.com/2026/05/08/could-your-next-house-be-built-from-giant-lego-by-an-inchworm-robot/",
+      "url": "https://hackaday.com/2026/05/08/could-your-next-house-be-built-from-giant-lego-by-an-inchworm-robot/",
+      "title": "[Hackaday] Could Your Next House be Built from Giant Lego By an Inchworm Robot?",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/voxel-building-bot-e1778188006535.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"625\" src=\"https://hackaday.com/wp-content/uploads/2026/05/voxel-building-bot-e1778188006535.jpg?w=626\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"626\" /></div>Well, it depends when you&#8217;re going to be househunting&#8211; if it&#8217;s anytime soon, Betteridge&#8217;s law applies, but if your time horizon is a ways further out, [Miana Smith] at MIT <a class=\"read-more\" href=\"https://hackaday.com/2026/05/08/could-your-next-house-be-built-from-giant-lego-by-an-inchworm-robot/\">&#8230;read more</a>",
+      "date_published": "2026-05-09T02:00:09+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/voxel-building-bot-e1778188006535.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/this-12-nozzle-3d-printer-solves-multicolor-printings-biggest-problem/",
+      "url": "https://www.howtogeek.com/this-12-nozzle-3d-printer-solves-multicolor-printings-biggest-problem/",
+      "title": "[How-To Geek] This 12-nozzle 3D printer solves the biggest problem with multicolor printing",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/illuminated-filament-path-inside-the-mova-atomform-palette-300-3d-printer.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe no-waste 3D printer that changes everything",
+      "date_published": "2026-05-13T15:15:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
         }
       ],
       "ai_score": 58,
@@ -325,37 +371,37 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/V100-GPU-feat.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/illuminated-filament-path-inside-the-mova-atomform-palette-300-3d-printer.jpg"
     },
     {
-      "id": "https://www.howtogeek.com/this-simple-usb-setup-can-rescue-almost-any-pc/",
-      "url": "https://www.howtogeek.com/this-simple-usb-setup-can-rescue-almost-any-pc/",
-      "title": "[How-To Geek] A $30 USB drive just saved me from a $500 PC repair bill",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/usb.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis simple USB setup can rescue almost any PC",
-      "date_published": "2026-05-08T19:00:19+00:00",
+      "id": "https://www.zdnet.com/article/5-things-you-should-never-plug-into-your-smart-plug/",
+      "url": "https://www.zdnet.com/article/5-things-you-should-never-plug-into-your-smart-plug/",
+      "title": "[ZDNet] Don't connect your smart plug to these 5 household devices",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/9a151c4206a3596f9f022e404fea74c622c96a19/2025/09/05/78002781-4884-4e61-8081-40f4bd3ac8c5/img-5102.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhile smart plugs are very convenient, here are some things you should never plug into them.",
+      "date_published": "2026-05-08T19:15:45+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
         }
       ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 54,
+      "_quality_score": 54,
+      "_theme_score": 78,
+      "_final_score": 78,
       "_keyword_matches": 1,
       "_boosted_score": 36,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/usb.jpg"
+      "image": "https://www.zdnet.com/a/img/resize/9a151c4206a3596f9f022e404fea74c622c96a19/2025/09/05/78002781-4884-4e61-8081-40f4bd3ac8c5/img-5102.jpg?auto=webp&fit=crop&height=675&width=1200"
     },
     {
-      "id": "https://hackaday.com/2026/05/08/win95-tracker-cyd-is-a-cheap-yellow-mod-tracker-with-i2s/",
-      "url": "https://hackaday.com/2026/05/08/win95-tracker-cyd-is-a-cheap-yellow-mod-tracker-with-i2s/",
-      "title": "[Hackaday] Win95-Tracker-CYD is a Cheap Yellow Mod Tracker with I2S",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/mod-file-tracker-on-esp32-v0-ksj8xaf3crzg1.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"467\" src=\"https://hackaday.com/wp-content/uploads/2026/05/mod-file-tracker-on-esp32-v0-ksj8xaf3crzg1.webp?w=600\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"600\" /></div>The Cheap Yellow Display is a great little module to start a project with, but it wouldn&#8217;t necessarily be our first choice for an audio device. That&#8217;s because the PWM <a class=\"read-more\" href=\"https://hackaday.com/2026/05/08/win95-tracker-cyd-is-a-cheap-yellow-mod-tracker-with-i2s/\">&#8230;read more</a>",
-      "date_published": "2026-05-08T23:00:48+00:00",
+      "id": "https://hackaday.com/2026/05/07/diy-electrolysis-machine-removes-hair-permanently/",
+      "url": "https://hackaday.com/2026/05/07/diy-electrolysis-machine-removes-hair-permanently/",
+      "title": "[Hackaday] DIY Electrolysis Machine Removes Hair Permanently",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/Screenshot-2026-04-28-210259-e1777374295993.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"449\" src=\"https://hackaday.com/wp-content/uploads/2026/04/Screenshot-2026-04-28-210259-e1777374295993.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you talk to the FDA, there&#8217;s only one permanent method of hair removal—electrolysis. This involves sticking a needle into a hair follicle, getting it very hot or running a <a class=\"read-more\" href=\"https://hackaday.com/2026/05/07/diy-electrolysis-machine-removes-hair-permanently/\">&#8230;read more</a>",
+      "date_published": "2026-05-07T18:30:33+00:00",
       "authors": [
         {
           "name": "Hackaday",
@@ -364,412 +410,21 @@
       ],
       "ai_score": 51,
       "_quality_score": 51,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 1,
       "_boosted_score": 35,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/mod-file-tracker-on-esp32-v0-ksj8xaf3crzg1.webp"
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/Screenshot-2026-04-28-210259-e1777374295993.png"
     },
     {
-      "id": "https://www.xda-developers.com/turned-old-laptop-retro-gaming-station-batocera-better-worse-expected/",
-      "url": "https://www.xda-developers.com/turned-old-laptop-retro-gaming-station-batocera-better-worse-expected/",
-      "title": "[XDA Developers] I turned my old laptop into a retro gaming station with Batocera, and it's better (and worse) than I expected",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/batocera-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCool concept, annoying execution",
-      "date_published": "2026-05-11T20:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 88,
-      "_final_score": 88,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/batocera-featured.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/07/the-montgomery-ward-gasoline-powered-clothes-iron/",
-      "url": "https://hackaday.com/2026/05/07/the-montgomery-ward-gasoline-powered-clothes-iron/",
-      "title": "[Hackaday] The Montgomery Ward Gasoline-Powered Clothes Iron",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/gasoline_iron_our_own_devices_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"471\" src=\"https://hackaday.com/wp-content/uploads/2026/05/gasoline_iron_our_own_devices_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Before the advent of electricity in the home made electrically-heated clothes irons a possibility, ironing was a cumbersome process, with self-heated irons being an arguable improvement over solid (so-called sad) <a class=\"read-more\" href=\"https://hackaday.com/2026/05/07/the-montgomery-ward-gasoline-powered-clothes-iron/\">&#8230;read more</a>",
-      "date_published": "2026-05-08T05:00:57+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/gasoline_iron_our_own_devices_youtube.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/11/mermaid-clutch-purse-cyberdeck-is-unappologetically-girly/",
-      "url": "https://hackaday.com/2026/05/11/mermaid-clutch-purse-cyberdeck-is-unappologetically-girly/",
-      "title": "[Hackaday] Mermaid Clutch-Purse Cyberdeck is Unappologetically Girly",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/cyberdeck-bimbotech-scaled-1.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"The clutch-purse cyberdeck, complete with pearls for the chain.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/cyberdeck-bimbotech-scaled-1.jpeg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>We feature a lot of DIY portable computers &#8212; rehash the &#8220;is that a cyberdeck&#8221; in the comments to your heart&#8217;s content &#8212; but how many of them are explicitly <a class=\"read-more\" href=\"https://hackaday.com/2026/05/11/mermaid-clutch-purse-cyberdeck-is-unappologetically-girly/\">&#8230;read more</a>",
-      "date_published": "2026-05-11T08:00:59+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality_score": 40,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 1,
-      "_boosted_score": 32,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/cyberdeck-bimbotech-scaled-1.jpeg"
-    },
-    {
-      "id": "https://www.xda-developers.com/ran-three-home-server-apps-orange-pi-zero-3w/",
-      "url": "https://www.xda-developers.com/ran-three-home-server-apps-orange-pi-zero-3w/",
-      "title": "[XDA Developers] I ran three home server apps on the Orange Pi Zero 3W to see where it would break, but it hasn't",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/orange-pi-zero-3w-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Orange Pi Zero 3W is a powerful SBC, and it's shockingly capable.",
-      "date_published": "2026-05-12T15:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/orange-pi-zero-3w-1.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/ignoring-channel-width-wrecks-wi-fi-speeds/",
-      "url": "https://www.xda-developers.com/ignoring-channel-width-wrecks-wi-fi-speeds/",
-      "title": "[XDA Developers] You're wrecking your Wi-Fi speeds by ignoring the one setting nobody talks about",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/04/wi-fi-analyzer-app-on-zenfone-congesgtion.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChannel width can seriously impact your Wi-Fi performance",
-      "date_published": "2026-05-12T14:00:23+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 80,
-      "_final_score": 80,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/04/wi-fi-analyzer-app-on-zenfone-congesgtion.jpg"
-    },
-    {
-      "id": "https://www.androidauthority.com/android-tablet-self-hosted-photo-display-3662727/",
-      "url": "https://www.androidauthority.com/android-tablet-self-hosted-photo-display-3662727/",
-      "title": "[Android Authority] I turned my old tablet into a self-hosted photo display, and it’s better than anything you can buy",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/immich-kiosk-on-tablet-3-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nImmich Kiosk gave my old tablet a second life as the best smart photo display I’ve ever owned.",
-      "date_published": "2026-05-12T10:30:48+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/immich-kiosk-on-tablet-3-scaled.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/someone-made-a-literal-credit-card-sized-esp32-computer-and-so-can-you/",
-      "url": "https://www.xda-developers.com/someone-made-a-literal-credit-card-sized-esp32-computer-and-so-can-you/",
-      "title": "[XDA Developers] Someone made a literal credit card-sized ESP32 computer, and so can you",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-credit-card-computer-featured.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFinding a use-case for it can come later.",
-      "date_published": "2026-05-09T03:47:55+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-credit-card-computer-featured.jpeg"
-    },
-    {
-      "id": "https://www.zdnet.com/article/how-i-jailbroke-my-old-kindle-2026/",
-      "url": "https://www.zdnet.com/article/how-i-jailbroke-my-old-kindle-2026/",
-      "title": "[ZDNet] I jailbroke my old Kindle to install KOReader",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/481c9b4cbe70cc4a7d2194da2a82b84dc2201fa8/2026/05/08/fc272452-e501-47b9-8197-bfb7df4cb2e4/1.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith Amazon ending support for some Kindles, here are two ways to breathe new life into oudated models.",
-      "date_published": "2026-05-11T13:24:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "ai_score": 65,
-      "_quality_score": 65,
-      "_theme_score": 82,
-      "_final_score": 82,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/481c9b4cbe70cc4a7d2194da2a82b84dc2201fa8/2026/05/08/fc272452-e501-47b9-8197-bfb7df4cb2e4/1.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://www.xda-developers.com/someone-built-a-full-360-sonar-on-an-esp32-and-the-code-is-simpler-than-youd-think/",
-      "url": "https://www.xda-developers.com/someone-built-a-full-360-sonar-on-an-esp32-and-the-code-is-simpler-than-youd-think/",
-      "title": "[XDA Developers] Someone built a full 360° sonar on an ESP32, and the code is simpler than you'd think",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-sonar-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMaking the 'ping' noises with your mouth is optional.",
-      "date_published": "2026-05-08T04:52:15+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 92,
-      "_final_score": 92,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-sonar-featured.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/i-finally-figured-out-why-my-usb-devices-kept-disconnecting-from-my-usb-c-hub/",
-      "url": "https://www.howtogeek.com/i-finally-figured-out-why-my-usb-devices-kept-disconnecting-from-my-usb-c-hub/",
-      "title": "[How-To Geek] Stop throwing away your \"dead\" USB hubs (the real problem is how you're using them)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/usb-hub.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI threw away so many broken USB hubs before realizing the real problem",
-      "date_published": "2026-05-10T19:00:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 82,
-      "_final_score": 82,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/usb-hub.jpg"
-    },
-    {
-      "id": "https://www.tomshardware.com/pc-components/gpus/usd200-nvidia-server-ai-gpu-hacked-into-a-pcie-card-with-custom-pcb-and-3d-printed-cooling-modded-tesla-v100-smx-gpu-turing-data-center-card-runs-ai-llms-and-is-more-efficient-than-many-modern-midrange-offerings-in-ai-inference",
-      "url": "https://www.tomshardware.com/pc-components/gpus/usd200-nvidia-server-ai-gpu-hacked-into-a-pcie-card-with-custom-pcb-and-3d-printed-cooling-modded-tesla-v100-smx-gpu-turing-data-center-card-runs-ai-llms-and-is-more-efficient-than-many-modern-midrange-offerings-in-ai-inference",
-      "title": "[Tom's Hardware] $200 'socketed' Nvidia AI GPU for servers hacked into a PCIe card with custom PCB and 3D-printed cooling — modded Tesla V100 SMX data center GPU runs AI LLMs and is more efficient than many modern midrange offerings in AI inference",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/n52HGVDv5uA2aYBBjvPm5G-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTurns out, Nvidia's older Turing-era V100 AI GPU is still pretty capable today, even with just 16GB of VRAM. A YouTuber got his hands on the SMX variant for just $100, converted it to a PCIe x16 interface for another $100 with an adapter, and got some pretty impressive results across AI inference and NVR benchmarks.",
-      "date_published": "2026-05-10T10:50:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 82,
-      "_final_score": 82,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/n52HGVDv5uA2aYBBjvPm5G-1280-80.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/this-esp32-powered-split-flap-chess-board-is-the-coolest-way-to-play-the-classic-game/",
-      "url": "https://www.xda-developers.com/this-esp32-powered-split-flap-chess-board-is-the-coolest-way-to-play-the-classic-game/",
-      "title": "[XDA Developers] This ESP32-powered split-flap chess board is the coolest way to play the classic game",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/split-flip-chess-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAlso the loudest.",
-      "date_published": "2026-05-10T03:51:51+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/split-flip-chess-featured.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/next-storage-upgrade-shouldnt-be-nvme-ssd/",
-      "url": "https://www.xda-developers.com/next-storage-upgrade-shouldnt-be-nvme-ssd/",
-      "title": "[XDA Developers] Your next storage upgrade probably shouldn’t be another NVMe SSD",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/10/samsung-990-evo-plus-ssd-closeup.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou are paying more for speed you won't even notice.",
-      "date_published": "2026-05-07T21:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/10/samsung-990-evo-plus-ssd-closeup.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/11/making-big-dry-ice-blocks-with-low-pressure-co2/",
-      "url": "https://hackaday.com/2026/05/11/making-big-dry-ice-blocks-with-low-pressure-co2/",
-      "title": "[Hackaday] Making Big Dry Ice Blocks With Low Pressure CO2",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/frozen_co2_block_hyperspace_pirate_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"473\" src=\"https://hackaday.com/wp-content/uploads/2026/05/frozen_co2_block_hyperspace_pirate_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Although the term &#8216;dry ice&#8217; is generally used for solid CO2, it&#8217;s much more accurate to call this &#8216;dry snow&#8217;, as, rather than being actual solid blocks, they are effectively <a class=\"read-more\" href=\"https://hackaday.com/2026/05/11/making-big-dry-ice-blocks-with-low-pressure-co2/\">&#8230;read more</a>",
-      "date_published": "2026-05-11T11:00:34+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 95,
-      "_final_score": 95,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/frozen_co2_block_hyperspace_pirate_youtube.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/unitree-gd01-mecha-robot/",
-      "url": "https://www.wired.com/story/unitree-gd01-mecha-robot/",
-      "title": "[WIRED] The Unitree GD01 Is a Giant Mecha Robot You Can Actually Buy",
-      "content_html": "<img src=\"https://media.wired.com/photos/6a03a0e42162ad5152e57fa7/master/pass/Unitree-Mecha-Robot-Business-3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChina’s Unitree, famous for making low-cost dancing robots, will now sell you a giant, wall-smashing mecha.",
-      "date_published": "2026-05-12T22:51:45+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/6a03a0e42162ad5152e57fa7/master/pass/Unitree-Mecha-Robot-Business-3.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/11/reverse-engineering-and-documenting-the-fisher-price-pixter/",
-      "url": "https://hackaday.com/2026/05/11/reverse-engineering-and-documenting-the-fisher-price-pixter/",
-      "title": "[Hackaday] Reverse-Engineering and Documenting the Fisher Price Pixter",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/Mattel_Pixter_-_case_opened-1727_compressed.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"600\" src=\"https://hackaday.com/wp-content/uploads/2026/05/Mattel_Pixter_-_case_opened-1727_compressed.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Between 2000 and 2002 the Fisher Price Pixter was sold to children as an educational handheld toy with a touch screen that enabled drawing and listening to music in addition <a class=\"read-more\" href=\"https://hackaday.com/2026/05/11/reverse-engineering-and-documenting-the-fisher-price-pixter/\">&#8230;read more</a>",
-      "date_published": "2026-05-12T05:00:21+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/Mattel_Pixter_-_case_opened-1727_compressed.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/your-3-year-old-surge-protector-isnt-protecting-your-pc-anymore/",
-      "url": "https://www.howtogeek.com/your-3-year-old-surge-protector-isnt-protecting-your-pc-anymore/",
-      "title": "[How-To Geek] Your surge protector is silently failing—here's how to tell",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2022/07/60587b40.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou are trusting your expensive PC to a dead surge protector (how to spot this silent killer)",
-      "date_published": "2026-05-10T13:00:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 54,
-      "_quality_score": 54,
-      "_theme_score": 85,
-      "_final_score": 85,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2022/07/60587b40.png"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/11/the-vacuum-tubes-last-stands/",
-      "url": "https://hackaday.com/2026/05/11/the-vacuum-tubes-last-stands/",
-      "title": "[Hackaday] The Vacuum Tube’s Last Stand(s)",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/LastStand.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"484\" src=\"https://hackaday.com/wp-content/uploads/2026/05/LastStand.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>When most people think about vacuum tubes, they picture big glass bottles glowing inside antique radios or early computers. History often treats tubes as a dead-end technology that was suddenly <a class=\"read-more\" href=\"https://hackaday.com/2026/05/11/the-vacuum-tubes-last-stands/\">&#8230;read more</a>",
-      "date_published": "2026-05-11T14:00:19+00:00",
+      "id": "https://hackaday.com/2026/05/13/build-the-cpu-then-build-the-calculator/",
+      "url": "https://hackaday.com/2026/05/13/build-the-cpu-then-build-the-calculator/",
+      "title": "[Hackaday] Build The CPU, Then Build The Calculator",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/cpu-calculator-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/cpu-calculator-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>It&#8217;s possible that among Hackaday readers are the largest community of people who have designed their own CPU in the world. We have featured many here, but it&#8217;s possible that <a class=\"read-more\" href=\"https://hackaday.com/2026/05/13/build-the-cpu-then-build-the-calculator/\">&#8230;read more</a>",
+      "date_published": "2026-05-13T08:00:46+00:00",
       "authors": [
         {
           "name": "Hackaday",
@@ -778,175 +433,520 @@
       ],
       "ai_score": 50,
       "_quality_score": 50,
-      "_theme_score": 90,
-      "_final_score": 90,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
       "_category": "homelab",
       "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/LastStand.jpg"
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/cpu-calculator-featured.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/10/binaural-microphone-on-a-budget/",
-      "url": "https://hackaday.com/2026/05/10/binaural-microphone-on-a-budget/",
-      "title": "[Hackaday] Binaural Microphone on a Budget",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/binaural-microphone-main.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/binaural-microphone-main.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>For as many speakers as someone can cram into a surround sound system, humans still (generally) only have two ears to listen to those sounds with. This means that, for <a class=\"read-more\" href=\"https://hackaday.com/2026/05/10/binaural-microphone-on-a-budget/\">&#8230;read more</a>",
-      "date_published": "2026-05-11T02:00:22+00:00",
+      "id": "https://hackaday.com/2026/05/10/why-you-probably-shouldnt-diy-a-car-airbag/",
+      "url": "https://hackaday.com/2026/05/10/why-you-probably-shouldnt-diy-a-car-airbag/",
+      "title": "[Hackaday] Why You Probably Shouldn’t DIY a Car Airbag",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_car_airbag_firing_turnah81_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"486\" src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_car_airbag_firing_turnah81_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Car airbags are both a very simple concept and a marvel of engineering, replacing the bone-shattering impact of unforgiving plastic and steel with a relatively soft landing in a funky-smelling <a class=\"read-more\" href=\"https://hackaday.com/2026/05/10/why-you-probably-shouldnt-diy-a-car-airbag/\">&#8230;read more</a>",
+      "date_published": "2026-05-10T14:00:53+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
         }
       ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 88,
-      "_final_score": 88,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "ai_score": 44,
+      "_quality_score": 44,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 1,
+      "_boosted_score": 33,
       "_category": "homelab",
       "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/binaural-microphone-main.png"
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/diy_car_airbag_firing_turnah81_youtube.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/my-motherboards-default-bios-settings-was-secretly-killing-my-gaming-experience/",
-      "url": "https://www.xda-developers.com/my-motherboards-default-bios-settings-was-secretly-killing-my-gaming-experience/",
-      "title": "[XDA Developers] My motherboard’s default BIOS settings were secretly killing my gaming experience",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/msi-bios-desktop-wide.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI built my dream 1440p gaming PC, but hidden BIOS settings were secretly holding back its true performance.",
-      "date_published": "2026-05-11T21:00:21+00:00",
+      "id": "https://www.zdnet.com/article/googlebook-news-premium-chromebook-for-android/",
+      "url": "https://www.zdnet.com/article/googlebook-news-premium-chromebook-for-android/",
+      "title": "[ZDNet] First look at Googlebook: A premium Chromebook alternative for Android users",
+      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/794c9395fa3edee0ec59f2363aa5151e798b89a1/2026/05/12/97d55272-ada5-477a-a30d-46972cfca006/googlebook.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGooglebooks use an all-new OS that merges Android and ChromeOS with more premium hardware.",
+      "date_published": "2026-05-12T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 38,
+      "_quality_score": 38,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 1,
+      "_boosted_score": 31,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.zdnet.com/a/img/resize/794c9395fa3edee0ec59f2363aa5151e798b89a1/2026/05/12/97d55272-ada5-477a-a30d-46972cfca006/googlebook.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://www.xda-developers.com/i-think-dockers-real-homelab-problem-is-how-easy-it-makes-bad-networking/",
+      "url": "https://www.xda-developers.com/i-think-dockers-real-homelab-problem-is-how-easy-it-makes-bad-networking/",
+      "title": "[XDA Developers] Docker bypasses your firewall silently, and most home labs don't realize it",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/things-about-docker-for-beginners.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDocker's defaults can result in some poor networking practices",
+      "date_published": "2026-05-12T12:00:21+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "_boosted_score": 22,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/09/msi-bios-desktop-wide.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/06/things-about-docker-for-beginners.JPG"
     },
     {
-      "id": "https://www.neowin.net/news/pcie-80-launching-in-2028-with-a-new-connector-8-times-faster-nvme-ssds-and-gpus/",
-      "url": "https://www.neowin.net/news/pcie-80-launching-in-2028-with-a-new-connector-8-times-faster-nvme-ssds-and-gpus/",
-      "title": "[Neowin] PCIe 8.0 launching in 2028 with a new connector, 8 times faster NVMe SSDs and GPUs",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1778127021_pcie_8.0_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1778127021_pcie_8.0_medium.webp\" /></div>PCI-SIG has confirmed PCIe 8.0 is expected in 2028 with immensely higher bandwidth for next-gen NVMe SSDs and GPUs. Interestingly, a new connector is coming. <a href=\"https://www.neowin.net/news/pcie-80-launching-in-2028-with-a-new-connector-8-times-faster-nvme-ssds-and-gpus/\">Read more...</a>",
-      "date_published": "2026-05-07T05:00:03+00:00",
+      "id": "https://www.xda-developers.com/obsidian-dataview-notion-replacement/",
+      "url": "https://www.xda-developers.com/obsidian-dataview-notion-replacement/",
+      "title": "[XDA Developers] This Obsidian plugin turned my vault into a local Notion replacement overnight",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/12/article-draft-in-obsidian-on-desktop-pc-lamp-and-albums-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nObsidian's Dataview plugin levels the playing field with Notion.",
+      "date_published": "2026-05-12T14:30:21+00:00",
       "authors": [
         {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 14,
+      "_boosted_score": 21,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/05/1778127021_pcie_8.0_story.webp"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/12/article-draft-in-obsidian-on-desktop-pc-lamp-and-albums-in-view.jpeg"
     },
     {
-      "id": "https://www.androidpolice.com/smart-doorbell-solves-problems-i-didnt-realize-i-had/",
-      "url": "https://www.androidpolice.com/smart-doorbell-solves-problems-i-didnt-realize-i-had/",
-      "title": "[Android Police] My smart doorbell solves problems I didn't even realize I had",
-      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/05/a-smart-doorbell-with-a-glowing-green-ring-around-the-button-mounted-on-a-dark-door-frame.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRemember using a peephole to see who's at the door? Me neither",
-      "date_published": "2026-05-11T13:30:10+00:00",
+      "id": "https://www.makeuseof.com/microcontroller-into-travel-router-actually-works/",
+      "url": "https://www.makeuseof.com/microcontroller-into-travel-router-actually-works/",
+      "title": "[MakeUseOf] I turned a $5 microcontroller into a travel router and it actually works",
+      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/04/esp32-running-nat-router-perched-on-a-router.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI fixed public Wi-Fi with a $5 chip.",
+      "date_published": "2026-05-07T14:30:19+00:00",
       "authors": [
         {
-          "name": "Android Police",
-          "url": "https://www.androidpolice.com"
+          "name": "MakeUseOf",
+          "url": "https://www.makeuseof.com"
         }
       ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 0,
-      "_boosted_score": 13,
+      "_boosted_score": 20,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/05/a-smart-doorbell-with-a-glowing-green-ring-around-the-button-mounted-on-a-dark-door-frame.jpg"
+      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/04/esp32-running-nat-router-perched-on-a-router.JPG"
     },
     {
-      "id": "https://www.tomsguide.com/computing/vpns/how-to-export-your-data-from-expresskeys-password-manager",
-      "url": "https://www.tomsguide.com/computing/vpns/how-to-export-your-data-from-expresskeys-password-manager",
-      "title": "[Toms Guide] How to export your data from ExpressKeys password manager",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/SSWVj6bkrE8p3uRseXUjQG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLegacy ExpressKeys users can no longer add new logins. Here's how to export your data and import it to another password manager.",
-      "date_published": "2026-05-07T14:19:20+00:00",
+      "id": "https://www.howtogeek.com/dont-buy-nas-for-local-ai/",
+      "url": "https://www.howtogeek.com/dont-buy-nas-for-local-ai/",
+      "title": "[How-To Geek] Don't buy a NAS for local AI, get this instead",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/12/rsz_upscalemedia-transformed.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStop running local AI on your NAS (this tiny alternative is the ultimate homelab hack)",
+      "date_published": "2026-05-10T17:30:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/12/rsz_upscalemedia-transformed.png"
+    },
+    {
+      "id": "https://www.tomsguide.com/computing/i-thought-my-first-nas-was-enough-but-this-ai-powered-behemoth-is-the-private-brain-my-home-office-needed",
+      "url": "https://www.tomsguide.com/computing/i-thought-my-first-nas-was-enough-but-this-ai-powered-behemoth-is-the-private-brain-my-home-office-needed",
+      "title": "[Toms Guide] I thought my first NAS was enough — but this AI-powered behemoth is the private brain my home office needed",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/h4U5MeMLix9sba4aVUF9sW-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Ugreen IDX6011 Pro will certainly be overkill for most but having a local LLM at your fingertips could be reason enough to upgrade.",
+      "date_published": "2026-05-10T07:30:00+00:00",
       "authors": [
         {
           "name": "Toms Guide",
           "url": "https://www.tomsguide.com"
         }
       ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 13,
+      "_boosted_score": 20,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/SSWVj6bkrE8p3uRseXUjQG-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/h4U5MeMLix9sba4aVUF9sW-1280-80.jpg"
     },
     {
-      "id": "https://www.tomsguide.com/computing/gaming-desktops/steam-machine-leak-suggests-4-different-models-and-a-queue-system-to-stop-scalpers",
-      "url": "https://www.tomsguide.com/computing/gaming-desktops/steam-machine-leak-suggests-4-different-models-and-a-queue-system-to-stop-scalpers",
-      "title": "[Toms Guide] Steam Machine leak suggests 4 different models — and a queue system to stop scalpers",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/WLec9wkyEhDpZxRRLJYEqE-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nValve is reportedly prepping 4 Steam Machine models, along with a reservation queue to curb scalpers and bots, but there's no news on pricing.",
-      "date_published": "2026-05-11T15:23:06+00:00",
+      "id": "https://www.makeuseof.com/built-my-own-browser-based-cloud-desktop/",
+      "url": "https://www.makeuseof.com/built-my-own-browser-based-cloud-desktop/",
+      "title": "[MakeUseOf] I built a private cloud workspace at home, and it was easier than I expected",
+      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/02/linux-endless-windows-one-desktop.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRemote desktop is great, but this is way cleaner (and free).",
+      "date_published": "2026-05-09T17:00:19+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "MakeUseOf",
+          "url": "https://www.makeuseof.com"
         }
       ],
-      "ai_score": 42,
-      "_quality_score": 42,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 12,
+      "_boosted_score": 20,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/WLec9wkyEhDpZxRRLJYEqE-1280-80.jpg"
+      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/02/linux-endless-windows-one-desktop.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/10/why-using-cardboard-for-a-pc-case-is-a-chore/",
-      "url": "https://hackaday.com/2026/05/10/why-using-cardboard-for-a-pc-case-is-a-chore/",
-      "title": "[Hackaday] Why Using Cardboard for a PC Case is a Chore",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/cardboard_case_open_mryeester_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"487\" src=\"https://hackaday.com/wp-content/uploads/2026/05/cardboard_case_open_mryeester_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The idea of using cardboard for a sloppy PC case isn&#8217;t new; it&#8217;s a time-honored tradition dating back to at least the 1990s. That said, with today&#8217;s CNC cutters and <a class=\"read-more\" href=\"https://hackaday.com/2026/05/10/why-using-cardboard-for-a-pc-case-is-a-chore/\">&#8230;read more</a>",
-      "date_published": "2026-05-10T20:00:41+00:00",
+      "id": "https://www.xda-developers.com/4-ways-youre-shortening-your-ssds-lifespan-without-realizing-it/",
+      "url": "https://www.xda-developers.com/4-ways-youre-shortening-your-ssds-lifespan-without-realizing-it/",
+      "title": "[XDA Developers] 4 ways you're shortening your SSD's lifespan without realizing it",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/crucial-ssd.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou might be unknowingly hurting your SSD",
+      "date_published": "2026-05-08T13:30:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/crucial-ssd.jpg"
+    },
+    {
+      "id": "https://www.tomshardware.com/3d-printing/startup-successfully-tests-3d-printed-rocket-fuel-that-could-enable-lighter-missiles-and-faster-production-rates-new-additive-manufacturing-process-tested-at-1-800-psi",
+      "url": "https://www.tomshardware.com/3d-printing/startup-successfully-tests-3d-printed-rocket-fuel-that-could-enable-lighter-missiles-and-faster-production-rates-new-additive-manufacturing-process-tested-at-1-800-psi",
+      "title": "[Tom's Hardware] 3D-printed rocket fuel successfully tested, could enable lighter missiles and faster production rates — new additive manufacturing process tested at 1,800 PSI",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/BTaUDMBzughLcZ7ypAVeQ4-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChromatic 3D Materials has successfully tested 3D-printed rocket propellant capable of withstanding 1,800 PSI combustion pressures, potentially paving the way for faster rocket production, more advanced thrust geometries, and resilient distributed defense manufacturing.",
+      "date_published": "2026-05-07T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/BTaUDMBzughLcZ7ypAVeQ4-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/07/congratulations-to-the-green-powered-challenge-winners/",
+      "url": "https://hackaday.com/2026/05/07/congratulations-to-the-green-powered-challenge-winners/",
+      "title": "[Hackaday] Congratulations to the Green Powered Challenge Winners!",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/03/green-powered-tw-hh-ntitle_2x.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/03/green-powered-tw-hh-ntitle_2x.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>For this challenge, we asked you to show off your hacks that power themselves sustainably from the environment around them. After all, nobody likes wires, and changing batteries is just <a class=\"read-more\" href=\"https://hackaday.com/2026/05/07/congratulations-to-the-green-powered-challenge-winners/\">&#8230;read more</a>",
+      "date_published": "2026-05-07T18:00:18+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
         }
       ],
-      "ai_score": 41,
-      "_quality_score": 41,
-      "_theme_score": 85,
-      "_final_score": 85,
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/03/green-powered-tw-hh-ntitle_2x.png"
+    },
+    {
+      "id": "https://www.howtogeek.com/your-router-is-killing-your-zigbee-network/",
+      "url": "https://www.howtogeek.com/your-router-is-killing-your-zigbee-network/",
+      "title": "[How-To Geek] Your router is killing your Zigbee network—here's the $0 fix",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/05/asus-router-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMake your networks play nice.",
+      "date_published": "2026-05-08T12:15:16+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/05/asus-router-1.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/this-impressively-rugged-portable-power-station-opens-up-entirely-new-possibilities-for-living-completely-off-grid-and-it-just-got-a-massive-discount-ahead-of-festival-season",
+      "url": "https://www.techradar.com/pro/this-impressively-rugged-portable-power-station-opens-up-entirely-new-possibilities-for-living-completely-off-grid-and-it-just-got-a-massive-discount-ahead-of-festival-season",
+      "title": "[TechRadar] This 'impressively rugged' portable power station 'opens up entirely new possibilities for living completely off-grid' — and it just got a massive discount ahead of festival season",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/7PwBE7GcfwxVy3GQiAm6FY-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI've found 7 power station offers from Bluetti, Jackery, EcoFlow and Anker, but one deal really stands out.",
+      "date_published": "2026-05-11T16:35:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/7PwBE7GcfwxVy3GQiAm6FY-1280-80.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/09/challenging-the-way-we-pedal/",
+      "url": "https://hackaday.com/2026/05/09/challenging-the-way-we-pedal/",
+      "title": "[Hackaday] Challenging The Way We Pedal",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/no-pedal-bike-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/no-pedal-bike-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The bicycle is an invention that has not changed in its fundamentals since the first recognisably modern machines appeared in the closing years of the 19th century. Its frame uses <a class=\"read-more\" href=\"https://hackaday.com/2026/05/09/challenging-the-way-we-pedal/\">&#8230;read more</a>",
+      "date_published": "2026-05-10T05:00:53+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/no-pedal-bike-featured.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/07/wigglegrams-with-a-pinhole-camera/",
+      "url": "https://hackaday.com/2026/05/07/wigglegrams-with-a-pinhole-camera/",
+      "title": "[Hackaday] Wigglegrams with a Pinhole Camera",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/04/pinhole-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/04/pinhole-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>A pinhole camera is almost a rite of passage in photography, given that you can make one so easily with little more than a cardboard box and enough tape to <a class=\"read-more\" href=\"https://hackaday.com/2026/05/07/wigglegrams-with-a-pinhole-camera/\">&#8230;read more</a>",
+      "date_published": "2026-05-07T15:30:42+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/04/pinhole-featured.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/06/a-1947-radio-gets-a-face-lift/",
+      "url": "https://hackaday.com/2026/05/06/a-1947-radio-gets-a-face-lift/",
+      "title": "[Hackaday] A 1947 Radio Gets A Face Lift",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/arvin.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"518\" src=\"https://hackaday.com/wp-content/uploads/2026/05/arvin.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>We&#8217;ve all done it. We spy an old radio at a garage sale or resale shop. We know someone should bring it back to life, but it looks like a <a class=\"read-more\" href=\"https://hackaday.com/2026/05/06/a-1947-radio-gets-a-face-lift/\">&#8230;read more</a>",
+      "date_published": "2026-05-06T23:00:52+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/arvin.png"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/08/how-commodore-made-a-sync-splitter/",
+      "url": "https://hackaday.com/2026/05/08/how-commodore-made-a-sync-splitter/",
+      "title": "[Hackaday] How Commodore Made a Sync Splitter",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/sync-splitter-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/sync-splitter-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Recently we featured an unusual Commodore 8-bit computer on the bench of [Tynemouth Software] &#8212; a Commodore 64 in a PET case. One of the unique parts it had was <a class=\"read-more\" href=\"https://hackaday.com/2026/05/08/how-commodore-made-a-sync-splitter/\">&#8230;read more</a>",
+      "date_published": "2026-05-08T18:30:45+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 49,
+      "_quality_score": 49,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/sync-splitter-featured.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/someone-made-a-pc-case-out-of-cardboard-and-it-works-better-than-you-think/",
+      "url": "https://www.xda-developers.com/someone-made-a-pc-case-out-of-cardboard-and-it-works-better-than-you-think/",
+      "title": "[XDA Developers] Someone made a PC case out of cardboard, and it works better than you think",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/cardboard-pc-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's surprisingly expensive to make.",
+      "date_published": "2026-05-11T00:32:17+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/cardboard-pc-featured.jpg"
+    },
+    {
+      "id": "https://lifehacker.com/home/ef-ecoflow-portable-power-station-deal-may-2026?utm_medium=RSS",
+      "url": "https://lifehacker.com/home/ef-ecoflow-portable-power-station-deal-may-2026?utm_medium=RSS",
+      "title": "[Lifehacker] I Rely on This Portable Power Station During Emergencies, and It's $700 Off Right Now",
+      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01KR1X9WRFQB9XKN92JQDSTZCJ/hero-image.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe EcoFlow Delta 3 Ultra Plus has been a reliable power station, and it has also made charging equipment inside and outside the house a breeze.",
+      "date_published": "2026-05-07T20:00:51+00:00",
+      "authors": [
+        {
+          "name": "Lifehacker",
+          "url": "https://lifehacker.com/feed/rss"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://lifehacker.com/imagery/articles/01KR1X9WRFQB9XKN92JQDSTZCJ/hero-image.png"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/12/this-pseudo-random-number-generator-does-it-with-neon/",
+      "url": "https://hackaday.com/2026/05/12/this-pseudo-random-number-generator-does-it-with-neon/",
+      "title": "[Hackaday] This (Pseudo) Random Number Generator Does It With Neon",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/Neon-lamp-PRNG-dashboard-e1778557984149.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"451\" src=\"https://hackaday.com/wp-content/uploads/2026/05/Neon-lamp-PRNG-dashboard-e1778557984149.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The quest for true randomness has roots in cryptography and is a rabbit hole that gets surprisingly deep with alarmingly rapidity. Still, the generation of random-enough numbers is a popular <a class=\"read-more\" href=\"https://hackaday.com/2026/05/12/this-pseudo-random-number-generator-does-it-with-neon/\">&#8230;read more</a>",
+      "date_published": "2026-05-12T11:00:22+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality_score": 42,
+      "_theme_score": 80,
+      "_final_score": 80,
       "_keyword_matches": 0,
       "_boosted_score": 12,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/cardboard_case_open_mryeester_youtube.jpg"
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/Neon-lamp-PRNG-dashboard-e1778557984149.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/onyx-boox-poke-7-official-renders-3665381/",
+      "url": "https://www.androidauthority.com/onyx-boox-poke-7-official-renders-3665381/",
+      "title": "[Android Authority] The new BOOX Poke 7 series might be the colorful e-reader you have been waiting for",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/Onyx-BOOX-Poke-7-e-reader_2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDitching the drab black aesthetic, Onyx's latest teaser shows off a textured, vibrant design for its next Kindle alternative.",
+      "date_published": "2026-05-11T09:32:10+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality_score": 42,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/Onyx-BOOX-Poke-7-e-reader_2.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/i-tried-to-revive-an-ancient-mouse-from-the-80s-heres-what-worked-and-what-didnt/",
+      "url": "https://www.howtogeek.com/i-tried-to-revive-an-ancient-mouse-from-the-80s-heres-what-worked-and-what-didnt/",
+      "title": "[How-To Geek] I tried to revive a Logitech C7, the 41-year-old \"blueprint\" for every mouse you've ever owned",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/feature-image-of-a-1985-c7-logitech-computer-mouse-amid-a-workshop.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis 1980s mouse still works, but not the way you'd expect",
+      "date_published": "2026-05-12T13:00:18+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 38,
+      "_quality_score": 38,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 11,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/feature-image-of-a-1985-c7-logitech-computer-mouse-amid-a-workshop.png"
     }
   ]
 }
