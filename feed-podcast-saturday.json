@@ -22,22 +22,390 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Score 0-100 where 100 is a perfect thematic match.",
     "day": "saturday",
-    "generated_at": "2026-05-09T13:58:52.748528+00:00",
-    "article_count": 35,
-    "bonus_count": 29,
+    "generated_at": "2026-05-16T06:41:08.705159+00:00",
+    "article_count": 40,
+    "bonus_count": 0,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://100milefreepress.net/2026/05/09/eclectica-spring-concert-raises-1100-for-hospital-auxiliary/",
-      "url": "https://100milefreepress.net/2026/05/09/eclectica-spring-concert-raises-1100-for-hospital-auxiliary/",
-      "title": "[100 Mile Free Press] Eclectica Spring Concert raises $1,100 for hospital auxiliary",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42226779_web1_260507-OMH-Ecclectica-Choir_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The choir held its annual Spring Concert on Sunday, May 3 in 100 Mile House </p>",
-      "date_published": "2026-05-09T12:00:00+00:00",
+      "id": "https://wltribune.com/2026/05/12/photos-cariboo-chilcotin-youth-fiddle-society-showcase-jukebox-hits-of-the-50s-and-60s/",
+      "url": "https://wltribune.com/2026/05/12/photos-cariboo-chilcotin-youth-fiddle-society-showcase-jukebox-hits-of-the-50s-and-60s/",
+      "title": "[Williams Lake Tribune] PHOTOS: Cariboo Chilcotin Youth Fiddle Society showcase jukebox hits of the ’50s and ’60s",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280347_web1_260514-WLT-Youth-Fiddle-Society-Rockn-Fiddle-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe bi-annual show was held May 9 and 10 in the Gibraltar Room",
+      "date_published": "2026-05-13T07:34:09.934774+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 2,
+      "_boosted_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280347_web1_260514-WLT-Youth-Fiddle-Society-Rockn-Fiddle-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/15/central-chilcotin-rehabilitation-ltd-wins-canadian-biomass-award-for-project-west-of-williams-lake/",
+      "url": "https://wltribune.com/2026/05/15/central-chilcotin-rehabilitation-ltd-wins-canadian-biomass-award-for-project-west-of-williams-lake/",
+      "title": "[Williams Lake Tribune] Central Chilcotin Rehabilitation Ltd. wins Canadian Biomass Award for project west of Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42328986_web1_260521-WLT-Biomass-Award-Palmer-Project-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
+      "date_published": "2026-05-16T06:38:58.243971+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42328986_web1_260521-WLT-Biomass-Award-Palmer-Project-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/13/williams-lake-fighters-return-from-successful-bouts-at-rumble-35-in-quesnel/",
+      "url": "https://wltribune.com/2026/05/13/williams-lake-fighters-return-from-successful-bouts-at-rumble-35-in-quesnel/",
+      "title": "[Williams Lake Tribune] Williams Lake fighters return from successful bouts at Rumble 35 in Quesnel",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42272084_web1_260514-WLT-Rumble-35-Williams-Lake-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n“We did really well,” says head coach Gary McLellan",
+      "date_published": "2026-05-13T15:22:06.801663+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 70,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42272084_web1_260514-WLT-Rumble-35-Williams-Lake-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/10/100-mile-house-rookie-officer-settles-in-to-his-first-choice-community/",
+      "url": "https://100milefreepress.net/2026/05/10/100-mile-house-rookie-officer-settles-in-to-his-first-choice-community/",
+      "title": "[100 Mile Free Press] 100 Mile House rookie officer settles in to his first-choice community",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42269352_web1_260514-OMH-Dalton-Pasmore-RCMP-Week_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Cst. Cst. Dalton Pasmore is one of 100 Mile House&#8217;s newest officers </p>",
+      "date_published": "2026-05-10T12:00:00+00:00",
       "authors": [
         {
           "name": "100 Mile Free Press",
           "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 87,
+      "_quality_score": 87,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 66,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42269352_web1_260514-OMH-Dalton-Pasmore-RCMP-Week_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/13/motor-vehicle-accident-leads-to-arrest-of-south-cariboo-break-and-enter-suspect/",
+      "url": "https://100milefreepress.net/2026/05/13/motor-vehicle-accident-leads-to-arrest-of-south-cariboo-break-and-enter-suspect/",
+      "title": "[100 Mile Free Press] Motor vehicle accident leads to arrest of South Cariboo break and enter suspect",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42314949_web1_web1_220818-omh-rcmp-108-mile-_1.jpeg?w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>This incident was one of 219 the 100 Mile House RCMP responded to over the last two weeks </p>",
+      "date_published": "2026-05-13T23:30:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 2,
+      "_boosted_score": 65,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42314949_web1_web1_220818-omh-rcmp-108-mile-_1.jpeg?w=960"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/12/hansen-lac-la-hache-community-club-president-steps-up-to-run-bingo/",
+      "url": "https://100milefreepress.net/2026/05/12/hansen-lac-la-hache-community-club-president-steps-up-to-run-bingo/",
+      "title": "[100 Mile Free Press] HANSEN: Lac La Hache Community Club president steps up to run bingo",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42281895_web1_260514-OMH-Hansen-Column_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Barbara Hansen&#8217;s regular column to the 100 Mile Free Press </p>",
+      "date_published": "2026-05-13T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 65,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42281895_web1_260514-OMH-Hansen-Column_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/15/2025-williams-lake-fire-department-recruits-earn-live-fire-interior-attack-certification/",
+      "url": "https://wltribune.com/2026/05/15/2025-williams-lake-fire-department-recruits-earn-live-fire-interior-attack-certification/",
+      "title": "[Williams Lake Tribune] 2025 Williams Lake Fire Department recruits earn Live Fire Interior Attack certification",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42323329_web1_260521-WLT-Williams-Lake-Fire-Department-Recruits-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe recruits have now completed 12 of 17 modules",
+      "date_published": "2026-05-16T06:38:58.243739+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42323329_web1_260521-WLT-Williams-Lake-Fire-Department-Recruits-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/14/williams-lake-mayor-unhappy-with-response-letter-on-significant-local-projects/",
+      "url": "https://wltribune.com/2026/05/14/williams-lake-mayor-unhappy-with-response-letter-on-significant-local-projects/",
+      "title": "[Williams Lake Tribune] Williams Lake mayor unhappy with response letter on significant local projects",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42323456_web1_251204-WLT-Budget-talks_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe letter from B.C.’s Finance Minister was shared at a regular council meeting",
+      "date_published": "2026-05-15T07:39:46.156026+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42323456_web1_251204-WLT-Budget-talks_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/12/traditional-powwow-honouring-families-returns-in-williams-lake/",
+      "url": "https://wltribune.com/2026/05/12/traditional-powwow-honouring-families-returns-in-williams-lake/",
+      "title": "[Williams Lake Tribune] Traditional powwow honouring families returns in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42279089_web1_260514-WLT-Honouring-Our-Families-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe powwow by Denisiqi Services Society was held Saturday, May 9",
+      "date_published": "2026-05-12T15:19:10.569791+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 85,
+      "_final_score": 85,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42279089_web1_260514-WLT-Honouring-Our-Families-_2.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/13/delegation-recognizes-lakers-go-bus-society-for-45-years-of-service-in-williams-lake/",
+      "url": "https://wltribune.com/2026/05/13/delegation-recognizes-lakers-go-bus-society-for-45-years-of-service-in-williams-lake/",
+      "title": "[Williams Lake Tribune] Delegation recognizes Laker’s Go Bus Society for 45 years of service in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42309309_web1_260521-WLT-Lakers-Go-Bus-Recognition-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTransit services are now being provided by a new operating partner",
+      "date_published": "2026-05-14T07:27:16.445881+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42309309_web1_260521-WLT-Lakers-Go-Bus-Recognition-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/13/williams-lakes-mud-puddle-trail-run-back-for-5th-year-at-fox-mountain-trails/",
+      "url": "https://wltribune.com/2026/05/13/williams-lakes-mud-puddle-trail-run-back-for-5th-year-at-fox-mountain-trails/",
+      "title": "[Williams Lake Tribune] Williams Lake’s Mud Puddle Trail Run back for 5th year at Fox Mountain Trails",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42300305_web1_220602-WLT-trail-run-mud-puddle-foxtrails_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
+      "date_published": "2026-05-14T07:27:16.446051+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42300305_web1_220602-WLT-trail-run-mud-puddle-foxtrails_2.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/13/hands-on-trades-event-inspires-future-careers-for-williams-lake-students/",
+      "url": "https://wltribune.com/2026/05/13/hands-on-trades-event-inspires-future-careers-for-williams-lake-students/",
+      "title": "[Williams Lake Tribune] Hands-on trades event inspires future careers for Williams Lake students",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42265693_web1_260514-WLT-Youth-Discover-The-Trades-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n5 MIN READ",
+      "date_published": "2026-05-14T07:27:16.446025+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42265693_web1_260514-WLT-Youth-Discover-The-Trades-_2.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/15/forster-7000-raised-for-mountain-spruce-community-centre/",
+      "url": "https://100milefreepress.net/2026/05/15/forster-7000-raised-for-mountain-spruce-community-centre/",
+      "title": "[100 Mile Free Press] FORSTER: $7,000 raised for Mountain Spruce Community Centre",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42282203_web1_250514-OMH-Forster-Deka_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Diana Forster&#8217;s regular column to the 100 Mile Free Press </p>",
+      "date_published": "2026-05-16T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 87,
+      "_quality_score": 87,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 46,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42282203_web1_250514-OMH-Forster-Deka_1.jpg?w=1024"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/05/14/quesnel-schools-leadership-shakeup-continues/",
+      "url": "https://quesnelobserver.com/2026/05/14/quesnel-schools-leadership-shakeup-continues/",
+      "title": "[Quesnel Cariboo Observer] Quesnel schools’ leadership shakeup continues",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42321360_web1_School-District-28-office.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Five more principals and vice-principals have been shuffled around </p>",
+      "date_published": "2026-05-14T21:30:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "ai_score": 87,
+      "_quality_score": 87,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 46,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42321360_web1_School-District-28-office.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/13/100-mile-wranglers-preparing-for-innagural-wijhl-season/",
+      "url": "https://100milefreepress.net/2026/05/13/100-mile-wranglers-preparing-for-innagural-wijhl-season/",
+      "title": "[100 Mile Free Press] 100 Mile Wranglers preparing for innagural WIJHL season",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42296256_web1_251127-OMH-Wranglers_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The 100 Mile House Wranglers left the KIJHL at the end of March </p>",
+      "date_published": "2026-05-13T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42296256_web1_251127-OMH-Wranglers_2.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/12/100-mile-house-students-preview-future-careers-at-2026-heavy-metal-rocks/",
+      "url": "https://100milefreepress.net/2026/05/12/100-mile-house-students-preview-future-careers-at-2026-heavy-metal-rocks/",
+      "title": "[100 Mile Free Press] 100 Mile House students preview future careers at 2026 Heavy Metal Rocks",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42276306_web1_260514-OMH-Heavy-Metal-Rocks_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The program is run every year by School District 27 for Peter Skene Ogden Secondary School students </p>",
+      "date_published": "2026-05-12T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 82,
+      "_final_score": 82,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42276306_web1_260514-OMH-Heavy-Metal-Rocks_2.jpg?w=1024"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/05/14/forest-operations-maps-3172-invitation-to-comment/",
+      "url": "https://quesnelobserver.com/2026/05/14/forest-operations-maps-3172-invitation-to-comment/",
+      "title": "[Quesnel Cariboo Observer] FOREST OPERATIONS MAPs #3172 – INVITATION TO COMMENT",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42325053_web1_280324-NTS-NTC-ForestOperations-westfraserlogo_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The public is invited to review and comment on <strong>West Fraser&#8217;s Forest Operations Maps (FOM) #3172.</strong> The FOM shows proposed road construction and cut block development under West Fraser&#8217;s Forest Stewardship Plan (FSP) within Forest Development Units in the Quesnel Natural Resource District (DQU) and Tree Farm License 52 (TFL52). These FOMs have a validity period of 3 years beginning June 20, 2026. During the validity period, West Fraser may apply for Cutting Permits containing cut blocks and road permits to construct roads shown on the FOM.</p>",
+      "date_published": "2026-05-14T20:30:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
         }
       ],
       "ai_score": 85,
@@ -49,37 +417,359 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42226779_web1_260507-OMH-Ecclectica-Choir_1.jpg?w=1024"
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42325053_web1_280324-NTS-NTC-ForestOperations-westfraserlogo_1.jpg?w=1024"
     },
     {
-      "id": "https://www.cnet.com/tech/services-and-software/counting-on-ai-to-solve-problems-makes-us-more-likely-to-struggle-and-give-up-study-suggests/",
-      "url": "https://www.cnet.com/tech/services-and-software/counting-on-ai-to-solve-problems-makes-us-more-likely-to-struggle-and-give-up-study-suggests/",
-      "title": "[CNET] Counting on AI to Solve Problems Makes Us More Likely to Struggle and Give Up, Study Suggests",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/c9cf09f15ca187a3fbe6639a124f53b5c514aac8/hub/2026/05/08/804eadf7-11f6-4f43-b214-3a3e98c10632/gettyimages-2221950158-1.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers say the findings raise questions about what happens to our brains and patterns if we depend too much on AI.",
-      "date_published": "2026-05-08T17:42:53+00:00",
+      "id": "https://100milefreepress.net/2026/05/14/lone-buttes-out-group-creates-and-supports-community/",
+      "url": "https://100milefreepress.net/2026/05/14/lone-buttes-out-group-creates-and-supports-community/",
+      "title": "[100 Mile Free Press] Lone Butte’s OUT Group creates and supports community",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42302973_web1_260514-OMH-OUT-Group-Community-Spirit_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The Other Useful Talents Group has been operating in Lone Butte since 2011 </p>",
+      "date_published": "2026-05-14T12:00:00+00:00",
       "authors": [
         {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
         }
       ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 81,
+      "_quality_score": 81,
+      "_theme_score": 85,
+      "_final_score": 85,
       "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "science",
-      "_source_category": "science",
+      "_boosted_score": 44,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/c9cf09f15ca187a3fbe6639a124f53b5c514aac8/hub/2026/05/08/804eadf7-11f6-4f43-b214-3a3e98c10632/gettyimages-2221950158-1.jpg?auto=webp&width=300"
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42302973_web1_260514-OMH-OUT-Group-Community-Spirit_1.jpg?w=1024"
     },
     {
-      "id": "https://wltribune.com/2026/05/08/ubcm-business-groups-refuse-to-sign-ndas-related-to-b-c-s-heritage-act-changes/",
-      "url": "https://wltribune.com/2026/05/08/ubcm-business-groups-refuse-to-sign-ndas-related-to-b-c-s-heritage-act-changes/",
-      "title": "[Williams Lake Tribune] UBCM, business groups refuse to sign NDAs related to B.C.’s heritage act changes",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42273627_web1_251112-BPD-Parmarinasia-Parmar_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Forests minister says aim is for legislation in fall, but will take more time if needed </p>",
-      "date_published": "2026-05-08T16:05:00+00:00",
+      "id": "https://wltribune.com/2026/05/12/tilhqotin-national-government-warns-of-imposter-organization/",
+      "url": "https://wltribune.com/2026/05/12/tilhqotin-national-government-warns-of-imposter-organization/",
+      "title": "[Williams Lake Tribune] Tŝilhqot’in National Government warns of imposter organization",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42295099_web1_14582159_web1_chilcotin.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
+      "date_published": "2026-05-13T07:34:09.934885+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42295099_web1_14582159_web1_chilcotin.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/11/amber-alert-issued-across-b-c-after-twins-reported-missing-from-terrace/",
+      "url": "https://wltribune.com/2026/05/11/amber-alert-issued-across-b-c-after-twins-reported-missing-from-terrace/",
+      "title": "[Williams Lake Tribune] UPDATE: B.C. Amber Alert out of Terrace cancelled after twins located safe",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280524_web1_rcmp-car-web.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Police cancelled the alert and reported the children safe shortly before 3 a.m. </p>",
+      "date_published": "2026-05-11T01:19:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280524_web1_rcmp-car-web.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/10/b-c-conservatives-strip-independent-penticton-mla-boultbees-membership/",
+      "url": "https://wltribune.com/2026/05/10/b-c-conservatives-strip-independent-penticton-mla-boultbees-membership/",
+      "title": "[Williams Lake Tribune] B.C. Conservatives strip Independent Penticton MLA Boultbee’s membership",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280273_web1_image_20251020_095227_103.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Despite sitting as an Independent since October, MLA Amelia Boultbee&#8217;s membership remained active </p>",
+      "date_published": "2026-05-10T20:50:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280273_web1_image_20251020_095227_103.jpeg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/12/2m-in-provincial-funding-to-bring-stability-create-jobs-in-b-c-s-forestry-industry/",
+      "url": "https://wltribune.com/2026/05/12/2m-in-provincial-funding-to-bring-stability-create-jobs-in-b-c-s-forestry-industry/",
+      "title": "[Williams Lake Tribune] $2M in funding to bring stability, create jobs in B.C.’s forestry industry",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42304187_web1_260515-WEK-Forestry-Announcment-Funding-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The forestry industry in B.C. is the third largest exporter of softwood lumber in the world </p>",
+      "date_published": "2026-05-12T16:10:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42304187_web1_260515-WEK-Forestry-Announcment-Funding-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/12/province-recommends-grab-and-go-kits-for-evacuations/",
+      "url": "https://wltribune.com/2026/05/12/province-recommends-grab-and-go-kits-for-evacuations/",
+      "title": "[Williams Lake Tribune] Province recommends grab-and-go kits for evacuations",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42302876_web1_15599785_web1_VNE-EmergencyPreparedness.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Supplies help in case of sudden emergencies </p>",
+      "date_published": "2026-05-12T17:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 55,
+      "_final_score": 55,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42302876_web1_15599785_web1_VNE-EmergencyPreparedness.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/10/rcmp-join-forces-to-search-for-missing-snowmobiler-along-yukon-boarder/",
+      "url": "https://wltribune.com/2026/05/10/rcmp-join-forces-to-search-for-missing-snowmobiler-along-yukon-boarder/",
+      "title": "[Williams Lake Tribune] Missing snowmobiler separated from group along Yukon boarder found deceased",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280055_web1_260513-YKN-Haines-Snowmobiler_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The man has been missing since 4 p.m. May 8 </p>",
+      "date_published": "2026-05-10T17:40:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 98,
+      "_quality_score": 98,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 29,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42280055_web1_260513-YKN-Haines-Snowmobiler_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/14/significant-burnout-vernon-psychiatrists-face-growing-caseloads-inadequate-help/",
+      "url": "https://wltribune.com/2026/05/14/significant-burnout-vernon-psychiatrists-face-growing-caseloads-inadequate-help/",
+      "title": "[Williams Lake Tribune] ‘Significant burnout’: Vernon psychiatrists face growing caseloads, inadequate help",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42316198_web1_240208-VMS-health-announce-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>2 psychiatrists at Vernon Jubilee Hospital say they&#8217;re being stretched too thin, while the timeline for a new psychiatric unit stretches further into the future </p>",
+      "date_published": "2026-05-14T05:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 88,
+      "_quality_score": 88,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42316198_web1_240208-VMS-health-announce-1_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/15/disappointed-revelstoke-losing-125-railroaders-as-cpkc-relocates-labour-to-kamloops/",
+      "url": "https://wltribune.com/2026/05/15/disappointed-revelstoke-losing-125-railroaders-as-cpkc-relocates-labour-to-kamloops/",
+      "title": "[Williams Lake Tribune] ‘Disappointed’: Revelstoke losing 125 railroaders as CPKC relocates labour to Kamloops",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42328079_web1_cpkc-train.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Union says company to transfer positions as of June 29 amid staff shortages, failed negotiations </p>",
+      "date_published": "2026-05-15T05:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 88,
+      "_quality_score": 88,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42328079_web1_cpkc-train.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/15/palace-hotel-first-entry-in-new-clinton-heritage-register/",
+      "url": "https://100milefreepress.net/2026/05/15/palace-hotel-first-entry-in-new-clinton-heritage-register/",
+      "title": "[100 Mile Free Press] Palace Hotel first entry in new Clinton Heritage Register",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42280123_web1_260514-ACC-Clinton-heritage-register-Clinton_1.jpg?w=952\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Register is open to Clinton properties that are considered to have significant heritage value </p>",
+      "date_published": "2026-05-15T21:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42280123_web1_260514-ACC-Clinton-heritage-register-Clinton_1.jpg?w=952"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/14/pso-plant-sale-supports-100-mile-students-education-on-agriculture/",
+      "url": "https://100milefreepress.net/2026/05/14/pso-plant-sale-supports-100-mile-students-education-on-agriculture/",
+      "title": "[100 Mile Free Press] PSO Plant Sale supports 100 Mile students’ education on agriculture",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42256845_web1_260514-OMH-PSO-Plant-Sale_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>This year&#8217;s plant sale is scheduled to take place from May 23 to 24 at Peter Skene Ogden Secondary School </p>",
+      "date_published": "2026-05-14T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 83,
+      "_quality_score": 83,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42256845_web1_260514-OMH-PSO-Plant-Sale_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/15/we-are-exhausted-chilliwack-man-86-sentenced-for-killing-couple-next-ffdoor/",
+      "url": "https://wltribune.com/2026/05/15/we-are-exhausted-chilliwack-man-86-sentenced-for-killing-couple-next-ffdoor/",
+      "title": "[Williams Lake Tribune] ‘We are exhausted’: Chilliwack man, 86, sentenced for killing couple next door",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42336863_web1_33910094_web1_230915-CPL-Double-Murder-Folo-PUSH-victims_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Robert Freeman pleaded guilty on first day of jury trial </p>",
+      "date_published": "2026-05-15T19:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 82,
+      "_quality_score": 82,
+      "_theme_score": 55,
+      "_final_score": 55,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42336863_web1_33910094_web1_230915-CPL-Double-Murder-Folo-PUSH-victims_2.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/05/14/notice-of-development-proposal-application-for-rezoning/",
+      "url": "https://100milefreepress.net/2026/05/14/notice-of-development-proposal-application-for-rezoning/",
+      "title": "[100 Mile Free Press] NOTICE OF DEVELOPMENT PROPOSAL: APPLICATION FOR REZONING",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42306626_web1_CRD-new-black-logo-July-04.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>SITE DESCRIPTION: Block A, Section 32, Township 28, Lillooet District</p>",
+      "date_published": "2026-05-14T13:30:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42306626_web1_CRD-new-black-logo-July-04.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/09/kelowna-can-proceed-with-case-against-freedom-rally-protester/",
+      "url": "https://wltribune.com/2026/05/09/kelowna-can-proceed-with-case-against-freedom-rally-protester/",
+      "title": "[Williams Lake Tribune] Kelowna can proceed with case against ‘Freedom Rally’ protester",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42278786_web1_web1_230302-kcn-davidlindsay2-pic_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The decision was released on May 7 </p>",
+      "date_published": "2026-05-09T19:11:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42278786_web1_web1_230302-kcn-davidlindsay2-pic_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/11/man-accused-of-b-c-double-murder-struggles-to-represent-himself-in-court/",
+      "url": "https://wltribune.com/2026/05/11/man-accused-of-b-c-double-murder-struggles-to-represent-himself-in-court/",
+      "title": "[Williams Lake Tribune] Man accused of B.C. double murder struggles to represent himself in court",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42291637_web1_260224-VNE-Cathcart-crown-opening-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Christopher Cathcart is on trial in connection with the fatal stabbing of two homeless people in 2022 </p>",
+      "date_published": "2026-05-11T16:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 60,
+      "_final_score": 60,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42291637_web1_260224-VNE-Cathcart-crown-opening-1_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/15/salmon-arm-credit-union-joins-11-others-in-supporting-tumbler-ridge-students/",
+      "url": "https://wltribune.com/2026/05/15/salmon-arm-credit-union-joins-11-others-in-supporting-tumbler-ridge-students/",
+      "title": "[Williams Lake Tribune] Salmon Arm credit union joins 11 others in supporting Tumbler Ridge students",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42330691_web1_250814-saa-sascu-empowerment-grant.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>&#8216;Especially important that we come together to support communities facing difficult circumstances&#8217; </p>",
+      "date_published": "2026-05-15T12:00:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -88,44 +778,67 @@
       ],
       "ai_score": 72,
       "_quality_score": 72,
-      "_theme_score": 25,
-      "_final_score": 25,
+      "_theme_score": 65,
+      "_final_score": 65,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42273627_web1_251112-BPD-Parmarinasia-Parmar_1.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42330691_web1_250814-saa-sascu-empowerment-grant.jpg?w=1024"
     },
     {
-      "id": "https://www.techradar.com/pro/a-solution-to-our-data-center-woes-covering-californias-canals-with-solar-panels-could-generate-a-staggering-13gw-of-clean-energy-and-save-enough-water-for-two-million-people-so-why-the-opposition",
-      "url": "https://www.techradar.com/pro/a-solution-to-our-data-center-woes-covering-californias-canals-with-solar-panels-could-generate-a-staggering-13gw-of-clean-energy-and-save-enough-water-for-two-million-people-so-why-the-opposition",
-      "title": "[TechRadar] A solution to our data center woes? Covering California’s canals with solar panels could generate a staggering 13GW of clean energy and save enough water for two million people — so why the opposition?",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/pwdK8Qcnog2iL4oRMTMiW8-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCalifornia canal solar projects could generate significant power and save water, though high costs and environmental uncertainties complicate large-scale deployment decisions",
-      "date_published": "2026-05-08T21:05:00+00:00",
+      "id": "https://quesnelobserver.com/2026/05/14/prince-george-rcmp-search-for-45-year-old-woman-2/",
+      "url": "https://quesnelobserver.com/2026/05/14/prince-george-rcmp-search-for-45-year-old-woman-2/",
+      "title": "[Quesnel Cariboo Observer] UPDATE: Prince George RCMP no longer searching for 45-year-old woman",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42320415_web1_prince-george_0.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><strong>UPDATE &#8211; May 14 &#8211; 2 p.m.</strong></p>",
+      "date_published": "2026-05-14T18:30:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
         }
       ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 73,
+      "_quality_score": 73,
+      "_theme_score": 55,
+      "_final_score": 55,
       "_keyword_matches": 0,
       "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/pwdK8Qcnog2iL4oRMTMiW8-1280-80.jpg"
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42320415_web1_prince-george_0.jpg?w=1024"
     },
     {
-      "id": "https://wltribune.com/2026/05/08/chilliwack-rcmp-seek-intel-for-inez-mural-defaced-on-red-dress-day/",
-      "url": "https://wltribune.com/2026/05/08/chilliwack-rcmp-seek-intel-for-inez-mural-defaced-on-red-dress-day/",
-      "title": "[Williams Lake Tribune] Chilliwack RCMP seek intel for Inez mural defaced on Red Dress Day",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42277155_web1_260508-CPL-Mural-Vandalism_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>No suspects, CCTV footage yet to share yet but RCMP urging anyone with information to come forward </p>",
-      "date_published": "2026-05-08T16:39:00+00:00",
+      "id": "https://100milefreepress.net/2026/05/12/poliseno-watch-lake-fire-department-celebrating-55th-anniversary/",
+      "url": "https://100milefreepress.net/2026/05/12/poliseno-watch-lake-fire-department-celebrating-55th-anniversary/",
+      "title": "[100 Mile Free Press] POLISENO: Watch Lake fire department celebrating 55th anniversary",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42260622_web1_230504-OMH-WLNGLV-Fire-Dept-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Gissel Poliseno&#8217;s monthly column to the 100 Mile Free Press </p>",
+      "date_published": "2026-05-13T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/05/42260622_web1_230504-OMH-WLNGLV-Fire-Dept-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/05/09/former-b-c-chiropractor-appeals-sexual-assault-conviction/",
+      "url": "https://wltribune.com/2026/05/09/former-b-c-chiropractor-appeals-sexual-assault-conviction/",
+      "title": "[Williams Lake Tribune] Former B.C. chiropractor appeals sexual assault conviction",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42278146_web1_web1_230119-vms-chiropractor-sex-assault-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Murray Kievit&#8217;s appeal is set to be heard Monday, June 1 at the Vernon Law Courts </p>",
+      "date_published": "2026-05-09T13:00:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
@@ -134,704 +847,106 @@
       ],
       "ai_score": 68,
       "_quality_score": 68,
-      "_theme_score": 25,
-      "_final_score": 25,
+      "_theme_score": 65,
+      "_final_score": 65,
       "_keyword_matches": 0,
       "_boosted_score": 20,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42277155_web1_260508-CPL-Mural-Vandalism_1.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42278146_web1_web1_230119-vms-chiropractor-sex-assault-1_1.jpg?w=1024"
     },
     {
-      "id": "https://wltribune.com/2026/05/08/strike-vote-begins-for-b-c-nurses-following-bargaining-impasse/",
-      "url": "https://wltribune.com/2026/05/08/strike-vote-begins-for-b-c-nurses-following-bargaining-impasse/",
-      "title": "[Williams Lake Tribune] Strike vote begins for B.C. nurses following bargaining impasse",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42272451_web1_230531-BPD-Vancouver-nurse-rally_6.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Union anticipating majority &#8216;yes&#8217; vote for job action, but that doesn&#8217;t necessarily mean a strike </p>",
-      "date_published": "2026-05-08T14:43:00+00:00",
+      "id": "https://wltribune.com/2026/05/06/gulls-just-wanna-have-fun-b-c-seagull-squawk-showdown-returns/",
+      "url": "https://wltribune.com/2026/05/06/gulls-just-wanna-have-fun-b-c-seagull-squawk-showdown-returns/",
+      "title": "[Williams Lake Tribune] Gulls just wanna have fun: B.C. seagull squawk showdown returns",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42248806_web1_gull-scream-johnny.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 celebrity judges will oversee Scream Like A Gull contest May 9",
+      "date_published": "2026-05-12T07:21:39.484191+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 22,
-      "_final_score": 22,
+      "ai_score": 45,
+      "_quality_score": 45,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "news",
-      "_source_category": "news",
+      "_boosted_score": 13,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42272451_web1_230531-BPD-Vancouver-nurse-rally_6.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42248806_web1_gull-scream-johnny.jpg?w=1024"
     },
     {
-      "id": "https://newatlas.com/energy/biogas-boost-sewage-sludge/",
-      "url": "https://newatlas.com/energy/biogas-boost-sewage-sludge/",
-      "title": "[New Atlas] New technique radically boosts biogas yields from sewage sludge",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/edd9056/2147483647/strip/true/crop/4945x2596+0+244/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fad%2Fc1%2F89db929c4fd19fdac169605006d3%2Fdepositphotos-699375526-xl.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"A newly developed process allows up to 83% of sewage sludge to be converted into biogas\" src=\"https://assets.newatlas.com/dims4/default/be98e27/2147483647/strip/true/crop/4945x3084+0+0/resize/1440x898!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fad%2Fc1%2F89db929c4fd19fdac169605006d3%2Fdepositphotos-699375526-xl.jpeg\" /><p>Could one man's trash truly be another's treasure? Well, scientists have unveiled a technique that dramatically increases fuel extraction from one of humanity's most abundant byproducts – sewage sludge, a.k.a. poop – while cutting disposal costs.</p><p><a href=\"https://newatlas.com/energy/biogas-boost-sewage-sludge/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/energy/\">Energy</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/washington-state-university/\" rel=\"tag\">Washington State University</a>, <a href=\"https://newatlas.com/tag/biogas/\" rel=\"tag\">Biogas</a>, <a href=\"https://newatlas.com/tag/biofuel/\" rel=\"tag\">Biofuel</a>, <a href=\"https://newatlas.com/tag/bacteria/\" rel=\"tag\">Bacteria</a></p>",
-      "date_published": "2026-05-09T11:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://assets.newatlas.com/dims4/default/edd9056/2147483647/strip/true/crop/4945x2596+0+244/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fad%2Fc1%2F89db929c4fd19fdac169605006d3%2Fdepositphotos-699375526-xl.jpeg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/threat-actors-are-clearly-adapting-to-the-widespread-interest-in-popular-ai-tools-ai-fans-beware-hackers-create-a-fake-claude-site-to-spread-backdoor-malware",
-      "url": "https://www.techradar.com/pro/security/threat-actors-are-clearly-adapting-to-the-widespread-interest-in-popular-ai-tools-ai-fans-beware-hackers-create-a-fake-claude-site-to-spread-backdoor-malware",
-      "title": "[TechRadar] 'Threat actors are clearly adapting to the widespread interest in popular AI tools': AI fans beware, hackers create a fake Claude site to spread backdoor malware",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/eVgzzXmQMEyvzfYvAaAMrX-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSophos found a fake Claude website deploying a simple but effective RAT.",
-      "date_published": "2026-05-08T16:10:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 64,
-      "_quality_score": 64,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/eVgzzXmQMEyvzfYvAaAMrX-1280-80.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/05/08/sooke-man-given-4-years-in-prison-for-fatal-shooting-of-friend/",
-      "url": "https://wltribune.com/2026/05/08/sooke-man-given-4-years-in-prison-for-fatal-shooting-of-friend/",
-      "title": "[Williams Lake Tribune] Sooke man given 4 years in prison for fatal shooting of friend",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42277090_web1_260507-SNM-Sooke-bullet-vest-killing-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Adam John Steenbergen pleaded guilty to the killing of Michael Leier, 42, after testing a bulletproof vest </p>",
-      "date_published": "2026-05-08T16:30:00+00:00",
+      "id": "https://wltribune.com/2026/05/11/gull-power-seagull-screamer-soars-to-victory-in-b-c-capital-contest/",
+      "url": "https://wltribune.com/2026/05/11/gull-power-seagull-screamer-soars-to-victory-in-b-c-capital-contest/",
+      "title": "[Williams Lake Tribune] Gull power: Seagull screamer soars to victory in B.C. capital contest",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/05/42287788_web1_260511-VNE-Seagull-screamer-winner-RPBO_4.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Folks flocked to Victoria&#8217;s Beacon Hill Park for 2nd Scream Like a Gull contest </p>",
+      "date_published": "2026-05-11T13:16:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 20,
-      "_final_score": 20,
+      "ai_score": 45,
+      "_quality_score": 45,
+      "_theme_score": 70,
+      "_final_score": 70,
       "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "_boosted_score": 13,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42287788_web1_260511-VNE-Seagull-screamer-winner-RPBO_4.jpg?w=1024"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/05/12/15-players-from-b-c-among-235-eligible-for-2026-pwhl-draft/",
+      "url": "https://quesnelobserver.com/2026/05/12/15-players-from-b-c-among-235-eligible-for-2026-pwhl-draft/",
+      "title": "[Quesnel Cariboo Observer] 16 players from B.C. among 235 eligible for 2026 PWHL Draft",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42300926_web1_260430-SUL-Goldeneyes-Frost_8.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>129 forwards, 69 defenders, and 37 goaltenders featured in June 17 event </p>",
+      "date_published": "2026-05-12T20:48:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "ai_score": 40,
+      "_quality_score": 40,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/05/42277090_web1_260507-SNM-Sooke-bullet-vest-killing-1_1.jpg?w=1024"
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/05/42300926_web1_260430-SUL-Goldeneyes-Frost_8.jpg?w=1024"
     },
     {
-      "id": "https://www.resilience.org/stories/2026-05-08/managing-energy-decline-means-using-less-not-just-building-more-an-interview-with-richard-heinberg-2/",
-      "url": "https://www.resilience.org/stories/2026-05-08/managing-energy-decline-means-using-less-not-just-building-more-an-interview-with-richard-heinberg-2/",
-      "title": "[Resilience.org] We have entered the age of consequences for climate and energy inaction: An interview with Richard Heinberg",
-      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/05/pexels-dibakar-roy-2432543-21617982-1024x683.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn the final part of this three-part interview series, Richard Heinberg reflects on decades of ignored warnings about energy descent and economic collapse, calling for a voluntary relocalization of economics and politics.",
-      "date_published": "2026-05-08T08:00:23+00:00",
+      "id": "https://cfjctoday.com/2026/05/11/this-kamloops-event-is-for-the-birds-and-environmental-science/",
+      "url": "https://cfjctoday.com/2026/05/11/this-kamloops-event-is-for-the-birds-and-environmental-science/",
+      "title": "[CFJC Today Kamloops] This Kamloops event is for the birds – and environmental science",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/05/f509a215-06b8-4a88-bd3f-198e53902078.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Image Credit: Kamloops Naturalist Club/Facebook)",
+      "date_published": "2026-05-11T23:21:54+00:00",
       "authors": [
         {
-          "name": "Resilience.org",
-          "url": "https://www.resilience.org"
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
         }
       ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 5,
-      "_final_score": 5,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://www.resilience.org/wp-content/uploads/2026/05/pexels-dibakar-roy-2432543-21617982-1024x683.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/09/business/dealbook/ai-notetakers-legal-risk.html",
-      "url": "https://www.nytimes.com/2026/05/09/business/dealbook/ai-notetakers-legal-risk.html",
-      "title": "[NYT Business] All Those A.I. Note Takers? They’re Making Lawyers Very Nervous.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/09/business/09db-ai-notetakers/09db-ai-notetakers-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA trendy productivity hack, A.I. note takers are capturing every joke and offhand comment in many meetings. They could also potentially waive attorney-client privilege.",
-      "date_published": "2026-05-09T12:00:03+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "ai_score": 60,
-      "_quality_score": 60,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/09/business/09db-ai-notetakers/09db-ai-notetakers-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/aging-scam-victims-caregiving-retirement-vibe-coding-cursor-reddit-2026-5",
-      "url": "https://www.businessinsider.com/aging-scam-victims-caregiving-retirement-vibe-coding-cursor-reddit-2026-5",
-      "title": "[Business Insider] My aging family kept falling for scams. For $20, I built a no-code app to protect them.",
-      "content_html": "<img src=\"https://i.insider.com/69fe3196e1443b8dc48e35f3?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMatt Sanner, 54, vibe coded an app using Cursor called ScamSkeptic for his aging family, who had fallen victim to scams.",
-      "date_published": "2026-05-09T09:14:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69fe3196e1443b8dc48e35f3?format=jpeg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/another-major-linux-security-flaw-revealed-dirty-frag-allows-root-on-all-major-distros-with-no-patch-or-fix-available-yet",
-      "url": "https://www.techradar.com/pro/security/another-major-linux-security-flaw-revealed-dirty-frag-allows-root-on-all-major-distros-with-no-patch-or-fix-available-yet",
-      "title": "[TechRadar] Another major Linux security flaw revealed — 'Dirty Frag' allows root on all major distros, with no patch or fix available yet",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/p7asKHxYWoAoJXzcD2M8e7-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA researcher shared their findings with Linux distro maintainers, but leaked before a patch was built.",
-      "date_published": "2026-05-08T17:05:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/p7asKHxYWoAoJXzcD2M8e7-1280-80.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/vpn/vpn-privacy-security/the-eu-becomes-the-latest-authority-to-signal-that-vpns-are-next-after-launching-its-age-verification-app-heres-how-vpns-went-from-a-necessity-security-tool-to-circumvention-software-that-needs-to-be-restricted",
-      "url": "https://www.techradar.com/vpn/vpn-privacy-security/the-eu-becomes-the-latest-authority-to-signal-that-vpns-are-next-after-launching-its-age-verification-app-heres-how-vpns-went-from-a-necessity-security-tool-to-circumvention-software-that-needs-to-be-restricted",
-      "title": "[TechRadar] The EU becomes the latest authority to signal that VPNs are next, after launching its age verification app — here's how VPNs went from a necessity security tool to circumvention software that needs to be restricted",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/8BgSmXrWfeZXG9nHzRp7nY-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs the internet gets age-gated, users turn to VPN apps in a bid to circumvent mandatory checks. The EU is now the last to turn its attention towards this tech — and cybersecurity experts are worried.",
-      "date_published": "2026-05-09T11:34:53+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/8BgSmXrWfeZXG9nHzRp7nY-1280-80.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/computing/internet/the-wayback-machine-faces-another-threat-from-ai-ridiculously-expensive-hard-drive-prices",
-      "url": "https://www.techradar.com/computing/internet/the-wayback-machine-faces-another-threat-from-ai-ridiculously-expensive-hard-drive-prices",
-      "title": "[TechRadar] The Wayback Machine faces another threat from AI — ridiculously expensive hard drive prices",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Sn8ww3vnaHqi2Y4YxKdMoZ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis is yet another example of the far-reaching nature of the AI-driven component crisis.",
-      "date_published": "2026-05-08T19:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/Sn8ww3vnaHqi2Y4YxKdMoZ-1280-80.jpg"
-    },
-    {
-      "id": "https://www.makeuseof.com/i-use-rdp-from-anywhere-but-only-after-these-changes/",
-      "url": "https://www.makeuseof.com/i-use-rdp-from-anywhere-but-only-after-these-changes/",
-      "title": "[MakeUseOf] I use Remote Desktop from anywhere, but only after making these security changes",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/windows-11-desktop-mstsc.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRDP is really useful, but the default setup has no place on the public-facing internet.",
-      "date_published": "2026-05-08T18:30:40+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/windows-11-desktop-mstsc.png"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/this-dangerous-callphantom-scam-spread-across-28-google-play-apps-downloaded-over-7-million-times-heres-what-we-know",
-      "url": "https://www.techradar.com/pro/security/this-dangerous-callphantom-scam-spread-across-28-google-play-apps-downloaded-over-7-million-times-heres-what-we-know",
-      "title": "[TechRadar] This dangerous 'CallPhantom' scam spread across 28 Google Play apps downloaded over 7 million times",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Uc3ATHMszjrAEZXFF8yXgg-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFake Google Play apps were promising access to people's call logs and required subscriptions.",
-      "date_published": "2026-05-08T15:20:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/Uc3ATHMszjrAEZXFF8yXgg-1280-80.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/08/opinion/ezra-klein-podcast-julia-belluz.html",
-      "url": "https://www.nytimes.com/2026/05/08/opinion/ezra-klein-podcast-julia-belluz.html",
-      "title": "[NYT Top Stories] We’re at the Dawn of the Ozempic Era — and It’s Really Weird",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/08/opinion/08eks-belluz-image/08eks-belluz-image-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOne in eight American adults is taking GLP-1s. What does that mean for how we relate to our food, bodies and one another?",
-      "date_published": "2026-05-08T14:29:18+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/08/opinion/08eks-belluz-image/08eks-belluz-image-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://qz.com/gpu-collateralized-debt-ai-neocloud-coreweave-financing-risks-050526",
-      "url": "https://qz.com/gpu-collateralized-debt-ai-neocloud-coreweave-financing-risks-050526",
-      "title": "[Quartz] What GPU-collateralized debt is — and why it worries credit analysts",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-1746274715.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNeoclouds like CoreWeave borrow billions against chips that lose value fast, and the financing structures are unlike anything in traditional credit",
-      "date_published": "2026-05-08T18:11:27+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-1746274715.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/why-ai-auditability-is-what-every-security-leader-should-be-talking-about",
-      "url": "https://www.techradar.com/pro/why-ai-auditability-is-what-every-security-leader-should-be-talking-about",
-      "title": "[TechRadar] Why AI auditability is what every security leader should be talking about",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Rb6YDzdRZjccpn6MQ26KML-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThere was a time when \"audit\" meant conducting a periodic look back at what happened. That changed with digital transformation.",
-      "date_published": "2026-05-08T14:39:46+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/Rb6YDzdRZjccpn6MQ26KML-1280-80.jpg"
-    },
-    {
-      "id": "https://insideevs.com/news/795368/cadillac-75-percent-buyers-new/",
-      "url": "https://insideevs.com/news/795368/cadillac-75-percent-buyers-new/",
-      "title": "[InsideEVs] Cadillac's EVs Are Stealing Tons Of Buyers From Other Brands",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/1ZKRJ7/s3/cadillac-lyriq-may-2024-sales.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCadillac has sold more than 100,000 new EVs, and three-quarters of those buyers are new to the brand.",
-      "date_published": "2026-05-09T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/1ZKRJ7/s3/cadillac-lyriq-may-2024-sales.jpg"
-    },
-    {
-      "id": "https://www.tomshardware.com/tech-industry/artificial-intelligence/chinese-grey-market-sells-claude-api-access-at-90-percent-off-through-proxy-networks-that-harvest-user-data",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/chinese-grey-market-sells-claude-api-access-at-90-percent-off-through-proxy-networks-that-harvest-user-data",
-      "title": "[Tom's Hardware] Chinese grey market sells Claude API access at 90% off by using stolen credentials, model substitution, and harvesting users' prompts and outputs for resale as AI training data — 'transfer stations' operate through proxy networks that harvest user data",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ScT7C9WsuqruarWf3kSRRG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA grey-market economy of API proxy services in China is reselling access to Anthropic's Claude models at as little as 10% of the official price.",
-      "date_published": "2026-05-09T10:20:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/ScT7C9WsuqruarWf3kSRRG-1280-80.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/latest-ceo-flex-how-much-ai-code-your-company-shipped-2026-5",
-      "url": "https://www.businessinsider.com/latest-ceo-flex-how-much-ai-code-your-company-shipped-2026-5",
-      "title": "[Business Insider] The new CEO flex: Bragging about how much AI code your company shipped",
-      "content_html": "<img src=\"https://i.insider.com/69fdfdf1ba7ef34b41f3661f?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCEOs like Meta's Mark Zuckerberg can't stop talking about how agentic AI is changing how engineers code — and it's not just the Big Tech bosses.",
-      "date_published": "2026-05-09T09:41:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69fdfdf1ba7ef34b41f3661f?format=jpeg"
-    },
-    {
-      "id": "https://qz.com/data-center-construction-costs-rising-inflation-050526",
-      "url": "https://qz.com/data-center-construction-costs-rising-inflation-050526",
-      "title": "[Quartz] A data center went from a $7 billion price tag to $16 billion. It's no exception",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2249152852.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLand, labor, transformers, and permitting are all getting more expensive at once, compounding the cost of financing AI infrastructure",
-      "date_published": "2026-05-08T18:31:12+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2249152852.jpg"
-    },
-    {
-      "id": "https://qz.com/most-affordable-electric-suvs-buy-2026",
-      "url": "https://qz.com/most-affordable-electric-suvs-buy-2026",
-      "title": "[Quartz] The most affordable electric SUVs you can buy in 2026",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2218326897.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom a sub-$30,000 Nissan Leaf with 303 miles of range to a Volvo with a nearly $10,000 price cut, the most affordable electric SUVs worth buying",
-      "date_published": "2026-05-08T17:23:46+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/api/media/file/GettyImages-2218326897.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/08/u-s-defense-contractor-who-sold-hacking-tools-to-russian-broker-ordered-to-pay-10-million-to-former-employers/",
-      "url": "https://techcrunch.com/2026/05/08/u-s-defense-contractor-who-sold-hacking-tools-to-russian-broker-ordered-to-pay-10-million-to-former-employers/",
-      "title": "[TechCrunch] US defense contractor who sold hacking tools to Russian broker ordered to pay $10M to former employers",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFormer cybersecurity executive Peter Williams stole several surveillance and hacking tools and sold them for $1.3 million to a Russian broker that works with Putin’s government.",
-      "date_published": "2026-05-08T16:43:19+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
-    },
-    {
-      "id": "https://www.nytimes.com/video/business/100000010887206/artificial-intelligence-layoffs-unemployment-benefits.html",
-      "url": "https://www.nytimes.com/video/business/100000010887206/artificial-intelligence-layoffs-unemployment-benefits.html",
-      "title": "[NYT Business] How Prepared Are We for A.I. Layoffs?",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/08/arts/ai-jobs/ai-jobs-facebookJumbo.png?play-overlay\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOur chief economics correspondent, Ben Casselman, describes how A.I.-related layoffs are testing the resilience of the government’s safety net programs.",
-      "date_published": "2026-05-08T16:25:55+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "ai_score": 53,
-      "_quality_score": 53,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/08/arts/ai-jobs/ai-jobs-facebookJumbo.png?play-overlay"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-pilled-ceo-deepl-layoffs-memo-playbook-2026-5",
-      "url": "https://www.businessinsider.com/ai-pilled-ceo-deepl-layoffs-memo-playbook-2026-5",
-      "title": "[Business Insider] This AI-pilled CEO's memo cutting over 21% of the company is a prime example of the new layoffs playbook",
-      "content_html": "<img src=\"https://i.insider.com/69fdefd2e1443b8dc48e3340?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDeepL laid off 250 employees. CEO Jarek Kutylowski's memo referenced AI, smaller teams, fewer layers, and founder mode.",
-      "date_published": "2026-05-08T16:04:55+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/69fdefd2e1443b8dc48e3340?format=jpeg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/08/well/mind/body-dysmorphic-disorder-bdd-symptoms.html",
-      "url": "https://www.nytimes.com/2026/05/08/well/mind/body-dysmorphic-disorder-bdd-symptoms.html",
-      "title": "[NYT Well] What Is Body Dysmorphic Disorder?",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt may look like vanity, but it’s a debilitating mental health condition.",
-      "date_published": "2026-05-08T15:08:14+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/the-findings-are-sobering-nearly-half-of-the-worlds-passwords-can-easily-be-cracked-in-just-a-few-minutes",
-      "url": "https://www.techradar.com/pro/security/the-findings-are-sobering-nearly-half-of-the-worlds-passwords-can-easily-be-cracked-in-just-a-few-minutes",
-      "title": "[TechRadar] 'The findings are sobering': Experts warn nearly half of the world's passwords can easily be cracked in just a few minutes",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/7MHfCmKe5dDEJTPQTmee9Q-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKaspersky researchers conducted real world testing and found that almost half of passwords can be cracked in less than a minute.",
-      "date_published": "2026-05-08T15:05:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 51,
-      "_quality_score": 51,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/7MHfCmKe5dDEJTPQTmee9Q-1280-80.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/tom-steyer-proposes-jobs-guarantee-to-protect-california-workers-from-ai/",
-      "url": "https://www.wired.com/story/tom-steyer-proposes-jobs-guarantee-to-protect-california-workers-from-ai/",
-      "title": "[WIRED] There’s a Long-Shot Proposal to Protect California Workers From AI",
-      "content_html": "<img src=\"https://media.wired.com/photos/69fa6c65cfdc5f2b42e5b5ba/master/pass/pol_Tom_CA_GettyImages-2273635848.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCalifornia gubernatorial candidate Tom Steyer is proposing a new jobs guarantee for workers displaced by artificial intelligence.",
-      "date_published": "2026-05-08T15:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/69fa6c65cfdc5f2b42e5b5ba/master/pass/pol_Tom_CA_GettyImages-2273635848.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/08/technology/meta-ai-employees-miserable.html",
-      "url": "https://www.nytimes.com/2026/05/08/technology/meta-ai-employees-miserable.html",
-      "title": "[NYT Business] Meta’s Embrace of A.I. Is Making Its Employees Miserable",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/11/business/00meta-morale/00meta-morale-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs it adapts to the artificial intelligence era, the company is pushing many of its 78,000 workers to use the technology, and preparing to lay some of them off.",
-      "date_published": "2026-05-08T14:18:51+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/11/business/00meta-morale/00meta-morale-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/07/the-back-office-problem-that-explains-why-specialists-never-call-you-back/",
-      "url": "https://techcrunch.com/2026/05/07/the-back-office-problem-that-explains-why-specialists-never-call-you-back/",
-      "title": "[TechCrunch] The fax machine is the bottleneck in US healthcare, and VCs are starting to notice",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLike many AI companies automating work that humans currently do, Basata will eventually face a harder question about where the line is between augmenting workers and displacing them. For now, the founders say the administrative staff they work with aren't worried about that; they're more worried about drowning.",
-      "date_published": "2026-05-08T04:42:29+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
-    },
-    {
-      "id": "https://www.neowin.net/news/openai-unveils-trio-of-realtime-audio-models-to-power-next-gen-voice-agents/",
-      "url": "https://www.neowin.net/news/openai-unveils-trio-of-realtime-audio-models-to-power-next-gen-voice-agents/",
-      "title": "[Neowin] OpenAI unveils trio of realtime audio models to power next-gen voice agents",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1778175638_openai_gpt_realtime_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/05/1778175638_openai_gpt_realtime_medium.webp\" /></div>OpenAI has launched three advanced real-time audio models: GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper. These models make AI interactions feel more human than ever before. <a href=\"https://www.neowin.net/news/openai-unveils-trio-of-realtime-audio-models-to-power-next-gen-voice-agents/\">Read more...</a>",
-      "date_published": "2026-05-07T18:52:01+00:00",
-      "authors": [
-        {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/05/1778175638_openai_gpt_realtime_story.webp"
-    },
-    {
-      "id": "https://globalnews.ca/news/11830339/quebec-digital-health-records-system/",
-      "url": "https://globalnews.ca/news/11830339/quebec-digital-health-records-system/",
-      "title": "[Global News] Quebec to begin rollout of digital health records system",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2022/07/20220714130728-62d052b70a0ad029d0002cb9jpeg.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe system is designed to replace paper files and fragmented platforms with a centralized digital record, giving health-care providers quicker access to patient information.",
-      "date_published": "2026-05-05T01:36:51+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 23,
-      "_quality_score": 23,
-      "_theme_score": 30,
-      "_final_score": 0,
+      "ai_score": 20,
+      "_quality_score": 20,
+      "_theme_score": 60,
+      "_final_score": 60,
       "_keyword_matches": 0,
       "_boosted_score": 6,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2022/07/20220714130728-62d052b70a0ad029d0002cb9jpeg.jpg?quality=65&strip=all"
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/05/f509a215-06b8-4a88-bd3f-198e53902078.jpg"
     }
   ]
 }
