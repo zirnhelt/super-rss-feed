@@ -1102,12 +1102,34 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     client = anthropic.Anthropic(api_key=api_key)
 
     # Build the cached system prompt once — includes the large interests text and
-    # category list so they are only billed on cache miss, not on every batch.
-    categories_json = json.dumps(list(CATEGORIES.keys()))
+    # full category guide so they are only billed on cache miss, not on every batch.
+    #
+    # The category guide (with include/exclude signals from CATEGORY_RULES) replaces
+    # the bare category-keys list. It adds ~570 tokens of genuinely useful context
+    # AND pushes the prefix past the 4096-token minimum required for Haiku 4.5
+    # prompt caching — without it, cache_control is silently ignored.
+    category_lines = []
+    for key, cat_data in CATEGORIES.items():
+        rules = CATEGORY_RULES.get(key, {})
+        desc = rules.get('description', cat_data.get('description', ''))
+        line = f"  {key}: {desc}"
+        includes = rules.get('include', [])
+        excludes = rules.get('exclude', [])
+        if includes:
+            line += f"\n    Signals that suggest this category: {', '.join(includes)}"
+        if excludes:
+            line += f"\n    Do NOT use this category for: {', '.join(excludes)}"
+        if cat_data.get('always_priority'):
+            line += "\n    Note: Local content always scores 80+ regardless of topic."
+        category_lines.append(line)
+    category_guide = '\n'.join(category_lines)
+
     cached_system_prompt = (
         f"You are a news curator. Respond only with valid JSON arrays.\n\n"
         f"Rate articles 0-100 for personal relevance and quality based on these interest priorities:\n{interests}\n\n"
-        f"Also assign each article to ONE of these categories: {categories_json}\n\n"
+        f"CATEGORY DEFINITIONS AND ASSIGNMENT RULES:\n"
+        f"Assign each article to exactly ONE category using the descriptions, signals, and exclusions below:\n\n"
+        f"{category_guide}\n\n"
         f"Also provide a 'story_group': a 3-5 word label for the SPECIFIC event or product covered "
         f"(e.g. 'Apple AirTag 2 launch', 'Williams Lake council vote', 'OpenAI GPT-5 release'). "
         f"Use null for standalone analysis, opinion, or evergreen pieces with no discrete news event. "
@@ -1139,7 +1161,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
                 for j, article in enumerate(batch)
             ])
 
-            prompt = f"""Rate each article from 0-100, assign a category from: {categories_json}, and provide a story_group.
+            prompt = f"""Rate each article from 0-100, assign a category (see system prompt for definitions), and provide a story_group.
 
 Respond with ONLY a JSON array (no other text):
 [
@@ -1158,7 +1180,7 @@ Articles to evaluate:
                         {
                             "type": "text",
                             "text": cached_system_prompt,
-                            "cache_control": {"type": "ephemeral"}
+                            "cache_control": {"type": "ephemeral", "ttl": "1h"}
                         }
                     ],
                     messages=[{"role": "user", "content": prompt}]
@@ -1396,10 +1418,38 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
 
     client = anthropic.Anthropic(api_key=api_key)
 
-    # The theme prompt is the same for all batches in this call, so put it in
-    # the cached system message to avoid paying for it on every batch.
+    # Load curator interests and build category guide to prepend as background context.
+    # The bare theme prompt alone is ~300-500 tokens — well below the 4096-token minimum
+    # required for Haiku 4.5 prompt caching, so cache_control silently does nothing without
+    # this extra context. The interests + category guide together add ~4200 tokens, ensuring
+    # every theme (including the shortest) clears the threshold. The category guide is also
+    # genuinely useful: knowing the content taxonomy (e.g. homelab vs ai-tech) helps Claude
+    # correctly score how well an article fits a given theme.
+    interests_file = CONFIG_DIR / 'scoring_interests.txt'
+    try:
+        with open(interests_file, 'r') as f:
+            interests = f.read().strip()
+    except FileNotFoundError:
+        interests = "Technology, science, climate, local news"
+
+    category_lines = []
+    for key, cat_data in CATEGORIES.items():
+        rules = CATEGORY_RULES.get(key, {})
+        desc = rules.get('description', cat_data.get('description', ''))
+        line = f"  {key}: {desc}"
+        includes = rules.get('include', [])
+        excludes = rules.get('exclude', [])
+        if includes:
+            line += f"\n    Signals: {', '.join(includes)}"
+        if excludes:
+            line += f"\n    Exclude: {', '.join(excludes)}"
+        category_lines.append(line)
+    category_guide = '\n'.join(category_lines)
+
     cached_theme_system = (
         f"You are evaluating news articles for thematic relevance. Respond only with valid JSON arrays.\n\n"
+        f"BACKGROUND — curator interest profile (for context when judging relevance):\n{interests}\n\n"
+        f"CONTENT TAXONOMY (for reference):\n{category_guide}\n\n"
         f"{theme_prompt}"
     )
 
@@ -1433,7 +1483,7 @@ Articles to evaluate:
                     {
                         "type": "text",
                         "text": cached_theme_system,
-                        "cache_control": {"type": "ephemeral"}
+                        "cache_control": {"type": "ephemeral", "ttl": "1h"}
                     }
                 ],
                 messages=[{"role": "user", "content": prompt}]
@@ -1517,6 +1567,17 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
 
     client = anthropic.Anthropic(api_key=api_key)
 
+    # Load curator interests to prepend as background context.
+    # The 7 theme descriptions alone are ~2000 tokens — below the 4096-token minimum
+    # for Haiku 4.5 caching. Adding the interests file (~2100 tokens) pushes the
+    # combined system prompt well past the threshold.
+    interests_file = CONFIG_DIR / 'scoring_interests.txt'
+    try:
+        with open(interests_file, 'r') as f:
+            interests = f.read().strip()
+    except FileNotFoundError:
+        interests = "Technology, science, climate, local news"
+
     theme_descriptions = "\n\n".join(
         f"Theme key \"{day}\" — {cfg['label']}:\n{cfg.get('scoring_prompt', '')}"
         for day, cfg in schedule.items()
@@ -1525,6 +1586,7 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
     combined_system = (
         f"You are evaluating news articles for thematic relevance across multiple themes. "
         f"Respond only with valid JSON arrays.\n\n"
+        f"BACKGROUND — curator interest profile (for context when judging relevance):\n{interests}\n\n"
         f"Score each article 0-100 for each of the following themes:\n\n"
         f"{theme_descriptions}"
     )
@@ -1557,7 +1619,8 @@ Articles to evaluate:
             "params": {
                 "model": "claude-haiku-4-5",
                 "max_tokens": 2500,
-                "system": [{"type": "text", "text": combined_system}],
+                "system": [{"type": "text", "text": combined_system,
+                            "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
                 "messages": [{"role": "user", "content": prompt}]
             }
         })
@@ -1600,7 +1663,7 @@ Articles to evaluate:
                     model="claude-haiku-4-5",
                     max_tokens=2500,
                     system=[{"type": "text", "text": combined_system,
-                             "cache_control": {"type": "ephemeral"}}],
+                             "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
                     messages=[{"role": "user", "content": prompt}]
                 )
                 response_text = response.content[0].text.strip()
