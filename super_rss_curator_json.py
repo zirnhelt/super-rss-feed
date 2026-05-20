@@ -2491,7 +2491,7 @@ def main():
                 'pub_date': datetime.fromisoformat(item['date_published'].replace('Z', '+00:00')),
                 'source': item['authors'][0]['name'],
                 'source_url': item['authors'][0]['url'],
-                'score': 0,
+                'score': item.get('_score', 0),
                 'image': item.get('image')
             })() for item in fresh_existing
         ]
