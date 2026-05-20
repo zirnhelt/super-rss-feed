@@ -1444,9 +1444,12 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
             item["image"] = article.image
             item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
 
+        item["_score"] = article.score
+
         if category == 'local':
+            item["_local"] = True
             item["tags"] = ["local-priority"]
-        
+
         feed["items"].append(item)
     
     with open(output_path, 'w', encoding='utf-8') as f:
