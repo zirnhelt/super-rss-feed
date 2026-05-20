@@ -1347,8 +1347,11 @@ def enforce_local_priority(articles: List[Article]) -> List[Article]:
 
     enforced = 0
     for article in articles:
-        text = f"{article.title} {article.description}".lower()
-        if any(signal in text for signal in local_signals):
+        # Check title only — description can contain "Williams Lake" as a dateline or
+        # source byline on syndicated Tribune articles, which would falsely promote
+        # national/sports wire content to local priority.
+        title_text = article.title.lower()
+        if any(signal in title_text for signal in local_signals):
             if article.score < 80:
                 article.score = 80
                 enforced += 1
