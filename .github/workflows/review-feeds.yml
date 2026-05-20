@@ -32,11 +32,17 @@ jobs:
       - name: Download current feeds from GitHub Pages
         run: |
           BASE="https://zirnhelt.github.io/super-rss-feed"
+          TS="$(date +%s)"
           download_json() {
             local url="$1"
             local dest="$2"
             local tmp="${dest}.tmp"
-            if wget -q --timeout=30 "$url" -O "$tmp" 2>/dev/null \
+            # Use cache-busting query param + no-cache headers so the CDN always
+            # returns the freshest published file rather than a stale cached copy.
+            if curl -sSf --max-time 30 \
+                  -H "Cache-Control: no-cache" \
+                  -H "Pragma: no-cache" \
+                  "${url}?v=${TS}" -o "$tmp" \
                && python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$tmp" 2>/dev/null; then
               mv "$tmp" "$dest"
               echo "  ✓ $dest"
