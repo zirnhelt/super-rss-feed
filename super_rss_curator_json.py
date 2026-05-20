@@ -1248,6 +1248,91 @@ Articles to evaluate:
     return scored_articles
 
 
+def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article]:
+    """Final headline-only pass with Haiku to catch unwanted subjects that slipped through keyword filters."""
+    if not articles:
+        return []
+
+    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    system_prompt = (
+        "You are a strict content filter reviewing article headlines.\n\n"
+        "Remove articles whose PRIMARY subject is one of:\n"
+        "- Sports: game scores/recaps, drafts, trades, player stats, sports leagues "
+        "(NFL, NBA, NHL, MLB, CFL, MLS, UFC, MMA, FIFA, PGA, NASCAR, Premier League, "
+        "Champions League, World Cup, Olympics, Super Bowl), sports tournaments, "
+        "championships, playoff coverage, athlete profiles focused on sport performance\n"
+        "- Celebrity gossip: tabloid content, paparazzi, red carpet, award show results, "
+        "celebrity relationships/feuds\n"
+        "- Deals/promotions: promo codes, coupons, flash sales, best deals roundups, "
+        "discount codes\n"
+        "- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice\n\n"
+        "KEEP articles that use sports/entertainment as context for a deeper story "
+        "(e.g. technology in sports, economics of a league, health research on athletes).\n"
+        "KEEP all local community news even if sports-related.\n\n"
+        "Respond ONLY with valid JSON: {\"remove\": [list of article numbers to remove]}\n"
+        "If nothing should be removed respond with: {\"remove\": []}"
+    )
+
+    kept: List[Article] = []
+    total_removed = 0
+
+    batch_size = 40
+    for i in range(0, len(articles), batch_size):
+        batch = articles[i:i + batch_size]
+
+        # Build numbered headline list; flag local articles so Haiku respects the keep rule
+        lines = []
+        for j, article in enumerate(batch):
+            title_lower = article.title.lower()
+            is_local = any(sig in title_lower for sig in local_signals)
+            prefix = f"{j+1}. [LOCAL] " if is_local else f"{j+1}. "
+            lines.append(f"{prefix}{article.title}")
+        headlines_text = "\n".join(lines)
+
+        prompt = f"Review these headlines and identify any whose primary subject is unwanted:\n\n{headlines_text}"
+
+        try:
+            response = client.messages.create(
+                model="claude-haiku-4-5",
+                max_tokens=300,
+                system=system_prompt,
+                messages=[{"role": "user", "content": prompt}]
+            )
+
+            raw = response.content[0].text.strip()
+            # Strip markdown fences if present
+            if raw.startswith("```"):
+                lines_r = raw.splitlines()
+                inner = lines_r[1:]
+                if inner and inner[-1].strip() == "```":
+                    inner = inner[:-1]
+                raw = "\n".join(inner).strip()
+
+            result = json.loads(raw)
+            remove_nums = set(result.get("remove", []))
+
+            for j, article in enumerate(batch):
+                if (j + 1) in remove_nums:
+                    print(f"  ✂️  Scrubbed: {article.title[:90]}")
+                    total_removed += 1
+                else:
+                    kept.append(article)
+
+        except Exception as e:
+            print(f"  ⚠️ Scrub batch {i // batch_size + 1} failed ({e}), keeping all")
+            kept.extend(batch)
+
+    if total_removed:
+        print(f"✂️  Final scrub removed {total_removed} article(s) from {len(articles)} quality articles")
+    else:
+        print(f"✂️  Final scrub: feed is clean ({len(articles)} articles passed)")
+
+    return kept
+
+
 def enforce_local_priority(articles: List[Article]) -> List[Article]:
     """Enforce 80+ score and 'local' category for any article containing Cariboo/local signals.
 
@@ -1262,8 +1347,11 @@ def enforce_local_priority(articles: List[Article]) -> List[Article]:
 
     enforced = 0
     for article in articles:
-        text = f"{article.title} {article.description}".lower()
-        if any(signal in text for signal in local_signals):
+        # Check title only — description can contain "Williams Lake" as a dateline or
+        # source byline on syndicated Tribune articles, which would falsely promote
+        # national/sports wire content to local priority.
+        title_text = article.title.lower()
+        if any(signal in title_text for signal in local_signals):
             if article.score < 80:
                 article.score = 80
                 enforced += 1
@@ -2277,7 +2365,10 @@ def main():
 
     quality_articles = [a for a in scored_articles if a.score >= LIMITS['min_claude_score']]
     print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scored_articles)} → {len(quality_articles)} articles")
-    
+
+    print(f"\n✂️  Running final headline scrub with Haiku ({len(quality_articles)} articles)...")
+    quality_articles = scrub_feed_with_haiku(quality_articles, api_key)
+
     # Fetch images for quality articles only (after filtering)
     print(f"🖼️  Fetching images for quality articles...")
     quality_articles = batch_fetch_images(quality_articles, max_fetch=50)
