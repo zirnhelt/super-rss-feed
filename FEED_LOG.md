@@ -3,6 +3,28 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-05-20 (Wednesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1143** → dedup **919** → new **351** → quality **263**
+- Mix: local:4(2%), ai-tech:48(19%), climate:54(21%), homelab:9(4%), science:13(5%), scifi:4(2%), news:123(48%)
+- Feeds: local:39, ai-tech:457, climate:168, homelab:408, science:166, scifi:28, news:500
+- Images: 263/263
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
+- ⚠️ ⚠️ API error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CbDU76evB5d2rruXiqnDC'}
+- ⚠️ ⚠️ API error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CbDU8ETzkt5zXPUP2TYza'}
+- ⚠️ ⚠️ API error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CbDUAJPwfvw62Th5Rtoyi'}
+- ⚠️ ⚠️ API error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CbDUApK23ZCeHKE4pnGW6'}
+- ⚠️ ⚠️ API error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CbDUCd5eXLDbEzYDvbAqj'}
+
+
+---
+
+
+
 ## 2026-05-19 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
@@ -215,43 +237,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:2(1%), ai-tech:67(31%), climate:7(3%), homelab:48(22%), science:15(7%), scifi:2(1%), news:78(36%)
 - Feeds: local:45, ai-tech:475, climate:140, homelab:461, science:182, scifi:22, news:500
 - Images: 234/234
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-05-12 (Tuesday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **973** → dedup **807** → new **310** → quality **216**
-- Mix: local:7(3%), ai-tech:63(31%), climate:12(6%), homelab:33(16%), science:17(8%), news:73(36%)
-- Feeds: local:36, ai-tech:440, climate:159, homelab:447, science:181, scifi:24, news:500
-- Images: 216/216
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1031** → dedup **853** → new **270** → quality **183**
-- Mix: local:2(1%), ai-tech:54(32%), climate:7(4%), homelab:34(20%), science:11(6%), scifi:2(1%), news:60(35%)
-- Feeds: local:38, ai-tech:469, climate:149, homelab:461, science:187, scifi:24, news:500
-- Images: 183/183
 - ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
 - ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
 - ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
@@ -1296,6 +1281,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-05-11–2026-05-11
 - 1 runs · avg fetched 660 · avg quality 117
 - Dominant: **news** (29%) local:2 / ai-tech:26 / climate:9 / homelab:32 / science:10 / scifi:2 / news:33
+- - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-05-12–2026-05-12
+- 2 runs · avg fetched 1002 · avg quality 200
+- Dominant: **news** (35%) local:9 / ai-tech:117 / climate:19 / homelab:67 / science:28 / scifi:2 / news:133
 - - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
 - - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
 - - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
