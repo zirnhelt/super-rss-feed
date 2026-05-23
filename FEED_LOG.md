@@ -25,6 +25,25 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌅 4:30 AM Pacific
+- Fetched **965** → dedup **840** → new **227** → quality **93**
+- Mix: local:2(2%), ai-tech:10(11%), climate:5(5%), homelab:9(10%), science:9(10%), news:56(62%)
+- Feeds: local:39, ai-tech:413, climate:152, homelab:257, science:147, scifi:21, news:500
+- Images: 93/93
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
+- ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 36)), keeping all
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-05-22 (Friday)
 
 #### 🌅 4:30 AM Pacific
