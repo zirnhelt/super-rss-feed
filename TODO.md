@@ -15,6 +15,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Krebs on Security** failed | `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/` |
 | 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **IndigiNews** failed | `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-05-23 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-23 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-23 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -72,6 +79,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-05-24 | 🌙 evening | 100 | news:59(64%), homelab:16(17%), ai-tech:9(10%) |
+| 2026-05-24 | 🌅 morning | 104 | news:52(57%), homelab:17(18%), ai-tech:10(11%) |
 | 2026-05-23 | 🌙 evening | 174 | news:103(61%), ai-tech:27(16%), homelab:20(12%) |
 | 2026-05-23 | 🌅 morning | 93 | news:56(62%), ai-tech:10(11%), homelab:9(10%) |
 | 2026-05-22 | 🌅 morning | 274 | news:133(55%), ai-tech:68(28%), homelab:14(6%) |
@@ -84,9 +92,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-17 | 🌙 evening | 91 | news:24(29%), homelab:22(27%), ai-tech:20(24%) |
 | 2026-05-17 | 🌅 morning | 82 | news:31(40%), homelab:23(30%), ai-tech:13(17%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-24 07:37 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-24 14:07 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

@@ -25,6 +25,28 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌅 4:30 AM Pacific
+- Fetched **719** → dedup **629** → new **205** → quality **104**
+- Mix: local:1(1%), ai-tech:10(11%), climate:2(2%), homelab:17(18%), science:8(9%), scifi:2(2%), news:52(57%)
+- Feeds: local:36, ai-tech:389, climate:145, homelab:237, science:136, scifi:20, news:500
+- Images: 104/104
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
+- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
+- ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 49)), keeping all
+- ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 7 column 1 (char 36)), keeping all
+- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
 ## 2026-05-23 (Saturday)
 
 #### 🌙 8:30 PM Pacific
