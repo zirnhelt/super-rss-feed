@@ -22,91 +22,114 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise pure software, pure business news, and national politics with no hardware angle. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-05-20T16:06:36.468158+00:00",
+    "generated_at": "2026-05-27T08:17:07.954743+00:00",
     "article_count": 40,
-    "bonus_count": 21,
+    "bonus_count": 17,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.howtogeek.com/this-50-soldering-iron-saved-more-of-my-old-gear-than-i-expected/",
-      "url": "https://www.howtogeek.com/this-50-soldering-iron-saved-more-of-my-old-gear-than-i-expected/",
-      "title": "[How-To Geek] This $50 soldering iron saved more of my old gear than I expected",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/img_0509.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA simple soldering iron helped me fix cables, amps, and old electronics instead of throwing them away.",
-      "date_published": "2026-05-19T18:30:17+00:00",
+      "id": "https://www.tomshardware.com/maker-stem/electronics-buff-hand-draws-and-etches-custom-pcbs-at-home-functional-home-etched-pcb-runs-a-3d-printed-fume-extractor-fan",
+      "url": "https://www.tomshardware.com/maker-stem/electronics-buff-hand-draws-and-etches-custom-pcbs-at-home-functional-home-etched-pcb-runs-a-3d-printed-fume-extractor-fan",
+      "title": "[Tom's Hardware] Electronics buff hand-draws and etches custom PCBs at home — functional home-etched PCB runs a 3D-printed fume extractor fan",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/UdgMuhzhPhaDY6ahq69TYh-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA maker bored with the staid designs of modern factory-produced PCBs has perfected their own hand-inking and home-etching process.",
+      "date_published": "2026-05-24T11:53:38+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
         }
       ],
-      "ai_score": 61,
-      "_quality_score": 61,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 3,
-      "_boosted_score": 78,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/img_0509.jpeg"
-    },
-    {
-      "id": "https://www.howtogeek.com/your-old-phone-can-become-a-surprisingly-useful-network-troubleshooting-tool/",
-      "url": "https://www.howtogeek.com/your-old-phone-can-become-a-surprisingly-useful-network-troubleshooting-tool/",
-      "title": "[How-To Geek] Your old phone is a $300 Wi-Fi diagnostic tool in disguise",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/samsung-galaxy-home-wi-fi-inspection.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour retired smartphone can map dead zones faster than any $500 gadget",
-      "date_published": "2026-05-17T17:30:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 3,
-      "_boosted_score": 75,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/samsung-galaxy-home-wi-fi-inspection.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/build-a-radio-wave-detector-with-balls-of-aluminum-foil/",
-      "url": "https://www.wired.com/story/build-a-radio-wave-detector-with-balls-of-aluminum-foil/",
-      "title": "[WIRED] Build a Radio Wave Detector With Balls of Aluminum Foil!",
-      "content_html": "<img src=\"https://media.wired.com/photos/6a0640879f7f511553da42c5/master/pass/GettyImages-515220084.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHere’s how you can hack together a radio transmitter and receiver out of stuff you have at home—and explore the weirdness of wireless.",
-      "date_published": "2026-05-15T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
+      "ai_score": 72,
+      "_quality_score": 72,
       "_theme_score": 75,
       "_final_score": 75,
       "_keyword_matches": 2,
-      "_boosted_score": 56,
+      "_boosted_score": 61,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://media.wired.com/photos/6a0640879f7f511553da42c5/master/pass/GettyImages-515220084.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/UdgMuhzhPhaDY6ahq69TYh-1280-80.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/19/building-a-pip-boy-themed-smartwatch/",
-      "url": "https://hackaday.com/2026/05/19/building-a-pip-boy-themed-smartwatch/",
-      "title": "[Hackaday] Building a Pip Boy Themed Smartwatch",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/Satisfying-Make-Your-Own-Fallout-Smart-Watch-7-19-screenshot.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/Satisfying-Make-Your-Own-Fallout-Smart-Watch-7-19-screenshot.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>One of the problems with good science fiction is that it introduces us to all kinds of cool devices that we can&#8217;t actually have in real life. [Huy Vector] has <a class=\"read-more\" href=\"https://hackaday.com/2026/05/19/building-a-pip-boy-themed-smartwatch/\">&#8230;read more</a>",
-      "date_published": "2026-05-19T20:00:19+00:00",
+      "id": "https://www.howtogeek.com/passkeys-were-a-headache-until-i-moved-them-to-my-own-home-server/",
+      "url": "https://www.howtogeek.com/passkeys-were-a-headache-until-i-moved-them-to-my-own-home-server/",
+      "title": "[How-To Geek] Passkeys were a headache until I moved them to my own home server",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/09/an-illustration-of-a-passkey-featuring-a-key-fingerprint-facial-recognition-and-password-input-fields.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou don't need Google to sync your passkeys between your devices. This private tool does a better job.",
+      "date_published": "2026-05-22T14:00:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 2,
+      "_boosted_score": 61,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/09/an-illustration-of-a-passkey-featuring-a-key-fingerprint-facial-recognition-and-password-input-fields.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/20/a-diy-3d-printing-filament-dryer/",
+      "url": "https://hackaday.com/2026/05/20/a-diy-3d-printing-filament-dryer/",
+      "title": "[Hackaday] A DIY 3D Printing Filament Dryer",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_filament_drying_box_2_sasa_karanovic_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"499\" src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_filament_drying_box_2_sasa_karanovic_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>In a recent video [Saša Karanović] revisits the DIY filament dryer that he gave a shot a couple of years ago. Back then he reused an existing filament dryer, adding a <a class=\"read-more\" href=\"https://hackaday.com/2026/05/20/a-diy-3d-printing-filament-dryer/\">&#8230;read more</a>",
+      "date_published": "2026-05-20T20:00:55+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 60,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/diy_filament_drying_box_2_sasa_karanovic_youtube.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/you-too-can-build-this-esp32-epaper-device-that-tells-your-fortune/",
+      "url": "https://www.xda-developers.com/you-too-can-build-this-esp32-epaper-device-that-tells-your-fortune/",
+      "title": "[XDA Developers] You, too, can build this ESP32 ePaper device that tells your fortune",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-fortune-teller-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt can roll dice, too.",
+      "date_published": "2026-05-21T04:46:46+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 58,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-fortune-teller-featured.jpg"
+    },
+    {
+      "id": "https://newatlas.com/motorcycles/radian-exr/",
+      "url": "https://newatlas.com/motorcycles/radian-exr/",
+      "title": "[New Atlas] Radian EXR comes for the Stark Varg ... with 30-sec tool-free battery swaps",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=newatlas.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The EXR might just be the most complete electric enduro after the Stark Varg EX\" src=\"https://assets.newatlas.com/dims4/default/754de40/2147483647/strip/true/crop/2873x1917+0+0/resize/1439x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fc7%2F95%2F5655a51f47c5af61d43e87aab9ea%2Fradian-02-outdoor-09095.jpg\" /><p>I must have covered about a dozen electric enduros in the span of the last few months, and that’s just scratching the surface. That should tell you about just how rapidly the electric enduro motorcycle space has blown up of late.</p><p><a href=\"https://newatlas.com/motorcycles/radian-exr/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/motorcycles/\">Motorcycles</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/electric+motorcycle/\" rel=\"tag\">Electric Motorcycles</a>, <a href=\"https://newatlas.com/tag/enduro/\" rel=\"tag\">Enduro</a>, <a href=\"https://newatlas.com/tag/off-road/\" rel=\"tag\">Off-road</a>, <a href=\"https://newatlas.com/tag/dirt-bikes/\" rel=\"tag\">Dirt Bikes</a>, <a href=\"https://newatlas.com/tag/stark-future/\" rel=\"tag\">stark</a>, <a href=\"https://newatlas.com/tag/battery-technology/\" rel=\"tag\">Battery Technology</a></p>",
+      "date_published": "2026-05-21T20:23:03+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
         }
       ],
       "ai_score": 50,
@@ -118,87 +141,248 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/Satisfying-Make-Your-Own-Fallout-Smart-Watch-7-19-screenshot.png"
+      "image": "https://www.google.com/s2/favicons?domain=newatlas.com&sz=128"
     },
     {
-      "id": "https://www.xda-developers.com/xpenology-gave-me-synologys-operating-system-on-my-own-hardware/",
-      "url": "https://www.xda-developers.com/xpenology-gave-me-synologys-operating-system-on-my-own-hardware/",
-      "title": "[XDA Developers] XPEnology gave me Synology's operating system on my own hardware, and now I can't justify the official price",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/xpenology-10.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy makeshift setup does everything a real Synology does",
-      "date_published": "2026-05-18T14:00:22+00:00",
+      "id": "https://makezine.com/article/digital-fabrication/laser-cutting-digital-fabrication/break-free-from-material-limits-gweike-mcore-laser-hits-kickstarter/",
+      "url": "https://makezine.com/article/digital-fabrication/laser-cutting-digital-fabrication/break-free-from-material-limits-gweike-mcore-laser-hits-kickstarter/",
+      "title": "[Make Magazine] Break Free from Material Limits: Gweike MCore Laser Hits Kickstarter",
+      "content_html": "<img src=\"https://makezine.com/wp-content/uploads/2026/05/Gweike-MCore.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"Break Free from Material Limits: Gweike MCore Laser Hits Kickstarter\" class=\"attachment-medium size-medium wp-post-image\" height=\"600\" src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2026/05/Gweike-MCore.png?fit=750%2C600&amp;ssl=1\" style=\"margin-bottom: 15px;\" width=\"750\" /></div>\n<p>The MCore laser cutter from Gweike is designed to open up metal possibilities for small shops.</p>\n<p>The post <a href=\"https://makezine.com/article/digital-fabrication/laser-cutting-digital-fabrication/break-free-from-material-limits-gweike-mcore-laser-hits-kickstarter/\">Break Free from Material Limits: Gweike MCore Laser Hits Kickstarter</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
+      "date_published": "2026-05-25T16:00:00+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Make Magazine",
+          "url": "https://makezine.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
+      "ai_score": 45,
+      "_quality_score": 45,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 2,
+      "_boosted_score": 53,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/xpenology-10.jpg"
+      "image": "https://makezine.com/wp-content/uploads/2026/05/Gweike-MCore.png"
     },
     {
-      "id": "https://www.xda-developers.com/stopped-paying-for-cloud-ai-tools-local-llm-handles-it-for-free/",
-      "url": "https://www.xda-developers.com/stopped-paying-for-cloud-ai-tools-local-llm-handles-it-for-free/",
-      "title": "[XDA Developers] Instead of paying $40 a month for cloud AI tools, I run everything through a local model on my gaming PC",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/lm-studio-on-desktop-pc-lego-and-lamp-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy subscription list is getting shorter",
-      "date_published": "2026-05-14T14:30:22+00:00",
+      "id": "https://newatlas.com/around-the-home/axiglide-dual-axis-vise/",
+      "url": "https://newatlas.com/around-the-home/axiglide-dual-axis-vise/",
+      "title": "[New Atlas] Deluxe adaptable vise spins and locks on two axes",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/590e37a/2147483647/strip/true/crop/2000x1050+0+475/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F5b%2F90%2F26d4d7954ca6beba8c74db000907%2F24.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The AxiGlide dual-axis vise is presently on Kickstarter\" src=\"https://assets.newatlas.com/dims4/default/9b7e840/2147483647/strip/true/crop/2000x2000+0+0/resize/960x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F5b%2F90%2F26d4d7954ca6beba8c74db000907%2F24.jpg\" /><p>Hobbyists may have wished for a third hand at times, when having to pause work in order to reset a vise clamp, but AxiGlide – a dual-axis vise currently on Kickstarter – offers a new angle on how such devices work.</p><p><a href=\"https://newatlas.com/around-the-home/axiglide-dual-axis-vise/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/around-the-home/\">Around The Home</a>, <a href=\"https://newatlas.com/consumer-tech/\">Consumer Tech</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/kickstarter/\" rel=\"tag\">Kickstarter</a>, <a href=\"https://newatlas.com/tag/xxkickbooster/\" rel=\"tag\">xxKickbooster</a>, <a href=\"https://newatlas.com/tag/tools/\" rel=\"tag\">Tools</a></p>",
+      "date_published": "2026-05-26T20:30:00+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 70,
-      "_final_score": 70,
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 2,
+      "_boosted_score": 50,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/590e37a/2147483647/strip/true/crop/2000x1050+0+475/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F5b%2F90%2F26d4d7954ca6beba8c74db000907%2F24.jpg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://www.tomshardware.com/3d-printing/open-source-non-profit-claims-bambu-lab-violated-license-move-follows-cease-and-desist-demand-on-orcaslicer-fork-that-restored-cloud-printing-features-without-using-bambu-connect",
+      "url": "https://www.tomshardware.com/3d-printing/open-source-non-profit-claims-bambu-lab-violated-license-move-follows-cease-and-desist-demand-on-orcaslicer-fork-that-restored-cloud-printing-features-without-using-bambu-connect",
+      "title": "[Tom's Hardware] Open-source non-profit claims Bambu Lab violated license — SFC steps in after multi-billion dollar 3D printer giant threatened independent developer, issued cease-and-desist demand on OrcaSlicer fork that restored cloud printing features",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/BysNUB87XVLrZGvBUSP2p3-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe SFC says that including proprietary code alongside software under AGPLv3 breaks the open-source license, and that Bambu Lab has been doing this for years.",
+      "date_published": "2026-05-21T16:53:24+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 75,
+      "_final_score": 75,
       "_keyword_matches": 1,
-      "_boosted_score": 40,
+      "_boosted_score": 45,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/lm-studio-on-desktop-pc-lego-and-lamp-in-view.jpeg"
+      "image": "https://cdn.mos.cms.futurecdn.net/BysNUB87XVLrZGvBUSP2p3-1280-80.jpg"
     },
     {
-      "id": "https://www.theverge.com/tech/928420/anker-solix-s2000-power-station",
-      "url": "https://www.theverge.com/tech/928420/anker-solix-s2000-power-station",
-      "title": "[The Verge] Anker fixes the two worst things about power stations",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/img_v3_0210o_dbfa5ea6-20f9-44d1-a7e1-2a47a949941g.jpg?quality=90&amp;strip=all&amp;crop=0%2C22.914451079843%2C100%2C54.171097840314&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAnker's Solix S2000 solves two major pain points with power stations: idle power draw that can leave a battery unexpectedly dead, and the large footprint required to hold so much energy. Impressively, it achieves this at an incredibly low introductory price that works out to just $0.29 per Wh. Unlike most other power stations in [&#8230;]",
-      "date_published": "2026-05-19T13:56:47+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/img_v3_0210o_dbfa5ea6-20f9-44d1-a7e1-2a47a949941g.jpg?quality=90&strip=all&crop=0%2C22.914451079843%2C100%2C54.171097840314&w=1200"
-    },
-    {
-      "id": "https://www.howtogeek.com/a-bad-driver-update-bricked-my-pcwindows-hidden-backup-tool-fixed-it-in-minutes/",
-      "url": "https://www.howtogeek.com/a-bad-driver-update-bricked-my-pcwindows-hidden-backup-tool-fixed-it-in-minutes/",
-      "title": "[How-To Geek] A bad driver update bricked my PC—Windows' hidden backup tool fixed it in minutes",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/the-system-restore-point-of-windows-pc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis hidden Windows backup tool saved me after a bad driver update; your PC has a built-in time machine just for these disasters.",
-      "date_published": "2026-05-18T13:45:16+00:00",
+      "id": "https://www.howtogeek.com/why-you-should-put-your-3d-printing-waste-back-into-new-models/",
+      "url": "https://www.howtogeek.com/why-you-should-put-your-3d-printing-waste-back-into-new-models/",
+      "title": "[How-To Geek] Why you should put your 3D printing \"waste\" back into new models",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/3d-printer-filament-poop-on-a-bambu-lab-p2s-print-bed.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTurning trash into treasure.",
+      "date_published": "2026-05-21T13:15:17+00:00",
       "authors": [
         {
           "name": "How-To Geek",
           "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/02/3d-printer-filament-poop-on-a-bambu-lab-p2s-print-bed.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/why-buy-a-stream-deck-when-you-can-build-your-own-with-this-esp32-project/",
+      "url": "https://www.xda-developers.com/why-buy-a-stream-deck-when-you-can-build-your-own-with-this-esp32-project/",
+      "title": "[XDA Developers] Why buy a Stream Deck when you can build your own with this ESP32 project?",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-stream-deck-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's handy even if you never stream.",
+      "date_published": "2026-05-25T02:41:01+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-stream-deck-featured.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/i-replaced-a-vpn-with-my-own-vps-and-it-works-perfectly-with-some-added-benefits/",
+      "url": "https://www.xda-developers.com/i-replaced-a-vpn-with-my-own-vps-and-it-works-perfectly-with-some-added-benefits/",
+      "title": "[XDA Developers] I replaced a VPN with my own VPS, and it works perfectly with some added benefits",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2023/11/lenovo-thinkserver-sr250-v2-rear-pci-ports.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSometimes it's best to self-host on someone else's hardware.",
+      "date_published": "2026-05-22T13:30:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2023/11/lenovo-thinkserver-sr250-v2-rear-pci-ports.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/24/hacking-a-video-walkie-talkies-txw818-mcu-and-running-doom/",
+      "url": "https://hackaday.com/2026/05/24/hacking-a-video-walkie-talkies-txw818-mcu-and-running-doom/",
+      "title": "[Hackaday] Hacking a Video Walkie Talkie’s TXW818 MCU and Running DOOM",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/walkie-talkie_doom_overview_aaron_christophel.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"370\" src=\"https://hackaday.com/wp-content/uploads/2026/05/walkie-talkie_doom_overview_aaron_christophel.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Recently cheapo video walkie-talkies popped up on everyone&#8217;s favorite online retailers, which naturally lured in the usual gaggle of reverse-engineering enthusiasts of cheap tat to see what&#8217;s inside these devices, <a class=\"read-more\" href=\"https://hackaday.com/2026/05/24/hacking-a-video-walkie-talkies-txw818-mcu-and-running-doom/\">&#8230;read more</a>",
+      "date_published": "2026-05-25T05:00:00+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 64,
+      "_quality_score": 64,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/walkie-talkie_doom_overview_aaron_christophel.jpg"
+    },
+    {
+      "id": "https://www.tomshardware.com/pc-components/save-usd170-on-this-lightning-fast-premium-3d-printer-combo-featuring-corexz-kinematics-crealitys-ender-3-v3-is-on-sale-for-just-usd419-right-now-with-a-multicolor-upgrade-kit",
+      "url": "https://www.tomshardware.com/pc-components/save-usd170-on-this-lightning-fast-premium-3d-printer-combo-featuring-corexz-kinematics-crealitys-ender-3-v3-is-on-sale-for-just-usd419-right-now-with-a-multicolor-upgrade-kit",
+      "title": "[Tom's Hardware] Save $170 on this lightning-fast, premium 3D printer combo featuring CoreXZ kinematics — Creality's Ender-3 V3 is on sale for just $419 right now with a multicolor upgrade kit",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/87Xn4vXSvQJb45yhhx8NsR-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCreality's excellent Ender 3 V3 is on sale with a Co-Print multicolor upgrade kit that unlocks the final hurdle of the platform, allowing you to use the Ender 3 V3 as a multi-color powerhouse. This is a fantastic, extremely fast and well-built 3D printer with all the features you could ask for, regardless of your status as an expert or an entrant into the hobby.",
+      "date_published": "2026-05-24T15:14:18+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/87Xn4vXSvQJb45yhhx8NsR-1280-80.png"
+    },
+    {
+      "id": "https://www.xda-developers.com/paired-raspberry-pi-esp32-unlocked-projects/",
+      "url": "https://www.xda-developers.com/paired-raspberry-pi-esp32-unlocked-projects/",
+      "title": "[XDA Developers] I paired a Raspberry Pi with an ESP32, and it unlocked projects I never thought of before",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/11/esp32-handles-some-tasks-better-than-raspberry-pi-board.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Raspberry Pi can do a lot, but adding an ESP32 gives it the physical reach that small hardware projects often need.",
+      "date_published": "2026-05-22T15:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/11/esp32-handles-some-tasks-better-than-raspberry-pi-board.JPG"
+    },
+    {
+      "id": "https://www.ifixit.com/News/117404/buyers-guide-what-soldering-setup-do-you-actually-need",
+      "url": "https://www.ifixit.com/News/117404/buyers-guide-what-soldering-setup-do-you-actually-need",
+      "title": "[iFixit] Buyers’ Guide: What Soldering Setup Do You Actually Need?",
+      "content_html": "<img src=\"https://valkyrie.cdn.ifixit.com/media/2026/05/19040029/iFixit_FixHub-Soldering-Toolkit_Drone_064.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn life, it’s almost always possible to get by with bad tools, or even the wrong tools. But at some point, using a flathead screwdriver as a chisel gets old.&#8230;",
+      "date_published": "2026-05-25T12:49:00+00:00",
+      "authors": [
+        {
+          "name": "iFixit",
+          "url": "https://www.ifixit.com/News"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 37,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://valkyrie.cdn.ifixit.com/media/2026/05/19040029/iFixit_FixHub-Soldering-Toolkit_Drone_064.jpeg"
+    },
+    {
+      "id": "https://www.tomshardware.com/3d-printing/new-video-of-melted-bambu-lab-a1-sparks-debate-about-whether-the-a1-3d-printer-is-still-a-fire-hazard-critics-push-for-recall-while-redditors-suspect-external-factors",
+      "url": "https://www.tomshardware.com/3d-printing/new-video-of-melted-bambu-lab-a1-sparks-debate-about-whether-the-a1-3d-printer-is-still-a-fire-hazard-critics-push-for-recall-while-redditors-suspect-external-factors",
+      "title": "[Tom's Hardware] New video of melted Bambu Lab A1 sparks debate about whether the 3D printer is still a fire hazard — critics push for recall while redditors suspect external factors",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/TJT5Ceupp2uqeoJfRNWsAd-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBambu Lab is once more in hot water after user Moreiras3D posted a video of a melted A1 3D printer to Instagram. The footage shows an A1 with its side completely melted down to the metal chassis, but some of the key details behind the incident remain unknown.",
+      "date_published": "2026-05-24T11:30:38+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
         }
       ],
       "ai_score": 58,
@@ -210,250 +394,66 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/the-system-restore-point-of-windows-pc.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/TJT5Ceupp2uqeoJfRNWsAd-1280-80.png"
     },
     {
-      "id": "https://boingboing.net/2026/05/15/upcycle-your-old-smart-speaker-with-a-new-brain.html",
-      "url": "https://boingboing.net/2026/05/15/upcycle-your-old-smart-speaker-with-a-new-brain.html",
-      "title": "[Boing Boing] Upcycle your old smart speaker with a new brain",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Home-Mini-e1778873881990.jpg?fit=768%2C435&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/15/upcycle-your-old-smart-speaker-with-a-new-brain.html\" rel=\"nofollow\" title=\"Upcycle your old smart speaker with a new brain\"><img alt=\"Image via ReV Devices LTD\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"435\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Home-Mini-e1778873881990.jpg?fit=768%2C435&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"768\" /></a><p>The world is absolutely filthy with Google Home Minis. The wee smart speakers made their debut back in 2017 and were inexpensive enough to be given away by telecoms, banks as a promotional gift for opening a new account. Hell, if you were feeling daffy, you could even buy one. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/15/upcycle-your-old-smart-speaker-with-a-new-brain.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/15/upcycle-your-old-smart-speaker-with-a-new-brain.html\">Upcycle your old smart speaker with a new brain</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "date_published": "2026-05-15T19:38:38+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Home-Mini-e1778873881990.jpg?fit=768%2C435&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.howtogeek.com/fast-internet-upgrade-to-try-immediately/",
-      "url": "https://www.howtogeek.com/fast-internet-upgrade-to-try-immediately/",
-      "title": "[How-To Geek] Control D is a 30-second, zero-hardware alternative to Pi-hole",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/pxl_20260508_035546480-raw-01-mp-cover-large.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis is the 30-second internet upgrade you should try right now",
-      "date_published": "2026-05-19T15:01:16+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/pxl_20260508_035546480-raw-01-mp-cover-large.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/17/qualcomms-new-qcc74x-appears-to-target-the-esp32-mcus/",
-      "url": "https://hackaday.com/2026/05/17/qualcomms-new-qcc74x-appears-to-target-the-esp32-mcus/",
-      "title": "[Hackaday] Qualcomm’s New QCC74x Appears to Target the ESP32 MCUs",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/EVK-QCC748M-2-01-0-AA_web640x640_thumb.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"397\" src=\"https://hackaday.com/wp-content/uploads/2026/05/EVK-QCC748M-2-01-0-AA_web640x640_thumb.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>These days wireless microcontrollers featuring built-in WiFi and Bluetooth are all the rage, with Espressif&#8217;s range of ESP32 MCUs being the default option for commercial and hobbyist projects alike. This <a class=\"read-more\" href=\"https://hackaday.com/2026/05/17/qualcomms-new-qcc74x-appears-to-target-the-esp32-mcus/\">&#8230;read more</a>",
-      "date_published": "2026-05-17T14:00:49+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 54,
-      "_quality_score": 54,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/EVK-QCC748M-2-01-0-AA_web640x640_thumb.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/19/recreating-a-broken-laminated-wooden-furniture-part/",
-      "url": "https://hackaday.com/2026/05/19/recreating-a-broken-laminated-wooden-furniture-part/",
-      "title": "[Hackaday] Recreating a Broken Laminated Wooden Furniture Part",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/recreating_laminated_furniture_part_johns_furniture_repair_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"490\" src=\"https://hackaday.com/wp-content/uploads/2026/05/recreating_laminated_furniture_part_johns_furniture_repair_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Everyone loves those rather bouncy wooden lounge chairs that got popularized by a certain Swedish seller of furniture, but as tough as they are, the laminated wood can still break <a class=\"read-more\" href=\"https://hackaday.com/2026/05/19/recreating-a-broken-laminated-wooden-furniture-part/\">&#8230;read more</a>",
-      "date_published": "2026-05-19T18:30:29+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/recreating_laminated_furniture_part_johns_furniture_repair_youtube.jpg"
-    },
-    {
-      "id": "https://www.makeuseof.com/dns-switch-blocked-junk-on-smart-tv-game-console-didnt-need-to-install/",
-      "url": "https://www.makeuseof.com/dns-switch-blocked-junk-on-smart-tv-game-console-didnt-need-to-install/",
-      "title": "[MakeUseOf] This DNS switch blocked junk on my smart TV and game console, and I didn't need to install a thing",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/amazon-fire-tv-without-ads-on-it.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis one setting is keeping you from the fastest experience you've ever had, without all of the advertisements that plague your devices.",
-      "date_published": "2026-05-15T20:00:17+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/amazon-fire-tv-without-ads-on-it.jpg"
-    },
-    {
-      "id": "https://insideevs.com/reviews/796027/tenways-wayfarer-review/",
-      "url": "https://insideevs.com/reviews/796027/tenways-wayfarer-review/",
-      "title": "[InsideEVs] Tenways Wayfarer Review: A Great Commuter E-Bike Value",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/E6NLRe/s3/tenways-wayfarer-e-bike-review.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Tenways Wayfarer offers a lot of range and a great riding experience for its $1,999 price tag. Here's everything you need to know.",
-      "date_published": "2026-05-15T19:51:48+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://cdn.motor1.com/images/mgl/E6NLRe/s3/tenways-wayfarer-e-bike-review.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/14/controlling-a-vibrobot-with-only-one-motor/",
-      "url": "https://hackaday.com/2026/05/14/controlling-a-vibrobot-with-only-one-motor/",
-      "title": "[Hackaday] Controlling a Vibrobot with Only One Motor",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/controllable_vibrobot.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"A cylindrical grey robot sits on a white mat. The robot is made of three grey sections connected by a series of radially-arranged copper pillars.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/controllable_vibrobot.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>The vibrobot – a vibrating motor and battery attached to the head of a brush – isn’t truly a robot, since its movement can’t be controlled, but it’s whetted the <a class=\"read-more\" href=\"https://hackaday.com/2026/05/14/controlling-a-vibrobot-with-only-one-motor/\">&#8230;read more</a>",
-      "date_published": "2026-05-14T23:00:16+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/controllable_vibrobot.png"
-    },
-    {
-      "id": "https://newatlas.com/outdoor-gear/1-5-lb-pocket-winch-manhandles-loads-over-1-000-x-its-weight/",
-      "url": "https://newatlas.com/outdoor-gear/1-5-lb-pocket-winch-manhandles-loads-over-1-000-x-its-weight/",
-      "title": "[New Atlas] 1.5-lb pocket winch manhandles loads over 1,000 x its weight",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/1c2c2ff/2147483647/strip/true/crop/1365x717+0+211/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F57%2Fe5%2Ffe3869fd4ab6a3de28dc1febc860%2F513859819-122124289436817515-1092120603620453230-n.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Dragan has developed an ultralight, ultra-portable \" src=\"https://assets.newatlas.com/dims4/default/f7caaf0/2147483647/strip/true/crop/1365x1138+0+0/resize/1151x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F57%2Fe5%2Ffe3869fd4ab6a3de28dc1febc860%2F513859819-122124289436817515-1092120603620453230-n.jpg\" /><p>Built for the type of fast, remote motorized adventure that can go wrong in a hurry, the new Pocket Winch from startup Dragan Systems aims to be the lightest, most portable come-along out there. It fractionalizes weight while still multiplying muscle enough to move up to 2,000 lb (907 kg) of stuck vehicle, trail-blocking deadfall or whatever else stands in the way of open-ended adventure. Chuck it in your Africa Twin's pannier and have an instant backup plan if things go sideways.</p><p><a href=\"https://newatlas.com/outdoor-gear/1-5-lb-pocket-winch-manhandles-loads-over-1-000-x-its-weight/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/outdoor-gear/\">Gear</a>, <a href=\"https://newatlas.com/outdoors/\">Outdoors</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/adventure-bikes/\" rel=\"tag\">Adventure Bikes</a>, <a href=\"https://newatlas.com/tag/off-road/\" rel=\"tag\">Off-road</a>, <a href=\"https://newatlas.com/tag/mountain-bike/\" rel=\"tag\">Mountain Bikes</a>, <a href=\"https://newatlas.com/tag/motorcycle-gear/\" rel=\"tag\">Motorcycle Gear</a></p>",
-      "date_published": "2026-05-13T23:04:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/1c2c2ff/2147483647/strip/true/crop/1365x717+0+211/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F57%2Fe5%2Ffe3869fd4ab6a3de28dc1febc860%2F513859819-122124289436817515-1092120603620453230-n.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.tomshardware.com/desktops/pc-building/ambitious-modder-creates-custom-passive-water-cooled-pc-9800x3d-build-with-rtx-5080-has-no-fans-copper-and-radiator-chimney-struggles-to-keep-temperatures-down",
-      "url": "https://www.tomshardware.com/desktops/pc-building/ambitious-modder-creates-custom-passive-water-cooled-pc-9800x3d-build-with-rtx-5080-has-no-fans-copper-and-radiator-chimney-struggles-to-keep-temperatures-down",
-      "title": "[Tom's Hardware] Custom-built passive water-cooled PC relies on convection chimney effect powered by triple-stacked radiators — 9800X3D build with RTX 5080 has no fans, copper, and radiator chimney, but struggles to keep temperatures down",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/LjA6q2aVyg6oUiBWF2j69V-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nInnovative London-based PC cooling firm Billet Labs builds and showcases a completely passive, fanless, gaming build.",
-      "date_published": "2026-05-19T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 72,
-      "_final_score": 72,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/LjA6q2aVyg6oUiBWF2j69V-1280-80.jpg"
-    },
-    {
-      "id": "https://newatlas.com/motorcycles/juiced-bikes-nomadix/",
-      "url": "https://newatlas.com/motorcycles/juiced-bikes-nomadix/",
-      "title": "[New Atlas] Juiced Bikes proves capable electric motorcycles don't have to cost a lot",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=newatlas.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The Nomadix offers incredible value for money\" src=\"https://assets.newatlas.com/dims4/default/76ba830/2147483647/strip/true/crop/1200x960+0+0/resize/1200x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fbd%2F3e%2F0b51dfae412f8f784c54a621e3d7%2Fnomadix-9.jpg\" /><p>All right, I admit it, I have a thing for affordable off-road electric motorcycles. There’s just something about a battery-powered, inexpensive dual sport that’s quiet, filled with torque, and almost as light as a lawn mower. Heck yeah!</p><p><a href=\"https://newatlas.com/motorcycles/juiced-bikes-nomadix/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/motorcycles/\">Motorcycles</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/juiced-bikes/\" rel=\"tag\">Juiced Bikes</a>, <a href=\"https://newatlas.com/tag/electric+motorcycle/\" rel=\"tag\">Electric Motorcycles</a>, <a href=\"https://newatlas.com/tag/off-road/\" rel=\"tag\">Off-road</a>, <a href=\"https://newatlas.com/tag/dirt-bikes/\" rel=\"tag\">Dirt Bikes</a>, <a href=\"https://newatlas.com/tag/sur-ron/\" rel=\"tag\">Sur-Ron</a>, <a href=\"https://newatlas.com/tag/segway/\" rel=\"tag\">Segway</a>, <a href=\"https://newatlas.com/tag/ebikes/\" rel=\"tag\">ebikes</a></p>",
-      "date_published": "2026-05-15T20:35:14+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=newatlas.com&sz=128"
-    },
-    {
-      "id": "https://www.androidauthority.com/scrcpy-4-0-update-flex-display-3667375/",
-      "url": "https://www.androidauthority.com/scrcpy-4-0-update-flex-display-3667375/",
-      "title": "[Android Authority] The best tool for mirroring Android phones to PC now makes apps feel like desktop software",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/Scrcpy-AI-Generated-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nScrcpy 4.0 introduces resizable flex displays and an SDL3 migration for a more seamless Android-on-PC experience.",
-      "date_published": "2026-05-15T08:06:23+00:00",
+      "id": "https://www.androidauthority.com/flipper-zero-one-hacking-device-linux-pc-3670099/",
+      "url": "https://www.androidauthority.com/flipper-zero-one-hacking-device-linux-pc-3670099/",
+      "title": "[Android Authority] Flipper Zero’s makers are cooking up a wildly customizable Linux computer",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/Flipper-One-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFlipper \"One\" is basically a hacker's Lego set.",
+      "date_published": "2026-05-22T08:52:45+00:00",
       "authors": [
         {
           "name": "Android Authority",
           "url": "https://www.androidauthority.com"
         }
       ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 36,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/Flipper-One-2.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/24/designing-a-printable-cyclone-dust-separator-for-99-95-efficiency/",
+      "url": "https://hackaday.com/2026/05/24/designing-a-printable-cyclone-dust-separator-for-99-95-efficiency/",
+      "title": "[Hackaday] Designing a Printable Cyclone Dust Separator for 99.95% Efficiency",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_cyclone_dust_separator_capturing_dust_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"508\" src=\"https://hackaday.com/wp-content/uploads/2026/05/diy_cyclone_dust_separator_capturing_dust_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Filtering sawdust out of an airflow is easy until you try to do it with cyclone separation, but the obvious appeal here is of course not spending a fortune on <a class=\"read-more\" href=\"https://hackaday.com/2026/05/24/designing-a-printable-cyclone-dust-separator-for-99-95-efficiency/\">&#8230;read more</a>",
+      "date_published": "2026-05-24T08:00:00+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/diy_cyclone_dust_separator_capturing_dust_youtube.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/someone-turned-a-gba-into-a-switch-controller-and-it-uses-the-og-link-cable-as-the-cord/",
+      "url": "https://www.xda-developers.com/someone-turned-a-gba-into-a-switch-controller-and-it-uses-the-og-link-cable-as-the-cord/",
+      "title": "[XDA Developers] Someone turned a GBA into a Switch controller, and it uses the OG Link Cable as the cord",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/gba-switch-controller-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's amazing what a Raspberry Pi Pico can do in the right hands.",
+      "date_published": "2026-05-24T04:48:18+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
       "ai_score": 48,
       "_quality_score": 48,
       "_theme_score": 70,
@@ -463,490 +463,490 @@
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": false,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/Scrcpy-AI-Generated-image.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/gba-switch-controller-featured.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/started-my-home-lab-with-a-mini-pc-instead-raspberry-pi/",
-      "url": "https://www.xda-developers.com/started-my-home-lab-with-a-mini-pc-instead-raspberry-pi/",
-      "title": "[XDA Developers] I started my home lab with a mini PC instead of a Raspberry Pi, and the difference was massive",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/minisforum-u850-hold.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGoing x86 over ARM.",
-      "date_published": "2026-05-18T15:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/minisforum-u850-hold.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/15/adding-capabilities-to-inexpensive-solar-modules/",
-      "url": "https://hackaday.com/2026/05/15/adding-capabilities-to-inexpensive-solar-modules/",
-      "title": "[Hackaday] Adding Capabilities to Inexpensive Solar Modules",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/solar-radio-main.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/solar-radio-main.jpeg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Solar power has gotten cheap enough that putting up panels is among the cheapest ways of providing energy. This isn&#8217;t just the case for bulk electricity on a power grid, <a class=\"read-more\" href=\"https://hackaday.com/2026/05/15/adding-capabilities-to-inexpensive-solar-modules/\">&#8230;read more</a>",
-      "date_published": "2026-05-15T23:00:33+00:00",
+      "id": "https://hackaday.com/2026/05/21/building-a-better-automotive-rotary-controller/",
+      "url": "https://hackaday.com/2026/05/21/building-a-better-automotive-rotary-controller/",
+      "title": "[Hackaday] Building a Better Automotive Rotary Controller",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/Making-the-Most-Satisfying-Rotary-Car-Controller-Ever-21-1-screenshot.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/Making-the-Most-Satisfying-Rotary-Car-Controller-Ever-21-1-screenshot.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you&#8217;ve ever spent time in a modern BMW, you&#8217;ve probably fussed about with the goofy iDrive controller. It&#8217;s a rotary knobbery slidery thing that just never really feels that <a class=\"read-more\" href=\"https://hackaday.com/2026/05/21/building-a-better-automotive-rotary-controller/\">&#8230;read more</a>",
+      "date_published": "2026-05-21T08:00:15+00:00",
       "authors": [
         {
           "name": "Hackaday",
           "url": "https://hackaday.com"
         }
       ],
-      "ai_score": 75,
-      "_quality_score": 75,
+      "ai_score": 48,
+      "_quality_score": 48,
       "_theme_score": 70,
       "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/solar-radio-main.jpeg"
-    },
-    {
-      "id": "https://www.xda-developers.com/claude-cowork-access-home-assistant-config-unlocked-automations-didnt-know-were-possible/",
-      "url": "https://www.xda-developers.com/claude-cowork-access-home-assistant-config-unlocked-automations-didnt-know-were-possible/",
-      "title": "[XDA Developers] I gave Claude Cowork access to my Home Assistant config, and it unlocked automations I didn't know were possible",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/home-assistant-history.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEver have writer's block for creating automations? Now you don't",
-      "date_published": "2026-05-20T14:00:23+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 72,
-      "_final_score": 72,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
       "_category": "homelab",
       "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/home-assistant-history.jpg"
+      "_is_bonus": false,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/Making-the-Most-Satisfying-Rotary-Car-Controller-Ever-21-1-screenshot.png"
     },
     {
-      "id": "https://www.howtogeek.com/things-my-raspberry-pi-travel-router-can-do-that-other-travel-routers-cant/",
-      "url": "https://www.howtogeek.com/things-my-raspberry-pi-travel-router-can-do-that-other-travel-routers-cant/",
-      "title": "[How-To Geek] 5 things my Raspberry Pi travel router can do that other travel routers can't",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/a-raspberry-pi-4-configured-to-work-as-a-travel-router.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOne $15 component can turn a Raspberry Pi into the most versatile travel router of all time.",
-      "date_published": "2026-05-19T20:37:17+00:00",
+      "id": "https://www.howtogeek.com/the-ryobi-tools-everyone-laughs-at-until-they-actually-use-them/",
+      "url": "https://www.howtogeek.com/the-ryobi-tools-everyone-laughs-at-until-they-actually-use-them/",
+      "title": "[How-To Geek] The Ryobi tools everyone laughs at (until they actually use them)",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/ryobi-usb-lithium-power-cutter-kit-universal-cutiing-cutting-a-rug.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStop laughing at Ryobi's weird little tools—they actually outperform the expensive stuff and some fit in your pocket.",
+      "date_published": "2026-05-22T14:15:18+00:00",
       "authors": [
         {
           "name": "How-To Geek",
           "url": "https://www.howtogeek.com"
         }
       ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/a-raspberry-pi-4-configured-to-work-as-a-travel-router.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-added-second-gpu-for-local-ai-cost-less-than-upgrading-main-one/",
-      "url": "https://www.xda-developers.com/i-added-second-gpu-for-local-ai-cost-less-than-upgrading-main-one/",
-      "title": "[XDA Developers] I added a second GPU just for local AI workloads, and it cost less than upgrading my main one",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/second-gpu-local-ai-pc-setup.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy local LLM journey starts with a $200 pre-owned GPU",
-      "date_published": "2026-05-17T11:01:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/second-gpu-local-ai-pc-setup.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/myths-about-rooftop-solar-that-keep-holding-homeowners-back/",
-      "url": "https://www.howtogeek.com/myths-about-rooftop-solar-that-keep-holding-homeowners-back/",
-      "title": "[How-To Geek] 4 myths about rooftop solar that keep holding homeowners back",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/05/solar-panel-array-on-the-roof-of-a-home.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy biggest regret has is not installing more panels.",
-      "date_published": "2026-05-15T14:00:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/05/solar-panel-array-on-the-roof-of-a-home.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/self-hosting-didnt-click-until-i-tried-this-mini-pc/",
-      "url": "https://www.howtogeek.com/self-hosting-didnt-click-until-i-tried-this-mini-pc/",
-      "title": "[How-To Geek] A $200 mini PC is your ultimate self-hosting cheat code",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/a-raspberry-pi-in-a-case-lying-on-top-of-a-beelink-mini-s12-pro-mini-pc.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI never understood self-hosting until I switched to a cheap mini PC",
-      "date_published": "2026-05-16T13:00:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/a-raspberry-pi-in-a-case-lying-on-top-of-a-beelink-mini-s12-pro-mini-pc.png"
-    },
-    {
-      "id": "https://www.xda-developers.com/this-esp32-project-replaces-a-leaking-shower-head-with-a-live-temperature-display-that-glows-blue-to-red/",
-      "url": "https://www.xda-developers.com/this-esp32-project-replaces-a-leaking-shower-head-with-a-live-temperature-display-that-glows-blue-to-red/",
-      "title": "[XDA Developers] This ESP32 project replaces a leaking shower head with a live temperature display that glows from blue to red",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-shower-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNo more sheepishly putting a hand under the water to test it yourself.",
-      "date_published": "2026-05-15T02:52:25+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
+      "ai_score": 35,
+      "_quality_score": 35,
       "_theme_score": 75,
       "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "_keyword_matches": 1,
+      "_boosted_score": 30,
       "_category": "homelab",
       "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/esp32-shower-featured.jpg"
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/ryobi-usb-lithium-power-cutter-kit-universal-cutiing-cutting-a-rug.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/13/custom-mainboard-for-ps2-portable/",
-      "url": "https://hackaday.com/2026/05/13/custom-mainboard-for-ps2-portable/",
-      "title": "[Hackaday] Custom Mainboard for PS2 Portable",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/handheld-ps2-main.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/handheld-ps2-main.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>As time marches on, the retro gaming community gets more and more access to older systems. This is partially a product of modern computing having much more power to emulate <a class=\"read-more\" href=\"https://hackaday.com/2026/05/13/custom-mainboard-for-ps2-portable/\">&#8230;read more</a>",
-      "date_published": "2026-05-13T20:00:24+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/handheld-ps2-main.png"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/14/magazine/dumb-phones-tvs-retronym-smart-tech.html",
-      "url": "https://www.nytimes.com/2026/05/14/magazine/dumb-phones-tvs-retronym-smart-tech.html",
-      "title": "[NYT Top Stories] Why ‘Smart’ Products Have Started to Look Like the Dumb Choice",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHow Wi-Fi-connecting, app-based tech led to a backlash in the name of simplicity.",
-      "date_published": "2026-05-15T15:20:34+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.xda-developers.com/distrobox-package-manager-distros-runs-top-distro-love-it/",
-      "url": "https://www.xda-developers.com/distrobox-package-manager-distros-runs-top-distro-love-it/",
-      "title": "[XDA Developers] Distrobox is like a package manager for distros that runs on top of your distro, and I love it",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/laptop-with-distrobox-and-distroshelf.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPackage managers are one of the best things about Linux. So what if you could manage Linux as a package?",
-      "date_published": "2026-05-16T21:30:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/laptop-with-distrobox-and-distroshelf.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/14/chargecap-helps-your-batteries-last-longer-by-limiting-charge-level/",
-      "url": "https://hackaday.com/2026/05/14/chargecap-helps-your-batteries-last-longer-by-limiting-charge-level/",
-      "title": "[Hackaday] ChargeCap Helps Your Batteries Last Longer By Limiting Charge Level",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/chargecap-charging-banner.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/chargecap-charging-banner.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If you want to maximize the life of your lithium-ion batteries, proper storage voltage is critical. That is, don&#8217;t store them empty, and don&#8217;t store them completely full either. &#8220;Almost <a class=\"read-more\" href=\"https://hackaday.com/2026/05/14/chargecap-helps-your-batteries-last-longer-by-limiting-charge-level/\">&#8230;read more</a>",
-      "date_published": "2026-05-14T18:30:57+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/chargecap-charging-banner.png"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-plugged-3-5-inch-floppy-disk-reader-into-my-android-phone-it-worked/",
-      "url": "https://www.xda-developers.com/i-plugged-3-5-inch-floppy-disk-reader-into-my-android-phone-it-worked/",
-      "title": "[XDA Developers] I plugged a 3.5-inch floppy disk reader into my Android phone, and it just worked",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/35-inch-floppy-pixel-10-pro-header.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe storage format was very popular in the mid-90s",
-      "date_published": "2026-05-18T12:00:22+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/35-inch-floppy-pixel-10-pro-header.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/roadshow/news/i-drove-hyundai-nexo-hydrogen-fuel-suv/",
-      "url": "https://www.cnet.com/roadshow/news/i-drove-hyundai-nexo-hydrogen-fuel-suv/",
-      "title": "[CNET] I Drove Hyundai's Hydrogen-Fueled Nexo. It's Perfect, Just Not for the US",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/693ce8f5ab85c7d0a981e59a37637785e1a572b8/hub/2026/05/14/6bf111e3-c7a1-4c65-9f46-3e45b0b16a3f/hyundai-nexo-2026-dsc09977.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe hydrogen-powered SUV claims 435 miles of range, a 5-minute fill-up and a refined driving experience. Here's why FCEV technology is a perfect product operating in the wrong market.",
-      "date_published": "2026-05-14T22:00:35+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/693ce8f5ab85c7d0a981e59a37637785e1a572b8/hub/2026/05/14/6bf111e3-c7a1-4c65-9f46-3e45b0b16a3f/hyundai-nexo-2026-dsc09977.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.xda-developers.com/using-nas-with-docker/",
-      "url": "https://www.xda-developers.com/using-nas-with-docker/",
-      "title": "[XDA Developers] The NAS feature I use every day isn't storage, it's Docker",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/10/synology-nas-on-a-table.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDocker gave my NAS a second life.",
-      "date_published": "2026-05-16T12:00:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/10/synology-nas-on-a-table.jpg"
-    },
-    {
-      "id": "https://www.wired.com/gallery/best-indoor-gardening-systems/",
-      "url": "https://www.wired.com/gallery/best-indoor-gardening-systems/",
-      "title": "[WIRED] Best Indoor Garden Systems: I've Been Testing All Year (2026)",
-      "content_html": "<img src=\"https://media.wired.com/photos/688061d68203c2103d95c470/master/pass/We%20Tried%205%20of%20the%20Most%20Popular%20Indoor%20Gardening%20Systems.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGrow a backyard’s worth of greens and vegetables in your house with a vertical hydroponic garden. Here are a few that might be worth the investment.",
-      "date_published": "2026-05-16T10:02:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/688061d68203c2103d95c470/master/pass/We%20Tried%205%20of%20the%20Most%20Popular%20Indoor%20Gardening%20Systems.png"
-    },
-    {
-      "id": "https://www.xda-developers.com/tried-arcane-for-docker-management-but-dockhand-remains-my-pick/",
-      "url": "https://www.xda-developers.com/tried-arcane-for-docker-management-but-dockhand-remains-my-pick/",
-      "title": "[XDA Developers] I tried Arcane for Docker management, and here's why Dockhand remains my pick",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/arcane-dashboard-on-a-laptop.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nArcane offers a polished user interface, but the absence of file browsing and automation features like schedules forced me to go back to Dockhand.",
-      "date_published": "2026-05-16T12:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/arcane-dashboard-on-a-laptop.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/home/smart-lights/dont-settle-for-supermarket-solar-lights-govees-made-smart-strings-that-look-great-outdoors",
-      "url": "https://www.techradar.com/home/smart-lights/dont-settle-for-supermarket-solar-lights-govees-made-smart-strings-that-look-great-outdoors",
-      "title": "[TechRadar] Don't settle for supermarket solar lights: Govee's made smart strings that look great outdoors",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/YHoQRdzqhs7swhuysuu347-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGovee's first solar lighting product is a smart string light designed to be great outdoors",
-      "date_published": "2026-05-14T11:29:30+00:00",
+      "id": "https://www.techradar.com/cameras/drones/custom-drone-makers-hit-453mph-to-unofficially-break-the-record-for-fastest-drone-on-earth-and-hand-made-sawtooth-carbon-fiber-propellors-made-all-the-difference",
+      "url": "https://www.techradar.com/cameras/drones/custom-drone-makers-hit-453mph-to-unofficially-break-the-record-for-fastest-drone-on-earth-and-hand-made-sawtooth-carbon-fiber-propellors-made-all-the-difference",
+      "title": "[TechRadar] Custom drone makers hit 453mph to (unofficially) break the record for fastest drone on earth — and hand-made sawtooth carbon fiber propellors made all the difference",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/NDzaBjHhbhgGZZv3ZH5ViF-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCarbon fiber propeller blades have powered a custom drone to break a world speed record – but it hasn't been officially recognised.",
+      "date_published": "2026-05-26T16:36:25+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/YHoQRdzqhs7swhuysuu347-1280-80.png"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/14/lidar-matrix-sensor-sees-in-3d/",
-      "url": "https://hackaday.com/2026/05/14/lidar-matrix-sensor-sees-in-3d/",
-      "title": "[Hackaday] LiDAR Matrix Sensor Sees in 3D",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/tof.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/tof.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>[Mellow_Labs] picked up a few LiDAR matrix sensors and found them very exciting. While a normal time-of-flight sensor can accurately determine a range,  the matrix sensor is like an array <a class=\"read-more\" href=\"https://hackaday.com/2026/05/14/lidar-matrix-sensor-sees-in-3d/\">&#8230;read more</a>",
-      "date_published": "2026-05-14T08:00:26+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 75,
-      "_final_score": 75,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/tof.png"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/14/mix-your-own-ecn-2-development-chemicals/",
-      "url": "https://hackaday.com/2026/05/14/mix-your-own-ecn-2-development-chemicals/",
-      "title": "[Hackaday] Mix Your Own ECN-2 Development Chemicals",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/How-to-Mix-ECN-2-Chemistry-from-Scratch-50¢_roll-9-2-screenshot.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/How-to-Mix-ECN-2-Chemistry-from-Scratch-50¢_roll-9-2-screenshot.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>After the digital camera rose to prominence, it became a cool hobby to keep taking photos on film. It was even cooler if you did the same with an old <a class=\"read-more\" href=\"https://hackaday.com/2026/05/14/mix-your-own-ecn-2-development-chemicals/\">&#8230;read more</a>",
-      "date_published": "2026-05-15T02:00:11+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
+      "ai_score": 35,
+      "_quality_score": 35,
       "_theme_score": 70,
       "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/How-to-Mix-ECN-2-Chemistry-from-Scratch-50¢_roll-9-2-screenshot.png"
+      "_keyword_matches": 1,
+      "_boosted_score": 30,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/NDzaBjHhbhgGZZv3ZH5ViF-1280-80.png"
     },
     {
-      "id": "https://www.xda-developers.com/unified-memory-quietly-killing-so-dimm-mini-pcs-already-happening/",
-      "url": "https://www.xda-developers.com/unified-memory-quietly-killing-so-dimm-mini-pcs-already-happening/",
-      "title": "[XDA Developers] Unified memory is quietly killing SO-DIMM, and mini PCs prove it's already happening",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/minisforum-ai-x1-pro-470-ram.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSpeed over freedom",
-      "date_published": "2026-05-15T23:00:22+00:00",
+      "id": "https://www.tomsguide.com/phones/motorola-phones/motorola-razr-ultra-2026-battery-tested-and-its-the-longest-lasting-foldable-ever",
+      "url": "https://www.tomsguide.com/phones/motorola-phones/motorola-razr-ultra-2026-battery-tested-and-its-the-longest-lasting-foldable-ever",
+      "title": "[Toms Guide] Motorola Razr Ultra 2026 battery tested — and it's the longest lasting foldable ever",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/SZMuKwwFxq64MmpZwz9t8R-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPacking a larger 5,000 mAh silicon-carbon battery, the Motorola Razr Ultra 2026 rewrites the rules of foldable endurance by setting an all-time record.",
+      "date_published": "2026-05-23T07:00:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 1,
+      "_boosted_score": 30,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/SZMuKwwFxq64MmpZwz9t8R-1280-80.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/filament-manager-boring-ams-upgrade-matters/",
+      "url": "https://www.xda-developers.com/filament-manager-boring-ams-upgrade-matters/",
+      "title": "[XDA Developers] Filament Manager is the boring AMS upgrade that actually matters",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/ams-with-3d-printed-levers-installed-closeup.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBambu Studio’s Filament Manager isn’t flashy, but it finally gives AMS owners the material-tracking workflow they have needed for years.",
+      "date_published": "2026-05-22T23:00:21+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 48,
-      "_quality_score": 48,
+      "ai_score": 78,
+      "_quality_score": 78,
       "_theme_score": 75,
       "_final_score": 75,
       "_keyword_matches": 0,
-      "_boosted_score": 14,
+      "_boosted_score": 23,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/minisforum-ai-x1-pro-470-ram.jpg"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/ams-with-3d-printed-levers-installed-closeup.jpeg"
+    },
+    {
+      "id": "https://www.xda-developers.com/tailscale-is-the-most-impactful-home-lab-change-for-me/",
+      "url": "https://www.xda-developers.com/tailscale-is-the-most-impactful-home-lab-change-for-me/",
+      "title": "[XDA Developers] Tailscale is the only home lab change I made this year that I actually noticed",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/tailscale-home-lab-hero.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDon't get me wrong, lots of things have changed but most of them are background noise",
+      "date_published": "2026-05-25T12:01:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/tailscale-home-lab-hero.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/home-server-needs-ethernet-but-not-for-the-reason-you-think/",
+      "url": "https://www.xda-developers.com/home-server-needs-ethernet-but-not-for-the-reason-you-think/",
+      "title": "[XDA Developers] Your home server needs Ethernet, but not for the reason you think",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/tinymediamanager-for-managing-jellyfin-libraries.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStability over speed, always.",
+      "date_published": "2026-05-25T00:00:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/tinymediamanager-for-managing-jellyfin-libraries.JPG"
+    },
+    {
+      "id": "https://www.xda-developers.com/i-tested-truenas-unraid-and-openmediavault-to-find-my-perfect-nas-os/",
+      "url": "https://www.xda-developers.com/i-tested-truenas-unraid-and-openmediavault-to-find-my-perfect-nas-os/",
+      "title": "[XDA Developers] I tested TrueNAS, Unraid, and OpenMediaVault to the perfect NAS OS, and there's a clear winner",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/truenas-scale-rsync.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEach distro has its perks and quirks",
+      "date_published": "2026-05-22T12:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/truenas-scale-rsync.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/a-raspberry-pi-was-the-ultimate-addition-to-my-nas-and-i-wish-id-bought-one-sooner/",
+      "url": "https://www.howtogeek.com/a-raspberry-pi-was-the-ultimate-addition-to-my-nas-and-i-wish-id-bought-one-sooner/",
+      "title": "[How-To Geek] A Raspberry Pi was the ultimate addition to my NAS, and I wish I'd bought one sooner",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/angled-view-of-three-raspberry-pi-boards-including-two-raspberry-pi-4-model-b-boards.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFor the right user, it can be an absolute gamechanger.",
+      "date_published": "2026-05-25T14:46:18+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/angled-view-of-three-raspberry-pi-boards-including-two-raspberry-pi-4-model-b-boards.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/n100-mini-pcs-quietly-killed-the-raspberry-pi-home-server/",
+      "url": "https://www.xda-developers.com/n100-mini-pcs-quietly-killed-the-raspberry-pi-home-server/",
+      "title": "[XDA Developers] N100 mini PCs quietly killed the Raspberry Pi for home servers",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/intel-n100-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYour Raspberry Pi home server is obsolete, and the N100 is why",
+      "date_published": "2026-05-27T00:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 68,
+      "_final_score": 68,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/intel-n100-2.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/21/making-a-pcb-the-old-fashioned-way/",
+      "url": "https://hackaday.com/2026/05/21/making-a-pcb-the-old-fashioned-way/",
+      "title": "[Hackaday] Making a PCB The Old-Fashioned Way",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/handpcb.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"A desk fan with an air filter. On the side, the final assembled PCB is visible.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/handpcb.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Nearly all modern PCBs are designed with the help of EDA software, but not all of them. [ALTco] shows us the process of plotting out a board the old-fashioned way <a class=\"read-more\" href=\"https://hackaday.com/2026/05/21/making-a-pcb-the-old-fashioned-way/\">&#8230;read more</a>",
+      "date_published": "2026-05-22T05:00:54+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/handpcb.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/stop-treating-raspberry-pi-5-smart-home-hub-bigger/",
+      "url": "https://www.xda-developers.com/stop-treating-raspberry-pi-5-smart-home-hub-bigger/",
+      "title": "[XDA Developers] Stop treating the Raspberry Pi 5 as a smart home hub — it's actually built for something bigger",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/raspberry-pi-wants-you-to-buy-the-pi-5-but-the-pi-4-is-still-the-smarter-purchase-featured.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis SBC can do more than run Home Assistant. Treat it as a small service hub, and its extra power finally makes sense.",
+      "date_published": "2026-05-22T00:01:23+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/01/raspberry-pi-wants-you-to-buy-the-pi-5-but-the-pi-4-is-still-the-smarter-purchase-featured.jpeg"
+    },
+    {
+      "id": "https://www.xda-developers.com/most-nas-owners-waste-their-usb-ports-on-external-drives/",
+      "url": "https://www.xda-developers.com/most-nas-owners-waste-their-usb-ports-on-external-drives/",
+      "title": "[XDA Developers] Most NAS owners waste their USB ports on external drives when they should be using them for this instead",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/09/terramaster-f8-ssd-plus-io.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf anything, it's a terrible idea to use USB-powered drives as conventional storage pools",
+      "date_published": "2026-05-24T12:01:10+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality_score": 60,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/09/terramaster-f8-ssd-plus-io.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/someone-built-a-fully-motorized-lego-wall-e-controlled-by-a-ps4-controller-complete-with-a-built-in-taser/",
+      "url": "https://www.xda-developers.com/someone-built-a-fully-motorized-lego-wall-e-controlled-by-a-ps4-controller-complete-with-a-built-in-taser/",
+      "title": "[XDA Developers] Someone built a fully motorized Lego WALL-E controlled by a PS4 controller, complete with a built-in taser",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/wall-e-esp32-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt even has controls to move its head.",
+      "date_published": "2026-05-21T02:46:38+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 80,
+      "_final_score": 80,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/wall-e-esp32-featured.jpg"
+    },
+    {
+      "id": "https://hackaday.com/2026/05/23/putting-version-7-1-of-the-direct-granules-fdm-extruder-through-its-paces/",
+      "url": "https://hackaday.com/2026/05/23/putting-version-7-1-of-the-direct-granules-fdm-extruder-through-its-paces/",
+      "title": "[Hackaday] Putting Version 7.1 of the Direct Granules FDM Extruder Through Its Paces",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/direct_granules_extruder_v7.1_testing_homofaciens_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"512\" src=\"https://hackaday.com/wp-content/uploads/2026/05/direct_granules_extruder_v7.1_testing_homofaciens_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Whether you&#8217;re using granules or filament, FDM printing relies heavily on a consistent flowrate of the extruder. This is also the challenge with [HomoFaciens]&#8217;s direct granule extruder. Version 7.1 here <a class=\"read-more\" href=\"https://hackaday.com/2026/05/23/putting-version-7-1-of-the-direct-granules-fdm-extruder-through-its-paces/\">&#8230;read more</a>",
+      "date_published": "2026-05-24T05:00:00+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 58,
+      "_quality_score": 58,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/05/direct_granules_extruder_v7.1_testing_homofaciens_youtube.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/someone-built-a-simpsons-style-retro-tv-that-plays-nes-games-and-90-minute-movies-on-a-tiny-display/",
+      "url": "https://www.xda-developers.com/someone-built-a-simpsons-style-retro-tv-that-plays-nes-games-and-90-minute-movies-on-a-tiny-display/",
+      "title": "[XDA Developers] Someone built a Simpsons-style retro TV that plays NES games and 90-minute movies on a tiny display",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/tiny-diy-tv-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA perfect desk companion.",
+      "date_published": "2026-05-22T05:22:31+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/2026/05/tiny-diy-tv-featured.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/honestly-were-genuinely-terrified-flipper-zero-creators-reveal-massive-new-flipper-one-swiss-army-knife-pc-and-ask-community-for-help",
+      "url": "https://www.techradar.com/pro/honestly-were-genuinely-terrified-flipper-zero-creators-reveal-massive-new-flipper-one-swiss-army-knife-pc-and-ask-community-for-help",
+      "title": "[TechRadar] “Honestly? We’re genuinely terrified” — Flipper Zero creators reveal massive new Flipper One swiss-army knife PC and ask community for help",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/rwk3YNEpESPpU6AL2kkuuC-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Flipper One is much more than just an incremental upgrade to the Flipper Zero, offering a Linux kernel, a fully open source platform, and greater modularity than its predecessor.",
+      "date_published": "2026-05-22T18:25:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/rwk3YNEpESPpU6AL2kkuuC-1280-80.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/why-a-barebones-mini-pc-is-the-smartest-hardware-choice-ive-made-this-year/",
+      "url": "https://www.howtogeek.com/why-a-barebones-mini-pc-is-the-smartest-hardware-choice-ive-made-this-year/",
+      "title": "[How-To Geek] I bought a barebones mini PC to reuse an old SSD, and it’s the smartest tech choice I've made all year",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/img_0494.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI built a secondary PC using a barebones mini PC and free Linux, and I’m completely sold",
+      "date_published": "2026-05-23T19:30:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality_score": 42,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 12,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/img_0494.jpeg"
+    },
+    {
+      "id": "https://newatlas.com/photography/alfie-boxx-wooden-box-camera/",
+      "url": "https://newatlas.com/photography/alfie-boxx-wooden-box-camera/",
+      "title": "[New Atlas] Gloriously retro wooden box camera contains its own film processing lab",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=newatlas.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The Alfie BOXX camera is presently on Kickstarter\" src=\"https://assets.newatlas.com/dims4/default/e2a75b0/2147483647/strip/true/crop/2048x1364+0+0/resize/1440x959!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F53%2Fb7%2F5355ff2443ed99a3a86bb39a3e67%2Fscreenshot-2026-05-21-at-11-09-52-am.jpeg\" /><p>If you’re a fan of Buster Keaton’s 1928 silent film The Cameraman, and are intrigued by his portrayal of a street photographer who processes his own film, then you might want to check out the Alfie BOXX camera currently on Kickstarter.</p><p><a href=\"https://newatlas.com/photography/alfie-boxx-wooden-box-camera/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/photography/\">Photography</a>, <a href=\"https://newatlas.com/consumer-tech/\">Consumer Tech</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/kickstarter/\" rel=\"tag\">Kickstarter</a>, <a href=\"https://newatlas.com/tag/film-cameras/\" rel=\"tag\">Film Cameras</a>, <a href=\"https://newatlas.com/tag/retro/\" rel=\"tag\">Retro</a></p>",
+      "date_published": "2026-05-21T18:05:48+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 38,
+      "_quality_score": 38,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 11,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=newatlas.com&sz=128"
+    },
+    {
+      "id": "https://www.wired.com/story/how-to-make-dumb-grills-into-smart-grills/",
+      "url": "https://www.wired.com/story/how-to-make-dumb-grills-into-smart-grills/",
+      "title": "[WIRED] How to Upgrade Weber and Kamado Joe Into Smart Grills",
+      "content_html": "<img src=\"https://media.wired.com/photos/6a0b7cdeabf886305a556f72/master/pass/Tech%20to%20Make%20Your%20Dumb%20Grill%20Smart%20top%20art%20052026%20SOURCE%20Amazon.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYou don't need to buy a smart grill to make perfect meat. You can buy a dumb grill and send it to school with smart upgrades.",
+      "date_published": "2026-05-20T11:32:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "ai_score": 38,
+      "_quality_score": 38,
+      "_theme_score": 70,
+      "_final_score": 70,
+      "_keyword_matches": 0,
+      "_boosted_score": 11,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://media.wired.com/photos/6a0b7cdeabf886305a556f72/master/pass/Tech%20to%20Make%20Your%20Dumb%20Grill%20Smart%20top%20art%20052026%20SOURCE%20Amazon.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/phones/android/ive-turned-my-old-android-phones-into-5g-routers-power-banks-and-more-heres-how-you-can-do-the-same",
+      "url": "https://www.techradar.com/phones/android/ive-turned-my-old-android-phones-into-5g-routers-power-banks-and-more-heres-how-you-can-do-the-same",
+      "title": "[TechRadar] I've turned my old Android phones into 5G routers, power banks, and more — here's how you can do the same",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/cxxBx8MgR2BWWUHGSsprRQ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you're thinking about buying a new Android phone, you don't have to throw away your old one — here are seven ways you can give an older mobile new life.",
+      "date_published": "2026-05-24T18:00:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 35,
+      "_quality_score": 35,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 10,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/cxxBx8MgR2BWWUHGSsprRQ-1280-80.jpg"
     }
   ]
 }
