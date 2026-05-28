@@ -8,6 +8,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-05-28 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-05-28 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-05-28 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-05-28 | 🌅 4:30 AM Pacific | ⚠️ **CBC Kamloops** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
+| 2026-05-28 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-05-28 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-05-27 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-27 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-27 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -65,19 +71,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-21 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-21 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-05-21 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-20 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-20 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed/` |
-| 2026-05-20 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-20 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-20 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-20 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-05-20 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-20 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-05-28 | 🌅 morning | 199 | news:99(54%), ai-tech:36(19%), homelab:22(12%) |
 | 2026-05-27 | 🌅 morning | 202 | news:108(56%), ai-tech:28(14%), homelab:26(13%) |
 | 2026-05-27 | 🌙 evening | 194 | news:100(57%), ai-tech:33(19%), homelab:20(11%) |
 | 2026-05-26 | 🌅 morning | 144 | news:71(53%), homelab:18(13%), ai-tech:15(11%) |
@@ -89,12 +88,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-23 | 🌅 morning | 93 | news:56(62%), ai-tech:10(11%), homelab:9(10%) |
 | 2026-05-22 | 🌅 morning | 274 | news:133(55%), ai-tech:68(28%), homelab:14(6%) |
 | 2026-05-21 | 🌅 morning | 217 | news:113(54%), ai-tech:46(22%), science:19(9%) |
-| 2026-05-20 | 🌅 morning | 263 | news:123(48%), climate:54(21%), ai-tech:48(19%) |
-| 2026-05-20 | 🌙 evening | 194 | news:90(48%), ai-tech:46(24%), homelab:23(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-27 16:25 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-28 08:17 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
