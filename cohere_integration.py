@@ -98,25 +98,31 @@ def embed_articles(articles: List[Any]) -> Dict[str, List[float]]:
     """Embed article title + description via Cohere Embed.
 
     Returns {url_hash: embedding_vector}. Returns {} on error.
+    Batches requests to stay within the 96-text-per-request API limit.
     """
     if not articles:
         return {}
 
     co = get_client()
     texts = [f"{a.title}. {(a.description or '')[:200]}" for a in articles]
+    BATCH_SIZE = 96
 
-    try:
-        result = co.embed(
-            texts=texts,
-            model="embed-english-v3.0",
-            input_type="search_document",
-            embedding_types=["float"],
-        )
-        vectors = result.embeddings.float_
-        return {articles[i].url_hash: vectors[i] for i in range(len(articles))}
-    except Exception as e:
-        print(f"  ⚠️  Cohere Embed error: {e}")
-        return {}
+    all_vectors: List[List[float]] = []
+    for batch_start in range(0, len(texts), BATCH_SIZE):
+        batch_texts = texts[batch_start:batch_start + BATCH_SIZE]
+        try:
+            result = co.embed(
+                texts=batch_texts,
+                model="embed-english-v3.0",
+                input_type="search_document",
+                embedding_types=["float"],
+            )
+            all_vectors.extend(result.embeddings.float_)
+        except Exception as e:
+            print(f"  ⚠️  Cohere Embed error: {e}")
+            return {}
+
+    return {articles[i].url_hash: all_vectors[i] for i in range(len(articles))}
 
 
 _STOPWORDS = {
