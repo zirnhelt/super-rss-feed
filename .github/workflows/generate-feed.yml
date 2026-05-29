@@ -90,6 +90,10 @@ jobs:
           fi
         continue-on-error: true
       
+      - name: Validate podcast feed quality
+        run: python validate_podcast_feeds.py
+        continue-on-error: true
+
       - name: Copy files to output
         run: |
           echo "Files in current directory:"
