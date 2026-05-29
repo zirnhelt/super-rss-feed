@@ -46,6 +46,25 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run
+- Fetched **1099** → dedup **939** → new **302** → quality **27**
+- Mix: local:3(11%), ai-tech:1(4%), climate:2(7%), science:1(4%), news:20(74%)
+- Feeds: local:43, ai-tech:287, climate:74, homelab:234, science:103, scifi:14, news:500
+- Images: 27/27
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
+- ⚠️ ⚠️  Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '13269dea015d9efad6c31a7ef29d663b', 'date': 'Fri, 29 May 2026 04:53:23 GMT', 'x-envoy-upstream-service-time': '5', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 400, body: {'id': '37b0d06c-e82a-4ec2-ad95-02c5d933d5c6', 'message': 'invalid request: total number of texts must be at most 96 - received 939'}
+- ⚠️ ⚠️  Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '09d061a8eb5d3d7036d83faf8be51470', 'date': 'Fri, 29 May 2026 04:53:25 GMT', 'x-envoy-upstream-service-time': '8', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 400, body: {'id': '89c3e703-97f6-4ca1-b327-e391350dc850', 'message': 'invalid request: total number of texts must be at most 96 - received 302'}
+
+
+---
+
+
+
 ## 2026-05-27 (Wednesday)
 
 #### 🌅 4:30 AM Pacific

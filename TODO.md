@@ -73,9 +73,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-22 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-05-22 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-05-22 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-21 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-21 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-21 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 
 ## Content Mix — Last 7 Days
 
@@ -93,11 +90,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-23 | 🌙 evening | 174 | news:103(61%), ai-tech:27(16%), homelab:20(12%) |
 | 2026-05-23 | 🌅 morning | 93 | news:56(62%), ai-tech:10(11%), homelab:9(10%) |
 | 2026-05-22 | 🌅 morning | 274 | news:133(55%), ai-tech:68(28%), homelab:14(6%) |
-| 2026-05-21 | 🌅 morning | 217 | news:113(54%), ai-tech:46(22%), science:19(9%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-28 16:39 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-29 04:53 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
