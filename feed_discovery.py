@@ -12,10 +12,25 @@ import requests
 from datetime import datetime, timezone
 from typing import List, Dict, Set, Tuple
 import xml.etree.ElementTree as ET
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 import feedparser
 import anthropic
 from dataclasses import dataclass
+from bs4 import BeautifulSoup
+
+# Brave Search discovery
+BRAVE_API_URL = "https://api.search.brave.com/res/v1/web/search"
+BRAVE_SEARCH_TOPICS = [
+    ("meshtastic lora mesh networking blog rss feed", "homelab"),
+    ("williams lake cariboo BC community news rss", "local"),
+    ("homelab self-hosting proxmox blog rss feed", "homelab"),
+    ("solarpunk climate fiction blog rss feed", "scifi"),
+    ("sustainable agriculture regenerative farming rss", "climate"),
+    ("3d printing bambu lab blog rss feed", "homelab"),
+    ("off-grid solar homestead blog rss", "climate"),
+    ("canadian rural broadband community technology rss feed", "local"),
+]
+FEED_PROBE_PATHS = ["/feed", "/rss", "/atom.xml", "/feed.xml", "/index.xml", "/rss.xml"]
 
 # Configuration
 DISCOVERY_CACHE_FILE = 'discovery_cache.json'
@@ -47,6 +62,61 @@ DISCOVERY_SOURCES = [
         'category': 'general'
     }
 ]
+
+def _brave_search(query: str, api_key: str, count: int = 10) -> List[str]:
+    """Search Brave for page URLs matching query. Returns [] on error."""
+    headers = {'X-Subscription-Token': api_key, 'Accept': 'application/json'}
+    params = {'q': query, 'count': count}
+    try:
+        resp = requests.get(BRAVE_API_URL, headers=headers, params=params, timeout=15)
+        resp.raise_for_status()
+        data = resp.json()
+        return [r['url'] for r in data.get('web', {}).get('results', [])]
+    except Exception as e:
+        print(f"  ⚠️ Brave search error for '{query}': {e}")
+        return []
+
+
+def _probe_page_for_feeds(page_url: str) -> List[str]:
+    """Discover RSS/Atom feed URLs from an HTML page's <link> tags and common path probes."""
+    feeds = []
+    try:
+        headers = {'User-Agent': 'Mozilla/5.0 (compatible; FeedDiscovery/1.0)'}
+        resp = requests.get(page_url, headers=headers, timeout=10)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        for link in soup.find_all('link', attrs={'rel': 'alternate'}):
+            link_type = link.get('type', '')
+            if 'rss' in link_type or 'atom' in link_type:
+                href = link.get('href', '')
+                if href:
+                    feeds.append(urljoin(page_url, href))
+    except Exception:
+        pass
+
+    if not feeds:
+        parsed = urlparse(page_url)
+        base = f"{parsed.scheme}://{parsed.netloc}"
+        for path in FEED_PROBE_PATHS:
+            try:
+                r = requests.head(base + path, timeout=5, allow_redirects=True)
+                if r.status_code == 200:
+                    feeds.append(base + path)
+                    break
+            except Exception:
+                continue
+
+    return list(dict.fromkeys(feeds))
+
+
+def _validate_feed_url(url: str) -> bool:
+    """Return True if feedparser can parse the URL and finds at least one entry."""
+    try:
+        parsed = feedparser.parse(url)
+        return not parsed.bozo and len(parsed.entries) > 0
+    except Exception:
+        return False
+
 
 class SimpleArticle:
     """Simple article representation for feed discovery"""
@@ -287,6 +357,40 @@ class FeedDiscovery:
         
         return days_old < CACHE_EXPIRY_DAYS
     
+    def _fetch_brave_candidates(self) -> List['FeedCandidate']:
+        """Search Brave for RSS feeds on niche interest topics not covered by OPML sources."""
+        brave_key = os.environ.get('BRAVE_API_KEY')
+        if not brave_key:
+            return []
+
+        print(f"\n🦁 Running Brave Search discovery ({len(BRAVE_SEARCH_TOPICS)} queries)...")
+        candidates = []
+        seen_feed_urls: Set[str] = set()
+
+        for topic_query, category in BRAVE_SEARCH_TOPICS:
+            page_urls = _brave_search(topic_query, brave_key)
+            for page_url in page_urls:
+                feed_urls = _probe_page_for_feeds(page_url)
+                for feed_url in feed_urls:
+                    norm = feed_url.strip().lower()
+                    if norm in self.existing_feeds or norm in seen_feed_urls:
+                        continue
+                    if not _validate_feed_url(feed_url):
+                        continue
+                    seen_feed_urls.add(norm)
+                    parsed = feedparser.parse(feed_url)
+                    title = parsed.feed.get('title', '') or urlparse(feed_url).netloc
+                    candidates.append(FeedCandidate(
+                        title=title,
+                        url=feed_url,
+                        html_url=page_url,
+                        source='brave_search',
+                        category=category,
+                    ))
+
+        print(f"  🦁 Found {len(candidates)} new Brave-discovered feed candidates")
+        return candidates
+
     def evaluate_candidates(self, candidates: List[FeedCandidate]) -> List[FeedCandidate]:
         """Evaluate feed candidates using Claude scoring"""
         
@@ -306,20 +410,28 @@ class FeedDiscovery:
                 new_candidates.append(candidate)
         
         print(f"💡 Cache: {len(cached_candidates)} cached, {len(new_candidates)} new to evaluate")
-        
+
         if not new_candidates:
             return cached_candidates
-        
+
         print(f"\n🤖 Evaluating {len(new_candidates)} new feed candidates...")
-        
+
+        # Load interests text once for Cohere affinity scoring
+        interests_text = ''
+        try:
+            with open('config/scoring_interests.txt') as f:
+                interests_text = f.read().strip()
+        except Exception:
+            pass
+
         # Sample articles from each candidate
         for i, candidate in enumerate(new_candidates):
             print(f"  📝 Sampling {candidate.title} ({i+1}/{len(new_candidates)})")
             candidate.sample_articles = self._sample_feed_articles(candidate)
             candidate.article_count = len(candidate.sample_articles)
-            
+
             if candidate.sample_articles:
-                # Score articles using existing Claude logic
+                # Score articles using existing Claude/Cohere logic
                 try:
                     scored_articles = score_articles_with_claude(candidate.sample_articles, self.api_key)
                     scores = [a.score for a in scored_articles]
@@ -327,6 +439,19 @@ class FeedDiscovery:
                 except Exception as e:
                     candidate.error = f"Scoring error: {str(e)}"
                     candidate.average_score = 0
+
+                # Apply Cohere embed affinity bonus (max +20 pts) when available
+                try:
+                    import cohere_integration
+                    if cohere_integration.is_enabled() and interests_text:
+                        texts = [f"{a.title}. {(a.description or '')[:200]}" for a in candidate.sample_articles]
+                        affinity = cohere_integration.score_feed_against_interests(texts, interests_text)
+                        bonus = round(affinity * 20, 1)
+                        if bonus > 0:
+                            candidate.average_score = min(100, candidate.average_score + bonus)
+                            print(f"    🔮 Affinity bonus +{bonus:.0f}pts → score {candidate.average_score:.1f}")
+                except Exception:
+                    pass
             else:
                 candidate.average_score = 0
                 if not candidate.error:
@@ -455,13 +580,15 @@ def main():
     print("🔍 FEED DISCOVERY SYSTEM")
     print("=" * 50)
     
-    # Fetch candidates from OPML sources
-    candidates = discovery._fetch_opml_sources()
-    
+    # Fetch candidates from OPML sources and Brave Search
+    opml_candidates = discovery._fetch_opml_sources()
+    brave_candidates = discovery._fetch_brave_candidates()
+    candidates = opml_candidates + brave_candidates
+
     if not candidates:
         print("❌ No new feed candidates found")
         sys.exit(1)
-    
+
     # Evaluate candidates
     evaluated = discovery.evaluate_candidates(candidates)
     
