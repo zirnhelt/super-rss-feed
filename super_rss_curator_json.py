@@ -22,6 +22,7 @@ from fuzzywuzzy import fuzz
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 import anthropic
 from fetch_images import batch_fetch_images
+import cohere_integration
 
 # Configuration paths
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -1083,8 +1084,108 @@ def categorize_article(title: str, description: str) -> Optional[str]:
     return None
 
 
+def semantic_dedup_articles(articles: List[Article]) -> List[Article]:
+    """Extra dedup pass using Cohere embeddings. No-op when Cohere is disabled.
+
+    Runs after the URL-hash / fuzzy / term-set pass so it only sees the already-
+    reduced candidate set (~200-400 articles), keeping embedding costs minimal.
+    Articles with cosine similarity >= 0.92 are considered the same story; the
+    first (highest-priority) article wins, matching the existing dedup behaviour.
+    """
+    if not cohere_integration.is_enabled():
+        return articles
+
+    embeddings = cohere_integration.embed_articles(articles)
+    if not embeddings:
+        return articles
+
+    THRESHOLD = 0.92
+    unique: List[Article] = []
+    seen: List[List[float]] = []
+
+    for article in articles:
+        emb = embeddings.get(article.url_hash)
+        if emb is None:
+            unique.append(article)
+            continue
+        is_dup = any(cohere_integration.cosine_sim(emb, s) >= THRESHOLD for s in seen)
+        if not is_dup:
+            unique.append(article)
+            seen.append(emb)
+
+    dropped = len(articles) - len(unique)
+    if dropped:
+        print(f"🔄 Semantic dedup: removed {dropped} additional near-duplicate articles")
+    return unique
+
+
+def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
+    """Score and categorize articles using Cohere Rerank + embedding story clustering.
+
+    Drop-in replacement for score_articles_with_claude() when COHERE_API_KEY is set.
+    Uses the same scored_articles_cache so switching back to Claude on subsequent
+    runs is safe (cache entries include score, category, and a null story_group).
+    """
+    if not articles:
+        return []
+
+    cache = load_scored_cache()
+
+    interests_file = CONFIG_DIR / 'scoring_interests.txt'
+    try:
+        with open(interests_file, 'r') as f:
+            interests = f.read().strip()
+    except FileNotFoundError:
+        interests = "Technology, science, climate, local news"
+
+    scored_articles: List[Article] = []
+    uncached: List[Article] = []
+
+    for article in articles:
+        if article.url_hash in cache:
+            article.score = cache[article.url_hash]['score']
+            article.category = cache[article.url_hash]['category']
+            # story_group is intentionally not restored — clustering is run-scoped
+            scored_articles.append(article)
+        else:
+            uncached.append(article)
+
+    if uncached:
+        print(f"\n🔮 Scoring {len(uncached)} new articles with Cohere Rerank...")
+        print(f"   (using cache for {len(scored_articles)} articles)")
+
+        rerank_scores = cohere_integration.score_with_rerank(uncached, interests)
+        timestamp = datetime.now(timezone.utc).timestamp()
+
+        for article in uncached:
+            score, _ = rerank_scores.get(article.url_hash, (50, ''))
+            article.score = score
+            article.category = categorize_article(article.title, article.description) or 'news'
+            cache[article.url_hash] = {
+                'score': article.score,
+                'category': article.category,
+                'story_group': None,
+                'timestamp': timestamp,
+            }
+            scored_articles.append(article)
+
+    save_scored_cache(cache)
+
+    # Assign story groups for all articles in this run via embedding clusters.
+    # This replaces Claude's story_group string assignment; downstream
+    # dedup_by_story_group() is unchanged and works the same way.
+    print(f"   🔗 Clustering story groups for {len(scored_articles)} articles...")
+    embeddings = cohere_integration.embed_articles(scored_articles)
+    cohere_integration.cluster_story_groups(scored_articles, embeddings)
+
+    return scored_articles
+
+
 def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
     """Score and categorize articles using Claude API with prompt caching"""
+    if cohere_integration.is_enabled():
+        return score_articles_with_cohere(articles)
+
     if not articles:
         return []
 
@@ -1507,6 +1608,20 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
     if not uncached:
         return scored_results
 
+    # Cohere Rerank branch — uses the theme's scoring_prompt as the relevance query
+    if cohere_integration.is_enabled():
+        theme_results = cohere_integration.score_themes_with_rerank(
+            uncached,
+            {theme_label: {'label': theme_label, 'scoring_prompt': theme_prompt}},
+        )
+        for article in uncached:
+            ts = theme_results.get(article.link, {}).get(theme_label, 50)
+            scored_results.append((article, ts))
+            cache_key = f"{article.link}:::{theme_label}"
+            theme_cache[cache_key] = {'score': ts, 'cached_at': now_iso}
+        save_theme_score_cache(theme_cache)
+        return scored_results
+
     client = anthropic.Anthropic(api_key=api_key)
 
     # Load curator interests and build category guide to prepend as background context.
@@ -1654,7 +1769,20 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
         print(f"🎯 Ingest theme scoring: all {len(articles)} articles already cached for all themes")
         return
 
-    print(f"🎯 Ingest theme scoring: {len(uncached)} articles × {len(schedule)} themes (async batch)...")
+    print(f"🎯 Ingest theme scoring: {len(uncached)} articles × {len(schedule)} themes...")
+
+    # Cohere Rerank branch — one synchronous Rerank call per theme (fast, no batch job needed)
+    if cohere_integration.is_enabled():
+        theme_scores = cohere_integration.score_themes_with_rerank(uncached, schedule)
+        for article in uncached:
+            link_scores = theme_scores.get(article.link, {})
+            for cfg in schedule.values():
+                label = cfg['label']
+                score = link_scores.get(label, 50)
+                theme_cache[f"{article.link}:::{label}"] = {'score': score, 'cached_at': now_iso}
+        save_theme_score_cache(theme_cache)
+        print(f"   ✅ Cohere theme scoring complete ({len(uncached)} articles × {len(schedule)} themes cached)")
+        return
 
     client = anthropic.Anthropic(api_key=api_key)
 
@@ -2326,7 +2454,8 @@ def main():
     print(f"\n📈 Total fetched: {len(all_articles)} articles")
     
     unique_articles = deduplicate_articles(all_articles)
-    
+    unique_articles = semantic_dedup_articles(unique_articles)
+
     shown_cache = load_shown_cache()
     shown_terms_cache = load_shown_terms_cache()
 

@@ -25,6 +25,7 @@ jobs:
     - name: Run feed discovery
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
       run: |
         python feed_discovery.py
     
