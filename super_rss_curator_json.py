@@ -9,6 +9,8 @@ import sys
 import json
 import hashlib
 import re
+import base64
+import concurrent.futures
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 from collections import defaultdict
@@ -141,6 +143,91 @@ def _is_aggregator_url(url: str) -> bool:
         return urlparse(url).netloc in _AGGREGATOR_DOMAINS
     except Exception:
         return False
+
+
+def _decode_google_news_url(url: str) -> Optional[str]:
+    """Extract the real article URL from a Google News RSS proxy URL via base64 decode.
+
+    Google News encodes the destination URL in a base64url payload embedded in
+    the RSS article path.  We decode the payload and scan the binary for an
+    embedded http(s) URL rather than parsing the protobuf structure, which keeps
+    this robust against minor format changes.
+
+    Returns the extracted URL string, or None if extraction fails.
+    """
+    try:
+        match = re.search(r'/articles/([^?&/]+)', url)
+        if not match:
+            return None
+        encoded = match.group(1)
+        # Pad to a multiple of 4 chars for standard base64 decode.
+        encoded += '=' * (-len(encoded) % 4)
+        decoded = base64.urlsafe_b64decode(encoded)
+        url_match = re.search(rb'https?://[^\x00-\x20\x7f-\xff]+', decoded)
+        if url_match:
+            extracted = url_match.group(0).decode('utf-8', errors='ignore').rstrip('.')
+            if '.' in urlparse(extracted).netloc:
+                return extracted
+    except Exception:
+        pass
+    return None
+
+
+def _follow_google_news_redirect(url: str) -> str:
+    """Resolve a Google News URL by following HTTP redirects.
+
+    Used as a fallback when the base64 decode does not yield a valid URL.
+    Returns the final URL, or the original if resolution fails.
+    """
+    headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/122.0.0.0 Safari/537.36'
+        )
+    }
+    try:
+        resp = requests.get(url, headers=headers, allow_redirects=True,
+                            timeout=8, stream=True)
+        resp.close()
+        final = resp.url
+        if 'news.google.com' not in final:
+            return final
+    except Exception:
+        pass
+    return url
+
+
+def resolve_google_news_urls(articles: List['Article']) -> None:
+    """Resolve Google News proxy URLs to real article URLs in-place.
+
+    Fast path: base64 decode (no network).
+    Slow path: HTTP redirect following via a thread pool (max 10 workers).
+    Updates article.link and article.url_hash for every resolved article.
+    """
+    needs_network: List['Article'] = []
+
+    for article in articles:
+        if not _is_aggregator_url(article.link):
+            continue
+        real_url = _decode_google_news_url(article.link)
+        if real_url:
+            article.link = real_url
+            article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
+        else:
+            needs_network.append(article)
+
+    if not needs_network:
+        return
+
+    def _resolve_one(article: 'Article') -> None:
+        real_url = _follow_google_news_redirect(article.link)
+        if real_url != article.link:
+            article.link = real_url
+            article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
+        list(pool.map(_resolve_one, needs_network))
 
 
 # ---------------------------------------------------------------------------
@@ -977,10 +1064,23 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
 
             articles.append(article)
 
+        # Resolve Google News proxy URLs to real article URLs so that
+        # deduplication, link display, and podcast selection all work correctly.
+        if 'news.google.com' in feed['url'] and articles:
+            before = sum(1 for a in articles if _is_aggregator_url(a.link))
+            resolve_google_news_urls(articles)
+            after = sum(1 for a in articles if _is_aggregator_url(a.link))
+            resolved = before - after
+            if resolved:
+                fetched_excerpts_note = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
+                print(f"  ✓ {feed['title']}: {len(articles)} articles"
+                      f" ({resolved} GN URLs unwrapped{fetched_excerpts_note})")
+                return articles
+
         if articles:
             extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
             print(f"  ✓ {feed['title']}: {len(articles)} articles{extra}")
-        
+
         return articles
         
     except Exception as e:
