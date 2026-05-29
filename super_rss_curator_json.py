@@ -189,6 +189,30 @@ def _story_overlap(a: frozenset, b: frozenset) -> float:
     return len(a & b) / min(len(a), len(b))
 
 
+def _clean_text(html_or_text: str, max_chars: int = 0) -> str:
+    """Strip HTML tags and normalize whitespace. Truncate at a word boundary if max_chars > 0."""
+    if not html_or_text:
+        return ''
+    text = BeautifulSoup(html_or_text, 'html.parser').get_text(' ', strip=True)
+    text = ' '.join(text.split())
+    if max_chars and len(text) > max_chars:
+        truncated = text[:max_chars]
+        # Break at the last space so we don't cut mid-word
+        space_idx = truncated.rfind(' ')
+        text = truncated[:space_idx] if space_idx > 0 else truncated
+    return text
+
+
+# Local BC news domains whose RSS descriptions are often empty/stub due to paywalls.
+# When an article from one of these domains has a very short description (<100 chars),
+# the feed will attempt a lightweight body fetch to capture text before the paywall closes.
+_LOCAL_BC_DOMAINS = frozenset({
+    'wltribune.com', 'quesnelobserver.com', '100milefreepress.net',
+    'mycariboonnow.com', 'myeastkootenaynow.com', 'cfjctoday.com',
+    'bclocalnews.com',
+})
+
+
 class Article:
     """Represents a single article"""
     def __init__(self, entry, source_title: str, source_url: str, feed_url: str = ''):
@@ -224,6 +248,12 @@ class Article:
         self.title_normalized = self.title.lower().strip()
         self.title_terms = _term_set(self.title_normalized)
         self.story_group: Optional[str] = None  # Claude-assigned event label for dedup
+
+        # Plain-text extracts used by the downstream podcast generator as verified
+        # source material.  Derived from description at construction time; may be
+        # updated later via _fetch_article_excerpt when the description is too short.
+        self.summary = _clean_text(self.description, max_chars=300)
+        self.excerpt = _clean_text(self.description, max_chars=600)
     
     def _parse_date(self, entry) -> datetime:
         """Parse publication date from entry"""
@@ -416,6 +446,8 @@ def save_podcast_cache(articles):
                     'link': article.link,
                     'title': article.title,
                     'description': article.description,
+                    'summary': getattr(article, 'summary', ''),
+                    'excerpt': getattr(article, 'excerpt', ''),
                     'pub_date': article.pub_date.isoformat(),
                     'source': article.source,
                     'source_url': article.source_url,
@@ -489,6 +521,8 @@ def update_theme_holdover(theme_name: str, theme_label: str,
                 'link': article.link,
                 'title': article.title,
                 'description': article.description,
+                'summary': getattr(article, 'summary', ''),
+                'excerpt': getattr(article, 'excerpt', ''),
                 'pub_date': article.pub_date.isoformat(),
                 'source': article.source,
                 'source_url': article.source_url,
@@ -727,6 +761,49 @@ def save_wlt_cache(cache):
         print(f"⚠️ Failed to save WLT cache: {e}")
 
 
+def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
+    """Fetch an article page and return a plain-text excerpt of the body.
+
+    Used as a fallback when the RSS description is missing or too short — most
+    commonly for local BC news sources that omit descriptions from their feeds.
+    Returns '' on any failure so callers can treat it as optional.
+    """
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,*/*',
+        }
+        resp = requests.get(url, headers=headers, timeout=8)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, 'html.parser')
+
+        # Try common article-body selectors in order of specificity
+        for sel in ('article', 'div.article-body', 'div.entry-content',
+                    'div.post-content', 'div.story-content', 'main'):
+            elem = soup.select_one(sel)
+            if not elem:
+                continue
+            for noise in elem.find_all(['nav', 'script', 'style', 'figure',
+                                        'aside', 'footer', 'form']):
+                noise.decompose()
+            text = ' '.join(elem.get_text(' ', strip=True).split())
+            if len(text) >= 80:
+                return _clean_text(text, max_chars=max_chars)
+
+        # Fallback: meta description / og:description
+        for attr, key in (({'name': 'description'}, 'content'),
+                          ({'property': 'og:description'}, 'content')):
+            meta = soup.find('meta', attrs=attr)
+            if meta and meta.get(key, ''):
+                text = meta[key].strip()
+                if len(text) >= 80:
+                    return _clean_text(text, max_chars=max_chars)
+
+        return ''
+    except Exception:
+        return ''
+
+
 def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache):
     """Attempt to extract articles using a specific set of CSS selectors.
 
@@ -776,10 +853,19 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
                     image_url = f"{WLT_BASE_URL}{image_url}"
 
             if title and full_url:
+                # WLT listing pages often have stub descriptions.  Fetch the
+                # article body so the podcast generator has real source text.
+                if len(description) < 100:
+                    body = _fetch_article_excerpt(full_url, max_chars=600)
+                    if body:
+                        description = body
+
                 article_data = {
                     'title': title,
                     'link': full_url,
                     'description': description,
+                    'summary': _clean_text(description, max_chars=300),
+                    'excerpt': _clean_text(description, max_chars=600),
                     'image': image_url,
                     'timestamp': datetime.now(timezone.utc).timestamp()
                 }
@@ -868,19 +954,32 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         parsed = feedparser.parse(response.content)
         
         articles = []
+        fetched_excerpts = 0
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'], feed['url'])
-            
+
             if article.pub_date < cutoff_date:
                 continue
-            
+
             if article.should_filter():
                 continue
-            
+
+            # For known local BC sources with a stub description, attempt a body
+            # fetch while the article is still within the paywall-free window.
+            if (len(article.summary) < 100
+                    and any(d in article.link for d in _LOCAL_BC_DOMAINS)):
+                body = _fetch_article_excerpt(article.link, max_chars=600)
+                if body:
+                    article.description = body
+                    article.summary = _clean_text(body, max_chars=300)
+                    article.excerpt = _clean_text(body, max_chars=600)
+                    fetched_excerpts += 1
+
             articles.append(article)
-        
+
         if articles:
-            print(f"  ✓ {feed['title']}: {len(articles)} articles")
+            extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
+            print(f"  ✓ {feed['title']}: {len(articles)} articles{extra}")
         
         return articles
         
@@ -2009,6 +2108,8 @@ def route_articles_to_best_themes(
                         'link': url,
                         'title': item['title'],
                         'description': item['description'],
+                        'summary': item.get('summary', ''),
+                        'excerpt': item.get('excerpt', ''),
                         'pub_date': item['pub_date'],
                         'source': item['source'],
                         'source_url': item['source_url'],
@@ -2107,6 +2208,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.title = data['title']
             self.link = data['link']
             self.description = data['description']
+            self.summary = data.get('summary', '') or _clean_text(data['description'], max_chars=300)
+            self.excerpt = data.get('excerpt', '') or _clean_text(data['description'], max_chars=600)
             self.pub_date = datetime.fromisoformat(data['pub_date'])
             self.source = data['source']
             self.source_url = data['source_url']
@@ -2348,6 +2451,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "url": article.link,
             "title": article.title if article.title.startswith(f"[{article.source}]") else f"[{article.source}] {article.title}",
             "content_html": article.description,
+            "summary": getattr(article, 'summary', '') or _clean_text(article.description, max_chars=300),
+            "_excerpt": getattr(article, 'excerpt', '') or _clean_text(article.description, max_chars=600),
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}],
             "ai_score": article.score,
@@ -2460,6 +2565,8 @@ def main():
         article.title = wlt_entry['title']
         article.link = wlt_entry['link']
         article.description = wlt_entry['description']
+        article.summary = wlt_entry.get('summary', '') or _clean_text(wlt_entry['description'], max_chars=300)
+        article.excerpt = wlt_entry.get('excerpt', '') or _clean_text(wlt_entry['description'], max_chars=600)
         article.image = wlt_entry.get('image')
         article.score = LIMITS['local_priority_score']
         article.category = 'local'
