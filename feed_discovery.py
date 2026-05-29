@@ -69,12 +69,38 @@ class SimpleArticle:
             self.pub_date = datetime.now(timezone.utc)
 
 def score_articles_with_claude(articles: List[SimpleArticle], api_key: str) -> List[SimpleArticle]:
-    """Score articles using Claude API"""
+    """Score articles for feed discovery using Cohere Rerank (when available) or Claude."""
     if not articles:
         return articles
-    
+
+    cohere_api_key = os.environ.get('COHERE_API_KEY')
+    if cohere_api_key:
+        try:
+            import cohere
+            co = cohere.ClientV2(api_key=cohere_api_key)
+            interest_query = (
+                "AI technology rural community applications, climate tech renewable energy, "
+                "Williams Lake Cariboo local news, homelab self-hosting, smart home automation, "
+                "3D printing Bambu Lab, health wellness science research, systems thinking, "
+                "Meshtastic mesh networking, sustainable agriculture, sci-fi worldbuilding, "
+                "Canadian content local news"
+            )
+            documents = [f"{a.title}. {(a.description or '')[:200]}" for a in articles]
+            result = co.rerank(
+                model="rerank-english-v3.0",
+                query=interest_query,
+                documents=documents,
+                top_n=len(documents),
+            )
+            for item in result.results:
+                articles[item.index].score = int(item.relevance_score * 100)
+            print(f"  🔮 Scored {len(articles)} discovery articles with Cohere Rerank")
+            return articles
+        except Exception as e:
+            print(f"  ⚠️ Cohere Rerank error in discovery, falling back to Claude: {e}")
+
     client = anthropic.Anthropic(api_key=api_key)
-    
+
     # Your interests for scoring
     interests = """
     - AI/ML infrastructure and telemetry
@@ -87,20 +113,20 @@ def score_articles_with_claude(articles: List[SimpleArticle], api_key: str) -> L
     - Deep technical content over news
     - Canadian content and local news (Williams Lake, Quesnel)
     """
-    
+
     # Batch articles for efficiency (10 at a time)
     batch_size = 10
     scored_articles = []
-    
+
     for i in range(0, len(articles), batch_size):
         batch = articles[i:i+batch_size]
-        
+
         # Prepare batch for Claude
         article_list = "\n\n".join([
             f"Article {idx}:\nTitle: {a.title}\nSource: {a.source}\nDescription: {a.description[:200]}..."
             for idx, a in enumerate(batch)
         ])
-        
+
         prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
 
 My interests:
@@ -111,31 +137,31 @@ Articles to score:
 
 Return ONLY a comma-separated list of scores (one per article), like: 85,42,91,15,73,...
 No explanations, just the numbers."""
-        
+
         try:
             response = client.messages.create(
                 model="claude-haiku-4-5",
                 max_tokens=100,
                 messages=[{"role": "user", "content": prompt}]
             )
-            
+
             # Parse scores
             scores_text = response.content[0].text.strip()
             scores = [float(s.strip()) for s in scores_text.split(',')]
-            
+
             # Assign scores to articles
             for j, article in enumerate(batch):
                 if j < len(scores):
                     article.score = scores[j]
                 scored_articles.append(article)
-                
+
         except Exception as e:
             print(f"  ❌ Error scoring batch {i//batch_size + 1}: {str(e)}")
             # Add articles with 0 score if API fails
             for article in batch:
                 article.score = 0
                 scored_articles.append(article)
-    
+
     return scored_articles
 
 @dataclass

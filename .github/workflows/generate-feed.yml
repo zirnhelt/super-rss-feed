@@ -75,6 +75,7 @@ jobs:
       - name: Generate RSS feed
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
         run: |
           set -o pipefail
           python super_rss_curator_json.py feeds.opml 2>&1 | tee /tmp/feed_output.txt

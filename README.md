@@ -23,12 +23,21 @@ Click "Fork" on GitHub to create your own copy.
 
 Replace `feeds.opml` with your RSS feed list, or edit the existing one.
 
-### 3. Set up API key
+### 3. Set up API keys
 
+**Required:**
 1. Go to your repository Settings → Secrets and variables → Actions
 2. Click "New repository secret"
 3. Name: `ANTHROPIC_API_KEY`
 4. Value: Your Claude API key from https://console.anthropic.com
+
+**Optional — Cohere API (enables semantic features):**
+5. Add another secret: `COHERE_API_KEY`
+6. Value: Your Cohere API key from https://dashboard.cohere.com
+
+When `COHERE_API_KEY` is set, the pipeline automatically switches to Cohere for scoring,
+deduplication, and podcast theme scoring (see [Cohere Integration](#cohere-integration) below).
+`ANTHROPIC_API_KEY` is still required for the final content scrub pass.
 
 ### 4. Enable GitHub Pages
 
@@ -112,14 +121,34 @@ AVOID (Score 0-20):
 - Sports coverage
 ```
 
+## Cohere Integration
+
+When `COHERE_API_KEY` is set as a GitHub Actions secret (or local env var), the pipeline
+activates Cohere-powered features automatically. No config changes needed — removing the
+secret reverts to Claude-only behaviour.
+
+| Feature | Without Cohere | With Cohere |
+|---|---|---|
+| Article scoring | Claude Haiku (batch=15) | Cohere Rerank against interest query |
+| Category assignment | Claude in scoring call | Keyword rules (`category_rules.json`) |
+| Story group labels | Claude string matching | Embedding cosine clustering |
+| Deduplication | URL hash + fuzzy title + term-set | + cosine similarity pass |
+| Podcast theme scoring | Claude Haiku (async batch) | Cohere Rerank per theme |
+| Feed discovery scoring | Claude Haiku | Cohere Rerank (Claude fallback) |
+| Final headline scrub | Claude Haiku | **Unchanged — always Claude** |
+
+The final scrub always uses Claude because nuanced content judgement ("is this primarily
+about sports?") benefits from an LLM reasoning over a ranker.
+
 ## Local Testing
 
 ```bash
 # Install dependencies
 pip install -r requirements.txt
 
-# Set API key
+# Set API keys (COHERE_API_KEY is optional)
 export ANTHROPIC_API_KEY='your-key-here'
+export COHERE_API_KEY='your-cohere-key'   # optional
 
 # Run
 python super_rss_curator_json.py feeds.opml
@@ -161,6 +190,7 @@ python config_loader.py
 - ~0.5-2 cents per run depending on cache hit rate
 - Scored article cache reduces API calls by 65-90%
 - Monitor usage at https://console.anthropic.com
+- With `COHERE_API_KEY` set, Claude is only used for the final scrub pass (significant reduction)
 
 ## Contributors
 
