@@ -2,6 +2,7 @@
   "enabled": true,
   "schedule": {
     "monday": {
+      "min_score": 42,
       "label": "Arts, Culture & Digital Storytelling",
       "description": "Local arts scene, festivals, creative economy, media, and cultural tech",
       "theme_description": "Today we explore how Cariboo and rural BC communities create, preserve, and share culture — from festivals and community radio to digital archives and open-source arts tools. We're looking for stories where creativity meets technology in small-town contexts, and where local artists and storytellers are finding new ways to reach audiences beyond geography.",
@@ -10,6 +11,7 @@
       "scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "tuesday": {
+      "min_score": 45,
       "label": "Working Lands & Industry",
       "description": "Cariboo forestry, ranching, mining, agriculture — tech in the resource economy",
       "theme_description": "Today's focus is the resource economy that defines the Cariboo — forestry, ranching, mining, and the agricultural technology helping these industries adapt and modernize. We're looking for stories about the people and innovations keeping rural BC's working landscape viable, including tensions between resource extraction and long-term stewardship, and the technology bridging both.",
@@ -26,6 +28,8 @@
       "scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise pure software, pure business news, and national politics with no hardware angle. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "thursday": {
+      "min_score": 40,
+      "holdover_threshold": 25,
       "label": "Indigenous Lands & Innovation",
       "description": "Tŝilhqot'in, Secwépemc, Dakelh — language, governance, land stewardship, and tech",
       "theme_description": "Today we explore how Cariboo and BC Indigenous nations are using technology on their own terms — for language revitalization, land stewardship, cultural preservation, and self-determined governance. We're looking for stories that centre Indigenous voices and leadership in innovation, where technology serves community sovereignty rather than replacing it.",

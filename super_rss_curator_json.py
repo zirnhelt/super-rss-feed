@@ -2175,10 +2175,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     theme_scoring_prompt = today.get('scoring_prompt', '')
     theme_keywords = [kw.lower() for kw in today.get('keywords', [])]
     max_articles = schedule_config.get('max_articles', 10)
-    min_score = schedule_config.get('min_score', 25)
+    min_score = today.get('min_score', schedule_config.get('min_score', 25))
     include_bonus = schedule_config.get('include_top_from_other', 0)
     bonus_min_score = schedule_config.get('other_min_score', 70)
-    holdover_threshold = schedule_config.get('holdover_threshold', 30)
+    holdover_threshold = today.get('holdover_threshold', schedule_config.get('holdover_threshold', 30))
 
     # Get API key for theme scoring
     api_key = os.getenv('ANTHROPIC_API_KEY')

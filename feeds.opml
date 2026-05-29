@@ -92,6 +92,10 @@
     <outline type="rss" text="APTN News" title="APTN News" xmlUrl="https://www.aptnnews.ca/feed/" htmlUrl="https://www.aptnnews.ca" />
     <!-- Thursday Indigenous Lands & Innovation additional sources -->
     <outline type="rss" text="First Nations Technology Council" title="First Nations Technology Council" xmlUrl="https://technologycouncil.ca/feed/" htmlUrl="https://technologycouncil.ca" />
+    <!-- Nation Talk: high-volume Canadian First Nations news aggregator covering governance, land rights, and tech — primary Thursday source -->
+    <outline type="rss" text="Nation Talk" title="Nation Talk" xmlUrl="https://nationtalk.ca/feed" htmlUrl="https://nationtalk.ca" />
+    <!-- First Peoples' Cultural Council: BC-based; directly covers Indigenous language revitalization — core Thursday keyword -->
+    <outline type="rss" text="First Peoples Cultural Council" title="First Peoples Cultural Council" xmlUrl="https://fpcc.ca/feed/" htmlUrl="https://fpcc.ca" />
     <outline type="rss" text="Hackaday" title="Hackaday" xmlUrl="https://hackaday.com/feed" htmlUrl="https://hackaday.com" />
     <outline type="rss" text="Make Magazine" title="Make Magazine" xmlUrl="https://makezine.com/feed/" htmlUrl="https://makezine.com" />
     <outline type="rss" text="Cool Tools" title="Cool Tools" xmlUrl="https://kk.org/cooltools/feed" htmlUrl="https://kk.org/cooltools" />
@@ -125,15 +129,35 @@
     <!-- BC Wildfire and conservation — supports Friday Wild Spaces theme -->
     <outline type="rss" text="GN BC Wildfire and Conservation" title="GN BC Wildfire and Conservation" xmlUrl="https://news.google.com/rss/search?q=%22BC+Wildfire%22+OR+%22BC+Parks%22+OR+%22wildfire+BC%22+OR+%22conservation+BC%22+OR+%22Chilcotin+wilderness%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <!-- BC working lands: forestry, ranching, mining — supports Tuesday Working Lands theme -->
-    <outline type="rss" text="GN BC Working Lands" title="GN BC Working Lands" xmlUrl="https://news.google.com/rss/search?q=%22BC+forestry%22+OR+%22BC+ranching%22+OR+%22BC+agriculture%22+OR+%22BC+Cattlemen%22+OR+%22BC+lumber%22+OR+%22COFI%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <outline type="rss" text="GN BC Working Lands" title="GN BC Working Lands" xmlUrl="https://news.google.com/rss/search?q=%22BC+forestry%22+OR+%22BC+ranching%22+OR+%22BC+agriculture%22+OR+%22BC+Cattlemen%22+OR+%22BC+lumber%22+OR+%22COFI%22+OR+%22Canadian+ranching%22+OR+%22BC+sawmill%22+OR+%22beetle+kill%22+OR+%22forest+management+BC%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <!-- Rural municipalities and infrastructure — civic/community context across themes -->
     <outline type="rss" text="GN Rural BC Infrastructure" title="GN Rural BC Infrastructure" xmlUrl="https://news.google.com/rss/search?q=%22rural+BC%22+OR+%22rural+municipalities%22+OR+%22UBCM%22+OR+%22rural+broadband+BC%22+OR+%22Connecting+BC%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <!-- Thursday: Indigenous guardian programs and land stewardship tech — broadens thin Thursday pool -->
+    <outline type="rss" text="GN Indigenous Guardian Programs" title="GN Indigenous Guardian Programs" xmlUrl="https://news.google.com/rss/search?q=%22guardian+program%22+OR+%22Indigenous+stewardship%22+OR+%22First+Nations+monitoring%22+OR+%22land+defenders%22+BC&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <!-- Tuesday: Canadian and BC AgTech and resource industry innovation — fills Working Lands gap -->
+    <outline type="rss" text="GN AgTech and Resource Innovation" title="GN AgTech and Resource Innovation" xmlUrl="https://news.google.com/rss/search?q=%22precision+agriculture%22+OR+%22AgTech%22+OR+%22BC+mining%22+OR+%22silviculture+technology%22+OR+%22forest+inventory%22+Canada&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <!-- Monday: Community media, rural storytelling, digital arts — broadens thin Monday pool -->
+    <outline type="rss" text="GN Community Media and Digital Storytelling" title="GN Community Media and Digital Storytelling" xmlUrl="https://news.google.com/rss/search?q=%22community+radio%22+OR+%22rural+storytelling%22+OR+%22digital+archive%22+OR+%22Indigenous+film%22+OR+%22local+journalism%22+BC&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
+    <!-- Friday: Year-round BC backcountry, wildlife corridors, salmon — fills Wild Spaces winter gap -->
+    <outline type="rss" text="GN BC Backcountry and Wildlife" title="GN BC Backcountry and Wildlife" xmlUrl="https://news.google.com/rss/search?q=%22BC+backcountry%22+OR+%22wildlife+corridor+BC%22+OR+%22salmon+run%22+OR+%22grizzly+bear%22+OR+%22Chilcotin+plateau%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <!-- SUSTAINABLE FOOD SYSTEMS & RURAL CONTEXT -->
     <outline text="Civil Eats" title="Civil Eats" type="rss" xmlUrl="https://civileats.com/feed/" htmlUrl="https://civileats.com" />
     <outline text="Modern Farmer" title="Modern Farmer" type="rss" xmlUrl="https://modernfarmer.com/feed/" htmlUrl="https://modernfarmer.com" />
     <outline text="Resilience.org" title="Resilience.org" type="rss" xmlUrl="https://www.resilience.org/feed/" htmlUrl="https://www.resilience.org" />
     <outline text="BC Gov News" title="BC Gov News" type="rss" xmlUrl="https://news.gov.bc.ca/feed" htmlUrl="https://news.gov.bc.ca" />
+    <!-- Western Producer: Canada's largest agricultural newspaper; covers AgTech, precision farming, and rural industry — primary Tuesday source -->
+    <outline type="rss" text="Western Producer" title="Western Producer" xmlUrl="https://www.producer.com/feed/" htmlUrl="https://www.producer.com" />
+    <!-- AgWeb: US-focused but covers precision agriculture, livestock tech, and farm innovation — supports Tuesday Working Lands theme -->
+    <outline type="rss" text="AgWeb" title="AgWeb" xmlUrl="https://www.agweb.com/rss/news" htmlUrl="https://www.agweb.com" />
 
+    <!-- Friday Wild Spaces & Outdoor Life additional sources -->
+    <!-- Pique Newsmagazine: Whistler-based BC outlet; covers backcountry recreation, conservation, and BC outdoor life year-round -->
+    <outline type="rss" text="Pique Newsmagazine" title="Pique Newsmagazine" xmlUrl="https://www.piquenewsmagazine.com/rss" htmlUrl="https://www.piquenewsmagazine.com" />
+    <!-- Adventure Journal: adventure + conservation angle; maps to Friday's backcountry and wilderness keywords -->
+    <outline type="rss" text="Adventure Journal" title="Adventure Journal" xmlUrl="https://adventure-journal.com/feed/" htmlUrl="https://adventure-journal.com" />
+    <!-- Monday Arts, Culture & Digital Storytelling additional sources -->
+    <!-- Canadaland: Canadian media criticism covering podcasting, community media, and digital storytelling infrastructure -->
+    <outline type="rss" text="Canadaland" title="Canadaland" xmlUrl="https://www.canadaland.com/feed/" htmlUrl="https://www.canadaland.com" />
     <!-- Sunday Science, Wonder & the Natural World sources -->
     <outline type="rss" text="Canadian Geographic" title="Canadian Geographic" xmlUrl="https://www.canadiangeographic.ca/feed/" htmlUrl="https://www.canadiangeographic.ca" />
     <outline type="rss" text="ScienceDaily" title="ScienceDaily" xmlUrl="https://www.sciencedaily.com/rss/all.xml" htmlUrl="https://www.sciencedaily.com" />
