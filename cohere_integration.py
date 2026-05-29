@@ -193,6 +193,92 @@ def cluster_story_groups(articles: List[Any], embeddings: Dict[str, List[float]]
         print(f"   🔗 Cohere story clustering: grouped {assigned} articles into story clusters")
 
 
+def score_feed_against_interests(candidate_texts: List[str], interests_text: str) -> float:
+    """Return mean cosine similarity (0.0–1.0) between candidate article texts and the interests profile.
+
+    Uses asymmetric embedding: interests as search_query, articles as search_document.
+    Returns 0.0 when Cohere is disabled or on error.
+    """
+    if not is_enabled() or not candidate_texts or not interests_text:
+        return 0.0
+
+    co = get_client()
+    try:
+        query_result = co.embed(
+            texts=[interests_text[:2048]],
+            model="embed-english-v3.0",
+            input_type="search_query",
+            embedding_types=["float"],
+        )
+        query_vec = query_result.embeddings.float_[0]
+
+        doc_result = co.embed(
+            texts=candidate_texts[:96],
+            model="embed-english-v3.0",
+            input_type="search_document",
+            embedding_types=["float"],
+        )
+        doc_vecs = doc_result.embeddings.float_
+
+        if not doc_vecs:
+            return 0.0
+        return sum(cosine_sim(query_vec, dv) for dv in doc_vecs) / len(doc_vecs)
+    except Exception as e:
+        print(f"  ⚠️  Cohere feed affinity embed error: {e}")
+        return 0.0
+
+
+def prefilter_scrub_articles(
+    articles: List[Any],
+    interests_text: str,
+    local_signals: Optional[List[str]] = None,
+) -> Tuple[List[Any], List[Any]]:
+    """Pre-filter obvious junk before Claude scrubbing using Cohere Rerank.
+
+    Returns (articles_for_claude, auto_removed).
+    Articles scoring < 4/100 against the interest query are auto-removed,
+    unless their title contains a local signal (those always go to Claude).
+    Returns (articles, []) when Cohere is disabled or on error.
+    """
+    if not is_enabled() or not articles:
+        return articles, []
+
+    co = get_client()
+    query = build_interest_query(interests_text) if interests_text else 'technology news community'
+    documents = [f"{a.title}. {(a.description or '')[:100]}" for a in articles]
+    _local = [s.lower() for s in (local_signals or [])]
+
+    INTEREST_FLOOR = 4.0
+
+    try:
+        result = co.rerank(
+            model="rerank-english-v3.0",
+            query=query,
+            documents=documents,
+            top_n=len(documents),
+        )
+        interest_scores = {item.index: item.relevance_score * 100 for item in result.results}
+    except Exception as e:
+        print(f"  ⚠️  Cohere scrub pre-filter error: {e}")
+        return articles, []
+
+    kept, auto_removed = [], []
+    for i, article in enumerate(articles):
+        title_lower = article.title.lower()
+        is_local = any(sig in title_lower for sig in _local)
+        iscore = interest_scores.get(i, 50.0)
+        if not is_local and iscore < INTEREST_FLOOR:
+            print(f"  🔮 Pre-filtered (score={iscore:.0f}): {article.title[:80]}")
+            auto_removed.append(article)
+        else:
+            kept.append(article)
+
+    if auto_removed:
+        print(f"  🔮 Cohere pre-filter removed {len(auto_removed)}, sending {len(kept)} to Claude")
+
+    return kept, auto_removed
+
+
 def score_themes_with_rerank(
     articles: List[Any],
     themes: Dict[str, Dict],

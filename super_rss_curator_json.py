@@ -1356,6 +1356,20 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
 
     local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
 
+    # Cohere pre-filter: auto-remove high-confidence junk (interest score < 4/100)
+    # before calling Claude. Very conservative threshold avoids false positives.
+    # Local articles are never auto-removed regardless of score.
+    auto_removed_count = 0
+    if cohere_integration.is_enabled():
+        try:
+            interests_text = (CONFIG_DIR / 'scoring_interests.txt').read_text().strip()
+        except Exception:
+            interests_text = ''
+        articles, auto_removed = cohere_integration.prefilter_scrub_articles(
+            articles, interests_text, local_signals=local_signals
+        )
+        auto_removed_count = len(auto_removed)
+
     client = anthropic.Anthropic(api_key=api_key)
 
     system_prompt = (
@@ -1378,7 +1392,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
     )
 
     kept: List[Article] = []
-    total_removed = 0
+    total_removed = auto_removed_count
 
     batch_size = 40
     for i in range(0, len(articles), batch_size):
