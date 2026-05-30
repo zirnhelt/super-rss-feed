@@ -83,7 +83,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
-| 2026-05-30 | 🌙 evening | 4 | climate:2(50%), local:1(25%), news:1(25%) |
+| 2026-05-30 | 🌅 morning | 4 | local:1(25%), climate:1(25%), homelab:1(25%) |
 | 2026-05-29 | 🌅 morning | 11 | news:8(73%), homelab:2(18%), climate:1(9%) |
 | 2026-05-29 | 🌙 evening | 7 | news:4(57%), local:2(29%), ai-tech:1(14%) |
 | 2026-05-28 | 🌅 morning | 199 | news:99(54%), ai-tech:36(19%), homelab:22(12%) |
@@ -98,9 +98,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-23 | 🌙 evening | 174 | news:103(61%), ai-tech:27(16%), homelab:20(12%) |
 | 2026-05-23 | 🌅 morning | 93 | news:56(62%), ai-tech:10(11%), homelab:9(10%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-30 07:26 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-30 14:13 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
