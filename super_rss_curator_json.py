@@ -1734,7 +1734,12 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
                     inner = inner[:-1]
                 raw = "\n".join(inner).strip()
 
-            result = json.loads(raw)
+            # Use raw_decode so trailing text after the JSON object doesn't
+            # cause "Extra data" errors (model sometimes appends a note).
+            start = raw.find('{')
+            if start == -1:
+                raise ValueError("No JSON object in response")
+            result, _ = json.JSONDecoder().raw_decode(raw, start)
             remove_nums = set(result.get("remove", []))
 
             for j, article in enumerate(batch):
