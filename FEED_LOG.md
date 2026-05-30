@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-05-30 (Saturday)
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1150** → dedup **985** → new **528** → quality **4**
+- Mix: local:1(25%), climate:2(50%), news:1(25%)
+- Feeds: local:46, ai-tech:235, climate:71, homelab:197, science:90, scifi:14, news:500
+- Images: 4/4
+
+
+---
+
+
+
 ## 2026-05-29 (Friday)
 
 #### 🌅 4:30 AM Pacific
@@ -304,29 +317,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
 - ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
 - ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 36)), keeping all
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-05-22 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1121** → dedup **972** → new **415** → quality **274**
-- Mix: local:8(3%), ai-tech:68(28%), climate:7(3%), homelab:14(6%), science:11(5%), scifi:3(1%), news:133(55%)
-- Feeds: local:41, ai-tech:459, climate:154, homelab:316, science:160, scifi:22, news:500
-- Images: 274/274
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Scrub batch 4 failed (Extra data: line 4 column 1 (char 40)), keeping all
-- ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 4 column 1 (char 24)), keeping all
-- ⚠️ ⚠️ Scrub batch 7 failed (Extra data: line 4 column 1 (char 21)), keeping all
-- ⚠️ ⚠️ Scrub batch 8 failed (Extra data: line 4 column 1 (char 23)), keeping all
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -1523,6 +1513,25 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
 - - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
 - - ⚠️ ⚠️ Scrub batch 5 failed (Extra data: line 4 column 1 (char 21)), keeping all
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+
+
+---
+
+
+
+## Week of 2026-05-22–2026-05-22
+- 1 runs · avg fetched 1121 · avg quality 274
+- Dominant: **news** (55%) local:8 / ai-tech:68 / climate:7 / homelab:14 / science:11 / scifi:3 / news:133
+- - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
+- - ⚠️ ⚠️ Scrub batch 4 failed (Extra data: line 4 column 1 (char 40)), keeping all
+- - ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 4 column 1 (char 24)), keeping all
+- - ⚠️ ⚠️ Scrub batch 7 failed (Extra data: line 4 column 1 (char 21)), keeping all
+- - ⚠️ ⚠️ Scrub batch 8 failed (Extra data: line 4 column 1 (char 23)), keeping all
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
