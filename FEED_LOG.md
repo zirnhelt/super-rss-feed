@@ -40,6 +40,25 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run
+- Fetched **1117** → dedup **957** → new **489** → quality **15**
+- Mix: local:2(14%), climate:1(7%), news:11(79%)
+- Feeds: local:42, ai-tech:240, climate:67, homelab:198, science:90, scifi:14, news:500
+- Images: 15/15
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
+- ⚠️ **AgWeb** failed — `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news`
+- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
+
+
+---
+
+
+
 ## 2026-05-28 (Thursday)
 
 #### 🌅 4:30 AM Pacific
