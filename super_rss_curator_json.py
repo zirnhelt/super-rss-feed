@@ -1027,6 +1027,91 @@ def scrape_wlt_news() -> List[Dict]:
         return []
 
 
+class _AttrDict:
+    """Minimal dict-like entry object that supports both .get() and attribute access.
+
+    Used to construct Article objects from non-feedparser sources (e.g. Brave Search).
+    Attribute access returns None for missing keys so Article's hasattr() guards work.
+    """
+    def __init__(self, data: dict):
+        object.__setattr__(self, '_data', data)
+
+    def get(self, key, default=None):
+        return self._data.get(key, default)
+
+    def __getattr__(self, name):
+        return self._data.get(name)
+
+
+def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]:
+    """Query Brave Search for recent articles from a domain that blocked direct RSS access.
+
+    Used when the RSS feed returns 403. Returns Article objects populated with
+    title, url, and description from Brave's index. BRAVE_API_KEY must be set.
+    """
+    brave_key = os.environ.get('BRAVE_API_KEY', '')
+    if not brave_key:
+        return []
+
+    domain = urlparse(feed.get('url', '')).netloc.replace('www.', '')
+    if not domain:
+        return []
+
+    params = {'q': f'site:{domain}', 'count': 10, 'freshness': 'pw'}
+    headers = {'X-Subscription-Token': brave_key, 'Accept': 'application/json'}
+
+    try:
+        resp = requests.get(
+            'https://api.search.brave.com/res/v1/web/search',
+            headers=headers, params=params, timeout=15
+        )
+        resp.raise_for_status()
+        results = resp.json().get('web', {}).get('results', [])
+    except Exception as e:
+        print(f"    ⚠️  Brave fallback failed for {domain}: {e}")
+        return []
+
+    articles = []
+    for r in results:
+        pub_date = None
+        pub_str = r.get('published_time') or ''
+        if pub_str:
+            try:
+                pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
+            except Exception:
+                pass
+        if pub_date and pub_date < cutoff_date:
+            continue
+
+        desc = (r.get('description') or '')[:500]
+        entry = _AttrDict({
+            'title': r.get('title', '').strip(),
+            'link': r.get('url', ''),
+            'description': desc,
+            'summary': desc,
+            'published': pub_str,
+            'published_parsed': None,
+            'updated_parsed': None,
+            'media_thumbnail': [],
+            'media_content': [],
+            'enclosures': [],
+            'tags': [],
+        })
+
+        if not entry.get('title') or not entry.get('link'):
+            continue
+
+        try:
+            article = Article(entry, feed['title'], feed.get('html_url', ''), feed['url'])
+            if pub_date:
+                article.pub_date = pub_date
+            articles.append(article)
+        except Exception:
+            continue
+
+    return articles
+
+
 def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
     """Fetch and parse articles from a feed"""
     try:
@@ -1084,6 +1169,16 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         return articles
         
     except Exception as e:
+        is_403 = (
+            isinstance(e, requests.exceptions.HTTPError)
+            and e.response is not None
+            and e.response.status_code == 403
+        )
+        if is_403 and os.environ.get('BRAVE_API_KEY'):
+            fallback = _fetch_via_brave_fallback(feed, cutoff_date)
+            if fallback:
+                print(f"  ↩ {feed['title']}: Brave fallback → {len(fallback)} articles")
+                return fallback
         print(f"  ✗ {feed['title']}: {e}")
         return []
 
@@ -1573,6 +1668,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
 
     system_prompt = (
         "You are a strict content filter reviewing article headlines.\n\n"
+        "Each headline is prefixed with its category and relevance score, e.g. [ai-tech, score=22].\n\n"
         "Remove articles whose PRIMARY subject is one of:\n"
         "- Sports: game scores/recaps, drafts, trades, player stats, sports leagues "
         "(NFL, NBA, NHL, MLB, CFL, MLS, UFC, MMA, FIFA, PGA, NASCAR, Premier League, "
@@ -1582,10 +1678,18 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
         "celebrity relationships/feuds\n"
         "- Deals/promotions: promo codes, coupons, flash sales, best deals roundups, "
         "discount codes\n"
-        "- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice\n\n"
+        "- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice\n"
+        "- Fluffy AI/tech (ONLY for ai-tech or homelab category articles): "
+        "pure funding/valuation announcements ('raises $X million', 'valued at $Y billion', "
+        "'goes public'), product launch press releases with no hands-on content, "
+        "AI benchmark releases with no practical application ('scores X on Y benchmark'), "
+        "conference keynote summaries that are pure announcement without substance, "
+        "'X is transforming Y' hype takes without specific findings or implementation detail. "
+        "Be more lenient for higher-scored articles (score >= 40) — only remove clear fluff.\n\n"
         "KEEP articles that use sports/entertainment as context for a deeper story "
         "(e.g. technology in sports, economics of a league, health research on athletes).\n"
-        "KEEP all local community news even if sports-related.\n\n"
+        "KEEP all local community news even if sports-related.\n"
+        "KEEP ai-tech articles with hands-on content, research findings, or practical guides.\n\n"
         "Respond ONLY with valid JSON: {\"remove\": [list of article numbers to remove]}\n"
         "If nothing should be removed respond with: {\"remove\": []}"
     )
@@ -1597,12 +1701,17 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
     for i in range(0, len(articles), batch_size):
         batch = articles[i:i + batch_size]
 
-        # Build numbered headline list; flag local articles so Haiku respects the keep rule
+        # Build numbered headline list with category+score hint so Haiku can apply
+        # category-aware filtering (e.g. stricter on low-scoring ai-tech articles).
         lines = []
         for j, article in enumerate(batch):
             title_lower = article.title.lower()
             is_local = any(sig in title_lower for sig in local_signals)
-            prefix = f"{j+1}. [LOCAL] " if is_local else f"{j+1}. "
+            cat_tag = f"{article.category or 'news'}, score={article.score}"
+            if is_local:
+                prefix = f"{j+1}. [LOCAL] [{cat_tag}] "
+            else:
+                prefix = f"{j+1}. [{cat_tag}] "
             lines.append(f"{prefix}{article.title}")
         headlines_text = "\n".join(lines)
 
@@ -2718,6 +2827,30 @@ def main():
 
     quality_articles = [a for a in scored_articles if a.score >= LIMITS['min_claude_score']]
     print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scored_articles)} → {len(quality_articles)} articles")
+
+    # Per-category floor: rescue the top-N articles for categories under their minimum quota.
+    # Cohere Rerank produces relative scores — niche categories (homelab, science, scifi) often
+    # lose to news/local in the same batch even when their content is good, leaving them with
+    # zero new articles. This ensures each category gets at least a few candidates.
+    min_per_cat = LIMITS.get('min_per_category', {})
+    if min_per_cat:
+        quality_urls = {a.url_hash for a in quality_articles}
+        subthreshold = [a for a in scored_articles if a.url_hash not in quality_urls]
+        quality_by_cat: Dict[str, int] = defaultdict(int)
+        for a in quality_articles:
+            quality_by_cat[a.category or 'news'] += 1
+        by_cat: Dict[str, List[Article]] = defaultdict(list)
+        for a in subthreshold:
+            by_cat[a.category or 'news'].append(a)
+        rescued: List[Article] = []
+        for cat, floor in min_per_cat.items():
+            need = floor - quality_by_cat.get(cat, 0)
+            if need > 0:
+                top = sorted(by_cat.get(cat, []), key=lambda a: a.score, reverse=True)
+                rescued.extend(top[:need])
+        if rescued:
+            print(f"🌱 Category floors rescued {len(rescued)} additional articles")
+            quality_articles.extend(rescued)
 
     print(f"\n✂️  Running final headline scrub with Haiku ({len(quality_articles)} articles)...")
     quality_articles = scrub_feed_with_haiku(quality_articles, api_key)
