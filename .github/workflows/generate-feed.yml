@@ -54,7 +54,7 @@ jobs:
             fi
           }
 
-          for feed in local ai-tech climate homelab news science scifi; do
+          for feed in local ai-tech climate homelab wellness news science scifi; do
             download_json "${BASE}/feed-${feed}.json" "feed-${feed}.json"
           done
           # Download themed podcast feeds
