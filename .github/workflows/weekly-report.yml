@@ -1,0 +1,53 @@
+name: Weekly State of the Feed Report
+
+on:
+  schedule:
+    # Sundays at 1:15 PM UTC — after discover-feeds (10:00 UTC) and generate-feed (12:30 UTC)
+    - cron: '15 13 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  weekly-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Enough history to diff feeds.opml across the past 7 days
+          fetch-depth: 30
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate weekly report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generate_weekly_report.py
+
+      - name: Commit report files to main branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add weekly-state-article.json weekly-report-*.html
+          git diff --cached --quiet || git commit -m "Add weekly state-of-the-feed report [skip ci]"
+          git push
+
+      - name: Deploy report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: true
+          commit_message: 'Add weekly state-of-the-feed report'
