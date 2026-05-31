@@ -528,7 +528,7 @@ def save_podcast_cache(articles):
 
         # Add new articles
         for article in articles:
-            if article.link not in existing_urls:
+            if article.link not in existing_urls and not _is_aggregator_url(article.link):
                 existing.append({
                     'link': article.link,
                     'title': article.title,
@@ -1156,11 +1156,13 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             resolve_google_news_urls(articles)
             after = sum(1 for a in articles if _is_aggregator_url(a.link))
             resolved = before - after
-            if resolved:
-                fetched_excerpts_note = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
-                print(f"  ✓ {feed['title']}: {len(articles)} articles"
-                      f" ({resolved} GN URLs unwrapped{fetched_excerpts_note})")
-                return articles
+            articles = [a for a in articles if not _is_aggregator_url(a.link)]
+            dropped = after
+            fetched_excerpts_note = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
+            dropped_note = f", {dropped} dropped (unresolvable)" if dropped else ""
+            print(f"  ✓ {feed['title']}: {len(articles)} articles"
+                  f" ({resolved} GN URLs unwrapped{dropped_note}{fetched_excerpts_note})")
+            return articles
 
         if articles:
             extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
@@ -2564,7 +2566,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         # Collect all non-theme articles that meet minimum score
         other = []
         for article in all_cached:
-            if article.category not in theme_set and article.score >= bonus_min_score:
+            if article.category not in theme_set and article.score >= bonus_min_score \
+                    and not _is_aggregator_url(article.link):
                 other.append((article, article.category))
 
         theme_urls = {a.link for a, _, _ in theme_articles}
