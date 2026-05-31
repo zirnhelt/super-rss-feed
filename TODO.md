@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-05-31 | 🌅 4:30 AM Pacific | ⚠️ **CBC Arts** failed | `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -73,7 +74,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
-| 2026-05-31 | 🌙 evening | 10 | news:8(80%), climate:2(20%) |
+| 2026-05-31 | 🌅 morning | 3 | climate:1(33%), wellness:1(33%), science:1(33%) |
 | 2026-05-30 | 🌙 evening | 4 | climate:2(50%), local:1(25%), news:1(25%) |
 | 2026-05-30 | 🌅 morning | 4 | local:1(25%), climate:1(25%), homelab:1(25%) |
 | 2026-05-29 | 🌅 morning | 11 | news:8(73%), homelab:2(18%), climate:1(9%) |
@@ -88,9 +89,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-24 | 🌙 evening | 100 | news:59(64%), homelab:16(17%), ai-tech:9(10%) |
 | 2026-05-24 | 🌅 morning | 104 | news:52(57%), homelab:17(18%), ai-tech:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-31 07:56 UTC_
+_Last updated by log\_feed\_results.py · 2026-05-31 14:18 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

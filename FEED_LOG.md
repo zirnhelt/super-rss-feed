@@ -16,6 +16,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌅 4:30 AM Pacific
+- Fetched **675** → dedup **604** → new **391** → quality **3**
+- Mix: climate:1(33%), wellness:1(33%), science:1(33%)
+- Feeds: local:45, ai-tech:216, climate:71, homelab:166, wellness:1, science:79, scifi:11, news:500
+- Images: 3/3
+- ⚠️ **CBC Arts** failed — `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)`
+
+
+---
+
+
+
 ## 2026-05-30 (Saturday)
 
 #### 🌙 8:30 PM Pacific
