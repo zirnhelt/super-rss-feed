@@ -41,7 +41,7 @@ RETENTION_DAYS = 7
 SLOT_BY_UTC_HOUR = {12: 'morning', 4: 'evening'}
 SLOT_EMOJIS  = {'morning': '🌅', 'evening': '🌙', 'manual': '🔧'}
 SLOT_LABELS  = {'morning': '4:30 AM Pacific', 'evening': '8:30 PM Pacific', 'manual': 'Manual Run'}
-CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'science', 'scifi', 'news']
+CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'wellness', 'science', 'scifi', 'news']
 
 AUTO_START = '<!-- AUTO:START -->'
 AUTO_END   = '<!-- AUTO:END -->'
@@ -109,7 +109,7 @@ def parse_output(text: str) -> dict:
             m['after_scoring'] = grab(r'After scoring:\s*(\d+)')
 
         # Category breakdown: "  ai-tech: 12 articles"
-        hit = re.match(r'\s+(local|ai-tech|climate|homelab|news|science|scifi):\s+(\d+)', line)
+        hit = re.match(r'\s+(local|ai-tech|climate|homelab|wellness|news|science|scifi):\s+(\d+)', line)
         if hit:
             m['categories'][hit.group(1)] = int(hit.group(2))
 
@@ -286,7 +286,7 @@ def compress_to_week(day_sections: list) -> dict | None:
             fetched_vals.append(int(hm.group(1)))
         for qm in re.finditer(r'quality \*\*(\d+)\*\*', text):
             quality_vals.append(int(qm.group(1)))
-        for cm in re.finditer(r'(local|ai-tech|climate|homelab|news|science|scifi):(\d+)\(', text):
+        for cm in re.finditer(r'(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(', text):
             cat_totals[cm.group(1)] += int(cm.group(2))
         for ln in text.splitlines():
             if '❌' in ln or ('⚠️' in ln and 'failed' in ln.lower()):
@@ -415,7 +415,7 @@ def extract_recent_entries() -> list:
             if qm:
                 metrics['after_scoring'] = int(qm.group(1))
 
-            for cm in re.finditer(r'(local|ai-tech|climate|homelab|news|science|scifi):(\d+)\(', run_content):
+            for cm in re.finditer(r'(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(', run_content):
                 metrics['categories'][cm.group(1)] = int(cm.group(2))
 
             for em in re.finditer(r'❌ (.+)', run_content):

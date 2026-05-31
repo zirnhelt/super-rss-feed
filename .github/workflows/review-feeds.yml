@@ -51,7 +51,7 @@ jobs:
               echo "  ✗ $dest (unavailable — will review repo copy if present)"
             fi
           }
-          for feed in local ai-tech climate homelab news science scifi; do
+          for feed in local ai-tech climate homelab wellness news science scifi; do
             download_json "${BASE}/feed-${feed}.json" "feed-${feed}.json"
           done
         continue-on-error: true
