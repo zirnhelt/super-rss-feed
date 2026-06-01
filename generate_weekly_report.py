@@ -237,7 +237,8 @@ def generate_narrative(
 
     prompt = (
         f"Write a brief 2–3 paragraph 'State of the Feed' weekly summary for a personal "
-        f"AI-curated RSS aggregator. Keep it conversational, informative, and friendly. "
+        f"AI-curated RSS aggregator. Be factual and concise. No conversational filler, "
+        f"greetings, sign-offs, or editorial opinions. "
         f"No markdown headers or lists — flowing paragraphs only.\n\n"
         f"Week: {week_label}\n"
         f"Runs this week: {stats.get('total_runs', 0)} "
@@ -247,7 +248,7 @@ def generate_narrative(
         f"New feeds added: {new_feeds_text}\n"
         f"Feed health: {error_text}\n"
         f"Feed discovery: {discovery_text}\n\n"
-        f"Write as if you're a curator giving a brief weekly update to your readers."
+        f"Report the data plainly, as a technical summary."
     )
 
     response = client.messages.create(
