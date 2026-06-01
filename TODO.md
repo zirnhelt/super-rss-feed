@@ -55,25 +55,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-25 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-05-25 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-05-25 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **CNET** failed | `HTTPSConnectionPool(host='www.cnet.com', port=443): Read timed out. (read timeout=10)` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Krebs on Security** failed | `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-24 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **IndigiNews** failed | `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-24 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-01 | 🌅 morning | 8 | news:3(38%), science:2(25%), local:1(12%) |
+| 2026-05-31 | 🌙 evening | 10 | news:8(80%), climate:2(20%) |
 | 2026-05-31 | 🌅 morning | 3 | climate:1(33%), wellness:1(33%), science:1(33%) |
 | 2026-05-30 | 🌙 evening | 4 | climate:2(50%), local:1(25%), news:1(25%) |
 | 2026-05-30 | 🌅 morning | 4 | local:1(25%), climate:1(25%), homelab:1(25%) |
@@ -86,12 +74,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-26 | 🌅 morning | 144 | news:71(53%), homelab:18(13%), ai-tech:15(11%) |
 | 2026-05-26 | 🌙 evening | 233 | news:132(61%), ai-tech:39(18%), homelab:18(8%) |
 | 2026-05-25 | 🌅 morning | 95 | news:46(51%), homelab:19(21%), ai-tech:12(13%) |
-| 2026-05-24 | 🌙 evening | 100 | news:59(64%), homelab:16(17%), ai-tech:9(10%) |
-| 2026-05-24 | 🌅 morning | 104 | news:52(57%), homelab:17(18%), ai-tech:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-05-31 14:18 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-01 09:40 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

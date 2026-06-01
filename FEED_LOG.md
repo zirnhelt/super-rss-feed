@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-01 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **655** → dedup **534** → new **373** → quality **8**
+- Mix: local:1(12%), climate:1(12%), science:2(25%), scifi:1(12%), news:3(38%)
+- Feeds: local:46, ai-tech:198, climate:66, homelab:146, wellness:1, science:71, scifi:11, news:500
+- Images: 8/8
+
+
+---
+
+
+
 ## 2026-05-31 (Sunday)
 
 #### 🌙 8:30 PM Pacific
@@ -270,50 +283,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
 - ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
 - ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 35)), keeping all
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-## 2026-05-24 (Sunday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **736** → dedup **648** → new **210** → quality **100**
-- Mix: local:1(1%), ai-tech:9(10%), climate:2(2%), homelab:16(17%), science:4(4%), scifi:1(1%), news:59(64%)
-- Feeds: local:37, ai-tech:391, climate:144, homelab:244, science:134, scifi:20, news:500
-- Images: 100/100
-- ⚠️ **CNET** failed — `HTTPSConnectionPool(host='www.cnet.com', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Krebs on Security** failed — `502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 35)), keeping all
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
-- Fetched **719** → dedup **629** → new **205** → quality **104**
-- Mix: local:1(1%), ai-tech:10(11%), climate:2(2%), homelab:17(18%), science:8(9%), scifi:2(2%), news:52(57%)
-- Feeds: local:36, ai-tech:389, climate:145, homelab:237, science:136, scifi:20, news:500
-- Images: 104/104
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **IndigiNews** failed — `415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 49)), keeping all
-- ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 7 column 1 (char 36)), keeping all
 - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
@@ -1549,6 +1518,28 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 2 column 1 (char 15)), keeping all
 - - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 - - ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 36)), keeping all
+
+
+---
+
+
+
+## Week of 2026-05-24–2026-05-24
+- 2 runs · avg fetched 728 · avg quality 102
+- Dominant: **news** (60%) local:2 / ai-tech:19 / climate:4 / homelab:33 / science:12 / scifi:3 / news:111
+- - ⚠️ CNET failed — HTTPSConnectionPool(host='www.cnet.com', port=443): Read timed out. (read timeout=10)
+- - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Krebs on Security failed — 502 Server Error: Bad Gateway for url: https://krebsonsecurity.com/feed/
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
+- - ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 35)), keeping all
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
+- - ⚠️ IndigiNews failed — 415 Client Error: Unsupported Media Type for url: https://indiginews.com/feed/
+- - ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 49)), keeping all
+- - ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 7 column 1 (char 36)), keeping all
 
 
 ---
