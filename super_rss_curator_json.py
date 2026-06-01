@@ -3047,11 +3047,13 @@ def main():
     print("\n✅ Feed generation complete!")
 
 
-def bootstrap_feeds_from_podcast_cache():
+def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     """Repopulate empty feed JSON files from the podcast articles cache.
 
-    Reads podcast_articles_cache.json (7-day retention, Claude-era scores) and
-    writes qualifying articles directly into the feed-*.json files, bypassing the
+    Reads podcast_articles_cache.json (7-day retention) and re-scores every
+    article through the live scoring pipeline (Cohere if enabled, Claude otherwise)
+    so backlog articles get scores consistent with what new articles receive.
+    Writes qualifying articles directly into the feed-*.json files, bypassing the
     shown-cache filter.  Intended as a one-time recovery after the Cohere scoring
     bug drained the feeds.  Run before the normal curator so the retention mechanism
     can merge these articles with new ones on the next scheduled CI run.
@@ -3068,36 +3070,109 @@ def bootstrap_feeds_from_podcast_cache():
         return
 
     retention_cutoff = datetime.now(timezone.utc) - timedelta(days=LIMITS['feed_retention_days'])
-    min_score = LIMITS['min_claude_score']
 
-    by_category: Dict[str, list] = defaultdict(list)
-    skipped_old = 0
-    skipped_low = 0
+    # Build Article objects from podcast cache entries so we can pass them through
+    # the scoring pipeline rather than using their stored (Claude-era) scores.
+    articles: List[Article] = []
+    skipped = 0
     for item in cached:
+        link = item.get('link', '')
+        if not link:
+            skipped += 1
+            continue
         try:
             pub_date = datetime.fromisoformat(item['pub_date'])
         except Exception:
-            skipped_old += 1
+            skipped += 1
             continue
         if pub_date <= retention_cutoff:
-            skipped_old += 1
+            skipped += 1
             continue
-        score = item.get('score', 0)
-        if score < min_score:
-            skipped_low += 1
-            continue
-        cat = item.get('category') or 'news'
+        entry = _AttrDict({
+            'title': item.get('title', ''),
+            'link': link,
+            'description': item.get('description', '') or item.get('summary', ''),
+            'summary': item.get('summary', ''),
+            'published_parsed': None,
+            'updated_parsed': None,
+            'media_thumbnail': [],
+            'media_content': [],
+            'enclosures': [],
+        })
+        try:
+            article = Article(entry, item.get('source', ''), item.get('source_url', ''))
+            article.pub_date = pub_date
+            if item.get('image'):
+                article.image = item['image']
+            # Preserve original category as a hint; scoring may override it
+            article.category = item.get('category') or 'news'
+            article.score = item.get('score', 0)
+            articles.append(article)
+        except Exception:
+            skipped += 1
+
+    print(f"📦 Bootstrap: {len(cached)} cached → {len(articles)} within retention ({skipped} skipped)")
+
+    # Score through the live pipeline so backlog articles get the same treatment
+    # as new articles.  The scored_articles_cache may contain stale pre-fix Cohere
+    # scores (all 0–9); we bypass it by calling score_with_rerank() directly.
+    if cohere_integration.is_enabled():
+        print(f"🔮 Re-scoring {len(articles)} bootstrap articles through Cohere (new normalization)...")
+        interests_file = CONFIG_DIR / 'scoring_interests.txt'
+        try:
+            interests = interests_file.read_text().strip()
+        except FileNotFoundError:
+            interests = 'Technology, science, climate, local news'
+
+        rerank_scores = cohere_integration.score_with_rerank(articles, interests)
+        timestamp = datetime.now(timezone.utc).timestamp()
+        scored_cache = load_scored_cache()
+        for article in articles:
+            score, _ = rerank_scores.get(article.url_hash, (0, ''))
+            article.score = score
+            # Re-derive category from keywords so it matches the regular pipeline
+            article.category = (categorize_article(article.title, article.description)
+                                 or article.category or 'news')
+            scored_cache[article.url_hash] = {
+                'score': score,
+                'category': article.category,
+                'story_group': None,
+                'timestamp': timestamp,
+            }
+        save_scored_cache(scored_cache)
+        print(f"   ✅ Scored and cached {len(articles)} articles")
+
+    elif api_key:
+        # Claude fallback — uses the scored_articles_cache so already-cached articles
+        # are free; only articles not yet in cache will be billed.
+        print(f"🤖 Scoring bootstrap articles through Claude...")
+        articles = score_articles_with_claude(articles, api_key)
+    else:
+        print("⚠️  No scoring API available — using stored podcast-cache scores")
+
+    articles = enforce_local_priority(articles)
+    articles = apply_source_preferences(articles)
+
+    quality_articles = [a for a in articles if a.score >= LIMITS['min_claude_score']]
+    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): "
+          f"{len(articles)} → {len(quality_articles)} articles")
+
+    # Group by category
+    categorized: Dict[str, List[Article]] = defaultdict(list)
+    for article in quality_articles:
+        cat = article.category or 'news'
         if cat not in CATEGORIES:
             cat = 'news'
-        by_category[cat].append(item)
+        categorized[cat].append(article)
 
-    print(f"📦 Bootstrap: {len(cached)} cached → {sum(len(v) for v in by_category.values())} eligible"
-          f" ({skipped_old} too old, {skipped_low} low-score)")
+    print(f"\n📂 Bootstrap categorization:")
+    for cat_key in CATEGORIES.keys():
+        print(f"  {cat_key}: {len(categorized[cat_key])} articles")
 
     total_written = 0
     for cat_key in CATEGORIES.keys():
-        items = by_category.get(cat_key, [])
-        items.sort(key=lambda x: x.get('score', 0), reverse=True)
+        items: List[Article] = sorted(categorized.get(cat_key, []),
+                                      key=lambda a: a.score, reverse=True)
 
         # Load any existing feed to avoid duplicates
         feed_file = f"feed-{cat_key}.json"
@@ -3133,31 +3208,30 @@ def bootstrap_feeds_from_podcast_cache():
         }
 
         added = 0
-        for item in items:
-            link = item.get('link', '')
-            if not link or link in existing_urls:
-                continue
-            pub_date_str = item.get('pub_date', '')
-            try:
-                pub_dt = datetime.fromisoformat(pub_date_str)
-            except Exception:
+        for article in items:
+            if not article.link or article.link in existing_urls:
                 continue
             feed_item = {
-                "id": link,
-                "url": link,
-                "title": f"[{item.get('source', '')}] {item.get('title', '')}",
-                "content_html": item.get('description', ''),
-                "date_published": pub_dt.isoformat(),
-                "authors": [{"name": item.get('source', ''), "url": item.get('source_url', '')}],
-                "_score": item.get('score', 0),
+                "id": article.link,
+                "url": article.link,
+                "title": (article.title if article.title.startswith(f"[{article.source}]")
+                          else f"[{article.source}] {article.title}"),
+                "content_html": article.description,
+                "date_published": article.pub_date.isoformat(),
+                "authors": [{"name": article.source, "url": article.source_url}],
+                "_score": article.score,
             }
-            if item.get('image'):
-                feed_item['image'] = item['image']
+            if getattr(article, 'image', None):
+                feed_item['image'] = article.image
+                feed_item['content_html'] = (
+                    f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n'
+                    + (article.description or '')
+                )
             if cat_key == 'local':
                 feed_item['_local'] = True
                 feed_item['tags'] = ['local-priority']
             feed['items'].append(feed_item)
-            existing_urls.add(link)
+            existing_urls.add(article.link)
             added += 1
 
         feed['items'].sort(key=lambda x: x.get('date_published', ''), reverse=True)
@@ -3177,6 +3251,6 @@ def bootstrap_feeds_from_podcast_cache():
 
 if __name__ == '__main__':
     if '--bootstrap-feeds' in sys.argv:
-        bootstrap_feeds_from_podcast_cache()
+        bootstrap_feeds_from_podcast_cache(api_key=os.getenv('ANTHROPIC_API_KEY', ''))
     else:
         main()
