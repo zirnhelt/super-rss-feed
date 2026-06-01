@@ -84,10 +84,25 @@ def score_with_rerank(articles: List[Any], interests_text: str) -> Dict[str, Tup
             documents=documents,
             top_n=len(documents),
         )
+        # Rank-percentile normalization: Cohere's absolute relevance scores are
+        # calibrated to query specificity, not to the 0-100 scale Claude uses.
+        # For a niche interest query (rural BC, homelab, 3D printing…) most general
+        # news articles score 0.00–0.05, making the min_claude_score=15 threshold
+        # filter out everything. Treating the scores as relative rankings and mapping
+        # to percentile bands restores the expected pass rate (~30% of the batch).
+        ranked = sorted(result.results, key=lambda x: x.relevance_score, reverse=True)
+        n = len(ranked)
         scores: Dict[str, Tuple[int, str]] = {}
-        for item in result.results:
+        for rank, item in enumerate(ranked):
             url_hash = articles[item.index].url_hash
-            scores[url_hash] = (int(item.relevance_score * 100), '')
+            p = rank / max(n - 1, 1)  # 0.0 = best article, 1.0 = worst
+            if p <= 0.30:
+                # Top 30%: score 20–80 → passes min_claude_score filter
+                normalized = int(80 - (80 - 20) * p / 0.30)
+            else:
+                # Bottom 70%: score 0–14 → filtered out by quality threshold
+                normalized = int(14 * (1.0 - p) / 0.70)
+            scores[url_hash] = (normalized, '')
         return scores
     except Exception as e:
         print(f"  ⚠️  Cohere Rerank error: {e}")
@@ -248,7 +263,10 @@ def prefilter_scrub_articles(
     documents = [f"{a.title}. {(a.description or '')[:100]}" for a in articles]
     _local = [s.lower() for s in (local_signals or [])]
 
-    INTEREST_FLOOR = 4.0
+    # Only auto-remove articles with essentially zero Cohere relevance (< 0.01).
+    # The primary scorer already filtered the bottom 70%; the Haiku scrub handles
+    # borderline content. A floor of 4.0 was too aggressive for niche interest queries.
+    INTEREST_FLOOR = 1.0
 
     try:
         result = co.rerank(

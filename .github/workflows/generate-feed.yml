@@ -72,6 +72,40 @@ jobs:
           wc -l feed-*.json 2>/dev/null || echo "(no feed files yet)"
         continue-on-error: true
       
+      - name: Bootstrap thin feeds from podcast cache
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+        run: |
+          # Re-score the 7-day podcast cache through the live scoring pipeline and
+          # seed any feed that has fewer than 20 items.  This is a fast no-op when
+          # feeds are healthy; it provides automatic recovery when scoring issues
+          # drain the feeds.  Runs before the main curator so the retention window
+          # picks up bootstrapped articles on the same run.
+          MIN_ITEMS=20
+          needs_bootstrap=false
+          for feed in local ai-tech climate homelab wellness news science scifi; do
+            count=$(python3 -c "
+import json, sys
+try:
+    d = json.load(open('feed-${feed}.json'))
+    print(len(d.get('items', [])))
+except:
+    print(0)
+" 2>/dev/null || echo 0)
+            if [ "$count" -lt "$MIN_ITEMS" ]; then
+              echo "  feed-${feed}.json has $count items (< $MIN_ITEMS) — bootstrap needed"
+              needs_bootstrap=true
+            fi
+          done
+          if [ "$needs_bootstrap" = "true" ]; then
+            echo "Running bootstrap..."
+            python super_rss_curator_json.py --bootstrap-feeds 2>&1
+          else
+            echo "All feeds healthy — skipping bootstrap"
+          fi
+        continue-on-error: true
+
       - name: Generate RSS feed
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
