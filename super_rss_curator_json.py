@@ -3047,5 +3047,136 @@ def main():
     print("\n✅ Feed generation complete!")
 
 
+def bootstrap_feeds_from_podcast_cache():
+    """Repopulate empty feed JSON files from the podcast articles cache.
+
+    Reads podcast_articles_cache.json (7-day retention, Claude-era scores) and
+    writes qualifying articles directly into the feed-*.json files, bypassing the
+    shown-cache filter.  Intended as a one-time recovery after the Cohere scoring
+    bug drained the feeds.  Run before the normal curator so the retention mechanism
+    can merge these articles with new ones on the next scheduled CI run.
+    """
+    if not os.path.exists(PODCAST_CACHE_FILE):
+        print("❌ podcast_articles_cache.json not found")
+        return
+
+    try:
+        with open(PODCAST_CACHE_FILE, 'r', encoding='utf-8') as f:
+            cached = json.load(f)
+    except Exception as e:
+        print(f"❌ Failed to load podcast cache: {e}")
+        return
+
+    retention_cutoff = datetime.now(timezone.utc) - timedelta(days=LIMITS['feed_retention_days'])
+    min_score = LIMITS['min_claude_score']
+
+    by_category: Dict[str, list] = defaultdict(list)
+    skipped_old = 0
+    skipped_low = 0
+    for item in cached:
+        try:
+            pub_date = datetime.fromisoformat(item['pub_date'])
+        except Exception:
+            skipped_old += 1
+            continue
+        if pub_date <= retention_cutoff:
+            skipped_old += 1
+            continue
+        score = item.get('score', 0)
+        if score < min_score:
+            skipped_low += 1
+            continue
+        cat = item.get('category') or 'news'
+        if cat not in CATEGORIES:
+            cat = 'news'
+        by_category[cat].append(item)
+
+    print(f"📦 Bootstrap: {len(cached)} cached → {sum(len(v) for v in by_category.values())} eligible"
+          f" ({skipped_old} too old, {skipped_low} low-score)")
+
+    total_written = 0
+    for cat_key in CATEGORIES.keys():
+        items = by_category.get(cat_key, [])
+        items.sort(key=lambda x: x.get('score', 0), reverse=True)
+
+        # Load any existing feed to avoid duplicates
+        feed_file = f"feed-{cat_key}.json"
+        existing_urls: set = set()
+        existing_items: list = []
+        if os.path.exists(feed_file):
+            try:
+                with open(feed_file, 'r', encoding='utf-8') as f:
+                    existing_feed = json.load(f)
+                for ei in existing_feed.get('items', []):
+                    try:
+                        pub_date = datetime.fromisoformat(ei['date_published'].replace('Z', '+00:00'))
+                    except Exception:
+                        continue
+                    if pub_date > retention_cutoff:
+                        existing_urls.add(ei['url'])
+                        existing_items.append(ei)
+            except Exception:
+                pass
+
+        cat_config = CATEGORIES[cat_key]
+        feed_config = FEEDS_CONFIG['feeds'][cat_key]
+        feed = {
+            "version": "https://jsonfeed.org/version/1.1",
+            "title": f"{cat_config['emoji']} {feed_config['title']}",
+            "home_page_url": FEEDS_CONFIG['base_url'],
+            "feed_url": f"{FEEDS_CONFIG['base_url']}/feed-{cat_key}.json",
+            "description": feed_config['description'],
+            "icon": f"{FEEDS_CONFIG['base_url']}/favicon.ico",
+            "authors": [{"name": FEEDS_CONFIG['author']}],
+            "language": "en",
+            "items": list(existing_items),
+        }
+
+        added = 0
+        for item in items:
+            link = item.get('link', '')
+            if not link or link in existing_urls:
+                continue
+            pub_date_str = item.get('pub_date', '')
+            try:
+                pub_dt = datetime.fromisoformat(pub_date_str)
+            except Exception:
+                continue
+            feed_item = {
+                "id": link,
+                "url": link,
+                "title": f"[{item.get('source', '')}] {item.get('title', '')}",
+                "content_html": item.get('description', ''),
+                "date_published": pub_dt.isoformat(),
+                "authors": [{"name": item.get('source', ''), "url": item.get('source_url', '')}],
+                "_score": item.get('score', 0),
+            }
+            if item.get('image'):
+                feed_item['image'] = item['image']
+            if cat_key == 'local':
+                feed_item['_local'] = True
+                feed_item['tags'] = ['local-priority']
+            feed['items'].append(feed_item)
+            existing_urls.add(link)
+            added += 1
+
+        feed['items'].sort(key=lambda x: x.get('date_published', ''), reverse=True)
+        feed['items'] = feed['items'][:LIMITS['max_feed_size']]
+
+        with open(feed_file, 'w', encoding='utf-8') as f:
+            json.dump(feed, f, indent=2, ensure_ascii=False)
+
+        if added:
+            print(f"  ✅ {cat_key}: wrote {added} bootstrap articles ({len(feed['items'])} total)")
+            total_written += added
+        else:
+            print(f"  — {cat_key}: no new bootstrap articles (feed already has {len(existing_items)})")
+
+    print(f"\n🎉 Bootstrap complete: {total_written} articles written across {len(CATEGORIES)} feeds")
+
+
 if __name__ == '__main__':
-    main()
+    if '--bootstrap-feeds' in sys.argv:
+        bootstrap_feeds_from_podcast_cache()
+    else:
+        main()
