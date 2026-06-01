@@ -3125,22 +3125,27 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
             interests = 'Technology, science, climate, local news'
 
         rerank_scores = cohere_integration.score_with_rerank(articles, interests)
-        timestamp = datetime.now(timezone.utc).timestamp()
-        scored_cache = load_scored_cache()
-        for article in articles:
-            score, _ = rerank_scores.get(article.url_hash, (0, ''))
-            article.score = score
-            # Re-derive category from keywords so it matches the regular pipeline
-            article.category = (categorize_article(article.title, article.description)
-                                 or article.category or 'news')
-            scored_cache[article.url_hash] = {
-                'score': score,
-                'category': article.category,
-                'story_group': None,
-                'timestamp': timestamp,
-            }
-        save_scored_cache(scored_cache)
-        print(f"   ✅ Scored and cached {len(articles)} articles")
+        if not rerank_scores:
+            print("⚠️  Cohere returned no scores — keeping stored podcast-cache scores")
+        else:
+            timestamp = datetime.now(timezone.utc).timestamp()
+            scored_cache = load_scored_cache()
+            for article in articles:
+                # Fall back to the stored podcast-cache score so a Cohere API hiccup
+                # does not zero out every article and produce an empty bootstrap.
+                score, _ = rerank_scores.get(article.url_hash, (article.score, ''))
+                article.score = score
+                # Re-derive category from keywords so it matches the regular pipeline
+                article.category = (categorize_article(article.title, article.description)
+                                     or article.category or 'news')
+                scored_cache[article.url_hash] = {
+                    'score': score,
+                    'category': article.category,
+                    'story_group': None,
+                    'timestamp': timestamp,
+                }
+            save_scored_cache(scored_cache)
+            print(f"   ✅ Scored and cached {len(articles)} articles")
 
     elif api_key:
         # Claude fallback — uses the scored_articles_cache so already-cached articles
