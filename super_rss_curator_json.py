@@ -191,11 +191,48 @@ def _follow_google_news_redirect(url: str) -> str:
                             timeout=8, stream=True)
         resp.close()
         final = resp.url
-        if 'news.google.com' not in final:
+        parsed_final = urlparse(final)
+        netloc = parsed_final.netloc.lower()
+        if netloc and not (netloc == 'google.com' or netloc.endswith('.google.com')):
             return final
     except Exception:
         pass
     return url
+
+
+def _brave_resolve_google_news(article: 'Article') -> Optional[str]:
+    """Last-resort URL resolution via Brave Search when base64 decode and HTTP redirect fail.
+
+    Searches for the article title (optionally scoped to the outlet domain) and returns
+    the first non-Google result URL. Requires BRAVE_API_KEY env var.
+    """
+    brave_key = os.environ.get('BRAVE_API_KEY', '')
+    if not brave_key or not article.title:
+        return None
+
+    query = f'"{article.title}"'
+    if article.source and '.' not in article.source:
+        source_slug = article.source.lower().replace(' ', '')
+        query = f'site:{source_slug}.com {query}'
+
+    params = {'q': query, 'count': 3}
+    headers = {'X-Subscription-Token': brave_key, 'Accept': 'application/json'}
+    try:
+        resp = requests.get(
+            'https://api.search.brave.com/res/v1/web/search',
+            headers=headers, params=params, timeout=10
+        )
+        resp.raise_for_status()
+        results = resp.json().get('web', {}).get('results', [])
+        for r in results:
+            url = r.get('url', '')
+            parsed = urlparse(url)
+            netloc = parsed.netloc.lower()
+            if netloc and not (netloc == 'google.com' or netloc.endswith('.google.com')):
+                return url
+    except Exception:
+        pass
+    return None
 
 
 def resolve_google_news_urls(articles: List['Article']) -> None:
@@ -214,6 +251,9 @@ def resolve_google_news_urls(articles: List['Article']) -> None:
         if real_url:
             article.link = real_url
             article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
+            _parsed = urlparse(real_url)
+            if _parsed.scheme and _parsed.netloc:
+                article.source_url = f"{_parsed.scheme}://{_parsed.netloc}"
         else:
             needs_network.append(article)
 
@@ -225,9 +265,23 @@ def resolve_google_news_urls(articles: List['Article']) -> None:
         if real_url != article.link:
             article.link = real_url
             article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
+            _parsed = urlparse(real_url)
+            if _parsed.scheme and _parsed.netloc:
+                article.source_url = f"{_parsed.scheme}://{_parsed.netloc}"
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
         list(pool.map(_resolve_one, needs_network))
+
+    still_aggregator = [a for a in needs_network if _is_aggregator_url(a.link)]
+    if still_aggregator and os.environ.get('BRAVE_API_KEY'):
+        for article in still_aggregator:
+            real_url = _brave_resolve_google_news(article)
+            if real_url:
+                article.link = real_url
+                article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
+                _parsed = urlparse(real_url)
+                if _parsed.scheme and _parsed.netloc:
+                    article.source_url = f"{_parsed.scheme}://{_parsed.netloc}"
 
 
 # ---------------------------------------------------------------------------
@@ -309,7 +363,7 @@ class Article:
         raw_title = entry.get('title', '').strip()
         # Remove " - SourceName" pattern common in Google News
         extracted_outlet = None
-        if ' - ' in raw_title:
+        if is_google_news and ' - ' in raw_title:
             parts = raw_title.rsplit(' - ', 1)
             # Only remove if the suffix looks like a source name (not too long)
             if len(parts) == 2 and len(parts[1]) < 50:
