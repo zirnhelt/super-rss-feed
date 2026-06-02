@@ -11,24 +11,24 @@
     "description": "Self-hosted infrastructure, 3D printing, serious home automation - NOT consumer gadgets or tips"
   },
   "climate": {
-    "include": ["climate", "renewable energy", "solar", "EV", "electric vehicle", "battery technology", "carbon", "clean energy", "sustainability"],
-    "exclude": ["consumer electronics", "phone chargers", "USB accessories", "general tech gadgets"],
-    "description": "Climate tech, renewable energy, EVs - NOT general electronics or gadgets"
-  },
-  "science": {
-    "include": ["research", "study", "discovery", "paper", "journal", "particle physics", "scientific"],
-    "exclude": ["product reviews", "consumer tech", "apps"],
-    "description": "Scientific research, discoveries, academic papers - NOT tech news or reviews"
+    "include": ["climate", "renewable energy", "solar", "EV battery", "EV charging", "EV market", "EV sales", "EV fleet", "EV adoption", "EV truck", "all-electric", "electric vehicle", "battery technology", "carbon", "clean energy", "sustainability"],
+    "exclude": ["consumer electronics", "phone chargers", "USB accessories", "general tech gadgets", "earnings", "revenue analysis", "valuation", "% rally", "RCMP", "missing person", "crime", "disappearance", "murder", "monitor", "OLED", "tablet", "laptop"],
+    "description": "Climate tech, renewable energy, EVs - NOT general electronics, gadgets, financial news, or crime"
   },
   "wellness": {
     "include": ["health", "wellness", "nutrition", "fitness", "mental health", "exercise", "sleep", "diet", "longevity", "gut health", "microbiome", "preventive health", "preventative", "chronic disease", "wellbeing", "medicine", "healthcare", "anxiety", "depression", "stress", "mindfulness", "therapy", "physical activity", "obesity", "diabetes", "heart disease", "immune system", "inflammation"],
-    "exclude": ["sports scores", "game results", "athlete stats", "product review", "gadget review", "consumer electronics"],
-    "description": "Personal health, nutrition, mental health, fitness, and medicine - NOT sports coverage or tech reviews"
+    "exclude": ["sports scores", "game results", "athlete stats", "product review", "gadget review", "consumer electronics", "war live", "shooter", "shooting", "RCMP", "crime unit", "gunman", "hostage"],
+    "description": "Personal health, nutrition, mental health, fitness, and medicine - NOT sports, tech reviews, or crime/conflict news"
+  },
+  "science": {
+    "include": ["research paper", "scientific journal", "study", "discovery", "particle physics", "scientific"],
+    "exclude": ["product reviews", "consumer tech", "apps", "journalist", "photojournalist", "% off", "on sale", "deal", "discount", "tablet", "smartphone", "laptop", "monitor"],
+    "description": "Scientific research, discoveries, academic papers - NOT tech news, product deals, or journalism industry stories"
   },
   "scifi": {
-    "include": ["science fiction", "sci-fi", "speculative fiction", "fantasy", "novel", "book", "worldbuilding", "author", "fiction", "solarpunk", "cli-fi", "cyberpunk", "dystopian", "space opera"],
-    "exclude": ["apps", "digital minimalism", "productivity", "phone features", "tech lifestyle"],
-    "description": "Science fiction and fantasy ONLY - NOT tech lifestyle or productivity apps"
+    "include": ["science fiction", "sci-fi", "speculative fiction", "fantasy", "fiction book", "science fiction novel", "fantasy novel", "science fiction author", "fantasy author", "book review", "graphic novel", "worldbuilding", "solarpunk", "cli-fi", "cyberpunk", "dystopian", "space opera"],
+    "exclude": ["apps", "digital minimalism", "productivity", "phone features", "tech lifestyle", "free e-book", "kindle deal", "e-book deal", "ebook deal", "free kindle", "amazon prime books"],
+    "description": "Science fiction and fantasy ONLY - NOT tech lifestyle, productivity apps, or promotional e-book deals"
   },
   "ai-tech": {
     "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "large language model", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure", "ChatGPT", "OpenAI", "Gemini", "Claude AI", "foundation model", "neural network", "deep learning", "computer vision", "natural language processing", "generative AI", "model training", "fine-tuning", "transformer model", "Microsoft Copilot", "Google AI", "Apple Intelligence", "AI agent", "AI model", "language model"],
