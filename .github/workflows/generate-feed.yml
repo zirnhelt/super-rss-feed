@@ -5,7 +5,7 @@ on:
     # Run 2 times daily for cumulative feed updates
     - cron: '30 12 * * *'  # 4:30 AM Pacific  (12:30 UTC)
     - cron: '30 4 * * *'   # 8:30 PM Pacific  (04:30 UTC next day)
-  workflow_dispatch:
+  workflow_dispatch:  # keep bare — adding inputs: hides the Run workflow button
 
 permissions:
   contents: write
