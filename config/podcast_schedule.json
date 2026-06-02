@@ -38,6 +38,8 @@
       "scoring_prompt": "Rate how well this article fits the theme 'Indigenous Lands & Innovation' through a RURAL TECH AND INNOVATION lens. Strong fits include: language revitalization technology for Tŝilhqot'in/Secwépemc/Dakelh, Indigenous guardian programs using remote monitoring and sensors, land management tech and environmental monitoring on Indigenous lands, digital tools for traditional knowledge preservation, community mapping and GIS for land claims, Indigenous-led connectivity projects, technology for cultural heritage documentation, mobile apps for language learning, drone/satellite monitoring for stewardship, reconciliation through digital collaboration, and how Cariboo Indigenous nations use innovation for self-determination. Prefer articles that bridge Indigenous governance/culture AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "friday": {
+      "min_score": 38,
+      "holdover_threshold": 22,
       "label": "Wild Spaces & Outdoor Life",
       "description": "Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate",
       "theme_description": "Today we head into the wild — the Chilcotin (chil-KOH-tin) plateau, river valleys, and backcountry that define the Cariboo experience. We're covering the technology helping monitor, protect, and navigate these landscapes: wildfire detection, wildlife tracking, satellite communication, and the tools keeping backcountry travellers safe and conservationists informed.",
@@ -46,6 +48,8 @@
       "scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "saturday": {
+      "min_score": 35,
+      "holdover_threshold": 20,
       "label": "Cariboo Local Affairs",
       "description": "Williams Lake, Quesnel, 100 Mile House, Bella Coola — community stories and digital equity",
       "theme_description": "Today is all about the Cariboo-Chilcotin (chil-KOH-tin) region: the decisions, events, and conversations happening in Williams Lake, Quesnel, 100 Mile House, Bella Coola, and the surrounding region. We're covering local government, community life, economic stories, and the digital equity challenges that shape what it means to live and work in rural BC.",
