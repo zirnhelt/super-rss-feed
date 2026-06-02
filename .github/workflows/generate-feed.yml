@@ -1,8 +1,6 @@
 name: Generate Super RSS Feed
 
 on:
-  push:
-    branches: ['**']
   schedule:
     # Run 2 times daily for cumulative feed updates
     - cron: '30 12 * * *'  # 4:30 AM Pacific  (12:30 UTC)
@@ -21,7 +19,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'push'
 
     steps:
       - name: Checkout repository
