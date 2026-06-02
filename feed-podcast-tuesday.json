@@ -22,278 +22,253 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' through a RURAL TECH AND INNOVATION lens. Strong fits include: precision forestry and remote sensing in Cariboo logging, AgTech and ranch management systems, mining automation and safety technology, farm sensors and soil monitoring, sawmill modernization and automation, drone surveys for resource management, IoT in agriculture and ranching, climate adaptation tech for working lands, workforce training for industrial tech, commodity tracking and supply chain tech, and how Cariboo resource industries adopt innovation. Prefer articles that bridge resource economy AND technology in rural/industrial contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-06-02T01:34:53.199873+00:00",
+    "generated_at": "2026-06-02T01:57:19.262125+00:00",
     "article_count": 40,
-    "bonus_count": 36,
+    "bonus_count": 35,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.agweb.com/",
-      "url": "https://www.agweb.com/",
-      "title": "[AgWeb] Agriculture news and commodity markets",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.agweb.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nToday’s agriculture news, commodity prices, and ag market insights serving farmers, ranchers, and producers.",
-      "summary": "Today’s agriculture news, commodity prices, and ag market insights serving farmers, ranchers, and producers.",
-      "_excerpt": "Today’s agriculture news, commodity prices, and ag market insights serving farmers, ranchers, and producers.",
-      "date_published": "2026-06-02T01:33:20.672294+00:00",
+      "id": "https://www.nytimes.com/2026/06/01/magazine/ai-university-college-california.html",
+      "url": "https://www.nytimes.com/2026/06/01/magazine/ai-university-college-california.html",
+      "title": "[NYT Top Stories] California’s Public Universities Went All in on A.I. Now They’re Tearing Themselves Apart.",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCalifornia’s public universities spent $16.9 million on A.I. during a financial crisis, and the result has been chaos.",
+      "summary": "California’s public universities spent $16.9 million on A.I. during a financial crisis, and the result has been chaos.",
+      "_excerpt": "California’s public universities spent $16.9 million on A.I. during a financial crisis, and the result has been chaos.",
+      "date_published": "2026-06-01T18:21:15+00:00",
       "authors": [
         {
-          "name": "AgWeb",
-          "url": "https://www.agweb.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
-      "ai_score": 74,
-      "_quality_score": 74,
+      "ai_score": 81,
+      "_quality_score": 81,
       "_theme_score": 0,
       "_final_score": 0,
-      "_keyword_matches": 2,
-      "_boosted_score": 62,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=www.agweb.com&sz=128"
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
     },
     {
-      "id": "https://www.techradar.com/computing/oscal-pilot-6-rugged-phone-review",
-      "url": "https://www.techradar.com/computing/oscal-pilot-6-rugged-phone-review",
-      "title": "[TechRadar] Oscal Pilot 6 review: A durable design and added extras make this a serious contender in the rugged phone market",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/hXNQn8reMCXBpPuaKscEka-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Oscal Pilot 6 is a rugged Android smartphone that features a high-resolution Samsung camera, large-capacity battery, 98dB speaker, and thermal camera, making it an ideal smartphone solution for anyone working outdoors, in trade, surveying, or industrial work.",
-      "summary": "The Oscal Pilot 6 is a rugged Android smartphone that features a high-resolution Samsung camera, large-capacity battery, 98dB speaker, and thermal camera, making it an ideal smartphone solution for anyone working outdoors, in trade, surveying, or industrial work.",
-      "_excerpt": "The Oscal Pilot 6 is a rugged Android smartphone that features a high-resolution Samsung camera, large-capacity battery, 98dB speaker, and thermal camera, making it an ideal smartphone solution for anyone working outdoors, in trade, surveying, or industrial work.",
-      "date_published": "2026-05-28T06:40:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/hXNQn8reMCXBpPuaKscEka-1280-80.jpg"
-    },
-    {
-      "id": "https://qz.com/starbucks-ceo-worker-pay-ratio-food-service-051926",
-      "url": "https://qz.com/starbucks-ceo-worker-pay-ratio-food-service-051926",
-      "title": "[Quartz] Starbucks' CEO-to-worker pay ratio of is the widest in the S&P 500",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1032240464.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBrian Niccol's $97.8 million compensation dwarfs the median Starbucks employee's $14,674, but the gap looks different at every chain",
-      "summary": "Brian Niccol's $97.8 million compensation dwarfs the median Starbucks employee's $14,674, but the gap looks different at every chain",
-      "_excerpt": "Brian Niccol's $97.8 million compensation dwarfs the median Starbucks employee's $14,674, but the gap looks different at every chain",
-      "date_published": "2026-05-26T20:41:12+00:00",
+      "id": "https://qz.com/carnival-corporation-data-breach-personal-data-060126",
+      "url": "https://qz.com/carnival-corporation-data-breach-personal-data-060126",
+      "title": "[Quartz] Carnival Corporation's data breach exposed personal data of nearly 6 million customers",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1232815767.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn April social engineering attack on an employee account compromised names, dates of birth, and government-issued ID numbers",
+      "summary": "An April social engineering attack on an employee account compromised names, dates of birth, and government-issued ID numbers",
+      "_excerpt": "An April social engineering attack on an employee account compromised names, dates of birth, and government-issued ID numbers",
+      "date_published": "2026-06-01T15:10:32+00:00",
       "authors": [
         {
           "name": "Quartz",
           "url": "https://qz.com"
         }
       ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 35,
-      "_final_score": 35,
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 30,
+      "_boosted_score": 41,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1032240464.jpg"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1232815767.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/06/01/emergency-department-nurses-at-cariboo-memorial-hospital-provincially-recognized/",
-      "url": "https://wltribune.com/2026/06/01/emergency-department-nurses-at-cariboo-memorial-hospital-provincially-recognized/",
-      "title": "[Williams Lake Tribune] Emergency Department nurses at Cariboo Memorial Hospital provincially recognized",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42433065_web1_260604-WLT-Clinical-Impact-Award-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
-      "summary": "3 MIN READ",
-      "_excerpt": "3 MIN READ",
-      "date_published": "2026-06-02T01:33:35.836082+00:00",
+      "id": "https://www.sciencedaily.com/releases/2026/06/260601025329.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/06/260601025329.htm",
+      "title": "[ScienceDaily] Hubble captures M88 on a perilous journey that could change it forever",
+      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/spiral-galaxy-messier-88.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA stunning spiral galaxy called Messier 88 is racing through the crowded Virgo Cluster on a journey that will dramatically reshape its future. At its heart lies a supermassive black hole about 100 million times the mass of the Sun, while its graceful spiral arms sparkle with young star clusters and dark clouds of dust. But as M88 plunges deeper into the cluster over the next few hundred million years, powerful forces will strip away much of the gas it needs to create new stars.",
+      "summary": "A stunning spiral galaxy called Messier 88 is racing through the crowded Virgo Cluster on a journey that will dramatically reshape its future. At its heart lies a supermassive black hole about 100 million times the mass of the Sun, while its graceful spiral arms sparkle with young star clusters and",
+      "_excerpt": "A stunning spiral galaxy called Messier 88 is racing through the crowded Virgo Cluster on a journey that will dramatically reshape its future. At its heart lies a supermassive black hole about 100 million times the mass of the Sun, while its graceful spiral arms sparkle with young star clusters and dark clouds of dust. But as M88 plunges deeper into the cluster over the next few hundred million years, powerful forces will strip away much of the gas it needs to create new stars.",
+      "date_published": "2026-06-01T11:38:16+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://www.sciencedaily.com/images/1920/spiral-galaxy-messier-88.webp"
+    },
+    {
+      "id": "https://qz.com/wise-stock-belgian-prosecutors-money-laundering-investigation-060126",
+      "url": "https://qz.com/wise-stock-belgian-prosecutors-money-laundering-investigation-060126",
+      "title": "[Quartz] Wise stock sinks after Belgian prosecutors launch money-laundering investigation",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275138882.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Brussels Public Prosecutor's Office says it is finalizing an investigation into suspicious transactions worth more than €500 million",
+      "summary": "The Brussels Public Prosecutor's Office says it is finalizing an investigation into suspicious transactions worth more than €500 million",
+      "_excerpt": "The Brussels Public Prosecutor's Office says it is finalizing an investigation into suspicious transactions worth more than €500 million",
+      "date_published": "2026-06-01T17:10:35+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 61,
+      "_quality_score": 61,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275138882.jpg"
+    },
+    {
+      "id": "https://refractor.io/space/supermassive-black-holes-planet-making/",
+      "url": "https://refractor.io/space/supermassive-black-holes-planet-making/",
+      "title": "[New Atlas] Supermassive black holes could be prolific planet-making machines",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/d9638a0/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fcd%2F3f%2F63b3c8eb4d708adf4ac8c6952921%2Fplanet-near-black-hole.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Artist impression of a black hole with a planet\" src=\"https://assets.newatlas.com/dims4/default/c00f2ed/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fcd%2F3f%2F63b3c8eb4d708adf4ac8c6952921%2Fplanet-near-black-hole.jpg\" /><p>You know the story. Clouds of dust and gas collapse to form stars like our Sun, around which the swirling maelstrom of debris slowly coalesces into a system of planets.</p><p><a href=\"https://refractor.io/space/supermassive-black-holes-planet-making/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/space/\">Astronomy</a>, <a href=\"https://refractor.io/science/\">Science</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/supermassive-black-hole/\" rel=\"tag\">Supermassive black hole</a>, <a href=\"https://newatlas.com/tag/planet/\" rel=\"tag\">Planet</a>, <a href=\"https://newatlas.com/tag/exoplanet/\" rel=\"tag\">Exoplanet</a>, <a href=\"https://newatlas.com/tag/stars/\" rel=\"tag\">Stars</a></p>",
+      "summary": "You know the story. Clouds of dust and gas collapse to form stars like our Sun, around which the swirling maelstrom of debris slowly coalesces into a system of planets. Continue Reading Category: Astronomy , Science Tags: Supermassive black hole , Planet , Exoplanet , Stars",
+      "_excerpt": "You know the story. Clouds of dust and gas collapse to form stars like our Sun, around which the swirling maelstrom of debris slowly coalesces into a system of planets. Continue Reading Category: Astronomy , Science Tags: Supermassive black hole , Planet , Exoplanet , Stars",
+      "date_published": "2026-06-01T16:09:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 47,
+      "_quality_score": 47,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/d9638a0/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fcd%2F3f%2F63b3c8eb4d708adf4ac8c6952921%2Fplanet-near-black-hole.jpg&rf.image_optimisation=0"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/01/crown-argues-accused-was-part-of-larger-conspiracy-at-b-c-murder-trial/",
+      "url": "https://wltribune.com/2026/06/01/crown-argues-accused-was-part-of-larger-conspiracy-at-b-c-murder-trial/",
+      "title": "[Williams Lake Tribune] Crown argues accused was part of larger conspiracy at B.C. murder trial",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42454483_web1_240523-KCN-falkangibo-cxz_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEkene Anigbo has pleaded not-guilty to first-degree murder for the death of Kathleen Richardson",
+      "summary": "Ekene Anigbo has pleaded not-guilty to first-degree murder for the death of Kathleen Richardson",
+      "_excerpt": "Ekene Anigbo has pleaded not-guilty to first-degree murder for the death of Kathleen Richardson",
+      "date_published": "2026-06-01T14:50:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 100,
-      "_quality_score": 100,
+      "ai_score": 87,
+      "_quality_score": 87,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42433065_web1_260604-WLT-Clinical-Impact-Award-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/01/williams-lake-rcmp-well-prepared-for-upcoming-annual-stampede/",
-      "url": "https://wltribune.com/2026/06/01/williams-lake-rcmp-well-prepared-for-upcoming-annual-stampede/",
-      "title": "[Williams Lake Tribune] Williams Lake RCMP well prepared for upcoming annual Stampede",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42420783_web1_260604-WLT-RCMP-Detachment-Update-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStaff Sgt. Brad McKinnon shares latest update on detachment activity",
-      "summary": "Staff Sgt. Brad McKinnon shares latest update on detachment activity",
-      "_excerpt": "Staff Sgt. Brad McKinnon shares latest update on detachment activity",
-      "date_published": "2026-06-02T01:33:35.835788+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42420783_web1_260604-WLT-RCMP-Detachment-Update-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.tomsguide.com/home/gardening/toms-guide-to-tomatoes",
-      "url": "https://www.tomsguide.com/home/gardening/toms-guide-to-tomatoes",
-      "title": "[Toms Guide] Tom's Guide to tomatoes",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/f7TWKUYstCXx8Xe34xDYo5-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEverything you need to know about planting, growing, pruning, and harvesting tomatoes.",
-      "summary": "Everything you need to know about planting, growing, pruning, and harvesting tomatoes.",
-      "_excerpt": "Everything you need to know about planting, growing, pruning, and harvesting tomatoes.",
-      "date_published": "2026-05-27T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 28,
-      "_quality_score": 28,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 1,
-      "_boosted_score": 28,
+      "_boosted_score": 26,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/f7TWKUYstCXx8Xe34xDYo5-1280-80.jpg"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/06/01/cariboo-chilcotin-coast-tourism-association-disappointed-by-closure-of-quesnel-vancouver-connection/",
-      "url": "https://quesnelobserver.com/2026/06/01/cariboo-chilcotin-coast-tourism-association-disappointed-by-closure-of-quesnel-vancouver-connection/",
-      "title": "[Quesnel Cariboo Observer] Cariboo Chilcotin Coast Tourism Association disappointed by closure of Quesnel, Vancouver connection",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42447475_web1_web1_quesnel-airport.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPacific Coastal Airlines has announced its intention to end its Quesnel to Vancouver direct flight",
-      "summary": "Pacific Coastal Airlines has announced its intention to end its Quesnel to Vancouver direct flight",
-      "_excerpt": "Pacific Coastal Airlines has announced its intention to end its Quesnel to Vancouver direct flight",
-      "date_published": "2026-06-01T18:40:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "local",
-      "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42447475_web1_web1_quesnel-airport.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42454483_web1_240523-KCN-falkangibo-cxz_3.jpg?w=1024"
     },
     {
-      "id": "https://www.mycariboonow.com/313847/news/municipal-news/city-of-quesnel/quesnel-airport-back-down-to-one-airline/",
-      "url": "https://www.mycariboonow.com/313847/news/municipal-news/city-of-quesnel/quesnel-airport-back-down-to-one-airline/",
-      "title": "[My Cariboo Now] Quesnel Airport back down to one airline : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2020/04/quesnel-airport-scaled-e1620754893552.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-02T01:32:48.477320+00:00",
+      "id": "https://markets.businessinsider.com/news/stocks/goldman-hedge-funds-betting-big-ai-stocks-amazon-nvidia-alphabet-2026-6",
+      "url": "https://markets.businessinsider.com/news/stocks/goldman-hedge-funds-betting-big-ai-stocks-amazon-nvidia-alphabet-2026-6",
+      "title": "[Business Insider] Stockpicking hedge funds are 'all in' on AI bets — and increasingly skeptical of everything else",
+      "content_html": "<img src=\"https://i.insider.com/6a1dabeab4fb977f35982d0a?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHedge funds are making their biggest-ever bet on AI, with names like Amazon and Nvidia among their most popular holdings, a Goldman report says.",
+      "summary": "Hedge funds are making their biggest-ever bet on AI, with names like Amazon and Nvidia among their most popular holdings, a Goldman report says.",
+      "_excerpt": "Hedge funds are making their biggest-ever bet on AI, with names like Amazon and Nvidia among their most popular holdings, a Goldman report says.",
+      "date_published": "2026-06-01T16:14:44+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
-      "ai_score": 85,
-      "_quality_score": 85,
+      "ai_score": 77,
+      "_quality_score": 77,
       "_theme_score": 0,
       "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2020/04/quesnel-airport-scaled-e1620754893552.jpg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/praise-from-poilievre-but-ex-b-c-conservative-mlas-say-new-leader-will-polarize-12359130",
-      "url": "https://www.piquenewsmagazine.com/national-news/praise-from-poilievre-but-ex-b-c-conservative-mlas-say-new-leader-will-polarize-12359130",
-      "title": "[Pique Newsmagazine] Praise from Poilievre, but ex-B. C. Conservative MLAs say new leader will polarize",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/43c36b24815a8da62a328157675dd8af0687b15edcef9f841ffff3a89fbf5828.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVICTORIA — Two former B.C. Conservative legislators now sitting as Independents say new leader Kerry-Lynne Findlay will polarize the province. \n Amelia Boultbee said Findlay's victory on Saturday showed that part of the B.C.",
-      "summary": "VICTORIA — Two former B.C. Conservative legislators now sitting as Independents say new leader Kerry-Lynne Findlay will polarize the province. Amelia Boultbee said Findlay's victory on Saturday showed that part of the B.C.",
-      "_excerpt": "VICTORIA — Two former B.C. Conservative legislators now sitting as Independents say new leader Kerry-Lynne Findlay will polarize the province. Amelia Boultbee said Findlay's victory on Saturday showed that part of the B.C.",
-      "date_published": "2026-06-02T00:10:10+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 1,
-      "_final_score": 1,
       "_keyword_matches": 0,
       "_boosted_score": 23,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/43c36b24815a8da62a328157675dd8af0687b15edcef9f841ffff3a89fbf5828.jpg;w=960"
+      "image": "https://i.insider.com/6a1dabeab4fb977f35982d0a?format=jpeg"
     },
     {
-      "id": "https://www.makeuseof.com/i-cut-the-cord-years-ago-still-watch-local-news-for-free-heres-how/",
-      "url": "https://www.makeuseof.com/i-cut-the-cord-years-ago-still-watch-local-news-for-free-heres-how/",
-      "title": "[MakeUseOf] I cut the cord years ago and I still watch local news for free — here's how",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/newson-apple-tv.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDiscover the secret to watching local news for free without a cable subscription.",
-      "summary": "Discover the secret to watching local news for free without a cable subscription.",
-      "_excerpt": "Discover the secret to watching local news for free without a cable subscription.",
-      "date_published": "2026-06-01T21:00:18+00:00",
+      "id": "https://www.statnews.com/2026/06/01/fda-misses-deadline-electric-shock-ban-disability-advocates-speak-out/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/06/01/fda-misses-deadline-electric-shock-ban-disability-advocates-speak-out/?utm_campaign=rss",
+      "title": "[STAT News] As FDA misses deadline on electric shock ban, disability advocates speak out",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2020/08/GettyImages-1227710671-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe FDA has missed a self-imposed deadline to ban the use of electrical shock devices in people with intellectual disabilities.",
+      "summary": "The FDA has missed a self-imposed deadline to ban the use of electrical shock devices in people with intellectual disabilities.",
+      "_excerpt": "The FDA has missed a self-imposed deadline to ban the use of electrical shock devices in people with intellectual disabilities.",
+      "date_published": "2026-06-01T15:30:14+00:00",
       "authors": [
         {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
         }
       ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 1,
-      "_final_score": 1,
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.statnews.com/wp-content/uploads/2020/08/GettyImages-1227710671-645x645.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/every-day-users-find-ai-fun-with-inventive-vibe-coding-2026-6",
+      "url": "https://www.businessinsider.com/every-day-users-find-ai-fun-with-inventive-vibe-coding-2026-6",
+      "title": "[Business Insider] How vibe coders are winning big playing small ball",
+      "content_html": "<img src=\"https://i.insider.com/6a19ea732ab5f9757add6aa6?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVibe coders using AI to solve simple problems, contrasting the high-stakes, risky AI investments in Big Tech.",
+      "summary": "Vibe coders using AI to solve simple problems, contrasting the high-stakes, risky AI investments in Big Tech.",
+      "_excerpt": "Vibe coders using AI to solve simple problems, contrasting the high-stakes, risky AI investments in Big Tech.",
+      "date_published": "2026-06-01T13:43:51+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/newson-apple-tv.png"
+      "image": "https://i.insider.com/6a19ea732ab5f9757add6aa6?format=jpeg"
     },
     {
-      "id": "https://www.aljazeera.com/news/2026/6/1/us-court-upholds-injunction-against-trump-policy-banning-transgender-troops?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/1/us-court-upholds-injunction-against-trump-policy-banning-transgender-troops?traffic_source=rss",
-      "title": "[Al Jazeera English] US court upholds injunction against Trump policy banning transgender troops",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a1e12cc5d853-1780355788.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe decision was split, allowing the Trump administration to continue barring transgender people from enlisting.",
-      "summary": "The decision was split, allowing the Trump administration to continue barring transgender people from enlisting.",
-      "_excerpt": "The decision was split, allowing the Trump administration to continue barring transgender people from enlisting.",
-      "date_published": "2026-06-01T23:22:10+00:00",
+      "id": "https://qz.com/wall-street-futures-nvidia-pc-chip-ai-rally-060126",
+      "url": "https://qz.com/wall-street-futures-nvidia-pc-chip-ai-rally-060126",
+      "title": "[Quartz] Wall Street closed May at record highs on AI and Iran hopes. Now the war is flaring again",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2278503899.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMarkets had ended the month at fresh highs after the U.S. and Iran reached a 60-day memorandum of understanding to extend a ceasefire",
+      "summary": "Markets had ended the month at fresh highs after the U.S. and Iran reached a 60-day memorandum of understanding to extend a ceasefire",
+      "_excerpt": "Markets had ended the month at fresh highs after the U.S. and Iran reached a 60-day memorandum of understanding to extend a ceasefire",
+      "date_published": "2026-06-01T14:30:29+00:00",
       "authors": [
         {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "ai_score": 76,
-      "_quality_score": 76,
+      "ai_score": 75,
+      "_quality_score": 75,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
@@ -301,197 +276,197 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a1e12cc5d853-1780355788.jpg?resize=1920%2C1440"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2278503899.jpg"
     },
     {
-      "id": "https://www.cnet.com/tech/services-and-software/conduent-data-breach-lock-down-your-online-accounts/",
-      "url": "https://www.cnet.com/tech/services-and-software/conduent-data-breach-lock-down-your-online-accounts/",
-      "title": "[CNET] Don't Become a Data Breach Victim. Here's How to Protect Your Online Accounts",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/42a6c159f04ca63308baa798766ae52aa7ceffc9/hub/2025/02/14/c927e451-dae1-46aa-be33-4e95798b8dba/gettyimages-2185295717.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTake a few minutes to keep your information safe from data thieves.",
-      "summary": "Take a few minutes to keep your information safe from data thieves.",
-      "_excerpt": "Take a few minutes to keep your information safe from data thieves.",
-      "date_published": "2026-06-02T00:01:12+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality_score": 73,
-      "_theme_score": 1,
-      "_final_score": 1,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/42a6c159f04ca63308baa798766ae52aa7ceffc9/hub/2025/02/14/c927e451-dae1-46aa-be33-4e95798b8dba/gettyimages-2185295717.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/2/celebration-shock-and-scepticism-follow-colombias-presidential-election?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/2/celebration-shock-and-scepticism-follow-colombias-presidential-election?traffic_source=rss",
-      "title": "[Al Jazeera English] Celebration, shock and scepticism follow Colombia’s presidential election",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/reuters_6a1e20c8-1780359368.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFar-right lawyer Abelardo de la Espriella beat left-wing Senator Ivan Cepeda in the first round, upending expectations.",
-      "summary": "Far-right lawyer Abelardo de la Espriella beat left-wing Senator Ivan Cepeda in the first round, upending expectations.",
-      "_excerpt": "Far-right lawyer Abelardo de la Espriella beat left-wing Senator Ivan Cepeda in the first round, upending expectations.",
-      "date_published": "2026-06-02T01:00:56+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reuters_6a1e20c8-1780359368.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/police-investigate-vandalism-of-rainbow-crosswalk-in-surrey-bc-captured-on-video-12358214",
-      "url": "https://www.piquenewsmagazine.com/national-news/police-investigate-vandalism-of-rainbow-crosswalk-in-surrey-bc-captured-on-video-12358214",
-      "title": "[Pique Newsmagazine] Police investigate vandalism of rainbow crosswalk in Surrey, B.C., captured on video",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/51075048ec285abcf9cfd3e392821bee4b5ae7147a4331f38691e6cf79f00e48.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSURREY — Police in Surrey, B.C., are investigating after video of people vandalizing a rainbow crosswalk was posted on social media over the weekend by the leader of a registered political party.",
-      "summary": "SURREY — Police in Surrey, B.C., are investigating after video of people vandalizing a rainbow crosswalk was posted on social media over the weekend by the leader of a registered political party.",
-      "_excerpt": "SURREY — Police in Surrey, B.C., are investigating after video of people vandalizing a rainbow crosswalk was posted on social media over the weekend by the leader of a registered political party.",
-      "date_published": "2026-06-01T23:32:16+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality_score": 73,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/51075048ec285abcf9cfd3e392821bee4b5ae7147a4331f38691e6cf79f00e48.jpg;w=960"
-    },
-    {
-      "id": "https://www.techradar.com/pro/born-from-basalt-how-a-tiny-hawaii-startup-is-rewriting-the-rules-of-naval-shipbuilding-with-3d-printers-and-100-recyclable-materials",
-      "url": "https://www.techradar.com/pro/born-from-basalt-how-a-tiny-hawaii-startup-is-rewriting-the-rules-of-naval-shipbuilding-with-3d-printers-and-100-recyclable-materials",
-      "title": "[TechRadar] 'Born from basalt' — How a tiny Hawaii startup is rewriting the rules of naval shipbuilding with 3D printers and 100% recyclable materials",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/RXhg5nKYUwsUt2S6rVvzYi-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHawaii startup tests 3D printed basalt reinforced boats, aiming to replace traditional shipyards with distributed rapid naval manufacturing systems globally",
-      "summary": "Hawaii startup tests 3D printed basalt reinforced boats, aiming to replace traditional shipyards with distributed rapid naval manufacturing systems globally",
-      "_excerpt": "Hawaii startup tests 3D printed basalt reinforced boats, aiming to replace traditional shipyards with distributed rapid naval manufacturing systems globally",
-      "date_published": "2026-05-27T22:15:00+00:00",
+      "id": "https://www.techradar.com/pro/security/meta-patches-flaw-that-allowed-metaai-support-bot-to-hand-out-password-reset-links-without-2fa",
+      "url": "https://www.techradar.com/pro/security/meta-patches-flaw-that-allowed-metaai-support-bot-to-hand-out-password-reset-links-without-2fa",
+      "title": "[TechRadar] Meta patches flaw that allowed MetaAI support bot to hand out password reset links without 2FA",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Ct6gzt4QFsbxZWMKYcyU2Y-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHackers were targeting high-profile accounts by tricking AI into sharing reset codes without validation.",
+      "summary": "Hackers were targeting high-profile accounts by tricking AI into sharing reset codes without validation.",
+      "_excerpt": "Hackers were targeting high-profile accounts by tricking AI into sharing reset codes without validation.",
+      "date_published": "2026-06-01T12:05:00+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 55,
-      "_final_score": 55,
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/RXhg5nKYUwsUt2S6rVvzYi-1280-80.png"
-    },
-    {
-      "id": "https://www.zdnet.com/article/best-android-auto-weather-apps/",
-      "url": "https://www.zdnet.com/article/best-android-auto-weather-apps/",
-      "title": "[ZDNet] I switched to MyRadar as my main Android Auto weather app and don't regret it",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/538b13e47a1ff975ab42c86fc869b0eb3ea2e827/2026/05/28/e4a58b6a-4ca6-4b4d-90f1-a82bef18745b/pxl-20260528-170316168.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThere aren't many weather apps for Android Auto, but there's one that easily rises above the rest.",
-      "summary": "There aren't many weather apps for Android Auto, but there's one that easily rises above the rest.",
-      "_excerpt": "There aren't many weather apps for Android Auto, but there's one that easily rises above the rest.",
-      "date_published": "2026-06-01T01:27:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 1,
-      "_final_score": 1,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
+      "_boosted_score": 22,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/538b13e47a1ff975ab42c86fc869b0eb3ea2e827/2026/05/28/e4a58b6a-4ca6-4b4d-90f1-a82bef18745b/pxl-20260528-170316168.jpg?auto=webp&fit=crop&height=675&width=1200"
+      "image": "https://cdn.mos.cms.futurecdn.net/Ct6gzt4QFsbxZWMKYcyU2Y-1280-80.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/06/01/northern-and-rural-home-owner-benefit-to-end-in-2027/",
-      "url": "https://wltribune.com/2026/06/01/northern-and-rural-home-owner-benefit-to-end-in-2027/",
-      "title": "[Williams Lake Tribune] Northern and Rural Home Owner Benefit to end in 2027",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42450434_web1_260108-OEB-BCPropValueAssessment_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe District of 100 Mile House is raising awareness about the cancellation of the $200 grant for rural homeowners",
-      "summary": "The District of 100 Mile House is raising awareness about the cancellation of the $200 grant for rural homeowners",
-      "_excerpt": "The District of 100 Mile House is raising awareness about the cancellation of the $200 grant for rural homeowners",
-      "date_published": "2026-06-02T01:33:35.835974+00:00",
+      "id": "https://www.nytimes.com/2026/06/01/opinion/summer-travel-planes.html",
+      "url": "https://www.nytimes.com/2026/06/01/opinion/summer-travel-planes.html",
+      "title": "[NYT Top Stories] Why This Summer Travel Season Will Be a Nightmare",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAir travel could be disrupted into next year because of high jet fuel prices.",
+      "summary": "Air travel could be disrupted into next year because of high jet fuel prices.",
+      "_excerpt": "Air travel could be disrupted into next year because of high jet fuel prices.",
+      "date_published": "2026-06-01T19:44:26+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/01/police-watchdog-closes-investigation-on-february-crash-in-kelowna/",
+      "url": "https://wltribune.com/2026/06/01/police-watchdog-closes-investigation-on-february-crash-in-kelowna/",
+      "title": "[Williams Lake Tribune] Police watchdog closes investigation on February crash in Kelowna",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42457357_web1_iiosigh.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>It was determined the injuries did not meet the threshold of serious injury </p>",
+      "summary": "It was determined the injuries did not meet the threshold of serious injury",
+      "_excerpt": "It was determined the injuries did not meet the threshold of serious injury",
+      "date_published": "2026-06-01T18:18:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 69,
-      "_quality_score": 69,
+      "ai_score": 70,
+      "_quality_score": 70,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42450434_web1_260108-OEB-BCPropValueAssessment_1.jpg?w=1024"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/01/a-deleted-recording-blows-up-melanias-epstein-story.html",
-      "url": "https://boingboing.net/2026/06/01/a-deleted-recording-blows-up-melanias-epstein-story.html",
-      "title": "[Boing Boing] A deleted recording blows up Melania's Epstein story",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2018/11/melania-beschizza.jpg?fit=1786%2C1195&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/01/a-deleted-recording-blows-up-melanias-epstein-story.html\" rel=\"nofollow\" title=\"A deleted recording blows up Melania&#039;s Epstein story\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1195\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2018/11/melania-beschizza.jpg?fit=1786%2C1195&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1786\" /></a><p>A former model with a messy history around Trumpworld and Jeffrey Epstein has made a new, disputed claim about how Melania Trump met Donald Trump. Just about the only people claiming Epstein didn't introduce the two odious pairs are the pair themselves. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/01/a-deleted-recording-blows-up-melanias-epstein-story.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/01/a-deleted-recording-blows-up-melanias-epstein-story.html\">A deleted recording blows up Melania&#039;s Epstein story</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "A former model with a messy history around Trumpworld and Jeffrey Epstein has made a new, disputed claim about how Melania Trump met Donald Trump. Just about the only people claiming Epstein didn't introduce the two odious pairs are the pair themselves. — Read the rest The post A deleted recording",
-      "_excerpt": "A former model with a messy history around Trumpworld and Jeffrey Epstein has made a new, disputed claim about how Melania Trump met Donald Trump. Just about the only people claiming Epstein didn't introduce the two odious pairs are the pair themselves. — Read the rest The post A deleted recording blows up Melania's Epstein story appeared first on Boing Boing .",
-      "date_published": "2026-06-01T21:44:11+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
+      "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2018/11/melania-beschizza.jpg?fit=1786%2C1195&quality=60&ssl=1"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42457357_web1_iiosigh.jpg?w=1024"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/1/foreign-christians-ask-for-forgiveness-over-failure-to-support-israel-at-knesset?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/1/foreign-christians-ask-for-forgiveness-over-failure-to-support-israel-at-knesset?traffic_source=rss",
-      "title": "[Al Jazeera English] Foreign Christians ask for forgiveness over failure to support Israel at Knesset",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780347658.jpg?resize=1638%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n‘Lord, please forgive us for all the things that we did that we did not support Israel.’",
-      "summary": "‘Lord, please forgive us for all the things that we did that we did not support Israel.’",
-      "_excerpt": "‘Lord, please forgive us for all the things that we did that we did not support Israel.’",
-      "date_published": "2026-06-01T21:01:11+00:00",
+      "id": "https://www.aljazeera.com/news/2026/6/1/former-officials-from-syrias-assad-plead-not-guilty-in-torture-trial?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/1/former-officials-from-syrias-assad-plead-not-guilty-in-torture-trial?traffic_source=rss",
+      "title": "[Al Jazeera English] Former general for Syria’s Assad pleads not guilty in torture trial",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a1dad7ead52-1780329854.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBrigadier General Khaled al-Halabi faces charges of aggravated torture, coercion, sexual coercion and bodily harm.",
+      "summary": "Brigadier General Khaled al-Halabi faces charges of aggravated torture, coercion, sexual coercion and bodily harm.",
+      "_excerpt": "Brigadier General Khaled al-Halabi faces charges of aggravated torture, coercion, sexual coercion and bodily harm.",
+      "date_published": "2026-06-01T17:29:52+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a1dad7ead52-1780329854.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/01/everybody-hating-on-florida-principal-over-fetty-wap-yearbook-quote.html",
+      "url": "https://boingboing.net/2026/06/01/everybody-hating-on-florida-principal-over-fetty-wap-yearbook-quote.html",
+      "title": "[Boing Boing] Everybody hating on Florida principal over Fetty Wap yearbook quote",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/hatin.jpg?fit=1209%2C809&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/01/everybody-hating-on-florida-principal-over-fetty-wap-yearbook-quote.html\" rel=\"nofollow\" title=\"Everybody hating on Florida principal over Fetty Wap yearbook quote\"><img alt=\"principal and rapper\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"809\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/hatin.jpg?fit=1209%2C809&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1209\" /></a><p>A song lyric from rapper Fetty Wap, attributed to the principal in a school yearbook published by Trout Creek Academy in St. Johns' County, Florida, has <a href=\"https://www.wsbtv.com/news/local/principal-speaks-after-being-placed-leave-over-fetty-wap-yearbook-quote/C2AOUIB63BHGFFFSWKT2XQ56OA/?outputType=amp\">scandalized local parents and gotten the principal placed on administrative leave</a>: \"Everybody hating, we just call them fans though! &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/01/everybody-hating-on-florida-principal-over-fetty-wap-yearbook-quote.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/01/everybody-hating-on-florida-principal-over-fetty-wap-yearbook-quote.html\">Everybody hating on Florida principal over Fetty Wap yearbook quote</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "A song lyric from rapper Fetty Wap, attributed to the principal in a school yearbook published by Trout Creek Academy in St. Johns' County, Florida, has scandalized local parents and gotten the principal placed on administrative leave : \"Everybody hating, we just call them fans though! — Read the",
+      "_excerpt": "A song lyric from rapper Fetty Wap, attributed to the principal in a school yearbook published by Trout Creek Academy in St. Johns' County, Florida, has scandalized local parents and gotten the principal placed on administrative leave : \"Everybody hating, we just call them fans though! — Read the rest The post Everybody hating on Florida principal over Fetty Wap yearbook quote appeared first on Boing Boing .",
+      "date_published": "2026-06-01T12:01:04+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/hatin.jpg?fit=1209%2C809&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/01/climate/energy-rebates-home-appliances.html",
+      "url": "https://www.nytimes.com/2026/06/01/climate/energy-rebates-home-appliances.html",
+      "title": "[NYT Business] I.R.A. Rebates for Appliance Swaps Could Be Phased Out",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/01/multimedia/01cli-rebates-fglm/01cli-rebates-fglm-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew guidance from the Energy Department would prevent people from receiving rebates after making such swaps.",
+      "summary": "New guidance from the Energy Department would prevent people from receiving rebates after making such swaps.",
+      "_excerpt": "New guidance from the Energy Department would prevent people from receiving rebates after making such swaps.",
+      "date_published": "2026-06-01T21:33:30+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/06/01/multimedia/01cli-rebates-fglm/01cli-rebates-fglm-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/1/kenyans-protest-ebola-quarantine-centre-for-us-citizens?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/1/kenyans-protest-ebola-quarantine-centre-for-us-citizens?traffic_source=rss",
+      "title": "[Al Jazeera English] Kenyans protest Ebola quarantine centre for US citizens",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-01T133454Z_528068961_RC2UKLAVNQWP_RTRMADP_3_HEALTH-EBOLA-USA-KENYA-PROTESTS-1780345252.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHundreds have protested in central Kenya against a US-funded plan to quarantine Americans exposed to Ebola there.",
+      "summary": "Hundreds have protested in central Kenya against a US-funded plan to quarantine Americans exposed to Ebola there.",
+      "_excerpt": "Hundreds have protested in central Kenya against a US-funded plan to quarantine Americans exposed to Ebola there.",
+      "date_published": "2026-06-01T20:23:08+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-01T133454Z_528068961_RC2UKLAVNQWP_RTRMADP_3_HEALTH-EBOLA-USA-KENYA-PROTESTS-1780345252.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026AG0032-000635",
+      "url": "https://news.gov.bc.ca/releases/2026AG0032-000635",
+      "title": "[BC Gov News] Making government services more equitable for all",
+      "content_html": "<img src=\"https://live.staticflickr.com/65535/55306825122_a582345f7a_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nB.C. launches Anti-Racism Action Plan to address barriers Indigenous, racialized people face",
+      "summary": "B.C. launches Anti-Racism Action Plan to address barriers Indigenous, racialized people face",
+      "_excerpt": "B.C. launches Anti-Racism Action Plan to address barriers Indigenous, racialized people face",
+      "date_published": "2026-06-01T18:28:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
       "ai_score": 69,
       "_quality_score": 69,
       "_theme_score": 0,
@@ -501,45 +476,145 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780347658.jpg?resize=1638%2C1080&quality=80"
+      "image": "https://live.staticflickr.com/65535/55306825122_a582345f7a_b.jpg"
     },
     {
-      "id": "https://news.gov.bc.ca/releases/2026PSSG0046-000636",
-      "url": "https://news.gov.bc.ca/releases/2026PSSG0046-000636",
-      "title": "[BC Gov News] Addressing hate, racism in B.C. communities",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCivil forfeiture grants support organizations at risk of hate-based crime",
-      "summary": "Civil forfeiture grants support organizations at risk of hate-based crime",
-      "_excerpt": "Civil forfeiture grants support organizations at risk of hate-based crime",
-      "date_published": "2026-06-01T20:30:00+00:00",
+      "id": "https://techcrunch.com/2026/06/01/zigging-when-most-are-zagging-ex-meta-cto-raises-250m-climate-fund/",
+      "url": "https://techcrunch.com/2026/06/01/zigging-when-most-are-zagging-ex-meta-cto-raises-250m-climate-fund/",
+      "title": "[TechCrunch] Zigging when most are zagging, ex-Meta CTO raises $250M climate fund",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/Mike-Schroepfer-Gigascale-Capital.jpeg?resize=1200,1029\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMike Schroepfer's Gigascale Capital has raised a large fund to back founders building climate-friendly solutions for the world's energy and material shortages.",
+      "summary": "Mike Schroepfer's Gigascale Capital has raised a large fund to back founders building climate-friendly solutions for the world's energy and material shortages.",
+      "_excerpt": "Mike Schroepfer's Gigascale Capital has raised a large fund to back founders building climate-friendly solutions for the world's energy and material shortages.",
+      "date_published": "2026-06-01T16:42:22+00:00",
       "authors": [
         {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
+      "ai_score": 69,
+      "_quality_score": 69,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 20,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/Mike-Schroepfer-Gigascale-Capital.jpeg?resize=1200,1029"
+    },
+    {
+      "id": "https://www.tomsguide.com/computing/smart-glasses/acer-just-unveiled-new-ai-and-ar-smart-glasses-putting-more-pressure-on-meta-heres-why",
+      "url": "https://www.tomsguide.com/computing/smart-glasses/acer-just-unveiled-new-ai-and-ar-smart-glasses-putting-more-pressure-on-meta-heres-why",
+      "title": "[Toms Guide] Acer just unveiled new AI and AR smart glasses, putting more pressure on Meta — here's why",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Souj8Kv5E5yQcGhsyu9KrB-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAcer just announced two new smart glasses just as the field gets more crowded.",
+      "summary": "Acer just announced two new smart glasses just as the field gets more crowded.",
+      "_excerpt": "Acer just announced two new smart glasses just as the field gets more crowded.",
+      "date_published": "2026-06-01T19:54:14+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 66,
+      "_quality_score": 66,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/Souj8Kv5E5yQcGhsyu9KrB-1280-80.jpg"
     },
     {
-      "id": "https://globalnews.ca/news/11877213/geary-crescent-residents-survey-damage-friday-blaze/",
-      "url": "https://globalnews.ca/news/11877213/geary-crescent-residents-survey-damage-friday-blaze/",
-      "title": "[Global News] Geary Crescent residents survey damage following Friday blaze",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/05/AFTERMATH-OF-HAMPTON-FIRE.bmp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResidents and investigators begin to survey the damage on Geary Crescent following a multi-home fire on Friday that fully destroyed three homes, and seriously damaged two others.",
-      "summary": "Residents and investigators begin to survey the damage on Geary Crescent following a multi-home fire on Friday that fully destroyed three homes, and seriously damaged two others.",
-      "_excerpt": "Residents and investigators begin to survey the damage on Geary Crescent following a multi-home fire on Friday that fully destroyed three homes, and seriously damaged two others.",
-      "date_published": "2026-06-02T00:07:52+00:00",
+      "id": "https://www.businessinsider.com/sam-altman-startup-alfred-building-software-for-robots-and-cars-2026-6",
+      "url": "https://www.businessinsider.com/sam-altman-startup-alfred-building-software-for-robots-and-cars-2026-6",
+      "title": "[Business Insider] Sam Altman is quietly backing a stealth startup that's building software for robots and cars",
+      "content_html": "<img src=\"https://i.insider.com/6a1e0005b4fb977f359831a3?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA former Tesla designer's startup has won investment from Sam Altman and other top investors as money floods into physical AI.",
+      "summary": "A former Tesla designer's startup has won investment from Sam Altman and other top investors as money floods into physical AI.",
+      "_excerpt": "A former Tesla designer's startup has won investment from Sam Altman and other top investors as money floods into physical AI.",
+      "date_published": "2026-06-01T19:31:40+00:00",
       "authors": [
         {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a1e0005b4fb977f359831a3?format=jpeg"
+    },
+    {
+      "id": "https://techcrunch.com/2026/06/01/grand-theft-auto-v-cheat-service-gets-hacked-exposing-thousands-of-gamers/",
+      "url": "https://techcrunch.com/2026/06/01/grand-theft-auto-v-cheat-service-gets-hacked-exposing-thousands-of-gamers/",
+      "title": "[TechCrunch] Grand Theft Auto V cheat service gets hacked, exposing thousands of gamers",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/grand-theft-auto-v.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHackers stole usernames, hashed passwords, and other data from a service that allowed players to cheat in Grand Theft Auto V.",
+      "summary": "Hackers stole usernames, hashed passwords, and other data from a service that allowed players to cheat in Grand Theft Auto V.",
+      "_excerpt": "Hackers stole usernames, hashed passwords, and other data from a service that allowed players to cheat in Grand Theft Auto V.",
+      "date_published": "2026-06-01T17:22:46+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/grand-theft-auto-v.jpg?resize=1200,800"
+    },
+    {
+      "id": "https://www.theatlantic.com/culture/2026/06/spencer-pratt-reality-tv-la-mayor/687369/?utm_source=feed",
+      "url": "https://www.theatlantic.com/culture/2026/06/spencer-pratt-reality-tv-la-mayor/687369/?utm_source=feed",
+      "title": "[The Atlantic Culture] Hope, Change, Troll",
+      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/ZEL7mXLpTUWRZodp2dMZcvUOMKA=/0x83:2876x1581/1200x625/media/img/mt/2026/05/2026_05_27_SpencerPratt/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSpencer Pratt, the reality star people love to hate-watch, is running for office—and betting that infamy can be political currency.",
+      "summary": "Spencer Pratt, the reality star people love to hate-watch, is running for office—and betting that infamy can be political currency.",
+      "_excerpt": "Spencer Pratt, the reality star people love to hate-watch, is running for office—and betting that infamy can be political currency.",
+      "date_published": "2026-06-01T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Atlantic Culture",
+          "url": "https://www.theatlantic.com/culture/"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://cdn.theatlantic.com/thumbor/ZEL7mXLpTUWRZodp2dMZcvUOMKA=/0x83:2876x1581/1200x625/media/img/mt/2026/05/2026_05_27_SpencerPratt/original.jpg"
+    },
+    {
+      "id": "https://www.mentalfloss.com/quizzes",
+      "url": "https://www.mentalfloss.com/quizzes",
+      "title": "[Mental Floss] Quizzes, Trivia, General Knowledge Tests & More | Mental Floss",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=mentalfloss.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDiscover fun trivia and quizzes on Mental Floss—content that entertains, educates, and satisfies your curiosity.",
+      "summary": "Discover fun trivia and quizzes on Mental Floss—content that entertains, educates, and satisfies your curiosity.",
+      "_excerpt": "Discover fun trivia and quizzes on Mental Floss—content that entertains, educates, and satisfies your curiosity.",
+      "date_published": "2026-06-02T01:55:25.690137+00:00",
+      "authors": [
+        {
+          "name": "Mental Floss",
+          "url": "http://mentalfloss.com"
         }
       ],
       "ai_score": 60,
@@ -551,20 +626,45 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/05/AFTERMATH-OF-HAMPTON-FIRE.bmp"
+      "image": "https://www.google.com/s2/favicons?domain=mentalfloss.com&sz=128"
     },
     {
-      "id": "https://www.nytimes.com/2026/06/01/briefing/trump-fund-back-off-serena-williams.html",
-      "url": "https://www.nytimes.com/2026/06/01/briefing/trump-fund-back-off-serena-williams.html",
-      "title": "[NYT Top Stories] Trump Backs Off Plans for $1.8 Billion Fund After Backlash",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/01/multimedia/01evening-nl-trump-fund-ctgw/01evening-nl-trump-fund-ctgw-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAlso, Serena Williams is making a comeback. Here’s the latest at the end of Monday.",
-      "summary": "Also, Serena Williams is making a comeback. Here’s the latest at the end of Monday.",
-      "_excerpt": "Also, Serena Williams is making a comeback. Here’s the latest at the end of Monday.",
-      "date_published": "2026-06-01T21:54:03+00:00",
+      "id": "https://www.aljazeera.com/news/2026/6/1/former-election-clerk-tina-peters-released-after-trump-pressure-campaign?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/1/former-election-clerk-tina-peters-released-after-trump-pressure-campaign?traffic_source=rss",
+      "title": "[Al Jazeera English] Former election clerk Tina Peters released after Trump pressure campaign",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/reuters_6a1dda4f-1780341327.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPeters had been sentenced to nine years in state prison after allowing access to Colorado state voting machines.",
+      "summary": "Peters had been sentenced to nine years in state prison after allowing access to Colorado state voting machines.",
+      "_excerpt": "Peters had been sentenced to nine years in state prison after allowing access to Colorado state voting machines.",
+      "date_published": "2026-06-01T19:38:21+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reuters_6a1dda4f-1780341327.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.howtogeek.com/xpeng-china-trip-flying-car-self-driving-tech/",
+      "url": "https://www.howtogeek.com/xpeng-china-trip-flying-car-self-driving-tech/",
+      "title": "[How-To Geek] I went to China with EV brand XPENG, and the tech blew my mind",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/xpeng-china-trip-hero.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nXPENG flew me out to China for four days, and what I saw—flying cars, a humanoid robot, and self-driving tech—completely changed my thinking.",
+      "summary": "XPENG flew me out to China for four days, and what I saw—flying cars, a humanoid robot, and self-driving tech—completely changed my thinking.",
+      "_excerpt": "XPENG flew me out to China for four days, and what I saw—flying cars, a humanoid robot, and self-driving tech—completely changed my thinking.",
+      "date_published": "2026-06-01T15:46:18+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
         }
       ],
       "ai_score": 61,
@@ -573,27 +673,27 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 18,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/01/multimedia/01evening-nl-trump-fund-ctgw/01evening-nl-trump-fund-ctgw-mediumSquareAt3X.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/xpeng-china-trip-hero.jpg"
     },
     {
-      "id": "https://www.xda-developers.com/i-forced-claude-to-be-negative-and-it-turned-out-to-be-positive/",
-      "url": "https://www.xda-developers.com/i-forced-claude-to-be-negative-and-it-turned-out-to-be-positive/",
-      "title": "[XDA Developers] I forced Claude to be negative, and it turned out to be positive",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/claude-code-on-macbook-and-ipad.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nClaude stopped agreeing with me, and everything improved.",
-      "summary": "Claude stopped agreeing with me, and everything improved.",
-      "_excerpt": "Claude stopped agreeing with me, and everything improved.",
-      "date_published": "2026-06-01T20:30:24+00:00",
+      "id": "https://qz.com/yum-brands-pizza-hut-sale-longrange-capital-052926",
+      "url": "https://qz.com/yum-brands-pizza-hut-sale-longrange-capital-052926",
+      "title": "[Quartz] Yum Brands might sell Pizza Hut to a private equity firm",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2270790287.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLongRange beat out competing bidders including Sycamore Partners, with a potential deal that could come together in several weeks",
+      "summary": "LongRange beat out competing bidders including Sycamore Partners, with a potential deal that could come together in several weeks",
+      "_excerpt": "LongRange beat out competing bidders including Sycamore Partners, with a potential deal that could come together in several weeks",
+      "date_published": "2026-06-01T13:30:33+00:00",
       "authors": [
         {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "ai_score": 63,
-      "_quality_score": 63,
+      "ai_score": 62,
+      "_quality_score": 62,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
@@ -601,247 +701,222 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/03/claude-code-on-macbook-and-ipad.jpeg"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2270790287.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/silicon-valleys-new-slogan-lets-get-physical-2026-6",
-      "url": "https://www.businessinsider.com/silicon-valleys-new-slogan-lets-get-physical-2026-6",
-      "title": "[Business Insider] Silicon Valley's new slogan: Let's get physical",
-      "content_html": "<img src=\"https://i.insider.com/6a1e02792e5a80cfe0502203?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSilicon Valley's AI boom is moving into robotics as OpenAI, Meta, Tesla, and startups race to give AI a body.",
-      "summary": "Silicon Valley's AI boom is moving into robotics as OpenAI, Meta, Tesla, and startups race to give AI a body.",
-      "_excerpt": "Silicon Valley's AI boom is moving into robotics as OpenAI, Meta, Tesla, and startups race to give AI a body.",
-      "date_published": "2026-06-02T00:19:41+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a1e02792e5a80cfe0502203?format=jpeg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/the-mix/peruvian-shamans-perform-a-blessing-ritual-ahead-of-a-presidential-runoff-12361471",
-      "url": "https://www.piquenewsmagazine.com/the-mix/peruvian-shamans-perform-a-blessing-ritual-ahead-of-a-presidential-runoff-12361471",
-      "title": "[Pique Newsmagazine] Peruvian shamans perform a blessing ritual ahead of a presidential runoff",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/04983441622b616d5efd827beac38f0036b294cc8e7b984a31c3a92b1d52d2d3.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLIMA, Peru (AP) — Peruvian shamans gathered on Monday for a blessing ritual for the two candidates  in the country’s presidential runoff  next weekend, a decisive vote for the South American country that has seen a revolving door of presidents kicked",
-      "summary": "LIMA, Peru (AP) — Peruvian shamans gathered on Monday for a blessing ritual for the two candidates in the country’s presidential runoff next weekend, a decisive vote for the South American country that has seen a revolving door of presidents kicked",
-      "_excerpt": "LIMA, Peru (AP) — Peruvian shamans gathered on Monday for a blessing ritual for the two candidates in the country’s presidential runoff next weekend, a decisive vote for the South American country that has seen a revolving door of presidents kicked",
-      "date_published": "2026-06-01T23:50:19+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/04983441622b616d5efd827beac38f0036b294cc8e7b984a31c3a92b1d52d2d3.jpg;w=960"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/one-dead-one-hurt-after-shooting-in-northern-saskatchewan-12359903",
-      "url": "https://www.piquenewsmagazine.com/national-news/one-dead-one-hurt-after-shooting-in-northern-saskatchewan-12359903",
-      "title": "[Pique Newsmagazine] One dead, one hurt after shooting in northern Saskatchewan",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/76a976157fdfa2a7d4fbe18502bd6c11e2a0e450ab7f6e06ef9b81699194d4e9.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPELICAN NARROWS — RCMP say one person is dead and another is seriously injured after a shooting near the health clinic in the northeast Saskatchewan community of Pelican Narrows.",
-      "summary": "PELICAN NARROWS — RCMP say one person is dead and another is seriously injured after a shooting near the health clinic in the northeast Saskatchewan community of Pelican Narrows.",
-      "_excerpt": "PELICAN NARROWS — RCMP say one person is dead and another is seriously injured after a shooting near the health clinic in the northeast Saskatchewan community of Pelican Narrows.",
-      "date_published": "2026-06-02T01:18:40+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/76a976157fdfa2a7d4fbe18502bd6c11e2a0e450ab7f6e06ef9b81699194d4e9.jpg;w=960"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/the-mix/pentagon-bars-journalists-from-its-press-office-saying-it-has-become-a-classified-space-12361803",
-      "url": "https://www.piquenewsmagazine.com/the-mix/pentagon-bars-journalists-from-its-press-office-saying-it-has-become-a-classified-space-12361803",
-      "title": "[Pique Newsmagazine] Pentagon bars journalists from its press office, saying it has become a 'classified space'",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/8fd696fa38770c396adff89febeb9550a67a9d295ff511668ac1bb327c8ac5b0.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNEW YORK (AP) — In another of a series of moves restricting media access at the Pentagon, the Defense Department has declared that its press office is now a classified space inaccessible to journalists.",
-      "summary": "NEW YORK (AP) — In another of a series of moves restricting media access at the Pentagon, the Defense Department has declared that its press office is now a classified space inaccessible to journalists.",
-      "_excerpt": "NEW YORK (AP) — In another of a series of moves restricting media access at the Pentagon, the Defense Department has declared that its press office is now a classified space inaccessible to journalists.",
-      "date_published": "2026-06-01T23:08:25+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/8fd696fa38770c396adff89febeb9550a67a9d295ff511668ac1bb327c8ac5b0.jpg;w=960"
-    },
-    {
-      "id": "https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/",
-      "url": "https://developer.nvidia.com/blog/run-local-ai-agents-with-faster-models-and-multi-node-clustering-on-nvidia-dgx-spark/",
-      "title": "[Nvidia Developer Blog] Run Local AI Agents with Faster Models and Multi-Node Clustering on NVIDIA DGX Spark",
-      "content_html": "<img src=\"https://developer-blogs.nvidia.com/wp-content/uploads/2026/06/image1.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"432\" src=\"https://developer-blogs.nvidia.com/wp-content/uploads/2026/06/image1-768x432.jpg\" style=\"display: block; margin-bottom: 5px; clear: both;\" title=\"image1\" width=\"768\" />The rise of autonomous, long-running AI agents has introduced a new class of compute demand, namely tasks that maintain large context windows, spawn concurrent...",
-      "summary": "The rise of autonomous, long-running AI agents has introduced a new class of compute demand, namely tasks that maintain large context windows, spawn concurrent...",
-      "_excerpt": "The rise of autonomous, long-running AI agents has introduced a new class of compute demand, namely tasks that maintain large context windows, spawn concurrent...",
-      "date_published": "2026-06-01T22:00:00+00:00",
-      "authors": [
-        {
-          "name": "Nvidia Developer Blog",
-          "url": ""
-        }
-      ],
-      "ai_score": 51,
-      "_quality_score": 51,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/06/image1.webp"
-    },
-    {
-      "id": "https://insideevs.com/news/796921/stellantis-chinese-cars-north-america/",
-      "url": "https://insideevs.com/news/796921/stellantis-chinese-cars-north-america/",
-      "title": "[InsideEVs] Jeep’s Parent Company Is Considering Building Chinese EVs In North America",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/lEGPY1/s3/dodge-charger-daytona-assembly-at-stellantis-assembly-plant-in-ontario-canada.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStellantis’ Brompton plant in Canada has been idled since 2023, making it an ideal candidate for Chinese EVs.",
-      "summary": "Stellantis’ Brompton plant in Canada has been idled since 2023, making it an ideal candidate for Chinese EVs.",
-      "_excerpt": "Stellantis’ Brompton plant in Canada has been idled since 2023, making it an ideal candidate for Chinese EVs.",
-      "date_published": "2026-05-26T07:17:33+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.motor1.com/images/mgl/lEGPY1/s3/dodge-charger-daytona-assembly-at-stellantis-assembly-plant-in-ontario-canada.jpg"
-    },
-    {
-      "id": "https://qz.com/amazon-aws-agentic-shopping-assistant-retailers-052726",
-      "url": "https://qz.com/amazon-aws-agentic-shopping-assistant-retailers-052726",
-      "title": "[Quartz] Amazon is licensing its AI shopping technology to other retailers through AWS",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2217243002.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe AWS Agentic Shopping Assistant packages the architecture behind Alexa for Shopping, and Kate Spade has already deployed it",
-      "summary": "The AWS Agentic Shopping Assistant packages the architecture behind Alexa for Shopping, and Kate Spade has already deployed it",
-      "_excerpt": "The AWS Agentic Shopping Assistant packages the architecture behind Alexa for Shopping, and Kate Spade has already deployed it",
-      "date_published": "2026-05-27T14:00:34+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 35,
-      "_final_score": 5,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2217243002.jpg"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/01/florida-sues-openai-over-chatgpts-alleged-body-count.html",
-      "url": "https://boingboing.net/2026/06/01/florida-sues-openai-over-chatgpts-alleged-body-count.html",
-      "title": "[Boing Boing] Florida sues OpenAI over ChatGPT's alleged body count",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/shutterstock_2366323233-e1775492481156.jpg?fit=768%2C433&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/01/florida-sues-openai-over-chatgpts-alleged-body-count.html\" rel=\"nofollow\" title=\"Florida sues OpenAI over ChatGPT&#039;s alleged body count\"><img alt=\"Sam Altman. Photo: jamesonwu1972 / Shutterstock\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"433\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/shutterstock_2366323233-e1775492481156.jpg?fit=768%2C433&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"768\" /></a><p>Florida has become the first state to sue OpenAI and Sam Altman <a href=\"https://arstechnica.com/tech-policy/2026/06/florida-sues-openai-sam-altman-after-multiple-chatgpt-linked-murders/\">over alleged harms from ChatGPT.</a></p>\n<p>The lawsuit, filed by Attorney General James Uthmeier, accuses OpenAI of rushing unsafe products into the world, marketing ChatGPT as safe and reliable, and ignoring warnings about how the chatbot could affect children, vulnerable users, and people planning violence. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/01/florida-sues-openai-over-chatgpts-alleged-body-count.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/01/florida-sues-openai-over-chatgpts-alleged-body-count.html\">Florida sues OpenAI over ChatGPT&#039;s alleged body count</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "Florida has become the first state to sue OpenAI and Sam Altman over alleged harms from ChatGPT. The lawsuit, filed by Attorney General James Uthmeier, accuses OpenAI of rushing unsafe products into the world, marketing ChatGPT as safe and reliable, and ignoring warnings about how the chatbot could",
-      "_excerpt": "Florida has become the first state to sue OpenAI and Sam Altman over alleged harms from ChatGPT. The lawsuit, filed by Attorney General James Uthmeier, accuses OpenAI of rushing unsafe products into the world, marketing ChatGPT as safe and reliable, and ignoring warnings about how the chatbot could affect children, vulnerable users, and people planning violence. — Read the rest The post Florida sues OpenAI over ChatGPT's alleged body count appeared first on Boing Boing .",
-      "date_published": "2026-06-02T00:16:06+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 47,
-      "_quality_score": 47,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/03/shutterstock_2366323233-e1775492481156.jpg?fit=768%2C433&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/01/us/politics/california-primary-elections-governor-preview.html",
-      "url": "https://www.nytimes.com/2026/06/01/us/politics/california-primary-elections-governor-preview.html",
-      "title": "[NYT Top Stories] Previewing California’s Primary Elections and High-Stakes Governor’s Race",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/01/multimedia/01pol-on-politics-newsletter-gvlm/01pol-on-politics-newsletter-gvlm-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe deep-blue state’s primary elections will show how angry voters are at the status quo.",
-      "summary": "The deep-blue state’s primary elections will show how angry voters are at the status quo.",
-      "_excerpt": "The deep-blue state’s primary elections will show how angry voters are at the status quo.",
-      "date_published": "2026-06-01T22:00:05+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 47,
-      "_quality_score": 47,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/01/multimedia/01pol-on-politics-newsletter-gvlm/01pol-on-politics-newsletter-gvlm-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/1/denmark-gets-new-government-as-greenland-crisis-persists?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/1/denmark-gets-new-government-as-greenland-crisis-persists?traffic_source=rss",
-      "title": "[Al Jazeera English] Denmark gets new government as Greenland crisis persists",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/epa_6a1debe7ed11-1780345832.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEnd of election deadlock will see PM Frederiksen continue her stewardship of response to Trump&#039;s Greenland lust.",
-      "summary": "End of election deadlock will see PM Frederiksen continue her stewardship of response to Trump's Greenland lust.",
-      "_excerpt": "End of election deadlock will see PM Frederiksen continue her stewardship of response to Trump's Greenland lust.",
-      "date_published": "2026-06-01T20:56:39+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/1/gaza-bound-aid-ship-begins-voyage-from-sweden?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/1/gaza-bound-aid-ship-begins-voyage-from-sweden?traffic_source=rss",
+      "title": "[Al Jazeera English] Gaza-bound aid ship begins voyage from Sweden",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780340642.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Gaza-bound ship carrying aid began its voyage from Sweden, weeks after Israeli forces intercepted a previous aid ship.",
+      "summary": "A Gaza-bound ship carrying aid began its voyage from Sweden, weeks after Israeli forces intercepted a previous aid ship.",
+      "_excerpt": "A Gaza-bound ship carrying aid began its voyage from Sweden, weeks after Israeli forces intercepted a previous aid ship.",
+      "date_published": "2026-06-01T19:09:14+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
+      "ai_score": 59,
+      "_quality_score": 59,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780340642.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.theguardian.com/global-development/2026/jun/01/ghana-new-law-criminalising-lgbtq-activity",
+      "url": "https://www.theguardian.com/global-development/2026/jun/01/ghana-new-law-criminalising-lgbtq-activity",
+      "title": "[The Guardian Global Development] People ‘panicking’ as Ghana passes sweeping law criminalising LGBTQ+ activity",
+      "content_html": "<img src=\"https://i.guim.co.uk/img/media/14d5a2332c838f6d5787e4e6c210d3dd7a02ac7c/761_0_3892_3113/master/3892.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=d3d14a14f27927e6308a3e577da17dbb\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Community groups say some fear they could lose homes, jobs and access to healthcare if the new law is ratified by President John Dramani Mahama</p><p>Ghana’s LGBTQ community is living in fear after the country’s parliament approved a sweeping bill that criminalises the promotion of LGBTQ+ activities and identifying as lesbian, gay, bisexual, transgender or queer, rights groups have warned.</p><p>The legislation, which was passed on Friday, mandates prison sentences of three to 10 years.</p> <a href=\"https://www.theguardian.com/global-development/2026/jun/01/ghana-new-law-criminalising-lgbtq-activity\">Continue reading...</a>",
+      "summary": "Community groups say some fear they could lose homes, jobs and access to healthcare if the new law is ratified by President John Dramani Mahama Ghana’s LGBTQ community is living in fear after the country’s parliament approved a sweeping bill that criminalises the promotion of LGBTQ+ activities and",
+      "_excerpt": "Community groups say some fear they could lose homes, jobs and access to healthcare if the new law is ratified by President John Dramani Mahama Ghana’s LGBTQ community is living in fear after the country’s parliament approved a sweeping bill that criminalises the promotion of LGBTQ+ activities and identifying as lesbian, gay, bisexual, transgender or queer, rights groups have warned. The legislation, which was passed on Friday, mandates prison sentences of three to 10 years. Continue reading...",
+      "date_published": "2026-06-01T11:59:11+00:00",
+      "authors": [
+        {
+          "name": "The Guardian Global Development",
+          "url": "https://www.theguardian.com/global-development"
+        }
+      ],
+      "ai_score": 57,
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://i.guim.co.uk/img/media/14d5a2332c838f6d5787e4e6c210d3dd7a02ac7c/761_0_3892_3113/master/3892.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d3d14a14f27927e6308a3e577da17dbb"
+    },
+    {
+      "id": "https://www.tomshardware.com/tech-industry/us-closes-loophole-that-allowed-chinese-owned-subsidiaries-located-outside-china-to-buy-ai-chips-report-claims-that-hundreds-of-thousands-of-advanced-ai-chips-have-been-acquired-through-bis-blind-spot",
+      "url": "https://www.tomshardware.com/tech-industry/us-closes-loophole-that-allowed-chinese-owned-subsidiaries-located-outside-china-to-buy-ai-chips-report-claims-that-hundreds-of-thousands-of-advanced-ai-chips-have-been-acquired-through-bis-blind-spot",
+      "title": "[Tom's Hardware] US closes loophole that allowed Chinese-owned subsidiaries located outside China to buy AI chips — report claims that hundreds of thousands of advanced AI chips have been acquired through BIS blind spot",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/65KTueABkvd4J4WBitjwX9-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe BIS just issued a clarification that Chinese-owned subsidiaries are included in U.S. export controls, even if they're based outside of China. However, one source said that some companies have been using this loophole to acquire AI chips that estimated to be in the hundreds of thousands.",
+      "summary": "The BIS just issued a clarification that Chinese-owned subsidiaries are included in U.S. export controls, even if they're based outside of China. However, one source said that some companies have been using this loophole to acquire AI chips that estimated to be in the hundreds of thousands.",
+      "_excerpt": "The BIS just issued a clarification that Chinese-owned subsidiaries are included in U.S. export controls, even if they're based outside of China. However, one source said that some companies have been using this loophole to acquire AI chips that estimated to be in the hundreds of thousands.",
+      "date_published": "2026-06-01T11:32:24+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 59,
+      "_quality_score": 59,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/65KTueABkvd4J4WBitjwX9-1280-80.jpg"
+    },
+    {
+      "id": "https://nautil.us/after-the-black-death-italys-oak-trees-came-back-1281556/",
+      "url": "https://nautil.us/after-the-black-death-italys-oak-trees-came-back-1281556/",
+      "title": "[Nautilus] After the Black Death, Italy’s Oak Trees Came Back",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/06/Currie_HERO_cdb54d.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Turns out getting rid of large swaths of humanity benefits nature</p>\n<p>The post <a href=\"https://nautil.us/after-the-black-death-italys-oak-trees-came-back-1281556/\">After the Black Death, Italy’s Oak Trees Came Back</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "summary": "Turns out getting rid of large swaths of humanity benefits nature The post After the Black Death, Italy’s Oak Trees Came Back appeared first on Nautilus .",
+      "_excerpt": "Turns out getting rid of large swaths of humanity benefits nature The post After the Black Death, Italy’s Oak Trees Came Back appeared first on Nautilus .",
+      "date_published": "2026-06-01T19:02:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "ai_score": 56,
+      "_quality_score": 56,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/06/Currie_HERO_cdb54d.png?w=564"
+    },
+    {
+      "id": "https://qz.com/oil-prices-iran-strait-of-hormuz-israel-lebanon-hezbollah-060126",
+      "url": "https://qz.com/oil-prices-iran-strait-of-hormuz-israel-lebanon-hezbollah-060126",
+      "title": "[Quartz] Oil surges almost 8% as the U.S.-Iran ceasefire deal risks collapsing",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2278420026.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIran said negotiators would not meet with U.S. officials until Israel stopped attacks in Gaza and Lebanon and pulled back from occupied Lebanese territory",
+      "summary": "Iran said negotiators would not meet with U.S. officials until Israel stopped attacks in Gaza and Lebanon and pulled back from occupied Lebanese territory",
+      "_excerpt": "Iran said negotiators would not meet with U.S. officials until Israel stopped attacks in Gaza and Lebanon and pulled back from occupied Lebanese territory",
+      "date_published": "2026-06-01T15:10:25+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 54,
+      "_quality_score": 54,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2278420026.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/openai-job-hopping-gabriel-petersson-2026-6",
+      "url": "https://www.businessinsider.com/openai-job-hopping-gabriel-petersson-2026-6",
+      "title": "[Business Insider] OpenAI researcher says early-career tech workers should treat jobs as test drives",
+      "content_html": "<img src=\"https://i.insider.com/6a1de611b4fb977f35983099?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGabriel Petersson, a researcher at OpenAI, said that young workers can benefit from bouncing around different companies to start their careers.",
+      "summary": "Gabriel Petersson, a researcher at OpenAI, said that young workers can benefit from bouncing around different companies to start their careers.",
+      "_excerpt": "Gabriel Petersson, a researcher at OpenAI, said that young workers can benefit from bouncing around different companies to start their careers.",
+      "date_published": "2026-06-01T18:52:38+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 50,
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a1de611b4fb977f35983099?format=jpeg"
+    },
+    {
+      "id": "https://www.businessinsider.com/ai-stocks-capex-spending-hyperscalers-goog-orcl-meta-nvda-2026-6",
+      "url": "https://www.businessinsider.com/ai-stocks-capex-spending-hyperscalers-goog-orcl-meta-nvda-2026-6",
+      "title": "[Business Insider] BofA's top stock strategist says own 'capex takers' as AI spending explodes",
+      "content_html": "<img src=\"https://i.insider.com/6a1dc9992e5a80cfe0501f3c?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAggressive AI spending has turned asset-light tech companies into capital intensive businesses. BofA says own stocks on the receiving end of huge capex.",
+      "summary": "Aggressive AI spending has turned asset-light tech companies into capital intensive businesses. BofA says own stocks on the receiving end of huge capex.",
+      "_excerpt": "Aggressive AI spending has turned asset-light tech companies into capital intensive businesses. BofA says own stocks on the receiving end of huge capex.",
+      "date_published": "2026-06-01T18:14:50+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 53,
+      "_quality_score": 53,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a1dc9992e5a80cfe0501f3c?format=jpeg"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/01/grand-canyons-burned-lodge-leaves-a-very-large-hole.html",
+      "url": "https://boingboing.net/2026/06/01/grand-canyons-burned-lodge-leaves-a-very-large-hole.html",
+      "title": "[Boing Boing] Grand Canyon's burned lodge leaves a very large hole",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2025/07/shutterstock_1251389905-e1752606546599.jpg?fit=600%2C366&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/01/grand-canyons-burned-lodge-leaves-a-very-large-hole.html\" rel=\"nofollow\" title=\"Grand Canyon&#039;s burned lodge leaves a very large hole\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"366\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2025/07/shutterstock_1251389905-e1752606546599.jpg?fit=600%2C366&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"600\" /></a><p>Last summer the Dragon Bravo fire destroyed a beloved US landmark, the Grand Canyon Lodge. This video provides an excellent update on what, if anything,  can be done to save it.</p>\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\">\n<div class=\"wp-block-embed__wrapper\">\n\n</div>\n</figure>\n<p>This is not just a construction problem. The lodge burned once, in 1932, and was rebuilt. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/01/grand-canyons-burned-lodge-leaves-a-very-large-hole.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/01/grand-canyons-burned-lodge-leaves-a-very-large-hole.html\">Grand Canyon&#039;s burned lodge leaves a very large hole</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "Last summer the Dragon Bravo fire destroyed a beloved US landmark, the Grand Canyon Lodge. This video provides an excellent update on what, if anything, can be done to save it. This is not just a construction problem. The lodge burned once, in 1932, and was rebuilt. — Read the rest The post Grand",
+      "_excerpt": "Last summer the Dragon Bravo fire destroyed a beloved US landmark, the Grand Canyon Lodge. This video provides an excellent update on what, if anything, can be done to save it. This is not just a construction problem. The lodge burned once, in 1932, and was rebuilt. — Read the rest The post Grand Canyon's burned lodge leaves a very large hole appeared first on Boing Boing .",
+      "date_published": "2026-06-01T16:59:05+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 50,
+      "_quality_score": 50,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 15,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2025/07/shutterstock_1251389905-e1752606546599.jpg?fit=600%2C366&quality=60&ssl=1"
+    },
+    {
+      "id": "https://qz.com/cdc-salmonella-outbreak-mogo-moringa-capsules-052726",
+      "url": "https://qz.com/cdc-salmonella-outbreak-mogo-moringa-capsules-052726",
+      "title": "[Quartz] CDC is investigating a salmonella outbreak tied to moringa supplement capsules",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Screenshot%25202026-06-01%2520at%25209.50.55%E2%80%AFpm.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMogo Moringa LLC recalled 2 lots of its Pure Moringa Oleifera capsules on May 25 after 18 people across 14 states fell ill",
+      "summary": "Mogo Moringa LLC recalled 2 lots of its Pure Moringa Oleifera capsules on May 25 after 18 people across 14 states fell ill",
+      "_excerpt": "Mogo Moringa LLC recalled 2 lots of its Pure Moringa Oleifera capsules on May 25 after 18 people across 14 states fell ill",
+      "date_published": "2026-06-01T14:00:33+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
       "ai_score": 48,
       "_quality_score": 48,
       "_theme_score": 0,
@@ -851,49 +926,49 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/epa_6a1debe7ed11-1780345832.jpg?resize=1920%2C1440"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Screenshot%25202026-06-01%2520at%25209.50.55%E2%80%AFpm.png"
     },
     {
-      "id": "https://www.businessinsider.com/us-testing-rocket-launcher-on-pickup-truck-resupply-drone-2026-5",
-      "url": "https://www.businessinsider.com/us-testing-rocket-launcher-on-pickup-truck-resupply-drone-2026-5",
-      "title": "[Business Insider] With the US Army watching, defense industry operators turned a logistics drone into a flying rocket launcher",
-      "content_html": "<img src=\"https://i.insider.com/6a15ea472ab5f9757add46aa?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe three-shot rocket launcher could give troops the ability to turn a logistics tool into a ranged attack option.",
-      "summary": "The three-shot rocket launcher could give troops the ability to turn a logistics tool into a ranged attack option.",
-      "_excerpt": "The three-shot rocket launcher could give troops the ability to turn a logistics tool into a ranged attack option.",
-      "date_published": "2026-05-26T18:50:09+00:00",
+      "id": "https://www.statnews.com/2026/06/01/health-news-cdc-says-containing-ebola-spread-is-top-priority/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/06/01/health-news-cdc-says-containing-ebola-spread-is-top-priority/?utm_campaign=rss",
+      "title": "[STAT News] CDC says containing the spread of Ebola is top priority",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2025/10/AP25274514320564-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Trump administration disregards infectious disease playbook, CEPI offers vaccine funding, and other health news from Morning Rounds",
+      "summary": "The Trump administration disregards infectious disease playbook, CEPI offers vaccine funding, and other health news from Morning Rounds",
+      "_excerpt": "The Trump administration disregards infectious disease playbook, CEPI offers vaccine funding, and other health news from Morning Rounds",
+      "date_published": "2026-06-01T12:57:15+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
         }
       ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 35,
-      "_final_score": 5,
+      "ai_score": 49,
+      "_quality_score": 49,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_boosted_score": 14,
+      "_category": "wellness",
+      "_source_category": "wellness",
       "_is_bonus": true,
-      "image": "https://i.insider.com/6a15ea472ab5f9757add46aa?format=jpeg"
+      "image": "https://www.statnews.com/wp-content/uploads/2025/10/AP25274514320564-645x645.jpg"
     },
     {
-      "id": "https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html",
-      "url": "https://www.nytimes.com/2026/06/01/science/ebola-vaccines-treatments.html",
-      "title": "[NYT Top Stories] As Ebola Spreads, Scientists Race to Find Vaccines and Treatments",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/01/multimedia/01SCI-EBOLA-VACCINES-01-wgmh/01SCI-EBOLA-VACCINES-01-wgmh-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Bundibugyo virus, a little known type, previously had caused just two small outbreaks. Now it’s at the center of a rapidly widening epidemic in Africa.",
-      "summary": "The Bundibugyo virus, a little known type, previously had caused just two small outbreaks. Now it’s at the center of a rapidly widening epidemic in Africa.",
-      "_excerpt": "The Bundibugyo virus, a little known type, previously had caused just two small outbreaks. Now it’s at the center of a rapidly widening epidemic in Africa.",
-      "date_published": "2026-06-02T00:57:58+00:00",
+      "id": "https://techcrunch.com/2026/06/01/alphabet-plans-to-raise-80-billion-to-pay-for-ai-buildout/",
+      "url": "https://techcrunch.com/2026/06/01/alphabet-plans-to-raise-80-billion-to-pay-for-ai-buildout/",
+      "title": "[TechCrunch] Alphabet plans to raise $80B to pay for AI buildout",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2173545265.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n\"The company is experiencing strong demand for its AI solutions and services from enterprises and consumers, at levels that are exceeding the company’s available supply,\" Alphabet said in its statement.",
+      "summary": "\"The company is experiencing strong demand for its AI solutions and services from enterprises and consumers, at levels that are exceeding the company’s available supply,\" Alphabet said in its statement.",
+      "_excerpt": "\"The company is experiencing strong demand for its AI solutions and services from enterprises and consumers, at levels that are exceeding the company’s available supply,\" Alphabet said in its statement.",
+      "date_published": "2026-06-01T22:55:09+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 45,
-      "_quality_score": 45,
+      "ai_score": 46,
+      "_quality_score": 46,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
@@ -901,20 +976,20 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/01/multimedia/01SCI-EBOLA-VACCINES-01-wgmh/01SCI-EBOLA-VACCINES-01-wgmh-mediumSquareAt3X.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2173545265.jpg?resize=1200,800"
     },
     {
-      "id": "https://cfjctoday.com/2026/06/01/kamloops-brings-back-riverside-park-responsible-liquor-consumption-pilot/",
-      "url": "https://cfjctoday.com/2026/06/01/kamloops-brings-back-riverside-park-responsible-liquor-consumption-pilot/",
-      "title": "[CFJC Today Kamloops] Kamloops brings back Riverside Park Responsible Liquor Consumption Pilot",
-      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/5aef5830-247e-40ca-ab16-d7baa1d151c2.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFile Photo (Image Credit: CFJC Today) By Elora McCormack Riverside Park drinking Kamloops brings back Riverside Park Responsible Liquor Consumption Pilot Jun 1, 2026 | 4:22 PM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — The City of Kamloops is allowing residents to party – responsibly – at Riverside Park again this spring and summer with the return of the Responsible Liquor Consumption Pilot Program. The city said this policy will allow visitors to bring their own liquor to a designated area within Riverside Park between noon and 9:00 a.m. until October 1. Kamloops said",
-      "summary": "File Photo (Image Credit: CFJC Today) By Elora McCormack Riverside Park drinking Kamloops brings back Riverside Park Responsible Liquor Consumption Pilot Jun 1, 2026 | 4:22 PM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — The City of Kamloops is allowing residents to party –",
-      "_excerpt": "File Photo (Image Credit: CFJC Today) By Elora McCormack Riverside Park drinking Kamloops brings back Riverside Park Responsible Liquor Consumption Pilot Jun 1, 2026 | 4:22 PM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — The City of Kamloops is allowing residents to party – responsibly – at Riverside Park again this spring and summer with the return of the Responsible Liquor Consumption Pilot Program. The city said this policy will allow visitors to bring their own liquor to a designated area within Riverside Park between noon and 9:00 a.m. until October 1. Kamloops said",
-      "date_published": "2026-06-01T23:22:26+00:00",
+      "id": "https://www.aljazeera.com/news/2026/6/1/protesters-call-on-kenyan-government-to-halt-femicide-crisis?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/1/protesters-call-on-kenyan-government-to-halt-femicide-crisis?traffic_source=rss",
+      "title": "[Al Jazeera English] Protesters call on Kenyan government to halt femicide crisis",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a1dc7d6e4ac-1780336598.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAdvocacy groups have given the government 40 days to intervene to deal with the plague of gender-based violence.",
+      "summary": "Advocacy groups have given the government 40 days to intervene to deal with the plague of gender-based violence.",
+      "_excerpt": "Advocacy groups have given the government 40 days to intervene to deal with the plague of gender-based violence.",
+      "date_published": "2026-06-01T20:13:16+00:00",
       "authors": [
         {
-          "name": "CFJC Today Kamloops",
-          "url": "https://cfjctoday.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
       "ai_score": 45,
@@ -923,110 +998,35 @@
       "_final_score": 0,
       "_keyword_matches": 0,
       "_boosted_score": 13,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/5aef5830-247e-40ca-ab16-d7baa1d151c2.png"
-    },
-    {
-      "id": "https://qz.com/emotional-labor-starbucks-baristas-green-apron-service-051926",
-      "url": "https://qz.com/emotional-labor-starbucks-baristas-green-apron-service-051926",
-      "title": "[Quartz] What 'emotional labor' actually means — and how Starbucks is testing its limits",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2196065802.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nArlie Hochschild coined the term in 1983 to describe a specific workplace cost. Starbucks' Green Apron Service is pushing it further than she imagined",
-      "summary": "Arlie Hochschild coined the term in 1983 to describe a specific workplace cost. Starbucks' Green Apron Service is pushing it further than she imagined",
-      "_excerpt": "Arlie Hochschild coined the term in 1983 to describe a specific workplace cost. Starbucks' Green Apron Service is pushing it further than she imagined",
-      "date_published": "2026-05-26T20:31:29+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 42,
-      "_quality_score": 42,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2196065802.jpg"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a1dc7d6e4ac-1780336598.jpg?resize=1920%2C1440"
     },
     {
-      "id": "https://qz.com/starbucks-mobile-order-labor-barista-workflow-051926",
-      "url": "https://qz.com/starbucks-mobile-order-labor-barista-workflow-051926",
-      "title": "[Quartz] Starbucks baristas don't just make coffee. They run 3 restaurants at once",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2259914084.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe chain's mobile and delivery channels created parallel production demands without matching staffing, fueling worker frustration",
-      "summary": "The chain's mobile and delivery channels created parallel production demands without matching staffing, fueling worker frustration",
-      "_excerpt": "The chain's mobile and delivery channels created parallel production demands without matching staffing, fueling worker frustration",
-      "date_published": "2026-05-26T20:41:13+00:00",
+      "id": "https://www.tomsguide.com/home/outdoors/before-i-hit-the-pool-im-making-sure-im-stocked-up-on-these-12-essentials-all-under-usd40",
+      "url": "https://www.tomsguide.com/home/outdoors/before-i-hit-the-pool-im-making-sure-im-stocked-up-on-these-12-essentials-all-under-usd40",
+      "title": "[Toms Guide] Before I hit the pool, I'm making sure I'm stocked up on these 12 essentials — all under $40",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/bcFRFjgD883z4BNT7W8qPG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you're looking forward to spending some quality time by the pool this summer, then you might want to check out some of these great, budget-friendly items, perfect for those sunny days.",
+      "summary": "If you're looking forward to spending some quality time by the pool this summer, then you might want to check out some of these great, budget-friendly items, perfect for those sunny days.",
+      "_excerpt": "If you're looking forward to spending some quality time by the pool this summer, then you might want to check out some of these great, budget-friendly items, perfect for those sunny days.",
+      "date_published": "2026-06-01T16:15:00+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
         }
       ],
-      "ai_score": 38,
-      "_quality_score": 38,
-      "_theme_score": 40,
-      "_final_score": 40,
+      "ai_score": 46,
+      "_quality_score": 46,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 11,
+      "_boosted_score": 13,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2259914084.jpg"
-    },
-    {
-      "id": "https://globalnews.ca/news/11868799/reported-germany-canada-lng-deal-bolster-investment-case-ksi-lisims-david-eby/",
-      "url": "https://globalnews.ca/news/11868799/reported-germany-canada-lng-deal-bolster-investment-case-ksi-lisims-david-eby/",
-      "title": "[Global News] Reported Germany-Canada LNG deal would bolster investment case for Ksi Lisims: David Eby",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/03/4aa603c04b94ceb66151539fd3864984ccadbee55b09d04916a2236967ec0257.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDavid Eby made his remarks after multiple outlets reported German firm SEFE is poised to buy gas from the proposed $10-billion plant and export terminal near Alaska.",
-      "summary": "David Eby made his remarks after multiple outlets reported German firm SEFE is poised to buy gas from the proposed $10-billion plant and export terminal near Alaska.",
-      "_excerpt": "David Eby made his remarks after multiple outlets reported German firm SEFE is poised to buy gas from the proposed $10-billion plant and export terminal near Alaska.",
-      "date_published": "2026-05-27T00:01:31+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/03/4aa603c04b94ceb66151539fd3864984ccadbee55b09d04916a2236967ec0257.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://qz.com/samsung-electronics-union-bonus-pay-deal-strike-052726",
-      "url": "https://qz.com/samsung-electronics-union-bonus-pay-deal-strike-052726",
-      "title": "[Quartz] Samsung Electronics' chip workers' union approved their bonus deal, easing worries about chip delays",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2272695287.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n73.7% of balloting union members backed the agreement, which sets aside 10.5% of chip division operating profit for special bonuses",
-      "summary": "73.7% of balloting union members backed the agreement, which sets aside 10.5% of chip division operating profit for special bonuses",
-      "_excerpt": "73.7% of balloting union members backed the agreement, which sets aside 10.5% of chip division operating profit for special bonuses",
-      "date_published": "2026-05-27T11:20:57+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2272695287.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/bcFRFjgD883z4BNT7W8qPG-1280-80.jpg"
     }
   ]
 }
