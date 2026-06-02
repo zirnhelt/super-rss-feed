@@ -85,14 +85,7 @@ jobs:
           MIN_ITEMS=20
           needs_bootstrap=false
           for feed in local ai-tech climate homelab wellness news science scifi; do
-            count=$(python3 -c "
-import json, sys
-try:
-    d = json.load(open('feed-${feed}.json'))
-    print(len(d.get('items', [])))
-except:
-    print(0)
-" 2>/dev/null || echo 0)
+            count=$(python3 -c "import json,os; f='feed-${feed}.json'; print(len(json.load(open(f)).get('items',[])) if os.path.exists(f) else 0)" 2>/dev/null || echo 0)
             if [ "$count" -lt "$MIN_ITEMS" ]; then
               echo "  feed-${feed}.json has $count items (< $MIN_ITEMS) — bootstrap needed"
               needs_bootstrap=true
