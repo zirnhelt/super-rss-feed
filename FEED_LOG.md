@@ -16,6 +16,22 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run
+- Fetched **807** → dedup **674** → new **497** → quality **126**
+- Mix: local:5(4%), ai-tech:4(3%), climate:33(26%), wellness:4(3%), science:3(2%), scifi:3(2%), news:74(59%)
+- Feeds: local:44, ai-tech:182, climate:177, homelab:112, wellness:24, science:67, scifi:17, news:500
+- Images: 126/126
+- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
+- ⚠️ **Nation Talk** failed — `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed`
+- ⚠️ **First Peoples Cultural Council** failed — `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/`
+- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
+
+
+---
+
+
+
 ## 2026-05-31 (Sunday)
 
 #### 🌙 8:30 PM Pacific
