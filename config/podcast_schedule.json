@@ -34,7 +34,7 @@
       "description": "Tŝilhqot'in, Secwépemc, Dakelh — language, governance, land stewardship, and tech",
       "theme_description": "Today we explore how Cariboo and BC Indigenous nations are using technology on their own terms — for language revitalization, land stewardship, cultural preservation, and self-determined governance. We're looking for stories that centre Indigenous voices and leadership in innovation, where technology serves community sovereignty rather than replacing it.",
       "categories": ["local", "ai-tech", "science", "news", "climate"],
-      "keywords": ["indigenous", "first nations", "language revitalization", "land stewardship", "traditional knowledge", "cultural heritage", "reconciliation", "treaty", "guardian", "band council", "nation", "Tŝilhqot'in", "Secwépemc", "Dakelh", "APTN", "UNDRIP", "land rights", "indigenous-led"],
+      "keywords": ["indigenous", "first nations", "language revitalization", "land stewardship", "traditional knowledge", "cultural heritage", "reconciliation", "treaty", "guardian", "band council", "nation", "Tŝilhqot'in", "Secwépemc", "Dakelh", "APTN", "UNDRIP", "land rights", "indigenous-led", "sovereignty", "territory", "traditional", "governance", "self-determination", "land management", "cultural", "decolonial", "stewardship"],
       "scoring_prompt": "Rate how well this article fits the theme 'Indigenous Lands & Innovation' through a RURAL TECH AND INNOVATION lens. Strong fits include: language revitalization technology for Tŝilhqot'in/Secwépemc/Dakelh, Indigenous guardian programs using remote monitoring and sensors, land management tech and environmental monitoring on Indigenous lands, digital tools for traditional knowledge preservation, community mapping and GIS for land claims, Indigenous-led connectivity projects, technology for cultural heritage documentation, mobile apps for language learning, drone/satellite monitoring for stewardship, reconciliation through digital collaboration, and how Cariboo Indigenous nations use innovation for self-determination. Prefer articles that bridge Indigenous governance/culture AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "friday": {
@@ -48,8 +48,8 @@
       "scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated."
     },
     "saturday": {
-      "min_score": 35,
-      "holdover_threshold": 20,
+      "min_score": 25,
+      "holdover_threshold": 15,
       "label": "Cariboo Local Affairs",
       "description": "Williams Lake, Quesnel, 100 Mile House, Bella Coola — community stories and digital equity",
       "theme_description": "Today is all about the Cariboo-Chilcotin (chil-KOH-tin) region: the decisions, events, and conversations happening in Williams Lake, Quesnel, 100 Mile House, Bella Coola, and the surrounding region. We're covering local government, community life, economic stories, and the digital equity challenges that shape what it means to live and work in rural BC.",

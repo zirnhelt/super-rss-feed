@@ -554,7 +554,7 @@ def load_podcast_cache():
         valid_articles = []
         for item in cache_data:
             pub_date = datetime.fromisoformat(item['pub_date'])
-            if pub_date > cutoff:
+            if pub_date > cutoff and not _is_aggregator_url(item.get('link', '')):
                 valid_articles.append(item)
 
         if len(valid_articles) != len(cache_data):
@@ -2609,9 +2609,24 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             for a, fs, ts in scored_pool
         ]
 
-    # Sort by final score descending
-    scored_pool.sort(key=lambda x: x[1], reverse=True)
-    theme_articles = [(a, fs, ts) for a, fs, ts in scored_pool[:max_articles]]
+    # Apply keyword boost to selection ranking so keyword-matching articles
+    # are preferred over semantically similar but terminology-free articles.
+    # keyword_boost and keyword_boost_cap from config control the magnitude.
+    kw_boost_val = schedule_config.get('keyword_boost', 15)
+    kw_boost_cap = schedule_config.get('keyword_boost_cap', 3)
+    if kw_boost_val > 0 and theme_keywords:
+        boosted_pool = []
+        for article, final_score, theme_score in scored_pool:
+            kw_text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
+            kw_hits = min(_keyword_match_count(kw_text, theme_keywords), kw_boost_cap)
+            selection_score = min(100, final_score + kw_hits * kw_boost_val)
+            boosted_pool.append((article, selection_score, final_score, theme_score))
+        boosted_pool.sort(key=lambda x: x[1], reverse=True)
+        theme_articles = [(a, fs, ts) for _, _, fs, ts in boosted_pool[:max_articles]]
+    else:
+        # Sort by final score descending
+        scored_pool.sort(key=lambda x: x[1], reverse=True)
+        theme_articles = [(a, fs, ts) for a, fs, ts in scored_pool[:max_articles]]
 
     # Optionally include top articles from other categories as bonus picks
     # with theme-aware scoring for diversity
@@ -2678,7 +2693,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     # Compute bonus_count for metadata using keyword-based logic
     def _is_bonus_article(article: object) -> bool:
-        text = f"{article.title} {article.description or ''}".lower()
+        text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
         kw_hits = _keyword_match_count(text, theme_keywords)
         if kw_hits > 0:
             return False
@@ -2713,7 +2728,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     items_with_score = []
     for article, final_score, theme_score in all_entries:
-        text = f"{article.title} {article.description or ''}".lower()
+        text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
         kw_matches = _keyword_match_count(text, theme_keywords)
         boosted_score = min(100, kw_matches * 20 + article.score * 0.3)
         is_bonus = _is_bonus_article(article)
