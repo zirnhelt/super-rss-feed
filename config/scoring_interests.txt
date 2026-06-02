@@ -41,6 +41,9 @@ AVOID (Score 0-20):
 - Clickbait and engagement farming
 - Pure lifestyle content without systems thinking
 - Wire service entertainment/celebrity stories syndicated through local news sources
+- First-person consumer diary entries: "I tried/tested/spent/used/switched/built/found" personal product or lifestyle experiences with no technical depth or research backing. Score 0-25. Examples: "I spent 5 nights sleeping on a mattress on the floor — here's what happened to my sleep", "I switched from Outlook to Gmail for Gemini", "I found 7 hilarious productivity prompts", "I barely open some of my favorite apps anymore" — these are personal anecdote pieces, not journalism or analysis.
+- Stock market and financial ticker noise: quarterly earnings reports focused on revenue/valuation, individual stock price movements, analyst rating changes, percentage rallies. Score 0-25. Examples: "BE stock surges to $322.83 on $2.6B deal, Daiwa upgrades to Outperform", "Nokia's 140% Rally Turns AI Comeback Into Valuation Puzzle", "Nvidia Earnings May 2026: Record $81.6B Revenue Analysis & Outlook". These belong in financial feeds. Note: substantive reporting on what a company's strategy means (not the numbers themselves) can still score 30-45.
+- Hyperbolic consumer tech speculation: headlines predicting future product features from leaks or rumours, especially for consumer devices (phones, tablets, gaming handhelds). Score 20-35. Examples: "FSR 4.1 will be the best thing to happen to handheld PCs this year, and the timing couldn't be more perfect", "Galaxy S25 could soon get the S26's smartest Galaxy AI features", "iOS 27's Siri App and 'Search or Ask' Feature Shown in Leaked Images". A leaked consumer phone feature is not the same as reporting on a foundation model release or infrastructure change.
 
 ---
 
@@ -80,6 +83,9 @@ Score 20-39 (Low Match — skip unless very slow news day):
 - "Hollywood Studio Announces Marvel Sequel" → Entertainment, completely off-topic
 - "NHL Playoff Standings Update" → Sports, no technology/systems angle
 - "Opinion: Why Millennials Are Struggling" → Vague lifestyle commentary
+- "BE stock surges to $322.83 on $2.6B AI data center fuel cell deal, Daiwa upgrades to Outperform" → Financial ticker noise; pure stock movement with no community or technology analysis
+- "I spent 5 nights sleeping on a mattress on the floor — here's what happened to my sleep" → First-person consumer diary with no research backing, no systems thinking, not evidence-based wellness
+- "Galaxy S25 could soon get the S26's smartest Galaxy AI features" → Consumer phone feature leak speculation; no AI infrastructure angle, no rural/community relevance, no analytical depth
 
 Score 0-19 (Never include):
 - "Adele's New Album Review"
@@ -172,15 +178,31 @@ software engineering, cybersecurity, cloud infrastructure, hardware innovation.
 
 climate: Climate change science, renewable energy, clean tech, carbon policy, environmental
 monitoring, wildfire ecology, water systems, biodiversity, conservation technology.
+Do NOT assign to climate: stock market news, earnings reports, analyst ratings, or percentage
+rallies even for clean-energy companies (those are financial news, not climate analysis).
+Do NOT assign crime, missing persons, or RCMP/police stories to climate.
 
 homelab: Self-hosted software, home networking, Raspberry Pi, NAS, home servers, privacy tools,
 VPNs, network segmentation, home automation, 3D printing, maker projects.
 
 science: Peer-reviewed research, scientific discoveries, space exploration, physics, biology,
 medicine, materials science, earth sciences, academic findings with practical implications.
+Do NOT assign to science: journalism industry news or obituaries of journalists even when
+"journal" appears in the title. Do NOT assign product deals even when "paper" appears (e.g.,
+"paper-like display 28% off"). Health/medicine studies with direct personal application
+typically belong in wellness, not science.
 
 scifi: Science fiction books, films, TV, podcasts, worldbuilding, speculative fiction, futures
 studies, technology forecasting, solarpunk, cli-fi, hard SF with rigorous science.
+Do NOT assign to scifi: promotional e-book deals or free Kindle offers even when "book" appears.
+Do NOT assign general news (politics, crime, international affairs) to scifi even if the source
+sometimes covers culture. An article must be genuinely about the SF/fantasy genre or its ideas.
+
+wellness: Personal health, nutrition, mental health, fitness, and medicine — NOT sports, tech
+reviews, or crime/conflict news. Do NOT assign to wellness: breaking news about violence, war,
+active shooters, crime investigations, or RCMP/police incidents even when a health facility is
+incidentally mentioned. "Alert for shooter at health clinic" is a crime/news story, not wellness.
+"Iran war live" is geopolitics, not wellness.
 
 news: General news that does not fit the above categories — politics, economy, social issues,
 community events, national/international affairs relevant to rural British Columbia.
