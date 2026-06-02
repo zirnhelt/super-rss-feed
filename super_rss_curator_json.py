@@ -81,6 +81,8 @@ def load_source_preferences():
 
 SOURCE_PREFS = load_source_preferences()
 
+_brave_call_count = 0
+
 # Cache files
 SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
 WLT_CACHE_FILE = SYSTEM['cache_files']['wlt']
@@ -272,16 +274,6 @@ def resolve_google_news_urls(articles: List['Article']) -> None:
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
         list(pool.map(_resolve_one, needs_network))
 
-    still_aggregator = [a for a in needs_network if _is_aggregator_url(a.link)]
-    if still_aggregator and os.environ.get('BRAVE_API_KEY'):
-        for article in still_aggregator:
-            real_url = _brave_resolve_google_news(article)
-            if real_url:
-                article.link = real_url
-                article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
-                _parsed = urlparse(real_url)
-                if _parsed.scheme and _parsed.netloc:
-                    article.source_url = f"{_parsed.scheme}://{_parsed.netloc}"
 
 
 # ---------------------------------------------------------------------------
@@ -1114,6 +1106,8 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
     params = {'q': f'site:{domain}', 'count': 10, 'freshness': 'pw'}
     headers = {'X-Subscription-Token': brave_key, 'Accept': 'application/json'}
 
+    global _brave_call_count
+    _brave_call_count += 1
     try:
         resp = requests.get(
             'https://api.search.brave.com/res/v1/web/search',
@@ -3112,6 +3106,7 @@ def main():
     print(f"  After dedup: {len(unique_articles)}")
     print(f"  New articles: {len(new_articles)}")
     print(f"  After scoring: {len(quality_articles)}")
+    print(f"  Brave API calls: {_brave_call_count}")
     
     print("\n✅ Feed generation complete!")
 
