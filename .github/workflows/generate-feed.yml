@@ -6,12 +6,6 @@ on:
     - cron: '30 12 * * *'  # 4:30 AM Pacific  (12:30 UTC)
     - cron: '30 4 * * *'   # 8:30 PM Pacific  (04:30 UTC next day)
   workflow_dispatch:
-    inputs:
-      reason:
-        description: 'Reason for manual trigger'
-        required: false
-        type: string
-        default: ''
 
 permissions:
   contents: write
