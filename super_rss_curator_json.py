@@ -2616,7 +2616,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             selection_score = min(100, final_score + kw_hits * kw_boost_val)
             boosted_pool.append((article, selection_score, final_score, theme_score))
         boosted_pool.sort(key=lambda x: x[1], reverse=True)
-        theme_articles = [(a, fs, ts) for _, _, fs, ts in boosted_pool[:max_articles]]
+        theme_articles = [(a, fs, ts) for a, _, fs, ts in boosted_pool[:max_articles]]
     else:
         # Sort by final score descending
         scored_pool.sort(key=lambda x: x[1], reverse=True)
