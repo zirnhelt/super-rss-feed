@@ -9,6 +9,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
 | 2026-06-03 | 🌅 4:30 AM Pacific | ⚠️ **The Atlantic Culture** failed | `HTTPSConnectionPool(host='www.theatlantic.com', port=443): Read timed out. (read timeout=10)` |
+| 2026-06-03 | 🌙 8:30 PM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
 | 2026-05-31 | 🌅 4:30 AM Pacific | ⚠️ **CBC Arts** failed | `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -47,6 +48,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-06-03 | 🌅 morning | 126 | news:95(75%), ai-tech:8(6%), wellness:8(6%) |
+| 2026-06-03 | 🌙 evening | 76 | news:63(83%), wellness:5(7%), local:4(5%) |
 | 2026-06-01 | 🌅 morning | 8 | news:3(38%), science:2(25%), local:1(12%) |
 | 2026-05-31 | 🌙 evening | 10 | news:8(80%), climate:2(20%) |
 | 2026-05-31 | 🌅 morning | 3 | climate:1(33%), wellness:1(33%), science:1(33%) |
@@ -59,9 +61,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-27 | 🌅 morning | 202 | news:108(56%), ai-tech:28(14%), homelab:26(13%) |
 | 2026-05-27 | 🌙 evening | 194 | news:100(57%), ai-tech:33(19%), homelab:20(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-03 09:18 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-03 17:29 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
