@@ -1575,6 +1575,15 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         f"CATEGORY DEFINITIONS AND ASSIGNMENT RULES:\n"
         f"Assign each article to exactly ONE category using the descriptions, signals, and exclusions below:\n\n"
         f"{category_guide}\n\n"
+        f"CATEGORY PRIORITY (when an article qualifies for multiple categories, use this order):\n"
+        f"1. local    — ANY Williams Lake, Cariboo, Quesnel, CRD, or BC Interior community content\n"
+        f"2. homelab  — self-hosting, 3D printing, home automation, home servers\n"
+        f"3. climate  — renewable energy, EVs, climate science, carbon, wildfire ecology\n"
+        f"4. wellness — personal health, nutrition, mental health, fitness, medicine\n"
+        f"5. science  — peer-reviewed research, discoveries, academic findings\n"
+        f"6. scifi    — science fiction, speculative fiction, worldbuilding\n"
+        f"7. ai-tech  — AI/ML systems, platform engineering, infrastructure\n"
+        f"8. news     — default catch-all for anything not clearly matching 1–7\n\n"
         f"Also provide a 'story_group': a 3-5 word label for the SPECIFIC event or product covered "
         f"(e.g. 'Apple AirTag 2 launch', 'Williams Lake council vote', 'OpenAI GPT-5 release'). "
         f"Use null for standalone analysis, opinion, or evergreen pieces with no discrete news event. "
@@ -2524,9 +2533,21 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Merge holdover articles into the pool (already theme-qualified, skip base filter)
     theme_pool.extend(holdover_pool)
 
-    # Exclude articles already used in a recent podcast episode
+    # Exclude articles already used in a recent podcast episode.
+    # Exception: allow articles shown *earlier today* for *today's theme* back into
+    # the pool so the second daily run can do an additive refresh rather than
+    # picking from the depleted remainder and overwriting the morning's better feed.
     before_shown_filter = len(theme_pool)
-    theme_pool = [a for a in theme_pool if a.link not in podcast_shown_cache]
+    _today_date_str = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+
+    def _available_for_today(link: str) -> bool:
+        entry = podcast_shown_cache.get(link)
+        if entry is None:
+            return True
+        return (entry.get('day') == theme_name
+                and entry.get('shown_at', '').startswith(_today_date_str))
+
+    theme_pool = [a for a in theme_pool if _available_for_today(a.link)]
     shown_excluded = before_shown_filter - len(theme_pool)
     if shown_excluded:
         print(f"  🔄 Excluded {shown_excluded} articles already shown in recent podcast episodes")
@@ -3011,10 +3032,17 @@ def main():
             )
             if selected_urls:
                 now_iso = datetime.now(timezone.utc).isoformat()
+                today_date_str = now_iso[:10]
+                newly_marked = 0
                 for url in selected_urls:
-                    podcast_shown_cache[url] = {'day': today_name, 'shown_at': now_iso}
+                    existing = podcast_shown_cache.get(url, {})
+                    # Don't overwrite a same-day entry so the original shown_at is preserved
+                    if not (existing.get('day') == today_name
+                            and existing.get('shown_at', '').startswith(today_date_str)):
+                        podcast_shown_cache[url] = {'day': today_name, 'shown_at': now_iso}
+                        newly_marked += 1
                 save_podcast_shown_cache(podcast_shown_cache)
-                print(f"  📌 Marked {len(selected_urls)} articles as shown for future episode exclusion")
+                print(f"  📌 Marked {newly_marked} new articles as shown ({len(selected_urls) - newly_marked} already in today's episode)")
         else:
             print(f"⚠️ No podcast schedule for today ({today_name})")
 
