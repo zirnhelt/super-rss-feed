@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-03 | 🌅 4:30 AM Pacific | ⚠️ **The Atlantic Culture** failed | `HTTPSConnectionPool(host='www.theatlantic.com', port=443): Read timed out. (read timeout=10)` |
 | 2026-05-31 | 🌅 4:30 AM Pacific | ⚠️ **CBC Arts** failed | `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-05-29 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
@@ -40,21 +41,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-27 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
 | 2026-05-27 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
 | 2026-05-27 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-26 | 🌅 4:30 AM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-26 | 🌅 4:30 AM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-05-26 | 🌅 4:30 AM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-05-26 | 🌅 4:30 AM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-26 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-05-26 | 🌙 8:30 PM Pacific | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-05-26 | 🌙 8:30 PM Pacific | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-05-26 | 🌙 8:30 PM Pacific | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-05-26 | 🌙 8:30 PM Pacific | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-05-26 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-03 | 🌅 morning | 126 | news:95(75%), ai-tech:8(6%), wellness:8(6%) |
 | 2026-06-01 | 🌅 morning | 8 | news:3(38%), science:2(25%), local:1(12%) |
 | 2026-05-31 | 🌙 evening | 10 | news:8(80%), climate:2(20%) |
 | 2026-05-31 | 🌅 morning | 3 | climate:1(33%), wellness:1(33%), science:1(33%) |
@@ -66,12 +58,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-28 | 🌙 evening | 213 | news:126(65%), ai-tech:36(19%), homelab:18(9%) |
 | 2026-05-27 | 🌅 morning | 202 | news:108(56%), ai-tech:28(14%), homelab:26(13%) |
 | 2026-05-27 | 🌙 evening | 194 | news:100(57%), ai-tech:33(19%), homelab:20(11%) |
-| 2026-05-26 | 🌅 morning | 144 | news:71(53%), homelab:18(13%), ai-tech:15(11%) |
-| 2026-05-26 | 🌙 evening | 233 | news:132(61%), ai-tech:39(18%), homelab:18(8%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-02 02:23 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-03 09:18 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
