@@ -17,6 +17,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **988** → dedup **875** → new **611** → quality **67**
+- Mix: local:3(4%), ai-tech:4(6%), climate:1(1%), wellness:4(6%), science:1(1%), scifi:1(1%), news:53(79%)
+- Feeds: local:35, ai-tech:36, climate:69, homelab:8, wellness:29, science:18, scifi:8, news:397
+- Images: 67/67
+- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
+
+
+---
+
+
+
 ## 2026-06-03 (Wednesday)
 
 #### 🌅 4:30 AM Pacific

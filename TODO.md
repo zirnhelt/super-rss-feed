@@ -9,6 +9,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
 | 2026-06-04 | 🌅 4:30 AM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
+| 2026-06-04 | 🌙 8:30 PM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
 | 2026-06-03 | 🌅 4:30 AM Pacific | ⚠️ **The Atlantic Culture** failed | `HTTPSConnectionPool(host='www.theatlantic.com', port=443): Read timed out. (read timeout=10)` |
 | 2026-06-03 | 🌙 8:30 PM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
 | 2026-05-31 | 🌅 4:30 AM Pacific | ⚠️ **CBC Arts** failed | `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)` |
@@ -39,6 +40,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-06-04 | 🌅 morning | 75 | news:62(83%), ai-tech:6(8%), local:2(3%) |
+| 2026-06-04 | 🌙 evening | 67 | news:53(79%), ai-tech:4(6%), wellness:4(6%) |
 | 2026-06-03 | 🌅 morning | 126 | news:95(75%), ai-tech:8(6%), wellness:8(6%) |
 | 2026-06-03 | 🌙 evening | 76 | news:63(83%), wellness:5(7%), local:4(5%) |
 | 2026-06-01 | 🌅 morning | 8 | news:3(38%), science:2(25%), local:1(12%) |
@@ -51,9 +53,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-05-28 | 🌅 morning | 199 | news:99(54%), ai-tech:36(19%), homelab:22(12%) |
 | 2026-05-28 | 🌙 evening | 213 | news:126(65%), ai-tech:36(19%), homelab:18(9%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-04 08:42 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-04 16:00 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
