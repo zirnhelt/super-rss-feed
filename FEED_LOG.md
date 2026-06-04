@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-04 (Thursday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **975** → dedup **861** → new **597** → quality **75**
+- Mix: local:2(3%), ai-tech:6(8%), climate:1(1%), homelab:2(3%), wellness:2(3%), news:62(83%)
+- Feeds: local:32, ai-tech:64, climate:82, homelab:26, wellness:29, science:22, scifi:7, news:431
+- Images: 75/75
+- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
+
+
+---
+
+
+
 ## 2026-06-03 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
@@ -222,49 +236,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
 - ⚠️ ⚠️  Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '13269dea015d9efad6c31a7ef29d663b', 'date': 'Fri, 29 May 2026 04:53:23 GMT', 'x-envoy-upstream-service-time': '5', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 400, body: {'id': '37b0d06c-e82a-4ec2-ad95-02c5d933d5c6', 'message': 'invalid request: total number of texts must be at most 96 - received 939'}
 - ⚠️ ⚠️  Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '09d061a8eb5d3d7036d83faf8be51470', 'date': 'Fri, 29 May 2026 04:53:25 GMT', 'x-envoy-upstream-service-time': '8', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 400, body: {'id': '89c3e703-97f6-4ca1-b327-e391350dc850', 'message': 'invalid request: total number of texts must be at most 96 - received 302'}
-
-
----
-
-
-
-## 2026-05-27 (Wednesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1013** → dedup **872** → new **315** → quality **202**
-- Mix: local:11(6%), ai-tech:28(14%), climate:7(4%), homelab:26(13%), science:12(6%), scifi:2(1%), news:108(56%)
-- Feeds: local:41, ai-tech:337, climate:90, homelab:244, science:123, scifi:18, news:500
-- Images: 202/202
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 36)), keeping all
-- ⚠️ ⚠️ Scrub batch 4 failed (Extra data: line 4 column 1 (char 29)), keeping all
-- ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 4 column 1 (char 20)), keeping all
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1065** → dedup **927** → new **304** → quality **194**
-- Mix: local:6(3%), ai-tech:33(19%), climate:6(3%), homelab:20(11%), science:8(5%), scifi:3(2%), news:100(57%)
-- Feeds: local:43, ai-tech:330, climate:86, homelab:241, science:118, scifi:21, news:500
-- Images: 194/194
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 48)), keeping all
-- ⚠️ ⚠️ Scrub batch 5 failed (Extra data: line 4 column 1 (char 45)), keeping all
-- ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 2 column 1 (char 15)), keeping all
-- ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
 
 
 ---
@@ -1543,6 +1514,27 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 4 column 1 (char 25)), keeping all
 - - ⚠️ ⚠️ Scrub batch 7 failed (Extra data: line 4 column 1 (char 20)), keeping all
 - - ⚠️ ⚠️ Scrub batch 3 failed (Extra data: line 4 column 1 (char 35)), keeping all
+
+
+---
+
+
+
+## Week of 2026-05-27–2026-05-27
+- 2 runs · avg fetched 1039 · avg quality 198
+- Dominant: **news** (56%) local:17 / ai-tech:61 / climate:13 / homelab:46 / science:20 / scifi:5 / news:208
+- - ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- - ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- - ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- - ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
+- - ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 36)), keeping all
+- - ⚠️ ⚠️ Scrub batch 4 failed (Extra data: line 4 column 1 (char 29)), keeping all
+- - ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 4 column 1 (char 20)), keeping all
+- - ⚠️ ⚠️ Batch submission failed, falling back to synchronous scoring: 'Messages' object has no attribute 'batches'
+- - ⚠️ ⚠️ Scrub batch 2 failed (Extra data: line 4 column 1 (char 48)), keeping all
+- - ⚠️ ⚠️ Scrub batch 5 failed (Extra data: line 4 column 1 (char 45)), keeping all
+- - ⚠️ ⚠️ Scrub batch 6 failed (Extra data: line 2 column 1 (char 15)), keeping all
 
 
 ---
