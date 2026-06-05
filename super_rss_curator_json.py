@@ -2494,7 +2494,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     all_cached_urls = {a.link for a in all_cached}
 
     # Load cross-week holdover: articles that scored well on this theme in previous
-    # runs and were banked for future episodes (28-day retention, bypasses base filter).
+    # runs and were banked for future episodes (28-day retention).
     holdover_cache = load_theme_holdover_cache()
     holdover_raw = holdover_cache.get(theme_name, [])
     holdover_pool = [
@@ -2502,6 +2502,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         if item['link'] not in podcast_shown_cache
         and not _is_aggregator_url(item['link'])
         and item['link'] not in all_cached_urls  # already in 7-day pool
+        and item.get('score', 0) >= LIMITS['min_claude_score']  # enforce current quality floor
     ]
     if holdover_pool:
         print(f"  📦 +{len(holdover_pool)} holdover articles from previous weeks")
@@ -2530,7 +2531,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         print(f"  🌾 +{len(rescued)} theme-relevant articles rescued (base score < {min_score})")
         theme_pool.extend(rescued)
 
-    # Merge holdover articles into the pool (already theme-qualified, skip base filter)
+    # Merge holdover articles into the pool (already theme-qualified and quality-filtered above)
     theme_pool.extend(holdover_pool)
 
     # Exclude articles already used in a recent podcast episode.
