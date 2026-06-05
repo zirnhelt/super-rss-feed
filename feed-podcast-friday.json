@@ -20,11 +20,11 @@
       "science",
       "news"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Wild Spaces & Outdoor Life' through a RURAL TECH AND INNOVATION lens. Strong fits include: wildfire detection tech and BC Wildfire monitoring systems, satellite/drone surveillance for Chilcotin wilderness, wildlife tracking and conservation technology, watershed sensors and salmon habitat monitoring, weather stations and climate tracking in backcountry, avalanche forecasting tech, trail mapping and GPS systems, outdoor recreation apps and connectivity, backcountry communication devices (satellite messengers, Meshtastic), flood/drought prediction systems, remote cameras for wildlife research, and how technology helps manage and protect Cariboo wild spaces. Prefer articles that bridge wilderness/conservation AND technology. Penalise heavily (score 0–20): prehistoric and ancient biology (fossils, palaeontology, deep-time creatures) with no contemporary conservation technology angle — these belong to Sunday's Science theme; AI and data centre infrastructure stories about business strategy, investment, or corporate politics rather than direct wilderness, ecosystem, or land-use impact in BC; geopolitical conflict, war, and crime news with no outdoor or conservation relevance; consumer tech reviews and financial market stories; general political and judicial news. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "friday",
-    "generated_at": "2026-06-05T08:33:51.480221+00:00",
+    "generated_at": "2026-06-05T15:36:54.688339+00:00",
     "article_count": 40,
-    "bonus_count": 29,
+    "bonus_count": 34,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -44,39 +44,14 @@
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 3,
-      "_final_score": 3,
+      "_theme_score": 13,
+      "_final_score": 13,
       "_keyword_matches": 1,
       "_boosted_score": 45,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
       "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42374278_web1_260604-OMH-Parkside-Fremlin_1.jpeg?w=818"
-    },
-    {
-      "id": "https://www.businessinsider.com/data-center-backlash-microsoft-ceo-satya-nadella-reassure-communities-2026-6",
-      "url": "https://www.businessinsider.com/data-center-backlash-microsoft-ceo-satya-nadella-reassure-communities-2026-6",
-      "title": "[Business Insider] Satya Nadella defends Microsoft AI data center plans against community backlash",
-      "content_html": "<img src=\"https://i.insider.com/6a1f144bb4fb977f359835ff?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMicrosoft CEO Satya Nadella defends AI data centers, pledging lower environmental impact, stable power costs, and local jobs.",
-      "summary": "Microsoft CEO Satya Nadella defends AI data centers, pledging lower environmental impact, stable power costs, and local jobs.",
-      "_excerpt": "Microsoft CEO Satya Nadella defends AI data centers, pledging lower environmental impact, stable power costs, and local jobs.",
-      "date_published": "2026-06-02T18:46:16+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 1,
-      "_final_score": 1,
-      "_keyword_matches": 1,
-      "_boosted_score": 43,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/6a1f144bb4fb977f359835ff?format=jpeg"
     },
     {
       "id": "https://www.businessinsider.com/kevin-oleary-data-center-utah-cut-2026-6",
@@ -94,39 +69,14 @@
       ],
       "ai_score": 72,
       "_quality_score": 72,
-      "_theme_score": 2,
-      "_final_score": 2,
+      "_theme_score": 8,
+      "_final_score": 8,
       "_keyword_matches": 1,
       "_boosted_score": 41,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://i.insider.com/6a2038d72e5a80cfe0502bba?format=jpeg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-business/ottawa-endorses-plan-to-move-marinelands-whales-to-us-and-spain-12369424",
-      "url": "https://www.piquenewsmagazine.com/national-business/ottawa-endorses-plan-to-move-marinelands-whales-to-us-and-spain-12369424",
-      "title": "[Pique Newsmagazine] Ottawa endorses plan to move Marineland's whales to U.S. and Spain",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/7e3b15ff030c0ef7a18601dd66a02272fc5edfe5d57de66a4cbaea228b24f2a6.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTORONTO — Ottawa has endorsed a plan to move Canada's last remaining captive whales to aquariums in the U.S. and Spain. \n There are 30 belugas and four dolphins at Marineland, the shuttered theme park in Niagara Falls, Ont.",
-      "summary": "TORONTO — Ottawa has endorsed a plan to move Canada's last remaining captive whales to aquariums in the U.S. and Spain. There are 30 belugas and four dolphins at Marineland, the shuttered theme park in Niagara Falls, Ont.",
-      "_excerpt": "TORONTO — Ottawa has endorsed a plan to move Canada's last remaining captive whales to aquariums in the U.S. and Spain. There are 30 belugas and four dolphins at Marineland, the shuttered theme park in Niagara Falls, Ont.",
-      "date_published": "2026-06-03T16:41:17+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 66,
-      "_quality_score": 66,
-      "_theme_score": 13,
-      "_final_score": 13,
-      "_keyword_matches": 1,
-      "_boosted_score": 39,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/7e3b15ff030c0ef7a18601dd66a02272fc5edfe5d57de66a4cbaea228b24f2a6.jpg;w=960"
     },
     {
       "id": "https://www.sciencedaily.com/releases/2026/06/260603023110.htm",
@@ -144,8 +94,8 @@
       ],
       "ai_score": 65,
       "_quality_score": 65,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 1,
       "_boosted_score": 39,
       "_category": "news",
@@ -154,29 +104,29 @@
       "image": "https://www.sciencedaily.com/images/1920/typhoon-jangmi.webp"
     },
     {
-      "id": "https://www.techradar.com/computing/who-wouldnt-want-a-large-scale-industrial-polluter-sitting-in-their-backyard-california-residents-ban-data-centers-as-public-backlash-grows",
-      "url": "https://www.techradar.com/computing/who-wouldnt-want-a-large-scale-industrial-polluter-sitting-in-their-backyard-california-residents-ban-data-centers-as-public-backlash-grows",
-      "title": "[TechRadar] 'Who wouldn't want a large-scale industrial polluter sitting in their backyard?': California residents ban data centers as public backlash grows",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/kntXJzuBjvVTZvqgBeCKfN-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMonterey Park says no to data centers, as public opinion turns against AI and the infrastructure required to power it.",
-      "summary": "Monterey Park says no to data centers, as public opinion turns against AI and the infrastructure required to power it.",
-      "_excerpt": "Monterey Park says no to data centers, as public opinion turns against AI and the infrastructure required to power it.",
-      "date_published": "2026-06-04T12:37:24+00:00",
+      "id": "https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/",
+      "url": "https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/",
+      "title": "[TechCrunch] Mira Murati steps back into the spotlight, carefully",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/Mira-Murati-at-Bloomberg.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn the current environment, remaining heads down has diminishing returns; at some point, you have to make some noise just to remind the market you exist.",
+      "summary": "In the current environment, remaining heads down has diminishing returns; at some point, you have to make some noise just to remind the market you exist.",
+      "_excerpt": "In the current environment, remaining heads down has diminishing returns; at some point, you have to make some noise just to remind the market you exist.",
+      "date_published": "2026-06-05T05:06:37+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
         }
       ],
       "ai_score": 64,
       "_quality_score": 64,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 8,
+      "_final_score": 8,
       "_keyword_matches": 1,
       "_boosted_score": 39,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/kntXJzuBjvVTZvqgBeCKfN-1280-80.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/Mira-Murati-at-Bloomberg.jpg?w=1024"
     },
     {
       "id": "https://www.aljazeera.com/news/2026/6/4/how-indias-cbse-exam-scandal-set-off-student-outrage-against-pm-modi?traffic_source=rss",
@@ -194,8 +144,8 @@
       ],
       "ai_score": 58,
       "_quality_score": 58,
-      "_theme_score": 4,
-      "_final_score": 4,
+      "_theme_score": 17,
+      "_final_score": 17,
       "_keyword_matches": 1,
       "_boosted_score": 37,
       "_category": "news",
@@ -204,79 +154,29 @@
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2024-07-21T015355Z_1487102784_RC2IF8AHYCMY_RTRMADP_3_INDIA-ECONOMY-JOBS-1780487735_d6d09d-1780555179.jpg?resize=1920%2C1440"
     },
     {
-      "id": "https://wltribune.com/2026/06/03/rossland-hill-closure-linked-to-search-in-trail-mans-disappearance/",
-      "url": "https://wltribune.com/2026/06/03/rossland-hill-closure-linked-to-search-in-trail-mans-disappearance/",
-      "title": "[Williams Lake Tribune] Rossland hill closure linked to search in Trail man’s disappearance",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42480722_web1_260604-TDT-Rcmp_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHighway 22 was closed in both directions between Thompson Avenue and Montcalm Road",
-      "summary": "Highway 22 was closed in both directions between Thompson Avenue and Montcalm Road",
-      "_excerpt": "Highway 22 was closed in both directions between Thompson Avenue and Montcalm Road",
-      "date_published": "2026-06-03T18:22:00+00:00",
+      "id": "https://cfjctoday.com/2026/06/05/notable-vehicle-fire-from-rih-parking-lot-not-suspicious-kfr/",
+      "url": "https://cfjctoday.com/2026/06/05/notable-vehicle-fire-from-rih-parking-lot-not-suspicious-kfr/",
+      "title": "[CFJC Today Kamloops] Notable vehicle fire from RIH parking lot not suspicious: KFR",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/cab4f2a2-c6f6-42fd-911b-43a11d9ea235.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Image Credit: Aaron Schulze/CFJC Today) By Aaron Schulze RIH Vehicle Fire Notable vehicle fire from RIH parking lot not suspicious: KFR Jun 5, 2026 | 7:17 AM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — A vehicle fire from Royal Inland Hospital (RIH) caught the attention of early birds in Kamloops Friday (June 5). Kamloops Fire Rescue (KFR) responded to a parking stall by the RIH emergency room at around 5:15 a.m. where a vehicle was fully engulfed in flames, creating a notable plume of smoke. KFR Captain Will Harlock told CFJC Today crews were able to contain the fire",
+      "summary": "(Image Credit: Aaron Schulze/CFJC Today) By Aaron Schulze RIH Vehicle Fire Notable vehicle fire from RIH parking lot not suspicious: KFR Jun 5, 2026 | 7:17 AM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — A vehicle fire from Royal Inland Hospital (RIH) caught the attention of",
+      "_excerpt": "(Image Credit: Aaron Schulze/CFJC Today) By Aaron Schulze RIH Vehicle Fire Notable vehicle fire from RIH parking lot not suspicious: KFR Jun 5, 2026 | 7:17 AM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — A vehicle fire from Royal Inland Hospital (RIH) caught the attention of early birds in Kamloops Friday (June 5). Kamloops Fire Rescue (KFR) responded to a parking stall by the RIH emergency room at around 5:15 a.m. where a vehicle was fully engulfed in flames, creating a notable plume of smoke. KFR Captain Will Harlock told CFJC Today crews were able to contain the fire",
+      "date_published": "2026-06-05T14:17:58+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
         }
       ],
-      "ai_score": 47,
-      "_quality_score": 47,
-      "_theme_score": 1,
-      "_final_score": 1,
+      "ai_score": 56,
+      "_quality_score": 56,
+      "_theme_score": 17,
+      "_final_score": 17,
       "_keyword_matches": 1,
-      "_boosted_score": 34,
+      "_boosted_score": 36,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42480722_web1_260604-TDT-Rcmp_1.jpeg?w=1024"
-    },
-    {
-      "id": "https://www.androidauthority.com/walmart-onn-floodlight-camera-3673319/",
-      "url": "https://www.androidauthority.com/walmart-onn-floodlight-camera-3673319/",
-      "title": "[Android Authority] Walmart’s Onn accidentally leaks its cheaper alternative to Google Nest Cam with Floodlight",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/06/walmart-floodlight-camera-copy.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOnn may be aiming at Google Nest with a cheap floodlight camera.",
-      "summary": "Onn may be aiming at Google Nest with a cheap floodlight camera.",
-      "_excerpt": "Onn may be aiming at Google Nest with a cheap floodlight camera.",
-      "date_published": "2026-06-02T07:36:21+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality_score": 40,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_keyword_matches": 1,
-      "_boosted_score": 32,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/06/walmart-floodlight-camera-copy.jpg"
-    },
-    {
-      "id": "https://refractor.io/biology/krakens-ruled-100-million-years-ago/",
-      "url": "https://refractor.io/biology/krakens-ruled-100-million-years-ago/",
-      "title": "[New Atlas] Intelligent 'krakens' really did rule the seas 100 million years ago",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/f31bfdb/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F10%2F22%2F3500697448ce90fdd42222d4bcb3%2Fkraken-cretaceous.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Close-up of a common octopus\" src=\"https://assets.newatlas.com/dims4/default/ad0b2dd/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F10%2F22%2F3500697448ce90fdd42222d4bcb3%2Fkraken-cretaceous.jpg\" /><p>Bus-sized cephalopods reminiscent of the legendary kraken may have sat at the top of the food chain, using their smarts to hunt down prey in the oceans of the Late Cretaceous.</p><p><a href=\"https://refractor.io/biology/krakens-ruled-100-million-years-ago/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/biology/\">Biology</a>, <a href=\"https://refractor.io/science/\">Science</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/octopus/\" rel=\"tag\">Octopus</a>, <a href=\"https://newatlas.com/tag/predator/\" rel=\"tag\">Predator</a>, <a href=\"https://newatlas.com/tag/dinosaurs/\" rel=\"tag\">Dinosaurs</a>, <a href=\"https://newatlas.com/tag/ocean/\" rel=\"tag\">Ocean</a>, <a href=\"https://newatlas.com/tag/ecology/\" rel=\"tag\">Ecology</a></p>",
-      "summary": "Bus-sized cephalopods reminiscent of the legendary kraken may have sat at the top of the food chain, using their smarts to hunt down prey in the oceans of the Late Cretaceous. Continue Reading Category: Biology , Science Tags: Octopus , Predator , Dinosaurs , Ocean , Ecology",
-      "_excerpt": "Bus-sized cephalopods reminiscent of the legendary kraken may have sat at the top of the food chain, using their smarts to hunt down prey in the oceans of the Late Cretaceous. Continue Reading Category: Biology , Science Tags: Octopus , Predator , Dinosaurs , Ocean , Ecology",
-      "date_published": "2026-06-02T01:41:47+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality_score": 40,
-      "_theme_score": 1,
-      "_final_score": 1,
-      "_keyword_matches": 1,
-      "_boosted_score": 32,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/f31bfdb/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F10%2F22%2F3500697448ce90fdd42222d4bcb3%2Fkraken-cretaceous.jpg&rf.image_optimisation=0"
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/cab4f2a2-c6f6-42fd-911b-43a11d9ea235.png"
     },
     {
       "id": "https://wltribune.com/2026/06/04/richmond-rcmp-officer-charged-with-theft-breach-of-trust/",
@@ -294,8 +194,8 @@
       ],
       "ai_score": 96,
       "_quality_score": 96,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
       "_boosted_score": 28,
       "_category": "news",
@@ -319,8 +219,8 @@
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
       "_boosted_score": 25,
       "_category": "local",
@@ -329,29 +229,54 @@
       "image": "https://www.mycariboonow.com/wp-content/uploads/2025/07/BC-RCMP_Facebook-600x450-1.jpg"
     },
     {
-      "id": "https://www.piquenewsmagazine.com/the-mix/philippine-senator-charged-with-plunder-says-he-will-surrender-12355448",
-      "url": "https://www.piquenewsmagazine.com/the-mix/philippine-senator-charged-with-plunder-says-he-will-surrender-12355448",
-      "title": "[Pique Newsmagazine] Philippine senator charged with plunder says he will surrender",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/3e8821694a150ce0892e882d8e352c59d640421b80361bf57a74b10c5f0cd98a.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMANILA, Philippines (AP) — A Philippine senator said he will surrender to authorities after a special anti-graft court ordered his arrest on Monday on a non-bailable charge of plunder after he allegedly pocketed a huge kickback in a flood-control pro",
-      "summary": "MANILA, Philippines (AP) — A Philippine senator said he will surrender to authorities after a special anti-graft court ordered his arrest on Monday on a non-bailable charge of plunder after he allegedly pocketed a huge kickback in a flood-control pro",
-      "_excerpt": "MANILA, Philippines (AP) — A Philippine senator said he will surrender to authorities after a special anti-graft court ordered his arrest on Monday on a non-bailable charge of plunder after he allegedly pocketed a huge kickback in a flood-control pro",
-      "date_published": "2026-06-01T08:25:18+00:00",
+      "id": "https://eaglefeathernews.com/2026/06/03/5410/",
+      "url": "https://eaglefeathernews.com/2026/06/03/5410/",
+      "title": "[Eagle Feather News] Law enforcement looking for shooter following fatal shooting at Pelican Narrows",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/06/screenshot-2026-06-03-at-51625-pm.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVideo of shooting suspect released on June 3 by Sask RCMP.",
+      "summary": "Video of shooting suspect released on June 3 by Sask RCMP.",
+      "_excerpt": "Video of shooting suspect released on June 3 by Sask RCMP.",
+      "date_published": "2026-06-03T23:30:14+00:00",
       "authors": [
         {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
+          "name": "Eagle Feather News",
+          "url": "https://www.eaglefeathernews.com"
         }
       ],
-      "ai_score": 13,
-      "_quality_score": 13,
-      "_theme_score": 38,
-      "_final_score": 38,
-      "_keyword_matches": 1,
+      "ai_score": 81,
+      "_quality_score": 81,
+      "_theme_score": 21,
+      "_final_score": 21,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/06/screenshot-2026-06-03-at-51625-pm.png"
+    },
+    {
+      "id": "https://qz.com/applied-ceo-explains-best-time-to-go-public",
+      "url": "https://qz.com/applied-ceo-explains-best-time-to-go-public",
+      "title": "[Quartz] Applied CEO Trip Ferguson explains why now was best time to go public",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Applied%2520CEO%2520Trip%2520Ferguson%2520Explains%2520Why%2520Now%2520Was%2520Best%2520Time%2520to%2520Go%2520Public\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApplied CEO Trip Ferguson explains why now was best time to go public",
+      "summary": "Applied CEO Trip Ferguson explains why now was best time to go public",
+      "_excerpt": "Applied CEO Trip Ferguson explains why now was best time to go public",
+      "date_published": "2026-06-04T21:20:08+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 29,
+      "_final_score": 29,
+      "_keyword_matches": 0,
       "_boosted_score": 23,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/3e8821694a150ce0892e882d8e352c59d640421b80361bf57a74b10c5f0cd98a.jpg;w=960"
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Applied%2520CEO%2520Trip%2520Ferguson%2520Explains%2520Why%2520Now%2520Was%2520Best%2520Time%2520to%2520Go%2520Public"
     },
     {
       "id": "https://www.nytimes.com/2026/06/04/world/europe/boeing-plane-nose-gear-collapse-frankfurt.html",
@@ -369,8 +294,8 @@
       ],
       "ai_score": 77,
       "_quality_score": 77,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 23,
       "_category": "news",
@@ -379,79 +304,54 @@
       "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04xp-plane-bkpq/04xp-plane-bkpq-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/3/accident-on-kuwait-motorway-as-iranian-missiles-fly-overhead?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/3/accident-on-kuwait-motorway-as-iranian-missiles-fly-overhead?traffic_source=rss",
-      "title": "[Al Jazeera English] Accident on Kuwait motorway as Iranian missiles fly overhead",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Kuwait-accident-1780461152.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVideo shows a car accident occurring on a road in Kuwait City as missiles flew overhead.",
-      "summary": "Video shows a car accident occurring on a road in Kuwait City as missiles flew overhead.",
-      "_excerpt": "Video shows a car accident occurring on a road in Kuwait City as missiles flew overhead.",
-      "date_published": "2026-06-03T04:33:22+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 16,
-      "_final_score": 16,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Kuwait-accident-1780461152.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/the-mix/police-arrest-son-of-james-handys-girlfriend-in-actors-stabbing-death-in-la-12379528",
-      "url": "https://www.piquenewsmagazine.com/the-mix/police-arrest-son-of-james-handys-girlfriend-in-actors-stabbing-death-in-la-12379528",
-      "title": "[Pique Newsmagazine] Police arrest son of James Handy's girlfriend in actor's stabbing death in LA",
-      "content_html": "<img src=\"https://www.vmcdn.ca/files/piquenewsmagazine/images/piquenewsmagazine/pique800x405.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPolice have arrested the son of actor James Handy’s girlfriend in his death after he was found stabbed in the chest in Los Angeles, law enforcement said Thursday.",
-      "summary": "Police have arrested the son of actor James Handy’s girlfriend in his death after he was found stabbed in the chest in Los Angeles, law enforcement said Thursday.",
-      "_excerpt": "Police have arrested the son of actor James Handy’s girlfriend in his death after he was found stabbed in the chest in Los Angeles, law enforcement said Thursday.",
-      "date_published": "2026-06-05T04:56:13+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 13,
-      "_final_score": 13,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/files/piquenewsmagazine/images/piquenewsmagazine/pique800x405.png"
-    },
-    {
-      "id": "https://qz.com/hippo-ceo-on-new-insurance-trends-as-hurricane-season-begins",
-      "url": "https://qz.com/hippo-ceo-on-new-insurance-trends-as-hurricane-season-begins",
-      "title": "[Quartz] Hippo CEO Rick McCathron on new insurance trends as hurricane season begins",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Hippo%2520CEO%2520Rick%2520McCathron%2520on%2520New%2520Insurance%2520Trends%2520as%2520Hurricane%2520Season%2520Begins\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHippo CEO Rick McCathron on new insurance trends as hurricane season begins",
-      "summary": "Hippo CEO Rick McCathron on new insurance trends as hurricane season begins",
-      "_excerpt": "Hippo CEO Rick McCathron on new insurance trends as hurricane season begins",
-      "date_published": "2026-06-03T21:00:07+00:00",
+      "id": "https://qz.com/tech-job-cuts-ai-layoffs-may-2026-060526",
+      "url": "https://qz.com/tech-job-cuts-ai-layoffs-may-2026-060526",
+      "title": "[Quartz] U.S. tech companies announced the most job cuts in nearly 2 years as AI spending surged",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2220100119.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI was cited as the top reason for layoffs for the third straight month, accounting for 40% of all May cuts",
+      "summary": "AI was cited as the top reason for layoffs for the third straight month, accounting for 40% of all May cuts",
+      "_excerpt": "AI was cited as the top reason for layoffs for the third straight month, accounting for 40% of all May cuts",
+      "date_published": "2026-06-05T14:00:28+00:00",
       "authors": [
         {
           "name": "Quartz",
           "url": "https://qz.com"
         }
       ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Hippo%2520CEO%2520Rick%2520McCathron%2520on%2520New%2520Insurance%2520Trends%2520as%2520Hurricane%2520Season%2520Begins"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2220100119.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/05/world/europe/armenia-election-russia.html",
+      "url": "https://www.nytimes.com/2026/06/05/world/europe/armenia-election-russia.html",
+      "title": "[NYT Top Stories] Backed by Trump, Opposed by Putin, and Fighting for His Political Life",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/05/multimedia/05int-armenia-ctfk-promo/05int-armenia-ctfk-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPrime Minister Nikol Pashinyan of Armenia is seeking re-election as his country weighs questions of war and peace, of autocracy and democracy, and of subjugation and independence.",
+      "summary": "Prime Minister Nikol Pashinyan of Armenia is seeking re-election as his country weighs questions of war and peace, of autocracy and democracy, and of subjugation and independence.",
+      "_excerpt": "Prime Minister Nikol Pashinyan of Armenia is seeking re-election as his country weighs questions of war and peace, of autocracy and democracy, and of subjugation and independence.",
+      "date_published": "2026-06-05T09:14:22+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 21,
+      "_final_score": 21,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/06/05/multimedia/05int-armenia-ctfk-promo/05int-armenia-ctfk-mediumSquareAt3X.jpg"
     },
     {
       "id": "https://www.piquenewsmagazine.com/national-news/verdict-expected-in-case-of-ex-hydro-quebec-employee-accused-of-economic-espionage-12379647",
@@ -469,8 +369,8 @@
       ],
       "ai_score": 73,
       "_quality_score": 73,
-      "_theme_score": 11,
-      "_final_score": 11,
+      "_theme_score": 42,
+      "_final_score": 42,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
@@ -494,8 +394,8 @@
       ],
       "ai_score": 71,
       "_quality_score": 71,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_theme_score": 38,
+      "_final_score": 38,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
@@ -519,8 +419,8 @@
       ],
       "ai_score": 72,
       "_quality_score": 72,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_theme_score": 38,
+      "_final_score": 38,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
@@ -544,8 +444,8 @@
       ],
       "ai_score": 72,
       "_quality_score": 72,
-      "_theme_score": 8,
-      "_final_score": 8,
+      "_theme_score": 34,
+      "_final_score": 34,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
@@ -554,29 +454,79 @@
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/70492a5b9167da8f3d1bc2e1216704becfa5de756aff756e98ad5cf455d78245.jpg;w=960"
     },
     {
-      "id": "https://www.aljazeera.com/news/2026/6/3/tunisian-court-sentences-ennahdha-leader-rached-ghannouchi-to-life-in-prison?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/3/tunisian-court-sentences-ennahdha-leader-rached-ghannouchi-to-life-in-prison?traffic_source=rss",
-      "title": "[Al Jazeera English] Tunisian court sentences Ennahdha leader Rached Ghannouchi to life in prison",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/AP25037326738701-1-1780446523_d662e2-1780451641.jpg?resize=1200%2C630&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOpposition leader and dozens of other defendants handed lengthy prison terms for &#039;forming a terrorist alliance&#039;.",
-      "summary": "Opposition leader and dozens of other defendants handed lengthy prison terms for 'forming a terrorist alliance'.",
-      "_excerpt": "Opposition leader and dozens of other defendants handed lengthy prison terms for 'forming a terrorist alliance'.",
-      "date_published": "2026-06-03T02:45:38+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/inside-syrias-fight-against-the-captagon-trade?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/inside-syrias-fight-against-the-captagon-trade?traffic_source=rss",
+      "title": "[Al Jazeera English] Inside Syria’s fight against the Captagon trade",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-05-at-4.07.16-PM-1780664867.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAnti-narcotics units in Syria raid homes and seize pills as the government fights back against the Captagon trade.",
+      "summary": "Anti-narcotics units in Syria raid homes and seize pills as the government fights back against the Captagon trade.",
+      "_excerpt": "Anti-narcotics units in Syria raid homes and seize pills as the government fights back against the Captagon trade.",
+      "date_published": "2026-06-05T13:08:38+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/AP25037326738701-1-1780446523_d662e2-1780451641.jpg?resize=1200%2C630&quality=80"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-05-at-4.07.16-PM-1780664867.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.businessinsider.com/vintage-photos-cross-country-road-trips-america",
+      "url": "https://www.businessinsider.com/vintage-photos-cross-country-road-trips-america",
+      "title": "[Business Insider] Vintage photos show road trips in the 1960s, when the interstate boom changed how Americans vacationed",
+      "content_html": "<img src=\"https://i.insider.com/6a21b2602ab5f9757add92cf?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRoad trips were a fun and affordable way for families to spend time together in the 1960s and 1970s.",
+      "summary": "Road trips were a fun and affordable way for families to spend time together in the 1960s and 1970s.",
+      "_excerpt": "Road trips were a fun and affordable way for families to spend time together in the 1960s and 1970s.",
+      "date_published": "2026-06-05T13:07:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a21b2602ab5f9757add92cf?format=jpeg"
+    },
+    {
+      "id": "https://www.engadget.com/2188080/chrome-canary-reportedly-sending-search-straight-to-ai/",
+      "url": "https://www.engadget.com/2188080/chrome-canary-reportedly-sending-search-straight-to-ai/",
+      "title": "[Engadget] Google experiments with sending Chrome searches straight to AI",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/google-experiment-takes-searches-on-chrome-straight-to-ai-mode/l-intro-1780656397.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGoogle seems to be testing a new feature that will take you to AI Mode by default when you do a search in Chrome.",
+      "summary": "Google seems to be testing a new feature that will take you to AI Mode by default when you do a search in Chrome.",
+      "_excerpt": "Google seems to be testing a new feature that will take you to AI Mode by default when you do a search in Chrome.",
+      "date_published": "2026-06-05T10:48:08+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 34,
+      "_final_score": 34,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.engadget.com/img/gallery/google-experiment-takes-searches-on-chrome-straight-to-ai-mode/l-intro-1780656397.jpg"
     },
     {
       "id": "https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html",
@@ -594,39 +544,14 @@
       ],
       "ai_score": 69,
       "_quality_score": 69,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 20,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/man-charged-with-assaulting-quebec-rcmp-officer-during-anti-smuggling-operation-12375141",
-      "url": "https://www.piquenewsmagazine.com/national-news/man-charged-with-assaulting-quebec-rcmp-officer-during-anti-smuggling-operation-12375141",
-      "title": "[Pique Newsmagazine] Man charged with assaulting Quebec RCMP officer during anti-smuggling operation",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/12c26e4ee39f1f26142029f9b74be79e109d1b73a9add73dd72c52ad874a08c0.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTREAL — Quebec RCMP say a 25-year-old man has been charged with assaulting an officer during an alleged migrant smuggling operation on Tuesday night.",
-      "summary": "MONTREAL — Quebec RCMP say a 25-year-old man has been charged with assaulting an officer during an alleged migrant smuggling operation on Tuesday night.",
-      "_excerpt": "MONTREAL — Quebec RCMP say a 25-year-old man has been charged with assaulting an officer during an alleged migrant smuggling operation on Tuesday night.",
-      "date_published": "2026-06-04T15:10:13+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 65,
-      "_quality_score": 65,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 0,
-      "_boosted_score": 19,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/12c26e4ee39f1f26142029f9b74be79e109d1b73a9add73dd72c52ad874a08c0.jpg;w=960"
     },
     {
       "id": "https://qz.com/checkoutcom-fireblocks-partner-to-provide-stablecoin-settlement-capabilities",
@@ -644,8 +569,8 @@
       ],
       "ai_score": 65,
       "_quality_score": 65,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 19,
       "_category": "news",
@@ -669,8 +594,8 @@
       ],
       "ai_score": 64,
       "_quality_score": 64,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 19,
       "_category": "news",
@@ -694,8 +619,8 @@
       ],
       "ai_score": 66,
       "_quality_score": 66,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
       "_boosted_score": 19,
       "_category": "news",
@@ -704,29 +629,29 @@
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/6c09a1c91c1b514bdb7bc6dbe2560346bb08f0a5e44a1cd9d0c4a251417fce4f.jpg;w=960"
     },
     {
-      "id": "https://qz.com/fedex-freight-remarks-nyse-trading-debut",
-      "url": "https://qz.com/fedex-freight-remarks-nyse-trading-debut",
-      "title": "[Quartz] FedEx Freight John Smith delivers remarks from NYSE as firm makes trading debut",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/FedEx%2520Freight%2520John%2520Smith%2520Delivers%2520Remarks%2520from%2520NYSE%2520as%2520Firm%2520Makes%2520Trading%2520Debut\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFedEx Freight John Smith delivers remarks from NYSE as firm makes trading debut",
-      "summary": "FedEx Freight John Smith delivers remarks from NYSE as firm makes trading debut",
-      "_excerpt": "FedEx Freight John Smith delivers remarks from NYSE as firm makes trading debut",
-      "date_published": "2026-06-02T21:10:08+00:00",
+      "id": "https://www.androidauthority.com/uber-lost-and-found-index-2026-3674500/",
+      "url": "https://www.androidauthority.com/uber-lost-and-found-index-2026-3674500/",
+      "title": "[Android Authority] Uber reveals the wildest things riders left behind in its backseats",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2023/02/Uber-stock-photo-3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEverything except the kitchen sink (actually, almost that too).",
+      "summary": "Everything except the kitchen sink (actually, almost that too).",
+      "_excerpt": "Everything except the kitchen sink (actually, almost that too).",
+      "date_published": "2026-06-04T11:20:01+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
         }
       ],
-      "ai_score": 63,
-      "_quality_score": 63,
-      "_theme_score": 8,
-      "_final_score": 8,
+      "ai_score": 64,
+      "_quality_score": 64,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "_boosted_score": 19,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/FedEx%2520Freight%2520John%2520Smith%2520Delivers%2520Remarks%2520from%2520NYSE%2520as%2520Firm%2520Makes%2520Trading%2520Debut"
+      "image": "https://www.androidauthority.com/wp-content/uploads/2023/02/Uber-stock-photo-3.jpg"
     },
     {
       "id": "https://qz.com/ice-dave-margolin-businesses-hurricane-season-prep",
@@ -744,8 +669,8 @@
       ],
       "ai_score": 61,
       "_quality_score": 61,
-      "_theme_score": 8,
-      "_final_score": 8,
+      "_theme_score": 34,
+      "_final_score": 34,
       "_keyword_matches": 0,
       "_boosted_score": 18,
       "_category": "news",
@@ -769,14 +694,39 @@
       ],
       "ai_score": 61,
       "_quality_score": 61,
-      "_theme_score": 7,
-      "_final_score": 7,
+      "_theme_score": 29,
+      "_final_score": 29,
       "_keyword_matches": 0,
       "_boosted_score": 18,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.engadget.com/img/gallery/amazon-kills-plans-for-stargate-series-reboot/l-intro-1780486719.jpg"
+    },
+    {
+      "id": "https://www.engadget.com/2187834/how-transatlantic-internet-cables-work/",
+      "url": "https://www.engadget.com/2187834/how-transatlantic-internet-cables-work/",
+      "title": "[Engadget] How the Internet Crosses Oceans Without You Noticing",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/how-the-internet-crosses-oceans-without-you-noticing/l-intro-1780605621.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA closer look at how undersea cables connect the world.",
+      "summary": "A closer look at how undersea cables connect the world.",
+      "_excerpt": "A closer look at how undersea cables connect the world.",
+      "date_published": "2026-06-05T13:30:00+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 59,
+      "_quality_score": 59,
+      "_theme_score": 21,
+      "_final_score": 21,
+      "_keyword_matches": 0,
+      "_boosted_score": 17,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.engadget.com/img/gallery/how-the-internet-crosses-oceans-without-you-noticing/l-intro-1780605621.jpg"
     },
     {
       "id": "https://www.androidauthority.com/poll-results-how-long-between-upgrades-3674557/",
@@ -794,8 +744,8 @@
       ],
       "ai_score": 58,
       "_quality_score": 58,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
       "_boosted_score": 17,
       "_category": "news",
@@ -819,8 +769,8 @@
       ],
       "ai_score": 59,
       "_quality_score": 59,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
       "_boosted_score": 17,
       "_category": "news",
@@ -844,14 +794,64 @@
       ],
       "ai_score": 56,
       "_quality_score": 56,
-      "_theme_score": 10,
-      "_final_score": 10,
+      "_theme_score": 38,
+      "_final_score": 38,
       "_keyword_matches": 0,
       "_boosted_score": 16,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/cee8b7b24e160bff933a918a3c8ab9b1de609806c5b8a95bf786dfd748d0f9c9.jpg;w=960"
+    },
+    {
+      "id": "https://www.engadget.com/2188110/vertigo-games-closes-amsterdam-studio/",
+      "url": "https://www.engadget.com/2188110/vertigo-games-closes-amsterdam-studio/",
+      "title": "[Engadget] Vertigo Games announces closure of its Amsterdam VR studio",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/vertigo-games-announces-closure-of-its-amsterdam-vr-studio/l-intro-1780661345.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVertigo Games, known for its VR work, is closing its Amsterdam studio.",
+      "summary": "Vertigo Games, known for its VR work, is closing its Amsterdam studio.",
+      "_excerpt": "Vertigo Games, known for its VR work, is closing its Amsterdam studio.",
+      "date_published": "2026-06-05T12:10:51+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 34,
+      "_final_score": 34,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.engadget.com/img/gallery/vertigo-games-announces-closure-of-its-amsterdam-vr-studio/l-intro-1780661345.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/economy/2026/6/4/indonesias-rupiah-falls-to-record-low-against-us-dollar?traffic_source=rss",
+      "url": "https://www.aljazeera.com/economy/2026/6/4/indonesias-rupiah-falls-to-record-low-against-us-dollar?traffic_source=rss",
+      "title": "[Al Jazeera English] Indonesia’s rupiah falls to record low against US dollar",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-01-20T081152Z_1368761428_RC2W4JAXXIKN_RTRMADP_3_INDONESIA-RUPIAH-1780545681.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCurrency plunge comes as energy shock from the Iran war casts a cloud over Southeast Asian economies.",
+      "summary": "Currency plunge comes as energy shock from the Iran war casts a cloud over Southeast Asian economies.",
+      "_excerpt": "Currency plunge comes as energy shock from the Iran war casts a cloud over Southeast Asian economies.",
+      "date_published": "2026-06-04T04:40:06+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality_score": 55,
+      "_theme_score": 21,
+      "_final_score": 21,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-01-20T081152Z_1368761428_RC2W4JAXXIKN_RTRMADP_3_INDONESIA-RUPIAH-1780545681.jpg?resize=1920%2C1440"
     },
     {
       "id": "https://news.gov.bc.ca/releases/2026HLTH0055-000655",
@@ -869,8 +869,8 @@
       ],
       "ai_score": 53,
       "_quality_score": 53,
-      "_theme_score": 7,
-      "_final_score": 7,
+      "_theme_score": 29,
+      "_final_score": 29,
       "_keyword_matches": 0,
       "_boosted_score": 15,
       "_category": "wellness",
@@ -894,8 +894,8 @@
       ],
       "ai_score": 51,
       "_quality_score": 51,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 15,
       "_category": "news",
@@ -919,14 +919,39 @@
       ],
       "ai_score": 48,
       "_quality_score": 48,
-      "_theme_score": 7,
-      "_final_score": 7,
+      "_theme_score": 29,
+      "_final_score": 29,
       "_keyword_matches": 0,
       "_boosted_score": 14,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Sophos%E2%80%99%2520Raja%2520Patel%2520at%2520Tomorrow%E2%80%99s%2520Titans%2520on%2520Helping%2520Small%2520Businesses%2520Stay%2520Safe"
+    },
+    {
+      "id": "https://www.businessinsider.com/spacex-ipo-goldman-sachs-morgan-stanley-2026-6",
+      "url": "https://www.businessinsider.com/spacex-ipo-goldman-sachs-morgan-stanley-2026-6",
+      "title": "[Business Insider] Photos show the lobbies of Goldman Sachs and Morgan Stanley decked out in SpaceX gear ahead of IPO",
+      "content_html": "<img src=\"https://i.insider.com/6a21babcb4fb977f35984760?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSpaceX's IPO business brings both prestige and lucrative fees to the banks. Both Goldman Sachs and Morgan Stanley updated their lobbies to celebrate.",
+      "summary": "SpaceX's IPO business brings both prestige and lucrative fees to the banks. Both Goldman Sachs and Morgan Stanley updated their lobbies to celebrate.",
+      "_excerpt": "SpaceX's IPO business brings both prestige and lucrative fees to the banks. Both Goldman Sachs and Morgan Stanley updated their lobbies to celebrate.",
+      "date_published": "2026-06-05T09:09:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 49,
+      "_quality_score": 49,
+      "_theme_score": 21,
+      "_final_score": 21,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a21babcb4fb977f35984760?format=jpeg"
     },
     {
       "id": "https://www.engadget.com/2187315/nasa-ends-maven-mars-mission/",
@@ -944,8 +969,8 @@
       ],
       "ai_score": 49,
       "_quality_score": 49,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_theme_score": 21,
+      "_final_score": 21,
       "_keyword_matches": 0,
       "_boosted_score": 14,
       "_category": "news",
@@ -969,8 +994,8 @@
       ],
       "ai_score": 45,
       "_quality_score": 45,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 13,
       "_category": "news",
@@ -994,39 +1019,14 @@
       ],
       "ai_score": 46,
       "_quality_score": 46,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "_theme_score": 25,
+      "_final_score": 25,
       "_keyword_matches": 0,
       "_boosted_score": 13,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.cnet.com/a/img/resize/956a3fabd033b03388d07f9c67cd464fc26c18d8/hub/2023/04/06/f933f488-adeb-4d2d-9d5f-a7315749ae96/roku-tv-23-09.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/bc-review-board-grants-conditional-discharge-for-child-killer-allan-schoenborn-12373957",
-      "url": "https://www.piquenewsmagazine.com/national-news/bc-review-board-grants-conditional-discharge-for-child-killer-allan-schoenborn-12373957",
-      "title": "[Pique Newsmagazine] B.C. Review Board grants conditional discharge for child killer Allan Schoenborn",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/1fd85387b21d1633531086208a1659eaa537a02e52516c2c82d41071f7b13bdc.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe British Columbia Review Board has granted a conditional discharge for a man convicted in the brutal slayings of his three children.",
-      "summary": "The British Columbia Review Board has granted a conditional discharge for a man convicted in the brutal slayings of his three children.",
-      "_excerpt": "The British Columbia Review Board has granted a conditional discharge for a man convicted in the brutal slayings of his three children.",
-      "date_published": "2026-06-04T04:25:23+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality_score": 40,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/1fd85387b21d1633531086208a1659eaa537a02e52516c2c82d41071f7b13bdc.jpg;w=960"
     }
   ]
 }
