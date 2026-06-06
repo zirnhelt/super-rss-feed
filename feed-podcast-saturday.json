@@ -22,12 +22,37 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Penalise heavily (score 0–20): international geopolitical and war news with no Cariboo tie-in; science discoveries without a local community connection; consumer tech reviews and gadget guides; wildlife and conservation stories not involving Cariboo communities or First Nations; BC provincial news without direct Cariboo-region relevance. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "saturday",
-    "generated_at": "2026-06-06T07:36:16.120621+00:00",
+    "generated_at": "2026-06-06T14:21:48.755773+00:00",
     "article_count": 40,
     "bonus_count": 15,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
+    {
+      "id": "https://www.mycariboonow.com/314045/news/business/economy/there-were-a-lot-more-people-working-in-the-cariboo-region-last-month/",
+      "url": "https://www.mycariboonow.com/314045/news/business/economy/there-were-a-lot-more-people-working-in-the-cariboo-region-last-month/",
+      "title": "[My Cariboo Now] There were a lot more people working in the Cariboo region last month : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/worker.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-06T14:16:10.887494+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 20,
+      "_final_score": 20,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/worker.jpg"
+    },
     {
       "id": "https://www.mycariboonow.com/313954/news/municipal-news/city-of-williams-lake/contractor-set-to-begin-paving-between-rose-pine-streets-in-williams-lake/",
       "url": "https://www.mycariboonow.com/313954/news/municipal-news/city-of-williams-lake/contractor-set-to-begin-paving-between-rose-pine-streets-in-williams-lake/",
@@ -479,6 +504,31 @@
       "image": "https://i.insider.com/6a1df48f2ab5f9757add7cfd?format=jpeg"
     },
     {
+      "id": "https://www.myeastkootenaynow.com/55913/news/business/labour/b-c-added-more-than-25000-jobs-in-may-says-statcan/",
+      "url": "https://www.myeastkootenaynow.com/55913/news/business/labour/b-c-added-more-than-25000-jobs-in-may-says-statcan/",
+      "title": "[My East Kootenay Now] B.C. added more than 25,000 jobs in May, says StatCan : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-06T14:16:11.502382+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2021/08/mynow-icon.png"
+    },
+    {
       "id": "https://www.myeastkootenaynow.com/55882/news/politics/peace-river-north-mla-jordan-kealy-charged-with-sexual-assault/",
       "url": "https://www.myeastkootenaynow.com/55882/news/politics/peace-river-north-mla-jordan-kealy-charged-with-sexual-assault/",
       "title": "[My East Kootenay Now] Peace River North MLA Jordan Kealy charged with sexual assault : My East Kootenay Now",
@@ -579,31 +629,6 @@
       "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/Phillips-Reservoir-UV-Disinfection-Facility-Groundbreaking-June-2-2026-e1780510047833.jpeg"
     },
     {
-      "id": "https://www.myeastkootenaynow.com/55784/news/municipal-news/rdek/evacuation-alert-issued-for-fairmont-creek-area/",
-      "url": "https://www.myeastkootenaynow.com/55784/news/municipal-news/rdek/evacuation-alert-issued-for-fairmont-creek-area/",
-      "title": "[My East Kootenay Now] Evacuation alert issued for Fairmont Creek area : My East Kootenay Now",
-      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2026/05/Screenshot-2026-05-31-080759.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
-      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
-      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
-      "date_published": "2026-06-03T09:15:32.516595+00:00",
-      "authors": [
-        {
-          "name": "My East Kootenay Now",
-          "url": "https://www.myeastkootenaynow.com"
-        }
-      ],
-      "ai_score": 41,
-      "_quality_score": 41,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_keyword_matches": 1,
-      "_boosted_score": 32,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2026/05/Screenshot-2026-05-31-080759.png"
-    },
-    {
       "id": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
       "url": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
       "title": "[NYT Top Stories] From Cow-Milking Robots to Weed-Zapping Lasers, Farmers Are Embracing A.I.",
@@ -629,29 +654,29 @@
       "image": "https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg"
     },
     {
-      "id": "https://wltribune.com/2026/06/03/gian-zanette/",
-      "url": "https://wltribune.com/2026/06/03/gian-zanette/",
-      "title": "[Williams Lake Tribune] Gian Zanette",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479723_web1_260603-digitalobit-wlt-Zanette-pic_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In Loving Memory ~</p>",
-      "summary": "In Loving Memory ~",
-      "_excerpt": "In Loving Memory ~",
-      "date_published": "2026-06-03T15:30:00+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/hegseth-says-europe-is-being-invaded-by-dangerous?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/hegseth-says-europe-is-being-invaded-by-dangerous?traffic_source=rss",
+      "title": "[Al Jazeera English] Hegseth says Europe is being ‘invaded by dangerous migrants’",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/hegseth-wide-thumb-1780751154.jpg?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHegseth says Europe is being ‘invaded by dangerous migrants’.",
+      "summary": "Hegseth says Europe is being ‘invaded by dangerous migrants’.",
+      "_excerpt": "Hegseth says Europe is being ‘invaded by dangerous migrants’.",
+      "date_published": "2026-06-06T13:07:03+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 83,
-      "_quality_score": 83,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 7,
+      "_final_score": 7,
       "_keyword_matches": 0,
-      "_boosted_score": 24,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479723_web1_260603-digitalobit-wlt-Zanette-pic_1.jpg?w=400"
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/hegseth-wide-thumb-1780751154.jpg?resize=1200%2C675"
     },
     {
       "id": "https://qz.com/lio-ceo-on-ai-offerings-solve-procurement-challenges",
@@ -754,29 +779,29 @@
       "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/shutterstock_1814993657.jpg?fit=1000%2C667&quality=60&ssl=1"
     },
     {
-      "id": "https://news.gov.bc.ca/releases/2026JEG0040-000660",
-      "url": "https://news.gov.bc.ca/releases/2026JEG0040-000660",
-      "title": "[BC Gov News] Minister’s statement on May Labour Force Survey results",
-      "content_html": "<img src=\"https://live.staticflickr.com/65535/55315966036_949225fb13_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nB.C. adds 25,200 new jobs in May, including 7,200 youth jobs",
-      "summary": "B.C. adds 25,200 new jobs in May, including 7,200 youth jobs",
-      "_excerpt": "B.C. adds 25,200 new jobs in May, including 7,200 youth jobs",
-      "date_published": "2026-06-05T15:46:00+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/groom-killed-hours-before-his-wedding-in-gaza?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/groom-killed-hours-before-his-wedding-in-gaza?traffic_source=rss",
+      "title": "[Al Jazeera English] Groom killed hours before his wedding in Gaza",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780748904.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMuhannad Farwana never got to wear his wedding suit, Israel killed him in an air strike hours before his wedding.",
+      "summary": "Muhannad Farwana never got to wear his wedding suit, Israel killed him in an air strike hours before his wedding.",
+      "_excerpt": "Muhannad Farwana never got to wear his wedding suit, Israel killed him in an air strike hours before his wedding.",
+      "date_published": "2026-06-06T12:29:42+00:00",
       "authors": [
         {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 6,
-      "_final_score": 6,
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 8,
+      "_final_score": 8,
       "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://live.staticflickr.com/65535/55315966036_949225fb13_b.jpg"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780748904.jpg?resize=1920%2C1080&quality=80"
     },
     {
       "id": "https://www.atlasobscura.com/places/st-georges-guldhall",
@@ -829,29 +854,29 @@
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/The%2520Female%2520Quotient%2520CEO%2520Shelley%2520Zalis"
     },
     {
-      "id": "https://www.tomsguide.com/home/homeowners-are-being-urged-to-follow-the-kitchen-sink-rule-to-prevent-ant-infestations-this-summer",
-      "url": "https://www.tomsguide.com/home/homeowners-are-being-urged-to-follow-the-kitchen-sink-rule-to-prevent-ant-infestations-this-summer",
-      "title": "[Toms Guide] Homeowners are being urged to follow ‘the kitchen sink rule’ to prevent ant infestations this summer",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/6jGfaPKxYV3ocbrCgPZQKf-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExpert shares ‘the kitchen sink rule’ you must do to prevent ants from invading your home this summer.",
-      "summary": "Expert shares ‘the kitchen sink rule’ you must do to prevent ants from invading your home this summer.",
-      "_excerpt": "Expert shares ‘the kitchen sink rule’ you must do to prevent ants from invading your home this summer.",
-      "date_published": "2026-06-02T11:26:42+00:00",
+      "id": "https://www.aljazeera.com/news/2026/6/6/rescuers-stop-search-for-last-two-men-lost-in-laos-cave?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/6/rescuers-stop-search-for-last-two-men-lost-in-laos-cave?traffic_source=rss",
+      "title": "[Al Jazeera English] Rescuers stop search for last two men lost in Laos cave",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/2026-05-30T112155Z_1191958902_RC2MJLALWLCY_RTRMADP_3_LAOS-CAVE-1780149061.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe search and rescue team say it is &#039;high risk&#039; to continue the operation.",
+      "summary": "The search and rescue team say it is 'high risk' to continue the operation.",
+      "_excerpt": "The search and rescue team say it is 'high risk' to continue the operation.",
+      "date_published": "2026-06-06T12:34:08+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 67,
-      "_quality_score": 67,
-      "_theme_score": 7,
-      "_final_score": 7,
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 8,
+      "_final_score": 8,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
+      "_boosted_score": 19,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/6jGfaPKxYV3ocbrCgPZQKf-1280-80.jpg"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/2026-05-30T112155Z_1191958902_RC2MJLALWLCY_RTRMADP_3_LAOS-CAVE-1780149061.jpg?resize=1920%2C1440"
     },
     {
       "id": "https://www.nytimes.com/2026/06/05/opinion/voting-rights-act-black-voters-south.html",
@@ -927,31 +952,6 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.androidauthority.com/wp-content/uploads/2026/06/WyzeSolarCamPan-61_e_c-1.jpg"
-    },
-    {
-      "id": "https://qz.com/fedwatch-ben-emons-may-2026-jobs-report-takeaways",
-      "url": "https://qz.com/fedwatch-ben-emons-may-2026-jobs-report-takeaways",
-      "title": "[Quartz] FedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Founder%2520Ben%2520Emons%2520Delivers%2520May%25202026%2520Jobs%2520Report%2520Takeaways.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
-      "summary": "FedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
-      "_excerpt": "FedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
-      "date_published": "2026-06-05T19:10:08+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 63,
-      "_quality_score": 63,
-      "_theme_score": 7,
-      "_final_score": 7,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Founder%2520Ben%2520Emons%2520Delivers%2520May%25202026%2520Jobs%2520Report%2520Takeaways.mp4"
     },
     {
       "id": "https://qz.com/bcg-worldwide-ceo-unlocking-opportunities-at-possible",
