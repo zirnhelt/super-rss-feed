@@ -20,22 +20,22 @@
       "homelab",
       "ai-tech"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Score 0-100 where 100 is a perfect thematic match.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Penalise heavily (score 0–20): international geopolitical and war news with no Cariboo tie-in; science discoveries without a local community connection; consumer tech reviews and gadget guides; wildlife and conservation stories not involving Cariboo communities or First Nations; BC provincial news without direct Cariboo-region relevance. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "saturday",
-    "generated_at": "2026-05-30T14:13:54.270366+00:00",
-    "article_count": 1,
-    "bonus_count": 0,
+    "generated_at": "2026-06-06T07:36:16.120621+00:00",
+    "article_count": 40,
+    "bonus_count": 15,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.mycariboonow.com/313880/news/energy-utilities/236-million-rural-connectivity-projects-announced-by-federal-and-provincial-government/",
-      "url": "https://www.mycariboonow.com/313880/news/energy-utilities/236-million-rural-connectivity-projects-announced-by-federal-and-provincial-government/",
-      "title": "[My Cariboo Now] $32.5 million in rural connectivity projects planned for the Cariboo region : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/05/IMG_3842-scaled.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "id": "https://www.mycariboonow.com/313954/news/municipal-news/city-of-williams-lake/contractor-set-to-begin-paving-between-rose-pine-streets-in-williams-lake/",
+      "url": "https://www.mycariboonow.com/313954/news/municipal-news/city-of-williams-lake/contractor-set-to-begin-paving-between-rose-pine-streets-in-williams-lake/",
+      "title": "[My Cariboo Now] Contractor set to begin paving between Rose & Pine Streets in Williams Lake : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/CITY-OF-WL-VEHICLE-e1780443234160.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
       "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
       "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-05-30T14:12:02.901947+00:00",
+      "date_published": "2026-06-03T17:27:07.631723+00:00",
       "authors": [
         {
           "name": "My Cariboo Now",
@@ -44,14 +44,989 @@
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 50,
-      "_final_score": 50,
+      "_theme_score": 18,
+      "_final_score": 18,
       "_keyword_matches": 6,
       "_boosted_score": 100,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/05/IMG_3842-scaled.jpeg"
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/CITY-OF-WL-VEHICLE-e1780443234160.jpeg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313922/news/lifestyle/get-active-reduce-greenhouse-gas-emissions-and-win-prizes/",
+      "url": "https://www.mycariboonow.com/313922/news/lifestyle/get-active-reduce-greenhouse-gas-emissions-and-win-prizes/",
+      "title": "[My Cariboo Now] Get active, reduce Greenhouse gas emissions and win prizes : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/RUTH-L-CROPPED-e1780355640529.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-03T09:15:31.788668+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 18,
+      "_final_score": 18,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/RUTH-L-CROPPED-e1780355640529.jpeg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313936/news/politics-news/prince-george-north-cariboo-mla-applauds-his-candidates-win/",
+      "url": "https://www.mycariboonow.com/313936/news/politics-news/prince-george-north-cariboo-mla-applauds-his-candidates-win/",
+      "title": "[My Cariboo Now] Prince George-North Cariboo MLA applauds his candidate’s win : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/05/IMG_1282-scaled-1.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-03T09:15:31.790701+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 15,
+      "_final_score": 15,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/05/IMG_1282-scaled-1.jpeg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313931/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-respond-to-distressed-paddler-in-the-bowren-lake-chain/",
+      "url": "https://www.mycariboonow.com/313931/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-respond-to-distressed-paddler-in-the-bowren-lake-chain/",
+      "title": "[My Cariboo Now] Quesnel Search and Rescue respond to distressed paddler in the Bowren Lake Chain : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/QSAR-Helicopter-June1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-05T15:34:13.258620+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 14,
+      "_final_score": 14,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/QSAR-Helicopter-June1.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313946/win/dads-big-day-giveaway-announcement/",
+      "url": "https://www.mycariboonow.com/313946/win/dads-big-day-giveaway-announcement/",
+      "title": "[My Cariboo Now] Dad's Big Day Giveaway - Announcement : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/DadsBigDayGiveawayContest-16x9-1.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-04T08:40:03.987884+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 12,
+      "_final_score": 12,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/DadsBigDayGiveawayContest-16x9-1.png"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313932/news/weather/williams-lake-was-slightly-warmer-quesnel-was-much-wetter-in-may/",
+      "url": "https://www.mycariboonow.com/313932/news/weather/williams-lake-was-slightly-warmer-quesnel-was-much-wetter-in-may/",
+      "title": "[My Cariboo Now] Williams Lake was slightly warmer Quesnel was much wetter in May : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2018/06/Sun-in-WL-e1529159977315.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-03T09:15:31.789237+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 12,
+      "_final_score": 12,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2018/06/Sun-in-WL-e1529159977315.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313950/politics/eby-calls-findlay-divisive-as-b-c-conservatives-rally-behind-new-leader/",
+      "url": "https://www.mycariboonow.com/313950/politics/eby-calls-findlay-divisive-as-b-c-conservatives-rally-behind-new-leader/",
+      "title": "[My Cariboo Now] Eby calls Findlay divisive, as B.C. Conservatives rally behind new leader : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-03T09:15:31.789456+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
+    },
+    {
+      "id": "https://www.mycariboonow.com/313981/news/emergency-services/cops-for-cancer-tour-de-north-cariboo-rider-hitting-the-road-for-the-3rd-time/",
+      "url": "https://www.mycariboonow.com/313981/news/emergency-services/cops-for-cancer-tour-de-north-cariboo-rider-hitting-the-road-for-the-3rd-time/",
+      "title": "[My Cariboo Now] Cops for Cancer Tour de North Cariboo rider hitting the road for the 3rd time : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/COPS-FOR-CANCER-2026-e1780522620443.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-04T08:40:03.988262+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 6,
+      "_boosted_score": 100,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/COPS-FOR-CANCER-2026-e1780522620443.jpeg"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/06/02/stunting-driver-pulled-over-ticketed-near-lac-la-hache/",
+      "url": "https://100milefreepress.net/2026/06/02/stunting-driver-pulled-over-ticketed-near-lac-la-hache/",
+      "title": "[100 Mile Free Press] Stunting driver pulled over, ticketed near Lac La Hache",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42466892_web1_web1_220818-omh-rcmp-108-mile-_1.jpeg?w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA collection of incidents the 100 Mile House RCMP responded to between May 26-31, 2026",
+      "summary": "A collection of incidents the 100 Mile House RCMP responded to between May 26-31, 2026",
+      "_excerpt": "A collection of incidents the 100 Mile House RCMP responded to between May 26-31, 2026",
+      "date_published": "2026-06-02T23:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 13,
+      "_final_score": 13,
+      "_keyword_matches": 2,
+      "_boosted_score": 65,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42466892_web1_web1_220818-omh-rcmp-108-mile-_1.jpeg?w=960"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/04/openly-transgender-woman-announces-intent-to-run-for-williams-lake-city-council/",
+      "url": "https://wltribune.com/2026/06/04/openly-transgender-woman-announces-intent-to-run-for-williams-lake-city-council/",
+      "title": "[Williams Lake Tribune] Openly transgender woman announces intent to run for Williams Lake City Council",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42449312_web1_260312-WLT-Transgender-March-For-Visibility-_7.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBillie Sheridan plans to run in 2026 municipal election",
+      "summary": "Billie Sheridan plans to run in 2026 municipal election",
+      "_excerpt": "Billie Sheridan plans to run in 2026 municipal election",
+      "date_published": "2026-06-05T08:32:14.252006+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 25,
+      "_final_score": 25,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42449312_web1_260312-WLT-Transgender-March-For-Visibility-_7.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/05/williams-lake-council-backs-forum-on-controversial-jail-closure-proposal/",
+      "url": "https://wltribune.com/2026/06/05/williams-lake-council-backs-forum-on-controversial-jail-closure-proposal/",
+      "title": "[Williams Lake Tribune] Williams Lake council backs forum on controversial jail closure proposal",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42453731_web1_260611-WLT-Councillor-Jail-Closure-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe recommendation by Councillor Scott Nelson was supported last week",
+      "summary": "The recommendation by Councillor Scott Nelson was supported last week",
+      "_excerpt": "The recommendation by Councillor Scott Nelson was supported last week",
+      "date_published": "2026-06-06T07:34:41.357507+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42453731_web1_260611-WLT-Councillor-Jail-Closure-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/04/bc-chamber-of-commerce-endorses-crime-policy-shaped-by-williams-lake-businesses/",
+      "url": "https://wltribune.com/2026/06/04/bc-chamber-of-commerce-endorses-crime-policy-shaped-by-williams-lake-businesses/",
+      "title": "[Williams Lake Tribune] BC Chamber of Commerce endorses crime policy shaped by Williams Lake businesses",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42483153_web1_260611-WLT-Chamber-Resolution-Crime-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResolution unanimously supported at this week’s annual general meeting and policy session",
+      "summary": "Resolution unanimously supported at this week’s annual general meeting and policy session",
+      "_excerpt": "Resolution unanimously supported at this week’s annual general meeting and policy session",
+      "date_published": "2026-06-05T08:32:14.252356+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 2,
+      "_final_score": 2,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42483153_web1_260611-WLT-Chamber-Resolution-Crime-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/02/bc-hydro-relocates-two-williams-lake-osprey-nests/",
+      "url": "https://wltribune.com/2026/06/02/bc-hydro-relocates-two-williams-lake-osprey-nests/",
+      "title": "[Williams Lake Tribune] BC Hydro relocates two Williams Lake osprey nests",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42458925_web1_260604-WLT-BCHydro-osprey_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
+      "summary": "2 MIN READ",
+      "_excerpt": "2 MIN READ",
+      "date_published": "2026-06-03T09:16:24.273158+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 2,
+      "_final_score": 2,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42458925_web1_260604-WLT-BCHydro-osprey_2.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/06/03/south-cariboo-rythmic-gymnastics-ends-year-on-a-high-note/",
+      "url": "https://100milefreepress.net/2026/06/03/south-cariboo-rythmic-gymnastics-ends-year-on-a-high-note/",
+      "title": "[100 Mile Free Press] South Cariboo Rythmic Gymnastics ends year on a high note",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42454951_web1_260604-OMH-Cariboo-Gymnastics-Standalones_1.jpg?w=827\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The club held its annual year-end showcase on Friday, May 29 </p>",
+      "summary": "The club held its annual year-end showcase on Friday, May 29",
+      "_excerpt": "The club held its annual year-end showcase on Friday, May 29",
+      "date_published": "2026-06-03T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 2,
+      "_final_score": 2,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42454951_web1_260604-OMH-Cariboo-Gymnastics-Standalones_1.jpg?w=827"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/05/lytton-plays-host-to-emerging-leaders-from-across-canada/",
+      "url": "https://wltribune.com/2026/06/05/lytton-plays-host-to-emerging-leaders-from-across-canada/",
+      "title": "[Williams Lake Tribune] Lytton plays host to emerging leaders from across Canada",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42487197_web1_260604-ACC-Lytton-conference-Lytton_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nParticipants said fire-ravaged town a prime example of resiliency and connection to community",
+      "summary": "Participants said fire-ravaged town a prime example of resiliency and connection to community",
+      "_excerpt": "Participants said fire-ravaged town a prime example of resiliency and connection to community",
+      "date_published": "2026-06-05T05:00:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 84,
+      "_quality_score": 84,
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42487197_web1_260604-ACC-Lytton-conference-Lytton_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/03/business/iran-war-oecd-economy.html",
+      "url": "https://www.nytimes.com/2026/06/03/business/iran-war-oecd-economy.html",
+      "title": "[NYT Business] Even if Oil Prices Peak Soon, the Global Economy Will Slow This Year",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/03/multimedia/03biz-global-outlook-01-thkp/03biz-global-outlook-01-thkp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Organization for Economic Cooperation and Development, in a report, said the Middle East war’s consequences “are likely to be felt for some time.”",
+      "summary": "The Organization for Economic Cooperation and Development, in a report, said the Middle East war’s consequences “are likely to be felt for some time.”",
+      "_excerpt": "The Organization for Economic Cooperation and Development, in a report, said the Middle East war’s consequences “are likely to be felt for some time.”",
+      "date_published": "2026-06-03T07:02:38+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/06/03/multimedia/03biz-global-outlook-01-thkp/03biz-global-outlook-01-thkp-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.myeastkootenaynow.com/55847/news/municipal-news/city-of-kimberley/kimberley-playfields-closed-due-to-continued-rainfall/",
+      "url": "https://www.myeastkootenaynow.com/55847/news/municipal-news/city-of-kimberley/kimberley-playfields-closed-due-to-continued-rainfall/",
+      "title": "[My East Kootenay Now] Kimberley playfields closed due to continued rainfall : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2022/07/american-football-ball-field-209956-scaled-e1780507499527.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-04T08:40:04.702223+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 4,
+      "_final_score": 4,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2022/07/american-football-ball-field-209956-scaled-e1780507499527.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/anthropic-openai-spacex-ipo-ai-giants-public-market-impact-2026-6",
+      "url": "https://www.businessinsider.com/anthropic-openai-spacex-ipo-ai-giants-public-market-impact-2026-6",
+      "title": "[Business Insider] Three AI giants are on track to upend the public markets",
+      "content_html": "<img src=\"https://i.insider.com/6a1df48f2ab5f9757add7cfd?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThree companies likely worth more than $1 trillion going public in quick succession is bound to have a significant short-term impact on the market.",
+      "summary": "Three companies likely worth more than $1 trillion going public in quick succession is bound to have a significant short-term impact on the market.",
+      "_excerpt": "Three companies likely worth more than $1 trillion going public in quick succession is bound to have a significant short-term impact on the market.",
+      "date_published": "2026-06-02T13:41:23+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/6a1df48f2ab5f9757add7cfd?format=jpeg"
+    },
+    {
+      "id": "https://www.myeastkootenaynow.com/55882/news/politics/peace-river-north-mla-jordan-kealy-charged-with-sexual-assault/",
+      "url": "https://www.myeastkootenaynow.com/55882/news/politics/peace-river-north-mla-jordan-kealy-charged-with-sexual-assault/",
+      "title": "[My East Kootenay Now] Peace River North MLA Jordan Kealy charged with sexual assault : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/Kealy1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-05T08:31:20.081763+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 66,
+      "_quality_score": 66,
+      "_theme_score": 4,
+      "_final_score": 4,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/Kealy1.jpg"
+    },
+    {
+      "id": "https://www.myeastkootenaynow.com/55749/news/cancellations-closures/mcphee-road-in-cranbrook-closed-to-traffic/",
+      "url": "https://www.myeastkootenaynow.com/55749/news/cancellations-closures/mcphee-road-in-cranbrook-closed-to-traffic/",
+      "title": "[My East Kootenay Now] McPhee Road in Cranbrook closed to traffic : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2020/11/Construction-Sign-Road-Closed-Detour-Nov-2020-Bradley-Jones-2-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-03T17:27:08.258949+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2020/11/Construction-Sign-Road-Closed-Detour-Nov-2020-Bradley-Jones-2-scaled.jpg"
+    },
+    {
+      "id": "https://www.myeastkootenaynow.com/55829/news/municipal-news/district-of-sparwood/sparwood-approves-contract-for-curling-rink-beam-upgrades/",
+      "url": "https://www.myeastkootenaynow.com/55829/news/municipal-news/district-of-sparwood/sparwood-approves-contract-for-curling-rink-beam-upgrades/",
+      "title": "[My East Kootenay Now] Sparwood approves contract for Curling Rink beam upgrades : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2020/02/District-of-Sparwood-Mining-Truck-2-Bradley-Jones-e1751654083661.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-03T09:15:32.516118+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality_score": 63,
+      "_theme_score": 4,
+      "_final_score": 4,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2020/02/District-of-Sparwood-Mining-Truck-2-Bradley-Jones-e1751654083661.jpg"
+    },
+    {
+      "id": "https://www.myeastkootenaynow.com/55850/news/municipal-news/city-of-cranbrook/cranbrook-uv-disinfection-facility-breaks-ground/",
+      "url": "https://www.myeastkootenaynow.com/55850/news/municipal-news/city-of-cranbrook/cranbrook-uv-disinfection-facility-breaks-ground/",
+      "title": "[My East Kootenay Now] Cranbrook UV disinfection facility breaks ground : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/Phillips-Reservoir-UV-Disinfection-Facility-Groundbreaking-June-2-2026-e1780510047833.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-04T08:40:04.702424+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 47,
+      "_quality_score": 47,
+      "_theme_score": 2,
+      "_final_score": 2,
+      "_keyword_matches": 1,
+      "_boosted_score": 34,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/Phillips-Reservoir-UV-Disinfection-Facility-Groundbreaking-June-2-2026-e1780510047833.jpeg"
+    },
+    {
+      "id": "https://www.myeastkootenaynow.com/55784/news/municipal-news/rdek/evacuation-alert-issued-for-fairmont-creek-area/",
+      "url": "https://www.myeastkootenaynow.com/55784/news/municipal-news/rdek/evacuation-alert-issued-for-fairmont-creek-area/",
+      "title": "[My East Kootenay Now] Evacuation alert issued for Fairmont Creek area : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2026/05/Screenshot-2026-05-31-080759.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
+      "date_published": "2026-06-03T09:15:32.516595+00:00",
+      "authors": [
+        {
+          "name": "My East Kootenay Now",
+          "url": "https://www.myeastkootenaynow.com"
+        }
+      ],
+      "ai_score": 41,
+      "_quality_score": 41,
+      "_theme_score": 2,
+      "_final_score": 2,
+      "_keyword_matches": 1,
+      "_boosted_score": 32,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2026/05/Screenshot-2026-05-31-080759.png"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
+      "url": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
+      "title": "[NYT Top Stories] From Cow-Milking Robots to Weed-Zapping Lasers, Farmers Are Embracing A.I.",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe asked three farmers to tell us how new technology is revolutionizing the way they work.",
+      "summary": "We asked three farmers to tell us how new technology is revolutionizing the way they work.",
+      "_excerpt": "We asked three farmers to tell us how new technology is revolutionizing the way they work.",
+      "date_published": "2026-06-05T09:00:35+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 84,
+      "_quality_score": 84,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/03/gian-zanette/",
+      "url": "https://wltribune.com/2026/06/03/gian-zanette/",
+      "title": "[Williams Lake Tribune] Gian Zanette",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479723_web1_260603-digitalobit-wlt-Zanette-pic_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In Loving Memory ~</p>",
+      "summary": "In Loving Memory ~",
+      "_excerpt": "In Loving Memory ~",
+      "date_published": "2026-06-03T15:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 83,
+      "_quality_score": 83,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479723_web1_260603-digitalobit-wlt-Zanette-pic_1.jpg?w=400"
+    },
+    {
+      "id": "https://qz.com/lio-ceo-on-ai-offerings-solve-procurement-challenges",
+      "url": "https://qz.com/lio-ceo-on-ai-offerings-solve-procurement-challenges",
+      "title": "[Quartz] Lio CEO Vladimir Keil explains how its AI offerings solve procurement challenges",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Lio%2520CEO%2520Vladimir%2520Keil%2520Explains%2520How%2520its%2520AI%2520Offerings%2520Solve%2520Procurement%2520Challenges\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLio CEO Vladimir Keil explains how its AI offerings solve procurement challenges",
+      "summary": "Lio CEO Vladimir Keil explains how its AI offerings solve procurement challenges",
+      "_excerpt": "Lio CEO Vladimir Keil explains how its AI offerings solve procurement challenges",
+      "date_published": "2026-06-05T21:10:08+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Lio%2520CEO%2520Vladimir%2520Keil%2520Explains%2520How%2520its%2520AI%2520Offerings%2520Solve%2520Procurement%2520Challenges"
+    },
+    {
+      "id": "https://www.tomsguide.com/wellness/sleep/anxiety-and-stress-were-keeping-me-awake-until-experts-shared-a-simple-bedtime-rule-to-help-me-fall-asleep-fast",
+      "url": "https://www.tomsguide.com/wellness/sleep/anxiety-and-stress-were-keeping-me-awake-until-experts-shared-a-simple-bedtime-rule-to-help-me-fall-asleep-fast",
+      "title": "[Toms Guide] Anxiety and stress were keeping me awake — until experts shared a simple bedtime rule to help me fall asleep fast",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/WfD76UjCcsnyBMsMr5hXtS-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStruggling to sleep due to anxiety and stress? Discover the simple, expert-backed bedtime rule that eased my racing mind so that I could fall asleep faster.",
+      "summary": "Struggling to sleep due to anxiety and stress? Discover the simple, expert-backed bedtime rule that eased my racing mind so that I could fall asleep faster.",
+      "_excerpt": "Struggling to sleep due to anxiety and stress? Discover the simple, expert-backed bedtime rule that eased my racing mind so that I could fall asleep faster.",
+      "date_published": "2026-06-06T05:15:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/WfD76UjCcsnyBMsMr5hXtS-1280-80.jpg"
+    },
+    {
+      "id": "https://www.engadget.com/2187506/in-co-op-shooter-lazy-river-peeing-in-the-pool-turns-guests-into-zombies/",
+      "url": "https://www.engadget.com/2187506/in-co-op-shooter-lazy-river-peeing-in-the-pool-turns-guests-into-zombies/",
+      "title": "[Engadget] In co-op shooter Lazy River, peeing in the pool turns guests into zombies",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/in-co-op-shooter-lazy-river-peeing-in-the-pool-turns-guests-into-zombies/l-intro-1780702373.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPeeing in the pool is extra dangerous in co-op shooter Lazy River.",
+      "summary": "Peeing in the pool is extra dangerous in co-op shooter Lazy River.",
+      "_excerpt": "Peeing in the pool is extra dangerous in co-op shooter Lazy River.",
+      "date_published": "2026-06-05T23:33:20+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.engadget.com/img/gallery/in-co-op-shooter-lazy-river-peeing-in-the-pool-turns-guests-into-zombies/l-intro-1780702373.jpg"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/03/cop-fired-and-arrested-after-pulling-gun-on-colleague-who-microwaved-fish.html",
+      "url": "https://boingboing.net/2026/06/03/cop-fired-and-arrested-after-pulling-gun-on-colleague-who-microwaved-fish.html",
+      "title": "[Boing Boing] Cop fired and arrested after pulling gun on colleague who microwaved fish",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/shutterstock_1814993657.jpg?fit=1000%2C667&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/03/cop-fired-and-arrested-after-pulling-gun-on-colleague-who-microwaved-fish.html\" rel=\"nofollow\" title=\"Cop fired and arrested after pulling gun on colleague who microwaved fish\"><img alt=\"Fish, microwave, no\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"667\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/shutterstock_1814993657.jpg?fit=1000%2C667&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1000\" /></a><p>A South Carolina cop was <a href=\"https://abcnews.com/US/officer-arrested-after-allegedly-pointing-firearm-fellow-cop/story?id=133528324\">so infuriated by another officer microwaving fish that he aimed his service firearm at him</a>. Michael Debiase, 46, was fired, arrested, and charged with pointing and presenting a firearm at a person.</p>\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\">\n<div class=\"wp-block-embed__wrapper\">\n\n</div>\n</figure>\n<p>The South Carolina Law Enforcement Division investigated the incident, reports ABC News, which took place at Myrtle Beach Police Department. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/03/cop-fired-and-arrested-after-pulling-gun-on-colleague-who-microwaved-fish.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/03/cop-fired-and-arrested-after-pulling-gun-on-colleague-who-microwaved-fish.html\">Cop fired and arrested after pulling gun on colleague who microwaved fish</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "A South Carolina cop was so infuriated by another officer microwaving fish that he aimed his service firearm at him . Michael Debiase, 46, was fired, arrested, and charged with pointing and presenting a firearm at a person. The South Carolina Law Enforcement Division investigated the incident,",
+      "_excerpt": "A South Carolina cop was so infuriated by another officer microwaving fish that he aimed his service firearm at him . Michael Debiase, 46, was fired, arrested, and charged with pointing and presenting a firearm at a person. The South Carolina Law Enforcement Division investigated the incident, reports ABC News, which took place at Myrtle Beach Police Department. — Read the rest The post Cop fired and arrested after pulling gun on colleague who microwaved fish appeared first on Boing Boing .",
+      "date_published": "2026-06-03T14:06:52+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/shutterstock_1814993657.jpg?fit=1000%2C667&quality=60&ssl=1"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026JEG0040-000660",
+      "url": "https://news.gov.bc.ca/releases/2026JEG0040-000660",
+      "title": "[BC Gov News] Minister’s statement on May Labour Force Survey results",
+      "content_html": "<img src=\"https://live.staticflickr.com/65535/55315966036_949225fb13_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nB.C. adds 25,200 new jobs in May, including 7,200 youth jobs",
+      "summary": "B.C. adds 25,200 new jobs in May, including 7,200 youth jobs",
+      "_excerpt": "B.C. adds 25,200 new jobs in May, including 7,200 youth jobs",
+      "date_published": "2026-06-05T15:46:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://live.staticflickr.com/65535/55315966036_949225fb13_b.jpg"
+    },
+    {
+      "id": "https://www.atlasobscura.com/places/st-georges-guldhall",
+      "url": "https://www.atlasobscura.com/places/st-georges-guldhall",
+      "title": "[Atlas Obscura] St Georges Guildhall in Norfolk, England",
+      "content_html": "<img src=\"https://img.atlasobscura.com/b626t5HozcyUxI_EOE4oht2xPo4Wf03mh3CVU46adLk/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/QGhCmHDdChw-1y9epUpqMqhjMT4UqgYNefQ38LRF-KI/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg\" width=\"300\" /></p> <p>St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft  guilds which served a different  purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward  VI in 1547 at which time the guildhall became the property of Lynn Corporation (the dissolution was largely  motivated by the transfer assets from religious  institutions to the Crown). It is the largest surviving medieval guildhall in the country.</p>\n<p>From the start of its history the building was used for theatrical performances, at first amateur ones but quickly by professional troupes of actors, the first being a nativity play in 1445 and initially the performances  were, mainly, religious plays. After the dissolution of the religious guilds the building was regularly used by a variety of theatrical companies and local tradition has it that William Shakespeare appeared here as an actor, as part of the troupe called the Earl of Pembroke's men in 1593 at a time when troupes of players were driven out of London by the plague. Shakespeare's best known comic actor Robert Armin was born one street away. A scene, in Hamlet, is widely said to have been inspired by an incident in King's Lynn.</p>\n<p>Theatrical performances were curtailed when banned by the Commonwealth Government of Oliver Cromwell in the early 17th century but resumed after Charles II regained his throne in 1660. After a competing theatre was constructed in the town the guildhall was sold (1826) and for a short time was used as a warehouse. After a number of other uses, including a period of dereliction, the guildhall was restored by the architect Marshall Sisson and then given to the National Trust (1951). Subsequently it has been developed into an arts centre and theatre with the former warehouses in the courtyard were converted into art galleries as early as 1963.</p>\n<p>Tree ring dating had shown that a floor exposed during renovations in 2023 dated from the time that Shakespeare is reputed to have performed here. In 2024  a door was exposed behind a plasterboard panel which was 600 years old  and is thought to have been the entrance to the dressing room used by Shakespeare.</p>\n<p> </p>",
+      "summary": "St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft guilds which served a different purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward VI",
+      "_excerpt": "St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft guilds which served a different purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward VI in 1547 at which time the guildhall became the property of Lynn Corporation (the dissolution was largely motivated by the transfer assets from religious institutions to the Crown). It is the largest surviving medieval guildhall in the country. From the start of its history the building was used for",
+      "date_published": "2026-06-05T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://img.atlasobscura.com/b626t5HozcyUxI_EOE4oht2xPo4Wf03mh3CVU46adLk/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg"
+    },
+    {
+      "id": "https://qz.com/female-quotient-ceo-shelley-zalis-transformative-change-possible",
+      "url": "https://qz.com/female-quotient-ceo-shelley-zalis-transformative-change-possible",
+      "title": "[Quartz] The Female Quotient CEO Shelley Zalis talks 'transformative' change at POSSIBLE",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/The%2520Female%2520Quotient%2520CEO%2520Shelley%2520Zalis\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Female Quotient CEO Shelley Zalis talks 'transformative' change at POSSIBLE",
+      "summary": "The Female Quotient CEO Shelley Zalis talks 'transformative' change at POSSIBLE",
+      "_excerpt": "The Female Quotient CEO Shelley Zalis talks 'transformative' change at POSSIBLE",
+      "date_published": "2026-06-03T16:00:07+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/The%2520Female%2520Quotient%2520CEO%2520Shelley%2520Zalis"
+    },
+    {
+      "id": "https://www.tomsguide.com/home/homeowners-are-being-urged-to-follow-the-kitchen-sink-rule-to-prevent-ant-infestations-this-summer",
+      "url": "https://www.tomsguide.com/home/homeowners-are-being-urged-to-follow-the-kitchen-sink-rule-to-prevent-ant-infestations-this-summer",
+      "title": "[Toms Guide] Homeowners are being urged to follow ‘the kitchen sink rule’ to prevent ant infestations this summer",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/6jGfaPKxYV3ocbrCgPZQKf-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExpert shares ‘the kitchen sink rule’ you must do to prevent ants from invading your home this summer.",
+      "summary": "Expert shares ‘the kitchen sink rule’ you must do to prevent ants from invading your home this summer.",
+      "_excerpt": "Expert shares ‘the kitchen sink rule’ you must do to prevent ants from invading your home this summer.",
+      "date_published": "2026-06-02T11:26:42+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 0,
+      "_boosted_score": 20,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/6jGfaPKxYV3ocbrCgPZQKf-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/05/opinion/voting-rights-act-black-voters-south.html",
+      "url": "https://www.nytimes.com/2026/06/05/opinion/voting-rights-act-black-voters-south.html",
+      "title": "[NYT Top Stories] The Betrayal of Black Voters Threatens Our Democracy",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/05/multimedia/05gay-01-pklc/05gay-01-pklc-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe sweeping effort to dismantle Black-majority congressional districts in the South will have far-reaching consequences for all Americans, and for our democracy.",
+      "summary": "The sweeping effort to dismantle Black-majority congressional districts in the South will have far-reaching consequences for all Americans, and for our democracy.",
+      "_excerpt": "The sweeping effort to dismantle Black-majority congressional districts in the South will have far-reaching consequences for all Americans, and for our democracy.",
+      "date_published": "2026-06-05T13:38:04+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality_score": 63,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/06/05/multimedia/05gay-01-pklc/05gay-01-pklc-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/3/iranian-drone-hits-kuwaits-main-airport-after-us-strikes-qeshm-island?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/3/iranian-drone-hits-kuwaits-main-airport-after-us-strikes-qeshm-island?traffic_source=rss",
+      "title": "[Al Jazeera English] Iranian drone hits Kuwait’s main airport after US strikes Qeshm Island",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2003-03-23T000000Z_367969705_RP3DRINEPZAA_RTRMADP_3_IRAQ-KUWAIT-REACTION-1-1780469373.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nClashes continue as diplomacy between Washington and Tehran shows little progress.",
+      "summary": "Clashes continue as diplomacy between Washington and Tehran shows little progress.",
+      "_excerpt": "Clashes continue as diplomacy between Washington and Tehran shows little progress.",
+      "date_published": "2026-06-03T08:39:47+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality_score": 63,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2003-03-23T000000Z_367969705_RP3DRINEPZAA_RTRMADP_3_IRAQ-KUWAIT-REACTION-1-1780469373.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.androidauthority.com/wyze-security-camera-recall-3675182/",
+      "url": "https://www.androidauthority.com/wyze-security-camera-recall-3675182/",
+      "title": "[Android Authority] Wyze recalls over 320,000 security cameras due to fire and explosion hazards",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/06/WyzeSolarCamPan-61_e_c-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWyze is recalling hundreds of thousands of its security cameras.",
+      "summary": "Wyze is recalling hundreds of thousands of its security cameras.",
+      "_excerpt": "Wyze is recalling hundreds of thousands of its security cameras.",
+      "date_published": "2026-06-05T21:09:15+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/06/WyzeSolarCamPan-61_e_c-1.jpg"
+    },
+    {
+      "id": "https://qz.com/fedwatch-ben-emons-may-2026-jobs-report-takeaways",
+      "url": "https://qz.com/fedwatch-ben-emons-may-2026-jobs-report-takeaways",
+      "title": "[Quartz] FedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Founder%2520Ben%2520Emons%2520Delivers%2520May%25202026%2520Jobs%2520Report%2520Takeaways.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
+      "summary": "FedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
+      "_excerpt": "FedWatch Advisors founder Ben Emons delivers May 2026 jobs report takeaways",
+      "date_published": "2026-06-05T19:10:08+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality_score": 63,
+      "_theme_score": 7,
+      "_final_score": 7,
+      "_keyword_matches": 0,
+      "_boosted_score": 18,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Founder%2520Ben%2520Emons%2520Delivers%2520May%25202026%2520Jobs%2520Report%2520Takeaways.mp4"
+    },
+    {
+      "id": "https://qz.com/bcg-worldwide-ceo-unlocking-opportunities-at-possible",
+      "url": "https://qz.com/bcg-worldwide-ceo-unlocking-opportunities-at-possible",
+      "title": "[Quartz] BCG Worldwide CEO Tara Deveaux discusses unlocking opportunities at POSSIBLE",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/BCG%2520Worldwide%2520CEO%2520Tara%2520Deveaux%2520Discusses%2520Unlocking%2520Opportunities%2520at%2520POSSIBLE\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBCG Worldwide CEO Tara Deveaux discusses unlocking opportunities at POSSIBLE",
+      "summary": "BCG Worldwide CEO Tara Deveaux discusses unlocking opportunities at POSSIBLE",
+      "_excerpt": "BCG Worldwide CEO Tara Deveaux discusses unlocking opportunities at POSSIBLE",
+      "date_published": "2026-06-05T21:20:12+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 56,
+      "_quality_score": 56,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 16,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/BCG%2520Worldwide%2520CEO%2520Tara%2520Deveaux%2520Discusses%2520Unlocking%2520Opportunities%2520at%2520POSSIBLE"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/06/05/paper-quips-do-you-remember-when/",
+      "url": "https://100milefreepress.net/2026/06/05/paper-quips-do-you-remember-when/",
+      "title": "[100 Mile Free Press] PAPER QUIPS: Do you remember when…?",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42468465_web1_AdobeStock_185519252.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>100 Mile Free Press editor Patrick Davies&#8217; regular column </p>",
+      "summary": "100 Mile Free Press editor Patrick Davies’ regular column",
+      "_excerpt": "100 Mile Free Press editor Patrick Davies’ regular column",
+      "date_published": "2026-06-06T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 48,
+      "_quality_score": 48,
+      "_theme_score": 8,
+      "_final_score": 8,
+      "_keyword_matches": 0,
+      "_boosted_score": 14,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42468465_web1_AdobeStock_185519252.jpg?w=1024"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/04/us/elections/raman-pratt-los-angeles-mayor.html",
+      "url": "https://www.nytimes.com/2026/06/04/us/elections/raman-pratt-los-angeles-mayor.html",
+      "title": "[NYT Top Stories] Raman Gains on Pratt in L.A. Mayor Race But Many Ballots Remain",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNithya Raman’s vote count still remains well behind Spencer Pratt’s, but hundreds of thousands of ballots remain to be counted in Los Angeles over the next few weeks.",
+      "summary": "Nithya Raman’s vote count still remains well behind Spencer Pratt’s, but hundreds of thousands of ballots remain to be counted in Los Angeles over the next few weeks.",
+      "_excerpt": "Nithya Raman’s vote count still remains well behind Spencer Pratt’s, but hundreds of thousands of ballots remain to be counted in Los Angeles over the next few weeks.",
+      "date_published": "2026-06-05T03:27:03+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 44,
+      "_quality_score": 44,
+      "_theme_score": 10,
+      "_final_score": 10,
+      "_keyword_matches": 0,
+      "_boosted_score": 13,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
     }
   ]
 }
