@@ -202,36 +202,104 @@ def _follow_google_news_redirect(url: str) -> str:
     return url
 
 
-def _brave_resolve_google_news(article: 'Article') -> Optional[str]:
-    """Last-resort URL resolution via Brave Search when base64 decode and HTTP redirect fail.
+def _find_garturlreq(node):
+    """Recursively locate the ['garturlreq', [...]] array inside a parsed data-p blob.
 
-    Searches for the article title (optionally scoped to the outlet domain) and returns
-    the first non-Google result URL. Requires BRAVE_API_KEY env var.
+    Its last three elements are [article_id, timestamp, signature] — the
+    invariant the resolver below relies on, regardless of how deeply Google
+    nests the surrounding structure.
     """
-    brave_key = os.environ.get('BRAVE_API_KEY', '')
-    if not brave_key or not article.title:
-        return None
+    if isinstance(node, list):
+        if node and node[0] == 'garturlreq':
+            return node
+        for child in node:
+            found = _find_garturlreq(child)
+            if found:
+                return found
+    return None
 
-    query = f'"{article.title}"'
-    if article.source and '.' not in article.source:
-        source_slug = article.source.lower().replace(' ', '')
-        query = f'site:{source_slug}.com {query}'
 
-    params = {'q': query, 'count': 3}
-    headers = {'X-Subscription-Token': brave_key, 'Accept': 'application/json'}
+def _decode_google_news_url_v2(url: str) -> Optional[str]:
+    """Resolve a Google News proxy URL via Google's internal batchexecute RPC.
+
+    As of mid-2026, Google stopped embedding the destination URL in the
+    proxy link's base64 payload (see _decode_google_news_url) and stopped
+    issuing a server-side HTTP redirect (see _follow_google_news_redirect).
+    Resolution now requires replicating the two-step flow Google's own web
+    client performs — the same reverse-engineered, undocumented protocol
+    tools like `googlenewsdecoder` implement:
+
+      1. GET the proxy page and read a signature/timestamp/article-id triple
+         out of an embedded `data-p` JSON blob.
+      2. POST that triple to Google's batchexecute RPC and read the real
+         article URL back out of the response.
+
+    Because this is unofficial and can change without notice, every step is
+    guarded — any failure simply returns None so the caller's fallback (kept
+    proxy link) takes over rather than the article being lost.
+    """
+    headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/122.0.0.0 Safari/537.36'
+        )
+    }
     try:
-        resp = requests.get(
-            'https://api.search.brave.com/res/v1/web/search',
-            headers=headers, params=params, timeout=10
+        page = requests.get(url, headers=headers, timeout=10)
+        page.raise_for_status()
+        soup = BeautifulSoup(page.content, 'html.parser')
+        c_wiz = soup.select_one('c-wiz[data-p]') or soup.select_one('[data-p*="garturlreq"]')
+        if not c_wiz:
+            return None
+        raw = c_wiz.get('data-p', '')
+        if '%.@.' not in raw:
+            return None
+        obj = json.loads(raw.split('%.@.', 1)[1])
+        req_array = _find_garturlreq(obj)
+        if not req_array or len(req_array) < 4:
+            return None
+        article_id, timestamp, signature = req_array[-3], req_array[-2], req_array[-1]
+
+        inner_request = json.dumps([
+            'garturlreq',
+            [['X', 'X', ['X', 'X'], None, None, 1, 1, 'US:en', None, 1,
+              None, None, None, None, None, 0, 1],
+             'X', 'X', 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0],
+            article_id, timestamp, signature
+        ])
+        rpc_body = {
+            'f.req': json.dumps([[['Fbv4je', inner_request, None, 'generic']]])
+        }
+        rpc_headers = dict(headers)
+        rpc_headers['content-type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+
+        resp = requests.post(
+            'https://news.google.com/_/DotsSplashUi/data/batchexecute',
+            headers=rpc_headers, data=rpc_body, timeout=10,
         )
         resp.raise_for_status()
-        results = resp.json().get('web', {}).get('results', [])
-        for r in results:
-            url = r.get('url', '')
-            parsed = urlparse(url)
-            netloc = parsed.netloc.lower()
-            if netloc and not (netloc == 'google.com' or netloc.endswith('.google.com')):
-                return url
+
+        body_text = resp.text
+        if body_text.startswith(")]}'"):
+            body_text = body_text.split('\n', 1)[-1]
+
+        # The response is JSON-string-within-JSON-array, so the embedded URL
+        # may carry one or more layers of backslash-escaping ("https:\/\/" or
+        # worse). Backslashes never carry meaning in a URL, so stripping them
+        # all up front sidesteps needing to know the exact nesting/escaping
+        # depth — then a plain URL scan finds the first non-Google candidate.
+        unescaped = body_text.replace('\\', '')
+        for match in re.finditer(r'https?://[^\s",]+', unescaped):
+            candidate = match.group(0).rstrip(').,;:!?\'"]')
+            parsed_candidate = urlparse(candidate)
+            netloc = parsed_candidate.netloc.lower()
+            if (parsed_candidate.scheme and '.' in netloc
+                    and netloc != 'google.com'
+                    and not netloc.endswith('.google.com')
+                    and not netloc.endswith('.gstatic.com')
+                    and not netloc.endswith('.googleusercontent.com')):
+                return candidate
     except Exception:
         pass
     return None
@@ -240,9 +308,16 @@ def _brave_resolve_google_news(article: 'Article') -> Optional[str]:
 def resolve_google_news_urls(articles: List['Article']) -> None:
     """Resolve Google News proxy URLs to real article URLs in-place.
 
-    Fast path: base64 decode (no network).
-    Slow path: HTTP redirect following via a thread pool (max 10 workers).
-    Updates article.link and article.url_hash for every resolved article.
+    Fast path: base64 decode (no network) — works only for the older proxy
+    URL format that embeds the destination URL directly.
+    Slow path (thread pool, max 10 workers): Google's batchexecute RPC,
+    which is required for the newer opaque-token proxy URLs; HTTP redirect
+    following is tried as a cheap secondary attempt if the RPC comes up
+    empty (e.g. for any remaining old-style links that 30x straight through).
+    Updates article.link, article.url_hash and article.source_url for every
+    article that resolves. Articles that resolve neither way are left with
+    their proxy link intact — see the caller, which keeps rather than drops
+    them.
     """
     needs_network: List['Article'] = []
 
@@ -263,8 +338,8 @@ def resolve_google_news_urls(articles: List['Article']) -> None:
         return
 
     def _resolve_one(article: 'Article') -> None:
-        real_url = _follow_google_news_redirect(article.link)
-        if real_url != article.link:
+        real_url = _decode_google_news_url_v2(article.link) or _follow_google_news_redirect(article.link)
+        if real_url and real_url != article.link:
             article.link = real_url
             article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
             _parsed = urlparse(real_url)
@@ -1199,17 +1274,20 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
 
         # Resolve Google News proxy URLs to real article URLs so that
         # deduplication, link display, and podcast selection all work correctly.
+        # Articles that can't be resolved keep their proxy link rather than
+        # being dropped — Google's client-side redirect still gets a human
+        # to the right article, it just adds one hop, and the outlet name is
+        # already extracted from the title (see Article.__init__) so display
+        # attribution doesn't depend on the link resolving.
         if 'news.google.com' in feed['url'] and articles:
             before = sum(1 for a in articles if _is_aggregator_url(a.link))
             resolve_google_news_urls(articles)
             after = sum(1 for a in articles if _is_aggregator_url(a.link))
             resolved = before - after
-            articles = [a for a in articles if not _is_aggregator_url(a.link)]
-            dropped = after
             fetched_excerpts_note = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
-            dropped_note = f", {dropped} dropped (unresolvable)" if dropped else ""
+            kept_note = f", {after} kept as Google redirect links" if after else ""
             print(f"  ✓ {feed['title']}: {len(articles)} articles"
-                  f" ({resolved} GN URLs unwrapped{dropped_note}{fetched_excerpts_note})")
+                  f" ({resolved} GN URLs resolved{kept_note}{fetched_excerpts_note})")
             return articles
 
         if articles:
