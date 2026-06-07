@@ -86,16 +86,17 @@
     <outline type="rss" text="The Narwhal" title="The Narwhal" xmlUrl="https://thenarwhal.ca/feed/" htmlUrl="https://thenarwhal.ca" />
     <outline type="rss" text="Yellowhead Institute" title="Yellowhead Institute" xmlUrl="https://yellowheadinstitute.org/feed/" htmlUrl="https://yellowheadinstitute.org/" />
     <outline type="rss" text="The Maple" title="The Maple" xmlUrl="https://www.readthemaple.com/rss/" htmlUrl="https://www.readthemaple.com/" />
-    <outline type="rss" text="Ricochet" title="Ricochet" xmlUrl="https://ricochet.media/feed/" htmlUrl="https://ricochet.media/" />
+    <!-- Ricochet: feed has failed on every run since 2026-02-24 (404, then 415 Unsupported Media Type, plus connection errors); appears permanently broken. Disabled. -->
+    <!-- <outline type="rss" text="Ricochet" title="Ricochet" xmlUrl="https://ricochet.media/feed/" htmlUrl="https://ricochet.media/" /> -->
     <outline type="rss" text="IndigiNews" title="IndigiNews" xmlUrl="https://indiginews.com/feed" htmlUrl="https://indiginews.com/" />
     <!-- APTN News: national Indigenous broadcaster — supports Thursday theme and year-round Indigenous coverage -->
     <outline type="rss" text="APTN News" title="APTN News" xmlUrl="https://www.aptnnews.ca/feed/" htmlUrl="https://www.aptnnews.ca" />
     <!-- Thursday Indigenous Lands & Innovation additional sources -->
     <outline type="rss" text="First Nations Technology Council" title="First Nations Technology Council" xmlUrl="https://technologycouncil.ca/feed/" htmlUrl="https://technologycouncil.ca" />
-    <!-- Nation Talk: high-volume Canadian First Nations news aggregator covering governance, land rights, and tech — primary Thursday source -->
-    <outline type="rss" text="Nation Talk" title="Nation Talk" xmlUrl="https://nationtalk.ca/feed" htmlUrl="https://nationtalk.ca" />
-    <!-- First Peoples' Cultural Council: BC-based; directly covers Indigenous language revitalization — core Thursday keyword -->
-    <outline type="rss" text="First Peoples Cultural Council" title="First Peoples Cultural Council" xmlUrl="https://fpcc.ca/feed/" htmlUrl="https://fpcc.ca" />
+    <!-- Nation Talk: 415 Unsupported Media Type on every run since being added 2026-05-29; site rejects the aggregator's request signature. Disabled. -->
+    <!-- <outline type="rss" text="Nation Talk" title="Nation Talk" xmlUrl="https://nationtalk.ca/feed" htmlUrl="https://nationtalk.ca" /> -->
+    <!-- First Peoples Cultural Council: 415 Unsupported Media Type on every run since being added 2026-05-29; site rejects the aggregator's request signature. Disabled. -->
+    <!-- <outline type="rss" text="First Peoples Cultural Council" title="First Peoples Cultural Council" xmlUrl="https://fpcc.ca/feed/" htmlUrl="https://fpcc.ca" /> -->
     <outline type="rss" text="Hackaday" title="Hackaday" xmlUrl="https://hackaday.com/feed" htmlUrl="https://hackaday.com" />
     <outline type="rss" text="Make Magazine" title="Make Magazine" xmlUrl="https://makezine.com/feed/" htmlUrl="https://makezine.com" />
     <outline type="rss" text="Cool Tools" title="Cool Tools" xmlUrl="https://kk.org/cooltools/feed" htmlUrl="https://kk.org/cooltools" />
@@ -169,7 +170,8 @@
     <!-- Canadaland: Canadian media criticism covering podcasting, community media, and digital storytelling infrastructure -->
     <outline type="rss" text="Canadaland" title="Canadaland" xmlUrl="https://www.canadaland.com/feed/" htmlUrl="https://www.canadaland.com" />
     <!-- Sunday Science, Wonder & the Natural World sources -->
-    <outline type="rss" text="Canadian Geographic" title="Canadian Geographic" xmlUrl="https://www.canadiangeographic.ca/feed/" htmlUrl="https://www.canadiangeographic.ca" />
+    <!-- Canadian Geographic: 403 Forbidden on every run since at least 2026-05-06; site is blocking the aggregator's user-agent. Disabled. GN BC Wildlife Ecology and ScienceDaily still cover Sunday's natural-world angle. -->
+    <!-- <outline type="rss" text="Canadian Geographic" title="Canadian Geographic" xmlUrl="https://www.canadiangeographic.ca/feed/" htmlUrl="https://www.canadiangeographic.ca" /> -->
     <outline type="rss" text="ScienceDaily" title="ScienceDaily" xmlUrl="https://www.sciencedaily.com/rss/all.xml" htmlUrl="https://www.sciencedaily.com" />
     <outline type="rss" text="GN BC Wildlife Ecology" title="GN BC Wildlife Ecology" xmlUrl="https://news.google.com/rss/search?q=%22BC+wildlife%22+OR+%22BC+ecology%22+OR+%22species+at+risk+BC%22+OR+%22salmon+run%22+OR+%22boreal+forest%22+OR+%22citizen+science+BC%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
 
@@ -181,7 +183,8 @@
     <outline type="rss" text="NYT Well" title="NYT Well" xmlUrl="https://well.blogs.nytimes.com/feed/" htmlUrl="https://well.blogs.nytimes.com" />
     <outline type="rss" text="GN Health and Wellness" title="GN Health and Wellness" xmlUrl="https://news.google.com/rss/search?q=health+wellness+OR+nutrition+OR+%22mental+health%22+OR+%22preventive+health%22&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <!-- Additional wellness sources: evidence-based health and longevity research -->
-    <outline type="rss" text="Examine.com" title="Examine.com" xmlUrl="https://examine.com/feed/" htmlUrl="https://examine.com" />
+    <!-- Examine.com: 429 Too Many Requests on every run since being added 2026-06-03; site appears to rate-limit the aggregator's request cadence. Disabled. GN Evidence-Based Health Research and GN Longevity and Preventive Medicine cover similar ground. -->
+    <!-- <outline type="rss" text="Examine.com" title="Examine.com" xmlUrl="https://examine.com/feed/" htmlUrl="https://examine.com" /> -->
     <outline type="rss" text="GN Evidence-Based Health Research" title="GN Evidence-Based Health Research" xmlUrl="https://news.google.com/rss/search?q=%22randomized+trial%22+OR+%22clinical+study%22+OR+%22evidence-based%22+health+OR+nutrition&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
     <outline type="rss" text="GN Longevity and Preventive Medicine" title="GN Longevity and Preventive Medicine" xmlUrl="https://news.google.com/rss/search?q=longevity+OR+%22preventive+medicine%22+OR+%22metabolic+health%22+OR+%22gut+microbiome%22+research&amp;hl=en&amp;gl=CA&amp;ceid=CA:en" htmlUrl="https://news.google.com" />
 
