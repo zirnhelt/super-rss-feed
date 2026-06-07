@@ -8,6 +8,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Nation Talk** failed | `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **First Peoples Cultural Council** failed | `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Hakai Magazine** failed | `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/` |
+| 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed | `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/` |
 | 2026-06-06 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-06-06 | 🌙 8:30 PM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
 | 2026-06-06 | 🌙 8:30 PM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
@@ -54,6 +62,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-07 | 🌅 morning | 38 | news:27(71%), ai-tech:5(13%), climate:2(5%) |
 | 2026-06-06 | 🌙 evening | 78 | news:63(81%), wellness:5(6%), ai-tech:4(5%) |
 | 2026-06-06 | 🌅 morning | 60 | news:47(78%), ai-tech:4(7%), homelab:3(5%) |
 | 2026-06-05 | 🌅 morning | 67 | news:55(82%), wellness:4(6%), local:2(3%) |
@@ -64,12 +73,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-01 | 🌅 morning | 8 | news:3(38%), science:2(25%), local:1(12%) |
 | 2026-05-31 | 🌙 evening | 10 | news:8(80%), climate:2(20%) |
 | 2026-05-31 | 🌅 morning | 3 | climate:1(33%), wellness:1(33%), science:1(33%) |
-| 2026-05-30 | 🌙 evening | 4 | climate:2(50%), local:1(25%), news:1(25%) |
-| 2026-05-30 | 🌅 morning | 4 | local:1(25%), climate:1(25%), homelab:1(25%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-06 14:21 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-07 08:09 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

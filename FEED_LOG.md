@@ -3,6 +3,27 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-07 (Sunday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **753** → dedup **676** → new **466** → quality **38**
+- Mix: ai-tech:5(13%), climate:2(5%), homelab:2(5%), wellness:1(3%), science:1(3%), news:27(71%)
+- Feeds: local:27, ai-tech:50, climate:60, homelab:13, wellness:38, science:18, scifi:11, news:500
+- Images: 38/38
+- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
+- ⚠️ **Nation Talk** failed — `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed`
+- ⚠️ **First Peoples Cultural Council** failed — `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/`
+- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
+- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+- ⚠️ **Hakai Magazine** failed — `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/`
+- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
+
+
+---
+
+
+
 ## 2026-06-06 (Saturday)
 
 #### 🌙 8:30 PM Pacific
@@ -180,31 +201,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Feeds: local:45, ai-tech:216, climate:71, homelab:166, wellness:1, science:79, scifi:11, news:500
 - Images: 3/3
 - ⚠️ **CBC Arts** failed — `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)`
-
-
----
-
-
-
-## 2026-05-30 (Saturday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1150** → dedup **985** → new **528** → quality **4**
-- Mix: local:1(25%), climate:2(50%), news:1(25%)
-- Feeds: local:46, ai-tech:235, climate:71, homelab:197, science:90, scifi:14, news:500
-- Images: 4/4
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
-- Fetched **1047** → dedup **918** → new **532** → quality **4**
-- Mix: local:1(25%), climate:1(25%), homelab:1(25%), news:1(25%)
-- Feeds: local:47, ai-tech:235, climate:71, homelab:194, science:88, scifi:14, news:500
-- Images: 4/4
 
 
 ---
@@ -1543,6 +1539,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ ⚠️ Scrub batch 1 failed (Extra data: line 2 column 1 (char 15)), keeping all
 - - ⚠️ Western Producer failed — 403 Client Error: Forbidden for url: https://www.producer.com/feed/
 - - ⚠️ AgWeb failed — 403 Client Error: Forbidden for url: https://www.agweb.com/rss/news
+
+
+---
+
+
+
+## Week of 2026-05-30–2026-05-30
+- 2 runs · avg fetched 1098 · avg quality 4
+- Dominant: **climate** (38%) local:2 / climate:3 / homelab:1 / news:2
 
 
 ---
