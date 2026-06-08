@@ -11,6 +11,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-08 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-08 | 🌅 4:30 AM Pacific | ⚠️ **Hakai Magazine** failed | `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/` |
 | 2026-06-08 | 🌅 4:30 AM Pacific | ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed | `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/` |
+| 2026-06-08 | 🌙 8:30 PM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Ricochet** failed | `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/` |
 | 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **Nation Talk** failed | `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed` |
 | 2026-06-07 | 🌅 4:30 AM Pacific | ⚠️ **First Peoples Cultural Council** failed | `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/` |
@@ -65,6 +66,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-06-08 | 🌅 morning | 52 | news:45(87%), ai-tech:2(4%), climate:2(4%) |
+| 2026-06-08 | 🌙 evening | 79 | news:70(89%), wellness:3(4%), ai-tech:2(3%) |
 | 2026-06-07 | 🌅 morning | 38 | news:27(71%), ai-tech:5(13%), climate:2(5%) |
 | 2026-06-06 | 🌙 evening | 78 | news:63(81%), wellness:5(6%), ai-tech:4(5%) |
 | 2026-06-06 | 🌅 morning | 60 | news:47(78%), ai-tech:4(7%), homelab:3(5%) |
@@ -75,9 +77,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-03 | 🌙 evening | 76 | news:63(83%), wellness:5(7%), local:4(5%) |
 | 2026-06-01 | 🌅 morning | 8 | news:3(38%), science:2(25%), local:1(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-08 09:15 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-08 16:37 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

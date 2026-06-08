@@ -19,6 +19,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **706** → dedup **616** → new **458** → quality **79**
+- Mix: ai-tech:2(3%), climate:2(3%), homelab:1(1%), wellness:3(4%), science:1(1%), news:70(89%)
+- Feeds: local:27, ai-tech:55, climate:40, homelab:15, wellness:38, science:18, scifi:9, news:500
+- Images: 79/79
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+
+
+---
+
+
+
 ## 2026-06-07 (Sunday)
 
 #### 🌅 4:30 AM Pacific
