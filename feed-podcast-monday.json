@@ -20,147 +20,447 @@
       "news",
       "ai-tech"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Penalise heavily (score 0–20): medical and health research with no cultural/storytelling angle; working lands and resource economy stories; wildlife and nature stories without creative or community media context; data centre infrastructure and AI investment news; geopolitical conflict, war, and crime coverage; financial market and stock movement stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "monday",
-    "generated_at": "2026-06-01T09:39:59.909607+00:00",
+    "generated_at": "2026-06-08T09:14:59.747477+00:00",
     "article_count": 40,
-    "bonus_count": 33,
+    "bonus_count": 23,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.theverge.com/entertainment/939067/ai-film-dreams-of-violets-tribeca",
-      "url": "https://www.theverge.com/entertainment/939067/ai-film-dreams-of-violets-tribeca",
-      "title": "[The Verge] A $2,000 AI-generated film will make its debut at Tribeca",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/ai-dreams-of-violets.png?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNext month's Tribeca Festival will include the premiere of an AI-generated film: Dreams of Violets. The 75-minute film is a fictional dramatization of the Iranian government's mass killing of protestors in January, with the people and images fully created by AI, as reported earlier by The Hollywood Reporter. Dreams of Violets cost $2,000 to make [&#8230;]",
-      "summary": "Next month's Tribeca Festival will include the premiere of an AI-generated film: Dreams of Violets. The 75-minute film is a fictional dramatization of the Iranian government's mass killing of protestors in January, with the people and images fully created by AI, as reported earlier by The Hollywood",
-      "_excerpt": "Next month's Tribeca Festival will include the premiere of an AI-generated film: Dreams of Violets. The 75-minute film is a fictional dramatization of the Iranian government's mass killing of protestors in January, with the people and images fully created by AI, as reported earlier by The Hollywood Reporter. Dreams of Violets cost $2,000 to make […]",
-      "date_published": "2026-05-28T16:08:45+00:00",
+      "id": "https://www.businessinsider.com/hearing-loss-music-festivals-earplug-company-2026-6",
+      "url": "https://www.businessinsider.com/hearing-loss-music-festivals-earplug-company-2026-6",
+      "title": "[Business Insider] Music festivals gave me hearing loss. My best friend and I started making earplugs, and it's now a multimillion-dollar business.",
+      "content_html": "<img src=\"https://i.insider.com/6a0c7975f246b392afc7b6b3?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter developing tinnitus and hearing loss, Bob Verlaat cofounded Hears, a company designing stylish earplugs for music fans.",
+      "summary": "After developing tinnitus and hearing loss, Bob Verlaat cofounded Hears, a company designing stylish earplugs for music fans.",
+      "_excerpt": "After developing tinnitus and hearing loss, Bob Verlaat cofounded Hears, a company designing stylish earplugs for music fans.",
+      "date_published": "2026-06-03T14:49:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 47,
+      "_quality_score": 47,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 2,
+      "_boosted_score": 54,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/6a0c7975f246b392afc7b6b3?format=jpeg"
+    },
+    {
+      "id": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
+      "url": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
+      "title": "[Al Jazeera English] Kenyan graduates turn to AI tools for farming as jobs dry up",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYoung farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "summary": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "_excerpt": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "date_published": "2026-06-07T04:14:27+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.theverge.com/ai-artificial-intelligence/942909/let-us-filter-ai-slop-google-youtube-meta-instagram-tiktok",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/942909/let-us-filter-ai-slop-google-youtube-meta-instagram-tiktok",
+      "title": "[The Verge] Let us filter AI slop, you cowards",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STKS511_AI_SLOP_B.jpg?quality=90&amp;strip=all&amp;crop=0%2C9.9676601489831%2C100%2C80.064679702034&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's almost impossible to avoid seeing AI-generated content online, but it doesn't have to be this way. YouTube, Instagram, TikTok, and more have ramped up content authentication efforts over the last year, with many now automatically applying labels to distinguish AI-generated images, videos, and music from those made by real, human creators. That's all very [&#8230;]",
+      "summary": "It's almost impossible to avoid seeing AI-generated content online, but it doesn't have to be this way. YouTube, Instagram, TikTok, and more have ramped up content authentication efforts over the last year, with many now automatically applying labels to distinguish AI-generated images, videos, and",
+      "_excerpt": "It's almost impossible to avoid seeing AI-generated content online, but it doesn't have to be this way. YouTube, Instagram, TikTok, and more have ramped up content authentication efforts over the last year, with many now automatically applying labels to distinguish AI-generated images, videos, and music from those made by real, human creators. That's all very […]",
+      "date_published": "2026-06-04T12:30:00+00:00",
       "authors": [
         {
           "name": "The Verge",
           "url": "https://www.theverge.com"
         }
       ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 2,
-      "_boosted_score": 46,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/ai-dreams-of-violets.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STKS511_AI_SLOP_B.jpg?quality=90&strip=all&crop=0%2C9.9676601489831%2C100%2C80.064679702034&w=1200"
     },
     {
-      "id": "https://www.techradar.com/streaming/apple-tv-plus/star-city-for-all-mankind-season-5-comparisons",
-      "url": "https://www.techradar.com/streaming/apple-tv-plus/star-city-for-all-mankind-season-5-comparisons",
-      "title": "[TechRadar] New Apple TV sci-fi series Star City will be 'totally different' to For All Mankind season 5 despite having the same creative team — 'we wouldn't have made it if it was a companion piece'",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/DFAX85VRSmVrpPHbXDiRE3-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOn the same day that For All Mankind season 5 draws to a close, new Apple TV sci-fi series Star City begins. They're made by the same team, but will be 'totally different'.",
-      "summary": "On the same day that For All Mankind season 5 draws to a close, new Apple TV sci-fi series Star City begins. They're made by the same team, but will be 'totally different'.",
-      "_excerpt": "On the same day that For All Mankind season 5 draws to a close, new Apple TV sci-fi series Star City begins. They're made by the same team, but will be 'totally different'.",
-      "date_published": "2026-05-26T07:00:00+00:00",
+      "id": "https://www.androidpolice.com/use-social-media-every-day-but-changes-made-it-far-less-addictive/",
+      "url": "https://www.androidpolice.com/use-social-media-every-day-but-changes-made-it-far-less-addictive/",
+      "title": "[Android Police] I still use social media every day, but these changes make it far less addictive",
+      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/06/person-sitting-with-a-smartphone-next-to-social-media-app-icons-while-a-take-a-pause-message-encourages-more-mindful-social-media-use.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese tweaks stopped the endless scrolling",
+      "summary": "These tweaks stopped the endless scrolling",
+      "_excerpt": "These tweaks stopped the endless scrolling",
+      "date_published": "2026-06-07T11:00:12+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Android Police",
+          "url": "https://www.androidpolice.com"
         }
       ],
-      "ai_score": 38,
-      "_quality_score": 38,
-      "_theme_score": 42,
-      "_final_score": 42,
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 31,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/DFAX85VRSmVrpPHbXDiRE3-1280-80.jpg"
-    },
-    {
-      "id": "https://nautil.us/this-pope-weighed-in-on-modern-tech-as-media-forever-changed-1281427/",
-      "url": "https://nautil.us/this-pope-weighed-in-on-modern-tech-as-media-forever-changed-1281427/",
-      "title": "[Nautilus] This Pope Weighed in on Modern Tech as Media Forever Changed",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Grant_HERO_c3f737.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Pope Leo wasn’t the first Holy Father to opine about the promise and peril of an emerging technology</p>\n<p>The post <a href=\"https://nautil.us/this-pope-weighed-in-on-modern-tech-as-media-forever-changed-1281427/\">This Pope Weighed in on Modern Tech as Media Forever Changed</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "summary": "Pope Leo wasn’t the first Holy Father to opine about the promise and peril of an emerging technology The post This Pope Weighed in on Modern Tech as Media Forever Changed appeared first on Nautilus .",
-      "_excerpt": "Pope Leo wasn’t the first Holy Father to opine about the promise and peril of an emerging technology The post This Pope Weighed in on Modern Tech as Media Forever Changed appeared first on Nautilus .",
-      "date_published": "2026-05-26T21:27:49+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "ai_score": 25,
-      "_quality_score": 25,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 1,
-      "_boosted_score": 27,
+      "_boosted_score": 40,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/05/Grant_HERO_c3f737.png?w=564"
+      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/06/person-sitting-with-a-smartphone-next-to-social-media-app-icons-while-a-take-a-pause-message-encourages-more-mindful-social-media-use.png"
     },
     {
-      "id": "https://www.engadget.com/2181929/spotifys-latest-feature-makes-it-easier-to-share-podcast-clips/",
-      "url": "https://www.engadget.com/2181929/spotifys-latest-feature-makes-it-easier-to-share-podcast-clips/",
-      "title": "[Engadget] Spotify's latest feature makes it easier to share podcast clips",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/spotifys-latest-feature-makes-it-easier-to-share-podcast-clips/l-intro-1779886848.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSpotify just released a new feature that find and share specific podcast moments.",
-      "summary": "Spotify just released a new feature that find and share specific podcast moments.",
-      "_excerpt": "Spotify just released a new feature that find and share specific podcast moments.",
-      "date_published": "2026-05-27T13:02:20+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 1,
-      "_boosted_score": 26,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.engadget.com/img/gallery/spotifys-latest-feature-makes-it-easier-to-share-podcast-clips/l-intro-1779886848.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/27/spotify-now-lets-you-clip-moments-from-your-favorite-podcast/",
-      "url": "https://techcrunch.com/2026/05/27/spotify-now-lets-you-clip-moments-from-your-favorite-podcast/",
-      "title": "[TechCrunch] Spotify now lets you ‘clip’ moments from your favorite podcast",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/05/FTR-Header-1920x733-1.png?resize=1200,458\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith the new scissors icon, you can clip favorite moments from podcasts and share them with your audience.",
-      "summary": "With the new scissors icon, you can clip favorite moments from podcasts and share them with your audience.",
-      "_excerpt": "With the new scissors icon, you can clip favorite moments from podcasts and share them with your audience.",
-      "date_published": "2026-05-27T14:05:37+00:00",
+      "id": "https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/",
+      "url": "https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/",
+      "title": "[TechCrunch] Still facing copyright lawsuits, AI music generator Suno raises another $400M",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/Suno_1.png?resize=1200,600\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe prominent AI music-generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
+      "summary": "The prominent AI music-generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
+      "_excerpt": "The prominent AI music-generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
+      "date_published": "2026-06-03T15:31:42+00:00",
       "authors": [
         {
           "name": "TechCrunch",
           "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 22,
-      "_quality_score": 22,
-      "_theme_score": 30,
-      "_final_score": 30,
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 26,
+      "_boosted_score": 40,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/05/FTR-Header-1920x733-1.png?resize=1200,458"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/Suno_1.png?resize=1200,600"
     },
     {
-      "id": "https://www.mycariboonow.com/313906/news/politics-news/now-the-really-hard-work-begins-bond-on-findlays-conservative-leadership-win/",
-      "url": "https://www.mycariboonow.com/313906/news/politics-news/now-the-really-hard-work-begins-bond-on-findlays-conservative-leadership-win/",
-      "title": "[My Cariboo Now] \"Now the really hard work begins\" Bond on Findlay's Conservative Leadership win : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2024/08/bond.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "id": "https://www.nytimes.com/2026/06/03/arts/jeffrey-epstein-interlochen-michigan.html",
+      "url": "https://www.nytimes.com/2026/06/03/arts/jeffrey-epstein-interlochen-michigan.html",
+      "title": "[NYT Top Stories] At Interlochen, Where Jeffrey Epstein’s Shadow Still Lingers",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/03/multimedia/03cul-epstein-interlochen-fmtp/03cul-epstein-interlochen-fmtp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe arts school and camp is still contending with the fallout from its former ties to Mr. Epstein, an alumnus and donor accused of preying on two girls he met there.",
+      "summary": "The arts school and camp is still contending with the fallout from its former ties to Mr. Epstein, an alumnus and donor accused of preying on two girls he met there.",
+      "_excerpt": "The arts school and camp is still contending with the fallout from its former ties to Mr. Epstein, an alumnus and donor accused of preying on two girls he met there.",
+      "date_published": "2026-06-03T09:02:01+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality_score": 62,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/06/03/multimedia/03cul-epstein-interlochen-fmtp/03cul-epstein-interlochen-fmtp-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/movies-that-changed-summer-blockbusters-forever/",
+      "url": "https://www.howtogeek.com/movies-that-changed-summer-blockbusters-forever/",
+      "title": "[How-To Geek] 6 iconic movies that changed summer blockbusters forever",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/collage-featuring-characters-from-batman-jurassic-park-the-avengers-barbie-and-the-lion-king-surrounded-by-floating-summer-blockbusters-movie-tickets.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom Batman to Barbie, these films changed summer cinema.",
+      "summary": "From Batman to Barbie, these films changed summer cinema.",
+      "_excerpt": "From Batman to Barbie, these films changed summer cinema.",
+      "date_published": "2026-06-07T16:15:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 61,
+      "_quality_score": 61,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 38,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/collage-featuring-characters-from-batman-jurassic-park-the-avengers-barbie-and-the-lion-king-surrounded-by-floating-summer-blockbusters-movie-tickets.png"
+    },
+    {
+      "id": "https://www.theguardian.com/global-development/2026/jun/06/african-leader-speech-decolonisation-ai-generated-fake-president-namibia-africa-caribbean",
+      "url": "https://www.theguardian.com/global-development/2026/jun/06/african-leader-speech-decolonisation-ai-generated-fake-president-namibia-africa-caribbean",
+      "title": "[The Guardian Global Development] It’s no surprise that an AI-faked presidential speech condemning foreign exploitation went viral – the world is suffering from a leadership vacuum",
+      "content_html": "<img src=\"https://i.guim.co.uk/img/media/5fe77c98d7c41d196d1e9296c84f62197ce3e75c/304_0_2132_1706/master/2132.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&amp;enable=upscale&amp;s=b7eab7fe62ddea957b99adaab58e97f6\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Attributed to the president of Namibia, the speech is still being shared as citizens across Africa and the Caribbean cry out for moral leaders willing to speak uncomfortable truths</p><p>For a moment, the speech attributed to Namibia’s president travelled across the world like a gust of hope. It was fierce. Defiant. Unapologetically sovereign. The speaker denounced corruption, condemned foreign exploitation and declared that Africa’s resources belonged not to politicians or multinational corporations but to its people. Netumbo Nandi-Ndaitwah spoke of leaders who signed away national wealth behind closed doors and warned that those who betrayed the public trust would face accountability. It sounded like the language of decolonisation reborn.</p><p>Across social media, many listened with admiration. Finally, here was a leader speaking with moral clarity. Here was the rhetoric that generations of postcolonial citizens had been waiting to hear. But there was one problem. It was fake. Nandi-Ndaitwah rejected it as an AI-generated fabrication.</p> <a href=\"https://www.theguardian.com/global-development/2026/jun/06/african-leader-speech-decolonisation-ai-generated-fake-president-namibia-africa-caribbean\">Continue reading...</a>",
+      "summary": "Attributed to the president of Namibia, the speech is still being shared as citizens across Africa and the Caribbean cry out for moral leaders willing to speak uncomfortable truths For a moment, the speech attributed to Namibia’s president travelled across the world like a gust of hope. It was",
+      "_excerpt": "Attributed to the president of Namibia, the speech is still being shared as citizens across Africa and the Caribbean cry out for moral leaders willing to speak uncomfortable truths For a moment, the speech attributed to Namibia’s president travelled across the world like a gust of hope. It was fierce. Defiant. Unapologetically sovereign. The speaker denounced corruption, condemned foreign exploitation and declared that Africa’s resources belonged not to politicians or multinational corporations but to its people. Netumbo Nandi-Ndaitwah spoke of leaders who signed away national wealth behind",
+      "date_published": "2026-06-06T06:00:01+00:00",
+      "authors": [
+        {
+          "name": "The Guardian Global Development",
+          "url": "https://www.theguardian.com/global-development"
+        }
+      ],
+      "ai_score": 59,
+      "_quality_score": 59,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 37,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i.guim.co.uk/img/media/5fe77c98d7c41d196d1e9296c84f62197ce3e75c/304_0_2132_1706/master/2132.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=b7eab7fe62ddea957b99adaab58e97f6"
+    },
+    {
+      "id": "https://www.howtogeek.com/stop-using-default-router-setting-schange-these-immediately/",
+      "url": "https://www.howtogeek.com/stop-using-default-router-setting-schange-these-immediately/",
+      "title": "[How-To Geek] Stop using your router's default settings (change these 3 things immediately)",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-white-at-t-bgw320-wi-fi-6-router-on-a-wooden-shelf-between-two-desktop-towers.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI left my router on default settings for years—here’s why you should change yours today",
+      "summary": "I left my router on default settings for years—here’s why you should change yours today",
+      "_excerpt": "I left my router on default settings for years—here’s why you should change yours today",
+      "date_published": "2026-06-07T16:00:18+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 57,
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 37,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-white-at-t-bgw320-wi-fi-6-router-on-a-wooden-shelf-between-two-desktop-towers.jpg"
+    },
+    {
+      "id": "https://www.tomsguide.com/ai/comedian-ronny-chieng-says-ai-is-just-gonna-end-up-making-mediocre-people-dumber-i-think-the-real-risk-is-worse",
+      "url": "https://www.tomsguide.com/ai/comedian-ronny-chieng-says-ai-is-just-gonna-end-up-making-mediocre-people-dumber-i-think-the-real-risk-is-worse",
+      "title": "[Toms Guide] Comedian Ronny Chieng says 'AI is just gonna end up making mediocre people dumber' — but I think the real risk is worse",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/tf7gnX5E8CN2rB3No7FbtX-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nComedian Ronny Chieng warned Harvard grads that AI makes mediocre people dumber. Here is why the real risk of ChatGPT and Claude is much worse than that.",
+      "summary": "Comedian Ronny Chieng warned Harvard grads that AI makes mediocre people dumber. Here is why the real risk of ChatGPT and Claude is much worse than that.",
+      "_excerpt": "Comedian Ronny Chieng warned Harvard grads that AI makes mediocre people dumber. Here is why the real risk of ChatGPT and Claude is much worse than that.",
+      "date_published": "2026-06-02T16:01:41+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 57,
+      "_quality_score": 57,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 37,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/tf7gnX5E8CN2rB3No7FbtX-1280-80.jpg"
+    },
+    {
+      "id": "https://www.atlasobscura.com/places/the-andree-monument",
+      "url": "https://www.atlasobscura.com/places/the-andree-monument",
+      "title": "[Atlas Obscura] The Andrée Monument in Solna, Sweden",
+      "content_html": "<img src=\"https://img.atlasobscura.com/MH-e0w0JybQQs5DFVsuEEK_1EGrUBA5eUk0FNNiaeF4/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85MjFi/NmMwOC1jZGMyLTRm/MjEtYmFlYy1kODNi/MDExZmVmNzhmZGJi/NzgzZDA2NGFjOTdk/YmNfQmFjay5qcGc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Back view\" height=\"200\" src=\"https://img.atlasobscura.com/FqZWYnfFWGchGOKXv1nKIZoiEtxuY9KEr7Pj-8MUmG0/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85MjFi/NmMwOC1jZGMyLTRm/MjEtYmFlYy1kODNi/MDExZmVmNzhmZGJi/NzgzZDA2NGFjOTdk/YmNfQmFjay5qcGc.jpg\" width=\"300\" /></p> <p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">In the summer of 1897, Sweden held its breath. Engineer Salomon August Andrée, photographer Nils Strindberg, and student Knut Frænkel had lifted off from Svalbard in a hydrogen balloon named <em>Örnen</em>  [The Eagle]  bound for the North Pole. After that, there was nothing but silence – no signals, no news, no wreckage. Just an emptiness that stretched across three decades of rumour, theory, and quiet national grief.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Then, in August 1930, a Norwegian sealing vessel landed on the remote and normally ice-locked island named Kvitøya [White Island]  and stumbled upon a frozen camp. The three men lay where they had fallen, their diaries, cameras, and undeveloped film preserved by the cold. Ninety-three photographs emerged from those rolls: haunting images of the crash, the ice, the men themselves, still cheerful and alive against the white void that would soon claim them. Sweden wept again after finally finding out what had happened to the expedition. </p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">The procession carrying their remains into Stockholm on October 5, 1930, has been described by Swedish historian Sverker Sörlin as one of the most solemn expressions of national mourning ever seen in the country. Four years later, on December 15, 1934, their ashes were placed in copper urns designed by sculptor Tore Strindberg (younger brother of Nils Strindberg). These urns were lowered into a rock grave at Norra Begravningsplatsen. The monument above them, hewn from granite quarried at Flivik, was a collaboration between Stockholm's stonemasons' guild and Förenade granitindustrier. Strindberg completed the reliefs adorning it in July 1948 — more than fifty years after the men had disappeared into the polar sky.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Look carefully at the base of the arrangement. Embedded among the Swedish granite are stones brought back from Kvitøya itself. A piece of the island where they died now sits in a cemetery outside Stockholm, connecting the two places across 2,500 kilometres – a monument to ambition, cold, and a very long silence.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">The monument stands in section 15E of the cemetery, not far from the graves of Alfred Nobel and playwright August Strindberg, cousin to Nils' and Tore's father. </p>",
+      "summary": "In the summer of 1897, Sweden held its breath. Engineer Salomon August Andrée, photographer Nils Strindberg, and student Knut Frænkel had lifted off from Svalbard in a hydrogen balloon named Örnen [The Eagle] bound for the North Pole. After that, there was nothing but silence – no signals, no news,",
+      "_excerpt": "In the summer of 1897, Sweden held its breath. Engineer Salomon August Andrée, photographer Nils Strindberg, and student Knut Frænkel had lifted off from Svalbard in a hydrogen balloon named Örnen [The Eagle] bound for the North Pole. After that, there was nothing but silence – no signals, no news, no wreckage. Just an emptiness that stretched across three decades of rumour, theory, and quiet national grief. Then, in August 1930, a Norwegian sealing vessel landed on the remote and normally ice-locked island named Kvitøya [White Island] and stumbled upon a frozen camp. The three men lay where",
+      "date_published": "2026-06-05T14:00:00+00:00",
+      "authors": [
+        {
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality_score": 52,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 35,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://img.atlasobscura.com/MH-e0w0JybQQs5DFVsuEEK_1EGrUBA5eUk0FNNiaeF4/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85MjFi/NmMwOC1jZGMyLTRm/MjEtYmFlYy1kODNi/MDExZmVmNzhmZGJi/NzgzZDA2NGFjOTdk/YmNfQmFjay5qcGc.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/06/world/middleeast/israel-strike-lebanese-soldiers-general.html",
+      "url": "https://www.nytimes.com/2026/06/06/world/middleeast/israel-strike-lebanese-soldiers-general.html",
+      "title": "[NYT Top Stories] Israeli Strike Kills 3 Lebanese Soldiers, Days After Truce Was Signed",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06int-lebanon-strike-vbwm/06int-lebanon-strike-vbwm-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIsrael invaded Lebanon and occupied parts of the country to fight Hezbollah, an Iran-backed armed group, but its military offensive has drawn in others.",
+      "summary": "Israel invaded Lebanon and occupied parts of the country to fight Hezbollah, an Iran-backed armed group, but its military offensive has drawn in others.",
+      "_excerpt": "Israel invaded Lebanon and occupied parts of the country to fight Hezbollah, an Iran-backed armed group, but its military offensive has drawn in others.",
+      "date_published": "2026-06-06T13:49:03+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 46,
+      "_quality_score": 46,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 33,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06int-lebanon-strike-vbwm/06int-lebanon-strike-vbwm-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://qz.com/adobe-photoshop-premiere-nvidia-rtx-spark-060226",
+      "url": "https://qz.com/adobe-photoshop-premiere-nvidia-rtx-spark-060226",
+      "title": "[Quartz] Adobe is rebuilding Photoshop and Premiere to run on NVIDIA's new AI superchip",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2265442891.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe companies say the overhaul will deliver up to 2x faster AI and graphics performance across creative workflows",
+      "summary": "The companies say the overhaul will deliver up to 2x faster AI and graphics performance across creative workflows",
+      "_excerpt": "The companies say the overhaul will deliver up to 2x faster AI and graphics performance across creative workflows",
+      "date_published": "2026-06-02T18:00:37+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 45,
+      "_quality_score": 45,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 33,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2265442891.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/06/us/politics/kennedy-center-lawsuit-tossed-trump-chuck-redd.html",
+      "url": "https://www.nytimes.com/2026/06/06/us/politics/kennedy-center-lawsuit-tossed-trump-chuck-redd.html",
+      "title": "[NYT Top Stories] Kennedy Center Loses Case Against Musician Who Canceled Over Trump Naming Dispute",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06xp-lawsuit-wltf/06xp-lawsuit-wltf-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA judge sided with jazz performer Chuck Redd, who canceled a 2025 holiday concert after President Trump’s name was added to the building.",
+      "summary": "A judge sided with jazz performer Chuck Redd, who canceled a 2025 holiday concert after President Trump’s name was added to the building.",
+      "_excerpt": "A judge sided with jazz performer Chuck Redd, who canceled a 2025 holiday concert after President Trump’s name was added to the building.",
+      "date_published": "2026-06-07T02:53:47+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 44,
+      "_quality_score": 44,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 33,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06xp-lawsuit-wltf/06xp-lawsuit-wltf-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/moved-from-uk-to-usa-grow-business-work-culture-entrepreneur-2026-6",
+      "url": "https://www.businessinsider.com/moved-from-uk-to-usa-grow-business-work-culture-entrepreneur-2026-6",
+      "title": "[Business Insider] I moved from the UK to the US to grow my business. I feel like I'm aging more quickly here, but I love the fast-paced work culture.",
+      "content_html": "<img src=\"https://i.insider.com/6a189bd4b4fb977f35980eff?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUK entrepreneur Thomas Phillips moved to Austin, Texas, to grow his business. He's enjoyed the US's entrepreneurial spirit, work culture, and tax benefits.",
+      "summary": "UK entrepreneur Thomas Phillips moved to Austin, Texas, to grow his business. He's enjoyed the US's entrepreneurial spirit, work culture, and tax benefits.",
+      "_excerpt": "UK entrepreneur Thomas Phillips moved to Austin, Texas, to grow his business. He's enjoyed the US's entrepreneurial spirit, work culture, and tax benefits.",
+      "date_published": "2026-06-05T14:11:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 44,
+      "_quality_score": 44,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 33,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/6a189bd4b4fb977f35980eff?format=jpeg"
+    },
+    {
+      "id": "https://www.npr.org/2026/06/05/nx-s1-5848082/ebola-virus-cdc-outbreak-democratic-republic-congo-uganda",
+      "url": "https://www.npr.org/2026/06/05/nx-s1-5848082/ebola-virus-cdc-outbreak-democratic-republic-congo-uganda",
+      "title": "[NPR Health News] CDC report: Ebola outbreak could rival the worst on record unless world acts",
+      "content_html": "<img src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/1024x576+0+54/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb9%2F69%2F8f36248e45bcb573705f27acf758%2Fgettyimages-2278719503.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew modeling from the CDC shows that if measures aren't taken immediately, this outbreak could sicken more than 20,000 people in the next three months.",
+      "summary": "New modeling from the CDC shows that if measures aren't taken immediately, this outbreak could sicken more than 20,000 people in the next three months.",
+      "_excerpt": "New modeling from the CDC shows that if measures aren't taken immediately, this outbreak could sicken more than 20,000 people in the next three months.",
+      "date_published": "2026-06-05T20:35:06+00:00",
+      "authors": [
+        {
+          "name": "NPR Health News",
+          "url": "https://www.npr.org/sections/health-shots/"
+        }
+      ],
+      "ai_score": 43,
+      "_quality_score": 43,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 32,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/1024x576+0+54/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb9%2F69%2F8f36248e45bcb573705f27acf758%2Fgettyimages-2278719503.jpg"
+    },
+    {
+      "id": "https://www.xda-developers.com/stopped-adding-hardware-home-lab-fewer-moving-parts-more-uptime/",
+      "url": "https://www.xda-developers.com/stopped-adding-hardware-home-lab-fewer-moving-parts-more-uptime/",
+      "title": "[XDA Developers] I stopped adding hardware to my home lab when I realized fewer moving parts meant more uptime",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/four-nvme-slots-changed-how-i-think-about-home-lab-storage-and-a-170-mini-pc-made-it-click-featured.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI thought my home lab needed more hardware. What it really needed was fewer places to fail.",
+      "summary": "I thought my home lab needed more hardware. What it really needed was fewer places to fail.",
+      "_excerpt": "I thought my home lab needed more hardware. What it really needed was fewer places to fail.",
+      "date_published": "2026-06-06T12:00:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality_score": 42,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 32,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/four-nvme-slots-changed-how-i-think-about-home-lab-storage-and-a-170-mini-pc-made-it-click-featured.jpeg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
+      "url": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
+      "title": "[My Cariboo Now] Federal action plan for forestry sector expected this week, as report warns of looming \"existential risk\" : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
       "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
       "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-01T09:38:29.961763+00:00",
+      "date_published": "2026-06-08T09:13:09.109671+00:00",
       "authors": [
         {
           "name": "My Cariboo Now",
@@ -169,864 +469,564 @@
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 20,
-      "_final_score": 20,
+      "_theme_score": 42,
+      "_final_score": 42,
       "_keyword_matches": 0,
       "_boosted_score": 25,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2024/08/bond.jpg"
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg"
     },
     {
-      "id": "https://www.theverge.com/streaming/939051/youtube-premium-podcast-features",
-      "url": "https://www.theverge.com/streaming/939051/youtube-premium-podcast-features",
-      "title": "[The Verge] YouTube takes baby steps to being a real podcast app",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/youtube-on-the-go-mode-news.jpg?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew features coming to YouTube could make it better for listening to podcasts, rolling out to Premium subscribers starting today on Android and coming later to iOS. A new \"on-the-go mode\" shifts YouTube into an audio-first layout, with larger, simplified playback buttons, a still image in place of the video, and a timeline showing video [&#8230;]",
-      "summary": "New features coming to YouTube could make it better for listening to podcasts, rolling out to Premium subscribers starting today on Android and coming later to iOS. A new \"on-the-go mode\" shifts YouTube into an audio-first layout, with larger, simplified playback buttons, a still image in place of",
-      "_excerpt": "New features coming to YouTube could make it better for listening to podcasts, rolling out to Premium subscribers starting today on Android and coming later to iOS. A new \"on-the-go mode\" shifts YouTube into an audio-first layout, with larger, simplified playback buttons, a still image in place of the video, and a timeline showing video […]",
-      "date_published": "2026-05-28T16:05:00+00:00",
+      "id": "https://wltribune.com/2026/06/07/one-fatality-in-vehicle-crash-on-highway-5-near-mclure-rcmp/",
+      "url": "https://wltribune.com/2026/06/07/one-fatality-in-vehicle-crash-on-highway-5-near-mclure-rcmp/",
+      "title": "[Williams Lake Tribune] One fatality in vehicle crash on Highway 5 near McLure: RCMP",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42501654_web1_260611-NTC-Mclure-incident-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDrive B.C. is notifying of a road closure between Dianna Road and Pinegrove Road",
+      "summary": "Drive B.C. is notifying of a road closure between Dianna Road and Pinegrove Road",
+      "_excerpt": "Drive B.C. is notifying of a road closure between Dianna Road and Pinegrove Road",
+      "date_published": "2026-06-07T10:42:00+00:00",
       "authors": [
         {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 15,
-      "_quality_score": 15,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 1,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/05/youtube-on-the-go-mode-news.jpg?quality=90&strip=all&crop=0%2C3.4613147178592%2C100%2C93.077370564282&w=1200"
-    },
-    {
-      "id": "https://kottke.org/26/05/caught-in-joy-music-for-flow-rest-and-reset",
-      "url": "https://kottke.org/26/05/caught-in-joy-music-for-flow-rest-and-reset",
-      "title": "[Kottke.org] Caught In Joy: Music for Flow, Rest, and Reset",
-      "content_html": "<img src=\"https://i.ytimg.com/vi/7GKxcwYeNWs/sddefault.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p></p>\n\t<p>The moment I clicked through to <a href=\"https://www.youtube.com/@CaughtInJoy/videos\">the Caught In Joy YouTube channel</a>, I knew I was going to love it. The description:</p>\n\t<blockquote><p>Over 80 albums designed to focus, flow and reset. Instrumental electronic music for you brain to wander.</p></blockquote>\n\t<p>And from <a href=\"https://caughtinjoy.com/\">the website</a>:</p>\n\t<blockquote><p>Caught In Joy (Karol Pokojowczyk) is a multi-instrumentalist based in Florida, passionately dedicated to live composing, hardware synthesizers, and tape recording - a completely independent music project. I strive to create four albums and visual performances every month, entirely by myself.</p><p>I started my professional life as a software engineer and later became a serial entrepreneur, with a few successes along the way. After more than 30 years of working, I saved enough to fund my dream: building a home studio where I could finally focus fully on music.</p></blockquote>\n\t<p></p>\n\t<p>In the past three years, he&#8217;s released <em>80+ albums and other performances</em>, which are <a href=\"https://caughtinjoy.bandcamp.com/\">available for purchase on BandCamp</a>. I&#8217;ve only had time to listen to bits and pieces of a few albums &#038; videos, but I know a bunch of them are going into my <a href=\"https://kottke.org/25/12/underscore-now-slightly-less-random\">Underscore</a> collection very soon.<sup id=\"fnref:fmpoam69w6j3u\"><a href=\"https://kottke.org/#fn:fmpoam69w6j3u\" rel=\"footnote\">1</a></sup> (via <a href=\"https://johnnydecimal.com/\">johnny decimal</a>)</p>\n\t<ol>\n<li class=\"footnote\" id=\"fn:fmpoam69w6j3u\"><p>Underscore is one of my favorite things I&#8217;ve ever built because it&#8217;s simple, it does exactly what I want, and I use it every day. <a href=\"https://kottke.org/#fnref:fmpoam69w6j3u\" title=\"return to article\">↩</a></p></li>\n</ol>\n \n\n        \n         <p><strong>Tags:</strong> <a href=\"https://kottke.org/tag/Caught%20In%20Joy\">Caught In Joy</a> · <a href=\"https://kottke.org/tag/music\">music</a> · <a href=\"https://kottke.org/tag/video\">video</a></p>",
-      "summary": "The moment I clicked through to the Caught In Joy YouTube channel , I knew I was going to love it. The description: Over 80 albums designed to focus, flow and reset. Instrumental electronic music for you brain to wander. And from the website : Caught In Joy (Karol Pokojowczyk) is a",
-      "_excerpt": "The moment I clicked through to the Caught In Joy YouTube channel , I knew I was going to love it. The description: Over 80 albums designed to focus, flow and reset. Instrumental electronic music for you brain to wander. And from the website : Caught In Joy (Karol Pokojowczyk) is a multi-instrumentalist based in Florida, passionately dedicated to live composing, hardware synthesizers, and tape recording - a completely independent music project. I strive to create four albums and visual performances every month, entirely by myself. I started my professional life as a software engineer and",
-      "date_published": "2026-05-27T18:34:00+00:00",
-      "authors": [
-        {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
-        }
-      ],
-      "ai_score": 16,
-      "_quality_score": 16,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 1,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.ytimg.com/vi/7GKxcwYeNWs/sddefault.jpg"
-    },
-    {
-      "id": "https://www.tomshardware.com/video-games/retro-gaming/veteran-programmer-finishes-retro-game-sequel-and-publishes-it-after-37-years-colin-porch-started-head-over-heels-home-computer-title-in-1989-but-it-was-shelved-due-to-console-pivot",
-      "url": "https://www.tomshardware.com/video-games/retro-gaming/veteran-programmer-finishes-retro-game-sequel-and-publishes-it-after-37-years-colin-porch-started-head-over-heels-home-computer-title-in-1989-but-it-was-shelved-due-to-console-pivot",
-      "title": "[Tom's Hardware] Veteran programmer finishes retro game sequel and publishes it after 37 years — Colin Porch started Head Over Heels home computer title in 1989, but it was shelved due to console pivot",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/gTGXungjSohe9p5GJDUHfC-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHit 1980s isometric puzzler adventure game gets a sequel 37 years later. The original programmer is now over 80.",
-      "summary": "Hit 1980s isometric puzzler adventure game gets a sequel 37 years later. The original programmer is now over 80.",
-      "_excerpt": "Hit 1980s isometric puzzler adventure game gets a sequel 37 years later. The original programmer is now over 80.",
-      "date_published": "2026-05-27T12:17:01+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/gTGXungjSohe9p5GJDUHfC-1280-80.jpg"
-    },
-    {
-      "id": "https://hackaday.com/2026/05/28/virtual-museum-hosts-every-os-you-havent-heard-of/",
-      "url": "https://hackaday.com/2026/05/28/virtual-museum-hosts-every-os-you-havent-heard-of/",
-      "title": "[Hackaday] Virtual Museum Hosts Every OS You Haven’t Heard Of",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/2.-Unix-PC-SVR2-and-XVM-RSX.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"The Virtual OS museum, screenshot\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/2.-Unix-PC-SVR2-and-XVM-RSX.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>OK, every operating system is a bit of a stretch &#8212; Windows Vista notably didn&#8217;t make the cut &#8212; but [Andrew]&#8217;s Virtual OS museum has a good claim to being <a class=\"read-more\" href=\"https://hackaday.com/2026/05/28/virtual-museum-hosts-every-os-you-havent-heard-of/\">&#8230;read more</a>",
-      "summary": "OK, every operating system is a bit of a stretch — Windows Vista notably didn’t make the cut — but [Andrew]’s Virtual OS museum has a good claim to being …read more",
-      "_excerpt": "OK, every operating system is a bit of a stretch — Windows Vista notably didn’t make the cut — but [Andrew]’s Virtual OS museum has a good claim to being …read more",
-      "date_published": "2026-05-28T11:00:54+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/2.-Unix-PC-SVR2-and-XVM-RSX.png"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/29/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
-      "url": "https://techcrunch.com/2026/05/29/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
-      "title": "[TechCrunch] So you’ve heard these AI terms and nodded along; let’s fix that",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-ai-generated-eb728837-4a65-4ce4-b814-abd0c140d20c.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
-      "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
-      "_excerpt": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
-      "date_published": "2026-05-29T18:49:19+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 47,
-      "_quality_score": 47,
+      "ai_score": 85,
+      "_quality_score": 85,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 14,
+      "_boosted_score": 25,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-ai-generated-eb728837-4a65-4ce4-b814-abd0c140d20c.jpg?w=1024"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42501654_web1_260611-NTC-Mclure-incident-1_1.jpg?w=1024"
     },
     {
-      "id": "https://www.techradar.com/pro/security/the-fbi-warns-microsoft-365-services-are-being-bombarded-with-new-phishing-emails-here-are-3-steps-you-can-take-to-stay-safe",
-      "url": "https://www.techradar.com/pro/security/the-fbi-warns-microsoft-365-services-are-being-bombarded-with-new-phishing-emails-here-are-3-steps-you-can-take-to-stay-safe",
-      "title": "[TechRadar] The FBI warns Microsoft 365 services are being bombarded with new phishing emails — here are 3 steps you can take to stay safe",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/y7GLevUTEjLYdujEYsv668-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKali365 is abusing legitimate Microsoft login mechanisms to hijack Outlook, Teams, and OneDrive services.",
-      "summary": "Kali365 is abusing legitimate Microsoft login mechanisms to hijack Outlook, Teams, and OneDrive services.",
-      "_excerpt": "Kali365 is abusing legitimate Microsoft login mechanisms to hijack Outlook, Teams, and OneDrive services.",
-      "date_published": "2026-05-28T16:28:43+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/y7GLevUTEjLYdujEYsv668-1280-80.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/pope-leo-schooled-the-tech-bros-on-tolkien/",
-      "url": "https://www.wired.com/story/pope-leo-schooled-the-tech-bros-on-tolkien/",
-      "title": "[WIRED] Pope Leo Schooled the Tech Bros on Tolkien",
-      "content_html": "<img src=\"https://media.wired.com/photos/6a15ebea591e522c95b4533e/master/pass/The-Pope-Gets-Tolkien-Culture-2277270022.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Holy Father referenced The Lord of the Rings in his encyclical about AI—an expert (if unintentional) troll of tech billionaires who keep misinterpreting the series.",
-      "summary": "The Holy Father referenced The Lord of the Rings in his encyclical about AI—an expert (if unintentional) troll of tech billionaires who keep misinterpreting the series.",
-      "_excerpt": "The Holy Father referenced The Lord of the Rings in his encyclical about AI—an expert (if unintentional) troll of tech billionaires who keep misinterpreting the series.",
-      "date_published": "2026-05-26T23:19:03+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/6a15ebea591e522c95b4533e/master/pass/The-Pope-Gets-Tolkien-Culture-2277270022.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/replaced-figma-with-open-source-alternatives-only-one-stuck/",
-      "url": "https://www.xda-developers.com/replaced-figma-with-open-source-alternatives-only-one-stuck/",
-      "title": "[XDA Developers] I replaced Figma with four open-source alternatives for a week, and only one actually stuck",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/openpencil-on-desktop-pc-lamp-and-clock-in-view.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDifferent tools for different jobs, but only one is actually useful to me",
-      "summary": "Different tools for different jobs, but only one is actually useful to me",
-      "_excerpt": "Different tools for different jobs, but only one is actually useful to me",
-      "date_published": "2026-05-28T14:30:21+00:00",
+      "id": "https://www.xda-developers.com/ai-made-pc-hardware-unattainable-but-it-also-made-a-home-server-more-accessible-than-ever/",
+      "url": "https://www.xda-developers.com/ai-made-pc-hardware-unattainable-but-it-also-made-a-home-server-more-accessible-than-ever/",
+      "title": "[XDA Developers] The AI boom crushed PC building, but it's the best thing that happened to home labs",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/home-lab-compact-pcs-fujitsu-angle-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe bar has never been lower to begin self-hosting",
+      "summary": "The bar has never been lower to begin self-hosting",
+      "_excerpt": "The bar has never been lower to begin self-hosting",
+      "date_published": "2026-06-03T23:00:23+00:00",
       "authors": [
         {
           "name": "XDA Developers",
           "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 25,
-      "_final_score": 25,
-      "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/openpencil-on-desktop-pc-lamp-and-clock-in-view.jpeg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/roblox-cubepart-ai-model-generative-worlds-weird-creations/",
-      "url": "https://www.cnet.com/tech/services-and-software/roblox-cubepart-ai-model-generative-worlds-weird-creations/",
-      "title": "[CNET] Coming Soon to a Roblox Game Near You: Strange AI-Generated Machines and Creatures",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/6fc0c9ec3849386f3b077c191a6dfd3a730b3a06/hub/2026/05/28/84a9bbdb-85b6-4121-9e93-d37fabd74702/header-v2.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nExclusive: Roblox games are going to get AI-generated machines and tools soon, and it's because of a new AI model Roblox is releasing. Here's what I learned.",
-      "summary": "Exclusive: Roblox games are going to get AI-generated machines and tools soon, and it's because of a new AI model Roblox is releasing. Here's what I learned.",
-      "_excerpt": "Exclusive: Roblox games are going to get AI-generated machines and tools soon, and it's because of a new AI model Roblox is releasing. Here's what I learned.",
-      "date_published": "2026-05-28T16:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 35,
-      "_final_score": 5,
-      "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/6fc0c9ec3849386f3b077c191a6dfd3a730b3a06/hub/2026/05/28/84a9bbdb-85b6-4121-9e93-d37fabd74702/header-v2.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.zdnet.com/article/my-favorite-zorin-os-settings-and-why-youll-love-them-too/",
-      "url": "https://www.zdnet.com/article/my-favorite-zorin-os-settings-and-why-youll-love-them-too/",
-      "title": "[ZDNet] 8 Zorin OS settings I change on every new install",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/194e4ee4ae779258c50b37a08313d7ad80ac30c2/2026/05/27/8fe00200-3111-4071-81e2-0a17a471b65a/zorincubeherolaptop.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLike most Linux distributions, Zorin OS offers a lot, especially in terms of customization. These are the options I always choose in Zorin OS.",
-      "summary": "Like most Linux distributions, Zorin OS offers a lot, especially in terms of customization. These are the options I always choose in Zorin OS.",
-      "_excerpt": "Like most Linux distributions, Zorin OS offers a lot, especially in terms of customization. These are the options I always choose in Zorin OS.",
-      "date_published": "2026-05-28T15:41:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality_score": 45,
+      "ai_score": 80,
+      "_quality_score": 80,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 13,
+      "_boosted_score": 24,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/194e4ee4ae779258c50b37a08313d7ad80ac30c2/2026/05/27/8fe00200-3111-4071-81e2-0a17a471b65a/zorincubeherolaptop.jpg?auto=webp&fit=crop&height=675&width=1200"
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/home-lab-compact-pcs-fujitsu-angle-1.jpg"
     },
     {
-      "id": "https://techcrunch.com/2026/05/28/how-long-is-anthropics-lease-with-spacex-opinions-vary/",
-      "url": "https://techcrunch.com/2026/05/28/how-long-is-anthropics-lease-with-spacex-opinions-vary/",
-      "title": "[TechCrunch] How long is Anthropic’s lease with SpaceX? Opinions vary.",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nElon Musk is publicly reframing xAI’s massive Anthropic compute deal as short-term and cancellable, despite SpaceX’s own S-1 filing describing payments through May 2029.",
-      "summary": "Elon Musk is publicly reframing xAI’s massive Anthropic compute deal as short-term and cancellable, despite SpaceX’s own S-1 filing describing payments through May 2029.",
-      "_excerpt": "Elon Musk is publicly reframing xAI’s massive Anthropic compute deal as short-term and cancellable, despite SpaceX’s own S-1 filing describing payments through May 2029.",
-      "date_published": "2026-05-28T15:36:00+00:00",
+      "id": "https://techcrunch.com/2026/06/03/gitlab-cuts-14-of-staff-as-it-scales-its-platform-to-serve-ai-workloads/",
+      "url": "https://techcrunch.com/2026/06/03/gitlab-cuts-14-of-staff-as-it-scales-its-platform-to-serve-ai-workloads/",
+      "title": "[TechCrunch] GitLab cuts 14% of staff as it scales its platform to serve AI workloads",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2024/12/PXL_20220520_112153305.jpg?resize=1200,903\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
+      "summary": "The company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
+      "_excerpt": "The company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
+      "date_published": "2026-06-03T14:59:30+00:00",
       "authors": [
         {
           "name": "TechCrunch",
           "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 44,
-      "_quality_score": 44,
+      "ai_score": 80,
+      "_quality_score": 80,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
-    },
-    {
-      "id": "https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/",
-      "url": "https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/",
-      "title": "[TechCrunch] Sesame, the conversational AI startup from Oculus founders, launches its iOS app",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSesame’s new iOS app brings its conversational AI agents to the public, offering more natural back-and-forth interactions designed to feel less like traditional chatbots and more like talking to a person.",
-      "summary": "Sesame’s new iOS app brings its conversational AI agents to the public, offering more natural back-and-forth interactions designed to feel less like traditional chatbots and more like talking to a person.",
-      "_excerpt": "Sesame’s new iOS app brings its conversational AI agents to the public, offering more natural back-and-forth interactions designed to feel less like traditional chatbots and more like talking to a person.",
-      "date_published": "2026-05-28T15:35:43+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 13,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/prime-video-best-sci-fi-tv-shows/",
-      "url": "https://www.cnet.com/tech/services-and-software/prime-video-best-sci-fi-tv-shows/",
-      "title": "[CNET] Prime Video: 23 of the Best Sci-Fi TV Shows You Need to Stream Right Now",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/7e5c87a65751906199427e2c5d5aafd51a6ec0c4/hub/2026/05/26/0d5af679-b8d7-4d6b-a6f4-5e900b344e38/the-boys-season-5-antony-starr-prime-video-2.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHead to Prime Video for your next sci-fi binge.",
-      "summary": "Head to Prime Video for your next sci-fi binge.",
-      "_excerpt": "Head to Prime Video for your next sci-fi binge.",
-      "date_published": "2026-05-27T11:01:05+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 42,
-      "_quality_score": 42,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/7e5c87a65751906199427e2c5d5aafd51a6ec0c4/hub/2026/05/26/0d5af679-b8d7-4d6b-a6f4-5e900b344e38/the-boys-season-5-antony-starr-prime-video-2.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.cnet.com/videos/imagineers-share-secrets-of-disneys-new-ride-technology/",
-      "url": "https://www.cnet.com/videos/imagineers-share-secrets-of-disneys-new-ride-technology/",
-      "title": "[CNET] Imagineers Share Secrets of Disney's New Ride Technology video",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/443e8a12aacfc6fd893b83f9bd10e243810c8ec5/hub/2026/05/28/68fac7a6-854b-476c-b7ef-22681bad8161/opt-2-clean.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDisney's newest animatronic was created by motion-capturing a Muppet, and a classic Tomorrowland ride is now packed with 200 Unreal Engine machines. CNET's Bridget Carey learns about the unexpected high-tech upgrades at Walt Disney World in Florida, which include the attractions Rock 'n' Roller Coaster, Millennium Falcon: Smuggler's Run and Buzz Lightyear's Space Ranger Spin.",
-      "summary": "Disney's newest animatronic was created by motion-capturing a Muppet, and a classic Tomorrowland ride is now packed with 200 Unreal Engine machines. CNET's Bridget Carey learns about the unexpected high-tech upgrades at Walt Disney World in Florida, which include the attractions Rock 'n' Roller",
-      "_excerpt": "Disney's newest animatronic was created by motion-capturing a Muppet, and a classic Tomorrowland ride is now packed with 200 Unreal Engine machines. CNET's Bridget Carey learns about the unexpected high-tech upgrades at Walt Disney World in Florida, which include the attractions Rock 'n' Roller Coaster, Millennium Falcon: Smuggler's Run and Buzz Lightyear's Space Ranger Spin.",
-      "date_published": "2026-05-28T12:00:44+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality_score": 40,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 0,
-      "_boosted_score": 12,
+      "_boosted_score": 24,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/443e8a12aacfc6fd893b83f9bd10e243810c8ec5/hub/2026/05/28/68fac7a6-854b-476c-b7ef-22681bad8161/opt-2-clean.png?auto=webp&width=300"
+      "image": "https://techcrunch.com/wp-content/uploads/2024/12/PXL_20220520_112153305.jpg?resize=1200,903"
     },
     {
-      "id": "https://www.businessinsider.com/architect-brothers-rishikesh-himalaya-airbnb-built-mud-house-2026-5",
-      "url": "https://www.businessinsider.com/architect-brothers-rishikesh-himalaya-airbnb-built-mud-house-2026-5",
-      "title": "[Business Insider] Architect brothers moved to a Himalayan town and built a mud villa by hand. It's now a busy Airbnb.",
-      "content_html": "<img src=\"https://i.insider.com/69f9af18b3045b292f636c60?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRaghav and Ansh Kumar quit the chaos of city life and moved to Rishikesh, India, to build a house with natural materials.",
-      "summary": "Raghav and Ansh Kumar quit the chaos of city life and moved to Rishikesh, India, to build a house with natural materials.",
-      "_excerpt": "Raghav and Ansh Kumar quit the chaos of city life and moved to Rishikesh, India, to build a house with natural materials.",
-      "date_published": "2026-05-27T04:01:01+00:00",
+      "id": "https://www.businessinsider.com/mom-uses-ai-manage-household-parenting-2026-6",
+      "url": "https://www.businessinsider.com/mom-uses-ai-manage-household-parenting-2026-6",
+      "title": "[Business Insider] I use AI at home because I'm a working mom. It saves me 10 hours a week, and I'm tired of the backlash.",
+      "content_html": "<img src=\"https://i.insider.com/6a107426b1025a62a5c8611a?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCara Katz says AI tools save her family hours every week by helping manage schedules, groceries, childcare, and parenting logistics.",
+      "summary": "Cara Katz says AI tools save her family hours every week by helping manage schedules, groceries, childcare, and parenting logistics.",
+      "_excerpt": "Cara Katz says AI tools save her family hours every week by helping manage schedules, groceries, childcare, and parenting logistics.",
+      "date_published": "2026-06-07T15:22:01+00:00",
       "authors": [
         {
           "name": "Business Insider",
           "url": "https://www.businessinsider.com"
         }
       ],
-      "ai_score": 42,
-      "_quality_score": 42,
-      "_theme_score": 15,
-      "_final_score": 15,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 12,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://i.insider.com/69f9af18b3045b292f636c60?format=jpeg"
+      "image": "https://i.insider.com/6a107426b1025a62a5c8611a?format=jpeg"
     },
     {
-      "id": "https://www.openculture.com/2026/05/a-tour-of-athens-acropolis-explained-with-3d-reconstructions.html",
-      "url": "https://www.openculture.com/2026/05/a-tour-of-athens-acropolis-explained-with-3d-reconstructions.html",
-      "title": "[Open Culture] A Tour of Athens’ Acropolis, Explained with 3D Reconstructions",
-      "content_html": "<img src=\"https://cdn8.openculture.com/2026/05/28084255/acropolisexplained-1024x588.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSince it was first built as a Mycenaean fortress in the thirteenth century BC, what we now know as the Acropolis has been used to worship not just Greek gods, but also, in later periods, the Virgin Mary and Allah. Now, of course, with its days of military and religious functions long behind it, it [&#8230;]",
-      "summary": "Since it was first built as a Mycenaean fortress in the thirteenth century BC, what we now know as the Acropolis has been used to worship not just Greek gods, but also, in later periods, the Virgin Mary and Allah. Now, of course, with its days of military and religious functions long behind it, it",
-      "_excerpt": "Since it was first built as a Mycenaean fortress in the thirteenth century BC, what we now know as the Acropolis has been used to worship not just Greek gods, but also, in later periods, the Virgin Mary and Allah. Now, of course, with its days of military and religious functions long behind it, it […]",
-      "date_published": "2026-05-28T15:43:08+00:00",
-      "authors": [
-        {
-          "name": "Open Culture",
-          "url": "https://www.openculture.com/"
-        }
-      ],
-      "ai_score": 38,
-      "_quality_score": 38,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 0,
-      "_boosted_score": 11,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn8.openculture.com/2026/05/28084255/acropolisexplained-1024x588.png"
-    },
-    {
-      "id": "https://qz.com/everyday-objects-surprising-history",
-      "url": "https://qz.com/everyday-objects-surprising-history",
-      "title": "[Quartz] 25 objects you use every day — and the surprising stories behind how they got here",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/ksenia-pixelesse-qptfaSRY5OQ-unsplash.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe fork, the zipper, the pencil, the Post-it — the histories of everyday objects are full of wrong turns, stolen credit, and discoveries that happened while someone was looking for something else entirely",
-      "summary": "The fork, the zipper, the pencil, the Post-it — the histories of everyday objects are full of wrong turns, stolen credit, and discoveries that happened while someone was looking for something else entirely",
-      "_excerpt": "The fork, the zipper, the pencil, the Post-it — the histories of everyday objects are full of wrong turns, stolen credit, and discoveries that happened while someone was looking for something else entirely",
-      "date_published": "2026-05-27T16:03:05+00:00",
+      "id": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
+      "url": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
+      "title": "[Quartz] Canada is launching a $360 million fund to take equity stakes in homegrown AI firms",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "summary": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "_excerpt": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "date_published": "2026-06-05T14:20:33+00:00",
       "authors": [
         {
           "name": "Quartz",
           "url": "https://qz.com"
         }
       ],
-      "ai_score": 38,
-      "_quality_score": 38,
-      "_theme_score": 50,
-      "_final_score": 50,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 11,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/ksenia-pixelesse-qptfaSRY5OQ-unsplash.jpg"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg"
     },
     {
-      "id": "https://www.themarginalian.org/2026/05/26/oliver-sacks-on-memory-and-plagiarism/",
-      "url": "https://www.themarginalian.org/2026/05/26/oliver-sacks-on-memory-and-plagiarism/",
-      "title": "[The Marginalian] Oliver Sacks on Memory, Originality, and Why Forgetting is Necessary for Creativity",
-      "content_html": "<img src=\"https://www.themarginalian.org/wp-content/uploads/2013/02/oliversacks1.jpg?fit=600%2C315&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n\"Memory is dialogic and arises not only from direct experience but from the intercourse of many minds.\"",
-      "summary": "\"Memory is dialogic and arises not only from direct experience but from the intercourse of many minds.\"",
-      "_excerpt": "\"Memory is dialogic and arises not only from direct experience but from the intercourse of many minds.\"",
-      "date_published": "2026-05-26T18:00:11+00:00",
+      "id": "https://www.businessinsider.com/broadcom-stock-avgo-chip-stocks-ai-crwd-mu-amd-mrvl-2026-6",
+      "url": "https://www.businessinsider.com/broadcom-stock-avgo-chip-stocks-ai-crwd-mu-amd-mrvl-2026-6",
+      "title": "[Business Insider] The AI trade is having a terrible day",
+      "content_html": "<img src=\"https://i.insider.com/6a21890f2e5a80cfe05035fa?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChip stocks dropped on Thursday, dragged by tepid results from Broadcom. The AI darling fell 16% as investors dumped shares after earnings.",
+      "summary": "Chip stocks dropped on Thursday, dragged by tepid results from Broadcom. The AI darling fell 16% as investors dumped shares after earnings.",
+      "_excerpt": "Chip stocks dropped on Thursday, dragged by tepid results from Broadcom. The AI darling fell 16% as investors dumped shares after earnings.",
+      "date_published": "2026-06-04T15:11:06+00:00",
       "authors": [
         {
-          "name": "The Marginalian",
-          "url": "https://www.themarginalian.org"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 55,
-      "_final_score": 55,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 10,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.themarginalian.org/wp-content/uploads/2013/02/oliversacks1.jpg?fit=600%2C315&ssl=1"
+      "image": "https://i.insider.com/6a21890f2e5a80cfe05035fa?format=jpeg"
     },
     {
-      "id": "https://www.techradar.com/pro/4-great-tools-to-produce-your-own-pdf-bookazine",
-      "url": "https://www.techradar.com/pro/4-great-tools-to-produce-your-own-pdf-bookazine",
-      "title": "[TechRadar] 4 great tools to produce your own PDF bookazine",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Xdj3WP2Dnb927L2RftgHcF-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHow to turn your top content into a bookazine – or get AI to do it for you.",
-      "summary": "How to turn your top content into a bookazine – or get AI to do it for you.",
-      "_excerpt": "How to turn your top content into a bookazine – or get AI to do it for you.",
-      "date_published": "2026-05-26T19:04:25+00:00",
+      "id": "https://techcrunch.com/2026/06/02/trump-signs-narrower-executive-order-on-ai-oversight-after-industry-objections/",
+      "url": "https://techcrunch.com/2026/06/02/trump-signs-narrower-executive-order-on-ai-oversight-after-industry-objections/",
+      "title": "[TechCrunch] Trump signs narrower executive order on AI oversight after industry objections",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2277839095.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models.",
+      "summary": "After industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models.",
+      "_excerpt": "After industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models.",
+      "date_published": "2026-06-02T16:23:08+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 45,
-      "_final_score": 45,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 10,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/Xdj3WP2Dnb927L2RftgHcF-1280-80.png"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2277839095.jpg?w=1024"
     },
     {
-      "id": "https://www.openculture.com/2026/05/the-math-behind-van-goghs-starry-night.html",
-      "url": "https://www.openculture.com/2026/05/the-math-behind-van-goghs-starry-night.html",
-      "title": "[Open Culture] The Unexpected Math Behind Van Gogh’s “Starry Night”",
-      "content_html": "<img src=\"https://cdn8.openculture.com/2026/05/27132331/The-Unexpected-Math-Behind-Van-Goghs-Starry-Night.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIf you’ve taken a good art history course on the Impressionists and Post-Impressionists, you’ve inevitably encountered Vincent van Gogh’s 1889 masterpiece “Starry Night,” which now hangs in the MoMA in New York City. The painting, the museum writes on its website, “is a symbolic landscape full of movement, energy, and light. The quietness of the [&#8230;]",
-      "summary": "If you’ve taken a good art history course on the Impressionists and Post-Impressionists, you’ve inevitably encountered Vincent van Gogh’s 1889 masterpiece “Starry Night,” which now hangs in the MoMA in New York City. The painting, the museum writes on its website, “is a symbolic landscape full of",
-      "_excerpt": "If you’ve taken a good art history course on the Impressionists and Post-Impressionists, you’ve inevitably encountered Vincent van Gogh’s 1889 masterpiece “Starry Night,” which now hangs in the MoMA in New York City. The painting, the museum writes on its website, “is a symbolic landscape full of movement, energy, and light. The quietness of the […]",
-      "date_published": "2026-05-28T08:00:04+00:00",
+      "id": "https://wltribune.com/2026/06/02/bodies-of-2-paddleboarders-recovered-from-lake-near-squamish/",
+      "url": "https://wltribune.com/2026/06/02/bodies-of-2-paddleboarders-recovered-from-lake-near-squamish/",
+      "title": "[Williams Lake Tribune] Bodies of 2 paddleboarders recovered from lake near Squamish",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42468867_web1_250314-bpd-rcmp-e-division3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe underwater search team was back at Browning Lake on June 2 to continue searching",
+      "summary": "The underwater search team was back at Browning Lake on June 2 to continue searching",
+      "_excerpt": "The underwater search team was back at Browning Lake on June 2 to continue searching",
+      "date_published": "2026-06-02T16:07:00+00:00",
       "authors": [
         {
-          "name": "Open Culture",
-          "url": "https://www.openculture.com/"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 32,
-      "_quality_score": 32,
-      "_theme_score": 55,
-      "_final_score": 55,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 9,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn8.openculture.com/2026/05/27132331/The-Unexpected-Math-Behind-Van-Goghs-Starry-Night.png"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42468867_web1_250314-bpd-rcmp-e-division3.jpg?w=1024"
     },
     {
-      "id": "https://www.theatlantic.com/culture/2026/05/how-popes-ai-encyclical-defends-humanism/687323/?utm_source=feed",
-      "url": "https://www.theatlantic.com/culture/2026/05/how-popes-ai-encyclical-defends-humanism/687323/?utm_source=feed",
-      "title": "[The Atlantic Culture] The Pope Doubles Down on the Beautiful Struggle",
-      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/z_QPsMy0-UBx1BAbvZggoejlv_o=/0x85:3994x2165/1200x625/media/img/mt/2026/05/2026_05_27_The_Pope_May_Be_Our_Leading_Humanist_Gal_Beckerman/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLeo XIV’s encyclical about artificial intelligence makes a strong argument in favor of human fallibility.",
-      "summary": "Leo XIV’s encyclical about artificial intelligence makes a strong argument in favor of human fallibility.",
-      "_excerpt": "Leo XIV’s encyclical about artificial intelligence makes a strong argument in favor of human fallibility.",
-      "date_published": "2026-05-27T12:00:00+00:00",
+      "id": "https://wltribune.com/2026/06/07/briones-going-cuckoo-over-photographing-birds/",
+      "url": "https://wltribune.com/2026/06/07/briones-going-cuckoo-over-photographing-birds/",
+      "title": "[Williams Lake Tribune] BRIONES: Going cuckoo over photographing birds",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42502111_web1_260603-PQN-Photographing-Birds-K_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>COLUMN: New passion requires plenty of patience </p>",
+      "summary": "COLUMN: New passion requires plenty of patience",
+      "_excerpt": "COLUMN: New passion requires plenty of patience",
+      "date_published": "2026-06-07T14:00:00+00:00",
       "authors": [
         {
-          "name": "The Atlantic Culture",
-          "url": "https://www.theatlantic.com/culture/"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 30,
-      "_quality_score": 30,
-      "_theme_score": 42,
-      "_final_score": 42,
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 9,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn.theatlantic.com/thumbor/z_QPsMy0-UBx1BAbvZggoejlv_o=/0x85:3994x2165/1200x625/media/img/mt/2026/05/2026_05_27_The_Pope_May_Be_Our_Leading_Humanist_Gal_Beckerman/original.jpg"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42502111_web1_260603-PQN-Photographing-Birds-K_1.jpg?w=1024"
     },
     {
-      "id": "https://www.nytimes.com/2026/05/25/arts/design/art-auctions-comeback-sothebys-christies.html",
-      "url": "https://www.nytimes.com/2026/05/25/arts/design/art-auctions-comeback-sothebys-christies.html",
-      "title": "[NYT Business] How Art Auctions Choreographed a $2.5 Billion Comeback",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/26/multimedia/27cul-newhouse-auction-qmgj/27cul-newhouse-auction-qmgj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter four years of uneven sales, the auction houses engineered a successful season by redefining the expectations of buyers and sellers—and avoiding flops.",
-      "summary": "After four years of uneven sales, the auction houses engineered a successful season by redefining the expectations of buyers and sellers—and avoiding flops.",
-      "_excerpt": "After four years of uneven sales, the auction houses engineered a successful season by redefining the expectations of buyers and sellers—and avoiding flops.",
-      "date_published": "2026-05-25T16:44:39+00:00",
+      "id": "https://www.nytimes.com/2026/06/06/briefing/balancing-act.html",
+      "url": "https://www.nytimes.com/2026/06/06/briefing/balancing-act.html",
+      "title": "[NYT Top Stories] Balancing Act",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe tension between sticking to what we know and seeking out new experiences is one of comfort versus novelty. How can we have both?",
+      "summary": "The tension between sticking to what we know and seeking out new experiences is one of comfort versus novelty. How can we have both?",
+      "_excerpt": "The tension between sticking to what we know and seeking out new experiences is one of comfort versus novelty. How can we have both?",
+      "date_published": "2026-06-06T10:05:50+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
+      "url": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
+      "title": "[NYT Top Stories] A.I. Companies Don’t Know What to Do With Alex Bores",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOutside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
+      "summary": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
+      "_excerpt": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
+      "date_published": "2026-06-06T07:00:07+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://qz.com/algorithms-that-shape-what-you-see",
+      "url": "https://qz.com/algorithms-that-shape-what-you-see",
+      "title": "[Quartz] 15 algorithms that shape what you see every day",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/pexels-cottonbro-8088495.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom the feed you scroll to the prices you pay, these 15 algorithms are making more decisions about your daily life than you probably realize",
+      "summary": "From the feed you scroll to the prices you pay, these 15 algorithms are making more decisions about your daily life than you probably realize",
+      "_excerpt": "From the feed you scroll to the prices you pay, these 15 algorithms are making more decisions about your daily life than you probably realize",
+      "date_published": "2026-06-04T09:14:38+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/pexels-cottonbro-8088495.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/04/magazine/ai-chatbot-morning-routine-videos.html",
+      "url": "https://www.nytimes.com/2026/06/04/magazine/ai-chatbot-morning-routine-videos.html",
+      "title": "[NYT Top Stories] Should You Outsource Your Morning Routine to a Chatbot?",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA.I. wants to help you start the day. Its suggestions? Drink coffee and get dressed.",
+      "summary": "A.I. wants to help you start the day. Its suggestions? Drink coffee and get dressed.",
+      "_excerpt": "A.I. wants to help you start the day. Its suggestions? Drink coffee and get dressed.",
+      "date_published": "2026-06-04T09:03:39+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://www.businessinsider.com/ai-capex-boom-meta-microsoft-amazon-alphabet-goldman-sachs-2026-6",
+      "url": "https://www.businessinsider.com/ai-capex-boom-meta-microsoft-amazon-alphabet-goldman-sachs-2026-6",
+      "title": "[Business Insider] AI spending from 4 tech giants will exceed the GDP of Japan through 2030, Goldman says",
+      "content_html": "<img src=\"https://i.insider.com/6a2050332ab5f9757add881e?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
+      "summary": "AI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
+      "_excerpt": "AI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
+      "date_published": "2026-06-03T16:03:43+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a2050332ab5f9757add881e?format=jpeg"
+    },
+    {
+      "id": "https://www.businessinsider.com/deloitte-graduates-jobs-think-ai-use-cheating-rob-hillard-2026-6",
+      "url": "https://www.businessinsider.com/deloitte-graduates-jobs-think-ai-use-cheating-rob-hillard-2026-6",
+      "title": "[Business Insider] Graduates are coming into the workforce thinking that using AI is cheating, a top Deloitte exec says",
+      "content_html": "<img src=\"https://i.insider.com/6a1fe0fb2ab5f9757add8574?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCollages are teaching students to view using AI as cheating, said Rob Hillard, the CEO Deloitte's Asia-Pacific division.",
+      "summary": "Collages are teaching students to view using AI as cheating, said Rob Hillard, the CEO Deloitte's Asia-Pacific division.",
+      "_excerpt": "Collages are teaching students to view using AI as cheating, said Rob Hillard, the CEO Deloitte's Asia-Pacific division.",
+      "date_published": "2026-06-03T10:13:12+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://i.insider.com/6a1fe0fb2ab5f9757add8574?format=jpeg"
+    },
+    {
+      "id": "https://www.tomsguide.com/home/gardening/what-can-i-do-if-my-neighbors-hedge-is-too-high-and-blocking-my-light-i-asked-the-experts",
+      "url": "https://www.tomsguide.com/home/gardening/what-can-i-do-if-my-neighbors-hedge-is-too-high-and-blocking-my-light-i-asked-the-experts",
+      "title": "[Toms Guide] What can I do if my neighbor's hedge is too high and blocking my light? I asked the experts",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/6hgjyqLphxTQKcbzwPFNPE-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy neighbor’s hedge is too high and blocking out my light — I ask the experts what to do and what the best practices are.",
+      "summary": "My neighbor’s hedge is too high and blocking out my light — I ask the experts what to do and what the best practices are.",
+      "_excerpt": "My neighbor’s hedge is too high and blocking out my light — I ask the experts what to do and what the best practices are.",
+      "date_published": "2026-06-06T04:45:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/6hgjyqLphxTQKcbzwPFNPE-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/04/magazine/ai-agents-openclaw-small-business.html",
+      "url": "https://www.nytimes.com/2026/06/04/magazine/ai-agents-openclaw-small-business.html",
+      "title": "[NYT Business] The Small-Business Owners Managing Whole Armies of A.I. Employees",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhen you turn A.I. agents loose on your finances, email and customers, what could possibly go wrong?",
+      "summary": "When you turn A.I. agents loose on your finances, email and customers, what could possibly go wrong?",
+      "_excerpt": "When you turn A.I. agents loose on your finances, email and customers, what could possibly go wrong?",
+      "date_published": "2026-06-04T09:00:51+00:00",
       "authors": [
         {
           "name": "NYT Business",
           "url": "https://www.nytimes.com/section/business"
         }
       ],
-      "ai_score": 33,
-      "_quality_score": 33,
-      "_theme_score": 35,
-      "_final_score": 35,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 9,
+      "_boosted_score": 22,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/26/multimedia/27cul-newhouse-auction-qmgj/27cul-newhouse-auction-qmgj-mediumSquareAt3X.jpg"
+      "image": "https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=128"
     },
     {
-      "id": "https://www.engadget.com/2182644/lastfm-independent-company-cbs-paramount-skydance/",
-      "url": "https://www.engadget.com/2182644/lastfm-independent-company-cbs-paramount-skydance/",
-      "title": "[Engadget] Last.fm goes independent after breaking up with Paramount Skydance",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/last-fm-goes-independent-after-breaking-up-with-paramount-skydance/l-intro-1779931984.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLast.fm is now an independent company, nearly two decades after it was acquired by CBS.",
-      "summary": "Last.fm is now an independent company, nearly two decades after it was acquired by CBS.",
-      "_excerpt": "Last.fm is now an independent company, nearly two decades after it was acquired by CBS.",
-      "date_published": "2026-05-28T01:37:29+00:00",
+      "id": "https://www.techradar.com/pro/delivering-ai-systems-enterprise-users-cant-live-without",
+      "url": "https://www.techradar.com/pro/delivering-ai-systems-enterprise-users-cant-live-without",
+      "title": "[TechRadar] Delivering AI systems enterprise users can’t live without",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHow can organizations deliver practical value-generating AI that users will actually embrace?",
+      "summary": "How can organizations deliver practical value-generating AI that users will actually embrace?",
+      "_excerpt": "How can organizations deliver practical value-generating AI that users will actually embrace?",
+      "date_published": "2026-06-03T08:10:22+00:00",
       "authors": [
         {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "ai_score": 28,
-      "_quality_score": 28,
-      "_theme_score": 35,
-      "_final_score": 35,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 8,
+      "_boosted_score": 22,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.engadget.com/img/gallery/last-fm-goes-independent-after-breaking-up-with-paramount-skydance/l-intro-1779931984.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1280-80.jpg"
     },
     {
-      "id": "https://www.aptnnews.ca/national-news/n-w-t-hide-tanning-camp-teaches-traditional-skills-and-respect-for-the-land/",
-      "url": "https://www.aptnnews.ca/national-news/n-w-t-hide-tanning-camp-teaches-traditional-skills-and-respect-for-the-land/",
-      "title": "[APTN News] N.W.T. hide tanning camp teaches traditional skills and respect for the land",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.aptnnews.ca&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>At Wiìliìdeh, (Yellowknife River), eager learners lean over stretched hides while seasoned knowledge holders guide...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/national-news/n-w-t-hide-tanning-camp-teaches-traditional-skills-and-respect-for-the-land/\">N.W.T. hide tanning camp teaches traditional skills and respect for the land</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
-      "summary": "At Wiìliìdeh, (Yellowknife River), eager learners lean over stretched hides while seasoned knowledge holders guide... The post N.W.T. hide tanning camp teaches traditional skills and respect for the land appeared first on APTN News .",
-      "_excerpt": "At Wiìliìdeh, (Yellowknife River), eager learners lean over stretched hides while seasoned knowledge holders guide... The post N.W.T. hide tanning camp teaches traditional skills and respect for the land appeared first on APTN News .",
-      "date_published": "2026-05-28T16:25:28+00:00",
+      "id": "https://www.tomsguide.com/ai/i-use-ai-every-morning-before-9-a-m-these-5-habits-make-my-day-easier",
+      "url": "https://www.tomsguide.com/ai/i-use-ai-every-morning-before-9-a-m-these-5-habits-make-my-day-easier",
+      "title": "[Toms Guide] I use AI every morning before 9 a.m. — these 5 habits make my day easier",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/p3sComja5NYccypDLBmjCa-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese five simple AI prompts help me organize my schedule, reduce mental clutter and make hectic mornings feel far more manageable.",
+      "summary": "These five simple AI prompts help me organize my schedule, reduce mental clutter and make hectic mornings feel far more manageable.",
+      "_excerpt": "These five simple AI prompts help me organize my schedule, reduce mental clutter and make hectic mornings feel far more manageable.",
+      "date_published": "2026-06-08T09:00:00+00:00",
       "authors": [
         {
-          "name": "APTN News",
-          "url": "https://www.aptnnews.ca"
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
         }
       ],
-      "ai_score": 27,
-      "_quality_score": 27,
-      "_theme_score": 30,
-      "_final_score": 30,
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 8,
+      "_boosted_score": 22,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=www.aptnnews.ca&sz=128"
+      "image": "https://cdn.mos.cms.futurecdn.net/p3sComja5NYccypDLBmjCa-1280-80.jpg"
     },
     {
-      "id": "https://www.themarginalian.org/2026/05/27/existentialist-embroidery/",
-      "url": "https://www.themarginalian.org/2026/05/27/existentialist-embroidery/",
-      "title": "[The Marginalian] Existentialist Embroidery",
-      "content_html": "<img src=\"https://www.themarginalian.org/wp-content/uploads/2026/05/grandma_embroidery_MariaPopova.jpg?fit=1200%2C630&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe summer I turned forty, my maternal grandmother, then ninety, gave me an astonishing embroidery she had completed it when she was my age after, having worked on it for years. The cascading geometries of blue, black, and white, interlocking extraordinary precision and extraordinary passion, may have taken less time had she not needed to supplement her paltry elementary schoolteacher income by tilling potato fields and pruning plum trees in rural Bulgaria. Born in the final years of the sovereign monarchy Bulgaria briefly enjoyed after five centuries of Ottoman occupation, she had worked on her embroidery in the middle of&#8230;&#160;<a class=\"h3 read_on\" href=\"https://www.themarginalian.org/2026/05/27/existentialist-embroidery/\">read&#160;article</a>",
-      "summary": "The summer I turned forty, my maternal grandmother, then ninety, gave me an astonishing embroidery she had completed it when she was my age after, having worked on it for years. The cascading geometries of blue, black, and white, interlocking extraordinary precision and extraordinary passion, may",
-      "_excerpt": "The summer I turned forty, my maternal grandmother, then ninety, gave me an astonishing embroidery she had completed it when she was my age after, having worked on it for years. The cascading geometries of blue, black, and white, interlocking extraordinary precision and extraordinary passion, may have taken less time had she not needed to supplement her paltry elementary schoolteacher income by tilling potato fields and pruning plum trees in rural Bulgaria. Born in the final years of the sovereign monarchy Bulgaria briefly enjoyed after five centuries of Ottoman occupation, she had worked on",
-      "date_published": "2026-05-27T20:33:25+00:00",
+      "id": "https://www.howtogeek.com/i-started-building-custom-homelab-notifications-with-gotify-here-are-the-5-most-useful/",
+      "url": "https://www.howtogeek.com/i-started-building-custom-homelab-notifications-with-gotify-here-are-the-5-most-useful/",
+      "title": "[How-To Geek] Stop checking your homelab dashboard: This self-hosted alert server does the work for you",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/04/homepage-main-page.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGreen dashboards are nice but a homelab that speaks up is better!",
+      "summary": "Green dashboards are nice but a homelab that speaks up is better!",
+      "_excerpt": "Green dashboards are nice but a homelab that speaks up is better!",
+      "date_published": "2026-06-06T14:15:18+00:00",
       "authors": [
         {
-          "name": "The Marginalian",
-          "url": "https://www.themarginalian.org"
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
         }
       ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 45,
-      "_final_score": 45,
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 0,
-      "_boosted_score": 6,
+      "_boosted_score": 22,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/04/homepage-main-page.png"
+    },
+    {
+      "id": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
+      "url": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
+      "title": "[New Atlas] Breakthrough drug nearly doubles survival rate for advanced pancreatic cancer",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"artist's impression of a pancreas\" src=\"https://assets.newatlas.com/dims4/default/8e61078/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg\" /><p>Christopher Lieu, University of Colorado Anschutz/ The Conversation</p><p><a href=\"https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/cancer/\">Cancer</a>, <a href=\"https://refractor.io/disease/\">Illnesses and conditions</a>, <a href=\"https://refractor.io/medical/\">Body and Mind</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/pancreatic-cancer/\" rel=\"tag\">Pancreatic cancer</a>, <a href=\"https://newatlas.com/tag/drugs/\" rel=\"tag\">Drugs</a>, <a href=\"https://newatlas.com/tag/pancreas/\" rel=\"tag\">Pancreas</a>, <a href=\"https://newatlas.com/tag/pharmaceuticals/\" rel=\"tag\">Pharmaceuticals</a></p>",
+      "summary": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
+      "_excerpt": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
+      "date_published": "2026-06-03T06:48:59+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 4,
+      "_final_score": 4,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.themarginalian.org/wp-content/uploads/2026/05/grandma_embroidery_MariaPopova.jpg?fit=1200%2C630&ssl=1"
+      "image": "https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&rf.image_optimisation=0"
     },
     {
-      "id": "https://www.nytimes.com/2026/05/27/theater/thornton-wilder-emporium-last-play.html",
-      "url": "https://www.nytimes.com/2026/05/27/theater/thornton-wilder-emporium-last-play.html",
-      "title": "[NYT Top Stories] Thornton Wilder’s Last Play Vanished Into Thin Air. Or Did It?",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/21/multimedia/00cul-wilder-emporium-vmzl/00cul-wilder-emporium-vmzl-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDecades after “The Emporium” failed to open on Broadway in 1954, one man went on a quest to find it.",
-      "summary": "Decades after “The Emporium” failed to open on Broadway in 1954, one man went on a quest to find it.",
-      "_excerpt": "Decades after “The Emporium” failed to open on Broadway in 1954, one man went on a quest to find it.",
-      "date_published": "2026-05-27T09:01:00+00:00",
+      "id": "https://www.makeuseof.com/disabled-windows-background-service-pc-stopped-freezing-mid-task/",
+      "url": "https://www.makeuseof.com/disabled-windows-background-service-pc-stopped-freezing-mid-task/",
+      "title": "[MakeUseOf] I disabled one Windows background service and my PC stopped freezing mid-task",
+      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2026/05/connected-user-experiences-and-telemetry-on-a-monitor-17-brightness.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI found the Windows service that was causing my PC to freeze every few minutes — and disabling it changed everything.",
+      "summary": "I found the Windows service that was causing my PC to freeze every few minutes — and disabling it changed everything.",
+      "_excerpt": "I found the Windows service that was causing my PC to freeze every few minutes — and disabling it changed everything.",
+      "date_published": "2026-06-05T14:00:18+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "MakeUseOf",
+          "url": "https://www.makeuseof.com"
         }
       ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 40,
-      "_final_score": 40,
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 4,
+      "_final_score": 4,
       "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/21/multimedia/00cul-wilder-emporium-vmzl/00cul-wilder-emporium-vmzl-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/27/books/why-is-tiktok-in-this-book-from-2006.html",
-      "url": "https://www.nytimes.com/2026/05/27/books/why-is-tiktok-in-this-book-from-2006.html",
-      "title": "[NYT Top Stories] Why Is TikTok in This Book from 2006?",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/14/books/00TBR-reference_revamp-SUB06/00TBR-reference_revamp-SUB06-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFor decades, publishers have swapped out cultural references in new editions of books to appeal to younger readers. Fans aren’t always thrilled.",
-      "summary": "For decades, publishers have swapped out cultural references in new editions of books to appeal to younger readers. Fans aren’t always thrilled.",
-      "_excerpt": "For decades, publishers have swapped out cultural references in new editions of books to appeal to younger readers. Fans aren’t always thrilled.",
-      "date_published": "2026-05-27T13:46:19+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 21,
-      "_quality_score": 21,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
+      "_boosted_score": 20,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/14/books/00TBR-reference_revamp-SUB06/00TBR-reference_revamp-SUB06-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/05/26/movies/armageddon-1998-michael-bay.html",
-      "url": "https://www.nytimes.com/2026/05/26/movies/armageddon-1998-michael-bay.html",
-      "title": "[NYT Top Stories] ‘Armageddon’: The Blockbuster Melodrama That Left Our Heads Spinning",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMichael Bay wasn’t remotely worried about the science in his 1998 science-fiction action hit that launched an elite ensemble cast to space.",
-      "summary": "Michael Bay wasn’t remotely worried about the science in his 1998 science-fiction action hit that launched an elite ensemble cast to space.",
-      "_excerpt": "Michael Bay wasn’t remotely worried about the science in his 1998 science-fiction action hit that launched an elite ensemble cast to space.",
-      "date_published": "2026-05-26T14:34:13+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 21,
-      "_quality_score": 21,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.engadget.com/2180919/spotify-narrated-articles-audiobook-library/",
-      "url": "https://www.engadget.com/2180919/spotify-narrated-articles-audiobook-library/",
-      "title": "[Engadget] Spotify is adding long-form articles to its audiobook library",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/spotify-is-adding-long-form-articles-to-its-audiobook-library/l-intro-1779796364.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSpotify has teamed up with publications, including Rolling Stone, Variety, Billboard, WIRED and Pitchfork to offer subscribers narrated articles.",
-      "summary": "Spotify has teamed up with publications, including Rolling Stone, Variety, Billboard, WIRED and Pitchfork to offer subscribers narrated articles.",
-      "_excerpt": "Spotify has teamed up with publications, including Rolling Stone, Variety, Billboard, WIRED and Pitchfork to offer subscribers narrated articles.",
-      "date_published": "2026-05-26T11:54:22+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.engadget.com/img/gallery/spotify-is-adding-long-form-articles-to-its-audiobook-library/l-intro-1779796364.jpg"
-    },
-    {
-      "id": "https://boingboing.net/2026/05/26/hengefinder-finds-streets-that-perfectly-frame-the-setting-sun.html",
-      "url": "https://boingboing.net/2026/05/26/hengefinder-finds-streets-that-perfectly-frame-the-setting-sun.html",
-      "title": "[Boing Boing] Hengefinder finds streets that perfectly frame the setting sun",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/shutterstock_2286994197-.jpg?fit=1000%2C666&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/26/hengefinder-finds-streets-that-perfectly-frame-the-setting-sun.html\" rel=\"nofollow\" title=\"Hengefinder finds streets that perfectly frame the setting sun\"><img alt=\"A &quot;henge&quot; in San Francisco. Photo: ASunsetFinder / Shutterstock\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"666\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/shutterstock_2286994197-.jpg?fit=1000%2C666&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1000\" /></a></p>\n<p><a href=\"https://hengefinder.com/\">Hengefinder</a> is an app that, given times and places, can help you experience \"stunning moments when the sun or moon aligns perfectly with city streets and buildings.\"</p>\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>A \"henge\" is when the sun or moon is perfectly framed by a street or appears to sit on top of a building &#8230; Astronomical calculations combined with road data deliver instant results.</p>\n</blockquote>\n<p> &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/26/hengefinder-finds-streets-that-perfectly-frame-the-setting-sun.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/26/hengefinder-finds-streets-that-perfectly-frame-the-setting-sun.html\">Hengefinder finds streets that perfectly frame the setting sun</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "Hengefinder is an app that, given times and places, can help you experience \"stunning moments when the sun or moon aligns perfectly with city streets and buildings.\" A \"henge\" is when the sun or moon is perfectly framed by a street or appears to sit on top of a building … Astronomical calculations",
-      "_excerpt": "Hengefinder is an app that, given times and places, can help you experience \"stunning moments when the sun or moon aligns perfectly with city streets and buildings.\" A \"henge\" is when the sun or moon is perfectly framed by a street or appears to sit on top of a building … Astronomical calculations combined with road data deliver instant results. — Read the rest The post Hengefinder finds streets that perfectly frame the setting sun appeared first on Boing Boing .",
-      "date_published": "2026-05-26T16:57:45+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 30,
-      "_final_score": 30,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/shutterstock_2286994197-.jpg?fit=1000%2C666&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.theatlantic.com/culture/2026/05/backrooms-movie-interview-director-kane-parsons/687013/?utm_source=feed",
-      "url": "https://www.theatlantic.com/culture/2026/05/backrooms-movie-interview-director-kane-parsons/687013/?utm_source=feed",
-      "title": "[The Atlantic Culture] The New Auteur of the Hallucinated Hellscape",
-      "content_html": "<img src=\"https://cdn.theatlantic.com/thumbor/p0309WoxREiX575w3DnC_atJKcI=/1x2694:4594x5086/1200x625/media/img/mt/2026/05/mtd_kane_parsons_13/original.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWith <em>Backrooms</em>, Kane Parsons brings the half-remembered dreams of the internet’s collective consciousness to light.",
-      "summary": "With Backrooms , Kane Parsons brings the half-remembered dreams of the internet’s collective consciousness to light.",
-      "_excerpt": "With Backrooms , Kane Parsons brings the half-remembered dreams of the internet’s collective consciousness to light.",
-      "date_published": "2026-05-27T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Atlantic Culture",
-          "url": "https://www.theatlantic.com/culture/"
-        }
-      ],
-      "ai_score": 17,
-      "_quality_score": 17,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 5,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "image": "https://cdn.theatlantic.com/thumbor/p0309WoxREiX575w3DnC_atJKcI=/1x2694:4594x5086/1200x625/media/img/mt/2026/05/mtd_kane_parsons_13/original.jpg"
-    },
-    {
-      "id": "https://boingboing.net/2026/05/27/make-your-own-futuristic-computer-logo-with-the-sinclair-o-matic.html",
-      "url": "https://boingboing.net/2026/05/27/make-your-own-futuristic-computer-logo-with-the-sinclair-o-matic.html",
-      "title": "[Boing Boing] Make your own futuristic computer logo with the Sinclair-o-Matic",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/sinclairlogo.jpg?fit=1600%2C1000&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/27/make-your-own-futuristic-computer-logo-with-the-sinclair-o-matic.html\" rel=\"nofollow\" title=\"Make your own futuristic computer logo with the Sinclair-o-Matic\"><img alt=\"Logos generated by the Sinclair-o-Matic\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1000\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/sinclairlogo.jpg?fit=1600%2C1000&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1600\" /></a><p>The <a href=\"https://dpt.github.io/SinclairLogo/\">Sinclair-o-Matic</a> generates logotype in the style of the old Sinclair computer mark, with sliders for stroke width, character width, spacing and several other variables.</p>\n<p>Type in the box and the logo redraws itself live. The controls allow for a surprising amount of variation on the basic design: it becomes spindly, smooth or tubular without losing its essential character. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/27/make-your-own-futuristic-computer-logo-with-the-sinclair-o-matic.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/27/make-your-own-futuristic-computer-logo-with-the-sinclair-o-matic.html\">Make your own futuristic computer logo with the Sinclair-o-Matic</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "The Sinclair-o-Matic generates logotype in the style of the old Sinclair computer mark, with sliders for stroke width, character width, spacing and several other variables. Type in the box and the logo redraws itself live. The controls allow for a surprising amount of variation on the basic design:",
-      "_excerpt": "The Sinclair-o-Matic generates logotype in the style of the old Sinclair computer mark, with sliders for stroke width, character width, spacing and several other variables. Type in the box and the logo redraws itself live. The controls allow for a surprising amount of variation on the basic design: it becomes spindly, smooth or tubular without losing its essential character. — Read the rest The post Make your own futuristic computer logo with the Sinclair-o-Matic appeared first on Boing Boing .",
-      "date_published": "2026-05-27T11:14:13+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 15,
-      "_quality_score": 15,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/sinclairlogo.jpg?fit=1600%2C1000&quality=60&ssl=1"
-    },
-    {
-      "id": "https://boingboing.net/2026/05/26/the-saga-of-the-weirdest-theme-park-in-the-midwest-via-defunctland.html",
-      "url": "https://boingboing.net/2026/05/26/the-saga-of-the-weirdest-theme-park-in-the-midwest-via-defunctland.html",
-      "title": "[Boing Boing] The saga of the weirdest theme park in the Midwest via Defunctland",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Screenshot-2026-05-25-122321-e1779811728669.png?fit=768%2C413&amp;quality=55&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/05/26/the-saga-of-the-weirdest-theme-park-in-the-midwest-via-defunctland.html\" rel=\"nofollow\" title=\"The saga of the weirdest theme park in the Midwest via Defunctland\"><img alt=\"Branson, USA. Screengrab via Defunctland\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"413\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Screenshot-2026-05-25-122321-e1779811728669.png?fit=768%2C413&amp;quality=55&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"768\" /></a><p>Babe, wake up! A new <a href=\"https://boingboing.net/tag/defunctland\" rel=\"noreferrer noopener\" target=\"_blank\">Defunctland</a> video dropped!</p>\n<p>A new postmortem of the latest theme park blunder du jour from Kevin Perjurer, wrapped in his usual mix of extensive research and dry humor, is always cause to celebrate. Lucky for us, the subject of his latest video is none other than <a href=\"https://www.youtube.com/watch?v=eqYhNrdIedI\" rel=\"noreferrer noopener\" target=\"_blank\">Celebration City</a>, supposedly a whole <em>city</em> built for celebration! &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/05/26/the-saga-of-the-weirdest-theme-park-in-the-midwest-via-defunctland.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/05/26/the-saga-of-the-weirdest-theme-park-in-the-midwest-via-defunctland.html\">The saga of the weirdest theme park in the Midwest via Defunctland</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "Babe, wake up! A new Defunctland video dropped! A new postmortem of the latest theme park blunder du jour from Kevin Perjurer, wrapped in his usual mix of extensive research and dry humor, is always cause to celebrate. Lucky for us, the subject of his latest video is none other than Celebration",
-      "_excerpt": "Babe, wake up! A new Defunctland video dropped! A new postmortem of the latest theme park blunder du jour from Kevin Perjurer, wrapped in his usual mix of extensive research and dry humor, is always cause to celebrate. Lucky for us, the subject of his latest video is none other than Celebration City , supposedly a whole city built for celebration! — Read the rest The post The saga of the weirdest theme park in the Midwest via Defunctland appeared first on Boing Boing .",
-      "date_published": "2026-05-26T16:09:17+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 15,
-      "_quality_score": 15,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/05/Screenshot-2026-05-25-122321-e1779811728669.png?fit=768%2C413&quality=55&ssl=1"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/25/the-kiswa-beyond-the-cloth?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/25/the-kiswa-beyond-the-cloth?traffic_source=rss",
-      "title": "[Al Jazeera English] THE KISWA: BEYOND THE CLOTH",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/image-1779737066.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEvery Muslim on earth has faced it in prayer. Billions have seen it in photos. Almost nobody knows its story.",
-      "summary": "Every Muslim on earth has faced it in prayer. Billions have seen it in photos. Almost nobody knows its story.",
-      "_excerpt": "Every Muslim on earth has faced it in prayer. Billions have seen it in photos. Almost nobody knows its story.",
-      "date_published": "2026-05-25T19:25:03+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 15,
-      "_quality_score": 15,
-      "_theme_score": 35,
-      "_final_score": 35,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/image-1779737066.jpg?resize=1920%2C1080&quality=80"
+      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2026/05/connected-user-experiences-and-telemetry-on-a-monitor-17-brightness.jpg"
     }
   ]
 }
