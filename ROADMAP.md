@@ -22,7 +22,10 @@
 - [ ] Categorization accuracy refinement based on reading patterns
 
 ## Medium-term
-- [ ] Enhanced AI-powered feed discovery (feed_discovery.py exists but not in active workflow)
+- [x] AI-powered feed discovery runs weekly, scores candidates against the live
+      `config/scoring_interests.txt` (so it evolves alongside the podcast's tuning),
+      auto-adds high-confidence feeds (75+) to `feeds.opml`, and notifies via an
+      auto-merged PR summarizing what changed
 - [ ] Better cache health monitoring - alerts when caches go stale or corrupt
 - [ ] Feed blocking workarounds for sites that reject User-Agent headers
 

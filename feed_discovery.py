@@ -17,18 +17,36 @@ import feedparser
 import anthropic
 from dataclasses import dataclass
 from bs4 import BeautifulSoup
+import config_loader
+import cohere_integration
 
 # Brave Search discovery
+# Topics are weighted toward the podcast's themed daily buckets that the weekly
+# reviews keep flagging as thin (config/podcast_schedule.json: Indigenous Lands &
+# Innovation, Working Lands & Industry, Arts/Culture, Wild Spaces, Science & Wonder)
+# plus categories (wellness) that have no dedicated discovery query yet.
 BRAVE_API_URL = "https://api.search.brave.com/res/v1/web/search"
 BRAVE_SEARCH_TOPICS = [
     ("meshtastic lora mesh networking blog rss feed", "homelab"),
     ("williams lake cariboo BC community news rss", "local"),
     ("homelab self-hosting proxmox blog rss feed", "homelab"),
-    ("solarpunk climate fiction blog rss feed", "scifi"),
-    ("sustainable agriculture regenerative farming rss", "climate"),
-    ("3d printing bambu lab blog rss feed", "homelab"),
-    ("off-grid solar homestead blog rss", "climate"),
+    ("solarpunk climate fiction worldbuilding blog rss feed", "scifi"),
+    ("sustainable agriculture regenerative ranching rss feed", "climate"),
+    ("3d printing bambu lab maker repair blog rss feed", "homelab"),
+    ("off-grid solar homestead rural technology blog rss", "climate"),
     ("canadian rural broadband community technology rss feed", "local"),
+    # Thursday: Indigenous Lands & Innovation
+    ("Tsilhqotin Secwepemc Dakelh Indigenous land stewardship language technology rss feed", "local"),
+    # Tuesday: Working Lands & Industry
+    ("Cariboo forestry ranching mining agtech resource economy blog rss feed", "climate"),
+    # Monday: Arts, Culture & Digital Storytelling
+    ("rural arts community media digital storytelling Canada blog rss feed", "local"),
+    # Friday: Wild Spaces & Outdoor Life
+    ("BC wildfire backcountry conservation Chilcotin wilderness blog rss feed", "climate"),
+    # Sunday: Science, Wonder & the Natural World
+    ("ecology natural science wonder discovery Cariboo BC interior blog rss feed", "science"),
+    # Health & Wellness category has no dedicated query yet
+    ("evidence-based health wellness nutrition longevity research blog rss feed", "wellness"),
 ]
 FEED_PROBE_PATHS = ["/feed", "/rss", "/atom.xml", "/feed.xml", "/index.xml", "/rss.xml"]
 
@@ -138,23 +156,33 @@ class SimpleArticle:
         except:
             self.pub_date = datetime.now(timezone.utc)
 
-def score_articles_with_claude(articles: List[SimpleArticle], api_key: str) -> List[SimpleArticle]:
-    """Score articles for feed discovery using Cohere Rerank (when available) or Claude."""
+_FALLBACK_INTEREST_QUERY = (
+    "AI technology rural community applications, climate tech renewable energy, "
+    "Williams Lake Cariboo local news, homelab self-hosting, smart home automation, "
+    "3D printing Bambu Lab, health wellness science research, systems thinking, "
+    "Meshtastic mesh networking, sustainable agriculture, sci-fi worldbuilding, "
+    "Canadian content local news"
+)
+
+
+def score_articles_with_claude(articles: List[SimpleArticle], api_key: str, interests_text: str = '') -> List[SimpleArticle]:
+    """Score articles for feed discovery using Cohere Rerank (when available) or Claude.
+
+    `interests_text` is the live podcast scoring profile (config/scoring_interests.txt).
+    Deriving the query from it — the same source the main curator tunes every week —
+    means discovery scoring evolves automatically alongside the podcast's interests
+    instead of drifting from a separately-maintained copy.
+    """
     if not articles:
         return articles
+
+    interest_query = cohere_integration.build_interest_query(interests_text) if interests_text else _FALLBACK_INTEREST_QUERY
 
     cohere_api_key = os.environ.get('COHERE_API_KEY')
     if cohere_api_key:
         try:
             import cohere
             co = cohere.ClientV2(api_key=cohere_api_key)
-            interest_query = (
-                "AI technology rural community applications, climate tech renewable energy, "
-                "Williams Lake Cariboo local news, homelab self-hosting, smart home automation, "
-                "3D printing Bambu Lab, health wellness science research, systems thinking, "
-                "Meshtastic mesh networking, sustainable agriculture, sci-fi worldbuilding, "
-                "Canadian content local news"
-            )
             documents = [f"{a.title}. {(a.description or '')[:200]}" for a in articles]
             result = co.rerank(
                 model="rerank-english-v3.0",
@@ -171,19 +199,6 @@ def score_articles_with_claude(articles: List[SimpleArticle], api_key: str) -> L
 
     client = anthropic.Anthropic(api_key=api_key)
 
-    # Your interests for scoring
-    interests = """
-    - AI/ML infrastructure and telemetry
-    - Systems thinking and complex systems
-    - Climate tech and sustainability
-    - Homelab/self-hosting technology
-    - Meshtastic and mesh networking
-    - 3D printing (Bambu Lab)
-    - Sci-fi worldbuilding
-    - Deep technical content over news
-    - Canadian content and local news (Williams Lake, Quesnel)
-    """
-
     # Batch articles for efficiency (10 at a time)
     batch_size = 10
     scored_articles = []
@@ -199,8 +214,7 @@ def score_articles_with_claude(articles: List[SimpleArticle], api_key: str) -> L
 
         prompt = f"""Score these articles for relevance to my interests on a scale of 0-100.
 
-My interests:
-{interests}
+My interests: {interest_query}
 
 Articles to score:
 {article_list}
@@ -416,13 +430,13 @@ class FeedDiscovery:
 
         print(f"\n🤖 Evaluating {len(new_candidates)} new feed candidates...")
 
-        # Load interests text once for Cohere affinity scoring
-        interests_text = ''
+        # Load the live podcast scoring profile once. Reusing config/scoring_interests.txt
+        # — instead of a separately-maintained interest list — is what lets discovery
+        # absorb the podcast's evolving interests/categories without manual syncing.
         try:
-            with open('config/scoring_interests.txt') as f:
-                interests_text = f.read().strip()
+            interests_text = config_loader.load_scoring_interests().strip()
         except Exception:
-            pass
+            interests_text = ''
 
         # Sample articles from each candidate
         for i, candidate in enumerate(new_candidates):
@@ -433,7 +447,7 @@ class FeedDiscovery:
             if candidate.sample_articles:
                 # Score articles using existing Claude/Cohere logic
                 try:
-                    scored_articles = score_articles_with_claude(candidate.sample_articles, self.api_key)
+                    scored_articles = score_articles_with_claude(candidate.sample_articles, self.api_key, interests_text)
                     scores = [a.score for a in scored_articles]
                     candidate.average_score = sum(scores) / len(scores) if scores else 0
                 except Exception as e:
@@ -442,7 +456,6 @@ class FeedDiscovery:
 
                 # Apply Cohere embed affinity bonus (max +20 pts) when available
                 try:
-                    import cohere_integration
                     if cohere_integration.is_enabled() and interests_text:
                         texts = [f"{a.title}. {(a.description or '')[:200]}" for a in candidate.sample_articles]
                         affinity = cohere_integration.score_feed_against_interests(texts, interests_text)
