@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-08 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **617** → dedup **521** → new **370** → quality **52**
+- Mix: local:1(2%), ai-tech:2(4%), climate:2(4%), wellness:1(2%), science:1(2%), news:45(87%)
+- Feeds: local:28, ai-tech:54, climate:54, homelab:14, wellness:39, science:19, scifi:10, news:500
+- Images: 52/52
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+- ⚠️ **Hakai Magazine** failed — `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/`
+- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
+
+
+---
+
+
+
 ## 2026-06-07 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -175,32 +191,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Nation Talk** failed — `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed`
 - ⚠️ **First Peoples Cultural Council** failed — `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/`
 - ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
-
-
----
-
-
-
-## 2026-05-31 (Sunday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **713** → dedup **641** → new **432** → quality **10**
-- Mix: climate:2(20%), news:8(80%)
-- Feeds: local:46, ai-tech:227, climate:72, homelab:183, science:86, scifi:13, news:500
-- Images: 10/10
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
-- Fetched **675** → dedup **604** → new **391** → quality **3**
-- Mix: climate:1(33%), wellness:1(33%), science:1(33%)
-- Feeds: local:45, ai-tech:216, climate:71, homelab:166, wellness:1, science:79, scifi:11, news:500
-- Images: 3/3
-- ⚠️ **CBC Arts** failed — `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)`
 
 
 ---
@@ -1548,6 +1538,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-05-30–2026-05-30
 - 2 runs · avg fetched 1098 · avg quality 4
 - Dominant: **climate** (38%) local:2 / climate:3 / homelab:1 / news:2
+
+
+---
+
+
+
+## Week of 2026-05-31–2026-05-31
+- 2 runs · avg fetched 694 · avg quality 6
+- Dominant: **news** (62%) climate:3 / wellness:1 / science:1 / news:8
+- - ⚠️ CBC Arts failed — HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)
 
 
 ---
