@@ -31,12 +31,23 @@ python integrate_discoveries.py --auto-add-threshold 75
 
 ### Automated Weekly Discovery
 
-The system runs automatically every Sunday via GitHub Actions and creates a PR with results.
+The system runs automatically every Sunday via GitHub Actions:
 
-1. Enable the workflow in `.github/workflows/discover-feeds.yml`
-2. Ensure `ANTHROPIC_API_KEY` secret is set in repo
-3. Review weekly PRs with discovery reports
-4. Manually integrate promising feeds using the integration script
+1. `feed_discovery.py` evaluates new candidates and refreshes the report/cache
+2. `integrate_discoveries.py --auto-add-threshold 75` adds any high-confidence
+   feeds (score 75+) directly to `feeds.opml` — no manual integration step
+3. The run is committed via a PR that's **auto-merged immediately**; the PR
+   description is your notification of what changed (which feeds were added,
+   with scores/categories/URLs, or a note that nothing cleared the bar)
+4. Anything that didn't clear the auto-add bar but scored 60+ stays in
+   `feed_discovery_report.json` for manual review/integration if you want it
+
+No action is required to keep the OPML current — just skim the merged PRs (or
+`feed_discovery_report.json`) to see what showed up and prune anything that
+doesn't earn its keep from `feeds.opml`.
+
+Setup: ensure `ANTHROPIC_API_KEY` (and optionally `COHERE_API_KEY` /
+`BRAVE_API_KEY`) secrets are set in the repo.
 
 ## Discovery Sources
 
@@ -79,6 +90,9 @@ Current curated OPML sources:
 
 ## Integration Options
 
+The weekly workflow already runs `--auto-add-threshold 75` for you (see above).
+These modes are for catching the 60-74 range manually, or for ad hoc runs.
+
 ### Interactive Mode (Default)
 ```bash
 python integrate_discoveries.py
@@ -87,13 +101,16 @@ python integrate_discoveries.py
 - Lets you decide y/n for each
 - Adds selections to OPML under "Discovered Feeds"
 
-### Auto-Add Mode  
+### Auto-Add Mode
 ```bash
 python integrate_discoveries.py --auto-add-threshold 80
 ```
 - Automatically adds feeds scoring 80+
 - Good for high-confidence discoveries
 - Still creates separate category for review
+- Pass `--summary-file path.md` to also write a markdown summary of what was
+  added (or a "nothing qualified" note) — this is what feeds the auto-merged
+  weekly PR's notification body
 
 ### Dry Run
 ```bash

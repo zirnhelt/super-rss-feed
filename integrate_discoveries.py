@@ -113,6 +113,36 @@ def interactive_selection(report: Dict) -> List[Dict]:
     
     return selected_feeds
 
+def write_summary_file(path: str, feeds_added: List[Dict], threshold: float, report: Dict):
+    """Write a markdown summary of an auto-add run, e.g. for a notification PR body.
+
+    Always writes a summary — including a "nothing qualified" note — so the
+    notification reflects what actually happened on weeks with no additions.
+    """
+    lines = []
+    if feeds_added:
+        lines.append(f"## 🔍 Weekly Feed Discovery — {len(feeds_added)} feed(s) auto-added\n")
+        lines.append(f"These scored {threshold:.0f}+ and were added to `feeds.opml` automatically:\n")
+        lines.append("| Feed | Category | Score | URL |")
+        lines.append("|---|---|---|---|")
+        for feed in feeds_added:
+            lines.append(f"| {feed['title']} | {feed.get('category', '—')} | {feed['average_score']:.1f} | {feed['url']} |")
+        lines.append("")
+        lines.append("These start contributing articles on the next curation run — prune any that don't fit by editing `feeds.opml`.")
+    else:
+        lines.append("## 🔍 Weekly Feed Discovery — no feeds auto-added this week\n")
+        lines.append(f"No candidates scored {threshold:.0f}+ this run, so `feeds.opml` is unchanged.")
+        min_score = report.get('min_score_threshold')
+        if min_score is not None:
+            lines.append(f"See `feed_discovery_report.json` for candidates that cleared the {min_score:.0f}-point recommendation bar but not the auto-add threshold.")
+    lines.append("")
+    lines.append("_`discovery_cache.json` and `feed_discovery_report.json` were refreshed with this run's evaluations._")
+
+    with open(path, 'w') as f:
+        f.write('\n'.join(lines) + '\n')
+    print(f"📝 Summary written to {path}")
+
+
 def main():
     parser = argparse.ArgumentParser(description='Integrate discovered feeds into OPML')
     parser.add_argument('--auto-add-threshold', type=float, default=None,
@@ -123,7 +153,10 @@ def main():
                        help='Category name for new feeds (default: Discovered Feeds)')
     parser.add_argument('--dry-run', action='store_true',
                        help='Show what would be added without making changes')
-    
+    parser.add_argument('--summary-file', default=None,
+                       help='Write a markdown summary of auto-add results to this path '
+                            '(used as the body for the automated notification PR)')
+
     args = parser.parse_args()
     
     # Load discovery report
@@ -144,8 +177,9 @@ def main():
         print(f"\n🤖 AUTO-ADD MODE (threshold: {args.auto_add_threshold})")
         for category, data in report['categories'].items():
             for feed in data['feeds']:
-                if (feed['average_score'] >= args.auto_add_threshold and 
+                if (feed['average_score'] >= args.auto_add_threshold and
                     feed['url'] not in existing_feeds):
+                    feed['category'] = category
                     feeds_to_add.append(feed)
                     print(f"  ✅ Auto-selected: {feed['title']} (score: {feed['average_score']})")
     else:
@@ -162,8 +196,10 @@ def main():
     
     if not feeds_to_add:
         print("\n❌ No feeds selected for addition")
+        if args.summary_file and args.auto_add_threshold:
+            write_summary_file(args.summary_file, [], args.auto_add_threshold, report)
         return
-    
+
     print(f"\n📝 Selected {len(feeds_to_add)} feeds to add:")
     for feed in feeds_to_add:
         print(f"  • {feed['title']} (score: {feed['average_score']})")
@@ -188,10 +224,14 @@ def main():
     
     print(f"\n✅ Successfully added {added_count} feeds to {args.opml_path}")
     print(f"📂 Added under category: '{args.category_name}'")
-    print(f"\n🚀 Next steps:")
-    print(f"1. Review the new feeds in your OPML")
-    print(f"2. Run your main curation script to test")
-    print(f"3. Adjust categories or remove feeds as needed")
+
+    if args.summary_file and args.auto_add_threshold:
+        write_summary_file(args.summary_file, feeds_to_add, args.auto_add_threshold, report)
+    else:
+        print(f"\n🚀 Next steps:")
+        print(f"1. Review the new feeds in your OPML")
+        print(f"2. Run your main curation script to test")
+        print(f"3. Adjust categories or remove feeds as needed")
 
 if __name__ == "__main__":
     main()

@@ -6,10 +6,14 @@ on:
     - cron: '0 10 * * 0'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   discover-feeds:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v4
     
@@ -29,32 +33,30 @@ jobs:
         BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
       run: |
         python feed_discovery.py
-    
+
+    - name: Auto-add high-confidence feeds to OPML
+      run: |
+        python integrate_discoveries.py --auto-add-threshold 75 --summary-file discovery_summary.md
+
     - name: Create Pull Request with discoveries
+      id: cpr
       if: success()
       uses: peter-evans/create-pull-request@v5
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'Weekly feed discoveries'
         title: '🔍 Weekly Feed Discovery Report'
-        body: |
-          ## 🎯 Weekly Feed Discovery Report
-          
-          This automated PR contains the latest feed discovery results.
-          
-          **Files updated:**
-          - `feed_discovery_report.json` - Full discovery report
-          - `discovery_cache.json` - Discovery cache for faster subsequent runs
-          
-          **Next steps:**
-          1. Review the discovery report
-          2. Add promising feeds to `feeds.opml` manually
-          3. Merge this PR to keep discovery cache updated
-          
-          **Top recommendations are in the report summary.**
+        body-path: discovery_summary.md
         branch: feed-discovery
         delete-branch: true
-        
+
+    - name: Auto-merge discovery PR
+      if: steps.cpr.outputs.pull-request-number
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh pr merge ${{ steps.cpr.outputs.pull-request-number }} --squash --delete-branch
+
     - name: Upload discovery report as artifact
       uses: actions/upload-artifact@v4
       with:

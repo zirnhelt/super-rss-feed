@@ -45,7 +45,7 @@ def build_interest_query(interests_text: str) -> str:
     capturing = False
     for line in interests_text.splitlines():
         stripped = line.strip()
-        if 'PRIMARY INTERESTS' in stripped or 'SECONDARY INTERESTS' in stripped:
+        if stripped.startswith('PRIMARY INTERESTS') or stripped.startswith('SECONDARY INTERESTS'):
             capturing = True
             continue
         if capturing and (

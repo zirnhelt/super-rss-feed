@@ -2926,28 +2926,6 @@ def main():
     opml_path = sys.argv[1] if len(sys.argv) > 1 else 'feeds.opml'
     feeds = parse_opml(opml_path)
 
-    # Auto-inject high-scoring feeds from the weekly discovery report without
-    # modifying feeds.opml (which stays manually curated).
-    if os.path.exists('feed_discovery_report.json'):
-        try:
-            with open('feed_discovery_report.json') as f:
-                discovery = json.load(f)
-            opml_urls = {feed['url'] for feed in feeds}
-            threshold = discovery.get('min_score_threshold', 60)
-            injected = 0
-            for cat_data in discovery.get('categories', {}).values():
-                if not isinstance(cat_data, dict):
-                    continue
-                for rec in cat_data.get('feeds', []):
-                    if rec.get('average_score', 0) >= threshold and rec['url'] not in opml_urls:
-                        feeds.append({'url': rec['url'], 'title': rec['title'], 'html_url': rec.get('html_url', '')})
-                        opml_urls.add(rec['url'])
-                        injected += 1
-            if injected:
-                print(f"📡 Auto-injected {injected} discovered feed(s) from feed_discovery_report.json")
-        except Exception as e:
-            print(f"⚠️ Could not load feed discovery report: {e}")
-
     lookback_hours = SYSTEM['lookback_hours']
     cutoff_date = datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
     print(f"\n📥 Fetching articles from last {lookback_hours} hours...")
