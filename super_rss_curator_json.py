@@ -2952,17 +2952,26 @@ def main():
 
     scored_articles = apply_source_preferences(scored_articles)
 
-    quality_articles = [a for a in scored_articles if a.score >= LIMITS['min_claude_score']]
-    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scored_articles)} → {len(quality_articles)} articles")
+    # Haiku scrub runs BEFORE the quality gate on all articles above a low floor,
+    # so junk is removed from a clean pool before scoring thresholds and floor rescue apply.
+    # Articles below SCRUB_FLOOR are preserved for category floor rescue only.
+    SCRUB_FLOOR = 15
+    scrub_candidates = [a for a in scored_articles if a.score >= SCRUB_FLOOR]
+    scrub_below = [a for a in scored_articles if a.score < SCRUB_FLOOR]
+    print(f"\n✂️  Running headline scrub with Haiku ({len(scrub_candidates)} articles, {len(scrub_below)} below floor skipped)...")
+    scrubbed = scrub_feed_with_haiku(scrub_candidates, api_key)
+
+    # Quality filter now works on pre-scrubbed candidates
+    quality_articles = [a for a in scrubbed if a.score >= LIMITS['min_claude_score']]
+    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scrubbed)} → {len(quality_articles)} articles")
 
     # Per-category floor: rescue the top-N articles for categories under their minimum quota.
-    # Cohere Rerank produces relative scores — niche categories (homelab, science, scifi) often
-    # lose to news/local in the same batch even when their content is good, leaving them with
-    # zero new articles. This ensures each category gets at least a few candidates.
+    # Draws from the scrubbed pool (clean) plus below-floor articles so niche categories
+    # aren't starved when all their content scored below SCRUB_FLOOR.
     min_per_cat = LIMITS.get('min_per_category', {})
     if min_per_cat:
         quality_urls = {a.url_hash for a in quality_articles}
-        subthreshold = [a for a in scored_articles if a.url_hash not in quality_urls]
+        subthreshold = [a for a in scrubbed if a.url_hash not in quality_urls] + scrub_below
         quality_by_cat: Dict[str, int] = defaultdict(int)
         for a in quality_articles:
             quality_by_cat[a.category or 'news'] += 1
@@ -2978,9 +2987,6 @@ def main():
         if rescued:
             print(f"🌱 Category floors rescued {len(rescued)} additional articles")
             quality_articles.extend(rescued)
-
-    print(f"\n✂️  Running final headline scrub with Haiku ({len(quality_articles)} articles)...")
-    quality_articles = scrub_feed_with_haiku(quality_articles, api_key)
 
     # Fetch images for quality articles only (after filtering)
     print(f"🖼️  Fetching images for quality articles...")

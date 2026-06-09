@@ -266,7 +266,7 @@ def prefilter_scrub_articles(
     # Only auto-remove articles with essentially zero Cohere relevance (< 0.01).
     # The primary scorer already filtered the bottom 70%; the Haiku scrub handles
     # borderline content. A floor of 4.0 was too aggressive for niche interest queries.
-    INTEREST_FLOOR = 1.0
+    INTEREST_FLOOR = 2.5
 
     try:
         result = co.rerank(
