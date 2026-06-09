@@ -22,9 +22,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — the resource economy that defines the Cariboo and rural BC. Strong fits include: BC and Canadian forestry journalism (mill closures, lumber markets, beetle kill, harvest operations, silviculture, BCTS, old-growth policy), ranching and livestock stories (water rights, grazing management, cattle markets, drought impact on ranches), mining and resource extraction (safety, new operations, Indigenous consultation, supply chains), agriculture in rural Canada (crop insurance, grain prices, farm economics, food sovereignty), and the technology helping these industries adapt — precision forestry, AgTech, drone surveys, IoT in agriculture, mine automation, sawmill modernization, climate adaptation on working lands. Also strong fits: labor and workforce stories in resource industries, environmental stewardship within working landscapes (not pure conservation, but how ranchers/loggers manage for sustainability), and science with direct implications for forestry, agriculture, or extractive industries. Penalise heavily (score 0–20): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; pure wildlife entertainment without agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-06-09T15:39:31.507651+00:00",
+    "generated_at": "2026-06-09T20:22:19.276594+00:00",
     "article_count": 40,
-    "bonus_count": 17,
+    "bonus_count": 18,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -649,66 +649,6 @@
       "image": "https://static01.nyt.com/images/2026/06/07/business/07ST-demand-destruction-illo/07ST-demand-destruction-illo-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://www.techradar.com/computing/who-wouldnt-want-a-large-scale-industrial-polluter-sitting-in-their-backyard-california-residents-ban-data-centers-as-public-backlash-grows",
-      "url": "https://www.techradar.com/computing/who-wouldnt-want-a-large-scale-industrial-polluter-sitting-in-their-backyard-california-residents-ban-data-centers-as-public-backlash-grows",
-      "title": "[TechRadar] 'Who wouldn't want a large-scale industrial polluter sitting in their backyard?': California residents ban data centers as public backlash grows",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/kntXJzuBjvVTZvqgBeCKfN-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMonterey Park says no to data centers, as public opinion turns against AI and the infrastructure required to power it.",
-      "summary": "Monterey Park says no to data centers, as public opinion turns against AI and the infrastructure required to power it.",
-      "_excerpt": "Monterey Park says no to data centers, as public opinion turns against AI and the infrastructure required to power it.",
-      "date_published": "2026-06-04T12:37:24+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 64,
-      "_quality_score": 64,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 39,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-05T08:33:51.483490+00:00"
-      },
-      "image": "https://cdn.mos.cms.futurecdn.net/kntXJzuBjvVTZvqgBeCKfN-1280-80.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/02/out-of-control-1300-hectare-wildfire-burning-northwest-of-quesnel/",
-      "url": "https://wltribune.com/2026/06/02/out-of-control-1300-hectare-wildfire-burning-northwest-of-quesnel/",
-      "title": "[Williams Lake Tribune] Out-of-control 1,300-hectare wildfire burning northwest of Quesnel",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42469039_web1_260610-QCO-Fire_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Cariboo Regional District has issued an evacuation alert for the area </p>",
-      "summary": "Cariboo Regional District has issued an evacuation alert for the area",
-      "_excerpt": "Cariboo Regional District has issued an evacuation alert for the area",
-      "date_published": "2026-06-02T16:15:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-06-04T08:42:43.860371+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42469039_web1_260610-QCO-Fire_1.jpeg?w=1024"
-    },
-    {
       "id": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
       "url": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
       "title": "[Williams Lake Tribune] Teen presumed drowned after boating incident northeast of Quesnel",
@@ -1117,6 +1057,56 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-06-at-10.23.35-PM-1780773858.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/local-news/whistlerpemberton-rcmp-seek-assistance-in-search-for-missing-15-year-old-12386638",
+      "url": "https://www.piquenewsmagazine.com/local-news/whistlerpemberton-rcmp-seek-assistance-in-search-for-missing-15-year-old-12386638",
+      "title": "[Pique Newsmagazine] Updated: Missing 15-year-old reportedly found safe",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-sign-web.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe teen was reported missing on Saturday morning",
+      "summary": "The teen was reported missing on Saturday morning",
+      "_excerpt": "The teen was reported missing on Saturday morning",
+      "date_published": "2026-06-09T03:15:00+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-sign-web.jpg;w=960"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/3/london-activists-try-to-erect-statue-of-jailed-palestinian-leader?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/3/london-activists-try-to-erect-statue-of-jailed-palestinian-leader?traffic_source=rss",
+      "title": "[Al Jazeera English] London activists try to erect statue of jailed Palestinian leader",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780530323.jpg?resize=1648%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nActivists have tried to erect a statue of Marwan Barghouti in London’s Parliament Square, but police intervened.",
+      "summary": "Activists have tried to erect a statue of Marwan Barghouti in London’s Parliament Square, but police intervened.",
+      "_excerpt": "Activists have tried to erect a statue of Marwan Barghouti in London’s Parliament Square, but police intervened.",
+      "date_published": "2026-06-03T23:50:41+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780530323.jpg?resize=1648%2C1080&quality=80"
     },
     {
       "id": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
