@@ -20,38 +20,103 @@
       "news",
       "science"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' through a RURAL TECH AND INNOVATION lens. Strong fits include: precision forestry and remote sensing in Cariboo logging, AgTech and ranch management systems, mining automation and safety technology, farm sensors and soil monitoring, sawmill modernization and automation, drone surveys for resource management, IoT in agriculture and ranching, climate adaptation tech for working lands, workforce training for industrial tech, commodity tracking and supply chain tech, and how Cariboo resource industries adopt innovation. Prefer articles that bridge resource economy AND technology in rural/industrial contexts. Penalise heavily (score 0–20): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; wildlife encounters and nature entertainment without agricultural or working-lands relevance (a Yellowstone bear video is not a working-lands story); scientific discoveries without direct application to forestry, agriculture, or extractive industry; crime and judicial news; financial market stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — the resource economy that defines the Cariboo and rural BC. Strong fits include: BC and Canadian forestry journalism (mill closures, lumber markets, beetle kill, harvest operations, silviculture, BCTS, old-growth policy), ranching and livestock stories (water rights, grazing management, cattle markets, drought impact on ranches), mining and resource extraction (safety, new operations, Indigenous consultation, supply chains), agriculture in rural Canada (crop insurance, grain prices, farm economics, food sovereignty), and the technology helping these industries adapt — precision forestry, AgTech, drone surveys, IoT in agriculture, mine automation, sawmill modernization, climate adaptation on working lands. Also strong fits: labor and workforce stories in resource industries, environmental stewardship within working landscapes (not pure conservation, but how ranchers/loggers manage for sustainability), and science with direct implications for forestry, agriculture, or extractive industries. Penalise heavily (score 0–20): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; pure wildlife entertainment without agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-06-09T08:09:33.880871+00:00",
+    "generated_at": "2026-06-09T14:57:57.389650+00:00",
     "article_count": 40,
-    "bonus_count": 20,
+    "bonus_count": 16,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.atlasobscura.com/places/fanden-er-los-the-devil-is-loose",
-      "url": "https://www.atlasobscura.com/places/fanden-er-los-the-devil-is-loose",
-      "title": "[Atlas Obscura] ‘The Devil is Loose’ in Middelfart, Denmark",
-      "content_html": "<img src=\"https://img.atlasobscura.com/9ucOLUCcUhz0rAQ_yFnbZT5v4GTK-z6CP7hYNdXZaJU/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy8xMWNk/MDZjYS02MTA4LTQz/ZTQtYTI2YS01NWU4/YTA4ZGY0MmY0MDhh/Nzg4ZDcxYzhjYmI3/MzlfNjcwOTIwMzI0/XzkzOTg0NDYzNTY3/NzE5M183ODgxMDM4/MDg2NzQyMzI2MjA1/X24uanBn.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/87kLkFtnc3BszFCRp0eJNPxYbCiLS4B-3NuzayeBxLQ/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy8xMWNk/MDZjYS02MTA4LTQz/ZTQtYTI2YS01NWU4/YTA4ZGY0MmY0MDhh/Nzg4ZDcxYzhjYmI3/MzlfNjcwOTIwMzI0/XzkzOTg0NDYzNTY3/NzE5M183ODgxMDM4/MDg2NzQyMzI2MjA1/X24uanBn.jpg\" width=\"300\" /></p> <p>In 2012, the devil was officially let loose in Middelfart, Denmark. Local sculptor Steffan Herrik unveiled his bronze <em>Fanden er løs</em> ('The Devil is Loose') at a seafront spot that the artist nonetheless calls \"the town's ugliest.\" Herrik describes the work as a monument to the early 2000s and their spirit of chaos and uncertainty.</p>\n<p>Less a conventional devil than an unsettling chimera, the gaunt figure stands just under 5 feet tall (1.5 meters) and has a beaked, cyclopean head, branching antlers, and a single wing. Beneath it sits a large egg from which two snakes emerge, one with a smaller snake slipping from its open mouth like a tongue.</p>\n<p>The title echoes the distinctly Danish saying <em>Fanden er løs i Laksegade</em> (\"The devil is loose in Salmon Street\"), rooted in an <a href=\"https://www.atlasobscura.com/places/laksegade\">1826 Copenhagen incident</a> widely blamed on the devil himself. Whether or not Herrik had that case in mind, the connection feels natural in a Danish context.</p>\n<p>For those amused by the town's name: Middelfart derives from the old Danish <em>middel</em> (\"middle\") and <em>fart</em> (\"crossing\" or \"passage\"), referring to the narrowest point of the Little Belt strait. As for the sulfurous associations, they are purely coincidental, though perhaps not entirely unfitting, given sulfur's long reputation as the smell of the demonic.</p>",
-      "summary": "In 2012, the devil was officially let loose in Middelfart, Denmark. Local sculptor Steffan Herrik unveiled his bronze Fanden er løs ('The Devil is Loose') at a seafront spot that the artist nonetheless calls \"the town's ugliest.\" Herrik describes the work as a monument to the early 2000s and their",
-      "_excerpt": "In 2012, the devil was officially let loose in Middelfart, Denmark. Local sculptor Steffan Herrik unveiled his bronze Fanden er løs ('The Devil is Loose') at a seafront spot that the artist nonetheless calls \"the town's ugliest.\" Herrik describes the work as a monument to the early 2000s and their spirit of chaos and uncertainty. Less a conventional devil than an unsettling chimera, the gaunt figure stands just under 5 feet tall (1.5 meters) and has a beaked, cyclopean head, branching antlers, and a single wing. Beneath it sits a large egg from which two snakes emerge, one with a smaller",
-      "date_published": "2026-06-08T20:00:00+00:00",
+      "id": "https://wltribune.com/2026/06/03/canada-pumps-money-into-forestry-as-task-force-warns-of-existential-risk/",
+      "url": "https://wltribune.com/2026/06/03/canada-pumps-money-into-forestry-as-task-force-warns-of-existential-risk/",
+      "title": "[Williams Lake Tribune] Canada pumps money into forestry as task force warns of ‘existential risk’",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42472566_web1_7109trail170426-CCI-M-Cowichan-Bay-sawmill-with-loader-carrying-lumber.c.lb_.jpg?w=700\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Federal minister announces $130 million for forestry innovation, meets with provincial counterparts in B.C. </p>",
+      "summary": "Federal minister announces $130 million for forestry innovation, meets with provincial counterparts in B.C.",
+      "_excerpt": "Federal minister announces $130 million for forestry innovation, meets with provincial counterparts in B.C.",
+      "date_published": "2026-06-03T15:46:00+00:00",
       "authors": [
         {
-          "name": "Atlas Obscura",
-          "url": "https://www.atlasobscura.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 47,
-      "_quality_score": 47,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 2,
-      "_boosted_score": 54,
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 3,
+      "_boosted_score": 83,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://img.atlasobscura.com/9ucOLUCcUhz0rAQ_yFnbZT5v4GTK-z6CP7hYNdXZaJU/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy8xMWNk/MDZjYS02MTA4LTQz/ZTQtYTI2YS01NWU4/YTA4ZGY0MmY0MDhh/Nzg4ZDcxYzhjYmI3/MzlfNjcwOTIwMzI0/XzkzOTg0NDYzNTY3/NzE5M183ODgxMDM4/MDg2NzQyMzI2MjA1/X24uanBn.jpg"
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-04T08:42:43.860371+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42472566_web1_7109trail170426-CCI-M-Cowichan-Bay-sawmill-with-loader-carrying-lumber.c.lb_.jpg?w=700"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
+      "url": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
+      "title": "[My Cariboo Now] Federal action plan for forestry sector expected this week, as report warns of looming \"existential risk\" : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-08T09:13:09.109671+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 22,
+      "_final_score": 22,
+      "_keyword_matches": 2,
+      "_boosted_score": 65,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T09:14:59.750312+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
+      "url": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
+      "title": "[Al Jazeera English] Kenyan graduates turn to AI tools for farming as jobs dry up",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYoung farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "summary": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "_excerpt": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "date_published": "2026-06-07T04:14:27+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 2,
+      "_boosted_score": 62,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T09:14:59.750312+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440"
     },
     {
       "id": "https://wltribune.com/2026/06/08/b-c-funds-14-forest-resiliency-projects-in-cariboo-chilcotin/",
@@ -77,6 +142,236 @@
       "_source_category": "local",
       "_is_bonus": false,
       "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507065_web1_231109-WLT-Old-Growth-print-quesnellake_1.jpg?w=1024"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
+      "url": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
+      "title": "[BC Gov News] Sharing local farm harvests through coupon program",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
+      "summary": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
+      "_excerpt": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
+      "date_published": "2026-06-08T16:30:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "ai_score": 81,
+      "_quality_score": 81,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T16:37:39.911223+00:00"
+      },
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/03/us/bakersfield-chase-bank-bomb-hostage-situation.html",
+      "url": "https://www.nytimes.com/2026/06/03/us/bakersfield-chase-bank-bomb-hostage-situation.html",
+      "title": "[NYT Top Stories] FBI Kills Suspect in Hostage Situation at Building With Bank in Bakersfield, California",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/02/multimedia/02xp-bakersfield-lmkc/02xp-bakersfield-lmkc-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
+      "summary": "The authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
+      "_excerpt": "The authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
+      "date_published": "2026-06-03T15:36:53+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 81,
+      "_quality_score": 81,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-03T17:29:44.196762+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/02/multimedia/02xp-bakersfield-lmkc/02xp-bakersfield-lmkc-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/huge-fire-erupts-at-honda-warehouse-in-barcelona?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/huge-fire-erupts-at-honda-warehouse-in-barcelona?traffic_source=rss",
+      "title": "[Al Jazeera English] Huge fire erupts at Honda warehouse in Barcelona",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Honda-warehouse-fire-1780684675.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAround 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
+      "summary": "Around 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
+      "_excerpt": "Around 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
+      "date_published": "2026-06-05T18:39:12+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Honda-warehouse-fire-1780684675.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
+      "url": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
+      "title": "[Quartz] Canada is launching a $360 million fund to take equity stakes in homegrown AI firms",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "summary": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "_excerpt": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "date_published": "2026-06-05T14:20:33+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T09:14:59.750312+00:00"
+      },
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg"
+    },
+    {
+      "id": "https://qz.com/pace-ceo-jamie-cuffe-46-million-series-b",
+      "url": "https://qz.com/pace-ceo-jamie-cuffe-46-million-series-b",
+      "title": "[Quartz] Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Pace%2520CEO%2520Jamie%2520Cuffe%2520Outlines%2520Next%2520Move%2520After%2520$46%2520Million%2520Series%2520B%2520Raise%2520mp4.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
+      "summary": "Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
+      "_excerpt": "Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
+      "date_published": "2026-06-03T13:50:09+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-03T17:29:44.196762+00:00"
+      },
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Pace%2520CEO%2520Jamie%2520Cuffe%2520Outlines%2520Next%2520Move%2520After%2520$46%2520Million%2520Series%2520B%2520Raise%2520mp4.mp4"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
+      "url": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
+      "title": "[NYT Top Stories] A.I. Companies Don’t Know What to Do With Alex Bores",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOutside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
+      "summary": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
+      "_excerpt": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
+      "date_published": "2026-06-06T07:00:07+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T09:14:59.750312+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/7/israeli-settlers-threaten-to-kill-palestinian-farmer-and-harass-sheep?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/7/israeli-settlers-threaten-to-kill-palestinian-farmer-and-harass-sheep?traffic_source=rss",
+      "title": "[Al Jazeera English] Israeli settlers threaten to kill Palestinian farmer and harass sheep",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780829540.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Palestinian farmer recounts the moment a large group of Israeli settlers hit him and harassed his livestock.",
+      "summary": "A Palestinian farmer recounts the moment a large group of Israeli settlers hit him and harassed his livestock.",
+      "_excerpt": "A Palestinian farmer recounts the moment a large group of Israeli settlers hit him and harassed his livestock.",
+      "date_published": "2026-06-07T10:52:50+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780829540.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/features/2026/6/3/israeli-settlers-are-driving-palestinian-shepherds-from-their-grazing-lands?traffic_source=rss",
+      "url": "https://www.aljazeera.com/features/2026/6/3/israeli-settlers-are-driving-palestinian-shepherds-from-their-grazing-lands?traffic_source=rss",
+      "title": "[Al Jazeera English] Israeli settlers are driving Palestinian shepherds from their grazing lands",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/original-E022BAAD-9F9E-44C0-8800-6CB17FD2A7C1-1-1780414557.jpg?resize=1200%2C630\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSettler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
+      "summary": "Settler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
+      "_excerpt": "Settler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
+      "date_published": "2026-06-03T16:39:55+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-03T17:29:44.196762+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/original-E022BAAD-9F9E-44C0-8800-6CB17FD2A7C1-1-1780414557.jpg?resize=1200%2C630"
     },
     {
       "id": "https://qz.com/pointfive-gal-ben-david-60-million-series-b-plans",
@@ -129,6 +424,66 @@
       "image": "https://i.insider.com/6a268ca02e5a80cfe050458e?format=jpeg"
     },
     {
+      "id": "https://www.aljazeera.com/news/2026/6/7/giant-crowds-greet-pope-leo-at-public-mass-in-madrid-spain?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/7/giant-crowds-greet-pope-leo-at-public-mass-in-madrid-spain?traffic_source=rss",
+      "title": "[Al Jazeera English] Giant crowds greet Pope Leo at public mass in Madrid, Spain",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a253e828de83-1780825730.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pontiff praises Madrid as a beacon of inclusion as about 1.2 million people gather for Sunday mass.",
+      "summary": "The pontiff praises Madrid as a beacon of inclusion as about 1.2 million people gather for Sunday mass.",
+      "_excerpt": "The pontiff praises Madrid as a beacon of inclusion as about 1.2 million people gather for Sunday mass.",
+      "date_published": "2026-06-07T12:00:16+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-07T14:29:46.936782+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a253e828de83-1780825730.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://thenarwhal.ca/lorneville-ai-data-centre/?utm_source=rss",
+      "url": "https://thenarwhal.ca/lorneville-ai-data-centre/?utm_source=rss",
+      "title": "[The Narwhal] In New Brunswick, residents battle the government over a planned AI data centre",
+      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/06/NB-Lorneville-Data-Centre-Donovan-12-WEB-1400x934.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe proposed data centre in Lorneville, N.B., would raze wetlands and old-growth forest. Its on-site gas plant and additional demand on the power grid would make it one of the province’s largest emitters",
+      "summary": "The proposed data centre in Lorneville, N.B., would raze wetlands and old-growth forest. Its on-site gas plant and additional demand on the power grid would make it one of the province’s largest emitters",
+      "_excerpt": "The proposed data centre in Lorneville, N.B., would raze wetlands and old-growth forest. Its on-site gas plant and additional demand on the power grid would make it one of the province’s largest emitters",
+      "date_published": "2026-06-04T11:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Narwhal",
+          "url": "https://thenarwhal.ca"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-07T08:09:57.534268+00:00"
+      },
+      "image": "https://thenarwhal.ca/wp-content/uploads/2026/06/NB-Lorneville-Data-Centre-Donovan-12-WEB-1400x934.jpg"
+    },
+    {
       "id": "https://www.businessinsider.com/san-francisco-housing-market-real-estate-home-prices-ai-boom-2026-6",
       "url": "https://www.businessinsider.com/san-francisco-housing-market-real-estate-home-prices-ai-boom-2026-6",
       "title": "[Business Insider] San Francisco homebuyers have officially lost their minds",
@@ -179,6 +534,96 @@
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2223598507.jpg"
     },
     {
+      "id": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
+      "url": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
+      "title": "[New Atlas] Breakthrough drug nearly doubles survival rate for advanced pancreatic cancer",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"artist's impression of a pancreas\" src=\"https://assets.newatlas.com/dims4/default/8e61078/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg\" /><p>Christopher Lieu, University of Colorado Anschutz/ The Conversation</p><p><a href=\"https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/cancer/\">Cancer</a>, <a href=\"https://refractor.io/disease/\">Illnesses and conditions</a>, <a href=\"https://refractor.io/medical/\">Body and Mind</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/pancreatic-cancer/\" rel=\"tag\">Pancreatic cancer</a>, <a href=\"https://newatlas.com/tag/drugs/\" rel=\"tag\">Drugs</a>, <a href=\"https://newatlas.com/tag/pancreas/\" rel=\"tag\">Pancreas</a>, <a href=\"https://newatlas.com/tag/pharmaceuticals/\" rel=\"tag\">Pharmaceuticals</a></p>",
+      "summary": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
+      "_excerpt": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
+      "date_published": "2026-06-03T06:48:59+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T09:14:59.750312+00:00"
+      },
+      "image": "https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&rf.image_optimisation=0"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/economy-law-politics/bc-public-mining-company-fined-15k-for-fraudulent-technical-report-12383130",
+      "url": "https://www.piquenewsmagazine.com/economy-law-politics/bc-public-mining-company-fined-15k-for-fraudulent-technical-report-12383130",
+      "title": "[Pique Newsmagazine] B.C. public mining company fined $15K for fraudulent technical report",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/biv/bcsc-rob-kruyt-49.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRegulator finds miner filed a technical report with a falsified electronic signature of a professional engineer",
+      "summary": "Regulator finds miner filed a technical report with a falsified electronic signature of a professional engineer",
+      "_excerpt": "Regulator finds miner filed a technical report with a falsified electronic signature of a professional engineer",
+      "date_published": "2026-06-06T02:00:00+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality_score": 67,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-07T08:09:57.534268+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/biv/bcsc-rob-kruyt-49.jpg;w=960"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html",
+      "url": "https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html",
+      "title": "[Boing Boing] Scientists use yeast from body of Ötzi the Iceman to make \"very very good\" sourdough",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html\" rel=\"nofollow\" title=\"Scientists use yeast from body of Ötzi the Iceman to make &quot;very very good&quot; sourdough\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"918\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"800\" /></a><p>Yeast survived for millenia inside a mummy, and can still be used to make bread.</p>\n<p>About 5300 years ago, a Tyrolean man died after being shot in the shoulder with an arrow. His body was so well-preserved in the Alpine ice on the border of Italy and Austria that it was initially believed to be that of a recently deceased hiker. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html\">Scientists use yeast from body of Ötzi the Iceman to make &quot;very very good&quot; sourdough</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "Yeast survived for millenia inside a mummy, and can still be used to make bread. About 5300 years ago, a Tyrolean man died after being shot in the shoulder with an arrow. His body was so well-preserved in the Alpine ice on the border of Italy and Austria that it was initially believed to be that of",
+      "_excerpt": "Yeast survived for millenia inside a mummy, and can still be used to make bread. About 5300 years ago, a Tyrolean man died after being shot in the shoulder with an arrow. His body was so well-preserved in the Alpine ice on the border of Italy and Austria that it was initially believed to be that of a recently deceased hiker. — Read the rest The post Scientists use yeast from body of Ötzi the Iceman to make \"very very good\" sourdough appeared first on Boing Boing .",
+      "date_published": "2026-06-04T16:22:41+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-05T08:33:51.483490+00:00"
+      },
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&quality=60&ssl=1"
+    },
+    {
       "id": "https://www.businessinsider.com/unframe-raises-50-million-to-boost-enterprise-ai-pitch-deck-2026-6",
       "url": "https://www.businessinsider.com/unframe-raises-50-million-to-boost-enterprise-ai-pitch-deck-2026-6",
       "title": "[Business Insider] Read the pitch deck startup Unframe used to raise $50 million to help businesses deploy AI",
@@ -204,329 +649,84 @@
       "image": "https://i.insider.com/6a1dd9e2b4fb977f35982f67?format=jpeg"
     },
     {
-      "id": "https://www.engadget.com/2189455/nintendo-will-pay-a-dollar40-million-fine-for-faulty-joy-cons/",
-      "url": "https://www.engadget.com/2189455/nintendo-will-pay-a-dollar40-million-fine-for-faulty-joy-cons/",
-      "title": "[Engadget] Nintendo will pay a $40 million fine for faulty Joy-Cons",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/nintendo-will-pay-a-40-million-fine-for-faulty-joy-cons/l-intro-1780929631.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrench authorities have fined Nintendo around $40m over faulty Joy-Cons.",
-      "summary": "French authorities have fined Nintendo around $40m over faulty Joy-Cons.",
-      "_excerpt": "French authorities have fined Nintendo around $40m over faulty Joy-Cons.",
-      "date_published": "2026-06-08T14:41:32+00:00",
+      "id": "https://flowingdata.com/2026/06/09/melting-glaciers-in-the-alps/",
+      "url": "https://flowingdata.com/2026/06/09/melting-glaciers-in-the-alps/",
+      "title": "[FlowingData] Melting glaciers in the Alps",
+      "content_html": "<img src=\"https://flowingdata.com/wp-content/uploads/2026/06/melting-glaciers.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><a href=\"https://flowingdata.com/2026/06/09/melting-glaciers-in-the-alps/\"><img src=\"https://flowingdata.com/wp-content/uploads/2026/06/melting-glaciers-750x509.png\" style=\"height: auto;\" /></a></p>For Bloomberg, Laura Millan, Kyle Kim, and Armand Emamdjomeh mapped the projected extent&#8230;<p><strong>Tags:</strong> <a href=\"https://flowingdata.com/tag/bloomberg/\" rel=\"tag\">Bloomberg</a>, <a href=\"https://flowingdata.com/tag/glaciers/\" rel=\"tag\">glaciers</a>, <a href=\"https://flowingdata.com/tag/global-warming/\" rel=\"tag\">global warming</a>, <a href=\"https://flowingdata.com/tag/melting/\" rel=\"tag\">melting</a></p>",
+      "summary": "For Bloomberg, Laura Millan, Kyle Kim, and Armand Emamdjomeh mapped the projected extent… Tags: Bloomberg , glaciers , global warming , melting",
+      "_excerpt": "For Bloomberg, Laura Millan, Kyle Kim, and Armand Emamdjomeh mapped the projected extent… Tags: Bloomberg , glaciers , global warming , melting",
+      "date_published": "2026-06-09T09:00:05+00:00",
       "authors": [
         {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
+          "name": "FlowingData",
+          "url": "https://flowingdata.com"
         }
       ],
-      "ai_score": 63,
-      "_quality_score": 63,
+      "ai_score": 67,
+      "_quality_score": 67,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 38,
+      "_boosted_score": 40,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.engadget.com/img/gallery/nintendo-will-pay-a-40-million-fine-for-faulty-joy-cons/l-intro-1780929631.jpg"
+      "image": "https://flowingdata.com/wp-content/uploads/2026/06/melting-glaciers.png"
     },
     {
-      "id": "https://www.businessinsider.com/wordsmith-ai-for-corporate-lawyers-70-million-series-b-2026-6",
-      "url": "https://www.businessinsider.com/wordsmith-ai-for-corporate-lawyers-70-million-series-b-2026-6",
-      "title": "[Business Insider] An ex-lawyer has raised $70 million from VCs to take work away from law firms",
-      "content_html": "<img src=\"https://i.insider.com/6a1f1a5d2ab5f9757add81d7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWordsmith, a startup building AI software for corporate legal teams, has raised $70 million  in funding from Index Ventures and other backers.",
-      "summary": "Wordsmith, a startup building AI software for corporate legal teams, has raised $70 million in funding from Index Ventures and other backers.",
-      "_excerpt": "Wordsmith, a startup building AI software for corporate legal teams, has raised $70 million in funding from Index Ventures and other backers.",
-      "date_published": "2026-06-03T09:30:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 59,
-      "_quality_score": 59,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/6a1f1a5d2ab5f9757add81d7?format=jpeg"
-    },
-    {
-      "id": "https://thenarwhal.ca/yukon-mining-issues-explainer/?utm_source=rss",
-      "url": "https://thenarwhal.ca/yukon-mining-issues-explainer/?utm_source=rss",
-      "title": "[The Narwhal] Despite soaring gold prices, the Yukon can’t cash in",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/06/a017110-v8-800x546.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAmid a critical minerals push, mining laws dating back to the Klondike Gold Rush limit government profits and neglect Indigenous Rights",
-      "summary": "Amid a critical minerals push, mining laws dating back to the Klondike Gold Rush limit government profits and neglect Indigenous Rights",
-      "_excerpt": "Amid a critical minerals push, mining laws dating back to the Klondike Gold Rush limit government profits and neglect Indigenous Rights",
-      "date_published": "2026-06-08T15:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/06/a017110-v8-800x546.jpg"
-    },
-    {
-      "id": "https://qz.com/trader-joes-facta-settlement-claim-deadline-060826",
-      "url": "https://qz.com/trader-joes-facta-settlement-claim-deadline-060826",
-      "title": "[Quartz] Trader Joe's shoppers are running out of time to claim their cut of a $7.4 million settlement",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Trader_Joe&#x27;s.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA class action suit alleged the grocery chain printed too many credit card digits on receipts, putting customers at risk of identity theft",
-      "summary": "A class action suit alleged the grocery chain printed too many credit card digits on receipts, putting customers at risk of identity theft",
-      "_excerpt": "A class action suit alleged the grocery chain printed too many credit card digits on receipts, putting customers at risk of identity theft",
-      "date_published": "2026-06-08T13:00:38+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Trader_Joe's.jpeg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/some-places-carry-the-costs-and-other-places-capture-the-benefits-un-warns-that-ai-is-stripping-natural-resources-in-exchange-for-making-the-rich-richer",
-      "url": "https://www.techradar.com/pro/some-places-carry-the-costs-and-other-places-capture-the-benefits-un-warns-that-ai-is-stripping-natural-resources-in-exchange-for-making-the-rich-richer",
-      "title": "[TechRadar] 'Some places carry the costs and other places capture the benefits': UN warns that AI is stripping natural resources in exchange for making the rich richer",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/h8PtKoPckFsFwU8xPtXRhk-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew United Nations report demands better water and land use reporting, stronger governance to prevent focusing impacts on vulnerable communities.",
-      "summary": "New United Nations report demands better water and land use reporting, stronger governance to prevent focusing impacts on vulnerable communities.",
-      "_excerpt": "New United Nations report demands better water and land use reporting, stronger governance to prevent focusing impacts on vulnerable communities.",
-      "date_published": "2026-06-08T13:10:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 56,
-      "_quality_score": 56,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/h8PtKoPckFsFwU8xPtXRhk-1280-80.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/02/business/media/martin-scorsese-artificial-intelligence.html",
-      "url": "https://www.nytimes.com/2026/06/02/business/media/martin-scorsese-artificial-intelligence.html",
-      "title": "[NYT Business] Martin Scorsese Is Embracing A.I.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/02/multimedia/02biz-scorsese-ai-cpkz/02biz-scorsese-ai-cpkz-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn a sign of Hollywood’s softening stance on artificial intelligence, the cinema icon is backing Black Forest Labs, an image and video generation start-up.",
-      "summary": "In a sign of Hollywood’s softening stance on artificial intelligence, the cinema icon is backing Black Forest Labs, an image and video generation start-up.",
-      "_excerpt": "In a sign of Hollywood’s softening stance on artificial intelligence, the cinema icon is backing Black Forest Labs, an image and video generation start-up.",
-      "date_published": "2026-06-02T16:38:05+00:00",
+      "id": "https://www.nytimes.com/2026/06/07/business/07biz-demand-destruction-iran-war.html",
+      "url": "https://www.nytimes.com/2026/06/07/business/07biz-demand-destruction-iran-war.html",
+      "title": "[NYT Business] As Oil Prices Spike, Talk of ‘Demand Destruction’ Sets In",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/07/business/07ST-demand-destruction-illo/07ST-demand-destruction-illo-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe decades-old term refers to the sustained loss of demand for a commodity, caused by high prices.",
+      "summary": "The decades-old term refers to the sustained loss of demand for a commodity, caused by high prices.",
+      "_excerpt": "The decades-old term refers to the sustained loss of demand for a commodity, caused by high prices.",
+      "date_published": "2026-06-07T09:01:01+00:00",
       "authors": [
         {
           "name": "NYT Business",
           "url": "https://www.nytimes.com/section/business"
         }
       ],
-      "ai_score": 54,
-      "_quality_score": 54,
+      "ai_score": 65,
+      "_quality_score": 65,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 36,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/06/02/multimedia/02biz-scorsese-ai-cpkz/02biz-scorsese-ai-cpkz-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/8/eu-planning-to-add-to-1-5-trillion-sanctions-hit-on-russia?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/8/eu-planning-to-add-to-1-5-trillion-sanctions-hit-on-russia?traffic_source=rss",
-      "title": "[Al Jazeera English] EU planning to add to $1.5 trillion sanctions hit on Russia",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-08T101839Z_2097725565_RC2MPLA2T4BL_RTRMADP_3_EU-DEFENCE-MINISTERS-1780920556.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew proposed listings target Russia&#039;s &#039;military industrial complex, human rights violators and propagandists&#039;.",
-      "summary": "New proposed listings target Russia's 'military industrial complex, human rights violators and propagandists'.",
-      "_excerpt": "New proposed listings target Russia's 'military industrial complex, human rights violators and propagandists'.",
-      "date_published": "2026-06-08T21:25:10+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
+      "_boosted_score": 39,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-08T101839Z_2097725565_RC2MPLA2T4BL_RTRMADP_3_EU-DEFENCE-MINISTERS-1780920556.jpg?resize=1920%2C1440"
+      "image": "https://static01.nyt.com/images/2026/06/07/business/07ST-demand-destruction-illo/07ST-demand-destruction-illo-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://newatlas.com/computers/philips-24b2d5300-dual-screen-monitor/",
-      "url": "https://newatlas.com/computers/philips-24b2d5300-dual-screen-monitor/",
-      "title": "[New Atlas] Dual-screen monitor can show two sides of the same story",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/84bc316/2147483647/strip/true/crop/2325x1221+0+17/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fcb%2Ffd%2F7ccf08344590b0a020461d892569%2Fdual.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Each screen can operate independently for two users sharing one display unit to save space, or the main screen (A) can display full information while the second screen (B) shows cloned information for customer facing\" src=\"https://assets.newatlas.com/dims4/default/a9c8c63/2147483647/strip/true/crop/2325x1254+0+0/resize/1440x777!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fcb%2Ffd%2F7ccf08344590b0a020461d892569%2Fdual.jpg\" /><p>Rather than has folks on customer-facing or collaborative setups having to constantly swivel a monitor around for people on the other side of the desk, Philips has launched a dual-sided business monitor with a Full HD screen front and back.</p><p><a href=\"https://newatlas.com/computers/philips-24b2d5300-dual-screen-monitor/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/computers/\">Computing</a>, <a href=\"https://newatlas.com/consumer-tech/\">Consumer Tech</a>, <a href=\"https://newatlas.com/technology/\">Technology</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/philips/\" rel=\"tag\">Philips</a>, <a href=\"https://newatlas.com/tag/monitor/\" rel=\"tag\">Monitor</a>, <a href=\"https://newatlas.com/tag/display/\" rel=\"tag\">Display</a>, <a href=\"https://newatlas.com/tag/screens/\" rel=\"tag\">Screens</a></p>",
-      "summary": "Rather than has folks on customer-facing or collaborative setups having to constantly swivel a monitor around for people on the other side of the desk, Philips has launched a dual-sided business monitor with a Full HD screen front and back. Continue Reading Category: Computing , Consumer Tech ,",
-      "_excerpt": "Rather than has folks on customer-facing or collaborative setups having to constantly swivel a monitor around for people on the other side of the desk, Philips has launched a dual-sided business monitor with a Full HD screen front and back. Continue Reading Category: Computing , Consumer Tech , Technology Tags: Philips , Monitor , Display , Screens",
-      "date_published": "2026-06-08T11:49:42+00:00",
+      "id": "https://wltribune.com/2026/06/02/out-of-control-1300-hectare-wildfire-burning-northwest-of-quesnel/",
+      "url": "https://wltribune.com/2026/06/02/out-of-control-1300-hectare-wildfire-burning-northwest-of-quesnel/",
+      "title": "[Williams Lake Tribune] Out-of-control 1,300-hectare wildfire burning northwest of Quesnel",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42469039_web1_260610-QCO-Fire_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Cariboo Regional District has issued an evacuation alert for the area </p>",
+      "summary": "Cariboo Regional District has issued an evacuation alert for the area",
+      "_excerpt": "Cariboo Regional District has issued an evacuation alert for the area",
+      "date_published": "2026-06-02T16:15:00+00:00",
       "authors": [
         {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/84bc316/2147483647/strip/true/crop/2325x1221+0+17/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fcb%2Ffd%2F7ccf08344590b0a020461d892569%2Fdual.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.businessinsider.com/cancel-student-debt-stop-treasury-transfer-default-debt-collections-borrowers-2026-6",
-      "url": "https://www.businessinsider.com/cancel-student-debt-stop-treasury-transfer-default-debt-collections-borrowers-2026-6",
-      "title": "[Business Insider] Trump faces renewed push to cancel student debt for eligible borrowers and stop the transfer of accounts to the Treasury",
-      "content_html": "<img src=\"https://i.insider.com/6a22d02bb4fb977f35984ba5?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDemocratic lawmakers called on the Education Department to enact student-debt relief for millions of borrowers while defaults are at a record high.",
-      "summary": "Democratic lawmakers called on the Education Department to enact student-debt relief for millions of borrowers while defaults are at a record high.",
-      "_excerpt": "Democratic lawmakers called on the Education Department to enact student-debt relief for millions of borrowers while defaults are at a record high.",
-      "date_published": "2026-06-08T09:02:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 51,
-      "_quality_score": 51,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/6a22d02bb4fb977f35984ba5?format=jpeg"
-    },
-    {
-      "id": "https://newatlas.com/motorcycles/royal-enfield-art-deco-streamliner/",
-      "url": "https://newatlas.com/motorcycles/royal-enfield-art-deco-streamliner/",
-      "title": "[New Atlas] Guess which bike hides beneath this 3.9-meter-long art deco streamliner",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/f660f8f/2147483647/strip/true/crop/1490x782+0+67/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fbd%2Fe7%2Fb296c3fc4322b9e882a321360084%2Froyal-enfield-shotgun-650-kingston-custom.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Would you believe me if I said that's a Royal Enfield?\" src=\"https://assets.newatlas.com/dims4/default/15a8335/2147483647/strip/true/crop/1490x916+0+0/resize/1440x885!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fbd%2Fe7%2Fb296c3fc4322b9e882a321360084%2Froyal-enfield-shotgun-650-kingston-custom.jpg\" /><p>Royal Enfields are notoriously good at being the lab rat for all kind of customization. In fact, its Shotgun 650 was itself ‘inspired by custom’ per the company… and that bike is exactly what serves as the donor heart of this gorgeous one-off creation.</p><p><a href=\"https://newatlas.com/motorcycles/royal-enfield-art-deco-streamliner/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/motorcycles/\">Motorcycles</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/royal-enfield/\" rel=\"tag\">Royal Enfield</a>, <a href=\"https://newatlas.com/tag/custom-bikes/\" rel=\"tag\">Custom Bikes</a>, <a href=\"https://newatlas.com/tag/custom/\" rel=\"tag\">Custom</a>, <a href=\"https://newatlas.com/tag/retro/\" rel=\"tag\">Retro</a>, <a href=\"https://newatlas.com/tag/streamliner/\" rel=\"tag\">Streamliner</a></p>",
-      "summary": "Royal Enfields are notoriously good at being the lab rat for all kind of customization. In fact, its Shotgun 650 was itself ‘inspired by custom’ per the company… and that bike is exactly what serves as the donor heart of this gorgeous one-off creation. Continue Reading Category: Motorcycles ,",
-      "_excerpt": "Royal Enfields are notoriously good at being the lab rat for all kind of customization. In fact, its Shotgun 650 was itself ‘inspired by custom’ per the company… and that bike is exactly what serves as the donor heart of this gorgeous one-off creation. Continue Reading Category: Motorcycles , Transport Tags: Royal Enfield , Custom Bikes , Custom , Retro , Streamliner",
-      "date_published": "2026-06-06T06:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/f660f8f/2147483647/strip/true/crop/1490x782+0+67/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fbd%2Fe7%2Fb296c3fc4322b9e882a321360084%2Froyal-enfield-shotgun-650-kingston-custom.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.cbc.ca/news/entertainment/obit-anthony-head-9.7224986?cmp=rss",
-      "url": "https://www.cbc.ca/news/entertainment/obit-anthony-head-9.7224986?cmp=rss",
-      "title": "[CBC Arts] British actor Anthony Head, Giles in TV's Buffy the Vampire Slayer, dead at 72",
-      "content_html": "<img src=\"https://i.cbc.ca/ais/1a6689e5-c6bd-4770-b920-c8c198865949,1780675849501/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C421%2C2968%2C1669%29%3BResize%3D620\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<img alt=\"A portrait of a smiling older man in a dark blazer and white shirt opened at the neckline.\" height=\"349\" src=\"https://i.cbc.ca/ais/1a6689e5-c6bd-4770-b920-c8c198865949,1780675849501/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C421%2C2968%2C1669%29%3BResize%3D%28620%29\" title=\"SAN DIEGO, CA - JULY 25:  Actor Anthony Head attends the &quot;Dominion&quot; Press Line during Comic-Con International 2014 at Hilton Bayfront on July 25, 2014 in San Diego, California.  (Photo by Jason Kempin/Getty Images)\" width=\"620\" /><p>Anthony Head, the suave, smooth-voiced British actor known for roles in TV's Buffy the Vampire Slayer and Ted Lasso, has died, his family said Friday. He was 72.</p>",
-      "summary": "Anthony Head, the suave, smooth-voiced British actor known for roles in TV's Buffy the Vampire Slayer and Ted Lasso, has died, his family said Friday. He was 72.",
-      "_excerpt": "Anthony Head, the suave, smooth-voiced British actor known for roles in TV's Buffy the Vampire Slayer and Ted Lasso, has died, his family said Friday. He was 72.",
-      "date_published": "2026-06-05T16:19:30+00:00",
-      "authors": [
-        {
-          "name": "CBC Arts",
-          "url": "https://www.cbc.ca/arts"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.cbc.ca/ais/1a6689e5-c6bd-4770-b920-c8c198865949,1780675849501/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C421%2C2968%2C1669%29%3BResize%3D620"
-    },
-    {
-      "id": "https://www.cbc.ca/news/entertainment/hasbro-ai-characters-9.7223872?cmp=rss",
-      "url": "https://www.cbc.ca/news/entertainment/hasbro-ai-characters-9.7223872?cmp=rss",
-      "title": "[CBC Arts] Hasbro releases AI versions of its iconic characters, including Transformers",
-      "content_html": "<img src=\"https://i.cbc.ca/ais/4a6d3aca-22c2-446f-adb4-ccac7d502425,1780604836409/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C169%2C3247%2C1826%29%3BResize%3D620\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<img alt=\"A statue of a giant mechanical robot against a backdrop of trees.\" height=\"349\" src=\"https://i.cbc.ca/ais/4a6d3aca-22c2-446f-adb4-ccac7d502425,1780604836409/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C169%2C3247%2C1826%29%3BResize%3D%28620%29\" title=\"A statue of Optimus Prime at Leicester Square in London, England on May 26, 2023. The Autobot leader will now also come in artificial intelligence form, along with 11 other characters from Hasbro.\" width=\"620\" /><p>Optimus Prime and Megatron just became robots in more than one sense. That's because Hasbro, the American toy and games giant, released artificial intelligence versions of 12 popular characters — a move experts say could bring potential risks to kids along with the fun.</p>",
-      "summary": "Optimus Prime and Megatron just became robots in more than one sense. That's because Hasbro, the American toy and games giant, released artificial intelligence versions of 12 popular characters — a move experts say could bring potential risks to kids along with the fun.",
-      "_excerpt": "Optimus Prime and Megatron just became robots in more than one sense. That's because Hasbro, the American toy and games giant, released artificial intelligence versions of 12 popular characters — a move experts say could bring potential risks to kids along with the fun.",
-      "date_published": "2026-06-04T22:31:59+00:00",
-      "authors": [
-        {
-          "name": "CBC Arts",
-          "url": "https://www.cbc.ca/arts"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://i.cbc.ca/ais/4a6d3aca-22c2-446f-adb4-ccac7d502425,1780604836409/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C169%2C3247%2C1826%29%3BResize%3D620"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/4/monsoon-rain-reaches-kerala-3-days-late-but-on-time-to-save-indian-harvests?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/4/monsoon-rain-reaches-kerala-3-days-late-but-on-time-to-save-indian-harvests?traffic_source=rss",
-      "title": "[Al Jazeera English] Monsoon rain reaches Kerala 3 days late but on time to save Indian harvests",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T075503Z_1773571095_RC2DKGAWRJVT_RTRMADP_3_INDIA-MONSOON-1780560317.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe monsoon rains are essential for driving India&#039;s $4 trillion economy.",
-      "summary": "The monsoon rains are essential for driving India's $4 trillion economy.",
-      "_excerpt": "The monsoon rains are essential for driving India's $4 trillion economy.",
-      "date_published": "2026-06-04T11:10:33+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 34,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T075503Z_1773571095_RC2DKGAWRJVT_RTRMADP_3_INDIA-MONSOON-1780560317.jpg?resize=1920%2C1440"
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 22,
+      "_final_score": 22,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-04T08:42:43.860371+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42469039_web1_260610-QCO-Fire_1.jpeg?w=1024"
     },
     {
       "id": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
@@ -544,8 +744,8 @@
       ],
       "ai_score": 100,
       "_quality_score": 100,
-      "_theme_score": 45,
-      "_final_score": 45,
+      "_theme_score": 11,
+      "_final_score": 11,
       "_keyword_matches": 0,
       "_boosted_score": 30,
       "_category": "local",
@@ -554,38 +754,103 @@
       "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024"
     },
     {
-      "id": "https://wltribune.com/2026/06/08/bella-coola-residents-raise-environmental-concerns-about-area-hydro-proposal/",
-      "url": "https://wltribune.com/2026/06/08/bella-coola-residents-raise-environmental-concerns-about-area-hydro-proposal/",
-      "title": "[Williams Lake Tribune] Bella Coola residents raise environmental concerns about area hydro proposal",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42482589_web1_260611-WLT-Banana-lake-hydro_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProject faces backlash from residents in Bella Coola area",
-      "summary": "Project faces backlash from residents in Bella Coola area",
-      "_excerpt": "Project faces backlash from residents in Bella Coola area",
-      "date_published": "2026-06-09T06:10:52.941048+00:00",
+      "id": "https://wltribune.com/2026/06/03/williams-lake-tru-graduates-celebrate-special-milestone/",
+      "url": "https://wltribune.com/2026/06/03/williams-lake-tru-graduates-celebrate-special-milestone/",
+      "title": "[Williams Lake Tribune] Williams Lake TRU graduates celebrate special milestone",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42441189_web1_260604-WLT-2026-TRU-Commencement-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
+      "summary": "3 MIN READ",
+      "_excerpt": "3 MIN READ",
+      "date_published": "2026-06-03T17:28:17.763548+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 91,
-      "_quality_score": 91,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 11,
+      "_final_score": 11,
       "_keyword_matches": 0,
-      "_boosted_score": 27,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-04T08:42:43.860371+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42441189_web1_260604-WLT-2026-TRU-Commencement-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/03/sentence-upheld-for-man-guilty-of-stabbing-b-c-cop/",
+      "url": "https://wltribune.com/2026/06/03/sentence-upheld-for-man-guilty-of-stabbing-b-c-cop/",
+      "title": "[Williams Lake Tribune] Sentence upheld for man guilty of stabbing B.C. cop",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479587_web1_20320697_web1_KelownaCourt1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Richard McCrae had his appeal dismissed on June 2 </p>",
+      "summary": "Richard McCrae had his appeal dismissed on June 2",
+      "_excerpt": "Richard McCrae had his appeal dismissed on June 2",
+      "date_published": "2026-06-03T15:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 96,
+      "_quality_score": 96,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 28,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42482589_web1_260611-WLT-Banana-lake-hydro_1.jpg?w=1024"
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-04T08:42:43.860371+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479587_web1_20320697_web1_KelownaCourt1.jpg?w=1024"
     },
     {
-      "id": "https://www.mycariboonow.com/314003/news/education/school-district-28/quesnel-school-district-hires-new-secretary-treasurer/",
-      "url": "https://www.mycariboonow.com/314003/news/education/school-district-28/quesnel-school-district-hires-new-secretary-treasurer/",
-      "title": "[My Cariboo Now] Quesnel School District hires new Secretary-Treasurer : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2016/05/quesnel-school-district-office.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "id": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
+      "url": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
+      "title": "[NYT Top Stories] From Cow-Milking Robots to Weed-Zapping Lasers, Farmers Are Embracing A.I.",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe asked three farmers to tell us how new technology is revolutionizing the way they work.",
+      "summary": "We asked three farmers to tell us how new technology is revolutionizing the way they work.",
+      "_excerpt": "We asked three farmers to tell us how new technology is revolutionizing the way they work.",
+      "date_published": "2026-06-05T09:00:35+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 84,
+      "_quality_score": 84,
+      "_theme_score": 34,
+      "_final_score": 34,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-06T07:36:16.123787+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314045/news/business/economy/there-were-a-lot-more-people-working-in-the-cariboo-region-last-month/",
+      "url": "https://www.mycariboonow.com/314045/news/business/economy/there-were-a-lot-more-people-working-in-the-cariboo-region-last-month/",
+      "title": "[My Cariboo Now] There were a lot more people working in the Cariboo region last month : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/worker.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
       "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
       "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-09T06:10:07.133242+00:00",
+      "date_published": "2026-06-06T14:16:10.887494+00:00",
       "authors": [
         {
           "name": "My Cariboo Now",
@@ -594,98 +859,83 @@
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 11,
+      "_final_score": 11,
       "_keyword_matches": 0,
       "_boosted_score": 25,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2016/05/quesnel-school-district-office.png"
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-06T14:21:48.758600+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/worker.jpg"
     },
     {
-      "id": "https://100milefreepress.net/2026/06/08/hansen-flowers-summer-events-in-bloom-throughout-lac-la-hache/",
-      "url": "https://100milefreepress.net/2026/06/08/hansen-flowers-summer-events-in-bloom-throughout-lac-la-hache/",
-      "title": "[100 Mile Free Press] HANSEN: Flowers, summer events in bloom throughout Lac La Hache",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42504915_web1_260611-OMH-Hansen_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Barbara Hansen&#8217;s regular column to the 100 Mile Free Press </p>",
-      "summary": "Barbara Hansen’s regular column to the 100 Mile Free Press",
-      "_excerpt": "Barbara Hansen’s regular column to the 100 Mile Free Press",
-      "date_published": "2026-06-09T00:00:00+00:00",
+      "id": "https://www.mycariboonow.com/313931/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-respond-to-distressed-paddler-in-the-bowren-lake-chain/",
+      "url": "https://www.mycariboonow.com/313931/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-respond-to-distressed-paddler-in-the-bowren-lake-chain/",
+      "title": "[My Cariboo Now] Quesnel Search and Rescue respond to distressed paddler in the Bowren Lake Chain : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/QSAR-Helicopter-June1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-05T15:34:13.258620+00:00",
       "authors": [
         {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
         }
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 11,
+      "_final_score": 11,
       "_keyword_matches": 0,
       "_boosted_score": 25,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42504915_web1_260611-OMH-Hansen_2.jpg?w=1024"
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-06T07:36:16.123787+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/QSAR-Helicopter-June1.jpg"
     },
     {
-      "id": "https://quesnelobserver.com/2026/06/08/b-c-air-access-program-earmarks-20k-for-quesnel-airport/",
-      "url": "https://quesnelobserver.com/2026/06/08/b-c-air-access-program-earmarks-20k-for-quesnel-airport/",
-      "title": "[Quesnel Cariboo Observer] B.C. Air Access Program earmarks $20K for Quesnel Airport",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42497804_web1_240501-QCO-Quesnel-airport-renovations_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The investment will help fund the implementation of the airport&#8217;s master plan </p>",
-      "summary": "The investment will help fund the implementation of the airport’s master plan",
-      "_excerpt": "The investment will help fund the implementation of the airport’s master plan",
-      "date_published": "2026-06-08T21:15:00+00:00",
+      "id": "https://www.nytimes.com/2026/06/04/world/africa/ebola-congo-funeral-photo.html",
+      "url": "https://www.nytimes.com/2026/06/04/world/africa/ebola-congo-funeral-photo.html",
+      "title": "[NYT Top Stories] Priest’s Ebola Death Stirs Fear and Doubt in Congolese Town",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/04int-ebola-oneimage-promo-jwmh/04int-ebola-oneimage-promo-jwmh-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPriest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
+      "summary": "Priest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
+      "_excerpt": "Priest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
+      "date_published": "2026-06-04T13:15:12+00:00",
       "authors": [
         {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42497804_web1_240501-QCO-Quesnel-airport-renovations_2.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/08/b-c-doctors-ratify-new-4-year-deal-get-more-pay-for-rural-and-maternity-care/",
-      "url": "https://wltribune.com/2026/06/08/b-c-doctors-ratify-new-4-year-deal-get-more-pay-for-rural-and-maternity-care/",
-      "title": "[Williams Lake Tribune] B.C. doctors ratify new 4-year deal, get more pay for rural and maternity care",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507720_web1_doctors.jpg?w=650\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Doctors of BC members voted 91.8 per cent in support of the deal </p>",
-      "summary": "Doctors of BC members voted 91.8 per cent in support of the deal",
-      "_excerpt": "Doctors of BC members voted 91.8 per cent in support of the deal",
-      "date_published": "2026-06-08T12:30:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 84,
-      "_quality_score": 84,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 11,
+      "_final_score": 11,
       "_keyword_matches": 0,
       "_boosted_score": 25,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507720_web1_doctors.jpg?w=650"
+      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04int-ebola-oneimage-promo-jwmh/04int-ebola-oneimage-promo-jwmh-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/economy/2026/6/9/xi-kim-pledge-to-boost-ties-at-rare-pyongyang-summit?traffic_source=rss",
-      "url": "https://www.aljazeera.com/economy/2026/6/9/xi-kim-pledge-to-boost-ties-at-rare-pyongyang-summit?traffic_source=rss",
-      "title": "[Al Jazeera English] China’s Xi, North Korea’s Kim pledge to boost ties at rare Pyongyang summit",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-09T022238Z_1965553583_RC2XPLALG040_RTRMADP_3_NORTHKOREA-CHINA-1780978459.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPresident Xi Jinping is on a rare visit to North Korea, where he commits to deeper cooperation with Kim Jong Un.",
-      "summary": "President Xi Jinping is on a rare visit to North Korea, where he commits to deeper cooperation with Kim Jong Un.",
-      "_excerpt": "President Xi Jinping is on a rare visit to North Korea, where he commits to deeper cooperation with Kim Jong Un.",
-      "date_published": "2026-06-09T07:29:06+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
+      "title": "[Al Jazeera English] South Korean police break up 35-hour polling station protest",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSouth Korean police break up 35-hour polling station protest",
+      "summary": "South Korean police break up 35-hour polling station protest",
+      "_excerpt": "South Korean police break up 35-hour polling station protest",
+      "date_published": "2026-06-05T12:38:05+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
@@ -694,339 +944,199 @@
       ],
       "ai_score": 80,
       "_quality_score": 80,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 45,
+      "_final_score": 45,
       "_keyword_matches": 0,
       "_boosted_score": 24,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-09T022238Z_1965553583_RC2XPLALG040_RTRMADP_3_NORTHKOREA-CHINA-1780978459.jpg?resize=1920%2C1440"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.tomsguide.com/ai/ai-wont-replace-you-but-these-7-prompts-give-you-the-ultimate-edge",
-      "url": "https://www.tomsguide.com/ai/ai-wont-replace-you-but-these-7-prompts-give-you-the-ultimate-edge",
-      "title": "[Toms Guide] AI won't replace you — but these 7 prompts give you the ultimate edge",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/E266Wur4cfV3Uoheaz9D7E-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWorried about AI replacing your job? These 7 ChatGPT prompts can help you identify valuable skills, uncover opportunities and stay competitive in the AI era.",
-      "summary": "Worried about AI replacing your job? These 7 ChatGPT prompts can help you identify valuable skills, uncover opportunities and stay competitive in the AI era.",
-      "_excerpt": "Worried about AI replacing your job? These 7 ChatGPT prompts can help you identify valuable skills, uncover opportunities and stay competitive in the AI era.",
-      "date_published": "2026-06-09T06:15:00+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/9/indian-crew-rescued-after-attack-on-oil-tanker-off-oman?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/9/indian-crew-rescued-after-attack-on-oil-tanker-off-oman?traffic_source=rss",
+      "title": "[Al Jazeera English] Indian crew rescued after attack on oil tanker off Oman",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780994210.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIndian crew rescued after attack on oil tanker off Oman",
+      "summary": "Indian crew rescued after attack on oil tanker off Oman",
+      "_excerpt": "Indian crew rescued after attack on oil tanker off Oman",
+      "date_published": "2026-06-09T08:37:36+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
       "ai_score": 80,
       "_quality_score": 80,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "_theme_score": 34,
+      "_final_score": 34,
       "_keyword_matches": 0,
       "_boosted_score": 24,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/E266Wur4cfV3Uoheaz9D7E-1280-80.jpg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/bc-news/island-man-spots-his-stolen-travel-trailer-being-towed-on-highway-12390806",
-      "url": "https://www.piquenewsmagazine.com/bc-news/island-man-spots-his-stolen-travel-trailer-being-towed-on-highway-12390806",
-      "title": "[Pique Newsmagazine] Island man spots his stolen travel trailer being towed on highway",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/victoriatimescolonist/json/2026/06/web1_06092026-vtc-news-stolen-trailer.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe man saw his travel trailer, which had been stolen from the Campbell River area, being towed southbound on the Inland Island Highway by an unknown F-350 pickup.",
-      "summary": "The man saw his travel trailer, which had been stolen from the Campbell River area, being towed southbound on the Inland Island Highway by an unknown F-350 pickup.",
-      "_excerpt": "The man saw his travel trailer, which had been stolen from the Campbell River area, being towed southbound on the Inland Island Highway by an unknown F-350 pickup.",
-      "date_published": "2026-06-09T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/victoriatimescolonist/json/2026/06/web1_06092026-vtc-news-stolen-trailer.jpg;w=960"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780994210.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.tomshardware.com/tech-industry/most-new-us-ai-data-centers-are-going-up-on-drought-land",
-      "url": "https://www.tomshardware.com/tech-industry/most-new-us-ai-data-centers-are-going-up-on-drought-land",
-      "title": "[Tom's Hardware] Most new U.S. AI data centers are being built in drought zones — two-thirds of 809 planned projects set for areas with water shortages",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/iMHPd97G3qtdyzwF93SKQd-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAbout two-thirds of the 809 data centers planned across the U.S. are slated for land that has been in drought over the past year.",
-      "summary": "About two-thirds of the 809 data centers planned across the U.S. are slated for land that has been in drought over the past year.",
-      "_excerpt": "About two-thirds of the 809 data centers planned across the U.S. are slated for land that has been in drought over the past year.",
-      "date_published": "2026-06-08T16:39:27+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
+      "title": "[Al Jazeera English] Texas-bound jet crashes during emergency landing in Dominican Republic",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTexas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "summary": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "_excerpt": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "date_published": "2026-06-08T13:22:18+00:00",
       "authors": [
         {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 22,
+      "_final_score": 22,
       "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "_boosted_score": 24,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/iMHPd97G3qtdyzwF93SKQd-1280-80.jpg"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.piquenewsmagazine.com/world-news/progressive-nithya-raman-advances-to-november-runoff-against-los-angeles-mayor-karen-bass-12393387",
-      "url": "https://www.piquenewsmagazine.com/world-news/progressive-nithya-raman-advances-to-november-runoff-against-los-angeles-mayor-karen-bass-12393387",
-      "title": "[Pique Newsmagazine] Progressive Nithya Raman advances to November runoff against Los Angeles Mayor Karen Bass",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/96b4ec115bf8f7ac9819eb81c044c7f4b11fe26b7b3e5dc380c43560a7e0df1e.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLOS ANGELES (AP) — Progressive city council member Nithya Raman  has advanced  to a November runoff against Los Angeles Mayor  Karen Bass , setting up an unexpected matchup between two Democrats and former political allies to run the struggling city",
-      "summary": "LOS ANGELES (AP) — Progressive city council member Nithya Raman has advanced to a November runoff against Los Angeles Mayor Karen Bass , setting up an unexpected matchup between two Democrats and former political allies to run the struggling city",
-      "_excerpt": "LOS ANGELES (AP) — Progressive city council member Nithya Raman has advanced to a November runoff against Los Angeles Mayor Karen Bass , setting up an unexpected matchup between two Democrats and former political allies to run the struggling city",
-      "date_published": "2026-06-09T00:30:46+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
+      "title": "[Al Jazeera English] Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEbola border shutdown leaves goods rotting between Uganda and DRC",
+      "summary": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "_excerpt": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "date_published": "2026-06-06T10:07:29+00:00",
       "authors": [
         {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 22,
+      "_final_score": 22,
       "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "_boosted_score": 24,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/96b4ec115bf8f7ac9819eb81c044c7f4b11fe26b7b3e5dc380c43560a7e0df1e.jpg;w=960"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.androidauthority.com/android-app-sideloading-poll-3675571/",
-      "url": "https://www.androidauthority.com/android-app-sideloading-poll-3675571/",
-      "title": "[Android Authority] Survey shows most of you are still sideloading apps",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2025/08/google-journal-apkmirror-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nInstalling apps from sources other than the Play Store is pretty popular.",
-      "summary": "Installing apps from sources other than the Play Store is pretty popular.",
-      "_excerpt": "Installing apps from sources other than the Play Store is pretty popular.",
-      "date_published": "2026-06-08T17:57:16+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
+      "title": "[Al Jazeera English] Families clear rubble after overnight Israeli strikes in Gaza",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFamilies in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "summary": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "_excerpt": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "date_published": "2026-06-05T19:40:41+00:00",
       "authors": [
         {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 22,
+      "_final_score": 22,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/un-envoys-call-on-trump-to-stop-israeli-annexation?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/un-envoys-call-on-trump-to-stop-israeli-annexation?traffic_source=rss",
+      "title": "[Al Jazeera English] UN envoys call on Trump to stop Israeli annexation",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780645035.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUN envoys call on Trump to stop Israeli annexation",
+      "summary": "UN envoys call on Trump to stop Israeli annexation",
+      "_excerpt": "UN envoys call on Trump to stop Israeli annexation",
+      "date_published": "2026-06-05T07:38:50+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 22,
+      "_final_score": 22,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780645035.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/money-works/2026/6/3/can-a-us-president-promote-stock-theyve-invested-in?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/money-works/2026/6/3/can-a-us-president-promote-stock-theyve-invested-in?traffic_source=rss",
+      "title": "[Al Jazeera English] Can a US president promote stock they’ve invested in",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/16x9-1780473654.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCan a US president promote stock they’ve invested in",
+      "summary": "Can a US president promote stock they’ve invested in",
+      "_excerpt": "Can a US president promote stock they’ve invested in",
+      "date_published": "2026-06-03T08:24:11+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 22,
+      "_final_score": 22,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-04T08:42:43.860371+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/16x9-1780473654.png?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
+      "url": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
+      "title": "[MakeUseOf] I put a $29 sensor in my mailbox, and now I get a notification when the mail arrives",
+      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/stone-mailbox-pillar-with-house-number-29911.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis easy to install device alerts me as soon as my mail arrives.",
+      "summary": "This easy to install device alerts me as soon as my mail arrives.",
+      "_excerpt": "This easy to install device alerts me as soon as my mail arrives.",
+      "date_published": "2026-06-08T16:30:18+00:00",
+      "authors": [
+        {
+          "name": "MakeUseOf",
+          "url": "https://www.makeuseof.com"
         }
       ],
       "ai_score": 76,
       "_quality_score": 76,
-      "_theme_score": 45,
-      "_final_score": 45,
+      "_theme_score": 22,
+      "_final_score": 22,
       "_keyword_matches": 0,
       "_boosted_score": 22,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/08/google-journal-apkmirror-1.jpg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/world-news/us-appeals-court-raises-concerns-about-alabamas-use-of-nitrogen-gas-for-executions-12393537",
-      "url": "https://www.piquenewsmagazine.com/world-news/us-appeals-court-raises-concerns-about-alabamas-use-of-nitrogen-gas-for-executions-12393537",
-      "title": "[Pique Newsmagazine] US appeals court raises concerns about Alabama’s use of nitrogen gas for executions",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/50b3478ddfcbf712d92648f3e8f1893408b5e55dc9c0b3e51083a4e370967a91.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTGOMERY, Ala. (AP) — Alabama’s use of nitrogen gas to put people to death needs more study of whether it violates a constitutional ban on cruel and unusual punishment, a federal appeals court decided Monday.",
-      "summary": "MONTGOMERY, Ala. (AP) — Alabama’s use of nitrogen gas to put people to death needs more study of whether it violates a constitutional ban on cruel and unusual punishment, a federal appeals court decided Monday.",
-      "_excerpt": "MONTGOMERY, Ala. (AP) — Alabama’s use of nitrogen gas to put people to death needs more study of whether it violates a constitutional ban on cruel and unusual punishment, a federal appeals court decided Monday.",
-      "date_published": "2026-06-09T02:05:34+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/50b3478ddfcbf712d92648f3e8f1893408b5e55dc9c0b3e51083a4e370967a91.jpg;w=960"
-    },
-    {
-      "id": "https://qz.com/morning-brew-ceo-robert-dippel-unique-audience-possible",
-      "url": "https://qz.com/morning-brew-ceo-robert-dippel-unique-audience-possible",
-      "title": "[Quartz] Morning Brew CEO Robert Dippel: 'our audience is genuinely unique' at POSSIBLE",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Morning%2520Brew%2520CEO%2520Robert%2520Dippel%2520Our%2520Audience%2520is%2520Genuinely%2520Unique%2520at%2520POSSIBLE\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMorning Brew CEO Robert Dippel: 'our audience is genuinely unique' at POSSIBLE",
-      "summary": "Morning Brew CEO Robert Dippel: 'our audience is genuinely unique' at POSSIBLE",
-      "_excerpt": "Morning Brew CEO Robert Dippel: 'our audience is genuinely unique' at POSSIBLE",
-      "date_published": "2026-06-08T18:00:07+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Morning%2520Brew%2520CEO%2520Robert%2520Dippel%2520Our%2520Audience%2520is%2520Genuinely%2520Unique%2520at%2520POSSIBLE"
-    },
-    {
-      "id": "https://www.tomsguide.com/ai/i-tried-an-ai-sticker-printer-and-it-proves-tech-companies-must-stop-forcing-ai-into-everything",
-      "url": "https://www.tomsguide.com/ai/i-tried-an-ai-sticker-printer-and-it-proves-tech-companies-must-stop-forcing-ai-into-everything",
-      "title": "[Toms Guide] I tried an 'AI' sticker printer — and it proves tech companies must stop forcing AI into everything",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/QB9K7BhmUj43qZBz9n86AF-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI tried Liene’s Pearl N200 Pro portable AI photo printer. It’s a fun, easy sticker printer for crafts, but weak AI portraits and poor adhesion hold it back.",
-      "summary": "I tried Liene’s Pearl N200 Pro portable AI photo printer. It’s a fun, easy sticker printer for crafts, but weak AI portraits and poor adhesion hold it back.",
-      "_excerpt": "I tried Liene’s Pearl N200 Pro portable AI photo printer. It’s a fun, easy sticker printer for crafts, but weak AI portraits and poor adhesion hold it back.",
-      "date_published": "2026-06-05T07:15:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/QB9K7BhmUj43qZBz9n86AF-1280-80.png"
-    },
-    {
-      "id": "https://www.androidauthority.com/gemini-avatar-hands-on-how-to-use-3673898/",
-      "url": "https://www.androidauthority.com/gemini-avatar-hands-on-how-to-use-3673898/",
-      "title": "[Android Authority] I just used Gemini Avatar to make an AI clone of myself. Here’s how you can too",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/06/gemini-avatar-hero-3-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nReal Joe, meet Gemini Joe.",
-      "summary": "Real Joe, meet Gemini Joe.",
-      "_excerpt": "Real Joe, meet Gemini Joe.",
-      "date_published": "2026-06-04T10:00:13+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/06/gemini-avatar-hero-3-scaled.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/us-states-no-bachelors-degree-median-earnings-ranked",
-      "url": "https://www.businessinsider.com/us-states-no-bachelors-degree-median-earnings-ranked",
-      "title": "[Business Insider] US states where adults without bachelor's degrees can earn the most, ranked by median earnings",
-      "content_html": "<img src=\"https://i.insider.com/6a22e04ab4fb977f35984c33?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
-      "summary": "These US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
-      "_excerpt": "These US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
-      "date_published": "2026-06-08T16:55:51+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a22e04ab4fb977f35984c33?format=jpeg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/silent-ransom-group-breaks-into-businesses-to-launch-ransomware-and-extortion-campaign",
-      "url": "https://www.techradar.com/pro/security/silent-ransom-group-breaks-into-businesses-to-launch-ransomware-and-extortion-campaign",
-      "title": "[TechRadar] Even your physical offices aren't safe from hackers — experts warn of Silent Ransom Group breaking into businesses to launch ransomware and extortion campaign",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/4adJ3T5YpKFvEjfzbkU6nL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGoogle is warning about hackers walking into offices, pretending to be IT support.",
-      "summary": "Google is warning about hackers walking into offices, pretending to be IT support.",
-      "_excerpt": "Google is warning about hackers walking into offices, pretending to be IT support.",
-      "date_published": "2026-06-08T19:05:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/4adJ3T5YpKFvEjfzbkU6nL-1280-80.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/all-the-ways-europe-is-ditching-american-technology/",
-      "url": "https://www.wired.com/story/all-the-ways-europe-is-ditching-american-technology/",
-      "title": "[WIRED] All the Ways Europe Is Ditching American Technology",
-      "content_html": "<img src=\"https://media.wired.com/photos/6a235c1dcd4553222cef6d1b/master/pass/All-Ways-Europe-Ditching-US-Tech-Security.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA WIRED timeline shows how dozens of governments, companies, and other organizations across Europe are moving, or planning to shift, away from US Big Tech.",
-      "summary": "A WIRED timeline shows how dozens of governments, companies, and other organizations across Europe are moving, or planning to shift, away from US Big Tech.",
-      "_excerpt": "A WIRED timeline shows how dozens of governments, companies, and other organizations across Europe are moving, or planning to shift, away from US Big Tech.",
-      "date_published": "2026-06-08T06:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 56,
-      "_quality_score": 56,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://media.wired.com/photos/6a235c1dcd4553222cef6d1b/master/pass/All-Ways-Europe-Ditching-US-Tech-Security.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/seasonal-sales/buying-your-dad-a-tech-gift-or-gadget-for-fathers-day-you-may-want-to-wait-until-prime-day-if-possible",
-      "url": "https://www.techradar.com/seasonal-sales/buying-your-dad-a-tech-gift-or-gadget-for-fathers-day-you-may-want-to-wait-until-prime-day-if-possible",
-      "title": "[TechRadar] Buying your dad a tech gift or gadget for Father's Day? You may want to wait until Prime Day, if possible",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/t5TDvHWatt5KvwY9SbqjxC-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFather's Day comes just before one of the biggest sales of the entire year at Amazon!",
-      "summary": "Father's Day comes just before one of the biggest sales of the entire year at Amazon!",
-      "_excerpt": "Father's Day comes just before one of the biggest sales of the entire year at Amazon!",
-      "date_published": "2026-06-06T01:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 56,
-      "_quality_score": 56,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/t5TDvHWatt5KvwY9SbqjxC-1280-80.jpg"
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T16:37:39.911223+00:00"
+      },
+      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/stone-mailbox-pillar-with-house-number-29911.jpg"
     }
   ]
 }
