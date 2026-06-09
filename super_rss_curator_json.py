@@ -220,6 +220,8 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
                 timeout=15,
             )
             resp.raise_for_status()
+            if not resp.content:
+                return []
             results = []
             for r in resp.json().get('results') or []:
                 article = _make_article(
