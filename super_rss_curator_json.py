@@ -698,9 +698,12 @@ def update_theme_holdover(theme_name: str, theme_label: str,
 def load_podcast_shown_cache() -> Dict:
     """Load cache tracking which article URLs have appeared in recent podcast episodes.
 
-    Format: {url: {"day": "monday", "shown_at": "<ISO8601>"}}
-    Entries older than PODCAST_SHOWN_TTL_DAYS are discarded so articles can
-    reappear after a full 7-day rotation.
+    Format: {"{url}:::{day}": {"day": "monday", "shown_at": "<ISO8601>"}}
+    The compound key allows the same article to appear in multiple themed episodes
+    (once per theme) within the 7-day TTL window, enabling cross-theme reuse.
+
+    Migrates legacy entries keyed by plain URL on first load.
+    Entries older than PODCAST_SHOWN_TTL_DAYS are discarded.
     """
     if not os.path.exists(PODCAST_SHOWN_FILE):
         return {}
@@ -708,13 +711,19 @@ def load_podcast_shown_cache() -> Dict:
         with open(PODCAST_SHOWN_FILE, 'r', encoding='utf-8') as f:
             raw = json.load(f)
         cutoff = datetime.now(timezone.utc) - timedelta(days=PODCAST_SHOWN_TTL_DAYS)
-        valid = {
-            url: entry for url, entry in raw.items()
-            if datetime.fromisoformat(entry['shown_at']) > cutoff
-        }
-        if len(valid) != len(raw):
-            print(f"🧹 Cleaned podcast shown cache: {len(raw)} → {len(valid)} entries")
-        return valid
+        migrated: Dict = {}
+        for key, entry in raw.items():
+            # Migrate legacy plain-URL keys to compound "{url}:::{day}" format
+            if ':::' not in key:
+                day = entry.get('day', 'unknown')
+                new_key = f"{key}:::{day}"
+            else:
+                new_key = key
+            if datetime.fromisoformat(entry['shown_at']) > cutoff:
+                migrated[new_key] = entry
+        if len(migrated) != len(raw):
+            print(f"🧹 Podcast shown cache: {len(raw)} → {len(migrated)} entries (cleaned/migrated)")
+        return migrated
     except Exception:
         return {}
 
@@ -2325,17 +2334,18 @@ def route_articles_to_best_themes(
     schedule_config: Dict,
     today_name: str,
 ) -> set:
-    """Reserve articles that clearly belong to a different day's theme.
+    """Proactively bank articles that score significantly better on a future day's theme.
 
     For each article in the podcast cache that has a complete set of cached
     theme scores (all 7 days), compare today's score against every other day.
     When another day's score beats today's by at least ``theme_routing_gap``
-    points AND meets ``theme_routing_min_score``, the article is:
+    points AND meets ``theme_routing_min_score``, the article is banked into
+    that day's holdover cache so it surfaces at the right time.
 
-      1. Proactively banked into that day's holdover cache so it surfaces on
-         the right episode even if today's feed would have consumed it first.
-      2. Added to the returned reserved set so ``generate_podcast_feed`` skips
-         it today.
+    Articles are NOT excluded from today's feed — cross-theme reuse is
+    intentional. An article that fits both today and a future day will appear
+    in both episodes, with the second appearance carrying ``_cross_theme``
+    metadata identifying the prior episode.
 
     Articles missing a cached score for any theme are left for normal
     today-centric processing — routing only acts on complete data.
@@ -2349,7 +2359,6 @@ def route_articles_to_best_themes(
         return set()
 
     theme_cache = load_theme_score_cache()
-    reserved_urls = set()
     to_bank: Dict[str, list] = defaultdict(list)  # {day_name: [(item_dict, score)]}
 
     for item in cached_articles:
@@ -2373,7 +2382,6 @@ def route_articles_to_best_themes(
         if (best_day != today_name
                 and best_score - today_score >= routing_gap
                 and best_score >= routing_min_score):
-            reserved_urls.add(url)
             to_bank[best_day].append((item, best_score))
 
     if to_bank:
@@ -2409,14 +2417,18 @@ def route_articles_to_best_themes(
             f"{d} ({schedule[d]['label']}): {len(arts)}"
             for d, arts in sorted(to_bank.items())
         )
+        total_candidates = sum(len(arts) for arts in to_bank.values())
         print(
-            f"  🗓️  Theme routing: deferred {len(reserved_urls)} articles to better-fit days"
+            f"  🗓️  Theme routing: {total_candidates} articles banked for better-fit days"
             f" (gap ≥ {routing_gap}pts, min {routing_min_score}) → {day_summary}"
         )
         if total_banked:
             print(f"  📦 Pre-banked {total_banked} articles into upcoming day holdovers")
 
-    return reserved_urls
+    # Return empty set — articles are no longer excluded from today's feed.
+    # Cross-theme reuse is intentional: the same article can appear in multiple
+    # themed episodes, with _cross_theme metadata on the second appearance.
+    return set()
 
 
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
@@ -2426,9 +2438,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     Args:
         theme_name: Day name (e.g., 'monday', 'tuesday')
         cached_articles: List of article dicts from the weekly cache
-        podcast_shown_cache: Dict of {url: entry} for articles already used in
-            recent podcast episodes.  Articles in this set are excluded so each
-            day's episode surfaces fresh content.
+        podcast_shown_cache: Dict of {"{url}:::{day}": entry} tracking which articles
+            have appeared in each day's recent episodes. An article is excluded from
+            today's feed only if it was already shown in THIS theme's episode — the
+            same article can appear in multiple themed episodes (cross-theme reuse).
 
     Returns:
         Set of article URLs that were included in the generated feed, so the
@@ -2507,7 +2520,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     holdover_raw = holdover_cache.get(theme_name, [])
     holdover_pool = [
         CachedArticle(item) for item in holdover_raw
-        if item['link'] not in podcast_shown_cache
+        if f"{item['link']}:::{theme_name}" not in podcast_shown_cache
         and not _is_aggregator_url(item['link'])
         and item['link'] not in all_cached_urls  # already in 7-day pool
         and item.get('score', 0) >= LIMITS['min_claude_score']  # enforce current quality floor
@@ -2532,7 +2545,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         a for a in all_cached
         if a.score < min_score
         and not _is_aggregator_url(a.link)
-        and a.link not in podcast_shown_cache
+        and f"{a.link}:::{theme_name}" not in podcast_shown_cache
         and theme_score_cache.get(f"{a.link}:::{theme_label}", {}).get('score', 0) >= holdover_threshold
     ]
     if rescued:
@@ -2550,11 +2563,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     _today_date_str = datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
     def _available_for_today(link: str) -> bool:
-        entry = podcast_shown_cache.get(link)
+        # An article is available unless it was already shown in THIS theme's episode.
+        # The compound key allows the same article to appear in multiple themed episodes.
+        entry = podcast_shown_cache.get(f"{link}:::{theme_name}")
         if entry is None:
             return True
-        return (entry.get('day') == theme_name
-                and entry.get('shown_at', '').startswith(_today_date_str))
+        # Allow it back in if shown earlier today for this same theme (additive refresh)
+        return entry.get('shown_at', '').startswith(_today_date_str)
 
     theme_pool = [a for a in theme_pool if _available_for_today(a.link)]
     shown_excluded = before_shown_filter - len(theme_pool)
@@ -2571,18 +2586,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     if agg_excluded:
         print(f"  🚫 Excluded {agg_excluded} aggregator-URL articles (e.g. Google News)")
 
-    # Exclude articles proactively routed to a better-fit day; holdover pool
-    # articles bypass this filter since they were explicitly banked for today.
-    holdover_links = {a.link for a in holdover_pool}
-    if reserved_urls:
-        before_reserved = len(theme_pool)
-        theme_pool = [
-            a for a in theme_pool
-            if a.link not in reserved_urls or a.link in holdover_links
-        ]
-        deferred = before_reserved - len(theme_pool)
-        if deferred:
-            print(f"  🗓️  Deferred {deferred} articles to their better-fit day's episode")
+    # Articles banked for other days via theme routing are NOT excluded here.
+    # Cross-theme reuse is intentional — the same article may appear in multiple
+    # themed episodes with _cross_theme metadata on the second appearance.
 
     # Cap the pool: sort by quality score and keep only the top candidates.
     # Articles with lower quality scores are unlikely to beat well-scored candidates
@@ -2669,7 +2675,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         theme_urls = {a.link for a, _, _ in theme_articles}
         other_filtered = [
             (a, c) for a, c in other
-            if a.link not in theme_urls and a.link not in podcast_shown_cache
+            if a.link not in theme_urls and f"{a.link}:::{theme_name}" not in podcast_shown_cache
         ]
 
         if other_filtered:
@@ -2778,6 +2784,20 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "_source_category": article.category,
             "_is_bonus": is_bonus
         }
+        # Mark articles that previously appeared in a different theme's episode
+        prior_appearances = [
+            v for k, v in podcast_shown_cache.items()
+            if k.startswith(f"{article.link}:::") and v.get('day') != theme_name
+        ]
+        if prior_appearances:
+            prior = max(prior_appearances, key=lambda x: x['shown_at'])
+            prior_day = prior.get('day', '')
+            prior_label = schedule.get(prior_day, {}).get('label', prior_day)
+            item['_cross_theme'] = {
+                'day': prior_day,
+                'label': prior_label,
+                'shown_at': prior['shown_at']
+            }
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
             item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
@@ -3003,25 +3023,22 @@ def main():
         today_name = datetime.now(timezone.utc).strftime('%A').lower()
         if today_name in schedule_config['schedule']:
             podcast_shown_cache = load_podcast_shown_cache()
-            # Before generating today's feed, reserve articles that score
-            # significantly higher on an upcoming day's theme so they aren't
-            # consumed here and then excluded from the day they truly belong to.
-            reserved_for_other_days = route_articles_to_best_themes(
-                podcast_cache, schedule_config, today_name
-            )
+            # Proactively bank articles that score significantly better on future days.
+            # Articles are NOT excluded from today — cross-theme reuse is intentional.
+            route_articles_to_best_themes(podcast_cache, schedule_config, today_name)
             selected_urls = generate_podcast_feed(
-                today_name, podcast_cache, podcast_shown_cache, reserved_for_other_days
+                today_name, podcast_cache, podcast_shown_cache
             )
             if selected_urls:
                 now_iso = datetime.now(timezone.utc).isoformat()
                 today_date_str = now_iso[:10]
                 newly_marked = 0
+                compound_key = lambda u: f"{u}:::{today_name}"
                 for url in selected_urls:
-                    existing = podcast_shown_cache.get(url, {})
+                    existing = podcast_shown_cache.get(compound_key(url), {})
                     # Don't overwrite a same-day entry so the original shown_at is preserved
-                    if not (existing.get('day') == today_name
-                            and existing.get('shown_at', '').startswith(today_date_str)):
-                        podcast_shown_cache[url] = {'day': today_name, 'shown_at': now_iso}
+                    if not existing.get('shown_at', '').startswith(today_date_str):
+                        podcast_shown_cache[compound_key(url)] = {'day': today_name, 'shown_at': now_iso}
                         newly_marked += 1
                 save_podcast_shown_cache(podcast_shown_cache)
                 print(f"  📌 Marked {newly_marked} new articles as shown ({len(selected_urls) - newly_marked} already in today's episode)")
