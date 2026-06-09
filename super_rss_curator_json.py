@@ -220,7 +220,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
                 timeout=15,
             )
             resp.raise_for_status()
-            if not resp.content:
+            if not resp.text.strip():
                 return []
             results = []
             for r in resp.json().get('results') or []:
@@ -237,6 +237,8 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
             print(f"  ✗ {label} (Brave): HTTP {status}")
+        except ValueError:
+            return []
         except Exception as e:
             print(f"  ✗ {label} (Brave): {e}")
         return []
