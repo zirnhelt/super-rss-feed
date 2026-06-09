@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-09 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-08 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-08 | 🌅 4:30 AM Pacific | ⚠️ **Hakai Magazine** failed | `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/` |
 | 2026-06-08 | 🌅 4:30 AM Pacific | ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed | `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/` |
@@ -65,6 +66,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-09 | 🌅 morning | 15 | news:10(67%), ai-tech:2(13%), wellness:2(13%) |
 | 2026-06-08 | 🌅 morning | 52 | news:45(87%), ai-tech:2(4%), climate:2(4%) |
 | 2026-06-08 | 🌙 evening | 79 | news:70(89%), wellness:3(4%), ai-tech:2(3%) |
 | 2026-06-07 | 🌅 morning | 38 | news:27(71%), ai-tech:5(13%), climate:2(5%) |
@@ -76,9 +78,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-03 | 🌅 morning | 126 | news:95(75%), ai-tech:8(6%), wellness:8(6%) |
 | 2026-06-03 | 🌙 evening | 76 | news:63(83%), wellness:5(7%), local:4(5%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-09 06:29 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-09 08:09 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

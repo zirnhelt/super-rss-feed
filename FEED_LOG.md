@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-09 (Tuesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **844** → dedup **707** → new **461** → quality **15**
+- Mix: ai-tech:2(13%), wellness:2(13%), science:1(7%), news:10(67%)
+- Feeds: local:28, ai-tech:57, climate:18, homelab:17, wellness:42, science:15, scifi:6, news:500
+- Images: 15/15
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+
+
+---
+
+
+
 ## 2026-06-08 (Monday)
 
 #### 🌅 4:30 AM Pacific
@@ -222,35 +236,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Feeds: local:33, ai-tech:90, climate:98, homelab:43, wellness:30, science:41, scifi:8, news:446
 - Images: 76/76
 - ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-
-
----
-
-
-
-## 2026-06-01 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **655** → dedup **534** → new **373** → quality **8**
-- Mix: local:1(12%), climate:1(12%), science:2(25%), scifi:1(12%), news:3(38%)
-- Feeds: local:46, ai-tech:198, climate:66, homelab:146, wellness:1, science:71, scifi:11, news:500
-- Images: 8/8
-
-
----
-
-
-
-
-#### 🔧 Manual Run
-- Fetched **807** → dedup **674** → new **497** → quality **126**
-- Mix: local:5(4%), ai-tech:4(3%), climate:33(26%), wellness:4(3%), science:3(2%), scifi:3(2%), news:74(59%)
-- Feeds: local:44, ai-tech:182, climate:177, homelab:112, wellness:24, science:67, scifi:17, news:500
-- Images: 126/126
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **Nation Talk** failed — `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed`
-- ⚠️ **First Peoples Cultural Council** failed — `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/`
-- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
 
 
 ---
@@ -1608,6 +1593,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 2 runs · avg fetched 694 · avg quality 6
 - Dominant: **news** (62%) climate:3 / wellness:1 / science:1 / news:8
 - - ⚠️ CBC Arts failed — HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)
+
+
+---
+
+
+
+## Week of 2026-06-01–2026-06-01
+- 2 runs · avg fetched 731 · avg quality 67
+- Dominant: **news** (57%) local:6 / ai-tech:4 / climate:34 / wellness:4 / science:5 / scifi:4 / news:77
+- - ⚠️ Ricochet failed — 415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/
+- - ⚠️ Nation Talk failed — 415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed
+- - ⚠️ First Peoples Cultural Council failed — 415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/
+- - ⚠️ Machine Learning Blog | ML@CMU | Carnegie Mellon University failed — 415 Client Error: Unsupported Media Type for u
 
 
 ---
