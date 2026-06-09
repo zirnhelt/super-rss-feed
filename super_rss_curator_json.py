@@ -155,91 +155,137 @@ def _load_kagi_queries() -> list:
         return []
 
 
-def fetch_kagi_news(cutoff_date: datetime) -> List['Article']:
-    """Fetch articles from the Kagi Search API for all configured queries.
+def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
+    """Fetch recent articles for all configured topic queries.
 
-    Returns an empty list when KAGI_API_KEY is unset or no queries are configured.
-    Per-query HTTP errors are logged and skipped without crashing the pipeline.
-    Results with a published date older than cutoff_date are dropped.
+    Primary: Brave News API (/v1/news) — news-specific endpoint with freshness
+    filtering. Falls back to Kagi Search API per query when Brave returns no
+    results or errors. Returns empty list if neither key is set.
     """
-    api_key = os.getenv('KAGI_API_KEY')
-    if not api_key:
-        return []
-
     queries = _load_kagi_queries()
     if not queries:
         return []
 
-    api_headers = {'Authorization': f'Bot {api_key}'}
+    brave_key = os.environ.get('BRAVE_API_KEY', '')
+    kagi_key = os.environ.get('KAGI_API_KEY', '')
 
-    class _KagiEntry:
+    if not brave_key and not kagi_key:
+        return []
+
+    now = datetime.now(timezone.utc)
+    freshness_range = f"{cutoff_date.strftime('%Y-%m-%d')}to{now.strftime('%Y-%m-%d')}"
+
+    class _SyntheticEntry:
         def get(self, key, default=''):
             return default
 
-    def _fetch_one(query_config: dict) -> List['Article']:
+    def _make_article(url: str, title: str, snippet: str, pub_str: str, label: str):
+        parsed_url = urlparse(url)
+        if not (parsed_url.scheme and parsed_url.netloc):
+            return None
+        source_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+        domain = parsed_url.netloc.lower()
+        if domain.startswith('www.'):
+            domain = domain[4:]
+        article = Article(_SyntheticEntry(), domain, source_url, feed_url='')
+        article.title = title.strip()
+        if not article.title:
+            return None
+        article.link = url
+        article.url_hash = hashlib.md5(canonicalize_url(url).encode()).hexdigest()
+        article.description = snippet
+        article.summary = _clean_text(snippet, max_chars=300)
+        article.excerpt = _clean_text(snippet, max_chars=600)
+        if pub_str:
+            try:
+                article.pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
+            except Exception:
+                article.pub_date = now
+        else:
+            article.pub_date = now
+        if article.pub_date < cutoff_date:
+            return None
+        return article
+
+    def _fetch_brave(query_config: dict) -> List['Article']:
+        label = query_config.get('label', 'Brave News')
+        query = query_config.get('query', '')
+        if not query:
+            return []
+        try:
+            resp = requests.get(
+                'https://api.search.brave.com/res/v1/news',
+                headers={'X-Subscription-Token': brave_key, 'Accept': 'application/json'},
+                params={'q': query, 'count': 20, 'freshness': freshness_range},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            results = []
+            for r in resp.json().get('results') or []:
+                article = _make_article(
+                    url=r.get('url', ''),
+                    title=r.get('title', ''),
+                    snippet=r.get('description', '') or '',
+                    pub_str=r.get('page_fetched', ''),
+                    label=label,
+                )
+                if article:
+                    results.append(article)
+            return results
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else '?'
+            print(f"  ✗ {label} (Brave): HTTP {status}")
+        except Exception as e:
+            print(f"  ✗ {label} (Brave): {e}")
+        return []
+
+    def _fetch_kagi(query_config: dict) -> List['Article']:
         label = query_config.get('label', 'Kagi Search')
         query = query_config.get('query', '')
         if not query:
             return []
-        results: List['Article'] = []
         try:
             resp = requests.get(
                 'https://kagi.com/api/v0/search',
-                headers=api_headers,
+                headers={'Authorization': f'Bot {kagi_key}'},
                 params={'q': query, 'limit': 20},
                 timeout=15,
             )
             resp.raise_for_status()
-            data = resp.json().get('data') or []
-            for result in data:
-                if result.get('t') != 1:
+            results = []
+            for r in resp.json().get('data') or []:
+                if r.get('t') != 1:
                     continue
-                url = result.get('url', '')
-                if not url:
-                    continue
-                parsed_url = urlparse(url)
-                if not (parsed_url.scheme and parsed_url.netloc):
-                    continue
-
-                source_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
-                domain = parsed_url.netloc.lower()
-                if domain.startswith('www.'):
-                    domain = domain[4:]
-
-                article = Article(_KagiEntry(), domain, source_url, feed_url='')
-                article.title = result.get('title', '').strip()
-                if not article.title:
-                    continue
-                article.link = url
-                article.url_hash = hashlib.md5(canonicalize_url(url).encode()).hexdigest()
-
-                snippet = result.get('snippet', '') or ''
-                article.description = snippet
-                article.summary = _clean_text(snippet, max_chars=300)
-                article.excerpt = _clean_text(snippet, max_chars=600)
-
-                pub_str = result.get('published')
-                if pub_str:
-                    try:
-                        article.pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
-                    except Exception:
-                        article.pub_date = datetime.now(timezone.utc)
-                else:
-                    article.pub_date = datetime.now(timezone.utc)
-
-                if article.pub_date < cutoff_date:
-                    continue
-
-                results.append(article)
-
-            if results:
-                print(f"  ✓ {label}: {len(results)} articles")
+                article = _make_article(
+                    url=r.get('url', ''),
+                    title=r.get('title', ''),
+                    snippet=r.get('snippet', '') or '',
+                    pub_str=r.get('published', ''),
+                    label=label,
+                )
+                if article:
+                    results.append(article)
+            return results
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
-            print(f"  ✗ {label}: HTTP {status}")
+            print(f"  ✗ {label} (Kagi): HTTP {status}")
         except Exception as e:
-            print(f"  ✗ {label}: {e}")
-        return results
+            print(f"  ✗ {label} (Kagi): {e}")
+        return []
+
+    def _fetch_one(query_config: dict) -> List['Article']:
+        label = query_config.get('label', '')
+        if brave_key:
+            results = _fetch_brave(query_config)
+            if results:
+                print(f"  ✓ {label}: {len(results)} articles (Brave)")
+                return results
+        if kagi_key:
+            results = _fetch_kagi(query_config)
+            if results:
+                print(f"  ✓ {label}: {len(results)} articles (Kagi fallback)")
+            return results
+        return []
 
     all_articles: List['Article'] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
@@ -2832,8 +2878,8 @@ def main():
         article.category = 'local'
         all_articles.append(article)
 
-    kagi_articles = fetch_kagi_news(cutoff_date)
-    all_articles.extend(kagi_articles)
+    topic_articles = fetch_topic_news(cutoff_date)
+    all_articles.extend(topic_articles)
 
     print(f"\n📈 Total fetched: {len(all_articles)} articles")
     
