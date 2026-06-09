@@ -86,6 +86,7 @@ _brave_call_count = 0
 SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
 WLT_CACHE_FILE = SYSTEM['cache_files']['wlt']
 SHOWN_CACHE_FILE = SYSTEM['cache_files']['shown_articles']
+EXTRACT_CACHE_FILE = SYSTEM['cache_files']['extract_cache']
 PODCAST_CACHE_FILE = 'podcast_articles_cache.json'  # Weekly cache for podcast feeds
 PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each day's podcast episode
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
@@ -250,15 +251,16 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return []
         try:
             resp = requests.get(
-                'https://kagi.com/api/v0/search',
+                'https://kagi.com/api/v1/search',
                 headers={'Authorization': f'Bot {kagi_key}'},
-                params={'q': query, 'limit': 20},
+                params={'q': query, 'limit': 20, 'lens': 'news'},
                 timeout=15,
             )
             resp.raise_for_status()
             results = []
             for r in resp.json().get('data') or []:
-                if r.get('t') != 1:
+                # v1 omits 't' type field; skip non-dict entries (related queries etc.)
+                if not isinstance(r, dict) or not r.get('url'):
                     continue
                 article = _make_article(
                     url=r.get('url', ''),
@@ -279,16 +281,21 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
 
     def _fetch_one(query_config: dict) -> List['Article']:
         label = query_config.get('label', '')
-        if brave_key:
-            results = _fetch_brave(query_config)
-            if results:
-                print(f"  ✓ {label}: {len(results)} articles (Brave)")
-                return results
-        if kagi_key:
-            results = _fetch_kagi(query_config)
-            if results:
-                print(f"  ✓ {label}: {len(results)} articles (Kagi fallback)")
-            return results
+        brave_results = _fetch_brave(query_config) if brave_key else []
+        kagi_results = _fetch_kagi(query_config) if kagi_key else []
+
+        if brave_results and kagi_results:
+            # Merge: add Kagi articles whose URL isn't already in Brave results
+            seen_urls = {a.link for a in brave_results}
+            merged = brave_results + [a for a in kagi_results if a.link not in seen_urls]
+            print(f"  ✓ {label}: {len(brave_results)} (Brave) + {len(kagi_results)} (Kagi) → {len(merged)} merged")
+            return merged
+        elif brave_results:
+            print(f"  ✓ {label}: {len(brave_results)} articles (Brave)")
+            return brave_results
+        elif kagi_results:
+            print(f"  ✓ {label}: {len(kagi_results)} articles (Kagi)")
+            return kagi_results
         return []
 
     all_articles: List['Article'] = []
@@ -495,6 +502,27 @@ def save_scored_cache(cache):
             json.dump(cache, f, indent=2)
     except Exception as e:
         print(f"⚠️ Failed to save scored cache: {e}")
+
+
+def load_extract_cache() -> dict:
+    """Load Kagi Extract enrichment cache (48h TTL, keyed by url_hash)."""
+    if not os.path.exists(EXTRACT_CACHE_FILE):
+        return {}
+    try:
+        with open(EXTRACT_CACHE_FILE, 'r') as f:
+            cache = json.load(f)
+        cutoff = datetime.now(timezone.utc).timestamp() - timedelta(hours=SYSTEM['cache_expiry']['scored_hours']).total_seconds()
+        return {k: v for k, v in cache.items() if v.get('timestamp', 0) > cutoff}
+    except (json.JSONDecodeError, FileNotFoundError):
+        return {}
+
+
+def save_extract_cache(cache: dict) -> None:
+    try:
+        with open(EXTRACT_CACHE_FILE, 'w') as f:
+            json.dump(cache, f, indent=2)
+    except Exception as e:
+        print(f"⚠️ Failed to save extract cache: {e}")
 
 
 def load_shown_cache():
@@ -967,6 +995,56 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
         return ''
     except Exception:
         return ''
+
+
+def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: int = 40) -> None:
+    """Enrich thin-description articles using Kagi's Extract API before Claude scoring.
+
+    Calls GET https://kagi.com/api/v1/extract?url=<url> for:
+    - Articles whose description is < 150 chars (thin RSS snippet)
+    - All articles from _LOCAL_BC_DOMAINS (often paywalled, descriptions unreliable)
+
+    Results are cached 48 h by url_hash so repeated runs don't re-fetch.
+    Updates article.description / .summary / .excerpt in-place.
+    """
+    cache = load_extract_cache()
+    candidates = [
+        a for a in articles
+        if a.url_hash not in cache
+        and (len(a.description.strip()) < 150 or any(d in a.link for d in _LOCAL_BC_DOMAINS))
+    ]
+    if not candidates:
+        return
+
+    to_fetch = candidates[:max_calls]
+    enriched = 0
+    now_ts = datetime.now(timezone.utc).timestamp()
+
+    for article in to_fetch:
+        try:
+            resp = requests.get(
+                'https://kagi.com/api/v1/extract',
+                headers={'Authorization': f'Bot {kagi_key}'},
+                params={'url': article.link},
+                timeout=12,
+            )
+            resp.raise_for_status()
+            data = resp.json().get('data') or {}
+            text = (data.get('text') or data.get('content') or '').strip()
+            if len(text) >= 80:
+                article.description = _clean_text(text, max_chars=600)
+                article.summary = _clean_text(text, max_chars=300)
+                article.excerpt = _clean_text(text, max_chars=600)
+                cache[article.url_hash] = {'text': article.description, 'timestamp': now_ts}
+                enriched += 1
+            else:
+                cache[article.url_hash] = {'text': '', 'timestamp': now_ts}
+        except Exception:
+            pass
+
+    save_extract_cache(cache)
+    if enriched:
+        print(f"  🔍 Kagi Extract: enriched {enriched}/{len(to_fetch)} thin articles")
 
 
 def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache):
@@ -2946,6 +3024,9 @@ def main():
         + (f"  ({story_dupes} cross-run story dupes suppressed)" if story_dupes else "")
     )
     
+    if kagi_key := os.environ.get('KAGI_API_KEY', ''):
+        _kagi_enrich_articles(new_articles, kagi_key)
+
     scored_articles = score_articles_with_claude(new_articles, api_key)
 
     scored_articles = enforce_local_priority(scored_articles)
