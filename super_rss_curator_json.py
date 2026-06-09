@@ -146,10 +146,10 @@ def _is_aggregator_url(url: str) -> bool:
         return False
 
 
-def _load_kagi_queries() -> list:
-    """Load Kagi search queries from config/kagi_queries.json."""
+def _load_topic_queries() -> list:
+    """Load topic search queries from config/topic_queries.json."""
     try:
-        with open(CONFIG_DIR / 'kagi_queries.json') as f:
+        with open(CONFIG_DIR / 'topic_queries.json') as f:
             return json.load(f)
     except FileNotFoundError:
         return []
@@ -162,7 +162,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     filtering. Falls back to Kagi Search API per query when Brave returns no
     results or errors. Returns empty list if neither key is set.
     """
-    queries = _load_kagi_queries()
+    queries = _load_topic_queries()
     if not queries:
         return []
 
