@@ -146,10 +146,10 @@ def _is_aggregator_url(url: str) -> bool:
         return False
 
 
-def _load_kagi_queries() -> list:
-    """Load Kagi search queries from config/kagi_queries.json."""
+def _load_topic_queries() -> list:
+    """Load topic search queries from config/topic_queries.json."""
     try:
-        with open(CONFIG_DIR / 'kagi_queries.json') as f:
+        with open(CONFIG_DIR / 'topic_queries.json') as f:
             return json.load(f)
     except FileNotFoundError:
         return []
@@ -162,7 +162,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     filtering. Falls back to Kagi Search API per query when Brave returns no
     results or errors. Returns empty list if neither key is set.
     """
-    queries = _load_kagi_queries()
+    queries = _load_topic_queries()
     if not queries:
         return []
 
@@ -220,6 +220,8 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
                 timeout=15,
             )
             resp.raise_for_status()
+            if not resp.content:
+                return []
             results = []
             for r in resp.json().get('results') or []:
                 article = _make_article(
@@ -2597,10 +2599,6 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         print(f"  ⚠️ Theme scoring returned empty for {theme_label}, falling back to quality scores")
         theme_scored = [(article, article.score) for article in theme_pool]
 
-    # Bank articles with strong theme scores for future episodes of this day's theme.
-    # This builds the cross-week holdover pool so good content accumulates over time.
-    update_theme_holdover(theme_name, theme_label, theme_scored, holdover_threshold)
-
     # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
     ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
     scored_pool = []
@@ -2628,6 +2626,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             (a, min(100, round(fs * scale)), min(100, round(ts * scale)))
             for a, fs, ts in scored_pool
         ]
+
+    # Bank articles with strong theme scores for future episodes of this day's theme.
+    # Done after relative scaling so thin-day scores (e.g. pool max = 1 → scaled to 45)
+    # still clear holdover_threshold and the best-fit articles accumulate for next week.
+    update_theme_holdover(theme_name, theme_label,
+                          [(a, ts) for a, _, ts in scored_pool],
+                          holdover_threshold)
 
     # Apply keyword boost to selection ranking so keyword-matching articles
     # are preferred over semantically similar but terminology-free articles.
