@@ -32,6 +32,53 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run
+- Fetched **844** → dedup **704** → new **534** → quality **80**
+- Mix: local:6(8%), ai-tech:4(5%), climate:2(2%), homelab:2(2%), wellness:3(4%), science:2(2%), news:61(76%)
+- Feeds: local:28, ai-tech:53, climate:18, homelab:17, wellness:38, science:14, scifi:6, news:500
+- Images: 80/80
+- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+- ⚠️ **Kagi Gear Gadgets Repair (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Nation Talk (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi First Peoples Cultural Council (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Ricochet Media (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Smart Home and Automation (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Clean Energy and EVs (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Williams Lake and BC Interior (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Mesh Networking and LoRa (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi 3D Printing (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi AI ML Infrastructure (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Indigenous Technology BC (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Rural BC Infrastructure (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Working Lands (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Wildfire and Conservation (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Climate Science Research (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Backcountry and Wildlife (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Community Media and Digital Storytelling (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Cariboo Local Community (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi AgTech and Resource Innovation (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Indigenous Guardian Programs (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Rural Digital Equity (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Conservation and Parks (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Wildlife Ecology (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Canadian Geographic (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Health and Wellness (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Examine.com (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Evidence-Based Health Research (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Longevity and Preventive Medicine (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Science Fiction Books (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Cariboo First Nations (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Indigenous Data and Language Tech (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi Canadian Arts Technology (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Kagi BC Silviculture and Logging Tech (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
+
+
+---
+
+
+
 ## 2026-06-07 (Sunday)
 
 #### 🌅 4:30 AM Pacific
