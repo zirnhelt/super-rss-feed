@@ -9,7 +9,6 @@ import sys
 import json
 import hashlib
 import re
-import base64
 import concurrent.futures
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
@@ -147,207 +146,106 @@ def _is_aggregator_url(url: str) -> bool:
         return False
 
 
-def _decode_google_news_url(url: str) -> Optional[str]:
-    """Extract the real article URL from a Google News RSS proxy URL via base64 decode.
-
-    Google News encodes the destination URL in a base64url payload embedded in
-    the RSS article path.  We decode the payload and scan the binary for an
-    embedded http(s) URL rather than parsing the protobuf structure, which keeps
-    this robust against minor format changes.
-
-    Returns the extracted URL string, or None if extraction fails.
-    """
+def _load_kagi_queries() -> list:
+    """Load Kagi search queries from config/kagi_queries.json."""
     try:
-        match = re.search(r'/articles/([^?&/]+)', url)
-        if not match:
-            return None
-        encoded = match.group(1)
-        # Pad to a multiple of 4 chars for standard base64 decode.
-        encoded += '=' * (-len(encoded) % 4)
-        decoded = base64.urlsafe_b64decode(encoded)
-        url_match = re.search(rb'https?://[^\x00-\x20\x7f-\xff]+', decoded)
-        if url_match:
-            extracted = url_match.group(0).decode('utf-8', errors='ignore').rstrip('.')
-            if '.' in urlparse(extracted).netloc:
-                return extracted
-    except Exception:
-        pass
-    return None
+        with open(CONFIG_DIR / 'kagi_queries.json') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
 
 
-def _follow_google_news_redirect(url: str) -> str:
-    """Resolve a Google News URL by following HTTP redirects.
+def fetch_kagi_news(cutoff_date: datetime) -> List['Article']:
+    """Fetch articles from the Kagi Search API for all configured queries.
 
-    Used as a fallback when the base64 decode does not yield a valid URL.
-    Returns the final URL, or the original if resolution fails.
+    Returns an empty list when KAGI_API_KEY is unset or no queries are configured.
+    Per-query HTTP errors are logged and skipped without crashing the pipeline.
+    Results with a published date older than cutoff_date are dropped.
     """
-    headers = {
-        'User-Agent': (
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-            'AppleWebKit/537.36 (KHTML, like Gecko) '
-            'Chrome/122.0.0.0 Safari/537.36'
-        )
-    }
-    try:
-        resp = requests.get(url, headers=headers, allow_redirects=True,
-                            timeout=8, stream=True)
-        resp.close()
-        final = resp.url
-        parsed_final = urlparse(final)
-        netloc = parsed_final.netloc.lower()
-        if netloc and not (netloc == 'google.com' or netloc.endswith('.google.com')):
-            return final
-    except Exception:
-        pass
-    return url
+    api_key = os.getenv('KAGI_API_KEY')
+    if not api_key:
+        return []
 
+    queries = _load_kagi_queries()
+    if not queries:
+        return []
 
-def _find_garturlreq(node):
-    """Recursively locate the ['garturlreq', [...]] array inside a parsed data-p blob.
+    api_headers = {'Authorization': f'Bot {api_key}'}
 
-    Its last three elements are [article_id, timestamp, signature] — the
-    invariant the resolver below relies on, regardless of how deeply Google
-    nests the surrounding structure.
-    """
-    if isinstance(node, list):
-        if node and node[0] == 'garturlreq':
-            return node
-        for child in node:
-            found = _find_garturlreq(child)
-            if found:
-                return found
-    return None
+    class _KagiEntry:
+        def get(self, key, default=''):
+            return default
 
+    def _fetch_one(query_config: dict) -> List['Article']:
+        label = query_config.get('label', 'Kagi Search')
+        query = query_config.get('query', '')
+        if not query:
+            return []
+        results: List['Article'] = []
+        try:
+            resp = requests.get(
+                'https://kagi.com/api/v0/search',
+                headers=api_headers,
+                params={'q': query, 'limit': 20},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            data = resp.json().get('data') or []
+            for result in data:
+                if result.get('t') != 1:
+                    continue
+                url = result.get('url', '')
+                if not url:
+                    continue
+                parsed_url = urlparse(url)
+                if not (parsed_url.scheme and parsed_url.netloc):
+                    continue
 
-def _decode_google_news_url_v2(url: str) -> Optional[str]:
-    """Resolve a Google News proxy URL via Google's internal batchexecute RPC.
+                source_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+                domain = parsed_url.netloc.lower()
+                if domain.startswith('www.'):
+                    domain = domain[4:]
 
-    As of mid-2026, Google stopped embedding the destination URL in the
-    proxy link's base64 payload (see _decode_google_news_url) and stopped
-    issuing a server-side HTTP redirect (see _follow_google_news_redirect).
-    Resolution now requires replicating the two-step flow Google's own web
-    client performs — the same reverse-engineered, undocumented protocol
-    tools like `googlenewsdecoder` implement:
+                article = Article(_KagiEntry(), domain, source_url, feed_url='')
+                article.title = result.get('title', '').strip()
+                if not article.title:
+                    continue
+                article.link = url
+                article.url_hash = hashlib.md5(canonicalize_url(url).encode()).hexdigest()
 
-      1. GET the proxy page and read a signature/timestamp/article-id triple
-         out of an embedded `data-p` JSON blob.
-      2. POST that triple to Google's batchexecute RPC and read the real
-         article URL back out of the response.
+                snippet = result.get('snippet', '') or ''
+                article.description = snippet
+                article.summary = _clean_text(snippet, max_chars=300)
+                article.excerpt = _clean_text(snippet, max_chars=600)
 
-    Because this is unofficial and can change without notice, every step is
-    guarded — any failure simply returns None so the caller's fallback (kept
-    proxy link) takes over rather than the article being lost.
-    """
-    headers = {
-        'User-Agent': (
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-            'AppleWebKit/537.36 (KHTML, like Gecko) '
-            'Chrome/122.0.0.0 Safari/537.36'
-        )
-    }
-    try:
-        page = requests.get(url, headers=headers, timeout=10)
-        page.raise_for_status()
-        soup = BeautifulSoup(page.content, 'html.parser')
-        c_wiz = soup.select_one('c-wiz[data-p]') or soup.select_one('[data-p*="garturlreq"]')
-        if not c_wiz:
-            return None
-        raw = c_wiz.get('data-p', '')
-        if '%.@.' not in raw:
-            return None
-        obj = json.loads(raw.split('%.@.', 1)[1])
-        req_array = _find_garturlreq(obj)
-        if not req_array or len(req_array) < 4:
-            return None
-        article_id, timestamp, signature = req_array[-3], req_array[-2], req_array[-1]
+                pub_str = result.get('published')
+                if pub_str:
+                    try:
+                        article.pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
+                    except Exception:
+                        article.pub_date = datetime.now(timezone.utc)
+                else:
+                    article.pub_date = datetime.now(timezone.utc)
 
-        inner_request = json.dumps([
-            'garturlreq',
-            [['X', 'X', ['X', 'X'], None, None, 1, 1, 'US:en', None, 1,
-              None, None, None, None, None, 0, 1],
-             'X', 'X', 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0],
-            article_id, timestamp, signature
-        ])
-        rpc_body = {
-            'f.req': json.dumps([[['Fbv4je', inner_request, None, 'generic']]])
-        }
-        rpc_headers = dict(headers)
-        rpc_headers['content-type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+                if article.pub_date < cutoff_date:
+                    continue
 
-        resp = requests.post(
-            'https://news.google.com/_/DotsSplashUi/data/batchexecute',
-            headers=rpc_headers, data=rpc_body, timeout=10,
-        )
-        resp.raise_for_status()
+                results.append(article)
 
-        body_text = resp.text
-        if body_text.startswith(")]}'"):
-            body_text = body_text.split('\n', 1)[-1]
+            if results:
+                print(f"  ✓ {label}: {len(results)} articles")
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else '?'
+            print(f"  ✗ {label}: HTTP {status}")
+        except Exception as e:
+            print(f"  ✗ {label}: {e}")
+        return results
 
-        # The response is JSON-string-within-JSON-array, so the embedded URL
-        # may carry one or more layers of backslash-escaping ("https:\/\/" or
-        # worse). Backslashes never carry meaning in a URL, so stripping them
-        # all up front sidesteps needing to know the exact nesting/escaping
-        # depth — then a plain URL scan finds the first non-Google candidate.
-        unescaped = body_text.replace('\\', '')
-        for match in re.finditer(r'https?://[^\s",]+', unescaped):
-            candidate = match.group(0).rstrip(').,;:!?\'"]')
-            parsed_candidate = urlparse(candidate)
-            netloc = parsed_candidate.netloc.lower()
-            if (parsed_candidate.scheme and '.' in netloc
-                    and netloc != 'google.com'
-                    and not netloc.endswith('.google.com')
-                    and not netloc.endswith('.gstatic.com')
-                    and not netloc.endswith('.googleusercontent.com')):
-                return candidate
-    except Exception:
-        pass
-    return None
-
-
-def resolve_google_news_urls(articles: List['Article']) -> None:
-    """Resolve Google News proxy URLs to real article URLs in-place.
-
-    Fast path: base64 decode (no network) — works only for the older proxy
-    URL format that embeds the destination URL directly.
-    Slow path (thread pool, max 10 workers): Google's batchexecute RPC,
-    which is required for the newer opaque-token proxy URLs; HTTP redirect
-    following is tried as a cheap secondary attempt if the RPC comes up
-    empty (e.g. for any remaining old-style links that 30x straight through).
-    Updates article.link, article.url_hash and article.source_url for every
-    article that resolves. Articles that resolve neither way are left with
-    their proxy link intact — see the caller, which keeps rather than drops
-    them.
-    """
-    needs_network: List['Article'] = []
-
-    for article in articles:
-        if not _is_aggregator_url(article.link):
-            continue
-        real_url = _decode_google_news_url(article.link)
-        if real_url:
-            article.link = real_url
-            article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
-            _parsed = urlparse(real_url)
-            if _parsed.scheme and _parsed.netloc:
-                article.source_url = f"{_parsed.scheme}://{_parsed.netloc}"
-        else:
-            needs_network.append(article)
-
-    if not needs_network:
-        return
-
-    def _resolve_one(article: 'Article') -> None:
-        real_url = _decode_google_news_url_v2(article.link) or _follow_google_news_redirect(article.link)
-        if real_url and real_url != article.link:
-            article.link = real_url
-            article.url_hash = hashlib.md5(canonicalize_url(real_url).encode()).hexdigest()
-            _parsed = urlparse(real_url)
-            if _parsed.scheme and _parsed.netloc:
-                article.source_url = f"{_parsed.scheme}://{_parsed.netloc}"
-
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
-        list(pool.map(_resolve_one, needs_network))
+    all_articles: List['Article'] = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+        for batch in pool.map(_fetch_one, queries):
+            all_articles.extend(batch)
+    return all_articles
 
 
 
@@ -1271,24 +1169,6 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
                     fetched_excerpts += 1
 
             articles.append(article)
-
-        # Resolve Google News proxy URLs to real article URLs so that
-        # deduplication, link display, and podcast selection all work correctly.
-        # Articles that can't be resolved keep their proxy link rather than
-        # being dropped — Google's client-side redirect still gets a human
-        # to the right article, it just adds one hop, and the outlet name is
-        # already extracted from the title (see Article.__init__) so display
-        # attribution doesn't depend on the link resolving.
-        if 'news.google.com' in feed['url'] and articles:
-            before = sum(1 for a in articles if _is_aggregator_url(a.link))
-            resolve_google_news_urls(articles)
-            after = sum(1 for a in articles if _is_aggregator_url(a.link))
-            resolved = before - after
-            fetched_excerpts_note = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
-            kept_note = f", {after} kept as Google redirect links" if after else ""
-            print(f"  ✓ {feed['title']}: {len(articles)} articles"
-                  f" ({resolved} GN URLs resolved{kept_note}{fetched_excerpts_note})")
-            return articles
 
         if articles:
             extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
@@ -2952,16 +2832,8 @@ def main():
         article.category = 'local'
         all_articles.append(article)
 
-    # Global pass: resolve any remaining google.com URLs from non-google.com source
-    # feeds, then discard articles still pointing to an aggregator (opaque URLs break
-    # deduplication and expose no real source for the reader).
-    gn_remaining = [a for a in all_articles if _is_aggregator_url(a.link)]
-    if gn_remaining:
-        resolve_google_news_urls(gn_remaining)
-        all_articles = [a for a in all_articles if not _is_aggregator_url(a.link)]
-        still_unresolved = sum(1 for a in gn_remaining if _is_aggregator_url(a.link))
-        if still_unresolved:
-            print(f"  🔗 Global GN resolve: {still_unresolved} unresolvable aggregator URLs dropped")
+    kagi_articles = fetch_kagi_news(cutoff_date)
+    all_articles.extend(kagi_articles)
 
     print(f"\n📈 Total fetched: {len(all_articles)} articles")
     
