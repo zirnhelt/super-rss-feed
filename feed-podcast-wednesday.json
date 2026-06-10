@@ -20,322 +20,237 @@
       "news",
       "science"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise pure software, pure business news, and national politics with no hardware angle. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise heavily (score 0–20): geopolitical conflict, war, terrorism, and international news with no hardware or maker angle; natural disaster coverage without a practical engineering or preparedness tech angle; wildlife and conservation stories; working lands policy; Indigenous governance; scientific discoveries without a hands-on hardware or DIY element; financial market and investment news. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-06-03T17:29:44.193550+00:00",
+    "generated_at": "2026-06-10T08:34:27.557910+00:00",
     "article_count": 40,
-    "bonus_count": 28,
+    "bonus_count": 33,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://newatlas.com/architecture/viliasprint2-europe-largest-3d-print-apartment/",
-      "url": "https://newatlas.com/architecture/viliasprint2-europe-largest-3d-print-apartment/",
-      "title": "[New Atlas] Record-breaking apartment building 3D printed in just 34 days",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/efe5e50/2147483647/strip/true/crop/4000x2100+0+284/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa0%2F17%2F6255374e4e308a0bb9c0856579ff%2Fviliasprint%C2%B2-plurial-novilia-5.JPG&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"France's ViliaSprint² is Europe's largest 3D-printed apartment building\" src=\"https://assets.newatlas.com/dims4/default/bd50bb1/2147483647/strip/true/crop/4000x2667+0+0/resize/1440x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa0%2F17%2F6255374e4e308a0bb9c0856579ff%2Fviliasprint%C2%B2-plurial-novilia-5.JPG\" /><p>Europe's largest 3D-printed apartment building has been completed in France. Containing 12 social housing apartments spread across three floors, the project's printing process was carried out in just 34 days.</p><p><a href=\"https://newatlas.com/architecture/viliasprint2-europe-largest-3d-print-apartment/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/architecture/\">Architecture</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/building+and+construction/\" rel=\"tag\">Building and Construction</a>, <a href=\"https://newatlas.com/tag/3d-printing/\" rel=\"tag\">3D Printing</a>, <a href=\"https://newatlas.com/tag/france/\" rel=\"tag\">France</a></p>",
-      "summary": "Europe's largest 3D-printed apartment building has been completed in France. Containing 12 social housing apartments spread across three floors, the project's printing process was carried out in just 34 days. Continue Reading Category: Architecture , Engineering Tags: Building and Construction , 3D",
-      "_excerpt": "Europe's largest 3D-printed apartment building has been completed in France. Containing 12 social housing apartments spread across three floors, the project's printing process was carried out in just 34 days. Continue Reading Category: Architecture , Engineering Tags: Building and Construction , 3D Printing , France",
-      "date_published": "2026-05-28T12:52:21+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 2,
-      "_boosted_score": 62,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/efe5e50/2147483647/strip/true/crop/4000x2100+0+284/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa0%2F17%2F6255374e4e308a0bb9c0856579ff%2Fviliasprint%C2%B2-plurial-novilia-5.JPG&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/03/us/bakersfield-chase-bank-bomb-hostage-situation.html",
-      "url": "https://www.nytimes.com/2026/06/03/us/bakersfield-chase-bank-bomb-hostage-situation.html",
-      "title": "[NYT Top Stories] FBI Kills Suspect in Hostage Situation at Building With Bank in Bakersfield, California",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/02/multimedia/02xp-bakersfield-lmkc/02xp-bakersfield-lmkc-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
-      "summary": "The authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
-      "_excerpt": "The authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
-      "date_published": "2026-06-03T15:36:53+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 81,
-      "_quality_score": 81,
-      "_theme_score": 41,
-      "_final_score": 41,
-      "_keyword_matches": 1,
-      "_boosted_score": 44,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/06/02/multimedia/02xp-bakersfield-lmkc/02xp-bakersfield-lmkc-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/world-news/fbi-fatally-shoots-a-man-holding-hostages-in-a-california-office-building-police-say-12369184",
-      "url": "https://www.piquenewsmagazine.com/world-news/fbi-fatally-shoots-a-man-holding-hostages-in-a-california-office-building-police-say-12369184",
-      "title": "[Pique Newsmagazine] FBI fatally shoots a man holding hostages in a California office building, police say",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/580b8f7ce36d8f3b57a496f1d4046d9db5480f9da13e57c3c4e697df2cac78ff.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA man who was holding hostages inside a California office building for more than 15 hours was shot and killed by the FBI early Wednesday, police said.",
-      "summary": "A man who was holding hostages inside a California office building for more than 15 hours was shot and killed by the FBI early Wednesday, police said.",
-      "_excerpt": "A man who was holding hostages inside a California office building for more than 15 hours was shot and killed by the FBI early Wednesday, police said.",
-      "date_published": "2026-06-03T16:32:57+00:00",
+      "id": "https://www.piquenewsmagazine.com/the-mix/stellantis-recalls-more-than-100000-jeeps-in-canada-over-fire-concerns-12395009",
+      "url": "https://www.piquenewsmagazine.com/the-mix/stellantis-recalls-more-than-100000-jeeps-in-canada-over-fire-concerns-12395009",
+      "title": "[Pique Newsmagazine] Stellantis recalls more than 100,000 Jeeps in Canada over fire concerns",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f6bf73bea31d9375353f53b9d391dbe2d8a825bb991bbb87e74626899aa40ea6.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWINDSOR — Automaker Stellantis is recalling more than 100,000 Jeep vehicles in Canada over fire concerns and is asking drivers to park their cars away from other vehicles and structures until the issue is fixed.",
+      "summary": "WINDSOR — Automaker Stellantis is recalling more than 100,000 Jeep vehicles in Canada over fire concerns and is asking drivers to park their cars away from other vehicles and structures until the issue is fixed.",
+      "_excerpt": "WINDSOR — Automaker Stellantis is recalling more than 100,000 Jeep vehicles in Canada over fire concerns and is asking drivers to park their cars away from other vehicles and structures until the issue is fixed.",
+      "date_published": "2026-06-09T15:16:20+00:00",
       "authors": [
         {
           "name": "Pique Newsmagazine",
           "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 50,
-      "_final_score": 50,
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f6bf73bea31d9375353f53b9d391dbe2d8a825bb991bbb87e74626899aa40ea6.jpg;w=960"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/04/world/europe/boeing-plane-nose-gear-collapse-frankfurt.html",
+      "url": "https://www.nytimes.com/2026/06/04/world/europe/boeing-plane-nose-gear-collapse-frankfurt.html",
+      "title": "[NYT Business] Nose Gear on Boeing 787-9 Dreamliner Collapses, Injuring Several Workers",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/04xp-plane-bkpq/04xp-plane-bkpq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe airline Lufthansa said the cause of the accident at Frankfurt Airport was under investigation. The plane can weigh 279 tons at takeoff.",
+      "summary": "The airline Lufthansa said the cause of the accident at Frankfurt Airport was under investigation. The plane can weigh 279 tons at takeoff.",
+      "_excerpt": "The airline Lufthansa said the cause of the accident at Frankfurt Airport was under investigation. The plane can weigh 279 tons at takeoff.",
+      "date_published": "2026-06-04T20:39:08+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 37,
+      "_final_score": 37,
       "_keyword_matches": 1,
       "_boosted_score": 43,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/580b8f7ce36d8f3b57a496f1d4046d9db5480f9da13e57c3c4e697df2cac78ff.jpg;w=960"
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-05T08:33:51.483490+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04xp-plane-bkpq/04xp-plane-bkpq-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://hackaday.com/2026/05/28/testing-lfp-battery-failure-modes-with-overcharging/",
-      "url": "https://hackaday.com/2026/05/28/testing-lfp-battery-failure-modes-with-overcharging/",
-      "title": "[Hackaday] Testing LFP Battery Failure Modes With Overcharging",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/prismatic_lfp_cell_fire_will_prowse_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"485\" src=\"https://hackaday.com/wp-content/uploads/2026/05/prismatic_lfp_cell_fire_will_prowse_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>As great as batteries are, it&#8217;s essential to understand their risks and how to keep them from going spicy. Recently there has been a bit of a fuss about the <a class=\"read-more\" href=\"https://hackaday.com/2026/05/28/testing-lfp-battery-failure-modes-with-overcharging/\">&#8230;read more</a>",
-      "summary": "As great as batteries are, it’s essential to understand their risks and how to keep them from going spicy. Recently there has been a bit of a fuss about the …read more",
-      "_excerpt": "As great as batteries are, it’s essential to understand their risks and how to keep them from going spicy. Recently there has been a bit of a fuss about the …read more",
-      "date_published": "2026-05-28T08:00:57+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 70,
-      "_final_score": 70,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/prismatic_lfp_cell_fire_will_prowse_youtube.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/gallery/2026/6/3/foreign-nationals-among-21-dead-in-new-delhi-building-fire?traffic_source=rss",
-      "url": "https://www.aljazeera.com/gallery/2026/6/3/foreign-nationals-among-21-dead-in-new-delhi-building-fire?traffic_source=rss",
-      "title": "[Al Jazeera English] Foreign nationals among 21 dead in New Delhi building fire",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/AP26154210653718-1780474508.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFirefighters rescue more than 40 people trapped inside as thick smoke fills the burning New Delhi building.",
-      "summary": "Firefighters rescue more than 40 people trapped inside as thick smoke fills the burning New Delhi building.",
-      "_excerpt": "Firefighters rescue more than 40 people trapped inside as thick smoke fills the burning New Delhi building.",
-      "date_published": "2026-06-03T08:50:19+00:00",
+      "id": "https://www.aljazeera.com/news/2026/6/10/protesters-torch-cars-buildings-in-belfast-after-knife-attack?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/10/protesters-torch-cars-buildings-in-belfast-after-knife-attack?traffic_source=rss",
+      "title": "[Al Jazeera English] Protesters torch cars, buildings in Belfast after knife attack",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/AP26160709961466-1781075970.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUnrest comes after a Sudanese man was arrested over a stabbing attack in north Belfast, UK.",
+      "summary": "Unrest comes after a Sudanese man was arrested over a stabbing attack in north Belfast, UK.",
+      "_excerpt": "Unrest comes after a Sudanese man was arrested over a stabbing attack in north Belfast, UK.",
+      "date_published": "2026-06-10T02:23:18+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 66,
-      "_quality_score": 66,
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 52,
+      "_final_score": 52,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/AP26160709961466-1781075970.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://qz.com/technologies-seemed-impossible-20-years-ago",
+      "url": "https://qz.com/technologies-seemed-impossible-20-years-ago",
+      "title": "[Quartz] 15 pieces of technology that would have seemed like science fiction in 2005",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/robynne-o-HOrhCnQsxnQ-unsplash.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSmartphones, mRNA vaccines, reusable rockets, language models — the past 20 years produced technologies that experts said were decades away or simply impossible",
+      "summary": "Smartphones, mRNA vaccines, reusable rockets, language models — the past 20 years produced technologies that experts said were decades away or simply impossible",
+      "_excerpt": "Smartphones, mRNA vaccines, reusable rockets, language models — the past 20 years produced technologies that experts said were decades away or simply impossible",
+      "date_published": "2026-06-09T19:05:23+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
       "_theme_score": 37,
       "_final_score": 37,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/robynne-o-HOrhCnQsxnQ-unsplash.jpg"
+    },
+    {
+      "id": "https://www.atlasobscura.com/places/st-georges-guldhall",
+      "url": "https://www.atlasobscura.com/places/st-georges-guldhall",
+      "title": "[Atlas Obscura] St Georges Guildhall in Norfolk, England",
+      "content_html": "<img src=\"https://img.atlasobscura.com/b626t5HozcyUxI_EOE4oht2xPo4Wf03mh3CVU46adLk/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/QGhCmHDdChw-1y9epUpqMqhjMT4UqgYNefQ38LRF-KI/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg\" width=\"300\" /></p> <p>St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft  guilds which served a different  purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward  VI in 1547 at which time the guildhall became the property of Lynn Corporation (the dissolution was largely  motivated by the transfer assets from religious  institutions to the Crown). It is the largest surviving medieval guildhall in the country.</p>\n<p>From the start of its history the building was used for theatrical performances, at first amateur ones but quickly by professional troupes of actors, the first being a nativity play in 1445 and initially the performances  were, mainly, religious plays. After the dissolution of the religious guilds the building was regularly used by a variety of theatrical companies and local tradition has it that William Shakespeare appeared here as an actor, as part of the troupe called the Earl of Pembroke's men in 1593 at a time when troupes of players were driven out of London by the plague. Shakespeare's best known comic actor Robert Armin was born one street away. A scene, in Hamlet, is widely said to have been inspired by an incident in King's Lynn.</p>\n<p>Theatrical performances were curtailed when banned by the Commonwealth Government of Oliver Cromwell in the early 17th century but resumed after Charles II regained his throne in 1660. After a competing theatre was constructed in the town the guildhall was sold (1826) and for a short time was used as a warehouse. After a number of other uses, including a period of dereliction, the guildhall was restored by the architect Marshall Sisson and then given to the National Trust (1951). Subsequently it has been developed into an arts centre and theatre with the former warehouses in the courtyard were converted into art galleries as early as 1963.</p>\n<p>Tree ring dating had shown that a floor exposed during renovations in 2023 dated from the time that Shakespeare is reputed to have performed here. In 2024  a door was exposed behind a plasterboard panel which was 600 years old  and is thought to have been the entrance to the dressing room used by Shakespeare.</p>\n<p> </p>",
+      "summary": "St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft guilds which served a different purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward VI",
+      "_excerpt": "St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft guilds which served a different purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward VI in 1547 at which time the guildhall became the property of Lynn Corporation (the dissolution was largely motivated by the transfer assets from religious institutions to the Crown). It is the largest surviving medieval guildhall in the country. From the start of its history the building was used for",
+      "date_published": "2026-06-05T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 35,
+      "_final_score": 35,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-06T07:36:16.123787+00:00"
+      },
+      "image": "https://img.atlasobscura.com/b626t5HozcyUxI_EOE4oht2xPo4Wf03mh3CVU46adLk/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/world-news/a-78-magnitude-quake-in-the-philippines-kills-at-least-19-fells-buildings-and-sets-off-a-tsunami-12388247",
+      "url": "https://www.piquenewsmagazine.com/world-news/a-78-magnitude-quake-in-the-philippines-kills-at-least-19-fells-buildings-and-sets-off-a-tsunami-12388247",
+      "title": "[Pique Newsmagazine] A 7.8 magnitude quake in the Philippines kills at least 19, fells buildings and sets off a tsunami",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/23ec353a2d90dcb71e7bfcd983e198641c6bdffb1c8bbb7de2058736db656ca1.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMANILA, Philippines (AP) — An offshore magnitude 7.8 earthquake rocked the southern Philippines Monday, killing at least 19 people, injuring more than 200 others mostly in damaged buildings and sending a 1-meter (3-foot) tsunami into nearby coasts.",
+      "summary": "MANILA, Philippines (AP) — An offshore magnitude 7.8 earthquake rocked the southern Philippines Monday, killing at least 19 people, injuring more than 200 others mostly in damaged buildings and sending a 1-meter (3-foot) tsunami into nearby coasts.",
+      "_excerpt": "MANILA, Philippines (AP) — An offshore magnitude 7.8 earthquake rocked the southern Philippines Monday, killing at least 19 people, injuring more than 200 others mostly in damaged buildings and sending a 1-meter (3-foot) tsunami into nearby coasts.",
+      "date_published": "2026-06-08T09:03:55+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 34,
+      "_final_score": 34,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/23ec353a2d90dcb71e7bfcd983e198641c6bdffb1c8bbb7de2058736db656ca1.jpg;w=960"
+    },
+    {
+      "id": "https://gizmodo.com/student-protesters-accidentally-discovered-an-ancient-roman-villa-beneath-their-school-2000768209",
+      "url": "https://gizmodo.com/student-protesters-accidentally-discovered-an-ancient-roman-villa-beneath-their-school-2000768209",
+      "title": "[Gizmodo] Student Protesters Accidentally Discovered an Ancient Roman Villa Beneath Their School",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=gizmodo.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStudent activists discovered a mid-Imperial Roman mansion under their high school gym while occupying buildings during a protest.",
+      "summary": "Student activists discovered a mid-Imperial Roman mansion under their high school gym while occupying buildings during a protest.",
+      "_excerpt": "Student activists discovered a mid-Imperial Roman mansion under their high school gym while occupying buildings during a protest.",
+      "date_published": "2026-06-08T16:35:03.857610+00:00",
+      "authors": [
+        {
+          "name": "Gizmodo",
+          "url": "https://gizmodo.com/"
+        }
+      ],
+      "ai_score": 66,
+      "_quality_score": 66,
+      "_theme_score": 44,
+      "_final_score": 44,
       "_keyword_matches": 1,
       "_boosted_score": 39,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/AP26154210653718-1780474508.jpg?resize=1920%2C1440"
+      "image": "https://www.google.com/s2/favicons?domain=gizmodo.com&sz=128"
     },
     {
-      "id": "https://hackaday.com/2026/05/27/a-clock-inspired-by-failed-cognitive-tests/",
-      "url": "https://hackaday.com/2026/05/27/a-clock-inspired-by-failed-cognitive-tests/",
-      "title": "[Hackaday] A Clock Inspired by Failed Cognitive Tests",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/cognitive_test_clock.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"A black-and-white clock face is shown. The numerals are ranged around the right edge of the clock. One pointer extends from the center of the clock, and one is on the left side of the face.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/05/cognitive_test_clock.png?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>One simple screening tool for cognitive impairment is the clock-drawing test (CDT): the patient is provided with a printed circle and asked to draw a clock face with the hands <a class=\"read-more\" href=\"https://hackaday.com/2026/05/27/a-clock-inspired-by-failed-cognitive-tests/\">&#8230;read more</a>",
-      "summary": "One simple screening tool for cognitive impairment is the clock-drawing test (CDT): the patient is provided with a printed circle and asked to draw a clock face with the hands …read more",
-      "_excerpt": "One simple screening tool for cognitive impairment is the clock-drawing test (CDT): the patient is provided with a printed circle and asked to draw a clock face with the hands …read more",
-      "date_published": "2026-05-27T20:00:47+00:00",
+      "id": "https://www.nytimes.com/2026/06/04/world/africa/ebola-congo-funeral-photo.html",
+      "url": "https://www.nytimes.com/2026/06/04/world/africa/ebola-congo-funeral-photo.html",
+      "title": "[NYT Top Stories] Priest’s Ebola Death Stirs Fear and Doubt in Congolese Town",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/04int-ebola-oneimage-promo-jwmh/04int-ebola-oneimage-promo-jwmh-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPriest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
+      "summary": "Priest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
+      "_excerpt": "Priest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
+      "date_published": "2026-06-04T13:15:12+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
-      "ai_score": 60,
-      "_quality_score": 60,
-      "_theme_score": 60,
-      "_final_score": 60,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/cognitive_test_clock.png"
-    },
-    {
-      "id": "https://www.cnet.com/roadshow/news/e-bike-fires-are-down-but-ul-says-riders-still-make-one-dangerous-mistake/",
-      "url": "https://www.cnet.com/roadshow/news/e-bike-fires-are-down-but-ul-says-riders-still-make-one-dangerous-mistake/",
-      "title": "[CNET] E-Bike Fires Are Down, but Riders Still Make One Dangerous Mistake",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/7bf1ae22bdbaeb172d0b557f627e872ca9900149/hub/2026/05/26/18d736f8-2531-4db7-bfb9-e6a01632c2ea/image-20260521-154631-212.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUL Solutions is a global science safety company that tests and certifies products ranging from electronics and batteries to appliances and electric vehicles.",
-      "summary": "UL Solutions is a global science safety company that tests and certifies products ranging from electronics and batteries to appliances and electric vehicles.",
-      "_excerpt": "UL Solutions is a global science safety company that tests and certifies products ranging from electronics and batteries to appliances and electric vehicles.",
-      "date_published": "2026-05-28T15:49:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/7bf1ae22bdbaeb172d0b557f627e872ca9900149/hub/2026/05/26/18d736f8-2531-4db7-bfb9-e6a01632c2ea/image-20260521-154631-212.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/hackers-abuse-ultravnc-splashtop-and-screenconnect-to-hijack-business-pcs",
-      "url": "https://www.techradar.com/pro/security/hackers-abuse-ultravnc-splashtop-and-screenconnect-to-hijack-business-pcs",
-      "title": "[TechRadar] Hackers abuse UltraVNC, Splashtop, and ScreenConnect to hijack business PCs",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Fowg5CRho52HwmHzebUugV-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNumerous legitimate tools being used in RMM attacks against Brazilian targets.",
-      "summary": "Numerous legitimate tools being used in RMM attacks against Brazilian targets.",
-      "_excerpt": "Numerous legitimate tools being used in RMM attacks against Brazilian targets.",
-      "date_published": "2026-05-28T14:05:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 44,
-      "_quality_score": 44,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 1,
-      "_boosted_score": 33,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/Fowg5CRho52HwmHzebUugV-1280-80.png"
-    },
-    {
-      "id": "https://www.androidauthority.com/durobo-krono-available-us-3671729/",
-      "url": "https://www.androidauthority.com/durobo-krono-available-us-3671729/",
-      "title": "[Android Authority] This unusual ‘everything e-reader’ runs Android and lets you navigate with a knob",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/durobo-krono-hero-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's got specs to match a mid-range smartphone.",
-      "summary": "It's got specs to match a mid-range smartphone.",
-      "_excerpt": "It's got specs to match a mid-range smartphone.",
-      "date_published": "2026-05-27T19:07:45+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 1,
-      "_boosted_score": 30,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/durobo-krono-hero-image.jpg"
-    },
-    {
-      "id": "https://www.makeuseof.com/steam-deck-price-hike-killed-what-made-special/",
-      "url": "https://www.makeuseof.com/steam-deck-price-hike-killed-what-made-special/",
-      "title": "[MakeUseOf] Steam Deck's $240 price hike just killed what made it special",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/steam-deck-verified-games.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nValue hardware is dying a pitiful death",
-      "summary": "Value hardware is dying a pitiful death",
-      "_excerpt": "Value hardware is dying a pitiful death",
-      "date_published": "2026-05-27T21:21:01+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 50,
-      "_final_score": 50,
-      "_keyword_matches": 1,
-      "_boosted_score": 26,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/steam-deck-verified-games.jpg"
-    },
-    {
-      "id": "https://newatlas.com/automotive/review-2026-gmc-sierra-1500/",
-      "url": "https://newatlas.com/automotive/review-2026-gmc-sierra-1500/",
-      "title": "[New Atlas] Review: 2026 GMC Sierra 1500 has a powertrain for everybody",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/e4af2e8/2147483647/strip/true/crop/4000x2100+0+21/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F08%2Fb4%2Fc300304d41a285d0a5c7aa15466f%2F2026-gmc-sierra-denali-2.jpg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"The 2026 GMC Sierra comes in a variety of setups to match a variety of use cases\" src=\"https://assets.newatlas.com/dims4/default/c3ac629/2147483647/strip/true/crop/4000x2252+0+0/resize/1440x811!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F08%2Fb4%2Fc300304d41a285d0a5c7aa15466f%2F2026-gmc-sierra-denali-2.jpg\" /><p>Trucks used to be pretty easy. You bought a GMC because it was nicer than the others. Powertrain choice was about what your plans were with the truck. Now it’s ... Well, still easy. It just looks complicated.</p><p><a href=\"https://newatlas.com/automotive/review-2026-gmc-sierra-1500/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/automotive/\">Automotive</a>, <a href=\"https://newatlas.com/transport/\">Transport</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/gmc/\" rel=\"tag\">GMC</a>, <a href=\"https://newatlas.com/tag/pickup/\" rel=\"tag\">Pickup</a>, <a href=\"https://newatlas.com/tag/truck/\" rel=\"tag\">Truck</a>, <a href=\"https://newatlas.com/tag/electric-truck/\" rel=\"tag\">Electric truck</a>, <a href=\"https://newatlas.com/reviews/\" rel=\"tag\">Reviews</a></p>",
-      "summary": "Trucks used to be pretty easy. You bought a GMC because it was nicer than the others. Powertrain choice was about what your plans were with the truck. Now it’s ... Well, still easy. It just looks complicated. Continue Reading Category: Automotive , Transport Tags: GMC , Pickup , Truck , Electric",
-      "_excerpt": "Trucks used to be pretty easy. You bought a GMC because it was nicer than the others. Powertrain choice was about what your plans were with the truck. Now it’s ... Well, still easy. It just looks complicated. Continue Reading Category: Automotive , Transport Tags: GMC , Pickup , Truck , Electric truck , Reviews",
-      "date_published": "2026-05-27T19:37:21+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 22,
-      "_quality_score": 22,
-      "_theme_score": 40,
-      "_final_score": 40,
-      "_keyword_matches": 1,
-      "_boosted_score": 26,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/e4af2e8/2147483647/strip/true/crop/4000x2100+0+21/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F08%2Fb4%2Fc300304d41a285d0a5c7aa15466f%2F2026-gmc-sierra-denali-2.jpg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.androidauthority.com/xiaomi-17t-and-17t-pro-debut-3672121/",
-      "url": "https://www.androidauthority.com/xiaomi-17t-and-17t-pro-debut-3672121/",
-      "title": "[Android Authority] These new Android phones go all in on zoom photography and battery life",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/Xiaomi-17T-17T-Pro-stood-up.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nXiaomi's 17T series finally gives the cheaper model a proper zoom lens.",
-      "summary": "Xiaomi's 17T series finally gives the cheaper model a proper zoom lens.",
-      "_excerpt": "Xiaomi's 17T series finally gives the cheaper model a proper zoom lens.",
-      "date_published": "2026-05-28T13:00:12+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 18,
-      "_quality_score": 18,
-      "_theme_score": 48,
-      "_final_score": 48,
-      "_keyword_matches": 1,
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 65,
+      "_final_score": 65,
+      "_keyword_matches": 0,
       "_boosted_score": 25,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/Xiaomi-17T-17T-Pro-stood-up.jpg"
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04int-ebola-oneimage-promo-jwmh/04int-ebola-oneimage-promo-jwmh-mediumSquareAt3X.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/1/ethiopians-head-to-polls-as-millions-excluded-from-elections?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/1/ethiopians-head-to-polls-as-millions-excluded-from-elections?traffic_source=rss",
-      "title": "[Al Jazeera English] Ethiopians head to polls as millions excluded from elections",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-01T092459Z_540581149_RC2VN79XWPVF_RTRMADP_3_ETHIOPIA-ELECTION-1780336091.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEthiopians head to polls as millions excluded from elections.",
-      "summary": "Ethiopians head to polls as millions excluded from elections.",
-      "_excerpt": "Ethiopians head to polls as millions excluded from elections.",
-      "date_published": "2026-06-01T17:49:21+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
+      "title": "[Al Jazeera English] South Korean police break up 35-hour polling station protest",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSouth Korean police break up 35-hour polling station protest",
+      "summary": "South Korean police break up 35-hour polling station protest",
+      "_excerpt": "South Korean police break up 35-hour polling station protest",
+      "date_published": "2026-06-05T12:38:05+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
@@ -344,23 +259,358 @@
       ],
       "ai_score": 80,
       "_quality_score": 80,
-      "_theme_score": 69,
-      "_final_score": 69,
+      "_theme_score": 84,
+      "_final_score": 84,
       "_keyword_matches": 0,
       "_boosted_score": 24,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-01T092459Z_540581149_RC2VN79XWPVF_RTRMADP_3_ETHIOPIA-ELECTION-1780336091.jpg?resize=1920%2C1440"
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/3/aje-onl-nf_sv_clashes-in-uk-over-muder-of-henry-nowak-030626?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/3/aje-onl-nf_sv_clashes-in-uk-over-muder-of-henry-nowak-030626?traffic_source=rss",
-      "title": "[Al Jazeera English] Outrage over UK police arrest video of dying student",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780469514.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFootage of police arresting a dying student has set off heated protests in the UK.",
-      "summary": "Footage of police arresting a dying student has set off heated protests in the UK.",
-      "_excerpt": "Footage of police arresting a dying student has set off heated protests in the UK.",
-      "date_published": "2026-06-03T06:52:11+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
+      "title": "[Al Jazeera English] Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEbola border shutdown leaves goods rotting between Uganda and DRC",
+      "summary": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "_excerpt": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "date_published": "2026-06-06T10:07:29+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 81,
+      "_final_score": 81,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
+      "title": "[Al Jazeera English] Families clear rubble after overnight Israeli strikes in Gaza",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFamilies in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "summary": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "_excerpt": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "date_published": "2026-06-05T19:40:41+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 78,
+      "_final_score": 78,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
+      "title": "[Al Jazeera English] Bolivia approves military measures against nationwide protests",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivia approves military measures against nationwide protests.",
+      "summary": "Bolivia approves military measures against nationwide protests.",
+      "_excerpt": "Bolivia approves military measures against nationwide protests.",
+      "date_published": "2026-06-10T03:09:22+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/un-envoys-call-on-trump-to-stop-israeli-annexation?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/un-envoys-call-on-trump-to-stop-israeli-annexation?traffic_source=rss",
+      "title": "[Al Jazeera English] UN envoys call on Trump to stop Israeli annexation",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780645035.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUN envoys call on Trump to stop Israeli annexation",
+      "summary": "UN envoys call on Trump to stop Israeli annexation",
+      "_excerpt": "UN envoys call on Trump to stop Israeli annexation",
+      "date_published": "2026-06-05T07:38:50+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 75,
+      "_final_score": 75,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780645035.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/9/palestinians-confront-israeli-settlers-over-land-grab-near-hebron?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/9/palestinians-confront-israeli-settlers-over-land-grab-near-hebron?traffic_source=rss",
+      "title": "[Al Jazeera English] Palestinians confront Israeli settlers over land grab near Hebron",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781027745.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPalestinians confronted Israeli settlers near Hebron over their attempt to seize Palestinian land",
+      "summary": "Palestinians confronted Israeli settlers near Hebron over their attempt to seize Palestinian land",
+      "_excerpt": "Palestinians confronted Israeli settlers near Hebron over their attempt to seize Palestinian land",
+      "date_published": "2026-06-09T17:55:51+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 74,
+      "_final_score": 74,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781027745.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/israeli-attack-on-gaza-city-tent-camp-kills-several-palestinians?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/israeli-attack-on-gaza-city-tent-camp-kills-several-palestinians?traffic_source=rss",
+      "title": "[Al Jazeera English] Israeli attack on Gaza City tent camp kills several Palestinians",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-06-at-10.23.35-PM-1780773858.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIsraeli attack on Gaza City tent camp kills several Palestinians.",
+      "summary": "Israeli attack on Gaza City tent camp kills several Palestinians.",
+      "_excerpt": "Israeli attack on Gaza City tent camp kills several Palestinians.",
+      "date_published": "2026-06-06T19:25:27+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 73,
+      "_final_score": 73,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-06-at-10.23.35-PM-1780773858.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
+      "title": "[Al Jazeera English] Texas-bound jet crashes during emergency landing in Dominican Republic",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTexas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "summary": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "_excerpt": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "date_published": "2026-06-08T13:22:18+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 72,
+      "_final_score": 72,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/ori-goldberg-israels-escalations-threaten-relationship-with-us?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/ori-goldberg-israels-escalations-threaten-relationship-with-us?traffic_source=rss",
+      "title": "[Al Jazeera English] Ori Goldberg: Israel’s escalations threaten relationship with US",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/ori-1780907522.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOri Goldberg: Israel’s escalations threaten relationship with US",
+      "summary": "Ori Goldberg: Israel’s escalations threaten relationship with US",
+      "_excerpt": "Ori Goldberg: Israel’s escalations threaten relationship with US",
+      "date_published": "2026-06-08T08:32:20+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 61,
+      "_final_score": 61,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/ori-1780907522.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://qz.com/economist-explains-30-year-treasury-yield-spiked-above-5",
+      "url": "https://qz.com/economist-explains-30-year-treasury-yield-spiked-above-5",
+      "title": "[Quartz] Economist Jon Hilsenrath explains why 30-Year Treasury yield spiked above 5%",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Economist%2520Jon%2520Hilsenrath%2520Explains%2520Why%252030-Year%2520Treasury%2520Yield%2520Spiked%2520Above%25205\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEconomist Jon Hilsenrath explains why 30-Year Treasury yield spiked above 5%",
+      "summary": "Economist Jon Hilsenrath explains why 30-Year Treasury yield spiked above 5%",
+      "_excerpt": "Economist Jon Hilsenrath explains why 30-Year Treasury yield spiked above 5%",
+      "date_published": "2026-06-08T20:30:07+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 54,
+      "_final_score": 54,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Economist%2520Jon%2520Hilsenrath%2520Explains%2520Why%252030-Year%2520Treasury%2520Yield%2520Spiked%2520Above%25205"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/7/pope-leo-urges-youth-to-be-sparks-of-a-new?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/7/pope-leo-urges-youth-to-be-sparks-of-a-new?traffic_source=rss",
+      "title": "[Al Jazeera English] Pope Leo urges youth to be ‘sparks of a new humanity’",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780838909.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPope Leo XIV urged young people to be &#039;sparks of a new humanity&#039;.",
+      "summary": "Pope Leo XIV urged young people to be 'sparks of a new humanity'.",
+      "_excerpt": "Pope Leo XIV urged young people to be 'sparks of a new humanity'.",
+      "date_published": "2026-06-07T13:29:35+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 49,
+      "_final_score": 49,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780838909.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/national-news/victim-says-her-face-was-unrecognizable-after-beating-by-bc-sex-trafficker-12397452",
+      "url": "https://www.piquenewsmagazine.com/national-news/victim-says-her-face-was-unrecognizable-after-beating-by-bc-sex-trafficker-12397452",
+      "title": "[Pique Newsmagazine] Victim says her face was 'unrecognizable' after beating by B.C. sex trafficker",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f0a06eb759dda802ddf14d7e5ca5982353a896d00598e51b17f892e2b8186f6c.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
+      "summary": "NEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
+      "_excerpt": "NEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
+      "date_published": "2026-06-09T21:47:12+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 48,
+      "_final_score": 48,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T22:16:16.716521+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f0a06eb759dda802ddf14d7e5ca5982353a896d00598e51b17f892e2b8186f6c.jpg;w=960"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/9/israeli-forces-kill-nine-in-tyre-after-issuing-forced-displacement-orders?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/9/israeli-forces-kill-nine-in-tyre-after-issuing-forced-displacement-orders?traffic_source=rss",
+      "title": "[Al Jazeera English] Israeli forces kill nine in Tyre after issuing forced displacement orders",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781038867.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIsraeli forces killed nine people in Tyre in the past 24 hours after it issued forced displacement orders on the city.",
+      "summary": "Israeli forces killed nine people in Tyre in the past 24 hours after it issued forced displacement orders on the city.",
+      "_excerpt": "Israeli forces killed nine people in Tyre in the past 24 hours after it issued forced displacement orders on the city.",
+      "date_published": "2026-06-09T21:01:22+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 74,
+      "_final_score": 74,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781038867.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/4/sherpa-found-alive-on-mount-everest-after-six-days-missing?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/4/sherpa-found-alive-on-mount-everest-after-six-days-missing?traffic_source=rss",
+      "title": "[Al Jazeera English] Sherpa found alive on Mount Everest after six days missing",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-04-at-9.21.16-PM-1780597282.png?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Nepali Sherpa has been found alive on the slopes of Mount Everest after missing for six days without food or oxygen.",
+      "summary": "A Nepali Sherpa has been found alive on the slopes of Mount Everest after missing for six days without food or oxygen.",
+      "_excerpt": "A Nepali Sherpa has been found alive on the slopes of Mount Everest after missing for six days without food or oxygen.",
+      "date_published": "2026-06-04T18:31:45+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
@@ -369,31 +619,56 @@
       ],
       "ai_score": 79,
       "_quality_score": 79,
-      "_theme_score": 60,
-      "_final_score": 60,
+      "_theme_score": 63,
+      "_final_score": 63,
       "_keyword_matches": 0,
       "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780469514.jpg?resize=1620%2C1080&quality=80"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-04-at-9.21.16-PM-1780597282.png?resize=1200%2C675"
     },
     {
-      "id": "https://qz.com/pace-ceo-jamie-cuffe-46-million-series-b",
-      "url": "https://qz.com/pace-ceo-jamie-cuffe-46-million-series-b",
-      "title": "[Quartz] Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Pace%2520CEO%2520Jamie%2520Cuffe%2520Outlines%2520Next%2520Move%2520After%2520$46%2520Million%2520Series%2520B%2520Raise%2520mp4.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "summary": "Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "_excerpt": "Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "date_published": "2026-06-03T13:50:09+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/tunisians-protest-for-press-freedom-and-release-of-political-prisoners?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/tunisians-protest-for-press-freedom-and-release-of-political-prisoners?traffic_source=rss",
+      "title": "[Al Jazeera English] Tunisians protest for press freedom and release of political prisoners",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-07-at-12.05.21-AM-1780779942.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTunisians protest for press freedom and release of political prisoners.",
+      "summary": "Tunisians protest for press freedom and release of political prisoners.",
+      "_excerpt": "Tunisians protest for press freedom and release of political prisoners.",
+      "date_published": "2026-06-06T21:07:19+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 79,
-      "_quality_score": 79,
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 59,
+      "_final_score": 59,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-07-at-12.05.21-AM-1780779942.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/gaza-fishermen-stay-afloat-with-dinghies-made-from-doorframes?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/gaza-fishermen-stay-afloat-with-dinghies-made-from-doorframes?traffic_source=rss",
+      "title": "[Al Jazeera English] Gaza fishermen stay afloat with dinghies made from doorframes",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/SV-Gaza-Fishermen-Horz-Clean-1780708289.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFishermen in Gaza are using dinghies made of reclaimed fiberglass, wood, and doorframes salvaged from rubble.",
+      "summary": "Fishermen in Gaza are using dinghies made of reclaimed fiberglass, wood, and doorframes salvaged from rubble.",
+      "_excerpt": "Fishermen in Gaza are using dinghies made of reclaimed fiberglass, wood, and doorframes salvaged from rubble.",
+      "date_published": "2026-06-06T01:13:29+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
       "_theme_score": 57,
       "_final_score": 57,
       "_keyword_matches": 0,
@@ -401,632 +676,437 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Pace%2520CEO%2520Jamie%2520Cuffe%2520Outlines%2520Next%2520Move%2520After%2520$46%2520Million%2520Series%2520B%2520Raise%2520mp4.mp4"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/SV-Gaza-Fishermen-Horz-Clean-1780708289.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.aljazeera.com/features/2026/6/3/israeli-settlers-are-driving-palestinian-shepherds-from-their-grazing-lands?traffic_source=rss",
-      "url": "https://www.aljazeera.com/features/2026/6/3/israeli-settlers-are-driving-palestinian-shepherds-from-their-grazing-lands?traffic_source=rss",
-      "title": "[Al Jazeera English] Israeli settlers are driving Palestinian shepherds from their grazing lands",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/original-E022BAAD-9F9E-44C0-8800-6CB17FD2A7C1-1-1780414557.jpg?resize=1200%2C630\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSettler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
-      "summary": "Settler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
-      "_excerpt": "Settler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
-      "date_published": "2026-06-03T16:39:55+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/3/london-activists-try-to-erect-statue-of-jailed-palestinian-leader?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/3/london-activists-try-to-erect-statue-of-jailed-palestinian-leader?traffic_source=rss",
+      "title": "[Al Jazeera English] London activists try to erect statue of jailed Palestinian leader",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780530323.jpg?resize=1648%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nActivists have tried to erect a statue of Marwan Barghouti in London’s Parliament Square, but police intervened.",
+      "summary": "Activists have tried to erect a statue of Marwan Barghouti in London’s Parliament Square, but police intervened.",
+      "_excerpt": "Activists have tried to erect a statue of Marwan Barghouti in London’s Parliament Square, but police intervened.",
+      "date_published": "2026-06-03T23:50:41+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 52,
-      "_final_score": 52,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 56,
+      "_final_score": 56,
       "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/original-E022BAAD-9F9E-44C0-8800-6CB17FD2A7C1-1-1780414557.jpg?resize=1200%2C630"
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T20:22:19.282104+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780530323.jpg?resize=1648%2C1080&quality=80"
     },
     {
-      "id": "https://www.howtogeek.com/stop-buying-raspberry-pis-one-device-can-replace-them/",
-      "url": "https://www.howtogeek.com/stop-buying-raspberry-pis-one-device-can-replace-them/",
-      "title": "[How-To Geek] I ditched my Raspberry Pi cluster for one mini PC—and saved hundreds",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/a-raspberry-pi-in-a-case-lying-on-top-of-a-beelink-mini-s12-pro-mini-pc.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhy a $200 mini PC is quietly replacing the Raspberry Pi cluster in your homelab",
-      "summary": "Why a $200 mini PC is quietly replacing the Raspberry Pi cluster in your homelab",
-      "_excerpt": "Why a $200 mini PC is quietly replacing the Raspberry Pi cluster in your homelab",
-      "date_published": "2026-05-28T16:00:16+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/huge-fire-erupts-at-honda-warehouse-in-barcelona?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/huge-fire-erupts-at-honda-warehouse-in-barcelona?traffic_source=rss",
+      "title": "[Al Jazeera English] Huge fire erupts at Honda warehouse in Barcelona",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Honda-warehouse-fire-1780684675.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAround 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
+      "summary": "Around 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
+      "_excerpt": "Around 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
+      "date_published": "2026-06-05T18:39:12+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 72,
-      "_final_score": 72,
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 56,
+      "_final_score": 56,
       "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/03/a-raspberry-pi-in-a-case-lying-on-top-of-a-beelink-mini-s12-pro-mini-pc.png"
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Honda-warehouse-fire-1780684675.png?resize=1920%2C1440"
     },
     {
-      "id": "https://www.zdnet.com/article/how-to-prepare-for-summer-blackouts-calculate-power-needs/",
-      "url": "https://www.zdnet.com/article/how-to-prepare-for-summer-blackouts-calculate-power-needs/",
-      "title": "[ZDNet] The solar-powered backup station I trust after years of testing",
-      "content_html": "<img src=\"https://www.zdnet.com/a/img/resize/77801582665df5b2564ea83b85ac12d530c7b9bb/2025/07/10/ebbf0d96-8951-43d5-a1a3-4f5d1dbc42f9/img-4412.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSummer blackouts are on the horizon. Here's the setup I'm relying on to get me through the season.",
-      "summary": "Summer blackouts are on the horizon. Here's the setup I'm relying on to get me through the season.",
-      "_excerpt": "Summer blackouts are on the horizon. Here's the setup I'm relying on to get me through the season.",
-      "date_published": "2026-05-28T15:25:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 65,
-      "_final_score": 65,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://www.zdnet.com/a/img/resize/77801582665df5b2564ea83b85ac12d530c7b9bb/2025/07/10/ebbf0d96-8951-43d5-a1a3-4f5d1dbc42f9/img-4412.jpg?auto=webp&fit=crop&height=675&width=1200"
-    },
-    {
-      "id": "https://qz.com/dime-commercial-bank-ceo-stuart-lubow-nyse-transfer",
-      "url": "https://qz.com/dime-commercial-bank-ceo-stuart-lubow-nyse-transfer",
-      "title": "[Quartz] Dime Commercial Bank CEO Stuart Lubow reveals next move after NYSE transfer",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Dime%2520Commercial%2520Bank%2520CEO%2520Stuart%2520Lubow%2520Reveals%2520Next%2520Move%2520After%2520NYSE%2520Transfer\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDime Commercial Bank CEO Stuart Lubow reveals next move after NYSE transfer",
-      "summary": "Dime Commercial Bank CEO Stuart Lubow reveals next move after NYSE transfer",
-      "_excerpt": "Dime Commercial Bank CEO Stuart Lubow reveals next move after NYSE transfer",
-      "date_published": "2026-06-03T14:20:07+00:00",
+      "id": "https://qz.com/moodys-mark-zandi-economic-outlook-middle-east",
+      "url": "https://qz.com/moodys-mark-zandi-economic-outlook-middle-east",
+      "title": "[Quartz] Moody's Mark Zandi weighs in on economic outlook amid Middle East latest",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Moody%E2%80%99s%2520Mark%2520Zandi%2520Weighs%2520in%2520on%2520Economic%2520Outlook%2520Amid%2520Middle%2520East%2520Latest.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMoody's Mark Zandi weighs in on economic outlook amid Middle East latest",
+      "summary": "Moody's Mark Zandi weighs in on economic outlook amid Middle East latest",
+      "_excerpt": "Moody's Mark Zandi weighs in on economic outlook amid Middle East latest",
+      "date_published": "2026-06-09T18:30:08+00:00",
       "authors": [
         {
           "name": "Quartz",
           "url": "https://qz.com"
         }
       ],
-      "ai_score": 72,
-      "_quality_score": 72,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 55,
+      "_final_score": 55,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Moody%E2%80%99s%2520Mark%2520Zandi%2520Weighs%2520in%2520on%2520Economic%2520Outlook%2520Amid%2520Middle%2520East%2520Latest.mp4"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/pope-leo-welcomed-in-barcelona-with-traditional-catalan-human-tower?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/pope-leo-welcomed-in-barcelona-with-traditional-catalan-human-tower?traffic_source=rss",
+      "title": "[Al Jazeera English] Pope Leo welcomed in Barcelona with traditional Catalan human tower",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781068969.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMore than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "summary": "More than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "_excerpt": "More than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "date_published": "2026-06-10T05:26:54+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
       "_theme_score": 54,
       "_final_score": 54,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781068969.jpg?resize=1620%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/4/uk-far-right-accused-of-exploiting-killing-of-henry-nowak?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/4/uk-far-right-accused-of-exploiting-killing-of-henry-nowak?traffic_source=rss",
+      "title": "[Al Jazeera English] UK far-right accused of exploiting killing of Henry Nowak",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-UK-far-right-accused-of-exploiting-killing-of-Henry-Nowak-1780541863.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUK Prime Minister Keir Starmer accused right-wing figures of exploiting the killing of Henry Nowak for political gain.",
+      "summary": "UK Prime Minister Keir Starmer accused right-wing figures of exploiting the killing of Henry Nowak for political gain.",
+      "_excerpt": "UK Prime Minister Keir Starmer accused right-wing figures of exploiting the killing of Henry Nowak for political gain.",
+      "date_published": "2026-06-04T02:59:28+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 54,
+      "_final_score": 54,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-04T08:42:43.860371+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-UK-far-right-accused-of-exploiting-killing-of-Henry-Nowak-1780541863.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/magnitude-7-8-earthquake-rocks-southern-philippines?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/magnitude-7-8-earthquake-rocks-southern-philippines?traffic_source=rss",
+      "title": "[Al Jazeera English] Magnitude 7.8 earthquake rocks southern Philippines",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780907710.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAt least 15 people were killed and 129 injured in a magnitude 7.8 earthquake that struck the southern Philippines.",
+      "summary": "At least 15 people were killed and 129 injured in a magnitude 7.8 earthquake that struck the southern Philippines.",
+      "_excerpt": "At least 15 people were killed and 129 injured in a magnitude 7.8 earthquake that struck the southern Philippines.",
+      "date_published": "2026-06-08T08:35:23+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 54,
+      "_final_score": 54,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780907710.jpg?resize=1620%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/smoke-rises-in-illegal-israeli-settlement-after-iranian-missile-attack?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/smoke-rises-in-illegal-israeli-settlement-after-iranian-missile-attack?traffic_source=rss",
+      "title": "[Al Jazeera English] Smoke rises in illegal Israeli settlement after Iranian missile attack",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780919731.jpg?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSmoke was seen in an illegal Israeli settlement in the occupied West Bank after Iran launched launched missiles.",
+      "summary": "Smoke was seen in an illegal Israeli settlement in the occupied West Bank after Iran launched launched missiles.",
+      "_excerpt": "Smoke was seen in an illegal Israeli settlement in the occupied West Bank after Iran launched launched missiles.",
+      "date_published": "2026-06-08T11:56:31+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality_score": 78,
+      "_theme_score": 51,
+      "_final_score": 51,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780919731.jpg?resize=1200%2C675"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/video-shows-israeli-soldier-and-settlers-assaulting-two-palestinians?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/video-shows-israeli-soldier-and-settlers-assaulting-two-palestinians?traffic_source=rss",
+      "title": "[Al Jazeera English] Video shows Israeli soldier and settlers assaulting two Palestinians",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780775291.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA surveillance camera caught a brutal assault by an Israeli soldier and settlers on two men in the occupied West Bank.",
+      "summary": "A surveillance camera caught a brutal assault by an Israeli soldier and settlers on two men in the occupied West Bank.",
+      "_excerpt": "A surveillance camera caught a brutal assault by an Israeli soldier and settlers on two men in the occupied West Bank.",
+      "date_published": "2026-06-06T19:48:22+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 51,
+      "_final_score": 51,
+      "_keyword_matches": 0,
+      "_boosted_score": 23,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780775291.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/ukrainian-marine-drone-explodes-at-romanian-port?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/ukrainian-marine-drone-explodes-at-romanian-port?traffic_source=rss",
+      "title": "[Al Jazeera English] Ukrainian marine drone explodes at Romanian port",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-ROMANIA-DRONE-1780665692.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA malfunctioning Ukrainian naval drone has caused an explosion at a key Black Sea port in Romania.",
+      "summary": "A malfunctioning Ukrainian naval drone has caused an explosion at a key Black Sea port in Romania.",
+      "_excerpt": "A malfunctioning Ukrainian naval drone has caused an explosion at a key Black Sea port in Romania.",
+      "date_published": "2026-06-05T13:22:40+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 54,
+      "_final_score": 54,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-ROMANIA-DRONE-1780665692.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/the-mix/police-arrest-son-of-james-handys-girlfriend-in-actors-stabbing-death-in-la-12379528",
+      "url": "https://www.piquenewsmagazine.com/the-mix/police-arrest-son-of-james-handys-girlfriend-in-actors-stabbing-death-in-la-12379528",
+      "title": "[Pique Newsmagazine] Police arrest son of James Handy's girlfriend in actor's stabbing death in LA",
+      "content_html": "<img src=\"https://www.vmcdn.ca/files/piquenewsmagazine/images/piquenewsmagazine/pique800x405.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPolice have arrested the son of actor James Handy’s girlfriend in his death after he was found stabbed in the chest in Los Angeles, law enforcement said Thursday.",
+      "summary": "Police have arrested the son of actor James Handy’s girlfriend in his death after he was found stabbed in the chest in Los Angeles, law enforcement said Thursday.",
+      "_excerpt": "Police have arrested the son of actor James Handy’s girlfriend in his death after he was found stabbed in the chest in Los Angeles, law enforcement said Thursday.",
+      "date_published": "2026-06-05T04:56:13+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 54,
+      "_final_score": 54,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-05T08:33:51.483490+00:00"
+      },
+      "image": "https://www.vmcdn.ca/files/piquenewsmagazine/images/piquenewsmagazine/pique800x405.png"
+    },
+    {
+      "id": "https://qz.com/hippo-ceo-on-new-insurance-trends-as-hurricane-season-begins",
+      "url": "https://qz.com/hippo-ceo-on-new-insurance-trends-as-hurricane-season-begins",
+      "title": "[Quartz] Hippo CEO Rick McCathron on new insurance trends as hurricane season begins",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Hippo%2520CEO%2520Rick%2520McCathron%2520on%2520New%2520Insurance%2520Trends%2520as%2520Hurricane%2520Season%2520Begins\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHippo CEO Rick McCathron on new insurance trends as hurricane season begins",
+      "summary": "Hippo CEO Rick McCathron on new insurance trends as hurricane season begins",
+      "_excerpt": "Hippo CEO Rick McCathron on new insurance trends as hurricane season begins",
+      "date_published": "2026-06-03T21:00:07+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 53,
+      "_final_score": 53,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-05T08:33:51.483490+00:00"
+      },
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Hippo%2520CEO%2520Rick%2520McCathron%2520on%2520New%2520Insurance%2520Trends%2520as%2520Hurricane%2520Season%2520Begins"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/6/man-dies-in-western-australia-after-shark-attack?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/6/man-dies-in-western-australia-after-shark-attack?traffic_source=rss",
+      "title": "[Al Jazeera English] Man dies in Western Australia after shark attack",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2025/09/AFP__20250906__73L87PY__v1__HighRes__AustraliaShark-1757138880.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe man was fishing when he was bitten by a shark, police say.",
+      "summary": "The man was fishing when he was bitten by a shark, police say.",
+      "_excerpt": "The man was fishing when he was bitten by a shark, police say.",
+      "date_published": "2026-06-06T08:17:32+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 51,
+      "_final_score": 51,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2025/09/AFP__20250906__73L87PY__v1__HighRes__AustraliaShark-1757138880.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://qz.com/quasar-markets-ceo-on-dows-900-point-rally-to-fresh-record",
+      "url": "https://qz.com/quasar-markets-ceo-on-dows-900-point-rally-to-fresh-record",
+      "title": "[Quartz] Quasar Markets CEO Steve Orr breaks down Dow’s 900+ point rally to fresh record",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Quasar%2520Markets%2520CEO%2520Steve%2520Orr%2520Breaks%2520Down%2520Dow%E2%80%99s%2520900%2520Point%2520Rally%2520to%2520Fresh%2520Record\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nQuasar Markets CEO Steve Orr breaks down Dow’s 900+ point rally to fresh record",
+      "summary": "Quasar Markets CEO Steve Orr breaks down Dow’s 900+ point rally to fresh record",
+      "_excerpt": "Quasar Markets CEO Steve Orr breaks down Dow’s 900+ point rally to fresh record",
+      "date_published": "2026-06-05T21:20:08+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 53,
+      "_final_score": 53,
       "_keyword_matches": 0,
       "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Dime%2520Commercial%2520Bank%2520CEO%2520Stuart%2520Lubow%2520Reveals%2520Next%2520Move%2520After%2520NYSE%2520Transfer"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Quasar%2520Markets%2520CEO%2520Steve%2520Orr%2520Breaks%2520Down%2520Dow%E2%80%99s%2520900%2520Point%2520Rally%2520to%2520Fresh%2520Record"
     },
     {
-      "id": "https://www.howtogeek.com/homelab-projects-to-try-this-weekend-may-29-31/",
-      "url": "https://www.howtogeek.com/homelab-projects-to-try-this-weekend-may-29-31/",
-      "title": "[How-To Geek] 3 more homelab projects to try this weekend (May 29",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/rear-ports-on-the-acemagic-m5-mini-pc-with-hdmi-displayport-lan-and-usb-connections.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStop re-downloading Windows updates on every PC—set up a local cache server instead",
-      "summary": "Stop re-downloading Windows updates on every PC—set up a local cache server instead",
-      "_excerpt": "Stop re-downloading Windows updates on every PC—set up a local cache server instead",
-      "date_published": "2026-05-28T15:45:18+00:00",
+      "id": "https://www.engadget.com/2188923/jwst-measure-mass-of-dormant-black-hole-our-solar-system-lost-protoplanet-science-news/",
+      "url": "https://www.engadget.com/2188923/jwst-measure-mass-of-dormant-black-hole-our-solar-system-lost-protoplanet-science-news/",
+      "title": "[Engadget] Astronomers measure the mass of a dormant black hole, our solar system's lost protoplanet, and more science stories",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/astronomers-measure-the-mass-of-a-dormant-black-hole-our-solar-systems-lost-protoplanet-and-more-science-stories/l-intro-1780764989.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis week's science news.",
+      "summary": "This week's science news.",
+      "_excerpt": "This week's science news.",
+      "date_published": "2026-06-06T17:30:00+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
         }
       ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 68,
-      "_final_score": 68,
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 51,
+      "_final_score": 51,
       "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "homelab",
-      "_source_category": "homelab",
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/05/rear-ports-on-the-acemagic-m5-mini-pc-with-hdmi-displayport-lan-and-usb-connections.jpg"
+      "image": "https://www.engadget.com/img/gallery/astronomers-measure-the-mass-of-a-dormant-black-hole-our-solar-systems-lost-protoplanet-and-more-science-stories/l-intro-1780764989.jpg"
     },
     {
-      "id": "https://globalnews.ca/news/11887932/kelowna-veteran-surprised-with-custom-model-ship/",
-      "url": "https://globalnews.ca/news/11887932/kelowna-veteran-surprised-with-custom-model-ship/",
-      "title": "[Global News] Kelowna veteran surprised with custom model ship after nationwide effort",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/1.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKelowna veteran surprised with custom model ship after nationwide effort. A simple request from a Kelowna veteran sparked an incredible effort that stretched across canada.",
-      "summary": "Kelowna veteran surprised with custom model ship after nationwide effort. A simple request from a Kelowna veteran sparked an incredible effort that stretched across canada.",
-      "_excerpt": "Kelowna veteran surprised with custom model ship after nationwide effort. A simple request from a Kelowna veteran sparked an incredible effort that stretched across canada.",
-      "date_published": "2026-06-03T01:10:25+00:00",
+      "id": "https://www.piquenewsmagazine.com/the-mix/norways-crown-princess-mette-marit-placed-on-a-lung-transplant-list-12385457",
+      "url": "https://www.piquenewsmagazine.com/the-mix/norways-crown-princess-mette-marit-placed-on-a-lung-transplant-list-12385457",
+      "title": "[Pique Newsmagazine] Norway’s Crown Princess Mette-Marit placed on a lung transplant list",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/b41da836458d2a41f32688684437889b714b97e82906aa4b2134e53e5a68d542.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOSLO, Norway (AP) — Norway’s Crown Princess Mette-Marit has been placed on a lung transplant list, Norway’s Royal Court said in a statement.",
+      "summary": "OSLO, Norway (AP) — Norway’s Crown Princess Mette-Marit has been placed on a lung transplant list, Norway’s Royal Court said in a statement.",
+      "_excerpt": "OSLO, Norway (AP) — Norway’s Crown Princess Mette-Marit has been placed on a lung transplant list, Norway’s Royal Court said in a statement.",
+      "date_published": "2026-06-06T13:18:48+00:00",
       "authors": [
         {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 61,
-      "_quality_score": 61,
-      "_theme_score": 55,
-      "_final_score": 55,
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 50,
+      "_final_score": 50,
       "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "_boosted_score": 21,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/1.jpg?quality=65&strip=all"
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/b41da836458d2a41f32688684437889b714b97e82906aa4b2134e53e5a68d542.jpg;w=960"
     },
     {
-      "id": "https://hackaday.com/2026/05/27/autopsy-of-a-failed-vintage-carbon-resistor/",
-      "url": "https://hackaday.com/2026/05/27/autopsy-of-a-failed-vintage-carbon-resistor/",
-      "title": "[Hackaday] Autopsy of a Failed Vintage Carbon Resistor",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/05/vintage_carbon_resistor_autopsy_curiousmarc_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"471\" src=\"https://hackaday.com/wp-content/uploads/2026/05/vintage_carbon_resistor_autopsy_curiousmarc_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Although resistors are hardly among the most exciting components, they are arguably one of the most important ones, as anyone who has done any amount of circuit design and debugging <a class=\"read-more\" href=\"https://hackaday.com/2026/05/27/autopsy-of-a-failed-vintage-carbon-resistor/\">&#8230;read more</a>",
-      "summary": "Although resistors are hardly among the most exciting components, they are arguably one of the most important ones, as anyone who has done any amount of circuit design and debugging …read more",
-      "_excerpt": "Although resistors are hardly among the most exciting components, they are arguably one of the most important ones, as anyone who has done any amount of circuit design and debugging …read more",
-      "date_published": "2026-05-27T23:00:57+00:00",
+      "id": "https://www.piquenewsmagazine.com/national-business/ottawa-endorses-plan-to-move-marinelands-whales-to-us-and-spain-12369424",
+      "url": "https://www.piquenewsmagazine.com/national-business/ottawa-endorses-plan-to-move-marinelands-whales-to-us-and-spain-12369424",
+      "title": "[Pique Newsmagazine] Ottawa endorses plan to move Marineland's whales to U.S. and Spain",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/7e3b15ff030c0ef7a18601dd66a02272fc5edfe5d57de66a4cbaea228b24f2a6.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTORONTO — Ottawa has endorsed a plan to move Canada's last remaining captive whales to aquariums in the U.S. and Spain. \n There are 30 belugas and four dolphins at Marineland, the shuttered theme park in Niagara Falls, Ont.",
+      "summary": "TORONTO — Ottawa has endorsed a plan to move Canada's last remaining captive whales to aquariums in the U.S. and Spain. There are 30 belugas and four dolphins at Marineland, the shuttered theme park in Niagara Falls, Ont.",
+      "_excerpt": "TORONTO — Ottawa has endorsed a plan to move Canada's last remaining captive whales to aquariums in the U.S. and Spain. There are 30 belugas and four dolphins at Marineland, the shuttered theme park in Niagara Falls, Ont.",
+      "date_published": "2026-06-03T16:41:17+00:00",
       "authors": [
         {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 65,
-      "_final_score": 65,
+      "ai_score": 66,
+      "_quality_score": 66,
+      "_theme_score": 49,
+      "_final_score": 49,
       "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/05/vintage_carbon_resistor_autopsy_curiousmarc_youtube.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/your-smart-home-needs-fewer-raspberry-pis-and-more-microcontrollers/",
-      "url": "https://www.xda-developers.com/your-smart-home-needs-fewer-raspberry-pis-and-more-microcontrollers/",
-      "title": "[XDA Developers] Your smart home needs fewer Raspberry Pis and more boring microcontrollers",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/esp32-raspberry-pi.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMicrocontrollers are surprisingly useful for Home Assistant projects",
-      "summary": "Microcontrollers are surprisingly useful for Home Assistant projects",
-      "_excerpt": "Microcontrollers are surprisingly useful for Home Assistant projects",
-      "date_published": "2026-05-28T15:00:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/esp32-raspberry-pi.jpg"
-    },
-    {
-      "id": "https://lifehacker.com/health/the-oura-ring-5-starts-shipping-next-week?utm_medium=RSS",
-      "url": "https://lifehacker.com/health/the-oura-ring-5-starts-shipping-next-week?utm_medium=RSS",
-      "title": "[Lifehacker] The Oura Ring 5 Is Official, and Starts Shipping Next Week",
-      "content_html": "<img src=\"https://lifehacker.com/imagery/articles/01KSNJRKCZR06VG4HNSZHWGHBT/hero-image.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe new ring will be thinner than others on the market, and Oura's app is launching several new health features to go with it.",
-      "summary": "The new ring will be thinner than others on the market, and Oura's app is launching several new health features to go with it.",
-      "_excerpt": "The new ring will be thinner than others on the market, and Oura's app is launching several new health features to go with it.",
-      "date_published": "2026-05-28T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "Lifehacker",
-          "url": "https://lifehacker.com/feed/rss"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://lifehacker.com/imagery/articles/01KSNJRKCZR06VG4HNSZHWGHBT/hero-image.png"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/1/ultra-orthodox-jewish-demonstrators-storm-israeli-police-station?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/1/ultra-orthodox-jewish-demonstrators-storm-israeli-police-station?traffic_source=rss",
-      "title": "[Al Jazeera English] Ultra-Orthodox Jewish demonstrators storm Israeli police station",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Ultra-ortho-Horizontal-thumb-1780305030.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUltra-Orthodox Jewish demonstrators storm Israeli police station",
-      "summary": "Ultra-Orthodox Jewish demonstrators storm Israeli police station",
-      "_excerpt": "Ultra-Orthodox Jewish demonstrators storm Israeli police station",
-      "date_published": "2026-06-01T09:14:58+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 53,
-      "_quality_score": 53,
-      "_theme_score": 81,
-      "_final_score": 81,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "_boosted_score": 19,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Ultra-ortho-Horizontal-thumb-1780305030.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.xda-developers.com/i-bought-a-16tb-hdd-instead-8tb-ssd/",
-      "url": "https://www.xda-developers.com/i-bought-a-16tb-hdd-instead-8tb-ssd/",
-      "title": "[XDA Developers] Why I bought a 16TB HDD instead of an 8TB SSD",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/04/asus-proart-pa602-case-hdd-in-tray.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOut of the two, I just had to go with the older technology.",
-      "summary": "Out of the two, I just had to go with the older technology.",
-      "_excerpt": "Out of the two, I just had to go with the older technology.",
-      "date_published": "2026-05-28T13:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/04/asus-proart-pa602-case-hdd-in-tray.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/powerline-ethernet-ugly-imperfect-sometimes-exactly-what-house-needs/",
-      "url": "https://www.xda-developers.com/powerline-ethernet-ugly-imperfect-sometimes-exactly-what-house-needs/",
-      "title": "[XDA Developers] Powerline Ethernet is ugly, imperfect, and sometimes exactly what your house needs",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/tp-link-av2000-powerline-ethernet-kit.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDon't ignore the solution on the table.",
-      "summary": "Don't ignore the solution on the table.",
-      "_excerpt": "Don't ignore the solution on the table.",
-      "date_published": "2026-05-27T19:30:21+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality_score": 48,
-      "_theme_score": 65,
-      "_final_score": 65,
-      "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/02/tp-link-av2000-powerline-ethernet-kit.JPG"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/28/indians-celebrate-eid-al-adha-amid-prayer-restrictions?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/28/indians-celebrate-eid-al-adha-amid-prayer-restrictions?traffic_source=rss",
-      "title": "[Al Jazeera English] Indians celebrate Eid al-Adha amid prayer restrictions",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/AP26148194283936-1780008100.jpg?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIndians celebrate Eid al-Adha amid prayer restrictions.",
-      "summary": "Indians celebrate Eid al-Adha amid prayer restrictions.",
-      "_excerpt": "Indians celebrate Eid al-Adha amid prayer restrictions.",
-      "date_published": "2026-05-28T22:44:02+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 64,
-      "_final_score": 64,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/AP26148194283936-1780008100.jpg?resize=1200%2C675"
-    },
-    {
-      "id": "https://www.tomsguide.com/computing/3d-printers/save-a-whopping-gbp350-on-the-eufymake-e1-uv-printer-with-early-access-deals-before-may-31st",
-      "url": "https://www.tomsguide.com/computing/3d-printers/save-a-whopping-gbp350-on-the-eufymake-e1-uv-printer-with-early-access-deals-before-may-31st",
-      "title": "[Toms Guide] Save a whopping £350 on the eufyMake E1 UV Printer with early access deals before May 31st",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/x3Tj6cYyM53MQF6rHWoQqL-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe eufyMake E1 3D-texture UV printer has just landed in the UK with early access pricing, saving up to £350!",
-      "summary": "The eufyMake E1 3D-texture UV printer has just landed in the UK with early access pricing, saving up to £350!",
-      "_excerpt": "The eufyMake E1 3D-texture UV printer has just landed in the UK with early access pricing, saving up to £350!",
-      "date_published": "2026-05-28T14:31:23+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 35,
-      "_quality_score": 35,
-      "_theme_score": 60,
-      "_final_score": 60,
-      "_keyword_matches": 0,
-      "_boosted_score": 10,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/x3Tj6cYyM53MQF6rHWoQqL-1280-80.png"
-    },
-    {
-      "id": "https://www.tomsguide.com/computing/internet/aluminum-foil-boosts-wi-fi-signal-heres-how-to-position-it-behind-your-router",
-      "url": "https://www.tomsguide.com/computing/internet/aluminum-foil-boosts-wi-fi-signal-heres-how-to-position-it-behind-your-router",
-      "title": "[Toms Guide] I put aluminum foil behind my router to fix my Wi-Fi dead zones — and it actually worked",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/fgQizbPZ4LNguSgWWWBhvd-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLearn how to use aluminum foil to redirect Wi-Fi signal to specific areas of your home.",
-      "summary": "Learn how to use aluminum foil to redirect Wi-Fi signal to specific areas of your home.",
-      "_excerpt": "Learn how to use aluminum foil to redirect Wi-Fi signal to specific areas of your home.",
-      "date_published": "2026-05-28T05:15:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 30,
-      "_quality_score": 30,
-      "_theme_score": 60,
-      "_final_score": 60,
-      "_keyword_matches": 0,
-      "_boosted_score": 9,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/fgQizbPZ4LNguSgWWWBhvd-1280-80.png"
-    },
-    {
-      "id": "https://www.androidauthority.com/capcut-available-android-tablets-3672054/",
-      "url": "https://www.androidauthority.com/capcut-available-android-tablets-3672054/",
-      "title": "[Android Authority] CapCut is here for Android tablets, and it’s completely free for now",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/05/capcut-pad-android-app-hero-image-scaled-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt comes with desktop-level editing features, and no subscriptions — for now, at least.",
-      "summary": "It comes with desktop-level editing features, and no subscriptions — for now, at least.",
-      "_excerpt": "It comes with desktop-level editing features, and no subscriptions — for now, at least.",
-      "date_published": "2026-05-28T11:59:40+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 32,
-      "_quality_score": 32,
-      "_theme_score": 58,
-      "_final_score": 58,
-      "_keyword_matches": 0,
-      "_boosted_score": 9,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/05/capcut-pad-android-app-hero-image-scaled-1.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/31/aje-onl-nf_more-survivors-pulled-from-flooded-laos-cave-300526?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/31/aje-onl-nf_more-survivors-pulled-from-flooded-laos-cave-300526?traffic_source=rss",
-      "title": "[Al Jazeera English] Emotional scenes as more survivors pulled from flooded Laos cave",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780193684.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDivers in Laos have rescued four more villagers trapped in a flooded cave. The first survivor was pulled out on Friday.",
-      "summary": "Divers in Laos have rescued four more villagers trapped in a flooded cave. The first survivor was pulled out on Friday.",
-      "_excerpt": "Divers in Laos have rescued four more villagers trapped in a flooded cave. The first survivor was pulled out on Friday.",
-      "date_published": "2026-05-31T02:22:29+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 27,
-      "_quality_score": 27,
-      "_theme_score": 61,
-      "_final_score": 61,
-      "_keyword_matches": 0,
-      "_boosted_score": 8,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780193684.jpg?resize=1620%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/30/22-killed-as-truck-carrying-refugees-overturns-in-afghanistan?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/30/22-killed-as-truck-carrying-refugees-overturns-in-afghanistan?traffic_source=rss",
-      "title": "[Al Jazeera English] 22 killed as truck carrying refugees overturns in Afghanistan",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780164358.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n22 people have been killed and 36 others injured when a truck carrying recently returned Afghan refugees overturned",
-      "summary": "22 people have been killed and 36 others injured when a truck carrying recently returned Afghan refugees overturned",
-      "_excerpt": "22 people have been killed and 36 others injured when a truck carrying recently returned Afghan refugees overturned",
-      "date_published": "2026-05-30T18:06:29+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 25,
-      "_quality_score": 25,
-      "_theme_score": 63,
-      "_final_score": 63,
-      "_keyword_matches": 0,
-      "_boosted_score": 7,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780164358.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/30/putin-says-drone-that-crashed-in-romania-likely-ukrainian?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/30/putin-says-drone-that-crashed-in-romania-likely-ukrainian?traffic_source=rss",
-      "title": "[Al Jazeera English] Putin says drone that crashed in Romania likely Ukrainian",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/YULIA-ON-PUTIN-WIDE-THUMB-1780172491.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPutin says drone that crashed in Romania likely Ukrainian.",
-      "summary": "Putin says drone that crashed in Romania likely Ukrainian.",
-      "_excerpt": "Putin says drone that crashed in Romania likely Ukrainian.",
-      "date_published": "2026-05-30T20:23:33+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 26,
-      "_quality_score": 26,
-      "_theme_score": 61,
-      "_final_score": 61,
-      "_keyword_matches": 0,
-      "_boosted_score": 7,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/YULIA-ON-PUTIN-WIDE-THUMB-1780172491.png?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/30/officer-accuses-disabled-driver-of-holding-phone-with-missing-hand?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/30/officer-accuses-disabled-driver-of-holding-phone-with-missing-hand?traffic_source=rss",
-      "title": "[Al Jazeera English] Officer accuses disabled driver of holding phone with missing hand",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780132217.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA traffic stop in Florida has gone viral after an officer accused a disabled driver of holding a phone in her right hand",
-      "summary": "A traffic stop in Florida has gone viral after an officer accused a disabled driver of holding a phone in her right hand",
-      "_excerpt": "A traffic stop in Florida has gone viral after an officer accused a disabled driver of holding a phone in her right hand",
-      "date_published": "2026-05-30T09:11:28+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 26,
-      "_quality_score": 26,
-      "_theme_score": 60,
-      "_final_score": 60,
-      "_keyword_matches": 0,
-      "_boosted_score": 7,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780132217.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/31/aje-onl-nf_clip-thousands-in-peru-protest-fujimori-run-300526?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/31/aje-onl-nf_clip-thousands-in-peru-protest-fujimori-run-300526?traffic_source=rss",
-      "title": "[Al Jazeera English] Thousands in Peru protest Fujimori presidential run",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780203499.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThousands of demonstrators took to the streets of Lima to protest the presidential bid of Keiko Fujimori.",
-      "summary": "Thousands of demonstrators took to the streets of Lima to protest the presidential bid of Keiko Fujimori.",
-      "_excerpt": "Thousands of demonstrators took to the streets of Lima to protest the presidential bid of Keiko Fujimori.",
-      "date_published": "2026-05-31T03:58:50+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 20,
-      "_quality_score": 20,
-      "_theme_score": 54,
-      "_final_score": 54,
-      "_keyword_matches": 0,
-      "_boosted_score": 6,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/image-1780203499.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.cnet.com/news/this-dolphin-robot-vacuum-has-kept-my-pool-spotless-for-2-years-with-no-issues/",
-      "url": "https://www.cnet.com/news/this-dolphin-robot-vacuum-has-kept-my-pool-spotless-for-2-years-with-no-issues/",
-      "title": "[CNET] This Dolphin Robot Vacuum Has Kept My Pool Spotless for 2 Years With No Issues",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/572732938363aefd5a5f842e0aeb111200632c7e/hub/2026/05/21/90bd5cf6-2cd3-469b-91b6-e7f762bbd919/screenshot-2026-05-21-at-6-10-22pm.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStrong suction, no tangles and zero issues in two years of operation. This Dolphin model gets our CNET stamp of approval.",
-      "summary": "Strong suction, no tangles and zero issues in two years of operation. This Dolphin model gets our CNET stamp of approval.",
-      "_excerpt": "Strong suction, no tangles and zero issues in two years of operation. This Dolphin model gets our CNET stamp of approval.",
-      "date_published": "2026-05-28T11:01:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 18,
-      "_quality_score": 18,
-      "_theme_score": 60,
-      "_final_score": 60,
-      "_keyword_matches": 0,
-      "_boosted_score": 5,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/572732938363aefd5a5f842e0aeb111200632c7e/hub/2026/05/21/90bd5cf6-2cd3-469b-91b6-e7f762bbd919/screenshot-2026-05-21-at-6-10-22pm.png?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.makeuseof.com/this-is-the-better-kindle-alternative-that-most-people-dont-consider/",
-      "url": "https://www.makeuseof.com/this-is-the-better-kindle-alternative-that-most-people-dont-consider/",
-      "title": "[MakeUseOf] Kobo is the Kindle alternative that most people never consider",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/kobo-clara-outside.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKobo beats Kindle on library books, format flexibility, and physical buttons",
-      "summary": "Kobo beats Kindle on library books, format flexibility, and physical buttons",
-      "_excerpt": "Kobo beats Kindle on library books, format flexibility, and physical buttons",
-      "date_published": "2026-05-27T20:00:17+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 15,
-      "_quality_score": 15,
-      "_theme_score": 60,
-      "_final_score": 60,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/kobo-clara-outside.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/5/29/netanyahu-says-israeli-forces-have-crossed-lebanons-litani-river?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/29/netanyahu-says-israeli-forces-have-crossed-lebanons-litani-river?traffic_source=rss",
-      "title": "[Al Jazeera English] Netanyahu says Israeli forces have crossed Lebanon’s Litani River",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/05/WIDE-THUMB-Israeli-forces-crossed-Lebanons-Litani-River-1780084011.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIsraeli Prime Minister Benjamin Netanyahu said Israeli forces had crossed the Litani River in southern Lebanon.",
-      "summary": "Israeli Prime Minister Benjamin Netanyahu said Israeli forces had crossed the Litani River in southern Lebanon.",
-      "_excerpt": "Israeli Prime Minister Benjamin Netanyahu said Israeli forces had crossed the Litani River in southern Lebanon.",
-      "date_published": "2026-05-29T19:48:05+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 15,
-      "_quality_score": 15,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/WIDE-THUMB-Israeli-forces-crossed-Lebanons-Litani-River-1780084011.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.techradar.com/cameras/mirrorless-cameras/my-favorite-camera-from-last-year-is-on-sale-for-a-record-low-price-the-nikon-z5-ii-is-easily-one-of-the-best-value-full-frame-cameras",
-      "url": "https://www.techradar.com/cameras/mirrorless-cameras/my-favorite-camera-from-last-year-is-on-sale-for-a-record-low-price-the-nikon-z5-ii-is-easily-one-of-the-best-value-full-frame-cameras",
-      "title": "[TechRadar] My favorite camera from last year is on sale for a record-low price — the Nikon Z5 II is easily one of the best value full-frame cameras",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/uKy7ycdTWY46sgNPAYo6WP-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCan any full-frame camera beat the Nikon Z5 II in terms of value? Right now, it's even better thanks to a record-low price at Adorama.",
-      "summary": "Can any full-frame camera beat the Nikon Z5 II in terms of value? Right now, it's even better thanks to a record-low price at Adorama.",
-      "_excerpt": "Can any full-frame camera beat the Nikon Z5 II in terms of value? Right now, it's even better thanks to a record-low price at Adorama.",
-      "date_published": "2026-05-28T13:07:41+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 16,
-      "_quality_score": 16,
-      "_theme_score": 55,
-      "_final_score": 55,
-      "_keyword_matches": 0,
-      "_boosted_score": 4,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/uKy7ycdTWY46sgNPAYo6WP-1280-80.jpg"
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-05T08:33:51.483490+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/7e3b15ff030c0ef7a18601dd66a02272fc5edfe5d57de66a4cbaea228b24f2a6.jpg;w=960"
     }
   ]
 }
