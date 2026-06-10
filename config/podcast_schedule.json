@@ -21,6 +21,7 @@
     },
     "wednesday": {
       "min_score": 42,
+      "holdover_threshold": 25,
       "label": "Gear, Gadgets & Practical Tech",
       "description": "Consumer hardware, repair culture, DIY projects, maker tech, and practical everyday tools",
       "theme_description": "Today we look at the tools, gadgets, and DIY projects that make everyday life more capable — from repairable electronics and maker hardware to practical consumer tech and creative builds. We're interested in the intersection of tinkering culture and practical utility: things you can fix, build, or repurpose, especially in rural and off-grid contexts where self-sufficiency matters.",
@@ -79,7 +80,7 @@
   "include_top_from_other": 0,
   "other_min_score": 70,
   "bonus_thematic_boost": 5,
-  "bonus_max_per_category": 2,
+  "bonus_max_per_category": 3,
   "theme_routing_gap": 20,
   "theme_routing_min_score": 42
 }

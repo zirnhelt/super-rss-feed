@@ -14,6 +14,11 @@
       "score_adjustment": 20,
       "max_per_source": 10,
       "description": "Subscribed local paper - always wins dedup over other local outlets and gets the highest score boost"
+    },
+    "maker_gadget": {
+      "score_adjustment": 10,
+      "max_per_source": 10,
+      "description": "Maker/repair/gadget outlets - small boost so they clear general quality thresholds for the Wednesday gear/gadgets theme"
     }
   },
   "source_map": {
@@ -29,6 +34,14 @@
     "CBC Arts": "broadcast",
     "Spacing Magazine": "print",
     "CBC Kamloops": "broadcast",
+    "CBC Prince George": "broadcast",
+    "Hackaday": "maker_gadget",
+    "Make Magazine": "maker_gadget",
+    "Cool Tools": "maker_gadget",
+    "Engadget": "maker_gadget",
+    "The Verge": "maker_gadget",
+    "TechRadar": "maker_gadget",
+    "iFixit": "maker_gadget",
     "The Tyee": "print",
     "The Narwhal": "print",
     "The Breach": "print",

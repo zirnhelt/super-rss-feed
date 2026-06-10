@@ -2725,15 +2725,61 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # keyword_boost and keyword_boost_cap from config control the magnitude.
     kw_boost_val = schedule_config.get('keyword_boost', 15)
     kw_boost_cap = schedule_config.get('keyword_boost_cap', 3)
-    if kw_boost_val > 0 and theme_keywords:
+    bonus_thematic_boost = schedule_config.get('bonus_thematic_boost', 5)
+    bonus_max_per_category = schedule_config.get('bonus_max_per_category', 3)
+
+    if theme_keywords:
         boosted_pool = []
         for article, final_score, theme_score in scored_pool:
             kw_text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
-            kw_hits = min(_keyword_match_count(kw_text, theme_keywords), kw_boost_cap)
-            selection_score = min(100, final_score + kw_hits * kw_boost_val)
-            boosted_pool.append((article, selection_score, final_score, theme_score))
-        boosted_pool.sort(key=lambda x: x[1], reverse=True)
-        theme_articles = [(a, fs, ts) for a, _, fs, ts in boosted_pool[:max_articles]]
+            raw_kw_hits = _keyword_match_count(kw_text, theme_keywords)
+            kw_hits = min(raw_kw_hits, kw_boost_cap)
+            selection_score = min(100, final_score + kw_hits * kw_boost_val) if kw_boost_val > 0 else final_score
+            boosted_pool.append((article, selection_score, final_score, theme_score, raw_kw_hits))
+
+        # Split into theme-matched articles (>=1 keyword hit) and bonus
+        # candidates (zero keyword hits) so the bonus/news-roundup slots can
+        # get light category-diversity filtering without crowding out
+        # genuinely theme-relevant picks.
+        kw_match = [t for t in boosted_pool if t[4] > 0]
+        non_match = [t for t in boosted_pool if t[4] == 0]
+
+        # Give bonus candidates from the day's theme categories a small
+        # thematic-adjacency boost so they're preferred as filler over
+        # articles from unrelated categories.
+        if bonus_thematic_boost:
+            non_match = [
+                (a, min(100, sel + bonus_thematic_boost) if a.category in theme_set else sel, fs, ts, kh)
+                for a, sel, fs, ts, kh in non_match
+            ]
+
+        kw_match.sort(key=lambda x: x[1], reverse=True)
+        non_match.sort(key=lambda x: x[1], reverse=True)
+
+        # Fill with keyword-matched articles first, then bonus candidates
+        # capped per category (e.g. so ai-tech can't fill every bonus slot).
+        # Backfill uncapped from leftovers if slots remain unfilled.
+        selected = list(kw_match[:max_articles])
+        remaining = max_articles - len(selected)
+        if remaining > 0 and non_match:
+            category_counts = defaultdict(int)
+            leftover = []
+            added = 0
+            for entry in non_match:
+                article = entry[0]
+                if added >= remaining or category_counts[article.category] >= bonus_max_per_category:
+                    leftover.append(entry)
+                    continue
+                selected.append(entry)
+                category_counts[article.category] += 1
+                added += 1
+
+            still_remaining = remaining - added
+            if still_remaining > 0:
+                selected.extend(leftover[:still_remaining])
+
+        selected.sort(key=lambda x: x[1], reverse=True)
+        theme_articles = [(a, fs, ts) for a, _, fs, ts, _ in selected]
     else:
         # Sort by final score descending
         scored_pool.sort(key=lambda x: x[1], reverse=True)
