@@ -3,6 +3,23 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-11 (Thursday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **892** → dedup **784** → new **590** → quality **95**
+- Mix: local:4(4%), ai-tech:7(7%), climate:2(2%), homelab:2(2%), wellness:3(3%), science:3(3%), news:74(78%)
+- Feeds: local:24, ai-tech:72, climate:27, homelab:24, wellness:46, science:21, scifi:11, news:500
+- Images: 95/95
+- ⚠️ **CBC Arts** failed — `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)`
+- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+
+
+---
+
+
+
 ## 2026-06-10 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
@@ -252,33 +269,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Mix: local:3(4%), ai-tech:4(6%), climate:1(1%), wellness:4(6%), science:1(1%), scifi:1(1%), news:53(79%)
 - Feeds: local:35, ai-tech:36, climate:69, homelab:8, wellness:29, science:18, scifi:8, news:397
 - Images: 67/67
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-
-
----
-
-
-
-## 2026-06-03 (Wednesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **941** → dedup **805** → new **599** → quality **126**
-- Mix: local:7(6%), ai-tech:8(6%), climate:2(2%), homelab:2(2%), wellness:8(6%), science:3(2%), scifi:1(1%), news:95(75%)
-- Feeds: local:35, ai-tech:120, climate:123, homelab:67, wellness:34, science:50, scifi:12, news:476
-- Images: 126/126
-- ⚠️ **The Atlantic Culture** failed — `HTTPSConnectionPool(host='www.theatlantic.com', port=443): Read timed out. (read timeout=10)`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **992** → dedup **864** → new **598** → quality **76**
-- Mix: local:4(5%), ai-tech:3(4%), wellness:5(7%), science:1(1%), news:63(83%)
-- Feeds: local:33, ai-tech:90, climate:98, homelab:43, wellness:30, science:41, scifi:8, news:446
-- Images: 76/76
 - ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
 
 
@@ -1650,6 +1640,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - - ⚠️ Nation Talk failed — 415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed
 - - ⚠️ First Peoples Cultural Council failed — 415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/
 - - ⚠️ Machine Learning Blog | ML@CMU | Carnegie Mellon University failed — 415 Client Error: Unsupported Media Type for u
+
+
+---
+
+
+
+## Week of 2026-06-03–2026-06-03
+- 2 runs · avg fetched 966 · avg quality 101
+- Dominant: **news** (78%) local:11 / ai-tech:11 / climate:2 / homelab:2 / wellness:13 / science:4 / scifi:1 / news:158
+- - ⚠️ The Atlantic Culture failed — HTTPSConnectionPool(host='www.theatlantic.com', port=443): Read timed out. (read time
+- - ⚠️ Examine.com failed — 429 Client Error: Too Many Requests for url: https://examine.com/feed/
 
 
 ---
