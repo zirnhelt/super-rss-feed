@@ -20,6 +20,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **938** → dedup **833** → new **618** → quality **102**
+- Mix: local:3(3%), ai-tech:5(5%), climate:2(2%), homelab:2(2%), wellness:4(4%), science:3(3%), news:83(81%)
+- Feeds: local:24, ai-tech:73, climate:28, homelab:26, wellness:46, science:24, scifi:8, news:500
+- Images: 102/102
+- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+
+
+---
+
+
+
 ## 2026-06-10 (Wednesday)
 
 #### 🌅 4:30 AM Pacific

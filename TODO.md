@@ -12,6 +12,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-11 | 🌅 4:30 AM Pacific | ⚠️ **CBC Kamloops** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
 | 2026-06-11 | 🌅 4:30 AM Pacific | ⚠️ **CBC Prince George** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
 | 2026-06-11 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
+| 2026-06-11 | 🌙 8:30 PM Pacific | ⚠️ **CBC Kamloops** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
+| 2026-06-11 | 🌙 8:30 PM Pacific | ⚠️ **CBC Prince George** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
+| 2026-06-11 | 🌙 8:30 PM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-10 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-10 | 🌙 8:30 PM Pacific | ⚠️ **CBC Kamloops** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
 | 2026-06-10 | 🌙 8:30 PM Pacific | ⚠️ **CBC Prince George** failed | `400 Client Error: Bad Request for url: http://rss.cbc.ca/lineup/canada-prince-george.xml` |
@@ -75,6 +78,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-06-11 | 🌅 morning | 95 | news:74(78%), ai-tech:7(7%), local:4(4%) |
+| 2026-06-11 | 🌙 evening | 102 | news:83(81%), ai-tech:5(5%), wellness:4(4%) |
 | 2026-06-10 | 🌅 morning | 52 | news:36(69%), ai-tech:5(10%), science:3(6%) |
 | 2026-06-10 | 🌙 evening | 94 | news:72(77%), ai-tech:6(6%), wellness:4(4%) |
 | 2026-06-09 | 🌅 morning | 15 | news:10(67%), ai-tech:2(13%), wellness:2(13%) |
@@ -87,9 +91,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-04 | 🌅 morning | 75 | news:62(83%), ai-tech:6(8%), local:2(3%) |
 | 2026-06-04 | 🌙 evening | 67 | news:53(79%), ai-tech:4(6%), wellness:4(6%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-11 09:04 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-11 16:37 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
