@@ -21,422 +21,102 @@
       "news",
       "climate"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Indigenous Lands & Innovation' through a RURAL TECH AND INNOVATION lens. Strong fits include: language revitalization technology for Tŝilhqot'in/Secwépemc/Dakelh, Indigenous guardian programs using remote monitoring and sensors, land management tech and environmental monitoring on Indigenous lands, digital tools for traditional knowledge preservation, community mapping and GIS for land claims, Indigenous-led connectivity projects, technology for cultural heritage documentation, mobile apps for language learning, drone/satellite monitoring for stewardship, reconciliation through digital collaboration, and how Cariboo Indigenous nations use innovation for self-determination. Prefer articles that bridge Indigenous governance/culture AND technology. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Indigenous Lands & Innovation' through a RURAL TECH AND INNOVATION lens. Strong fits include: language revitalization technology for Tŝilhqot'in/Secwépemc/Dakelh, Indigenous guardian programs using remote monitoring and sensors, land management tech and environmental monitoring on Indigenous lands, digital tools for traditional knowledge preservation, community mapping and GIS for land claims, Indigenous-led connectivity projects, technology for cultural heritage documentation, mobile apps for language learning, drone/satellite monitoring for stewardship, reconciliation through digital collaboration, and how Cariboo Indigenous nations use innovation for self-determination. Prefer articles that bridge Indigenous governance/culture AND technology. Penalise heavily (score 0–20): international geopolitical and war news with no Indigenous rights angle; general wildfire and BC Wildlife Service updates not led by or directly impacting Indigenous communities or guardians; provincial forestry and environmental policy without explicit First Nations involvement; consumer tech and gadget reviews; science discoveries without Indigenous stewardship or sovereignty context; crime and judicial news unrelated to Indigenous rights. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "thursday",
-    "generated_at": "2026-06-04T16:00:41.140779+00:00",
+    "generated_at": "2026-06-11T09:04:32.967929+00:00",
     "article_count": 40,
-    "bonus_count": 28,
+    "bonus_count": 21,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://news.gov.bc.ca/releases/2026PSSG0047-000648",
-      "url": "https://news.gov.bc.ca/releases/2026PSSG0047-000648",
-      "title": "[BC Gov News] Improving safety for Indigenous communities",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew funding supports Indigenous-led violence-prevention programs",
-      "summary": "New funding supports Indigenous-led violence-prevention programs",
-      "_excerpt": "New funding supports Indigenous-led violence-prevention programs",
-      "date_published": "2026-06-03T19:45:00+00:00",
+      "id": "https://wltribune.com/2026/06/10/indigenous-policing-accountability-program-launched-in-b-c/",
+      "url": "https://wltribune.com/2026/06/10/indigenous-policing-accountability-program-launched-in-b-c/",
+      "title": "[Williams Lake Tribune] Indigenous policing accountability program launched in B.C.",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42529928_web1_bcfnjc-logo-web.jpg?w=812\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>BC First Nations Justice Council (BCFNJC) has launched a Police Accountability Unit (PAU) on June 10 </p>",
+      "summary": "BC First Nations Justice Council (BCFNJC) has launched a Police Accountability Unit (PAU) on June 10",
+      "_excerpt": "BC First Nations Justice Council (BCFNJC) has launched a Police Accountability Unit (PAU) on June 10",
+      "date_published": "2026-06-10T09:00:00+00:00",
       "authors": [
         {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 40,
-      "_final_score": 40,
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 3,
+      "_boosted_score": 81,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42529928_web1_bcfnjc-logo-web.jpg?w=812"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/09/lake-city-secondary-indigenous-students-learn-volleyball-skills-with-national-coach/",
+      "url": "https://wltribune.com/2026/06/09/lake-city-secondary-indigenous-students-learn-volleyball-skills-with-national-coach/",
+      "title": "[Williams Lake Tribune] Lake City Secondary Indigenous students hone volleyball skills with national coach",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42504532_web1_260611-WLT-Amy-Wilson-Volleyball-Camp-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA recent volleyball camp was led by Amy Wilson",
+      "summary": "A recent volleyball camp was led by Amy Wilson",
+      "_excerpt": "A recent volleyball camp was led by Amy Wilson",
+      "date_published": "2026-06-09T20:20:52.271474+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 0,
+      "_final_score": 0,
       "_keyword_matches": 2,
-      "_boosted_score": 62,
+      "_boosted_score": 61,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42504532_web1_260611-WLT-Amy-Wilson-Volleyball-Camp-_1.jpg?w=1024"
     },
     {
-      "id": "https://www.aptnnews.ca/national-news/shooter-kills-one-injures-another-in-pelican-narrows-schools-band-office-closed/",
-      "url": "https://www.aptnnews.ca/national-news/shooter-kills-one-injures-another-in-pelican-narrows-schools-band-office-closed/",
-      "title": "[APTN News] Shooter kills one, injures another in Pelican Narrows, schools, band office closed",
-      "content_html": "<img src=\"https://www.aptnnews.ca/wp-content/uploads/2026/06/Pelican-Narrows.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The remote northeastern Saskatchewan community of Pelican Narrows has been left shaken after a shooting...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/national-news/shooter-kills-one-injures-another-in-pelican-narrows-schools-band-office-closed/\">Shooter kills one, injures another in Pelican Narrows, schools, band office closed</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
-      "summary": "The remote northeastern Saskatchewan community of Pelican Narrows has been left shaken after a shooting... The post Shooter kills one, injures another in Pelican Narrows, schools, band office closed appeared first on APTN News .",
-      "_excerpt": "The remote northeastern Saskatchewan community of Pelican Narrows has been left shaken after a shooting... The post Shooter kills one, injures another in Pelican Narrows, schools, band office closed appeared first on APTN News .",
-      "date_published": "2026-06-02T15:27:07+00:00",
-      "authors": [
-        {
-          "name": "APTN News",
-          "url": "https://www.aptnnews.ca"
-        }
-      ],
-      "ai_score": 42,
-      "_quality_score": 42,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 2,
-      "_boosted_score": 52,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aptnnews.ca/wp-content/uploads/2026/06/Pelican-Narrows.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/04/2026-cariboo-chilcotin-school-district-indigenous-role-models-crowned/",
-      "url": "https://wltribune.com/2026/06/04/2026-cariboo-chilcotin-school-district-indigenous-role-models-crowned/",
-      "title": "[Williams Lake Tribune] 2026 Cariboo-Chilcotin School District Indigenous Role Models crowned",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42432725_web1_260604-WLT-Indigenous-Role-Models-Crowned-_14.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAnaiya Hink and Landen Williams are the new Indigenous Role Models",
-      "summary": "Anaiya Hink and Landen Williams are the new Indigenous Role Models",
-      "_excerpt": "Anaiya Hink and Landen Williams are the new Indigenous Role Models",
-      "date_published": "2026-06-04T15:59:05.345051+00:00",
+      "id": "https://wltribune.com/2026/06/09/clearwater-mayor-calls-for-renewable-energy-at-national-climate-summit/",
+      "url": "https://wltribune.com/2026/06/09/clearwater-mayor-calls-for-renewable-energy-at-national-climate-summit/",
+      "title": "[Williams Lake Tribune] Clearwater mayor speaks at national climate summit, calls for renewable energy",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42517251_web1_260611-NTC-Blackwell-climate-event-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A summit hosted by Elbows Up For Climate was hosted in Edmonton on June 4 </p>",
+      "summary": "A summit hosted by Elbows Up For Climate was hosted in Edmonton on June 4",
+      "_excerpt": "A summit hosted by Elbows Up For Climate was hosted in Edmonton on June 4",
+      "date_published": "2026-06-09T09:10:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42432725_web1_260604-WLT-Indigenous-Role-Models-Crowned-_14.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/03/grief-sobriety-music-williams-lake-native-petty-boy-osleys-journey/",
-      "url": "https://wltribune.com/2026/06/03/grief-sobriety-music-williams-lake-native-petty-boy-osleys-journey/",
-      "title": "[Williams Lake Tribune] Grief, sobriety, music: Williams Lake native Petty Boy Osley’s journey",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42465615_web1_260604-WLT-Petty-boy-osley-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPetty has announced a national tour with 13 dates across provinces",
-      "summary": "Petty has announced a national tour with 13 dates across provinces",
-      "_excerpt": "Petty has announced a national tour with 13 dates across provinces",
-      "date_published": "2026-06-03T17:28:17.763177+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
+      "ai_score": 84,
+      "_quality_score": 84,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
+      "_boosted_score": 45,
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42465615_web1_260604-WLT-Petty-boy-osley-_1.jpg?w=1024"
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42517251_web1_260611-NTC-Blackwell-climate-event-1_1.jpg?w=1024"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/4/fearful-foreign-nationals-in-south-africa-forced-out-of-their-homes?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/4/fearful-foreign-nationals-in-south-africa-forced-out-of-their-homes?traffic_source=rss",
-      "title": "[Al Jazeera English] Fearful foreign nationals in South Africa forced out of their homes",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T100241Z_532167750_RC29MLA25NH3_RTRMADP_3_SAFRICA-XENOPHOBIA-1780580395.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAnti-immigration violence in South Africa has forced foreign migrants to flee their homes.",
-      "summary": "Anti-immigration violence in South Africa has forced foreign migrants to flee their homes.",
-      "_excerpt": "Anti-immigration violence in South Africa has forced foreign migrants to flee their homes.",
-      "date_published": "2026-06-04T13:40:32+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T100241Z_532167750_RC29MLA25NH3_RTRMADP_3_SAFRICA-XENOPHOBIA-1780580395.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/3/kuwait-releases-cctv-footage-of-deadly-iranian-strike-on-airport?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/3/kuwait-releases-cctv-footage-of-deadly-iranian-strike-on-airport?traffic_source=rss",
-      "title": "[Al Jazeera English] Kuwait releases CCTV footage of deadly Iranian strike on airport",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-KUWAIT-AIRPORT-STRIKE-1780527681.png?resize=1200%2C630\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKuwait has released surveillance footage of what it says shows an Iranian drone strike on Kuwait International Airport.",
-      "summary": "Kuwait has released surveillance footage of what it says shows an Iranian drone strike on Kuwait International Airport.",
-      "_excerpt": "Kuwait has released surveillance footage of what it says shows an Iranian drone strike on Kuwait International Airport.",
-      "date_published": "2026-06-03T23:02:34+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-KUWAIT-AIRPORT-STRIKE-1780527681.png?resize=1200%2C630"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/02/well/children-vaccines-illnesses.html",
-      "url": "https://www.nytimes.com/2026/06/02/well/children-vaccines-illnesses.html",
-      "title": "[NYT Well] Hospitals See Diseases Resurge as Vaccinations Decline",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDoctors nationwide are encountering more children with whooping cough, bacterial infections and other serious illnesses, as well as more adults refusing tetanus shots.",
-      "summary": "Doctors nationwide are encountering more children with whooping cough, bacterial infections and other serious illnesses, as well as more adults refusing tetanus shots.",
-      "_excerpt": "Doctors nationwide are encountering more children with whooping cough, bacterial infections and other serious illnesses, as well as more adults refusing tetanus shots.",
-      "date_published": "2026-06-02T09:00:12+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/minister-wont-say-when-he-ordered-audit-of-indigenous-languages-office-12370207",
-      "url": "https://www.piquenewsmagazine.com/national-news/minister-wont-say-when-he-ordered-audit-of-indigenous-languages-office-12370207",
-      "title": "[Pique Newsmagazine] Minister won't say when he ordered audit of Indigenous languages office",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/9aad9db938ad325ae92ecafc512e71fabd520c0b7b8c1053eb52aa415847f5e7.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOTTAWA — Canadian Heritage Minister Marc Miller won't say when his department ordered a financial audit of the Office of the Commissioner of Indigenous Languages after it received anonymous complaints.",
-      "summary": "OTTAWA — Canadian Heritage Minister Marc Miller won't say when his department ordered a financial audit of the Office of the Commissioner of Indigenous Languages after it received anonymous complaints.",
-      "_excerpt": "OTTAWA — Canadian Heritage Minister Marc Miller won't say when his department ordered a financial audit of the Office of the Commissioner of Indigenous Languages after it received anonymous complaints.",
-      "date_published": "2026-06-03T17:07:37+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/9aad9db938ad325ae92ecafc512e71fabd520c0b7b8c1053eb52aa415847f5e7.jpg;w=960"
-    },
-    {
-      "id": "https://globalnews.ca/news/11889784/red-earth-shoal-lake-cree-nation-evacuees-home-as-wildfire-situation-improves/",
-      "url": "https://globalnews.ca/news/11889784/red-earth-shoal-lake-cree-nation-evacuees-home-as-wildfire-situation-improves/",
-      "title": "[Global News] Red Earth, Shoal Lake Cree Nation evacuees home as wildfire situation improves",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/wildfire-ssak.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe rain has improved the fire situation across much of Saskatchewan. With fires tempering down, evacuees from Red Earth and Shoal Lake Cree Nation begin to return home.",
-      "summary": "The rain has improved the fire situation across much of Saskatchewan. With fires tempering down, evacuees from Red Earth and Shoal Lake Cree Nation begin to return home.",
-      "_excerpt": "The rain has improved the fire situation across much of Saskatchewan. With fires tempering down, evacuees from Red Earth and Shoal Lake Cree Nation begin to return home.",
-      "date_published": "2026-06-03T23:38:01+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/wildfire-ssak.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/3/ukraine-drone-attack-kills-7-in-russian-held-territory-in-new-escalation?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/3/ukraine-drone-attack-kills-7-in-russian-held-territory-in-new-escalation?traffic_source=rss",
-      "title": "[Al Jazeera English] Ukraine drone attack kills 7 in Russian-held territory in new escalation",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a1fca79c500-1780468345.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Russian-installed head of Donetsk, Denis Pushilin, says a drone hit a bus travelling between Moscow and Simferopol.",
-      "summary": "The Russian-installed head of Donetsk, Denis Pushilin, says a drone hit a bus travelling between Moscow and Simferopol.",
-      "_excerpt": "The Russian-installed head of Donetsk, Denis Pushilin, says a drone hit a bus travelling between Moscow and Simferopol.",
-      "date_published": "2026-06-03T07:15:09+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 53,
-      "_quality_score": 53,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a1fca79c500-1780468345.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/section-of-banff-national-park-remains-closed-to-visitors-one-year-after-rockfall-12368237",
-      "url": "https://www.piquenewsmagazine.com/national-news/section-of-banff-national-park-remains-closed-to-visitors-one-year-after-rockfall-12368237",
-      "title": "[Pique Newsmagazine] Section of Banff National Park remains closed to visitors one year after rockfall",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/e557a8a4d85102bf1e95ff99fdb3030193476a1a7126fcec89296020962e4b2e.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBANFF — Parks Canada officials say it's still not known when a section of a trail in Banff National Park will reopen almost a full year after a rockfall killed two hikers and injured three others.",
-      "summary": "BANFF — Parks Canada officials say it's still not known when a section of a trail in Banff National Park will reopen almost a full year after a rockfall killed two hikers and injured three others.",
-      "_excerpt": "BANFF — Parks Canada officials say it's still not known when a section of a trail in Banff National Park will reopen almost a full year after a rockfall killed two hikers and injured three others.",
-      "date_published": "2026-06-03T08:00:33+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 1,
-      "_boosted_score": 33,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/e557a8a4d85102bf1e95ff99fdb3030193476a1a7126fcec89296020962e4b2e.jpg;w=960"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/the-mix/global-energy-show-kicking-off-in-calgary-next-week-against-backdrop-of-oil-shock-12370070",
-      "url": "https://www.piquenewsmagazine.com/the-mix/global-energy-show-kicking-off-in-calgary-next-week-against-backdrop-of-oil-shock-12370070",
-      "title": "[Pique Newsmagazine] Global Energy Show kicking off in Calgary next week against backdrop of oil shock",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/72fd7f8821269d19990cd884f1b0bfdd575cf34ac5cec895fc12709a6e371e78.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCALGARY — Premiers, energy ministers, CEOs and a throng of international visitors are poised to descend on Calgary next week, when the annual Global Energy Show kicks off against a vastly different backdrop than the event last year.",
-      "summary": "CALGARY — Premiers, energy ministers, CEOs and a throng of international visitors are poised to descend on Calgary next week, when the annual Global Energy Show kicks off against a vastly different backdrop than the event last year.",
-      "_excerpt": "CALGARY — Premiers, energy ministers, CEOs and a throng of international visitors are poised to descend on Calgary next week, when the annual Global Energy Show kicks off against a vastly different backdrop than the event last year.",
-      "date_published": "2026-06-03T16:56:51+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality_score": 45,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 33,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/72fd7f8821269d19990cd884f1b0bfdd575cf34ac5cec895fc12709a6e371e78.jpg;w=960"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/02/out-of-control-1300-hectare-wildfire-burning-northwest-of-quesnel/",
-      "url": "https://wltribune.com/2026/06/02/out-of-control-1300-hectare-wildfire-burning-northwest-of-quesnel/",
-      "title": "[Williams Lake Tribune] Out-of-control 1,300-hectare wildfire burning northwest of Quesnel",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42469039_web1_260610-QCO-Fire_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Cariboo Regional District has issued an evacuation alert for the area </p>",
-      "summary": "Cariboo Regional District has issued an evacuation alert for the area",
-      "_excerpt": "Cariboo Regional District has issued an evacuation alert for the area",
-      "date_published": "2026-06-02T16:15:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42469039_web1_260610-QCO-Fire_1.jpeg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/03/williams-lake-tru-graduates-celebrate-special-milestone/",
-      "url": "https://wltribune.com/2026/06/03/williams-lake-tru-graduates-celebrate-special-milestone/",
-      "title": "[Williams Lake Tribune] Williams Lake TRU graduates celebrate special milestone",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42441189_web1_260604-WLT-2026-TRU-Commencement-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
-      "summary": "3 MIN READ",
-      "_excerpt": "3 MIN READ",
-      "date_published": "2026-06-03T17:28:17.763548+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42441189_web1_260604-WLT-2026-TRU-Commencement-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/03/sentence-upheld-for-man-guilty-of-stabbing-b-c-cop/",
-      "url": "https://wltribune.com/2026/06/03/sentence-upheld-for-man-guilty-of-stabbing-b-c-cop/",
-      "title": "[Williams Lake Tribune] Sentence upheld for man guilty of stabbing B.C. cop",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479587_web1_20320697_web1_KelownaCourt1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Richard McCrae had his appeal dismissed on June 2 </p>",
-      "summary": "Richard McCrae had his appeal dismissed on June 2",
-      "_excerpt": "Richard McCrae had his appeal dismissed on June 2",
-      "date_published": "2026-06-03T15:30:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 96,
-      "_quality_score": 96,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 28,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479587_web1_20320697_web1_KelownaCourt1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/03/wilbert-robbie-merel-robichaud/",
-      "url": "https://wltribune.com/2026/06/03/wilbert-robbie-merel-robichaud/",
-      "title": "[Williams Lake Tribune] Wilbert “Robbie” Merel Robichaud",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479693_web1_260603-digitalobit-wlt-Robichaud-pic_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><strong>5 OCTOBER, 1948 &#8211; 12 MAY, 2026</strong></p>",
-      "summary": "5 OCTOBER, 1948 – 12 MAY, 2026",
-      "_excerpt": "5 OCTOBER, 1948 – 12 MAY, 2026",
-      "date_published": "2026-06-03T15:30:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 94,
-      "_quality_score": 94,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 28,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479693_web1_260603-digitalobit-wlt-Robichaud-pic_1.jpg?w=400"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/money-works/2026/6/3/can-a-us-president-promote-stock-theyve-invested-in?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/money-works/2026/6/3/can-a-us-president-promote-stock-theyve-invested-in?traffic_source=rss",
-      "title": "[Al Jazeera English] Can a US president promote stock they’ve invested in",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/16x9-1780473654.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCan a US president promote stock they’ve invested in",
-      "summary": "Can a US president promote stock they’ve invested in",
-      "_excerpt": "Can a US president promote stock they’ve invested in",
-      "date_published": "2026-06-03T08:24:11+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
+      "title": "[Al Jazeera English] Bolivia approves military measures against nationwide protests",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivia approves military measures against nationwide protests.",
+      "summary": "Bolivia approves military measures against nationwide protests.",
+      "_excerpt": "Bolivia approves military measures against nationwide protests.",
+      "date_published": "2026-06-10T03:09:22+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
@@ -445,589 +125,1044 @@
       ],
       "ai_score": 80,
       "_quality_score": 80,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/16x9-1780473654.png?resize=1920%2C1080&quality=80"
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440"
     },
     {
-      "id": "https://news.gov.bc.ca/releases/2026TACS0029-000643",
-      "url": "https://news.gov.bc.ca/releases/2026TACS0029-000643",
-      "title": "[BC Gov News] Enhancing essential community supports through grants",
-      "content_html": "<img src=\"https://live.staticflickr.com/65535/55312204606_085066f119_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCommunity Gaming Grants boost access, support for people who benefit from community services",
-      "summary": "Community Gaming Grants boost access, support for people who benefit from community services",
-      "_excerpt": "Community Gaming Grants boost access, support for people who benefit from community services",
-      "date_published": "2026-06-04T15:30:00+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/pope-leo-welcomed-in-barcelona-with-traditional-catalan-human-tower?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/pope-leo-welcomed-in-barcelona-with-traditional-catalan-human-tower?traffic_source=rss",
+      "title": "[Al Jazeera English] Pope Leo welcomed in Barcelona with traditional Catalan human tower",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781068969.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMore than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "summary": "More than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "_excerpt": "More than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "date_published": "2026-06-10T05:26:54+00:00",
       "authors": [
         {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
       "ai_score": 78,
       "_quality_score": 78,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "_theme_score": 23,
+      "_final_score": 23,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://live.staticflickr.com/65535/55312204606_085066f119_b.jpg"
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781068969.jpg?resize=1620%2C1080&quality=80"
     },
     {
-      "id": "https://qz.com/tech-breakthroughs-dismissed-before-they-took-off",
-      "url": "https://qz.com/tech-breakthroughs-dismissed-before-they-took-off",
-      "title": "[Quartz] 15 technology breakthroughs that were dismissed before they took off",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/pete-godfrey-g5jUIhnPsHE-unsplash.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom the internet to electric cars, these 15 technologies faced ridicule, indifference, or outright rejection before becoming the infrastructure of modern life",
-      "summary": "From the internet to electric cars, these 15 technologies faced ridicule, indifference, or outright rejection before becoming the infrastructure of modern life",
-      "_excerpt": "From the internet to electric cars, these 15 technologies faced ridicule, indifference, or outright rejection before becoming the infrastructure of modern life",
-      "date_published": "2026-06-03T18:54:52+00:00",
+      "id": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
+      "url": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
+      "title": "[Quartz] Canada is launching a $360 million fund to take equity stakes in homegrown AI firms",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "summary": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "_excerpt": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
+      "date_published": "2026-06-05T14:20:33+00:00",
       "authors": [
         {
           "name": "Quartz",
           "url": "https://qz.com"
         }
       ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/pete-godfrey-g5jUIhnPsHE-unsplash.jpg"
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/news/2026/6/4/fighting-in-somalias-capital-as-anger-over-election-delay-erupts?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/4/fighting-in-somalias-capital-as-anger-over-election-delay-erupts?traffic_source=rss",
-      "title": "[Al Jazeera English] Fighting in Somalia’s capital as anger over election delay erupts",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T095614Z_229446635_RC2TMLAFSLY7_RTRMADP_3_SOMALIA-POLITICS-1780568741.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResidents flee from their homes due to fighting between two warring political factions.",
-      "summary": "Residents flee from their homes due to fighting between two warring political factions.",
-      "_excerpt": "Residents flee from their homes due to fighting between two warring political factions.",
-      "date_published": "2026-06-04T13:08:00+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T095614Z_229446635_RC2TMLAFSLY7_RTRMADP_3_SOMALIA-POLITICS-1780568741.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/4/uk-far-right-accused-of-exploiting-killing-of-henry-nowak?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/4/uk-far-right-accused-of-exploiting-killing-of-henry-nowak?traffic_source=rss",
-      "title": "[Al Jazeera English] UK far-right accused of exploiting killing of Henry Nowak",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-UK-far-right-accused-of-exploiting-killing-of-Henry-Nowak-1780541863.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUK Prime Minister Keir Starmer accused right-wing figures of exploiting the killing of Henry Nowak for political gain.",
-      "summary": "UK Prime Minister Keir Starmer accused right-wing figures of exploiting the killing of Henry Nowak for political gain.",
-      "_excerpt": "UK Prime Minister Keir Starmer accused right-wing figures of exploiting the killing of Henry Nowak for political gain.",
-      "date_published": "2026-06-04T02:59:28+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-UK-far-right-accused-of-exploiting-killing-of-Henry-Nowak-1780541863.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.tomsguide.com/home/i-perform-a-night-flush-on-my-home-to-beat-the-heatwave-throughout-summer-and-it-works-a-treat-for-keeping-cool",
-      "url": "https://www.tomsguide.com/home/i-perform-a-night-flush-on-my-home-to-beat-the-heatwave-throughout-summer-and-it-works-a-treat-for-keeping-cool",
-      "title": "[Toms Guide] I perform a 'night flush' on my home to beat the heatwave throughout summer — and it works a treat for keeping cool",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/AZadG5y5dpYmwiy3VhLZzG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nLooking for hacks to beat the heat? 'Night flushing' might just be the answer you're desperately searching for – at least it has been for me.",
-      "summary": "Looking for hacks to beat the heat? 'Night flushing' might just be the answer you're desperately searching for – at least it has been for me.",
-      "_excerpt": "Looking for hacks to beat the heat? 'Night flushing' might just be the answer you're desperately searching for – at least it has been for me.",
-      "date_published": "2026-06-04T08:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 13,
-      "_final_score": 13,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/AZadG5y5dpYmwiy3VhLZzG-1280-80.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/3/three-british-navy-personnel-killed-in-helicopter-crash-in-england?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/3/three-british-navy-personnel-killed-in-helicopter-crash-in-england?traffic_source=rss",
-      "title": "[Al Jazeera English] Three British navy personnel killed in helicopter crash in England",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/getty_6a2031f921-1780494841.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAn investigation under way after the deadly accident during a training exercise near the town of Sourton in Devon.",
-      "summary": "An investigation under way after the deadly accident during a training exercise near the town of Sourton in Devon.",
-      "_excerpt": "An investigation under way after the deadly accident during a training exercise near the town of Sourton in Devon.",
-      "date_published": "2026-06-03T14:57:22+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 13,
-      "_final_score": 13,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/getty_6a2031f921-1780494841.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/3/fbi-agents-fatally-shoot-alleged-hostage-taker-in-california?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/3/fbi-agents-fatally-shoot-alleged-hostage-taker-in-california?traffic_source=rss",
-      "title": "[Al Jazeera English] FBI agents fatally shoot alleged hostage-taker in California",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a204737d82bd-1780500279.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe shooting ends a 12-hour standoff in the city of Bakersfield between suspect and law enforcement.",
-      "summary": "The shooting ends a 12-hour standoff in the city of Bakersfield between suspect and law enforcement.",
-      "_excerpt": "The shooting ends a 12-hour standoff in the city of Bakersfield between suspect and law enforcement.",
-      "date_published": "2026-06-03T15:18:16+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a204737d82bd-1780500279.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/03/a-stolen-slice-of-watermelon-sparked-a-deadly-1856-riot-in-panama.html",
-      "url": "https://boingboing.net/2026/06/03/a-stolen-slice-of-watermelon-sparked-a-deadly-1856-riot-in-panama.html",
-      "title": "[Boing Boing] A stolen slice of watermelon sparked a deadly 1856 riot in Panama",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2022/08/shutterstock_1072524641-scaled.jpg?fit=2560%2C1707&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/03/a-stolen-slice-of-watermelon-sparked-a-deadly-1856-riot-in-panama.html\" rel=\"nofollow\" title=\"A stolen slice of watermelon sparked a deadly 1856 riot in Panama\"><img alt=\"Keegather / Shutterstock.com\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1707\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2022/08/shutterstock_1072524641-scaled.jpg?fit=2560%2C1707&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"2560\" /></a><p>On the evening of April 15, 1856, an American named Jack Oliver <a href=\"https://en.wikipedia.org/wiki/Watermelon_Riot\">took a slice of watermelon from a Panama City vendor</a>, José Manuel Luna, and refused to pay the dime he owed. Oliver, being American, drew a pistol to settle the matter. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/03/a-stolen-slice-of-watermelon-sparked-a-deadly-1856-riot-in-panama.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/03/a-stolen-slice-of-watermelon-sparked-a-deadly-1856-riot-in-panama.html\">A stolen slice of watermelon sparked a deadly 1856 riot in Panama</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "On the evening of April 15, 1856, an American named Jack Oliver took a slice of watermelon from a Panama City vendor , José Manuel Luna, and refused to pay the dime he owed. Oliver, being American, drew a pistol to settle the matter. — Read the rest The post A stolen slice of watermelon sparked a",
-      "_excerpt": "On the evening of April 15, 1856, an American named Jack Oliver took a slice of watermelon from a Panama City vendor , José Manuel Luna, and refused to pay the dime he owed. Oliver, being American, drew a pistol to settle the matter. — Read the rest The post A stolen slice of watermelon sparked a deadly 1856 riot in Panama appeared first on Boing Boing .",
-      "date_published": "2026-06-03T19:34:36+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2022/08/shutterstock_1072524641-scaled.jpg?fit=2560%2C1707&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/father-convicted-of-killing-his-children-in-montreal-suburb-to-serve-life-in-prison-12370206",
-      "url": "https://www.piquenewsmagazine.com/national-news/father-convicted-of-killing-his-children-in-montreal-suburb-to-serve-life-in-prison-12370206",
-      "title": "[Pique Newsmagazine] Father convicted of killing his children in Montreal suburb to serve life in prison",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/883d61d54a50796e6f2f2f43a886d4e6bc72404426afe837e8c8518f5bdd51d5.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTREAL — A man who drowned his two children in their suburban Montreal family home in 2022 has been sentenced to life in prison with no possibility of parole for 25 years.",
-      "summary": "MONTREAL — A man who drowned his two children in their suburban Montreal family home in 2022 has been sentenced to life in prison with no possibility of parole for 25 years.",
-      "_excerpt": "MONTREAL — A man who drowned his two children in their suburban Montreal family home in 2022 has been sentenced to life in prison with no possibility of parole for 25 years.",
-      "date_published": "2026-06-03T17:09:26+00:00",
+      "id": "https://www.piquenewsmagazine.com/national-news/most-crime-guns-traced-by-rcmp-came-from-within-canada-internal-reports-say-12405817",
+      "url": "https://www.piquenewsmagazine.com/national-news/most-crime-guns-traced-by-rcmp-came-from-within-canada-internal-reports-say-12405817",
+      "title": "[Pique Newsmagazine] Most crime guns traced by RCMP came from within Canada, internal reports say",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/919341885f8cc32aa5132fe9ba5220db07d1783ac12eee2c3ea8b22076e9b910.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOTTAWA — The vast majority of crime guns traced by the RCMP to identifiable sources in 2023 and 2024 came from within Canada and were not smuggled from abroad, say internal reports prepared by the national police force.",
+      "summary": "OTTAWA — The vast majority of crime guns traced by the RCMP to identifiable sources in 2023 and 2024 came from within Canada and were not smuggled from abroad, say internal reports prepared by the national police force.",
+      "_excerpt": "OTTAWA — The vast majority of crime guns traced by the RCMP to identifiable sources in 2023 and 2024 came from within Canada and were not smuggled from abroad, say internal reports prepared by the national police force.",
+      "date_published": "2026-06-11T08:00:06+00:00",
       "authors": [
         {
           "name": "Pique Newsmagazine",
           "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 13,
-      "_final_score": 13,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/883d61d54a50796e6f2f2f43a886d4e6bc72404426afe837e8c8518f5bdd51d5.jpg;w=960"
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/919341885f8cc32aa5132fe9ba5220db07d1783ac12eee2c3ea8b22076e9b910.jpg;w=960"
     },
     {
-      "id": "https://www.nytimes.com/2026/06/03/world/europe/italy-migrants-burned.html",
-      "url": "https://www.nytimes.com/2026/06/03/world/europe/italy-migrants-burned.html",
-      "title": "[NYT Top Stories] Four Immigrant Workers Burned to Death in Italy",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/03/multimedia/03int-italy-migrants-2-qwbp/03int-italy-migrants-2-qwbp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe immigrants had been working as fruit pickers in southern Italy, the authorities said, apparently as part of a system of criminal labor trafficking.",
-      "summary": "The immigrants had been working as fruit pickers in southern Italy, the authorities said, apparently as part of a system of criminal labor trafficking.",
-      "_excerpt": "The immigrants had been working as fruit pickers in southern Italy, the authorities said, apparently as part of a system of criminal labor trafficking.",
-      "date_published": "2026-06-03T20:19:49+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/03/multimedia/03int-italy-migrants-2-qwbp/03int-italy-migrants-2-qwbp-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.makeuseof.com/mem-ai-note-taking-app-no-folders/",
-      "url": "https://www.makeuseof.com/mem-ai-note-taking-app-no-folders/",
-      "title": "[MakeUseOf] I stopped organizing my notes and let this new app do it",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/mem-app-featured-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMem organizes your notes so you never have to.",
-      "summary": "Mem organizes your notes so you never have to.",
-      "_excerpt": "Mem organizes your notes so you never have to.",
-      "date_published": "2026-06-02T20:00:19+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 61,
-      "_quality_score": 61,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/mem-app-featured-image.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/4/israel-and-lebanon-agree-to-conditional-ceasefire?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/4/israel-and-lebanon-agree-to-conditional-ceasefire?traffic_source=rss",
-      "title": "[Al Jazeera English] Israel and Lebanon agree to conditional ceasefire",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T012605Z_601431462_RC2NMLA4NGR5_RTRMADP_3_IRAN-CRISIS-LEBANON-ISRAEL-CEASEFIRE-1780555288.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDeal is made through US-brokered talks in Washington, DC, that did not include Hezbollah.",
-      "summary": "Deal is made through US-brokered talks in Washington, DC, that did not include Hezbollah.",
-      "_excerpt": "Deal is made through US-brokered talks in Washington, DC, that did not include Hezbollah.",
-      "date_published": "2026-06-04T07:37:33+00:00",
+      "id": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
+      "url": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
+      "title": "[Al Jazeera English] Kenyan graduates turn to AI tools for farming as jobs dry up",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYoung farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "summary": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "_excerpt": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
+      "date_published": "2026-06-07T04:14:27+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 61,
-      "_quality_score": 61,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/2026-06-04T012605Z_601431462_RC2NMLA4NGR5_RTRMADP_3_IRAN-CRISIS-LEBANON-ISRAEL-CEASEFIRE-1780555288.jpg?resize=1920%2C1440"
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440"
     },
     {
-      "id": "https://www.npr.org/2026/06/03/nx-s1-5827152/trying-to-solve-problems-with-insurance-tattoo-artists-and-breast-cancer-survivors",
-      "url": "https://www.npr.org/2026/06/03/nx-s1-5827152/trying-to-solve-problems-with-insurance-tattoo-artists-and-breast-cancer-survivors",
-      "title": "[NPR Health News] Trying to solve problems with insurance, tattoo artists and breast cancer survivors",
-      "content_html": "<img src=\"https://media.npr.org/include/images/facebook-default-wide-s1400-c85.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSome women who undergo arduous treatments due to breast cancer turn to nipple and areola tattoos as a way to reconnect with their bodies, but not all insurance covers the process.",
-      "summary": "Some women who undergo arduous treatments due to breast cancer turn to nipple and areola tattoos as a way to reconnect with their bodies, but not all insurance covers the process.",
-      "_excerpt": "Some women who undergo arduous treatments due to breast cancer turn to nipple and areola tattoos as a way to reconnect with their bodies, but not all insurance covers the process.",
-      "date_published": "2026-06-03T19:51:23+00:00",
+      "id": "https://www.piquenewsmagazine.com/national-news/carney-says-no-big-drama-on-gordie-howe-bridge-but-opening-may-take-a-bit-longer-12401125",
+      "url": "https://www.piquenewsmagazine.com/national-news/carney-says-no-big-drama-on-gordie-howe-bridge-but-opening-may-take-a-bit-longer-12401125",
+      "title": "[Pique Newsmagazine] Carney says 'no big drama' on Gordie Howe Bridge — but opening may take a bit longer",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/973677ff6bf55fd865d268d6e921cf2a150500c8011b696c859aabf428eff34c.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOTTAWA — Prime Minister Mark Carney insisted Wednesday there is \"no big drama\" surrounding the status of the Gordie Howe International Bridge — but it may take longer to open than anticipated.",
+      "summary": "OTTAWA — Prime Minister Mark Carney insisted Wednesday there is \"no big drama\" surrounding the status of the Gordie Howe International Bridge — but it may take longer to open than anticipated.",
+      "_excerpt": "OTTAWA — Prime Minister Mark Carney insisted Wednesday there is \"no big drama\" surrounding the status of the Gordie Howe International Bridge — but it may take longer to open than anticipated.",
+      "date_published": "2026-06-10T15:47:30+00:00",
       "authors": [
         {
-          "name": "NPR Health News",
-          "url": "https://www.npr.org/sections/health-shots/"
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 60,
-      "_quality_score": 60,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://media.npr.org/include/images/facebook-default-wide-s1400-c85.jpg"
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/973677ff6bf55fd865d268d6e921cf2a150500c8011b696c859aabf428eff34c.jpg;w=960"
     },
     {
-      "id": "https://boingboing.net/2026/06/03/what-happened-to-the-2-5-mile-high-building-designed-to-be-taller-than-mount-fuji.html",
-      "url": "https://boingboing.net/2026/06/03/what-happened-to-the-2-5-mile-high-building-designed-to-be-taller-than-mount-fuji.html",
-      "title": "[Boing Boing] What happened to the 2.5 mile high building designed to be taller than Mount Fuji?",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/XSeed4000BurjDubaiComparison.jpg?fit=1200%2C864&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/03/what-happened-to-the-2-5-mile-high-building-designed-to-be-taller-than-mount-fuji.html\" rel=\"nofollow\" title=\"What happened to the 2.5 mile high building designed to be taller than Mount Fuji?\"><img alt=\"By Newsburst - Own work, CC BY-SA 3.0, Link\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"864\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/XSeed4000BurjDubaiComparison.jpg?fit=1200%2C864&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p>In 1995 the Japanese construction giant Taisei Corporation unveiled plans for <a href=\"https://en.wikipedia.org/wiki/X-Seed_4000\">the X-Seed 4000, a tower four kilometers tall</a> — a building shaped like Mount Fuji that would have stood 224 meters higher than the actual mountain. </p>\n<p>It called for 800 floors, room for up to a million residents in Tokyo Bay, and more than three million tonnes of steel. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/03/what-happened-to-the-2-5-mile-high-building-designed-to-be-taller-than-mount-fuji.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/03/what-happened-to-the-2-5-mile-high-building-designed-to-be-taller-than-mount-fuji.html\">What happened to the 2.5 mile high building designed to be taller than Mount Fuji?</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "In 1995 the Japanese construction giant Taisei Corporation unveiled plans for the X-Seed 4000, a tower four kilometers tall — a building shaped like Mount Fuji that would have stood 224 meters higher than the actual mountain. It called for 800 floors, room for up to a million residents in Tokyo",
-      "_excerpt": "In 1995 the Japanese construction giant Taisei Corporation unveiled plans for the X-Seed 4000, a tower four kilometers tall — a building shaped like Mount Fuji that would have stood 224 meters higher than the actual mountain. It called for 800 floors, room for up to a million residents in Tokyo Bay, and more than three million tonnes of steel. — Read the rest The post What happened to the 2.5 mile high building designed to be taller than Mount Fuji? appeared first on Boing Boing .",
-      "date_published": "2026-06-03T18:56:33+00:00",
+      "id": "https://qz.com/new-york-ai-synthetic-performer-ad-disclosure-law-061026",
+      "url": "https://qz.com/new-york-ai-synthetic-performer-ad-disclosure-law-061026",
+      "title": "[Quartz] New York is now requiring ads with AI-generated people to disclose they aren't real",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2261265698.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe first-in-the-nation law, signed in December, carries fines of up to $5,000 for ads that fail to flag AI-generated people",
+      "summary": "The first-in-the-nation law, signed in December, carries fines of up to $5,000 for ads that fail to flag AI-generated people",
+      "_excerpt": "The first-in-the-nation law, signed in December, carries fines of up to $5,000 for ads that fail to flag AI-generated people",
+      "date_published": "2026-06-10T14:11:17+00:00",
       "authors": [
         {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 18,
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/XSeed4000BurjDubaiComparison.jpg?fit=1200%2C864&quality=60&ssl=1"
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2261265698.jpg"
     },
     {
-      "id": "https://globalnews.ca/news/11890236/man-shot-killed-montreal-park/",
-      "url": "https://globalnews.ca/news/11890236/man-shot-killed-montreal-park/",
-      "title": "[Global News] Man dies after gunshots ring out in Montreal park",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Montreal-Police-e1780580144918.jpeg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA 22-year-old man was shot and killed in a park in Montreal’s Villeray neighbourhood Wednesday night, marking the city’s 10th homicide this year, police say.",
-      "summary": "A 22-year-old man was shot and killed in a park in Montreal’s Villeray neighbourhood Wednesday night, marking the city’s 10th homicide this year, police say.",
-      "_excerpt": "A 22-year-old man was shot and killed in a park in Montreal’s Villeray neighbourhood Wednesday night, marking the city’s 10th homicide this year, police say.",
-      "date_published": "2026-06-04T14:12:10+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Montreal-Police-e1780580144918.jpeg?quality=65&strip=all"
-    },
-    {
-      "id": "https://cfjctoday.com/2026/06/03/rcmp-seize-drugs-and-weapons-from-merritt-home-after-gun-threat/",
-      "url": "https://cfjctoday.com/2026/06/03/rcmp-seize-drugs-and-weapons-from-merritt-home-after-gun-threat/",
-      "title": "[CFJC Today Kamloops] RCMP seize drugs and weapons from Merritt home after gun threat",
-      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/fb7c2390-fb21-45b7-937e-7831d52e3bda.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFile photo. (Image Credit: CFJC Today) By Aaron Schulze Search Warrant RCMP seize drugs and weapons from Merritt home after gun threat Jun 3, 2026 | 9:31 AM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — A reported gun threat led to a drug bust in Merritt Tuesday (June 2). Merritt RCMP say they responded to a report of threats involving a firearm although a specific time was not provided in a news release issued Wednesday. Police were told the suspect fled to a home in the 2100-block of Quilchena Avenue before officers were called. RCMP say they contained the area,",
-      "summary": "File photo. (Image Credit: CFJC Today) By Aaron Schulze Search Warrant RCMP seize drugs and weapons from Merritt home after gun threat Jun 3, 2026 | 9:31 AM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — A reported gun threat led to a drug bust in Merritt Tuesday (June 2).",
-      "_excerpt": "File photo. (Image Credit: CFJC Today) By Aaron Schulze Search Warrant RCMP seize drugs and weapons from Merritt home after gun threat Jun 3, 2026 | 9:31 AM Share on Facebook Share on Bluesky Share on X Copy Link KAMLOOPS — A reported gun threat led to a drug bust in Merritt Tuesday (June 2). Merritt RCMP say they responded to a report of threats involving a firearm although a specific time was not provided in a news release issued Wednesday. Police were told the suspect fled to a home in the 2100-block of Quilchena Avenue before officers were called. RCMP say they contained the area,",
-      "date_published": "2026-06-03T16:31:48+00:00",
-      "authors": [
-        {
-          "name": "CFJC Today Kamloops",
-          "url": "https://cfjctoday.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/fb7c2390-fb21-45b7-937e-7831d52e3bda.jpg"
-    },
-    {
-      "id": "https://news.gov.bc.ca/releases/2026JEG0038-000647",
-      "url": "https://news.gov.bc.ca/releases/2026JEG0038-000647",
-      "title": "[BC Gov News] Strengthening manufacturing jobs in Vancouver",
-      "content_html": "<img src=\"https://live.staticflickr.com/65535/55311436557_bd35e79077_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNew provincial funding helps local manufacturers reach new markets",
-      "summary": "New provincial funding helps local manufacturers reach new markets",
-      "_excerpt": "New provincial funding helps local manufacturers reach new markets",
-      "date_published": "2026-06-03T18:30:00+00:00",
-      "authors": [
-        {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "ai_score": 58,
-      "_quality_score": 58,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 17,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://live.staticflickr.com/65535/55311436557_bd35e79077_b.jpg"
-    },
-    {
-      "id": "https://globalnews.ca/news/11888645/montreal-north-walmart-stabbing/",
-      "url": "https://globalnews.ca/news/11888645/montreal-north-walmart-stabbing/",
-      "title": "[Global News] Suspects at large after fatal stabbing in Montreal North Walmart",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Montreal-Police-e1780498151651.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe stabbing death of a 22-year-old man at a Walmart in Montreal North has prompted the city’s ninth homicide investigation so far this year.",
-      "summary": "The stabbing death of a 22-year-old man at a Walmart in Montreal North has prompted the city’s ninth homicide investigation so far this year.",
-      "_excerpt": "The stabbing death of a 22-year-old man at a Walmart in Montreal North has prompted the city’s ninth homicide investigation so far this year.",
-      "date_published": "2026-06-03T15:40:09+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 55,
-      "_quality_score": 55,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Montreal-Police-e1780498151651.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://www.npr.org/2026/06/03/nx-s1-5845097/medicaid-work-requirements-cuts-hiv-cancer",
-      "url": "https://www.npr.org/2026/06/03/nx-s1-5845097/medicaid-work-requirements-cuts-hiv-cancer",
-      "title": "[NPR Health News] People with cancer or HIV could lose Medicaid under new work rules, advocates say",
-      "content_html": "<img src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5616x3159+0+0/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F6e%2F38%2F1d78a02c4b56bef124f7dafa1731%2Fap26153683286216.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAdults on Medicaid will be required to work 80 hours per month. The Trump administration says people who are sick will have to prove they are too sick to work to be exempt from the new work rules.",
-      "summary": "Adults on Medicaid will be required to work 80 hours per month. The Trump administration says people who are sick will have to prove they are too sick to work to be exempt from the new work rules.",
-      "_excerpt": "Adults on Medicaid will be required to work 80 hours per month. The Trump administration says people who are sick will have to prove they are too sick to work to be exempt from the new work rules.",
-      "date_published": "2026-06-03T18:25:24+00:00",
-      "authors": [
-        {
-          "name": "NPR Health News",
-          "url": "https://www.npr.org/sections/health-shots/"
-        }
-      ],
-      "ai_score": 56,
-      "_quality_score": 56,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 16,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5616x3159+0+0/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F6e%2F38%2F1d78a02c4b56bef124f7dafa1731%2Fap26153683286216.jpg"
-    },
-    {
-      "id": "https://globalnews.ca/news/11890073/montreal-robbing-funeral-niches-jewelry/",
-      "url": "https://globalnews.ca/news/11890073/montreal-robbing-funeral-niches-jewelry/",
-      "title": "[Global News] Montreal-area pair accused of robbing funeral niches of jewelry",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Screenshot-2026-06-03-212634.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMontreal police say two suspects are behind widespread thefts from funeral niches and are urging families to check whether valuables are missing.",
-      "summary": "Montreal police say two suspects are behind widespread thefts from funeral niches and are urging families to check whether valuables are missing.",
-      "_excerpt": "Montreal police say two suspects are behind widespread thefts from funeral niches and are urging families to check whether valuables are missing.",
-      "date_published": "2026-06-04T03:54:17+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 51,
-      "_quality_score": 51,
-      "_theme_score": 9,
-      "_final_score": 9,
-      "_keyword_matches": 0,
-      "_boosted_score": 15,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Screenshot-2026-06-03-212634.png"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/04/briefing/immigration-protest-photography.html",
-      "url": "https://www.nytimes.com/2026/06/04/briefing/immigration-protest-photography.html",
-      "title": "[NYT Top Stories] Look Closely",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/04themorning-nl-Delaney-tbpm/04themorning-nl-Delaney-tbpm-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSeeing protests through a camera lens.",
-      "summary": "Seeing protests through a camera lens.",
-      "_excerpt": "Seeing protests through a camera lens.",
-      "date_published": "2026-06-04T11:54:46+00:00",
+      "id": "https://www.nytimes.com/2026/06/04/world/canada/canada-national-ai-strategy.html",
+      "url": "https://www.nytimes.com/2026/06/04/world/canada/canada-national-ai-strategy.html",
+      "title": "[NYT Top Stories] Wary of U.S., Carney Bets on AI Strategy for Canada",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/04int-canada-ai-vqlh/04int-canada-ai-vqlh-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe country on Thursday released a national artificial intelligence strategy that focuses on building its sovereign capability and protecting consumers.",
+      "summary": "The country on Thursday released a national artificial intelligence strategy that focuses on building its sovereign capability and protecting consumers.",
+      "_excerpt": "The country on Thursday released a national artificial intelligence strategy that focuses on building its sovereign capability and protecting consumers.",
+      "date_published": "2026-06-04T20:32:44+00:00",
       "authors": [
         {
           "name": "NYT Top Stories",
           "url": "https://nytimes.com"
         }
       ],
-      "ai_score": 50,
-      "_quality_score": 50,
-      "_theme_score": 4,
-      "_final_score": 4,
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04int-canada-ai-vqlh/04int-canada-ai-vqlh-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026HMA0066-000658",
+      "url": "https://news.gov.bc.ca/releases/2026HMA0066-000658",
+      "title": "[BC Gov News] Opening new homes for Indigenous families in Prince Rupert",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMore than 130 new homes open or underway for Indigenous people in Prince Rupert",
+      "summary": "More than 130 new homes open or underway for Indigenous people in Prince Rupert",
+      "_excerpt": "More than 130 new homes open or underway for Indigenous people in Prince Rupert",
+      "date_published": "2026-06-05T18:15:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 17,
+      "_final_score": 17,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://www.atlasobscura.com/places/st-georges-guldhall",
+      "url": "https://www.atlasobscura.com/places/st-georges-guldhall",
+      "title": "[Atlas Obscura] St Georges Guildhall in Norfolk, England",
+      "content_html": "<img src=\"https://img.atlasobscura.com/b626t5HozcyUxI_EOE4oht2xPo4Wf03mh3CVU46adLk/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/QGhCmHDdChw-1y9epUpqMqhjMT4UqgYNefQ38LRF-KI/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg\" width=\"300\" /></p> <p>St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft  guilds which served a different  purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward  VI in 1547 at which time the guildhall became the property of Lynn Corporation (the dissolution was largely  motivated by the transfer assets from religious  institutions to the Crown). It is the largest surviving medieval guildhall in the country.</p>\n<p>From the start of its history the building was used for theatrical performances, at first amateur ones but quickly by professional troupes of actors, the first being a nativity play in 1445 and initially the performances  were, mainly, religious plays. After the dissolution of the religious guilds the building was regularly used by a variety of theatrical companies and local tradition has it that William Shakespeare appeared here as an actor, as part of the troupe called the Earl of Pembroke's men in 1593 at a time when troupes of players were driven out of London by the plague. Shakespeare's best known comic actor Robert Armin was born one street away. A scene, in Hamlet, is widely said to have been inspired by an incident in King's Lynn.</p>\n<p>Theatrical performances were curtailed when banned by the Commonwealth Government of Oliver Cromwell in the early 17th century but resumed after Charles II regained his throne in 1660. After a competing theatre was constructed in the town the guildhall was sold (1826) and for a short time was used as a warehouse. After a number of other uses, including a period of dereliction, the guildhall was restored by the architect Marshall Sisson and then given to the National Trust (1951). Subsequently it has been developed into an arts centre and theatre with the former warehouses in the courtyard were converted into art galleries as early as 1963.</p>\n<p>Tree ring dating had shown that a floor exposed during renovations in 2023 dated from the time that Shakespeare is reputed to have performed here. In 2024  a door was exposed behind a plasterboard panel which was 600 years old  and is thought to have been the entrance to the dressing room used by Shakespeare.</p>\n<p> </p>",
+      "summary": "St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft guilds which served a different purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward VI",
+      "_excerpt": "St Georges Guildhall in King's Lynn, Norfolk , England was built around 1420 as a guildhall for a religious fellowship (not to be confused with merchant and craft guilds which served a different purpose) in King's Lynn. Religious guilds and the closely related chantries were dissolved by Edward VI in 1547 at which time the guildhall became the property of Lynn Corporation (the dissolution was largely motivated by the transfer assets from religious institutions to the Crown). It is the largest surviving medieval guildhall in the country. From the start of its history the building was used for",
+      "date_published": "2026-06-05T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://img.atlasobscura.com/b626t5HozcyUxI_EOE4oht2xPo4Wf03mh3CVU46adLk/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85OTM0/MTg2My01M2E0LTQz/ZTYtODk0Ni03ZTAz/NjhhYmVkYTg2ZDhm/NmViOTgxY2IxNmE4/YTBfMjk3ODk2Nl83/MTYyNWU4MC5qcGc.jpg"
+    },
+    {
+      "id": "https://www.theguardian.com/global-development/2026/jun/05/children-how-chibok-style-school-abductions-spreading-nigeria",
+      "url": "https://www.theguardian.com/global-development/2026/jun/05/children-how-chibok-style-school-abductions-spreading-nigeria",
+      "title": "[The Guardian Global Development] Gunshots at 9am. Then they rounded up the children: how Chibok-style school abductions are spreading in Nigeria",
+      "content_html": "<img src=\"https://i.guim.co.uk/img/media/b0c80eb474ff79bffe5499434e58979cb72a33cd/2168_387_4804_3845/master/4804.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=db9355787ef7314214b927f08faae4e8\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Families have been left in despair after 39 pupils and seven teachers were kidnapped from classrooms in Oyo state, a part of the country previously considered relatively peaceful</p><p></p><p>Sitting on a wooden bench under the tree near her home, Aduke Balogun’s gaze is fixed on the road. Her eyes are red from crying and a lack of sleep. Last month her daughter, Kehinde Kasosara, was forcefully abducted from school and has not been seen since.</p><p>Kaosara, who is seven years old, was taken from the Baptist nursery and primary across the street from their home. The armed men, wearing military camouflage and face masks, rode into the sleepy town of Yawota in Oyo state, south-west Nigeria, on motorcycles.</p> <a href=\"https://www.theguardian.com/global-development/2026/jun/05/children-how-chibok-style-school-abductions-spreading-nigeria\">Continue reading...</a>",
+      "summary": "Families have been left in despair after 39 pupils and seven teachers were kidnapped from classrooms in Oyo state, a part of the country previously considered relatively peaceful Sitting on a wooden bench under the tree near her home, Aduke Balogun’s gaze is fixed on the road. Her eyes are red from",
+      "_excerpt": "Families have been left in despair after 39 pupils and seven teachers were kidnapped from classrooms in Oyo state, a part of the country previously considered relatively peaceful Sitting on a wooden bench under the tree near her home, Aduke Balogun’s gaze is fixed on the road. Her eyes are red from crying and a lack of sleep. Last month her daughter, Kehinde Kasosara, was forcefully abducted from school and has not been seen since. Kaosara, who is seven years old, was taken from the Baptist nursery and primary across the street from their home. The armed men, wearing military camouflage and",
+      "date_published": "2026-06-05T05:00:25+00:00",
+      "authors": [
+        {
+          "name": "The Guardian Global Development",
+          "url": "https://www.theguardian.com/global-development"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-07T08:09:57.534268+00:00"
+      },
+      "image": "https://i.guim.co.uk/img/media/b0c80eb474ff79bffe5499434e58979cb72a33cd/2168_387_4804_3845/master/4804.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=db9355787ef7314214b927f08faae4e8"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/04/nancy-pelosi-has-no-time-for-mike-lindells-hallway-goblins.html",
+      "url": "https://boingboing.net/2026/06/04/nancy-pelosi-has-no-time-for-mike-lindells-hallway-goblins.html",
+      "title": "[Boing Boing] Nancy Pelosi has no time for Mike Lindell's hallway goblins",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/hallwaygoblin.jpg?fit=1536%2C1024&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/04/nancy-pelosi-has-no-time-for-mike-lindells-hallway-goblins.html\" rel=\"nofollow\" title=\"Nancy Pelosi has no time for Mike Lindell&#039;s hallway goblins\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1024\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/hallwaygoblin.jpg?fit=1536%2C1024&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1536\" /></a><p>Raw Story reports that LindellTV correspondent Alison Steinberg confronted Pelosi with the old MAGA claim that Pelosi turned away the National Guard on January 6. Pelosi answered with the efficiency of someone who has heard enough pillow-adjacent nonsense for one lifetime: \"Shut up again,\" \"you're speaking lies,\" and finally, \"Get away from me.\" &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/04/nancy-pelosi-has-no-time-for-mike-lindells-hallway-goblins.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/04/nancy-pelosi-has-no-time-for-mike-lindells-hallway-goblins.html\">Nancy Pelosi has no time for Mike Lindell&#039;s hallway goblins</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "Raw Story reports that LindellTV correspondent Alison Steinberg confronted Pelosi with the old MAGA claim that Pelosi turned away the National Guard on January 6. Pelosi answered with the efficiency of someone who has heard enough pillow-adjacent nonsense for one lifetime: \"Shut up again,\" \"you're",
+      "_excerpt": "Raw Story reports that LindellTV correspondent Alison Steinberg confronted Pelosi with the old MAGA claim that Pelosi turned away the National Guard on January 6. Pelosi answered with the efficiency of someone who has heard enough pillow-adjacent nonsense for one lifetime: \"Shut up again,\" \"you're speaking lies,\" and finally, \"Get away from me.\" — Read the rest The post Nancy Pelosi has no time for Mike Lindell's hallway goblins appeared first on Boing Boing .",
+      "date_published": "2026-06-04T17:59:33+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 69,
+      "_quality_score": 69,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/hallwaygoblin.jpg?fit=1536%2C1024&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/06/world/africa/the-world-has-learned-from-the-last-ebola-outbreak-but-gaps-remain.html",
+      "url": "https://www.nytimes.com/2026/06/06/world/africa/the-world-has-learned-from-the-last-ebola-outbreak-but-gaps-remain.html",
+      "title": "[NYT Top Stories] The World Has Learned From the Last Ebola Outbreak, but Gaps Remain",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06dc-ebola-reportcard-06-vzlj/06dc-ebola-reportcard-06-vzlj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe vaccine development process and coordination between health organizations have improved since a devastating 2014-2016 outbreak.",
+      "summary": "The vaccine development process and coordination between health organizations have improved since a devastating 2014-2016 outbreak.",
+      "_excerpt": "The vaccine development process and coordination between health organizations have improved since a devastating 2014-2016 outbreak.",
+      "date_published": "2026-06-06T09:00:20+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06dc-ebola-reportcard-06-vzlj/06dc-ebola-reportcard-06-vzlj-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.theverge.com/policy/947146/dhs-funding-congress-budget-reconciliation",
+      "url": "https://www.theverge.com/policy/947146/dhs-funding-congress-budget-reconciliation",
+      "title": "[The Verge] Congress just gave DHS another $70 billion",
+      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/VRG_Illo_K_Radtke_STK006_DHS_1.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCongress narrowly voted to fund President Donald Trump's mass deportation agenda, giving the Department of Homeland Security $70 billion over the next three years. The house voted 214 to 212 in favor of the reconciliation bill Tuesday, following the Senate's 52-47 vote last Friday morning. The vote fell largely along party lines. Sen. Lisa Murkowski [&#8230;]",
+      "summary": "Congress narrowly voted to fund President Donald Trump's mass deportation agenda, giving the Department of Homeland Security $70 billion over the next three years. The house voted 214 to 212 in favor of the reconciliation bill Tuesday, following the Senate's 52-47 vote last Friday morning. The vote",
+      "_excerpt": "Congress narrowly voted to fund President Donald Trump's mass deportation agenda, giving the Department of Homeland Security $70 billion over the next three years. The house voted 214 to 212 in favor of the reconciliation bill Tuesday, following the Senate's 52-47 vote last Friday morning. The vote fell largely along party lines. Sen. Lisa Murkowski […]",
+      "date_published": "2026-06-09T21:34:46+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/VRG_Illo_K_Radtke_STK006_DHS_1.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/06/us/politics/immigration-courts-deportation.html",
+      "url": "https://www.nytimes.com/2026/06/06/us/politics/immigration-courts-deportation.html",
+      "title": "[NYT Top Stories] As Trump Pushes Deportations, a Skyrocketing Caseload Strains Immigration Courts",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/26/multimedia/26nat-immig-courts-1-kbzq/26nat-immig-courts-1-kbzq-mediumSquareAt3X-v2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA federal surge has more than doubled caseloads within some immigration courts nationwide. Lawyers say the tactic is causing errors and confusion.",
+      "summary": "A federal surge has more than doubled caseloads within some immigration courts nationwide. Lawyers say the tactic is causing errors and confusion.",
+      "_excerpt": "A federal surge has more than doubled caseloads within some immigration courts nationwide. Lawyers say the tactic is causing errors and confusion.",
+      "date_published": "2026-06-06T09:00:35+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-07T08:09:57.534268+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/05/26/multimedia/26nat-immig-courts-1-kbzq/26nat-immig-courts-1-kbzq-mediumSquareAt3X-v2.jpg"
+    },
+    {
+      "id": "https://qz.com/target-up-up-baby-wipes-recall-bacteria-sepsis-infants-060826",
+      "url": "https://qz.com/target-up-up-baby-wipes-recall-bacteria-sepsis-infants-060826",
+      "title": "[Quartz] Target is recalling its Up & Up baby wipes over bacteria that can cause sepsis in infants",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2263306666.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFDA testing found Burkholderia cepacia complex and Burkholderia gladioli in samples of the store-brand wipes, which were sold nationwide",
+      "summary": "FDA testing found Burkholderia cepacia complex and Burkholderia gladioli in samples of the store-brand wipes, which were sold nationwide",
+      "_excerpt": "FDA testing found Burkholderia cepacia complex and Burkholderia gladioli in samples of the store-brand wipes, which were sold nationwide",
+      "date_published": "2026-06-08T13:30:20+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 64,
+      "_quality_score": 64,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2263306666.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
+      "url": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
+      "title": "[Williams Lake Tribune] Teen presumed drowned after boating incident northeast of Quesnel",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The incident took place on June 6 at Stony Lake </p>",
+      "summary": "The incident took place on June 6 at Stony Lake",
+      "_excerpt": "The incident took place on June 6 at Stony Lake",
+      "date_published": "2026-06-08T15:35:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 11,
+      "_final_score": 11,
       "_keyword_matches": 0,
-      "_boosted_score": 15,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
+      "url": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
+      "title": "[Williams Lake Tribune] Rotary Peace Pole to be installed in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pole will promote peace in the world and community",
+      "summary": "The pole will promote peace in the world and community",
+      "_excerpt": "The pole will promote peace in the world and community",
+      "date_published": "2026-06-11T09:02:58.168752+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 0,
+      "_boosted_score": 30,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.engadget.com/2191469/german-court-holds-google-liable-for-false-ai-overview-answers/",
+      "url": "https://www.engadget.com/2191469/german-court-holds-google-liable-for-false-ai-overview-answers/",
+      "title": "[Engadget] German court holds Google liable for false AI Overview answers",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/german-court-holds-google-liable-for-false-ai-overview-answers/l-intro-1781107759.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA recent study found that Google's AI Overviews regularly provide incorrect information and contain facts not supported by cited sources.",
+      "summary": "A recent study found that Google's AI Overviews regularly provide incorrect information and contain facts not supported by cited sources.",
+      "_excerpt": "A recent study found that Google's AI Overviews regularly provide incorrect information and contain facts not supported by cited sources.",
+      "date_published": "2026-06-10T16:10:45+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 87,
+      "_quality_score": 87,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 26,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://www.engadget.com/img/gallery/german-court-holds-google-liable-for-false-ai-overview-answers/l-intro-1781107759.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
+      "title": "[Al Jazeera English] Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEbola border shutdown leaves goods rotting between Uganda and DRC",
+      "summary": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "_excerpt": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
+      "date_published": "2026-06-06T10:07:29+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04themorning-nl-Delaney-tbpm/04themorning-nl-Delaney-tbpm-mediumSquareAt3X.jpg"
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.howtogeek.com/this-secret-samsung-galaxy-setting-gave-me-19gb-of-storage-space-back/",
-      "url": "https://www.howtogeek.com/this-secret-samsung-galaxy-setting-gave-me-19gb-of-storage-space-back/",
-      "title": "[How-To Geek] This secret Samsung Galaxy setting gave me 19GB of storage space back",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/samsung-galaxy-storage-running-out.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRunning out of storage? Try this trick.",
-      "summary": "Running out of storage? Try this trick.",
-      "_excerpt": "Running out of storage? Try this trick.",
-      "date_published": "2026-06-04T12:45:17+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
+      "title": "[Al Jazeera English] South Korean police break up 35-hour polling station protest",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSouth Korean police break up 35-hour polling station protest",
+      "summary": "South Korean police break up 35-hour polling station protest",
+      "_excerpt": "South Korean police break up 35-hour polling station protest",
+      "date_published": "2026-06-05T12:38:05+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 40,
+      "_final_score": 40,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
+      "title": "[Al Jazeera English] Families clear rubble after overnight Israeli strikes in Gaza",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFamilies in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "summary": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "_excerpt": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
+      "date_published": "2026-06-05T19:40:41+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 29,
+      "_final_score": 29,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/national-news/victim-says-her-face-was-unrecognizable-after-beating-by-bc-sex-trafficker-12397452",
+      "url": "https://www.piquenewsmagazine.com/national-news/victim-says-her-face-was-unrecognizable-after-beating-by-bc-sex-trafficker-12397452",
+      "title": "[Pique Newsmagazine] Victim says her face was 'unrecognizable' after beating by B.C. sex trafficker",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f0a06eb759dda802ddf14d7e5ca5982353a896d00598e51b17f892e2b8186f6c.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
+      "summary": "NEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
+      "_excerpt": "NEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
+      "date_published": "2026-06-09T21:47:12+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 23,
+      "_final_score": 23,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f0a06eb759dda802ddf14d7e5ca5982353a896d00598e51b17f892e2b8186f6c.jpg;w=960"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
+      "title": "[Al Jazeera English] Texas-bound jet crashes during emergency landing in Dominican Republic",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTexas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "summary": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "_excerpt": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
+      "date_published": "2026-06-08T13:22:18+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 23,
+      "_final_score": 23,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/bc-news/body-of-teenager-recovered-from-bc-lake-three-days-after-boat-capsized-12401471",
+      "url": "https://www.piquenewsmagazine.com/bc-news/body-of-teenager-recovered-from-bc-lake-three-days-after-boat-capsized-12401471",
+      "title": "[Pique Newsmagazine] Body of teenager recovered from B.C. lake, three days after boat capsized",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/effea246786065efd2b4e695c6406bbf95f34264571c4f1375d8a252e785c0cf.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nQUESNEL — Police in British Columbia's central Interior say the body of a 17-year-old youth has been recovered three days after a vessel capsized at a local lake.",
+      "summary": "QUESNEL — Police in British Columbia's central Interior say the body of a 17-year-old youth has been recovered three days after a vessel capsized at a local lake.",
+      "_excerpt": "QUESNEL — Police in British Columbia's central Interior say the body of a 17-year-old youth has been recovered three days after a vessel capsized at a local lake.",
+      "date_published": "2026-06-10T16:00:13+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/effea246786065efd2b4e695c6406bbf95f34264571c4f1375d8a252e785c0cf.jpg;w=960"
+    },
+    {
+      "id": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
+      "url": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
+      "title": "[BC Gov News] Sharing local farm harvests through coupon program",
+      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
+      "summary": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
+      "_excerpt": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
+      "date_published": "2026-06-08T16:30:00+00:00",
+      "authors": [
+        {
+          "name": "BC Gov News",
+          "url": "https://news.gov.bc.ca"
+        }
+      ],
+      "ai_score": 81,
+      "_quality_score": 81,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T15:39:31.513012+00:00"
+      },
+      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
+    },
+    {
+      "id": "https://www.tomsguide.com/ai/ai-wont-replace-you-but-these-7-prompts-give-you-the-ultimate-edge",
+      "url": "https://www.tomsguide.com/ai/ai-wont-replace-you-but-these-7-prompts-give-you-the-ultimate-edge",
+      "title": "[Toms Guide] AI won't replace you — but these 7 prompts give you the ultimate edge",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/E266Wur4cfV3Uoheaz9D7E-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWorried about AI replacing your job? These 7 ChatGPT prompts can help you identify valuable skills, uncover opportunities and stay competitive in the AI era.",
+      "summary": "Worried about AI replacing your job? These 7 ChatGPT prompts can help you identify valuable skills, uncover opportunities and stay competitive in the AI era.",
+      "_excerpt": "Worried about AI replacing your job? These 7 ChatGPT prompts can help you identify valuable skills, uncover opportunities and stay competitive in the AI era.",
+      "date_published": "2026-06-09T06:15:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T06:29:03.278114+00:00"
+      },
+      "image": "https://cdn.mos.cms.futurecdn.net/E266Wur4cfV3Uoheaz9D7E-1280-80.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
+      "url": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
+      "title": "[How-To Geek] 5 free apps I self-host instead of paying $2,400 per year in subscriptions",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/a7303923.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI never knew self-hosting could save me so much money",
+      "summary": "I never knew self-hosting could save me so much money",
+      "_excerpt": "I never knew self-hosting could save me so much money",
+      "date_published": "2026-06-10T20:45:17+00:00",
       "authors": [
         {
           "name": "How-To Geek",
           "url": "https://www.howtogeek.com"
         }
       ],
-      "ai_score": 49,
-      "_quality_score": 49,
-      "_theme_score": 4,
-      "_final_score": 4,
+      "ai_score": 77,
+      "_quality_score": 77,
+      "_theme_score": 6,
+      "_final_score": 6,
       "_keyword_matches": 0,
-      "_boosted_score": 14,
-      "_category": "news",
-      "_source_category": "news",
+      "_boosted_score": 23,
+      "_category": "homelab",
+      "_source_category": "homelab",
       "_is_bonus": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/samsung-galaxy-storage-running-out.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/a7303923.jpg"
     },
     {
-      "id": "https://www.makeuseof.com/built-temperature-sensor-works-every-smart-home-app/",
-      "url": "https://www.makeuseof.com/built-temperature-sensor-works-every-smart-home-app/",
-      "title": "[MakeUseOf] I built a $4 temperature sensor that works with every smart home app",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/esp32-connected-to-dht22.JPG\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhy buy one when you can build it cheaper?",
-      "summary": "Why buy one when you can build it cheaper?",
-      "_excerpt": "Why buy one when you can build it cheaper?",
-      "date_published": "2026-06-03T21:00:19+00:00",
+      "id": "https://qz.com/technologies-seemed-impossible-20-years-ago",
+      "url": "https://qz.com/technologies-seemed-impossible-20-years-ago",
+      "title": "[Quartz] 15 pieces of technology that would have seemed like science fiction in 2005",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/robynne-o-HOrhCnQsxnQ-unsplash.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSmartphones, mRNA vaccines, reusable rockets, language models — the past 20 years produced technologies that experts said were decades away or simply impossible",
+      "summary": "Smartphones, mRNA vaccines, reusable rockets, language models — the past 20 years produced technologies that experts said were decades away or simply impossible",
+      "_excerpt": "Smartphones, mRNA vaccines, reusable rockets, language models — the past 20 years produced technologies that experts said were decades away or simply impossible",
+      "date_published": "2026-06-09T19:05:23+00:00",
       "authors": [
         {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "ai_score": 41,
-      "_quality_score": 41,
-      "_theme_score": 4,
-      "_final_score": 4,
+      "ai_score": 76,
+      "_quality_score": 76,
+      "_theme_score": 34,
+      "_final_score": 34,
       "_keyword_matches": 0,
-      "_boosted_score": 12,
-      "_category": "news",
-      "_source_category": "news",
+      "_boosted_score": 22,
+      "_category": "scifi",
+      "_source_category": "scifi",
       "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/esp32-connected-to-dht22.JPG"
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/robynne-o-HOrhCnQsxnQ-unsplash.jpg"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/world-news/us-appeals-court-raises-concerns-about-alabamas-use-of-nitrogen-gas-for-executions-12393537",
+      "url": "https://www.piquenewsmagazine.com/world-news/us-appeals-court-raises-concerns-about-alabamas-use-of-nitrogen-gas-for-executions-12393537",
+      "title": "[Pique Newsmagazine] US appeals court raises concerns about Alabama’s use of nitrogen gas for executions",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/50b3478ddfcbf712d92648f3e8f1893408b5e55dc9c0b3e51083a4e370967a91.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTGOMERY, Ala. (AP) — Alabama’s use of nitrogen gas to put people to death needs more study of whether it violates a constitutional ban on cruel and unusual punishment, a federal appeals court decided Monday.",
+      "summary": "MONTGOMERY, Ala. (AP) — Alabama’s use of nitrogen gas to put people to death needs more study of whether it violates a constitutional ban on cruel and unusual punishment, a federal appeals court decided Monday.",
+      "_excerpt": "MONTGOMERY, Ala. (AP) — Alabama’s use of nitrogen gas to put people to death needs more study of whether it violates a constitutional ban on cruel and unusual punishment, a federal appeals court decided Monday.",
+      "date_published": "2026-06-09T02:05:34+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 6,
+      "_final_score": 6,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/50b3478ddfcbf712d92648f3e8f1893408b5e55dc9c0b3e51083a4e370967a91.jpg;w=960"
+    },
+    {
+      "id": "https://www.tomsguide.com/wellness/sleep/anxiety-and-stress-were-keeping-me-awake-until-experts-shared-a-simple-bedtime-rule-to-help-me-fall-asleep-fast",
+      "url": "https://www.tomsguide.com/wellness/sleep/anxiety-and-stress-were-keeping-me-awake-until-experts-shared-a-simple-bedtime-rule-to-help-me-fall-asleep-fast",
+      "title": "[Toms Guide] Anxiety and stress were keeping me awake — until experts shared a simple bedtime rule to help me fall asleep fast",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/WfD76UjCcsnyBMsMr5hXtS-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStruggling to sleep due to anxiety and stress? Discover the simple, expert-backed bedtime rule that eased my racing mind so that I could fall asleep faster.",
+      "summary": "Struggling to sleep due to anxiety and stress? Discover the simple, expert-backed bedtime rule that eased my racing mind so that I could fall asleep faster.",
+      "_excerpt": "Struggling to sleep due to anxiety and stress? Discover the simple, expert-backed bedtime rule that eased my racing mind so that I could fall asleep faster.",
+      "date_published": "2026-06-06T05:15:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://cdn.mos.cms.futurecdn.net/WfD76UjCcsnyBMsMr5hXtS-1280-80.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/gemini-avatar-hands-on-how-to-use-3673898/",
+      "url": "https://www.androidauthority.com/gemini-avatar-hands-on-how-to-use-3673898/",
+      "title": "[Android Authority] I just used Gemini Avatar to make an AI clone of myself. Here’s how you can too",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/06/gemini-avatar-hero-3-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nReal Joe, meet Gemini Joe.",
+      "summary": "Real Joe, meet Gemini Joe.",
+      "_excerpt": "Real Joe, meet Gemini Joe.",
+      "date_published": "2026-06-04T10:00:13+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T06:12:15.434854+00:00"
+      },
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/06/gemini-avatar-hero-3-scaled.jpg"
+    },
+    {
+      "id": "https://qz.com/broadcom-apollo-blackstone-ai-infrastructure-platform-060926",
+      "url": "https://qz.com/broadcom-apollo-blackstone-ai-infrastructure-platform-060926",
+      "title": "[Quartz] Broadcom, Apollo, and Blackstone are launching a $35 billion AI infrastructure platform",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2217725376.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe AI XPV Platform is designed to enable more than 20 gigawatts of compute capacity for frontier AI labs through 2028",
+      "summary": "The AI XPV Platform is designed to enable more than 20 gigawatts of compute capacity for frontier AI labs through 2028",
+      "_excerpt": "The AI XPV Platform is designed to enable more than 20 gigawatts of compute capacity for frontier AI labs through 2028",
+      "date_published": "2026-06-09T14:50:38+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2217725376.jpg"
+    },
+    {
+      "id": "https://www.howtogeek.com/i-started-building-custom-homelab-notifications-with-gotify-here-are-the-5-most-useful/",
+      "url": "https://www.howtogeek.com/i-started-building-custom-homelab-notifications-with-gotify-here-are-the-5-most-useful/",
+      "title": "[How-To Geek] Stop checking your homelab dashboard: This self-hosted alert server does the work for you",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/04/homepage-main-page.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGreen dashboards are nice but a homelab that speaks up is better!",
+      "summary": "Green dashboards are nice but a homelab that speaks up is better!",
+      "_excerpt": "Green dashboards are nice but a homelab that speaks up is better!",
+      "date_published": "2026-06-06T14:15:18+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality_score": 75,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 22,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-08T09:14:59.750312+00:00"
+      },
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/04/homepage-main-page.png"
+    },
+    {
+      "id": "https://www.engadget.com/2188923/jwst-measure-mass-of-dormant-black-hole-our-solar-system-lost-protoplanet-science-news/",
+      "url": "https://www.engadget.com/2188923/jwst-measure-mass-of-dormant-black-hole-our-solar-system-lost-protoplanet-science-news/",
+      "title": "[Engadget] Astronomers measure the mass of a dormant black hole, our solar system's lost protoplanet, and more science stories",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/astronomers-measure-the-mass-of-a-dormant-black-hole-our-solar-systems-lost-protoplanet-and-more-science-stories/l-intro-1780764989.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis week's science news.",
+      "summary": "This week's science news.",
+      "_excerpt": "This week's science news.",
+      "date_published": "2026-06-06T17:30:00+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T08:34:27.563374+00:00"
+      },
+      "image": "https://www.engadget.com/img/gallery/astronomers-measure-the-mass-of-a-dormant-black-hole-our-solar-systems-lost-protoplanet-and-more-science-stories/l-intro-1780764989.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/long-term-care-retirement-alzheimers-quit-job-2026-6",
+      "url": "https://www.businessinsider.com/long-term-care-retirement-alzheimers-quit-job-2026-6",
+      "title": "[Business Insider] I gave up my career at a Fortune 500 company to care for my mom full-time. Now, I struggle to pay my bills.",
+      "content_html": "<img src=\"https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
+      "summary": "Kathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
+      "_excerpt": "Kathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
+      "date_published": "2026-06-10T11:15:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 73,
+      "_quality_score": 73,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 0,
+      "_boosted_score": 21,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg"
+    },
+    {
+      "id": "https://www.xda-developers.com/i-replaced-google-home-with-home-assistant-and-a-local-llm-and-im-not-looking-back/",
+      "url": "https://www.xda-developers.com/i-replaced-google-home-with-home-assistant-and-a-local-llm-and-im-not-looking-back/",
+      "title": "[XDA Developers] I replaced Google Home with Home Assistant and a local LLM, and I'm not looking back",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/home-assistant-voice-pe-contents.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI've almost retired Google entirely in my home.",
+      "summary": "I've almost retired Google entirely in my home.",
+      "_excerpt": "I've almost retired Google entirely in my home.",
+      "date_published": "2026-06-05T13:30:22+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 66,
+      "_quality_score": 66,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 0,
+      "_boosted_score": 19,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Gear, Gadgets & Practical Tech",
+        "shown_at": "2026-06-10T16:16:31.786241+00:00"
+      },
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2025/05/home-assistant-voice-pe-contents.jpg"
     }
   ]
 }
