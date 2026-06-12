@@ -19,6 +19,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run
+- Fetched **893** → dedup **787** → new **495** → quality **34**
+- Mix: ai-tech:5(15%), climate:2(6%), wellness:2(6%), science:3(9%), scifi:1(3%), news:21(62%)
+- Feeds: local:26, ai-tech:77, climate:32, homelab:26, wellness:53, science:31, scifi:12, news:500
+- Images: 34/34
+- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
+
+
+---
+
+
+
 ## 2026-06-11 (Thursday)
 
 #### 🌅 4:30 AM Pacific
