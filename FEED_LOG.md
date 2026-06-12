@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-12 (Friday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **891** → dedup **793** → new **593** → quality **109**
+- Mix: local:2(2%), ai-tech:5(5%), climate:2(2%), homelab:1(1%), wellness:6(6%), science:3(3%), scifi:2(2%), news:88(81%)
+- Feeds: local:24, ai-tech:74, climate:28, homelab:26, wellness:49, science:26, scifi:9, news:500
+- Images: 109/109
+- ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
+- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
+- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
+
+
+---
+
+
+
 ## 2026-06-11 (Thursday)
 
 #### 🌅 4:30 AM Pacific
@@ -257,33 +273,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Feeds: local:34, ai-tech:34, climate:63, homelab:8, wellness:33, science:17, scifi:9, news:432
 - Images: 67/67
 - ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-
-
----
-
-
-
-## 2026-06-04 (Thursday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **975** → dedup **861** → new **597** → quality **75**
-- Mix: local:2(3%), ai-tech:6(8%), climate:1(1%), homelab:2(3%), wellness:2(3%), news:62(83%)
-- Feeds: local:32, ai-tech:64, climate:82, homelab:26, wellness:29, science:22, scifi:7, news:431
-- Images: 75/75
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **988** → dedup **875** → new **611** → quality **67**
-- Mix: local:3(4%), ai-tech:4(6%), climate:1(1%), wellness:4(6%), science:1(1%), scifi:1(1%), news:53(79%)
-- Feeds: local:35, ai-tech:36, climate:69, homelab:8, wellness:29, science:18, scifi:8, news:397
-- Images: 67/67
 - ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
 
 
@@ -1665,6 +1654,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 2 runs · avg fetched 966 · avg quality 101
 - Dominant: **news** (78%) local:11 / ai-tech:11 / climate:2 / homelab:2 / wellness:13 / science:4 / scifi:1 / news:158
 - - ⚠️ The Atlantic Culture failed — HTTPSConnectionPool(host='www.theatlantic.com', port=443): Read timed out. (read time
+- - ⚠️ Examine.com failed — 429 Client Error: Too Many Requests for url: https://examine.com/feed/
+
+
+---
+
+
+
+## Week of 2026-06-04–2026-06-04
+- 2 runs · avg fetched 982 · avg quality 71
+- Dominant: **news** (81%) local:5 / ai-tech:10 / climate:2 / homelab:2 / wellness:6 / science:1 / scifi:1 / news:115
 - - ⚠️ Examine.com failed — 429 Client Error: Too Many Requests for url: https://examine.com/feed/
 
 

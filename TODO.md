@@ -8,6 +8,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-12 | 🌅 4:30 AM Pacific | ⚠️ **CBC Prince George** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
+| 2026-06-12 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
+| 2026-06-12 | 🌅 4:30 AM Pacific | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-11 | 🌅 4:30 AM Pacific | ⚠️ **CBC Arts** failed | `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)` |
 | 2026-06-11 | 🌅 4:30 AM Pacific | ⚠️ **CBC Kamloops** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
 | 2026-06-11 | 🌅 4:30 AM Pacific | ⚠️ **CBC Prince George** failed | `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)` |
@@ -70,13 +73,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-06 | 🌅 4:30 AM Pacific | ⚠️ **GN Canadian Arts Technology** failed | `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22arts+technology%22+OR+%22creative` |
 | 2026-06-05 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
 | 2026-06-05 | 🌅 4:30 AM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
-| 2026-06-04 | 🌅 4:30 AM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
-| 2026-06-04 | 🌙 8:30 PM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-12 | 🌅 morning | 109 | news:88(81%), wellness:6(6%), ai-tech:5(5%) |
 | 2026-06-11 | 🌅 morning | 95 | news:74(78%), ai-tech:7(7%), local:4(4%) |
 | 2026-06-11 | 🌙 evening | 102 | news:83(81%), ai-tech:5(5%), wellness:4(4%) |
 | 2026-06-10 | 🌅 morning | 52 | news:36(69%), ai-tech:5(10%), science:3(6%) |
@@ -88,12 +90,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-06 | 🌙 evening | 78 | news:63(81%), wellness:5(6%), ai-tech:4(5%) |
 | 2026-06-06 | 🌅 morning | 60 | news:47(78%), ai-tech:4(7%), homelab:3(5%) |
 | 2026-06-05 | 🌅 morning | 67 | news:55(82%), wellness:4(6%), local:2(3%) |
-| 2026-06-04 | 🌅 morning | 75 | news:62(83%), ai-tech:6(8%), local:2(3%) |
-| 2026-06-04 | 🌙 evening | 67 | news:53(79%), ai-tech:4(6%), wellness:4(6%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-11 16:37 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-12 08:49 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
