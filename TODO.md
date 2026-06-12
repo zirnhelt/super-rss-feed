@@ -352,6 +352,38 @@ _Last updated by log\_feed\_results.py · 2026-06-12 08:49 UTC_
 
 ## Notes & Review
 
+### 2026-06-12 — Feed quality audit: dead-source cleanup and tagging fixes
+
+Removed six sources from `feeds.opml` that have failed on every run for
+weeks/months with no recoverable fix (per the 403/415/timeout rules in
+`FEEDS_MAINTENANCE.md`):
+- **Country Guide** — `403 Forbidden` on every run since at least Feb 2026.
+- **CBC Kamloops** / **CBC Prince George** — `rss.cbc.ca` lineup endpoints
+  time out / `400 Bad Request` on every run; Local feed is already 🟢 healthy
+  (avg 85.1) without them.
+- **First Nations Technology Council** — times out on every run; no public
+  RSS found, GN fallback feeds 503'd and were already removed in March.
+- **Hakai Magazine** and **Machine Learning Blog (ML@CMU)** — both return
+  `403/415` even with the existing browser User-Agent + `Accept` headers
+  already in `fetch_feed_articles()` (confirmed via curl — Cloudflare WAF
+  block, not a header issue). Hakai is a strong topical fit for Sunday's
+  Science theme; revisit if a working feed URL/route is found.
+
+Also made config/tagging changes from the 2026-06-12 feed quality audit:
+- `config/source_preferences.json` — added a `personal_listicle` source type
+  (-10 score, max 4/feed) and mapped `XDA Developers` to it, to curb its 42%
+  share of Homelab & DIY.
+- `config/limits.json` — added `min_score_by_category.ai-tech: 30` (with
+  matching support in `super_rss_curator_json.py`'s quality filter) to raise
+  the AI/ML & Tech category's average score above the 33.1 baseline.
+- `config/category_rules.json` — tightened `climate` and `science` `include`
+  lists from broad single-word terms to multi-word, topic-specific phrases,
+  to reduce tangential articles diluting those categories' averages (23.5
+  and 23.1).
+- `config/filters.json` + `Article.should_filter()` — replaced ~11 literal
+  `"I ___"` / `"My ___"` blocklist keyword entries with two
+  `blocked_title_patterns` regexes for first-person anecdote listicles.
+
 ### 2026-02-24 — Initial observations (from code analysis)
 
 These are seeded from reading the codebase and the Actions run at

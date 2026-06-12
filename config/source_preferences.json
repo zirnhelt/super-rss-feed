@@ -19,6 +19,11 @@
       "score_adjustment": 10,
       "max_per_source": 10,
       "description": "Maker/repair/gadget outlets - small boost so they clear general quality thresholds for the Wednesday gear/gadgets theme"
+    },
+    "personal_listicle": {
+      "score_adjustment": -10,
+      "max_per_source": 4,
+      "description": "High-volume first-person 'I tried/ditched/switched' outlets - cap dominance and dock score for thin personal-anecdote listicles"
     }
   },
   "source_map": {
@@ -35,6 +40,7 @@
     "Spacing Magazine": "print",
     "CBC Kamloops": "broadcast",
     "CBC Prince George": "broadcast",
+    "XDA Developers": "personal_listicle",
     "Hackaday": "maker_gadget",
     "Make Magazine": "maker_gadget",
     "Cool Tools": "maker_gadget",

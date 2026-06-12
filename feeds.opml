@@ -51,8 +51,8 @@
     <outline type="rss" text="My Cariboo Now" title="My Cariboo Now" xmlUrl="https://www.mycariboonow.com/feed" htmlUrl="https://www.mycariboonow.com" />
     
     <outline type="rss" text="My East Kootenay Now" title="My East Kootenay Now" xmlUrl="https://www.myeastkootenaynow.com/feed/" htmlUrl="https://www.myeastkootenaynow.com" />
-    <outline type="rss" text="CBC Kamloops" title="CBC Kamloops" xmlUrl="http://rss.cbc.ca/lineup/canada-kamloops.xml" htmlUrl="https://www.cbc.ca/news/canada/kamloops" />
-    <outline type="rss" text="CBC Prince George" title="CBC Prince George" xmlUrl="http://rss.cbc.ca/lineup/canada-prince-george.xml" htmlUrl="https://www.cbc.ca/news/canada/prince-george" />
+    <!-- CBC Kamloops removed 2026-06-12: rss.cbc.ca lineup endpoint times out on every run since at least March 2026 -->
+    <!-- CBC Prince George removed 2026-06-12: rss.cbc.ca lineup endpoint times out / 400s on every run since at least March 2026 -->
 
     
     <outline type="rss" text="Toms Guide" title="Toms Guide" xmlUrl="https://www.tomsguide.com/feeds/all" htmlUrl="https://www.tomsguide.com" />
@@ -93,8 +93,8 @@
     
     <outline type="rss" text="APTN News" title="APTN News" xmlUrl="https://www.aptnnews.ca/feed/" htmlUrl="https://www.aptnnews.ca" />
     
-    <outline type="rss" text="First Nations Technology Council" title="First Nations Technology Council" xmlUrl="https://technologycouncil.ca/feed/" htmlUrl="https://technologycouncil.ca" />
-    
+    <!-- First Nations Technology Council removed 2026-06-12: technologycouncil.ca times out on every run, no public RSS found -->
+
     
     <outline type="rss" text="Hackaday" title="Hackaday" xmlUrl="https://hackaday.com/feed" htmlUrl="https://hackaday.com" />
     <outline type="rss" text="Make Magazine" title="Make Magazine" xmlUrl="https://makezine.com/feed/" htmlUrl="https://makezine.com" />
@@ -167,8 +167,8 @@
     
     <outline type="rss" text="The Northern Miner" title="The Northern Miner" xmlUrl="https://www.northernminer.com/feed/" htmlUrl="https://www.northernminer.com" />
     
-    <outline type="rss" text="Country Guide" title="Country Guide" xmlUrl="https://www.country-guide.ca/feed/" htmlUrl="https://www.country-guide.ca" />
-    
+    <!-- Country Guide removed 2026-06-12: country-guide.ca returns 403 Forbidden on every run since at least Feb 2026 -->
+
 
     
     
@@ -177,8 +177,8 @@
 
     
     
-    <outline type="rss" text="Hakai Magazine" title="Hakai Magazine" xmlUrl="https://www.hakaimagazine.com/feed/" htmlUrl="https://www.hakaimagazine.com" />
-    
+    <!-- Hakai Magazine removed 2026-06-12: hakaimagazine.com/feed returns 403/415 on every run (Cloudflare WAF block); existing browser UA+Accept headers don't resolve it. Revisit if a working feed URL or fetch route is found - it's a strong topical fit for Sunday's Science theme. -->
+
     <outline type="rss" text="EarthSky" title="EarthSky" xmlUrl="https://earthsky.org/feed/" htmlUrl="https://earthsky.org" />
 
     
@@ -186,5 +186,5 @@
     <outline type="rss" text="Wildfire Today" title="Wildfire Today" xmlUrl="https://wildfiretoday.com/feed/" htmlUrl="https://wildfiretoday.com" />
     
     <outline type="rss" text="Outside Online" title="Outside Online" xmlUrl="https://www.outsideonline.com/feed/" htmlUrl="https://www.outsideonline.com" />
-  <outline text="Discovered Feeds" title="Discovered Feeds"><outline type="rss" text="Machine Learning Blog | ML@CMU | Carnegie Mellon University" title="Machine Learning Blog | ML@CMU | Carnegie Mellon University" xmlUrl="https://blog.ml.cmu.edu/feed/" htmlUrl="" /><outline type="rss" text="Engineering – The GitHub Blog" title="Engineering – The GitHub Blog" xmlUrl="http://githubengineering.com/atom.xml" htmlUrl="" /><outline type="rss" text="PyTorch" title="PyTorch" xmlUrl="https://pytorch.org/feed" htmlUrl="" /></outline></body>
+  <outline text="Discovered Feeds" title="Discovered Feeds"><!-- Machine Learning Blog | ML@CMU removed 2026-06-12: blog.ml.cmu.edu/feed returns 403/415 on every run (Cloudflare WAF block) --><outline type="rss" text="Engineering – The GitHub Blog" title="Engineering – The GitHub Blog" xmlUrl="http://githubengineering.com/atom.xml" htmlUrl="" /><outline type="rss" text="PyTorch" title="PyTorch" xmlUrl="https://pytorch.org/feed" htmlUrl="" /></outline></body>
 </opml>
