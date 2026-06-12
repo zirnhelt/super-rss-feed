@@ -80,6 +80,10 @@ def load_source_preferences():
 
 SOURCE_PREFS = load_source_preferences()
 
+def min_score_for_category(category: str) -> int:
+    """Per-category quality floor, falling back to the global min_claude_score."""
+    return LIMITS.get('min_score_by_category', {}).get(category or 'news', LIMITS['min_claude_score'])
+
 _brave_call_count = 0
 
 # Cache files
@@ -460,6 +464,13 @@ class Article:
             return True
 
         if any(keyword in text for keyword in FILTERS['blocked_keywords']):
+            return True
+
+        # First-person anecdote listicles ("I ditched...", "My home server...") are
+        # low-depth regardless of outlet - one regex replaces the old per-phrase
+        # "I ___" blocklist entries.
+        title_lower = self.title.lower()
+        if any(re.match(pattern, title_lower) for pattern in FILTERS.get('blocked_title_patterns', [])):
             return True
 
         # Arts/entertainment keywords are skipped when article mentions local places
@@ -3089,8 +3100,10 @@ def main():
     scrubbed = scrub_feed_with_haiku(scrub_candidates, api_key)
 
     # Quality filter now works on pre-scrubbed candidates
-    quality_articles = [a for a in scrubbed if a.score >= LIMITS['min_claude_score']]
-    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): {len(scrubbed)} → {len(quality_articles)} articles")
+    quality_articles = [a for a in scrubbed if a.score >= min_score_for_category(a.category)]
+    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}, "
+          f"per-category overrides {LIMITS.get('min_score_by_category', {})}): "
+          f"{len(scrubbed)} → {len(quality_articles)} articles")
 
     # Per-category floor: rescue the top-N articles for categories under their minimum quota.
     # Draws from the scrubbed pool (clean) plus below-floor articles so niche categories
@@ -3382,8 +3395,9 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     articles = enforce_local_priority(articles)
     articles = apply_source_preferences(articles)
 
-    quality_articles = [a for a in articles if a.score >= LIMITS['min_claude_score']]
-    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}): "
+    quality_articles = [a for a in articles if a.score >= min_score_for_category(a.category)]
+    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}, "
+          f"per-category overrides {LIMITS.get('min_score_by_category', {})}): "
           f"{len(articles)} → {len(quality_articles)} articles")
 
     # Group by category
