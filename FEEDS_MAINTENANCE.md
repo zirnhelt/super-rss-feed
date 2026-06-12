@@ -127,6 +127,20 @@ Three hits pushes any article to 60+ regardless of quality score. This means
 **keyword tuning has more impact than source quality tuning** for theme
 alignment.
 
+**`anti_keywords`** (optional, per-day array) subtract from `keyword_hits`
+before the formula above and before `_is_bonus`/`_keyword_matches` are
+computed, floored at 0:
+
+```
+keyword_hits = positive_keyword_hits - anti_keyword_hits   # floored at 0
+```
+
+Use this when two theme days have overlapping keyword sets and articles
+dominated by the *other* day's topic are being bucketed here as strong
+matches. For example, Sunday (Science) penalizes Indigenous-governance terms
+(`"data sovereignty"`, `"OCAP"`, `"land title"`, `"treaty negotiation"`, etc.)
+that really belong to Thursday (Indigenous Lands & Innovation).
+
 ---
 
 ### 4. Update `theme_description` when editorial framing shifts (as needed)

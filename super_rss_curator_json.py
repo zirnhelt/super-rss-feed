@@ -2066,6 +2066,20 @@ def _keyword_match_count(text: str, keywords: List[str]) -> int:
     return sum(1 for kw in keywords if kw.lower() in text_lower)
 
 
+def _net_keyword_match_count(text: str, keywords: List[str], anti_keywords: List[str]) -> int:
+    """Keyword hits minus anti-keyword hits, floored at 0.
+
+    Lets a theme day's keyword set be penalized by terms that belong to a
+    neighboring theme's keyword set, so articles dominated by that
+    neighboring theme's topic don't get bucketed here as strong matches.
+    """
+    hits = _keyword_match_count(text, keywords)
+    if not anti_keywords:
+        return hits
+    anti_hits = _keyword_match_count(text, anti_keywords)
+    return max(0, hits - anti_hits)
+
+
 def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str) -> List[tuple]:
     """Score articles for thematic fit using Claude.
 
@@ -2557,6 +2571,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     theme_description = today.get('theme_description', today.get('description', ''))
     theme_scoring_prompt = today.get('scoring_prompt', '')
     theme_keywords = [kw.lower() for kw in today.get('keywords', [])]
+    theme_anti_keywords = [kw.lower() for kw in today.get('anti_keywords', [])]
     max_articles = schedule_config.get('max_articles', 10)
     min_score = today.get('min_score', schedule_config.get('min_score', 25))
     include_bonus = schedule_config.get('include_top_from_other', 0)
@@ -2743,7 +2758,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         boosted_pool = []
         for article, final_score, theme_score in scored_pool:
             kw_text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
-            raw_kw_hits = _keyword_match_count(kw_text, theme_keywords)
+            raw_kw_hits = _net_keyword_match_count(kw_text, theme_keywords, theme_anti_keywords)
             kw_hits = min(raw_kw_hits, kw_boost_cap)
             selection_score = min(100, final_score + kw_hits * kw_boost_val) if kw_boost_val > 0 else final_score
             boosted_pool.append((article, selection_score, final_score, theme_score, raw_kw_hits))
@@ -2862,7 +2877,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Compute bonus_count for metadata using keyword-based logic
     def _is_bonus_article(article: object) -> bool:
         text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
-        kw_hits = _keyword_match_count(text, theme_keywords)
+        kw_hits = _net_keyword_match_count(text, theme_keywords, theme_anti_keywords)
         if kw_hits > 0:
             return False
         # Local BC sources are never bonus on Saturday regardless of keyword score
@@ -2897,7 +2912,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     items_with_score = []
     for article, final_score, theme_score in all_entries:
         text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
-        kw_matches = _keyword_match_count(text, theme_keywords)
+        kw_matches = _net_keyword_match_count(text, theme_keywords, theme_anti_keywords)
         boosted_score = min(100, kw_matches * 20 + article.score * 0.3)
         is_bonus = _is_bonus_article(article)
         item = {
