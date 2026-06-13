@@ -116,6 +116,57 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run (9:50 AM Pacific)
+- Fetched **858** → dedup **751** → new **439** → quality **22**
+- Mix: wellness:2(9%), scifi:1(5%), news:19(86%)
+- Feeds: local:29, ai-tech:94, climate:34, homelab:26, wellness:61, science:29, scifi:17, news:500
+- Images: 22/22
+- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
+- ⚠️ **Gear Gadgets Repair (Kagi)** failed — `HTTP 401`
+- ⚠️ **Smart Home and Automation (Kagi)** failed — `HTTP 401`
+- ⚠️ **Nation Talk (Kagi)** failed — `HTTP 401`
+- ⚠️ **Ricochet Media (Kagi)** failed — `HTTP 401`
+- ⚠️ **First Peoples Cultural Council (Kagi)** failed — `HTTP 401`
+- ⚠️ **AI ML Infrastructure (Kagi)** failed — `HTTP 401`
+- ⚠️ **Clean Energy and EVs (Kagi)** failed — `HTTP 401`
+- ⚠️ **Williams Lake and BC Interior (Kagi)** failed — `HTTP 401`
+- ⚠️ **Mesh Networking and LoRa (Kagi)** failed — `HTTP 401`
+- ⚠️ **3D Printing (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Wildfire and Conservation (Kagi)** failed — `HTTP 401`
+- ⚠️ **Climate Science Research (Kagi)** failed — `HTTP 401`
+- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 401`
+- ⚠️ **Indigenous Technology BC (Kagi)** failed — `HTTP 401`
+- ⚠️ **Cariboo Local Community (Kagi)** failed — `HTTP 401`
+- ⚠️ **AgTech and Resource Innovation (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Backcountry and Wildlife (Kagi)** failed — `HTTP 401`
+- ⚠️ **Community Media and Digital Storytelling (Kagi)** failed — `HTTP 401`
+- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Rural Digital Equity (Kagi)** failed — `HTTP 401`
+- ⚠️ **Health and Wellness (Kagi)** failed — `HTTP 401`
+- ⚠️ **Canadian Geographic (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Conservation and Parks (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Wildlife Ecology (Kagi)** failed — `HTTP 401`
+- ⚠️ **Examine.com (Kagi)** failed — `HTTP 401`
+- ⚠️ **Evidence-Based Health Research (Kagi)** failed — `HTTP 401`
+- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 401`
+- ⚠️ **Longevity and Preventive Medicine (Kagi)** failed — `HTTP 401`
+- ⚠️ **Science Fiction Books (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Silviculture and Logging Tech (Kagi)** failed — `HTTP 401`
+- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 401`
+- ⚠️ **Canadian Agriculture and Ranching (Kagi)** failed — `HTTP 401`
+- ⚠️ **Canadian Arts Technology (Kagi)** failed — `HTTP 401`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 401`
+- ⚠️ **National Indigenous Innovation (Kagi)** failed — `HTTP 401`
+- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 401`
+- ⚠️ **Kagi Summarizer** failed — `HTTP 401 x40`
+
+
+---
+
+
+
 ## 2026-06-12 (Friday)
 
 #### 🌅 4:30 AM Pacific
