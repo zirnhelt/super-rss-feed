@@ -1293,11 +1293,24 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         response.raise_for_status()
         
         parsed = feedparser.parse(response.content)
-        
+
+        # Some feeds (e.g. My Cariboo Now) repeat the channel-level description
+        # verbatim as every item's <description>, producing identical boilerplate
+        # "summaries" that game keyword-based scoring. Detect and strip that case
+        # so the article is treated as having no description.
+        feed_description = _clean_text(
+            parsed.feed.get('description', '') or parsed.feed.get('subtitle', '')
+        )
+
         articles = []
         fetched_excerpts = 0
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'], feed['url'])
+
+            if feed_description and _clean_text(article.description) == feed_description:
+                article.description = ''
+                article.summary = ''
+                article.excerpt = ''
 
             if article.pub_date < cutoff_date:
                 continue
