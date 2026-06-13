@@ -277,7 +277,8 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return results
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
-            print(f"  ✗ {label} (Kagi): HTTP {status}")
+            body = e.response.text.strip()[:300] if e.response is not None else ''
+            print(f"  ✗ {label} (Kagi): HTTP {status} - {body}")
         except Exception as e:
             print(f"  ✗ {label} (Kagi): {e}")
         return []
@@ -1029,6 +1030,7 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
     to_fetch = candidates[:max_calls]
     enriched = 0
     error_statuses: dict = {}
+    error_bodies: dict = {}
     now_ts = datetime.now(timezone.utc).timestamp()
 
     for article in to_fetch:
@@ -1053,6 +1055,8 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
             error_statuses[status] = error_statuses.get(status, 0) + 1
+            if status not in error_bodies and e.response is not None:
+                error_bodies[status] = e.response.text.strip()[:300]
         except Exception:
             pass
 
@@ -1062,6 +1066,8 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
     if error_statuses:
         summary = ', '.join(f"HTTP {status} x{count}" for status, count in error_statuses.items())
         print(f"  ✗ Kagi Summarizer: {summary}")
+        for status, body in error_bodies.items():
+            print(f"     HTTP {status} body: {body}")
 
 
 def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache):
