@@ -16,6 +16,55 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run (7:59 AM Pacific)
+- Fetched **804** → dedup **706** → new **407** → quality **12**
+- Mix: ai-tech:5(42%), wellness:3(25%), news:4(33%)
+- Feeds: local:29, ai-tech:91, climate:34, homelab:27, wellness:58, science:29, scifi:14, news:500
+- Images: 12/12
+- ⚠️ **Smart Home and Automation (Kagi)** failed — `HTTP 404`
+- ⚠️ **Ricochet Media (Kagi)** failed — `HTTP 404`
+- ⚠️ **Gear Gadgets Repair (Kagi)** failed — `HTTP 404`
+- ⚠️ **First Peoples Cultural Council (Kagi)** failed — `HTTP 404`
+- ⚠️ **Nation Talk (Kagi)** failed — `HTTP 404`
+- ⚠️ **Williams Lake and BC Interior (Kagi)** failed — `HTTP 404`
+- ⚠️ **Mesh Networking and LoRa (Kagi)** failed — `HTTP 404`
+- ⚠️ **3D Printing (Kagi)** failed — `HTTP 404`
+- ⚠️ **Clean Energy and EVs (Kagi)** failed — `HTTP 404`
+- ⚠️ **AI ML Infrastructure (Kagi)** failed — `HTTP 404`
+- ⚠️ **Indigenous Technology BC (Kagi)** failed — `HTTP 404`
+- ⚠️ **Climate Science Research (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Wildfire and Conservation (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 404`
+- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 404`
+- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 404`
+- ⚠️ **AgTech and Resource Innovation (Kagi)** failed — `HTTP 404`
+- ⚠️ **Community Media and Digital Storytelling (Kagi)** failed — `HTTP 404`
+- ⚠️ **Cariboo Local Community (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Backcountry and Wildlife (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Rural Digital Equity (Kagi)** failed — `HTTP 404`
+- ⚠️ **Canadian Geographic (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Wildlife Ecology (Kagi)** failed — `HTTP 404`
+- ⚠️ **Health and Wellness (Kagi)** failed — `HTTP 404`
+- ⚠️ **Examine.com (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Conservation and Parks (Kagi)** failed — `HTTP 404`
+- ⚠️ **Evidence-Based Health Research (Kagi)** failed — `HTTP 404`
+- ⚠️ **Science Fiction Books (Kagi)** failed — `HTTP 404`
+- ⚠️ **Longevity and Preventive Medicine (Kagi)** failed — `HTTP 404`
+- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Silviculture and Logging Tech (Kagi)** failed — `HTTP 404`
+- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 404`
+- ⚠️ **Canadian Arts Technology (Kagi)** failed — `HTTP 404`
+- ⚠️ **Canadian Agriculture and Ranching (Kagi)** failed — `HTTP 404`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 404`
+- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 404`
+- ⚠️ **National Indigenous Innovation (Kagi)** failed — `HTTP 404`
+
+
+---
+
+
+
 ## 2026-06-12 (Friday)
 
 #### 🌅 4:30 AM Pacific
