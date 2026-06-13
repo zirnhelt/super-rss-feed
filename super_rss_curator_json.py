@@ -255,16 +255,15 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return []
         try:
             resp = requests.get(
-                'https://kagi.com/api/v1/search',
+                'https://kagi.com/api/v0/search',
                 headers={'Authorization': f'Bot {kagi_key}'},
-                params={'q': query, 'limit': 20, 'lens': 'news'},
+                params={'q': query, 'limit': 20},
                 timeout=15,
             )
             resp.raise_for_status()
             results = []
             for r in resp.json().get('data') or []:
-                # v1 omits 't' type field; skip non-dict entries (related queries etc.)
-                if not isinstance(r, dict) or not r.get('url'):
+                if not isinstance(r, dict) or r.get('t') != 1:
                     continue
                 article = _make_article(
                     url=r.get('url', ''),
@@ -1029,6 +1028,7 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
 
     to_fetch = candidates[:max_calls]
     enriched = 0
+    error_statuses: dict = {}
     now_ts = datetime.now(timezone.utc).timestamp()
 
     for article in to_fetch:
@@ -1050,12 +1050,18 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
                 enriched += 1
             else:
                 cache[article.url_hash] = {'text': '', 'timestamp': now_ts}
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else '?'
+            error_statuses[status] = error_statuses.get(status, 0) + 1
         except Exception:
             pass
 
     save_extract_cache(cache)
     if enriched:
         print(f"  🔍 Kagi Extract: enriched {enriched}/{len(to_fetch)} thin articles")
+    if error_statuses:
+        summary = ', '.join(f"HTTP {status} x{count}" for status, count in error_statuses.items())
+        print(f"  ✗ Kagi Extract: {summary}")
 
 
 def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache):
