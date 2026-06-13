@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-13 (Saturday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **836** → dedup **719** → new **431** → quality **25**
+- Mix: ai-tech:5(20%), climate:2(8%), wellness:2(8%), news:16(64%)
+- Feeds: local:28, ai-tech:84, climate:35, homelab:27, wellness:54, science:30, scifi:13, news:500
+- Images: 25/25
+
+
+---
+
+
+
 ## 2026-06-12 (Friday)
 
 #### 🌅 4:30 AM Pacific
@@ -272,21 +285,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
 - ⚠️ **GN BC Silviculture and Logging Tech** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+silviculture%22+OR+%22logging+`
 - ⚠️ **GN Canadian Arts Technology** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22arts+technology%22+OR+%22creative`
-
-
----
-
-
-
-## 2026-06-05 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **946** → dedup **823** → new **607** → quality **67**
-- Mix: local:2(3%), ai-tech:2(3%), climate:1(1%), homelab:1(1%), wellness:4(6%), science:1(1%), scifi:1(1%), news:55(82%)
-- Feeds: local:34, ai-tech:34, climate:63, homelab:8, wellness:33, science:17, scifi:9, news:432
-- Images: 67/67
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
 
 
 ---
@@ -1677,6 +1675,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-04–2026-06-04
 - 2 runs · avg fetched 982 · avg quality 71
 - Dominant: **news** (81%) local:5 / ai-tech:10 / climate:2 / homelab:2 / wellness:6 / science:1 / scifi:1 / news:115
+- - ⚠️ Examine.com failed — 429 Client Error: Too Many Requests for url: https://examine.com/feed/
+
+
+---
+
+
+
+## Week of 2026-06-05–2026-06-05
+- 1 runs · avg fetched 946 · avg quality 67
+- Dominant: **news** (82%) local:2 / ai-tech:2 / climate:1 / homelab:1 / wellness:4 / science:1 / scifi:1 / news:55
+- - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
 - - ⚠️ Examine.com failed — 429 Client Error: Too Many Requests for url: https://examine.com/feed/
 
 
