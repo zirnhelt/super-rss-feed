@@ -375,7 +375,7 @@ def _clean_text(html_or_text: str, max_chars: int = 0) -> str:
 # the feed will attempt a lightweight body fetch to capture text before the paywall closes.
 _LOCAL_BC_DOMAINS = frozenset({
     'wltribune.com', 'quesnelobserver.com', '100milefreepress.net',
-    'mycariboonnow.com', 'myeastkootenaynow.com', 'cfjctoday.com',
+    'mycariboonow.com', 'myeastkootenaynow.com', 'cfjctoday.com',
     'bclocalnews.com',
 })
 
