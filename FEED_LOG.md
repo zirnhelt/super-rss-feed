@@ -432,6 +432,18 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run (11:35 AM Pacific)
+- Fetched **826** → dedup **719** → new **366** → quality **4**
+- Mix: wellness:2(50%), news:2(50%)
+- Feeds: local:29, ai-tech:96, climate:34, homelab:26, wellness:75, science:28, scifi:17, news:500
+- Images: 4/4
+
+
+---
+
+
+
 ## 2026-06-12 (Friday)
 
 #### 🌅 4:30 AM Pacific
