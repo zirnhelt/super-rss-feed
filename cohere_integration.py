@@ -13,6 +13,8 @@ import math
 from collections import defaultdict
 from typing import Any, Dict, List, Optional, Tuple
 
+import api_usage
+
 _client = None
 
 
@@ -78,6 +80,7 @@ def score_with_rerank(articles: List[Any], interests_text: str) -> Dict[str, Tup
     documents = [f"{a.title}. {(a.description or '')[:200]}" for a in articles]
 
     try:
+        api_usage.record_call('cohere')
         result = co.rerank(
             model="rerank-english-v3.0",
             query=query,
@@ -126,6 +129,7 @@ def embed_articles(articles: List[Any]) -> Dict[str, List[float]]:
     for batch_start in range(0, len(texts), BATCH_SIZE):
         batch_texts = texts[batch_start:batch_start + BATCH_SIZE]
         try:
+            api_usage.record_call('cohere')
             result = co.embed(
                 texts=batch_texts,
                 model="embed-english-v3.0",
@@ -219,6 +223,7 @@ def score_feed_against_interests(candidate_texts: List[str], interests_text: str
 
     co = get_client()
     try:
+        api_usage.record_call('cohere')
         query_result = co.embed(
             texts=[interests_text[:2048]],
             model="embed-english-v3.0",
@@ -227,6 +232,7 @@ def score_feed_against_interests(candidate_texts: List[str], interests_text: str
         )
         query_vec = query_result.embeddings.float_[0]
 
+        api_usage.record_call('cohere')
         doc_result = co.embed(
             texts=candidate_texts[:96],
             model="embed-english-v3.0",
@@ -269,6 +275,7 @@ def prefilter_scrub_articles(
     INTEREST_FLOOR = 2.5
 
     try:
+        api_usage.record_call('cohere')
         result = co.rerank(
             model="rerank-english-v3.0",
             query=query,
@@ -319,6 +326,7 @@ def score_themes_with_rerank(
         query = (theme_cfg.get('scoring_prompt', '') or label)[:400].strip()
 
         try:
+            api_usage.record_call('cohere')
             result = co.rerank(
                 model="rerank-english-v3.0",
                 query=query,

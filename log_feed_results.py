@@ -82,6 +82,9 @@ def parse_output(text: str) -> dict:
         'warnings':         [],
         'images_found':     None,
         'images_total':     None,
+        'api_calls':        {},
+        'api_tokens':       None,
+        'api_cost':         None,
     }
 
     # Patterns that indicate low-signal cache housekeeping (skip from warnings)
@@ -132,6 +135,20 @@ def parse_output(text: str) -> dict:
         if hit:
             m['images_found'] = int(hit.group(1))
             m['images_total'] = int(hit.group(2))
+
+        # API usage: "📊 API calls: Claude=12, Cohere=3, Brave=8 | Claude tokens: 45,231 | Est. cost: $0.0123"
+        hit = re.search(r'API calls:\s*(.+?)\s*\|.*?Est\. cost:\s*\$([\d.]+)', line)
+        if hit:
+            for pair in hit.group(1).split(','):
+                pair = pair.strip()
+                if '=' in pair:
+                    vendor, count = pair.split('=', 1)
+                    m['api_calls'][vendor.strip()] = int(count.strip())
+            m['api_cost'] = float(hit.group(2))
+
+            tok_hit = re.search(r'Claude tokens:\s*([\d,]+)', line)
+            if tok_hit:
+                m['api_tokens'] = int(tok_hit.group(1).replace(',', ''))
 
         # Errors and warnings
         if '❌' in s and s:
@@ -192,6 +209,16 @@ def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> s
     # Images
     if metrics['images_found'] is not None:
         lines.append(f'- Images: {metrics["images_found"]}/{metrics["images_total"]}')
+
+    # API usage
+    if metrics['api_calls']:
+        parts = [f'{vendor}:{count}' for vendor, count in metrics['api_calls'].items()]
+        line = '- API calls: ' + ', '.join(parts)
+        if metrics['api_tokens'] is not None:
+            line += f' · {metrics["api_tokens"]:,} Claude tokens'
+        if metrics['api_cost'] is not None:
+            line += f' · est. cost ${metrics["api_cost"]:.4f}'
+        lines.append(line)
 
     return '\n'.join(lines) + '\n'
 
@@ -305,6 +332,8 @@ def compress_to_week(day_sections: list) -> dict | None:
     fetched_vals    = []
     quality_vals    = []
     cat_totals      = defaultdict(int)
+    api_call_totals = defaultdict(int)
+    api_cost_total  = 0.0
 
     for sec in day_sections:
         text = ''.join(sec['lines'])
@@ -315,6 +344,14 @@ def compress_to_week(day_sections: list) -> dict | None:
             quality_vals.append(int(qm.group(1)))
         for cm in re.finditer(r'(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(', text):
             cat_totals[cm.group(1)] += int(cm.group(2))
+        for am in re.finditer(r'- API calls: (.+)', text):
+            for pair in am.group(1).split('·')[0].split(','):
+                pair = pair.strip()
+                vm = re.match(r'(\w+):(\d+)', pair)
+                if vm:
+                    api_call_totals[vm.group(1)] += int(vm.group(2))
+        for cm in re.finditer(r'est\. cost \$([\d.]+)', text):
+            api_cost_total += float(cm.group(1))
 
     avg_f = round(sum(fetched_vals) / len(fetched_vals)) if fetched_vals else 0
     avg_q = round(sum(quality_vals) / len(quality_vals)) if quality_vals else 0
@@ -329,6 +366,12 @@ def compress_to_week(day_sections: list) -> dict | None:
             f'- Dominant: **{dominant}** ({round(100*cat_totals[dominant]/total)}%) '
             + ' / '.join(f'{c}:{cat_totals[c]}' for c in CATEGORY_ORDER if cat_totals[c])
             + '\n'
+        )
+
+    if api_call_totals:
+        parts = [f'{vendor}:{count}' for vendor, count in api_call_totals.items()]
+        summary_lines.append(
+            f'- API calls: ' + ', '.join(parts) + f' · est. cost ${api_cost_total:.4f}\n'
         )
 
     return {'type': 'week', 'key': f'Week of {week_start}–{week_end}', 'lines': summary_lines}
