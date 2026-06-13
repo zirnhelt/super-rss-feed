@@ -277,7 +277,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return results
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
-            body = e.response.text.strip()[:300] if e.response is not None else ''
+            body = e.response.text.strip()[:1000] if e.response is not None else ''
             print(f"  ✗ {label} (Kagi): HTTP {status} - {body}")
         except Exception as e:
             print(f"  ✗ {label} (Kagi): {e}")
@@ -1056,7 +1056,7 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
             status = e.response.status_code if e.response is not None else '?'
             error_statuses[status] = error_statuses.get(status, 0) + 1
             if status not in error_bodies and e.response is not None:
-                error_bodies[status] = e.response.text.strip()[:300]
+                error_bodies[status] = e.response.text.strip()[:1000]
         except Exception:
             pass
 
