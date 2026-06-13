@@ -32,6 +32,7 @@ def _to_pacific(utc_dt: datetime) -> datetime:
     return utc_dt + timedelta(hours=-8)
 
 LOG_FILE = Path('FEED_LOG.md')
+ERROR_LOG_FILE = Path('FEED_ERRORS.md')
 TODO_FILE = Path('TODO.md')
 RETENTION_DAYS = 7
 
@@ -146,6 +147,11 @@ def parse_output(text: str) -> dict:
 # Run section formatter
 # ---------------------------------------------------------------------------
 
+def _strip_emoji_prefix(s: str) -> str:
+    """Strip a leading ❌/⚠️ marker (and surrounding space) already present in the line."""
+    return re.sub(r'^[❌⚠]️?\s*', '', s)
+
+
 def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> str:
     emoji = SLOT_EMOJIS.get(slot, '🕐')
     label = SLOT_LABELS.get(slot, slot)
@@ -187,17 +193,28 @@ def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> s
     if metrics['images_found'] is not None:
         lines.append(f'- Images: {metrics["images_found"]}/{metrics["images_total"]}')
 
-    # Failed feeds
+    return '\n'.join(lines) + '\n'
+
+
+def format_error_section(slot: str, metrics: dict, pac_time: datetime = None) -> str | None:
+    """Build the error-log entry for a run, or None if the run was clean."""
+    if not (metrics['failed_feeds'] or metrics['errors'] or metrics['warnings']):
+        return None
+
+    emoji = SLOT_EMOJIS.get(slot, '🕐')
+    label = SLOT_LABELS.get(slot, slot)
+    if slot == 'manual' and pac_time:
+        label = f'{label} ({pac_time.strftime("%-I:%M %p Pacific")})'
+    lines = [f'#### {emoji} {label}']
+
     for f in metrics['failed_feeds']:
         lines.append(f'- ⚠️ **{f["feed"]}** failed — `{f["error"]}`')
 
-    # Hard errors
     for e in metrics['errors']:
-        lines.append(f'- ❌ {e}')
+        lines.append(f'- ❌ {_strip_emoji_prefix(e)}')
 
-    # Warnings (cap at 5)
-    for w in metrics['warnings'][:5]:
-        lines.append(f'- ⚠️ {w}')
+    for w in metrics['warnings']:
+        lines.append(f'- ⚠️ {_strip_emoji_prefix(w)}')
 
     return '\n'.join(lines) + '\n'
 
@@ -209,7 +226,16 @@ def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> s
 LOG_HEADER = (
     '# Feed Generation Log\n\n'
     '_Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). '
-    'Full detail kept for the last 7 days; older entries are compressed to weekly summaries._\n\n'
+    'Full detail kept for the last 7 days; older entries are compressed to weekly summaries. '
+    'Failures and errors are logged separately in [FEED_ERRORS.md](FEED_ERRORS.md)._\n\n'
+    '---\n\n'
+)
+
+ERROR_LOG_HEADER = (
+    '# Feed Generation Errors\n\n'
+    '_Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, '
+    'errors, or warnings appear here. Full detail kept for the last 7 days; '
+    'older entries are compressed to weekly summaries._\n\n'
     '---\n\n'
 )
 
@@ -278,7 +304,6 @@ def compress_to_week(day_sections: list) -> dict | None:
     total_runs      = 0
     fetched_vals    = []
     quality_vals    = []
-    all_issues      = []
     cat_totals      = defaultdict(int)
 
     for sec in day_sections:
@@ -290,9 +315,6 @@ def compress_to_week(day_sections: list) -> dict | None:
             quality_vals.append(int(qm.group(1)))
         for cm in re.finditer(r'(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(', text):
             cat_totals[cm.group(1)] += int(cm.group(2))
-        for ln in text.splitlines():
-            if '❌' in ln or ('⚠️' in ln and 'failed' in ln.lower()):
-                all_issues.append(re.sub(r'[*`]', '', ln.strip()))
 
     avg_f = round(sum(fetched_vals) / len(fetched_vals)) if fetched_vals else 0
     avg_q = round(sum(quality_vals) / len(quality_vals)) if quality_vals else 0
@@ -309,6 +331,39 @@ def compress_to_week(day_sections: list) -> dict | None:
             + '\n'
         )
 
+    return {'type': 'week', 'key': f'Week of {week_start}–{week_end}', 'lines': summary_lines}
+
+
+def compress_to_week_errors(day_sections: list) -> dict | None:
+    """Turn a list of error-log day sections into one weekly summary section."""
+    if not day_sections:
+        return None
+
+    dates = []
+    for sec in day_sections:
+        hit = re.match(r'(\d{4}-\d{2}-\d{2})', sec['key'])
+        if hit:
+            try:
+                dates.append(datetime.strptime(hit.group(1), '%Y-%m-%d'))
+            except ValueError:
+                pass
+    if not dates:
+        return None
+
+    week_start = min(dates).strftime('%Y-%m-%d')
+    week_end   = max(dates).strftime('%Y-%m-%d')
+
+    all_issues = []
+    for sec in day_sections:
+        text = ''.join(sec['lines'])
+        for ln in text.splitlines():
+            s = ln.strip()
+            if s.startswith('- ❌') or s.startswith('- ⚠️'):
+                all_issues.append(re.sub(r'[*`]', '', s[2:].strip()))
+
+    summary_lines = [f'## Week of {week_start}–{week_end}\n']
+    summary_lines.append(f'- {len(all_issues)} issues recorded\n')
+
     seen = set()
     for issue in all_issues:
         clean = issue[:120]
@@ -319,8 +374,18 @@ def compress_to_week(day_sections: list) -> dict | None:
     return {'type': 'week', 'key': f'Week of {week_start}–{week_end}', 'lines': summary_lines}
 
 
-def update_feed_log(slot: str, metrics: dict, run_time: datetime):
-    content = LOG_FILE.read_text('utf-8') if LOG_FILE.exists() else LOG_HEADER
+def update_log_file(log_file: Path, header: str, section_text: str | None,
+                     slot: str, run_time: datetime, compress_fn) -> None:
+    """Append a run section to a day-grouped log file and compress old entries.
+
+    If section_text is None, no new entry is added (used when a run has
+    nothing to report for this log), but existing entries are still aged
+    out / compressed as usual.
+    """
+    if section_text is None and not log_file.exists():
+        return
+
+    content = log_file.read_text('utf-8') if log_file.exists() else header
     sections = parse_log_sections(content)
 
     # Use Pacific local time for date labels so the evening slot (fires at
@@ -330,28 +395,27 @@ def update_feed_log(slot: str, metrics: dict, run_time: datetime):
     today_label = day_label(pac_time)
     cutoff_str  = (pac_time - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
 
-    run_text = format_run_section(slot, metrics, pac_time)
+    if section_text is not None:
+        # Find or create today's day section
+        today_sec = next((s for s in sections if s['type'] == 'day' and s['key'].startswith(today_str)), None)
 
-    # Find or create today's day section
-    today_sec = next((s for s in sections if s['type'] == 'day' and s['key'].startswith(today_str)), None)
-
-    slot_marker = f'#### {SLOT_EMOJIS.get(slot, "")}'
-    if today_sec:
-        existing_text = ''.join(today_sec['lines'])
-        # Manual runs can legitimately happen multiple times a day, so always
-        # append; scheduled (morning/evening) slots fire once per day, so skip
-        # if already recorded to avoid duplicates.
-        if slot == 'manual' or slot_marker not in existing_text:
-            today_sec['lines'].append('\n' + run_text)
-    else:
-        new_sec = {
-            'type': 'day',
-            'key':  today_label,
-            'lines': [f'## {today_label}\n', '\n', run_text],
-        }
-        # Insert right after preamble (index 0 or 1)
-        insert_at = next((i + 1 for i, s in enumerate(sections) if s['type'] == 'preamble'), 0)
-        sections.insert(insert_at, new_sec)
+        slot_marker = f'#### {SLOT_EMOJIS.get(slot, "")}'
+        if today_sec:
+            existing_text = ''.join(today_sec['lines'])
+            # Manual runs can legitimately happen multiple times a day, so always
+            # append; scheduled (morning/evening) slots fire once per day, so skip
+            # if already recorded to avoid duplicates.
+            if slot == 'manual' or slot_marker not in existing_text:
+                today_sec['lines'].append('\n' + section_text)
+        else:
+            new_sec = {
+                'type': 'day',
+                'key':  today_label,
+                'lines': [f'## {today_label}\n', '\n', section_text],
+            }
+            # Insert right after preamble (index 0 or 1)
+            insert_at = next((i + 1 for i, s in enumerate(sections) if s['type'] == 'preamble'), 0)
+            sections.insert(insert_at, new_sec)
 
     # Identify day sections old enough to compress
     old_days  = [s for s in sections if s['type'] == 'day'
@@ -368,25 +432,40 @@ def update_feed_log(slot: str, metrics: dict, run_time: datetime):
 
         existing_week_keys = {s['key'] for s in keep if s['type'] == 'week'}
         for _, days in sorted(by_week.items()):
-            compressed = compress_to_week(days)
+            compressed = compress_fn(days)
             if compressed and compressed['key'] not in existing_week_keys:
                 keep.append(compressed)
 
-    LOG_FILE.write_text(reassemble_log(keep), 'utf-8')
+    log_file.write_text(reassemble_log(keep), 'utf-8')
+
+
+def update_feed_log(slot: str, metrics: dict, run_time: datetime):
+    pac_time = _to_pacific(run_time)
+    section_text = format_run_section(slot, metrics, pac_time)
+    update_log_file(LOG_FILE, LOG_HEADER, section_text, slot, run_time, compress_to_week)
+
+
+def update_error_log(slot: str, metrics: dict, run_time: datetime):
+    pac_time = _to_pacific(run_time)
+    section_text = format_error_section(slot, metrics, pac_time)
+    update_log_file(ERROR_LOG_FILE, ERROR_LOG_HEADER, section_text, slot, run_time, compress_to_week_errors)
 
 
 # ---------------------------------------------------------------------------
 # TODO.md management
 # ---------------------------------------------------------------------------
 
-def extract_recent_entries() -> list:
-    """Pull (date, slot, metrics_dict) tuples from the last RETENTION_DAYS in FEED_LOG.md."""
-    if not LOG_FILE.exists():
-        return []
+EMOJI_TO_SLOT = {v: k for k, v in SLOT_EMOJIS.items()}
+RUN_HEADER_RE = r'^#### (' + '|'.join(re.escape(e) for e in SLOT_EMOJIS.values()) + r')\s+.+?\n(.*?)(?=^####|\Z)'
 
-    content    = LOG_FILE.read_text('utf-8')
-    cutoff     = (datetime.now(timezone.utc) - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
-    results    = []
+
+def _iter_recent_days(log_file: Path):
+    """Yield (date_str, day_content) for day sections within RETENTION_DAYS."""
+    if not log_file.exists():
+        return
+
+    content = log_file.read_text('utf-8')
+    cutoff  = (datetime.now(timezone.utc) - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
 
     for m_day in re.finditer(
         r'^## (\d{4}-\d{2}-\d{2}[^\n]*)\n(.*?)(?=^## |\Z)',
@@ -395,24 +474,21 @@ def extract_recent_entries() -> list:
         date_key = re.match(r'\d{4}-\d{2}-\d{2}', m_day.group(1))
         if not date_key or date_key.group() < cutoff:
             continue
-        day_date    = date_key.group()
-        day_content = m_day.group(2)
+        yield date_key.group(), m_day.group(2)
 
-        emoji_inv = {v: k for k, v in SLOT_EMOJIS.items()}
 
-        for m_run in re.finditer(
-            r'^#### ([🌅🌞🌙🕐])\s+.+?\n(.*?)(?=^####|\Z)',
-            day_content, re.MULTILINE | re.DOTALL
-        ):
-            slot        = emoji_inv.get(m_run.group(1), 'unknown')
+def extract_recent_entries() -> list:
+    """Pull (date, slot, metrics_dict) tuples from the last RETENTION_DAYS in FEED_LOG.md."""
+    results = []
+
+    for day_date, day_content in _iter_recent_days(LOG_FILE):
+        for m_run in re.finditer(RUN_HEADER_RE, day_content, re.MULTILINE | re.DOTALL):
+            slot        = EMOJI_TO_SLOT.get(m_run.group(1), 'unknown')
             run_content = m_run.group(2)
 
             metrics = {
                 'after_scoring': None,
                 'categories':    {},
-                'failed_feeds':  [],
-                'errors':        [],
-                'warnings':      [],
             }
 
             qm = re.search(r'quality \*\*(\d+)\*\*', run_content)
@@ -422,23 +498,39 @@ def extract_recent_entries() -> list:
             for cm in re.finditer(r'(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(', run_content):
                 metrics['categories'][cm.group(1)] = int(cm.group(2))
 
-            for em in re.finditer(r'❌ (.+)', run_content):
-                metrics['errors'].append(em.group(1).strip())
-
-            for fm in re.finditer(r'⚠️ \*\*(.+?)\*\* failed — `(.+?)`', run_content):
-                metrics['failed_feeds'].append({'feed': fm.group(1), 'error': fm.group(2)})
-
             results.append((day_date, slot, metrics))
 
     return results[-14:]  # cap at 7 days × 2 runs
 
 
-def build_auto_section(entries: list) -> str:
+def extract_recent_errors() -> list:
+    """Pull (date, slot, issues_dict) tuples from the last RETENTION_DAYS in FEED_ERRORS.md."""
+    results = []
+
+    for day_date, day_content in _iter_recent_days(ERROR_LOG_FILE):
+        for m_run in re.finditer(RUN_HEADER_RE, day_content, re.MULTILINE | re.DOTALL):
+            slot        = EMOJI_TO_SLOT.get(m_run.group(1), 'unknown')
+            run_content = m_run.group(2)
+
+            issues = {'failed_feeds': [], 'errors': []}
+
+            for fm in re.finditer(r'⚠️ \*\*(.+?)\*\* failed — `(.+?)`', run_content):
+                issues['failed_feeds'].append({'feed': fm.group(1), 'error': fm.group(2)})
+
+            for em in re.finditer(r'❌ (.+)', run_content):
+                issues['errors'].append(em.group(1).strip())
+
+            results.append((day_date, slot, issues))
+
+    return results[-14:]  # cap at 7 days × 2 runs
+
+
+def build_auto_section(entries: list, error_entries: list) -> str:
     lines = [AUTO_START + '\n']
 
     # --- Errors table ---
     error_rows = []
-    for date, slot, m in entries:
+    for date, slot, m in error_entries:
         label = SLOT_LABELS.get(slot, slot)
         for f in m['failed_feeds']:
             error_rows.append(f'| {date} | {SLOT_EMOJIS.get(slot,"")} {label} | ⚠️ **{f["feed"]}** failed | `{f["error"]}` |')
@@ -454,6 +546,7 @@ def build_auto_section(entries: list) -> str:
             lines.append(row + '\n')
     else:
         lines.append('_No errors recorded in the last 7 days._\n')
+    lines.append('\n_Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._\n')
 
     # --- Content mix table ---
     lines.append('\n## Content Mix — Last 7 Days\n\n')
@@ -475,8 +568,8 @@ def build_auto_section(entries: list) -> str:
     return ''.join(lines)
 
 
-def update_todo(entries: list):
-    auto = build_auto_section(entries)
+def update_todo(entries: list, error_entries: list):
+    auto = build_auto_section(entries, error_entries)
 
     if TODO_FILE.exists():
         existing = TODO_FILE.read_text('utf-8')
@@ -536,9 +629,11 @@ def main():
 
     metrics = parse_output(text)
     update_feed_log(slot, metrics, run_time)
+    update_error_log(slot, metrics, run_time)
 
     recent = extract_recent_entries()
-    update_todo(recent)
+    recent_errors = extract_recent_errors()
+    update_todo(recent, recent_errors)
 
     q  = metrics['after_scoring']
     ff = len(metrics['failed_feeds'])
