@@ -22,9 +22,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Penalise heavily (score 0–20): international geopolitical and war news with no Cariboo tie-in; science discoveries without a local community connection; consumer tech reviews and gadget guides; wildlife and conservation stories not involving Cariboo communities or First Nations; BC provincial news without direct Cariboo-region relevance. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "saturday",
-    "generated_at": "2026-06-13T08:04:01.772048+00:00",
+    "generated_at": "2026-06-13T14:39:05.549799+00:00",
     "article_count": 40,
-    "bonus_count": 11,
+    "bonus_count": 9,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -211,7 +211,7 @@
       "_quality_score": 85,
       "_theme_score": 12,
       "_final_score": 12,
-      "_keyword_matches": 6,
+      "_keyword_matches": 4,
       "_boosted_score": 100,
       "_category": "local",
       "_source_category": "local",
@@ -519,6 +519,31 @@
       "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42537345_web1_am-callinghome8.jpg?w=1024"
     },
     {
+      "id": "https://wltribune.com/2026/06/13/escaped-alone-wins-best-production-in-williams-lake/",
+      "url": "https://wltribune.com/2026/06/13/escaped-alone-wins-best-production-in-williams-lake/",
+      "title": "[Williams Lake Tribune] ‘Escaped Alone’ wins best production in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556224_web1_260618-WLT-Theatre-winners_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe crew is taking on a provincial theatre competition next",
+      "summary": "The crew is taking on a provincial theatre competition next",
+      "_excerpt": "The crew is taking on a provincial theatre competition next",
+      "date_published": "2026-06-13T14:37:56.077627+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality_score": 100,
+      "_theme_score": 2,
+      "_final_score": 2,
+      "_keyword_matches": 1,
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556224_web1_260618-WLT-Theatre-winners_3.jpg?w=1024"
+    },
+    {
       "id": "https://wltribune.com/2026/06/08/bella-coola-residents-raise-environmental-concerns-about-area-hydro-proposal/",
       "url": "https://wltribune.com/2026/06/08/bella-coola-residents-raise-environmental-concerns-about-area-hydro-proposal/",
       "title": "[Williams Lake Tribune] Bella Coola residents raise environmental concerns about area hydro proposal",
@@ -572,6 +597,31 @@
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42555732_web1_240105-SAA-Kevin-Flynn-MUG.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
+      "url": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
+      "title": "[100 Mile Free Press] District of 100 Mile House debates use of leftover REDIP funds",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Council has $68,000 left over from a previous project that needs to be spent </p>",
+      "summary": "Council has $68,000 left over from a previous project that needs to be spent",
+      "_excerpt": "Council has $68,000 left over from a previous project that needs to be spent",
+      "date_published": "2026-06-13T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 30,
+      "_final_score": 30,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024"
     },
     {
       "id": "https://100milefreepress.net/2026/06/08/hansen-flowers-summer-events-in-bloom-throughout-lac-la-hache/",
@@ -652,31 +702,6 @@
       "_source_category": "local",
       "_is_bonus": false,
       "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42481692_web1_KCP_4242.jpg?w=1024"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/06/12/quesnel-river-rush-celebrates-early-success-while-raising-concerns-over-new-league-costs/",
-      "url": "https://quesnelobserver.com/2026/06/12/quesnel-river-rush-celebrates-early-success-while-raising-concerns-over-new-league-costs/",
-      "title": "[Quesnel Cariboo Observer] Quesnel River Rush celebrates early success while raising concerns over new league costs",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42542625_web1_Screenshot-2026-05-18-at-5.30.26PM.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The hockey club says its growth has boosted Quesnel&#8217;s economy, but increased travel amongst other expenses are straining finances </p>",
-      "summary": "The hockey club says its growth has boosted Quesnel’s economy, but increased travel amongst other expenses are straining finances",
-      "_excerpt": "The hockey club says its growth has boosted Quesnel’s economy, but increased travel amongst other expenses are straining finances",
-      "date_published": "2026-06-12T21:50:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 1,
-      "_final_score": 1,
-      "_keyword_matches": 1,
-      "_boosted_score": 45,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42542625_web1_Screenshot-2026-05-18-at-5.30.26PM.jpg?w=1024"
     },
     {
       "id": "https://quesnelobserver.com/2026/06/08/b-c-air-access-program-earmarks-20k-for-quesnel-airport/",
@@ -819,6 +844,31 @@
       "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024"
     },
     {
+      "id": "https://quesnelobserver.com/2026/06/12/quesnel-river-rush-celebrates-early-success-while-raising-concerns-over-new-league-costs/",
+      "url": "https://quesnelobserver.com/2026/06/12/quesnel-river-rush-celebrates-early-success-while-raising-concerns-over-new-league-costs/",
+      "title": "[Quesnel Cariboo Observer] Quesnel River Rush celebrates early success while raising concerns over new league costs",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42542625_web1_Screenshot-2026-05-18-at-5.30.26PM.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The hockey club says its growth has boosted Quesnel&#8217;s economy, but increased travel amongst other expenses are straining finances </p>",
+      "summary": "The hockey club says its growth has boosted Quesnel’s economy, but increased travel amongst other expenses are straining finances",
+      "_excerpt": "The hockey club says its growth has boosted Quesnel’s economy, but increased travel amongst other expenses are straining finances",
+      "date_published": "2026-06-12T21:50:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42542625_web1_Screenshot-2026-05-18-at-5.30.26PM.jpg?w=1024"
+    },
+    {
       "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
       "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
       "title": "[Al Jazeera English] Bolivian farmers clash with police as ex-president vows resistance",
@@ -879,34 +929,34 @@
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
-      "title": "[Al Jazeera English] Ebola border shutdown leaves goods rotting between Uganda and DRC",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEbola border shutdown leaves goods rotting between Uganda and DRC",
-      "summary": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
-      "_excerpt": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
-      "date_published": "2026-06-06T10:07:29+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
+      "title": "[Al Jazeera English] Dahiyeh crowds rally in favour of Iranian support against Israel",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDahiyeh crowds rally in favour of Iranian support against Israel.",
+      "summary": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
+      "_excerpt": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
+      "date_published": "2026-06-11T03:49:06+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 19,
-      "_final_score": 19,
+      "ai_score": 79,
+      "_quality_score": 79,
+      "_theme_score": 18,
+      "_final_score": 18,
       "_keyword_matches": 0,
-      "_boosted_score": 24,
+      "_boosted_score": 23,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
+        "shown_at": "2026-06-12T15:48:12.701885+00:00"
       },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&quality=80"
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440"
     },
     {
       "id": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
@@ -969,34 +1019,29 @@
       "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&quality=60&ssl=1"
     },
     {
-      "id": "https://www.howtogeek.com/i-started-building-custom-homelab-notifications-with-gotify-here-are-the-5-most-useful/",
-      "url": "https://www.howtogeek.com/i-started-building-custom-homelab-notifications-with-gotify-here-are-the-5-most-useful/",
-      "title": "[How-To Geek] Stop checking your homelab dashboard: This self-hosted alert server does the work for you",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/04/homepage-main-page.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGreen dashboards are nice but a homelab that speaks up is better!",
-      "summary": "Green dashboards are nice but a homelab that speaks up is better!",
-      "_excerpt": "Green dashboards are nice but a homelab that speaks up is better!",
-      "date_published": "2026-06-06T14:15:18+00:00",
+      "id": "https://www.makeuseof.com/beginner-docker-mistakes-made-took-homelab-offline-how-fixed/",
+      "url": "https://www.makeuseof.com/beginner-docker-mistakes-made-took-homelab-offline-how-fixed/",
+      "title": "[MakeUseOf] 4 beginner Docker mistakes I made that took my homelab offline — and how I fixed each one",
+      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/htop-on-linux-mint.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSelf-hosting with Docker is easy — until your server isn't.",
+      "summary": "Self-hosting with Docker is easy — until your server isn't.",
+      "_excerpt": "Self-hosting with Docker is easy — until your server isn't.",
+      "date_published": "2026-06-13T14:30:21+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "MakeUseOf",
+          "url": "https://www.makeuseof.com"
         }
       ],
-      "ai_score": 75,
-      "_quality_score": 75,
+      "ai_score": 78,
+      "_quality_score": 78,
       "_theme_score": 1,
       "_final_score": 1,
       "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "_boosted_score": 23,
       "_category": "homelab",
       "_source_category": "homelab",
       "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/04/homepage-main-page.png"
+      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/05/htop-on-linux-mint.jpg"
     },
     {
       "id": "https://www.engadget.com/2188923/jwst-measure-mass-of-dormant-black-hole-our-solar-system-lost-protoplanet-science-news/",
@@ -1059,31 +1104,6 @@
       "image": "https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg"
     },
     {
-      "id": "https://www.aljazeera.com/news/2026/6/12/alarm-as-ebola-spreads-into-new-areas-of-dr-congo?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/12/alarm-as-ebola-spreads-into-new-areas-of-dr-congo?traffic_source=rss",
-      "title": "[Al Jazeera English] Alarm as Ebola spreads into new areas of DR Congo",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2c148f49a1-1781273743.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCases are being identified in new health zones on a near-daily basis, warns WHO&#039;s head of epidemiology.",
-      "summary": "Cases are being identified in new health zones on a near-daily basis, warns WHO's head of epidemiology.",
-      "_excerpt": "Cases are being identified in new health zones on a near-daily basis, warns WHO's head of epidemiology.",
-      "date_published": "2026-06-12T15:37:25+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality_score": 73,
-      "_theme_score": 6,
-      "_final_score": 6,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2c148f49a1-1781273743.jpg?resize=1920%2C1440"
-    },
-    {
       "id": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
       "url": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
       "title": "[NYT Business] Forget Coders. The Real A.I. Threat Is in the Back Office.",
@@ -1112,31 +1132,6 @@
         "shown_at": "2026-06-12T08:49:19.195951+00:00"
       },
       "image": "https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
-      "url": "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
-      "title": "[NYT Well] Summer Challenge: Put Your Phone Away for Better Sleep",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt only takes a few minutes.",
-      "summary": "It only takes a few minutes.",
-      "_excerpt": "It only takes a few minutes.",
-      "date_published": "2026-06-11T20:55:53+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 6,
-      "_final_score": 6,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png"
     }
   ]
 }
