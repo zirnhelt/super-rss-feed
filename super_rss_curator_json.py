@@ -24,6 +24,7 @@ from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 import anthropic
 from fetch_images import batch_fetch_images
 import cohere_integration
+import api_usage
 
 # Configuration paths
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -218,6 +219,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         if not query:
             return []
         try:
+            api_usage.record_call('brave')
             resp = requests.get(
                 'https://api.search.brave.com/res/v1/news',
                 headers={'X-Subscription-Token': brave_key, 'Accept': 'application/json'},
@@ -254,6 +256,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         if not query:
             return []
         try:
+            api_usage.record_call('kagi')
             resp = requests.get(
                 'https://kagi.com/api/v0/search',
                 headers={'Authorization': f'Bearer {kagi_key}'},
@@ -865,6 +868,7 @@ def process_pending_theme_batch(api_key: str):
                         theme_cache[key] = {'score': 50, 'cached_at': now_iso}
             continue
 
+        api_usage.record_claude_usage(result.result.message.usage, batch=True)
         response_text = result.result.message.content[0].text.strip()
         if response_text.startswith('```'):
             lines = response_text.splitlines()
@@ -1035,6 +1039,7 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
 
     for article in to_fetch:
         try:
+            api_usage.record_call('kagi')
             resp = requests.post(
                 'https://kagi.com/api/v1/extract',
                 headers={'Authorization': f'Bearer {kagi_key}', 'Content-Type': 'application/json'},
@@ -1242,6 +1247,7 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
 
     global _brave_call_count
     _brave_call_count += 1
+    api_usage.record_call('brave')
     try:
         resp = requests.get(
             'https://api.search.brave.com/res/v1/web/search',
@@ -1772,6 +1778,8 @@ Articles to evaluate:
                     messages=[{"role": "user", "content": prompt}]
                 )
 
+                api_usage.record_claude_usage(response.usage)
+
                 # Log cache token usage to verify prompt caching is working
                 usage = response.usage
                 cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
@@ -1915,6 +1923,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
                 system=system_prompt,
                 messages=[{"role": "user", "content": prompt}]
             )
+            api_usage.record_claude_usage(response.usage)
 
             raw = response.content[0].text.strip()
             # Strip markdown fences if present
@@ -2226,6 +2235,7 @@ Articles to evaluate:
                 ],
                 messages=[{"role": "user", "content": prompt}]
             )
+            api_usage.record_claude_usage(response.usage)
 
             response_text = response.content[0].text.strip()
             # Strip markdown code fences if model wraps the JSON
@@ -2417,6 +2427,7 @@ Articles to evaluate:
                              "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
                     messages=[{"role": "user", "content": prompt}]
                 )
+                api_usage.record_claude_usage(response.usage)
                 response_text = response.content[0].text.strip()
                 if response_text.startswith('```'):
                     lines = response_text.splitlines()
@@ -3321,7 +3332,11 @@ def main():
     print(f"  New articles: {len(new_articles)}")
     print(f"  After scoring: {len(quality_articles)}")
     print(f"  Brave API calls: {_brave_call_count}")
-    
+
+    api_summary = api_usage.format_summary()
+    if api_summary:
+        print(api_summary)
+
     print("\n✅ Feed generation complete!")
 
 
