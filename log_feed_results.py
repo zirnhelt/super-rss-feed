@@ -146,9 +146,11 @@ def parse_output(text: str) -> dict:
 # Run section formatter
 # ---------------------------------------------------------------------------
 
-def format_run_section(slot: str, metrics: dict) -> str:
+def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> str:
     emoji = SLOT_EMOJIS.get(slot, '🕐')
     label = SLOT_LABELS.get(slot, slot)
+    if slot == 'manual' and pac_time:
+        label = f'{label} ({pac_time.strftime("%-I:%M %p Pacific")})'
     lines = [f'#### {emoji} {label}']
 
     # Pipeline summary
@@ -328,7 +330,7 @@ def update_feed_log(slot: str, metrics: dict, run_time: datetime):
     today_label = day_label(pac_time)
     cutoff_str  = (pac_time - timedelta(days=RETENTION_DAYS)).strftime('%Y-%m-%d')
 
-    run_text = format_run_section(slot, metrics)
+    run_text = format_run_section(slot, metrics, pac_time)
 
     # Find or create today's day section
     today_sec = next((s for s in sections if s['type'] == 'day' and s['key'].startswith(today_str)), None)
@@ -336,9 +338,11 @@ def update_feed_log(slot: str, metrics: dict, run_time: datetime):
     slot_marker = f'#### {SLOT_EMOJIS.get(slot, "")}'
     if today_sec:
         existing_text = ''.join(today_sec['lines'])
-        if slot_marker not in existing_text:
+        # Manual runs can legitimately happen multiple times a day, so always
+        # append; scheduled (morning/evening) slots fire once per day, so skip
+        # if already recorded to avoid duplicates.
+        if slot == 'manual' or slot_marker not in existing_text:
             today_sec['lines'].append('\n' + run_text)
-        # else: slot already recorded this day, skip to avoid duplicates
     else:
         new_sec = {
             'type': 'day',
