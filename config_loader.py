@@ -40,6 +40,11 @@ def load_source_preferences() -> Dict:
     with open(CONFIG_DIR / "source_preferences.json", 'r') as f:
         return json.load(f)
 
+def load_category_rules_config() -> Dict:
+    """Load category rules (include/exclude keyword lists per category)."""
+    with open(CONFIG_DIR / "category_rules.json", 'r') as f:
+        return json.load(f)
+
 def load_scoring_interests() -> str:
     """Load Claude scoring interests as plain text."""
     with open(CONFIG_DIR / "scoring_interests.txt", 'r') as f:
