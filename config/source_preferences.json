@@ -66,5 +66,10 @@
     "The Northern Miner": "print",
     "Country Guide": "print",
     "Hakai Magazine": "print"
+  },
+  "prescore_keyword_filter": {
+    "sources": ["Kagi Small Web"],
+    "max_candidates_per_source": 15,
+    "description": "Free pre-scoring gate: articles from these high-volume aggregator sources must match a CATEGORY_RULES interest keyword and are capped per source before reaching Claude/Cohere scoring."
   }
 }
