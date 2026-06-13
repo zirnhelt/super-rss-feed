@@ -256,7 +256,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         try:
             resp = requests.get(
                 'https://kagi.com/api/v0/search',
-                headers={'Authorization': f'Bot {kagi_key}'},
+                headers={'Authorization': f'Bearer {kagi_key}'},
                 params={'q': query, 'limit': 20},
                 timeout=15,
             )
@@ -1009,9 +1009,9 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
 
 
 def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: int = 40) -> None:
-    """Enrich thin-description articles using Kagi's Universal Summarizer before Claude scoring.
+    """Enrich thin-description articles using Kagi's Extract API before Claude scoring.
 
-    Calls GET https://kagi.com/api/v0/summarize?url=<url> for:
+    Calls POST https://kagi.com/api/v1/extract with {"pages": [{"url": <url>}]} for:
     - Articles whose description is < 150 chars (thin RSS snippet)
     - All articles from _LOCAL_BC_DOMAINS (often paywalled, descriptions unreliable)
 
@@ -1035,15 +1035,16 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
 
     for article in to_fetch:
         try:
-            resp = requests.get(
-                'https://kagi.com/api/v0/summarize',
-                headers={'Authorization': f'Bot {kagi_key}'},
-                params={'url': article.link},
+            resp = requests.post(
+                'https://kagi.com/api/v1/extract',
+                headers={'Authorization': f'Bearer {kagi_key}', 'Content-Type': 'application/json'},
+                json={'pages': [{'url': article.link}]},
                 timeout=12,
             )
             resp.raise_for_status()
-            data = resp.json().get('data') or {}
-            text = (data.get('output') or '').strip()
+            data = resp.json().get('data') or []
+            page = data[0] if data else {}
+            text = (page.get('markdown') or '').strip()
             if len(text) >= 80:
                 article.description = _clean_text(text, max_chars=600)
                 article.summary = _clean_text(text, max_chars=300)
