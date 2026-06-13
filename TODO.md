@@ -71,8 +71,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-06 | 🌅 4:30 AM Pacific | ⚠️ **Country Guide** failed | `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/` |
 | 2026-06-06 | 🌅 4:30 AM Pacific | ⚠️ **GN BC Silviculture and Logging Tech** failed | `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+silviculture%22+OR+%22logging+` |
 | 2026-06-06 | 🌅 4:30 AM Pacific | ⚠️ **GN Canadian Arts Technology** failed | `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22arts+technology%22+OR+%22creative` |
-| 2026-06-05 | 🌅 4:30 AM Pacific | ⚠️ **Canadian Geographic** failed | `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/` |
-| 2026-06-05 | 🌅 4:30 AM Pacific | ⚠️ **Examine.com** failed | `429 Client Error: Too Many Requests for url: https://examine.com/feed/` |
 
 ## Content Mix — Last 7 Days
 
@@ -89,11 +87,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-07 | 🌅 morning | 38 | news:27(71%), ai-tech:5(13%), climate:2(5%) |
 | 2026-06-06 | 🌙 evening | 78 | news:63(81%), wellness:5(6%), ai-tech:4(5%) |
 | 2026-06-06 | 🌅 morning | 60 | news:47(78%), ai-tech:4(7%), homelab:3(5%) |
-| 2026-06-05 | 🌅 morning | 67 | news:55(82%), wellness:4(6%), local:2(3%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-12 16:45 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-13 03:31 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
