@@ -66,17 +66,22 @@ jobs:
             python score_scrub_report.py
           fi
 
-      - name: Upload report as artifact
+      - name: Run corpus alignment review
+        run: python corpus_alignment_report.py
+
+      - name: Upload reports as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: feed-review-${{ github.run_id }}
-          path: FEED_REVIEW_*.md
+          path: |
+            FEED_REVIEW_*.md
+            CORPUS_ALIGNMENT_REPORT_*.md
           retention-days: 30
 
-      - name: Commit report to repository
+      - name: Commit reports to repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add FEED_REVIEW_*.md
-          git diff --staged --quiet || git commit -m "Add feed review report [skip ci]"
+          git add FEED_REVIEW_*.md CORPUS_ALIGNMENT_REPORT_*.md
+          git diff --staged --quiet || git commit -m "Add feed review and corpus alignment reports [skip ci]"
           git push
