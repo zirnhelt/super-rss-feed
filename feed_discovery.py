@@ -10,6 +10,7 @@ import sys
 import json
 import requests
 from datetime import datetime, timezone
+from collections import defaultdict
 from typing import List, Dict, Set, Tuple
 import xml.etree.ElementTree as ET
 from urllib.parse import urlparse, urljoin
@@ -19,6 +20,24 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 import config_loader
 import cohere_integration
+
+
+def _build_prescore_keywords() -> frozenset:
+    """Union of all category include-keywords plus local signals.
+
+    Used as a free relevance gate for candidate feeds from high-volume
+    discovery sources (e.g. Kagi Small Web) so off-topic feeds never
+    reach paid Claude/Cohere scoring.
+    """
+    keywords = set()
+    for rules in config_loader.load_category_rules_config().values():
+        for kw in rules.get('include', []):
+            keywords.add(kw.lower())
+    for signal in config_loader.load_filters_config().get('local_signals', []):
+        keywords.add(signal.lower())
+    return frozenset(keywords)
+
+PRESCORE_KEYWORDS = _build_prescore_keywords()
 
 # Brave Search discovery
 # Topics are weighted toward the podcast's themed daily buckets that the weekly
@@ -77,6 +96,11 @@ DISCOVERY_SOURCES = [
     {
         'name': 'Plenary Awesome Feeds',
         'url': 'https://raw.githubusercontent.com/plenaryapp/awesome-rss-feeds/master/recommended_feeds.opml',
+        'category': 'general'
+    },
+    {
+        'name': 'Kagi Small Web',
+        'url': 'https://kagi.com/smallweb/opml',
         'category': 'general'
     }
 ]
@@ -425,6 +449,28 @@ class FeedDiscovery:
         
         print(f"💡 Cache: {len(cached_candidates)} cached, {len(new_candidates)} new to evaluate")
 
+        # High-volume discovery sources (e.g. Kagi Small Web) can dump hundreds of
+        # uncached candidates into a single run. Cap how many get evaluated this
+        # run; the rest stay uncached and get picked up on later runs, trickling
+        # the full source through over several weeks instead of one expensive run.
+        discovery_filter = config_loader.load_source_preferences().get('discovery_prescore_filter', {})
+        gated_sources = set(discovery_filter.get('sources', []))
+        max_per_run = discovery_filter.get('max_new_candidates_per_run')
+        if gated_sources and max_per_run is not None:
+            kept_new = []
+            deferred = 0
+            seen_from_gated: Dict[str, int] = defaultdict(int)
+            for candidate in new_candidates:
+                if candidate.source in gated_sources:
+                    if seen_from_gated[candidate.source] >= max_per_run:
+                        deferred += 1
+                        continue
+                    seen_from_gated[candidate.source] += 1
+                kept_new.append(candidate)
+            if deferred:
+                print(f"  ⏳ Deferring {deferred} candidates from {', '.join(sorted(gated_sources))} to later runs (cap {max_per_run}/run)")
+            new_candidates = kept_new
+
         if not new_candidates:
             return cached_candidates
 
@@ -443,6 +489,24 @@ class FeedDiscovery:
             print(f"  📝 Sampling {candidate.title} ({i+1}/{len(new_candidates)})")
             candidate.sample_articles = self._sample_feed_articles(candidate)
             candidate.article_count = len(candidate.sample_articles)
+
+            # Free pre-filter for gated discovery sources: skip Claude/Cohere
+            # entirely if none of the sampled articles hit a CATEGORY_RULES
+            # interest keyword.
+            if candidate.sample_articles and candidate.source in gated_sources:
+                text = " ".join(
+                    f"{a.title} {a.description}" for a in candidate.sample_articles
+                ).lower()
+                if not any(kw in text for kw in PRESCORE_KEYWORDS):
+                    candidate.average_score = 0
+                    candidate.error = "No keyword match (prescore filter)"
+                    self.cache[candidate.url] = {
+                        'average_score': candidate.average_score,
+                        'article_count': candidate.article_count,
+                        'error': candidate.error,
+                        'evaluated_at': datetime.now(timezone.utc).isoformat()
+                    }
+                    continue
 
             if candidate.sample_articles:
                 # Score articles using existing Claude/Cohere logic

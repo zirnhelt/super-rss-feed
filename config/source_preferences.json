@@ -66,5 +66,15 @@
     "The Northern Miner": "print",
     "Country Guide": "print",
     "Hakai Magazine": "print"
+  },
+  "prescore_keyword_filter": {
+    "sources": ["Kagi Small Web"],
+    "max_candidates_per_source": 15,
+    "description": "Free pre-scoring gate: articles from these high-volume aggregator sources must match a CATEGORY_RULES interest keyword and are capped per source before reaching Claude/Cohere scoring."
+  },
+  "discovery_prescore_filter": {
+    "sources": ["Kagi Small Web"],
+    "max_new_candidates_per_run": 25,
+    "description": "Feed discovery gate for high-volume OPML sources: per run, only this many not-yet-cached candidate feeds are evaluated (remaining candidates trickle in on later runs), and a candidate is skipped without an LLM call if none of its sampled articles match a CATEGORY_RULES interest keyword."
   }
 }

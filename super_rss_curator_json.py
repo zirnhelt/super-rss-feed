@@ -81,6 +81,22 @@ def load_source_preferences():
 
 SOURCE_PREFS = load_source_preferences()
 
+def _build_prescore_keywords() -> frozenset:
+    """Union of all category include-keywords plus local signals.
+
+    Reused as a free relevance gate for high-volume aggregator sources
+    (e.g. Kagi Small Web) so off-topic articles never reach paid scoring.
+    """
+    keywords = set()
+    for rules in CATEGORY_RULES.values():
+        for kw in rules.get('include', []):
+            keywords.add(kw.lower())
+    for signal in FILTERS.get('local_signals', []):
+        keywords.add(signal.lower())
+    return frozenset(keywords)
+
+PRESCORE_KEYWORDS = _build_prescore_keywords()
+
 def min_score_for_category(category: str) -> int:
     """Per-category quality floor, falling back to the global min_claude_score."""
     return LIMITS.get('min_score_by_category', {}).get(category or 'news', LIMITS['min_claude_score'])
@@ -1991,6 +2007,49 @@ def enforce_local_priority(articles: List[Article]) -> List[Article]:
     return articles
 
 
+def apply_prescore_filter(articles: List[Article]) -> List[Article]:
+    """Cheap keyword + per-source cap gate for high-volume aggregator sources
+    before they reach Claude/Cohere scoring.
+
+    Configured via source_preferences.json: prescore_keyword_filter.sources
+    lists source names subject to the gate. Articles from those sources are
+    dropped unless they contain at least one CATEGORY_RULES interest keyword,
+    and survivors are capped at max_candidates_per_source (most keyword hits
+    win ties).
+    """
+    config = SOURCE_PREFS.get('prescore_keyword_filter', {})
+    gated_sources = set(config.get('sources', []))
+    if not gated_sources:
+        return articles
+
+    max_candidates = config.get('max_candidates_per_source', 15)
+
+    kept = []
+    candidates_by_source = defaultdict(list)
+    dropped = 0
+    for article in articles:
+        if article.source not in gated_sources:
+            kept.append(article)
+            continue
+        text = f"{article.title} {article.description}".lower()
+        hits = sum(1 for kw in PRESCORE_KEYWORDS if kw in text)
+        if hits == 0:
+            dropped += 1
+            continue
+        article._prescore_hits = hits
+        candidates_by_source[article.source].append(article)
+
+    for source, candidates in candidates_by_source.items():
+        candidates.sort(key=lambda a: a._prescore_hits, reverse=True)
+        kept.extend(candidates[:max_candidates])
+        dropped += max(0, len(candidates) - max_candidates)
+
+    if dropped:
+        print(f"🔎 Prescore keyword filter ({', '.join(sorted(gated_sources))}): dropped {dropped} articles")
+
+    return kept
+
+
 def apply_source_preferences(articles: List[Article]) -> List[Article]:
     """Apply score adjustments based on source type preferences (print vs broadcast)"""
     source_map = SOURCE_PREFS.get('source_map', {})
@@ -3074,7 +3133,9 @@ def main():
     for feed in feeds:
         articles = fetch_feed_articles(feed, cutoff_date)
         all_articles.extend(articles)
-    
+
+    all_articles = apply_prescore_filter(all_articles)
+
     wlt_articles = scrape_wlt_news()
     for wlt_entry in wlt_articles:
         class WLTEntry:
