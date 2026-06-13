@@ -111,7 +111,6 @@ def get_weekly_stats() -> dict:
     total_fetched = 0
     total_quality = 0
     cat_totals: dict = defaultdict(int)
-    failed_feeds: list = []
 
     for m_day in re.finditer(
         r"^## (\d{4}-\d{2}-\d{2}[^\n]*)\n(.*?)(?=^## |\Z)",
@@ -132,10 +131,6 @@ def get_weekly_stats() -> dict:
             r"(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(", day_text
         ):
             cat_totals[cm.group(1)] += int(cm.group(2))
-        for fm in re.finditer(r"⚠️ \*\*(.+?)\*\* failed", day_text):
-            name = fm.group(1)
-            if name not in failed_feeds:
-                failed_feeds.append(name)
 
     return {
         "total_runs": total_runs,
@@ -144,8 +139,33 @@ def get_weekly_stats() -> dict:
         "total_quality": total_quality,
         "avg_quality": round(total_quality / total_runs) if total_runs else 0,
         "cat_totals": dict(cat_totals),
-        "failed_feeds": failed_feeds,
+        "failed_feeds": get_failed_feeds(cutoff),
     }
+
+
+def get_failed_feeds(cutoff: str) -> list:
+    """Distinct feed names that failed in FEED_ERRORS.md since cutoff (YYYY-MM-DD)."""
+    log_path = Path("FEED_ERRORS.md")
+    if not log_path.exists():
+        return []
+
+    content = log_path.read_text("utf-8")
+    failed_feeds: list = []
+
+    for m_day in re.finditer(
+        r"^## (\d{4}-\d{2}-\d{2}[^\n]*)\n(.*?)(?=^## |\Z)",
+        content, re.MULTILINE | re.DOTALL,
+    ):
+        date_key = re.match(r"\d{4}-\d{2}-\d{2}", m_day.group(1))
+        if not date_key or date_key.group() < cutoff:
+            continue
+
+        for fm in re.finditer(r"⚠️ \*\*(.+?)\*\* failed", m_day.group(2)):
+            name = fm.group(1)
+            if name not in failed_feeds:
+                failed_feeds.append(name)
+
+    return failed_feeds
 
 
 # ---------------------------------------------------------------------------
