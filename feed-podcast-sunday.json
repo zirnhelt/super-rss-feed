@@ -23,7 +23,7 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Science, Wonder & the Natural World' — scientific discovery, ecology, natural phenomena, and the curiosity-driven study of living systems. Strong fits include: wildlife biology and species research, ecology studies and biodiversity findings, watershed and salmon research relevant to BC, astronomy and space science, new species discoveries, citizen science projects, natural history stories, wildfire science and forest ecology, climate science findings (not just policy), geology, evolution, and deep-time Earth stories, and any scientific research grounded in BC or Cariboo landscapes and ecosystems. Prefer articles that convey genuine curiosity and discovery — the 'how' and 'why' of the natural world. Score 70–90 for: prehistoric life and palaeontology (ancient oceans, Cretaceous ecology, deep-time species), new species discoveries in ocean or remote environments, deep-sea biology, evolutionary biology findings, natural history stories with a strong sense of wonder, and field research grounded in BC ecosystems. Penalise (score 0–30): consumer health and pharmaceutical research without ecology or natural-world context; pure policy and advocacy news; technology business stories without a science or ecology angle; human interest and viral news without scientific substance; geopolitical and crime news. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "sunday",
-    "generated_at": "2026-06-14T14:41:47.312874+00:00",
+    "generated_at": "2026-06-14T23:07:56.433103+00:00",
     "article_count": 40,
     "bonus_count": 24,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
@@ -82,6 +82,10 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -680,6 +684,31 @@
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-12-at-14.12.28-1781270226.png?resize=1920%2C1271"
     },
     {
+      "id": "https://www.piquenewsmagazine.com/national-news/six-people-remain-in-hospital-after-rural-ontario-crash-killed-five-kids-12419684",
+      "url": "https://www.piquenewsmagazine.com/national-news/six-people-remain-in-hospital-after-rural-ontario-crash-killed-five-kids-12419684",
+      "title": "[Pique Newsmagazine] Six people remain in hospital after rural Ontario crash killed five kids",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/bd60264f4b4be2aef41ca19968763db301f57852423e2f33efc09b3297423730.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSix people remained in hospital Sunday following a rural Ontario crash that killed five children on Friday, police say.",
+      "summary": "Six people remained in hospital Sunday following a rural Ontario crash that killed five children on Friday, police say.",
+      "_excerpt": "Six people remained in hospital Sunday following a rural Ontario crash that killed five children on Friday, police say.",
+      "date_published": "2026-06-14T20:32:16+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 37,
+      "_final_score": 37,
+      "_keyword_matches": 0,
+      "_boosted_score": 24,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/bd60264f4b4be2aef41ca19968763db301f57852423e2f33efc09b3297423730.jpg;w=960"
+    },
+    {
       "id": "https://qz.com/economist-explains-30-year-treasury-yield-spiked-above-5",
       "url": "https://qz.com/economist-explains-30-year-treasury-yield-spiked-above-5",
       "title": "[Quartz] Economist Jon Hilsenrath explains why 30-Year Treasury yield spiked above 5%",
@@ -1063,31 +1092,6 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Stock%2520Market%2520Chartist%2520Frank%2520Capalleri%2520Explains%2520Patterns%2520Amid%2520Recent.mp4"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bahrain-releases-footage-of-damage-caused-by-intercepted-iranian-drones?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bahrain-releases-footage-of-damage-caused-by-intercepted-iranian-drones?traffic_source=rss",
-      "title": "[Al Jazeera English] Bahrain releases footage of damage caused by intercepted Iranian drones",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781193175.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBahrain released video of damage in Manama after debris from intercepted Iranian drones fell in populated areas",
-      "summary": "Bahrain released video of damage in Manama after debris from intercepted Iranian drones fell in populated areas",
-      "_excerpt": "Bahrain released video of damage in Manama after debris from intercepted Iranian drones fell in populated areas",
-      "date_published": "2026-06-11T15:53:20+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 33,
-      "_final_score": 33,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781193175.jpg?resize=1920%2C1080&quality=80"
     },
     {
       "id": "https://www.aljazeera.com/news/2026/6/10/protesters-torch-cars-buildings-in-belfast-after-knife-attack?traffic_source=rss",
