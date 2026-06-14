@@ -13,7 +13,7 @@ import concurrent.futures
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 from collections import defaultdict
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 from pathlib import Path
 
 import feedparser
@@ -117,6 +117,8 @@ PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async 
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
 THEME_HOLDOVER_TTL_DAYS = 28                         # 4 weeks — covers monthly themed episode cycles
+CALIBRATION_STATS_CACHE_FILE = 'calibration_stats_cache.json'  # Rolling per-run audit stats
+CALIBRATION_STATS_TTL_DAYS = 14                      # Window consumed by the weekly calibration agent
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
@@ -716,7 +718,7 @@ def save_theme_holdover_cache(holdover: Dict):
 
 
 def update_theme_holdover(theme_name: str, theme_label: str,
-                          scored_articles: List[tuple], threshold: int):
+                          scored_articles: List[tuple], threshold: int) -> int:
     """Bank articles scoring >= threshold on a theme for future episodes.
 
     Args:
@@ -724,6 +726,9 @@ def update_theme_holdover(theme_name: str, theme_label: str,
         theme_label: Human label e.g. 'Working Lands & Industry'
         scored_articles: List of (article, theme_score) from score_articles_for_theme
         threshold: Minimum theme score to bank an article
+
+    Returns:
+        Number of articles newly banked.
     """
     holdover = load_theme_holdover_cache()
     existing_urls = {a['link'] for a in holdover.get(theme_name, [])}
@@ -751,6 +756,7 @@ def update_theme_holdover(theme_name: str, theme_label: str,
     if banked:
         save_theme_holdover_cache(holdover)
         print(f"  📦 Banked {banked} articles for future {theme_label} episodes")
+    return banked
 
 
 def load_podcast_shown_cache() -> Dict:
@@ -815,6 +821,62 @@ def save_theme_score_cache(cache: Dict):
             json.dump(pruned, f)
     except Exception as e:
         print(f"⚠️ Failed to save theme score cache: {e}")
+
+
+def load_calibration_stats_cache() -> List[Dict]:
+    """Load the rolling-window run-stats log consumed by the weekly calibration agent."""
+    if not os.path.exists(CALIBRATION_STATS_CACHE_FILE):
+        return []
+    try:
+        with open(CALIBRATION_STATS_CACHE_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+def save_calibration_stats_cache(records: List[Dict]):
+    try:
+        with open(CALIBRATION_STATS_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(records, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"⚠️ Failed to save calibration stats cache: {e}")
+
+
+def record_run_stats(run_stats: Dict):
+    """Append this run's summary stats to the rolling calibration stats cache,
+    pruning entries older than CALIBRATION_STATS_TTL_DAYS.
+
+    The cache holds aggregate counts/histograms only (no article text or URLs)
+    so the weekly calibration agent can review selection/filtering trends
+    without re-reading article content.
+    """
+    records = load_calibration_stats_cache()
+    records.append(run_stats)
+    cutoff = datetime.now(timezone.utc) - timedelta(days=CALIBRATION_STATS_TTL_DAYS)
+    pruned = []
+    for r in records:
+        try:
+            if datetime.fromisoformat(r['timestamp']) > cutoff:
+                pruned.append(r)
+        except (KeyError, ValueError):
+            continue
+    save_calibration_stats_cache(pruned)
+    print(f"📊 Calibration stats recorded ({len(pruned)} runs in {CALIBRATION_STATS_TTL_DAYS}-day window)")
+
+
+def _score_histogram(articles: List[Article]) -> Dict[str, Dict[str, int]]:
+    """Bucket article scores (0-100) into 20-point ranges per category."""
+    buckets = ["0-19", "20-39", "40-59", "60-79", "80-100"]
+
+    def _bucket(score: int) -> str:
+        score = max(0, min(100, score))
+        idx = min(score // 20, 4)
+        return buckets[idx]
+
+    histogram: Dict[str, Dict[str, int]] = defaultdict(lambda: {b: 0 for b in buckets})
+    for a in articles:
+        histogram[a.category or 'news'][_bucket(a.score)] += 1
+    return {cat: counts for cat, counts in histogram.items()}
 
 
 def load_pending_theme_batch() -> Optional[Dict]:
@@ -1858,26 +1920,35 @@ Articles to evaluate:
     return scored_articles
 
 
-def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article]:
-    """Final headline-only pass with Haiku to catch unwanted subjects that slipped through keyword filters."""
+def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[Article], Dict]:
+    """Final headline-only pass with Haiku to catch unwanted subjects that slipped through keyword filters.
+
+    Returns (kept_articles, scrub_stats) where scrub_stats has
+    'cohere_removed_by_category' and 'haiku_removed_by_category' dicts,
+    used for the calibration agent's audit data.
+    """
     if not articles:
-        return []
+        return [], {'cohere_removed_by_category': {}, 'haiku_removed_by_category': {}}
 
     local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
 
-    # Cohere pre-filter: auto-remove high-confidence junk (interest score < 4/100)
-    # before calling Claude. Very conservative threshold avoids false positives.
+    # Cohere pre-filter: auto-remove high-confidence junk before calling Claude.
+    # Very conservative threshold avoids false positives.
     # Local articles are never auto-removed regardless of score.
     auto_removed_count = 0
+    cohere_removed_by_category: Dict[str, int] = defaultdict(int)
     if cohere_integration.is_enabled():
         try:
             interests_text = (CONFIG_DIR / 'scoring_interests.txt').read_text().strip()
         except Exception:
             interests_text = ''
         articles, auto_removed = cohere_integration.prefilter_scrub_articles(
-            articles, interests_text, local_signals=local_signals
+            articles, interests_text, local_signals=local_signals,
+            threshold=LIMITS.get('cohere_prefilter_threshold', 2.5)
         )
         auto_removed_count = len(auto_removed)
+        for a in auto_removed:
+            cohere_removed_by_category[a.category or 'news'] += 1
 
     client = anthropic.Anthropic(api_key=api_key)
 
@@ -1911,6 +1982,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
 
     kept: List[Article] = []
     total_removed = auto_removed_count
+    haiku_removed_by_category: Dict[str, int] = defaultdict(int)
 
     batch_size = 40
     for i in range(0, len(articles), batch_size):
@@ -1962,6 +2034,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
                 if (j + 1) in remove_nums:
                     print(f"  ✂️  Scrubbed: {article.title[:90]}")
                     total_removed += 1
+                    haiku_removed_by_category[article.category or 'news'] += 1
                 else:
                     kept.append(article)
 
@@ -1974,7 +2047,11 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> List[Article
     else:
         print(f"✂️  Final scrub: feed is clean ({len(articles)} articles passed)")
 
-    return kept
+    scrub_stats = {
+        'cohere_removed_by_category': dict(cohere_removed_by_category),
+        'haiku_removed_by_category': dict(haiku_removed_by_category),
+    }
+    return kept, scrub_stats
 
 
 def enforce_local_priority(articles: List[Article]) -> List[Article]:
@@ -2532,7 +2609,7 @@ def route_articles_to_best_themes(
     cached_articles: List[Dict],
     schedule_config: Dict,
     today_name: str,
-) -> set:
+) -> Dict:
     """Proactively bank articles that score significantly better on a future day's theme.
 
     For each article in the podcast cache that has a complete set of cached
@@ -2555,7 +2632,7 @@ def route_articles_to_best_themes(
     holdover_threshold = schedule_config.get('holdover_threshold', 30)
 
     if not schedule or today_name not in schedule:
-        return set()
+        return {'routed_by_target_day': {}, 'routed_count': 0}
 
     theme_cache = load_theme_score_cache()
     to_bank: Dict[str, list] = defaultdict(list)  # {day_name: [(item_dict, score)]}
@@ -2624,14 +2701,18 @@ def route_articles_to_best_themes(
         if total_banked:
             print(f"  📦 Pre-banked {total_banked} articles into upcoming day holdovers")
 
-    # Return empty set — articles are no longer excluded from today's feed.
-    # Cross-theme reuse is intentional: the same article can appear in multiple
-    # themed episodes, with _cross_theme metadata on the second appearance.
-    return set()
+    # Articles are no longer excluded from today's feed — cross-theme reuse is
+    # intentional: the same article can appear in multiple themed episodes,
+    # with _cross_theme metadata on the second appearance. Return routing
+    # stats for the calibration agent's audit data.
+    return {
+        'routed_by_target_day': {d: len(arts) for d, arts in to_bank.items()},
+        'routed_count': sum(len(arts) for arts in to_bank.values()),
+    }
 
 
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
-                          reserved_urls: set = None) -> set:
+                          reserved_urls: set = None) -> Tuple[set, Optional[Dict]]:
     """Generate a themed podcast feed from weekly cached articles.
 
     Args:
@@ -2653,13 +2734,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     """
     schedule_config = load_podcast_schedule()
     if not schedule_config or not schedule_config.get('enabled', False):
-        return set()
+        return set(), None
 
     schedule = schedule_config['schedule']
 
     if theme_name not in schedule:
         print(f"⚠️ No podcast schedule entry for {theme_name}")
-        return set()
+        return set(), None
 
     today = schedule[theme_name]
     theme_categories = today['categories']
@@ -2678,7 +2759,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     api_key = os.getenv('ANTHROPIC_API_KEY')
     if not api_key:
         print("⚠️ No API key available for theme scoring")
-        return set()
+        return set(), None
 
     # Rural/local context signals — ai-tech articles without these get penalized
     # in the podcast to keep the feed locally grounded
@@ -2855,7 +2936,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # This ensures theme-relevant articles always outrank zero-relevance filler
     # on thin news days rather than losing to tiebreaker (base score).
     best_final = max((fs for _, fs, _ in scored_pool), default=0)
-    if 0 < best_final < min_score:
+    relative_scaled = 0 < best_final < min_score
+    if relative_scaled:
         scale = min_score / best_final
         print(f"  📈 Relative scoring: pool max was {best_final}, scaled ×{scale:.1f}")
         scored_pool = [
@@ -2866,7 +2948,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Bank articles with strong theme scores for future episodes of this day's theme.
     # Done after relative scaling so thin-day scores (e.g. pool max = 1 → scaled to 45)
     # still clear holdover_threshold and the best-fit articles accumulate for next week.
-    update_theme_holdover(theme_name, theme_label,
+    banked_count = update_theme_holdover(theme_name, theme_label,
                           [(a, ts) for a, _, ts in scored_pool],
                           holdover_threshold)
 
@@ -2986,7 +3068,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     if not all_entries:
         print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
-        return set()
+        return set(), None
 
     # Local BC sources that should never be marked _is_bonus on the Saturday feed
     LOCAL_BC_SOURCES = {
@@ -3084,10 +3166,19 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
+    avg_final_score = sum(fs for _, fs, _ in all_entries) / len(all_entries) if all_entries else 0
     cross_cat = bonus_count
     print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(all_entries)} articles (avg theme score: {avg_theme_score:.1f}, {cross_cat} cross-category)")
 
-    return {a.link for a, _, _ in all_entries}
+    feed_stats = {
+        'article_count': len(all_entries),
+        'bonus_count': bonus_count,
+        'mean_final_score': round(avg_final_score, 1),
+        'mean_theme_score': round(avg_theme_score, 1),
+        'relative_scaled': relative_scaled,
+        'banked_count': banked_count,
+    }
+    return {a.link for a, _, _ in all_entries}, feed_stats
 
 
 def generate_opml():
@@ -3149,7 +3240,14 @@ def main():
     if not api_key:
         print("❌ Error: ANTHROPIC_API_KEY environment variable not set")
         sys.exit(1)
-    
+
+    run_timestamp = datetime.now(timezone.utc).isoformat()
+    run_stats: Dict = {
+        'run_id': run_timestamp,
+        'timestamp': run_timestamp,
+        'slot': 'morning' if datetime.now(timezone.utc).hour < 12 else 'evening',
+    }
+
     opml_path = sys.argv[1] if len(sys.argv) > 1 else 'feeds.opml'
     feeds = parse_opml(opml_path)
 
@@ -3221,7 +3319,14 @@ def main():
         f"🆕 New articles (not previously shown): {len(unique_articles)} → {len(new_articles)}"
         + (f"  ({story_dupes} cross-run story dupes suppressed)" if story_dupes else "")
     )
-    
+
+    run_stats['ingest'] = {
+        'fetched': len(all_articles),
+        'deduped': len(unique_articles),
+        'new': len(new_articles),
+        'cross_run_story_dupes': story_dupes,
+    }
+
     if kagi_key := os.environ.get('KAGI_API_KEY', ''):
         _kagi_enrich_articles(new_articles, kagi_key)
 
@@ -3231,6 +3336,11 @@ def main():
 
     scored_articles = apply_source_preferences(scored_articles)
 
+    run_stats['scoring'] = {
+        'scored_count': len(scored_articles),
+        'score_histogram_by_category': _score_histogram(scored_articles),
+    }
+
     # Haiku scrub runs BEFORE the quality gate on all articles above a low floor,
     # so junk is removed from a clean pool before scoring thresholds and floor rescue apply.
     # Articles below SCRUB_FLOOR are preserved for category floor rescue only.
@@ -3238,7 +3348,8 @@ def main():
     scrub_candidates = [a for a in scored_articles if a.score >= SCRUB_FLOOR]
     scrub_below = [a for a in scored_articles if a.score < SCRUB_FLOOR]
     print(f"\n✂️  Running headline scrub with Haiku ({len(scrub_candidates)} articles, {len(scrub_below)} below floor skipped)...")
-    scrubbed = scrub_feed_with_haiku(scrub_candidates, api_key)
+    scrubbed, scrub_stats = scrub_feed_with_haiku(scrub_candidates, api_key)
+    run_stats['scrub'] = scrub_stats
 
     # Quality filter now works on pre-scrubbed candidates
     quality_articles = [a for a in scrubbed if a.score >= min_score_for_category(a.category)]
@@ -3269,6 +3380,21 @@ def main():
             print(f"🌱 Category floors rescued {len(rescued)} additional articles")
             quality_articles.extend(rescued)
 
+    scrubbed_by_cat: Dict[str, int] = defaultdict(int)
+    for a in scrubbed:
+        scrubbed_by_cat[a.category or 'news'] += 1
+    passed_by_cat: Dict[str, int] = defaultdict(int)
+    for a in quality_articles:
+        passed_by_cat[a.category or 'news'] += 1
+    run_stats['quality_gate'] = {
+        'passed_count': len(quality_articles),
+        'passed_by_category': dict(passed_by_cat),
+        'dropped_below_floor_by_category': {
+            cat: max(0, scrubbed_by_cat.get(cat, 0) - passed_by_cat.get(cat, 0))
+            for cat in scrubbed_by_cat
+        },
+    }
+
     # Fetch images for quality articles only (after filtering)
     print(f"🖼️  Fetching images for quality articles...")
     quality_articles = batch_fetch_images(quality_articles, max_fetch=50)
@@ -3297,6 +3423,31 @@ def main():
     process_pending_theme_batch(api_key)
     score_all_themes_at_ingest(quality_articles, schedule_config, api_key)
 
+    # Snapshot per-theme score distributions for the calibration agent. This reflects
+    # the full cumulative cache (not just this run's deltas), which is what matters
+    # for detecting theme-score collapse over time.
+    if schedule_config and schedule_config.get('enabled', False):
+        theme_score_snapshot = load_theme_score_cache()
+        buckets = ["0-19", "20-39", "40-59", "60-79", "80-100"]
+        theme_scoring_stats: Dict[str, Dict] = {}
+        for day, cfg in schedule_config.get('schedule', {}).items():
+            label = cfg['label']
+            suffix = f":::{label}"
+            scores = [v['score'] for k, v in theme_score_snapshot.items() if k.endswith(suffix)]
+            if not scores:
+                continue
+            hist = {b: 0 for b in buckets}
+            for s in scores:
+                idx = min(max(0, min(100, s)) // 20, 4)
+                hist[buckets[idx]] += 1
+            theme_scoring_stats[day] = {
+                'scored': len(scores),
+                'histogram': hist,
+                'mean': round(sum(scores) / len(scores), 1),
+                'max': max(scores),
+            }
+        run_stats['theme_scoring'] = theme_scoring_stats
+
     # Load weekly cache for podcast feed generation
     podcast_cache = load_podcast_cache()
 
@@ -3312,10 +3463,20 @@ def main():
             podcast_shown_cache = load_podcast_shown_cache()
             # Proactively bank articles that score significantly better on future days.
             # Articles are NOT excluded from today — cross-theme reuse is intentional.
-            route_articles_to_best_themes(podcast_cache, schedule_config, today_name)
-            selected_urls = generate_podcast_feed(
+            routing_stats = route_articles_to_best_themes(podcast_cache, schedule_config, today_name)
+            run_stats['theme_routing'] = routing_stats
+            selected_urls, feed_stats = generate_podcast_feed(
                 today_name, podcast_cache, podcast_shown_cache
             )
+            if feed_stats:
+                run_stats['podcast_feeds'] = {today_name: feed_stats}
+            holdover_cache_snapshot = load_theme_holdover_cache()
+            run_stats['holdover'] = {
+                'bank_size_by_day_eod': {
+                    day: len(arts) for day, arts in holdover_cache_snapshot.items()
+                },
+                'banked_today': feed_stats.get('banked_count', 0) if feed_stats else 0,
+            }
             if selected_urls:
                 now_iso = datetime.now(timezone.utc).isoformat()
                 today_date_str = now_iso[:10]
@@ -3335,7 +3496,9 @@ def main():
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
     retention_cutoff = datetime.now(timezone.utc) - timedelta(days=retention_days)
-    
+
+    final_feed_sizes: Dict[str, int] = {}
+
     for cat_key in CATEGORIES.keys():
         feed_file = f"feed-{cat_key}.json"
         existing_articles = []
@@ -3399,9 +3562,13 @@ def main():
         
         all_items.sort(key=lambda a: a.pub_date, reverse=True)
         all_items = all_items[:LIMITS['max_feed_size']]
-        
+
+        final_feed_sizes[cat_key] = len(all_items)
+
         generate_json_feed(all_items, cat_key, feed_file)
-    
+
+    run_stats['final_feeds'] = final_feed_sizes
+
     now_ts = datetime.now(timezone.utc).timestamp()
     for article in quality_articles:
         shown_cache[article.url_hash] = now_ts
@@ -3425,6 +3592,9 @@ def main():
     api_summary = api_usage.format_summary()
     if api_summary:
         print(api_summary)
+
+    run_stats['api_usage'] = api_usage.get_summary_dict()
+    record_run_stats(run_stats)
 
     print("\n✅ Feed generation complete!")
 

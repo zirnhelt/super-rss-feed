@@ -1,0 +1,4 @@
+{
+  "_comment": "Append-only log of every config change applied by calibration_agent.py. Used for flip-flop detection: a proposal that reverses a change made within flip_flop_guard.lookback_runs/lookback_weeks is rejected unless new evidence is cited. Each entry: run_date, run_id, knob, old_value, new_value, delta, rationale, linked_issue (recurring_issues.json id or null).",
+  "changes": []
+}

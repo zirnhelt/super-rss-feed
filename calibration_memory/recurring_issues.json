@@ -1,0 +1,4 @@
+{
+  "_comment": "Tracked recurring issues found by the weekly calibration agent. Each issue has: id, theme (or category, or null for global), first_observed (run_id), last_observed (run_id), status (open|monitoring|resolved), description, evidence_runs (list of run_ids), actions_taken (list of {run_date, action}), recommendation_pending (bool, true if the fix requires a human edit to a forbidden/prompt-level field).",
+  "issues": []
+}
