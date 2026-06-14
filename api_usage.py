@@ -65,6 +65,21 @@ def estimate_cost() -> float:
         return total
 
 
+def get_summary_dict() -> dict:
+    """Structured snapshot of call counts, token totals, and estimated cost.
+
+    Used by the calibration agent's per-run audit stats.
+    """
+    with _lock:
+        calls = dict(_calls)
+        total_tokens = sum(_claude_tokens.values()) + sum(_claude_batch_tokens.values())
+    return {
+        'calls': calls,
+        'claude_tokens': total_tokens,
+        'est_cost_usd': round(estimate_cost(), 4),
+    }
+
+
 def format_summary() -> str:
     """A single printable line summarizing call counts, Claude tokens, and est. cost."""
     with _lock:

@@ -50,6 +50,16 @@ def load_scoring_interests() -> str:
     with open(CONFIG_DIR / "scoring_interests.txt", 'r') as f:
         return f.read()
 
+def load_podcast_schedule_config() -> Dict:
+    """Load podcast schedule configuration (themed feed routing/scoring)."""
+    with open(CONFIG_DIR / "podcast_schedule.json", 'r') as f:
+        return json.load(f)
+
+def load_calibration_bounds() -> Dict:
+    """Load calibration agent's whitelist of auto-tunable knobs and safety bounds."""
+    with open(CONFIG_DIR / "calibration_bounds.json", 'r') as f:
+        return json.load(f)
+
 def get_category_keywords(category: str) -> List[str]:
     """Get keywords for a specific category."""
     categories = load_categories_config()

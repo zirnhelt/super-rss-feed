@@ -253,12 +253,16 @@ def prefilter_scrub_articles(
     articles: List[Any],
     interests_text: str,
     local_signals: Optional[List[str]] = None,
+    threshold: float = 2.5,
 ) -> Tuple[List[Any], List[Any]]:
     """Pre-filter obvious junk before Claude scrubbing using Cohere Rerank.
 
     Returns (articles_for_claude, auto_removed).
-    Articles scoring < 4/100 against the interest query are auto-removed,
-    unless their title contains a local signal (those always go to Claude).
+    Articles scoring below `threshold` (out of 100) against the interest query
+    are auto-removed, unless their title contains a local signal (those always
+    go to Claude). The default of 2.5 is deliberately conservative — the primary
+    scorer already filtered the bottom 70%, and the Haiku scrub handles
+    borderline content.
     Returns (articles, []) when Cohere is disabled or on error.
     """
     if not is_enabled() or not articles:
@@ -269,10 +273,7 @@ def prefilter_scrub_articles(
     documents = [f"{a.title}. {(a.description or '')[:100]}" for a in articles]
     _local = [s.lower() for s in (local_signals or [])]
 
-    # Only auto-remove articles with essentially zero Cohere relevance (< 0.01).
-    # The primary scorer already filtered the bottom 70%; the Haiku scrub handles
-    # borderline content. A floor of 4.0 was too aggressive for niche interest queries.
-    INTEREST_FLOOR = 2.5
+    INTEREST_FLOOR = threshold
 
     try:
         api_usage.record_call('cohere')

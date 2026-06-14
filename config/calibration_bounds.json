@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "_comment": "Whitelist of config knobs the weekly calibration agent (calibration_agent.py) may auto-adjust, with hard safety bounds. Any proposed change outside [min, max] is clamped; any change larger than max_step is clamped to max_step. Knobs not listed here (and anything in `forbidden`) can only be surfaced as human_recommendations.",
+
+  "knobs": {
+    "limits.min_score_by_category.ai-tech": {
+      "file": "config/limits.json",
+      "path": ["min_score_by_category", "ai-tech"],
+      "type": "int", "min": 15, "max": 45, "max_step": 5, "default": 30
+    },
+    "limits.min_score_by_category.homelab": {
+      "file": "config/limits.json",
+      "path": ["min_score_by_category", "homelab"],
+      "type": "int", "min": 5, "max": 30, "max_step": 5, "default": 15
+    },
+    "limits.min_claude_score": {
+      "file": "config/limits.json",
+      "path": ["min_claude_score"],
+      "type": "int", "min": 10, "max": 30, "max_step": 3, "default": 20
+    },
+    "limits.cohere_prefilter_threshold": {
+      "file": "config/limits.json",
+      "path": ["cohere_prefilter_threshold"],
+      "type": "float", "min": 1.0, "max": 10.0, "max_step": 1.0, "default": 2.5
+    },
+
+    "podcast.schedule.monday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "monday", "min_score"],
+      "type": "int", "min": 20, "max": 60, "max_step": 5, "default": 42
+    },
+    "podcast.schedule.monday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "monday", "holdover_threshold"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 30,
+      "inherits_default": "holdover_threshold"
+    },
+    "podcast.schedule.tuesday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "tuesday", "min_score"],
+      "type": "int", "min": 20, "max": 60, "max_step": 5, "default": 45
+    },
+    "podcast.schedule.tuesday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "tuesday", "holdover_threshold"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 30,
+      "inherits_default": "holdover_threshold"
+    },
+    "podcast.schedule.wednesday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "wednesday", "min_score"],
+      "type": "int", "min": 20, "max": 60, "max_step": 5, "default": 42
+    },
+    "podcast.schedule.wednesday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "wednesday", "holdover_threshold"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 25
+    },
+    "podcast.schedule.thursday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "thursday", "min_score"],
+      "type": "int", "min": 20, "max": 60, "max_step": 5, "default": 40
+    },
+    "podcast.schedule.thursday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "thursday", "holdover_threshold"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 25
+    },
+    "podcast.schedule.friday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "friday", "min_score"],
+      "type": "int", "min": 20, "max": 60, "max_step": 5, "default": 42
+    },
+    "podcast.schedule.friday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "friday", "holdover_threshold"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 28
+    },
+    "podcast.schedule.saturday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "saturday", "min_score"],
+      "type": "int", "min": 10, "max": 50, "max_step": 5, "default": 25
+    },
+    "podcast.schedule.saturday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "saturday", "holdover_threshold"],
+      "type": "int", "min": 5, "max": 35, "max_step": 5, "default": 15
+    },
+    "podcast.schedule.sunday.min_score": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "sunday", "min_score"],
+      "type": "int", "min": 20, "max": 60, "max_step": 5, "default": 42
+    },
+    "podcast.schedule.sunday.holdover_threshold": {
+      "file": "config/podcast_schedule.json", "path": ["schedule", "sunday", "holdover_threshold"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 30,
+      "inherits_default": "holdover_threshold"
+    },
+
+    "podcast.theme_routing_gap": {
+      "file": "config/podcast_schedule.json", "path": ["theme_routing_gap"],
+      "type": "int", "min": 10, "max": 35, "max_step": 5, "default": 20
+    },
+    "podcast.theme_routing_min_score": {
+      "file": "config/podcast_schedule.json", "path": ["theme_routing_min_score"],
+      "type": "int", "min": 30, "max": 70, "max_step": 5, "default": 42
+    },
+    "podcast.keyword_boost": {
+      "file": "config/podcast_schedule.json", "path": ["keyword_boost"],
+      "type": "int", "min": 5, "max": 25, "max_step": 5, "default": 15
+    },
+    "podcast.ai_tech_no_context_penalty": {
+      "file": "config/podcast_schedule.json", "path": ["ai_tech_no_context_penalty"],
+      "type": "int", "min": 0, "max": 40, "max_step": 10, "default": 30
+    }
+  },
+
+  "keyword_lists": {
+    "podcast.schedule.<day>.keywords": {
+      "file": "config/podcast_schedule.json",
+      "path_template": ["schedule", "{day}", "keywords"],
+      "mode": "additions_only",
+      "max_additions_per_run": 5,
+      "max_removals_per_run": 0,
+      "applies_to_days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    },
+    "podcast.schedule.<day>.anti_keywords": {
+      "file": "config/podcast_schedule.json",
+      "path_template": ["schedule", "{day}", "anti_keywords"],
+      "mode": "additions_and_removals",
+      "max_additions_per_run": 5,
+      "max_removals_per_run": 3,
+      "applies_to_days": ["saturday", "sunday"]
+    }
+  },
+
+  "global_caps": {
+    "max_total_changes_per_run": 6,
+    "max_config_files_touched_per_run": 2
+  },
+
+  "flip_flop_guard": {
+    "lookback_runs": 4,
+    "lookback_weeks": 4
+  },
+
+  "forbidden": [
+    "podcast.schedule.*.scoring_prompt",
+    "podcast.schedule.*.theme_description",
+    "podcast.schedule.*.description",
+    "podcast.schedule.*.label",
+    "podcast.schedule.*.categories",
+    "scoring_interests.txt"
+  ]
+}
