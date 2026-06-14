@@ -2737,6 +2737,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Filter by minimum quality score
     theme_pool = [a for a in theme_pool if a.score >= min_score]
 
+    # Track articles that qualify for this day's pool on upstream quality score
+    # alone (not via rescue/holdover), so a theme-fit floor can be applied to
+    # them after theme scoring below.
+    direct_qualify_links = {a.link for a in theme_pool}
+
     # Rescue: include articles below the base threshold when they already have a
     # cached theme score >= holdover_threshold.  These proved their thematic fit
     # even though their general quality score is low (e.g. niche local sources).
@@ -2806,6 +2811,29 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     if not theme_scored and theme_pool:
         print(f"  ⚠️ Theme scoring returned empty for {theme_label}, falling back to quality scores")
         theme_scored = [(article, article.score) for article in theme_pool]
+
+    # Theme-fit floor for the direct-qualify path: articles that only entered the
+    # pool via the upstream quality score (not rescue/holdover) must also clear
+    # the holdover_threshold theme-fit bar — unless they have a keyword hit —
+    # so generic high-upstream-score content (e.g. local civic news boosted by
+    # the Williams Lake bonus) doesn't crowd out genuinely on-theme picks on
+    # its best-scoring but still-weak day.
+    filtered_theme_scored = []
+    floor_dropped = 0
+    for article, theme_score in theme_scored:
+        if article.link in direct_qualify_links and theme_score < holdover_threshold:
+            kw_text = f"{article.title} {article.description or ''}".lower()
+            if _net_keyword_match_count(kw_text, theme_keywords, theme_anti_keywords) == 0:
+                floor_dropped += 1
+                continue
+        filtered_theme_scored.append((article, theme_score))
+    if filtered_theme_scored:
+        if floor_dropped:
+            print(f"  🧹 Dropped {floor_dropped} direct-qualify articles below theme-fit floor "
+                  f"({holdover_threshold}) with no keyword match")
+        theme_scored = filtered_theme_scored
+    elif floor_dropped:
+        print(f"  ⚠️ Theme-fit floor would drop all {floor_dropped} candidates for {theme_label}; keeping unfiltered pool")
 
     # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
     ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
