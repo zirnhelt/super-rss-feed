@@ -213,6 +213,12 @@
             flex-shrink: 0;
         }
 
+        .feed-article-apple-news {
+            flex-shrink: 0;
+            text-decoration: none !important;
+            margin: 0 4px;
+        }
+
         .loading {
             text-align: center;
             padding: 40px;
@@ -388,6 +394,15 @@
                     link.rel = 'noopener';
                     link.textContent = article.title || article.url;
                     li.appendChild(link);
+
+                    if (article._apple_news_url) {
+                        const appleLink = document.createElement('a');
+                        appleLink.href = article._apple_news_url;
+                        appleLink.className = 'feed-article-apple-news';
+                        appleLink.title = 'Open in Apple News';
+                        appleLink.textContent = '📰';
+                        li.appendChild(appleLink);
+                    }
 
                     if (article.date_published) {
                         const dateEl = document.createElement('span');

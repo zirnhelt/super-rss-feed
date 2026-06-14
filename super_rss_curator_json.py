@@ -20,7 +20,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from fuzzywuzzy import fuzz
-from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, quote
 import anthropic
 from fetch_images import batch_fetch_images
 import cohere_integration
@@ -503,6 +503,15 @@ class Article:
                 return True
 
         return False
+
+
+APPLE_NEWS_TITLE_SUFFIX_RE = re.compile(r'\s*[\|–—-]\s*[^|–—-]{1,50}$')
+
+
+def build_apple_news_search_url(title: str) -> str:
+    """Build an applenews://search URL from a cleaned article title."""
+    clean_title = APPLE_NEWS_TITLE_SUFFIX_RE.sub('', title).strip() or title
+    return f"applenews://search?term={quote(clean_title)}"
 
 
 def load_scored_cache():
@@ -2220,6 +2229,8 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
             item["title"] = f"🔓 {item['title']}"
             item.setdefault("tags", []).append("subscriber-access")
             item["_subscriber_access"] = subscriber_label
+            if subscriber_label == "Apple News+":
+                item["_apple_news_url"] = build_apple_news_search_url(article.title)
 
         feed["items"].append(item)
     
@@ -3147,6 +3158,14 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "_source_category": article.category,
             "_is_bonus": is_bonus
         }
+
+        subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
+        if subscriber_label:
+            item.setdefault("tags", []).append("subscriber-access")
+            item["_subscriber_access"] = subscriber_label
+            if subscriber_label == "Apple News+":
+                item["_apple_news_url"] = build_apple_news_search_url(article.title)
+
         # Mark articles that previously appeared in a different theme's episode
         prior_appearances = [
             v for k, v in podcast_shown_cache.items()
