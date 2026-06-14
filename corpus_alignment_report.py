@@ -172,7 +172,7 @@ def main() -> None:
         f"| Direct-qualify (upstream score gates them in for their best theme) | {total_direct} |\n"
         f"| Rescue-dependent (good theme fit, upstream below day minimum) | {total_rescue} |\n"
         f"| Stranded (good theme fit, upstream below `min_claude_score`={min_claude_score} — never bankable) | {total_stranded} |\n"
-        f"| Filler (upstream ≥ {FILLER_UPSTREAM_FLOOR} but best theme fit < {FILLER_THEME_CEILING} for ALL 7 themes) | {total_filler} ({total_filler/total*100:.0f}% of corpus) |\n"
+        f"| Filler (upstream ≥ {FILLER_UPSTREAM_FLOOR} but best theme fit < {FILLER_THEME_CEILING} for ALL 7 themes) | {total_filler} ({(total_filler/total*100 if total else 0):.0f}% of corpus) |\n"
     )
 
     sections.append(
