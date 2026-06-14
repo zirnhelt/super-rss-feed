@@ -76,5 +76,16 @@
     "sources": ["Kagi Small Web"],
     "max_new_candidates_per_run": 25,
     "description": "Feed discovery gate for high-volume OPML sources: per run, only this many not-yet-cached candidate feeds are evaluated (remaining candidates trickle in on later runs), and a candidate is skipped without an LLM call if none of its sampled articles match a CATEGORY_RULES interest keyword."
+  },
+  "subscriber_access": {
+    "description": "Sources where the user has subscription access (direct subscription or Apple News+) that bypasses the paywall. Used to skip the paywall scoring penalty and tag matching articles in the output feed.",
+    "sources": {
+      "NYT Business": "New York Times",
+      "NYT Top Stories": "New York Times",
+      "Williams Lake Tribune": "Williams Lake Tribune",
+      "The Atlantic Culture": "Apple News+",
+      "Scientific American": "Apple News+",
+      "The Globe and Mail": "Apple News+"
+    }
   }
 }
