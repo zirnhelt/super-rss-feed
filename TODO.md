@@ -461,6 +461,25 @@ _Last updated by log\_feed\_results.py · 2026-06-13 20:14 UTC_
 
 ## Notes & Review
 
+### 2026-06-14 — Added newsletter sources from Cariboo Signals inbox label
+
+Added three newsletters to `feeds.opml`, sourced from recurring senders in
+the "Cariboo Signals" Gmail label:
+- **Canadaland** (`https://www.canadaland.com/feed/`) — Canadian media/
+  politics/AI commentary.
+- **Animikii News River** (`https://newsriver.animikii.com/rss`) — Indigenous
+  tech, land stewardship, and data sovereignty newsletter; strong fit for
+  Thursday's Indigenous Lands & Innovation theme.
+- **OpenMedia** (`https://openmedia.org/feed`) — Canadian digital-rights/
+  AI-policy advocacy.
+
+These feed URLs were not curl-verified (no general internet egress from this
+session). If any of them show up with 403/415 errors in the Feed Errors
+section after the next run, fix or remove per the usual maintenance rules.
+Skipped from the same label: The Line (lapsed paid Substack subscription)
+and Far & Wide (beehiiv RSS URL isn't guessable — would need the dashboard
+URL from the user).
+
 ### 2026-06-12 — Feed quality audit: dead-source cleanup and tagging fixes
 
 Removed six sources from `feeds.opml` that have failed on every run for
