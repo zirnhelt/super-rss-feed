@@ -80,6 +80,7 @@ def load_source_preferences():
     return load_json_config('source_preferences.json')
 
 SOURCE_PREFS = load_source_preferences()
+SUBSCRIBER_ACCESS = SOURCE_PREFS.get('subscriber_access', {}).get('sources', {})
 
 def _build_prescore_keywords() -> frozenset:
     """Union of all category include-keywords plus local signals.
@@ -2213,6 +2214,12 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         if category == 'local':
             item["_local"] = True
             item["tags"] = ["local-priority"]
+
+        subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
+        if subscriber_label:
+            item["title"] = f"🔓 {item['title']}"
+            item.setdefault("tags", []).append("subscriber-access")
+            item["_subscriber_access"] = subscriber_label
 
         feed["items"].append(item)
     
