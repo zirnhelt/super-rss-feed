@@ -3,6 +3,55 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-14 (Sunday)
+
+#### 🌅 4:30 AM Pacific
+- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
+- ⚠️ **Smart Home and Automation (Kagi)** failed — `HTTP 401 - {"meta":{"id":"3f722b1e2dd49ef094f154802f28393a","node":"us-west2","ms":3,"api_balance":null},"data":null,"er`
+- ⚠️ **First Peoples Cultural Council (Kagi)** failed — `HTTP 401 - {"meta":{"id":"c7496efa6eb2621c6e141c0f6e9ea332","node":"us-west2","ms":1,"api_balance":null},"data":null,"er`
+- ⚠️ **Gear Gadgets Repair (Kagi)** failed — `HTTP 401 - {"meta":{"id":"be445b4c3283f56df076b2bb5908bdf8","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Ricochet Media (Kagi)** failed — `HTTP 401 - {"meta":{"id":"be60a487dd8cadeb267d6c5893d3bb63","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Nation Talk (Kagi)** failed — `HTTP 401 - {"meta":{"id":"51f2cb2508ec47cf12d77a25a6e98ae5","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **3D Printing (Kagi)** failed — `HTTP 401 - {"meta":{"id":"d8a54c9d876ef1915ed5ca64510e9351","node":"us-west2","ms":1,"api_balance":null},"data":null,"er`
+- ⚠️ **Clean Energy and EVs (Kagi)** failed — `HTTP 401 - {"meta":{"id":"1a2c28213d2ebcf95610d1025ffbadc3","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **AI ML Infrastructure (Kagi)** failed — `HTTP 401 - {"meta":{"id":"885b8e72ad2472e71e3bb9cd9f84b351","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Mesh Networking and LoRa (Kagi)** failed — `HTTP 401 - {"meta":{"id":"e247b4b8a1bf61ea96e5f253b3627d54","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Williams Lake and BC Interior (Kagi)** failed — `HTTP 401 - {"meta":{"id":"13582e0e631a81aa30ade0b401ad9bca","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Indigenous Technology BC (Kagi)** failed — `HTTP 401 - {"meta":{"id":"d5d7c525c2c663443d648d26d8bc784f","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Wildfire and Conservation (Kagi)** failed — `HTTP 401 - {"meta":{"id":"40bb0dac4c62b03fef07d95f0b6bf66b","node":"us-west2","ms":1,"api_balance":null},"data":null,"er`
+- ⚠️ **Climate Science Research (Kagi)** failed — `HTTP 401 - {"meta":{"id":"7db83a5f8115cbb316891e2f6032a125","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 401 - {"meta":{"id":"e7e8179fc56ad0095880e3bb4c33fadc","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 401 - {"meta":{"id":"2d411038b0a8c6c22fdf4b02bd631a2a","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 401 - {"meta":{"id":"902cf4d8c53a05185c6b0fb6d6114899","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **AgTech and Resource Innovation (Kagi)** failed — `HTTP 401 - {"meta":{"id":"3c6c1241ec5959e7e35144f3e5ab595f","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Community Media and Digital Storytelling (Kagi)** failed — `HTTP 401 - {"meta":{"id":"2a535c78ff5ab0d5a80784d0003b8f7d","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Backcountry and Wildlife (Kagi)** failed — `HTTP 401 - {"meta":{"id":"745996c3dd042b522c04a9d57550edcb","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Cariboo Local Community (Kagi)** failed — `HTTP 401 - {"meta":{"id":"a923a46addb6b524e513813b468c5a78","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Rural Digital Equity (Kagi)** failed — `HTTP 401 - {"meta":{"id":"f477b1b51a1ceda1b1d6e7e1866e336f","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Conservation and Parks (Kagi)** failed — `HTTP 401 - {"meta":{"id":"169447e8e38425d472e51c73e38c412b","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Wildlife Ecology (Kagi)** failed — `HTTP 401 - {"meta":{"id":"caf9d5e6d9fd13c4d7ab58813a4050f7","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Canadian Geographic (Kagi)** failed — `HTTP 401 - {"meta":{"id":"ff788502b47550d2fcd0840b6805d5ab","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Health and Wellness (Kagi)** failed — `HTTP 401 - {"meta":{"id":"53cc7c4a9d11ede2c6c37b8156499511","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Examine.com (Kagi)** failed — `HTTP 401 - {"meta":{"id":"aa3cc0644b08c7e808081dac2e555e5b","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Longevity and Preventive Medicine (Kagi)** failed — `HTTP 401 - {"meta":{"id":"e0bc77447ff034717fe7d5d82b621d2d","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Evidence-Based Health Research (Kagi)** failed — `HTTP 401 - {"meta":{"id":"182b7e06119213f25133c0b5686004a0","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Science Fiction Books (Kagi)** failed — `HTTP 401 - {"meta":{"id":"39a94bcde3f17a0f287e3ff1fe0165cf","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 401 - {"meta":{"id":"679585468b1b286f90c0b7db01836a58","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Canadian Arts Technology (Kagi)** failed — `HTTP 401 - {"meta":{"id":"1b329f09f2a93b3aeace13038a816786","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 401 - {"meta":{"id":"b7dba3648049c145f7f5dc311cdc31ce","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 401 - {"meta":{"id":"4f98fb0d3ddbfe7606470d0110d46e69","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Canadian Agriculture and Ranching (Kagi)** failed — `HTTP 401 - {"meta":{"id":"a3d87e6eae1d328ddcd47ce238cf5d37","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **BC Silviculture and Logging Tech (Kagi)** failed — `HTTP 401 - {"meta":{"id":"35dba5e95c37e93d65a6d9f010e5638e","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 401 - {"meta":{"id":"c4dcd0cc083ed51d0b5394ddeb9bbc2d","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **National Indigenous Innovation (Kagi)** failed — `HTTP 401 - {"meta":{"id":"336fc4575ca015c740ea211c8b949e15","node":"us-west2","ms":0,"api_balance":null},"data":null,"er`
+- ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
+
+
+---
+
+
+
 ## 2026-06-13 (Saturday)
 
 #### 🔧 Manual Run (11:17 AM Pacific)

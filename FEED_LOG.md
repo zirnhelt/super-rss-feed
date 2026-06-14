@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-14 (Sunday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **650** → dedup **574** → new **307** → quality **23**
+- Mix: local:1(4%), ai-tech:3(13%), homelab:1(4%), wellness:2(9%), news:16(70%)
+- Feeds: local:24, ai-tech:77, climate:22, homelab:24, wellness:67, science:19, scifi:16, news:500
+- Images: 23/23
+- API calls: Claude:1, Cohere:19, Brave:44, Kagi:77 · 1,468 Claude tokens · est. cost $0.6171
+
+
+---
+
+
+
 ## 2026-06-13 (Saturday)
 
 #### 🌅 4:30 AM Pacific
@@ -680,65 +694,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
 - ⚠️ **Hakai Magazine** failed — `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/`
 - ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
-
-
----
-
-
-
-## 2026-06-06 (Saturday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **954** → dedup **828** → new **606** → quality **78**
-- Mix: local:1(1%), ai-tech:4(5%), climate:2(3%), homelab:1(1%), wellness:5(6%), science:1(1%), scifi:1(1%), news:63(81%)
-- Feeds: local:27, ai-tech:42, climate:59, homelab:9, wellness:37, science:16, scifi:11, news:500
-- Images: 78/78
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
-- Fetched **910** → dedup **806** → new **555** → quality **60**
-- Mix: local:1(2%), ai-tech:4(7%), climate:2(3%), homelab:3(5%), wellness:2(3%), science:1(2%), news:47(78%)
-- Feeds: local:27, ai-tech:46, climate:61, homelab:11, wellness:38, science:17, scifi:11, news:500
-- Images: 60/60
-- ⚠️ **GN Gear Gadgets Repair** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=iFixit+OR+teardown+OR+%22right+to+re`
-- ⚠️ **GN Smart Home and Automation** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=smart+home+OR+homekit+OR+home+automa`
-- ⚠️ **GN 3D Printing** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=3D+printing+OR+Bambu+Lab+OR+additive`
-- ⚠️ **GN AI ML Infrastructure** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=AI+infrastructure+OR+MLOps+OR+observ`
-- ⚠️ **GN Clean Energy and EVs** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=clean+energy+OR+electric+vehicle+OR+`
-- ⚠️ **GN Mesh Networking and LoRa** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=meshtastic+OR+mesh+networking+OR+LoR`
-- ⚠️ **GN Williams Lake and BC Interior** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Williams+Lake+OR+Cariboo+OR+Quesnel+`
-- ⚠️ **GN Indigenous Technology BC** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Indigenous+technology+OR+First+Natio`
-- ⚠️ **GN Climate Science Research** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22climate+science%22+OR+%22climate+`
-- ⚠️ **GN BC Wildfire and Conservation** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+Wildfire%22+OR+%22BC+Parks%22+`
-- ⚠️ **GN BC Working Lands** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+forestry%22+OR+%22BC+ranching%`
-- ⚠️ **GN Rural BC Infrastructure** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22rural+BC%22+OR+%22rural+municipal`
-- ⚠️ **GN Indigenous Guardian Programs** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22guardian+program%22+OR+%22Indigen`
-- ⚠️ **GN AgTech and Resource Innovation** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22precision+agriculture%22+OR+%22Ag`
-- ⚠️ **GN Community Media and Digital Storytelling** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22community+radio%22+OR+%22rural+st`
-- ⚠️ **GN BC Backcountry and Wildlife** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+backcountry%22+OR+%22wildlife+`
-- ⚠️ **GN Cariboo Local Community** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22Cariboo+Regional+District%22+OR+%`
-- ⚠️ **GN BC Rural Digital Equity** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22rural+internet+BC%22+OR+%22Starli`
-- ⚠️ **GN BC Conservation and Parks** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+Parks%22+OR+%22BC+Conservation`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ **GN BC Wildlife Ecology** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+wildlife%22+OR+%22BC+ecology%2`
-- ⚠️ **GN Health and Wellness** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=health+wellness+OR+nutrition+OR+%22m`
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-- ⚠️ **GN Evidence-Based Health Research** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22randomized+trial%22+OR+%22clinica`
-- ⚠️ **GN Longevity and Preventive Medicine** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=longevity+OR+%22preventive+medicine%`
-- ⚠️ **GN Science Fiction Books** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22science+fiction%22+OR+%22speculat`
-- ⚠️ **GN Cariboo First Nations** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Tsilhqotin+OR+Secwepemc+OR+Dakelh+OR`
-- ⚠️ **GN Indigenous Data and Language Tech** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22Indigenous+data+sovereignty%22+OR`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-- ⚠️ **GN BC Silviculture and Logging Tech** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22BC+silviculture%22+OR+%22logging+`
-- ⚠️ **GN Canadian Arts Technology** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22arts+technology%22+OR+%22creative`
 
 
 ---
@@ -2141,6 +2096,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Dominant: **news** (82%) local:2 / ai-tech:2 / climate:1 / homelab:1 / wellness:4 / science:1 / scifi:1 / news:55
 - - ⚠️ Canadian Geographic failed — 403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/
 - - ⚠️ Examine.com failed — 429 Client Error: Too Many Requests for url: https://examine.com/feed/
+
+
+---
+
+
+
+## Week of 2026-06-06–2026-06-06
+- 2 runs · avg fetched 932 · avg quality 69
+- Dominant: **news** (80%) local:2 / ai-tech:8 / climate:4 / homelab:4 / wellness:7 / science:2 / scifi:1 / news:110
 
 
 ---
