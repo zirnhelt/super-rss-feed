@@ -456,6 +456,11 @@ class FeedDiscovery:
         discovery_filter = config_loader.load_source_preferences().get('discovery_prescore_filter', {})
         gated_sources = set(discovery_filter.get('sources', []))
         max_per_run = discovery_filter.get('max_new_candidates_per_run')
+        # Allow ad-hoc catch-up runs (via workflow_dispatch) to process a larger
+        # batch than the steady-state weekly default, without editing the config.
+        override = os.environ.get('DISCOVERY_MAX_NEW_CANDIDATES_PER_RUN')
+        if override:
+            max_per_run = int(override)
         if gated_sources and max_per_run is not None:
             kept_new = []
             deferred = 0

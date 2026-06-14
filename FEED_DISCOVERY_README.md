@@ -49,6 +49,18 @@ doesn't earn its keep from `feeds.opml`.
 Setup: ensure `ANTHROPIC_API_KEY` (and optionally `COHERE_API_KEY` /
 `BRAVE_API_KEY`) secrets are set in the repo.
 
+### Manual Catch-Up Runs
+
+High-volume sources (currently Kagi Small Web) are gated to
+`max_new_candidates_per_run` (default 25, see `config/source_preferences.json`)
+new candidates per run, so the cache only advances ~25 entries/week. To work
+through a backlog faster, trigger the workflow manually
+(`workflow_dispatch`) with the `max_candidates` input set to a larger number
+(e.g. 200). This overrides the cap for that single run only — scheduled runs
+keep using the config default. It's safe to run with a much larger batch: the
+free prescore keyword filter rejects most off-topic feeds without an API
+call, so the extra cost is mostly just feed-fetch time.
+
 ## Discovery Sources
 
 Current curated OPML sources:

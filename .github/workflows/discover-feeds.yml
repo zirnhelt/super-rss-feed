@@ -5,6 +5,11 @@ on:
     # Run every Sunday at 2 AM Pacific (10 AM UTC)
     - cron: '0 10 * * 0'
   workflow_dispatch: # Allow manual trigger
+    inputs:
+      max_candidates:
+        description: 'Override max new candidates per run for gated sources (e.g. Kagi Small Web). Leave empty to use the config default (25/week).'
+        required: false
+        type: string
 
 concurrency:
   group: discover-feeds
@@ -35,6 +40,7 @@ jobs:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
         BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+        DISCOVERY_MAX_NEW_CANDIDATES_PER_RUN: ${{ inputs.max_candidates }}
       run: |
         python feed_discovery.py
 
