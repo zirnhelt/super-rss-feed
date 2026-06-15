@@ -279,7 +279,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             resp = requests.post(
                 'https://kagi.com/api/v1/search',
                 headers={'Authorization': f'Bearer {kagi_key}'},
-                json={'query': query, 'extract': {'count': 20}},
+                json={'query': query, 'extract': {'count': 10}},
                 timeout=15,
             )
             resp.raise_for_status()
