@@ -22,7 +22,7 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' — how Cariboo and rural BC communities create, preserve, and share culture.\n\nCALIBRATION — use this ladder. Most genuine arts/culture/media journalism should land well above 0, even without a Cariboo tie-in:\n- 80-100: Cariboo/Williams Lake-specific arts and culture news — community arts council grants or murals, local festivals, Indigenous film/storytelling, community theatre, museum/heritage programs, a Cariboo author or artist receiving an award, community radio or local publishing.\n- 55-79: Rural BC or Canadian arts/culture journalism without a specific Cariboo tie — CBC Arts features on Indigenous storytelling, regional festivals, community media projects, heritage preservation, creative-economy stories in small towns, digital storytelling tools and platforms.\n- 30-54: General arts, culture, media, or entertainment journalism with real creative/storytelling substance but no rural or community angle (national awards shows, mainstream film/TV/music industry coverage, publishing industry news).\n- 15-29: Tangentially creative content (a tech feature that touches on media/publishing/streaming) or local Cariboo civic news with no arts/culture angle.\n- 0-14: No arts, culture, media, or storytelling dimension at all.\n\nStrong fits include: community arts journalism (arts councils, local festivals, heritage programs), oral history and cultural preservation projects, Indigenous film and storytelling, community theatre and local media, rural arts funding and the creative economy in small towns, and digital storytelling platforms and tools. Also strong fits: community media tech (podcasting, streaming, local publishing), creative tech economy, open-source arts tools, Cariboo arts festivals using digital outreach, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. A story about a Cariboo community mural, a CBC Arts feature on BC Indigenous storytelling, a rural arts council receiving grants, or a Cariboo author/artist shortlisted for an award is a strong fit even without an explicit technology angle — cultural journalism matters to this audience. Penalise heavily (score 0–14): medical and health research with no cultural/storytelling angle; working lands and resource economy stories with no cultural framing; wildlife and nature stories without creative or community media context; data centre infrastructure and AI investment news; geopolitical conflict, war, and crime coverage; financial market and stock movement stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "monday",
-    "generated_at": "2026-06-15T16:33:56.545814+00:00",
+    "generated_at": "2026-06-15T17:32:32.434333+00:00",
     "article_count": 21,
     "bonus_count": 1,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
@@ -201,6 +201,31 @@
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/ai-is-rapidly-reshaping-the-skills-employers-want-most-from-workers-and-shockingly-enough-so-called-human-skills-might-be-more-in-demand",
+      "url": "https://www.techradar.com/pro/ai-is-rapidly-reshaping-the-skills-employers-want-most-from-workers-and-shockingly-enough-so-called-human-skills-might-be-more-in-demand",
+      "title": "[TechRadar] AI is rapidly reshaping the skills employers want most from workers — and shockingly enough, so-called 'human' skills might be more in demand",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/qP76MS2BAb7kSuWrvJXXYL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nJobs where AI automates parts of the workflow are actually seeing more growth and wage growth, PwC report reveals.",
+      "summary": "Jobs where AI automates parts of the workflow are actually seeing more growth and wage growth, PwC report reveals.",
+      "_excerpt": "Jobs where AI automates parts of the workflow are actually seeing more growth and wage growth, PwC report reveals.",
+      "date_published": "2026-06-15T17:05:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/qP76MS2BAb7kSuWrvJXXYL-1280-80.jpg"
     },
     {
       "id": "https://www.piquenewsmagazine.com/the-mix/alberta-country-music-artist-corb-lund-expected-to-hand-in-anti-coal-petition-12400140",
@@ -509,36 +534,6 @@
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2f039a7d48-1781466010.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.businessinsider.com/us-states-no-bachelors-degree-median-earnings-ranked",
-      "url": "https://www.businessinsider.com/us-states-no-bachelors-degree-median-earnings-ranked",
-      "title": "[Business Insider] US states where adults without bachelor's degrees can earn the most, ranked by median earnings",
-      "content_html": "<img src=\"https://i.insider.com/6a22e04ab4fb977f35984c33?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
-      "summary": "These US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
-      "_excerpt": "These US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
-      "date_published": "2026-06-08T16:55:51+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-09T06:12:15.434854+00:00"
-      },
-      "image": "https://i.insider.com/6a22e04ab4fb977f35984c33?format=jpeg"
     },
     {
       "id": "https://www.canadaland.com/retraction-and-apology-to-theresa-kielburger/",
