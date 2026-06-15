@@ -20,397 +20,56 @@
       "news",
       "ai-tech"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' through a RURAL TECH AND INNOVATION lens. Strong fits include: digital storytelling platforms and tools, community media tech (podcasting, streaming, local publishing), creative tech economy in small towns, rural cultural sector innovation, open-source arts tools, Cariboo arts festivals using digital outreach, preservation of rural cultural heritage through technology, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. Prefer articles that bridge culture AND technology in rural/Cariboo contexts. Penalise heavily (score 0–20): medical and health research with no cultural/storytelling angle; working lands and resource economy stories; wildlife and nature stories without creative or community media context; data centre infrastructure and AI investment news; geopolitical conflict, war, and crime coverage; financial market and stock movement stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Arts, Culture & Digital Storytelling' — how Cariboo and rural BC communities create, preserve, and share culture.\n\nCALIBRATION — use this ladder. Most genuine arts/culture/media journalism should land well above 0, even without a Cariboo tie-in:\n- 80-100: Cariboo/Williams Lake-specific arts and culture news — community arts council grants or murals, local festivals, Indigenous film/storytelling, community theatre, museum/heritage programs, a Cariboo author or artist receiving an award, community radio or local publishing.\n- 55-79: Rural BC or Canadian arts/culture journalism without a specific Cariboo tie — CBC Arts features on Indigenous storytelling, regional festivals, community media projects, heritage preservation, creative-economy stories in small towns, digital storytelling tools and platforms.\n- 30-54: General arts, culture, media, or entertainment journalism with real creative/storytelling substance but no rural or community angle (national awards shows, mainstream film/TV/music industry coverage, publishing industry news).\n- 15-29: Tangentially creative content (a tech feature that touches on media/publishing/streaming) or local Cariboo civic news with no arts/culture angle.\n- 0-14: No arts, culture, media, or storytelling dimension at all.\n\nStrong fits include: community arts journalism (arts councils, local festivals, heritage programs), oral history and cultural preservation projects, Indigenous film and storytelling, community theatre and local media, rural arts funding and the creative economy in small towns, and digital storytelling platforms and tools. Also strong fits: community media tech (podcasting, streaming, local publishing), creative tech economy, open-source arts tools, Cariboo arts festivals using digital outreach, animation/film/media production in rural BC, local radio/podcast infrastructure, and how rural communities use technology for creative expression. A story about a Cariboo community mural, a CBC Arts feature on BC Indigenous storytelling, a rural arts council receiving grants, or a Cariboo author/artist shortlisted for an award is a strong fit even without an explicit technology angle — cultural journalism matters to this audience. Penalise heavily (score 0–14): medical and health research with no cultural/storytelling angle; working lands and resource economy stories with no cultural framing; wildlife and nature stories without creative or community media context; data centre infrastructure and AI investment news; geopolitical conflict, war, and crime coverage; financial market and stock movement stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "monday",
-    "generated_at": "2026-06-08T16:37:39.907986+00:00",
-    "article_count": 40,
-    "bonus_count": 25,
+    "generated_at": "2026-06-15T01:05:32.776103+00:00",
+    "article_count": 21,
+    "bonus_count": 1,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.businessinsider.com/hearing-loss-music-festivals-earplug-company-2026-6",
-      "url": "https://www.businessinsider.com/hearing-loss-music-festivals-earplug-company-2026-6",
-      "title": "[Business Insider] Music festivals gave me hearing loss. My best friend and I started making earplugs, and it's now a multimillion-dollar business.",
-      "content_html": "<img src=\"https://i.insider.com/6a0c7975f246b392afc7b6b3?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter developing tinnitus and hearing loss, Bob Verlaat cofounded Hears, a company designing stylish earplugs for music fans.",
-      "summary": "After developing tinnitus and hearing loss, Bob Verlaat cofounded Hears, a company designing stylish earplugs for music fans.",
-      "_excerpt": "After developing tinnitus and hearing loss, Bob Verlaat cofounded Hears, a company designing stylish earplugs for music fans.",
-      "date_published": "2026-06-03T14:49:01+00:00",
+      "id": "https://wltribune.com/2026/06/13/escaped-alone-wins-best-production-in-williams-lake/",
+      "url": "https://wltribune.com/2026/06/13/escaped-alone-wins-best-production-in-williams-lake/",
+      "title": "[Williams Lake Tribune] ‘Escaped Alone’ wins best production in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556224_web1_260618-WLT-Theatre-winners_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe crew is taking on a provincial theatre competition next",
+      "summary": "The crew is taking on a provincial theatre competition next",
+      "_excerpt": "The crew is taking on a provincial theatre competition next",
+      "date_published": "2026-06-13T14:37:56.077627+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 47,
-      "_quality_score": 47,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 2,
-      "_boosted_score": 54,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/6a0c7975f246b392afc7b6b3?format=jpeg"
-    },
-    {
-      "id": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
-      "url": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
-      "title": "[Al Jazeera English] Kenyan graduates turn to AI tools for farming as jobs dry up",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYoung farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
-      "summary": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
-      "_excerpt": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
-      "date_published": "2026-06-07T04:14:27+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
+      "ai_score": 100,
+      "_quality_score": 100,
       "_theme_score": 0,
       "_final_score": 0,
       "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
+      "_boosted_score": 50,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.theverge.com/ai-artificial-intelligence/942909/let-us-filter-ai-slop-google-youtube-meta-instagram-tiktok",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/942909/let-us-filter-ai-slop-google-youtube-meta-instagram-tiktok",
-      "title": "[The Verge] Let us filter AI slop, you cowards",
-      "content_html": "<img src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STKS511_AI_SLOP_B.jpg?quality=90&amp;strip=all&amp;crop=0%2C9.9676601489831%2C100%2C80.064679702034&amp;w=1200\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt's almost impossible to avoid seeing AI-generated content online, but it doesn't have to be this way. YouTube, Instagram, TikTok, and more have ramped up content authentication efforts over the last year, with many now automatically applying labels to distinguish AI-generated images, videos, and music from those made by real, human creators. That's all very [&#8230;]",
-      "summary": "It's almost impossible to avoid seeing AI-generated content online, but it doesn't have to be this way. YouTube, Instagram, TikTok, and more have ramped up content authentication efforts over the last year, with many now automatically applying labels to distinguish AI-generated images, videos, and",
-      "_excerpt": "It's almost impossible to avoid seeing AI-generated content online, but it doesn't have to be this way. YouTube, Instagram, TikTok, and more have ramped up content authentication efforts over the last year, with many now automatically applying labels to distinguish AI-generated images, videos, and music from those made by real, human creators. That's all very […]",
-      "date_published": "2026-06-04T12:30:00+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
+      "tags": [
+        "subscriber-access"
       ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STKS511_AI_SLOP_B.jpg?quality=90&strip=all&crop=0%2C9.9676601489831%2C100%2C80.064679702034&w=1200"
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T14:39:05.555793+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556224_web1_260618-WLT-Theatre-winners_3.jpg?w=1024"
     },
     {
-      "id": "https://www.piquenewsmagazine.com/national-news/the-latest-louise-arbour-installed-as-canadas-31st-governor-general-12389162",
-      "url": "https://www.piquenewsmagazine.com/national-news/the-latest-louise-arbour-installed-as-canadas-31st-governor-general-12389162",
-      "title": "[Pique Newsmagazine] The Latest: Louise Arbour installed as Canada's 31st Governor General",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/0a26d027035c506dc4c41bb1f661e19dc01f367d475a9be53c5ddabf03ca1465.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOTTAWA — Former Supreme Court justice Louise Arbour has been installed as Canada's 31st Governor General, replacing Mary Simon. \n Today's ceremony included a 21-gun salute, a poetry reading and musical performances by two Canadian artists.",
-      "summary": "OTTAWA — Former Supreme Court justice Louise Arbour has been installed as Canada's 31st Governor General, replacing Mary Simon. Today's ceremony included a 21-gun salute, a poetry reading and musical performances by two Canadian artists.",
-      "_excerpt": "OTTAWA — Former Supreme Court justice Louise Arbour has been installed as Canada's 31st Governor General, replacing Mary Simon. Today's ceremony included a 21-gun salute, a poetry reading and musical performances by two Canadian artists.",
-      "date_published": "2026-06-08T16:11:13+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/0a26d027035c506dc4c41bb1f661e19dc01f367d475a9be53c5ddabf03ca1465.jpg;w=960"
-    },
-    {
-      "id": "https://www.androidpolice.com/use-social-media-every-day-but-changes-made-it-far-less-addictive/",
-      "url": "https://www.androidpolice.com/use-social-media-every-day-but-changes-made-it-far-less-addictive/",
-      "title": "[Android Police] I still use social media every day, but these changes make it far less addictive",
-      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/06/person-sitting-with-a-smartphone-next-to-social-media-app-icons-while-a-take-a-pause-message-encourages-more-mindful-social-media-use.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese tweaks stopped the endless scrolling",
-      "summary": "These tweaks stopped the endless scrolling",
-      "_excerpt": "These tweaks stopped the endless scrolling",
-      "date_published": "2026-06-07T11:00:12+00:00",
-      "authors": [
-        {
-          "name": "Android Police",
-          "url": "https://www.androidpolice.com"
-        }
-      ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/06/person-sitting-with-a-smartphone-next-to-social-media-app-icons-while-a-take-a-pause-message-encourages-more-mindful-social-media-use.png"
-    },
-    {
-      "id": "https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/",
-      "url": "https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/",
-      "title": "[TechCrunch] Still facing copyright lawsuits, AI music generator Suno raises another $400M",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/Suno_1.png?resize=1200,600\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe prominent AI music-generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
-      "summary": "The prominent AI music-generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
-      "_excerpt": "The prominent AI music-generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
-      "date_published": "2026-06-03T15:31:42+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/06/Suno_1.png?resize=1200,600"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/03/arts/jeffrey-epstein-interlochen-michigan.html",
-      "url": "https://www.nytimes.com/2026/06/03/arts/jeffrey-epstein-interlochen-michigan.html",
-      "title": "[NYT Top Stories] At Interlochen, Where Jeffrey Epstein’s Shadow Still Lingers",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/03/multimedia/03cul-epstein-interlochen-fmtp/03cul-epstein-interlochen-fmtp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe arts school and camp is still contending with the fallout from its former ties to Mr. Epstein, an alumnus and donor accused of preying on two girls he met there.",
-      "summary": "The arts school and camp is still contending with the fallout from its former ties to Mr. Epstein, an alumnus and donor accused of preying on two girls he met there.",
-      "_excerpt": "The arts school and camp is still contending with the fallout from its former ties to Mr. Epstein, an alumnus and donor accused of preying on two girls he met there.",
-      "date_published": "2026-06-03T09:02:01+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality_score": 62,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/06/03/multimedia/03cul-epstein-interlochen-fmtp/03cul-epstein-interlochen-fmtp-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.howtogeek.com/movies-that-changed-summer-blockbusters-forever/",
-      "url": "https://www.howtogeek.com/movies-that-changed-summer-blockbusters-forever/",
-      "title": "[How-To Geek] 6 iconic movies that changed summer blockbusters forever",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/collage-featuring-characters-from-batman-jurassic-park-the-avengers-barbie-and-the-lion-king-surrounded-by-floating-summer-blockbusters-movie-tickets.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom Batman to Barbie, these films changed summer cinema.",
-      "summary": "From Batman to Barbie, these films changed summer cinema.",
-      "_excerpt": "From Batman to Barbie, these films changed summer cinema.",
-      "date_published": "2026-06-07T16:15:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 61,
-      "_quality_score": 61,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 38,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/05/collage-featuring-characters-from-batman-jurassic-park-the-avengers-barbie-and-the-lion-king-surrounded-by-floating-summer-blockbusters-movie-tickets.png"
-    },
-    {
-      "id": "https://www.theguardian.com/global-development/2026/jun/06/african-leader-speech-decolonisation-ai-generated-fake-president-namibia-africa-caribbean",
-      "url": "https://www.theguardian.com/global-development/2026/jun/06/african-leader-speech-decolonisation-ai-generated-fake-president-namibia-africa-caribbean",
-      "title": "[The Guardian Global Development] It’s no surprise that an AI-faked presidential speech condemning foreign exploitation went viral – the world is suffering from a leadership vacuum",
-      "content_html": "<img src=\"https://i.guim.co.uk/img/media/5fe77c98d7c41d196d1e9296c84f62197ce3e75c/304_0_2132_1706/master/2132.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&amp;enable=upscale&amp;s=b7eab7fe62ddea957b99adaab58e97f6\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Attributed to the president of Namibia, the speech is still being shared as citizens across Africa and the Caribbean cry out for moral leaders willing to speak uncomfortable truths</p><p>For a moment, the speech attributed to Namibia’s president travelled across the world like a gust of hope. It was fierce. Defiant. Unapologetically sovereign. The speaker denounced corruption, condemned foreign exploitation and declared that Africa’s resources belonged not to politicians or multinational corporations but to its people. Netumbo Nandi-Ndaitwah spoke of leaders who signed away national wealth behind closed doors and warned that those who betrayed the public trust would face accountability. It sounded like the language of decolonisation reborn.</p><p>Across social media, many listened with admiration. Finally, here was a leader speaking with moral clarity. Here was the rhetoric that generations of postcolonial citizens had been waiting to hear. But there was one problem. It was fake. Nandi-Ndaitwah rejected it as an AI-generated fabrication.</p> <a href=\"https://www.theguardian.com/global-development/2026/jun/06/african-leader-speech-decolonisation-ai-generated-fake-president-namibia-africa-caribbean\">Continue reading...</a>",
-      "summary": "Attributed to the president of Namibia, the speech is still being shared as citizens across Africa and the Caribbean cry out for moral leaders willing to speak uncomfortable truths For a moment, the speech attributed to Namibia’s president travelled across the world like a gust of hope. It was",
-      "_excerpt": "Attributed to the president of Namibia, the speech is still being shared as citizens across Africa and the Caribbean cry out for moral leaders willing to speak uncomfortable truths For a moment, the speech attributed to Namibia’s president travelled across the world like a gust of hope. It was fierce. Defiant. Unapologetically sovereign. The speaker denounced corruption, condemned foreign exploitation and declared that Africa’s resources belonged not to politicians or multinational corporations but to its people. Netumbo Nandi-Ndaitwah spoke of leaders who signed away national wealth behind",
-      "date_published": "2026-06-06T06:00:01+00:00",
-      "authors": [
-        {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
-        }
-      ],
-      "ai_score": 59,
-      "_quality_score": 59,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.guim.co.uk/img/media/5fe77c98d7c41d196d1e9296c84f62197ce3e75c/304_0_2132_1706/master/2132.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=b7eab7fe62ddea957b99adaab58e97f6"
-    },
-    {
-      "id": "https://www.howtogeek.com/stop-using-default-router-setting-schange-these-immediately/",
-      "url": "https://www.howtogeek.com/stop-using-default-router-setting-schange-these-immediately/",
-      "title": "[How-To Geek] Stop using your router's default settings (change these 3 things immediately)",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-white-at-t-bgw320-wi-fi-6-router-on-a-wooden-shelf-between-two-desktop-towers.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI left my router on default settings for years—here’s why you should change yours today",
-      "summary": "I left my router on default settings for years—here’s why you should change yours today",
-      "_excerpt": "I left my router on default settings for years—here’s why you should change yours today",
-      "date_published": "2026-06-07T16:00:18+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/04/a-white-at-t-bgw320-wi-fi-6-router-on-a-wooden-shelf-between-two-desktop-towers.jpg"
-    },
-    {
-      "id": "https://www.tomsguide.com/ai/comedian-ronny-chieng-says-ai-is-just-gonna-end-up-making-mediocre-people-dumber-i-think-the-real-risk-is-worse",
-      "url": "https://www.tomsguide.com/ai/comedian-ronny-chieng-says-ai-is-just-gonna-end-up-making-mediocre-people-dumber-i-think-the-real-risk-is-worse",
-      "title": "[Toms Guide] Comedian Ronny Chieng says 'AI is just gonna end up making mediocre people dumber' — but I think the real risk is worse",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/tf7gnX5E8CN2rB3No7FbtX-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nComedian Ronny Chieng warned Harvard grads that AI makes mediocre people dumber. Here is why the real risk of ChatGPT and Claude is much worse than that.",
-      "summary": "Comedian Ronny Chieng warned Harvard grads that AI makes mediocre people dumber. Here is why the real risk of ChatGPT and Claude is much worse than that.",
-      "_excerpt": "Comedian Ronny Chieng warned Harvard grads that AI makes mediocre people dumber. Here is why the real risk of ChatGPT and Claude is much worse than that.",
-      "date_published": "2026-06-02T16:01:41+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality_score": 57,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 37,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/tf7gnX5E8CN2rB3No7FbtX-1280-80.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/08/technology/uk-video-memes-archive-tape.html",
-      "url": "https://www.nytimes.com/2026/06/08/technology/uk-video-memes-archive-tape.html",
-      "title": "[NYT Top Stories] B.F.I. Preserves ‘Charlie Bit My Finger’ and More Videos in Archive of Viral Moments",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe British Film Institute assembled more than 400 videos in an archive of culturally significant internet moments. See what made the cut.",
-      "summary": "The British Film Institute assembled more than 400 videos in an archive of culturally significant internet moments. See what made the cut.",
-      "_excerpt": "The British Film Institute assembled more than 400 videos in an archive of culturally significant internet moments. See what made the cut.",
-      "date_published": "2026-06-08T09:00:52+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 53,
-      "_quality_score": 53,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.atlasobscura.com/places/the-andree-monument",
-      "url": "https://www.atlasobscura.com/places/the-andree-monument",
-      "title": "[Atlas Obscura] The Andrée Monument in Solna, Sweden",
-      "content_html": "<img src=\"https://img.atlasobscura.com/MH-e0w0JybQQs5DFVsuEEK_1EGrUBA5eUk0FNNiaeF4/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85MjFi/NmMwOC1jZGMyLTRm/MjEtYmFlYy1kODNi/MDExZmVmNzhmZGJi/NzgzZDA2NGFjOTdk/YmNfQmFjay5qcGc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Back view\" height=\"200\" src=\"https://img.atlasobscura.com/FqZWYnfFWGchGOKXv1nKIZoiEtxuY9KEr7Pj-8MUmG0/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85MjFi/NmMwOC1jZGMyLTRm/MjEtYmFlYy1kODNi/MDExZmVmNzhmZGJi/NzgzZDA2NGFjOTdk/YmNfQmFjay5qcGc.jpg\" width=\"300\" /></p> <p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">In the summer of 1897, Sweden held its breath. Engineer Salomon August Andrée, photographer Nils Strindberg, and student Knut Frænkel had lifted off from Svalbard in a hydrogen balloon named <em>Örnen</em>  [The Eagle]  bound for the North Pole. After that, there was nothing but silence – no signals, no news, no wreckage. Just an emptiness that stretched across three decades of rumour, theory, and quiet national grief.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Then, in August 1930, a Norwegian sealing vessel landed on the remote and normally ice-locked island named Kvitøya [White Island]  and stumbled upon a frozen camp. The three men lay where they had fallen, their diaries, cameras, and undeveloped film preserved by the cold. Ninety-three photographs emerged from those rolls: haunting images of the crash, the ice, the men themselves, still cheerful and alive against the white void that would soon claim them. Sweden wept again after finally finding out what had happened to the expedition. </p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">The procession carrying their remains into Stockholm on October 5, 1930, has been described by Swedish historian Sverker Sörlin as one of the most solemn expressions of national mourning ever seen in the country. Four years later, on December 15, 1934, their ashes were placed in copper urns designed by sculptor Tore Strindberg (younger brother of Nils Strindberg). These urns were lowered into a rock grave at Norra Begravningsplatsen. The monument above them, hewn from granite quarried at Flivik, was a collaboration between Stockholm's stonemasons' guild and Förenade granitindustrier. Strindberg completed the reliefs adorning it in July 1948 — more than fifty years after the men had disappeared into the polar sky.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Look carefully at the base of the arrangement. Embedded among the Swedish granite are stones brought back from Kvitøya itself. A piece of the island where they died now sits in a cemetery outside Stockholm, connecting the two places across 2,500 kilometres – a monument to ambition, cold, and a very long silence.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">The monument stands in section 15E of the cemetery, not far from the graves of Alfred Nobel and playwright August Strindberg, cousin to Nils' and Tore's father. </p>",
-      "summary": "In the summer of 1897, Sweden held its breath. Engineer Salomon August Andrée, photographer Nils Strindberg, and student Knut Frænkel had lifted off from Svalbard in a hydrogen balloon named Örnen [The Eagle] bound for the North Pole. After that, there was nothing but silence – no signals, no news,",
-      "_excerpt": "In the summer of 1897, Sweden held its breath. Engineer Salomon August Andrée, photographer Nils Strindberg, and student Knut Frænkel had lifted off from Svalbard in a hydrogen balloon named Örnen [The Eagle] bound for the North Pole. After that, there was nothing but silence – no signals, no news, no wreckage. Just an emptiness that stretched across three decades of rumour, theory, and quiet national grief. Then, in August 1930, a Norwegian sealing vessel landed on the remote and normally ice-locked island named Kvitøya [White Island] and stumbled upon a frozen camp. The three men lay where",
-      "date_published": "2026-06-05T14:00:00+00:00",
-      "authors": [
-        {
-          "name": "Atlas Obscura",
-          "url": "https://www.atlasobscura.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality_score": 52,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 35,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://img.atlasobscura.com/MH-e0w0JybQQs5DFVsuEEK_1EGrUBA5eUk0FNNiaeF4/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85MjFi/NmMwOC1jZGMyLTRm/MjEtYmFlYy1kODNi/MDExZmVmNzhmZGJi/NzgzZDA2NGFjOTdk/YmNfQmFjay5qcGc.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/uk-prime-minister-keir-starmer-stop-children-circulating-nude-images/",
-      "url": "https://www.cnet.com/tech/services-and-software/uk-prime-minister-keir-starmer-stop-children-circulating-nude-images/",
-      "title": "[CNET] Stop Children From Taking and Sharing Nudes, UK Prime Minister Tells Tech Companies",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/c0d419616db79ddc035848c47e925db4b5d08b3a/hub/2026/06/08/0e470e83-0244-4de7-9d51-e669e108d79a/gettyimages-2280478466.jpg?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKeir Starmer is reportedly also on the brink of banning social media for children under 16, just as Australia has done.",
-      "summary": "Keir Starmer is reportedly also on the brink of banning social media for children under 16, just as Australia has done.",
-      "_excerpt": "Keir Starmer is reportedly also on the brink of banning social media for children under 16, just as Australia has done.",
-      "date_published": "2026-06-08T16:22:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 46,
-      "_quality_score": 46,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 33,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.cnet.com/a/img/resize/c0d419616db79ddc035848c47e925db4b5d08b3a/hub/2026/06/08/0e470e83-0244-4de7-9d51-e669e108d79a/gettyimages-2280478466.jpg?auto=webp&width=300"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/06/world/middleeast/israel-strike-lebanese-soldiers-general.html",
-      "url": "https://www.nytimes.com/2026/06/06/world/middleeast/israel-strike-lebanese-soldiers-general.html",
-      "title": "[NYT Top Stories] Israeli Strike Kills 3 Lebanese Soldiers, Days After Truce Was Signed",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06int-lebanon-strike-vbwm/06int-lebanon-strike-vbwm-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIsrael invaded Lebanon and occupied parts of the country to fight Hezbollah, an Iran-backed armed group, but its military offensive has drawn in others.",
-      "summary": "Israel invaded Lebanon and occupied parts of the country to fight Hezbollah, an Iran-backed armed group, but its military offensive has drawn in others.",
-      "_excerpt": "Israel invaded Lebanon and occupied parts of the country to fight Hezbollah, an Iran-backed armed group, but its military offensive has drawn in others.",
-      "date_published": "2026-06-06T13:49:03+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 46,
-      "_quality_score": 46,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 33,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06int-lebanon-strike-vbwm/06int-lebanon-strike-vbwm-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
-      "url": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
-      "title": "[My Cariboo Now] Federal action plan for forestry sector expected this week, as report warns of looming \"existential risk\" : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "id": "https://www.mycariboonow.com/314066/news/emergency-services/mediator-appointed-to-911-operator-contract-dispute-averting-strike/",
+      "url": "https://www.mycariboonow.com/314066/news/emergency-services/mediator-appointed-to-911-operator-contract-dispute-averting-strike/",
+      "title": "[My Cariboo Now] Mediator appointed to 911 operator contract dispute, averting strike : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
       "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
       "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-08T09:13:09.109671+00:00",
+      "date_published": "2026-06-11T09:01:57.131693+00:00",
       "authors": [
         {
           "name": "My Cariboo Now",
@@ -419,614 +78,517 @@
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 29,
-      "_final_score": 29,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
+      "_theme_score": 11,
+      "_final_score": 11,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
       "_category": "local",
       "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg"
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
     },
     {
-      "id": "https://wltribune.com/2026/06/07/one-fatality-in-vehicle-crash-on-highway-5-near-mclure-rcmp/",
-      "url": "https://wltribune.com/2026/06/07/one-fatality-in-vehicle-crash-on-highway-5-near-mclure-rcmp/",
-      "title": "[Williams Lake Tribune] One fatality in vehicle crash on Highway 5 near McLure: RCMP",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42501654_web1_260611-NTC-Mclure-incident-1_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDrive B.C. is notifying of a road closure between Dianna Road and Pinegrove Road",
-      "summary": "Drive B.C. is notifying of a road closure between Dianna Road and Pinegrove Road",
-      "_excerpt": "Drive B.C. is notifying of a road closure between Dianna Road and Pinegrove Road",
-      "date_published": "2026-06-07T10:42:00+00:00",
+      "id": "https://quesnelobserver.com/2026/06/11/hometown-hero-lisa-mccargar-keeps-the-sounds-of-bagpipes-and-drums-alive-in-quesnel/",
+      "url": "https://quesnelobserver.com/2026/06/11/hometown-hero-lisa-mccargar-keeps-the-sounds-of-bagpipes-and-drums-alive-in-quesnel/",
+      "title": "[Quesnel Cariboo Observer] HOMETOWN HERO: Lisa McCargar keeps the sounds of bagpipes and drums alive in Quesnel",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42481692_web1_KCP_4242.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>What began as a celebration of Scottish heritage has become so much more </p>",
+      "summary": "What began as a celebration of Scottish heritage has become so much more",
+      "_excerpt": "What began as a celebration of Scottish heritage has become so much more",
+      "date_published": "2026-06-11T16:00:00+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
         }
       ],
       "ai_score": 85,
       "_quality_score": 85,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42501654_web1_260611-NTC-Mclure-incident-1_1.jpg?w=1024"
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 1,
+      "_boosted_score": 45,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42481692_web1_KCP_4242.jpg?w=1024"
     },
     {
-      "id": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
-      "url": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
-      "title": "[BC Gov News] Sharing local farm harvests through coupon program",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
-      "summary": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
-      "_excerpt": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
-      "date_published": "2026-06-08T16:30:00+00:00",
+      "id": "https://www.engadget.com/2191553/after-belfast-riots-uk-reminds-social-platforms-theyre-obligated-to-remove-hateful-content/",
+      "url": "https://www.engadget.com/2191553/after-belfast-riots-uk-reminds-social-platforms-theyre-obligated-to-remove-hateful-content/",
+      "title": "[Engadget] After Belfast riots, UK reminds social platforms they're obligated to remove hateful content",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/after-belfast-riots-uk-reminds-social-platforms-theyre-obligated-to-remove-hateful-content/l-intro-1781111331.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe UK's communications regulator has reminded social media platforms they have a duty to minimize hateful content, not encourage it.",
+      "summary": "The UK's communications regulator has reminded social media platforms they have a duty to minimize hateful content, not encourage it.",
+      "_excerpt": "The UK's communications regulator has reminded social media platforms they have a duty to minimize hateful content, not encourage it.",
+      "date_published": "2026-06-10T17:12:52+00:00",
       "authors": [
         {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "ai_score": 81,
-      "_quality_score": 81,
-      "_theme_score": 5,
-      "_final_score": 5,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/08/paving-underway-on-80km-stretch-of-hwy-1-near-ashcroft/",
-      "url": "https://wltribune.com/2026/06/08/paving-underway-on-80km-stretch-of-hwy-1-near-ashcroft/",
-      "title": "[Williams Lake Tribune] Paving underway on 80km stretch of Hwy. 1 near Ashcroft",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42492592_web1_paving_wantage.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProject will see paving on Highways 1 and 97 between Venables Valley Road and Hwy. 99 junction",
-      "summary": "Project will see paving on Highways 1 and 97 between Venables Valley Road and Hwy. 99 junction",
-      "_excerpt": "Project will see paving on Highways 1 and 97 between Venables Valley Road and Hwy. 99 junction",
-      "date_published": "2026-06-08T16:36:31.866046+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 82,
-      "_quality_score": 82,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42492592_web1_paving_wantage.jpg?w=1024"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/08/us/ai-studies-major-explained.html",
-      "url": "https://www.nytimes.com/2026/06/08/us/ai-studies-major-explained.html",
-      "title": "[NYT Top Stories] Want an A.I. Degree? Here’s What You Should Think About.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/02/multimedia/00nat-ai-studies-btpz/00nat-ai-studies-btpz-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe programs are popping up on campuses across America. What they teach varies.",
-      "summary": "The programs are popping up on campuses across America. What they teach varies.",
-      "_excerpt": "The programs are popping up on campuses across America. What they teach varies.",
-      "date_published": "2026-06-08T09:00:21+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 82,
-      "_quality_score": 82,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/02/multimedia/00nat-ai-studies-btpz/00nat-ai-studies-btpz-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/ai-made-pc-hardware-unattainable-but-it-also-made-a-home-server-more-accessible-than-ever/",
-      "url": "https://www.xda-developers.com/ai-made-pc-hardware-unattainable-but-it-also-made-a-home-server-more-accessible-than-ever/",
-      "title": "[XDA Developers] The AI boom crushed PC building, but it's the best thing that happened to home labs",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/home-lab-compact-pcs-fujitsu-angle-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe bar has never been lower to begin self-hosting",
-      "summary": "The bar has never been lower to begin self-hosting",
-      "_excerpt": "The bar has never been lower to begin self-hosting",
-      "date_published": "2026-06-03T23:00:23+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
         }
       ],
       "ai_score": 80,
       "_quality_score": 80,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/home-lab-compact-pcs-fujitsu-angle-1.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/06/03/gitlab-cuts-14-of-staff-as-it-scales-its-platform-to-serve-ai-workloads/",
-      "url": "https://techcrunch.com/2026/06/03/gitlab-cuts-14-of-staff-as-it-scales-its-platform-to-serve-ai-workloads/",
-      "title": "[TechCrunch] GitLab cuts 14% of staff as it scales its platform to serve AI workloads",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2024/12/PXL_20220520_112153305.jpg?resize=1200,903\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
-      "summary": "The company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
-      "_excerpt": "The company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
-      "date_published": "2026-06-03T14:59:30+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2024/12/PXL_20220520_112153305.jpg?resize=1200,903"
-    },
-    {
-      "id": "https://news.gov.bc.ca/releases/2026JEG0041-000666",
-      "url": "https://news.gov.bc.ca/releases/2026JEG0041-000666",
-      "title": "[BC Gov News] Helping Kootenay small businesses grow with digital tools",
-      "content_html": "<img src=\"https://live.staticflickr.com/65535/55317027405_6cc9d48a8a_b.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProvincial funding supports small business growth, success",
-      "summary": "Provincial funding supports small business growth, success",
-      "_excerpt": "Provincial funding supports small business growth, success",
-      "date_published": "2026-06-08T15:30:00+00:00",
-      "authors": [
-        {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 42,
-      "_final_score": 42,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://live.staticflickr.com/65535/55317027405_6cc9d48a8a_b.jpg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/services-and-software/features/life-got-so-much-better-when-i-turned-off-my-phone-notifications/",
-      "url": "https://www.cnet.com/tech/services-and-software/features/life-got-so-much-better-when-i-turned-off-my-phone-notifications/",
-      "title": "[CNET] Life Got So Much Better When I Turned Off My Phone Notifications",
-      "content_html": "<img src=\"https://www.cnet.com/a/img/resize/05814ce57dd5dbb789ea6ea85baa751fc83bd584/hub/2026/05/28/b35277e4-440e-43a1-9763-4df5de9c14af/hero.png?auto=webp&amp;width=300\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nApps, emails, promos, DMs and tiny red badges had hijacked my attention. Taking it back forced me to evaluate my relationship with my phone.",
-      "summary": "Apps, emails, promos, DMs and tiny red badges had hijacked my attention. Taking it back forced me to evaluate my relationship with my phone.",
-      "_excerpt": "Apps, emails, promos, DMs and tiny red badges had hijacked my attention. Taking it back forced me to evaluate my relationship with my phone.",
-      "date_published": "2026-06-08T14:05:43+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
       "_theme_score": 3,
       "_final_score": 3,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.cnet.com/a/img/resize/05814ce57dd5dbb789ea6ea85baa751fc83bd584/hub/2026/05/28/b35277e4-440e-43a1-9763-4df5de9c14af/hero.png?auto=webp&width=300"
+      "_is_bonus": false,
+      "image": "https://www.engadget.com/img/gallery/after-belfast-riots-uk-reminds-social-platforms-theyre-obligated-to-remove-hateful-content/l-intro-1781111331.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/mom-uses-ai-manage-household-parenting-2026-6",
-      "url": "https://www.businessinsider.com/mom-uses-ai-manage-household-parenting-2026-6",
-      "title": "[Business Insider] I use AI at home because I'm a working mom. It saves me 10 hours a week, and I'm tired of the backlash.",
-      "content_html": "<img src=\"https://i.insider.com/6a107426b1025a62a5c8611a?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCara Katz says AI tools save her family hours every week by helping manage schedules, groceries, childcare, and parenting logistics.",
-      "summary": "Cara Katz says AI tools save her family hours every week by helping manage schedules, groceries, childcare, and parenting logistics.",
-      "_excerpt": "Cara Katz says AI tools save her family hours every week by helping manage schedules, groceries, childcare, and parenting logistics.",
-      "date_published": "2026-06-07T15:22:01+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/13/albania-protests-escalate-over-kushner-backed-coastal-development?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/13/albania-protests-escalate-over-kushner-backed-coastal-development?traffic_source=rss",
+      "title": "[Al Jazeera English] Albania protests escalate over Kushner-backed coastal development",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781373408.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n![](/wp-content/uploads/2026/06/image-1781373408.jpg?resize=730%2C410&quality=80) Albania protests escalate over Kushner-backed coastal development Protesters clashed with Albanian police at the site of a luxury holiday resort being built with the backing of Jared Kushner – Donald Trump’s son-in-law. Large demonstrations also took place in Tirana on Friday as opposition to the $5.7 billion project near protected wetlands grows. Published On 13 Jun 2026 Click here to share on social media",
+      "summary": "![](/wp-content/uploads/2026/06/image-1781373408.jpg?resize=730%2C410&quality=80) Albania protests escalate over Kushner-backed coastal development Protesters clashed with Albanian police at the site of a luxury holiday resort being built with the backing of Jared Kushner – Donald Trump’s",
+      "_excerpt": "![](/wp-content/uploads/2026/06/image-1781373408.jpg?resize=730%2C410&quality=80) Albania protests escalate over Kushner-backed coastal development Protesters clashed with Albanian police at the site of a luxury holiday resort being built with the backing of Jared Kushner – Donald Trump’s son-in-law. Large demonstrations also took place in Tirana on Friday as opposition to the $5.7 billion project near protected wetlands grows. Published On 13 Jun 2026 Click here to share on social media",
+      "date_published": "2026-06-13T17:57:16+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781373408.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
+      "url": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
+      "title": "[Business Insider] We talked to the comedians behind the viral fake AI ads on the subway",
+      "content_html": "<img src=\"https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "summary": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "_excerpt": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "date_published": "2026-06-11T22:12:26+00:00",
       "authors": [
         {
           "name": "Business Insider",
           "url": "https://www.businessinsider.com"
         }
       ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "ai_score": 80,
+      "_quality_score": 80,
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 1,
+      "_boosted_score": 44,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a107426b1025a62a5c8611a?format=jpeg"
+      "_is_bonus": false,
+      "image": "https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg"
     },
     {
-      "id": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
-      "url": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
-      "title": "[Quartz] Canada is launching a $360 million fund to take equity stakes in homegrown AI firms",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
-      "summary": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
-      "_excerpt": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
-      "date_published": "2026-06-05T14:20:33+00:00",
+      "id": "https://www.piquenewsmagazine.com/the-mix/alberta-country-music-artist-corb-lund-expected-to-hand-in-anti-coal-petition-12400140",
+      "url": "https://www.piquenewsmagazine.com/the-mix/alberta-country-music-artist-corb-lund-expected-to-hand-in-anti-coal-petition-12400140",
+      "title": "[Pique Newsmagazine] Alberta country music artist Corb Lund expected to hand in anti-coal petition",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/89ebd1fbd43f723dae537be417b268924422533a36131f881767993b11725f38.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEDMONTON — Country music artist Corb Lund is expected to deliver his anti-coal mining petition to Elections Alberta today.",
+      "summary": "EDMONTON — Country music artist Corb Lund is expected to deliver his anti-coal mining petition to Elections Alberta today.",
+      "_excerpt": "EDMONTON — Country music artist Corb Lund is expected to deliver his anti-coal mining petition to Elections Alberta today.",
+      "date_published": "2026-06-10T08:00:10+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/broadcom-stock-avgo-chip-stocks-ai-crwd-mu-amd-mrvl-2026-6",
-      "url": "https://www.businessinsider.com/broadcom-stock-avgo-chip-stocks-ai-crwd-mu-amd-mrvl-2026-6",
-      "title": "[Business Insider] The AI trade is having a terrible day",
-      "content_html": "<img src=\"https://i.insider.com/6a21890f2e5a80cfe05035fa?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nChip stocks dropped on Thursday, dragged by tepid results from Broadcom. The AI darling fell 16% as investors dumped shares after earnings.",
-      "summary": "Chip stocks dropped on Thursday, dragged by tepid results from Broadcom. The AI darling fell 16% as investors dumped shares after earnings.",
-      "_excerpt": "Chip stocks dropped on Thursday, dragged by tepid results from Broadcom. The AI darling fell 16% as investors dumped shares after earnings.",
-      "date_published": "2026-06-04T15:11:06+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a21890f2e5a80cfe05035fa?format=jpeg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/06/02/trump-signs-narrower-executive-order-on-ai-oversight-after-industry-objections/",
-      "url": "https://techcrunch.com/2026/06/02/trump-signs-narrower-executive-order-on-ai-oversight-after-industry-objections/",
-      "title": "[TechCrunch] Trump signs narrower executive order on AI oversight after industry objections",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2277839095.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAfter industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models.",
-      "summary": "After industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models.",
-      "_excerpt": "After industry objections, President Trump signed a revised AI executive order requiring only voluntary prerelease government reviews of advanced models.",
-      "date_published": "2026-06-02T16:23:08+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2277839095.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/02/bodies-of-2-paddleboarders-recovered-from-lake-near-squamish/",
-      "url": "https://wltribune.com/2026/06/02/bodies-of-2-paddleboarders-recovered-from-lake-near-squamish/",
-      "title": "[Williams Lake Tribune] Bodies of 2 paddleboarders recovered from lake near Squamish",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42468867_web1_250314-bpd-rcmp-e-division3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe underwater search team was back at Browning Lake on June 2 to continue searching",
-      "summary": "The underwater search team was back at Browning Lake on June 2 to continue searching",
-      "_excerpt": "The underwater search team was back at Browning Lake on June 2 to continue searching",
-      "date_published": "2026-06-02T16:07:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42468867_web1_250314-bpd-rcmp-e-division3.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/07/briones-going-cuckoo-over-photographing-birds/",
-      "url": "https://wltribune.com/2026/06/07/briones-going-cuckoo-over-photographing-birds/",
-      "title": "[Williams Lake Tribune] BRIONES: Going cuckoo over photographing birds",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42502111_web1_260603-PQN-Photographing-Birds-K_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>COLUMN: New passion requires plenty of patience </p>",
-      "summary": "COLUMN: New passion requires plenty of patience",
-      "_excerpt": "COLUMN: New passion requires plenty of patience",
-      "date_published": "2026-06-07T14:00:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42502111_web1_260603-PQN-Photographing-Birds-K_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/06/briefing/balancing-act.html",
-      "url": "https://www.nytimes.com/2026/06/06/briefing/balancing-act.html",
-      "title": "[NYT Top Stories] Balancing Act",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe tension between sticking to what we know and seeking out new experiences is one of comfort versus novelty. How can we have both?",
-      "summary": "The tension between sticking to what we know and seeking out new experiences is one of comfort versus novelty. How can we have both?",
-      "_excerpt": "The tension between sticking to what we know and seeking out new experiences is one of comfort versus novelty. How can we have both?",
-      "date_published": "2026-06-06T10:05:50+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality_score": 78,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
-      "url": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
-      "title": "[NYT Top Stories] A.I. Companies Don’t Know What to Do With Alex Bores",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOutside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
-      "summary": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
-      "_excerpt": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
-      "date_published": "2026-06-06T07:00:07+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
         }
       ],
       "ai_score": 77,
       "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 1,
+      "_boosted_score": 43,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg"
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/89ebd1fbd43f723dae537be417b268924422533a36131f881767993b11725f38.jpg;w=960"
     },
     {
-      "id": "https://qz.com/algorithms-that-shape-what-you-see",
-      "url": "https://qz.com/algorithms-that-shape-what-you-see",
-      "title": "[Quartz] 15 algorithms that shape what you see every day",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/pexels-cottonbro-8088495.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFrom the feed you scroll to the prices you pay, these 15 algorithms are making more decisions about your daily life than you probably realize",
-      "summary": "From the feed you scroll to the prices you pay, these 15 algorithms are making more decisions about your daily life than you probably realize",
-      "_excerpt": "From the feed you scroll to the prices you pay, these 15 algorithms are making more decisions about your daily life than you probably realize",
-      "date_published": "2026-06-04T09:14:38+00:00",
+      "id": "https://boingboing.net/2026/06/13/at-a-medieval-church-festival-the-priest-brayed-like-a-donkey-and-the-congregation-brayed-back.html",
+      "url": "https://boingboing.net/2026/06/13/at-a-medieval-church-festival-the-priest-brayed-like-a-donkey-and-the-congregation-brayed-back.html",
+      "title": "[Boing Boing] At a medieval church festival, the priest brayed like a donkey and the congregation brayed back",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114204.jpg?fit=1200%2C1588&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/13/at-a-medieval-church-festival-the-priest-brayed-like-a-donkey-and-the-congregation-brayed-back.html\" rel=\"nofollow\" title=\"At a medieval church festival, the priest brayed like a donkey and the congregation brayed back\"><img alt=\"Feast of the Ass illustration from 1913\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1588\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114204.jpg?fit=1200%2C1588&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">The <a href=\"https://en.wikipedia.org/wiki/Feast_of_the_Ass\">Feast of the Ass</a> was a medieval Christian celebration held on January 14, honoring the donkey that carried the Holy Family into Egypt. A girl and a child riding a real donkey would be led through town to the church, where the animal stood beside the altar during the sermon. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/13/at-a-medieval-church-festival-the-priest-brayed-like-a-donkey-and-the-congregation-brayed-back.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/13/at-a-medieval-church-festival-the-priest-brayed-like-a-donkey-and-the-congregation-brayed-back.html\">At a medieval church festival, the priest brayed like a donkey and the congregation brayed back</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "The Feast of the Ass was a medieval Christian celebration held on January 14, honoring the donkey that carried the Holy Family into Egypt. A girl and a child riding a real donkey would be led through town to the church, where the animal stood beside the altar during the sermon. — Read the rest The",
+      "_excerpt": "The Feast of the Ass was a medieval Christian celebration held on January 14, honoring the donkey that carried the Holy Family into Egypt. A girl and a child riding a real donkey would be led through town to the church, where the animal stood beside the altar during the sermon. — Read the rest The post At a medieval church festival, the priest brayed like a donkey and the congregation brayed back appeared first on Boing Boing .",
+      "date_published": "2026-06-14T02:06:14+00:00",
       "authors": [
         {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/pexels-cottonbro-8088495.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/04/magazine/ai-chatbot-morning-routine-videos.html",
-      "url": "https://www.nytimes.com/2026/06/04/magazine/ai-chatbot-morning-routine-videos.html",
-      "title": "[NYT Top Stories] Should You Outsource Your Morning Routine to a Chatbot?",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA.I. wants to help you start the day. Its suggestions? Drink coffee and get dressed.",
-      "summary": "A.I. wants to help you start the day. Its suggestions? Drink coffee and get dressed.",
-      "_excerpt": "A.I. wants to help you start the day. Its suggestions? Drink coffee and get dressed.",
-      "date_published": "2026-06-04T09:03:39+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.businessinsider.com/ai-capex-boom-meta-microsoft-amazon-alphabet-goldman-sachs-2026-6",
-      "url": "https://www.businessinsider.com/ai-capex-boom-meta-microsoft-amazon-alphabet-goldman-sachs-2026-6",
-      "title": "[Business Insider] AI spending from 4 tech giants will exceed the GDP of Japan through 2030, Goldman says",
-      "content_html": "<img src=\"https://i.insider.com/6a2050332ab5f9757add881e?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
-      "summary": "AI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
-      "_excerpt": "AI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
-      "date_published": "2026-06-03T16:03:43+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a2050332ab5f9757add881e?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/deloitte-graduates-jobs-think-ai-use-cheating-rob-hillard-2026-6",
-      "url": "https://www.businessinsider.com/deloitte-graduates-jobs-think-ai-use-cheating-rob-hillard-2026-6",
-      "title": "[Business Insider] Graduates are coming into the workforce thinking that using AI is cheating, a top Deloitte exec says",
-      "content_html": "<img src=\"https://i.insider.com/6a1fe0fb2ab5f9757add8574?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCollages are teaching students to view using AI as cheating, said Rob Hillard, the CEO Deloitte's Asia-Pacific division.",
-      "summary": "Collages are teaching students to view using AI as cheating, said Rob Hillard, the CEO Deloitte's Asia-Pacific division.",
-      "_excerpt": "Collages are teaching students to view using AI as cheating, said Rob Hillard, the CEO Deloitte's Asia-Pacific division.",
-      "date_published": "2026-06-03T10:13:12+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a1fe0fb2ab5f9757add8574?format=jpeg"
-    },
-    {
-      "id": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
-      "url": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
-      "title": "[MakeUseOf] I put a $29 sensor in my mailbox, and now I get a notification when the mail arrives",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/stone-mailbox-pillar-with-house-number-29911.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis easy to install device alerts me as soon as my mail arrives.",
-      "summary": "This easy to install device alerts me as soon as my mail arrives.",
-      "_excerpt": "This easy to install device alerts me as soon as my mail arrives.",
-      "date_published": "2026-06-08T16:30:18+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
       "ai_score": 76,
       "_quality_score": 76,
-      "_theme_score": 3,
-      "_final_score": 3,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "_theme_score": 5,
+      "_final_score": 5,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/stone-mailbox-pillar-with-house-number-29911.jpg"
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114204.jpg?fit=1200%2C1588&quality=60&ssl=1"
     },
     {
-      "id": "https://www.tomsguide.com/home/gardening/what-can-i-do-if-my-neighbors-hedge-is-too-high-and-blocking-my-light-i-asked-the-experts",
-      "url": "https://www.tomsguide.com/home/gardening/what-can-i-do-if-my-neighbors-hedge-is-too-high-and-blocking-my-light-i-asked-the-experts",
-      "title": "[Toms Guide] What can I do if my neighbor's hedge is too high and blocking my light? I asked the experts",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/6hgjyqLphxTQKcbzwPFNPE-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMy neighbor’s hedge is too high and blocking out my light — I ask the experts what to do and what the best practices are.",
-      "summary": "My neighbor’s hedge is too high and blocking out my light — I ask the experts what to do and what the best practices are.",
-      "_excerpt": "My neighbor’s hedge is too high and blocking out my light — I ask the experts what to do and what the best practices are.",
-      "date_published": "2026-06-06T04:45:00+00:00",
+      "id": "https://qz.com/all-in-podcast-host-liquidity-summit-napa-valley",
+      "url": "https://qz.com/all-in-podcast-host-liquidity-summit-napa-valley",
+      "title": "[Quartz] All-In Podcast host Jason Calacanis overviews Liquidity Summit in Napa Valley",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/All-In%2520Podcast%2520Host%2520Jason%2520Calacanis%2520Overviews%2520Liquidity%2520Summit%2520in%2520Napa%2520Valley\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAll-In Podcast host Jason Calacanis overviews Liquidity Summit in Napa Valley",
+      "summary": "All-In Podcast host Jason Calacanis overviews Liquidity Summit in Napa Valley",
+      "_excerpt": "All-In Podcast host Jason Calacanis overviews Liquidity Summit in Napa Valley",
+      "date_published": "2026-06-11T20:40:08+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality_score": 74,
+      "_theme_score": 1,
+      "_final_score": 1,
+      "_keyword_matches": 1,
+      "_boosted_score": 42,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/All-In%2520Podcast%2520Host%2520Jason%2520Calacanis%2520Overviews%2520Liquidity%2520Summit%2520in%2520Napa%2520Valley"
+    },
+    {
+      "id": "https://www.tomsguide.com/entertainment/movies/critics-hated-parts-of-denzels-1998-action-thriller-movie-but-28-years-later-it-hits-completely-differently",
+      "url": "https://www.tomsguide.com/entertainment/movies/critics-hated-parts-of-denzels-1998-action-thriller-movie-but-28-years-later-it-hits-completely-differently",
+      "title": "[Toms Guide] Critics hated parts of Denzel’s 1998 action thriller movie, but 28 years later, it hits completely differently",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/GPdbJVK75Tyn2Jt23tjYFH-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDenzel’s 1998 action thriller, \"The Siege,\" has some flaws that critics hated. But 28 years later, this movie hits completely differently.",
+      "summary": "Denzel’s 1998 action thriller, \"The Siege,\" has some flaws that critics hated. But 28 years later, this movie hits completely differently.",
+      "_excerpt": "Denzel’s 1998 action thriller, \"The Siege,\" has some flaws that critics hated. But 28 years later, this movie hits completely differently.",
+      "date_published": "2026-06-13T05:30:00+00:00",
       "authors": [
         {
           "name": "Toms Guide",
           "url": "https://www.tomsguide.com"
         }
       ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
+      "ai_score": 73,
+      "_quality_score": 73,
+      "_theme_score": 4,
+      "_final_score": 4,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/6hgjyqLphxTQKcbzwPFNPE-1280-80.jpg"
+      "_is_bonus": false,
+      "image": "https://cdn.mos.cms.futurecdn.net/GPdbJVK75Tyn2Jt23tjYFH-1280-80.jpg"
     },
     {
-      "id": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
-      "url": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
-      "title": "[New Atlas] Breakthrough drug nearly doubles survival rate for advanced pancreatic cancer",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"artist's impression of a pancreas\" src=\"https://assets.newatlas.com/dims4/default/8e61078/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg\" /><p>Christopher Lieu, University of Colorado Anschutz/ The Conversation</p><p><a href=\"https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/cancer/\">Cancer</a>, <a href=\"https://refractor.io/disease/\">Illnesses and conditions</a>, <a href=\"https://refractor.io/medical/\">Body and Mind</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/pancreatic-cancer/\" rel=\"tag\">Pancreatic cancer</a>, <a href=\"https://newatlas.com/tag/drugs/\" rel=\"tag\">Drugs</a>, <a href=\"https://newatlas.com/tag/pancreas/\" rel=\"tag\">Pancreas</a>, <a href=\"https://newatlas.com/tag/pharmaceuticals/\" rel=\"tag\">Pharmaceuticals</a></p>",
-      "summary": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
-      "_excerpt": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
-      "date_published": "2026-06-03T06:48:59+00:00",
+      "id": "https://boingboing.net/2026/06/10/kim-jong-il-had-a-south-korean-actress-kidnapped-to-make-him-movies.html",
+      "url": "https://boingboing.net/2026/06/10/kim-jong-il-had-a-south-korean-actress-kidnapped-to-make-him-movies.html",
+      "title": "[Boing Boing] Kim Jong-il had a South Korean actress kidnapped to make him movies",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/19660529%E5%B4%94%E9%8A%80%E5%A7%AC.jpg?fit=806%2C1200&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/10/kim-jong-il-had-a-south-korean-actress-kidnapped-to-make-him-movies.html\" rel=\"nofollow\" title=\"Kim Jong-il had a South Korean actress kidnapped to make him movies\"><img alt=\"By 中央通訊社 - http://newnrch.digital.ntu.edu.tw/nrch/query.php?keyword=%E7%94%B3%E7%9B%B8%E7%8E%89&amp;advanced=, Public Domain, Link\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1200\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/19660529%E5%B4%94%E9%8A%80%E5%A7%AC.jpg?fit=806%2C1200&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"806\" /></a><p class=\"wp-block-paragraph\"><a href=\"https://en.wikipedia.org/wiki/Choi_Eun-hee\">Choi Eun-hee</a> was one of South Korea's biggest film stars of the 1960s and 1970s. In 1978 she traveled to Hong Kong to meet a supposed businessman about a new film company. \"In Hong Kong, Choi was abducted and taken to North Korea by the order of Kim Jong Il.\" &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/10/kim-jong-il-had-a-south-korean-actress-kidnapped-to-make-him-movies.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/10/kim-jong-il-had-a-south-korean-actress-kidnapped-to-make-him-movies.html\">Kim Jong-il had a South Korean actress kidnapped to make him movies</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "Choi Eun-hee was one of South Korea's biggest film stars of the 1960s and 1970s. In 1978 she traveled to Hong Kong to meet a supposed businessman about a new film company. \"In Hong Kong, Choi was abducted and taken to North Korea by the order of Kim Jong Il.\" — Read the rest The post Kim Jong-il",
+      "_excerpt": "Choi Eun-hee was one of South Korea's biggest film stars of the 1960s and 1970s. In 1978 she traveled to Hong Kong to meet a supposed businessman about a new film company. \"In Hong Kong, Choi was abducted and taken to North Korea by the order of Kim Jong Il.\" — Read the rest The post Kim Jong-il had a South Korean actress kidnapped to make him movies appeared first on Boing Boing .",
+      "date_published": "2026-06-10T23:04:33+00:00",
       "authors": [
         {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 4,
+      "_final_score": 4,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/19660529%E5%B4%94%E9%8A%80%E5%A7%AC.jpg?fit=806%2C1200&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/13/thousands-mourn-thai-princess-as-body-taken-to-lie-in-state-in-bangkok?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/13/thousands-mourn-thai-princess-as-body-taken-to-lie-in-state-in-bangkok?traffic_source=rss",
+      "title": "[Al Jazeera English] Thousands mourn Thai princess as body taken to lie in state in Bangkok",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781385640.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n![](/wp-content/uploads/2026/06/image-1781385640.jpg?resize=730%2C410&quality=80) Thousands mourn Thai princess as body taken to lie in state in Bangkok Thousands of mourners lined Bangkok streets as the body of Princess Bajrakitiyabha, daughter of Thailand’s king, was brought to the Grand Palace in a royal procession. The 47-year-old princess had been in a coma for more than three years before dying from an abdominal infection. Published On 13 Jun 2026 Click here to share on social media",
+      "summary": "![](/wp-content/uploads/2026/06/image-1781385640.jpg?resize=730%2C410&quality=80) Thousands mourn Thai princess as body taken to lie in state in Bangkok Thousands of mourners lined Bangkok streets as the body of Princess Bajrakitiyabha, daughter of Thailand’s king, was brought to the Grand Palace",
+      "_excerpt": "![](/wp-content/uploads/2026/06/image-1781385640.jpg?resize=730%2C410&quality=80) Thousands mourn Thai princess as body taken to lie in state in Bangkok Thousands of mourners lined Bangkok streets as the body of Princess Bajrakitiyabha, daughter of Thailand’s king, was brought to the Grand Palace in a royal procession. The 47-year-old princess had been in a coma for more than three years before dying from an abdominal infection. Published On 13 Jun 2026 Click here to share on social media",
+      "date_published": "2026-06-13T21:20:58+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 73,
+      "_quality_score": 73,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781385640.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://jaspermayone.com/podroll",
+      "url": "https://jaspermayone.com/podroll",
+      "title": "[Kagi Small Web] Podroll",
+      "content_html": "<img src=\"https://jaspermayone.com/opengraph-image.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPodcasts I listen to and recommend",
+      "summary": "Podcasts I listen to and recommend",
+      "_excerpt": "Podcasts I listen to and recommend",
+      "date_published": "2026-06-12T22:11:12+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://jaspermayone.com/opengraph-image.png"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/national-news/digital-safety-bill-banning-kids-under-16-from-social-media-to-be-introduced-today-12400177",
+      "url": "https://www.piquenewsmagazine.com/national-news/digital-safety-bill-banning-kids-under-16-from-social-media-to-be-introduced-today-12400177",
+      "title": "[Pique Newsmagazine] Digital safety bill banning kids under 16 from social media to be introduced today",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/6c62fe62d30dd8a0c1f464e3803a968c7937eccb01ac1f6be9fb8baa9e7f385e.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOTTAWA — The federal government will introduce legislation today addressing social media and AI chatbot safety.",
+      "summary": "OTTAWA — The federal government will introduce legislation today addressing social media and AI chatbot safety.",
+      "_excerpt": "OTTAWA — The federal government will introduce legislation today addressing social media and AI chatbot safety.",
+      "date_published": "2026-06-10T08:00:15+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality_score": 72,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/6c62fe62d30dd8a0c1f464e3803a968c7937eccb01ac1f6be9fb8baa9e7f385e.jpg;w=960"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
+      "url": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
+      "title": "[Williams Lake Tribune] New bill introduces social media age restrictions for Canadians under 16",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMiller says social media services will need to remove harmful content within 24 hours",
+      "summary": "Miller says social media services will need to remove harmful content within 24 hours",
+      "_excerpt": "Miller says social media services will need to remove harmful content within 24 hours",
+      "date_published": "2026-06-10T14:37:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
       "ai_score": 70,
       "_quality_score": 70,
       "_theme_score": 3,
       "_final_score": 3,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&rf.image_optimisation=0"
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024"
     },
     {
-      "id": "https://www.makeuseof.com/disabled-windows-background-service-pc-stopped-freezing-mid-task/",
-      "url": "https://www.makeuseof.com/disabled-windows-background-service-pc-stopped-freezing-mid-task/",
-      "title": "[MakeUseOf] I disabled one Windows background service and my PC stopped freezing mid-task",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2026/05/connected-user-experiences-and-telemetry-on-a-monitor-17-brightness.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI found the Windows service that was causing my PC to freeze every few minutes — and disabling it changed everything.",
-      "summary": "I found the Windows service that was causing my PC to freeze every few minutes — and disabling it changed everything.",
-      "_excerpt": "I found the Windows service that was causing my PC to freeze every few minutes — and disabling it changed everything.",
-      "date_published": "2026-06-05T14:00:18+00:00",
+      "id": "https://www.nytimes.com/2026/06/14/business/media/kash-patel-defamation-lawsuits.html",
+      "url": "https://www.nytimes.com/2026/06/14/business/media/kash-patel-defamation-lawsuits.html",
+      "title": "[NYT Business] Kash Patel Keeps Suing the Press",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/00biz-patel-lctj/00biz-patel-lctj-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe F.B.I. director, following a strategy from President Trump, has filed six defamation lawsuits against news media companies and commentators in nearly seven years.",
+      "summary": "The F.B.I. director, following a strategy from President Trump, has filed six defamation lawsuits against news media companies and commentators in nearly seven years.",
+      "_excerpt": "The F.B.I. director, following a strategy from President Trump, has filed six defamation lawsuits against news media companies and commentators in nearly seven years.",
+      "date_published": "2026-06-14T09:00:33+00:00",
       "authors": [
         {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
         }
       ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 3,
-      "_final_score": 3,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
+      "ai_score": 71,
+      "_quality_score": 71,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
       "_category": "news",
       "_source_category": "news",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/00biz-patel-lctj/00biz-patel-lctj-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/14/us-asks-anthropic-to-block-global-access-to-top-ai-models-why-it-matters?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/14/us-asks-anthropic-to-block-global-access-to-top-ai-models-why-it-matters?traffic_source=rss",
+      "title": "[Al Jazeera English] US asks Anthropic to block global access to top AI models: Why it matters",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/02/reuters_69a20fba-1772228538.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nListen (6 mins) Click here to share on social media [](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faje.news%2Fhfitv0)[](https://twitter.com/intent/tweet?text=US%20asks%20Anthropic%20to%20block%20global%20access%20to%20top%20AI%20models%3A%20Why%20it%20matters&source=sharethiscom&related=sharethis&via=AJEnglish&url=https%3A%2F%2Faje.news%2Fhfitv0)[](https://send?text=https%3A%2F%2Faje.news%2Fhfitv0) Add Al Jazeera on Google ![Anthropic logo is seen in this illustration taken May 20, 2024. REUTERS/Dado Ruvic/Illustration/File",
+      "summary": "Listen (6 mins) Click here to share on social media",
+      "_excerpt": "Listen (6 mins) Click here to share on social media [](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faje.news%2Fhfitv0)[](https://twitter.com/intent/tweet?text=US%20asks%20Anthropic%20to%20block%20global%20access%20to%20top%20AI%20models%3A%20Why%20it%20matters&source=sharethiscom&related=sharethis&via=AJEnglish&url=https%3A%2F%2Faje.news%2Fhfitv0)[](https://send?text=https%3A%2F%2Faje.news%2Fhfitv0) Add Al Jazeera on Google ![Anthropic logo is seen in this illustration taken May 20, 2024. REUTERS/Dado Ruvic/Illustration/File",
+      "date_published": "2026-06-14T13:57:22+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality_score": 70,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 41,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/02/reuters_69a20fba-1772228538.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/14/six-people-killed-as-helicopters-collide-over-brazils-rio-de-janeiro?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/14/six-people-killed-as-helicopters-collide-over-brazils-rio-de-janeiro?traffic_source=rss",
+      "title": "[Al Jazeera English] Six people killed as helicopters collide over Brazil’s Rio de Janeiro",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2f039a7d48-1781466010.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nListen (2 mins) Click here to share on social media [](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faje.news%2Feg3vhe)[](https://twitter.com/intent/tweet?text=Six%20people%20killed%20as%20helicopters%20collide%20over%20Brazil%E2%80%99s%20Rio%20de%20Janeiro&source=sharethiscom&related=sharethis&via=AJEnglish&url=https%3A%2F%2Faje.news%2Feg3vhe)[](https://send?text=https%3A%2F%2Faje.news%2Feg3vhe) Add Al Jazeera on Google ![An aerial view shows firefighters working at the site of a helicopter crash in the Recreio dos Bandeirantes neighbourhood in Rio de",
+      "summary": "Listen (2 mins) Click here to share on social media",
+      "_excerpt": "Listen (2 mins) Click here to share on social media [](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faje.news%2Feg3vhe)[](https://twitter.com/intent/tweet?text=Six%20people%20killed%20as%20helicopters%20collide%20over%20Brazil%E2%80%99s%20Rio%20de%20Janeiro&source=sharethiscom&related=sharethis&via=AJEnglish&url=https%3A%2F%2Faje.news%2Feg3vhe)[](https://send?text=https%3A%2F%2Faje.news%2Feg3vhe) Add Al Jazeera on Google ![An aerial view shows firefighters working at the site of a helicopter crash in the Recreio dos Bandeirantes neighbourhood in Rio de",
+      "date_published": "2026-06-14T20:10:50+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2f039a7d48-1781466010.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.businessinsider.com/us-states-no-bachelors-degree-median-earnings-ranked",
+      "url": "https://www.businessinsider.com/us-states-no-bachelors-degree-median-earnings-ranked",
+      "title": "[Business Insider] US states where adults without bachelor's degrees can earn the most, ranked by median earnings",
+      "content_html": "<img src=\"https://i.insider.com/6a22e04ab4fb977f35984c33?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThese US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
+      "summary": "These US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
+      "_excerpt": "These US states offer the highest median earnings for adults with some college or an associate degree but without bachelor's degrees.",
+      "date_published": "2026-06-08T16:55:51+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality_score": 68,
+      "_theme_score": 0,
+      "_final_score": 0,
+      "_keyword_matches": 1,
+      "_boosted_score": 40,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-09T06:12:15.434854+00:00"
+      },
+      "image": "https://i.insider.com/6a22e04ab4fb977f35984c33?format=jpeg"
+    },
+    {
+      "id": "https://www.canadaland.com/retraction-and-apology-to-theresa-kielburger/",
+      "url": "https://www.canadaland.com/retraction-and-apology-to-theresa-kielburger/",
+      "title": "[Canadaland] Retraction and Apology to Theresa Kielburger",
+      "content_html": "<img src=\"https://www.canadaland.com/wp-content/uploads/2026/06/PUBLISHERS-NOTE.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>An update to our podcast, The White Saviors</p>\n<p>The post <a href=\"https://www.canadaland.com/retraction-and-apology-to-theresa-kielburger/\">Retraction and Apology to Theresa Kielburger</a> appeared first on <a href=\"https://www.canadaland.com\">CANADALAND</a>.</p>",
+      "summary": "An update to our podcast, The White Saviors The post Retraction and Apology to Theresa Kielburger appeared first on CANADALAND .",
+      "_excerpt": "An update to our podcast, The White Saviors The post Retraction and Apology to Theresa Kielburger appeared first on CANADALAND .",
+      "date_published": "2026-06-12T11:40:20+00:00",
+      "authors": [
+        {
+          "name": "Canadaland",
+          "url": "https://www.canadaland.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality_score": 65,
+      "_theme_score": 3,
+      "_final_score": 3,
+      "_keyword_matches": 1,
+      "_boosted_score": 39,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.canadaland.com/wp-content/uploads/2026/06/PUBLISHERS-NOTE.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314071/news/health-care/are-you-up-for-the-national-participaction-community-challenge/",
+      "url": "https://www.mycariboonow.com/314071/news/health-care/are-you-up-for-the-national-participaction-community-challenge/",
+      "title": "[My Cariboo Now] Williams Lake vying to be named Canada’s most active community : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/12/WL-REC-COMPLEX-DEC-30-2025-e1767217887997.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-15T01:03:57.169113+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality_score": 85,
+      "_theme_score": 42,
+      "_final_score": 42,
+      "_keyword_matches": 0,
+      "_boosted_score": 25,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2026/05/connected-user-experiences-and-telemetry-on-a-monitor-17-brightness.jpg"
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/12/WL-REC-COMPLEX-DEC-30-2025-e1767217887997.jpeg"
     }
   ]
 }
