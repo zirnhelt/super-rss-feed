@@ -26,16 +26,17 @@ cat feed_discovery_report.json | jq '.summary.top_recommendations'
 python integrate_discoveries.py
 
 # Or auto-add high-scoring feeds
-python integrate_discoveries.py --auto-add-threshold 75
+python integrate_discoveries.py --auto-add-threshold 65
 ```
 
 ### Automated Weekly Discovery
 
-The system runs automatically every Sunday via GitHub Actions:
+The system runs automatically every Sunday via the consolidated
+`weekly-maintenance.yml` GitHub Actions workflow (see `FEEDS_MAINTENANCE.md`):
 
 1. `feed_discovery.py` evaluates new candidates and refreshes the report/cache
-2. `integrate_discoveries.py --auto-add-threshold 75` adds any high-confidence
-   feeds (score 75+) directly to `feeds.opml` — no manual integration step
+2. `integrate_discoveries.py --auto-add-threshold 65` adds any high-confidence
+   feeds (score 65+) directly to `feeds.opml` — no manual integration step
 3. The run is committed via a PR that's **auto-merged immediately**; the PR
    description is your notification of what changed (which feeds were added,
    with scores/categories/URLs, or a note that nothing cleared the bar)
@@ -102,8 +103,8 @@ Current curated OPML sources:
 
 ## Integration Options
 
-The weekly workflow already runs `--auto-add-threshold 75` for you (see above).
-These modes are for catching the 60-74 range manually, or for ad hoc runs.
+The weekly workflow already runs `--auto-add-threshold 65` for you (see above).
+These modes are for catching the 60-64 range manually, or for ad hoc runs.
 
 ### Interactive Mode (Default)
 ```bash

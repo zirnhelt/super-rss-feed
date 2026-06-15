@@ -113,6 +113,28 @@ def interactive_selection(report: Dict) -> List[Dict]:
     
     return selected_feeds
 
+def write_actions_file(path: str, feeds_added: List[Dict]):
+    """Write a small structured JSON list of feeds added this run.
+
+    Consumed by the weekly report's "Actions Taken" / rollback section.
+    Always written (empty list if nothing was added) so the report can
+    distinguish "ran, nothing to add" from "didn't run".
+    """
+    actions = [
+        {
+            "title": feed["title"],
+            "url": feed["url"],
+            "category": feed.get("category", "—"),
+            "score": feed.get("average_score", 0),
+        }
+        for feed in feeds_added
+    ]
+    with open(path, 'w') as f:
+        json.dump(actions, f, indent=2)
+        f.write('\n')
+    print(f"📝 Actions file written to {path}")
+
+
 def write_summary_file(path: str, feeds_added: List[Dict], threshold: float, report: Dict):
     """Write a markdown summary of an auto-add run, e.g. for a notification PR body.
 
@@ -156,6 +178,9 @@ def main():
     parser.add_argument('--summary-file', default=None,
                        help='Write a markdown summary of auto-add results to this path '
                             '(used as the body for the automated notification PR)')
+    parser.add_argument('--actions-file', default=None,
+                       help='Write a JSON list of feeds added this run to this path '
+                            '(used by the weekly report\'s actions/rollback section)')
 
     args = parser.parse_args()
     
@@ -198,14 +223,18 @@ def main():
         print("\n❌ No feeds selected for addition")
         if args.summary_file and args.auto_add_threshold:
             write_summary_file(args.summary_file, [], args.auto_add_threshold, report)
+        if args.actions_file:
+            write_actions_file(args.actions_file, [])
         return
 
     print(f"\n📝 Selected {len(feeds_to_add)} feeds to add:")
     for feed in feeds_to_add:
         print(f"  • {feed['title']} (score: {feed['average_score']})")
-    
+
     if args.dry_run:
         print("\n🔍 DRY RUN - No changes made")
+        if args.actions_file:
+            write_actions_file(args.actions_file, [])
         return
     
     # Add feeds to OPML
@@ -232,6 +261,9 @@ def main():
         print(f"1. Review the new feeds in your OPML")
         print(f"2. Run your main curation script to test")
         print(f"3. Adjust categories or remove feeds as needed")
+
+    if args.actions_file:
+        write_actions_file(args.actions_file, feeds_to_add)
 
 if __name__ == "__main__":
     main()
