@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
+| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
+| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
+| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **National Indigenous Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"34f1f462738e641ae84d437372ef0f1b","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
+| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x40` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **Smart Home and Automation (Kagi)** failed | `HTTP 401 - {"meta":{"id":"3f722b1e2dd49ef094f154802f28393a","node":"us-west2","ms":3,"api_balance":null},"data":null,"er` |
@@ -300,9 +305,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-08 | 🌙 evening | 79 | news:70(89%), wellness:3(4%), ai-tech:2(3%) |
 | 2026-06-08 | 🔧 manual | 80 | news:61(76%), local:6(8%), ai-tech:4(5%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-15 01:24 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-15 10:46 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-15 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code`
+- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":2,"node":"us-central1"},"data":null,"errors":[{"code`
+- ⚠️ **National Indigenous Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"34f1f462738e641ae84d437372ef0f1b","ms":2,"node":"us-central1"},"data":null,"errors":[{"code`
+- ⚠️ **Kagi Summarizer** failed — `HTTP 429 x40`
+
+
+---
+
+
+
 ## 2026-06-14 (Sunday)
 
 #### 🌅 4:30 AM Pacific

@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-15 (Monday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1977** → dedup **472** → new **273** → quality **39**
+- Mix: ai-tech:1(3%), climate:2(5%), homelab:1(3%), wellness:2(5%), news:33(85%)
+- Feeds: local:23, ai-tech:68, climate:21, homelab:23, wellness:69, science:16, scifi:13, news:500
+- Images: 39/39
+- API calls: Claude:2, Cohere:17, Brave:44, Kagi:77 · 2,793 Claude tokens · est. cost $0.6162
+
+
+---
+
+
+
 ## 2026-06-14 (Sunday)
 
 #### 🌅 4:30 AM Pacific
@@ -712,27 +726,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **Kagi Indigenous Data and Language Tech (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
 - ⚠️ **Kagi Canadian Arts Technology (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
 - ⚠️ **Kagi BC Silviculture and Logging Tech (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-
-
----
-
-
-
-## 2026-06-07 (Sunday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **753** → dedup **676** → new **466** → quality **38**
-- Mix: ai-tech:5(13%), climate:2(5%), homelab:2(5%), wellness:1(3%), science:1(3%), news:27(71%)
-- Feeds: local:27, ai-tech:50, climate:60, homelab:13, wellness:38, science:18, scifi:11, news:500
-- Images: 38/38
-- ⚠️ **Ricochet** failed — `415 Client Error: Unsupported Media Type for url: https://ricochet.media/feed/`
-- ⚠️ **Nation Talk** failed — `415 Client Error: Unsupported Media Type for url: https://nationtalk.ca/feed`
-- ⚠️ **First Peoples Cultural Council** failed — `415 Client Error: Unsupported Media Type for url: https://fpcc.ca/feed/`
-- ⚠️ **Canadian Geographic** failed — `403 Client Error: Forbidden for url: https://www.canadiangeographic.ca/feed/`
-- ⚠️ **Examine.com** failed — `429 Client Error: Too Many Requests for url: https://examine.com/feed/`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-- ⚠️ **Hakai Magazine** failed — `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/`
-- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
 
 
 ---
@@ -2144,6 +2137,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-06–2026-06-06
 - 2 runs · avg fetched 932 · avg quality 69
 - Dominant: **news** (80%) local:2 / ai-tech:8 / climate:4 / homelab:4 / wellness:7 / science:2 / scifi:1 / news:110
+
+
+---
+
+
+
+## Week of 2026-06-07–2026-06-07
+- 1 runs · avg fetched 753 · avg quality 38
+- Dominant: **news** (71%) ai-tech:5 / climate:2 / homelab:2 / wellness:1 / science:1 / news:27
 
 
 ---
