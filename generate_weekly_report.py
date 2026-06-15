@@ -439,8 +439,13 @@ def build_quality_review_html(quality_review: dict) -> str:
             f"{alignment.get('total_rescue', 0)} rescue-dependent, "
             f"{alignment.get('total_stranded', 0)} stranded, "
             f"{alignment.get('total_filler', 0)} filler "
-            f"({alignment.get('total_filler_pct', 0)}%).</p>\n"
+            f"({alignment.get('total_filler_pct', 0)}%)."
         )
+        report_date = str(alignment.get("generated", "")).split(" ")[0]
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", report_date):
+            report_url = f"{GITHUB_REPO_URL}/blob/main/CORPUS_ALIGNMENT_REPORT_{report_date}.md"
+            html += f' <a href="{report_url}">Full report</a>.'
+        html += "</p>\n"
 
     return html
 
