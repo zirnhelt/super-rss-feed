@@ -124,6 +124,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-14 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 400 - {"meta":{"trace":"11510d7846327f5253794620e835f481","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
 | 2026-06-14 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 400 - {"meta":{"trace":"9982302388582755467869d5bf7dbf5b","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
 | 2026-06-14 | 🔧 Manual Run | ⚠️ **National Indigenous Innovation (Kagi)** failed | `HTTP 400 - {"meta":{"trace":"5b66457f8b51b27f92d0d8372833a887","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-14 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-13 | 🔧 Manual Run | ⚠️ **IndigiNews** failed | `HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)` |
 | 2026-06-13 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-13 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Kagi)** failed | `HTTP 401 - {"meta":{"id":"f0ed51eadada37931bec243a25d60e7a","node":"us-east4","ms":8,"api_balance":null},"data":null,"er` |
@@ -299,9 +300,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-08 | 🌙 evening | 79 | news:70(89%), wellness:3(4%), ai-tech:2(3%) |
 | 2026-06-08 | 🔧 manual | 80 | news:61(76%), local:6(8%), ai-tech:4(5%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-15 01:05 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-15 01:24 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

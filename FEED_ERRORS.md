@@ -144,6 +144,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (6:24 PM Pacific)
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
+
+
+---
+
+
+
 ## 2026-06-13 (Saturday)
 
 #### 🔧 Manual Run (11:17 AM Pacific)
