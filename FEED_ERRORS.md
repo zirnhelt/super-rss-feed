@@ -63,6 +63,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Bella Coola Valley** failed — `HTTPSConnectionPool(host='bellacoola.ca', port=443): Read timed out. (read timeout=10)`
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
+
+
+---
+
+
+
 ## 2026-06-14 (Sunday)
 
 #### 🌅 4:30 AM Pacific

@@ -51,6 +51,8 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
 | 2026-06-15 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
 | 2026-06-15 | 🔧 Manual Run | ⚠️ **National Indigenous Innovation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🌙 8:30 PM Pacific | ⚠️ **Bella Coola Valley** failed | `HTTPSConnectionPool(host='bellacoola.ca', port=443): Read timed out. (read timeout=10)` |
+| 2026-06-15 | 🌙 8:30 PM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **Smart Home and Automation (Kagi)** failed | `HTTP 401 - {"meta":{"id":"3f722b1e2dd49ef094f154802f28393a","node":"us-west2","ms":3,"api_balance":null},"data":null,"er` |
@@ -343,9 +345,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-08 | 🌙 evening | 79 | news:70(89%), wellness:3(4%), ai-tech:2(3%) |
 | 2026-06-08 | 🔧 manual | 80 | news:61(76%), local:6(8%), ai-tech:4(5%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-15 16:33 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-15 17:32 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
