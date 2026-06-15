@@ -276,16 +276,16 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return []
         try:
             api_usage.record_call('kagi')
-            resp = requests.get(
-                'https://kagi.com/api/v0/search',
+            resp = requests.post(
+                'https://kagi.com/api/v1/search',
                 headers={'Authorization': f'Bearer {kagi_key}'},
-                params={'q': query, 'limit': 20},
+                json={'query': query, 'extract': {'count': 20}},
                 timeout=15,
             )
             resp.raise_for_status()
             results = []
-            for r in resp.json().get('data') or []:
-                if not isinstance(r, dict) or r.get('t') != 1:
+            for r in (resp.json().get('data') or {}).get('search') or []:
+                if not isinstance(r, dict):
                     continue
                 article = _make_article(
                     url=r.get('url', ''),
