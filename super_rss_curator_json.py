@@ -240,7 +240,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         try:
             api_usage.record_call('brave')
             resp = requests.get(
-                'https://api.search.brave.com/res/v1/news',
+                'https://api.search.brave.com/res/v1/news/search',
                 headers={'X-Subscription-Token': brave_key, 'Accept': 'application/json'},
                 params={'q': query, 'count': 20, 'freshness': freshness_range},
                 timeout=15,
