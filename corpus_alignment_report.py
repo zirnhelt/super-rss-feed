@@ -19,7 +19,7 @@ Two failure modes this surfaces:
     enter the pool (stranded, upstream < min_claude_score).
 
 Usage:
-    python corpus_alignment_report.py [--output PATH]
+    python corpus_alignment_report.py [--output PATH] [--json-summary PATH]
 """
 
 import argparse
@@ -48,6 +48,7 @@ def load_json(path: Path) -> dict | list:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--output", metavar="PATH", help="Output file path")
+    parser.add_argument("--json-summary", metavar="PATH", help="Write a compact JSON summary to PATH")
     args = parser.parse_args()
 
     root = Path(__file__).parent
@@ -387,6 +388,20 @@ def main() -> None:
 
     output_path.write_text("\n".join(sections), encoding="utf-8")
     print(f"Report written to {output_path}")
+
+    if args.json_summary:
+        summary = {
+            "generated": ts_str,
+            "total_articles": total,
+            "missing_theme_data": missing_theme_data,
+            "total_direct": total_direct,
+            "total_rescue": total_rescue,
+            "total_stranded": total_stranded,
+            "total_filler": total_filler,
+            "total_filler_pct": round(total_filler / total * 100, 1) if total else 0,
+        }
+        Path(args.json_summary).write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        print(f"JSON summary written to {args.json_summary}")
 
 
 if __name__ == "__main__":

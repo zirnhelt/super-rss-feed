@@ -6,11 +6,12 @@ Reads existing feed-*.json files, computes quality metrics, runs a Claude Haiku
 content scrub on borderline articles, and writes a formatted markdown report.
 
 Usage:
-    python score_scrub_report.py [--no-scrub] [--output PATH]
+    python score_scrub_report.py [--no-scrub] [--output PATH] [--json-summary PATH]
 
 Options:
-    --no-scrub      Skip the Claude API scrub pass (stat analysis only)
-    --output PATH   Write report to PATH (default: FEED_REVIEW_YYYY-MM-DD.md)
+    --no-scrub          Skip the Claude API scrub pass (stat analysis only)
+    --output PATH       Write report to PATH (default: FEED_REVIEW_YYYY-MM-DD.md)
+    --json-summary PATH Write a compact JSON summary to PATH (for the weekly report)
 """
 
 import argparse
@@ -400,6 +401,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--no-scrub", action="store_true", help="Skip the Claude API scrub pass")
     parser.add_argument("--output", metavar="PATH", help="Output file path")
+    parser.add_argument("--json-summary", metavar="PATH", help="Write a compact JSON summary to PATH")
     args = parser.parse_args()
 
     now = datetime.now(timezone.utc)
@@ -449,6 +451,30 @@ def main() -> None:
     report = generate_report(analyses, flagged, scrub_ran, now)
     output_path.write_text(report, encoding="utf-8")
     print(f"Report written to {output_path}")
+
+    if args.json_summary:
+        to_remove = sum(1 for f in flagged if f.get("recommendation") == "remove")
+        summary = {
+            "generated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "total_articles": sum(a["count"] for a in analyses.values()),
+            "scrub_ran": scrub_ran,
+            "flagged_count": len(flagged),
+            "flagged_remove_count": to_remove,
+            "feeds": {
+                name: {
+                    "title": a["title"],
+                    "count": a["count"],
+                    "avg_score": round(a["avg_score"], 1),
+                    "low_score_count": len(a["low_score_items"]),
+                    "stale_count": a["stale_count"],
+                    "top_source": a["top_source"],
+                    "top_source_pct": round(a["top_source_pct"], 1),
+                }
+                for name, a in analyses.items()
+            },
+        }
+        Path(args.json_summary).write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        print(f"JSON summary written to {args.json_summary}")
 
 
 if __name__ == "__main__":

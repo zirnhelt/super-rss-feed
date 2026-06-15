@@ -25,6 +25,7 @@ import anthropic
 import requests
 
 BASE_URL = "https://zirnhelt.github.io/super-rss-feed"
+GITHUB_REPO_URL = "https://github.com/zirnhelt/super-rss-feed"
 FEED_NEWS_URL = f"{BASE_URL}/feed-news.json"
 OUTPUT_DIR = Path("output")
 CATEGORY_ORDER = ["local", "ai-tech", "climate", "homelab", "wellness", "science", "scifi", "news"]
@@ -222,6 +223,77 @@ def get_discovery_highlights() -> list:
 
 
 # ---------------------------------------------------------------------------
+# Discovery actions (feeds auto-added this run)
+# ---------------------------------------------------------------------------
+
+def get_discovery_actions() -> list:
+    path = Path("discovery_actions.json")
+    if not path.exists():
+        return []
+    try:
+        return json.loads(path.read_text("utf-8"))
+    except Exception as exc:
+        print(f"  ⚠️  Could not read discovery_actions.json: {exc}")
+        return []
+
+
+# ---------------------------------------------------------------------------
+# Calibration changes from calibration_memory/change_history.json
+# ---------------------------------------------------------------------------
+
+def get_calibration_changes(today: str) -> list:
+    path = Path("calibration_memory/change_history.json")
+    if not path.exists():
+        return []
+    try:
+        history = json.loads(path.read_text("utf-8"))
+        return [
+            c for c in history.get("changes", [])
+            if c.get("run_date") == today and not c.get("dry_run")
+        ]
+    except Exception as exc:
+        print(f"  ⚠️  Could not read change_history.json: {exc}")
+        return []
+
+
+# ---------------------------------------------------------------------------
+# Quality review summaries (score_scrub_report.py / corpus_alignment_report.py)
+# ---------------------------------------------------------------------------
+
+def get_quality_review() -> dict:
+    review = {}
+    scrub_path = Path("score_scrub_summary.json")
+    if scrub_path.exists():
+        try:
+            review["scrub"] = json.loads(scrub_path.read_text("utf-8"))
+        except Exception as exc:
+            print(f"  ⚠️  Could not read score_scrub_summary.json: {exc}")
+
+    alignment_path = Path("corpus_alignment_summary.json")
+    if alignment_path.exists():
+        try:
+            review["alignment"] = json.loads(alignment_path.read_text("utf-8"))
+        except Exception as exc:
+            print(f"  ⚠️  Could not read corpus_alignment_summary.json: {exc}")
+
+    return review
+
+
+# ---------------------------------------------------------------------------
+# Git commit lookup (for the Actions Taken / rollback table)
+# ---------------------------------------------------------------------------
+
+def git_commit_for(paths: list) -> str | None:
+    """Return the short SHA of the most recent commit touching any of `paths`."""
+    result = subprocess.run(
+        ["git", "log", "-1", "--format=%H", "--"] + paths,
+        capture_output=True, text=True, check=False,
+    )
+    sha = result.stdout.strip()
+    return sha[:7] if sha else None
+
+
+# ---------------------------------------------------------------------------
 # Claude Haiku narrative
 # ---------------------------------------------------------------------------
 
@@ -283,7 +355,16 @@ def generate_narrative(
 # HTML builders
 # ---------------------------------------------------------------------------
 
-def build_content_html(narrative: str, stats: dict, new_feeds: list, errors: list, discovery: list) -> str:
+def build_content_html(
+    narrative: str,
+    stats: dict,
+    new_feeds: list,
+    errors: list,
+    discovery: list,
+    calibration_changes: list,
+    quality_review: dict,
+    actions: list,
+) -> str:
     parts = [f"<p>{p.strip()}</p>" for p in narrative.split("\n\n") if p.strip()]
     html = "\n".join(parts)
 
@@ -315,6 +396,90 @@ def build_content_html(narrative: str, stats: dict, new_feeds: list, errors: lis
             html += f"  <li>{d['title']} (score: {d['score']})</li>\n"
         html += "</ul>"
 
+    html += build_quality_review_html(quality_review)
+    html += build_calibration_html(calibration_changes)
+    html += build_actions_html(actions)
+
+    return html
+
+
+def build_quality_review_html(quality_review: dict) -> str:
+    scrub = quality_review.get("scrub")
+    alignment = quality_review.get("alignment")
+    if not scrub and not alignment:
+        return ""
+
+    html = "\n<h3>Quality Review</h3>\n"
+
+    if scrub:
+        flagged = scrub.get("flagged_count", 0)
+        to_remove = scrub.get("flagged_remove_count", 0)
+        html += (
+            f"<p>{scrub.get('total_articles', 0)} articles across "
+            f"{len(scrub.get('feeds', {}))} feeds. "
+        )
+        if scrub.get("scrub_ran"):
+            html += f"Scrub pass flagged {flagged} article(s), {to_remove} recommended for removal.</p>\n"
+        else:
+            html += "Scrub pass not run (stats only).</p>\n"
+
+        html += "<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg score</th><th>Stale</th><th>Top source</th></tr></thead><tbody>\n"
+        for feed in scrub.get("feeds", {}).values():
+            html += (
+                f"<tr><td>{feed['title']}</td><td>{feed['count']}</td>"
+                f"<td>{feed['avg_score']}</td><td>{feed['stale_count']}</td>"
+                f"<td>{feed['top_source']} ({feed['top_source_pct']}%)</td></tr>\n"
+            )
+        html += "</tbody></table>"
+
+    if alignment:
+        html += (
+            f"<p>Corpus alignment: {alignment.get('total_articles', 0)} articles analysed — "
+            f"{alignment.get('total_direct', 0)} direct-qualify, "
+            f"{alignment.get('total_rescue', 0)} rescue-dependent, "
+            f"{alignment.get('total_stranded', 0)} stranded, "
+            f"{alignment.get('total_filler', 0)} filler "
+            f"({alignment.get('total_filler_pct', 0)}%).</p>\n"
+        )
+
+    return html
+
+
+def build_calibration_html(calibration_changes: list) -> str:
+    html = "\n<h3>Calibration</h3>\n"
+    if not calibration_changes:
+        return html + "<p>No config changes applied this run.</p>\n"
+
+    html += "<table><thead><tr><th>Knob</th><th>Old</th><th>New</th><th>Rationale</th></tr></thead><tbody>\n"
+    for c in calibration_changes:
+        html += (
+            f"<tr><td>{c.get('knob', '?')}</td><td>{c.get('old_value')}</td>"
+            f"<td>{c.get('new_value')}</td><td>{c.get('rationale', '')}</td></tr>\n"
+        )
+    html += "</tbody></table>"
+    return html
+
+
+def build_actions_html(actions: list) -> str:
+    html = "\n<h3>Actions Taken This Week</h3>\n"
+    if not actions:
+        return html + "<p>No config or feed-list changes this week.</p>\n"
+
+    html += (
+        "<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>\n"
+    )
+    for a in actions:
+        if a.get("commit"):
+            commit_cell = (
+                f'<a href="{GITHUB_REPO_URL}/commit/{a["commit"]}"><code>{a["commit"]}</code></a>'
+                f' (<code>git revert {a["commit"]}</code> to undo)'
+            )
+        else:
+            commit_cell = "—"
+        html += (
+            f"<tr><td>{a['component']}</td><td>{a['action']}</td><td>{commit_cell}</td></tr>\n"
+        )
+    html += "</tbody></table>"
     return html
 
 
@@ -389,11 +554,47 @@ def main():
     discovery = get_discovery_highlights()
     print(f"     {len(discovery)} discovery candidate(s)")
 
+    print("  → Reading discovery_actions.json...")
+    discovery_actions = get_discovery_actions()
+    print(f"     {len(discovery_actions)} feed(s) auto-added")
+
+    print("  → Reading calibration_memory/change_history.json...")
+    today = now.strftime("%Y-%m-%d")
+    calibration_changes = get_calibration_changes(today)
+    print(f"     {len(calibration_changes)} config change(s) applied today")
+
+    print("  → Reading quality review summaries...")
+    quality_review = get_quality_review()
+    print(f"     scrub={'scrub' in quality_review}, alignment={'alignment' in quality_review}")
+
+    print("  → Building actions taken / rollback table...")
+    actions = []
+    if discovery_actions:
+        commit = git_commit_for(["feeds.opml"])
+        for feed in discovery_actions:
+            actions.append({
+                "component": "Discovery",
+                "action": f"Added feed “{feed['title']}” ({feed.get('category', '—')}, score {feed.get('score', 0)})",
+                "commit": commit,
+            })
+    if calibration_changes:
+        commit = git_commit_for(["config/limits.json", "config/podcast_schedule.json"])
+        for c in calibration_changes:
+            actions.append({
+                "component": "Calibration",
+                "action": f"{c.get('knob', '?')}: {c.get('old_value')} → {c.get('new_value')}",
+                "commit": commit,
+            })
+    print(f"     {len(actions)} action(s) this week")
+
     print("  → Generating narrative with Claude Haiku...")
     client = anthropic.Anthropic(api_key=api_key)
     narrative = generate_narrative(client, week_label, stats, new_feeds, errors, discovery)
 
-    content_html = build_content_html(narrative, stats, new_feeds, errors, discovery)
+    content_html = build_content_html(
+        narrative, stats, new_feeds, errors, discovery,
+        calibration_changes, quality_review, actions,
+    )
 
     # JSON Feed article item
     article = {
