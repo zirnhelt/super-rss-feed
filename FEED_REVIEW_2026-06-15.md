@@ -1,16 +1,16 @@
 # Feed Scoring & Scrubbing Report
 
-_Generated: 2026-06-15 18:54 UTC_
+_Generated: 2026-06-15 19:25 UTC_
 
 ## Executive Summary
 
 | Metric | Value |
 |--------|-------|
 | Feeds reviewed | 8 |
-| Total articles | 737 |
-| Stale articles (>48h) | 507 |
+| Total articles | 738 |
+| Stale articles (>48h) | 509 |
 | Scrub pass | ✅ ran |
-| Flagged for removal | 12 |
+| Flagged for removal | 15 |
 
 
 ## Feed Summary
@@ -19,9 +19,9 @@ _Generated: 2026-06-15 18:54 UTC_
 |------|----------|-----------|-------------|-------|------------|
 | 🤖 AI/ML & Tech | 70 | 🔴 25.1 | 0–80 | 50 | TechRadar (10) |
 | 🌍 Climate & Energy | 24 | 🔴 16.4 | 2–53 | 16 | New Atlas (4) |
-| 🏠 Homelab & DIY | 22 | 🔴 20.9 | 0–78 | 13 | How-To Geek (9) |
-| 🏔️ Williams Lake Local | 21 | 🟢 88.1 | 48–100 | 17 | Williams Lake Tribune (9) |
-| 📰 General News | 500 | 🟡 49.5 | 20–99 | 339 | Al Jazeera English (51) |
+| 🏠 Homelab & DIY | 22 | 🔴 20.9 | 0–78 | 14 | How-To Geek (9) |
+| 🏔️ Williams Lake Local | 21 | 🟢 88.1 | 48–100 | 18 | Williams Lake Tribune (9) |
+| 📰 General News | 501 | 🟡 49.6 | 20–99 | 339 | Al Jazeera English (51) |
 | 🔬 Science | 13 | 🔴 8.7 | 0–29 | 13 | ScienceAlert (2) |
 | 🚀 Sci-Fi & Culture | 13 | 🔴 24.0 | 0–77 | 9 | Kagi Small Web (3) |
 | 🌿 Health & Wellness | 74 | 🔴 32.3 | 2–80 | 50 | Toms Guide (7) |
@@ -35,7 +35,7 @@ _Generated: 2026-06-15 18:54 UTC_
 - **Articles**: 70 (70 scored)
 - **Score**: avg 25.1 | min 0 | max 80
 - **Stale** (>48h): 50
-- **Avg age**: 63.6h
+- **Avg age**: 64.1h
 
 **Score distribution:**
 ```
@@ -102,7 +102,7 @@ _Generated: 2026-06-15 18:54 UTC_
 - **Articles**: 24 (24 scored)
 - **Score**: avg 16.4 | min 2 | max 53
 - **Stale** (>48h): 16
-- **Avg age**: 62.9h
+- **Avg age**: 63.4h
 
 **Score distribution:**
 ```
@@ -168,8 +168,8 @@ _Generated: 2026-06-15 18:54 UTC_
 
 - **Articles**: 22 (22 scored)
 - **Score**: avg 20.9 | min 0 | max 78
-- **Stale** (>48h): 13
-- **Avg age**: 57.9h
+- **Stale** (>48h): 14
+- **Avg age**: 58.4h
 
 **Score distribution:**
 ```
@@ -232,8 +232,8 @@ _Generated: 2026-06-15 18:54 UTC_
 
 - **Articles**: 21 (21 scored)
 - **Score**: avg 88.1 | min 48 | max 100
-- **Stale** (>48h): 17
-- **Avg age**: 73.1h
+- **Stale** (>48h): 18
+- **Avg age**: 73.6h
 - **Local-flagged**: 21
 
 **Score distribution:**
@@ -261,10 +261,10 @@ _Generated: 2026-06-15 18:54 UTC_
 
 ### 🟡 📰 General News
 
-- **Articles**: 500 (500 scored)
-- **Score**: avg 49.5 | min 20 | max 99
+- **Articles**: 501 (501 scored)
+- **Score**: avg 49.6 | min 20 | max 99
 - **Stale** (>48h): 339
-- **Avg age**: 59.3h
+- **Avg age**: 59.7h
 
 **Score distribution:**
 ```
@@ -277,7 +277,7 @@ _Generated: 2026-06-15 18:54 UTC_
   60–69   │ ████████████████████  87
   70–79   │ ████████████          55
   80–89   │ █████                 24
-  90–100  │ █                      5
+  90–100  │ █                      6
 ```
 
 **Sources (top 8):**
@@ -331,7 +331,7 @@ _Generated: 2026-06-15 18:54 UTC_
 - **Articles**: 13 (13 scored)
 - **Score**: avg 8.7 | min 0 | max 29
 - **Stale** (>48h): 13
-- **Avg age**: 100.0h
+- **Avg age**: 100.5h
 
 **Score distribution:**
 ```
@@ -394,7 +394,7 @@ _Generated: 2026-06-15 18:54 UTC_
 - **Articles**: 13 (13 scored)
 - **Score**: avg 24.0 | min 0 | max 77
 - **Stale** (>48h): 9
-- **Avg age**: 58.4h
+- **Avg age**: 58.9h
 
 **Score distribution:**
 ```
@@ -449,7 +449,7 @@ _Generated: 2026-06-15 18:54 UTC_
 - **Articles**: 74 (74 scored)
 - **Score**: avg 32.3 | min 2 | max 80
 - **Stale** (>48h): 50
-- **Avg age**: 57.5h
+- **Avg age**: 58.0h
 
 **Score distribution:**
 ```
@@ -515,7 +515,7 @@ _Generated: 2026-06-15 18:54 UTC_
 
 ## Scrub Pass Findings
 
-### 🗑️ Recommended for Removal (12)
+### 🗑️ Recommended for Removal (15)
 
 - **[🤖 AI/ML & Tech]** `score 21` — 'Some creative jobs maybe will go away, but maybe they shouldn't have been there in the first place' - quote of the day by ex-OpenAI CTO Mira Murati  
   Issue: `clickbait`  
@@ -523,6 +523,9 @@ _Generated: 2026-06-15 18:54 UTC_
 - **[🤖 AI/ML & Tech]** `score 20` — I'm a certified Apple hater, but new Apple Intelligence tools like Spatial Reframe mean I'm considering a switch from Android  
   Issue: `clickbait`  
   <https://www.techradar.com/tech/im-a-certified-apple-hater-but-new-apple-intelligence-tools-like-spatial-reframe-mean-im-considering-a-switch-from-android>
+- **[🤖 AI/ML & Tech]** `score 36` — ChatGPT became the fastest app ever to reach 1 billion monthly users — but rivals are closing in  
+  Issue: `duplicate`  
+  <https://qz.com/chatgpt-billion-monthly-users-rivals-gaining-061226>
 - **[🌍 Climate & Energy]** `score 39` — Lee Raymond, Who Created Global Oil Behemoth Exxon Mobil, Dies at 87  
   Issue: `duplicate`  
   <https://www.nytimes.com/2026/06/10/business/lee-raymond-dead.html>
@@ -538,6 +541,9 @@ _Generated: 2026-06-15 18:54 UTC_
 - **[📰 General News]** `score 38` — 'This is the pinnacle, and I'm just thrilled to be here' — The new voice of Lara Croft on taking on her 'biggest' role yet for upcoming Tomb Raider games  
   Issue: `celebrity`  
   <https://www.techradar.com/gaming/this-is-the-pinnacle-and-im-just-thrilled-to-be-here-the-new-voice-of-lara-croft-on-taking-on-her-biggest-role-yet-for-upcoming-tomb-raider-games>
+- **[📰 General News]** `score 38` — FDA gives alfredo sauce recall its most serious classification over salmonella risk  
+  Issue: `clickbait`  
+  <https://qz.com/fda-alfredo-sauce-recall-salmonella-class-one-061526>
 - **[📰 General News]** `score 27` — A Crypto Scam Targeted a Gay OnlyFans Star. Then His X Feed Was Flooded With 'MAGA Propaganda'  
   Issue: `clickbait`  
   <https://www.wired.com/story/a-gay-onlyfans-star-got-hacked-then-his-x-account-started-spewing-maga-propaganda/>
@@ -547,6 +553,9 @@ _Generated: 2026-06-15 18:54 UTC_
 - **[📰 General News]** `score 40` — Shania Twain, 60, said menopause helped her stop fixating on her appearance  
   Issue: `celebrity`  
   <https://www.businessinsider.com/shania-twain-menopause-body-image-struggles-aging-confidence-2026-6>
+- **[📰 General News]** `score 21` — BREAKING: US, Iran announce ceasefire agreement  
+  Issue: `duplicate`  
+  <https://www.aljazeera.com/video/newsfeed/2026/6/14/breaking-us-iran-announce-ceasefire-agreement?traffic_source=rss>
 - **[📰 General News]** `score 32` — We spent 48 hours visiting Niagara Falls. Here's what was actually worth doing — and one big mistake I'm glad we avoided.  
   Issue: `clickbait`  
   <https://www.businessinsider.com/niagara-falls-favorite-things-to-do-us-canada-travel-mistake-2026-6>
@@ -563,9 +572,9 @@ _Generated: 2026-06-15 18:54 UTC_
 - ⚠️ **🌍 Climate & Energy** has a low average score (16.4) — consider tightening category rules or raising `min_claude_score` in `config/limits.json`.
 - 🕐 **🌍 Climate & Energy** has 16 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
 - ⚠️ **🏠 Homelab & DIY** has a low average score (20.9) — consider tightening category rules or raising `min_claude_score` in `config/limits.json`.
-- 🕐 **🏠 Homelab & DIY** has 13 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
+- 🕐 **🏠 Homelab & DIY** has 14 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
 - 📊 **🏠 Homelab & DIY** is dominated by **How-To Geek** (9 articles, 41%) — consider lowering `max_per_source` or adding a per-type cap in `config/source_preferences.json`.
-- 🕐 **🏔️ Williams Lake Local** has 17 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
+- 🕐 **🏔️ Williams Lake Local** has 18 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
 - 📊 **🏔️ Williams Lake Local** is dominated by **Williams Lake Tribune** (9 articles, 43%) — consider lowering `max_per_source` or adding a per-type cap in `config/source_preferences.json`.
 - 🕐 **📰 General News** has 339 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
 - ⚠️ **🔬 Science** has a low average score (8.7) — consider tightening category rules or raising `min_claude_score` in `config/limits.json`.
@@ -574,8 +583,8 @@ _Generated: 2026-06-15 18:54 UTC_
 - 🕐 **🚀 Sci-Fi & Culture** has 9 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
 - ⚠️ **🌿 Health & Wellness** has a low average score (32.3) — consider tightening category rules or raising `min_claude_score` in `config/limits.json`.
 - 🕐 **🌿 Health & Wellness** has 50 articles older than 48h — verify `feed_retention_days` in `config/limits.json` and that the workflow ran recently.
-- 🗑️ 12 article(s) should be removed (`clickbait` ×7, `celebrity` ×2, `duplicate` ×1, `advice` ×1, `deals` ×1) — add matching keywords to `config/filters.json` blocked_keywords to prevent recurrence.
+- 🗑️ 15 article(s) should be removed (`clickbait` ×8, `duplicate` ×3, `celebrity` ×2, `advice` ×1, `deals` ×1) — add matching keywords to `config/filters.json` blocked_keywords to prevent recurrence.
 
 ---
 
-_Report generated by `score_scrub_report.py` · 8 feeds · 737 articles · 2026-06-15 18:54 UTC_
+_Report generated by `score_scrub_report.py` · 8 feeds · 738 articles · 2026-06-15 19:25 UTC_
