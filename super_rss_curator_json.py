@@ -263,8 +263,8 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
             print(f"  ✗ {label} (Brave): HTTP {status}")
-        except ValueError:
-            return []
+        except ValueError as e:
+            print(f"  ✗ {label} (Brave): invalid JSON response - {e}")
         except Exception as e:
             print(f"  ✗ {label} (Brave): {e}")
         return []
@@ -308,18 +308,13 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     def _fetch_one(query_config: dict) -> List['Article']:
         label = query_config.get('label', '')
         brave_results = _fetch_brave(query_config) if brave_key else []
-        kagi_results = _fetch_kagi(query_config) if kagi_key else []
-
-        if brave_results and kagi_results:
-            # Merge: add Kagi articles whose URL isn't already in Brave results
-            seen_urls = {a.link for a in brave_results}
-            merged = brave_results + [a for a in kagi_results if a.link not in seen_urls]
-            print(f"  ✓ {label}: {len(brave_results)} (Brave) + {len(kagi_results)} (Kagi) → {len(merged)} merged")
-            return merged
-        elif brave_results:
+        if brave_results:
             print(f"  ✓ {label}: {len(brave_results)} articles (Brave)")
             return brave_results
-        elif kagi_results:
+
+        # Fall back to Kagi only when Brave returned nothing (empty or failed).
+        kagi_results = _fetch_kagi(query_config) if kagi_key else []
+        if kagi_results:
             print(f"  ✓ {label}: {len(kagi_results)} articles (Kagi)")
             return kagi_results
         return []
@@ -328,6 +323,9 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
         for batch in pool.map(_fetch_one, queries):
             all_articles.extend(batch)
+
+    print(f"  🔍 Topic queries: {len(all_articles)} articles from {len(queries)} "
+          f"queries (Brave={'on' if brave_key else 'off'}, Kagi={'on' if kagi_key else 'off'})")
     return all_articles
 
 

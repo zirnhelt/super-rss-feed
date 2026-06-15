@@ -82,6 +82,8 @@ def parse_output(text: str) -> dict:
         'warnings':         [],
         'images_found':     None,
         'images_total':     None,
+        'topic_query_articles': None,
+        'topic_query_count':    None,
         'api_calls':        {},
         'api_tokens':       None,
         'api_cost':         None,
@@ -102,6 +104,13 @@ def parse_output(text: str) -> dict:
 
         if m['after_dedup'] is None:
             m['after_dedup'] = grab(r'After dedup:\s*(\d+)')
+
+        # "🔍 Topic queries: 87 articles from 39 queries (Brave=on, Kagi=on)"
+        if m['topic_query_articles'] is None:
+            hit = re.search(r'Topic queries:\s*(\d+) articles from (\d+) queries', line)
+            if hit:
+                m['topic_query_articles'] = int(hit.group(1))
+                m['topic_query_count'] = int(hit.group(2))
 
         # "🆕 New articles (not previously shown): 180 → 42"
         if m['new_articles'] is None:
@@ -209,6 +218,11 @@ def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> s
     # Images
     if metrics['images_found'] is not None:
         lines.append(f'- Images: {metrics["images_found"]}/{metrics["images_total"]}')
+
+    # Topic queries (Brave/Kagi)
+    if metrics['topic_query_articles'] is not None:
+        lines.append(f'- Topic queries: {metrics["topic_query_articles"]} articles '
+                      f'from {metrics["topic_query_count"]} queries')
 
     # API usage
     if metrics['api_calls']:
