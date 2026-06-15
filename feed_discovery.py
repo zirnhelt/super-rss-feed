@@ -8,6 +8,7 @@ Feed Discovery System for Super RSS Curator
 import os
 import sys
 import json
+import socket
 import requests
 from datetime import datetime, timezone
 from collections import defaultdict
@@ -68,6 +69,14 @@ BRAVE_SEARCH_TOPICS = [
     ("evidence-based health wellness nutrition longevity research blog rss feed", "wellness"),
 ]
 FEED_PROBE_PATHS = ["/feed", "/rss", "/atom.xml", "/feed.xml", "/index.xml", "/rss.xml"]
+
+# feedparser.parse() has no timeout of its own and falls back to whatever
+# socket default is in effect. Without this, a handful of slow/dead feeds
+# among hundreds of candidates (e.g. a 1000-candidate catch-up run) can each
+# hang for minutes, pushing the whole job past the 6-hour GitHub Actions
+# limit and getting it cancelled with nothing saved.
+FEED_FETCH_TIMEOUT_SECS = 15
+socket.setdefaulttimeout(FEED_FETCH_TIMEOUT_SECS)
 
 # Configuration
 DISCOVERY_CACHE_FILE = 'discovery_cache.json'
@@ -546,7 +555,12 @@ class FeedDiscovery:
                 'error': candidate.error,
                 'evaluated_at': datetime.now(timezone.utc).isoformat()
             }
-        
+
+            # Periodically flush so a large run that gets cancelled partway
+            # (e.g. hitting the job time limit) doesn't lose all its progress.
+            if (i + 1) % 25 == 0:
+                self._save_cache()
+
         # Save cache after evaluation
         self._save_cache()
         
