@@ -13,6 +13,44 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **National Indigenous Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"34f1f462738e641ae84d437372ef0f1b","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x40` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Nation Talk (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Smart Home and Automation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Gear Gadgets Repair (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Ricochet Media (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **3D Printing (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Clean Energy and EVs (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **AI ML Infrastructure (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Mesh Networking and LoRa (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Williams Lake and BC Interior (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Climate Science Research (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Indigenous Technology BC (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Wildfire and Conservation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Working Lands (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Rural BC Infrastructure (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Indigenous Guardian Programs (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **AgTech and Resource Innovation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Community Media and Digital Storytelling (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Backcountry and Wildlife (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Cariboo Local Community (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Rural Digital Equity (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Conservation and Parks (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Canadian Geographic (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Wildlife Ecology (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Health and Wellness (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Examine.com (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Evidence-Based Health Research (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Longevity and Preventive Medicine (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Science Fiction Books (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Cariboo First Nations (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Indigenous Data and Language Tech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Silviculture and Logging Tech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Canadian Arts Technology (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Canadian Agriculture and Ranching (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
+| 2026-06-15 | 🔧 Manual Run | ⚠️ **National Indigenous Innovation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-14 | 🌅 4:30 AM Pacific | ⚠️ **Smart Home and Automation (Kagi)** failed | `HTTP 401 - {"meta":{"id":"3f722b1e2dd49ef094f154802f28393a","node":"us-west2","ms":3,"api_balance":null},"data":null,"er` |
@@ -305,9 +343,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-08 | 🌙 evening | 79 | news:70(89%), wellness:3(4%), ai-tech:2(3%) |
 | 2026-06-08 | 🔧 manual | 80 | news:61(76%), local:6(8%), ai-tech:4(5%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-15 10:46 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-15 16:33 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

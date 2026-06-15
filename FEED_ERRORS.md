@@ -17,6 +17,52 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (9:33 AM Pacific)
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
+- ⚠️ **Nation Talk (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Smart Home and Automation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Gear Gadgets Repair (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Ricochet Media (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **First Peoples Cultural Council (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **3D Printing (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Clean Energy and EVs (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **AI ML Infrastructure (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Mesh Networking and LoRa (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Williams Lake and BC Interior (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Climate Science Research (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Indigenous Technology BC (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Wildfire and Conservation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Working Lands (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Rural BC Infrastructure (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Indigenous Guardian Programs (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **AgTech and Resource Innovation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Community Media and Digital Storytelling (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Backcountry and Wildlife (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Cariboo Local Community (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Rural Digital Equity (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Conservation and Parks (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Canadian Geographic (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Wildlife Ecology (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Health and Wellness (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Examine.com (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Evidence-Based Health Research (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Longevity and Preventive Medicine (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Science Fiction Books (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Cariboo First Nations (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Indigenous Data and Language Tech (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Silviculture and Logging Tech (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Canadian Arts Technology (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Canadian Agriculture and Ranching (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **Precision Agriculture and AgTech (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+- ⚠️ **National Indigenous Innovation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
+
+
+---
+
+
+
 ## 2026-06-14 (Sunday)
 
 #### 🌅 4:30 AM Pacific
