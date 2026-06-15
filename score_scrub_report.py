@@ -28,6 +28,7 @@ import anthropic
 
 FEED_GLOB = "feed-*.json"
 PODCAST_PREFIX = "feed-podcast-"
+PODCAST_DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 SCORE_FIELD = "_score"
 LOCAL_FIELD = "_local"
 LOW_SCORE_FLAG = 30       # flag articles at or below this score
@@ -75,6 +76,16 @@ def load_feeds(root: Path) -> dict[str, dict]:
             continue
         with path.open() as fh:
             feeds[path.name] = json.load(fh)
+    return feeds
+
+
+def load_podcast_feeds(root: Path) -> dict[str, dict]:
+    feeds = {}
+    for day in PODCAST_DAYS:
+        path = root / f"{PODCAST_PREFIX}{day}.json"
+        if path.exists():
+            with path.open() as fh:
+                feeds[day] = json.load(fh)
     return feeds
 
 
@@ -130,6 +141,32 @@ def analyse_feed(feed_name: str, feed_data: dict, now: datetime) -> dict:
             1 for item in items
             if item.get(LOCAL_FIELD, False) and item.get(SCORE_FIELD, -1) == 0
         ),
+    }
+
+
+def analyse_podcast_feed(day: str, feed_data: dict) -> dict:
+    items = feed_data.get("items", [])
+    podcast_meta = feed_data.get("_podcast", {})
+
+    scores = [item.get("ai_score", 0) for item in items]
+    kw_matches = [item.get("_keyword_matches", 0) for item in items]
+    sources = [
+        (item.get("authors") or [{}])[0].get("name", "Unknown")
+        for item in items
+    ]
+    source_counts = Counter(sources)
+    top_source, top_count = source_counts.most_common(1)[0] if source_counts else ("—", 0)
+
+    return {
+        "label": podcast_meta.get("theme", feed_data.get("title", day.title())),
+        "count": len(items),
+        "avg_score": sum(scores) / len(scores) if scores else 0.0,
+        "min_score": min(scores) if scores else 0,
+        "max_score": max(scores) if scores else 0,
+        "avg_keyword_matches": sum(kw_matches) / len(kw_matches) if kw_matches else 0.0,
+        "bonus_count": sum(1 for item in items if item.get("_is_bonus")),
+        "top_source": top_source,
+        "top_source_count": top_count,
     }
 
 
@@ -228,6 +265,7 @@ def generate_report(
     flagged: list[dict],
     scrub_ran: bool,
     now: datetime,
+    podcast_analyses: dict[str, dict] | None = None,
 ) -> str:
     ts = now.strftime("%Y-%m-%d %H:%M UTC")
     total_articles = sum(a["count"] for a in analyses.values())
@@ -265,6 +303,25 @@ def generate_report(
             f"| {top} |"
         )
     sections.append("\n".join(rows))
+
+    # ── Daily podcast bucket summary table ──
+    if podcast_analyses:
+        sections.append("\n## Daily Podcast Buckets\n")
+        header = "| Day | Theme | Articles | Avg Score | Score Range | Avg Keyword Matches | Bonus | Top Source |"
+        sep    = "|-----|-------|----------|-----------|-------------|---------------------|-------|------------|"
+        rows = [header, sep]
+        for day, a in podcast_analyses.items():
+            band = _score_band_emoji(a["avg_score"])
+            top = f"{a['top_source']} ({a['top_source_count']})"
+            rows.append(
+                f"| {day.capitalize()} | {a['label']} | {a['count']} "
+                f"| {band} {a['avg_score']:.1f} "
+                f"| {a['min_score']}–{a['max_score']} "
+                f"| {a['avg_keyword_matches']:.1f} "
+                f"| {a['bonus_count']} "
+                f"| {top} |"
+            )
+        sections.append("\n".join(rows))
 
     # ── Per-feed detail ──
     sections.append("\n---\n\n## Per-Feed Detail\n")
@@ -447,8 +504,18 @@ def main() -> None:
     else:
         print("Skipping scrub pass (--no-scrub).")
 
+    print("Loading podcast buckets…")
+    podcast_feeds = load_podcast_feeds(root)
+    podcast_analyses: dict[str, dict] = {}
+    for day, feed_data in podcast_feeds.items():
+        podcast_analyses[day] = analyse_podcast_feed(day, feed_data)
+        a = podcast_analyses[day]
+        print(f"  {a['label']:30s}  {a['count']:3d} articles  avg score {a['avg_score']:5.1f}")
+    if not podcast_analyses:
+        print("  No feed-podcast-*.json files found, skipping.")
+
     print("Generating report…")
-    report = generate_report(analyses, flagged, scrub_ran, now)
+    report = generate_report(analyses, flagged, scrub_ran, now, podcast_analyses)
     output_path.write_text(report, encoding="utf-8")
     print(f"Report written to {output_path}")
 
