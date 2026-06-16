@@ -12,6 +12,7 @@ import re
 import concurrent.futures
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from collections import defaultdict
 from typing import List, Dict, Optional, Tuple
 from pathlib import Path
@@ -3720,7 +3721,7 @@ def main():
     # that excludes articles already shown in the past 7 days of podcast episodes.
     print(f"\n🎙️ Generating today's podcast feed from {len(podcast_cache)} cached articles...")
     if schedule_config and schedule_config.get('enabled', False):
-        today_name = datetime.now(timezone.utc).strftime('%A').lower()
+        today_name = datetime.now(ZoneInfo('America/Vancouver')).strftime('%A').lower()
         if today_name in schedule_config['schedule']:
             podcast_shown_cache = load_podcast_shown_cache()
             # Proactively bank articles that score significantly better on future days.
