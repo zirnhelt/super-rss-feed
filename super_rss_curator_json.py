@@ -82,6 +82,25 @@ def load_source_preferences():
 SOURCE_PREFS = load_source_preferences()
 SUBSCRIBER_ACCESS = SOURCE_PREFS.get('subscriber_access', {}).get('sources', {})
 
+def load_json_config_optional(filename: str, default=None):
+    """Load JSON config file, returning default if not found (for optional configs)."""
+    try:
+        with open(CONFIG_DIR / filename, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return default if default is not None else {}
+
+SCORING_WEIGHTS = load_json_config_optional('scoring_weights.json', {
+    'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
+    'podcast': {'w_quality': 0.10, 'w_relevance': 0.20, 'w_local': 0.10, 'w_theme': 0.60}
+})
+SCORING_MODIFIERS = load_json_config_optional('scoring_modifiers.json', {
+    'local_keyword_bonus': 25,
+    'wire_quality_penalty': -10,
+    'source_type_quality_adjustments': {}
+})
+FEED_SLOTS = load_json_config_optional('feed_slots.json', {})
+
 def _build_prescore_keywords() -> frozenset:
     """Union of all category include-keywords plus local signals.
 
@@ -428,6 +447,10 @@ class Article:
         self.source_url = source_url
         self.feed_url = feed_url
         self.score = 0
+        self.quality = 0       # Q: journalistic depth, sourcing, originality (0-100)
+        self.relevance = 0     # R: match to interest profile (0-100)
+        self.local = 0         # L: Cariboo/BC/rural specificity (0-100)
+        self.content_type = None  # analysis|breaking|opinion|feature|recap|fluff|sponsored|wire
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -676,6 +699,10 @@ def save_podcast_cache(articles):
                     'source': article.source,
                     'source_url': article.source_url,
                     'score': article.score,
+                    'quality': getattr(article, 'quality', 0),
+                    'relevance': getattr(article, 'relevance', 0),
+                    'local': getattr(article, 'local', 0),
+                    'content_type': getattr(article, 'content_type', None),
                     'category': article.category,
                     'image': getattr(article, 'image', None)
                 })
@@ -1603,13 +1630,25 @@ def dedup_across_categories(categorized: dict) -> dict:
     return categorized
 
 
+# Content type preference order for dedup: original > aggregated > summary
+_CONTENT_TYPE_RANK = {
+    'analysis': 6, 'feature': 5, 'opinion': 4, 'breaking': 3, 'wire': 2, 'recap': 1
+}
+
+
+def _dedup_story_key(article) -> tuple:
+    """Sort key for story-group dedup: prefer by content_type hierarchy, then Q score."""
+    ct = getattr(article, 'content_type', None) or ''
+    q = getattr(article, 'quality', 0) or getattr(article, 'score', 0)
+    return (_CONTENT_TYPE_RANK.get(ct, 0), q)
+
+
 def dedup_by_story_group(articles: List[Article]) -> List[Article]:
     """Collapse articles that Claude labelled with the same story_group.
 
-    Within a single category's article list, when multiple pieces cover the
-    same discrete news event (identical story_group string), only the
-    highest-scored article is kept.  Articles with no story_group (null) are
-    left untouched.
+    Within a story group, prefer original reporting over wire reprints using
+    content_type hierarchy (analysis > feature > opinion > breaking > wire > recap).
+    Tiebreak within same type by quality score.
     """
     groups: dict = defaultdict(list)
     ungrouped = []
@@ -1623,7 +1662,7 @@ def dedup_by_story_group(articles: List[Article]) -> List[Article]:
     result = ungrouped[:]
     collapsed = 0
     for group_articles in groups.values():
-        best = max(group_articles, key=lambda x: x.score)
+        best = max(group_articles, key=_dedup_story_key)
         result.append(best)
         collapsed += len(group_articles) - 1
 
@@ -1795,7 +1834,19 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
 
     cached_system_prompt = (
         f"You are a news curator. Respond only with valid JSON arrays.\n\n"
-        f"Rate articles 0-100 for personal relevance and quality based on these interest priorities:\n{interests}\n\n"
+        f"Rate each article on THREE dimensions (0-100 each):\n"
+        f"- quality: Journalistic depth, sourcing, original reporting. High (70+): investigation, expert sourcing, original data. Low (0-30): wire reprint, press release, pure hype, advice column.\n"
+        f"- relevance: Match to these interest priorities:\n{interests}\n"
+        f"- local: Cariboo/BC Interior specificity. 80-100: Williams Lake/Cariboo focus. 40-79: BC regional. 0-39: no local angle.\n\n"
+        f"Also assign content_type (pick one):\n"
+        f"- analysis: Substantive explanation, deep dive, investigation\n"
+        f"- breaking: Immediate event coverage, developing story\n"
+        f"- opinion: Op-ed, commentary, editorial\n"
+        f"- feature: Long-form profile, narrative journalism\n"
+        f"- recap: Game/event summary, roundup, 'what happened' piece\n"
+        f"- fluff: Celebrity gossip, tabloid, advice column, deals/promotions, pure sports score coverage, 'AI is transforming X' hype with no substance\n"
+        f"- sponsored: Press release, sponsored content, promotional\n"
+        f"- wire: Wire-service reprint (AP, Reuters, CP) with no local addition\n\n"
         f"CATEGORY DEFINITIONS AND ASSIGNMENT RULES:\n"
         f"Assign each article to exactly ONE category using the descriptions, signals, and exclusions below:\n\n"
         f"{category_guide}\n\n"
@@ -1819,10 +1870,20 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
 
     for article in articles:
         if article.url_hash in cache:
-            article.score = cache[article.url_hash]['score']
-            article.category = cache[article.url_hash]['category']
-            article.story_group = cache[article.url_hash].get('story_group')
-            scored_articles.append(article)
+            entry = cache[article.url_hash]
+            if 'quality' in entry:
+                # New dimensional format
+                article.quality = entry['quality']
+                article.relevance = entry['relevance']
+                article.local = entry.get('local', 0)
+                article.content_type = entry.get('content_type')
+                article.score = entry['score']
+                article.category = entry['category']
+                article.story_group = entry.get('story_group')
+                scored_articles.append(article)
+            else:
+                # Old single-score format — force re-score to get dimensions
+                uncached.append(article)
         else:
             uncached.append(article)
 
@@ -1839,12 +1900,12 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
                 for j, article in enumerate(batch)
             ])
 
-            prompt = f"""Rate each article from 0-100, assign a category (see system prompt for definitions), and provide a story_group.
+            prompt = f"""Rate each article on quality, relevance, and local dimensions; assign content_type, category, and story_group.
 
 Respond with ONLY a JSON array (no other text):
 [
-  {{"article": 1, "score": 75, "category": "ai-tech", "story_group": "Apple AirTag 2 launch"}},
-  {{"article": 2, "score": 45, "category": "news", "story_group": null}}
+  {{"article": 1, "quality": 72, "relevance": 85, "local": 40, "content_type": "analysis", "category": "ai-tech", "story_group": "Apple AirTag 2 launch"}},
+  {{"article": 2, "quality": 45, "relevance": 30, "local": 0, "content_type": "wire", "category": "news", "story_group": null}}
 ]
 
 Articles to evaluate:
@@ -1889,19 +1950,34 @@ Articles to evaluate:
                 scores = json.loads(response_text)
 
                 timestamp = datetime.now(timezone.utc).timestamp()
+                _gen_weights = SCORING_WEIGHTS.get('general', {})
+                _w_q = _gen_weights.get('w_quality', 0.25)
+                _w_r = _gen_weights.get('w_relevance', 0.55)
+                _w_l = _gen_weights.get('w_local', 0.20)
 
                 for score_data in scores:
                     idx = score_data['article'] - 1
                     if 0 <= idx < len(batch):
                         article = batch[idx]
-                        article.score = score_data['score']
+                        article.quality = int(score_data.get('quality', 50))
+                        article.relevance = int(score_data.get('relevance', 50))
+                        article.local = int(score_data.get('local', 0))
+                        article.content_type = score_data.get('content_type') or None
                         article.category = score_data.get('category', 'news')
                         if article.category not in CATEGORIES:
                             article.category = categorize_article(article.title, article.description) or 'news'
                         article.story_group = score_data.get('story_group') or None
+                        # Composite score from dimensional weights
+                        article.score = min(100, max(0, round(
+                            _w_q * article.quality + _w_r * article.relevance + _w_l * article.local
+                        )))
 
                         cache[article.url_hash] = {
                             'score': article.score,
+                            'quality': article.quality,
+                            'relevance': article.relevance,
+                            'local': article.local,
+                            'content_type': article.content_type,
                             'category': article.category,
                             'story_group': article.story_group,
                             'timestamp': timestamp
@@ -1913,6 +1989,9 @@ Articles to evaluate:
                 print(f"  ⚠️ JSON parsing error: {e}")
                 print(f"     Response was: {response_text[:300]!r}")
                 for article in batch:
+                    article.quality = 50
+                    article.relevance = 50
+                    article.local = 0
                     article.score = 50
                     article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
@@ -1920,6 +1999,9 @@ Articles to evaluate:
             except Exception as e:
                 print(f"  ⚠️ API error: {e}")
                 for article in batch:
+                    article.quality = 50
+                    article.relevance = 50
+                    article.local = 0
                     article.score = 50
                     article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
@@ -2152,6 +2234,105 @@ def apply_source_preferences(articles: List[Article]) -> List[Article]:
     if adjusted_count:
         print(f"📰 Source preferences: adjusted scores for {adjusted_count} articles")
     return articles
+
+
+def compute_composite_score(article: 'Article', weights: dict = None) -> int:
+    """Compute composite score from Q, R, L dimensions using configured weights."""
+    if weights is None:
+        weights = SCORING_WEIGHTS.get('general', {})
+    w_q = weights.get('w_quality', 0.25)
+    w_r = weights.get('w_relevance', 0.55)
+    w_l = weights.get('w_local', 0.20)
+    return min(100, max(0, round(w_q * article.quality + w_r * article.relevance + w_l * article.local)))
+
+
+def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
+    """Apply dimension-level score adjustments and recompute composite scores.
+
+    Replaces enforce_local_priority (L += local_keyword_bonus) and
+    apply_source_preferences (Q += source quality adjustment).
+    Articles lacking dimensional scores (quality=relevance=0) fall back to
+    direct composite adjustment for backward-compatibility with the Cohere path.
+    """
+    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
+    local_bonus = SCORING_MODIFIERS.get('local_keyword_bonus', 25)
+    wire_penalty = SCORING_MODIFIERS.get('wire_quality_penalty', -10)
+    q_adjustments = SCORING_MODIFIERS.get('source_type_quality_adjustments', {})
+
+    source_map = SOURCE_PREFS.get('source_map', {})
+
+    local_boosted = 0
+    source_adjusted = 0
+
+    for article in articles:
+        has_dimensions = article.quality > 0 or article.relevance > 0
+
+        # Local keyword signals → L dimension boost + category override
+        title_text = article.title.lower()
+        if any(signal in title_text for signal in local_signals):
+            if has_dimensions:
+                article.local = min(100, article.local + local_bonus)
+            else:
+                article.score = max(article.score, 80)
+            article.category = 'local'
+            local_boosted += 1
+
+        # Source type → Q dimension (or fallback composite adjustment)
+        source_type = source_map.get(article.source)
+        if source_type:
+            adjustment = q_adjustments.get(source_type, 0)
+            if adjustment != 0:
+                if has_dimensions:
+                    article.quality = max(0, min(100, article.quality + adjustment))
+                else:
+                    article.score = max(0, min(100, article.score + adjustment))
+                source_adjusted += 1
+
+        # Wire content type → Q penalty
+        if has_dimensions and article.content_type == 'wire':
+            article.quality = max(0, min(100, article.quality + wire_penalty))
+
+        # Recompute composite only when dimensional scores are present
+        if has_dimensions:
+            article.score = compute_composite_score(article)
+
+    if local_boosted:
+        print(f"📍 Local dimension boost: {local_boosted} article(s) received L += {local_bonus}")
+    if source_adjusted:
+        print(f"📰 Source Q adjustments applied to {source_adjusted} article(s)")
+    return articles
+
+
+def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict]:
+    """Phase 3: Absolute content type filter — score-independent.
+
+    - fluff, sponsored: always drop
+    - recap: drop unless article.local >= 50 (local recaps may have community value)
+    - wire: kept but flagged; dedup already prefers original reporting over wire
+    - None/unknown: pass through (e.g. Cohere-scored articles)
+    """
+    ALWAYS_DROP = {'fluff', 'sponsored'}
+    kept = []
+    removed: Dict[str, int] = defaultdict(int)
+
+    for article in articles:
+        ct = article.content_type
+        if not ct:
+            kept.append(article)
+            continue
+        if ct in ALWAYS_DROP:
+            removed[ct] += 1
+            continue
+        if ct == 'recap' and article.local < 50:
+            removed['recap_nonlocal'] += 1
+            continue
+        kept.append(article)
+
+    total = sum(removed.values())
+    if total:
+        breakdown = ', '.join(f"{v} {k}" for k, v in removed.items())
+        print(f"🚫 Content type filter: removed {total} articles ({breakdown})")
+    return kept, {'content_type_removed': dict(removed)}
 
 
 def apply_diversity_limits(articles: List[Article], category: str) -> List[Article]:
@@ -2777,21 +2958,6 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         print("⚠️ No API key available for theme scoring")
         return set(), None
 
-    # Rural/local context signals — ai-tech articles without these get penalized
-    # in the podcast to keep the feed locally grounded
-    rural_context_signals = [
-        "rural", "community", "small town", "local", "municipal", "civic",
-        "off-grid", "remote", "broadband", "connectivity", "digital equity",
-        "precision agriculture", "farm", "forestry", "ranch", "mining",
-        "wildfire", "emergency", "telehealth", "education", "indigenous",
-        "first nation", "co-op", "cooperative", "volunteer", "non-profit",
-        "williams lake", "cariboo", "quesnel", "100 mile house",
-        "horsefly", "lac la hache", "chilcotin", "bella coola",
-        "resource", "homestead", "self-hosted", "mesh network", "meshtastic",
-        "lora", "solar", "off grid", "preparedness", "resilience",
-    ]
-    ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
-
     # Convert cached article dicts to Article objects
     # Create a simple Article-like class for cached articles
     class CachedArticle:
@@ -2805,6 +2971,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.source = data['source']
             self.source_url = data['source_url']
             self.score = data['score']
+            self.quality = data.get('quality', data['score'])
+            self.relevance = data.get('relevance', data['score'])
+            self.local = data.get('local', 0)
+            self.content_type = data.get('content_type')
             self.category = data['category']
             self.image = data.get('image')
 
@@ -2932,81 +3102,60 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     elif floor_dropped:
         print(f"  ⚠️ Theme-fit floor would drop all {floor_dropped} candidates for {theme_label}; keeping unfiltered pool")
 
-    # Apply rural-context penalty: ai-tech articles without local/rural signals are demoted
-    ai_tech_penalty = schedule_config.get('ai_tech_no_context_penalty', 30)
-    scored_pool = []
-    for article, theme_score in theme_scored:
-        text = f"{article.title} {article.description}"
-        final_score = theme_score
-
-        # Penalize ai-tech articles that lack rural/local context
-        if article.category == 'ai-tech':
-            has_rural_context = _keyword_match_count(text, rural_context_signals) > 0
-            if not has_rural_context:
-                final_score = max(0, final_score - ai_tech_penalty)
-
-        scored_pool.append((article, final_score, theme_score))
-
-    # Relative scoring: if even the best article in the pool scores below the
-    # absolute threshold, scale all scores so the top scorer reaches min_score.
-    # This ensures theme-relevant articles always outrank zero-relevance filler
-    # on thin news days rather than losing to tiebreaker (base score).
-    best_final = max((fs for _, fs, _ in scored_pool), default=0)
-    relative_scaled = 0 < best_final < min_score
-    if relative_scaled:
-        scale = min_score / best_final
-        print(f"  📈 Relative scoring: pool max was {best_final}, scaled ×{scale:.1f}")
-        scored_pool = [
-            (a, min(100, round(fs * scale)), min(100, round(ts * scale)))
-            for a, fs, ts in scored_pool
-        ]
-
-    # Bank articles with strong theme scores for future episodes of this day's theme.
-    # Done after relative scaling so thin-day scores (e.g. pool max = 1 → scaled to 45)
-    # still clear holdover_threshold and the best-fit articles accumulate for next week.
-    banked_count = update_theme_holdover(theme_name, theme_label,
-                          [(a, ts) for a, _, ts in scored_pool],
-                          holdover_threshold)
-
-    # Apply keyword boost to selection ranking so keyword-matching articles
-    # are preferred over semantically similar but terminology-free articles.
-    # keyword_boost and keyword_boost_cap from config control the magnitude.
-    kw_boost_val = schedule_config.get('keyword_boost', 15)
-    kw_boost_cap = schedule_config.get('keyword_boost_cap', 3)
+    # Keyword boost applies to T (theme dimension) before composite computation.
+    # Rural context is no longer a hardcoded penalty — incorporate guidance into
+    # the theme's scoring_prompt instead (configurable per day).
+    kw_boost_val = schedule_config.get('keyword_boost', 10)
+    kw_boost_cap = schedule_config.get('keyword_boost_cap', 5)
     bonus_thematic_boost = schedule_config.get('bonus_thematic_boost', 5)
     bonus_max_per_category = schedule_config.get('bonus_max_per_category', 3)
 
+    _pod_weights = SCORING_WEIGHTS.get('podcast', {})
+    _pod_w_q = _pod_weights.get('w_quality', 0.10)
+    _pod_w_r = _pod_weights.get('w_relevance', 0.20)
+    _pod_w_l = _pod_weights.get('w_local', 0.10)
+    _pod_w_t = _pod_weights.get('w_theme', 0.60)
+
+    def _podcast_composite(article, t_adjusted: float) -> int:
+        q = getattr(article, 'quality', 0) or getattr(article, 'score', 0)
+        r = getattr(article, 'relevance', 0) or getattr(article, 'score', 0)
+        l_ = getattr(article, 'local', 0)
+        return min(100, max(0, round(
+            _pod_w_q * q + _pod_w_r * r + _pod_w_l * l_ + _pod_w_t * t_adjusted
+        )))
+
+    # Build scored pool: (article, composite_podcast, T_adjusted, T_raw, kw_hits)
+    scored_pool = []
+    for article, theme_score in theme_scored:
+        kw_text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
+        raw_kw_hits = _net_keyword_match_count(kw_text, theme_keywords, theme_anti_keywords)
+        kw_hits = min(raw_kw_hits, kw_boost_cap)
+        t_adjusted = min(100, theme_score + kw_hits * kw_boost_val) if kw_boost_val > 0 else theme_score
+        composite = _podcast_composite(article, t_adjusted)
+        scored_pool.append((article, composite, t_adjusted, theme_score, raw_kw_hits))
+
+    # Bank articles with strong raw theme scores for future episodes.
+    banked_count = update_theme_holdover(theme_name, theme_label,
+                          [(a, ts) for a, _, _, ts, _ in scored_pool],
+                          holdover_threshold)
+
     if theme_keywords:
-        boosted_pool = []
-        for article, final_score, theme_score in scored_pool:
-            kw_text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
-            raw_kw_hits = _net_keyword_match_count(kw_text, theme_keywords, theme_anti_keywords)
-            kw_hits = min(raw_kw_hits, kw_boost_cap)
-            selection_score = min(100, final_score + kw_hits * kw_boost_val) if kw_boost_val > 0 else final_score
-            boosted_pool.append((article, selection_score, final_score, theme_score, raw_kw_hits))
+        # Split into theme-matched (>=1 keyword hit) and bonus candidates.
+        # Bonus candidates from the day's primary categories get a small adjacency lift.
+        kw_match = [t for t in scored_pool if t[4] > 0]
+        non_match = [t for t in scored_pool if t[4] == 0]
 
-        # Split into theme-matched articles (>=1 keyword hit) and bonus
-        # candidates (zero keyword hits) so the bonus/news-roundup slots can
-        # get light category-diversity filtering without crowding out
-        # genuinely theme-relevant picks.
-        kw_match = [t for t in boosted_pool if t[4] > 0]
-        non_match = [t for t in boosted_pool if t[4] == 0]
-
-        # Give bonus candidates from the day's theme categories a small
-        # thematic-adjacency boost so they're preferred as filler over
-        # articles from unrelated categories.
         if bonus_thematic_boost:
             non_match = [
-                (a, min(100, sel + bonus_thematic_boost) if a.category in theme_set else sel, fs, ts, kh)
-                for a, sel, fs, ts, kh in non_match
+                (a, min(100, comp + bonus_thematic_boost) if a.category in theme_set else comp,
+                 t_adj, ts, kh)
+                for a, comp, t_adj, ts, kh in non_match
             ]
 
         kw_match.sort(key=lambda x: x[1], reverse=True)
         non_match.sort(key=lambda x: x[1], reverse=True)
 
-        # Fill with keyword-matched articles first, then bonus candidates
-        # capped per category (e.g. so ai-tech can't fill every bonus slot).
-        # Backfill uncapped from leftovers if slots remain unfilled.
+        # Fill keyword-matched first, then bonus candidates capped per category.
         selected = list(kw_match[:max_articles])
         remaining = max_articles - len(selected)
         if remaining > 0 and non_match:
@@ -3021,17 +3170,15 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                 selected.append(entry)
                 category_counts[article.category] += 1
                 added += 1
-
-            still_remaining = remaining - added
-            if still_remaining > 0:
-                selected.extend(leftover[:still_remaining])
+            if remaining - added > 0:
+                selected.extend(leftover[:remaining - added])
 
         selected.sort(key=lambda x: x[1], reverse=True)
-        theme_articles = [(a, fs, ts) for a, _, fs, ts, _ in selected]
+        # theme_articles: (article, composite_podcast, T_raw)
+        theme_articles = [(a, comp, ts) for a, comp, _, ts, _ in selected]
     else:
-        # Sort by final score descending
         scored_pool.sort(key=lambda x: x[1], reverse=True)
-        theme_articles = [(a, fs, ts) for a, fs, ts in scored_pool[:max_articles]]
+        theme_articles = [(a, comp, ts) for a, comp, _, ts, _ in scored_pool[:max_articles]]
 
     # Optionally include top articles from other categories as bonus picks
     # with theme-aware scoring for diversity
@@ -3074,7 +3221,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                 if category_counts[cat] >= max_per_category:
                     continue
 
-                bonus_entries.append((article, theme_score, theme_score))
+                bonus_composite = _podcast_composite(article, theme_score)
+                bonus_entries.append((article, bonus_composite, theme_score))
                 category_counts[cat] += 1
 
                 if len(bonus_entries) >= include_bonus:
@@ -3132,10 +3280,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     }
 
     items_with_score = []
-    for article, final_score, theme_score in all_entries:
+    for article, composite_podcast, theme_score in all_entries:
         text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
         kw_matches = _net_keyword_match_count(text, theme_keywords, theme_anti_keywords)
-        boosted_score = min(100, kw_matches * 20 + article.score * 0.3)
         is_bonus = _is_bonus_article(article)
         item = {
             "id": article.link,
@@ -3147,11 +3294,12 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}],
             "ai_score": article.score,
-            "_quality_score": article.score,
+            "_quality": getattr(article, 'quality', article.score),
+            "_relevance": getattr(article, 'relevance', article.score),
+            "_local": getattr(article, 'local', 0),
             "_theme_score": theme_score,
-            "_final_score": final_score,
+            "_composite_podcast": composite_podcast,
             "_keyword_matches": kw_matches,
-            "_boosted_score": int(boosted_score),
             "_category": article.category,
             "_source_category": article.category,
             "_is_bonus": is_bonus
@@ -3181,7 +3329,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
             item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
-        items_with_score.append((int(boosted_score), item))
+        items_with_score.append((composite_podcast, item))
 
     items_with_score.sort(key=lambda x: x[0], reverse=True)
     feed["items"] = [item for _, item in items_with_score]
@@ -3190,7 +3338,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
-    avg_final_score = sum(fs for _, fs, _ in all_entries) / len(all_entries) if all_entries else 0
+    avg_final_score = sum(cp for _, cp, _ in all_entries) / len(all_entries) if all_entries else 0
     cross_cat = bonus_count
     print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(all_entries)} articles (avg theme score: {avg_theme_score:.1f}, {cross_cat} cross-category)")
 
@@ -3199,7 +3347,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         'bonus_count': bonus_count,
         'mean_final_score': round(avg_final_score, 1),
         'mean_theme_score': round(avg_theme_score, 1),
-        'relative_scaled': relative_scaled,
+        'relative_scaled': False,
         'banked_count': banked_count,
     }
     return {a.link for a, _, _ in all_entries}, feed_stats
@@ -3356,17 +3504,22 @@ def main():
 
     scored_articles = score_articles_with_claude(new_articles, api_key)
 
-    scored_articles = enforce_local_priority(scored_articles)
-
-    scored_articles = apply_source_preferences(scored_articles)
+    # Phase 4: Dimension adjustments (L += local_bonus, Q += source_adjustment)
+    # Replaces enforce_local_priority + apply_source_preferences.
+    scored_articles = apply_dimension_adjustments(scored_articles)
 
     run_stats['scoring'] = {
         'scored_count': len(scored_articles),
         'score_histogram_by_category': _score_histogram(scored_articles),
     }
 
-    # Haiku scrub runs BEFORE the quality gate on all articles above a low floor,
-    # so junk is removed from a clean pool before scoring thresholds and floor rescue apply.
+    # Phase 3: Hard content type filter — absolute, score-independent.
+    # Drops fluff, sponsored, and non-local recaps regardless of composite score.
+    scored_articles, content_type_stats = filter_by_content_type(scored_articles)
+    run_stats['content_type_filter'] = content_type_stats
+
+    # Haiku scrub: semantic safety net for subjects that slip past content_type filter
+    # (e.g. sports articles classified as 'breaking'). Runs on articles above a low floor.
     # Articles below SCRUB_FLOOR are preserved for category floor rescue only.
     SCRUB_FLOOR = 15
     scrub_candidates = [a for a in scored_articles if a.score >= SCRUB_FLOOR]
@@ -3377,7 +3530,7 @@ def main():
 
     # Quality filter now works on pre-scrubbed candidates
     quality_articles = [a for a in scrubbed if a.score >= min_score_for_category(a.category)]
-    print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}, "
+    print(f"⭐ Quality filter (composite >= {LIMITS['min_claude_score']}, "
           f"per-category overrides {LIMITS.get('min_score_by_category', {})}): "
           f"{len(scrubbed)} → {len(quality_articles)} articles")
 
@@ -3731,8 +3884,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     else:
         print("⚠️  No scoring API available — using stored podcast-cache scores")
 
-    articles = enforce_local_priority(articles)
-    articles = apply_source_preferences(articles)
+    articles = apply_dimension_adjustments(articles)
 
     quality_articles = [a for a in articles if a.score >= min_score_for_category(a.category)]
     print(f"⭐ Quality filter (score >= {LIMITS['min_claude_score']}, "
