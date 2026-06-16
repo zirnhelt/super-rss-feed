@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Article Review</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 { font-size: 1.8em; color: #667eea; margin-bottom: 4px; }
+        .subtitle { color: #666; font-size: 0.95em; margin-bottom: 24px; }
+
+        /* ── Setup pane ── */
+        #setup-pane { display: none; }
+        .setup-field { margin-bottom: 16px; }
+        .setup-field label { display: block; font-weight: 600; margin-bottom: 4px; color: #555; }
+        .setup-field input {
+            width: 100%; padding: 10px 12px; border: 1px solid #ddd;
+            border-radius: 8px; font-size: 1em;
+        }
+        .setup-help { font-size: 0.82em; color: #888; margin-top: 4px; }
+
+        /* ── Progress bar ── */
+        #progress-section { margin-bottom: 20px; }
+        .progress-label { font-size: 0.9em; color: #666; margin-bottom: 6px; }
+        .progress-bar-track {
+            height: 6px; background: #eee; border-radius: 3px; overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%; background: #667eea; border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        /* ── Article card ── */
+        #article-card {
+            border: 1px solid #e8e8e8; border-radius: 12px;
+            padding: 20px; margin-bottom: 20px;
+            background: #fafafa;
+        }
+        .article-meta {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            align-items: center; margin-bottom: 8px;
+        }
+        .badge {
+            font-size: 0.75em; font-weight: 600; padding: 2px 8px;
+            border-radius: 12px; white-space: nowrap;
+        }
+        .badge-category { background: #e8effe; color: #667eea; }
+        .badge-today    { background: #f3e8ff; color: #764ba2; }
+        .badge-source   { background: #f0f0f0; color: #555; font-weight: normal; }
+        .badge-date     { color: #aaa; font-size: 0.78em; }
+
+        .article-title { font-size: 1.15em; font-weight: 700; margin-bottom: 8px; }
+        .article-title a { color: #333; text-decoration: none; }
+        .article-title a:hover { color: #667eea; text-decoration: underline; }
+
+        .score-row {
+            display: flex; gap: 12px; margin-bottom: 10px;
+            font-size: 0.8em; color: #777;
+        }
+        .score-bar-wrap { flex: 1; display: flex; align-items: center; gap: 6px; }
+        .score-bar-track {
+            flex: 1; height: 6px; background: #eee; border-radius: 3px; overflow: hidden;
+        }
+        .score-bar-fill {
+            height: 100%; border-radius: 3px;
+            background: linear-gradient(to right, #e53935, #fdd835, #43a047);
+        }
+
+        .article-desc {
+            font-size: 0.9em; color: #555; margin-bottom: 12px;
+            max-height: 80px; overflow: hidden; position: relative;
+        }
+        .article-desc.expanded { max-height: none; }
+        .show-more {
+            background: none; border: none; color: #667eea; cursor: pointer;
+            font-size: 0.85em; padding: 0; margin-bottom: 12px;
+        }
+
+        /* ── Rating buttons ── */
+        .rating-section { margin-bottom: 12px; }
+        .rating-label { font-size: 0.82em; font-weight: 600; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .rating-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .btn-rate {
+            flex: 1; min-width: 80px; padding: 10px 8px;
+            border: 2px solid transparent; border-radius: 8px;
+            font-size: 0.9em; font-weight: 600; cursor: pointer;
+            transition: all 0.15s ease; background: #f5f5f5; color: #555;
+        }
+        .btn-rate:hover { transform: translateY(-1px); }
+        .btn-rate.selected-good   { background: #e8f5e9; border-color: #43a047; color: #2e7d32; }
+        .btn-rate.selected-bad    { background: #ffebee; border-color: #e53935; color: #c62828; }
+        .btn-rate.selected-skip   { background: #f5f5f5; border-color: #bbb;    color: #555; }
+
+        /* ── Day chip row ── */
+        .day-chips-label { font-size: 0.82em; font-weight: 600; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .day-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+        .day-chip {
+            padding: 5px 10px; border: 1px solid #ddd; border-radius: 20px;
+            background: white; color: #666; font-size: 0.82em; cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .day-chip:hover { border-color: #667eea; color: #667eea; }
+        .day-chip.today-chip { border-color: #764ba2; color: #764ba2; font-weight: 600; }
+        .day-chip.selected-chip { background: #667eea; border-color: #667eea; color: white; font-weight: 600; }
+
+        /* ── Note field ── */
+        .note-wrap { margin-top: 10px; }
+        .note-wrap textarea {
+            width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
+            font-size: 0.85em; resize: vertical; min-height: 44px; font-family: inherit;
+        }
+
+        /* ── Navigation ── */
+        .nav-buttons { display: flex; justify-content: space-between; align-items: center; }
+        .btn { padding: 10px 20px; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-primary:hover { background: #5568d3; }
+        .btn-secondary { background: #f0f0f0; color: #555; }
+        .btn-secondary:hover { background: #e0e0e0; }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+        /* ── Done state ── */
+        #done-section { display: none; text-align: center; padding: 20px 0; }
+        #done-section h2 { color: #43a047; margin-bottom: 8px; }
+
+        /* ── Submit section ── */
+        #submit-section { margin-top: 16px; display: none; }
+        .status-msg { font-size: 0.85em; margin-top: 8px; color: #666; }
+        .status-msg.error { color: #c62828; }
+        .status-msg.success { color: #2e7d32; }
+
+        /* ── Loading / error states ── */
+        .loading { text-align: center; padding: 40px; color: #999; }
+        .error-box { background: #ffebee; border-left: 4px solid #e53935; color: #c62828; padding: 12px; border-radius: 6px; margin: 16px 0; }
+
+        /* ── Back to home link ── */
+        .back-link { font-size: 0.85em; color: #667eea; text-decoration: none; display: inline-block; margin-bottom: 16px; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back-link">← Back to feeds</a>
+    <h1>📋 Daily Article Review</h1>
+    <p class="subtitle">Rate each article to train the model. Your feedback shapes tomorrow's feed.</p>
+
+    <!-- Setup pane (shown when no PAT stored) -->
+    <div id="setup-pane">
+        <p style="margin-bottom:16px; color:#555;">To save your ratings, enter a GitHub Personal Access Token with <strong>contents: write</strong> access to this repository.</p>
+        <div class="setup-field">
+            <label for="input-pat">GitHub Personal Access Token</label>
+            <input type="password" id="input-pat" placeholder="github_pat_..." autocomplete="off" />
+            <div class="setup-help">Create a fine-grained token scoped only to zirnhelt/super-rss-feed. Stored in your browser only.</div>
+        </div>
+        <button class="btn btn-primary" onclick="saveSetup()">Save &amp; Start Reviewing</button>
+    </div>
+
+    <!-- Main review UI -->
+    <div id="review-pane" style="display:none;">
+        <div id="progress-section">
+            <div class="progress-label" id="progress-label">Loading…</div>
+            <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+            </div>
+        </div>
+
+        <div id="article-card">
+            <div class="loading">Fetching today's review articles…</div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" id="btn-prev" onclick="goTo(currentIndex - 1)" disabled>← Prev</button>
+            <button class="btn btn-primary"   id="btn-next" onclick="goNext()">Next →</button>
+        </div>
+
+        <div id="submit-section">
+            <button class="btn btn-primary" style="width:100%;padding:14px;" onclick="submitFeedback()">
+                💾 Save Ratings to GitHub
+            </button>
+            <div class="status-msg" id="submit-status"></div>
+        </div>
+    </div>
+
+    <div id="done-section">
+        <h2>✅ All done for today!</h2>
+        <p style="color:#666; margin-bottom:16px;">Come back tomorrow for a fresh batch of articles.</p>
+        <a href="index.html" class="btn btn-primary" style="text-decoration:none; display:inline-block;">View Feeds</a>
+    </div>
+
+    <div id="loading-section">
+        <div class="loading">Checking setup…</div>
+    </div>
+</div>
+
+<script>
+// ── Config ──────────────────────────────────────────────────────────────────
+const REPO_OWNER = 'zirnhelt';
+const REPO_NAME  = 'super-rss-feed';
+const FEED_URL   = 'feed-review.json';
+
+// ── State ───────────────────────────────────────────────────────────────────
+let articles    = [];   // from feed-review.json
+let ratings     = {};   // {url: {rating, better_theme, note}}
+let currentIndex = 0;
+const todayKey  = getTodayKey();  // YYYY-MM-DD in Vancouver time
+
+// ── Date helper ─────────────────────────────────────────────────────────────
+function getTodayKey() {
+    return new Date().toLocaleDateString('en-CA', {timeZone: 'America/Vancouver'});
+}
+
+// ── Persist ratings to localStorage ─────────────────────────────────────────
+function saveRatings() {
+    localStorage.setItem('review_ratings_' + todayKey, JSON.stringify(ratings));
+}
+function loadRatings() {
+    try {
+        return JSON.parse(localStorage.getItem('review_ratings_' + todayKey) || '{}');
+    } catch { return {}; }
+}
+
+// ── PAT helpers ──────────────────────────────────────────────────────────────
+function getPat()  { return localStorage.getItem('review_pat') || ''; }
+function savePat(t){ localStorage.setItem('review_pat', t); }
+
+function saveSetup() {
+    const pat = document.getElementById('input-pat').value.trim();
+    if (!pat) { alert('Please enter a GitHub Personal Access Token.'); return; }
+    savePat(pat);
+    document.getElementById('setup-pane').style.display  = 'none';
+    document.getElementById('loading-section').style.display = 'none';
+    document.getElementById('review-pane').style.display = 'block';
+    init();
+}
+
+// ── Boot ────────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loading-section').style.display = 'none';
+    if (!getPat()) {
+        document.getElementById('setup-pane').style.display = 'block';
+    } else {
+        document.getElementById('review-pane').style.display = 'block';
+        init();
+    }
+});
+
+async function init() {
+    ratings = loadRatings();
+    try {
+        const res = await fetch(FEED_URL + '?v=' + Date.now());
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const feed = await res.json();
+        articles = feed.items || [];
+        if (articles.length === 0) {
+            showError('No articles in today\'s review feed yet. Check back after the next pipeline run.');
+            return;
+        }
+        // Check if all already rated
+        const rated = articles.filter(a => ratings[a.url]);
+        if (rated.length === articles.length) {
+            showDone();
+            return;
+        }
+        // Start from first unrated
+        currentIndex = articles.findIndex(a => !ratings[a.url]);
+        if (currentIndex < 0) currentIndex = 0;
+        render();
+    } catch (e) {
+        showError('Could not load review feed: ' + e.message);
+    }
+}
+
+// ── Rendering ────────────────────────────────────────────────────────────────
+function render() {
+    if (articles.length === 0) return;
+    const ratedCount = articles.filter(a => ratings[a.url]).length;
+    const pct = Math.round((ratedCount / articles.length) * 100);
+    document.getElementById('progress-label').textContent =
+        `${ratedCount} of ${articles.length} reviewed`;
+    document.getElementById('progress-bar').style.width = pct + '%';
+
+    if (currentIndex >= articles.length) { showDone(); return; }
+
+    const art = articles[currentIndex];
+    const r   = ratings[art.url] || {};
+
+    const todayName  = (art._today || '').toLowerCase();
+    const todayLabel = art._today_label || '';
+    const themeScores = art._theme_scores || {};
+    const score = art._score || 0;
+
+    const dayOrder = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+    const dayShort = {monday:'Mon',tuesday:'Tue',wednesday:'Wed',thursday:'Thu',friday:'Fri',saturday:'Sat',sunday:'Sun'};
+
+    const chipsHtml = dayOrder.map(day => {
+        const isToday    = day === todayName;
+        const isSelected = r.better_theme === day || (isToday && r.rating === 'good' && !r.better_theme);
+        return `<button class="day-chip${isToday ? ' today-chip' : ''}${isSelected ? ' selected-chip' : ''}"
+                    onclick="rateDay('${day}')">${dayShort[day]}${isToday ? ' ★' : ''}</button>`;
+    }).join('');
+
+    const descText = art.content_html
+        ? art.content_html.replace(/<[^>]+>/g, '').trim().slice(0, 400)
+        : '';
+
+    const pubDate = art.date_published
+        ? new Date(art.date_published).toLocaleString('en-US', {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'})
+        : '';
+
+    const scoreWidth = Math.min(100, Math.max(0, score));
+
+    document.getElementById('article-card').innerHTML = `
+        <div class="article-meta">
+            <span class="badge badge-category">${art._category || 'news'}</span>
+            ${todayLabel ? `<span class="badge badge-today">📅 ${todayLabel}</span>` : ''}
+            <span class="badge badge-source">${escHtml(art.authors?.[0]?.name || '')}</span>
+            ${pubDate ? `<span class="badge-date">${pubDate}</span>` : ''}
+        </div>
+
+        <div class="article-title">
+            <a href="${escAttr(art.url)}" target="_blank" rel="noopener">${escHtml(art.title)}</a>
+        </div>
+
+        <div class="score-row">
+            <div class="score-bar-wrap">
+                <span>Score ${score}</span>
+                <div class="score-bar-track">
+                    <div class="score-bar-fill" style="width:${scoreWidth}%"></div>
+                </div>
+            </div>
+            <span>Q:${art._quality||0} R:${art._relevance||0} L:${art._local_score||0}</span>
+        </div>
+
+        ${descText ? `
+        <div class="article-desc" id="desc-text">${escHtml(descText)}${descText.length >= 400 ? '…' : ''}</div>
+        ${descText.length >= 300 ? `<button class="show-more" onclick="toggleDesc()">Show more</button>` : ''}
+        ` : ''}
+
+        <div class="rating-section">
+            <div class="rating-label">Rate this article</div>
+            <div class="rating-buttons">
+                <button class="btn-rate ${r.rating === 'good' && !r.better_theme ? 'selected-good' : ''}"
+                    onclick="rate('good')">✓ Good Fit</button>
+                <button class="btn-rate ${r.rating === 'bad' ? 'selected-bad' : ''}"
+                    onclick="rate('bad')">✗ Bad Fit</button>
+                <button class="btn-rate ${r.rating === 'skip' ? 'selected-skip' : ''}"
+                    onclick="rate('skip')">→ Skip</button>
+            </div>
+        </div>
+
+        <div class="rating-section">
+            <div class="day-chips-label">Better fit for a different day?</div>
+            <div class="day-chips">${chipsHtml}</div>
+        </div>
+
+        <div class="note-wrap">
+            <textarea id="note-input" placeholder="Optional note (why good/bad?)"
+                maxlength="200" rows="2" oninput="saveNote()">${escHtml(r.note || '')}</textarea>
+        </div>
+    `;
+
+    // Navigation buttons
+    document.getElementById('btn-prev').disabled = currentIndex <= 0;
+    const allRated = articles.every(a => ratings[a.url]);
+    document.getElementById('btn-next').textContent =
+        currentIndex < articles.length - 1 ? 'Next →' : (allRated ? 'Finish ✓' : 'Next →');
+
+    // Show submit section once enough are rated
+    const ratedNow = articles.filter(a => ratings[a.url]).length;
+    const submitSection = document.getElementById('submit-section');
+    if (ratedNow >= 5) submitSection.style.display = 'block';
+}
+
+function toggleDesc() {
+    const el = document.getElementById('desc-text');
+    if (!el) return;
+    el.classList.toggle('expanded');
+}
+
+// ── Rating actions ───────────────────────────────────────────────────────────
+function rate(ratingValue) {
+    const art = articles[currentIndex];
+    if (!art) return;
+    ratings[art.url] = { ...ratings[art.url], rating: ratingValue, better_theme: null };
+    saveRatings();
+    render();
+    // Auto-advance after a short delay
+    if (currentIndex < articles.length - 1) {
+        setTimeout(() => goTo(currentIndex + 1), 320);
+    }
+}
+
+function rateDay(day) {
+    const art = articles[currentIndex];
+    if (!art) return;
+    const todayName = (art._today || '').toLowerCase();
+    if (day === todayName) {
+        // Clicking today's day = Good Fit
+        ratings[art.url] = { ...ratings[art.url], rating: 'good', better_theme: null };
+    } else {
+        ratings[art.url] = { ...ratings[art.url], rating: 'good', better_theme: day };
+    }
+    saveRatings();
+    render();
+    if (currentIndex < articles.length - 1) {
+        setTimeout(() => goTo(currentIndex + 1), 320);
+    }
+}
+
+function saveNote() {
+    const art = articles[currentIndex];
+    if (!art) return;
+    const note = document.getElementById('note-input')?.value || '';
+    if (!ratings[art.url]) ratings[art.url] = { rating: null };
+    ratings[art.url].note = note;
+    saveRatings();
+}
+
+function goTo(idx) {
+    if (idx < 0 || idx >= articles.length) return;
+    currentIndex = idx;
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goNext() {
+    const allRated = articles.every(a => ratings[a.url]);
+    if (currentIndex >= articles.length - 1 && allRated) { showDone(); return; }
+    goTo(currentIndex + 1);
+}
+
+// ── GitHub submission ─────────────────────────────────────────────────────────
+async function submitFeedback() {
+    const pat = getPat();
+    if (!pat) { alert('No GitHub token found. Please refresh and set up again.'); return; }
+
+    const statusEl = document.getElementById('submit-status');
+    statusEl.className = 'status-msg';
+    statusEl.textContent = 'Saving to GitHub…';
+
+    const ratingsList = articles
+        .filter(a => ratings[a.url] && ratings[a.url].rating)
+        .map(a => ({
+            url: a.url,
+            title: a.title,
+            source: a.authors?.[0]?.name || '',
+            category: a._category || 'news',
+            score: a._score || 0,
+            quality: a._quality || 0,
+            relevance: a._relevance || 0,
+            local: a._local_score || 0,
+            content_type: a._content_type || null,
+            selection_bucket: a._selection_bucket || null,
+            theme_scores: a._theme_scores || {},
+            today: a._today || '',
+            today_label: a._today_label || '',
+            description: (a.content_html || '').replace(/<[^>]+>/g, '').trim().slice(0, 300),
+            rating: ratings[a.url].rating,
+            better_theme: ratings[a.url].better_theme || null,
+            note: ratings[a.url].note || null,
+            rated_at: new Date().toISOString(),
+        }));
+
+    if (ratingsList.length === 0) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = 'No ratings to save yet. Rate at least one article.';
+        return;
+    }
+
+    const payload = {
+        date: todayKey,
+        submitted_at: new Date().toISOString(),
+        ratings: ratingsList,
+    };
+
+    const filePath = `feedback/${todayKey}.json`;
+    const apiBase  = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
+    const headers  = {
+        'Authorization': `Bearer ${pat}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+    };
+
+    try {
+        // Check if file already exists (need SHA for updates)
+        let sha = null;
+        let existingRatings = [];
+        const existing = await fetch(apiBase, { headers });
+        if (existing.ok) {
+            const existingData = await existing.json();
+            sha = existingData.sha;
+            // Decode and merge existing ratings
+            try {
+                const decoded = JSON.parse(atob(existingData.content.replace(/\n/g, '')));
+                existingRatings = decoded.ratings || [];
+            } catch {}
+        }
+
+        // Merge: existing + new (new ratings for same URL override existing)
+        const existingByUrl = Object.fromEntries(existingRatings.map(r => [r.url, r]));
+        for (const r of ratingsList) existingByUrl[r.url] = r;
+        payload.ratings = Object.values(existingByUrl);
+
+        const body = {
+            message: `Add review feedback ${todayKey} [skip ci]`,
+            content: btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2)))),
+            ...(sha ? { sha } : {}),
+        };
+
+        const putRes = await fetch(apiBase, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify(body),
+        });
+
+        if (!putRes.ok) {
+            const err = await putRes.json().catch(() => ({}));
+            throw new Error(err.message || `HTTP ${putRes.status}`);
+        }
+
+        statusEl.className = 'status-msg success';
+        statusEl.textContent = `✅ Saved ${ratingsList.length} ratings to GitHub!`;
+
+        // Clear today's progress from localStorage
+        localStorage.removeItem('review_ratings_' + todayKey);
+
+        setTimeout(() => showDone(), 1500);
+
+    } catch (e) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = '❌ Save failed: ' + e.message;
+    }
+}
+
+// ── Done / error helpers ──────────────────────────────────────────────────────
+function showDone() {
+    document.getElementById('review-pane').style.display  = 'none';
+    document.getElementById('setup-pane').style.display   = 'none';
+    document.getElementById('done-section').style.display = 'block';
+}
+
+function showError(msg) {
+    document.getElementById('article-card').innerHTML =
+        `<div class="error-box">${escHtml(msg)}</div>`;
+}
+
+// ── HTML escape helpers ───────────────────────────────────────────────────────
+function escHtml(s) {
+    return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) { return escHtml(s); }
+</script>
+</body>
+</html>
