@@ -2144,35 +2144,6 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
     return kept, scrub_stats
 
 
-def enforce_local_priority(articles: List[Article]) -> List[Article]:
-    """Enforce 80+ score and 'local' category for any article containing Cariboo/local signals.
-
-    Claude reliably applies the local priority rule for most articles, but occasionally
-    scores on topic relevance alone and misses the geographic locality signal. This
-    post-scoring pass guarantees the intent of the scoring_interests.txt rule:
-    'Local Williams Lake/Cariboo content should score 80+ regardless of topic'.
-    """
-    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
-    if not local_signals:
-        return articles
-
-    enforced = 0
-    for article in articles:
-        # Check title only — description can contain "Williams Lake" as a dateline or
-        # source byline on syndicated Tribune articles, which would falsely promote
-        # national/sports wire content to local priority.
-        title_text = article.title.lower()
-        if any(signal in title_text for signal in local_signals):
-            if article.score < 80:
-                article.score = 80
-                enforced += 1
-            # Always correct the category so local articles reach the local feed
-            article.category = 'local'
-
-    if enforced:
-        print(f"📍 Local priority enforced: boosted {enforced} article(s) to score 80+")
-    return articles
-
 
 def apply_prescore_filter(articles: List[Article]) -> List[Article]:
     """Cheap keyword + per-source cap gate for high-volume aggregator sources
@@ -2217,23 +2188,53 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
     return kept
 
 
-def apply_source_preferences(articles: List[Article]) -> List[Article]:
-    """Apply score adjustments based on source type preferences (print vs broadcast)"""
-    source_map = SOURCE_PREFS.get('source_map', {})
-    source_types = SOURCE_PREFS.get('source_types', {})
-    adjusted_count = 0
 
-    for article in articles:
-        source_type = source_map.get(article.source)
-        if source_type and source_type in source_types:
-            adjustment = source_types[source_type].get('score_adjustment', 0)
-            if adjustment != 0:
-                article.score = max(0, min(100, article.score + adjustment))
-                adjusted_count += 1
 
-    if adjusted_count:
-        print(f"📰 Source preferences: adjusted scores for {adjusted_count} articles")
-    return articles
+def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
+    """Phase 8: Category slot allocation — guarantee min_slots per category,
+    cap at max_slots, fill greedily by composite score.
+
+    Uses config/feed_slots.json. Falls back to 'default' slot config for
+    categories not explicitly listed. Runs after quality filtering and floor
+    rescue so it has the full available pool to draw from.
+    """
+    if not FEED_SLOTS:
+        return articles
+
+    default_cfg = FEED_SLOTS.get('default', {'min_slots': 1, 'max_slots': 5})
+
+    # Group by category, best composite score first within each group
+    by_cat: Dict[str, List[Article]] = defaultdict(list)
+    for a in sorted(articles, key=lambda x: x.score, reverse=True):
+        by_cat[a.category or 'news'].append(a)
+
+    result: List[Article] = []
+    cat_counts: Dict[str, int] = defaultdict(int)
+
+    # Pass 1: guarantee min_slots for every category that has articles
+    for cat, arts in by_cat.items():
+        cfg = FEED_SLOTS.get(cat, default_cfg)
+        min_s = cfg.get('min_slots', default_cfg.get('min_slots', 1))
+        for a in arts[:min_s]:
+            result.append(a)
+            cat_counts[cat] += 1
+
+    included_ids = {id(a) for a in result}
+
+    # Pass 2: fill remaining capacity greedily by composite score up to max_slots
+    remaining = [a for a in sorted(articles, key=lambda x: x.score, reverse=True)
+                 if id(a) not in included_ids]
+    for a in remaining:
+        cat = a.category or 'news'
+        cfg = FEED_SLOTS.get(cat, default_cfg)
+        max_s = cfg.get('max_slots', default_cfg.get('max_slots', 5))
+        if cat_counts[cat] < max_s:
+            result.append(a)
+            cat_counts[cat] += 1
+
+    slot_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(cat_counts.items()))
+    print(f"📊 Feed slot allocation: {len(articles)} → {len(result)} articles [{slot_summary}]")
+    return result
 
 
 def compute_composite_score(article: 'Article', weights: dict = None) -> int:
@@ -3556,6 +3557,12 @@ def main():
         if rescued:
             print(f"🌱 Category floors rescued {len(rescued)} additional articles")
             quality_articles.extend(rescued)
+
+    # Phase 8: Category slot allocation — enforce min/max per category using feed_slots.json.
+    # Runs after floor rescue so the full available pool is visible. When FEED_SLOTS is empty
+    # (config missing), this is a no-op and the existing min_per_category/max_new_per_category
+    # limits.json knobs remain in effect.
+    quality_articles = apply_feed_slot_allocation(quality_articles)
 
     scrubbed_by_cat: Dict[str, int] = defaultdict(int)
     for a in scrubbed:
