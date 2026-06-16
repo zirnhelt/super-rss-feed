@@ -71,6 +71,8 @@ def main() -> None:
     schedule_cfg = load_json(sched_path)
     limits = load_json(limits_path)
 
+    ct_breakdown = Counter(a.get('content_type', 'unknown') for a in podcast_cache)
+
     schedule = schedule_cfg["schedule"]
     global_holdover = schedule_cfg.get("holdover_threshold", 30)
     min_claude_score = limits.get("min_claude_score", 20)
@@ -102,7 +104,7 @@ def main() -> None:
     for article in podcast_cache:
         link = article["link"]
         cat = article.get("category", "unknown")
-        upstream = article.get("score", 0)
+        upstream = article.get("composite", article.get("score", 0))
         title = article.get("title", "")
 
         theme_scores: dict[str, int] = {}
@@ -185,6 +187,17 @@ def main() -> None:
         "filtered out (or only conditionally rescued) because the upstream score "
         "underrates it.\n"
     )
+
+    if ct_breakdown:
+        ct_rows = "".join(
+            f"| {ct} | {count} |\n"
+            for ct, count in sorted(ct_breakdown.items(), key=lambda x: -x[1])
+        )
+        sections.append(
+            "\n**Content type breakdown** (fluff/sponsored are hard-dropped before articles "
+            "enter this cache; their absence here is expected):\n\n"
+            f"| Content type | Count |\n|-------------|-------|\n{ct_rows}"
+        )
 
     # ── Per-category alignment table ──
     sections.append("\n## Per-Category: Upstream Score vs. Best Theme Fit\n")
@@ -346,7 +359,7 @@ def main() -> None:
     if local_n and local["filler"] / local_n > 0.3:
         recs.append(
             f"📍 **local** articles average {statistics.mean(cat_upstream['local']):.1f} upstream "
-            f"(boosted by the Williams Lake/Cariboo +20 override in `scoring_interests.txt`) but "
+            f"(boosted by `local_keyword_bonus` in `scoring_modifiers.json`, +25 to the L dimension) but "
             f"only {statistics.mean(cat_besttheme['local']):.1f} best-theme-fit — "
             f"{local['filler']}/{local_n} are filler. Local civic/crime/awards items pass the "
             "quality bar on the geographic bonus alone but don't map to any of the 7 themes; "
@@ -399,6 +412,7 @@ def main() -> None:
             "total_stranded": total_stranded,
             "total_filler": total_filler,
             "total_filler_pct": round(total_filler / total * 100, 1) if total else 0,
+            "content_type_breakdown": dict(ct_breakdown),
         }
         Path(args.json_summary).write_text(json.dumps(summary, indent=2), encoding="utf-8")
         print(f"JSON summary written to {args.json_summary}")

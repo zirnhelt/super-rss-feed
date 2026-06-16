@@ -29,11 +29,11 @@ import anthropic
 FEED_GLOB = "feed-*.json"
 PODCAST_PREFIX = "feed-podcast-"
 PODCAST_DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-SCORE_FIELD = "_score"
-LOCAL_FIELD = "_local"
-LOW_SCORE_FLAG = 30       # flag articles at or below this score
-SCRUB_SCORE_MAX = 40      # only send borderline articles to the scrub pass
-SCRUB_SCORE_MIN = 15
+SCORE_FIELD = "_score"        # composite score written to feed JSON items (0-100)
+LOCAL_FIELD = "_local"        # boolean: True for articles in the 'local' category
+LOW_SCORE_FLAG = 30           # flag articles at or below this composite score
+SCRUB_SCORE_MAX = 40          # composite score thresholds for the scrub pass (0-100 scale)
+SCRUB_SCORE_MIN = 15          # fluff/sponsored are hard-dropped upstream; only non-filtered types appear here
 SCRUB_BATCH_MAX = 60      # cap API call size
 STALE_HOURS = 48          # articles older than this are "stale"
 SOURCE_DOMINANCE_PCT = 40      # flag if one source > this % of a feed
@@ -285,6 +285,12 @@ def generate_report(
         f"| Stale articles (>{STALE_HOURS}h) | {total_stale} |\n"
         f"| Scrub pass | {'✅ ran' if scrub_ran else '⏭ skipped (--no-scrub)'} |\n"
         f"| Flagged for removal | {sum(1 for f in flagged if f.get('recommendation') == 'remove')} |\n"
+        f"| Scoring model | dimensional Q/R/L composite |\n"
+    )
+    sections.append(
+        "\n_Note: content_type filtering (fluff/sponsored hard-drop) runs before publication, "
+        "so those types are absent from feed JSONs by design. The `_score` field here reflects "
+        "the composite score (0.25·Q + 0.55·R + 0.20·L)._\n"
     )
 
     # ── Feed summary table ──
@@ -523,6 +529,7 @@ def main() -> None:
         to_remove = sum(1 for f in flagged if f.get("recommendation") == "remove")
         summary = {
             "generated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "scoring_model": "dimensional (Q/R/L composite)",
             "total_articles": sum(a["count"] for a in analyses.values()),
             "scrub_ran": scrub_ran,
             "flagged_count": len(flagged),

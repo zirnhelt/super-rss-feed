@@ -713,6 +713,7 @@ def save_podcast_cache(articles):
                     'source': article.source,
                     'source_url': article.source_url,
                     'score': article.score,
+                    'composite': article.score,
                     'quality': getattr(article, 'quality', 0),
                     'relevance': getattr(article, 'relevance', 0),
                     'local': getattr(article, 'local', 0),
@@ -926,6 +927,34 @@ def _score_histogram(articles: List[Article]) -> Dict[str, Dict[str, int]]:
     for a in articles:
         histogram[a.category or 'news'][_bucket(a.score)] += 1
     return {cat: counts for cat, counts in histogram.items()}
+
+
+def _dimensional_histograms(articles: List[Article]) -> Dict[str, Dict[str, Dict[str, int]]]:
+    """Bucket Q/R/L dimension scores into 20-point ranges per category."""
+    buckets = ["0-19", "20-39", "40-59", "60-79", "80-100"]
+    dims = ('quality', 'relevance', 'local')
+    result: Dict[str, Dict[str, Dict[str, int]]] = {
+        dim: defaultdict(lambda: {b: 0 for b in buckets}) for dim in dims
+    }
+    for a in articles:
+        cat = a.category or 'news'
+        for dim in dims:
+            val = getattr(a, dim, None)
+            if val is None:
+                continue
+            val = max(0, min(100, int(val)))
+            bucket = buckets[min(val // 20, 4)]
+            result[dim][cat][bucket] += 1
+    return {dim: {cat: dict(h) for cat, h in hists.items()} for dim, hists in result.items()}
+
+
+def _content_type_breakdown(articles: List[Article]) -> Dict[str, Dict[str, int]]:
+    """Count articles by content_type per category."""
+    result: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for a in articles:
+        ct = getattr(a, 'content_type', None) or 'unknown'
+        result[a.category or 'news'][ct] += 1
+    return {cat: dict(cts) for cat, cts in result.items()}
 
 
 def load_pending_theme_batch() -> Optional[Dict]:
@@ -3530,9 +3559,14 @@ def main():
     # Replaces enforce_local_priority + apply_source_preferences.
     scored_articles = apply_dimension_adjustments(scored_articles)
 
+    _dim_hists = _dimensional_histograms(scored_articles)
     run_stats['scoring'] = {
         'scored_count': len(scored_articles),
         'score_histogram_by_category': _score_histogram(scored_articles),
+        'quality_histogram_by_category': _dim_hists['quality'],
+        'relevance_histogram_by_category': _dim_hists['relevance'],
+        'local_histogram_by_category': _dim_hists['local'],
+        'content_type_breakdown_by_category': _content_type_breakdown(scored_articles),
     }
 
     # Phase 3: Hard content type filter — absolute, score-independent.

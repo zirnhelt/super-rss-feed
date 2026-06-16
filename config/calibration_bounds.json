@@ -95,6 +95,15 @@
     "podcast.keyword_boost": {
       "file": "config/podcast_schedule.json", "path": ["keyword_boost"],
       "type": "int", "min": 5, "max": 25, "max_step": 5, "default": 10
+    },
+
+    "scoring_modifiers.local_keyword_bonus": {
+      "file": "config/scoring_modifiers.json", "path": ["local_keyword_bonus"],
+      "type": "int", "min": 10, "max": 40, "max_step": 5, "default": 25
+    },
+    "scoring_modifiers.wire_quality_penalty": {
+      "file": "config/scoring_modifiers.json", "path": ["wire_quality_penalty"],
+      "type": "int", "min": -20, "max": 0, "max_step": 5, "default": -10
     }
   },
 

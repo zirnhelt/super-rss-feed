@@ -60,6 +60,16 @@ def load_calibration_bounds() -> Dict:
     with open(CONFIG_DIR / "calibration_bounds.json", 'r') as f:
         return json.load(f)
 
+def load_scoring_modifiers() -> Dict:
+    """Load scoring modifier values (local_keyword_bonus, wire_quality_penalty, etc.)."""
+    path = CONFIG_DIR / "scoring_modifiers.json"
+    return json.loads(path.read_text()) if path.exists() else {}
+
+def load_scoring_weights() -> Dict:
+    """Load dimensional scoring weights (general and podcast composites)."""
+    path = CONFIG_DIR / "scoring_weights.json"
+    return json.loads(path.read_text()) if path.exists() else {}
+
 def get_category_keywords(category: str) -> List[str]:
     """Get keywords for a specific category."""
     categories = load_categories_config()
