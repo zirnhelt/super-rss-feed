@@ -94,11 +94,7 @@
     },
     "podcast.keyword_boost": {
       "file": "config/podcast_schedule.json", "path": ["keyword_boost"],
-      "type": "int", "min": 5, "max": 25, "max_step": 5, "default": 15
-    },
-    "podcast.ai_tech_no_context_penalty": {
-      "file": "config/podcast_schedule.json", "path": ["ai_tech_no_context_penalty"],
-      "type": "int", "min": 0, "max": 40, "max_step": 10, "default": 30
+      "type": "int", "min": 5, "max": 25, "max_step": 5, "default": 10
     }
   },
 
