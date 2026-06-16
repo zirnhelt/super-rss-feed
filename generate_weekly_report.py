@@ -337,6 +337,7 @@ def generate_narrative(
         f"(avg {stats.get('avg_fetched', 0)} articles fetched, "
         f"avg {stats.get('avg_quality', 0)} quality articles per run)\n"
         f"Category breakdown: {cat_summary}\n"
+        f"Scoring model: dimensional Q/R/L composite (quality/relevance/local, weights 0.25/0.55/0.20)\n"
         f"New feeds added: {new_feeds_text}\n"
         f"Feed health: {error_text}\n"
         f"Feed discovery: {discovery_text}\n\n"
@@ -423,7 +424,7 @@ def build_quality_review_html(quality_review: dict) -> str:
         else:
             html += "Scrub pass not run (stats only).</p>\n"
 
-        html += "<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg score</th><th>Stale</th><th>Top source</th></tr></thead><tbody>\n"
+        html += "<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>\n"
         for feed in scrub.get("feeds", {}).values():
             html += (
                 f"<tr><td>{feed['title']}</td><td>{feed['count']}</td>"
@@ -446,6 +447,12 @@ def build_quality_review_html(quality_review: dict) -> str:
             report_url = f"{GITHUB_REPO_URL}/blob/main/CORPUS_ALIGNMENT_REPORT_{report_date}.md"
             html += f' <a href="{report_url}">Full report</a>.'
         html += "</p>\n"
+        if alignment.get("content_type_breakdown"):
+            ct_text = ", ".join(
+                f"{ct}: {n}"
+                for ct, n in sorted(alignment["content_type_breakdown"].items(), key=lambda x: -x[1])
+            )
+            html += f"<p>Content type breakdown: {ct_text}.</p>\n"
 
     return html
 

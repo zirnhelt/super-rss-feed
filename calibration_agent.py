@@ -100,7 +100,7 @@ def gather_audit_data(window_days: int = 14) -> Dict:
         for r in in_window
     ]
 
-    # Score histograms per category, aggregated across the window
+    # Composite score histograms per category, aggregated across the window
     score_hist_totals: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
     for r in in_window:
         for cat, hist in r.get('scoring', {}).get('score_histogram_by_category', {}).items():
@@ -108,6 +108,27 @@ def gather_audit_data(window_days: int = 14) -> Dict:
                 score_hist_totals[cat][bucket] += count
     summary['score_histogram_by_category'] = {
         cat: dict(buckets) for cat, buckets in score_hist_totals.items()
+    }
+
+    # Dimensional histograms (Q/R/L) per category — only present in records from post-rearchitecture runs
+    for dim_key in ('quality', 'relevance', 'local'):
+        dim_hist_totals: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+        for r in in_window:
+            for cat, hist in r.get('scoring', {}).get(f'{dim_key}_histogram_by_category', {}).items():
+                for bucket, count in hist.items():
+                    dim_hist_totals[cat][bucket] += count
+        summary[f'{dim_key}_histogram_by_category'] = {
+            cat: dict(buckets) for cat, buckets in dim_hist_totals.items()
+        }
+
+    # Content type breakdown per category, aggregated across the window
+    content_type_totals: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for r in in_window:
+        for cat, breakdown in r.get('scoring', {}).get('content_type_breakdown_by_category', {}).items():
+            for ct, count in breakdown.items():
+                content_type_totals[cat][ct] += count
+    summary['content_type_breakdown_by_category'] = {
+        cat: dict(cts) for cat, cts in content_type_totals.items()
     }
 
     # Scrub removals aggregated by category
@@ -248,6 +269,18 @@ Your job is to keep the article scoring, filtering, and podcast theme routing al
 maintainer's stated interests, based on aggregate statistics from recent runs (no article text or
 URLs are available to you, only counts/histograms/means).
 
+Scoring model: articles are scored on three dimensions — Q (quality: journalistic depth/sourcing,
+0-100), R (relevance: match to curator interests, 0-100), and L (local: Cariboo/BC specificity,
+0-100). The composite score is w_q*Q + w_r*R + w_l*L (general weights: 0.25/0.55/0.20; podcast
+adds a theme weight w_t). Articles also receive a content_type label (analysis, breaking, opinion,
+feature, recap, fluff, sponsored, wire); fluff and sponsored are hard-dropped before quality
+gating. Wire content gets a wire_quality_penalty applied to its Q score; articles matching local
+Cariboo/BC keywords get a local_keyword_bonus added to their L score. Both modifiers live in
+scoring_modifiers.json and appear in the calibration bounds as tunable knobs. The audit data
+includes per-dimension histograms (quality/relevance/local) starting from the first pipeline run
+after the 2026-06-15 rearchitecture; older records in the 14-day window will show empty
+dimensional histograms — note the data transition when interpreting trends.
+
 Guidelines:
 - Be conservative. Prefer small steps (the bounds file enforces max_step, but you should usually
   propose less than the max unless evidence is strong).
@@ -261,6 +294,9 @@ Guidelines:
   min_score/holdover_threshold won't fix a near-zero mean, say so and recommend a prompt review
   instead of just lowering thresholds repeatedly.
 - Keyword list changes should be small, specific, and grounded in what's plausible for the theme.
+- When diagnosing low composite scores, check whether the issue is in a specific dimension (e.g.
+  Q collapsing for a category, or L stuck at zero for articles that should be local). Propose
+  dimensional modifier changes only if the histogram evidence is clear.
 """
 
 
@@ -281,6 +317,8 @@ def build_audit_prompt(
         "\n\n## Current values of relevant config\n",
         json.dumps({
             'limits': current_config.get('limits', {}),
+            'scoring_modifiers': current_config.get('scoring_modifiers', {}),
+            'scoring_weights': current_config.get('scoring_weights', {}),
             'podcast_schedule_top_level': {
                 k: v for k, v in current_config.get('podcast_schedule', {}).items()
                 if k != 'schedule'
@@ -569,6 +607,8 @@ def _config_root(spec: Dict) -> str:
         return 'limits'
     if spec['file'] == 'config/podcast_schedule.json':
         return 'podcast_schedule'
+    if spec['file'] == 'config/scoring_modifiers.json':
+        return 'scoring_modifiers'
     return ''
 
 
@@ -777,6 +817,8 @@ def main():
     current_config = {
         'limits': config_loader.load_limits_config(),
         'podcast_schedule': config_loader.load_podcast_schedule_config(),
+        'scoring_modifiers': config_loader.load_scoring_modifiers(),
+        'scoring_weights': config_loader.load_scoring_weights(),
     }
     bounds = config_loader.load_calibration_bounds()
     interests_text = config_loader.load_scoring_interests()
