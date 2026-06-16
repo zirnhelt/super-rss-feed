@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-16 (Tuesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1609** → dedup **655** → new **364** → quality **17**
+- Mix: local:1(6%), ai-tech:2(12%), climate:1(6%), homelab:1(6%), wellness:2(12%), news:10(59%)
+- Feeds: local:27, ai-tech:72, climate:25, homelab:21, wellness:78, science:8, scifi:14, news:500
+- Images: 17/17
+- Topic queries: 842 articles from 37 queries
+- API calls: Claude:2, Cohere:20, Brave:43, Kagi:64 · 2,655 Claude tokens · est. cost $0.5238
+
+
+---
+
+
+
 ## 2026-06-15 (Monday)
 
 #### 🌅 4:30 AM Pacific
@@ -706,82 +721,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Feeds: local:30, ai-tech:60, climate:18, homelab:18, wellness:45, science:18, scifi:6, news:500
 - Images: 63/63
 - ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-## 2026-06-08 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **617** → dedup **521** → new **370** → quality **52**
-- Mix: local:1(2%), ai-tech:2(4%), climate:2(4%), wellness:1(2%), science:1(2%), news:45(87%)
-- Feeds: local:28, ai-tech:54, climate:54, homelab:14, wellness:39, science:19, scifi:10, news:500
-- Images: 52/52
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-- ⚠️ **Hakai Magazine** failed — `415 Client Error: Unsupported Media Type for url: https://www.hakaimagazine.com/feed/`
-- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `415 Client Error: Unsupported Media Type for url: https://blog.ml.cmu.edu/feed/`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **706** → dedup **616** → new **458** → quality **79**
-- Mix: ai-tech:2(3%), climate:2(3%), homelab:1(1%), wellness:3(4%), science:1(1%), news:70(89%)
-- Feeds: local:27, ai-tech:55, climate:40, homelab:15, wellness:38, science:18, scifi:9, news:500
-- Images: 79/79
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-
-#### 🔧 Manual Run
-- Fetched **844** → dedup **704** → new **534** → quality **80**
-- Mix: local:6(8%), ai-tech:4(5%), climate:2(2%), homelab:2(2%), wellness:3(4%), science:2(2%), news:61(76%)
-- Feeds: local:28, ai-tech:53, climate:18, homelab:17, wellness:38, science:14, scifi:6, news:500
-- Images: 80/80
-- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-- ⚠️ **Kagi Gear Gadgets Repair (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Nation Talk (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi First Peoples Cultural Council (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Ricochet Media (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Smart Home and Automation (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Clean Energy and EVs (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Williams Lake and BC Interior (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Mesh Networking and LoRa (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi 3D Printing (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi AI ML Infrastructure (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Indigenous Technology BC (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Rural BC Infrastructure (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Working Lands (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Wildfire and Conservation (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Climate Science Research (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Backcountry and Wildlife (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Community Media and Digital Storytelling (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Cariboo Local Community (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi AgTech and Resource Innovation (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Indigenous Guardian Programs (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Rural Digital Equity (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Conservation and Parks (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Wildlife Ecology (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Canadian Geographic (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Health and Wellness (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Examine.com (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Evidence-Based Health Research (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Longevity and Preventive Medicine (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Science Fiction Books (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Cariboo First Nations (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Indigenous Data and Language Tech (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi Canadian Arts Technology (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Kagi BC Silviculture and Logging Tech (Brave)** failed — `Expecting value: line 1 column 1 (char 0)`
 
 
 ---
@@ -2202,6 +2141,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-07–2026-06-07
 - 1 runs · avg fetched 753 · avg quality 38
 - Dominant: **news** (71%) ai-tech:5 / climate:2 / homelab:2 / wellness:1 / science:1 / news:27
+
+
+---
+
+
+
+## Week of 2026-06-08–2026-06-08
+- 3 runs · avg fetched 722 · avg quality 70
+- Dominant: **news** (83%) local:7 / ai-tech:8 / climate:6 / homelab:3 / wellness:7 / science:4 / news:176
 
 
 ---
