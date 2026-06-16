@@ -465,6 +465,7 @@ class Article:
         self.relevance = 0     # R: match to interest profile (0-100)
         self.local = 0         # L: Cariboo/BC/rural specificity (0-100)
         self.content_type = None  # analysis|breaking|opinion|feature|recap|fluff|sponsored|wire
+        self.cohere_scored = False  # True when scored via Cohere (Q/R/L are synthesized, not real)
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -1794,8 +1795,18 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
 
     for article in articles:
         if article.url_hash in cache:
-            article.score = cache[article.url_hash]['score']
-            article.category = cache[article.url_hash]['category']
+            entry = cache[article.url_hash]
+            article.score = entry['score']
+            article.category = entry['category']
+            # Synthesize Q/R/L from composite score — Cohere has no dimensional breakdown.
+            # Using score as a proxy keeps calibration histograms populated without
+            # changing apply_dimension_adjustments behaviour (cohere_scored=True bypasses
+            # the composite recompute there).
+            article.quality = entry.get('quality', entry['score'])
+            article.relevance = entry.get('relevance', entry['score'])
+            article.local = entry.get('local', 0)
+            article.content_type = entry.get('content_type')
+            article.cohere_scored = True
             # story_group is intentionally not restored — clustering is run-scoped
             scored_articles.append(article)
         else:
@@ -1811,6 +1822,10 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
         for article in uncached:
             score, _ = rerank_scores.get(article.url_hash, (50, ''))
             article.score = score
+            article.quality = score   # synthesized: Q/R set to composite as best proxy
+            article.relevance = score
+            article.local = 0
+            article.cohere_scored = True
             article.category = categorize_article(article.title, article.description) or 'news'
             cache[article.url_hash] = {
                 'score': article.score,
@@ -2310,7 +2325,10 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
     source_adjusted = 0
 
     for article in articles:
-        has_dimensions = article.quality > 0 or article.relevance > 0
+        # Cohere articles carry synthesized Q/R values (quality=relevance=score) so the
+        # calibration histograms stay populated, but the composite must not be recomputed
+        # from those synthetic values — keep the Cohere percentile score as-is.
+        has_dimensions = (article.quality > 0 or article.relevance > 0) and not getattr(article, 'cohere_scored', False)
 
         # Local keyword signals → L dimension boost + category override
         title_text = article.title.lower()
@@ -2446,6 +2464,11 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
             item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + clean_desc
 
         item["_score"] = article.score
+        item["_quality"] = article.quality
+        item["_relevance"] = article.relevance
+        item["_local_score"] = article.local
+        if article.content_type:
+            item["_content_type"] = article.content_type
 
         if category == 'local':
             item["_local"] = True
