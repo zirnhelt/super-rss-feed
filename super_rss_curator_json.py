@@ -2992,6 +2992,64 @@ def route_articles_to_best_themes(
     }
 
 
+def bank_articles_for_all_themes(
+    cached_articles: List[Dict],
+    schedule_config: Dict,
+) -> Dict[str, int]:
+    """Bank qualifying articles into the holdover cache for every themed day.
+
+    Called on every run so that by the time a day's podcast generates, its
+    holdover pool holds up to a week's worth of pre-scored candidates.
+    Articles already present in the holdover (regardless of status) are skipped
+    to avoid overwriting USED/SKIPPED annotations set after generation.
+    """
+    theme_cache = load_theme_score_cache()
+    schedule = schedule_config.get('schedule', {})
+    global_threshold = schedule_config.get('holdover_threshold', 30)
+    holdover = load_theme_holdover_cache()
+    now_iso = datetime.now(timezone.utc).isoformat()
+    newly_banked: Dict[str, int] = defaultdict(int)
+
+    for item in cached_articles:
+        url = item['link']
+        for day, cfg in schedule.items():
+            threshold = cfg.get('holdover_threshold', global_threshold)
+            label = cfg['label']
+            entry = theme_cache.get(f"{url}:::{label}")
+            if entry is None or entry['score'] < threshold:
+                continue
+            existing_urls = {a['link'] for a in holdover.get(day, [])}
+            if url in existing_urls:
+                continue
+            holdover.setdefault(day, []).append({
+                'link': url,
+                'title': item['title'],
+                'description': item['description'],
+                'summary': item.get('summary', ''),
+                'excerpt': item.get('excerpt', ''),
+                'pub_date': item['pub_date'],
+                'source': item['source'],
+                'source_url': item['source_url'],
+                'score': item['score'],
+                'category': item['category'],
+                'image': item.get('image'),
+                'theme_score': entry['score'],
+                'banked_at': now_iso,
+            })
+            newly_banked[day] += 1
+
+    if any(newly_banked.values()):
+        save_theme_holdover_cache(holdover)
+
+    total = sum(newly_banked.values())
+    if total:
+        summary = ', '.join(
+            f"{d}: +{n}" for d, n in sorted(newly_banked.items()) if n
+        )
+        print(f"  📦 Banked {total} articles across all themes ({summary})")
+    return dict(newly_banked)
+
+
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
                           reserved_urls: set = None) -> Tuple[set, Optional[Dict]]:
     """Generate a themed podcast feed from weekly cached articles.
@@ -3071,7 +3129,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     holdover_raw = holdover_cache.get(theme_name, [])
     holdover_pool = [
         CachedArticle(item) for item in holdover_raw
-        if f"{item['link']}:::{theme_name}" not in podcast_shown_cache
+        if item.get('status') != 'USED'  # exclude articles already used in this theme's episode
+        and f"{item['link']}:::{theme_name}" not in podcast_shown_cache
         and not _is_aggregator_url(item['link'])
         and item['link'] not in all_cached_urls  # already in 7-day pool
         and item.get('score', 0) >= LIMITS['min_claude_score']  # enforce current quality floor
@@ -3726,25 +3785,42 @@ def main():
     # Load weekly cache for podcast feed generation
     podcast_cache = load_podcast_cache()
 
-    # Generate only today's themed podcast feed from weekly cache.
-    # Regenerating all 7 feeds on every run causes identical feeds across days
-    # because the article pool and cached theme scores don't change between runs.
-    # Instead, each day's episode is generated once (on that day) from a pool
-    # that excludes articles already shown in the past 7 days of podcast episodes.
+    # Generate today's themed podcast feed from the accumulated weekly staging pool.
+    # Each daily run banks qualifying articles into the holdover cache for all 7 themes;
+    # by the actual day, the holdover holds up to a week of pre-qualified candidates.
+    # After generation, holdover entries are marked USED (appeared) or SKIPPED (passed over).
     print(f"\n🎙️ Generating today's podcast feed from {len(podcast_cache)} cached articles...")
     if schedule_config and schedule_config.get('enabled', False):
         today_name = datetime.now(ZoneInfo('America/Vancouver')).strftime('%A').lower()
         if today_name in schedule_config['schedule']:
             podcast_shown_cache = load_podcast_shown_cache()
-            # Proactively bank articles that score significantly better on future days.
-            # Articles are NOT excluded from today — cross-theme reuse is intentional.
-            routing_stats = route_articles_to_best_themes(podcast_cache, schedule_config, today_name)
-            run_stats['theme_routing'] = routing_stats
+            # Bank qualifying articles into every day's holdover staging pool.
+            banking_stats = bank_articles_for_all_themes(podcast_cache, schedule_config)
+            run_stats['theme_routing'] = {
+                'routed_by_target_day': banking_stats,
+                'routed_count': sum(banking_stats.values()),
+            }
             selected_urls, feed_stats = generate_podcast_feed(
                 today_name, podcast_cache, podcast_shown_cache
             )
             if feed_stats:
                 run_stats['podcast_feeds'] = {today_name: feed_stats}
+            # Mark today's holdover entries as USED or SKIPPED for auditing.
+            if selected_urls is not None:
+                _hov = load_theme_holdover_cache()
+                today_staged = _hov.get(today_name, [])
+                used_count = skipped_count = 0
+                for article in today_staged:
+                    if article['link'] in selected_urls:
+                        article['status'] = 'USED'
+                        used_count += 1
+                    elif article.get('status') != 'USED':
+                        article['status'] = 'SKIPPED'
+                        skipped_count += 1
+                if today_staged:
+                    _hov[today_name] = today_staged
+                    save_theme_holdover_cache(_hov)
+                    print(f"  ♻️  Holdover status: {used_count} USED, {skipped_count} SKIPPED")
             holdover_cache_snapshot = load_theme_holdover_cache()
             run_stats['holdover'] = {
                 'bank_size_by_day_eod': {
@@ -3765,6 +3841,18 @@ def main():
                         newly_marked += 1
                 save_podcast_shown_cache(podcast_shown_cache)
                 print(f"  📌 Marked {newly_marked} new articles as shown ({len(selected_urls) - newly_marked} already in today's episode)")
+            print(f"\n📅 Podcast day buckets:")
+            day_order = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+            for day in day_order:
+                if day not in schedule_config['schedule']:
+                    continue
+                label = schedule_config['schedule'][day]['label']
+                if day == today_name:
+                    count = feed_stats['article_count'] if feed_stats else 0
+                    print(f"  {day} ({label}): {count} articles [TODAY]")
+                else:
+                    staged = len(holdover_cache_snapshot.get(day, []))
+                    print(f"  {day} ({label}): {staged} staged")
         else:
             print(f"⚠️ No podcast schedule for today ({today_name})")
 
