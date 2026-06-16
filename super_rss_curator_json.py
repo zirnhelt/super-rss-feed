@@ -134,6 +134,7 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
+THEME_SCORE_CACHE_VERSION = 'v2'  # Bump to invalidate caches from old raw-score formula
 PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
@@ -854,12 +855,21 @@ def save_podcast_shown_cache(cache: Dict):
 
 
 def load_theme_score_cache() -> Dict:
-    """Load cached per-article theme scores."""
+    """Load cached per-article theme scores.
+
+    Returns an empty dict when the cache file is missing, unreadable, or was
+    written by an older scoring formula (identified by __version__ mismatch).
+    This forces a clean re-score with the current normalization logic.
+    """
     if not os.path.exists(THEME_SCORE_CACHE_FILE):
         return {}
     try:
         with open(THEME_SCORE_CACHE_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            data = json.load(f)
+        if data.get('__version__') != THEME_SCORE_CACHE_VERSION:
+            print(f"  ♻️  Theme score cache version mismatch — clearing for re-score")
+            return {}
+        return {k: v for k, v in data.items() if k != '__version__'}
     except Exception:
         return {}
 
@@ -867,7 +877,9 @@ def load_theme_score_cache() -> Dict:
 def save_theme_score_cache(cache: Dict):
     """Persist theme score cache, pruning entries older than TTL."""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=THEME_SCORE_CACHE_TTL_DAYS)).isoformat()
-    pruned = {k: v for k, v in cache.items() if v.get('cached_at', '') >= cutoff}
+    pruned = {k: v for k, v in cache.items()
+              if isinstance(v, dict) and v.get('cached_at', '') >= cutoff}
+    pruned['__version__'] = THEME_SCORE_CACHE_VERSION
     try:
         with open(THEME_SCORE_CACHE_FILE, 'w', encoding='utf-8') as f:
             json.dump(pruned, f)

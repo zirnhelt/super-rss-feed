@@ -334,9 +334,23 @@ def score_themes_with_rerank(
                 documents=documents,
                 top_n=len(documents),
             )
-            for item in result.results:
+            # Rank-percentile normalization: Cohere's raw relevance scores for niche
+            # themes (farming, forestry, local industry) are typically 0.00–0.05, which
+            # maps to 0–5 when multiplied directly by 100. This causes all articles to
+            # fall below the holdover_threshold floor (~25–30), leaving themed podcasts
+            # with near-zero avg theme score and no thematically-selected content.
+            # Map to percentile bands so top 30% of matches score 30–80 and the
+            # bottom 70% score 0–29, calibrated to the typical holdover_threshold.
+            ranked = sorted(result.results, key=lambda x: x.relevance_score, reverse=True)
+            n = len(ranked)
+            for rank, item in enumerate(ranked):
                 link = articles[item.index].link
-                results[link][label] = int(item.relevance_score * 100)
+                p = rank / max(n - 1, 1)  # 0.0 = best, 1.0 = worst
+                if p <= 0.30:
+                    score = int(80 - 50 * (p / 0.30))   # 80 → 30
+                else:
+                    score = int(30 * (1.0 - p) / 0.70)  # 30 → 0
+                results[link][label] = score
         except Exception as e:
             print(f"  ⚠️  Cohere theme Rerank error [{label}]: {e}")
             for a in articles:
