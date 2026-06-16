@@ -3819,6 +3819,10 @@ def main():
                 'source': item['authors'][0]['name'],
                 'source_url': item['authors'][0]['url'],
                 'score': item.get('_score', 0),
+                'quality': item.get('_quality', 0),
+                'relevance': item.get('_relevance', 0),
+                'local': item.get('_local_score', 0),
+                'content_type': item.get('_content_type'),
                 'image': item.get('image')
             })() for item in fresh_existing
         ]
