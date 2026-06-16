@@ -20,1123 +20,383 @@
       "news",
       "science"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — the resource economy that defines the Cariboo and rural BC. Strong fits include: BC and Canadian forestry journalism (mill closures, lumber markets, beetle kill, harvest operations, silviculture, BCTS, old-growth policy), ranching and livestock stories (water rights, grazing management, cattle markets, drought impact on ranches), mining and resource extraction (safety, new operations, Indigenous consultation, supply chains), agriculture in rural Canada (crop insurance, grain prices, farm economics, food sovereignty), and the technology helping these industries adapt — precision forestry, AgTech, drone surveys, IoT in agriculture, mine automation, sawmill modernization, climate adaptation on working lands. Also strong fits: labor and workforce stories in resource industries, environmental stewardship within working landscapes (not pure conservation, but how ranchers/loggers manage for sustainability), and science with direct implications for forestry, agriculture, or extractive industries. Penalise heavily (score 0–20): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; pure wildlife entertainment without agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — the resource economy that defines the Cariboo and rural BC.\n\nCALIBRATION — use this ladder. Trade-press journalism about forestry, ranching, mining, or agriculture should score well even when it's equipment-, market-, or operations-focused rather than policy-focused — a story about a piece of farm machinery or a mining operation update is a real fit, not a 0:\n- 80-100: BC/Cariboo-specific forestry, ranching, mining, or agriculture stories (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen events).\n- 55-79: Canadian resource-economy trade journalism without a BC tie — Western Producer or Northern Miner-style coverage of farm equipment and machinery, harvest technology, livestock markets, mining operations and exploration, AgTech, forestry practices, sawmills, or labour/commodity stories in the resource sector.\n- 30-54: Broader agriculture, forestry, ranching, or mining news (e.g. international resource-industry stories, general farm economics, climate impacts on working lands) with clear working-lands relevance but no Canadian/BC tie.\n- 15-29: Tangential resource-sector mentions (e.g. a general business, policy, or science story that touches briefly on forestry/agriculture/mining) or local Cariboo civic news unrelated to working lands.\n- 0-14: No connection to forestry, ranching, mining, or agriculture.\n\nStrong fits include: BC and Canadian forestry journalism (mill closures, lumber markets, beetle kill, harvest operations, silviculture, BCTS, old-growth policy), ranching and livestock stories (water rights, grazing management, cattle markets, drought impact on ranches), mining and resource extraction (safety, new operations, Indigenous consultation, supply chains, exploration updates), agriculture in rural Canada (crop insurance, grain prices, farm economics, food sovereignty, farm equipment and machinery), and the technology helping these industries adapt — precision forestry, AgTech, drone surveys, IoT in agriculture, mine automation, sawmill modernization, climate adaptation on working lands. Also strong fits: labor and workforce stories in resource industries, environmental stewardship within working landscapes (not pure conservation, but how ranchers/loggers manage for sustainability), and science with direct implications for forestry, agriculture, or extractive industries. Penalise heavily (score 0–14): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; pure wildlife entertainment without agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-06-09T22:16:16.710715+00:00",
-    "article_count": 40,
-    "bonus_count": 18,
+    "generated_at": "2026-06-16T05:53:17.725653+00:00",
+    "article_count": 13,
+    "bonus_count": 0,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://wltribune.com/2026/06/03/canada-pumps-money-into-forestry-as-task-force-warns-of-existential-risk/",
-      "url": "https://wltribune.com/2026/06/03/canada-pumps-money-into-forestry-as-task-force-warns-of-existential-risk/",
-      "title": "[Williams Lake Tribune] Canada pumps money into forestry as task force warns of ‘existential risk’",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42472566_web1_7109trail170426-CCI-M-Cowichan-Bay-sawmill-with-loader-carrying-lumber.c.lb_.jpg?w=700\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Federal minister announces $130 million for forestry innovation, meets with provincial counterparts in B.C. </p>",
-      "summary": "Federal minister announces $130 million for forestry innovation, meets with provincial counterparts in B.C.",
-      "_excerpt": "Federal minister announces $130 million for forestry innovation, meets with provincial counterparts in B.C.",
-      "date_published": "2026-06-03T15:46:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 3,
-      "_boosted_score": 83,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-06-04T08:42:43.860371+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42472566_web1_7109trail170426-CCI-M-Cowichan-Bay-sawmill-with-loader-carrying-lumber.c.lb_.jpg?w=700"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
-      "url": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
-      "title": "[My Cariboo Now] Federal action plan for forestry sector expected this week, as report warns of looming \"existential risk\" : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-08T09:13:09.109671+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 2,
-      "_boosted_score": 65,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T09:14:59.750312+00:00"
-      },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
-      "url": "https://www.aljazeera.com/economy/2026/6/7/kenyan-graduates-turn-to-ai-tools-for-farming-as-jobs-dry-up?traffic_source=rss",
-      "title": "[Al Jazeera English] Kenyan graduates turn to AI tools for farming as jobs dry up",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYoung farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
-      "summary": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
-      "_excerpt": "Young farmers are combining traditional agriculture with mobile apps to build livelihoods in the absence of formal jobs.",
-      "date_published": "2026-06-07T04:14:27+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 2,
-      "_boosted_score": 62,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T09:14:59.750312+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Rotich-removes-her-vegetables-for-an-order-she-has-received-via-Facebook-message.-1-1780346787.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/08/b-c-funds-14-forest-resiliency-projects-in-cariboo-chilcotin/",
-      "url": "https://wltribune.com/2026/06/08/b-c-funds-14-forest-resiliency-projects-in-cariboo-chilcotin/",
-      "title": "[Williams Lake Tribune] B.C. funds 16 forest resiliency projects in Cariboo-Chilcotin",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507065_web1_231109-WLT-Old-Growth-print-quesnellake_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe projects will reduce wildfire risk, greenhouse emissions, restore ecosystems and create jobs",
-      "summary": "The projects will reduce wildfire risk, greenhouse emissions, restore ecosystems and create jobs",
-      "_excerpt": "The projects will reduce wildfire risk, greenhouse emissions, restore ecosystems and create jobs",
-      "date_published": "2026-06-09T06:10:52.941392+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507065_web1_231109-WLT-Old-Growth-print-quesnellake_1.jpg?w=1024"
-    },
-    {
-      "id": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
-      "url": "https://news.gov.bc.ca/releases/2026HLTH0057-000670",
-      "title": "[BC Gov News] Sharing local farm harvests through coupon program",
-      "content_html": "<img src=\"https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
-      "summary": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
-      "_excerpt": "BC Farmers’ Market Nutrition Coupon Program promotes access to fresh foods",
-      "date_published": "2026-06-08T16:30:00+00:00",
-      "authors": [
-        {
-          "name": "BC Gov News",
-          "url": "https://news.gov.bc.ca"
-        }
-      ],
-      "ai_score": 81,
-      "_quality_score": 81,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 1,
-      "_boosted_score": 44,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T16:37:39.911223+00:00"
-      },
-      "image": "https://news.gov.bc.ca/Content/Images/Gov/default-og-image-new.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/03/us/bakersfield-chase-bank-bomb-hostage-situation.html",
-      "url": "https://www.nytimes.com/2026/06/03/us/bakersfield-chase-bank-bomb-hostage-situation.html",
-      "title": "[NYT Top Stories] FBI Kills Suspect in Hostage Situation at Building With Bank in Bakersfield, California",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/02/multimedia/02xp-bakersfield-lmkc/02xp-bakersfield-lmkc-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
-      "summary": "The authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
-      "_excerpt": "The authorities had been negotiating with a man inside an office building in Bakersfield, Calif., that included a Chase Bank branch. It was unclear how many people he held hostage.",
-      "date_published": "2026-06-03T15:36:53+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 81,
-      "_quality_score": 81,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 44,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Gear, Gadgets & Practical Tech",
-        "shown_at": "2026-06-03T17:29:44.196762+00:00"
-      },
-      "image": "https://static01.nyt.com/images/2026/06/02/multimedia/02xp-bakersfield-lmkc/02xp-bakersfield-lmkc-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/huge-fire-erupts-at-honda-warehouse-in-barcelona?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/huge-fire-erupts-at-honda-warehouse-in-barcelona?traffic_source=rss",
-      "title": "[Al Jazeera English] Huge fire erupts at Honda warehouse in Barcelona",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Honda-warehouse-fire-1780684675.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAround 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
-      "summary": "Around 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
-      "_excerpt": "Around 150 workers were evacuated after a fire broke out at a Honda industrial warehouse in Barcelona.",
-      "date_published": "2026-06-05T18:39:12+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 1,
-      "_boosted_score": 43,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WIDE-THUMB-Honda-warehouse-fire-1780684675.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
-      "url": "https://qz.com/canada-tech-growth-fund-ai-equity-stakes-060426",
-      "title": "[Quartz] Canada is launching a $360 million fund to take equity stakes in homegrown AI firms",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
-      "summary": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
-      "_excerpt": "The Canadian Tech Growth Fund is part of a broader national AI strategy that targets 250,000 new jobs and a 3% GDP boost",
-      "date_published": "2026-06-05T14:20:33+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 43,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T09:14:59.750312+00:00"
-      },
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2275647293.jpg"
-    },
-    {
-      "id": "https://qz.com/pace-ceo-jamie-cuffe-46-million-series-b",
-      "url": "https://qz.com/pace-ceo-jamie-cuffe-46-million-series-b",
-      "title": "[Quartz] Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Pace%2520CEO%2520Jamie%2520Cuffe%2520Outlines%2520Next%2520Move%2520After%2520$46%2520Million%2520Series%2520B%2520Raise%2520mp4.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "summary": "Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "_excerpt": "Pace CEO Jamie Cuffe outlines next move after $46 million Series B raise",
-      "date_published": "2026-06-03T13:50:09+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 43,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Gear, Gadgets & Practical Tech",
-        "shown_at": "2026-06-03T17:29:44.196762+00:00"
-      },
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Pace%2520CEO%2520Jamie%2520Cuffe%2520Outlines%2520Next%2520Move%2520After%2520$46%2520Million%2520Series%2520B%2520Raise%2520mp4.mp4"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
-      "url": "https://www.nytimes.com/2026/06/06/nyregion/alex-bores-primary-ai-palantir.html",
-      "title": "[NYT Top Stories] A.I. Companies Don’t Know What to Do With Alex Bores",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOutside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
-      "summary": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
-      "_excerpt": "Outside groups have spent roughly $12 million to support or oppose Mr. Bores’s campaign for a House seat in Manhattan, elevating his name in a crowded race.",
-      "date_published": "2026-06-06T07:00:07+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 43,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T09:14:59.750312+00:00"
-      },
-      "image": "https://static01.nyt.com/images/2026/06/06/multimedia/06met-bores-primary-top-01-vtkq/06met-bores-primary-top-01-vtkq-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/7/israeli-settlers-threaten-to-kill-palestinian-farmer-and-harass-sheep?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/7/israeli-settlers-threaten-to-kill-palestinian-farmer-and-harass-sheep?traffic_source=rss",
-      "title": "[Al Jazeera English] Israeli settlers threaten to kill Palestinian farmer and harass sheep",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780829540.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA Palestinian farmer recounts the moment a large group of Israeli settlers hit him and harassed his livestock.",
-      "summary": "A Palestinian farmer recounts the moment a large group of Israeli settlers hit him and harassed his livestock.",
-      "_excerpt": "A Palestinian farmer recounts the moment a large group of Israeli settlers hit him and harassed his livestock.",
-      "date_published": "2026-06-07T10:52:50+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780829540.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/features/2026/6/3/israeli-settlers-are-driving-palestinian-shepherds-from-their-grazing-lands?traffic_source=rss",
-      "url": "https://www.aljazeera.com/features/2026/6/3/israeli-settlers-are-driving-palestinian-shepherds-from-their-grazing-lands?traffic_source=rss",
-      "title": "[Al Jazeera English] Israeli settlers are driving Palestinian shepherds from their grazing lands",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/original-E022BAAD-9F9E-44C0-8800-6CB17FD2A7C1-1-1780414557.jpg?resize=1200%2C630\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSettler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
-      "summary": "Settler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
-      "_excerpt": "Settler attacks in the Jordan Valley have forced growing numbers of Palestinian communities to flee their villages.",
-      "date_published": "2026-06-03T16:39:55+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality_score": 75,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Gear, Gadgets & Practical Tech",
-        "shown_at": "2026-06-03T17:29:44.196762+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/original-E022BAAD-9F9E-44C0-8800-6CB17FD2A7C1-1-1780414557.jpg?resize=1200%2C630"
-    },
-    {
-      "id": "https://qz.com/pointfive-gal-ben-david-60-million-series-b-plans",
-      "url": "https://qz.com/pointfive-gal-ben-david-60-million-series-b-plans",
-      "title": "[Quartz] PointFive co-founder Gal Ben David reveals plans after $60 million Series B",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/PointFive%2520Co-founder%2520Gal%2520Ben%2520David%2520Reveals%2520Plans%2520After%252060%2520Million%2520Series%2520B\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPointFive co-founder Gal Ben David reveals plans after $60 million Series B",
-      "summary": "PointFive co-founder Gal Ben David reveals plans after $60 million Series B",
-      "_excerpt": "PointFive co-founder Gal Ben David reveals plans after $60 million Series B",
-      "date_published": "2026-06-08T18:40:05+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/PointFive%2520Co-founder%2520Gal%2520Ben%2520David%2520Reveals%2520Plans%2520After%252060%2520Million%2520Series%2520B"
-    },
-    {
-      "id": "https://www.businessinsider.com/west-monroe-ai-agent-free-consulting-strategy-advice-2026-6",
-      "url": "https://www.businessinsider.com/west-monroe-ai-agent-free-consulting-strategy-advice-2026-6",
-      "title": "[Business Insider] A consulting firm is now using AI to give free advice that once cost millions",
-      "content_html": "<img src=\"https://i.insider.com/6a268ca02e5a80cfe050458e?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBret Greenstein, the chief AI officer of midsize consultancy West Monroe, says some of its insights now cost basically nothing to produce.",
-      "summary": "Bret Greenstein, the chief AI officer of midsize consultancy West Monroe, says some of its insights now cost basically nothing to produce.",
-      "_excerpt": "Bret Greenstein, the chief AI officer of midsize consultancy West Monroe, says some of its insights now cost basically nothing to produce.",
-      "date_published": "2026-06-08T13:03:58+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/6a268ca02e5a80cfe050458e?format=jpeg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/7/giant-crowds-greet-pope-leo-at-public-mass-in-madrid-spain?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/7/giant-crowds-greet-pope-leo-at-public-mass-in-madrid-spain?traffic_source=rss",
-      "title": "[Al Jazeera English] Giant crowds greet Pope Leo at public mass in Madrid, Spain",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a253e828de83-1780825730.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pontiff praises Madrid as a beacon of inclusion as about 1.2 million people gather for Sunday mass.",
-      "summary": "The pontiff praises Madrid as a beacon of inclusion as about 1.2 million people gather for Sunday mass.",
-      "_excerpt": "The pontiff praises Madrid as a beacon of inclusion as about 1.2 million people gather for Sunday mass.",
-      "date_published": "2026-06-07T12:00:16+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-07T14:29:46.936782+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/ap_6a253e828de83-1780825730.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://thenarwhal.ca/lorneville-ai-data-centre/?utm_source=rss",
-      "url": "https://thenarwhal.ca/lorneville-ai-data-centre/?utm_source=rss",
-      "title": "[The Narwhal] In New Brunswick, residents battle the government over a planned AI data centre",
-      "content_html": "<img src=\"https://thenarwhal.ca/wp-content/uploads/2026/06/NB-Lorneville-Data-Centre-Donovan-12-WEB-1400x934.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe proposed data centre in Lorneville, N.B., would raze wetlands and old-growth forest. Its on-site gas plant and additional demand on the power grid would make it one of the province’s largest emitters",
-      "summary": "The proposed data centre in Lorneville, N.B., would raze wetlands and old-growth forest. Its on-site gas plant and additional demand on the power grid would make it one of the province’s largest emitters",
-      "_excerpt": "The proposed data centre in Lorneville, N.B., would raze wetlands and old-growth forest. Its on-site gas plant and additional demand on the power grid would make it one of the province’s largest emitters",
-      "date_published": "2026-06-04T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Narwhal",
-          "url": "https://thenarwhal.ca"
-        }
-      ],
-      "ai_score": 74,
-      "_quality_score": 74,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 42,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-07T08:09:57.534268+00:00"
-      },
-      "image": "https://thenarwhal.ca/wp-content/uploads/2026/06/NB-Lorneville-Data-Centre-Donovan-12-WEB-1400x934.jpg"
-    },
-    {
-      "id": "https://www.businessinsider.com/san-francisco-housing-market-real-estate-home-prices-ai-boom-2026-6",
-      "url": "https://www.businessinsider.com/san-francisco-housing-market-real-estate-home-prices-ai-boom-2026-6",
-      "title": "[Business Insider] San Francisco homebuyers have officially lost their minds",
-      "content_html": "<img src=\"https://i.insider.com/6a1f17c3b4fb977f35983618?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOvernight AI fortunes, multimillion-dollar bidding wars, and looming IPOs are rocking San Francisco real estate and sending home prices soaring.",
-      "summary": "Overnight AI fortunes, multimillion-dollar bidding wars, and looming IPOs are rocking San Francisco real estate and sending home prices soaring.",
-      "_excerpt": "Overnight AI fortunes, multimillion-dollar bidding wars, and looming IPOs are rocking San Francisco real estate and sending home prices soaring.",
-      "date_published": "2026-06-03T08:23:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality_score": 73,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i.insider.com/6a1f17c3b4fb977f35983618?format=jpeg"
-    },
-    {
-      "id": "https://qz.com/google-intel-tpu-order-tsmc-capacity-2028-060826",
-      "url": "https://qz.com/google-intel-tpu-order-tsmc-capacity-2028-060826",
-      "title": "[Quartz] Google is ordering millions of AI chips from Intel as TSMC strains to meet demand",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2223598507.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe order comes as TSMC struggles to keep up with AI chip demand, prompting major tech companies to seek alternative manufacturers",
-      "summary": "The order comes as TSMC struggles to keep up with AI chip demand, prompting major tech companies to seek alternative manufacturers",
-      "_excerpt": "The order comes as TSMC struggles to keep up with AI chip demand, prompting major tech companies to seek alternative manufacturers",
-      "date_published": "2026-06-08T15:00:28+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 71,
-      "_quality_score": 71,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2223598507.jpg"
-    },
-    {
-      "id": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
-      "url": "https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/",
-      "title": "[New Atlas] Breakthrough drug nearly doubles survival rate for advanced pancreatic cancer",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&amp;rf.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"artist's impression of a pancreas\" src=\"https://assets.newatlas.com/dims4/default/8e61078/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg\" /><p>Christopher Lieu, University of Colorado Anschutz/ The Conversation</p><p><a href=\"https://refractor.io/cancer/breakthrough-drug-doubles-survival-pancreatic-cancer/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/cancer/\">Cancer</a>, <a href=\"https://refractor.io/disease/\">Illnesses and conditions</a>, <a href=\"https://refractor.io/medical/\">Body and Mind</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/pancreatic-cancer/\" rel=\"tag\">Pancreatic cancer</a>, <a href=\"https://newatlas.com/tag/drugs/\" rel=\"tag\">Drugs</a>, <a href=\"https://newatlas.com/tag/pancreas/\" rel=\"tag\">Pancreas</a>, <a href=\"https://newatlas.com/tag/pharmaceuticals/\" rel=\"tag\">Pharmaceuticals</a></p>",
-      "summary": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
-      "_excerpt": "Christopher Lieu, University of Colorado Anschutz/ The Conversation Continue Reading Category: Cancer , Illnesses and conditions , Body and Mind Tags: Pancreatic cancer , Drugs , Pancreas , Pharmaceuticals",
-      "date_published": "2026-06-03T06:48:59+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T09:14:59.750312+00:00"
-      },
-      "image": "https://assets.newatlas.com/dims4/default/dd39f36/2147483647/strip/true/crop/2000x1050+0+225/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F4a%2Fd4%2F97d851934aeeb0cba5b3c4d9706a%2Fpancreatic-cancer-drug.jpg&rf.image_optimisation=0"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/economy-law-politics/bc-public-mining-company-fined-15k-for-fraudulent-technical-report-12383130",
-      "url": "https://www.piquenewsmagazine.com/economy-law-politics/bc-public-mining-company-fined-15k-for-fraudulent-technical-report-12383130",
-      "title": "[Pique Newsmagazine] B.C. public mining company fined $15K for fraudulent technical report",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/biv/bcsc-rob-kruyt-49.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nRegulator finds miner filed a technical report with a falsified electronic signature of a professional engineer",
-      "summary": "Regulator finds miner filed a technical report with a falsified electronic signature of a professional engineer",
-      "_excerpt": "Regulator finds miner filed a technical report with a falsified electronic signature of a professional engineer",
-      "date_published": "2026-06-06T02:00:00+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 67,
-      "_quality_score": 67,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-07T08:09:57.534268+00:00"
-      },
-      "image": "https://www.vmcdn.ca/f/files/biv/bcsc-rob-kruyt-49.jpg;w=960"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html",
-      "url": "https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html",
-      "title": "[Boing Boing] Scientists use yeast from body of Ötzi the Iceman to make \"very very good\" sourdough",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html\" rel=\"nofollow\" title=\"Scientists use yeast from body of Ötzi the Iceman to make &quot;very very good&quot; sourdough\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"918\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"800\" /></a><p>Yeast survived for millenia inside a mummy, and can still be used to make bread.</p>\n<p>About 5300 years ago, a Tyrolean man died after being shot in the shoulder with an arrow. His body was so well-preserved in the Alpine ice on the border of Italy and Austria that it was initially believed to be that of a recently deceased hiker. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/04/scientists-use-yeast-from-body-of-otzi-the-iceman-to-make-very-very-good-sourdough.html\">Scientists use yeast from body of Ötzi the Iceman to make &quot;very very good&quot; sourdough</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "Yeast survived for millenia inside a mummy, and can still be used to make bread. About 5300 years ago, a Tyrolean man died after being shot in the shoulder with an arrow. His body was so well-preserved in the Alpine ice on the border of Italy and Austria that it was initially believed to be that of",
-      "_excerpt": "Yeast survived for millenia inside a mummy, and can still be used to make bread. About 5300 years ago, a Tyrolean man died after being shot in the shoulder with an arrow. His body was so well-preserved in the Alpine ice on the border of Italy and Austria that it was initially believed to be that of a recently deceased hiker. — Read the rest The post Scientists use yeast from body of Ötzi the Iceman to make \"very very good\" sourdough appeared first on Boing Boing .",
-      "date_published": "2026-06-04T16:22:41+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 0,
-      "_final_score": 0,
-      "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-05T08:33:51.483490+00:00"
-      },
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2019/05/Starter-1.jpg?fit=800%2C918&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/07/business/07biz-demand-destruction-iran-war.html",
-      "url": "https://www.nytimes.com/2026/06/07/business/07biz-demand-destruction-iran-war.html",
-      "title": "[NYT Business] As Oil Prices Spike, Talk of ‘Demand Destruction’ Sets In",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/07/business/07ST-demand-destruction-illo/07ST-demand-destruction-illo-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe decades-old term refers to the sustained loss of demand for a commodity, caused by high prices.",
-      "summary": "The decades-old term refers to the sustained loss of demand for a commodity, caused by high prices.",
-      "_excerpt": "The decades-old term refers to the sustained loss of demand for a commodity, caused by high prices.",
-      "date_published": "2026-06-07T09:01:01+00:00",
+      "id": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
+      "url": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
+      "title": "[NYT Business] Forget Coders. The Real A.I. Threat Is in the Back Office.",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
+      "summary": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
+      "_excerpt": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
+      "date_published": "2026-06-10T14:49:41+00:00",
       "authors": [
         {
           "name": "NYT Business",
           "url": "https://www.nytimes.com/section/business"
         }
       ],
-      "ai_score": 65,
-      "_quality_score": 65,
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
       "_theme_score": 0,
-      "_final_score": 0,
+      "_composite_podcast": 38,
+      "_keyword_matches": 2,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/security/fbi-takes-out-huge-ai-powered-phishing-service-outsider-enterprise-was-using-over-a-million-phishing-urls-to-steal-credit-card-data-and-passwords",
+      "url": "https://www.techradar.com/pro/security/fbi-takes-out-huge-ai-powered-phishing-service-outsider-enterprise-was-using-over-a-million-phishing-urls-to-steal-credit-card-data-and-passwords",
+      "title": "[TechRadar] FBI takes out huge AI-powered phishing service: Outsider Enterprise was using over a million phishing URLs to steal credit card data and passwords",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/CT482eMSRL8PagRtuBVYNd-1280-80.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nServers, Telegram bots, and money, all seized by the authorities.",
+      "summary": "Servers, Telegram bots, and money, all seized by the authorities.",
+      "_excerpt": "Servers, Telegram bots, and money, all seized by the authorities.",
+      "date_published": "2026-06-15T12:25:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 89,
+      "_quality": 89,
+      "_relevance": 89,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 36,
       "_keyword_matches": 1,
-      "_boosted_score": 39,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://static01.nyt.com/images/2026/06/07/business/07ST-demand-destruction-illo/07ST-demand-destruction-illo-mediumSquareAt3X.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/CT482eMSRL8PagRtuBVYNd-1280-80.jpeg"
     },
     {
-      "id": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
-      "url": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
-      "title": "[Williams Lake Tribune] Teen presumed drowned after boating incident northeast of Quesnel",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The incident took place on June 6 at Stony Lake </p>",
-      "summary": "The incident took place on June 6 at Stony Lake",
-      "_excerpt": "The incident took place on June 6 at Stony Lake",
-      "date_published": "2026-06-08T15:35:00+00:00",
+      "id": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
+      "url": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
+      "title": "[Business Insider] We talked to the comedians behind the viral fake AI ads on the subway",
+      "content_html": "<img src=\"https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "summary": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "_excerpt": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "date_published": "2026-06-11T22:12:26+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/03/williams-lake-tru-graduates-celebrate-special-milestone/",
-      "url": "https://wltribune.com/2026/06/03/williams-lake-tru-graduates-celebrate-special-milestone/",
-      "title": "[Williams Lake Tribune] Williams Lake TRU graduates celebrate special milestone",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42441189_web1_260604-WLT-2026-TRU-Commencement-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n3 MIN READ",
-      "summary": "3 MIN READ",
-      "_excerpt": "3 MIN READ",
-      "date_published": "2026-06-03T17:28:17.763548+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 30,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-06-04T08:42:43.860371+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42441189_web1_260604-WLT-2026-TRU-Commencement-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/03/sentence-upheld-for-man-guilty-of-stabbing-b-c-cop/",
-      "url": "https://wltribune.com/2026/06/03/sentence-upheld-for-man-guilty-of-stabbing-b-c-cop/",
-      "title": "[Williams Lake Tribune] Sentence upheld for man guilty of stabbing B.C. cop",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479587_web1_20320697_web1_KelownaCourt1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Richard McCrae had his appeal dismissed on June 2 </p>",
-      "summary": "Richard McCrae had his appeal dismissed on June 2",
-      "_excerpt": "Richard McCrae had his appeal dismissed on June 2",
-      "date_published": "2026-06-03T15:30:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 96,
-      "_quality_score": 96,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 28,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-06-04T08:42:43.860371+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42479587_web1_20320697_web1_KelownaCourt1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
-      "url": "https://www.nytimes.com/2026/06/05/magazine/ai-farms-technology.html",
-      "title": "[NYT Top Stories] From Cow-Milking Robots to Weed-Zapping Lasers, Farmers Are Embracing A.I.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWe asked three farmers to tell us how new technology is revolutionizing the way they work.",
-      "summary": "We asked three farmers to tell us how new technology is revolutionizing the way they work.",
-      "_excerpt": "We asked three farmers to tell us how new technology is revolutionizing the way they work.",
-      "date_published": "2026-06-05T09:00:35+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 84,
-      "_quality_score": 84,
-      "_theme_score": 34,
-      "_final_score": 34,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-06-06T07:36:16.123787+00:00"
-      },
-      "image": "https://static01.nyt.com/images/2026/06/14/magazine/14mag-farming-01-07/14mag-farming-01-07-mediumSquareAt3X-v3.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314045/news/business/economy/there-were-a-lot-more-people-working-in-the-cariboo-region-last-month/",
-      "url": "https://www.mycariboonow.com/314045/news/business/economy/there-were-a-lot-more-people-working-in-the-cariboo-region-last-month/",
-      "title": "[My Cariboo Now] There were a lot more people working in the Cariboo region last month : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/03/worker.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-06T14:16:10.887494+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-06-06T14:21:48.758600+00:00"
-      },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/03/worker.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/313931/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-respond-to-distressed-paddler-in-the-bowren-lake-chain/",
-      "url": "https://www.mycariboonow.com/313931/news/emergency-services/search-and-rescue/quesnel-search-and-rescue-respond-to-distressed-paddler-in-the-bowren-lake-chain/",
-      "title": "[My Cariboo Now] Quesnel Search and Rescue respond to distressed paddler in the Bowren Lake Chain : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/QSAR-Helicopter-June1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-05T15:34:13.258620+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-06-06T07:36:16.123787+00:00"
-      },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/QSAR-Helicopter-June1.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/04/world/africa/ebola-congo-funeral-photo.html",
-      "url": "https://www.nytimes.com/2026/06/04/world/africa/ebola-congo-funeral-photo.html",
-      "title": "[NYT Top Stories] Priest’s Ebola Death Stirs Fear and Doubt in Congolese Town",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/04/multimedia/04int-ebola-oneimage-promo-jwmh/04int-ebola-oneimage-promo-jwmh-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPriest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
-      "summary": "Priest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
-      "_excerpt": "Priest’s Ebola Death Stirs Fear an Doubt in Congolese Town",
-      "date_published": "2026-06-04T13:15:12+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 25,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://static01.nyt.com/images/2026/06/04/multimedia/04int-ebola-oneimage-promo-jwmh/04int-ebola-oneimage-promo-jwmh-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/south-korean-police-break-up-35-hour-polling-station-protest?traffic_source=rss",
-      "title": "[Al Jazeera English] South Korean police break up 35-hour polling station protest",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSouth Korean police break up 35-hour polling station protest",
-      "summary": "South Korean police break up 35-hour polling station protest",
-      "_excerpt": "South Korean police break up 35-hour polling station protest",
-      "date_published": "2026-06-05T12:38:05+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
       "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 45,
-      "_final_score": 45,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 33,
+      "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780662865.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/8/texas-bound-jet-crashes-during-emergency-landing-in-dominican-republic?traffic_source=rss",
-      "title": "[Al Jazeera English] Texas-bound jet crashes during emergency landing in Dominican Republic",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTexas-bound private jet crashes during emergency landing in Dominican Republic.",
-      "summary": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
-      "_excerpt": "Texas-bound private jet crashes during emergency landing in Dominican Republic.",
-      "date_published": "2026-06-08T13:22:18+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/JET-CRASH-WIDE-THUMB-1780924888.png?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/ebola-border-shutdown-leaves-goods-rotting-between-uganda-and-drc?traffic_source=rss",
-      "title": "[Al Jazeera English] Ebola border shutdown leaves goods rotting between Uganda and DRC",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEbola border shutdown leaves goods rotting between Uganda and DRC",
-      "summary": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
-      "_excerpt": "Ebola border shutdown leaves goods rotting between Uganda and DRC",
-      "date_published": "2026-06-06T10:07:29+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780740406.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/families-clear-rubble-after-overnight-israeli-strikes-in-gaza?traffic_source=rss",
-      "title": "[Al Jazeera English] Families clear rubble after overnight Israeli strikes in Gaza",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nFamilies in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
-      "summary": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
-      "_excerpt": "Families in Az-Zawayda, central Gaza, clear rubble after overnight Israeli strikes in Gaza",
-      "date_published": "2026-06-05T19:40:41+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780688422.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/5/un-envoys-call-on-trump-to-stop-israeli-annexation?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/5/un-envoys-call-on-trump-to-stop-israeli-annexation?traffic_source=rss",
-      "title": "[Al Jazeera English] UN envoys call on Trump to stop Israeli annexation",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780645035.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUN envoys call on Trump to stop Israeli annexation",
-      "summary": "UN envoys call on Trump to stop Israeli annexation",
-      "_excerpt": "UN envoys call on Trump to stop Israeli annexation",
-      "date_published": "2026-06-05T07:38:50+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1780645035.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/money-works/2026/6/3/can-a-us-president-promote-stock-theyve-invested-in?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/money-works/2026/6/3/can-a-us-president-promote-stock-theyve-invested-in?traffic_source=rss",
-      "title": "[Al Jazeera English] Can a US president promote stock they’ve invested in",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/16x9-1780473654.png?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCan a US president promote stock they’ve invested in",
-      "summary": "Can a US president promote stock they’ve invested in",
-      "_excerpt": "Can a US president promote stock they’ve invested in",
-      "date_published": "2026-06-03T08:24:11+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-06-04T08:42:43.860371+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/16x9-1780473654.png?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://eaglefeathernews.com/2026/06/03/5410/",
-      "url": "https://eaglefeathernews.com/2026/06/03/5410/",
-      "title": "[Eagle Feather News] Law enforcement looking for shooter following fatal shooting at Pelican Narrows",
-      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/06/screenshot-2026-06-03-at-51625-pm.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nVideo of shooting suspect released on June 3 by Sask RCMP.",
-      "summary": "Video of shooting suspect released on June 3 by Sask RCMP.",
-      "_excerpt": "Video of shooting suspect released on June 3 by Sask RCMP.",
-      "date_published": "2026-06-03T23:30:14+00:00",
-      "authors": [
-        {
-          "name": "Eagle Feather News",
-          "url": "https://www.eaglefeathernews.com"
-        }
-      ],
-      "ai_score": 81,
-      "_quality_score": 81,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-05T15:36:54.691220+00:00"
-      },
-      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/06/screenshot-2026-06-03-at-51625-pm.png"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/victim-says-her-face-was-unrecognizable-after-beating-by-bc-sex-trafficker-12397452",
-      "url": "https://www.piquenewsmagazine.com/national-news/victim-says-her-face-was-unrecognizable-after-beating-by-bc-sex-trafficker-12397452",
-      "title": "[Pique Newsmagazine] Victim says her face was 'unrecognizable' after beating by B.C. sex trafficker",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f0a06eb759dda802ddf14d7e5ca5982353a896d00598e51b17f892e2b8186f6c.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nNEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
-      "summary": "NEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
-      "_excerpt": "NEW WESTMINSTER — A victim of a woman who has pleaded guilty to sex trafficking and assault in British Columbia says her face \"was unrecognizable for months\" after she was assaulted by the woman.",
-      "date_published": "2026-06-09T21:47:12+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/f0a06eb759dda802ddf14d7e5ca5982353a896d00598e51b17f892e2b8186f6c.jpg;w=960"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/6/israeli-attack-on-gaza-city-tent-camp-kills-several-palestinians?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/6/israeli-attack-on-gaza-city-tent-camp-kills-several-palestinians?traffic_source=rss",
-      "title": "[Al Jazeera English] Israeli attack on Gaza City tent camp kills several Palestinians",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-06-at-10.23.35-PM-1780773858.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIsraeli attack on Gaza City tent camp kills several Palestinians.",
-      "summary": "Israeli attack on Gaza City tent camp kills several Palestinians.",
-      "_excerpt": "Israeli attack on Gaza City tent camp kills several Palestinians.",
-      "date_published": "2026-06-06T19:25:27+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-06-at-10.23.35-PM-1780773858.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/local-news/whistlerpemberton-rcmp-seek-assistance-in-search-for-missing-15-year-old-12386638",
-      "url": "https://www.piquenewsmagazine.com/local-news/whistlerpemberton-rcmp-seek-assistance-in-search-for-missing-15-year-old-12386638",
-      "title": "[Pique Newsmagazine] Updated: Missing 15-year-old reportedly found safe",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-sign-web.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe teen was reported missing on Saturday morning",
-      "summary": "The teen was reported missing on Saturday morning",
-      "_excerpt": "The teen was reported missing on Saturday morning",
-      "date_published": "2026-06-09T03:15:00+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-sign-web.jpg;w=960"
-    },
-    {
-      "id": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
-      "url": "https://www.makeuseof.com/mailbox-sensor-tells-when-mail-arrives/",
-      "title": "[MakeUseOf] I put a $29 sensor in my mailbox, and now I get a notification when the mail arrives",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/stone-mailbox-pillar-with-house-number-29911.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThis easy to install device alerts me as soon as my mail arrives.",
-      "summary": "This easy to install device alerts me as soon as my mail arrives.",
-      "_excerpt": "This easy to install device alerts me as soon as my mail arrives.",
-      "date_published": "2026-06-08T16:30:18+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 76,
-      "_quality_score": 76,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 22,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
+      "_is_bonus": false,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-08T16:37:39.911223+00:00"
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
       },
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/stone-mailbox-pillar-with-house-number-29911.jpg"
+      "image": "https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/the-mix/alberta-country-music-artist-corb-lund-expected-to-hand-in-anti-coal-petition-12400140",
+      "url": "https://www.piquenewsmagazine.com/the-mix/alberta-country-music-artist-corb-lund-expected-to-hand-in-anti-coal-petition-12400140",
+      "title": "[Pique Newsmagazine] Alberta country music artist Corb Lund expected to hand in anti-coal petition",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/89ebd1fbd43f723dae537be417b268924422533a36131f881767993b11725f38.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEDMONTON — Country music artist Corb Lund is expected to deliver his anti-coal mining petition to Elections Alberta today.",
+      "summary": "EDMONTON — Country music artist Corb Lund is expected to deliver his anti-coal mining petition to Elections Alberta today.",
+      "_excerpt": "EDMONTON — Country music artist Corb Lund is expected to deliver his anti-coal mining petition to Elections Alberta today.",
+      "date_published": "2026-06-10T08:00:10+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 32,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      },
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/89ebd1fbd43f723dae537be417b268924422533a36131f881767993b11725f38.jpg;w=960"
+    },
+    {
+      "id": "https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/",
+      "url": "https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/",
+      "title": "[TechCrunch] Chinese cybercrime operation that used AI to scam ‘hundreds of thousands of victims’ sued by Google",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
+      "summary": "The tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
+      "_excerpt": "The tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
+      "date_published": "2026-06-12T20:38:09+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 32,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html",
+      "url": "https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html",
+      "title": "[Boing Boing] In 1896 a railroad crashed two trains head-on for fun and killed two spectators",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\" rel=\"nofollow\" title=\"In 1896 a railroad crashed two trains head-on for fun and killed two spectators\"><img alt=\"By Jervis C. Deane (b. 1860) - Southern Mysteries Episode 65 The Crash at Crush, Public Domain, Link\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"893\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The <a href=\"https://en.wikipedia.org/wiki/Crash_at_Crush\">Crash at Crush</a> was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its money selling tickets on excursion trains to the site. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\">In 1896 a railroad crashed two trains head-on for fun and killed two spectators</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The Crash at Crush was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its",
+      "_excerpt": "On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The Crash at Crush was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its money selling tickets on excursion trains to the site. — Read the rest The post In 1896 a railroad crashed two trains head-on for fun and killed two spectators appeared first on Boing Boing .",
+      "date_published": "2026-06-10T22:51:07+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 32,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&quality=60&ssl=1"
+    },
+    {
+      "id": "https://techcrunch.com/2026/06/11/south-korea-hits-coupang-with-400m-fine-for-data-breach-that-affected-millions/",
+      "url": "https://techcrunch.com/2026/06/11/south-korea-hits-coupang-with-400m-fine-for-data-breach-that-affected-millions/",
+      "title": "[TechCrunch] South Korea hits Coupang with $400M+ fine for data breach that affected millions",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2020/10/Coupang_dawn_delivery.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSouth Korean authorities issued the record-breaking fine following a data breach that affected over 30 million customers.",
+      "summary": "South Korean authorities issued the record-breaking fine following a data breach that affected over 30 million customers.",
+      "_excerpt": "South Korean authorities issued the record-breaking fine following a data breach that affected over 30 million customers.",
+      "date_published": "2026-06-11T13:18:51+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 71,
+      "_relevance": 71,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 30,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://techcrunch.com/wp-content/uploads/2020/10/Coupang_dawn_delivery.jpg?resize=1200,800"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/national-news/former-montreal-officer-cleared-in-nicholas-gibbs-killing-suing-ethics-commissioner-12407422",
+      "url": "https://www.piquenewsmagazine.com/national-news/former-montreal-officer-cleared-in-nicholas-gibbs-killing-suing-ethics-commissioner-12407422",
+      "title": "[Pique Newsmagazine] Former Montreal officer cleared in Nicholas Gibbs killing suing ethics commissioner",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/acac10554827f3a72f3e1eda62a13c4b0d91ece8a860fee288af4d34043078b5.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
+      "summary": "MONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
+      "_excerpt": "MONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
+      "date_published": "2026-06-11T16:07:30+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 30,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/acac10554827f3a72f3e1eda62a13c4b0d91ece8a860fee288af4d34043078b5.jpg;w=960"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
+      "url": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
+      "title": "[Williams Lake Tribune] New bill introduces social media age restrictions for Canadians under 16",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMiller says social media services will need to remove harmful content within 24 hours",
+      "summary": "Miller says social media services will need to remove harmful content within 24 hours",
+      "_excerpt": "Miller says social media services will need to remove harmful content within 24 hours",
+      "date_published": "2026-06-10T14:37:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 30,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024"
+    },
+    {
+      "id": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "url": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "title": "[Kagi Small Web] The Startup That Charges More on Day One Usually Wins",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<h2 id=\"the-seduction-of-the-low-price\">The Seduction of the Low Price</h2>\n<p>The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it&rsquo;s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they&rsquo;re being humble, customer-focused, pragmatic.</p>\n<p>What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try.</p>\n<p>The counterintuitive truth is that price is not just a revenue number. It&rsquo;s a signal to your market, a filter for your customers, and a constraint on your product decisions. Set it too low and you don&rsquo;t just make less money. You attract the wrong buyers, train your team to compete on cost, and starve the product of the resources it needs to improve. The startup that charges more on day one is playing a structurally different game, and it usually wins.</p>\n<h2 id=\"price-tells-customers-what-kind-of-company-you-are\">Price Tells Customers What Kind of Company You Are</h2>\n<p>B2B software buyers, in particular, read price as a proxy for quality and staying power. A tool priced at $10 per user per month signals something different than one priced at $50, even before the buyer has tried either. The lower price implies the vendor is still figuring things out, might not be around in two years, and probably can&rsquo;t support an enterprise integration. These inferences aren&rsquo;t always accurate, but they&rsquo;re predictable.</p>\n<p>This is why enterprise software vendors historically held firm on pricing even when startups tried to undercut them. Oracle and SAP weren&rsquo;t just protecting margin. They were communicating that their software was serious, mission-critical infrastructure. The price was part of the product.</p>\n<p>For early-stage companies, the same logic applies in reverse. Pricing low doesn&rsquo;t just leave money on the table. It actively recruits the customers most likely to churn when a cheaper alternative appears, because that&rsquo;s what they were optimizing for when they signed up. <a href=\"https://kagi.com/the-one-customer-type-that-kills-good-startups/\">The wrong early customers can quietly kill a company</a> by consuming support resources, demanding features that don&rsquo;t fit the core product, and paying so little that serving them is structurally unprofitable.</p>\n<h2 id=\"what-high-prices-actually-buy\">What High Prices Actually Buy</h2>\n<p>The clearest benefit of higher early pricing is unit economics. A company generating $500 per month from a customer has more room to invest in that relationship than one generating $50. More room to hire a dedicated support person, to build the integration the customer asked for, to staff a customer success function before the churn problem becomes visible in the cohort data.</p>\n<p>This is not a small operational detail. It determines whether a company can afford to learn from its customers or is simply trying to acquire more of them as fast as possible before the money runs out. Many of the startups that grew fast on low prices discovered too late that they had built a business where no unit of revenue was profitable enough to justify the cost of generating it.</p>\n<p>Higher prices also tend to attract larger, more stable buyers. A company willing to pay a premium is usually a company with a real budget, a real need, and a real procurement process. That last item sounds like a burden, but it&rsquo;s actually a signal: buyers who run procurement are buyers who have decided this is a real category worth spending on. They renew contracts. They provide structured feedback. They refer other serious buyers.</p>\n<p></p>\n<p>The math compounds over time. A startup that charges twice as much as its competitor needs half as many customers to reach the same revenue. Half as many customers means fewer support tickets, more focused product development, and a cleaner signal from the market about what actually matters. The company that has 500 deeply satisfied customers at $500 a month often has a clearer strategic picture than the one with 5,000 semi-satisfied customers at $50.</p>\n<h2 id=\"the-myth-of-the-penetration-strategy\">The Myth of the Penetration Strategy</h2>\n<p>The standard counterargument is that low prices drive volume, volume drives learning, and scale eventually creates leverage. There&rsquo;s a version of this that&rsquo;s real. It&rsquo;s how consumer internet companies built network-effect businesses, and how AWS priced cloud storage to build market share before margins became the priority.</p>\n<p>But most startups are not building consumer internet businesses, and most founders applying penetration logic to B2B SaaS are not Amazon. The penetration strategy only works when scale genuinely creates a defensible advantage, when the market is large enough that the volume math eventually closes, and when the company has enough capital to survive the years before the unit economics improve. Most early-stage startups meet none of these conditions.</p>\n<p>What they get instead is a business that looks healthy by top-line metrics and is quietly bleeding from every unit. <a href=\"https://kagi.com/charging-too-little-kills-startups-slower-and-worse/\">Charging too little kills startups slower and more painfully than most founders expect</a>, because the damage is gradual enough to explain away in every individual quarter.</p>\n<h2 id=\"raising-prices-is-harder-than-setting-them-right\">Raising Prices Is Harder Than Setting Them Right</h2>\n<p>There&rsquo;s an asymmetry that doesn&rsquo;t get enough attention: it is far easier to lower a price than to raise one. Customers anchor hard on what they first paid. A company that launches at $20 and tries to move to $50 after 18 months will face pushback from every existing customer, awkward grandfather clauses, and a public pricing page that signals the company wasn&rsquo;t confident in its value from the start.</p>\n<p>A company that launches at $50 and occasionally discounts strategically retains control of its positioning. The list price stays intact. The brand signal stays intact. The occasional discount is a negotiation tool, not a structural concession.</p>\n<p>This is why the pricing decision made at launch is one of the few early choices that genuinely compounds, in both directions. A startup that prices high early builds a cost structure, a customer base, and a market position that are all oriented around delivering real value. A startup that prices low early builds the opposite, and usually can&rsquo;t escape it without essentially relaunching.</p>\n<h2 id=\"the-price-is-the-strategy\">The Price Is the Strategy</h2>\n<p>Founding teams spend months on product roadmaps and go-to-market plans while treating the pricing page as an afterthought. It shouldn&rsquo;t be. The number you put on your product on day one is a strategic claim about who your customer is, what problem you&rsquo;re solving, and whether you believe your own pitch.</p>\n<p>Startups that charge more from the beginning aren&rsquo;t just being aggressive about revenue. They&rsquo;re making a bet that the product is worth it, and then building a company that has to prove that bet right. That pressure, it turns out, tends to produce better products. The founders who insist on earning a premium have to figure out what the premium is for. That question, asked early and answered honestly, is one of the most useful strategic exercises a startup can do.</p>",
+      "summary": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales",
+      "_excerpt": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they’re being humble, customer-focused, pragmatic. What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try. The counterintuitive truth is that price is not just a revenue number.",
+      "date_published": "2026-06-14T17:11:00+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 29,
+      "_keyword_matches": 1,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/12/mel-fishers-treasure-hunters-find-another-chunk-of-atocha-silver.html",
+      "url": "https://boingboing.net/2026/06/12/mel-fishers-treasure-hunters-find-another-chunk-of-atocha-silver.html",
+      "title": "[Boing Boing] Mel Fisher's treasure hunters find another chunk of Atocha silver",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/04/gold-e1781286090430.jpeg?fit=768%2C510&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/12/mel-fishers-treasure-hunters-find-another-chunk-of-atocha-silver.html\" rel=\"nofollow\" title=\"Mel Fisher&#039;s treasure hunters find another chunk of Atocha silver\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"510\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/04/gold-e1781286090430.jpeg?fit=768%2C510&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"768\" /></a><p class=\"wp-block-paragraph\">Mel Fisher's treasure hunters are still pulling Spanish Empire leftovers out of the Florida Keys, and this time the ocean coughed up a 22-pound silver bar.</p>\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\">\n<div class=\"wp-block-embed__wrapper\">\n\n</div>\n</figure>\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p class=\"wp-block-paragraph\">After hitting the object with a knife and examining the surface, Nicholas said he saw telltale markings that were consistent with a silver bar.</p>\n</blockquote>\n<p> &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/12/mel-fishers-treasure-hunters-find-another-chunk-of-atocha-silver.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/12/mel-fishers-treasure-hunters-find-another-chunk-of-atocha-silver.html\">Mel Fisher&#039;s treasure hunters find another chunk of Atocha silver</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "Mel Fisher's treasure hunters are still pulling Spanish Empire leftovers out of the Florida Keys, and this time the ocean coughed up a 22-pound silver bar. After hitting the object with a knife and examining the surface, Nicholas said he saw telltale markings that were consistent with a silver bar.",
+      "_excerpt": "Mel Fisher's treasure hunters are still pulling Spanish Empire leftovers out of the Florida Keys, and this time the ocean coughed up a 22-pound silver bar. After hitting the object with a knife and examining the surface, Nicholas said he saw telltale markings that were consistent with a silver bar. — Read the rest The post Mel Fisher's treasure hunters find another chunk of Atocha silver appeared first on Boing Boing .",
+      "date_published": "2026-06-12T17:42:03+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 29,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2023/04/gold-e1781286090430.jpeg?fit=768%2C510&quality=60&ssl=1"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/15/end-of-b-c-rural-healthcare-bonus-could-worsen-staffing-challenges-union-says/",
+      "url": "https://wltribune.com/2026/06/15/end-of-b-c-rural-healthcare-bonus-could-worsen-staffing-challenges-union-says/",
+      "title": "[Williams Lake Tribune] End of B.C. rural healthcare bonus could worsen staffing challenges, Union says",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024) 1/2 G.R. Baker Hospital. ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=150&h=150&crop=1) ![During her visit to G. R. Baker Memorial Hospital in Quesnel on Monday, June 8, Lynn",
+      "summary": "## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker",
+      "_excerpt": "## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024) 1/2 G.R. Baker Hospital. ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=150&h=150&crop=1) ![During her visit to G. R. Baker Memorial Hospital in Quesnel on Monday, June 8, Lynn",
+      "date_published": "2026-06-16T05:51:43.430079+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 64,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 28,
+      "_keyword_matches": 1,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/the-mix/fairfax-signs-deal-to-buy-canadian-wine-producer-andrew-peller-12422147",
+      "url": "https://www.piquenewsmagazine.com/the-mix/fairfax-signs-deal-to-buy-canadian-wine-producer-andrew-peller-12422147",
+      "title": "[Pique Newsmagazine] Fairfax signs deal to buy Canadian wine producer Andrew Peller",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/15d9d2313742ccfc0ed89fe522a64032b844424cc01a81cd84b78a577a7a66d5.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nGRIMSBY — Fairfax Financial Holdings Ltd. has signed a deal to buy Andrew Peller Ltd. in an offer that puts an enterprise value of $579 million on the Canadian wine producer.",
+      "summary": "GRIMSBY — Fairfax Financial Holdings Ltd. has signed a deal to buy Andrew Peller Ltd. in an offer that puts an enterprise value of $579 million on the Canadian wine producer.",
+      "_excerpt": "GRIMSBY — Fairfax Financial Holdings Ltd. has signed a deal to buy Andrew Peller Ltd. in an offer that puts an enterprise value of $579 million on the Canadian wine producer.",
+      "date_published": "2026-06-15T15:19:49+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 64,
+      "_quality": 64,
+      "_relevance": 64,
+      "_local": 0,
+      "_theme_score": 0,
+      "_composite_podcast": 28,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/15d9d2313742ccfc0ed89fe522a64032b844424cc01a81cd84b78a577a7a66d5.jpg;w=960"
     }
   ]
 }
