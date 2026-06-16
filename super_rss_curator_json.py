@@ -409,6 +409,20 @@ def _clean_text(html_or_text: str, max_chars: int = 0) -> str:
     return text
 
 
+def _strip_markdown_links(text: str) -> str:
+    """Convert markdown link syntax to plain text: [text](url) → text, ![alt](url) → alt.
+
+    Kagi Extract returns markdown; without this the link syntax appears literally
+    in content_html because feed readers treat the field as HTML, not markdown.
+    Safe to apply to HTML content — the pattern doesn't appear in normal HTML.
+    """
+    if not text:
+        return text
+    text = re.sub(r'!\[([^\]]*)\]\([^)]*\)', r'\1', text)  # images first
+    text = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text)   # then links
+    return text
+
+
 # Local BC news domains whose RSS descriptions are often empty/stub due to paywalls.
 # When an article from one of these domains has a very short description (<100 chars),
 # the feed will attempt a lightweight body fetch to capture text before the paywall closes.
@@ -1164,6 +1178,7 @@ def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: i
             page = data[0] if data else {}
             text = (page.get('markdown') or '').strip()
             if len(text) >= 80:
+                text = _strip_markdown_links(text)
                 article.description = _clean_text(text, max_chars=600)
                 article.summary = _clean_text(text, max_chars=300)
                 article.excerpt = _clean_text(text, max_chars=600)
@@ -2385,18 +2400,21 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
     }
     
     for article in articles[:LIMITS['max_feed_size']]:
+        clean_desc = _strip_markdown_links(article.description or "")
+        has_source_in_title = (article.title.startswith(f"[{article.source}]")
+                               or article.source in article.title)
         item = {
             "id": article.link,
             "url": article.link,
-            "title": article.title if article.title.startswith(f"[{article.source}]") else f"[{article.source}] {article.title}",
-            "content_html": article.description,
+            "title": article.title if has_source_in_title else f"[{article.source}] {article.title}",
+            "content_html": clean_desc,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}]
         }
-        
+
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
-            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
+            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + clean_desc
 
         item["_score"] = article.score
 
@@ -3285,11 +3303,14 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
         kw_matches = _net_keyword_match_count(text, theme_keywords, theme_anti_keywords)
         is_bonus = _is_bonus_article(article)
+        clean_desc = _strip_markdown_links(article.description or "")
+        has_source_in_title = (article.title.startswith(f"[{article.source}]")
+                               or article.source in article.title)
         item = {
             "id": article.link,
             "url": article.link,
-            "title": article.title if article.title.startswith(f"[{article.source}]") else f"[{article.source}] {article.title}",
-            "content_html": article.description,
+            "title": article.title if has_source_in_title else f"[{article.source}] {article.title}",
+            "content_html": clean_desc,
             "summary": getattr(article, 'summary', '') or _clean_text(article.description, max_chars=300),
             "_excerpt": getattr(article, 'excerpt', '') or _clean_text(article.description, max_chars=600),
             "date_published": article.pub_date.isoformat(),
@@ -3329,7 +3350,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             }
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
-            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + (article.description or "")
+            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + clean_desc
         items_with_score.append((composite_podcast, item))
 
     items_with_score.sort(key=lambda x: x[0], reverse=True)
