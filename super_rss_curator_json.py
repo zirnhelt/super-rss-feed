@@ -3765,6 +3765,18 @@ def main():
                         newly_marked += 1
                 save_podcast_shown_cache(podcast_shown_cache)
                 print(f"  📌 Marked {newly_marked} new articles as shown ({len(selected_urls) - newly_marked} already in today's episode)")
+            print(f"\n📅 Podcast day buckets:")
+            day_order = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+            for day in day_order:
+                if day not in schedule_config['schedule']:
+                    continue
+                label = schedule_config['schedule'][day]['label']
+                if day == today_name:
+                    count = feed_stats['article_count'] if feed_stats else 0
+                    print(f"  {day} ({label}): {count} articles [TODAY]")
+                else:
+                    banked = len(holdover_cache_snapshot.get(day, []))
+                    print(f"  {day} ({label}): {banked} banked")
         else:
             print(f"⚠️ No podcast schedule for today ({today_name})")
 
