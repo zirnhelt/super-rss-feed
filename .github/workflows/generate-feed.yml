@@ -134,6 +134,7 @@ jobs:
 
           # Copy website files
           cp index.html output/
+          cp review.html output/
           cp curated-feeds.opml output/
 
           # Copy weekly report HTML files so they persist across deploys

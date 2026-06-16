@@ -1881,6 +1881,21 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
 
     client = anthropic.Anthropic(api_key=api_key)
 
+    # Load user feedback examples when available (written weekly by feedback_trainer.py).
+    feedback_section = ''
+    feedback_examples_file = CONFIG_DIR / 'feedback_examples.txt'
+    if feedback_examples_file.exists():
+        try:
+            feedback_text = feedback_examples_file.read_text(encoding='utf-8').strip()
+            if feedback_text:
+                feedback_section = (
+                    f"\n\n--- USER FEEDBACK SIGNAL (recent explicit ratings) ---\n"
+                    f"The user has reviewed articles and given explicit Good/Bad ratings. "
+                    f"Use these signals to calibrate your relevance scores:\n{feedback_text}"
+                )
+        except Exception:
+            pass
+
     # Build the cached system prompt once — includes the large interests text and
     # full category guide so they are only billed on cache miss, not on every batch.
     #
@@ -1935,6 +1950,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         f"(e.g. 'Apple AirTag 2 launch', 'Williams Lake council vote', 'OpenAI GPT-5 release'). "
         f"Use null for standalone analysis, opinion, or evergreen pieces with no discrete news event. "
         f"Articles covering the SAME event MUST use IDENTICAL story_group strings."
+        f"{feedback_section}"
     )
 
     scored_articles = []
@@ -3856,6 +3872,9 @@ def main():
         else:
             print(f"⚠️ No podcast schedule for today ({today_name})")
 
+    # Generate daily review feed for user training feedback
+    generate_review_feed(quality_articles, scrubbed, schedule_config)
+
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
     retention_cutoff = datetime.now(timezone.utc) - timedelta(days=retention_days)
@@ -3964,6 +3983,146 @@ def main():
     record_run_stats(run_stats)
 
     print("\n✅ Feed generation complete!")
+
+
+def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article],
+                         schedule_config: Optional[Dict]):
+    """Select 20 articles for daily training feedback and write feed-review.json."""
+    # Load already-reviewed URLs so we don't surface the same article twice.
+    reviewed_urls: set = set()
+    feedback_dir = Path('feedback')
+    if feedback_dir.exists():
+        for f in feedback_dir.glob('????-??-??.json'):
+            try:
+                with open(f, 'r', encoding='utf-8') as fh:
+                    data = json.load(fh)
+                for r in data.get('ratings', []):
+                    if r.get('url'):
+                        reviewed_urls.add(r['url'])
+            except Exception:
+                pass
+
+    today_name = datetime.now(ZoneInfo('America/Vancouver')).strftime('%A').lower()
+    today_label = ''
+    day_labels: Dict[str, str] = {}
+    if schedule_config and schedule_config.get('enabled'):
+        for day, cfg in schedule_config.get('schedule', {}).items():
+            day_labels[day] = cfg.get('label', day.capitalize())
+        today_label = day_labels.get(today_name, '')
+
+    theme_cache = load_theme_score_cache()
+
+    def theme_scores(article: Article) -> Dict[str, int]:
+        out: Dict[str, int] = {}
+        for day, label in day_labels.items():
+            entry = theme_cache.get(f"{article.link}:::{label}", {})
+            out[day] = entry.get('score', 0) if isinstance(entry, dict) else 0
+        return out
+
+    # Merge pools: scrubbed is the superset (quality + below-floor).
+    # quality_articles may have been enlarged by floor rescue so union both.
+    all_by_hash: Dict[str, Article] = {a.url_hash: a for a in scrubbed}
+    for a in quality_articles:
+        all_by_hash[a.url_hash] = a
+    candidates = [a for a in all_by_hash.values() if a.link not in reviewed_urls]
+
+    high   = sorted([a for a in candidates if a.score >= 80],  key=lambda a: a.score, reverse=True)
+    mid    = sorted([a for a in candidates if 50 <= a.score < 80], key=lambda a: a.score, reverse=True)
+    border = sorted([a for a in candidates if 30 <= a.score < 50], key=lambda a: a.score, reverse=True)
+    low    = sorted([a for a in candidates if 20 <= a.score < 30], key=lambda a: a.score, reverse=True)
+
+    selected: List[Article] = []
+    seen_hashes: set = set()
+    seen_sources: set = set()
+
+    def pick(pool: List[Article], n: int):
+        for a in pool:
+            if len([x for x in selected if x in pool]) >= n:
+                break
+            if a.url_hash in seen_hashes or a.source in seen_sources:
+                continue
+            selected.append(a)
+            seen_hashes.add(a.url_hash)
+            seen_sources.add(a.source)
+
+    for pool, quota in [(high, 5), (mid, 8), (border, 5), (low, 2)]:
+        taken = 0
+        for a in pool:
+            if taken >= quota:
+                break
+            if a.url_hash in seen_hashes or a.source in seen_sources:
+                continue
+            selected.append(a)
+            seen_hashes.add(a.url_hash)
+            seen_sources.add(a.source)
+            taken += 1
+
+    # Fill any shortfall from the mid-range pool
+    if len(selected) < 20:
+        for a in mid:
+            if len(selected) >= 20:
+                break
+            if a.url_hash not in seen_hashes and a.source not in seen_sources:
+                selected.append(a)
+                seen_hashes.add(a.url_hash)
+                seen_sources.add(a.source)
+
+    # Tag each with its selection bucket
+    high_set   = {a.url_hash for a in high[:5]}
+    mid_set    = {a.url_hash for a in mid[:8]}
+    border_set = {a.url_hash for a in border[:5]}
+    low_set    = {a.url_hash for a in low[:2]}
+
+    def bucket_label(a: Article) -> str:
+        if a.url_hash in high_set:   return 'high'
+        if a.url_hash in mid_set:    return 'mid'
+        if a.url_hash in border_set: return 'border'
+        if a.url_hash in low_set:    return 'low'
+        return 'mid'
+
+    now_iso = datetime.now(timezone.utc).isoformat()
+    feed = {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": "📋 Daily Review — Article Training Feedback",
+        "home_page_url": FEEDS_CONFIG['base_url'],
+        "feed_url": f"{FEEDS_CONFIG['base_url']}/feed-review.json",
+        "description": f"20 articles for daily training feedback. Today: {today_label}",
+        "authors": [{"name": FEEDS_CONFIG['author']}],
+        "language": "en",
+        "_generated_at": now_iso,
+        "_today": today_name,
+        "_today_label": today_label,
+        "items": [],
+    }
+
+    for article in selected[:20]:
+        item = {
+            "id": article.link,
+            "url": article.link,
+            "title": article.title,
+            "content_html": _strip_markdown_links(article.description or ""),
+            "date_published": article.pub_date.isoformat(),
+            "authors": [{"name": article.source, "url": article.source_url}],
+            "_score": article.score,
+            "_quality": article.quality,
+            "_relevance": article.relevance,
+            "_local_score": article.local,
+            "_category": article.category or 'news',
+            "_content_type": article.content_type,
+            "_selection_bucket": bucket_label(article),
+            "_theme_scores": theme_scores(article),
+            "_today": today_name,
+            "_today_label": today_label,
+        }
+        if getattr(article, 'image', None):
+            item['image'] = article.image
+        feed['items'].append(item)
+
+    with open('feed-review.json', 'w', encoding='utf-8') as fh:
+        json.dump(feed, fh, indent=2, ensure_ascii=False)
+
+    print(f"📋 Review feed: {len(feed['items'])}/20 articles "
+          f"({len(reviewed_urls)} already-reviewed excluded)")
 
 
 def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
