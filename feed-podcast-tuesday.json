@@ -22,159 +22,657 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — the resource economy that defines the Cariboo and rural BC.\n\nCALIBRATION — use this ladder. Trade-press journalism about forestry, ranching, mining, or agriculture should score well even when it's equipment-, market-, or operations-focused rather than policy-focused — a story about a piece of farm machinery or a mining operation update is a real fit, not a 0:\n- 80-100: BC/Cariboo-specific forestry, ranching, mining, or agriculture stories (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen events).\n- 55-79: Canadian resource-economy trade journalism without a BC tie — Western Producer or Northern Miner-style coverage of farm equipment and machinery, harvest technology, livestock markets, mining operations and exploration, AgTech, forestry practices, sawmills, or labour/commodity stories in the resource sector.\n- 30-54: Broader agriculture, forestry, ranching, or mining news (e.g. international resource-industry stories, general farm economics, climate impacts on working lands) with clear working-lands relevance but no Canadian/BC tie.\n- 15-29: Tangential resource-sector mentions (e.g. a general business, policy, or science story that touches briefly on forestry/agriculture/mining) or local Cariboo civic news unrelated to working lands.\n- 0-14: No connection to forestry, ranching, mining, or agriculture.\n\nStrong fits include: BC and Canadian forestry journalism (mill closures, lumber markets, beetle kill, harvest operations, silviculture, BCTS, old-growth policy), ranching and livestock stories (water rights, grazing management, cattle markets, drought impact on ranches), mining and resource extraction (safety, new operations, Indigenous consultation, supply chains, exploration updates), agriculture in rural Canada (crop insurance, grain prices, farm economics, food sovereignty, farm equipment and machinery), and the technology helping these industries adapt — precision forestry, AgTech, drone surveys, IoT in agriculture, mine automation, sawmill modernization, climate adaptation on working lands. Also strong fits: labor and workforce stories in resource industries, environmental stewardship within working landscapes (not pure conservation, but how ranchers/loggers manage for sustainability), and science with direct implications for forestry, agriculture, or extractive industries. Penalise heavily (score 0–14): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; pure wildlife entertainment without agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-06-16T18:53:18.467086+00:00",
-    "article_count": 16,
-    "bonus_count": 0,
+    "generated_at": "2026-06-16T21:44:39.708209+00:00",
+    "article_count": 40,
+    "bonus_count": 24,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.techradar.com/pro/security/fbi-takes-out-huge-ai-powered-phishing-service-outsider-enterprise-was-using-over-a-million-phishing-urls-to-steal-credit-card-data-and-passwords",
-      "url": "https://www.techradar.com/pro/security/fbi-takes-out-huge-ai-powered-phishing-service-outsider-enterprise-was-using-over-a-million-phishing-urls-to-steal-credit-card-data-and-passwords",
-      "title": "[TechRadar] FBI takes out huge AI-powered phishing service: Outsider Enterprise was using over a million phishing URLs to steal credit card data and passwords",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/CT482eMSRL8PagRtuBVYNd-1280-80.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nServers, Telegram bots, and money, all seized by the authorities.",
-      "summary": "Servers, Telegram bots, and money, all seized by the authorities.",
-      "_excerpt": "Servers, Telegram bots, and money, all seized by the authorities.",
-      "date_published": "2026-06-15T12:25:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 89,
-      "_quality": 89,
-      "_relevance": 89,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 33,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/CT482eMSRL8PagRtuBVYNd-1280-80.jpeg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
-      "url": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
-      "title": "[NYT Business] Forget Coders. The Real A.I. Threat Is in the Back Office.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
-      "summary": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
-      "_excerpt": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
-      "date_published": "2026-06-10T14:49:41+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "ai_score": 68,
-      "_quality": 68,
-      "_relevance": 68,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 32,
-      "_keyword_matches": 2,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-14T08:34:34.530182+00:00"
-      },
-      "image": "https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://newatlas.com/camping-trailers/ortsan-expanding-mini-house-caravan/",
-      "url": "https://newatlas.com/camping-trailers/ortsan-expanding-mini-house-caravan/",
-      "title": "[New Atlas] Expandable camper nearly triples living space with huge folding wings",
-      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/a7fdc0f/2147483647/strip/true/crop/2009x1055+0+184/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2F7f%2F24c658fa45d5aab39e48bbd859bb%2F598a.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Hit a button on the remote, and the Mini House expands automatically to nearly three times its towing size\" src=\"https://assets.newatlas.com/dims4/default/7e86e6b/2147483647/strip/true/crop/2009x1423+0+0/resize/1355x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2F7f%2F24c658fa45d5aab39e48bbd859bb%2F598a.jpeg\" /><p>No one wants to tow a huge, heavy mobile home from campground to campground, but many a camping enthusiast wouldn't mind having that kind of small-home space after arrival. The new Mini House Caravan from Turkish company Ortsan Outdoor does both things, rolling to camp as a compact caravan before blossoming open to nearly triple its living space. Clever features keep occupants connected to nature, from both inside and out.</p><p><a href=\"https://newatlas.com/camping-trailers/ortsan-expanding-mini-house-caravan/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/camping-trailers/\">Camping Trailers</a>, <a href=\"https://newatlas.com/adventure-vehicles/\">Adventure Vehicles</a>, <a href=\"https://newatlas.com/outdoors/\">Outdoors</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/caravan/\" rel=\"tag\">Caravan</a>, <a href=\"https://newatlas.com/tag/trailers/\" rel=\"tag\">trailers</a>, <a href=\"https://newatlas.com/tag/trailer/\" rel=\"tag\">Trailer</a>, <a href=\"https://newatlas.com/tag/foldable/\" rel=\"tag\">Foldable</a>, <a href=\"https://newatlas.com/tag/folding/\" rel=\"tag\">Folding</a>, <a href=\"https://newatlas.com/tag/outdoor/\" rel=\"tag\">Outdoors and Camping</a>, <a href=\"https://newatlas.com/tag/camping/\" rel=\"tag\">Camping</a></p>",
-      "summary": "No one wants to tow a huge, heavy mobile home from campground to campground, but many a camping enthusiast wouldn't mind having that kind of small-home space after arrival. The new Mini House Caravan from Turkish company Ortsan Outdoor does both things, rolling to camp as a compact caravan before",
-      "_excerpt": "No one wants to tow a huge, heavy mobile home from campground to campground, but many a camping enthusiast wouldn't mind having that kind of small-home space after arrival. The new Mini House Caravan from Turkish company Ortsan Outdoor does both things, rolling to camp as a compact caravan before blossoming open to nearly triple its living space. Clever features keep occupants connected to nature, from both inside and out. Continue Reading Category: Camping Trailers , Adventure Vehicles , Outdoors Tags: Caravan , trailers , Trailer , Foldable , Folding , Outdoors and Camping , Camping",
-      "date_published": "2026-06-15T01:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 30,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://assets.newatlas.com/dims4/default/a7fdc0f/2147483647/strip/true/crop/2009x1055+0+184/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2F7f%2F24c658fa45d5aab39e48bbd859bb%2F598a.jpeg&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
-      "url": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
-      "title": "[Business Insider] We talked to the comedians behind the viral fake AI ads on the subway",
-      "content_html": "<img src=\"https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
-      "summary": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
-      "_excerpt": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
-      "date_published": "2026-06-11T22:12:26+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 30,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-15T01:05:32.780439+00:00"
-      },
-      "image": "https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/16/vancouver-island-man-pleads-guilty-after-shooting-dog-caught-in-foot-hold-trap/",
-      "url": "https://wltribune.com/2026/06/16/vancouver-island-man-pleads-guilty-after-shooting-dog-caught-in-foot-hold-trap/",
-      "title": "[Williams Lake Tribune] Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42577275_web1_260624-AVN-Alberni-man-sentenced-SPCA-SPCA_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap Published 9:30 am Tuesday, June 16, 2026 **By Alberni Valley News Staff** The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) A Port Alberni man has pleaded guilty to a Criminal Code charge after killing a dog caught in a foot-hold trap. Michael Stini admitted to shooting and killing his neighbour’s dog, Stone, while Stone was immobilized",
-      "summary": "## Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap Published 9:30 am Tuesday, June 16, 2026 **By Alberni Valley News Staff** The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) The Alberni-Clayoquot Branch",
-      "_excerpt": "## Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap Published 9:30 am Tuesday, June 16, 2026 **By Alberni Valley News Staff** The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) A Port Alberni man has pleaded guilty to a Criminal Code charge after killing a dog caught in a foot-hold trap. Michael Stini admitted to shooting and killing his neighbour’s dog, Stone, while Stone was immobilized",
-      "date_published": "2026-06-16T09:30:00+00:00",
+      "id": "https://wltribune.com/2026/06/10/5th-annual-cariboo-classic-jr-steer-and-heifer-show-a-hit-in-williams-lake/",
+      "url": "https://wltribune.com/2026/06/10/5th-annual-cariboo-classic-jr-steer-and-heifer-show-a-hit-in-williams-lake/",
+      "title": "[Williams Lake Tribune] 5th annual Cariboo Classic Jr Steer and Heifer Show a hit in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42504504_web1_260611-WLT-Cariboo-Classic-Junior-Steer-Heifer-_7.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe event took place June 5-7",
+      "summary": "The event took place June 5-7",
+      "_excerpt": "The event took place June 5-7",
+      "date_published": "2026-06-10T16:15:12.873626+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 87,
-      "_quality": 77,
-      "_relevance": 77,
+      "ai_score": 100,
+      "_quality": 100,
+      "_relevance": 100,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 29,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
+      "_theme_score": 80,
+      "_composite_podcast": 83,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
       "tags": [
         "subscriber-access"
       ],
       "_subscriber_access": "Williams Lake Tribune",
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42577275_web1_260624-AVN-Alberni-man-sentenced-SPCA-SPCA_1.jpg?w=1024"
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42504504_web1_260611-WLT-Cariboo-Classic-Junior-Steer-Heifer-_7.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/12/seniors-advocate-of-b-c-coming-to-the-cariboo/",
+      "url": "https://wltribune.com/2026/06/12/seniors-advocate-of-b-c-coming-to-the-cariboo/",
+      "title": "[Williams Lake Tribune] Senior’s Advocate of B.C. coming to the Cariboo",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42544690_web1_260618-OMH-Seniors-Advocate-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDan Levitt will be visiting 100 Mile House, Williams Lake and Ashcroft from June 22-23",
+      "summary": "Dan Levitt will be visiting 100 Mile House, Williams Lake and Ashcroft from June 22-23",
+      "_excerpt": "Dan Levitt will be visiting 100 Mile House, Williams Lake and Ashcroft from June 22-23",
+      "date_published": "2026-06-12T15:46:42.950036+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality": 100,
+      "_relevance": 100,
+      "_local": 0,
+      "_theme_score": 75,
+      "_composite_podcast": 80,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42544690_web1_260618-OMH-Seniors-Advocate-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
+      "url": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
+      "title": "[Williams Lake Tribune] 29-year-old man dead after going off-road on Highway 26 near Quesnel",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By Yashvika Grover Local Journalism Initiative** A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
+      "summary": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12.",
+      "_excerpt": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo)](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
+      "date_published": "2026-06-15T12:45:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 90,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 78,
+      "_composite_podcast": 79,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314141/news/rcmp/motor-vehicle-accident-in-south-cariboo-sends-one-person-to-hospital/",
+      "url": "https://www.mycariboonow.com/314141/news/rcmp/motor-vehicle-accident-in-south-cariboo-sends-one-person-to-hospital/",
+      "title": "Motor vehicle accident in South Cariboo sends one person to hospital : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-RCMP-Station_IMG_2228-e1763516200652.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-12T15:46:17.833214+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 77,
+      "_composite_podcast": 77,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-RCMP-Station_IMG_2228-e1763516200652.jpg"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
+      "title": "[Al Jazeera English] Bolivian farmers clash with police as ex-president vows resistance",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivian farmers clash with police as ex-president vows resistance.",
+      "summary": "Bolivian farmers clash with police as ex-president vows resistance.",
+      "_excerpt": "Bolivian farmers clash with police as ex-president vows resistance.",
+      "date_published": "2026-06-11T05:20:55+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 79,
+      "_composite_podcast": 76,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
+      "title": "[Al Jazeera English] Dahiyeh crowds rally in favour of Iranian support against Israel",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDahiyeh crowds rally in favour of Iranian support against Israel.",
+      "summary": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
+      "_excerpt": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
+      "date_published": "2026-06-11T03:49:06+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 79,
+      "_quality": 79,
+      "_relevance": 79,
+      "_local": 0,
+      "_theme_score": 78,
+      "_composite_podcast": 75,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314055/news/health-care/motor-cycle-deaths-and-drownings-are-up-in-the-province/",
+      "url": "https://www.mycariboonow.com/314055/news/health-care/motor-cycle-deaths-and-drownings-are-up-in-the-province/",
+      "title": "Motor cycle deaths and drownings are up in the province : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2019/10/Coroner_BC-Coroners-Service.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-10T08:32:31.236177+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 74,
+      "_composite_podcast": 75,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2019/10/Coroner_BC-Coroners-Service.png"
+    },
+    {
+      "id": "https://jaspermayone.com/support-me",
+      "url": "https://jaspermayone.com/support-me",
+      "title": "[Kagi Small Web] Support Me",
+      "content_html": "<img src=\"https://jaspermayone.com/opengraph-image.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWays to support my work",
+      "summary": "Ways to support my work",
+      "_excerpt": "Ways to support my work",
+      "date_published": "2026-06-12T22:11:12+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 80,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 75,
+      "_composite_podcast": 74,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://jaspermayone.com/opengraph-image.png"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
+      "url": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
+      "title": "[Williams Lake Tribune] Rotary Peace Pole to be installed in Williams Lake",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pole will promote peace in the world and community",
+      "summary": "The pole will promote peace in the world and community",
+      "_excerpt": "The pole will promote peace in the world and community",
+      "date_published": "2026-06-11T09:02:58.168752+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 100,
+      "_quality": 100,
+      "_relevance": 100,
+      "_local": 0,
+      "_theme_score": 65,
+      "_composite_podcast": 74,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
+      "url": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
+      "title": "[100 Mile Free Press] District of 100 Mile House debates use of leftover REDIP funds",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Council has $68,000 left over from a previous project that needs to be spent </p>",
+      "summary": "Council has $68,000 left over from a previous project that needs to be spent",
+      "_excerpt": "Council has $68,000 left over from a previous project that needs to be spent",
+      "date_published": "2026-06-13T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 72,
+      "_composite_podcast": 74,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.kevinsdias.com/posts/b-roll.html",
+      "url": "https://www.kevinsdias.com/posts/b-roll.html",
+      "title": "[Kagi Small Web] B-roll",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n",
+      "summary": "",
+      "_excerpt": "",
+      "date_published": "2026-06-13T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 77,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 77,
+      "_composite_podcast": 74,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T14:41:47.319050+00:00"
+      },
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+    },
+    {
+      "id": "https://www.atlasobscura.com/places/hellfire-club-ruins",
+      "url": "https://www.atlasobscura.com/places/hellfire-club-ruins",
+      "title": "[Atlas Obscura] Hellfire Club Ruins in Ireland",
+      "content_html": "<img src=\"https://img.atlasobscura.com/HJJ-ENk2-WhiFKOU_628FBZkeHiuHt2vx2mQFqFEnVs/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/YOPvX7t97lHS4EEm2H1ghYgnCvHLKcfBwsdIwbkokEM/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg\" width=\"300\" /></p> <p> At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly.  Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a meeting place for the Irish Hellfire Club. </p>\n<p>The summit of Montpelier Hill originally held a passage grave topped by a cairn of stones.  Connolly ordered the cairn dismantled and its stones used as building materials for the lodge.  One of the grave’s standing stones became the lintel for the fireplace.     </p>\n<p>The Hellfire Club was founded in 1735 by Richard Parsons, a notorious aficionado of the dark arts and black magic.  The Club became known for lascivious and immoral behavior involving quantities of alcohol and sex.  The Club’s president was called “The King of Hell,” and he reportedly dressed like a winged Satan.  The Hellfire Club’s members were of such unsavory reputation that writer Jonathan Swift described them as “a brace of monsters, blasphemers and Bacchanalians.” </p>\n<p>It was rumored that the Club held black masses in the lodge during which black cats – and perhaps servants – were sacrificed.  William Connolly’s grandson, Thomas, claimed to have met the Devil during a card game in the Lodge, where he watched Satan burst into flames and fly out the gable window. </p>\n<p>In 1741, the roof of the Lodge caught fire and was completely destroyed.  Some claim the roof was intentionally set alight to give the building a more Hellish appearance.  The most sensational rumor was that the Club lured a victim to the Lodge, intoxicated him, and set him on fire.  The fire spread, killed several members, and destroyed the building.  Rather than repair it, the Hellfire Club's members moved their meetings, but Club membership declined thereafter.  Given the dark stories associated with the HellFire Club, it was no surprise that rumors spread that the ruins were haunted, and those rumors persist today.</p>",
+      "summary": "At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly. Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a",
+      "_excerpt": "At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly. Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a meeting place for the Irish Hellfire Club. The summit of Montpelier Hill originally held a passage grave topped by a cairn of stones. Connolly ordered the cairn dismantled and its stones used as building materials for the lodge. One of the grave’s standing stones became the lintel for the fireplace.",
+      "date_published": "2026-06-16T16:00:00+00:00",
+      "authors": [
+        {
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality": 67,
+      "_relevance": 67,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 73,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://img.atlasobscura.com/HJJ-ENk2-WhiFKOU_628FBZkeHiuHt2vx2mQFqFEnVs/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314152/news/communty/logan-parent-memorial-bulls-barrels-this-weekend-in-the-south-cariboo/",
+      "url": "https://www.mycariboonow.com/314152/news/communty/logan-parent-memorial-bulls-barrels-this-weekend-in-the-south-cariboo/",
+      "title": "Logan Parent Memorial Bulls & Barrels this weekend in the South Cariboo : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-12T15:46:17.831731+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 70,
+      "_composite_podcast": 73,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg"
+    },
+    {
+      "id": "https://www.mycariboonow.com/314066/news/emergency-services/mediator-appointed-to-911-operator-contract-dispute-averting-strike/",
+      "url": "https://www.mycariboonow.com/314066/news/emergency-services/mediator-appointed-to-911-operator-contract-dispute-averting-strike/",
+      "title": "Mediator appointed to 911 operator contract dispute, averting strike : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-11T09:01:57.131693+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 71,
+      "_composite_podcast": 73,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      },
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/pope-leo-welcomed-in-barcelona-with-traditional-catalan-human-tower?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/pope-leo-welcomed-in-barcelona-with-traditional-catalan-human-tower?traffic_source=rss",
+      "title": "[Al Jazeera English] Pope Leo welcomed in Barcelona with traditional Catalan human tower",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781068969.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMore than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "summary": "More than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "_excerpt": "More than 100 members of the Castellers de Vilafranca built a 10-metre-high human tower to welcome Pope Leo",
+      "date_published": "2026-06-10T05:26:54+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality": 78,
+      "_relevance": 78,
+      "_local": 0,
+      "_theme_score": 74,
+      "_composite_podcast": 73,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T14:41:47.319050+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781068969.jpg?resize=1620%2C1080&quality=80"
+    },
+    {
+      "id": "https://theoo.dev/notes/living-life-like-a-video-game-13",
+      "url": "https://theoo.dev/notes/living-life-like-a-video-game-13",
+      "title": "[Kagi Small Web] Living life like a video game",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more).</p>\n<p>What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a shortcut if it turns out there is also a door on the other side and you go for it. Then on the way, you will most likely spot something else interesting, and that's where things get fun for real. Because you can either bookmark this thing in a corner of your head (or a note on your phone or whatever) or you can switch directions and go for that new thing instead.</p>\n<p>Generally, as you go from point of interest to point of interest, you end up in some random place, late and it's time to get home. On your way, you've probably spoken to a bunch of random people, had some type of sugary treat in a shop you didn't know about, picked up a cool rock or seen some nice birds.</p>\n<p>I think this is a great way to experience life and to discover more things about the area that you live in. This is especially fun to do in a city (even better if it's one you don't know much) or in the woods. Here are some of my tips for a great adventure:</p>\n<ul>\n<li>PRIVATE often doesn't really mean private. A lot of people are cool with you passing by when you explain what you are doing, and those who aren't ok will generally tell you off once they've checked you didn't steal anything.</li>\n<li>Give yourself an hour by which you should be back home and only walk for half of that time. The other half is used to come back! Trust me, you don't want to be trekking in some random woods 10km away from your home at night with no phone battery and your girlfriend waiting home. That doesn't end well.</li>\n<li>Be prepared for dead ends and going back on your steps a bunch. Not all roads lead to where you want and sometimes you take a wrong turn that leads nowhere and you have to walk half an hour back. That's just how it goes.</li>\n<li>Embrace opportunities and expect people to be nice. Especially in more remote places, people will be wondering what you are doing there and ask you about it. Explain your adventure and sometimes they might give you more stuff or they might even tell you about a new point of interest you should check out. Life is surprisingly like a video game when you live it like one.</li>\n<li>Bring ample amounts of water. It sucks to walk in the sun with nothing to drink and sometimes there is nowhere you can ask to refill your bottle.</li>\n<li>Treat yourself. If you see something you'd like to do or eat/drink and you can afford it, don't hesitate! Go for it and enjoy a nice moment in your adventure. Don't worry about the time, it's ok to have to go back home before you got to where you wanted.</li>\n<li>Everything is a path, you don't have to follow roads, cutting through woods or weird parking lots is fun and rarely that dangerous.</li>\n<li>Any means of transport is fine. If you feel like you live in a city you know like the back of your hand, well first, you don't, and second, you can take a train or a bus or your car to go somewhere else and start your adventure there instead! The adventure might even be getting back home from where the train/bus dropped you using your legs. Buses are also a real cheat code to be able to walk further since they make the &quot;getting home&quot; part much faster and can be found pretty much anywhere.</li>\n</ul>\n<p>I hope this text could inspire you to try to go on an adventure as well, it doesn't have to be long, walking for an hour can already take you quite far!</p>\n<p>If you do try (or maybe you already do this on a regular basis), I would be pleased to hear about fun stuff that happened during your adventures! You can email me at <a href=\"mailto:hello@theoo.dev\">hello@theoo.dev</a>.</p>",
+      "summary": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living",
+      "_excerpt": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a",
+      "date_published": "2026-06-13T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 76,
+      "_composite_podcast": 72,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/11/robert-allan-shaw/",
+      "url": "https://wltribune.com/2026/06/11/robert-allan-shaw/",
+      "title": "[Williams Lake Tribune] Robert Allan Shaw",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42545806_260611-digitalobit-wlt-Shaw-pic_1.png?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>In Loving Memory ~</p>",
+      "summary": "In Loving Memory ~",
+      "_excerpt": "In Loving Memory ~",
+      "date_published": "2026-06-11T14:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 97,
+      "_quality": 97,
+      "_relevance": 97,
+      "_local": 0,
+      "_theme_score": 61,
+      "_composite_podcast": 71,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42545806_260611-digitalobit-wlt-Shaw-pic_1.png?w=400"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/funerals-held-after-deadly-pakistani-strikes-in-afghanistan?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/funerals-held-after-deadly-pakistani-strikes-in-afghanistan?traffic_source=rss",
+      "title": "[Al Jazeera English] Funerals held after deadly Pakistani strikes in Afghanistan",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781153809.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHundreds gathered in eastern Afghanistan for the funerals of civilians killed in Pakistani airstrikes.",
+      "summary": "Hundreds gathered in eastern Afghanistan for the funerals of civilians killed in Pakistani airstrikes.",
+      "_excerpt": "Hundreds gathered in eastern Afghanistan for the funerals of civilians killed in Pakistani airstrikes.",
+      "date_published": "2026-06-11T05:00:17+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality": 78,
+      "_relevance": 78,
+      "_local": 0,
+      "_theme_score": 71,
+      "_composite_podcast": 71,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781153809.jpg?resize=1620%2C1080&quality=80"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/10/protesters-torch-cars-buildings-in-belfast-after-knife-attack?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/10/protesters-torch-cars-buildings-in-belfast-after-knife-attack?traffic_source=rss",
+      "title": "[Al Jazeera English] Protesters torch cars, buildings in Belfast after knife attack",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/AP26160709961466-1781075970.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUnrest comes after a Sudanese man was arrested over a stabbing attack in north Belfast, UK.",
+      "summary": "Unrest comes after a Sudanese man was arrested over a stabbing attack in north Belfast, UK.",
+      "_excerpt": "Unrest comes after a Sudanese man was arrested over a stabbing attack in north Belfast, UK.",
+      "date_published": "2026-06-10T02:23:18+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality": 74,
+      "_relevance": 74,
+      "_local": 0,
+      "_theme_score": 73,
+      "_composite_podcast": 71,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/AP26160709961466-1781075970.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/16/us-judge-upholds-conviction-of-ex-judge-who-helped-man-evade-federal-agents?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/16/us-judge-upholds-conviction-of-ex-judge-who-helped-man-evade-federal-agents?traffic_source=rss",
+      "title": "[Al Jazeera English] US judge upholds conviction of ex-judge who helped man evade federal agents",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/AP26154573137853-1781634453.jpg?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nActivists say former judge Hannah Dugan was targeted by the Trump administration for defiance over immigration raids.",
+      "summary": "Activists say former judge Hannah Dugan was targeted by the Trump administration for defiance over immigration raids.",
+      "_excerpt": "Activists say former judge Hannah Dugan was targeted by the Trump administration for defiance over immigration raids.",
+      "date_published": "2026-06-16T19:17:31+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality": 74,
+      "_relevance": 74,
+      "_local": 0,
+      "_theme_score": 72,
+      "_composite_podcast": 70,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/AP26154573137853-1781634453.jpg?resize=1200%2C675"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html",
+      "url": "https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html",
+      "title": "[Boing Boing] In 1932, John W. Campbell imagined machines outliving humanity",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\" rel=\"nofollow\" title=\"In 1932, John W. Campbell imagined machines outliving humanity\"><img alt=\"Robots\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"900\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">In 1932, a 22-year-old John W. Campbell — later the <em>Astounding</em> editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published <a href=\"https://www.gutenberg.org/files/27462/27462-h/27462-h.htm\">\"The Last Evolution\"</a> in <em>Amazing Stories</em>. It's narrated by the last thinking machine on Earth, recalling how humanity went extinct. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\">In 1932, John W. Campbell imagined machines outliving humanity</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "In 1932, a 22-year-old John W. Campbell — later the Astounding editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published \"The Last Evolution\" in Amazing Stories . It's narrated by the last thinking machine on Earth, recalling how humanity went",
+      "_excerpt": "In 1932, a 22-year-old John W. Campbell — later the Astounding editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published \"The Last Evolution\" in Amazing Stories . It's narrated by the last thinking machine on Earth, recalling how humanity went extinct. — Read the rest The post In 1932, John W. Campbell imagined machines outliving humanity appeared first on Boing Boing .",
+      "date_published": "2026-06-11T20:19:48+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 77,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 68,
+      "_composite_podcast": 64,
+      "_keyword_matches": 0,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&quality=60&ssl=1"
     },
     {
       "id": "https://www.piquenewsmagazine.com/the-mix/alberta-country-music-artist-corb-lund-expected-to-hand-in-anti-coal-petition-12400140",
@@ -194,8 +692,8 @@
       "_quality": 77,
       "_relevance": 77,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 29,
+      "_theme_score": 46,
+      "_composite_podcast": 57,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -206,84 +704,6 @@
         "shown_at": "2026-06-15T01:05:32.780439+00:00"
       },
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/89ebd1fbd43f723dae537be417b268924422533a36131f881767993b11725f38.jpg;w=960"
-    },
-    {
-      "id": "https://qz.com/reindustrialize-austin-bishop-summit-to-action",
-      "url": "https://qz.com/reindustrialize-austin-bishop-summit-to-action",
-      "title": "[Quartz] Reindustrialize co-founder Austin Bishop explains how summit turns into action",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Reindustrialize%2520Co-founder%2520Austin%2520Bishop%2520Explains%2520How%2520Summit%2520Turns%2520into%2520Action.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nReindustrialize co-founder Austin Bishop explains how summit turns into action",
-      "summary": "Reindustrialize co-founder Austin Bishop explains how summit turns into action",
-      "_excerpt": "Reindustrialize co-founder Austin Bishop explains how summit turns into action",
-      "date_published": "2026-06-16T17:40:08+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 75,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 28,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Reindustrialize%2520Co-founder%2520Austin%2520Bishop%2520Explains%2520How%2520Summit%2520Turns%2520into%2520Action.mp4"
-    },
-    {
-      "id": "https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/",
-      "url": "https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/",
-      "title": "[TechCrunch] Chinese cybercrime operation that used AI to scam ‘hundreds of thousands of victims’ sued by Google",
-      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
-      "summary": "The tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
-      "_excerpt": "The tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
-      "date_published": "2026-06-12T20:38:09+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 75,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 28,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html",
-      "url": "https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html",
-      "title": "[Boing Boing] In 1896 a railroad crashed two trains head-on for fun and killed two spectators",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\" rel=\"nofollow\" title=\"In 1896 a railroad crashed two trains head-on for fun and killed two spectators\"><img alt=\"By Jervis C. Deane (b. 1860) - Southern Mysteries Episode 65 The Crash at Crush, Public Domain, Link\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"893\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The <a href=\"https://en.wikipedia.org/wiki/Crash_at_Crush\">Crash at Crush</a> was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its money selling tickets on excursion trains to the site. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\">In 1896 a railroad crashed two trains head-on for fun and killed two spectators</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The Crash at Crush was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its",
-      "_excerpt": "On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The Crash at Crush was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its money selling tickets on excursion trains to the site. — Read the rest The post In 1896 a railroad crashed two trains head-on for fun and killed two spectators appeared first on Boing Boing .",
-      "date_published": "2026-06-10T22:51:07+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 75,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 28,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&quality=60&ssl=1"
     },
     {
       "id": "https://techcrunch.com/2026/06/11/south-korea-hits-coupang-with-400m-fine-for-data-breach-that-affected-millions/",
@@ -303,8 +723,8 @@
       "_quality": 71,
       "_relevance": 71,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 27,
+      "_theme_score": 46,
+      "_composite_podcast": 55,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -312,51 +732,196 @@
       "image": "https://techcrunch.com/wp-content/uploads/2020/10/Coupang_dawn_delivery.jpg?resize=1200,800"
     },
     {
-      "id": "https://www.piquenewsmagazine.com/national-news/former-montreal-officer-cleared-in-nicholas-gibbs-killing-suing-ethics-commissioner-12407422",
-      "url": "https://www.piquenewsmagazine.com/national-news/former-montreal-officer-cleared-in-nicholas-gibbs-killing-suing-ethics-commissioner-12407422",
-      "title": "[Pique Newsmagazine] Former Montreal officer cleared in Nicholas Gibbs killing suing ethics commissioner",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/acac10554827f3a72f3e1eda62a13c4b0d91ece8a860fee288af4d34043078b5.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
-      "summary": "MONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
-      "_excerpt": "MONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
-      "date_published": "2026-06-11T16:07:30+00:00",
+      "id": "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
+      "url": "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
+      "title": "[NYT Well] Summer Challenge: Put Your Phone Away for Better Sleep",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIt only takes a few minutes.",
+      "summary": "It only takes a few minutes.",
+      "_excerpt": "It only takes a few minutes.",
+      "date_published": "2026-06-11T20:55:53+00:00",
       "authors": [
         {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
+          "name": "NYT Well",
+          "url": "https://well.blogs.nytimes.com"
         }
       ],
-      "ai_score": 70,
-      "_quality": 70,
-      "_relevance": 70,
+      "ai_score": 69,
+      "_quality": 69,
+      "_relevance": 69,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 27,
+      "_theme_score": 57,
+      "_composite_podcast": 55,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png"
+    },
+    {
+      "id": "https://www.businessinsider.com/stressed-out-mom-solo-trip-helped-me-reset-2026-6",
+      "url": "https://www.businessinsider.com/stressed-out-mom-solo-trip-helped-me-reset-2026-6",
+      "title": "[Business Insider] As a stressed-out mom, I needed a break. I went on a 3-day trip to focus on myself — and it worked.",
+      "content_html": "<img src=\"https://i.insider.com/6a26e9ed2ab5f9757adda241?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
+      "summary": "I was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
+      "_excerpt": "I was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
+      "date_published": "2026-06-13T11:51:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality": 72,
+      "_relevance": 72,
+      "_local": 0,
+      "_theme_score": 54,
+      "_composite_podcast": 54,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T14:59:09.456627+00:00"
+      },
+      "image": "https://i.insider.com/6a26e9ed2ab5f9757adda241?format=jpeg"
+    },
+    {
+      "id": "https://www.businessinsider.com/long-term-care-retirement-alzheimers-quit-job-2026-6",
+      "url": "https://www.businessinsider.com/long-term-care-retirement-alzheimers-quit-job-2026-6",
+      "title": "[Business Insider] I gave up my career at a Fortune 500 company to care for my mom full-time. Now, I struggle to pay my bills.",
+      "content_html": "<img src=\"https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
+      "summary": "Kathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
+      "_excerpt": "Kathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
+      "date_published": "2026-06-10T11:15:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 73,
+      "_quality": 73,
+      "_relevance": 73,
+      "_local": 0,
+      "_theme_score": 51,
+      "_composite_podcast": 52,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg"
+    },
+    {
+      "id": "https://www.techradar.com/pro/security/fbi-takes-out-huge-ai-powered-phishing-service-outsider-enterprise-was-using-over-a-million-phishing-urls-to-steal-credit-card-data-and-passwords",
+      "url": "https://www.techradar.com/pro/security/fbi-takes-out-huge-ai-powered-phishing-service-outsider-enterprise-was-using-over-a-million-phishing-urls-to-steal-credit-card-data-and-passwords",
+      "title": "[TechRadar] FBI takes out huge AI-powered phishing service: Outsider Enterprise was using over a million phishing URLs to steal credit card data and passwords",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/CT482eMSRL8PagRtuBVYNd-1280-80.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nServers, Telegram bots, and money, all seized by the authorities.",
+      "summary": "Servers, Telegram bots, and money, all seized by the authorities.",
+      "_excerpt": "Servers, Telegram bots, and money, all seized by the authorities.",
+      "date_published": "2026-06-15T12:25:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 89,
+      "_quality": 89,
+      "_relevance": 89,
+      "_local": 0,
+      "_theme_score": 24,
+      "_composite_podcast": 47,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/acac10554827f3a72f3e1eda62a13c4b0d91ece8a860fee288af4d34043078b5.jpg;w=960"
+      "image": "https://cdn.mos.cms.futurecdn.net/CT482eMSRL8PagRtuBVYNd-1280-80.jpeg"
     },
     {
-      "id": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
-      "url": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
-      "title": "[Williams Lake Tribune] New bill introduces social media age restrictions for Canadians under 16",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMiller says social media services will need to remove harmful content within 24 hours",
-      "summary": "Miller says social media services will need to remove harmful content within 24 hours",
-      "_excerpt": "Miller says social media services will need to remove harmful content within 24 hours",
-      "date_published": "2026-06-10T14:37:00+00:00",
+      "id": "https://qz.com/reindustrialize-austin-bishop-summit-to-action",
+      "url": "https://qz.com/reindustrialize-austin-bishop-summit-to-action",
+      "title": "[Quartz] Reindustrialize co-founder Austin Bishop explains how summit turns into action",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Reindustrialize%2520Co-founder%2520Austin%2520Bishop%2520Explains%2520How%2520Summit%2520Turns%2520into%2520Action.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nReindustrialize co-founder Austin Bishop explains how summit turns into action",
+      "summary": "Reindustrialize co-founder Austin Bishop explains how summit turns into action",
+      "_excerpt": "Reindustrialize co-founder Austin Bishop explains how summit turns into action",
+      "date_published": "2026-06-16T17:40:08+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 29,
+      "_composite_podcast": 46,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Reindustrialize%2520Co-founder%2520Austin%2520Bishop%2520Explains%2520How%2520Summit%2520Turns%2520into%2520Action.mp4"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html",
+      "url": "https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html",
+      "title": "[Boing Boing] In 1896 a railroad crashed two trains head-on for fun and killed two spectators",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\" rel=\"nofollow\" title=\"In 1896 a railroad crashed two trains head-on for fun and killed two spectators\"><img alt=\"By Jervis C. Deane (b. 1860) - Southern Mysteries Episode 65 The Crash at Crush, Public Domain, Link\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"893\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The <a href=\"https://en.wikipedia.org/wiki/Crash_at_Crush\">Crash at Crush</a> was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its money selling tickets on excursion trains to the site. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/10/in-1896-a-railroad-crashed-two-trains-head-on-for-fun-and-killed-two-spectators.html\">In 1896 a railroad crashed two trains head-on for fun and killed two spectators</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The Crash at Crush was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its",
+      "_excerpt": "On September 15, 1896, the Missouri–Kansas–Texas Railroad crashed two unmanned locomotives into each other at speed as a public spectacle. The Crash at Crush was the idea of passenger agent William Crush, who built a temporary town for the event and charged nothing to watch — the railroad made its money selling tickets on excursion trains to the site. — Read the rest The post In 1896 a railroad crashed two trains head-on for fun and killed two spectators appeared first on Boing Boing .",
+      "date_published": "2026-06-10T22:51:07+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 29,
+      "_composite_podcast": 46,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/The_Explosion_Views_of_the_Head_End_Collision_at_Crush_Texas_cropped.jpg?fit=1200%2C893&quality=60&ssl=1"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/16/vancouver-island-man-pleads-guilty-after-shooting-dog-caught-in-foot-hold-trap/",
+      "url": "https://wltribune.com/2026/06/16/vancouver-island-man-pleads-guilty-after-shooting-dog-caught-in-foot-hold-trap/",
+      "title": "[Williams Lake Tribune] Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42577275_web1_260624-AVN-Alberni-man-sentenced-SPCA-SPCA_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap Published 9:30 am Tuesday, June 16, 2026 **By Alberni Valley News Staff** The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) A Port Alberni man has pleaded guilty to a Criminal Code charge after killing a dog caught in a foot-hold trap. Michael Stini admitted to shooting and killing his neighbour’s dog, Stone, while Stone was immobilized",
+      "summary": "## Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap Published 9:30 am Tuesday, June 16, 2026 **By Alberni Valley News Staff** The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) The Alberni-Clayoquot Branch",
+      "_excerpt": "## Vancouver Island man pleads guilty after shooting dog caught in foot-hold trap Published 9:30 am Tuesday, June 16, 2026 **By Alberni Valley News Staff** The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) The Alberni-Clayoquot Branch of the SPCA is located on Broughton Street in Port Alberni, B.C. (Google Maps photo) A Port Alberni man has pleaded guilty to a Criminal Code charge after killing a dog caught in a foot-hold trap. Michael Stini admitted to shooting and killing his neighbour’s dog, Stone, while Stone was immobilized",
+      "date_published": "2026-06-16T09:30:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 70,
-      "_quality": 70,
-      "_relevance": 70,
+      "ai_score": 87,
+      "_quality": 77,
+      "_relevance": 77,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 27,
+      "_theme_score": 27,
+      "_composite_podcast": 45,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -365,38 +930,7 @@
         "subscriber-access"
       ],
       "_subscriber_access": "Williams Lake Tribune",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-06-15T01:05:32.780439+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024"
-    },
-    {
-      "id": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
-      "url": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
-      "title": "[Kagi Small Web] The Startup That Charges More on Day One Usually Wins",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<h2 id=\"the-seduction-of-the-low-price\">The Seduction of the Low Price</h2>\n<p>The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it&rsquo;s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they&rsquo;re being humble, customer-focused, pragmatic.</p>\n<p>What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try.</p>\n<p>The counterintuitive truth is that price is not just a revenue number. It&rsquo;s a signal to your market, a filter for your customers, and a constraint on your product decisions. Set it too low and you don&rsquo;t just make less money. You attract the wrong buyers, train your team to compete on cost, and starve the product of the resources it needs to improve. The startup that charges more on day one is playing a structurally different game, and it usually wins.</p>\n<h2 id=\"price-tells-customers-what-kind-of-company-you-are\">Price Tells Customers What Kind of Company You Are</h2>\n<p>B2B software buyers, in particular, read price as a proxy for quality and staying power. A tool priced at $10 per user per month signals something different than one priced at $50, even before the buyer has tried either. The lower price implies the vendor is still figuring things out, might not be around in two years, and probably can&rsquo;t support an enterprise integration. These inferences aren&rsquo;t always accurate, but they&rsquo;re predictable.</p>\n<p>This is why enterprise software vendors historically held firm on pricing even when startups tried to undercut them. Oracle and SAP weren&rsquo;t just protecting margin. They were communicating that their software was serious, mission-critical infrastructure. The price was part of the product.</p>\n<p>For early-stage companies, the same logic applies in reverse. Pricing low doesn&rsquo;t just leave money on the table. It actively recruits the customers most likely to churn when a cheaper alternative appears, because that&rsquo;s what they were optimizing for when they signed up. <a href=\"https://kagi.com/the-one-customer-type-that-kills-good-startups/\">The wrong early customers can quietly kill a company</a> by consuming support resources, demanding features that don&rsquo;t fit the core product, and paying so little that serving them is structurally unprofitable.</p>\n<h2 id=\"what-high-prices-actually-buy\">What High Prices Actually Buy</h2>\n<p>The clearest benefit of higher early pricing is unit economics. A company generating $500 per month from a customer has more room to invest in that relationship than one generating $50. More room to hire a dedicated support person, to build the integration the customer asked for, to staff a customer success function before the churn problem becomes visible in the cohort data.</p>\n<p>This is not a small operational detail. It determines whether a company can afford to learn from its customers or is simply trying to acquire more of them as fast as possible before the money runs out. Many of the startups that grew fast on low prices discovered too late that they had built a business where no unit of revenue was profitable enough to justify the cost of generating it.</p>\n<p>Higher prices also tend to attract larger, more stable buyers. A company willing to pay a premium is usually a company with a real budget, a real need, and a real procurement process. That last item sounds like a burden, but it&rsquo;s actually a signal: buyers who run procurement are buyers who have decided this is a real category worth spending on. They renew contracts. They provide structured feedback. They refer other serious buyers.</p>\n<p></p>\n<p>The math compounds over time. A startup that charges twice as much as its competitor needs half as many customers to reach the same revenue. Half as many customers means fewer support tickets, more focused product development, and a cleaner signal from the market about what actually matters. The company that has 500 deeply satisfied customers at $500 a month often has a clearer strategic picture than the one with 5,000 semi-satisfied customers at $50.</p>\n<h2 id=\"the-myth-of-the-penetration-strategy\">The Myth of the Penetration Strategy</h2>\n<p>The standard counterargument is that low prices drive volume, volume drives learning, and scale eventually creates leverage. There&rsquo;s a version of this that&rsquo;s real. It&rsquo;s how consumer internet companies built network-effect businesses, and how AWS priced cloud storage to build market share before margins became the priority.</p>\n<p>But most startups are not building consumer internet businesses, and most founders applying penetration logic to B2B SaaS are not Amazon. The penetration strategy only works when scale genuinely creates a defensible advantage, when the market is large enough that the volume math eventually closes, and when the company has enough capital to survive the years before the unit economics improve. Most early-stage startups meet none of these conditions.</p>\n<p>What they get instead is a business that looks healthy by top-line metrics and is quietly bleeding from every unit. <a href=\"https://kagi.com/charging-too-little-kills-startups-slower-and-worse/\">Charging too little kills startups slower and more painfully than most founders expect</a>, because the damage is gradual enough to explain away in every individual quarter.</p>\n<h2 id=\"raising-prices-is-harder-than-setting-them-right\">Raising Prices Is Harder Than Setting Them Right</h2>\n<p>There&rsquo;s an asymmetry that doesn&rsquo;t get enough attention: it is far easier to lower a price than to raise one. Customers anchor hard on what they first paid. A company that launches at $20 and tries to move to $50 after 18 months will face pushback from every existing customer, awkward grandfather clauses, and a public pricing page that signals the company wasn&rsquo;t confident in its value from the start.</p>\n<p>A company that launches at $50 and occasionally discounts strategically retains control of its positioning. The list price stays intact. The brand signal stays intact. The occasional discount is a negotiation tool, not a structural concession.</p>\n<p>This is why the pricing decision made at launch is one of the few early choices that genuinely compounds, in both directions. A startup that prices high early builds a cost structure, a customer base, and a market position that are all oriented around delivering real value. A startup that prices low early builds the opposite, and usually can&rsquo;t escape it without essentially relaunching.</p>\n<h2 id=\"the-price-is-the-strategy\">The Price Is the Strategy</h2>\n<p>Founding teams spend months on product roadmaps and go-to-market plans while treating the pricing page as an afterthought. It shouldn&rsquo;t be. The number you put on your product on day one is a strategic claim about who your customer is, what problem you&rsquo;re solving, and whether you believe your own pitch.</p>\n<p>Startups that charge more from the beginning aren&rsquo;t just being aggressive about revenue. They&rsquo;re making a bet that the product is worth it, and then building a company that has to prove that bet right. That pressure, it turns out, tends to produce better products. The founders who insist on earning a premium have to figure out what the premium is for. That question, asked early and answered honestly, is one of the most useful strategic exercises a startup can do.</p>",
-      "summary": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales",
-      "_excerpt": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they’re being humble, customer-focused, pragmatic. What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try. The counterintuitive truth is that price is not just a revenue number.",
-      "date_published": "2026-06-14T17:11:00+00:00",
-      "authors": [
-        {
-          "name": "Kagi Small Web",
-          "url": "https://kagi.com/smallweb"
-        }
-      ],
-      "ai_score": 68,
-      "_quality": 68,
-      "_relevance": 68,
-      "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 26,
-      "_keyword_matches": 1,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42577275_web1_260624-AVN-Alberni-man-sentenced-SPCA-SPCA_1.jpg?w=1024"
     },
     {
       "id": "https://boingboing.net/2026/06/12/mel-fishers-treasure-hunters-find-another-chunk-of-atocha-silver.html",
@@ -416,8 +950,8 @@
       "_quality": 68,
       "_relevance": 68,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 26,
+      "_theme_score": 31,
+      "_composite_podcast": 45,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -425,34 +959,157 @@
       "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2023/04/gold-e1781286090430.jpeg?fit=768%2C510&quality=60&ssl=1"
     },
     {
-      "id": "https://wltribune.com/2026/06/15/end-of-b-c-rural-healthcare-bonus-could-worsen-staffing-challenges-union-says/",
-      "url": "https://wltribune.com/2026/06/15/end-of-b-c-rural-healthcare-bonus-could-worsen-staffing-challenges-union-says/",
-      "title": "[Williams Lake Tribune] End of B.C. rural healthcare bonus could worsen staffing challenges, Union says",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** G.R. Baker Hospital. 1/2 G.R. Baker Hospital. G.R. Baker Hospital. ![During her visit to G. R. Baker Memorial Hospital in Quesnel on Monday, June 8, Lynn",
-      "summary": "## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker",
-      "_excerpt": "## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024) 1/2 G.R. Baker Hospital. ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=150&h=150&crop=1) ![During her visit to G. R. Baker Memorial Hospital in Quesnel on Monday, June 8, Lynn",
-      "date_published": "2026-06-16T05:51:43.430079+00:00",
+      "id": "https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/",
+      "url": "https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/",
+      "title": "[TechCrunch] Chinese cybercrime operation that used AI to scam ‘hundreds of thousands of victims’ sued by Google",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
+      "summary": "The tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
+      "_excerpt": "The tech giant said a group called \"Outsider Enterprise\" used AI to scam hundreds of thousands of victims, sending 2.5 million text messages over a span of two weeks.",
+      "date_published": "2026-06-12T20:38:09+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 44,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
+      "url": "https://wltribune.com/2026/06/10/new-bill-introduces-social-media-age-restrictions-for-canadians-under-16/",
+      "title": "[Williams Lake Tribune] New bill introduces social media age restrictions for Canadians under 16",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMiller says social media services will need to remove harmful content within 24 hours",
+      "summary": "Miller says social media services will need to remove harmful content within 24 hours",
+      "_excerpt": "Miller says social media services will need to remove harmful content within 24 hours",
+      "date_published": "2026-06-10T14:37:00+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 64,
-      "_quality": 0,
-      "_relevance": 0,
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 25,
+      "_theme_score": 29,
+      "_composite_podcast": 44,
       "_keyword_matches": 1,
-      "_category": "local",
-      "_source_category": "local",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
       "tags": [
         "subscriber-access"
       ],
       "_subscriber_access": "Williams Lake Tribune",
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024"
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536744_web1_260318-YKN-News-Feds-Fund-Arts-Culture_1.jpg?w=1024"
+    },
+    {
+      "id": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
+      "url": "https://www.businessinsider.com/comics-share-story-behind-fake-ai-ads-on-subway-2026-6",
+      "title": "[Business Insider] We talked to the comedians behind the viral fake AI ads on the subway",
+      "content_html": "<img src=\"https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "summary": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "_excerpt": "A video showcasing Harris Alterman and Dave Ross's fake tech ads went viral, racking up millions of views.",
+      "date_published": "2026-06-11T22:12:26+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 21,
+      "_composite_podcast": 43,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      },
+      "image": "https://i.insider.com/6a2b32076588b2a09a7c6ee7?format=jpeg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
+      "url": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
+      "title": "[NYT Business] Forget Coders. The Real A.I. Threat Is in the Back Office.",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
+      "summary": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
+      "_excerpt": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
+      "date_published": "2026-06-10T14:49:41+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 8,
+      "_composite_podcast": 37,
+      "_keyword_matches": 2,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/national-news/former-montreal-officer-cleared-in-nicholas-gibbs-killing-suing-ethics-commissioner-12407422",
+      "url": "https://www.piquenewsmagazine.com/national-news/former-montreal-officer-cleared-in-nicholas-gibbs-killing-suing-ethics-commissioner-12407422",
+      "title": "[Pique Newsmagazine] Former Montreal officer cleared in Nicholas Gibbs killing suing ethics commissioner",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/acac10554827f3a72f3e1eda62a13c4b0d91ece8a860fee288af4d34043078b5.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
+      "summary": "MONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
+      "_excerpt": "MONTREAL — A former Montreal police officer cleared of wrongdoing after he killed a Black man while on duty is suing the police ethics commissioner for $1.1 million.",
+      "date_published": "2026-06-11T16:07:30+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 13,
+      "_composite_podcast": 35,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/acac10554827f3a72f3e1eda62a13c4b0d91ece8a860fee288af4d34043078b5.jpg;w=960"
     },
     {
       "id": "https://www.piquenewsmagazine.com/the-mix/fairfax-signs-deal-to-buy-canadian-wine-producer-andrew-peller-12422147",
@@ -472,13 +1129,95 @@
       "_quality": 64,
       "_relevance": 64,
       "_local": 0,
-      "_theme_score": 0,
-      "_composite_podcast": 25,
+      "_theme_score": 14,
+      "_composite_podcast": 34,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/15d9d2313742ccfc0ed89fe522a64032b844424cc01a81cd84b78a577a7a66d5.jpg;w=960"
+    },
+    {
+      "id": "https://newatlas.com/camping-trailers/ortsan-expanding-mini-house-caravan/",
+      "url": "https://newatlas.com/camping-trailers/ortsan-expanding-mini-house-caravan/",
+      "title": "[New Atlas] Expandable camper nearly triples living space with huge folding wings",
+      "content_html": "<img src=\"https://assets.newatlas.com/dims4/default/a7fdc0f/2147483647/strip/true/crop/2009x1055+0+184/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2F7f%2F24c658fa45d5aab39e48bbd859bb%2F598a.jpeg&amp;na.image_optimisation=0\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"Hit a button on the remote, and the Mini House expands automatically to nearly three times its towing size\" src=\"https://assets.newatlas.com/dims4/default/7e86e6b/2147483647/strip/true/crop/2009x1423+0+0/resize/1355x960!/format/webp/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2F7f%2F24c658fa45d5aab39e48bbd859bb%2F598a.jpeg\" /><p>No one wants to tow a huge, heavy mobile home from campground to campground, but many a camping enthusiast wouldn't mind having that kind of small-home space after arrival. The new Mini House Caravan from Turkish company Ortsan Outdoor does both things, rolling to camp as a compact caravan before blossoming open to nearly triple its living space. Clever features keep occupants connected to nature, from both inside and out.</p><p><a href=\"https://newatlas.com/camping-trailers/ortsan-expanding-mini-house-caravan/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/camping-trailers/\">Camping Trailers</a>, <a href=\"https://newatlas.com/adventure-vehicles/\">Adventure Vehicles</a>, <a href=\"https://newatlas.com/outdoors/\">Outdoors</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/caravan/\" rel=\"tag\">Caravan</a>, <a href=\"https://newatlas.com/tag/trailers/\" rel=\"tag\">trailers</a>, <a href=\"https://newatlas.com/tag/trailer/\" rel=\"tag\">Trailer</a>, <a href=\"https://newatlas.com/tag/foldable/\" rel=\"tag\">Foldable</a>, <a href=\"https://newatlas.com/tag/folding/\" rel=\"tag\">Folding</a>, <a href=\"https://newatlas.com/tag/outdoor/\" rel=\"tag\">Outdoors and Camping</a>, <a href=\"https://newatlas.com/tag/camping/\" rel=\"tag\">Camping</a></p>",
+      "summary": "No one wants to tow a huge, heavy mobile home from campground to campground, but many a camping enthusiast wouldn't mind having that kind of small-home space after arrival. The new Mini House Caravan from Turkish company Ortsan Outdoor does both things, rolling to camp as a compact caravan before",
+      "_excerpt": "No one wants to tow a huge, heavy mobile home from campground to campground, but many a camping enthusiast wouldn't mind having that kind of small-home space after arrival. The new Mini House Caravan from Turkish company Ortsan Outdoor does both things, rolling to camp as a compact caravan before blossoming open to nearly triple its living space. Clever features keep occupants connected to nature, from both inside and out. Continue Reading Category: Camping Trailers , Adventure Vehicles , Outdoors Tags: Caravan , trailers , Trailer , Foldable , Folding , Outdoors and Camping , Camping",
+      "date_published": "2026-06-15T01:03:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 1,
+      "_composite_podcast": 31,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://assets.newatlas.com/dims4/default/a7fdc0f/2147483647/strip/true/crop/2009x1055+0+184/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F78%2F7f%2F24c658fa45d5aab39e48bbd859bb%2F598a.jpeg&na.image_optimisation=0"
+    },
+    {
+      "id": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "url": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "title": "[Kagi Small Web] The Startup That Charges More on Day One Usually Wins",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<h2 id=\"the-seduction-of-the-low-price\">The Seduction of the Low Price</h2>\n<p>The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it&rsquo;s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they&rsquo;re being humble, customer-focused, pragmatic.</p>\n<p>What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try.</p>\n<p>The counterintuitive truth is that price is not just a revenue number. It&rsquo;s a signal to your market, a filter for your customers, and a constraint on your product decisions. Set it too low and you don&rsquo;t just make less money. You attract the wrong buyers, train your team to compete on cost, and starve the product of the resources it needs to improve. The startup that charges more on day one is playing a structurally different game, and it usually wins.</p>\n<h2 id=\"price-tells-customers-what-kind-of-company-you-are\">Price Tells Customers What Kind of Company You Are</h2>\n<p>B2B software buyers, in particular, read price as a proxy for quality and staying power. A tool priced at $10 per user per month signals something different than one priced at $50, even before the buyer has tried either. The lower price implies the vendor is still figuring things out, might not be around in two years, and probably can&rsquo;t support an enterprise integration. These inferences aren&rsquo;t always accurate, but they&rsquo;re predictable.</p>\n<p>This is why enterprise software vendors historically held firm on pricing even when startups tried to undercut them. Oracle and SAP weren&rsquo;t just protecting margin. They were communicating that their software was serious, mission-critical infrastructure. The price was part of the product.</p>\n<p>For early-stage companies, the same logic applies in reverse. Pricing low doesn&rsquo;t just leave money on the table. It actively recruits the customers most likely to churn when a cheaper alternative appears, because that&rsquo;s what they were optimizing for when they signed up. <a href=\"https://kagi.com/the-one-customer-type-that-kills-good-startups/\">The wrong early customers can quietly kill a company</a> by consuming support resources, demanding features that don&rsquo;t fit the core product, and paying so little that serving them is structurally unprofitable.</p>\n<h2 id=\"what-high-prices-actually-buy\">What High Prices Actually Buy</h2>\n<p>The clearest benefit of higher early pricing is unit economics. A company generating $500 per month from a customer has more room to invest in that relationship than one generating $50. More room to hire a dedicated support person, to build the integration the customer asked for, to staff a customer success function before the churn problem becomes visible in the cohort data.</p>\n<p>This is not a small operational detail. It determines whether a company can afford to learn from its customers or is simply trying to acquire more of them as fast as possible before the money runs out. Many of the startups that grew fast on low prices discovered too late that they had built a business where no unit of revenue was profitable enough to justify the cost of generating it.</p>\n<p>Higher prices also tend to attract larger, more stable buyers. A company willing to pay a premium is usually a company with a real budget, a real need, and a real procurement process. That last item sounds like a burden, but it&rsquo;s actually a signal: buyers who run procurement are buyers who have decided this is a real category worth spending on. They renew contracts. They provide structured feedback. They refer other serious buyers.</p>\n<p></p>\n<p>The math compounds over time. A startup that charges twice as much as its competitor needs half as many customers to reach the same revenue. Half as many customers means fewer support tickets, more focused product development, and a cleaner signal from the market about what actually matters. The company that has 500 deeply satisfied customers at $500 a month often has a clearer strategic picture than the one with 5,000 semi-satisfied customers at $50.</p>\n<h2 id=\"the-myth-of-the-penetration-strategy\">The Myth of the Penetration Strategy</h2>\n<p>The standard counterargument is that low prices drive volume, volume drives learning, and scale eventually creates leverage. There&rsquo;s a version of this that&rsquo;s real. It&rsquo;s how consumer internet companies built network-effect businesses, and how AWS priced cloud storage to build market share before margins became the priority.</p>\n<p>But most startups are not building consumer internet businesses, and most founders applying penetration logic to B2B SaaS are not Amazon. The penetration strategy only works when scale genuinely creates a defensible advantage, when the market is large enough that the volume math eventually closes, and when the company has enough capital to survive the years before the unit economics improve. Most early-stage startups meet none of these conditions.</p>\n<p>What they get instead is a business that looks healthy by top-line metrics and is quietly bleeding from every unit. <a href=\"https://kagi.com/charging-too-little-kills-startups-slower-and-worse/\">Charging too little kills startups slower and more painfully than most founders expect</a>, because the damage is gradual enough to explain away in every individual quarter.</p>\n<h2 id=\"raising-prices-is-harder-than-setting-them-right\">Raising Prices Is Harder Than Setting Them Right</h2>\n<p>There&rsquo;s an asymmetry that doesn&rsquo;t get enough attention: it is far easier to lower a price than to raise one. Customers anchor hard on what they first paid. A company that launches at $20 and tries to move to $50 after 18 months will face pushback from every existing customer, awkward grandfather clauses, and a public pricing page that signals the company wasn&rsquo;t confident in its value from the start.</p>\n<p>A company that launches at $50 and occasionally discounts strategically retains control of its positioning. The list price stays intact. The brand signal stays intact. The occasional discount is a negotiation tool, not a structural concession.</p>\n<p>This is why the pricing decision made at launch is one of the few early choices that genuinely compounds, in both directions. A startup that prices high early builds a cost structure, a customer base, and a market position that are all oriented around delivering real value. A startup that prices low early builds the opposite, and usually can&rsquo;t escape it without essentially relaunching.</p>\n<h2 id=\"the-price-is-the-strategy\">The Price Is the Strategy</h2>\n<p>Founding teams spend months on product roadmaps and go-to-market plans while treating the pricing page as an afterthought. It shouldn&rsquo;t be. The number you put on your product on day one is a strategic claim about who your customer is, what problem you&rsquo;re solving, and whether you believe your own pitch.</p>\n<p>Startups that charge more from the beginning aren&rsquo;t just being aggressive about revenue. They&rsquo;re making a bet that the product is worth it, and then building a company that has to prove that bet right. That pressure, it turns out, tends to produce better products. The founders who insist on earning a premium have to figure out what the premium is for. That question, asked early and answered honestly, is one of the most useful strategic exercises a startup can do.</p>",
+      "summary": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales",
+      "_excerpt": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they’re being humble, customer-focused, pragmatic. What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try. The counterintuitive truth is that price is not just a revenue number.",
+      "date_published": "2026-06-14T17:11:00+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 4,
+      "_composite_podcast": 29,
+      "_keyword_matches": 1,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/15/end-of-b-c-rural-healthcare-bonus-could-worsen-staffing-challenges-union-says/",
+      "url": "https://wltribune.com/2026/06/15/end-of-b-c-rural-healthcare-bonus-could-worsen-staffing-challenges-union-says/",
+      "title": "[Williams Lake Tribune] End of B.C. rural healthcare bonus could worsen staffing challenges, Union says",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** G.R. Baker Hospital. 1/2 G.R. Baker Hospital. G.R. Baker Hospital. ![During her visit to G. R. Baker Memorial Hospital in Quesnel on Monday, June 8, Lynn",
+      "summary": "## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker",
+      "_excerpt": "## End of B.C. rural healthcare bonus could worsen staffing challenges, Union says Published 11:30 am Monday, June 15, 2026 **By Laísa Condé** ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024) 1/2 G.R. Baker Hospital. ![G.R. Baker Hospital.](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=150&h=150&crop=1) ![During her visit to G. R. Baker Memorial Hospital in Quesnel on Monday, June 8, Lynn",
+      "date_published": "2026-06-16T05:51:43.430079+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 64,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 7,
+      "_composite_podcast": 29,
+      "_keyword_matches": 1,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42536157_web1_21698247_web1_200531-QCO-HospitalUpdateCRDBoard-grbaker_1.jpg?w=1024"
     }
   ]
 }
