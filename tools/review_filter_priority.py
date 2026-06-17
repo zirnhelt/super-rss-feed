@@ -133,12 +133,11 @@ def review_filter_priority(
 
         # Stream and print as chunks arrive
         collected: list[str] = []
-        with client.chat_stream(model=model, messages=messages) as stream:
-            for event in stream:
-                if event.type == "content-delta":
-                    chunk = event.delta.message.content.text
-                    print(chunk, end="", flush=True)
-                    collected.append(chunk)
+        for event in client.chat_stream(model=model, messages=messages):
+            if event.type == "content-delta":
+                chunk = event.delta.message.content.text
+                print(chunk, end="", flush=True)
+                collected.append(chunk)
         print()  # final newline
         return None
 
