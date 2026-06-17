@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-tools/review_filter_priority.py — Code review of filter and scoring logic via HuggingFace.
+tools/review_filter_priority.py — Code review of filter and scoring logic via Cohere.
 
 Extracts the filter/priority pipeline functions from super_rss_curator_json.py
-and submits them to CohereLabs/North-Mini-Code-1.0 for a focused review.
+and submits them to north-mini-code-1-0 for a focused review.
 
 Usage:
     python tools/review_filter_priority.py
-    HF_TOKEN=hf_... python tools/review_filter_priority.py
+    COHERE_API_KEY=... python tools/review_filter_priority.py
 """
 
 import os
@@ -87,23 +87,23 @@ def build_code_payload(curator_path: Path) -> str:
 # ── Public API ────────────────────────────────────────────────────────────────
 
 def review_filter_priority(
-    model: str = "CohereLabs/North-Mini-Code-1.0",
+    model: str = "north-mini-code-1-0",
     cohere_api_key: str | None = None,
     output: str = "print",
 ) -> str | None:
-    """Submit filter/priority logic to North-Mini-Code for a focused code review.
+    """Submit filter/priority logic to Cohere for a focused code review.
 
     Args:
-        model: HuggingFace model ID.
-        cohere_api_key: HuggingFace token; falls back to HF_TOKEN env var.
+        model: Cohere model identifier.
+        cohere_api_key: API key; falls back to COHERE_API_KEY env var.
         output: "print" streams findings to stdout and returns None;
                 "return" returns the full response as a string.
     """
-    hf_token = cohere_api_key or os.environ.get("HF_TOKEN")
-    if not hf_token:
+    api_key = cohere_api_key or os.environ.get("COHERE_API_KEY")
+    if not api_key:
         raise ValueError(
-            "HF_TOKEN is not set. "
-            "Export it or pass cohere_api_key= with your HuggingFace token."
+            "COHERE_API_KEY is not set. "
+            "Export it or pass cohere_api_key= explicitly."
         )
 
     curator_path = Path(__file__).parent.parent / CURATOR_FILENAME
@@ -116,9 +116,9 @@ def review_filter_priority(
     print(f"Extracting {len(SECTIONS)} sections (~{total_lines} lines) from {curator_path.name}...")
     code_payload = build_code_payload(curator_path)
 
-    from huggingface_hub import InferenceClient  # lazy import
+    import cohere  # lazy — same pattern as cohere_integration.py
 
-    client = InferenceClient(model=model, token=hf_token)
+    client = cohere.ClientV2(api_key=api_key)
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": f"{REVIEW_PROMPT}\n\n---\n\n{code_payload}"},
@@ -128,13 +128,16 @@ def review_filter_priority(
 
     try:
         if output == "return":
-            response = client.chat_completion(messages=messages, max_tokens=4096)
-            return response.choices[0].message.content
+            response = client.chat(model=model, messages=messages)
+            return response.message.content[0].text
 
         # Stream and print as chunks arrive
-        for chunk in client.chat_completion(messages=messages, max_tokens=4096, stream=True):
-            text = chunk.choices[0].delta.content or ""
-            print(text, end="", flush=True)
+        collected: list[str] = []
+        for event in client.chat_stream(model=model, messages=messages):
+            if event.type == "content-delta":
+                chunk = event.delta.message.content.text
+                print(chunk, end="", flush=True)
+                collected.append(chunk)
         print()  # final newline
         return None
 
@@ -142,8 +145,8 @@ def review_filter_priority(
         err_str = str(e).lower()
         if "not found" in err_str or "404" in err_str:
             print(
-                f"\nModel '{model}' was not found on HuggingFace. "
-                "Check https://huggingface.co/CohereLabs for the correct model ID."
+                f"\nModel '{model}' was not found. "
+                "Check https://docs.cohere.com/docs/models for the correct identifier."
             )
         raise
 
