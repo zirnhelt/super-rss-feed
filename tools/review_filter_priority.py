@@ -127,20 +127,8 @@ def review_filter_priority(
     print(f"Submitting to {model}...\n")
 
     try:
-        if output == "return":
-            response = client.chat(model=model, messages=messages)
-            return response.message.content[0].text
-
-        # Stream and print as chunks arrive
-        collected: list[str] = []
-        for event in client.chat_stream(model=model, messages=messages):
-            if event.type == "content-delta":
-                chunk = event.delta.message.content.text
-                print(chunk, end="", flush=True)
-                collected.append(chunk)
-        print()  # final newline
-        return None
-
+        response = client.chat(model=model, messages=messages)
+        findings = response.message.content[0].text
     except Exception as e:
         err_str = str(e).lower()
         if "not found" in err_str or "404" in err_str:
@@ -149,6 +137,29 @@ def review_filter_priority(
                 "Check https://docs.cohere.com/docs/models for the correct identifier."
             )
         raise
+
+    _write_markdown(findings, model)
+
+    if output == "print":
+        print(findings)
+        return None
+    return findings
+
+
+def _write_markdown(findings: str, model: str) -> None:
+    """Write findings to tools/filter_priority_review.md next to this script."""
+    import datetime
+    date = datetime.date.today().isoformat()
+    md = (
+        f"# Filter & Priority Logic Review\n\n"
+        f"**Date:** {date}  \n"
+        f"**Model:** {model}  \n\n"
+        f"---\n\n"
+        f"{findings}\n"
+    )
+    out_path = Path(__file__).parent / "filter_priority_review.md"
+    out_path.write_text(md, encoding="utf-8")
+    print(f"\nFindings written to {out_path.relative_to(Path(__file__).parent.parent)}")
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
