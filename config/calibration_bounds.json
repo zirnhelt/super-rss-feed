@@ -104,6 +104,51 @@
     "scoring_modifiers.wire_quality_penalty": {
       "file": "config/scoring_modifiers.json", "path": ["wire_quality_penalty"],
       "type": "int", "min": -20, "max": 0, "max_step": 5, "default": -10
+    },
+
+    "limits.haiku_scrub_floor": {
+      "file": "config/limits.json",
+      "path": ["haiku_scrub_floor"],
+      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 10
+    },
+
+    "source_preferences.kagi_search_result_limit": {
+      "file": "config/source_preferences.json",
+      "path": ["kagi_search_result_limit"],
+      "type": "int", "min": 5, "max": 20, "max_step": 5, "default": 10
+    },
+
+    "feed_slots.max_slots.local": {
+      "file": "config/feed_slots.json", "path": ["local", "max_slots"],
+      "type": "int", "min": 5, "max": 15, "max_step": 2, "default": 8
+    },
+    "feed_slots.max_slots.ai-tech": {
+      "file": "config/feed_slots.json", "path": ["ai-tech", "max_slots"],
+      "type": "int", "min": 4, "max": 18, "max_step": 2, "default": 10
+    },
+    "feed_slots.max_slots.climate": {
+      "file": "config/feed_slots.json", "path": ["climate", "max_slots"],
+      "type": "int", "min": 4, "max": 12, "max_step": 2, "default": 6
+    },
+    "feed_slots.max_slots.homelab": {
+      "file": "config/feed_slots.json", "path": ["homelab", "max_slots"],
+      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 5
+    },
+    "feed_slots.max_slots.wellness": {
+      "file": "config/feed_slots.json", "path": ["wellness", "max_slots"],
+      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 6
+    },
+    "feed_slots.max_slots.science": {
+      "file": "config/feed_slots.json", "path": ["science", "max_slots"],
+      "type": "int", "min": 3, "max": 8, "max_step": 2, "default": 4
+    },
+    "feed_slots.max_slots.scifi": {
+      "file": "config/feed_slots.json", "path": ["scifi", "max_slots"],
+      "type": "int", "min": 2, "max": 6, "max_step": 1, "default": 3
+    },
+    "feed_slots.max_slots.news": {
+      "file": "config/feed_slots.json", "path": ["news", "max_slots"],
+      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 15
     }
   },
 
@@ -128,7 +173,7 @@
 
   "global_caps": {
     "max_total_changes_per_run": 6,
-    "max_config_files_touched_per_run": 2
+    "max_config_files_touched_per_run": 3
   },
 
   "flip_flop_guard": {

@@ -40,6 +40,11 @@ def load_source_preferences() -> Dict:
     with open(CONFIG_DIR / "source_preferences.json", 'r') as f:
         return json.load(f)
 
+def load_feed_slots_config() -> Dict:
+    """Load feed slot configuration (per-category min/max article counts)."""
+    path = CONFIG_DIR / "feed_slots.json"
+    return json.loads(path.read_text()) if path.exists() else {}
+
 def load_category_rules_config() -> Dict:
     """Load category rules (include/exclude keyword lists per category)."""
     with open(CONFIG_DIR / "category_rules.json", 'r') as f:
