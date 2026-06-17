@@ -8,10 +8,32 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Gov News** failed | `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutErro` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-16 | 🔧 Manual Run | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x12` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"94ba06e9c860b51c974b7941184854da","ms":4,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Ricochet Media (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"8bc76ca50c9c2714dc776c18d4acafcc","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Nation Talk (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"f9f8594c653ed71a25d3f5f09b9a5cdd","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Indigenous Technology BC (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"bf0dfc3f80308ea10dd1c9473fe58d51","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Working Lands (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"daf6bbe3bd7c3d6239d0b608412be3cc","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Rural BC Infrastructure (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"d39895c2a148de2e1ffced22e8288d55","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Indigenous Guardian Programs (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"f0a0f2f17c8e980b180eaa73b7e942e0","ms":6,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Community Media and Digital Storytelling (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"421a3833f0358983c376458cfd121c5d","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Cariboo Local Community (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"6c18ae604181b01b0a770456c523d608","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Backcountry and Wildlife (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"a920becac46f23a557786dacc9841ce8","ms":4,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Canadian Geographic (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"302ad2fe049a6dc88f006124ce365336","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Rural Digital Equity (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"b5dfba0a773328b65d10fb37cf109c49","ms":9,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Conservation and Parks (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"3ec6a2026c8d789b4e65c4103603636a","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Wildlife Ecology (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"ac4382c8295eacef87cce578a295207a","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Examine.com (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"77cdcbfd2daa7c50196c4a82d08a899a","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Cariboo First Nations (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"be5fbee6b7498ddf100fc7b6b1864f0c","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Indigenous Data and Language Tech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"40251b2a7338355a76be0dbe72d78b55","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Silviculture and Logging Tech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"a9a368d66e6f44e519bcfe3100705ef3","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Canadian Arts Technology (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"e1788b6c6a4a24b348d29996cee0d181","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"30c9f2ed9d3499dcd35a0bb4573dcc3e","ms":22,"node":"us-west2"},"data":null,"errors":[{"code":` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **National Indigenous Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"d52025187a5b95c43949828e6fc87542","ms":8,"node":"us-west2"},"data":null,"errors":[{"code":"` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x39, HTTP 502 x1` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
@@ -354,9 +376,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-10 | 🌅 morning | 52 | news:36(69%), ai-tech:5(10%), science:3(6%) |
 | 2026-06-10 | 🌙 evening | 94 | news:72(77%), ai-tech:6(6%), wellness:4(4%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-17 00:42 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-17 01:50 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
