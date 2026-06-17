@@ -127,22 +127,8 @@ def review_filter_priority(
     print(f"Submitting to {model}...\n")
 
     try:
-        if output == "return":
-            response = client.chat(model=model, messages=messages)
-            findings = response.message.content[0].text
-        else:
-            # Stream and print as chunks arrive, skipping None/empty deltas
-            collected: list[str] = []
-            for event in client.chat_stream(model=model, messages=messages):
-                if event.type == "content-delta":
-                    chunk = event.delta.message.content.text
-                    if not chunk:
-                        continue
-                    print(chunk, end="", flush=True)
-                    collected.append(chunk)
-            print()  # final newline
-            findings = "".join(collected)
-
+        response = client.chat(model=model, messages=messages)
+        findings = response.message.content[0].text
     except Exception as e:
         err_str = str(e).lower()
         if "not found" in err_str or "404" in err_str:
@@ -154,9 +140,10 @@ def review_filter_priority(
 
     _write_markdown(findings, model)
 
-    if output == "return":
-        return findings
-    return None
+    if output == "print":
+        print(findings)
+        return None
+    return findings
 
 
 def _write_markdown(findings: str, model: str) -> None:
