@@ -8,8 +8,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **CBC Arts** failed | `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **XDA Developers** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **How-To Geek** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Android Police** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **MakeUseOf** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-16 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
@@ -353,9 +357,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-10 | 🌅 morning | 52 | news:36(69%), ai-tech:5(10%), science:3(6%) |
 | 2026-06-10 | 🌙 evening | 94 | news:72(77%), ai-tech:6(6%), wellness:4(4%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-17 03:54 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-17 04:03 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
