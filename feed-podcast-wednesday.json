@@ -1,9 +1,9 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": "🎙️ Gear, Gadgets & Practical Tech",
+  "title": "🎙️ Repair Culture & Practical Tech",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-podcast-wednesday.json",
-  "description": "Today we look at the tools, gadgets, and DIY projects that make everyday life more capable — from repairable electronics and maker hardware to practical consumer tech and creative builds. We're interested in the intersection of tinkering culture and practical utility: things you can fix, build, or repurpose, especially in rural and off-grid contexts where self-sufficiency matters. - Daily themed article selection for podcast generation",
+  "description": "Today is about things you can fix, keep running, and pass on — repair culture, right-to-repair wins and setbacks, gear that outlives its manufacturer's support window, and the maker ethos of building to last rather than building to replace. We're interested in tools, devices, and projects where longevity, repairability, and self-sufficiency intersect, especially in rural and off-grid contexts where you can't just run to a repair shop. - Daily themed article selection for podcast generation",
   "icon": "https://zirnhelt.github.io/super-rss-feed/favicon.ico",
   "authors": [
     {
@@ -12,47 +12,274 @@
   ],
   "language": "en",
   "_podcast": {
-    "theme": "Gear, Gadgets & Practical Tech",
-    "theme_description": "Today we look at the tools, gadgets, and DIY projects that make everyday life more capable — from repairable electronics and maker hardware to practical consumer tech and creative builds. We're interested in the intersection of tinkering culture and practical utility: things you can fix, build, or repurpose, especially in rural and off-grid contexts where self-sufficiency matters.",
+    "theme": "Repair Culture & Practical Tech",
+    "theme_description": "Today is about things you can fix, keep running, and pass on — repair culture, right-to-repair wins and setbacks, gear that outlives its manufacturer's support window, and the maker ethos of building to last rather than building to replace. We're interested in tools, devices, and projects where longevity, repairability, and self-sufficiency intersect, especially in rural and off-grid contexts where you can't just run to a repair shop.",
     "theme_categories": [
       "homelab",
       "ai-tech",
       "news",
       "science"
     ],
-    "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise heavily (score 0–20): geopolitical conflict, war, terrorism, and international news with no hardware or maker angle; natural disaster coverage without a practical engineering or preparedness tech angle; wildlife and conservation stories; working lands policy; Indigenous governance; scientific discoveries without a hands-on hardware or DIY element; financial market and investment news. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
+    "theme_scoring_prompt": "Rate how well this article fits the theme 'Repair Culture & Practical Tech' — the right to repair movement, gear that outlasts its manufacturer, DIY fixes, and tools built for longevity.\n\nCALIBRATION — use this ladder:\n- 80-100: Directly about repairability, right-to-repair legislation wins or losses, teardowns scoring repairability (iFixit-style), gear designed for longevity or user serviceability, products outliving manufacturer support windows and how owners keep them running, permacomputing, vintage or legacy hardware still in active use, open-source hardware enabling long-term repairability, Louis Rossmann-style repair advocacy, 3D-printed replacement parts extending device life, battery replacement guides, rural or off-grid repair self-sufficiency.\n- 55-79: Hands-on maker and DIY content (builds, modifications, hardware hacks, workshop projects), practical consumer electronics guides with real technical depth, 3D printing hardware and filament reviews, off-grid and solar power gear reviews, home lab hardware, tools and workshop equipment, battery and power tech — even without an explicit right-to-repair angle.\n- 30-54: General gadget and device reviews or news with some hands-on or technical substance; consumer electronics that touch on software longevity or ecosystem lock-in; hardware products with open firmware or modular design as a selling point.\n- 10-29: Surface-level product announcements, consumer gadget speculation without technical depth, leaked device specs, general tech news without a hardware or repair angle.\n- 0-9: Geopolitical conflict, natural disaster (without engineering/preparedness angle), wildlife and conservation, working lands policy, Indigenous governance, science discoveries without DIY or hardware relevance, financial market news.\n\nStrongly prefer: articles about the right-to-repair movement (legislation, court cases, company policies), repairability scores and teardowns, gear with documented longevity, open-source or user-serviceable hardware, stories of devices kept alive past manufacturer support end-of-life, and rural/off-grid self-sufficiency through repair. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-06-17T13:53:55.225998+00:00",
+    "generated_at": "2026-06-17T15:36:39.954934+00:00",
     "article_count": 40,
-    "bonus_count": 18,
+    "bonus_count": 19,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/17/dramatic-rescue-after-plane-crashes-onto-texas-highway?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/17/dramatic-rescue-after-plane-crashes-onto-texas-highway?traffic_source=rss",
-      "title": "[Al Jazeera English] Dramatic rescue after plane crashes onto Texas highway",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-17-at-10.30.32-AM-1781681466.png?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDramatic rescue after plane crashes onto Texas highway.",
-      "summary": "Dramatic rescue after plane crashes onto Texas highway.",
-      "_excerpt": "Dramatic rescue after plane crashes onto Texas highway.",
-      "date_published": "2026-06-17T07:46:01+00:00",
+      "id": "https://www.atlasobscura.com/places/hellfire-club-ruins",
+      "url": "https://www.atlasobscura.com/places/hellfire-club-ruins",
+      "title": "[Atlas Obscura] Hellfire Club Ruins in Ireland",
+      "content_html": "<img src=\"https://img.atlasobscura.com/HJJ-ENk2-WhiFKOU_628FBZkeHiuHt2vx2mQFqFEnVs/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/YOPvX7t97lHS4EEm2H1ghYgnCvHLKcfBwsdIwbkokEM/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg\" width=\"300\" /></p> <p> At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly.  Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a meeting place for the Irish Hellfire Club. </p>\n<p>The summit of Montpelier Hill originally held a passage grave topped by a cairn of stones.  Connolly ordered the cairn dismantled and its stones used as building materials for the lodge.  One of the grave’s standing stones became the lintel for the fireplace.     </p>\n<p>The Hellfire Club was founded in 1735 by Richard Parsons, a notorious aficionado of the dark arts and black magic.  The Club became known for lascivious and immoral behavior involving quantities of alcohol and sex.  The Club’s president was called “The King of Hell,” and he reportedly dressed like a winged Satan.  The Hellfire Club’s members were of such unsavory reputation that writer Jonathan Swift described them as “a brace of monsters, blasphemers and Bacchanalians.” </p>\n<p>It was rumored that the Club held black masses in the lodge during which black cats – and perhaps servants – were sacrificed.  William Connolly’s grandson, Thomas, claimed to have met the Devil during a card game in the Lodge, where he watched Satan burst into flames and fly out the gable window. </p>\n<p>In 1741, the roof of the Lodge caught fire and was completely destroyed.  Some claim the roof was intentionally set alight to give the building a more Hellish appearance.  The most sensational rumor was that the Club lured a victim to the Lodge, intoxicated him, and set him on fire.  The fire spread, killed several members, and destroyed the building.  Rather than repair it, the Hellfire Club's members moved their meetings, but Club membership declined thereafter.  Given the dark stories associated with the HellFire Club, it was no surprise that rumors spread that the ruins were haunted, and those rumors persist today.</p>",
+      "summary": "At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly. Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a",
+      "_excerpt": "At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly. Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a meeting place for the Irish Hellfire Club. The summit of Montpelier Hill originally held a passage grave topped by a cairn of stones. Connolly ordered the cairn dismantled and its stones used as building materials for the lodge. One of the grave’s standing stones became the lintel for the fireplace.",
+      "date_published": "2026-06-16T16:00:00+00:00",
       "authors": [
         {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality": 67,
+      "_relevance": 67,
+      "_local": 0,
+      "_theme_score": 72,
+      "_composite_podcast": 75,
+      "_keyword_matches": 2,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T21:44:39.715873+00:00"
+      },
+      "image": "https://img.atlasobscura.com/HJJ-ENk2-WhiFKOU_628FBZkeHiuHt2vx2mQFqFEnVs/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg"
+    },
+    {
+      "id": "https://theoo.dev/notes/living-life-like-a-video-game-13",
+      "url": "https://theoo.dev/notes/living-life-like-a-video-game-13",
+      "title": "[Kagi Small Web] Living life like a video game",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more).</p>\n<p>What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a shortcut if it turns out there is also a door on the other side and you go for it. Then on the way, you will most likely spot something else interesting, and that's where things get fun for real. Because you can either bookmark this thing in a corner of your head (or a note on your phone or whatever) or you can switch directions and go for that new thing instead.</p>\n<p>Generally, as you go from point of interest to point of interest, you end up in some random place, late and it's time to get home. On your way, you've probably spoken to a bunch of random people, had some type of sugary treat in a shop you didn't know about, picked up a cool rock or seen some nice birds.</p>\n<p>I think this is a great way to experience life and to discover more things about the area that you live in. This is especially fun to do in a city (even better if it's one you don't know much) or in the woods. Here are some of my tips for a great adventure:</p>\n<ul>\n<li>PRIVATE often doesn't really mean private. A lot of people are cool with you passing by when you explain what you are doing, and those who aren't ok will generally tell you off once they've checked you didn't steal anything.</li>\n<li>Give yourself an hour by which you should be back home and only walk for half of that time. The other half is used to come back! Trust me, you don't want to be trekking in some random woods 10km away from your home at night with no phone battery and your girlfriend waiting home. That doesn't end well.</li>\n<li>Be prepared for dead ends and going back on your steps a bunch. Not all roads lead to where you want and sometimes you take a wrong turn that leads nowhere and you have to walk half an hour back. That's just how it goes.</li>\n<li>Embrace opportunities and expect people to be nice. Especially in more remote places, people will be wondering what you are doing there and ask you about it. Explain your adventure and sometimes they might give you more stuff or they might even tell you about a new point of interest you should check out. Life is surprisingly like a video game when you live it like one.</li>\n<li>Bring ample amounts of water. It sucks to walk in the sun with nothing to drink and sometimes there is nowhere you can ask to refill your bottle.</li>\n<li>Treat yourself. If you see something you'd like to do or eat/drink and you can afford it, don't hesitate! Go for it and enjoy a nice moment in your adventure. Don't worry about the time, it's ok to have to go back home before you got to where you wanted.</li>\n<li>Everything is a path, you don't have to follow roads, cutting through woods or weird parking lots is fun and rarely that dangerous.</li>\n<li>Any means of transport is fine. If you feel like you live in a city you know like the back of your hand, well first, you don't, and second, you can take a train or a bus or your car to go somewhere else and start your adventure there instead! The adventure might even be getting back home from where the train/bus dropped you using your legs. Buses are also a real cheat code to be able to walk further since they make the &quot;getting home&quot; part much faster and can be found pretty much anywhere.</li>\n</ul>\n<p>I hope this text could inspire you to try to go on an adventure as well, it doesn't have to be long, walking for an hour can already take you quite far!</p>\n<p>If you do try (or maybe you already do this on a regular basis), I would be pleased to hear about fun stuff that happened during your adventures! You can email me at <a href=\"mailto:hello@theoo.dev\">hello@theoo.dev</a>.</p>",
+      "summary": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living",
+      "_excerpt": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a",
+      "date_published": "2026-06-13T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 76,
+      "_composite_podcast": 73,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T21:44:39.715873+00:00"
+      },
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+    },
+    {
+      "id": "https://www.neowin.net/news/louis-rossmann-suing-samsung-over-990-pro-ssd-warranty-scam/",
+      "url": "https://www.neowin.net/news/louis-rossmann-suing-samsung-over-990-pro-ssd-warranty-scam/",
+      "title": "[Neowin] Louis Rossmann suing Samsung over \"990 Pro SSD warranty scam\"",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/06/1781246751_louis_rossmann_vs_samsung_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/06/1781246751_louis_rossmann_vs_samsung_medium.webp\" /></div>Popular YouTuber Louis Rossmann plans legal action against Samsung, alleging a deceptive 990 Pro SSD warranty process that denied a proper replacement. <a href=\"https://www.neowin.net/news/louis-rossmann-suing-samsung-over-990-pro-ssd-warranty-scam/\">Read more...</a>",
+      "summary": "Popular YouTuber Louis Rossmann plans legal action against Samsung, alleging a deceptive 990 Pro SSD warranty process that denied a proper replacement. Read more...",
+      "_excerpt": "Popular YouTuber Louis Rossmann plans legal action against Samsung, alleging a deceptive 990 Pro SSD warranty process that denied a proper replacement. Read more...",
+      "date_published": "2026-06-12T07:16:01+00:00",
+      "authors": [
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 75,
+      "_composite_podcast": 71,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-17T01:50:38.591958+00:00"
+      },
+      "image": "https://cdn.neowin.com/news/images/uploaded/2026/06/1781246751_louis_rossmann_vs_samsung_story.webp"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/15/in-532-ad-a-chariot-racing-riot-nearly-toppled-the-byzantine-empire.html",
+      "url": "https://boingboing.net/2026/06/15/in-532-ad-a-chariot-racing-riot-nearly-toppled-the-byzantine-empire.html",
+      "title": "[Boing Boing] In 532 AD, a chariot racing riot nearly toppled the Byzantine Empire",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114317-1.jpg?fit=1200%2C1800&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/15/in-532-ad-a-chariot-racing-riot-nearly-toppled-the-byzantine-empire.html\" rel=\"nofollow\" title=\"In 532 AD, a chariot racing riot nearly toppled the Byzantine Empire\"><img alt=\"Hippodrome of Constantinople ruins in Istanbul\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1800\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114317-1.jpg?fit=1200%2C1800&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">On January 13, 532 AD, fans of Constantinople's chariot racing factions — the Blues and the Greens — stopped fighting each other and turned on Emperor Justinian I. The <a href=\"https://en.wikipedia.org/wiki/Nika_riots\">Nika riots</a> started when two convicted murderers, one from each faction, survived their executions after \"the scaffolding and wood broke on them.\" &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/15/in-532-ad-a-chariot-racing-riot-nearly-toppled-the-byzantine-empire.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/15/in-532-ad-a-chariot-racing-riot-nearly-toppled-the-byzantine-empire.html\">In 532 AD, a chariot racing riot nearly toppled the Byzantine Empire</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "On January 13, 532 AD, fans of Constantinople's chariot racing factions — the Blues and the Greens — stopped fighting each other and turned on Emperor Justinian I. The Nika riots started when two convicted murderers, one from each faction, survived their executions after \"the scaffolding and wood",
+      "_excerpt": "On January 13, 532 AD, fans of Constantinople's chariot racing factions — the Blues and the Greens — stopped fighting each other and turned on Emperor Justinian I. The Nika riots started when two convicted murderers, one from each faction, survived their executions after \"the scaffolding and wood broke on them.\" — Read the rest The post In 532 AD, a chariot racing riot nearly toppled the Byzantine Empire appeared first on Boing Boing .",
+      "date_published": "2026-06-15T16:26:02+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
       "ai_score": 80,
       "_quality": 80,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 80,
-      "_composite_podcast": 77,
+      "_theme_score": 70,
+      "_composite_podcast": 71,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-17-at-10.30.32-AM-1781681466.png?resize=1200%2C675"
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-17T01:50:38.591958+00:00"
+      },
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114317-1.jpg?fit=1200%2C1800&quality=60&ssl=1"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/16/in-1980-300-children-collapsed-at-a-marching-band-competition-and-no-one-knows-why.html",
+      "url": "https://boingboing.net/2026/06/16/in-1980-300-children-collapsed-at-a-marching-band-competition-and-no-one-knows-why.html",
+      "title": "[Boing Boing] In 1980, 300 children collapsed at a marching band competition and no one knows why",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114324.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/16/in-1980-300-children-collapsed-at-a-marching-band-competition-and-no-one-knows-why.html\" rel=\"nofollow\" title=\"In 1980, 300 children collapsed at a marching band competition and no one knows why\"><img alt=\"Site of the Hollinwell incident, Kirkby-in-Ashfield, Nottinghamshire (Jonathan Clitheroe / CC BY-SA 2.0)\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"900\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114324.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">On Sunday, July 13, 1980, around 500 children from 11 marching bands gathered at the Hollinwell Showground near Kirkby-in-Ashfield, Nottinghamshire, for a Junior Brass and Marching Band competition. At about 10:30 am, band members began to collapse. Children began \"[falling] down like nine pins,\" according to one witness. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/16/in-1980-300-children-collapsed-at-a-marching-band-competition-and-no-one-knows-why.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/16/in-1980-300-children-collapsed-at-a-marching-band-competition-and-no-one-knows-why.html\">In 1980, 300 children collapsed at a marching band competition and no one knows why</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "On Sunday, July 13, 1980, around 500 children from 11 marching bands gathered at the Hollinwell Showground near Kirkby-in-Ashfield, Nottinghamshire, for a Junior Brass and Marching Band competition. At about 10:30 am, band members began to collapse. Children began \"[falling] down like nine pins,\"",
+      "_excerpt": "On Sunday, July 13, 1980, around 500 children from 11 marching bands gathered at the Hollinwell Showground near Kirkby-in-Ashfield, Nottinghamshire, for a Junior Brass and Marching Band competition. At about 10:30 am, band members began to collapse. Children began \"[falling] down like nine pins,\" according to one witness. — Read the rest The post In 1980, 300 children collapsed at a marching band competition and no one knows why appeared first on Boing Boing .",
+      "date_published": "2026-06-16T17:57:30+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 80,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 69,
+      "_composite_podcast": 70,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-17T01:50:38.591958+00:00"
+      },
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114324.jpg?fit=1200%2C900&quality=60&ssl=1"
+    },
+    {
+      "id": "https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html",
+      "url": "https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html",
+      "title": "[Boing Boing] In 1932, John W. Campbell imagined machines outliving humanity",
+      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\" rel=\"nofollow\" title=\"In 1932, John W. Campbell imagined machines outliving humanity\"><img alt=\"Robots\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"900\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">In 1932, a 22-year-old John W. Campbell — later the <em>Astounding</em> editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published <a href=\"https://www.gutenberg.org/files/27462/27462-h/27462-h.htm\">\"The Last Evolution\"</a> in <em>Amazing Stories</em>. It's narrated by the last thinking machine on Earth, recalling how humanity went extinct. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\">In 1932, John W. Campbell imagined machines outliving humanity</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "summary": "In 1932, a 22-year-old John W. Campbell — later the Astounding editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published \"The Last Evolution\" in Amazing Stories . It's narrated by the last thinking machine on Earth, recalling how humanity went",
+      "_excerpt": "In 1932, a 22-year-old John W. Campbell — later the Astounding editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published \"The Last Evolution\" in Amazing Stories . It's narrated by the last thinking machine on Earth, recalling how humanity went extinct. — Read the rest The post In 1932, John W. Campbell imagined machines outliving humanity appeared first on Boing Boing .",
+      "date_published": "2026-06-11T20:19:48+00:00",
+      "authors": [
+        {
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
+        }
+      ],
+      "ai_score": 77,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 73,
+      "_composite_podcast": 67,
+      "_keyword_matches": 0,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T21:44:39.715873+00:00"
+      },
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&quality=60&ssl=1"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/6/14/six-people-killed-as-helicopters-collide-over-brazils-rio-de-janeiro?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/6/14/six-people-killed-as-helicopters-collide-over-brazils-rio-de-janeiro?traffic_source=rss",
+      "title": "[Al Jazeera English] Six people killed as helicopters collide over Brazil’s Rio de Janeiro",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2f039a7d48-1781466010.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nListen (2 mins) Click here to share on social media  Add Al Jazeera on Google ![An aerial view shows firefighters working at the site of a helicopter crash in the Recreio dos Bandeirantes neighbourhood in Rio de",
+      "summary": "Listen (2 mins) Click here to share on social media",
+      "_excerpt": "Listen (2 mins) Click here to share on social media [](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faje.news%2Feg3vhe)[](https://twitter.com/intent/tweet?text=Six%20people%20killed%20as%20helicopters%20collide%20over%20Brazil%E2%80%99s%20Rio%20de%20Janeiro&source=sharethiscom&related=sharethis&via=AJEnglish&url=https%3A%2F%2Faje.news%2Feg3vhe)[](https://send?text=https%3A%2F%2Faje.news%2Feg3vhe) Add Al Jazeera on Google ![An aerial view shows firefighters working at the site of a helicopter crash in the Recreio dos Bandeirantes neighbourhood in Rio de",
+      "date_published": "2026-06-14T20:10:50+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 68,
+      "_composite_podcast": 66,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2f039a7d48-1781466010.jpg?resize=1920%2C1440"
+    },
+    {
+      "id": "https://wltribune.com/2026/06/12/kenneth-edward-ratch/",
+      "url": "https://wltribune.com/2026/06/12/kenneth-edward-ratch/",
+      "title": "[Williams Lake Tribune] Kenneth Edward Ratch",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556162_web1_260612-digitalobit-omh-wlt-ratch-pic_1.jpg?w=400\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><strong>October 14, 1942 &#8211; June 2, 2026</strong></p>",
+      "summary": "October 14, 1942 – June 2, 2026",
+      "_excerpt": "October 14, 1942 – June 2, 2026",
+      "date_published": "2026-06-12T14:30:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 94,
+      "_quality": 94,
+      "_relevance": 94,
+      "_local": 0,
+      "_theme_score": 75,
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-17T01:50:38.591958+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556162_web1_260612-digitalobit-omh-wlt-ratch-pic_1.jpg?w=400"
     },
     {
       "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
@@ -73,11 +300,12 @@
       "_relevance": 80,
       "_local": 0,
       "_theme_score": 80,
-      "_composite_podcast": 77,
+      "_composite_podcast": 62,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_thin_body": true,
       "_cross_theme": {
         "day": "tuesday",
         "label": "Working Lands & Industry",
@@ -86,730 +314,57 @@
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440"
     },
     {
-      "id": "https://globalnews.ca/news/11908443/dad-daughter-injured-cultus-lake-waterpark/",
-      "url": "https://globalnews.ca/news/11908443/dad-daughter-injured-cultus-lake-waterpark/",
-      "title": "[Global News] Dad describes hearing his daughter was injured at Cultus Lake Waterpark",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/SET-GFX-CULTUS-LAKE-WATER-PARK-DRONE-1.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDarien Nielsen's13-year-old daughter, Issabella, was one of 12 students injured in an incident at Cultus Lake Waterpark on Monday.",
-      "summary": "Darien Nielsen's13-year-old daughter, Issabella, was one of 12 students injured in an incident at Cultus Lake Waterpark on Monday.",
-      "_excerpt": "Darien Nielsen's13-year-old daughter, Issabella, was one of 12 students injured in an incident at Cultus Lake Waterpark on Monday.",
-      "date_published": "2026-06-17T02:24:47+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 80,
-      "_composite_podcast": 77,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-17T03:22:02.118980+00:00"
-      },
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/SET-GFX-CULTUS-LAKE-WATER-PARK-DRONE-1.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://cfjctoday.com/2026/06/16/stankoven-spills-on-marathon-stanley-cup-party-caniacs-madness-kamloops-celebration-ideas/",
-      "url": "https://cfjctoday.com/2026/06/16/stankoven-spills-on-marathon-stanley-cup-party-caniacs-madness-kamloops-celebration-ideas/",
-      "title": "[CFJC Today Kamloops] Stankoven spills on marathon Stanley Cup party, Caniacs madness, Kamloops celebration ideas",
-      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/9edc2465-5b71-4c65-ae07-5b6c15a10c6a.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHurricanes at Teets. (Image Credit: Walt Ruff/X) By Marty Hastings Hurricanes heater Stankoven spills on marathon Stanley Cup party, Caniacs madness, Kamloops celebration ideas Jun 16, 2026 | 6:30 PM Share on Facebook Share on Bluesky Share on X Copy Link RALEIGH, N.C. — Not even Logan Stankoven’s parents were exactly sure of his location as of Monday (June 15) morning in Las Vegas. His Carolina Hurricanes partied into the wee hours after winning the Stanley Cup on Sunday night. Stankoven surfaced in North Carolina on Tuesday morning and spoke with CFJC Today . COMPLETE INTERVIEW",
-      "summary": "Hurricanes at Teets. (Image Credit: Walt Ruff/X) By Marty Hastings Hurricanes heater Stankoven spills on marathon Stanley Cup party, Caniacs madness, Kamloops celebration ideas Jun 16, 2026 | 6:30 PM Share on Facebook Share on Bluesky Share on X Copy Link RALEIGH, N.C. — Not even Logan Stankoven’s",
-      "_excerpt": "Hurricanes at Teets. (Image Credit: Walt Ruff/X) By Marty Hastings Hurricanes heater Stankoven spills on marathon Stanley Cup party, Caniacs madness, Kamloops celebration ideas Jun 16, 2026 | 6:30 PM Share on Facebook Share on Bluesky Share on X Copy Link RALEIGH, N.C. — Not even Logan Stankoven’s parents were exactly sure of his location as of Monday (June 15) morning in Las Vegas. His Carolina Hurricanes partied into the wee hours after winning the Stanley Cup on Sunday night. Stankoven surfaced in North Carolina on Tuesday morning and spoke with CFJC Today . COMPLETE INTERVIEW",
-      "date_published": "2026-06-17T01:30:22+00:00",
+      "id": "https://cfjctoday.com/2026/06/15/vehicle-incident-snarls-northbound-traffic-on-coquihalla-highway-from-hope-to-merritt-2/",
+      "url": "https://cfjctoday.com/2026/06/15/vehicle-incident-snarls-northbound-traffic-on-coquihalla-highway-from-hope-to-merritt-2/",
+      "title": "[CFJC Today Kamloops] Vehicle incident snarls northbound traffic on Coquihalla Highway from Hope to Merritt",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/770e518a-c898-49b3-84bf-515dc5e9d6bc-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n(Image Credit: Jaynie Lambert via Facebook/Coquihalla Road Reports (And Area)) By Aaron Schulze Coquihalla Watch Vehicle incident snarls northbound traffic on Coquihalla Highway from Hope to Merritt Jun 15, 2026 | 8:47 AM Share on Facebook Share on Bluesky Share on X Copy Link MERRITT, B.C. — A vehicle incident has halted northbound traffic on the Coquihalla Highway between Hope and Merritt Monday (June 15) morning. DriveBC first reported of the incident in the northbound lanes on Highway 5 just south of Coldwater Road, nearly nine kilometres south of Merritt, at around 8:30 a.m. A photo",
+      "summary": "(Image Credit: Jaynie Lambert via Facebook/Coquihalla Road Reports (And Area)) By Aaron Schulze Coquihalla Watch Vehicle incident snarls northbound traffic on Coquihalla Highway from Hope to Merritt Jun 15, 2026 | 8:47 AM Share on Facebook Share on Bluesky Share on X Copy Link MERRITT, B.C. — A",
+      "_excerpt": "(Image Credit: Jaynie Lambert via Facebook/Coquihalla Road Reports (And Area)) By Aaron Schulze Coquihalla Watch Vehicle incident snarls northbound traffic on Coquihalla Highway from Hope to Merritt Jun 15, 2026 | 8:47 AM Share on Facebook Share on Bluesky Share on X Copy Link MERRITT, B.C. — A vehicle incident has halted northbound traffic on the Coquihalla Highway between Hope and Merritt Monday (June 15) morning. DriveBC first reported of the incident in the northbound lanes on Highway 5 just south of Coldwater Road, nearly nine kilometres south of Merritt, at around 8:30 a.m. A photo",
+      "date_published": "2026-06-15T15:47:14+00:00",
       "authors": [
         {
           "name": "CFJC Today Kamloops",
           "url": "https://cfjctoday.com"
         }
       ],
-      "ai_score": 75,
-      "_quality": 80,
-      "_relevance": 80,
+      "ai_score": 65,
+      "_quality": 65,
+      "_relevance": 65,
       "_local": 0,
-      "_theme_score": 80,
-      "_composite_podcast": 77,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/9edc2465-5b71-4c65-ae07-5b6c15a10c6a.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/17/us/laredo-plane-crash-texas.html",
-      "url": "https://www.nytimes.com/2026/06/17/us/laredo-plane-crash-texas.html",
-      "title": "[NYT Top Stories] Private Jet Crashes on Highway in Laredo, Texas, Killing 1",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/17/multimedia/17xp-crash-bfmg/17xp-crash-bfmg-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe plane’s crew reported mechanical problems and low fuel as they flew to Austin, Texas, from Mexico. Five of the six people on board survived the crash in Laredo.",
-      "summary": "The plane’s crew reported mechanical problems and low fuel as they flew to Austin, Texas, from Mexico. Five of the six people on board survived the crash in Laredo.",
-      "_excerpt": "The plane’s crew reported mechanical problems and low fuel as they flew to Austin, Texas, from Mexico. Five of the six people on board survived the crash in Laredo.",
-      "date_published": "2026-06-17T11:27:21+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 83,
-      "_quality": 78,
-      "_relevance": 78,
-      "_local": 0,
-      "_theme_score": 80,
-      "_composite_podcast": 76,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
-      "image": "https://static01.nyt.com/images/2026/06/17/multimedia/17xp-crash-bfmg/17xp-crash-bfmg-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
-      "title": "[Al Jazeera English] Dahiyeh crowds rally in favour of Iranian support against Israel",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDahiyeh crowds rally in favour of Iranian support against Israel.",
-      "summary": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
-      "_excerpt": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
-      "date_published": "2026-06-11T03:49:06+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality": 79,
-      "_relevance": 79,
-      "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 76,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://qz.com/cadeler-ceo-mikkel-gleerup-energy-transition-infrastructure",
-      "url": "https://qz.com/cadeler-ceo-mikkel-gleerup-energy-transition-infrastructure",
-      "title": "[Quartz] Cadeler CEO Mikkel Gleerup highlights energy transition infrastructure growth",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Cadeler%2520CEO%2520Mikkel%2520Gleerup%2520Highlights%2520Energy%2520Transition%2520Infrastructure%2520Growth.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCadeler CEO Mikkel Gleerup highlights energy transition infrastructure growth",
-      "summary": "Cadeler CEO Mikkel Gleerup highlights energy transition infrastructure growth",
-      "_excerpt": "Cadeler CEO Mikkel Gleerup highlights energy transition infrastructure growth",
-      "date_published": "2026-06-15T17:40:08+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_composite_podcast": 75,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Cadeler%2520CEO%2520Mikkel%2520Gleerup%2520Highlights%2520Energy%2520Transition%2520Infrastructure%2520Growth.mp4"
-    },
-    {
-      "id": "https://www.statnews.com/2026/06/12/medicare-drug-price-negotiation-loophole-proposed-rule/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/06/12/medicare-drug-price-negotiation-loophole-proposed-rule/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: Trump administration revisits policy to close Medicare drug price negotiation loophole",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/06/AdobeStock_368502455-645x645.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nTrump administration revisits policy to plug Medicare drug price negotiation loophole.",
-      "summary": "Trump administration revisits policy to plug Medicare drug price negotiation loophole.",
-      "_excerpt": "Trump administration revisits policy to plug Medicare drug price negotiation loophole.",
-      "date_published": "2026-06-12T21:45:12+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 76,
-      "_composite_podcast": 75,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/06/AdobeStock_368502455-645x645.jpeg"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/12/family-mourn-indian-sailor-killed-in-us-strike-on-oil-tanker?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/12/family-mourn-indian-sailor-killed-in-us-strike-on-oil-tanker?traffic_source=rss",
-      "title": "[Al Jazeera English] Family mourn Indian sailor killed in US strike on oil tanker",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781257856.jpg?resize=1840%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe wife and family of an Indian sailor killed in a US strike on a tanker off Oman this week have gathered in mourning.",
-      "summary": "The wife and family of an Indian sailor killed in a US strike on a tanker off Oman this week have gathered in mourning.",
-      "_excerpt": "The wife and family of an Indian sailor killed in a US strike on a tanker off Oman this week have gathered in mourning.",
-      "date_published": "2026-06-12T09:51:11+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality": 79,
-      "_relevance": 79,
-      "_local": 0,
-      "_theme_score": 78,
-      "_composite_podcast": 75,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-17T01:50:38.591958+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781257856.jpg?resize=1840%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/funerals-held-after-deadly-pakistani-strikes-in-afghanistan?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/funerals-held-after-deadly-pakistani-strikes-in-afghanistan?traffic_source=rss",
-      "title": "[Al Jazeera English] Funerals held after deadly Pakistani strikes in Afghanistan",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781153809.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHundreds gathered in eastern Afghanistan for the funerals of civilians killed in Pakistani airstrikes.",
-      "summary": "Hundreds gathered in eastern Afghanistan for the funerals of civilians killed in Pakistani airstrikes.",
-      "_excerpt": "Hundreds gathered in eastern Afghanistan for the funerals of civilians killed in Pakistani airstrikes.",
-      "date_published": "2026-06-11T05:00:17+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 78,
-      "_quality": 78,
-      "_relevance": 78,
-      "_local": 0,
-      "_theme_score": 77,
-      "_composite_podcast": 75,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781153809.jpg?resize=1620%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/13/yemens-spider-man-dies-while-scaling-volcanic-crater?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/13/yemens-spider-man-dies-while-scaling-volcanic-crater?traffic_source=rss",
-      "title": "[Al Jazeera English] Yemen’s ‘Spider-Man’ dies while scaling volcanic crater",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/title_fb-1781348866.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nYemen’s &#039;Spider-Man&#039; dies while scaling volcanic crater",
-      "summary": "Yemen’s 'Spider-Man' dies while scaling volcanic crater",
-      "_excerpt": "Yemen’s 'Spider-Man' dies while scaling volcanic crater",
-      "date_published": "2026-06-13T11:08:34+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality": 77,
-      "_relevance": 77,
-      "_local": 0,
-      "_theme_score": 78,
-      "_composite_podcast": 75,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-14T08:34:34.530182+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/title_fb-1781348866.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bill-gates-appears-before-congress-to-testify-over-epstein-files?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bill-gates-appears-before-congress-to-testify-over-epstein-files?traffic_source=rss",
-      "title": "[Al Jazeera English] Bill Gates appears before Congress to testify over Epstein files",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/WD-clean-1781105966.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMicrosoft founder Bill Gates appeared before Congress to testify over Epstein files",
-      "summary": "Microsoft founder Bill Gates appeared before Congress to testify over Epstein files",
-      "_excerpt": "Microsoft founder Bill Gates appeared before Congress to testify over Epstein files",
-      "date_published": "2026-06-10T15:38:38+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality": 79,
-      "_relevance": 79,
-      "_local": 0,
-      "_theme_score": 75,
-      "_composite_podcast": 74,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WD-clean-1781105966.jpg?resize=1920%2C1080&quality=80"
-    },
-    {
-      "id": "https://globalnews.ca/news/11908381/medicine-hat-boy-death-echo-dale-regional-park/",
-      "url": "https://globalnews.ca/news/11908381/medicine-hat-boy-death-echo-dale-regional-park/",
-      "title": "[Global News] 11-year-old boy dies from suspected drowning in Medicine Hat",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/med-hat-police-cropped.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMedicine Hat police confirmed an 11-year-old boy died following a suspected drowning Monday at Echo Dale Regional Park in the southeastern Alberta city.",
-      "summary": "Medicine Hat police confirmed an 11-year-old boy died following a suspected drowning Monday at Echo Dale Regional Park in the southeastern Alberta city.",
-      "_excerpt": "Medicine Hat police confirmed an 11-year-old boy died following a suspected drowning Monday at Echo Dale Regional Park in the southeastern Alberta city.",
-      "date_published": "2026-06-16T21:33:57+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 80,
-      "_composite_podcast": 72,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-17T01:50:38.591958+00:00"
-      },
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/med-hat-police-cropped.jpg?quality=65&strip=all"
-    },
-    {
-      "id": "https://www.atlasobscura.com/places/hellfire-club-ruins",
-      "url": "https://www.atlasobscura.com/places/hellfire-club-ruins",
-      "title": "[Atlas Obscura] Hellfire Club Ruins in Ireland",
-      "content_html": "<img src=\"https://img.atlasobscura.com/HJJ-ENk2-WhiFKOU_628FBZkeHiuHt2vx2mQFqFEnVs/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/YOPvX7t97lHS4EEm2H1ghYgnCvHLKcfBwsdIwbkokEM/rs:fill:300:200:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg\" width=\"300\" /></p> <p> At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly.  Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a meeting place for the Irish Hellfire Club. </p>\n<p>The summit of Montpelier Hill originally held a passage grave topped by a cairn of stones.  Connolly ordered the cairn dismantled and its stones used as building materials for the lodge.  One of the grave’s standing stones became the lintel for the fireplace.     </p>\n<p>The Hellfire Club was founded in 1735 by Richard Parsons, a notorious aficionado of the dark arts and black magic.  The Club became known for lascivious and immoral behavior involving quantities of alcohol and sex.  The Club’s president was called “The King of Hell,” and he reportedly dressed like a winged Satan.  The Hellfire Club’s members were of such unsavory reputation that writer Jonathan Swift described them as “a brace of monsters, blasphemers and Bacchanalians.” </p>\n<p>It was rumored that the Club held black masses in the lodge during which black cats – and perhaps servants – were sacrificed.  William Connolly’s grandson, Thomas, claimed to have met the Devil during a card game in the Lodge, where he watched Satan burst into flames and fly out the gable window. </p>\n<p>In 1741, the roof of the Lodge caught fire and was completely destroyed.  Some claim the roof was intentionally set alight to give the building a more Hellish appearance.  The most sensational rumor was that the Club lured a victim to the Lodge, intoxicated him, and set him on fire.  The fire spread, killed several members, and destroyed the building.  Rather than repair it, the Hellfire Club's members moved their meetings, but Club membership declined thereafter.  Given the dark stories associated with the HellFire Club, it was no surprise that rumors spread that the ruins were haunted, and those rumors persist today.</p>",
-      "summary": "At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly. Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a",
-      "_excerpt": "At the summit of Montpelier Hill in Rathfarnham Dublin are the stone ruins of a building constructed in 1725 for the then Speaker of the Irish House of Commons, William Connolly. Intended and designed as a hunting lodge, the building was sold after Connolly’s death in 1729 and was later used as a meeting place for the Irish Hellfire Club. The summit of Montpelier Hill originally held a passage grave topped by a cairn of stones. Connolly ordered the cairn dismantled and its stones used as building materials for the lodge. One of the grave’s standing stones became the lintel for the fireplace.",
-      "date_published": "2026-06-16T16:00:00+00:00",
-      "authors": [
-        {
-          "name": "Atlas Obscura",
-          "url": "https://www.atlasobscura.com"
-        }
-      ],
-      "ai_score": 67,
-      "_quality": 67,
-      "_relevance": 67,
-      "_local": 0,
-      "_theme_score": 64,
-      "_composite_podcast": 70,
-      "_keyword_matches": 2,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://img.atlasobscura.com/HJJ-ENk2-WhiFKOU_628FBZkeHiuHt2vx2mQFqFEnVs/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9lNTc1/MTQxYy0wNTBiLTQ5/ODAtOTEyZi0yNDIz/NDVmZWE1M2UxMzMz/MzE4MjNiZjQ2Mjk4/MmNfSU1HXzMwMzgu/anBlZw.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/gallery/2026/6/15/geneva-police-use-force-as-g7-protest-escalates-into-violence?traffic_source=rss",
-      "url": "https://www.aljazeera.com/gallery/2026/6/15/geneva-police-use-force-as-g7-protest-escalates-into-violence?traffic_source=rss",
-      "title": "[Al Jazeera English] Geneva police use force as G7 protest escalates into violence",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/AFP__20260614__B72F6BY__v1__HighRes__SwitzerlandFranceG7PoliticsDiplomacyDemo-1781513758.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDemonstrators denounce G7 amid escalating clashes, which lead to damaged buildings and burning cars.",
-      "summary": "Demonstrators denounce G7 amid escalating clashes, which lead to damaged buildings and burning cars.",
-      "_excerpt": "Demonstrators denounce G7 amid escalating clashes, which lead to damaged buildings and burning cars.",
-      "date_published": "2026-06-15T10:05:09+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality": 73,
-      "_relevance": 73,
-      "_local": 0,
-      "_theme_score": 60,
-      "_composite_podcast": 64,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/AFP__20260614__B72F6BY__v1__HighRes__SwitzerlandFranceG7PoliticsDiplomacyDemo-1781513758.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.androidauthority.com/plaud-new-ai-agent-wearable-3678336/",
-      "url": "https://www.androidauthority.com/plaud-new-ai-agent-wearable-3678336/",
-      "title": "[Android Authority] Forget basic transcriptions: An upcoming wearable wants to power autonomous AI agents",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2025/06/PLAUD-NOTE-in-different-colors-5.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAffiliate links on Android Authority may earn us a commission. Learn more. Wearables and health # Forget basic transcriptions: An upcoming wearable wants to power autonomous AI agents Moving past note-taking, Plaud's new wearable device will act as an active pipeline for digital models. By Aamir Siddiqui • 43 minutes ago • 0 • • Add AndroidAuthority on Google PLAUD NOTE in different colors 5 Edgar Cervantes / Android Authority Google Discover 1 Follow us on Google DiscoverGoogle Symbol 0 Add us as preferred source TL;DR * Plaud plans to launch a new wearable later this year that is designed",
-      "summary": "Affiliate links on Android Authority may earn us a commission. Learn more. Wearables and health # Forget basic transcriptions: An upcoming wearable wants to power autonomous AI agents Moving past note-taking, Plaud's new wearable device will act as an active pipeline for digital models. By Aamir",
-      "_excerpt": "Affiliate links on Android Authority may earn us a commission. Learn more. Wearables and health # Forget basic transcriptions: An upcoming wearable wants to power autonomous AI agents Moving past note-taking, Plaud's new wearable device will act as an active pipeline for digital models. By Aamir Siddiqui • 43 minutes ago • 0 • • Add AndroidAuthority on Google PLAUD NOTE in different colors 5 Edgar Cervantes / Android Authority Google Discover 1 Follow us on Google DiscoverGoogle Symbol 0 Add us as preferred source TL;DR * Plaud plans to launch a new wearable later this year that is designed",
-      "date_published": "2026-06-17T08:32:18+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 75,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 46,
+      "_theme_score": 63,
       "_composite_podcast": 62,
-      "_keyword_matches": 2,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": false,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/06/PLAUD-NOTE-in-different-colors-5.jpg"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/local-news/whistler-rcmp-actively-reviewing-and-investigating-complaints-about-taxi-driver-misconduct-12432131",
-      "url": "https://www.piquenewsmagazine.com/local-news/whistler-rcmp-actively-reviewing-and-investigating-complaints-about-taxi-driver-misconduct-12432131",
-      "title": "[Pique Newsmagazine] Whistler RCMP ‘actively reviewing and investigating’ complaints about taxi driver misconduct",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-taxi-stop.png;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhistlerites allege inappropriate touching, dangerous driving and more",
-      "summary": "Whistlerites allege inappropriate touching, dangerous driving and more",
-      "_excerpt": "Whistlerites allege inappropriate touching, dangerous driving and more",
-      "date_published": "2026-06-17T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 70,
-      "_quality": 70,
-      "_relevance": 70,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 61,
-      "_keyword_matches": 1,
+      "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-taxi-stop.png;w=960"
+      "_is_bonus": true,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/770e518a-c898-49b3-84bf-515dc5e9d6bc-1.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/video-shows-aftermath-of-iranian-attack-in-bahrain?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/video-shows-aftermath-of-iranian-attack-in-bahrain?traffic_source=rss",
-      "title": "[Al Jazeera English] Video shows aftermath of Iranian attack in Bahrain",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781181534.jpg?resize=1620%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIranian strikes on Bahrain left cars, homes and buildings damaged in Hamad Town and Manama.",
-      "summary": "Iranian strikes on Bahrain left cars, homes and buildings damaged in Hamad Town and Manama.",
-      "_excerpt": "Iranian strikes on Bahrain left cars, homes and buildings damaged in Hamad Town and Manama.",
-      "date_published": "2026-06-11T12:39:06+00:00",
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/17/dramatic-rescue-after-plane-crashes-onto-texas-highway?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/17/dramatic-rescue-after-plane-crashes-onto-texas-highway?traffic_source=rss",
+      "title": "[Al Jazeera English] Dramatic rescue after plane crashes onto Texas highway",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-17-at-10.30.32-AM-1781681466.png?resize=1200%2C675\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDramatic rescue after plane crashes onto Texas highway.",
+      "summary": "Dramatic rescue after plane crashes onto Texas highway.",
+      "_excerpt": "Dramatic rescue after plane crashes onto Texas highway.",
+      "date_published": "2026-06-17T07:46:01+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
           "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality": 72,
-      "_relevance": 72,
-      "_local": 0,
-      "_theme_score": 52,
-      "_composite_podcast": 59,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781181534.jpg?resize=1620%2C1080&quality=80"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
-      "url": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
-      "title": "[Williams Lake Tribune] Rotary Peace Pole to be installed in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pole will promote peace in the world and community",
-      "summary": "The pole will promote peace in the world and community",
-      "_excerpt": "The pole will promote peace in the world and community",
-      "date_published": "2026-06-11T09:02:58.168752+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality": 100,
-      "_relevance": 100,
-      "_local": 0,
-      "_theme_score": 46,
-      "_composite_podcast": 58,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune",
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://www.statnews.com/2026/06/13/who-director-general-in-drc-war-greater-concern-than-ebola/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/06/13/who-director-general-in-drc-war-greater-concern-than-ebola/?utm_campaign=rss",
-      "title": "[STAT News] WHO director-general is profoundly concerned after visit to Ebola outbreak area",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/06/AP26151392853405-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe director-general of the World Health Organization is profoundly worried about the Ebola outbreak in the DRC, he told STAT in an interview.",
-      "summary": "The director-general of the World Health Organization is profoundly worried about the Ebola outbreak in the DRC, he told STAT in an interview.",
-      "_excerpt": "The director-general of the World Health Organization is profoundly worried about the Ebola outbreak in the DRC, he told STAT in an interview.",
-      "date_published": "2026-06-13T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
         }
       ],
       "ai_score": 80,
       "_quality": 80,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 56,
-      "_composite_podcast": 58,
+      "_theme_score": 78,
+      "_composite_podcast": 61,
       "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-14T08:34:34.530182+00:00"
-      },
-      "image": "https://www.statnews.com/wp-content/uploads/2026/06/AP26151392853405-645x645.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/12/us/midland-texas-shooting-active-shooter.html",
-      "url": "https://www.nytimes.com/2026/06/12/us/midland-texas-shooting-active-shooter.html",
-      "title": "[NYT Top Stories] Man Is Barricaded in Building After Fatal Shooting in Midland, Texas",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe man is “contained” in a building in Midland, with dozens of law enforcement officers on the scene, officials said. Eleven people were also injured.",
-      "summary": "The man is “contained” in a building in Midland, with dozens of law enforcement officers on the scene, officials said. Eleven people were also injured.",
-      "_excerpt": "The man is “contained” in a building in Midland, with dozens of law enforcement officers on the scene, officials said. Eleven people were also injured.",
-      "date_published": "2026-06-12T16:38:51+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 68,
-      "_quality": 68,
-      "_relevance": 68,
-      "_local": 0,
-      "_theme_score": 43,
-      "_composite_podcast": 52,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
-      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
-    },
-    {
-      "id": "https://www.tomsguide.com/wellness/fitness/columbia-tellurix-titanium-outdry-hiking-shoes-review",
-      "url": "https://www.tomsguide.com/wellness/fitness/columbia-tellurix-titanium-outdry-hiking-shoes-review",
-      "title": "[Toms Guide] I’ve walked over 75,000 steps in the Columbia Tellurix Titanium OutDry — and these rugged, waterproof boots are great for hikes but not everyday wear",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/cdnPnvvmvtfQc4ZxDKybTR-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Columbia Tellurix Titanium OutDry are great hiking boots as they're rugged, waterproof and sport a durable build. But they aren't made for everyday wear.",
-      "summary": "The Columbia Tellurix Titanium OutDry are great hiking boots as they're rugged, waterproof and sport a durable build. But they aren't made for everyday wear.",
-      "_excerpt": "The Columbia Tellurix Titanium OutDry are great hiking boots as they're rugged, waterproof and sport a durable build. But they aren't made for everyday wear.",
-      "date_published": "2026-06-11T16:49:18+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 66,
-      "_quality": 66,
-      "_relevance": 66,
-      "_local": 0,
-      "_theme_score": 42,
-      "_composite_podcast": 51,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/cdnPnvvmvtfQc4ZxDKybTR-1280-80.jpg"
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/6/12/alarm-as-ebola-spreads-into-new-areas-of-dr-congo?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/6/12/alarm-as-ebola-spreads-into-new-areas-of-dr-congo?traffic_source=rss",
-      "title": "[Al Jazeera English] Alarm as Ebola spreads into new areas of DR Congo",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2c148f49a1-1781273743.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nCases are being identified in new health zones on a near-daily basis, warns WHO&#039;s head of epidemiology.",
-      "summary": "Cases are being identified in new health zones on a near-daily basis, warns WHO's head of epidemiology.",
-      "_excerpt": "Cases are being identified in new health zones on a near-daily basis, warns WHO's head of epidemiology.",
-      "date_published": "2026-06-12T15:37:25+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality": 73,
-      "_relevance": 73,
-      "_local": 0,
-      "_theme_score": 47,
-      "_composite_podcast": 50,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-14T08:34:34.530182+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a2c148f49a1-1781273743.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://theoo.dev/notes/living-life-like-a-video-game-13",
-      "url": "https://theoo.dev/notes/living-life-like-a-video-game-13",
-      "title": "[Kagi Small Web] Living life like a video game",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more).</p>\n<p>What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a shortcut if it turns out there is also a door on the other side and you go for it. Then on the way, you will most likely spot something else interesting, and that's where things get fun for real. Because you can either bookmark this thing in a corner of your head (or a note on your phone or whatever) or you can switch directions and go for that new thing instead.</p>\n<p>Generally, as you go from point of interest to point of interest, you end up in some random place, late and it's time to get home. On your way, you've probably spoken to a bunch of random people, had some type of sugary treat in a shop you didn't know about, picked up a cool rock or seen some nice birds.</p>\n<p>I think this is a great way to experience life and to discover more things about the area that you live in. This is especially fun to do in a city (even better if it's one you don't know much) or in the woods. Here are some of my tips for a great adventure:</p>\n<ul>\n<li>PRIVATE often doesn't really mean private. A lot of people are cool with you passing by when you explain what you are doing, and those who aren't ok will generally tell you off once they've checked you didn't steal anything.</li>\n<li>Give yourself an hour by which you should be back home and only walk for half of that time. The other half is used to come back! Trust me, you don't want to be trekking in some random woods 10km away from your home at night with no phone battery and your girlfriend waiting home. That doesn't end well.</li>\n<li>Be prepared for dead ends and going back on your steps a bunch. Not all roads lead to where you want and sometimes you take a wrong turn that leads nowhere and you have to walk half an hour back. That's just how it goes.</li>\n<li>Embrace opportunities and expect people to be nice. Especially in more remote places, people will be wondering what you are doing there and ask you about it. Explain your adventure and sometimes they might give you more stuff or they might even tell you about a new point of interest you should check out. Life is surprisingly like a video game when you live it like one.</li>\n<li>Bring ample amounts of water. It sucks to walk in the sun with nothing to drink and sometimes there is nowhere you can ask to refill your bottle.</li>\n<li>Treat yourself. If you see something you'd like to do or eat/drink and you can afford it, don't hesitate! Go for it and enjoy a nice moment in your adventure. Don't worry about the time, it's ok to have to go back home before you got to where you wanted.</li>\n<li>Everything is a path, you don't have to follow roads, cutting through woods or weird parking lots is fun and rarely that dangerous.</li>\n<li>Any means of transport is fine. If you feel like you live in a city you know like the back of your hand, well first, you don't, and second, you can take a train or a bus or your car to go somewhere else and start your adventure there instead! The adventure might even be getting back home from where the train/bus dropped you using your legs. Buses are also a real cheat code to be able to walk further since they make the &quot;getting home&quot; part much faster and can be found pretty much anywhere.</li>\n</ul>\n<p>I hope this text could inspire you to try to go on an adventure as well, it doesn't have to be long, walking for an hour can already take you quite far!</p>\n<p>If you do try (or maybe you already do this on a regular basis), I would be pleased to hear about fun stuff that happened during your adventures! You can email me at <a href=\"mailto:hello@theoo.dev\">hello@theoo.dev</a>.</p>",
-      "summary": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living",
-      "_excerpt": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a",
-      "date_published": "2026-06-13T00:00:00+00:00",
-      "authors": [
-        {
-          "name": "Kagi Small Web",
-          "url": "https://kagi.com/smallweb"
-        }
-      ],
-      "ai_score": 70,
-      "_quality": 70,
-      "_relevance": 70,
-      "_local": 0,
-      "_theme_score": 26,
-      "_composite_podcast": 49,
-      "_keyword_matches": 2,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
-    },
-    {
-      "id": "https://www.tomsguide.com/ai/that-dead-phone-in-your-drawer-could-power-the-next-ai-data-center",
-      "url": "https://www.tomsguide.com/ai/that-dead-phone-in-your-drawer-could-power-the-next-ai-data-center",
-      "title": "[Toms Guide] That dead phone in your drawer could power the next AI data center",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/Y9GhejbYyxJUeQG6VezKoK-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nResearchers are turning discarded Google Pixel smartphones into miniature data centers, giving old devices a surprising second life while reducing e-waste and supporting low-cost computing.",
-      "summary": "Researchers are turning discarded Google Pixel smartphones into miniature data centers, giving old devices a surprising second life while reducing e-waste and supporting low-cost computing.",
-      "_excerpt": "Researchers are turning discarded Google Pixel smartphones into miniature data centers, giving old devices a surprising second life while reducing e-waste and supporting low-cost computing.",
-      "date_published": "2026-06-15T15:57:36+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality": 74,
-      "_relevance": 74,
-      "_local": 0,
-      "_theme_score": 17,
-      "_composite_podcast": 44,
-      "_keyword_matches": 2,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/Y9GhejbYyxJUeQG6VezKoK-1280-80.jpg"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
-      "url": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
-      "title": "[Williams Lake Tribune] 29-year-old man dead after going off-road on Highway 26 near Quesnel",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By Yashvika Grover Local Journalism Initiative** A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
-      "summary": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12.",
-      "_excerpt": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo)](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
-      "date_published": "2026-06-15T12:45:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 90,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 26,
-      "_composite_podcast": 43,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune",
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/the-mix/the-700-year-old-st-vitus-cathedral-in-prague-inaugurates-a-new-organ-12421209",
-      "url": "https://www.piquenewsmagazine.com/the-mix/the-700-year-old-st-vitus-cathedral-in-prague-inaugurates-a-new-organ-12421209",
-      "title": "[Pique Newsmagazine] The 700-year-old St. Vitus Cathedral in Prague inaugurates a new organ",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/5506027266f2fce73f1ac5e60ed3e8eb24d7e9ee8dbc92edbba160911a224a49.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPRAGUE (AP) — Prague’s St. Vitus Cathedral had its new organ inaugurated on Monday, giving the 700-year-old building, the largest in the Czech Republic, a proper instrument to accompany religious services and concerts.",
-      "summary": "PRAGUE (AP) — Prague’s St. Vitus Cathedral had its new organ inaugurated on Monday, giving the 700-year-old building, the largest in the Czech Republic, a proper instrument to accompany religious services and concerts.",
-      "_excerpt": "PRAGUE (AP) — Prague’s St. Vitus Cathedral had its new organ inaugurated on Monday, giving the 700-year-old building, the largest in the Czech Republic, a proper instrument to accompany religious services and concerts.",
-      "date_published": "2026-06-16T04:35:18+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 71,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 24,
-      "_composite_podcast": 42,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/5506027266f2fce73f1ac5e60ed3e8eb24d7e9ee8dbc92edbba160911a224a49.jpg;w=960"
+      "_thin_body": true,
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-17-at-10.30.32-AM-1781681466.png?resize=1200%2C675"
     },
     {
       "id": "https://www.atlasobscura.com/places/skuli-magnusson-statue",
@@ -829,8 +384,8 @@
       "_quality": 66,
       "_relevance": 66,
       "_local": 0,
-      "_theme_score": 27,
-      "_composite_podcast": 42,
+      "_theme_score": 39,
+      "_composite_podcast": 49,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -843,17 +398,289 @@
       "image": "https://img.atlasobscura.com/r3nAaABmzGJhC_hnzzTluDGNazobLaZbKMtiOFvKB4Y/rt:fit/w:600/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9iOGZl/YzUxMi01YTE2LTQx/ZDEtYjcxNy1kNjEz/MDIzNTQ0OWQ3MTU5/MGMxYWQ2NmZiYzJl/NWVfMTAwMDA3NjY5/Mi5qcGc.jpg"
     },
     {
-      "id": "https://www.mycariboonow.com/314152/news/communty/logan-parent-memorial-bulls-barrels-this-weekend-in-the-south-cariboo/",
-      "url": "https://www.mycariboonow.com/314152/news/communty/logan-parent-memorial-bulls-barrels-this-weekend-in-the-south-cariboo/",
-      "title": "Logan Parent Memorial Bulls & Barrels this weekend in the South Cariboo : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-12T15:46:17.831731+00:00",
+      "id": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
+      "url": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
+      "title": "[Williams Lake Tribune] 29-year-old man dead after going off-road on Highway 26 near Quesnel",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By Yashvika Grover Local Journalism Initiative** A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
+      "summary": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12.",
+      "_excerpt": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo)](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
+      "date_published": "2026-06-15T12:45:00+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 90,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 36,
+      "_composite_podcast": 49,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T21:44:39.715873+00:00"
+      },
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024"
+    },
+    {
+      "id": "https://globalnews.ca/news/11908381/medicine-hat-boy-death-echo-dale-regional-park/",
+      "url": "https://globalnews.ca/news/11908381/medicine-hat-boy-death-echo-dale-regional-park/",
+      "title": "[Global News] 11-year-old boy dies from suspected drowning in Medicine Hat",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/med-hat-police-cropped.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nMedicine Hat police confirmed an 11-year-old boy died following a suspected drowning Monday at Echo Dale Regional Park in the southeastern Alberta city.",
+      "summary": "Medicine Hat police confirmed an 11-year-old boy died following a suspected drowning Monday at Echo Dale Regional Park in the southeastern Alberta city.",
+      "_excerpt": "Medicine Hat police confirmed an 11-year-old boy died following a suspected drowning Monday at Echo Dale Regional Park in the southeastern Alberta city.",
+      "date_published": "2026-06-16T21:33:57+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 63,
+      "_composite_podcast": 47,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-17T01:50:38.591958+00:00"
+      },
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/med-hat-police-cropped.jpg?quality=65&strip=all"
+    },
+    {
+      "id": "https://www.businessinsider.com/stressed-out-mom-solo-trip-helped-me-reset-2026-6",
+      "url": "https://www.businessinsider.com/stressed-out-mom-solo-trip-helped-me-reset-2026-6",
+      "title": "[Business Insider] As a stressed-out mom, I needed a break. I went on a 3-day trip to focus on myself — and it worked.",
+      "content_html": "<img src=\"https://i.insider.com/6a26e9ed2ab5f9757adda241?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
+      "summary": "I was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
+      "_excerpt": "I was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
+      "date_published": "2026-06-13T11:51:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 72,
+      "_quality": 72,
+      "_relevance": 72,
+      "_local": 0,
+      "_theme_score": 66,
+      "_composite_podcast": 46,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T21:44:39.715873+00:00"
+      },
+      "image": "https://i.insider.com/6a26e9ed2ab5f9757adda241?format=jpeg"
+    },
+    {
+      "id": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
+      "url": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
+      "title": "[How-To Geek] 5 free apps I self-host instead of paying $2,400 per year in subscriptions",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/a7303923.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI never knew self-hosting could save me so much money",
+      "summary": "I never knew self-hosting could save me so much money",
+      "_excerpt": "I never knew self-hosting could save me so much money",
+      "date_published": "2026-06-10T20:45:17+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 77,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 49,
+      "_composite_podcast": 42,
+      "_keyword_matches": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-06-14T08:34:34.530182+00:00"
+      },
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/a7303923.jpg"
+    },
+    {
+      "id": "https://www.businessinsider.com/nutritionist-triple-30-rule-to-get-enough-protein-and-fiber-2026-6",
+      "url": "https://www.businessinsider.com/nutritionist-triple-30-rule-to-get-enough-protein-and-fiber-2026-6",
+      "title": "[Business Insider] A nutritionist swears by the 'triple 30' rule to eat enough protein and fiber for gut health and longevity",
+      "content_html": "<img src=\"https://i.insider.com/6a3193d2564c774507cd310f?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nHealth # A nutritionist swears by the 'triple 30' rule to eat enough protein and fiber for gut health and longevity By Gabby Landsverk You're currently following this author! Want to unfollow? Unsubscribe via the link in your email. Hands hold a fruit and granola bowl beside coffee cups and a red drink on a rustic wooden table. A nutritionist recommends planning your meals around the triple 30 rule: 30 grams of protein per meal, 30 grams of fiber per day, and 30 different plants a week. Alina Rudya/Bell Collective/Getty Images 2026-06-17T12:02:01.602Z Read in app Loading audio narration...",
+      "summary": "Health # A nutritionist swears by the 'triple 30' rule to eat enough protein and fiber for gut health and longevity By Gabby Landsverk You're currently following this author! Want to unfollow? Unsubscribe via the link in your email. Hands hold a fruit and granola bowl beside coffee cups and a red",
+      "_excerpt": "Health # A nutritionist swears by the 'triple 30' rule to eat enough protein and fiber for gut health and longevity By Gabby Landsverk You're currently following this author! Want to unfollow? Unsubscribe via the link in your email. Hands hold a fruit and granola bowl beside coffee cups and a red drink on a rustic wooden table. A nutritionist recommends planning your meals around the triple 30 rule: 30 grams of protein per meal, 30 grams of fiber per day, and 30 different plants a week. Alina Rudya/Bell Collective/Getty Images 2026-06-17T12:02:01.602Z Read in app Loading audio narration...",
+      "date_published": "2026-06-17T12:02:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 66,
+      "_quality": 66,
+      "_relevance": 66,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 41,
+      "_keyword_matches": 1,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/6a3193d2564c774507cd310f?format=jpeg"
+    },
+    {
+      "id": "https://www.businessinsider.com/longevity-diet-simple-swaps-to-live-longer-and-save-money-2026-6",
+      "url": "https://www.businessinsider.com/longevity-diet-simple-swaps-to-live-longer-and-save-money-2026-6",
+      "title": "[Business Insider] These longevity meal swaps may lower your biological age — while saving time and money",
+      "content_html": "<img src=\"https://i.insider.com/6a2c42566588b2a09a7c7624?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n Health # These longevity meal swaps may lower your biological age — while saving time and money By Hilary Brueck You're currently following this author! Want to unfollow? Unsubscribe via the link in your email. Photo collage featuring a fitness woman and examples of curry and cottage pie Getty Images; Tyler Le/BI 2026-06-14T10:41:01.242Z  Read in app  Loading audio narration...",
+      "summary": "[ Health](https://www.businessinsider.com/health) # These longevity meal swaps may lower your biological age — while saving time and money By [Hilary Brueck](https://www.businessinsider.com/author/hilary-brueck) You're currently following this author! Want to unfollow? Unsubscribe via the link in",
+      "_excerpt": "[ Health](https://www.businessinsider.com/health) # These longevity meal swaps may lower your biological age — while saving time and money By [Hilary Brueck](https://www.businessinsider.com/author/hilary-brueck) You're currently following this author! Want to unfollow? Unsubscribe via the link in your email. ![Photo collage featuring a fitness woman and examples of curry and cottage pie](https://i.insider.com/6a2c42566588b2a09a7c7624?width=700) Getty Images; Tyler Le/BI 2026-06-14T10:41:01.242Z [ Read in app ](https://insider-app.onelink.me/4cpG/?af%5Fjs%5Fweb&) Loading audio narration...",
+      "date_published": "2026-06-14T10:41:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 76,
+      "_quality": 76,
+      "_relevance": 76,
+      "_local": 0,
+      "_theme_score": 20,
+      "_composite_podcast": 41,
+      "_keyword_matches": 1,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://i.insider.com/6a2c42566588b2a09a7c7624?format=jpeg"
+    },
+    {
+      "id": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "url": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "title": "[Kagi Small Web] The Startup That Charges More on Day One Usually Wins",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<h2 id=\"the-seduction-of-the-low-price\">The Seduction of the Low Price</h2>\n<p>The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it&rsquo;s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they&rsquo;re being humble, customer-focused, pragmatic.</p>\n<p>What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try.</p>\n<p>The counterintuitive truth is that price is not just a revenue number. It&rsquo;s a signal to your market, a filter for your customers, and a constraint on your product decisions. Set it too low and you don&rsquo;t just make less money. You attract the wrong buyers, train your team to compete on cost, and starve the product of the resources it needs to improve. The startup that charges more on day one is playing a structurally different game, and it usually wins.</p>\n<h2 id=\"price-tells-customers-what-kind-of-company-you-are\">Price Tells Customers What Kind of Company You Are</h2>\n<p>B2B software buyers, in particular, read price as a proxy for quality and staying power. A tool priced at $10 per user per month signals something different than one priced at $50, even before the buyer has tried either. The lower price implies the vendor is still figuring things out, might not be around in two years, and probably can&rsquo;t support an enterprise integration. These inferences aren&rsquo;t always accurate, but they&rsquo;re predictable.</p>\n<p>This is why enterprise software vendors historically held firm on pricing even when startups tried to undercut them. Oracle and SAP weren&rsquo;t just protecting margin. They were communicating that their software was serious, mission-critical infrastructure. The price was part of the product.</p>\n<p>For early-stage companies, the same logic applies in reverse. Pricing low doesn&rsquo;t just leave money on the table. It actively recruits the customers most likely to churn when a cheaper alternative appears, because that&rsquo;s what they were optimizing for when they signed up. <a href=\"https://kagi.com/the-one-customer-type-that-kills-good-startups/\">The wrong early customers can quietly kill a company</a> by consuming support resources, demanding features that don&rsquo;t fit the core product, and paying so little that serving them is structurally unprofitable.</p>\n<h2 id=\"what-high-prices-actually-buy\">What High Prices Actually Buy</h2>\n<p>The clearest benefit of higher early pricing is unit economics. A company generating $500 per month from a customer has more room to invest in that relationship than one generating $50. More room to hire a dedicated support person, to build the integration the customer asked for, to staff a customer success function before the churn problem becomes visible in the cohort data.</p>\n<p>This is not a small operational detail. It determines whether a company can afford to learn from its customers or is simply trying to acquire more of them as fast as possible before the money runs out. Many of the startups that grew fast on low prices discovered too late that they had built a business where no unit of revenue was profitable enough to justify the cost of generating it.</p>\n<p>Higher prices also tend to attract larger, more stable buyers. A company willing to pay a premium is usually a company with a real budget, a real need, and a real procurement process. That last item sounds like a burden, but it&rsquo;s actually a signal: buyers who run procurement are buyers who have decided this is a real category worth spending on. They renew contracts. They provide structured feedback. They refer other serious buyers.</p>\n<p></p>\n<p>The math compounds over time. A startup that charges twice as much as its competitor needs half as many customers to reach the same revenue. Half as many customers means fewer support tickets, more focused product development, and a cleaner signal from the market about what actually matters. The company that has 500 deeply satisfied customers at $500 a month often has a clearer strategic picture than the one with 5,000 semi-satisfied customers at $50.</p>\n<h2 id=\"the-myth-of-the-penetration-strategy\">The Myth of the Penetration Strategy</h2>\n<p>The standard counterargument is that low prices drive volume, volume drives learning, and scale eventually creates leverage. There&rsquo;s a version of this that&rsquo;s real. It&rsquo;s how consumer internet companies built network-effect businesses, and how AWS priced cloud storage to build market share before margins became the priority.</p>\n<p>But most startups are not building consumer internet businesses, and most founders applying penetration logic to B2B SaaS are not Amazon. The penetration strategy only works when scale genuinely creates a defensible advantage, when the market is large enough that the volume math eventually closes, and when the company has enough capital to survive the years before the unit economics improve. Most early-stage startups meet none of these conditions.</p>\n<p>What they get instead is a business that looks healthy by top-line metrics and is quietly bleeding from every unit. <a href=\"https://kagi.com/charging-too-little-kills-startups-slower-and-worse/\">Charging too little kills startups slower and more painfully than most founders expect</a>, because the damage is gradual enough to explain away in every individual quarter.</p>\n<h2 id=\"raising-prices-is-harder-than-setting-them-right\">Raising Prices Is Harder Than Setting Them Right</h2>\n<p>There&rsquo;s an asymmetry that doesn&rsquo;t get enough attention: it is far easier to lower a price than to raise one. Customers anchor hard on what they first paid. A company that launches at $20 and tries to move to $50 after 18 months will face pushback from every existing customer, awkward grandfather clauses, and a public pricing page that signals the company wasn&rsquo;t confident in its value from the start.</p>\n<p>A company that launches at $50 and occasionally discounts strategically retains control of its positioning. The list price stays intact. The brand signal stays intact. The occasional discount is a negotiation tool, not a structural concession.</p>\n<p>This is why the pricing decision made at launch is one of the few early choices that genuinely compounds, in both directions. A startup that prices high early builds a cost structure, a customer base, and a market position that are all oriented around delivering real value. A startup that prices low early builds the opposite, and usually can&rsquo;t escape it without essentially relaunching.</p>\n<h2 id=\"the-price-is-the-strategy\">The Price Is the Strategy</h2>\n<p>Founding teams spend months on product roadmaps and go-to-market plans while treating the pricing page as an afterthought. It shouldn&rsquo;t be. The number you put on your product on day one is a strategic claim about who your customer is, what problem you&rsquo;re solving, and whether you believe your own pitch.</p>\n<p>Startups that charge more from the beginning aren&rsquo;t just being aggressive about revenue. They&rsquo;re making a bet that the product is worth it, and then building a company that has to prove that bet right. That pressure, it turns out, tends to produce better products. The founders who insist on earning a premium have to figure out what the premium is for. That question, asked early and answered honestly, is one of the most useful strategic exercises a startup can do.</p>",
+      "summary": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales",
+      "_excerpt": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they’re being humble, customer-focused, pragmatic. What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try. The counterintuitive truth is that price is not just a revenue number.",
+      "date_published": "2026-06-14T17:11:00+00:00",
+      "authors": [
+        {
+          "name": "Kagi Small Web",
+          "url": "https://kagi.com/smallweb"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 9,
+      "_composite_podcast": 38,
+      "_keyword_matches": 2,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T05:53:17.729226+00:00"
+      },
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
+    },
+    {
+      "id": "https://www.tomsguide.com/wellness/fitness/columbia-tellurix-titanium-outdry-hiking-shoes-review",
+      "url": "https://www.tomsguide.com/wellness/fitness/columbia-tellurix-titanium-outdry-hiking-shoes-review",
+      "title": "[Toms Guide] I’ve walked over 75,000 steps in the Columbia Tellurix Titanium OutDry — and these rugged, waterproof boots are great for hikes but not everyday wear",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/cdnPnvvmvtfQc4ZxDKybTR-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Columbia Tellurix Titanium OutDry are great hiking boots as they're rugged, waterproof and sport a durable build. But they aren't made for everyday wear.",
+      "summary": "The Columbia Tellurix Titanium OutDry are great hiking boots as they're rugged, waterproof and sport a durable build. But they aren't made for everyday wear.",
+      "_excerpt": "The Columbia Tellurix Titanium OutDry are great hiking boots as they're rugged, waterproof and sport a durable build. But they aren't made for everyday wear.",
+      "date_published": "2026-06-11T16:49:18+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 66,
+      "_quality": 66,
+      "_relevance": 66,
+      "_local": 0,
+      "_theme_score": 27,
+      "_composite_podcast": 33,
+      "_keyword_matches": 2,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/cdnPnvvmvtfQc4ZxDKybTR-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/12/us/midland-texas-shooting-active-shooter.html",
+      "url": "https://www.nytimes.com/2026/06/12/us/midland-texas-shooting-active-shooter.html",
+      "title": "[NYT Top Stories] Man Is Barricaded in Building After Fatal Shooting in Midland, Texas",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe man is “contained” in a building in Midland, with dozens of law enforcement officers on the scene, officials said. Eleven people were also injured.",
+      "summary": "The man is “contained” in a building in Midland, with dozens of law enforcement officers on the scene, officials said. Eleven people were also injured.",
+      "_excerpt": "The man is “contained” in a building in Midland, with dozens of law enforcement officers on the scene, officials said. Eleven people were also injured.",
+      "date_published": "2026-06-12T16:38:51+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 68,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 26,
+      "_composite_podcast": 27,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "image": "https://www.google.com/s2/favicons?domain=nytimes.com&sz=128"
+    },
+    {
+      "id": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
+      "url": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
+      "title": "[100 Mile Free Press] District of 100 Mile House debates use of leftover REDIP funds",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Council has $68,000 left over from a previous project that needs to be spent </p>",
+      "summary": "Council has $68,000 left over from a previous project that needs to be spent",
+      "_excerpt": "Council has $68,000 left over from a previous project that needs to be spent",
+      "date_published": "2026-06-13T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
         }
       ],
       "ai_score": 85,
@@ -861,43 +688,135 @@
       "_relevance": 85,
       "_local": 0,
       "_theme_score": 27,
-      "_composite_podcast": 42,
+      "_composite_podcast": 27,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
+      "_thin_body": true,
       "_cross_theme": {
         "day": "tuesday",
         "label": "Working Lands & Industry",
         "shown_at": "2026-06-16T21:44:39.715873+00:00"
       },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg"
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024"
     },
     {
-      "id": "https://globalnews.ca/news/11909502/hamilton-advances-proposed-data-centre-moratorium-in-pushback-to-rapid-ai-buildout/",
-      "url": "https://globalnews.ca/news/11909502/hamilton-advances-proposed-data-centre-moratorium-in-pushback-to-rapid-ai-buildout/",
-      "title": "[Global News] Hamilton advances proposed data centre moratorium in pushback to rapid AI buildout",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Hamilton-downtown.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
-      "summary": "A proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
-      "_excerpt": "A proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
-      "date_published": "2026-06-17T13:07:49+00:00",
+      "id": "https://100milefreepress.net/2026/06/11/forster-mountain-spruce-community-centre-rebuilding-following-recent-arsons/",
+      "url": "https://100milefreepress.net/2026/06/11/forster-mountain-spruce-community-centre-rebuilding-following-recent-arsons/",
+      "title": "[100 Mile Free Press] FORSTER: Mountain Spruce Community Centre rebuilding following recent arsons",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Diana Forster&#8217;s regular column to the 100 Mile Free Press </p>",
+      "summary": "Diana Forster’s regular column to the 100 Mile Free Press",
+      "_excerpt": "Diana Forster’s regular column to the 100 Mile Free Press",
+      "date_published": "2026-06-12T00:00:00+00:00",
       "authors": [
         {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
+          "name": "100 Mile Free Press",
+          "url": "https://www.100milefreepress.net"
         }
       ],
-      "ai_score": 72,
-      "_quality": 77,
-      "_relevance": 77,
+      "ai_score": 66,
+      "_quality": 66,
+      "_relevance": 66,
       "_local": 0,
-      "_theme_score": 18,
-      "_composite_podcast": 40,
+      "_theme_score": 26,
+      "_composite_podcast": 26,
       "_keyword_matches": 1,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Hamilton-downtown.jpg?quality=65&strip=all"
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-06-13T03:31:18.365639+00:00"
+      },
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024"
+    },
+    {
+      "id": "https://www.techradar.com/streaming/netflix/netflix-just-released-a-nail-biting-trailer-for-new-movie-the-last-house-and-its-made-me-scared-of-my-own-home",
+      "url": "https://www.techradar.com/streaming/netflix/netflix-just-released-a-nail-biting-trailer-for-new-movie-the-last-house-and-its-made-me-scared-of-my-own-home",
+      "title": "[TechRadar] Netflix just released a nail-biting trailer for new movie The Last House — and it's made me scared of my own home",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/B4eRRmuNZWBavMDSHZBKwg-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe Last House is a new Netflix sci-fi movie about a family trapped inside their home.",
+      "summary": "The Last House is a new Netflix sci-fi movie about a family trapped inside their home.",
+      "_excerpt": "The Last House is a new Netflix sci-fi movie about a family trapped inside their home.",
+      "date_published": "2026-06-16T13:10:20+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 83,
+      "_quality": 78,
+      "_relevance": 78,
+      "_local": 0,
+      "_theme_score": 27,
+      "_composite_podcast": 25,
+      "_keyword_matches": 0,
+      "_category": "scifi",
+      "_source_category": "scifi",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/B4eRRmuNZWBavMDSHZBKwg-1280-80.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/16/technology/taiwan-south-korea-ai-chips.html",
+      "url": "https://www.nytimes.com/2026/06/16/technology/taiwan-south-korea-ai-chips.html",
+      "title": "[NYT Business] A.I. Boom Ignites Asian Chip Companies",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/05/multimedia/00-Data-Center-Boom-01-vktl/00-Data-Center-Boom-01-vktl-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThey make much of the gear that goes into giant data centers. Demand for their products is shifting the balance of tech power.",
+      "summary": "They make much of the gear that goes into giant data centers. Demand for their products is shifting the balance of tech power.",
+      "_excerpt": "They make much of the gear that goes into giant data centers. Demand for their products is shifting the balance of tech power.",
+      "date_published": "2026-06-16T09:00:52+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 77,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 17,
+      "_composite_podcast": 24,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "image": "https://static01.nyt.com/images/2026/06/05/multimedia/00-Data-Center-Boom-01-vktl/00-Data-Center-Boom-01-vktl-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.piquenewsmagazine.com/the-mix/the-700-year-old-st-vitus-cathedral-in-prague-inaugurates-a-new-organ-12421209",
+      "url": "https://www.piquenewsmagazine.com/the-mix/the-700-year-old-st-vitus-cathedral-in-prague-inaugurates-a-new-organ-12421209",
+      "title": "[Pique Newsmagazine] The 700-year-old St. Vitus Cathedral in Prague inaugurates a new organ",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/5506027266f2fce73f1ac5e60ed3e8eb24d7e9ee8dbc92edbba160911a224a49.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nPRAGUE (AP) — Prague’s St. Vitus Cathedral had its new organ inaugurated on Monday, giving the 700-year-old building, the largest in the Czech Republic, a proper instrument to accompany religious services and concerts.",
+      "summary": "PRAGUE (AP) — Prague’s St. Vitus Cathedral had its new organ inaugurated on Monday, giving the 700-year-old building, the largest in the Czech Republic, a proper instrument to accompany religious services and concerts.",
+      "_excerpt": "PRAGUE (AP) — Prague’s St. Vitus Cathedral had its new organ inaugurated on Monday, giving the 700-year-old building, the largest in the Czech Republic, a proper instrument to accompany religious services and concerts.",
+      "date_published": "2026-06-16T04:35:18+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 19,
+      "_composite_podcast": 24,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/5506027266f2fce73f1ac5e60ed3e8eb24d7e9ee8dbc92edbba160911a224a49.jpg;w=960"
     },
     {
       "id": "https://www.techradar.com/pro/nashville-zoo-leads-fight-against-mega-ai-data-center-over-375-000-sign-petition-against-69-000-square-foot-building-set-to-overlook-animal-habitats",
@@ -918,165 +837,18 @@
       "_relevance": 81,
       "_local": 0,
       "_theme_score": 13,
-      "_composite_podcast": 38,
+      "_composite_podcast": 23,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_thin_body": true,
       "_cross_theme": {
         "day": "sunday",
         "label": "Science, Wonder & the Natural World",
         "shown_at": "2026-06-14T08:34:34.530182+00:00"
       },
       "image": "https://cdn.mos.cms.futurecdn.net/9yVZizQWbyWPRGAyTHAKfa-1280-80.jpg"
-    },
-    {
-      "id": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
-      "url": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
-      "title": "[Kagi Small Web] The Startup That Charges More on Day One Usually Wins",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<h2 id=\"the-seduction-of-the-low-price\">The Seduction of the Low Price</h2>\n<p>The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it&rsquo;s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they&rsquo;re being humble, customer-focused, pragmatic.</p>\n<p>What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try.</p>\n<p>The counterintuitive truth is that price is not just a revenue number. It&rsquo;s a signal to your market, a filter for your customers, and a constraint on your product decisions. Set it too low and you don&rsquo;t just make less money. You attract the wrong buyers, train your team to compete on cost, and starve the product of the resources it needs to improve. The startup that charges more on day one is playing a structurally different game, and it usually wins.</p>\n<h2 id=\"price-tells-customers-what-kind-of-company-you-are\">Price Tells Customers What Kind of Company You Are</h2>\n<p>B2B software buyers, in particular, read price as a proxy for quality and staying power. A tool priced at $10 per user per month signals something different than one priced at $50, even before the buyer has tried either. The lower price implies the vendor is still figuring things out, might not be around in two years, and probably can&rsquo;t support an enterprise integration. These inferences aren&rsquo;t always accurate, but they&rsquo;re predictable.</p>\n<p>This is why enterprise software vendors historically held firm on pricing even when startups tried to undercut them. Oracle and SAP weren&rsquo;t just protecting margin. They were communicating that their software was serious, mission-critical infrastructure. The price was part of the product.</p>\n<p>For early-stage companies, the same logic applies in reverse. Pricing low doesn&rsquo;t just leave money on the table. It actively recruits the customers most likely to churn when a cheaper alternative appears, because that&rsquo;s what they were optimizing for when they signed up. <a href=\"https://kagi.com/the-one-customer-type-that-kills-good-startups/\">The wrong early customers can quietly kill a company</a> by consuming support resources, demanding features that don&rsquo;t fit the core product, and paying so little that serving them is structurally unprofitable.</p>\n<h2 id=\"what-high-prices-actually-buy\">What High Prices Actually Buy</h2>\n<p>The clearest benefit of higher early pricing is unit economics. A company generating $500 per month from a customer has more room to invest in that relationship than one generating $50. More room to hire a dedicated support person, to build the integration the customer asked for, to staff a customer success function before the churn problem becomes visible in the cohort data.</p>\n<p>This is not a small operational detail. It determines whether a company can afford to learn from its customers or is simply trying to acquire more of them as fast as possible before the money runs out. Many of the startups that grew fast on low prices discovered too late that they had built a business where no unit of revenue was profitable enough to justify the cost of generating it.</p>\n<p>Higher prices also tend to attract larger, more stable buyers. A company willing to pay a premium is usually a company with a real budget, a real need, and a real procurement process. That last item sounds like a burden, but it&rsquo;s actually a signal: buyers who run procurement are buyers who have decided this is a real category worth spending on. They renew contracts. They provide structured feedback. They refer other serious buyers.</p>\n<p></p>\n<p>The math compounds over time. A startup that charges twice as much as its competitor needs half as many customers to reach the same revenue. Half as many customers means fewer support tickets, more focused product development, and a cleaner signal from the market about what actually matters. The company that has 500 deeply satisfied customers at $500 a month often has a clearer strategic picture than the one with 5,000 semi-satisfied customers at $50.</p>\n<h2 id=\"the-myth-of-the-penetration-strategy\">The Myth of the Penetration Strategy</h2>\n<p>The standard counterargument is that low prices drive volume, volume drives learning, and scale eventually creates leverage. There&rsquo;s a version of this that&rsquo;s real. It&rsquo;s how consumer internet companies built network-effect businesses, and how AWS priced cloud storage to build market share before margins became the priority.</p>\n<p>But most startups are not building consumer internet businesses, and most founders applying penetration logic to B2B SaaS are not Amazon. The penetration strategy only works when scale genuinely creates a defensible advantage, when the market is large enough that the volume math eventually closes, and when the company has enough capital to survive the years before the unit economics improve. Most early-stage startups meet none of these conditions.</p>\n<p>What they get instead is a business that looks healthy by top-line metrics and is quietly bleeding from every unit. <a href=\"https://kagi.com/charging-too-little-kills-startups-slower-and-worse/\">Charging too little kills startups slower and more painfully than most founders expect</a>, because the damage is gradual enough to explain away in every individual quarter.</p>\n<h2 id=\"raising-prices-is-harder-than-setting-them-right\">Raising Prices Is Harder Than Setting Them Right</h2>\n<p>There&rsquo;s an asymmetry that doesn&rsquo;t get enough attention: it is far easier to lower a price than to raise one. Customers anchor hard on what they first paid. A company that launches at $20 and tries to move to $50 after 18 months will face pushback from every existing customer, awkward grandfather clauses, and a public pricing page that signals the company wasn&rsquo;t confident in its value from the start.</p>\n<p>A company that launches at $50 and occasionally discounts strategically retains control of its positioning. The list price stays intact. The brand signal stays intact. The occasional discount is a negotiation tool, not a structural concession.</p>\n<p>This is why the pricing decision made at launch is one of the few early choices that genuinely compounds, in both directions. A startup that prices high early builds a cost structure, a customer base, and a market position that are all oriented around delivering real value. A startup that prices low early builds the opposite, and usually can&rsquo;t escape it without essentially relaunching.</p>\n<h2 id=\"the-price-is-the-strategy\">The Price Is the Strategy</h2>\n<p>Founding teams spend months on product roadmaps and go-to-market plans while treating the pricing page as an afterthought. It shouldn&rsquo;t be. The number you put on your product on day one is a strategic claim about who your customer is, what problem you&rsquo;re solving, and whether you believe your own pitch.</p>\n<p>Startups that charge more from the beginning aren&rsquo;t just being aggressive about revenue. They&rsquo;re making a bet that the product is worth it, and then building a company that has to prove that bet right. That pressure, it turns out, tends to produce better products. The founders who insist on earning a premium have to figure out what the premium is for. That question, asked early and answered honestly, is one of the most useful strategic exercises a startup can do.</p>",
-      "summary": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales",
-      "_excerpt": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they’re being humble, customer-focused, pragmatic. What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try. The counterintuitive truth is that price is not just a revenue number.",
-      "date_published": "2026-06-14T17:11:00+00:00",
-      "authors": [
-        {
-          "name": "Kagi Small Web",
-          "url": "https://kagi.com/smallweb"
-        }
-      ],
-      "ai_score": 68,
-      "_quality": 68,
-      "_relevance": 68,
-      "_local": 0,
-      "_theme_score": 8,
-      "_composite_podcast": 37,
-      "_keyword_matches": 2,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T05:53:17.729226+00:00"
-      },
-      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
-    },
-    {
-      "id": "https://www.statnews.com/2026/06/11/ama-lawmakers-push-back-ai-care-denials-health-tech/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/06/11/ama-lawmakers-push-back-ai-care-denials-health-tech/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: AMA and lawmakers push back on AI care denials",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/01/AP25365650927162-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn this edition of STAT Health Tech: HHS watchdog on denials by health insurers, lawmakers target AI denials, and Talkspace's new chatbot offering.",
-      "summary": "In this edition of STAT Health Tech: HHS watchdog on denials by health insurers, lawmakers target AI denials, and Talkspace's new chatbot offering.",
-      "_excerpt": "In this edition of STAT Health Tech: HHS watchdog on denials by health insurers, lawmakers target AI denials, and Talkspace's new chatbot offering.",
-      "date_published": "2026-06-11T19:25:59+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 75,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 9,
-      "_composite_podcast": 34,
-      "_keyword_matches": 1,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": false,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/01/AP25365650927162-645x645.jpg"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/06/11/forster-mountain-spruce-community-centre-rebuilding-following-recent-arsons/",
-      "url": "https://100milefreepress.net/2026/06/11/forster-mountain-spruce-community-centre-rebuilding-following-recent-arsons/",
-      "title": "[100 Mile Free Press] FORSTER: Mountain Spruce Community Centre rebuilding following recent arsons",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Diana Forster&#8217;s regular column to the 100 Mile Free Press </p>",
-      "summary": "Diana Forster’s regular column to the 100 Mile Free Press",
-      "_excerpt": "Diana Forster’s regular column to the 100 Mile Free Press",
-      "date_published": "2026-06-12T00:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "ai_score": 66,
-      "_quality": 66,
-      "_relevance": 66,
-      "_local": 0,
-      "_theme_score": 12,
-      "_composite_podcast": 33,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-06-13T03:31:18.365639+00:00"
-      },
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/16/technology/taiwan-south-korea-ai-chips.html",
-      "url": "https://www.nytimes.com/2026/06/16/technology/taiwan-south-korea-ai-chips.html",
-      "title": "[NYT Business] A.I. Boom Ignites Asian Chip Companies",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/05/multimedia/00-Data-Center-Boom-01-vktl/00-Data-Center-Boom-01-vktl-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThey make much of the gear that goes into giant data centers. Demand for their products is shifting the balance of tech power.",
-      "summary": "They make much of the gear that goes into giant data centers. Demand for their products is shifting the balance of tech power.",
-      "_excerpt": "They make much of the gear that goes into giant data centers. Demand for their products is shifting the balance of tech power.",
-      "date_published": "2026-06-16T09:00:52+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "ai_score": 77,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 4,
-      "_composite_podcast": 32,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
-      "image": "https://static01.nyt.com/images/2026/06/05/multimedia/00-Data-Center-Boom-01-vktl/00-Data-Center-Boom-01-vktl-mediumSquareAt3X.jpg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
-      "url": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
-      "title": "[NYT Top Stories] Dear A.I. Companies: The Doom Trolling Needs to Stop",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
-      "summary": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
-      "_excerpt": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
-      "date_published": "2026-06-17T09:04:32+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 70,
-      "_relevance": 70,
-      "_local": 0,
-      "_theme_score": 8,
-      "_composite_podcast": 32,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
-      "image": "https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg"
     },
     {
       "id": "https://qz.com/open-source-projects-that-run-the-internet",
@@ -1096,13 +868,99 @@
       "_quality": 68,
       "_relevance": 68,
       "_local": 0,
-      "_theme_score": 10,
-      "_composite_podcast": 32,
+      "_theme_score": 19,
+      "_composite_podcast": 23,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_thin_body": true,
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/abstract-science-fiction-futuristic-space-with-blue-neon-lights.jpg"
+    },
+    {
+      "id": "https://www.statnews.com/2026/06/11/ama-lawmakers-push-back-ai-care-denials-health-tech/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/06/11/ama-lawmakers-push-back-ai-care-denials-health-tech/?utm_campaign=rss",
+      "title": "[STAT News] STAT+: AMA and lawmakers push back on AI care denials",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/01/AP25365650927162-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nIn this edition of STAT Health Tech: HHS watchdog on denials by health insurers, lawmakers target AI denials, and Talkspace's new chatbot offering.",
+      "summary": "In this edition of STAT Health Tech: HHS watchdog on denials by health insurers, lawmakers target AI denials, and Talkspace's new chatbot offering.",
+      "_excerpt": "In this edition of STAT Health Tech: HHS watchdog on denials by health insurers, lawmakers target AI denials, and Talkspace's new chatbot offering.",
+      "date_published": "2026-06-11T19:25:59+00:00",
+      "authors": [
+        {
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 7,
+      "_composite_podcast": 18,
+      "_keyword_matches": 1,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://www.statnews.com/wp-content/uploads/2026/01/AP25365650927162-645x645.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
+      "url": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
+      "title": "[NYT Top Stories] Dear A.I. Companies: The Doom Trolling Needs to Stop",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
+      "summary": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
+      "_excerpt": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
+      "date_published": "2026-06-17T09:04:32+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 5,
+      "_composite_podcast": 15,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "image": "https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://globalnews.ca/news/11909502/hamilton-advances-proposed-data-centre-moratorium-in-pushback-to-rapid-ai-buildout/",
+      "url": "https://globalnews.ca/news/11909502/hamilton-advances-proposed-data-centre-moratorium-in-pushback-to-rapid-ai-buildout/",
+      "title": "[Global News] Hamilton advances proposed data centre moratorium in pushback to rapid AI buildout",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Hamilton-downtown.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
+      "summary": "A proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
+      "_excerpt": "A proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
+      "date_published": "2026-06-17T13:07:49+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "ai_score": 72,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 2,
+      "_composite_podcast": 15,
+      "_keyword_matches": 1,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Hamilton-downtown.jpg?quality=65&strip=all"
     },
     {
       "id": "https://www.techradar.com/pro/half-of-workers-worry-ai-will-still-take-their-job-as-new-report-claims-use-of-agents-soars-90-percent-in-just-a-year",
@@ -1123,64 +981,13 @@
       "_relevance": 68,
       "_local": 0,
       "_theme_score": 4,
-      "_composite_podcast": 29,
+      "_composite_podcast": 14,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/Rb6YDzdRZjccpn6MQ26KML-1280-80.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/security/nearly-all-security-bosses-are-worried-about-ai-safety-with-a-third-saying-they-still-rely-on-manually-reviewing-code-before-launch",
-      "url": "https://www.techradar.com/pro/security/nearly-all-security-bosses-are-worried-about-ai-safety-with-a-third-saying-they-still-rely-on-manually-reviewing-code-before-launch",
-      "title": "[TechRadar] Nearly all security bosses are worried about AI safety — with a third saying they still rely on manually reviewing code before launch",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/qP76MS2BAb7kSuWrvJXXYL-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSecurity leaders increasingly worry that AI-generated code introduces risks, while many organizations still depend heavily on manual reviews.",
-      "summary": "Security leaders increasingly worry that AI-generated code introduces risks, while many organizations still depend heavily on manual reviews.",
-      "_excerpt": "Security leaders increasingly worry that AI-generated code introduces risks, while many organizations still depend heavily on manual reviews.",
-      "date_published": "2026-06-12T00:20:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 66,
-      "_quality": 66,
-      "_relevance": 66,
-      "_local": 0,
-      "_theme_score": 1,
-      "_composite_podcast": 26,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/qP76MS2BAb7kSuWrvJXXYL-1280-80.jpg"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/06/16/quesnel-air-cadets-praised-for-community-service-and-leadership-at-annual-review/",
-      "url": "https://quesnelobserver.com/2026/06/16/quesnel-air-cadets-praised-for-community-service-and-leadership-at-annual-review/",
-      "title": "[Quesnel Cariboo Observer] Quesnel Air Cadets praised for community service and leadership at annual review",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536168_web1_260617-QCO-Front-pic_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## Quesnel Air Cadets praised for community service and leadership at annual review Published 2:00 pm Tuesday, June 16, 2026 **By Laísa Condé** Flight Sergeant Sebastien Denis, member of the Royal Canadian Air Cadets #768 Jet Ranger Squadron in Quesnel, received the Lord Strathcona Trust Fund Medal and was also honoured with the Warrant Officer Achievement Award. Denis was additionally recognized with the SSC Community Leadership Award, which was shared with Sgt. J. Wieler. See page A7. (Laísa Condé/Quesnel Cariboo Observer) 1/9 Flight Sergeant Sebastien Denis, member of the Royal Canadian",
-      "summary": "## Quesnel Air Cadets praised for community service and leadership at annual review Published 2:00 pm Tuesday, June 16, 2026 **By Laísa Condé** Flight Sergeant Sebastien Denis, member of the Royal Canadian Air Cadets #768 Jet Ranger Squadron in Quesnel, received the Lord Strathcona Trust Fund Medal",
-      "_excerpt": "## Quesnel Air Cadets praised for community service and leadership at annual review Published 2:00 pm Tuesday, June 16, 2026 **By Laísa Condé** Flight Sergeant Sebastien Denis, member of the Royal Canadian Air Cadets #768 Jet Ranger Squadron in Quesnel, received the Lord Strathcona Trust Fund Medal and was also honoured with the Warrant Officer Achievement Award. Denis was additionally recognized with the SSC Community Leadership Award, which was shared with Sgt. J. Wieler. See page A7. (Laísa Condé/Quesnel Cariboo Observer) 1/9 Flight Sergeant Sebastien Denis, member of the Royal Canadian",
-      "date_published": "2026-06-16T21:00:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality": 13,
-      "_relevance": 13,
-      "_local": 0,
-      "_theme_score": 17,
-      "_composite_podcast": 20,
-      "_keyword_matches": 1,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536168_web1_260617-QCO-Front-pic_1.jpg?w=1024"
     }
   ]
 }
