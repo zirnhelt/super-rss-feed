@@ -297,10 +297,12 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return []
         try:
             api_usage.record_call('kagi')
+            default_limit = SOURCE_PREFS.get('kagi_search_result_limit', 10)
+            limit = query_config.get('max_results', default_limit)
             resp = requests.post(
                 'https://kagi.com/api/v1/search',
                 headers={'Authorization': f'Bearer {kagi_key}'},
-                json={'query': query},
+                json={'query': query, 'limit': limit},
                 timeout=15,
             )
             resp.raise_for_status()
@@ -1488,6 +1490,75 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
     return articles
 
 
+def _fetch_via_kagi_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]:
+    """Query Kagi Search for recent articles from a domain that blocked direct RSS access.
+
+    Secondary fallback used after Brave returns 0 results. Uses site:domain query.
+    KAGI_API_KEY must be set.
+    """
+    kagi_key = os.environ.get('KAGI_API_KEY', '')
+    if not kagi_key:
+        return []
+
+    domain = urlparse(feed.get('url', '')).netloc.replace('www.', '')
+    if not domain:
+        return []
+
+    api_usage.record_call('kagi')
+    try:
+        resp = requests.post(
+            'https://kagi.com/api/v1/search',
+            headers={'Authorization': f'Bearer {kagi_key}'},
+            json={'query': f'site:{domain}', 'limit': 10},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        results = (resp.json().get('data') or {}).get('search') or []
+    except Exception as e:
+        print(f"    ⚠️  Kagi fallback failed for {domain}: {e}")
+        return []
+
+    articles = []
+    for r in results:
+        pub_date = None
+        pub_str = r.get('published') or ''
+        if pub_str:
+            try:
+                pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
+            except Exception:
+                pass
+        if pub_date and pub_date < cutoff_date:
+            continue
+
+        desc = (r.get('snippet') or '')[:500]
+        entry = _AttrDict({
+            'title': (r.get('title') or '').strip(),
+            'link': r.get('url', ''),
+            'description': desc,
+            'summary': desc,
+            'published': pub_str,
+            'published_parsed': None,
+            'updated_parsed': None,
+            'media_thumbnail': [],
+            'media_content': [],
+            'enclosures': [],
+            'tags': [],
+        })
+
+        if not entry.get('title') or not entry.get('link'):
+            continue
+
+        try:
+            article = Article(entry, feed['title'], feed.get('html_url', ''), feed['url'])
+            if pub_date:
+                article.pub_date = pub_date
+            articles.append(article)
+        except Exception:
+            continue
+
+    return articles
+
+
 def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
     """Fetch and parse articles from a feed"""
     try:
@@ -1550,11 +1621,27 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             and e.response is not None
             and e.response.status_code == 403
         )
-        if is_403 and os.environ.get('BRAVE_API_KEY'):
+        is_404 = (
+            isinstance(e, requests.exceptions.HTTPError)
+            and e.response is not None
+            and e.response.status_code == 404
+        )
+        is_timeout = isinstance(e, (requests.exceptions.ReadTimeout, requests.exceptions.Timeout))
+        should_try_fallback = is_403 or is_404 or is_timeout
+
+        if should_try_fallback and os.environ.get('BRAVE_API_KEY'):
             fallback = _fetch_via_brave_fallback(feed, cutoff_date)
             if fallback:
                 print(f"  ↩ {feed['title']}: Brave fallback → {len(fallback)} articles")
                 return fallback
+            print(f"  ⚠ {feed['title']}: Brave fallback returned 0 articles")
+
+        if should_try_fallback and os.environ.get('KAGI_API_KEY'):
+            fallback = _fetch_via_kagi_fallback(feed, cutoff_date)
+            if fallback:
+                print(f"  ↩ {feed['title']}: Kagi fallback → {len(fallback)} articles")
+                return fallback
+
         print(f"  ✗ {feed['title']}: {e}")
         return []
 
@@ -3710,7 +3797,7 @@ def main():
     # Haiku scrub: semantic safety net for subjects that slip past content_type filter
     # (e.g. sports articles classified as 'breaking'). Runs on articles above a low floor.
     # Articles below SCRUB_FLOOR are preserved for category floor rescue only.
-    SCRUB_FLOOR = 15
+    SCRUB_FLOOR = LIMITS.get('haiku_scrub_floor', 15)
     scrub_candidates = [a for a in scored_articles if a.score >= SCRUB_FLOOR]
     scrub_below = [a for a in scored_articles if a.score < SCRUB_FLOOR]
     print(f"\n✂️  Running headline scrub with Haiku ({len(scrub_candidates)} articles, {len(scrub_below)} below floor skipped)...")
