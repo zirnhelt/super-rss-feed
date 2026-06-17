@@ -22,9 +22,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Gear, Gadgets & Practical Tech' — consumer hardware, DIY maker culture, repairability, and practical tools. Strong fits include: gadget and device reviews, right-to-repair news and teardowns, maker and DIY project guides, 3D printing hardware news, practical consumer electronics (smartphones, laptops, headphones, wearables), off-grid and outdoor tech gear, workshop tools and home improvement tech, hardware hacks and creative builds, battery and power tech, and general how-to-build/fix/improve-things content. Prefer articles that are hands-on, practical, or focused on the maker and repair community. Penalise heavily (score 0–20): geopolitical conflict, war, terrorism, and international news with no hardware or maker angle; natural disaster coverage without a practical engineering or preparedness tech angle; wildlife and conservation stories; working lands policy; Indigenous governance; scientific discoveries without a hands-on hardware or DIY element; financial market and investment news. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-06-17T09:22:55.678475+00:00",
+    "generated_at": "2026-06-17T13:53:55.225998+00:00",
     "article_count": 40,
-    "bonus_count": 19,
+    "bonus_count": 18,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -53,6 +53,37 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-17-at-10.30.32-AM-1781681466.png?resize=1200%2C675"
+    },
+    {
+      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
+      "title": "[Al Jazeera English] Bolivian farmers clash with police as ex-president vows resistance",
+      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivian farmers clash with police as ex-president vows resistance.",
+      "summary": "Bolivian farmers clash with police as ex-president vows resistance.",
+      "_excerpt": "Bolivian farmers clash with police as ex-president vows resistance.",
+      "date_published": "2026-06-11T05:20:55+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 80,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 77,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-06-16T21:44:39.715873+00:00"
+      },
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440"
     },
     {
       "id": "https://globalnews.ca/news/11908443/dad-daughter-injured-cultus-lake-waterpark/",
@@ -112,35 +143,34 @@
       "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/9edc2465-5b71-4c65-ae07-5b6c15a10c6a.jpg"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
-      "title": "[Al Jazeera English] Bolivian farmers clash with police as ex-president vows resistance",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivian farmers clash with police as ex-president vows resistance.",
-      "summary": "Bolivian farmers clash with police as ex-president vows resistance.",
-      "_excerpt": "Bolivian farmers clash with police as ex-president vows resistance.",
-      "date_published": "2026-06-11T05:20:55+00:00",
+      "id": "https://www.nytimes.com/2026/06/17/us/laredo-plane-crash-texas.html",
+      "url": "https://www.nytimes.com/2026/06/17/us/laredo-plane-crash-texas.html",
+      "title": "[NYT Top Stories] Private Jet Crashes on Highway in Laredo, Texas, Killing 1",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/17/multimedia/17xp-crash-bfmg/17xp-crash-bfmg-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe plane’s crew reported mechanical problems and low fuel as they flew to Austin, Texas, from Mexico. Five of the six people on board survived the crash in Laredo.",
+      "summary": "The plane’s crew reported mechanical problems and low fuel as they flew to Austin, Texas, from Mexico. Five of the six people on board survived the crash in Laredo.",
+      "_excerpt": "The plane’s crew reported mechanical problems and low fuel as they flew to Austin, Texas, from Mexico. Five of the six people on board survived the crash in Laredo.",
+      "date_published": "2026-06-17T11:27:21+00:00",
       "authors": [
         {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
         }
       ],
-      "ai_score": 80,
-      "_quality": 80,
-      "_relevance": 80,
+      "ai_score": 83,
+      "_quality": 78,
+      "_relevance": 78,
       "_local": 0,
       "_theme_score": 80,
-      "_composite_podcast": 77,
+      "_composite_podcast": 76,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-16T21:44:39.715873+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440"
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "image": "https://static01.nyt.com/images/2026/06/17/multimedia/17xp-crash-bfmg/17xp-crash-bfmg-mediumSquareAt3X.jpg"
     },
     {
       "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
@@ -345,68 +375,6 @@
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/WD-clean-1781105966.jpg?resize=1920%2C1080&quality=80"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/12/backlash-after-us-actor-jerry-seinfeld-says-palestine-doesnt?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/12/backlash-after-us-actor-jerry-seinfeld-says-palestine-doesnt?traffic_source=rss",
-      "title": "[Al Jazeera English] Backlash after US actor Jerry Seinfeld says Palestine ‘doesn’t exist’",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-12-at-14.12.28-1781270226.png?resize=1920%2C1271\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nUS actor Jerry Seinfeld is facing backlash after saying Palestine ‘doesn’t exist’.",
-      "summary": "US actor Jerry Seinfeld is facing backlash after saying Palestine ‘doesn’t exist’.",
-      "_excerpt": "US actor Jerry Seinfeld is facing backlash after saying Palestine ‘doesn’t exist’.",
-      "date_published": "2026-06-12T13:18:28+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 74,
-      "_composite_podcast": 73,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-14T14:41:47.319050+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-12-at-14.12.28-1781270226.png?resize=1920%2C1271"
-    },
-    {
-      "id": "https://qz.com/owen-jennings-block-executive-business",
-      "url": "https://qz.com/owen-jennings-block-executive-business",
-      "title": "[Quartz] Owen Jennings, executive officer and head of business, Block",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Owen%2520Jennings,%2520Executive%2520Officer%2520%2520Head%2520of%2520Business,%2520Block.mp4\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nOwen Jennings, executive officer and head of business, Block",
-      "summary": "Owen Jennings, executive officer and head of business, Block",
-      "_excerpt": "Owen Jennings, executive officer and head of business, Block",
-      "date_published": "2026-06-11T18:40:11+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality": 79,
-      "_relevance": 79,
-      "_local": 0,
-      "_theme_score": 74,
-      "_composite_podcast": 73,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-17T01:50:38.591958+00:00"
-      },
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Owen%2520Jennings,%2520Executive%2520Officer%2520%2520Head%2520of%2520Business,%2520Block.mp4"
-    },
-    {
       "id": "https://globalnews.ca/news/11908381/medicine-hat-boy-death-echo-dale-regional-park/",
       "url": "https://globalnews.ca/news/11908381/medicine-hat-boy-death-echo-dale-regional-park/",
       "title": "[Global News] 11-year-old boy dies from suspected drowning in Medicine Hat",
@@ -521,6 +489,32 @@
       "image": "https://www.androidauthority.com/wp-content/uploads/2025/06/PLAUD-NOTE-in-different-colors-5.jpg"
     },
     {
+      "id": "https://www.piquenewsmagazine.com/local-news/whistler-rcmp-actively-reviewing-and-investigating-complaints-about-taxi-driver-misconduct-12432131",
+      "url": "https://www.piquenewsmagazine.com/local-news/whistler-rcmp-actively-reviewing-and-investigating-complaints-about-taxi-driver-misconduct-12432131",
+      "title": "[Pique Newsmagazine] Whistler RCMP ‘actively reviewing and investigating’ complaints about taxi driver misconduct",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-taxi-stop.png;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nWhistlerites allege inappropriate touching, dangerous driving and more",
+      "summary": "Whistlerites allege inappropriate touching, dangerous driving and more",
+      "_excerpt": "Whistlerites allege inappropriate touching, dangerous driving and more",
+      "date_published": "2026-06-17T13:00:00+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 61,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://www.vmcdn.ca/f/files/piquenewsmagazine/images/police/rcmp-taxi-stop.png;w=960"
+    },
+    {
       "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/video-shows-aftermath-of-iranian-attack-in-bahrain?traffic_source=rss",
       "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/video-shows-aftermath-of-iranian-attack-in-bahrain?traffic_source=rss",
       "title": "[Al Jazeera English] Video shows aftermath of Iranian attack in Bahrain",
@@ -611,32 +605,6 @@
         "shown_at": "2026-06-14T08:34:34.530182+00:00"
       },
       "image": "https://www.statnews.com/wp-content/uploads/2026/06/AP26151392853405-645x645.jpg"
-    },
-    {
-      "id": "https://www.engadget.com/2193149/engadget-review-recap-razr-ultra-amd-radeon-rx-9070-gre-and-more/",
-      "url": "https://www.engadget.com/2193149/engadget-review-recap-razr-ultra-amd-radeon-rx-9070-gre-and-more/",
-      "title": "Engadget review recap: Razr Ultra, AMD Radeon RX 9070 GRE and more",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/engadget-review-recap-razr-ultra-amd-radeon-rx-9070-gre-and-more/l-intro-1781359280.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA roundup of recent reviews published by Engadget.",
-      "summary": "A roundup of recent reviews published by Engadget.",
-      "_excerpt": "A roundup of recent reviews published by Engadget.",
-      "date_published": "2026-06-13T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 64,
-      "_quality": 64,
-      "_relevance": 64,
-      "_local": 0,
-      "_theme_score": 40,
-      "_composite_podcast": 55,
-      "_keyword_matches": 2,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.engadget.com/img/gallery/engadget-review-recap-razr-ultra-amd-radeon-rx-9070-gre-and-more/l-intro-1781359280.jpg"
     },
     {
       "id": "https://www.nytimes.com/2026/06/12/us/midland-texas-shooting-active-shooter.html",
@@ -906,6 +874,32 @@
       "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg"
     },
     {
+      "id": "https://globalnews.ca/news/11909502/hamilton-advances-proposed-data-centre-moratorium-in-pushback-to-rapid-ai-buildout/",
+      "url": "https://globalnews.ca/news/11909502/hamilton-advances-proposed-data-centre-moratorium-in-pushback-to-rapid-ai-buildout/",
+      "title": "[Global News] Hamilton advances proposed data centre moratorium in pushback to rapid AI buildout",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Hamilton-downtown.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
+      "summary": "A proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
+      "_excerpt": "A proposed pause on new power-hungry data centres in Hamilton cleared a hurdle on Tuesday, the latest step in a growing pushback to Canada's buildout of AI infrastructure.",
+      "date_published": "2026-06-17T13:07:49+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "ai_score": 72,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 18,
+      "_composite_podcast": 40,
+      "_keyword_matches": 1,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Hamilton-downtown.jpg?quality=65&strip=all"
+    },
+    {
       "id": "https://www.techradar.com/pro/nashville-zoo-leads-fight-against-mega-ai-data-center-over-375-000-sign-petition-against-69-000-square-foot-building-set-to-overlook-animal-habitats",
       "url": "https://www.techradar.com/pro/nashville-zoo-leads-fight-against-mega-ai-data-center-over-375-000-sign-petition-against-69-000-square-foot-building-set-to-overlook-animal-habitats",
       "title": "[TechRadar] Nashville Zoo leads fight against mega AI data center — over 375,000 sign petition against 69,000 square foot building set to overlook animal habitats",
@@ -1025,36 +1019,6 @@
       "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024"
     },
     {
-      "id": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
-      "url": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
-      "title": "[NYT Top Stories] Dear A.I. Companies: The Doom Trolling Needs to Stop",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
-      "summary": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
-      "_excerpt": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
-      "date_published": "2026-06-17T09:04:32+00:00",
-      "authors": [
-        {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 70,
-      "_relevance": 70,
-      "_local": 0,
-      "_theme_score": 8,
-      "_composite_podcast": 32,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
-      "image": "https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg"
-    },
-    {
       "id": "https://www.nytimes.com/2026/06/16/technology/taiwan-south-korea-ai-chips.html",
       "url": "https://www.nytimes.com/2026/06/16/technology/taiwan-south-korea-ai-chips.html",
       "title": "[NYT Business] A.I. Boom Ignites Asian Chip Companies",
@@ -1083,6 +1047,36 @@
       ],
       "_subscriber_access": "New York Times",
       "image": "https://static01.nyt.com/images/2026/06/05/multimedia/00-Data-Center-Boom-01-vktl/00-Data-Center-Boom-01-vktl-mediumSquareAt3X.jpg"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
+      "url": "https://www.nytimes.com/2026/06/17/opinion/ai-dangerous-openai-anthropic.html",
+      "title": "[NYT Top Stories] Dear A.I. Companies: The Doom Trolling Needs to Stop",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
+      "summary": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
+      "_excerpt": "The major A.I. companies keep telling us how dangerous their new models can be, yet they must keep on building them.",
+      "date_published": "2026-06-17T09:04:32+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
+      "_theme_score": 8,
+      "_composite_podcast": 32,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "image": "https://static01.nyt.com/images/2026/06/17/opinion/17newport/17newport-mediumSquareAt3X.jpg"
     },
     {
       "id": "https://qz.com/open-source-projects-that-run-the-internet",
