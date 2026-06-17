@@ -3392,6 +3392,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         )))
 
     # Build scored pool: (article, composite_podcast, T_adjusted, T_raw, kw_hits)
+    # Signals for deprioritizing legislative procedural milestone items without analysis
+    _LEG_MILESTONES = ('second reading', 'third reading', 'first reading', 'royal assent', 'passes committee', 'committee stage')
+    _ANALYSIS_SIGNALS = ('analysis', 'breakdown', 'what it means', 'what this means', 'would allow', 'would require', 'impact of', 'what the bill', 'what it does', 'proposes to')
     scored_pool = []
     for article, theme_score in theme_scored:
         kw_text = f"{article.title} {article.description or ''} {getattr(article, 'summary', '') or ''} {getattr(article, 'excerpt', '') or ''}".lower()
@@ -3399,6 +3402,24 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         kw_hits = min(raw_kw_hits, kw_boost_cap)
         t_adjusted = min(100, theme_score + kw_hits * kw_boost_val) if kw_boost_val > 0 else theme_score
         composite = _podcast_composite(article, t_adjusted)
+
+        # Thin body: articles with < 280 chars of content across all text fields get
+        # a composite penalty so they rank below articles with real reporting depth.
+        _body_len = max(
+            len((article.description or '').strip()),
+            len((getattr(article, 'summary', '') or '').strip()),
+            len((getattr(article, 'excerpt', '') or '').strip()),
+        )
+        if _body_len < 280:
+            composite = max(0, composite - 15)
+
+        # Legislation-only penalty: pure procedural milestone (passed X reading) with no
+        # substantive analysis of what the bill actually does scores lower.
+        _leg_text = f"{article.title} {article.description or ''}".lower()
+        if (any(m in _leg_text for m in _LEG_MILESTONES)
+                and not any(s in _leg_text for s in _ANALYSIS_SIGNALS)):
+            composite = max(0, composite - 20)
+
         scored_pool.append((article, composite, t_adjusted, theme_score, raw_kw_hits))
 
     # Bank articles with strong raw theme scores for future episodes.
@@ -3425,6 +3446,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         # Fill keyword-matched first, then bonus candidates capped per category.
         selected = list(kw_match[:max_articles])
         remaining = max_articles - len(selected)
+        # Target ≥70% on-theme: when there are enough keyword-matched articles,
+        # cap off-theme filler to 30% so the feed stays thematically coherent.
+        if len(selected) >= int(max_articles * 0.70):
+            remaining = min(remaining, max(2, int(max_articles * 0.30)))
         if remaining > 0 and non_match:
             category_counts = defaultdict(int)
             leftover = []
@@ -3554,6 +3579,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         clean_desc = _strip_markdown_links(article.description or "")
         has_source_in_title = (article.title.startswith(f"[{article.source}]")
                                or article.source in article.title)
+        _item_body_len = max(
+            len((article.description or '').strip()),
+            len((getattr(article, 'summary', '') or '').strip()),
+            len((getattr(article, 'excerpt', '') or '').strip()),
+        )
         item = {
             "id": article.link,
             "url": article.link,
@@ -3572,7 +3602,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "_keyword_matches": kw_matches,
             "_category": article.category,
             "_source_category": article.category,
-            "_is_bonus": is_bonus
+            "_is_bonus": is_bonus,
+            **({"_thin_body": True} if _item_body_len < 280 else {}),
         }
 
         subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
@@ -3603,6 +3634,23 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         items_with_score.append((composite_podcast, item))
 
     items_with_score.sort(key=lambda x: x[0], reverse=True)
+
+    # Per-source cap: avoid 4+ articles from the same outlet in a single podcast episode.
+    _pod_source_counts: Dict[str, int] = defaultdict(int)
+    _pod_source_cap = 3
+    _items_capped = []
+    _items_dropped_source = 0
+    for _score, _item in items_with_score:
+        _src = (_item.get('authors') or [{}])[0].get('name', '')
+        if _pod_source_counts[_src] < _pod_source_cap:
+            _items_capped.append((_score, _item))
+            _pod_source_counts[_src] += 1
+        else:
+            _items_dropped_source += 1
+    if _items_dropped_source:
+        print(f"  ✂️ Source cap ({_pod_source_cap}/outlet): dropped {_items_dropped_source} excess articles")
+    items_with_score = _items_capped
+
     feed["items"] = [item for _, item in items_with_score]
 
     with open(feed_filename, 'w', encoding='utf-8') as f:
