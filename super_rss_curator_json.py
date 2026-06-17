@@ -1859,6 +1859,9 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
             article.category = categorize_article(article.title, article.description) or 'news'
             cache[article.url_hash] = {
                 'score': article.score,
+                'quality': article.quality,
+                'relevance': article.relevance,
+                'local': article.local,
                 'category': article.category,
                 'story_group': None,
                 'timestamp': timestamp,
@@ -4209,38 +4212,65 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     print(f"📦 Bootstrap: {len(cached)} cached → {len(articles)} within retention ({skipped} skipped)")
 
     # Score through the live pipeline so backlog articles get the same treatment
-    # as new articles.  The scored_articles_cache may contain stale pre-fix Cohere
-    # scores (all 0–9); we bypass it by calling score_with_rerank() directly.
+    # as new articles.  Check the scored_articles_cache first so articles already
+    # scored with valid Q/R/L dimensional entries are not re-scored unnecessarily.
+    # Only articles missing from the cache, or present in the old single-score
+    # format (no 'quality' key), are sent to the scoring API.
     if cohere_integration.is_enabled():
-        print(f"🔮 Re-scoring {len(articles)} bootstrap articles through Cohere (new normalization)...")
         interests_file = CONFIG_DIR / 'scoring_interests.txt'
         try:
             interests = interests_file.read_text().strip()
         except FileNotFoundError:
             interests = 'Technology, science, climate, local news'
 
-        rerank_scores = cohere_integration.score_with_rerank(articles, interests)
-        if not rerank_scores:
-            print("⚠️  Cohere returned no scores — keeping stored podcast-cache scores")
-        else:
-            timestamp = datetime.now(timezone.utc).timestamp()
-            scored_cache = load_scored_cache()
-            for article in articles:
-                # Fall back to the stored podcast-cache score so a Cohere API hiccup
-                # does not zero out every article and produce an empty bootstrap.
-                score, _ = rerank_scores.get(article.url_hash, (article.score, ''))
-                article.score = score
-                # Re-derive category from keywords so it matches the regular pipeline
-                article.category = (categorize_article(article.title, article.description)
-                                     or article.category or 'news')
-                scored_cache[article.url_hash] = {
-                    'score': score,
-                    'category': article.category,
-                    'story_group': None,
-                    'timestamp': timestamp,
-                }
-            save_scored_cache(scored_cache)
-            print(f"   ✅ Scored and cached {len(articles)} articles")
+        scored_cache = load_scored_cache()
+        already_cached: List[Article] = []
+        uncached_bootstrap: List[Article] = []
+        for article in articles:
+            entry = scored_cache.get(article.url_hash)
+            if entry and 'quality' in entry:
+                article.score = entry['score']
+                article.quality = entry['quality']
+                article.relevance = entry['relevance']
+                article.local = entry.get('local', 0)
+                article.category = entry.get('category', article.category) or 'news'
+                already_cached.append(article)
+            else:
+                uncached_bootstrap.append(article)
+
+        print(f"🔮 Bootstrap Cohere scoring: {len(already_cached)} cached, "
+              f"{len(uncached_bootstrap)} need scoring...")
+
+        if uncached_bootstrap:
+            rerank_scores = cohere_integration.score_with_rerank(uncached_bootstrap, interests)
+            if not rerank_scores:
+                print("⚠️  Cohere returned no scores — keeping stored podcast-cache scores")
+            else:
+                timestamp = datetime.now(timezone.utc).timestamp()
+                for article in uncached_bootstrap:
+                    # Fall back to the stored podcast-cache score so a Cohere API hiccup
+                    # does not zero out every article and produce an empty bootstrap.
+                    score, _ = rerank_scores.get(article.url_hash, (article.score, ''))
+                    article.score = score
+                    article.quality = score
+                    article.relevance = score
+                    article.local = 0
+                    # Re-derive category from keywords so it matches the regular pipeline
+                    article.category = (categorize_article(article.title, article.description)
+                                         or article.category or 'news')
+                    scored_cache[article.url_hash] = {
+                        'score': score,
+                        'quality': score,
+                        'relevance': score,
+                        'local': 0,
+                        'category': article.category,
+                        'story_group': None,
+                        'timestamp': timestamp,
+                    }
+                save_scored_cache(scored_cache)
+                print(f"   ✅ Scored and cached {len(uncached_bootstrap)} new articles")
+
+        articles = already_cached + uncached_bootstrap
 
     elif api_key:
         # Claude fallback — uses the scored_articles_cache so already-cached articles
