@@ -22,12 +22,38 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — the resource economy that defines the Cariboo and rural BC.\n\nCALIBRATION — use this ladder. Trade-press journalism about forestry, ranching, mining, or agriculture should score well even when it's equipment-, market-, or operations-focused rather than policy-focused — a story about a piece of farm machinery or a mining operation update is a real fit, not a 0:\n- 80-100: BC/Cariboo-specific forestry, ranching, mining, or agriculture stories (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen events).\n- 55-79: Canadian resource-economy trade journalism without a BC tie — Western Producer or Northern Miner-style coverage of farm equipment and machinery, harvest technology, livestock markets, mining operations and exploration, AgTech, forestry practices, sawmills, or labour/commodity stories in the resource sector.\n- 30-54: Broader agriculture, forestry, ranching, or mining news (e.g. international resource-industry stories, general farm economics, climate impacts on working lands) with clear working-lands relevance but no Canadian/BC tie.\n- 15-29: Tangential resource-sector mentions (e.g. a general business, policy, or science story that touches briefly on forestry/agriculture/mining) or local Cariboo civic news unrelated to working lands.\n- 0-14: No connection to forestry, ranching, mining, or agriculture.\n\nStrong fits include: BC and Canadian forestry journalism (mill closures, lumber markets, beetle kill, harvest operations, silviculture, BCTS, old-growth policy), ranching and livestock stories (water rights, grazing management, cattle markets, drought impact on ranches), mining and resource extraction (safety, new operations, Indigenous consultation, supply chains, exploration updates), agriculture in rural Canada (crop insurance, grain prices, farm economics, food sovereignty, farm equipment and machinery), and the technology helping these industries adapt — precision forestry, AgTech, drone surveys, IoT in agriculture, mine automation, sawmill modernization, climate adaptation on working lands. Also strong fits: labor and workforce stories in resource industries, environmental stewardship within working landscapes (not pure conservation, but how ranchers/loggers manage for sustainability), and science with direct implications for forestry, agriculture, or extractive industries. Penalise heavily (score 0–14): international geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; pure wildlife entertainment without agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-06-17T01:50:38.577767+00:00",
+    "generated_at": "2026-06-17T03:22:02.103744+00:00",
     "article_count": 40,
     "bonus_count": 36,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
+    {
+      "id": "https://globalnews.ca/news/11908443/dad-daughter-injured-cultus-lake-waterpark/",
+      "url": "https://globalnews.ca/news/11908443/dad-daughter-injured-cultus-lake-waterpark/",
+      "title": "[Global News] Dad describes hearing his daughter was injured at Cultus Lake Waterpark",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/SET-GFX-CULTUS-LAKE-WATER-PARK-DRONE-1.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDarien Nielsen's13-year-old daughter, Issabella, was one of 12 students injured in an incident at Cultus Lake Waterpark on Monday.",
+      "summary": "Darien Nielsen's13-year-old daughter, Issabella, was one of 12 students injured in an incident at Cultus Lake Waterpark on Monday.",
+      "_excerpt": "Darien Nielsen's13-year-old daughter, Issabella, was one of 12 students injured in an incident at Cultus Lake Waterpark on Monday.",
+      "date_published": "2026-06-17T02:24:47+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "ai_score": 75,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 77,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/SET-GFX-CULTUS-LAKE-WATER-PARK-DRONE-1.jpg?quality=65&strip=all"
+    },
     {
       "id": "https://cfjctoday.com/2026/06/11/charges-approved-against-revelstoke-rcmp-officer-after-2025-collision-near-sicamous/",
       "url": "https://cfjctoday.com/2026/06/11/charges-approved-against-revelstoke-rcmp-officer-after-2025-collision-near-sicamous/",
@@ -79,37 +105,6 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114324.jpg?fit=1200%2C900&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
-      "title": "[Al Jazeera English] Bolivia approves military measures against nationwide protests",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivia approves military measures against nationwide protests.",
-      "summary": "Bolivia approves military measures against nationwide protests.",
-      "_excerpt": "Bolivia approves military measures against nationwide protests.",
-      "date_published": "2026-06-10T03:09:22+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 69,
-      "_composite_podcast": 70,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-06-14T08:34:34.530182+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440"
     },
     {
       "id": "https://www.piquenewsmagazine.com/must-reads/bc-mother-jailed-after-meth-mix-up-with-her-young-child-causes-hallucinations-12431205",
@@ -232,32 +227,6 @@
         "shown_at": "2026-06-14T14:41:47.319050+00:00"
       },
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/Owen%2520Jennings,%2520Executive%2520Officer%2520%2520Head%2520of%2520Business,%2520Block.mp4"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/aje-onl-nf_belfast-plunged-into-chaos-as-vehicles-set-ablaze-090626?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/aje-onl-nf_belfast-plunged-into-chaos-as-vehicles-set-ablaze-090626?traffic_source=rss",
-      "title": "[Al Jazeera English] Belfast plunged into chaos as vehicles set ablaze following stabbing attack",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781057494.jpg?resize=1920%2C1080&amp;quality=80\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAl Jazeera&#039;s Milena Veselinovic reports from Belfast, where protests have escalated into violent riots.",
-      "summary": "Al Jazeera's Milena Veselinovic reports from Belfast, where protests have escalated into violent riots.",
-      "_excerpt": "Al Jazeera's Milena Veselinovic reports from Belfast, where protests have escalated into violent riots.",
-      "date_published": "2026-06-10T02:13:23+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 69,
-      "_quality": 69,
-      "_relevance": 69,
-      "_local": 0,
-      "_theme_score": 73,
-      "_composite_podcast": 69,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781057494.jpg?resize=1920%2C1080&quality=80"
     },
     {
       "id": "https://globalnews.ca/news/11908185/16-year-old-boy-recruited-by-tow-truck-industry-pleads-guilty-to-murder/",
@@ -753,6 +722,32 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/image-1781349374.jpg?resize=1920%2C1080&quality=80"
+    },
+    {
+      "id": "https://globalnews.ca/news/11908990/concerns-grow-kelowna-extortion-cases/",
+      "url": "https://globalnews.ca/news/11908990/concerns-grow-kelowna-extortion-cases/",
+      "title": "[Global News] Concerns grow in Kelowna after RCMP confirm 2 extortion-related incidents",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/Screenshot-2026-06-16-175750.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nA growing wave of extortion cases across British Columbia is raising concerns in Kelowna after police confirmed two reported incidents in the city so far this year",
+      "summary": "A growing wave of extortion cases across British Columbia is raising concerns in Kelowna after police confirmed two reported incidents in the city so far this year",
+      "_excerpt": "A growing wave of extortion cases across British Columbia is raising concerns in Kelowna after police confirmed two reported incidents in the city so far this year",
+      "date_published": "2026-06-17T01:55:30+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 67,
+      "_relevance": 67,
+      "_local": 0,
+      "_theme_score": 64,
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/Screenshot-2026-06-16-175750.png"
     },
     {
       "id": "https://www.techradar.com/pro/japanese-electricity-giant-apologises-after-physical-drive-with-data-of-10-9-million-clients-goes-missing",
