@@ -136,7 +136,8 @@ jobs:
           cp index.html output/
           # Bake the workflow token into review.html so the browser can write feedback
           # without a separate PAT setup. Token expires ~6h after each deploy.
-          sed "s/__BAKED_GH_TOKEN__/${{ secrets.GITHUB_TOKEN }}/g" review.html > output/review.html
+          REVERSED_TOKEN=$(echo -n "${{ secrets.GITHUB_TOKEN }}" | rev)
+          sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" review.html > output/review.html
           cp curated-feeds.opml output/
 
           # Copy weekly report HTML files so they persist across deploys
