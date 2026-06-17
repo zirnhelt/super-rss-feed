@@ -28,16 +28,6 @@
         h1 { font-size: 1.8em; color: #667eea; margin-bottom: 4px; }
         .subtitle { color: #666; font-size: 0.95em; margin-bottom: 24px; }
 
-        /* ── Setup pane ── */
-        #setup-pane { display: none; }
-        .setup-field { margin-bottom: 16px; }
-        .setup-field label { display: block; font-weight: 600; margin-bottom: 4px; color: #555; }
-        .setup-field input {
-            width: 100%; padding: 10px 12px; border: 1px solid #ddd;
-            border-radius: 8px; font-size: 1em;
-        }
-        .setup-help { font-size: 0.82em; color: #888; margin-top: 4px; }
-
         /* ── Progress bar ── */
         #progress-section { margin-bottom: 20px; }
         .progress-label { font-size: 0.9em; color: #666; margin-bottom: 6px; }
@@ -164,19 +154,8 @@
     <h1>📋 Daily Article Review</h1>
     <p class="subtitle">Rate each article to train the model. Your feedback shapes tomorrow's feed.</p>
 
-    <!-- Setup pane (shown when no PAT stored) -->
-    <div id="setup-pane">
-        <p style="margin-bottom:16px; color:#555;">To save your ratings, enter a GitHub Personal Access Token with <strong>contents: write</strong> access to this repository.</p>
-        <div class="setup-field">
-            <label for="input-pat">GitHub Personal Access Token</label>
-            <input type="password" id="input-pat" placeholder="github_pat_..." autocomplete="off" />
-            <div class="setup-help">Create a fine-grained token scoped only to zirnhelt/super-rss-feed. Stored in your browser only.</div>
-        </div>
-        <button class="btn btn-primary" onclick="saveSetup()">Save &amp; Start Reviewing</button>
-    </div>
-
     <!-- Main review UI -->
-    <div id="review-pane" style="display:none;">
+    <div id="review-pane">
         <div id="progress-section">
             <div class="progress-label" id="progress-label">Loading…</div>
             <div class="progress-bar-track">
@@ -207,16 +186,14 @@
         <a href="index.html" class="btn btn-primary" style="text-decoration:none; display:inline-block;">View Feeds</a>
     </div>
 
-    <div id="loading-section">
-        <div class="loading">Checking setup…</div>
-    </div>
 </div>
 
 <script>
 // ── Config ──────────────────────────────────────────────────────────────────
-const REPO_OWNER = 'zirnhelt';
-const REPO_NAME  = 'super-rss-feed';
-const FEED_URL   = 'feed-review.json';
+const REPO_OWNER   = 'zirnhelt';
+const REPO_NAME    = 'super-rss-feed';
+const FEED_URL     = 'feed-review.json';
+const BAKED_TOKEN  = '__BAKED_GH_TOKEN__';
 
 // ── State ───────────────────────────────────────────────────────────────────
 let articles    = [];   // from feed-review.json
@@ -239,29 +216,13 @@ function loadRatings() {
     } catch { return {}; }
 }
 
-// ── PAT helpers ──────────────────────────────────────────────────────────────
-function getPat()  { return localStorage.getItem('review_pat') || ''; }
-function savePat(t){ localStorage.setItem('review_pat', t); }
-
-function saveSetup() {
-    const pat = document.getElementById('input-pat').value.trim();
-    if (!pat) { alert('Please enter a GitHub Personal Access Token.'); return; }
-    savePat(pat);
-    document.getElementById('setup-pane').style.display  = 'none';
-    document.getElementById('loading-section').style.display = 'none';
-    document.getElementById('review-pane').style.display = 'block';
-    init();
-}
-
 // ── Boot ────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('loading-section').style.display = 'none';
-    if (!getPat()) {
-        document.getElementById('setup-pane').style.display = 'block';
-    } else {
-        document.getElementById('review-pane').style.display = 'block';
-        init();
+    if (BAKED_TOKEN === '__BAKED_GH_TOKEN__') {
+        showError('Token not substituted — open this page via the deployed GitHub Pages site, not directly from the repo.');
+        return;
     }
+    init();
 });
 
 async function init() {
@@ -451,8 +412,7 @@ function goNext() {
 
 // ── GitHub submission ─────────────────────────────────────────────────────────
 async function submitFeedback() {
-    const pat = getPat();
-    if (!pat) { alert('No GitHub token found. Please refresh and set up again.'); return; }
+    const pat = BAKED_TOKEN;
 
     const statusEl = document.getElementById('submit-status');
     statusEl.className = 'status-msg';

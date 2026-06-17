@@ -134,7 +134,9 @@ jobs:
 
           # Copy website files
           cp index.html output/
-          cp review.html output/
+          # Bake the workflow token into review.html so the browser can write feedback
+          # without a separate PAT setup. Token expires ~6h after each deploy.
+          sed "s/__BAKED_GH_TOKEN__/${{ secrets.GITHUB_TOKEN }}/g" review.html > output/review.html
           cp curated-feeds.opml output/
 
           # Copy weekly report HTML files so they persist across deploys
