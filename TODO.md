@@ -9,6 +9,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
@@ -337,6 +338,8 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-13 | 🔧 manual | 4 | wellness:2(50%), news:2(50%) |
+| 2026-06-13 | 🔧 manual | 2 | wellness:2(100%) |
 | 2026-06-13 | 🔧 manual | 3 | wellness:2(67%), ai-tech:1(33%) |
 | 2026-06-13 | 🔧 manual | 5 | wellness:2(40%), news:2(40%), climate:1(20%) |
 | 2026-06-13 | 🔧 manual | 7 | news:3(43%), ai-tech:2(29%), wellness:2(29%) |
@@ -349,12 +352,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-11 | 🌙 evening | 102 | news:83(81%), ai-tech:5(5%), wellness:4(4%) |
 | 2026-06-10 | 🌅 morning | 52 | news:36(69%), ai-tech:5(10%), science:3(6%) |
 | 2026-06-10 | 🌙 evening | 94 | news:72(77%), ai-tech:6(6%), wellness:4(4%) |
-| 2026-06-09 | 🌅 morning | 15 | news:10(67%), ai-tech:2(13%), wellness:2(13%) |
-| 2026-06-09 | 🔧 manual | 63 | news:50(79%), wellness:4(6%), ai-tech:3(5%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-16 22:28 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-17 00:24 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
