@@ -2,12 +2,6 @@ name: Review Filter & Priority Logic
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - super_rss_curator_json.py
-      - tools/review_filter_priority.py
 
 jobs:
   review:
