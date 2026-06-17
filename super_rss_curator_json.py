@@ -1182,22 +1182,39 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
         return ''
 
 
-def _kagi_enrich_articles(articles: List['Article'], kagi_key: str, max_calls: int = 40) -> None:
+def _kagi_enrich_articles(
+    articles: List['Article'],
+    kagi_key: str,
+    max_calls: int = 40,
+    prescore_keywords: frozenset | None = None,
+) -> None:
     """Enrich thin-description articles using Kagi's Extract API before Claude scoring.
 
     Calls POST https://kagi.com/api/v1/extract with {"pages": [{"url": <url>}]} for:
-    - Articles whose description is < 150 chars (thin RSS snippet)
     - All articles from _LOCAL_BC_DOMAINS (often paywalled, descriptions unreliable)
+    - Articles whose description is < 150 chars AND whose title matches at least one
+      prescore_keyword (skips off-topic thin stubs that would fail scoring anyway)
 
     Results are cached 48 h by url_hash so repeated runs don't re-fetch.
     Updates article.description / .summary / .excerpt in-place.
     """
     cache = load_extract_cache()
-    candidates = [
-        a for a in articles
-        if a.url_hash not in cache
-        and (len(a.description.strip()) < 150 or any(d in a.link for d in _LOCAL_BC_DOMAINS))
-    ]
+    candidates = []
+    skipped_gate = 0
+    for a in articles:
+        if a.url_hash in cache:
+            continue
+        is_local = any(d in a.link for d in _LOCAL_BC_DOMAINS)
+        is_thin = len(a.description.strip()) < 150
+        if is_local:
+            candidates.append(a)
+        elif is_thin:
+            if prescore_keywords is None or any(kw in a.title.lower() for kw in prescore_keywords):
+                candidates.append(a)
+            else:
+                skipped_gate += 1
+    if skipped_gate:
+        print(f"  🔎 Kagi gate: skipped {skipped_gate} thin articles (title mismatch)")
     if not candidates:
         return
 
@@ -3662,7 +3679,7 @@ def main():
     }
 
     if kagi_key := os.environ.get('KAGI_API_KEY', ''):
-        _kagi_enrich_articles(new_articles, kagi_key)
+        _kagi_enrich_articles(new_articles, kagi_key, prescore_keywords=PRESCORE_KEYWORDS)
 
     scored_articles = score_articles_with_claude(new_articles, api_key)
 
