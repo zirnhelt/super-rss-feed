@@ -260,6 +260,20 @@ def get_calibration_changes(today: str) -> list:
 # Quality review summaries (score_scrub_report.py / corpus_alignment_report.py)
 # ---------------------------------------------------------------------------
 
+def get_noise_signal_benchmark() -> list:
+    """Load week-over-week noise-to-signal benchmark history from calibration_memory/benchmarks.json."""
+    path = Path("calibration_memory/benchmarks.json")
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text("utf-8"))
+        weeks = data.get("weeks", [])
+        return sorted(weeks, key=lambda w: w.get("week_date", ""))[-8:]
+    except Exception as exc:
+        print(f"  ⚠️  Could not read benchmarks.json: {exc}")
+        return []
+
+
 def get_quality_review() -> dict:
     review = {}
     scrub_path = Path("score_scrub_summary.json")
@@ -304,6 +318,7 @@ def generate_narrative(
     new_feeds: list,
     errors: list,
     discovery: list,
+    nts_benchmarks: list,
 ) -> str:
     cat_summary = ", ".join(
         f"{cat}: {count} articles"
@@ -327,6 +342,16 @@ def generate_narrative(
         else "no discovery report available"
     )
 
+    if nts_benchmarks:
+        latest = nts_benchmarks[-1]
+        nts_text = (
+            f"mean {latest.get('mean', '?')} "
+            f"(range {latest.get('min', '?')}–{latest.get('max', '?')}) "
+            f"over {latest.get('run_count', '?')} runs"
+        )
+    else:
+        nts_text = "no benchmark data available yet"
+
     prompt = (
         f"Write a brief 2–3 paragraph 'State of the Feed' weekly summary for a personal "
         f"AI-curated RSS aggregator. Be factual and concise. No conversational filler, "
@@ -338,10 +363,12 @@ def generate_narrative(
         f"avg {stats.get('avg_quality', 0)} quality articles per run)\n"
         f"Category breakdown: {cat_summary}\n"
         f"Scoring model: dimensional Q/R/L composite (quality/relevance/local, weights 0.25/0.55/0.20)\n"
+        f"Pipeline efficiency (noise-to-signal ratio, articles fetched per 1 delivered): {nts_text}\n"
         f"New feeds added: {new_feeds_text}\n"
         f"Feed health: {error_text}\n"
         f"Feed discovery: {discovery_text}\n\n"
-        f"Report the data plainly, as a technical summary."
+        f"Report the data plainly, as a technical summary. "
+        f"Mention pipeline efficiency if the noise-to-signal ratio is notably high or low."
     )
 
     response = client.messages.create(
@@ -356,6 +383,24 @@ def generate_narrative(
 # HTML builders
 # ---------------------------------------------------------------------------
 
+def build_noise_signal_html(nts_benchmarks: list) -> str:
+    if not nts_benchmarks:
+        return ""
+    html = "\n<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>\n"
+    html += "<p>Noise-to-signal = (articles fetched &minus; articles in final feeds) &divide; final total. Lower is more efficient.</p>\n"
+    html += "<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>\n"
+    for w in nts_benchmarks:
+        html += (
+            f"<tr><td>{w.get('week_date', '?')}</td>"
+            f"<td>{w.get('mean', '?')}</td>"
+            f"<td>{w.get('min', '?')}</td>"
+            f"<td>{w.get('max', '?')}</td>"
+            f"<td>{w.get('run_count', '?')}</td></tr>\n"
+        )
+    html += "</tbody></table>"
+    return html
+
+
 def build_content_html(
     narrative: str,
     stats: dict,
@@ -365,6 +410,7 @@ def build_content_html(
     calibration_changes: list,
     quality_review: dict,
     actions: list,
+    nts_benchmarks: list,
 ) -> str:
     parts = [f"<p>{p.strip()}</p>" for p in narrative.split("\n\n") if p.strip()]
     html = "\n".join(parts)
@@ -397,6 +443,7 @@ def build_content_html(
             html += f"  <li>{d['title']} (score: {d['score']})</li>\n"
         html += "</ul>"
 
+    html += build_noise_signal_html(nts_benchmarks)
     html += build_quality_review_html(quality_review)
     html += build_calibration_html(calibration_changes)
     html += build_actions_html(actions)
@@ -575,6 +622,10 @@ def main():
     calibration_changes = get_calibration_changes(today)
     print(f"     {len(calibration_changes)} config change(s) applied today")
 
+    print("  → Reading calibration_memory/benchmarks.json...")
+    nts_benchmarks = get_noise_signal_benchmark()
+    print(f"     {len(nts_benchmarks)} week(s) of noise-to-signal benchmark data")
+
     print("  → Reading quality review summaries...")
     quality_review = get_quality_review()
     print(f"     scrub={'scrub' in quality_review}, alignment={'alignment' in quality_review}")
@@ -590,7 +641,10 @@ def main():
                 "commit": commit,
             })
     if calibration_changes:
-        commit = git_commit_for(["config/limits.json", "config/podcast_schedule.json"])
+        commit = git_commit_for([
+            "config/limits.json", "config/podcast_schedule.json",
+            "config/source_preferences.json", "config/feed_slots.json",
+        ])
         for c in calibration_changes:
             actions.append({
                 "component": "Calibration",
@@ -601,11 +655,12 @@ def main():
 
     print("  → Generating narrative with Claude Haiku...")
     client = anthropic.Anthropic(api_key=api_key)
-    narrative = generate_narrative(client, week_label, stats, new_feeds, errors, discovery)
+    narrative = generate_narrative(client, week_label, stats, new_feeds, errors, discovery, nts_benchmarks)
 
     content_html = build_content_html(
         narrative, stats, new_feeds, errors, discovery,
         calibration_changes, quality_review, actions,
+        nts_benchmarks,
     )
 
     # JSON Feed article item

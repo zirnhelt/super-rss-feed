@@ -40,6 +40,7 @@ CALIBRATION_STATS_CACHE_FILE = BASE_DIR / 'calibration_stats_cache.json'
 RECURRING_ISSUES_FILE = MEMORY_DIR / 'recurring_issues.json'
 CHANGE_HISTORY_FILE = MEMORY_DIR / 'change_history.json'
 NOTES_FILE = MEMORY_DIR / 'notes.md'
+BENCHMARKS_FILE = MEMORY_DIR / 'benchmarks.json'
 
 MODEL = "claude-sonnet-4-5"
 
@@ -201,6 +202,31 @@ def gather_audit_data(window_days: int = 14) -> Dict:
         for r in in_window
     ]
 
+    # Noise-to-signal ratio per run: (fetched - final_total) / final_total
+    # "Signal" = total articles in final feeds; "noise" = everything fetched that didn't make it.
+    nts_series = []
+    for r in in_window:
+        fetched = r.get('ingest', {}).get('fetched')
+        final_counts = r.get('final_feeds', {})
+        final_total = sum(v for v in final_counts.values() if isinstance(v, (int, float)))
+        if fetched is not None and final_total > 0:
+            nts_series.append({
+                'run_id': r.get('run_id'),
+                'fetched': fetched,
+                'final_total': int(final_total),
+                'noise_to_signal': round((fetched - final_total) / final_total, 2),
+            })
+    if nts_series:
+        ratios = [e['noise_to_signal'] for e in nts_series]
+        summary['noise_to_signal'] = {
+            'series': nts_series,
+            'mean': round(sum(ratios) / len(ratios), 2),
+            'min': round(min(ratios), 2),
+            'max': round(max(ratios), 2),
+        }
+    else:
+        summary['noise_to_signal'] = {}
+
     # API cost
     costs = [r.get('api_usage', {}).get('est_cost_usd', 0) for r in in_window]
     summary['api_cost'] = {
@@ -227,6 +253,7 @@ def load_memory_context() -> Dict:
 
     recurring = _load_json(RECURRING_ISSUES_FILE, {'issues': []})
     history = _load_json(CHANGE_HISTORY_FILE, {'changes': []})
+    benchmarks = _load_json(BENCHMARKS_FILE, {'weeks': []})
     notes = ''
     if NOTES_FILE.exists():
         try:
@@ -234,7 +261,12 @@ def load_memory_context() -> Dict:
         except Exception:
             notes = ''
 
-    return {'recurring_issues': recurring, 'change_history': history, 'notes': notes}
+    return {
+        'recurring_issues': recurring,
+        'change_history': history,
+        'benchmarks': benchmarks,
+        'notes': notes,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -297,6 +329,16 @@ Guidelines:
 - When diagnosing low composite scores, check whether the issue is in a specific dimension (e.g.
   Q collapsing for a category, or L stuck at zero for articles that should be local). Propose
   dimensional modifier changes only if the histogram evidence is clear.
+- Noise-to-signal ratio = (total articles fetched − sum of final feed sizes) / final_total.
+  Lower = more efficient pipeline. The audit data includes per-run series and window mean/min/max;
+  the benchmark history shows week-over-week trend. Use this to evaluate whether recent changes
+  improved efficiency. Primary knobs that affect the ratio: `kagi_search_result_limit` (upstream
+  volume — raising it directly increases noise), `haiku_scrub_floor` (borderline-article review
+  threshold — raising it subjects more articles to the Haiku safety check), `min_score_by_category`
+  (final quality gate). If noise-to-signal is rising over several weeks, tighten upstream first
+  (lower kagi_search_result_limit) before raising quality floors. If feeds are running thin,
+  consider raising feed_slots.max_slots.* to allow more qualifying articles through before
+  lowering quality thresholds.
 """
 
 
@@ -319,6 +361,10 @@ def build_audit_prompt(
             'limits': current_config.get('limits', {}),
             'scoring_modifiers': current_config.get('scoring_modifiers', {}),
             'scoring_weights': current_config.get('scoring_weights', {}),
+            'source_preferences_tunable': {
+                'kagi_search_result_limit': current_config.get('source_preferences', {}).get('kagi_search_result_limit'),
+            },
+            'feed_slots': current_config.get('feed_slots', {}),
             'podcast_schedule_top_level': {
                 k: v for k, v in current_config.get('podcast_schedule', {}).items()
                 if k != 'schedule'
@@ -339,6 +385,8 @@ def build_audit_prompt(
         json.dumps(memory.get('recurring_issues', {}), indent=2),
         "\n\n## Memory: recent change history\n",
         json.dumps(memory.get('change_history', {}), indent=2),
+        "\n\n## Memory: noise-to-signal benchmark history (week-over-week)\n",
+        json.dumps(memory.get('benchmarks', {}), indent=2),
         "\n\n## Memory: free-text notes\n",
         memory.get('notes', '') or '(empty)',
         "\n\nReview the above and produce your JSON response per the schema in the system prompt.",
@@ -609,6 +657,10 @@ def _config_root(spec: Dict) -> str:
         return 'podcast_schedule'
     if spec['file'] == 'config/scoring_modifiers.json':
         return 'scoring_modifiers'
+    if spec['file'] == 'config/source_preferences.json':
+        return 'source_preferences'
+    if spec['file'] == 'config/feed_slots.json':
+        return 'feed_slots'
     return ''
 
 
@@ -793,6 +845,24 @@ def write_changelog(
     with open(NOTES_FILE, 'a', encoding='utf-8') as f:
         f.write(f"\n## {run_date}{' (dry run)' if dry_run else ''}\n\n{result.get('analysis', '').strip()}\n")
 
+    # Persist noise-to-signal benchmark snapshot (one entry per run date, rolling 52 weeks)
+    nts = audit_data.get('noise_to_signal', {})
+    if nts.get('mean') is not None:
+        benchmarks = json.loads(BENCHMARKS_FILE.read_text(encoding='utf-8')) if BENCHMARKS_FILE.exists() else {'weeks': []}
+        benchmarks['weeks'] = [w for w in benchmarks.get('weeks', []) if w.get('week_date') != run_date]
+        benchmarks['weeks'].append({
+            'week_date': run_date,
+            'mean': nts['mean'],
+            'min': nts['min'],
+            'max': nts['max'],
+            'run_count': len(nts.get('series', [])),
+        })
+        benchmarks['weeks'] = sorted(benchmarks['weeks'], key=lambda w: w['week_date'])[-52:]
+        MEMORY_DIR.mkdir(exist_ok=True)
+        with open(BENCHMARKS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(benchmarks, f, indent=2, ensure_ascii=False)
+            f.write('\n')
+
 
 # ---------------------------------------------------------------------------
 # Main
@@ -819,6 +889,8 @@ def main():
         'podcast_schedule': config_loader.load_podcast_schedule_config(),
         'scoring_modifiers': config_loader.load_scoring_modifiers(),
         'scoring_weights': config_loader.load_scoring_weights(),
+        'source_preferences': config_loader.load_source_preferences(),
+        'feed_slots': config_loader.load_feed_slots_config(),
     }
     bounds = config_loader.load_calibration_bounds()
     interests_text = config_loader.load_scoring_interests()
