@@ -102,6 +102,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run (8:22 PM Pacific)
+- Fetched **1000** → dedup **789** → new **464** → quality **12**
+- Mix: wellness:2(17%), news:10(83%)
+- Feeds: local:28, ai-tech:78, climate:23, homelab:18, wellness:82, science:2, scifi:14, news:486
+- Images: 12/12
+- Topic queries: 85 articles from 37 queries
+- API calls: Claude:2, Cohere:23, Brave:44, Kagi:61 · 3,033 Claude tokens · est. cost $0.5075
+
+
+---
+
+
+
 ## 2026-06-15 (Monday)
 
 #### 🌅 4:30 AM Pacific

@@ -102,6 +102,39 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (8:22 PM Pacific)
+- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
+- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
+- ⚠️ **First Peoples Cultural Council (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"dd4c55b0a09d3f5d3c32007208614e71","ms":5,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Ricochet Media (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"276417a20359b7257cda92304a9bb7e3","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Nation Talk (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"85c616341e47678081acb44e83b67c39","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Technology BC (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"6c4f13ae6af14e2e2a5abcbdb4381487","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"fe2febec069be720b6b07ed78290cdd2","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"149a2f4e761d6d491e6ebe7703cce139","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"ea5359394ed9ff58d4819a589081f5f9","ms":6,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Backcountry and Wildlife (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"bd139f14b37e55c89f44c4514e333466","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Community Media and Digital Storytelling (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"c7558996106efc38109a1c1bcfb943d3","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Cariboo Local Community (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"e80e90b35dc0be736a1cabbb7445c328","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Rural Digital Equity (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"428a4875df09c860819de204a2c3147a","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Canadian Geographic (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"305be82855246d3927d61764443fbdbc","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Conservation and Parks (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"2deb785be59d5daf4e4f5e95907279a5","ms":5,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Wildlife Ecology (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"238da44ca1c2a72e4cd9511b51997652","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Examine.com (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"e39881e8a15990c4cd9709feeb0534ba","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"7a5ebb49f37c38bacba5f5eff91c4fa1","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"6c08a4dba5cbe50fc3578c7765f47fb1","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Silviculture and Logging Tech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"0790241b1b25f3af317fe6b96342d108","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Canadian Arts Technology (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"9d074618d07f4f0200be14cc81c78020","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"77f56876d9cbaa6eae6259cf6fe1813b","ms":22,"node":"us-east4"},"data":null,"errors":[{"code":`
+- ⚠️ **National Indigenous Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"2da041086996d91c2f1437acf0938982","ms":5,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Kagi Summarizer** failed — `HTTP 429 x40`
+
+
+---
+
+
+
 ## 2026-06-15 (Monday)
 
 #### 🌅 4:30 AM Pacific
