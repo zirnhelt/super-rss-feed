@@ -2529,7 +2529,8 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
             item.setdefault("tags", []).append("subscriber-access")
             item["_subscriber_access"] = subscriber_label
             if subscriber_label == "Apple News+":
-                item["_apple_news_url"] = build_apple_news_search_url(article.title)
+                _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
+                item["_apple_news_url"] = build_apple_news_search_url(_clean or article.title)
 
         feed["items"].append(item)
     
@@ -3492,7 +3493,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             item.setdefault("tags", []).append("subscriber-access")
             item["_subscriber_access"] = subscriber_label
             if subscriber_label == "Apple News+":
-                item["_apple_news_url"] = build_apple_news_search_url(article.title)
+                _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
+                item["_apple_news_url"] = build_apple_news_search_url(_clean or article.title)
 
         # Mark articles that previously appeared in a different theme's episode
         prior_appearances = [
@@ -3935,7 +3937,8 @@ def main():
         def _retained_is_fresh(item: dict) -> bool:
             if item['url'] in new_urls:
                 return False
-            r_terms = _term_set(re.sub(r'^\[.*?\]\s*', '', item.get('title', '')).lower())
+            _raw_title = re.sub(r'^(?:🔓\s*)+', '', item.get('title', ''))
+            r_terms = _term_set(re.sub(r'^\[.*?\]\s*', '', _raw_title).lower())
             if len(r_terms) < merge_min_terms:
                 return True
             for nt in new_term_sets:
@@ -3952,7 +3955,7 @@ def main():
         all_items = diverse_new + [
             type('Article', (), {
                 'link': item['url'],
-                'title': item['title'],
+                'title': re.sub(r'^(?:🔓\s*)+', '', item['title']),
                 'description': item['content_html'],
                 'pub_date': datetime.fromisoformat(item['date_published'].replace('Z', '+00:00')),
                 'source': item['authors'][0]['name'],
