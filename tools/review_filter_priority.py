@@ -128,7 +128,10 @@ def review_filter_priority(
 
     try:
         response = client.chat(model=model, messages=messages)
-        findings = response.message.content[0].text
+        findings = next(
+            item.text for item in response.message.content
+            if hasattr(item, "text") and item.text
+        )
     except Exception as e:
         err_str = str(e).lower()
         if "not found" in err_str or "404" in err_str:
