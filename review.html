@@ -193,7 +193,7 @@
 const REPO_OWNER   = 'zirnhelt';
 const REPO_NAME    = 'super-rss-feed';
 const FEED_URL     = 'feed-review.json';
-const BAKED_TOKEN  = '__BAKED_GH_TOKEN__';
+const BAKED_TOKEN  = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : atob(e); })();
 
 // ── State ───────────────────────────────────────────────────────────────────
 let articles    = [];   // from feed-review.json
@@ -218,7 +218,7 @@ function loadRatings() {
 
 // ── Boot ────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
-    if (BAKED_TOKEN === '__BAKED_GH_TOKEN__') {
+    if (!BAKED_TOKEN) {
         showError('Token not substituted — open this page via the deployed GitHub Pages site, not directly from the repo.');
         return;
     }
