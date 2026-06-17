@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-tools/review_filter_priority.py — Cohere code review of filter and scoring logic.
+tools/review_filter_priority.py — Code review of filter and scoring logic via Cohere.
 
 Extracts the filter/priority pipeline functions from super_rss_curator_json.py
-and submits them to Cohere's north-mini-code-1.0 model for a focused review.
+and submits them to north-mini-code-1-0 for a focused review.
 
 Usage:
     python tools/review_filter_priority.py
-    COHERE_API_KEY=sk-... python tools/review_filter_priority.py
+    COHERE_API_KEY=... python tools/review_filter_priority.py
 """
 
 import os
@@ -87,7 +87,7 @@ def build_code_payload(curator_path: Path) -> str:
 # ── Public API ────────────────────────────────────────────────────────────────
 
 def review_filter_priority(
-    model: str = "north-mini-code-1.0",
+    model: str = "north-mini-code-1-0",
     cohere_api_key: str | None = None,
     output: str = "print",
 ) -> str | None:
@@ -142,12 +142,11 @@ def review_filter_priority(
         return None
 
     except Exception as e:
-        # Surface model-not-found errors with helpful context
         err_str = str(e).lower()
-        if "not found" in err_str or "404" in err_str or "unknown model" in err_str:
+        if "not found" in err_str or "404" in err_str:
             print(
                 f"\nModel '{model}' was not found. "
-                "Check the Cohere dashboard for the correct model identifier."
+                "Check https://docs.cohere.com/docs/models for the correct identifier."
             )
         raise
 
