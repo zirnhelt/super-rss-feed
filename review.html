@@ -242,7 +242,13 @@ async function init() {
         // Check if all already rated
         const rated = articles.filter(a => ratings[a.url]);
         if (rated.length === articles.length) {
-            showDone();
+            if (localStorage.getItem('submitted_' + todayKey) === 'true') {
+                showDone();
+            } else {
+                // Rated but not yet submitted (e.g. previous save failed) — show from start
+                currentIndex = 0;
+                render();
+            }
             return;
         }
         // Start from first unrated
@@ -506,7 +512,8 @@ async function submitFeedback() {
         statusEl.className = 'status-msg success';
         statusEl.textContent = `✅ Saved ${ratingsList.length} ratings to GitHub!`;
 
-        // Clear today's progress from localStorage
+        // Mark submitted and clear in-progress ratings from localStorage
+        localStorage.setItem('submitted_' + todayKey, 'true');
         localStorage.removeItem('review_ratings_' + todayKey);
 
         setTimeout(() => showDone(), 1500);
@@ -520,7 +527,6 @@ async function submitFeedback() {
 // ── Done / error helpers ──────────────────────────────────────────────────────
 function showDone() {
     document.getElementById('review-pane').style.display  = 'none';
-    document.getElementById('setup-pane').style.display   = 'none';
     document.getElementById('done-section').style.display = 'block';
 }
 
