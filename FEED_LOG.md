@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-17 (Wednesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1810** → dedup **798** → new **468** → quality **16**
+- Mix: ai-tech:2(12%), climate:2(12%), wellness:2(12%), news:10(62%)
+- Feeds: local:27, ai-tech:76, climate:23, homelab:18, wellness:84, science:2, scifi:13, news:493
+- Images: 16/16
+- Topic queries: 876 articles from 37 queries
+- API calls: Claude:2, Cohere:24, Brave:44, Kagi:35 · 2,837 Claude tokens · est. cost $0.3144
+
+
+---
+
+
+
 ## 2026-06-16 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
@@ -834,33 +849,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **First Nations Technology Council** failed — `HTTPSConnectionPool(host='technologycouncil.ca', port=443): Read timed out. (read timeout=10)`
 - ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
 - ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `HTTPSConnectionPool(host='blog.ml.cmu.edu', port=443): Read timed out. (read timeout=10)`
-
-
----
-
-
-
-## 2026-06-09 (Tuesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **844** → dedup **707** → new **461** → quality **15**
-- Mix: ai-tech:2(13%), wellness:2(13%), science:1(7%), news:10(67%)
-- Feeds: local:28, ai-tech:57, climate:18, homelab:17, wellness:42, science:15, scifi:6, news:500
-- Images: 15/15
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-
-#### 🔧 Manual Run
-- Fetched **858** → dedup **735** → new **516** → quality **63**
-- Mix: local:2(3%), ai-tech:3(5%), homelab:1(2%), wellness:4(6%), science:3(5%), news:50(79%)
-- Feeds: local:30, ai-tech:60, climate:18, homelab:18, wellness:45, science:18, scifi:6, news:500
-- Images: 63/63
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
 
 
 ---
@@ -2290,6 +2278,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-08–2026-06-08
 - 3 runs · avg fetched 722 · avg quality 70
 - Dominant: **news** (83%) local:7 / ai-tech:8 / climate:6 / homelab:3 / wellness:7 / science:4 / news:176
+
+
+---
+
+
+
+## Week of 2026-06-09–2026-06-09
+- 2 runs · avg fetched 851 · avg quality 39
+- Dominant: **news** (77%) local:2 / ai-tech:5 / homelab:1 / wellness:6 / science:4 / news:60
 
 
 ---
