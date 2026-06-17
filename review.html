@@ -193,7 +193,7 @@
 const REPO_OWNER   = 'zirnhelt';
 const REPO_NAME    = 'super-rss-feed';
 const FEED_URL     = 'feed-review.json';
-const BAKED_TOKEN  = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : atob(e); })();
+const BAKED_TOKEN  = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : e.split('').reverse().join(''); })();
 
 // ── State ───────────────────────────────────────────────────────────────────
 let articles    = [];   // from feed-review.json
