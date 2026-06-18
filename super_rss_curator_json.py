@@ -536,13 +536,9 @@ class Article:
         if any(blocked in source_lower for blocked in FILTERS['blocked_sources']):
             return True
 
-        # Local articles bypass keyword filters — Haiku scrub and content_type filter
-        # handle unwanted subjects (e.g. sports scores) with the local-preservation rules
-        # intact. Without this check, a headline like "Williams Lake Sports Day" would be
-        # dropped here before any local-priority logic runs.
-        is_local = any(signal in text for signal in FILTERS.get('local_signals', []))
-
-        if not is_local and any(keyword in text for keyword in FILTERS['blocked_keywords']):
+        # blocked_keywords always applies — sports leagues, sports terms, advice columns,
+        # and stock jargon are universally unwanted regardless of local signals.
+        if any(keyword in text for keyword in FILTERS['blocked_keywords']):
             return True
 
         # First-person anecdote listicles ("I ditched...", "My home server...") are
@@ -553,6 +549,8 @@ class Article:
             return True
 
         # Arts/entertainment keywords are skipped when article mentions local places
+        # (e.g. an arena hosts a concert, or a local tournament isn't sports).
+        is_local = any(signal in text for signal in FILTERS.get('local_signals', []))
         nonlocal_keywords = FILTERS.get('blocked_keywords_unless_local', [])
         if nonlocal_keywords and not is_local:
             if any(keyword in text for keyword in nonlocal_keywords):
@@ -2290,7 +2288,11 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
         "Be more lenient for higher-scored articles (score >= 40) — only remove clear fluff.\n\n"
         "KEEP articles that use sports/entertainment as context for a deeper story "
         "(e.g. technology in sports, economics of a league, health research on athletes).\n"
-        "KEEP all local community news even if sports-related.\n"
+        "KEEP local community news that is NOT primarily about sport (local politics, "
+        "infrastructure, business, community events).\n"
+        "REMOVE local articles whose primary subject is a sports game, score, result, "
+        "draft, trade, player stat, or team recap — the [LOCAL] tag does not exempt "
+        "sports coverage.\n"
         "KEEP ai-tech articles with hands-on content, research findings, or practical guides.\n\n"
         "Respond ONLY with valid JSON: {\"remove\": [list of article numbers to remove]}\n"
         "If nothing should be removed respond with: {\"remove\": []}"
