@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-18 (Thursday)
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1239** → dedup **799** → new **571** → quality **35**
+- Mix: local:4(11%), ai-tech:5(14%), climate:2(6%), homelab:2(6%), wellness:5(14%), scifi:2(6%), news:15(43%)
+- Feeds: local:30, ai-tech:76, climate:27, homelab:18, wellness:74, science:0, scifi:11, news:378
+- Images: 35/35
+- Topic queries: 307 articles from 34 queries
+- API calls: Claude:7, Cohere:25, Brave:42, Kagi:49 · 11,475 Claude tokens · est. cost $0.4324
+
+
+---
+
+
+
 ## 2026-06-17 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
@@ -874,37 +889,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
 - ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
 - ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-## 2026-06-10 (Wednesday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **931** → dedup **798** → new **513** → quality **52**
-- Mix: local:2(4%), ai-tech:5(10%), climate:2(4%), wellness:2(4%), science:3(6%), scifi:2(4%), news:36(69%)
-- Feeds: local:28, ai-tech:69, climate:24, homelab:21, wellness:47, science:16, scifi:11, news:500
-- Images: 52/52
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **965** → dedup **823** → new **604** → quality **94**
-- Mix: local:3(3%), ai-tech:6(6%), climate:2(2%), homelab:3(3%), wellness:4(4%), science:3(3%), scifi:1(1%), news:72(77%)
-- Feeds: local:25, ai-tech:72, climate:26, homelab:24, wellness:47, science:19, scifi:11, news:500
-- Images: 94/94
-- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **CBC Prince George** failed — `400 Client Error: Bad Request for url: http://rss.cbc.ca/lineup/canada-prince-george.xml`
-- ⚠️ **First Nations Technology Council** failed — `HTTPSConnectionPool(host='technologycouncil.ca', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-- ⚠️ **Machine Learning Blog | ML@CMU | Carnegie Mellon University** failed — `HTTPSConnectionPool(host='blog.ml.cmu.edu', port=443): Read timed out. (read timeout=10)`
 
 
 ---
@@ -2343,6 +2327,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-09–2026-06-09
 - 2 runs · avg fetched 851 · avg quality 39
 - Dominant: **news** (77%) local:2 / ai-tech:5 / homelab:1 / wellness:6 / science:4 / news:60
+
+
+---
+
+
+
+## Week of 2026-06-10–2026-06-10
+- 2 runs · avg fetched 948 · avg quality 73
+- Dominant: **news** (74%) local:5 / ai-tech:11 / climate:4 / homelab:3 / wellness:6 / science:6 / scifi:3 / news:108
 
 
 ---
