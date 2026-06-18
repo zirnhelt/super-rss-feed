@@ -2,7 +2,7 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    - cron: '30 12 * * *'  # 4:30 AM Pacific  (12:30 UTC)
+    - cron: '0 4 * * *'  # 8:00 PM Pacific / 11:00 PM Eastern (4:00 UTC)
   workflow_dispatch:
     inputs:
       use_search_apis:
