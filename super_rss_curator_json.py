@@ -2269,7 +2269,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
     total_removed = auto_removed_count
     haiku_removed_by_category: Dict[str, int] = defaultdict(int)
 
-    batch_size = 40
+    batch_size = LIMITS.get('haiku_scrub_batch_size', 40)
     for i in range(0, len(articles), batch_size):
         batch = articles[i:i + batch_size]
 
@@ -2357,6 +2357,8 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
 
     max_candidates = config.get('max_candidates_per_source', 15)
 
+    local_signals_lower = [s.lower() for s in FILTERS.get('local_signals', [])]
+
     kept = []
     candidates_by_source = defaultdict(list)
     dropped = 0
@@ -2370,10 +2372,13 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
             dropped += 1
             continue
         article._prescore_hits = hits
+        article._prescore_is_local = any(sig in text for sig in local_signals_lower)
         candidates_by_source[article.source].append(article)
 
     for source, candidates in candidates_by_source.items():
-        candidates.sort(key=lambda a: a._prescore_hits, reverse=True)
+        # Sort local articles first, then by keyword-hit density, so local content
+        # is never bumped off the per-source cap by higher-hit non-local articles.
+        candidates.sort(key=lambda a: (a._prescore_is_local, a._prescore_hits), reverse=True)
         kept.extend(candidates[:max_candidates])
         dropped += max(0, len(candidates) - max_candidates)
 
@@ -2472,6 +2477,8 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
             if has_dimensions:
                 article.local = min(100, article.local + local_bonus)
             else:
+                # Thin-day fallback: floor local content at 80 so it isn't suppressed
+                # when Cohere gives it a low raw percentile score.
                 article.score = max(article.score, 80)
             article.category = 'local'
             local_boosted += 1
@@ -2487,7 +2494,9 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
                     article.score = max(0, min(100, article.score + adjustment))
                 source_adjusted += 1
 
-        # Wire content type → Q penalty
+        # Wire content type → Q penalty (applied after source adjustment intentionally:
+        # wire content from a preferred outlet is still less valuable than original
+        # reporting from that same outlet, so the penalty should dominate the boost).
         if has_dimensions and article.content_type == 'wire':
             article.quality = max(0, min(100, article.quality + wire_penalty))
 
@@ -2522,7 +2531,7 @@ def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict
         if ct in ALWAYS_DROP:
             removed[ct] += 1
             continue
-        if ct == 'recap' and article.local < 50:
+        if ct == 'recap' and article.local < 50 and article.category != 'local':
             removed['recap_nonlocal'] += 1
             continue
         kept.append(article)
