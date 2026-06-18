@@ -209,6 +209,9 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     filtering. Falls back to Kagi Search API per query when Brave returns no
     results or errors. Returns empty list if neither key is set.
     """
+    if os.environ.get('USE_SEARCH_APIS', 'true').lower() != 'true':
+        return []
+
     queries = _load_topic_queries()
     if not queries:
         return []
@@ -1432,6 +1435,9 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
     Used when the RSS feed returns 403. Returns Article objects populated with
     title, url, and description from Brave's index. BRAVE_API_KEY must be set.
     """
+    if os.environ.get('USE_SEARCH_APIS', 'true').lower() != 'true':
+        return []
+
     brave_key = os.environ.get('BRAVE_API_KEY', '')
     if not brave_key:
         return []
@@ -1513,6 +1519,9 @@ def _fetch_via_kagi_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]
     Secondary fallback used after Brave returns 0 results. Uses site:domain query.
     KAGI_API_KEY must be set.
     """
+    if os.environ.get('USE_SEARCH_APIS', 'true').lower() != 'true':
+        return []
+
     kagi_key = os.environ.get('KAGI_API_KEY', '')
     if not kagi_key:
         return []
