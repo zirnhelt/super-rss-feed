@@ -123,6 +123,7 @@ def min_score_for_category(category: str) -> int:
     return LIMITS.get('min_score_by_category', {}).get(category or 'news', LIMITS['min_claude_score'])
 
 _brave_call_count = 0
+_brave_quota_exceeded = False
 
 # Cache files
 SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
@@ -254,6 +255,9 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         return article
 
     def _fetch_brave(query_config: dict) -> List['Article']:
+        global _brave_quota_exceeded
+        if _brave_quota_exceeded:
+            return []
         label = query_config.get('label', 'Brave News')
         query = query_config.get('query', '')
         if not query:
@@ -283,7 +287,11 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return results
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
-            print(f"  ✗ {label} (Brave): HTTP {status}")
+            if status == 402:
+                _brave_quota_exceeded = True
+                print(f"  ✗ {label} (Brave): HTTP 402 — quota exceeded, disabling Brave for this run")
+            else:
+                print(f"  ✗ {label} (Brave): HTTP {status}")
         except ValueError as e:
             print(f"  ✗ {label} (Brave): invalid JSON response - {e}")
         except Exception as e:
@@ -1435,7 +1443,9 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
     params = {'q': f'site:{domain}', 'count': 10, 'freshness': 'pw'}
     headers = {'X-Subscription-Token': brave_key, 'Accept': 'application/json'}
 
-    global _brave_call_count
+    global _brave_call_count, _brave_quota_exceeded
+    if _brave_quota_exceeded:
+        return []
     _brave_call_count += 1
     api_usage.record_call('brave')
     try:
@@ -1445,6 +1455,13 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
         )
         resp.raise_for_status()
         results = resp.json().get('web', {}).get('results', [])
+    except requests.exceptions.HTTPError as e:
+        if e.response is not None and e.response.status_code == 402:
+            _brave_quota_exceeded = True
+            print(f"    ⚠️  Brave fallback failed for {domain}: 402 — quota exceeded, disabling Brave for this run")
+        else:
+            print(f"    ⚠️  Brave fallback failed for {domain}: {e}")
+        return []
     except Exception as e:
         print(f"    ⚠️  Brave fallback failed for {domain}: {e}")
         return []
