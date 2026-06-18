@@ -1,0 +1,18 @@
+{
+  "name": "Feed Reader",
+  "short_name": "Feeds",
+  "description": "Personal RSS feed reader",
+  "start_url": "./reader.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1e1e3f",
+  "theme_color": "#1e1e3f",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e1e3f'/><text y='.9em' font-size='80' x='10'>📡</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
