@@ -565,20 +565,9 @@
 <div class="overlay hidden" id="settings-modal">
   <div class="modal">
     <h2>⚙ Settings</h2>
-    <p>Add a Cloudflare Worker URL and API key for cross-device read/star sync. Leave blank to use local storage only.</p>
-    <div class="mf">
-      <label>Worker URL</label>
-      <input type="url" id="cfg-url" placeholder="https://super-rss-reader.yourname.workers.dev">
-      <div class="hint">Deploy <code>worker/</code> to Cloudflare, paste the URL here.</div>
-    </div>
-    <div class="mf">
-      <label>API Key</label>
-      <input type="password" id="cfg-key" placeholder="Your secret API key">
-      <div class="hint">Set as a Worker secret named <code>API_KEY</code>.</div>
-    </div>
+    <p id="sync-status-msg"></p>
     <div class="modal-foot">
-      <button class="btn-sec" id="btn-cfg-cancel">Cancel</button>
-      <button class="btn-pri" id="btn-cfg-save">Save</button>
+      <button class="btn-pri" id="btn-cfg-cancel">Close</button>
     </div>
   </div>
 </div>
@@ -627,8 +616,8 @@ let query      = '';
 let focusIdx   = -1;
 let panelUrl   = null;        // article open in correction panel
 
-let workerUrl  = localStorage.getItem('worker_url') || '';
-let workerKey  = localStorage.getItem('worker_key') || '';
+let ghStateSha = null;
+let ghSaveTimer = null;
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
 const $  = id => document.getElementById(id);
@@ -678,47 +667,81 @@ function loadLocal() {
   try { corrs    = JSON.parse(localStorage.getItem('corrs') || '{}'); }             catch {}
 }
 
-// ── Worker sync ───────────────────────────────────────────────────────────────
-async function syncWorker() {
-  if (!workerUrl || !workerKey) return;
+// ── GitHub sync ───────────────────────────────────────────────────────────────
+async function syncGitHub() {
+  if (!BAKED_TOKEN) return;
   try {
-    const r = await fetch(`${workerUrl}/state`, { headers: {'X-API-Key': workerKey} });
+    const r = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/reader-state.json`,
+      { headers: { 'Authorization': `Bearer ${BAKED_TOKEN}`, 'Accept': 'application/vnd.github+json' } }
+    );
+    if (r.status === 404) return;
     if (!r.ok) return;
-    const { articles: rows = [] } = await r.json();
-    readUrls = new Set();
-    starUrls = new Set();
-    corrs    = {};
-    for (const row of rows) {
-      if (row.read_at)            readUrls.add(row.url);
-      if (row.starred)            starUrls.add(row.url);
-      if (row.category_override || row.score_override) {
-        corrs[row.url] = { category_override: row.category_override, score_override: row.score_override };
-      }
-    }
+    const meta = await r.json();
+    ghStateSha = meta.sha;
+    const data = JSON.parse(atob(meta.content.replace(/\n/g, '')));
+    for (const url of data.read    || []) readUrls.add(url);
+    for (const url of data.starred || []) starUrls.add(url);
+    Object.assign(corrs, data.corrs || {});
     saveLocal();
   } catch {}
 }
 
-async function wPost(path, body) {
-  if (workerUrl && workerKey) {
-    fetch(`${workerUrl}${path}`, {
-      method: 'POST',
-      headers: {'X-API-Key': workerKey, 'Content-Type': 'application/json'},
-      body: JSON.stringify(body),
-    }).catch(() => {});
-  }
-  saveLocal();
+function scheduleGhSave() {
+  if (!BAKED_TOKEN) return;
+  clearTimeout(ghSaveTimer);
+  ghSaveTimer = setTimeout(ghSaveState, 8000);
+}
+
+async function ghSaveState() {
+  if (!BAKED_TOKEN) return;
+  const payload = {
+    version: 1,
+    updated_at: new Date().toISOString(),
+    read: [...readUrls],
+    starred: [...starUrls],
+    corrs,
+  };
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  const body = {
+    message: `Update reader state [skip ci]`,
+    content,
+    ...(ghStateSha ? { sha: ghStateSha } : {}),
+  };
+  try {
+    const r = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/reader-state.json`,
+      {
+        method: 'PUT',
+        keepalive: true,
+        headers: {
+          'Authorization': `Bearer ${BAKED_TOKEN}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github+json',
+        },
+        body: JSON.stringify(body),
+      }
+    );
+    if (r.ok) {
+      const data = await r.json();
+      ghStateSha = data.content.sha;
+    } else if (r.status === 409 || r.status === 422) {
+      await syncGitHub();
+      setTimeout(ghSaveState, 1000);
+    }
+  } catch {}
 }
 
 // ── Actions ───────────────────────────────────────────────────────────────────
-function markRead(url)   { readUrls.add(url);    wPost('/mark-read',   {url}); badge(); renderSidebar(); patchCard(url); }
-function markUnread(url) { readUrls.delete(url); wPost('/mark-unread', {url}); badge(); renderSidebar(); patchCard(url); }
+function markRead(url)   { readUrls.add(url);    saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
+function markUnread(url) { readUrls.delete(url); saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
 function toggleRead(url) { readUrls.has(url) ? markUnread(url) : markRead(url); }
 
 function toggleStar(url) {
-  if (starUrls.has(url)) { starUrls.delete(url); wPost('/unstar', {url}); toast('Unstarred'); }
-  else                    { starUrls.add(url);    wPost('/star',   {url}); toast('⭐ Starred'); }
+  if (starUrls.has(url)) { starUrls.delete(url); toast('Unstarred'); }
+  else                    { starUrls.add(url);    toast('⭐ Starred'); }
   saveLocal();
+  scheduleGhSave();
   patchCard(url);
   renderSidebar();
 }
@@ -726,8 +749,8 @@ function toggleStar(url) {
 function markAllRead() {
   const vs = visible();
   vs.forEach(a => readUrls.add(a.url));
-  vs.forEach(a => wPost('/mark-read', {url: a.url}));
   saveLocal();
+  scheduleGhSave();
   badge();
   renderSidebar();
   renderArts();
@@ -1021,10 +1044,11 @@ async function submitCorrection(url) {
   const stEl = $('panel-st');
   const btn  = $('panel-submit');
 
-  // Apply category override locally + to worker
+  // Apply category override locally
   if (cat && cat !== a?.category) {
     corrs[url] = {...corrs[url], category_override: cat};
-    wPost('/correct', {url, category_override: cat, score_override: null});
+    saveLocal();
+    scheduleGhSave();
     renderSidebar();
     renderArts();
   }
@@ -1160,8 +1184,9 @@ $('btn-close-panel').addEventListener('click', closePanel);
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 function openSettings() {
-  $('cfg-url').value = workerUrl;
-  $('cfg-key').value = workerKey;
+  $('sync-status-msg').textContent = BAKED_TOKEN
+    ? '✅ GitHub sync active — read/star state syncs across devices automatically.'
+    : '⚠️ No GitHub token. Open this page from the deployed GitHub Pages site for cross-device sync. State is saved locally in this browser only.';
   $('settings-modal').classList.remove('hidden');
 }
 $('btn-settings').addEventListener('click', openSettings);
@@ -1170,24 +1195,16 @@ $('btn-cfg-cancel').addEventListener('click', () => $('settings-modal').classLis
 $('settings-modal').addEventListener('click', e => {
   if (e.target === $('settings-modal')) $('settings-modal').classList.add('hidden');
 });
-$('btn-cfg-save').addEventListener('click', () => {
-  workerUrl = $('cfg-url').value.trim().replace(/\/$/,'');
-  workerKey = $('cfg-key').value.trim();
-  localStorage.setItem('worker_url', workerUrl);
-  localStorage.setItem('worker_key', workerKey);
-  $('settings-modal').classList.add('hidden');
-  toast('Settings saved');
-  if (workerUrl && workerKey) {
-    syncWorker().then(() => { renderSidebar(); renderArts(); badge(); });
-  }
-});
 
 // ── Refresh ───────────────────────────────────────────────────────────────────
 async function refresh() {
   const btn = $('btn-refresh');
   btn.classList.add('spin');
   btn.disabled = true;
-  await Promise.all([loadFeeds(), syncWorker()]);
+  await Promise.all([loadFeeds(), syncGitHub()]);
+  renderSidebar();
+  renderArts();
+  badge();
   btn.classList.remove('spin');
   btn.disabled = false;
   toast('Refreshed');
@@ -1203,11 +1220,14 @@ if ('serviceWorker' in navigator) {
 async function init() {
   loadLocal();
   renderSidebar();
-  if (workerUrl && workerKey) await syncWorker();
+  await syncGitHub();
   await loadFeeds();
-  // Background sync every 5 minutes
-  setInterval(() => syncWorker().then(() => { renderSidebar(); badge(); }), 5 * 60 * 1000);
+  setInterval(async () => { await syncGitHub(); renderSidebar(); badge(); }, 5 * 60 * 1000);
 }
+
+window.addEventListener('beforeunload', () => {
+  if (ghSaveTimer) { clearTimeout(ghSaveTimer); ghSaveState(); }
+});
 
 init();
 </script>
