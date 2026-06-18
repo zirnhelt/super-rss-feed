@@ -536,6 +536,8 @@ class Article:
         if any(blocked in source_lower for blocked in FILTERS['blocked_sources']):
             return True
 
+        # blocked_keywords always applies — sports leagues, sports terms, advice columns,
+        # and stock jargon are universally unwanted regardless of local signals.
         if any(keyword in text for keyword in FILTERS['blocked_keywords']):
             return True
 
@@ -547,10 +549,11 @@ class Article:
             return True
 
         # Arts/entertainment keywords are skipped when article mentions local places
+        # (e.g. an arena hosts a concert, or a local tournament isn't sports).
+        is_local = any(signal in text for signal in FILTERS.get('local_signals', []))
         nonlocal_keywords = FILTERS.get('blocked_keywords_unless_local', [])
-        if nonlocal_keywords:
-            is_local = any(signal in text for signal in FILTERS.get('local_signals', []))
-            if not is_local and any(keyword in text for keyword in nonlocal_keywords):
+        if nonlocal_keywords and not is_local:
+            if any(keyword in text for keyword in nonlocal_keywords):
                 return True
 
         return False
@@ -2112,7 +2115,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         print(f"\n🤖 Scoring {len(uncached)} new articles with Claude...")
         print(f"   (using cache for {len(scored_articles)} articles)")
 
-        batch_size = 15
+        batch_size = LIMITS.get('claude_scoring_batch_size', 15)
         for i in range(0, len(uncached), batch_size):
             batch = uncached[i:i + batch_size]
 
@@ -2285,7 +2288,11 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
         "Be more lenient for higher-scored articles (score >= 40) — only remove clear fluff.\n\n"
         "KEEP articles that use sports/entertainment as context for a deeper story "
         "(e.g. technology in sports, economics of a league, health research on athletes).\n"
-        "KEEP all local community news even if sports-related.\n"
+        "KEEP local community news that is NOT primarily about sport (local politics, "
+        "infrastructure, business, community events).\n"
+        "REMOVE local articles whose primary subject is a sports game, score, result, "
+        "draft, trade, player stat, or team recap — the [LOCAL] tag does not exempt "
+        "sports coverage.\n"
         "KEEP ai-tech articles with hands-on content, research findings, or practical guides.\n\n"
         "Respond ONLY with valid JSON: {\"remove\": [list of article numbers to remove]}\n"
         "If nothing should be removed respond with: {\"remove\": []}"
@@ -2393,12 +2400,16 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
             kept.append(article)
             continue
         text = f"{article.title} {article.description}".lower()
+        is_local = any(sig in text for sig in local_signals_lower)
         hits = sum(1 for kw in PRESCORE_KEYWORDS if kw in text)
-        if hits == 0:
+        # Local articles pass through even with zero keyword hits — the pipeline's
+        # local-preservation rules must have a chance to run. Non-local zero-hit
+        # articles are dropped as off-topic for this feed's interests.
+        if hits == 0 and not is_local:
             dropped += 1
             continue
         article._prescore_hits = hits
-        article._prescore_is_local = any(sig in text for sig in local_signals_lower)
+        article._prescore_is_local = is_local
         candidates_by_source[article.source].append(article)
 
     for source, candidates in candidates_by_source.items():
@@ -2485,6 +2496,7 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
     local_bonus = SCORING_MODIFIERS.get('local_keyword_bonus', 25)
     wire_penalty = SCORING_MODIFIERS.get('wire_quality_penalty', -10)
     q_adjustments = SCORING_MODIFIERS.get('source_type_quality_adjustments', {})
+    local_thin_day_floor = LIMITS.get('local_thin_day_score_floor', 80)
 
     source_map = SOURCE_PREFS.get('source_map', {})
 
@@ -2503,9 +2515,9 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
             if has_dimensions:
                 article.local = min(100, article.local + local_bonus)
             else:
-                # Thin-day fallback: floor local content at 80 so it isn't suppressed
+                # Thin-day fallback: floor local content so it isn't suppressed
                 # when Cohere gives it a low raw percentile score.
-                article.score = max(article.score, 80)
+                article.score = max(article.score, local_thin_day_floor)
             article.category = 'local'
             local_boosted += 1
 
@@ -2540,12 +2552,18 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
 def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict]:
     """Phase 3: Absolute content type filter — score-independent.
 
-    - fluff, sponsored: always drop
+    - fluff, sponsored: always drop (except high-scoring AI/tech fluff — Haiku scrub
+      handles those with score-aware leniency; dropping them here would override that)
     - recap: drop unless article.local >= 50 (local recaps may have community value)
     - wire: kept but flagged; dedup already prefers original reporting over wire
     - None/unknown: pass through (e.g. Cohere-scored articles)
     """
     ALWAYS_DROP = {'fluff', 'sponsored'}
+    # AI/tech articles above this threshold have already been reviewed leniently by
+    # scrub_feed_with_haiku (score >= 40 triggers "only remove clear fluff"). Dropping
+    # them here unconditionally would contradict that leniency, so let them pass.
+    ai_tech_fluff_threshold = LIMITS.get('ai_tech_fluff_score_threshold', 40)
+    AI_TECH_CATEGORIES = {'ai-tech', 'homelab'}
     kept = []
     removed: Dict[str, int] = defaultdict(int)
 
@@ -2555,7 +2573,12 @@ def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict
             kept.append(article)
             continue
         if ct in ALWAYS_DROP:
-            removed[ct] += 1
+            if (ct == 'fluff'
+                    and article.category in AI_TECH_CATEGORIES
+                    and article.score >= ai_tech_fluff_threshold):
+                kept.append(article)
+            else:
+                removed[ct] += 1
             continue
         if ct == 'recap' and article.local < 50 and article.category != 'local':
             removed['recap_nonlocal'] += 1
