@@ -2,10 +2,13 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    # Run 2 times daily for cumulative feed updates
     - cron: '30 12 * * *'  # 4:30 AM Pacific  (12:30 UTC)
-    - cron: '30 4 * * *'   # 8:30 PM Pacific  (04:30 UTC next day)
-  workflow_dispatch:  # keep bare — adding inputs: hides the Run workflow button
+  workflow_dispatch:
+    inputs:
+      use_search_apis:
+        description: 'Use Brave and Kagi search APIs (topic queries + feed fallbacks)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -105,6 +108,7 @@ jobs:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
           KAGI_API_KEY: ${{ secrets.KAGI_API_KEY }}
+          USE_SEARCH_APIS: ${{ github.event_name == 'schedule' || inputs.use_search_apis == true }}
         run: |
           set -o pipefail
           python super_rss_curator_json.py feeds.opml 2>&1 | tee /tmp/feed_output.txt
