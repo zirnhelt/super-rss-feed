@@ -276,11 +276,11 @@
     }
 
     .dbadge {
-      font-size: 0.68rem; padding: 1px 5px; border-radius: 4px;
-      background: #f3e8ff; color: #7c3aed; font-weight: 600;
-      cursor: pointer;
+      font-size: 0.7rem; padding: 2px 6px; border-radius: 4px;
+      background: #7c3aed; color: #fff; font-weight: 600;
+      cursor: pointer; letter-spacing: 0.02em;
     }
-    .dbadge:hover { background: #ede9fe; }
+    .dbadge:hover { background: #6d28d9; }
 
     .card-acts { display: flex; gap: 3px; flex-shrink: 0; }
     .act {
@@ -672,6 +672,7 @@ let panelUrl   = null;
 let ghStateSha  = null;
 let ghSaveTimer = null;
 let podcastArts = [];
+let podcastDayByUrl = new Map();
 let autoReadObserver = null;
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
@@ -827,6 +828,7 @@ async function loadFeeds() {
   arts.sort((a, b) => new Date(b.date_published || 0) - new Date(a.date_published || 0));
 
   await loadPodcastFeeds();
+  podcastDayByUrl = new Map(podcastArts.filter(a => a.podcast_day).map(a => [a.url, a.podcast_day]));
 
   renderSidebar();
   renderArts();
@@ -882,13 +884,10 @@ async function loadPodcastFeeds() {
 // ── Auto-read on scroll ───────────────────────────────────────────────────────
 function setupAutoReadObserver() {
   if (autoReadObserver) { autoReadObserver.disconnect(); autoReadObserver = null; }
+  if (unreadOnly) return;
   const wrap = $('arts-wrap');
   autoReadObserver = new IntersectionObserver(entries => {
     for (const e of entries) {
-      // card has fully scrolled off the top → mark read
-      // skip when hide-read is active: removing cards mid-scroll causes a
-      // viewport shift that re-triggers the observer in a feedback loop
-      if (unreadOnly) continue;
       if (!e.isIntersecting && e.boundingClientRect.top < 0) {
         const url = e.target.dataset.url;
         if (url && !readUrls.has(url)) autoMarkRead(url, e.target);
@@ -1054,7 +1053,13 @@ function cardHtml(a, i) {
         <span>${rel(a.date_published)}</span>
         ${selCat === 'all' && catInfo ? `<span class="cbadge">${catInfo.emoji} ${esc(catInfo.name)}</span>` : ''}
         ${showScore ? `<span class="sbadge ${scoreClass(score)}">${score}</span>` : ''}
-        ${pd && !selCat.startsWith('podcast-') ? `<span class="dbadge" data-act="correct" title="${esc(pd.theme)}">${pd.short}</span>` : ''}
+        ${(() => {
+          if (selCat.startsWith('podcast-')) return '';
+          const bt = corrs[a.url]?.better_theme;
+          if (bt) return `<span class="dbadge" data-act="correct" title="${esc(DAY_THEME[bt])}">${DAY_SHORT[bt]}</span>`;
+          const pday = pd || podcastDayByUrl.get(a.url);
+          return pday ? `<span class="dbadge" data-act="correct" title="${esc(pday.theme)}">${pday.short}</span>` : '';
+        })()}
       </div>
       <div class="card-acts">
         <button class="act${isStar ? ' starred' : ''}" data-act="star"    title="Star (s)">${isStar ? '⭐' : '☆'}</button>
@@ -1110,7 +1115,7 @@ function patchCard(url) {
 // ── Correction panel ──────────────────────────────────────────────────────────
 function openPanel(url) {
   panelUrl = url;
-  if (!ratings[url]) ratings[url] = {};
+  if (!ratings[url]) ratings[url] = {better_theme: corrs[url]?.better_theme || null};
   const a   = arts.find(x => x.url === url) || podcastArts.find(x => x.url === url);
   const r   = ratings[url];
   const td  = todayName();
@@ -1173,7 +1178,18 @@ function openPanel(url) {
     btn.addEventListener('click', () => {
       const day = btn.dataset.day;
       const was = ratings[url].better_theme === day;
-      ratings[url] = {...ratings[url], rating: 'good', better_theme: was ? null : day};
+      const newDay = was ? null : day;
+      ratings[url] = {...ratings[url], rating: 'good', better_theme: newDay};
+      if (newDay) {
+        corrs[url] = {...(corrs[url] || {}), better_theme: newDay};
+      } else if (corrs[url]) {
+        const {better_theme: _, ...rest} = corrs[url];
+        corrs[url] = Object.keys(rest).length ? rest : undefined;
+        if (!corrs[url]) delete corrs[url];
+      }
+      saveLocal();
+      scheduleGhSave();
+      patchCard(url);
       openPanel(url);
     });
   });
