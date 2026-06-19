@@ -504,6 +504,9 @@
         grid-template-rows: 1fr 56px;
         height: 100dvh;
       }
+      #toolbar {
+        padding-top: calc(9px + env(safe-area-inset-top));
+      }
       #sidebar {
         order: 2;
         flex-direction: row;
@@ -625,7 +628,7 @@
 <script>
 'use strict';
 
-// ── Constants ─────────────────────────────────────────────────────────────────────────────────
+// ── Constants ─────────────────────────────────────────────────────────────────
 const REPO_OWNER  = 'zirnhelt';
 const REPO_NAME   = 'super-rss-feed';
 const BAKED_TOKEN = (() => {
@@ -634,7 +637,7 @@ const BAKED_TOKEN = (() => {
 })();
 
 const CATS = [
-  { slug:'local',   name:'Local News',       emoji:'🌄️' },
+  { slug:'local',   name:'Local News',       emoji:'🏔️' },
   { slug:'ai-tech', name:'AI & Tech',         emoji:'🤖' },
   { slug:'climate', name:'Climate & Energy',  emoji:'🌍' },
   { slug:'homelab', name:'Homelab & DIY',     emoji:'🏠' },
@@ -651,7 +654,7 @@ const DAY_THEME = {
   thursday:'Indigenous Lands', friday:'Wild Spaces', saturday:'Cariboo Voices', sunday:'Science & Wonder'
 };
 
-// ── State ─────────────────────────────────────────────────────────────────────────────────
+// ── State ─────────────────────────────────────────────────────────────────────
 let arts       = [];
 let readUrls   = new Set();
 let starUrls   = new Set();
@@ -669,7 +672,7 @@ let ghSaveTimer = null;
 let podcastArts = [];
 let autoReadObserver = null;
 
-// ── Utils ─────────────────────────────────────────────────────────────────────────────────
+// ── Utils ─────────────────────────────────────────────────────────────────────
 const $  = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
@@ -705,7 +708,7 @@ function toast(msg, ms = 2000) {
   toastTimer = setTimeout(() => el.classList.remove('show'), ms);
 }
 
-// ── Local persistence ─────────────────────────────────────────────────────────────────────────
+// ── Local persistence ─────────────────────────────────────────────────────────
 function saveLocal() {
   localStorage.setItem('read_urls',   JSON.stringify([...readUrls]));
   localStorage.setItem('star_urls',   JSON.stringify([...starUrls]));
@@ -721,7 +724,7 @@ function loadLocal() {
   unreadOnly = stored === null ? true : stored !== '0';
 }
 
-// ── GitHub sync ───────────────────────────────────────────────────────────────────────────────
+// ── GitHub sync ───────────────────────────────────────────────────────────────
 async function syncGitHub() {
   if (!BAKED_TOKEN) return;
   try {
@@ -786,7 +789,7 @@ async function ghSaveState() {
   } catch {}
 }
 
-// ── Actions ────────────────────────────────────────────────────────────────────────────────
+// ── Actions ───────────────────────────────────────────────────────────────────
 function markRead(url)   { readUrls.add(url);    saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
 function markUnread(url) { readUrls.delete(url); saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
 function toggleRead(url) { readUrls.has(url) ? markUnread(url) : markRead(url); }
@@ -811,7 +814,7 @@ function markAllRead() {
   toast(`Marked ${vs.length} as read`);
 }
 
-// ── Feed loading ──────────────────────────────────────────────────────────────────────────────
+// ── Feed loading ──────────────────────────────────────────────────────────────
 async function loadFeeds() {
   $('arts-wrap').innerHTML = '<div class="msg"><div class="spinner"></div><p>Loading feeds…</p></div>';
   arts = [];
@@ -874,7 +877,7 @@ async function loadPodcastFeeds() {
   podcastArts.sort((a, b) => new Date(b.date_published || 0) - new Date(a.date_published || 0));
 }
 
-// ── Auto-read on scroll ───────────────────────────────────────────────────────────────────────
+// ── Auto-read on scroll ───────────────────────────────────────────────────────
 function setupAutoReadObserver() {
   if (autoReadObserver) { autoReadObserver.disconnect(); autoReadObserver = null; }
   const wrap = $('arts-wrap');
@@ -905,7 +908,7 @@ function autoMarkRead(url, cardEl) {
   }
 }
 
-// ── Filtering ────────────────────────────────────────────────────────────────────────────────
+// ── Filtering ─────────────────────────────────────────────────────────────────
 function visible() {
   let list;
   if (selCat === 'starred') {
@@ -936,7 +939,7 @@ function unreadCt(slug) {
   return arts.filter(a => (corrs[a.url]?.category_override || a.category) === slug && !readUrls.has(a.url)).length;
 }
 
-// ── Sidebar render ───────────────────────────────────────────────────────────────────────────────
+// ── Sidebar render ────────────────────────────────────────────────────────────
 function renderSidebar() {
   const nav = $('cat-nav');
   let h = '';
@@ -949,7 +952,7 @@ function renderSidebar() {
   h += `<div class="sb-section-label">Podcasts</div>`;
   DAYS.forEach(d => {
     const slug = `podcast-${d}`;
-    h += catBtn(slug, '🎤', DAY_SHORT[d], unreadCt(slug));
+    h += catBtn(slug, '🎙', DAY_SHORT[d], unreadCt(slug));
   });
   nav.innerHTML = h;
   nav.querySelectorAll('.cat-btn').forEach(el => {
@@ -972,25 +975,25 @@ function catBtn(slug, emoji, name, ct) {
   </button>`;
 }
 
-// ── Toolbar label ────────────────────────────────────────────────────────────────────────────────
+// ── Toolbar label ─────────────────────────────────────────────────────────────
 function toolbarLabel() {
   if (selCat === 'all')     return '📡 All Feeds';
   if (selCat === 'starred') return '⭐ Starred';
   if (selCat.startsWith('podcast-')) {
     const d = selCat.slice('podcast-'.length);
-    return `🎤 ${DAY_SHORT[d]} — ${DAY_THEME[d]}`;
+    return `🎙 ${DAY_SHORT[d]} — ${DAY_THEME[d]}`;
   }
   const c = CATS.find(x => x.slug === selCat);
   return c ? `${c.emoji} ${c.name}` : '';
 }
 
-// ── Sync hide-read toggle state across desktop + mobile buttons ────────────────────────
+// ── Sync hide-read toggle state across desktop + mobile buttons ───────────────
 function syncHideReadButtons() {
   $('btn-unread').classList.toggle('on', unreadOnly);
   $('btn-hide-read-mob').classList.toggle('on', unreadOnly);
 }
 
-// ── Articles render ──────────────────────────────────────────────────────────────────────────────
+// ── Articles render ───────────────────────────────────────────────────────────
 function renderArts() {
   const vs = visible();
   $('toolbar-cat-label').textContent = toolbarLabel();
@@ -998,10 +1001,10 @@ function renderArts() {
 
   const w = $('arts-wrap');
   if (vs.length === 0) {
-    if (!arts.length)        w.innerHTML = '<div class="msg"><div class="ic">💭</div><p>No feeds loaded.</p></div>';
+    if (!arts.length)        w.innerHTML = '<div class="msg"><div class="ic">📭</div><p>No feeds loaded.</p></div>';
     else if (unreadOnly)     w.innerHTML = '<div class="msg"><div class="ic">✅</div><p>All caught up!</p></div>';
     else if (query)          w.innerHTML = `<div class="msg"><div class="ic">🔍</div><p>No results for "<strong>${esc(query)}</strong>"</p></div>`;
-    else                     w.innerHTML = '<div class="msg"><div class="ic">💭</div><p>Nothing here.</p></div>';
+    else                     w.innerHTML = '<div class="msg"><div class="ic">📭</div><p>Nothing here.</p></div>';
     setupAutoReadObserver();
     return;
   }
@@ -1099,7 +1102,7 @@ function patchCard(url) {
   if (autoReadObserver && newEl.dataset.url) autoReadObserver.observe(newEl);
 }
 
-// ── Correction panel ──────────────────────────────────────────────────────────────────────────────
+// ── Correction panel ──────────────────────────────────────────────────────────
 function openPanel(url) {
   panelUrl = url;
   if (!ratings[url]) ratings[url] = {};
@@ -1262,7 +1265,7 @@ async function submitCorrection(url) {
   }
 }
 
-// ── PWA badge + title ─────────────────────────────────────────────────────────────────────────────
+// ── PWA badge + title ─────────────────────────────────────────────────────────
 function badge() {
   const n = unreadCt('all');
   // title fallback works everywhere; setAppBadge only works when installed as PWA
@@ -1270,7 +1273,7 @@ function badge() {
   if ('setAppBadge' in navigator) navigator.setAppBadge(n).catch(() => {});
 }
 
-// ── Keyboard ─────────────────────────────────────────────────────────────────────────────────
+// ── Keyboard ──────────────────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.target.matches('input,textarea,select')) return;
   const vs = visible();
@@ -1316,7 +1319,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// ── Toolbar events ─────────────────────────────────────────────────────────────────────────────
+// ── Toolbar events ────────────────────────────────────────────────────────────
 $('btn-unread').addEventListener('click', () => {
   unreadOnly = !unreadOnly;
   saveLocal();
@@ -1343,7 +1346,7 @@ $('search').addEventListener('input', () => {
 
 $('btn-close-panel').addEventListener('click', closePanel);
 
-// ── Settings ─────────────────────────────────────────────────────────────────────────────────
+// ── Settings ──────────────────────────────────────────────────────────────────
 function openSettings() {
   $('sync-status-msg').textContent = BAKED_TOKEN
     ? '✅ GitHub sync active — read/star state syncs across devices automatically.'
@@ -1357,7 +1360,7 @@ $('settings-modal').addEventListener('click', e => {
   if (e.target === $('settings-modal')) $('settings-modal').classList.add('hidden');
 });
 
-// ── Refresh ─────────────────────────────────────────────────────────────────────────────────
+// ── Refresh ───────────────────────────────────────────────────────────────────
 async function refresh() {
   const btn = $('btn-refresh');
   btn.classList.add('spin');
@@ -1372,12 +1375,12 @@ async function refresh() {
 }
 $('btn-refresh').addEventListener('click', refresh);
 
-// ── Service worker ──────────────────────────────────────────────────────────────────────────────
+// ── Service worker ────────────────────────────────────────────────────────────
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 
-// ── Boot ──────────────────────────────────────────────────────────────────────────────────
+// ── Boot ──────────────────────────────────────────────────────────────────────
 async function init() {
   loadLocal();
   syncHideReadButtons();
