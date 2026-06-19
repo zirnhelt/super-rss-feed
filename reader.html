@@ -67,7 +67,7 @@
     }
 
     .sb-head {
-      padding: 14px 16px 10px;
+      padding: calc(14px + env(safe-area-inset-top, 0px)) 16px 10px calc(16px + env(safe-area-inset-left, 0px));
       border-bottom: 1px solid rgba(255,255,255,0.07);
       flex-shrink: 0;
     }
@@ -501,11 +501,11 @@
       #app,
       #app.panel-open {
         grid-template-columns: 1fr !important;
-        grid-template-rows: 1fr 56px;
+        grid-template-rows: 1fr calc(56px + env(safe-area-inset-bottom, 0px));
         height: 100dvh;
       }
       #toolbar {
-        padding-top: calc(9px + env(safe-area-inset-top));
+        padding-top: calc(9px + env(safe-area-inset-top, 0px));
       }
       #sidebar {
         order: 2;
@@ -514,6 +514,7 @@
         border-top: 1px solid rgba(255,255,255,0.07);
         overflow-x: auto;
         overflow-y: hidden;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
       }
       .sb-head, .sb-foot, .kbd-hint, .cat-div { display: none; }
       #cat-nav {
