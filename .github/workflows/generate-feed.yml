@@ -136,17 +136,11 @@ jobs:
           # Copy all category feeds and podcast feeds
           cp feed-*.json output/
 
-          # Copy website files
-          cp index.html output/
-          # Bake the long-lived REVIEW_PAT into reader.html and review.html so the
-          # browser can write feedback/state to the repo. Token is reversed to avoid
+          # Bake the long-lived REVIEW_PAT into review.html so the
+          # browser can write feedback to the repo. Token is reversed to avoid
           # secret-scanning push protection.
           REVERSED_TOKEN=$(echo -n "${{ secrets.REVIEW_PAT }}" | rev)
-          sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" reader.html > output/reader.html
           sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" review.html > output/review.html
-          cp sw.js output/
-          cp manifest.json output/
-          cp icon-*.png output/
           cp curated-feeds.opml output/
 
           # Copy weekly report HTML files so they persist across deploys
@@ -161,8 +155,6 @@ jobs:
           cp podcast_shown_cache.json output/ 2>/dev/null || true
           cp image_cache.json output/ 2>/dev/null || true
           cp shown_terms_cache.json output/ 2>/dev/null || true
-          cp reader-state.json output/ 2>/dev/null || true
-
           echo "Files in output directory:"
           ls -la output/
 
