@@ -265,6 +265,13 @@
       background: #e0e7ff; color: var(--primary); font-weight: 500;
     }
 
+    .dbadge {
+      font-size: 0.68rem; padding: 1px 5px; border-radius: 4px;
+      background: #f3e8ff; color: #7c3aed; font-weight: 600;
+      cursor: pointer;
+    }
+    .dbadge:hover { background: #ede9fe; }
+
     .card-acts { display: flex; gap: 3px; flex-shrink: 0; }
     .act {
       background: none; border: none; cursor: pointer;
@@ -296,6 +303,15 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+
+    .card-body { display: flex; gap: 8px; align-items: flex-start; }
+    .card-text { flex: 1; min-width: 0; }
+    .card-img {
+      width: 80px; height: 58px;
+      object-fit: cover; border-radius: 5px;
+      flex-shrink: 0;
+      background: var(--border);
     }
 
     /* ── Empty / loading ── */
@@ -618,6 +634,7 @@ let panelUrl   = null;        // article open in correction panel
 
 let ghStateSha = null;
 let ghSaveTimer = null;
+let podcastMap = {}; // url → {day, short, theme}
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
 const $  = id => document.getElementById(id);
@@ -767,6 +784,8 @@ async function loadFeeds() {
 
   arts.sort((a, b) => new Date(b.date_published || 0) - new Date(a.date_published || 0));
 
+  await loadPodcastFeeds();
+
   renderSidebar();
   renderArts();
   badge();
@@ -785,9 +804,28 @@ async function loadFeed(slug) {
       source: it.authors?.[0]?.name || '',
       score:  it._score || 0,
       category: slug,
-      _today: it._today,
+      image: it.image || null,
+      podcast_day: null,
     }));
   } catch { return []; }
+}
+
+async function loadPodcastFeeds() {
+  podcastMap = {};
+  await Promise.allSettled(DAYS.map(async day => {
+    try {
+      const r = await fetch(`feed-podcast-${day}.json?v=${Date.now()}`);
+      if (!r.ok) return;
+      const feed = await r.json();
+      const short = DAY_SHORT[day];
+      const theme = DAY_THEME[day];
+      for (const it of (feed.items || [])) {
+        const url = it.url || it.id;
+        if (url) podcastMap[url] = { day, short, theme };
+      }
+    } catch {}
+  }));
+  for (const a of arts) a.podcast_day = podcastMap[a.url] || null;
 }
 
 // ── Filtering ─────────────────────────────────────────────────────────────────
@@ -873,14 +911,16 @@ function renderArts() {
   w.querySelectorAll('.card').forEach((el, i) => {
     const a = vs[i];
     el.addEventListener('click', e => {
-      if (e.target.closest('.act')) return;
+      if (e.target.closest('.act') || e.target.closest('.dbadge')) return;
       focusIdx = i;
       refocusCards();
     });
     el.querySelector('.card-title a')?.addEventListener('click', () => markRead(a.url));
     el.querySelector('[data-act="star"]')?.addEventListener('click',    e => { e.stopPropagation(); toggleStar(a.url); });
     el.querySelector('[data-act="read"]')?.addEventListener('click',    e => { e.stopPropagation(); toggleRead(a.url); });
-    el.querySelector('[data-act="correct"]')?.addEventListener('click', e => { e.stopPropagation(); openPanel(a.url); });
+    el.querySelectorAll('[data-act="correct"]').forEach(btn =>
+      btn.addEventListener('click', e => { e.stopPropagation(); openPanel(a.url); })
+    );
   });
 }
 
@@ -892,6 +932,7 @@ function cardHtml(a, i) {
   const cat       = corrs[a.url]?.category_override || a.category;
   const catInfo   = CATS.find(c => c.slug === cat);
 
+  const pd  = a.podcast_day;
   const cls = ['card', isRead ? 'is-read' : '', isFocused ? 'focused' : ''].filter(Boolean).join(' ');
   return `<div class="${cls}">
     <div class="card-top">
@@ -902,6 +943,7 @@ function cardHtml(a, i) {
         <span>${rel(a.date_published)}</span>
         ${selCat === 'all' && catInfo ? `<span class="cbadge">${catInfo.emoji} ${esc(catInfo.name)}</span>` : ''}
         <span class="sbadge ${scoreClass(score)}">${score}</span>
+        ${pd ? `<span class="dbadge" data-act="correct" title="${esc(pd.theme)}">${pd.short}</span>` : ''}
       </div>
       <div class="card-acts">
         <button class="act${isStar ? ' starred' : ''}" data-act="star"    title="Star (s)">${isStar ? '⭐' : '☆'}</button>
@@ -909,8 +951,13 @@ function cardHtml(a, i) {
         <button class="act"                            data-act="correct" title="Correct (c)">✎</button>
       </div>
     </div>
-    <div class="card-title"><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a></div>
-    ${a.excerpt ? `<div class="card-exc">${esc(a.excerpt)}</div>` : ''}
+    <div class="card-body">
+      <div class="card-text">
+        <div class="card-title"><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a></div>
+        ${a.excerpt ? `<div class="card-exc">${esc(a.excerpt)}</div>` : ''}
+      </div>
+      ${a.image ? `<img class="card-img" src="${esc(a.image)}" loading="lazy" onerror="this.style.display='none'" alt="">` : ''}
+    </div>
   </div>`;
 }
 
@@ -938,13 +985,15 @@ function patchCard(url) {
 
   const a = vs[idx];
   newEl.addEventListener('click', e => {
-    if (e.target.closest('.act')) return;
+    if (e.target.closest('.act') || e.target.closest('.dbadge')) return;
     focusIdx = idx; refocusCards();
   });
   newEl.querySelector('.card-title a')?.addEventListener('click', () => markRead(a.url));
   newEl.querySelector('[data-act="star"]')?.addEventListener('click',    e => { e.stopPropagation(); toggleStar(a.url); });
   newEl.querySelector('[data-act="read"]')?.addEventListener('click',    e => { e.stopPropagation(); toggleRead(a.url); });
-  newEl.querySelector('[data-act="correct"]')?.addEventListener('click', e => { e.stopPropagation(); openPanel(a.url); });
+  newEl.querySelectorAll('[data-act="correct"]').forEach(btn =>
+    btn.addEventListener('click', e => { e.stopPropagation(); openPanel(a.url); })
+  );
 }
 
 // ── Correction panel ──────────────────────────────────────────────────────────
