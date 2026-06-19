@@ -793,8 +793,8 @@ async function ghSaveState() {
 }
 
 // ── Actions ───────────────────────────────────────────────────────────────────
-function markRead(url)   { readUrls.add(url);    saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
-function markUnread(url) { readUrls.delete(url); saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
+function markRead(url)   { readUrls.add(url);    saveLocal(); scheduleGhSave(); patchCard(url); badge(); renderSidebar(); }
+function markUnread(url) { readUrls.delete(url); saveLocal(); scheduleGhSave(); patchCard(url); badge(); renderSidebar(); }
 function toggleRead(url) { readUrls.has(url) ? markUnread(url) : markRead(url); }
 
 function toggleStar(url) {
@@ -811,9 +811,9 @@ function markAllRead() {
   vs.forEach(a => readUrls.add(a.url));
   saveLocal();
   scheduleGhSave();
+  renderArts();
   badge();
   renderSidebar();
-  renderArts();
   toast(`Marked ${vs.length} as read`);
 }
 
@@ -901,8 +901,6 @@ function autoMarkRead(url, cardEl) {
   readUrls.add(url);
   saveLocal();
   scheduleGhSave();
-  badge();
-  renderSidebar();
   if (unreadOnly) {
     // fade out and remove just this card — avoids a full re-render mid-scroll
     cardEl.style.opacity = '0';
@@ -910,6 +908,8 @@ function autoMarkRead(url, cardEl) {
   } else {
     cardEl.classList.add('is-read');
   }
+  badge();
+  renderSidebar();
 }
 
 // ── Filtering ─────────────────────────────────────────────────────────────────
