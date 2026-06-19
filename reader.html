@@ -132,6 +132,12 @@
     }
     .cat-btn.active .cat-ct { background: var(--primary); color: #fff; }
     .cat-div { height: 1px; background: rgba(255,255,255,0.07); margin: 5px 16px; }
+    .sb-section-label {
+      padding: 5px 16px 2px;
+      font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--sidebar-muted);
+    }
 
     .sb-foot {
       padding: 10px 14px;
@@ -358,6 +364,7 @@
       color: var(--muted); padding: 2px 5px; border-radius: 4px;
     }
     .panel-close:hover { background: var(--bg); }
+    .pc-back { display: none; }
 
     .panel-body { flex: 1; overflow-y: auto; padding: 14px; }
     .panel-body::-webkit-scrollbar { width: 5px; }
@@ -527,6 +534,15 @@
         display: flex !important;
       }
       #panel.hidden { display: none !important; }
+      .panel-close {
+        order: -1;
+        font-size: 0.82rem; font-weight: 600;
+        padding: 6px 11px; border-radius: 6px;
+        background: var(--bg); color: var(--primary);
+        min-width: max-content;
+      }
+      .pc-back { display: inline; }
+      .pc-x    { display: none; }
 
       /* show/hide-read toggle in mobile bottom bar */
       .mob-hide-toggle {
@@ -587,7 +603,7 @@
   <aside id="panel" class="hidden">
     <div class="panel-head">
       <h2>Correct Article</h2>
-      <button class="panel-close" id="btn-close-panel" title="Close (Esc)">✕</button>
+      <button class="panel-close" id="btn-close-panel" title="Close (Esc)"><span class="pc-back">← Back</span><span class="pc-x">✕</span></button>
     </div>
     <div class="panel-body" id="panel-body"></div>
   </aside>
@@ -609,7 +625,7 @@
 <script>
 'use strict';
 
-// ── Constants ────────────────────────────────────────────────────────────────────────────────
+// ── Constants ─────────────────────────────────────────────────────────────────────────────────
 const REPO_OWNER  = 'zirnhelt';
 const REPO_NAME   = 'super-rss-feed';
 const BAKED_TOKEN = (() => {
@@ -618,7 +634,7 @@ const BAKED_TOKEN = (() => {
 })();
 
 const CATS = [
-  { slug:'local',   name:'Local News',       emoji:'🏔️' },
+  { slug:'local',   name:'Local News',       emoji:'🌄️' },
   { slug:'ai-tech', name:'AI & Tech',         emoji:'🤖' },
   { slug:'climate', name:'Climate & Energy',  emoji:'🌍' },
   { slug:'homelab', name:'Homelab & DIY',     emoji:'🏠' },
@@ -650,7 +666,7 @@ let panelUrl   = null;
 
 let ghStateSha  = null;
 let ghSaveTimer = null;
-let podcastMap  = {};
+let podcastArts = [];
 let autoReadObserver = null;
 
 // ── Utils ─────────────────────────────────────────────────────────────────────────────────
@@ -689,7 +705,7 @@ function toast(msg, ms = 2000) {
   toastTimer = setTimeout(() => el.classList.remove('show'), ms);
 }
 
-// ── Local persistence ──────────────────────────────────────────────────────────────────
+// ── Local persistence ─────────────────────────────────────────────────────────────────────────
 function saveLocal() {
   localStorage.setItem('read_urls',   JSON.stringify([...readUrls]));
   localStorage.setItem('star_urls',   JSON.stringify([...starUrls]));
@@ -705,13 +721,7 @@ function loadLocal() {
   unreadOnly = stored === null ? true : stored !== '0';
 }
 
-// ── GitHub sync ─────────────────────────────────────────────────────────────────────────────
-function saveLocal() {
-  localStorage.setItem('read_urls',   JSON.stringify([...readUrls]));
-  localStorage.setItem('star_urls',   JSON.stringify([...starUrls]));
-  localStorage.setItem('corrs',       JSON.stringify(corrs));
-  localStorage.setItem('unread_only', unreadOnly ? '1' : '0');
-}
+// ── GitHub sync ───────────────────────────────────────────────────────────────────────────────
 async function syncGitHub() {
   if (!BAKED_TOKEN) return;
   try {
@@ -776,7 +786,7 @@ async function ghSaveState() {
   } catch {}
 }
 
-// ── Actions ─────────────────────────────────────────────────────────────────────────────────
+// ── Actions ────────────────────────────────────────────────────────────────────────────────
 function markRead(url)   { readUrls.add(url);    saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
 function markUnread(url) { readUrls.delete(url); saveLocal(); scheduleGhSave(); badge(); renderSidebar(); patchCard(url); }
 function toggleRead(url) { readUrls.has(url) ? markUnread(url) : markRead(url); }
@@ -838,24 +848,33 @@ async function loadFeed(slug) {
 }
 
 async function loadPodcastFeeds() {
-  podcastMap = {};
+  podcastArts = [];
   await Promise.allSettled(DAYS.map(async day => {
     try {
       const r = await fetch(`feed-podcast-${day}.json?v=${Date.now()}`);
       if (!r.ok) return;
       const feed = await r.json();
-      const short = DAY_SHORT[day];
-      const theme = DAY_THEME[day];
       for (const it of (feed.items || [])) {
         const url = it.url || it.id;
-        if (url) podcastMap[url] = { day, short, theme };
+        if (!url) continue;
+        podcastArts.push({
+          url,
+          title: it.title || '',
+          excerpt: (it._excerpt || it.summary || it.content_html || '').replace(/<[^>]+>/g,'').trim().slice(0,160),
+          date_published: it.date_published,
+          source: it.authors?.[0]?.name || '',
+          score: null,
+          category: `podcast-${day}`,
+          image: null,
+          podcast_day: { day, short: DAY_SHORT[day], theme: DAY_THEME[day] },
+        });
       }
     } catch {}
   }));
-  for (const a of arts) a.podcast_day = podcastMap[a.url] || null;
+  podcastArts.sort((a, b) => new Date(b.date_published || 0) - new Date(a.date_published || 0));
 }
 
-// ── Auto-read on scroll ───────────────────────────────────────────────────────────────────────────
+// ── Auto-read on scroll ───────────────────────────────────────────────────────────────────────
 function setupAutoReadObserver() {
   if (autoReadObserver) { autoReadObserver.disconnect(); autoReadObserver = null; }
   const wrap = $('arts-wrap');
@@ -886,13 +905,17 @@ function autoMarkRead(url, cardEl) {
   }
 }
 
-// ── Filtering ─────────────────────────────────────────────────────────────────────────────────
+// ── Filtering ────────────────────────────────────────────────────────────────────────────────
 function visible() {
-  let list = arts;
+  let list;
   if (selCat === 'starred') {
-    list = list.filter(a => starUrls.has(a.url));
-  } else if (selCat !== 'all') {
-    list = list.filter(a => (corrs[a.url]?.category_override || a.category) === selCat);
+    list = [...arts, ...podcastArts].filter(a => starUrls.has(a.url));
+  } else if (selCat.startsWith('podcast-')) {
+    list = podcastArts.filter(a => a.category === selCat);
+  } else if (selCat === 'all') {
+    list = arts;
+  } else {
+    list = arts.filter(a => (corrs[a.url]?.category_override || a.category) === selCat);
   }
   if (unreadOnly) list = list.filter(a => !readUrls.has(a.url));
   if (query) {
@@ -907,8 +930,9 @@ function visible() {
 }
 
 function unreadCt(slug) {
-  if (slug === 'all')     return arts.filter(a => !readUrls.has(a.url)).length;
-  if (slug === 'starred') return [...starUrls].filter(u => !readUrls.has(u)).length;
+  if (slug === 'all')            return arts.filter(a => !readUrls.has(a.url)).length;
+  if (slug === 'starred')        return [...starUrls].filter(u => !readUrls.has(u)).length;
+  if (slug.startsWith('podcast-')) return podcastArts.filter(a => a.category === slug && !readUrls.has(a.url)).length;
   return arts.filter(a => (corrs[a.url]?.category_override || a.category) === slug && !readUrls.has(a.url)).length;
 }
 
@@ -921,6 +945,12 @@ function renderSidebar() {
   CATS.forEach(c => { h += catBtn(c.slug, c.emoji, c.name, unreadCt(c.slug)); });
   h += '<div class="cat-div"></div>';
   h += catBtn('starred', '⭐', 'Starred', unreadCt('starred'));
+  h += '<div class="cat-div"></div>';
+  h += `<div class="sb-section-label">Podcasts</div>`;
+  DAYS.forEach(d => {
+    const slug = `podcast-${d}`;
+    h += catBtn(slug, '🎤', DAY_SHORT[d], unreadCt(slug));
+  });
   nav.innerHTML = h;
   nav.querySelectorAll('.cat-btn').forEach(el => {
     el.addEventListener('click', () => {
@@ -942,21 +972,25 @@ function catBtn(slug, emoji, name, ct) {
   </button>`;
 }
 
-// ── Toolbar label ──────────────────────────────────────────────────────────────────────────────
+// ── Toolbar label ────────────────────────────────────────────────────────────────────────────────
 function toolbarLabel() {
   if (selCat === 'all')     return '📡 All Feeds';
   if (selCat === 'starred') return '⭐ Starred';
+  if (selCat.startsWith('podcast-')) {
+    const d = selCat.slice('podcast-'.length);
+    return `🎤 ${DAY_SHORT[d]} — ${DAY_THEME[d]}`;
+  }
   const c = CATS.find(x => x.slug === selCat);
   return c ? `${c.emoji} ${c.name}` : '';
 }
 
-// ── Sync hide-read toggle state across desktop + mobile buttons ──────────────────────────────
+// ── Sync hide-read toggle state across desktop + mobile buttons ────────────────────────
 function syncHideReadButtons() {
   $('btn-unread').classList.toggle('on', unreadOnly);
   $('btn-hide-read-mob').classList.toggle('on', unreadOnly);
 }
 
-// ── Articles render ─────────────────────────────────────────────────────────────────────────────
+// ── Articles render ──────────────────────────────────────────────────────────────────────────────
 function renderArts() {
   const vs = visible();
   $('toolbar-cat-label').textContent = toolbarLabel();
@@ -999,6 +1033,7 @@ function cardHtml(a, i) {
   const score     = corrs[a.url]?.score_override ?? a.score;
   const cat       = corrs[a.url]?.category_override || a.category;
   const catInfo   = CATS.find(c => c.slug === cat);
+  const showScore = score !== null;
 
   const pd  = a.podcast_day;
   const cls = ['card', isRead ? 'is-read' : '', isFocused ? 'focused' : ''].filter(Boolean).join(' ');
@@ -1010,8 +1045,8 @@ function cardHtml(a, i) {
         <span class="meta-sep">·</span>
         <span>${rel(a.date_published)}</span>
         ${selCat === 'all' && catInfo ? `<span class="cbadge">${catInfo.emoji} ${esc(catInfo.name)}</span>` : ''}
-        <span class="sbadge ${scoreClass(score)}">${score}</span>
-        ${pd ? `<span class="dbadge" data-act="correct" title="${esc(pd.theme)}">${pd.short}</span>` : ''}
+        ${showScore ? `<span class="sbadge ${scoreClass(score)}">${score}</span>` : ''}
+        ${pd && !selCat.startsWith('podcast-') ? `<span class="dbadge" data-act="correct" title="${esc(pd.theme)}">${pd.short}</span>` : ''}
       </div>
       <div class="card-acts">
         <button class="act${isStar ? ' starred' : ''}" data-act="star"    title="Star (s)">${isStar ? '⭐' : '☆'}</button>
@@ -1068,7 +1103,7 @@ function patchCard(url) {
 function openPanel(url) {
   panelUrl = url;
   if (!ratings[url]) ratings[url] = {};
-  const a   = arts.find(x => x.url === url);
+  const a   = arts.find(x => x.url === url) || podcastArts.find(x => x.url === url);
   const r   = ratings[url];
   const td  = todayName();
   const ex  = corrs[url] || {};
@@ -1152,7 +1187,7 @@ function closePanel() {
 }
 
 async function submitCorrection(url) {
-  const a   = arts.find(x => x.url === url);
+  const a   = arts.find(x => x.url === url) || podcastArts.find(x => x.url === url);
   const r   = ratings[url] || {};
   const cat = $('panel-cat')?.value;
   const note = $('panel-note')?.value || '';
@@ -1227,7 +1262,7 @@ async function submitCorrection(url) {
   }
 }
 
-// ── PWA badge + title ──────────────────────────────────────────────────────────────────────────────
+// ── PWA badge + title ─────────────────────────────────────────────────────────────────────────────
 function badge() {
   const n = unreadCt('all');
   // title fallback works everywhere; setAppBadge only works when installed as PWA
@@ -1342,7 +1377,7 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 
-// ── Boot ───────────────────────────────────────────────────────────────────────────────────
+// ── Boot ──────────────────────────────────────────────────────────────────────────────────
 async function init() {
   loadLocal();
   syncHideReadButtons();
