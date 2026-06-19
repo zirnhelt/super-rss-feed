@@ -96,6 +96,9 @@
     .ib:hover { background: rgba(255,255,255,0.16); }
     .ib.spin { animation: spin 0.8s linear infinite; }
 
+    /* hidden on desktop, shown on mobile bottom bar */
+    .mob-hide-toggle { display: none; }
+
     #cat-nav {
       flex: 1;
       overflow-y: auto;
@@ -216,7 +219,7 @@
       padding: 10px 12px;
       margin-bottom: 5px;
       cursor: default;
-      transition: border-color 0.12s, box-shadow 0.12s;
+      transition: border-color 0.12s, box-shadow 0.12s, opacity 0.2s;
     }
     .card:hover { border-color: #b4c0f5; }
     .card.focused { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(102,126,234,0.14); }
@@ -524,6 +527,17 @@
         display: flex !important;
       }
       #panel.hidden { display: none !important; }
+
+      /* show/hide-read toggle in mobile bottom bar */
+      .mob-hide-toggle {
+        display: flex; align-items: center; justify-content: center;
+        width: 48px; min-width: 48px; flex-shrink: 0;
+        background: none; border: none;
+        border-left: 1px solid rgba(255,255,255,0.1);
+        color: var(--sidebar-muted); font-size: 1.15rem; cursor: pointer;
+        transition: color 0.1s;
+      }
+      .mob-hide-toggle.on { color: var(--primary); }
     }
   </style>
 </head>
@@ -540,6 +554,8 @@
       </div>
     </div>
     <nav id="cat-nav"></nav>
+    <!-- visible only on mobile bottom bar -->
+    <button id="btn-hide-read-mob" class="mob-hide-toggle" title="Show / hide read articles">👁</button>
     <div class="sb-foot">
       <div class="kbd-hint">
         <span class="kk">j</span>/<span class="kk">k</span> nav &nbsp;
@@ -559,7 +575,7 @@
     <div id="toolbar">
       <span id="toolbar-cat-label"></span>
       <input type="search" id="search" placeholder="Search…" autocomplete="off">
-      <button class="tb-btn" id="btn-unread">Unread only</button>
+      <button class="tb-btn" id="btn-unread">Hide read</button>
       <button class="tb-btn" id="btn-mark-all">Mark all read</button>
     </div>
     <div id="arts-wrap">
@@ -620,21 +636,22 @@ const DAY_THEME = {
 };
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let arts       = [];          // all articles from all feeds
+let arts       = [];
 let readUrls   = new Set();
 let starUrls   = new Set();
-let corrs      = {};          // url → {category_override, score_override}
-let ratings    = {};          // url → {rating, better_theme, note} (for correction panel)
+let corrs      = {};
+let ratings    = {};
 
 let selCat     = 'all';
-let unreadOnly = false;
+let unreadOnly = true;   // default: hide read articles
 let query      = '';
 let focusIdx   = -1;
-let panelUrl   = null;        // article open in correction panel
+let panelUrl   = null;
 
-let ghStateSha = null;
+let ghStateSha  = null;
 let ghSaveTimer = null;
-let podcastMap = {}; // url → {day, short, theme}
+let podcastMap  = {};
+let autoReadObserver = null;
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
 const $  = id => document.getElementById(id);
@@ -674,14 +691,18 @@ function toast(msg, ms = 2000) {
 
 // ── Local persistence ─────────────────────────────────────────────────────────
 function saveLocal() {
-  localStorage.setItem('read_urls',  JSON.stringify([...readUrls]));
-  localStorage.setItem('star_urls',  JSON.stringify([...starUrls]));
-  localStorage.setItem('corrs',      JSON.stringify(corrs));
+  localStorage.setItem('read_urls',   JSON.stringify([...readUrls]));
+  localStorage.setItem('star_urls',   JSON.stringify([...starUrls]));
+  localStorage.setItem('corrs',       JSON.stringify(corrs));
+  localStorage.setItem('unread_only', unreadOnly ? '1' : '0');
 }
 function loadLocal() {
-  try { readUrls = new Set(JSON.parse(localStorage.getItem('read_urls') || '[]')); } catch {}
-  try { starUrls = new Set(JSON.parse(localStorage.getItem('star_urls') || '[]')); } catch {}
-  try { corrs    = JSON.parse(localStorage.getItem('corrs') || '{}'); }             catch {}
+  try { readUrls   = new Set(JSON.parse(localStorage.getItem('read_urls') || '[]')); } catch {}
+  try { starUrls   = new Set(JSON.parse(localStorage.getItem('star_urls') || '[]')); } catch {}
+  try { corrs      = JSON.parse(localStorage.getItem('corrs') || '{}'); }             catch {}
+  const stored = localStorage.getItem('unread_only');
+  // default true (hide read), only false if user explicitly turned it off
+  unreadOnly = stored === null ? true : stored !== '0';
 }
 
 // ── GitHub sync ───────────────────────────────────────────────────────────────
@@ -828,6 +849,37 @@ async function loadPodcastFeeds() {
   for (const a of arts) a.podcast_day = podcastMap[a.url] || null;
 }
 
+// ── Auto-read on scroll ───────────────────────────────────────────────────────
+function setupAutoReadObserver() {
+  if (autoReadObserver) { autoReadObserver.disconnect(); autoReadObserver = null; }
+  const wrap = $('arts-wrap');
+  autoReadObserver = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      // card has fully scrolled off the top → mark read
+      if (!e.isIntersecting && e.boundingClientRect.top < 0) {
+        const url = e.target.dataset.url;
+        if (url && !readUrls.has(url)) autoMarkRead(url, e.target);
+      }
+    }
+  }, { root: wrap, threshold: 0 });
+  wrap.querySelectorAll('.card[data-url]').forEach(c => autoReadObserver.observe(c));
+}
+
+function autoMarkRead(url, cardEl) {
+  readUrls.add(url);
+  saveLocal();
+  scheduleGhSave();
+  badge();
+  renderSidebar();
+  if (unreadOnly) {
+    // fade out and remove just this card — avoids a full re-render mid-scroll
+    cardEl.style.opacity = '0';
+    setTimeout(() => { if (cardEl.parentNode) cardEl.remove(); }, 210);
+  } else {
+    cardEl.classList.add('is-read');
+  }
+}
+
 // ── Filtering ─────────────────────────────────────────────────────────────────
 function visible() {
   let list = arts;
@@ -892,10 +944,17 @@ function toolbarLabel() {
   return c ? `${c.emoji} ${c.name}` : '';
 }
 
+// ── Sync hide-read toggle state across desktop + mobile buttons ───────────────
+function syncHideReadButtons() {
+  $('btn-unread').classList.toggle('on', unreadOnly);
+  $('btn-hide-read-mob').classList.toggle('on', unreadOnly);
+}
+
 // ── Articles render ───────────────────────────────────────────────────────────
 function renderArts() {
   const vs = visible();
   $('toolbar-cat-label').textContent = toolbarLabel();
+  syncHideReadButtons();
 
   const w = $('arts-wrap');
   if (vs.length === 0) {
@@ -903,6 +962,7 @@ function renderArts() {
     else if (unreadOnly)     w.innerHTML = '<div class="msg"><div class="ic">✅</div><p>All caught up!</p></div>';
     else if (query)          w.innerHTML = `<div class="msg"><div class="ic">🔍</div><p>No results for "<strong>${esc(query)}</strong>"</p></div>`;
     else                     w.innerHTML = '<div class="msg"><div class="ic">📭</div><p>Nothing here.</p></div>';
+    setupAutoReadObserver();
     return;
   }
 
@@ -922,6 +982,8 @@ function renderArts() {
       btn.addEventListener('click', e => { e.stopPropagation(); openPanel(a.url); })
     );
   });
+
+  setupAutoReadObserver();
 }
 
 function cardHtml(a, i) {
@@ -934,7 +996,7 @@ function cardHtml(a, i) {
 
   const pd  = a.podcast_day;
   const cls = ['card', isRead ? 'is-read' : '', isFocused ? 'focused' : ''].filter(Boolean).join(' ');
-  return `<div class="${cls}">
+  return `<div class="${cls}" data-url="${esc(a.url)}">
     <div class="card-top">
       <div class="udot"></div>
       <div class="card-meta">
@@ -961,7 +1023,6 @@ function cardHtml(a, i) {
   </div>`;
 }
 
-// Re-render only the focused highlight without a full re-render
 function refocusCards() {
   $('arts-wrap').querySelectorAll('.card').forEach((el, i) => {
     el.classList.toggle('focused', i === focusIdx);
@@ -970,7 +1031,6 @@ function refocusCards() {
   if (focused) focused.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
-// Replace a single card in place (after star/read toggle)
 function patchCard(url) {
   const vs  = visible();
   const idx = vs.findIndex(a => a.url === url);
@@ -994,6 +1054,8 @@ function patchCard(url) {
   newEl.querySelectorAll('[data-act="correct"]').forEach(btn =>
     btn.addEventListener('click', e => { e.stopPropagation(); openPanel(a.url); })
   );
+  // keep auto-read observer watching the new card element
+  if (autoReadObserver && newEl.dataset.url) autoReadObserver.observe(newEl);
 }
 
 // ── Correction panel ──────────────────────────────────────────────────────────
@@ -1051,7 +1113,6 @@ function openPanel(url) {
     <div class="save-st" id="panel-st"></div>
   `;
 
-  // Rating buttons
   $('panel-body').querySelectorAll('[data-rate]').forEach(btn => {
     btn.addEventListener('click', () => {
       ratings[url] = {...ratings[url], rating: btn.dataset.rate, better_theme: null};
@@ -1059,7 +1120,6 @@ function openPanel(url) {
     });
   });
 
-  // Day chips
   $('panel-body').querySelectorAll('[data-day]').forEach(btn => {
     btn.addEventListener('click', () => {
       const day = btn.dataset.day;
@@ -1093,7 +1153,6 @@ async function submitCorrection(url) {
   const stEl = $('panel-st');
   const btn  = $('panel-submit');
 
-  // Apply category override locally
   if (cat && cat !== a?.category) {
     corrs[url] = {...corrs[url], category_override: cat};
     saveLocal();
@@ -1162,9 +1221,11 @@ async function submitCorrection(url) {
   }
 }
 
-// ── PWA badge ─────────────────────────────────────────────────────────────────
+// ── PWA badge + title ─────────────────────────────────────────────────────────
 function badge() {
   const n = unreadCt('all');
+  // title fallback works everywhere; setAppBadge only works when installed as PWA
+  document.title = n > 0 ? `(${n}) Feed Reader` : 'Feed Reader';
   if ('setAppBadge' in navigator) navigator.setAppBadge(n).catch(() => {});
 }
 
@@ -1200,7 +1261,8 @@ document.addEventListener('keydown', e => {
       break;
     case 'u':
       unreadOnly = !unreadOnly;
-      $('btn-unread').classList.toggle('on', unreadOnly);
+      saveLocal();
+      syncHideReadButtons();
       focusIdx = -1;
       renderArts();
       break;
@@ -1216,7 +1278,16 @@ document.addEventListener('keydown', e => {
 // ── Toolbar events ────────────────────────────────────────────────────────────
 $('btn-unread').addEventListener('click', () => {
   unreadOnly = !unreadOnly;
-  $('btn-unread').classList.toggle('on', unreadOnly);
+  saveLocal();
+  syncHideReadButtons();
+  focusIdx = -1;
+  renderArts();
+});
+
+$('btn-hide-read-mob').addEventListener('click', () => {
+  unreadOnly = !unreadOnly;
+  saveLocal();
+  syncHideReadButtons();
   focusIdx = -1;
   renderArts();
 });
@@ -1268,6 +1339,7 @@ if ('serviceWorker' in navigator) {
 // ── Boot ──────────────────────────────────────────────────────────────────────
 async function init() {
   loadLocal();
+  syncHideReadButtons();
   renderSidebar();
   await syncGitHub();
   await loadFeeds();
