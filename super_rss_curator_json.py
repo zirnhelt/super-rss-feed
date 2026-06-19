@@ -20,87 +20,36 @@ from pathlib import Path
 import feedparser
 import requests
 from bs4 import BeautifulSoup
-from fuzzywuzzy import fuzz
+from difflib import SequenceMatcher
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, quote
 import anthropic
 from fetch_images import batch_fetch_images
 import cohere_integration
 import api_usage
+import config_loader
+from cache import Cache
 
-# Configuration paths
+# Configuration paths (kept for direct file access e.g. scoring_interests.txt)
 CONFIG_DIR = Path(__file__).parent / 'config'
 
-def load_json_config(filename):
-    """Load JSON configuration file"""
-    try:
-        with open(CONFIG_DIR / filename, 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print(f"❌ Config file not found: {filename}")
-        sys.exit(1)
-
-def load_categories():
-    """Load category definitions"""
-    return load_json_config('categories.json')
-
-def load_category_rules():
-    """Load category rules with include/exclude lists"""
-    try:
-        with open(CONFIG_DIR / 'category_rules.json', 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print("⚠️ category_rules.json not found, using basic categorization")
-        return {}
-
-def load_filters():
-    """Load filtering rules"""
-    return load_json_config('filters.json')
-
-def load_limits():
-    """Load limit configurations"""
-    return load_json_config('limits.json')
-
-def load_system_config():
-    """Load system settings"""
-    return load_json_config('system.json')
-
-def load_feeds_config():
-    """Load feed metadata configuration"""
-    return load_json_config('feeds.json')
-
-# Load all configurations
-CATEGORIES = load_categories()
-CATEGORY_RULES = load_category_rules()
-FILTERS = load_filters()
-LIMITS = load_limits()
-SYSTEM = load_system_config()
-FEEDS_CONFIG = load_feeds_config()
-
-def load_source_preferences():
-    """Load source type preferences"""
-    return load_json_config('source_preferences.json')
-
-SOURCE_PREFS = load_source_preferences()
+CATEGORIES = config_loader.load_categories_config()
+CATEGORY_RULES = config_loader.load_category_rules_config()
+FILTERS = config_loader.load_filters_config()
+LIMITS = config_loader.load_limits_config()
+SYSTEM = config_loader.load_system_config()
+FEEDS_CONFIG = config_loader.load_feeds_config()
+SOURCE_PREFS = config_loader.load_source_preferences()
 SUBSCRIBER_ACCESS = SOURCE_PREFS.get('subscriber_access', {}).get('sources', {})
-
-def load_json_config_optional(filename: str, default=None):
-    """Load JSON config file, returning default if not found (for optional configs)."""
-    try:
-        with open(CONFIG_DIR / filename, 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return default if default is not None else {}
-
-SCORING_WEIGHTS = load_json_config_optional('scoring_weights.json', {
+SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
     'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
     'podcast': {'w_quality': 0.10, 'w_relevance': 0.20, 'w_local': 0.10, 'w_theme': 0.60}
-})
-SCORING_MODIFIERS = load_json_config_optional('scoring_modifiers.json', {
+}
+SCORING_MODIFIERS = config_loader.load_scoring_modifiers() or {
     'local_keyword_bonus': 25,
     'wire_quality_penalty': -10,
     'source_type_quality_adjustments': {}
-})
-FEED_SLOTS = load_json_config_optional('feed_slots.json', {})
+}
+FEED_SLOTS = config_loader.load_feed_slots_config()
 
 def _build_prescore_keywords() -> frozenset:
     """Union of all category include-keywords plus local signals.
@@ -146,6 +95,13 @@ CALIBRATION_STATS_TTL_DAYS = 14                      # Window consumed by the we
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
 WLT_NEWS_URL = SYSTEM['urls']['wlt_news']
+
+# Cache instances (simple dict caches with TTL)
+_scored_cache = Cache(SCORED_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['scored_hours'])
+_extract_cache = Cache(EXTRACT_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['scored_hours'])
+_wlt_cache = Cache(WLT_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['scored_hours'])
+_shown_cache = Cache(SHOWN_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['shown_days'] * 24)
+_shown_terms_cache = Cache(SHOWN_TERMS_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['shown_days'] * 24, ts_field='ts')
 
 # ---------------------------------------------------------------------------
 # URL canonicalization
@@ -568,113 +524,6 @@ def build_apple_news_search_url(title: str) -> str:
     return f"applenews://search?term={quote(clean_title)}"
 
 
-def load_scored_cache():
-    """Load scored articles cache"""
-    if not os.path.exists(SCORED_CACHE_FILE):
-        return {}
-    
-    try:
-        with open(SCORED_CACHE_FILE, 'r') as f:
-            cache = json.load(f)
-        
-        cache_expiry = timedelta(hours=SYSTEM['cache_expiry']['scored_hours'])
-        cutoff = datetime.now(timezone.utc).timestamp() - cache_expiry.total_seconds()
-        
-        valid_cache = {k: v for k, v in cache.items() if v.get('timestamp', 0) > cutoff}
-        
-        if len(valid_cache) != len(cache):
-            print(f"🧹 Cleaned scored cache: {len(cache)} → {len(valid_cache)} entries")
-        
-        return valid_cache
-        
-    except (json.JSONDecodeError, FileNotFoundError):
-        return {}
-
-
-def save_scored_cache(cache):
-    """Save scored articles cache"""
-    try:
-        with open(SCORED_CACHE_FILE, 'w') as f:
-            json.dump(cache, f, indent=2)
-    except Exception as e:
-        print(f"⚠️ Failed to save scored cache: {e}")
-
-
-def load_extract_cache() -> dict:
-    """Load Kagi Extract enrichment cache (48h TTL, keyed by url_hash)."""
-    if not os.path.exists(EXTRACT_CACHE_FILE):
-        return {}
-    try:
-        with open(EXTRACT_CACHE_FILE, 'r') as f:
-            cache = json.load(f)
-        cutoff = datetime.now(timezone.utc).timestamp() - timedelta(hours=SYSTEM['cache_expiry']['scored_hours']).total_seconds()
-        return {k: v for k, v in cache.items() if v.get('timestamp', 0) > cutoff}
-    except (json.JSONDecodeError, FileNotFoundError):
-        return {}
-
-
-def save_extract_cache(cache: dict) -> None:
-    try:
-        with open(EXTRACT_CACHE_FILE, 'w') as f:
-            json.dump(cache, f, indent=2)
-    except Exception as e:
-        print(f"⚠️ Failed to save extract cache: {e}")
-
-
-def load_shown_cache():
-    """Load shown articles cache"""
-    if not os.path.exists(SHOWN_CACHE_FILE):
-        return {}
-    
-    try:
-        with open(SHOWN_CACHE_FILE, 'r') as f:
-            cache = json.load(f)
-        
-        cache_expiry = timedelta(days=SYSTEM['cache_expiry']['shown_days'])
-        cutoff = datetime.now(timezone.utc).timestamp() - cache_expiry.total_seconds()
-        
-        valid_urls = {url: timestamp for url, timestamp in cache.items() if timestamp > cutoff}
-        
-        return valid_urls
-        
-    except (json.JSONDecodeError, FileNotFoundError):
-        return {}
-
-
-def save_shown_cache(shown_urls):
-    """Save shown articles cache"""
-    try:
-        cache = shown_urls
-        with open(SHOWN_CACHE_FILE, 'w', encoding='utf-8') as f:
-            json.dump(cache, f, indent=2)
-    except Exception as e:
-        print(f"⚠️ Failed to save shown cache: {e}")
-
-
-def load_shown_terms_cache() -> dict:
-    """Load per-article term sets used for cross-run story deduplication.
-
-    Format: {url_hash: {"ts": float, "terms": [str, ...]}}
-    Entries older than the shown-cache window are dropped on load.
-    """
-    try:
-        with open(SHOWN_TERMS_CACHE_FILE) as f:
-            raw = json.load(f)
-        cutoff = (datetime.now(timezone.utc)
-                  - timedelta(days=SYSTEM['cache_expiry']['shown_days'])).timestamp()
-        return {k: v for k, v in raw.items()
-                if isinstance(v, dict) and v.get('ts', 0) > cutoff}
-    except (FileNotFoundError, json.JSONDecodeError):
-        return {}
-
-
-def save_shown_terms_cache(cache: dict):
-    """Persist the shown-terms cache."""
-    try:
-        with open(SHOWN_TERMS_CACHE_FILE, 'w') as f:
-            json.dump(cache, f)
-    except Exception as e:
-        print(f"⚠️ Failed to save shown terms cache: {e}")
 
 
 def load_podcast_cache():
@@ -1119,40 +968,6 @@ def parse_opml(opml_path: str) -> List[Dict[str, str]]:
     return feeds
 
 
-def load_wlt_cache():
-    """Load WLT scraping cache"""
-    if not os.path.exists(WLT_CACHE_FILE):
-        return {}
-    
-    try:
-        with open(WLT_CACHE_FILE, 'r') as f:
-            cache = json.load(f)
-        
-        cache_expiry = timedelta(hours=SYSTEM['cache_expiry']['scored_hours'])
-        cutoff = datetime.now(timezone.utc).timestamp() - cache_expiry.total_seconds()
-        
-        # Defensive: ensure all cache values are dicts
-        valid_cache = {}
-        for url_hash, entry in cache.items():
-            if isinstance(entry, dict) and entry.get('timestamp', 0) > cutoff:
-                valid_cache[url_hash] = entry
-        
-        if len(valid_cache) != len(cache):
-            print(f"🧹 Cleaned WLT cache: {len(cache)} → {len(valid_cache)} entries")
-        
-        return valid_cache
-        
-    except (json.JSONDecodeError, FileNotFoundError):
-        return {}
-
-
-def save_wlt_cache(cache):
-    """Save WLT scraping cache"""
-    try:
-        with open(WLT_CACHE_FILE, 'w') as f:
-            json.dump(cache, f, indent=2)
-    except Exception as e:
-        print(f"⚠️ Failed to save WLT cache: {e}")
 
 
 def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
@@ -1214,7 +1029,7 @@ def _kagi_enrich_articles(
     Results are cached 48 h by url_hash so repeated runs don't re-fetch.
     Updates article.description / .summary / .excerpt in-place.
     """
-    cache = load_extract_cache()
+    cache = _extract_cache.load()
     candidates = []
     skipped_gate = 0
     for a in articles:
@@ -1270,7 +1085,7 @@ def _kagi_enrich_articles(
         except Exception:
             pass
 
-    save_extract_cache(cache)
+    _extract_cache.save(cache)
     if enriched:
         print(f"  🔍 Kagi Summarizer: enriched {enriched}/{len(to_fetch)} thin articles")
     if error_statuses:
@@ -1362,7 +1177,7 @@ def scrape_wlt_news() -> List[Dict]:
     gracefully when the site layout changes.  When all patterns fail it logs
     a snippet of visible text to aid debugging.
     """
-    cache = load_wlt_cache()
+    cache = _wlt_cache.load()
 
     # Ordered list of (container, link, title, desc, img) selector tuples.
     # Add new patterns at the top when the site redesigns; keep old ones as
@@ -1408,7 +1223,7 @@ def scrape_wlt_news() -> List[Dict]:
             print(f"⚠️ Williams Lake Tribune: 0 articles scraped — all selector patterns failed")
             print(f"   Page text preview: {body_text!r}")
 
-        save_wlt_cache(cache)
+        _wlt_cache.save(cache)
         return articles
 
     except Exception as e:
@@ -1699,12 +1514,20 @@ def _source_priority(article: Article) -> int:
     return 4  # unclassified sources
 
 
+def _fuzz_ratio(a: str, b: str) -> int:
+    return int(SequenceMatcher(None, a, b).ratio() * 100)
+
+
+def _token_sort_ratio(a: str, b: str) -> int:
+    return _fuzz_ratio(' '.join(sorted(a.split())), ' '.join(sorted(b.split())))
+
+
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
     """Remove duplicate articles based on URL and title similarity.
 
     Uses three complementary signals, checked in order:
       1. Exact URL hash match (canonical URL, tracking params stripped).
-      2. Fuzzy string similarity on the full title (fuzz.ratio /
+      2. Fuzzy string similarity on the full title (_fuzz_ratio /
          token_sort_ratio > 78%).  Catches wire-service reprints with
          near-identical wording.
       3. Term-set containment similarity ≥ 45% with at least 3 shared
@@ -1732,8 +1555,8 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
         for idx, (seen_title, seen_terms, seen_article) in enumerate(seen_entries):
             # Signal 1 & 2: fuzzy string similarity on full title
             string_sim = max(
-                fuzz.ratio(article.title_normalized, seen_title),
-                fuzz.token_sort_ratio(article.title_normalized, seen_title),
+                _fuzz_ratio(article.title_normalized, seen_title),
+                _token_sort_ratio(article.title_normalized, seen_title),
             )
             # Signal 3: term-set containment (handles completely different headlines)
             overlap = (
@@ -1798,8 +1621,8 @@ def dedup_across_categories(categorized: dict) -> dict:
         dominated = False
         for spec_art in specific_articles:
             sim = max(
-                fuzz.ratio(news_art.title_normalized, spec_art.title_normalized),
-                fuzz.token_sort_ratio(news_art.title_normalized, spec_art.title_normalized),
+                _fuzz_ratio(news_art.title_normalized, spec_art.title_normalized),
+                _token_sort_ratio(news_art.title_normalized, spec_art.title_normalized),
             )
             ov = (
                 _story_overlap(news_art.title_terms, spec_art.title_terms)
@@ -1927,7 +1750,7 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
     if not articles:
         return []
 
-    cache = load_scored_cache()
+    cache = _scored_cache.load()
 
     interests_file = CONFIG_DIR / 'scoring_interests.txt'
     try:
@@ -1984,7 +1807,7 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
             }
             scored_articles.append(article)
 
-    save_scored_cache(cache)
+    _scored_cache.save(cache)
 
     # Assign story groups for all articles in this run via embedding clusters.
     # This replaces Claude's story_group string assignment; downstream
@@ -2004,7 +1827,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
     if not articles:
         return []
 
-    cache = load_scored_cache()
+    cache = _scored_cache.load()
 
     # Load scoring interests
     interests_file = CONFIG_DIR / 'scoring_interests.txt'
@@ -2230,7 +2053,7 @@ Articles to evaluate:
                     article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
     
-    save_scored_cache(cache)
+    _scored_cache.save(cache)
     return scored_articles
 
 
@@ -3836,8 +3659,8 @@ def main():
     unique_articles = deduplicate_articles(all_articles)
     unique_articles = semantic_dedup_articles(unique_articles)
 
-    shown_cache = load_shown_cache()
-    shown_terms_cache = load_shown_terms_cache()
+    shown_cache = _shown_cache.load()
+    shown_terms_cache = _shown_terms_cache.load()
 
     # Build a list of term-sets for all recently-shown articles so we can
     # detect the same story arriving from a new source / URL on a later run.
@@ -4178,8 +4001,8 @@ def main():
             'ts': now_ts,
             'terms': list(article.title_terms),
         }
-    save_shown_cache(shown_cache)
-    save_shown_terms_cache(shown_terms_cache)
+    _shown_cache.save(shown_cache)
+    _shown_terms_cache.save(shown_terms_cache)
     
     generate_opml()
     
@@ -4419,7 +4242,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
         except FileNotFoundError:
             interests = 'Technology, science, climate, local news'
 
-        scored_cache = load_scored_cache()
+        scored_cache = _scored_cache.load()
         already_cached: List[Article] = []
         uncached_bootstrap: List[Article] = []
         for article in articles:
@@ -4463,7 +4286,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
                         'story_group': None,
                         'timestamp': timestamp,
                     }
-                save_scored_cache(scored_cache)
+                _scored_cache.save(scored_cache)
                 print(f"   ✅ Scored and cached {len(uncached_bootstrap)} new articles")
 
         articles = already_cached + uncached_bootstrap
