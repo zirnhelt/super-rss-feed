@@ -20,7 +20,6 @@ def check_dependencies():
     try:
         import feedparser
         import feedgen
-        import fuzzywuzzy
         import anthropic
         print("✅ All dependencies installed")
         return True
