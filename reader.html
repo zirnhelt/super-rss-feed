@@ -886,6 +886,9 @@ function setupAutoReadObserver() {
   autoReadObserver = new IntersectionObserver(entries => {
     for (const e of entries) {
       // card has fully scrolled off the top → mark read
+      // skip when hide-read is active: removing cards mid-scroll causes a
+      // viewport shift that re-triggers the observer in a feedback loop
+      if (unreadOnly) continue;
       if (!e.isIntersecting && e.boundingClientRect.top < 0) {
         const url = e.target.dataset.url;
         if (url && !readUrls.has(url)) autoMarkRead(url, e.target);
