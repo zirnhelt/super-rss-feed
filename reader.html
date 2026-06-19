@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Feed Reader</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-180.png">
   <meta name="theme-color" content="#1e1e3f">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -671,7 +672,6 @@ let panelUrl   = null;
 let ghStateSha  = null;
 let ghSaveTimer = null;
 let podcastArts = [];
-let podcastUrlDays = new Map(); // url → [{day, short, theme}, ...]
 let autoReadObserver = null;
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
@@ -828,10 +828,6 @@ async function loadFeeds() {
 
   await loadPodcastFeeds();
 
-  for (const a of arts) {
-    a.podcast_days = podcastUrlDays.get(a.url) || [];
-  }
-
   renderSidebar();
   renderArts();
   badge();
@@ -839,7 +835,7 @@ async function loadFeeds() {
 
 async function loadFeed(slug) {
   try {
-    const r = await fetch(`feed-${slug}.json?v=${Date.now()}`);
+    const r = await fetch(`feed-${slug}.json`);
     if (!r.ok) return [];
     const feed = await r.json();
     return (feed.items || []).map(it => ({
@@ -858,16 +854,14 @@ async function loadFeed(slug) {
 
 async function loadPodcastFeeds() {
   podcastArts = [];
-  podcastUrlDays = new Map();
   await Promise.allSettled(DAYS.map(async day => {
     try {
-      const r = await fetch(`feed-podcast-${day}.json?v=${Date.now()}`);
+      const r = await fetch(`feed-podcast-${day}.json`);
       if (!r.ok) return;
       const feed = await r.json();
       for (const it of (feed.items || [])) {
         const url = it.url || it.id;
         if (!url) continue;
-        const dayObj = { day, short: DAY_SHORT[day], theme: DAY_THEME[day] };
         podcastArts.push({
           url,
           title: it.title || '',
@@ -877,12 +871,8 @@ async function loadPodcastFeeds() {
           score: null,
           category: `podcast-${day}`,
           image: null,
-          podcast_day: dayObj,
-          podcast_days: [dayObj],
+          podcast_day: { day, short: DAY_SHORT[day], theme: DAY_THEME[day] },
         });
-        const existing = podcastUrlDays.get(url) || [];
-        existing.push(dayObj);
-        podcastUrlDays.set(url, existing);
       }
     } catch {}
   }));
@@ -1050,9 +1040,7 @@ function cardHtml(a, i) {
   const catInfo   = CATS.find(c => c.slug === cat);
   const showScore = score !== null;
 
-  const pdays = a.podcast_days?.length ? a.podcast_days : (a.podcast_day ? [a.podcast_day] : []);
-  const curDay = selCat.startsWith('podcast-') ? selCat.replace('podcast-', '') : null;
-  const visibleDays = curDay ? pdays.filter(pd => pd.day !== curDay) : pdays;
+  const pd  = a.podcast_day;
   const cls = ['card', isRead ? 'is-read' : '', isFocused ? 'focused' : ''].filter(Boolean).join(' ');
   return `<div class="${cls}" data-url="${esc(a.url)}">
     <div class="card-top">
@@ -1063,7 +1051,7 @@ function cardHtml(a, i) {
         <span>${rel(a.date_published)}</span>
         ${selCat === 'all' && catInfo ? `<span class="cbadge">${catInfo.emoji} ${esc(catInfo.name)}</span>` : ''}
         ${showScore ? `<span class="sbadge ${scoreClass(score)}">${score}</span>` : ''}
-        ${visibleDays.map(pd => `<span class="dbadge" data-act="correct" title="${esc(pd.theme)}">${pd.short}</span>`).join('')}
+        ${pd && !selCat.startsWith('podcast-') ? `<span class="dbadge" data-act="correct" title="${esc(pd.theme)}">${pd.short}</span>` : ''}
       </div>
       <div class="card-acts">
         <button class="act${isStar ? ' starred' : ''}" data-act="star"    title="Star (s)">${isStar ? '⭐' : '☆'}</button>
@@ -1411,4 +1399,3 @@ window.addEventListener('beforeunload', () => {
 init();
 </script>
 </body>
-</html>
