@@ -1,0 +1,40 @@
+name: Deploy Static Files
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'reader.html'
+      - 'index.html'
+      - 'review.html'
+      - 'sw.js'
+      - 'manifest.json'
+      - 'icon-*.png'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bake token and stage static files
+        env:
+          REVIEW_PAT: ${{ secrets.REVIEW_PAT }}
+        run: |
+          mkdir -p output
+          REVERSED_TOKEN=$(echo "$REVIEW_PAT" | rev)
+          sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" reader.html > output/reader.html
+          for f in index.html review.html sw.js manifest.json; do
+            [ -f "$f" ] && cp "$f" output/
+          done
+          cp icon-*.png output/ 2>/dev/null || true
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: true
