@@ -51,6 +51,22 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (8:11 AM Pacific)
+- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
+- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
+- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
+- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
+- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
+- ⚠️ **AgWeb** failed — `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news`
+- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
+
+
+---
+
+
+
 ## 2026-06-17 (Wednesday)
 
 #### 🌅 4:30 AM Pacific
