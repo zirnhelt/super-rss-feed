@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-19 (Friday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1183** → dedup **764** → new **564** → quality **32**
+- Mix: local:3(9%), ai-tech:5(16%), climate:2(6%), wellness:6(19%), scifi:1(3%), news:15(47%)
+- Feeds: local:31, ai-tech:74, climate:28, homelab:15, wellness:72, science:0, scifi:12, news:361
+- Images: 32/32
+- Topic queries: 294 articles from 34 queries
+- API calls: Claude:7, Cohere:24, Brave:42, Kagi:45 · 12,301 Claude tokens · est. cost $0.4018
+
+
+---
+
+
+
 ## 2026-06-18 (Thursday)
 
 #### 🌙 8:30 PM Pacific
@@ -857,38 +872,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Feeds: local:26, ai-tech:77, climate:32, homelab:26, wellness:53, science:31, scifi:12, news:500
 - Images: 34/34
 - ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
-
-
----
-
-
-
-## 2026-06-11 (Thursday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **892** → dedup **784** → new **590** → quality **95**
-- Mix: local:4(4%), ai-tech:7(7%), climate:2(2%), homelab:2(2%), wellness:3(3%), science:3(3%), news:74(78%)
-- Feeds: local:24, ai-tech:72, climate:27, homelab:24, wellness:46, science:21, scifi:11, news:500
-- Images: 95/95
-- ⚠️ **CBC Arts** failed — `HTTPSConnectionPool(host='www.cbc.ca', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- Fetched **938** → dedup **833** → new **618** → quality **102**
-- Mix: local:3(3%), ai-tech:5(5%), climate:2(2%), homelab:2(2%), wellness:4(4%), science:3(3%), news:83(81%)
-- Feeds: local:24, ai-tech:73, climate:28, homelab:26, wellness:46, science:24, scifi:8, news:500
-- Images: 102/102
-- ⚠️ **CBC Kamloops** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
 
 
 ---
@@ -2336,6 +2319,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-10–2026-06-10
 - 2 runs · avg fetched 948 · avg quality 73
 - Dominant: **news** (74%) local:5 / ai-tech:11 / climate:4 / homelab:3 / wellness:6 / science:6 / scifi:3 / news:108
+
+
+---
+
+
+
+## Week of 2026-06-11–2026-06-11
+- 2 runs · avg fetched 915 · avg quality 98
+- Dominant: **news** (80%) local:7 / ai-tech:12 / climate:4 / homelab:4 / wellness:7 / science:6 / news:157
 
 
 ---
