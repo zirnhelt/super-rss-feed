@@ -2511,7 +2511,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
 def load_podcast_schedule():
     """Load podcast schedule configuration"""
     try:
-        return load_json_config('podcast_schedule.json')
+        return config_loader.load_podcast_schedule_config()
     except SystemExit:
         print("⚠️ podcast_schedule.json not found, skipping podcast feed")
         return None
