@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-20 (Saturday)
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1134** → dedup **736** → new **463** → quality **20**
+- Mix: local:2(10%), wellness:2(10%), scifi:1(5%), news:15(75%)
+- Feeds: local:39, ai-tech:93, climate:28, homelab:14, wellness:79, science:0, scifi:13, news:421
+- Images: 20/20
+- Topic queries: 294 articles from 34 queries
+- API calls: Claude:5, Cohere:23, Brave:42, Kagi:36 · 8,256 Claude tokens · est. cost $0.3280
+
+
+---
+
+
+
 ## 2026-06-19 (Friday)
 
 #### 🌅 4:30 AM Pacific
@@ -935,35 +950,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Feeds: local:30, ai-tech:95, climate:34, homelab:27, wellness:79, science:28, scifi:17, news:500
 - Images: 4/4
 - API calls: Claude:1, Cohere:20, Brave:44, Kagi:77 · 1,177 Claude tokens · est. cost $0.6195
-
-
----
-
-
-
-## 2026-06-12 (Friday)
-
-#### 🌅 4:30 AM Pacific
-- Fetched **891** → dedup **793** → new **593** → quality **109**
-- Mix: local:2(2%), ai-tech:5(5%), climate:2(2%), homelab:1(1%), wellness:6(6%), science:3(3%), scifi:2(2%), news:88(81%)
-- Feeds: local:24, ai-tech:74, climate:28, homelab:26, wellness:49, science:26, scifi:9, news:500
-- Images: 109/109
-- ⚠️ **CBC Prince George** failed — `HTTPConnectionPool(host='rss.cbc.ca', port=80): Read timed out. (read timeout=10)`
-- ⚠️ **Country Guide** failed — `403 Client Error: Forbidden for url: https://www.country-guide.ca/feed/`
-- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
-
-
----
-
-
-
-
-#### 🔧 Manual Run
-- Fetched **893** → dedup **787** → new **495** → quality **34**
-- Mix: ai-tech:5(15%), climate:2(6%), wellness:2(6%), science:3(9%), scifi:1(3%), news:21(62%)
-- Feeds: local:26, ai-tech:77, climate:32, homelab:26, wellness:53, science:31, scifi:12, news:500
-- Images: 34/34
-- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
 
 
 ---
@@ -2420,6 +2406,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 ## Week of 2026-06-11–2026-06-11
 - 2 runs · avg fetched 915 · avg quality 98
 - Dominant: **news** (80%) local:7 / ai-tech:12 / climate:4 / homelab:4 / wellness:7 / science:6 / news:157
+
+
+---
+
+
+
+## Week of 2026-06-12–2026-06-12
+- 2 runs · avg fetched 892 · avg quality 72
+- Dominant: **news** (76%) local:2 / ai-tech:10 / climate:4 / homelab:1 / wellness:8 / science:6 / scifi:3 / news:109
 
 
 ---
