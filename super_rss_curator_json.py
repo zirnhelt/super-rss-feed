@@ -2446,11 +2446,99 @@ def apply_diversity_limits(articles: List[Article], category: str) -> List[Artic
     return diverse_articles
 
 
+_CT_EMOJI = {
+    "analysis":  "🔍",
+    "breaking":  "🚨",
+    "opinion":   "💬",
+    "feature":   "📖",
+    "recap":     "📋",
+    "fluff":     "🍭",
+    "sponsored": "💰",
+    "wire":      "📡",
+}
+
+_DAY_ABBREV = {
+    "monday": "Mon", "tuesday": "Tue", "wednesday": "Wed",
+    "thursday": "Thu", "friday": "Fri", "saturday": "Sat", "sunday": "Sun",
+}
+
+_BADGE_STYLE = (
+    "margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;"
+    "border-left:3px solid #7b9fc4;border-radius:3px;"
+    "font-size:0.82em;color:#444;line-height:1.8;"
+)
+
+
+def _make_score_badge(
+    score: int,
+    quality: int,
+    relevance: int,
+    local_score: int,
+    content_type: Optional[str],
+    tags: List[str],
+    *,
+    composite_score: Optional[int] = None,
+    theme_score: Optional[int] = None,
+    kw_matches: Optional[int] = None,
+    is_bonus: bool = False,
+    podcast_days: Optional[List[str]] = None,
+) -> str:
+    """Return an emoji-rich HTML badge for display in RSS readers like Inoreader."""
+    display_score = composite_score if composite_score is not None else score
+    parts: List[str] = []
+
+    if display_score > 0:
+        if display_score >= 80:   bucket = "🔥"
+        elif display_score >= 60: bucket = "✨"
+        elif display_score >= 40: bucket = "📌"
+        elif display_score >= 20: bucket = "💤"
+        else:                     bucket = "⚠️"
+        parts.append(f"{bucket} <strong>{display_score}</strong>")
+
+    if theme_score is not None:
+        parts.append(f"🎨 theme:{theme_score}")
+
+    if quality > 0:
+        parts.append(f"📝 Q:{quality}")
+    if relevance > 0:
+        parts.append(f"🎯 R:{relevance}")
+    if local_score > 0:
+        parts.append(f"📍 L:{local_score}")
+
+    if kw_matches:
+        parts.append(f"🔑 {kw_matches} kw")
+
+    if content_type:
+        ct_emoji = _CT_EMOJI.get(content_type, "📄")
+        parts.append(f"{ct_emoji} {html_escape(content_type)}")
+
+    if is_bonus:
+        parts.append("🎁 bonus")
+
+    for tag in tags:
+        if tag == "local-priority":
+            parts.append("📍 local")
+        elif tag == "subscriber-access":
+            parts.append("🔒 sub")
+        else:
+            parts.append(f"🏷️ {html_escape(tag)}")
+
+    if podcast_days:
+        abbrevs = [_DAY_ABBREV.get(d, d.capitalize()) for d in podcast_days]
+        parts.append(f"🎙️ {' · '.join(abbrevs)}")
+
+    if not parts:
+        return ""
+    inner = " · ".join(parts)
+    return f'<p style="{_BADGE_STYLE}">{inner}</p>\n'
+
+
 def generate_json_feed(articles: List[Article], category: str, output_path: str):
     """Generate JSON Feed format output"""
     cat_config = CATEGORIES[category]
     feed_config = FEEDS_CONFIG['feeds'][category]
-    
+    podcast_shown_cache = load_podcast_shown_cache()
+
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": f"{cat_config['emoji']} {feed_config['title']}",
@@ -2462,23 +2550,54 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         "language": "en",
         "items": []
     }
-    
+
     for article in articles[:LIMITS['max_feed_size']]:
         clean_desc = _strip_markdown_links(article.description or "")
         has_source_in_title = (article.title.startswith(f"[{article.source}]")
                                or article.source in article.title)
+
+        # Collect tags and podcast appearances first (needed for badge)
+        item_tags: List[str] = []
+        if category == 'local':
+            item_tags.append("local-priority")
+
+        subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
+        if subscriber_label:
+            item_tags.append("subscriber-access")
+
+        podcast_days = sorted({
+            entry['day']
+            for key, entry in podcast_shown_cache.items()
+            if key.startswith(f"{article.link}:::")
+        }, key=lambda d: list(_DAY_ABBREV.keys()).index(d) if d in _DAY_ABBREV else 99)
+
+        badge = _make_score_badge(
+            score=article.score,
+            quality=article.quality,
+            relevance=article.relevance,
+            local_score=article.local,
+            content_type=article.content_type,
+            tags=item_tags,
+            podcast_days=podcast_days or None,
+        )
+
+        # image → badge → description
+        content_html = badge + clean_desc
+        if hasattr(article, 'image') and article.image:
+            img_html = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n'
+            content_html = img_html + content_html
+
         item = {
             "id": article.link,
             "url": article.link,
             "title": article.title if has_source_in_title else f"[{article.source}] {article.title}",
-            "content_html": clean_desc,
+            "content_html": content_html,
             "date_published": article.pub_date.isoformat(),
             "authors": [{"name": article.source, "url": article.source_url}]
         }
 
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
-            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + clean_desc
 
         item["_score"] = article.score
         item["_quality"] = article.quality
@@ -2489,22 +2608,22 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
 
         if category == 'local':
             item["_local"] = True
-            item["tags"] = ["local-priority"]
 
-        subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
+        if item_tags:
+            item["tags"] = item_tags
+
         if subscriber_label:
             item["title"] = f"🔓 {item['title']}"
-            item.setdefault("tags", []).append("subscriber-access")
             item["_subscriber_access"] = subscriber_label
             if subscriber_label == "Apple News+":
                 _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
                 item["_apple_news_url"] = build_apple_news_search_url(_clean or article.title)
 
         feed["items"].append(item)
-    
+
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
-    
+
     print(f"✅ Generated {category} feed: {len(feed['items'])} articles")
 
 
@@ -3465,11 +3584,37 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             len((getattr(article, 'summary', '') or '').strip()),
             len((getattr(article, 'excerpt', '') or '').strip()),
         )
+
+        # Collect tags first (needed for badge)
+        pod_tags: List[str] = []
+        subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
+        if subscriber_label:
+            pod_tags.append("subscriber-access")
+
+        badge = _make_score_badge(
+            score=article.score,
+            quality=getattr(article, 'quality', article.score),
+            relevance=getattr(article, 'relevance', article.score),
+            local_score=getattr(article, 'local', 0),
+            content_type=getattr(article, 'content_type', None),
+            tags=pod_tags,
+            composite_score=composite_podcast,
+            theme_score=theme_score,
+            kw_matches=kw_matches,
+            is_bonus=is_bonus,
+        )
+
+        # image → badge → description
+        content_html = badge + clean_desc
+        if hasattr(article, 'image') and article.image:
+            img_html = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n'
+            content_html = img_html + content_html
+
         item = {
             "id": article.link,
             "url": article.link,
             "title": article.title if has_source_in_title else f"[{article.source}] {article.title}",
-            "content_html": clean_desc,
+            "content_html": content_html,
             "summary": getattr(article, 'summary', '') or _clean_text(article.description, max_chars=300),
             "_excerpt": getattr(article, 'excerpt', '') or _clean_text(article.description, max_chars=600),
             "date_published": article.pub_date.isoformat(),
@@ -3487,9 +3632,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             **({"_thin_body": True} if _item_body_len < 280 else {}),
         }
 
-        subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
+        if hasattr(article, 'image') and article.image:
+            item["image"] = article.image
+
+        if pod_tags:
+            item["tags"] = pod_tags
+
         if subscriber_label:
-            item.setdefault("tags", []).append("subscriber-access")
             item["_subscriber_access"] = subscriber_label
             if subscriber_label == "Apple News+":
                 _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
@@ -3509,9 +3658,6 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                 'label': prior_label,
                 'shown_at': prior['shown_at']
             }
-        if hasattr(article, 'image') and article.image:
-            item["image"] = article.image
-            item["content_html"] = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n' + clean_desc
         items_with_score.append((composite_podcast, item))
 
     items_with_score.sort(key=lambda x: x[0], reverse=True)
