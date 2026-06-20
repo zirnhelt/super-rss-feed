@@ -342,6 +342,8 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-14 | 🔧 manual | 4 | wellness:2(50%), ai-tech:1(25%), news:1(25%) |
+| 2026-06-13 | 🌅 morning | 25 | news:16(64%), ai-tech:5(20%), climate:2(8%) |
 | 2026-06-13 | 🔧 manual | 12 | ai-tech:5(42%), news:4(33%), wellness:3(25%) |
 | 2026-06-13 | 🔧 manual | 16 | news:9(56%), ai-tech:3(19%), wellness:2(12%) |
 | 2026-06-13 | 🔧 manual | 22 | news:19(86%), wellness:2(9%), scifi:1(5%) |
@@ -354,12 +356,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-13 | 🔧 manual | 4 | wellness:2(50%), news:2(50%) |
 | 2026-06-13 | 🔧 manual | 5 | wellness:2(40%), local:1(20%), homelab:1(20%) |
 | 2026-06-13 | 🔧 manual | 4 | wellness:2(50%), news:2(50%) |
-| 2026-06-12 | 🌅 morning | 109 | news:88(81%), wellness:6(6%), ai-tech:5(5%) |
-| 2026-06-12 | 🔧 manual | 34 | news:21(62%), ai-tech:5(15%), science:3(9%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-19 23:30 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-20 02:45 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
