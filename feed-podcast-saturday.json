@@ -18,164 +18,121 @@
       "local",
       "news",
       "homelab",
-      "ai-tech"
+      "ai-tech",
+      "wellness"
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Cariboo Voices & Local News' — stories FROM and ABOUT the Cariboo-Chilcotin region and its communities. Score 80-100 for articles directly covering: news and events in Williams Lake, Quesnel, 100 Mile House, Bella Coola, Horsefly, Likely, Anahim Lake, Alexis Creek, or the Cariboo Regional District; local government and civic decisions (City of Williams Lake, City of Quesnel, CRD, District of 100 Mile House); local health services and emergency closures; local economy, businesses, and community programs; Cariboo arts, culture, and community events; AND digital equity, rural internet access (fiber, fixed wireless, Starlink), and connectivity serving these specific communities. Articles from local Cariboo news sources (mycariboonow.com, wltribune.com, quesnelobserver.com, 100milefreepress.net, cfjctoday.com) covering Cariboo community life should score 65-85. Score 50-79 for: BC provincial news directly affecting Cariboo communities, rural Canadian community stories closely paralleling Cariboo life, digital equity and rural internet broadly. Score 20-49 for: general BC news that may affect rural areas, broader rural Canada topics without specific Cariboo tie-in. Score 0-19 for: national/international news without Cariboo relevance, pure tech or entertainment with no community angle. Penalise heavily (score 0–20): international geopolitical and war news with no Cariboo tie-in; science discoveries without a local community connection; consumer tech reviews and gadget guides; wildlife and conservation stories not involving Cariboo communities or First Nations; BC provincial news without direct Cariboo-region relevance. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "saturday",
-    "generated_at": "2026-06-13T20:14:32.316699+00:00",
+    "generated_at": "2026-06-20T07:58:39.585530+00:00",
     "article_count": 40,
-    "bonus_count": 8,
+    "bonus_count": 0,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
     {
-      "id": "https://www.mycariboonow.com/314003/news/education/school-district-28/quesnel-school-district-hires-new-secretary-treasurer/",
-      "url": "https://www.mycariboonow.com/314003/news/education/school-district-28/quesnel-school-district-hires-new-secretary-treasurer/",
-      "title": "[My Cariboo Now] Quesnel School District hires new Secretary-Treasurer : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2016/05/quesnel-school-district-office.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-09T06:10:07.133242+00:00",
+      "id": "https://wltribune.com/2026/06/18/williams-lake-first-nation-powwow-to-include-weekend-full-of-activities/",
+      "url": "https://wltribune.com/2026/06/18/williams-lake-first-nation-powwow-to-include-weekend-full-of-activities/",
+      "title": "[Williams Lake Tribune] Williams Lake First Nation Powwow to include weekend full of activities",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42565579_web1_260618-WLT-PowWow_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>74</strong> · 🎨 theme:70 · 📝 Q:68 · 🎯 R:68 · 🔑 2 kw · 🔒 sub</p>\n## Williams Lake First Nation Powwow to include weekend full of activities Published 5:00 am Thursday, June 18, 2026 **By Yashvika Grover Local Journalism Initiative** The 2026 Williams Lake Traditional Powwow will include seven specials, over 40 vendors and more. (Williams Lake First Nation/ Facebook) The 2026 Williams Lake Traditional Powwow will include seven specials, over 40 vendors and more. (Williams Lake First Nation/ Facebook) The 2026 Williams Lake Powwow is bringing the entire community together to celebrate culture. From June 19 to 21, the Williams Lake First Nation (WLFN) has",
+      "summary": "## Williams Lake First Nation Powwow to include weekend full of activities Published 5:00 am Thursday, June 18, 2026 **By Yashvika Grover Local Journalism Initiative** The 2026 Williams Lake Traditional Powwow will include seven specials, over 40 vendors and more. (Williams Lake First Nation/",
+      "_excerpt": "## Williams Lake First Nation Powwow to include weekend full of activities Published 5:00 am Thursday, June 18, 2026 **By Yashvika Grover Local Journalism Initiative** The 2026 Williams Lake Traditional Powwow will include seven specials, over 40 vendors and more. (Williams Lake First Nation/ Facebook) The 2026 Williams Lake Traditional Powwow will include seven specials, over 40 vendors and more. (Williams Lake First Nation/ Facebook) The 2026 Williams Lake Powwow is bringing the entire community together to celebrate culture. From June 19 to 21, the Williams Lake First Nation (WLFN) has",
+      "date_published": "2026-06-18T16:00:07.662406+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 28,
-      "_final_score": 28,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
+      "ai_score": 90,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 70,
+      "_composite_podcast": 74,
+      "_keyword_matches": 2,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42565579_web1_260618-WLT-PowWow_1.jpg?w=1024",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-09T06:12:15.434854+00:00"
-      },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2016/05/quesnel-school-district-office.png"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-06-18T16:02:48.984414+00:00"
+      }
     },
     {
-      "id": "https://www.mycariboonow.com/314066/news/emergency-services/mediator-appointed-to-911-operator-contract-dispute-averting-strike/",
-      "url": "https://www.mycariboonow.com/314066/news/emergency-services/mediator-appointed-to-911-operator-contract-dispute-averting-strike/",
-      "title": "[My Cariboo Now] Mediator appointed to 911 operator contract dispute, averting strike : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-11T09:01:57.131693+00:00",
+      "id": "https://cfjctoday.com/2026/06/17/police-identify-suspect-looking-for-person-of-interest-in-two-suspicious-fires-in-williams-lake/",
+      "url": "https://cfjctoday.com/2026/06/17/police-identify-suspect-looking-for-person-of-interest-in-two-suspicious-fires-in-williams-lake/",
+      "title": "[CFJC Today Kamloops] Police identify suspect, looking for person of interest in two suspicious fires in Williams Lake",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/df02eb7e-1b9d-4cca-a87a-aac740550ea6.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>73</strong> · 🎨 theme:80 · 📝 Q:64 · 🎯 R:64 · 🔑 1 kw</p>\nFile photo. (Image Credit: CFJC Today) By Aaron Schulze Suspicious Fires # Police identify suspect, looking for person of interest in two suspicious fires in Williams Lake Jun 17, 2026 | 8:03 AM WILLIAMS LAKE, B.C. — Williams Lake RCMP are investigating a pair of suspicious fires in the city over the last week. At around 9:15 p.m. on Saturday (June 13), RCMP say officers responded to the 900-block of Mackenze Avenue South where a Ford E350 van was found with significant fire damage. According to police, the Williams Lake Fire Department responded to the vehicle fire, and crews believe it’s",
+      "summary": "File photo. (Image Credit: CFJC Today) By Aaron Schulze Suspicious Fires # Police identify suspect, looking for person of interest in two suspicious fires in Williams Lake Jun 17, 2026 | 8:03 AM WILLIAMS LAKE, B.C. — Williams Lake RCMP are investigating a pair of suspicious fires in the city over",
+      "_excerpt": "File photo. (Image Credit: CFJC Today) By Aaron Schulze Suspicious Fires # Police identify suspect, looking for person of interest in two suspicious fires in Williams Lake Jun 17, 2026 | 8:03 AM WILLIAMS LAKE, B.C. — Williams Lake RCMP are investigating a pair of suspicious fires in the city over the last week. At around 9:15 p.m. on Saturday (June 13), RCMP say officers responded to the 900-block of Mackenze Avenue South where a Ford E350 van was found with significant fire damage. According to police, the Williams Lake Fire Department responded to the vehicle fire, and crews believe it’s",
+      "date_published": "2026-06-17T15:03:03+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
         }
       ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
+      "ai_score": 75,
+      "_quality": 64,
+      "_relevance": 64,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 73,
+      "_keyword_matches": 1,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/df02eb7e-1b9d-4cca-a87a-aac740550ea6.jpg"
     },
     {
-      "id": "https://www.mycariboonow.com/314109/news/municipal-news/city-of-williams-lake/williams-lake-councillor-supports-closing-jails-depsit-potential-legal-road-blocks/",
-      "url": "https://www.mycariboonow.com/314109/news/municipal-news/city-of-williams-lake/williams-lake-councillor-supports-closing-jails-depsit-potential-legal-road-blocks/",
-      "title": "[My Cariboo Now] Williams Lake Councillor supports closing jails depsite potential legal road blocks : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/07/image_50372865-1-scaled-e1658876829197.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-10T16:14:16.633658+00:00",
+      "id": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
+      "url": "https://wltribune.com/2026/06/15/29-year-old-man-dead-after-going-off-road-on-highway-26-near-quesnel/",
+      "title": "[Williams Lake Tribune] 29-year-old man dead after going off-road on Highway 26 near Quesnel",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>73</strong> · 🎨 theme:57 · 🔑 2 kw · 🔒 sub</p>\n## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By Yashvika Grover Local Journalism Initiative** A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
+      "summary": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12.",
+      "_excerpt": "## 29-year-old man dead after going off-road on Highway 26 near Quesnel Published 12:45 pm Monday, June 15, 2026 **By [Yashvika Grover](https://wltribune.com/author/yashvikagrover/) Local Journalism Initiative** ![A 29-year-old man went off road while driving his truck on Highway 26 on June 12. (Black Press file photo)](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024) A 29-year-old man went off road while driving his truck on Highway 26 on June 12\\. (Black Press file photo) A man has died after going off-road while driving, said Quesnel RCMP. The",
+      "date_published": "2026-06-15T12:45:00+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
+      "ai_score": 90,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 73,
+      "_keyword_matches": 2,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/07/image_50372865-1-scaled-e1658876829197.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
-      "url": "https://www.mycariboonow.com/314017/news/business/economy/federal-action-plan-for-forestry-sector-expected-this-week-as-report-warns-of-looming-existential-risk/",
-      "title": "[My Cariboo Now] Federal action plan for forestry sector expected this week, as report warns of looming \"existential risk\" : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-08T09:13:09.109671+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42568729_web1_rcmp-car-web.jpg?w=1024",
+      "tags": [
+        "subscriber-access"
       ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 21,
-      "_final_score": 21,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-09T15:39:31.513012+00:00"
-      },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2022/03/two-pink-and-gray-camping-chairs-2662816-scaled.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314152/news/communty/logan-parent-memorial-bulls-barrels-this-weekend-in-the-south-cariboo/",
-      "url": "https://www.mycariboonow.com/314152/news/communty/logan-parent-memorial-bulls-barrels-this-weekend-in-the-south-cariboo/",
-      "title": "[My Cariboo Now] Logan Parent Memorial Bulls & Barrels this weekend in the South Cariboo : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-12T15:46:17.831731+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 15,
-      "_final_score": 15,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
+      "_subscriber_access": "Williams Lake Tribune",
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T15:48:12.701885+00:00"
-      },
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/CONCUSSION-LEGACY-FOUNDATION.jpeg"
+        "shown_at": "2026-06-19T09:11:32.594496+00:00"
+      }
     },
     {
-      "id": "https://www.mycariboonow.com/314055/news/health-care/motor-cycle-deaths-and-drownings-are-up-in-the-province/",
-      "url": "https://www.mycariboonow.com/314055/news/health-care/motor-cycle-deaths-and-drownings-are-up-in-the-province/",
-      "title": "[My Cariboo Now] Motor cycle deaths and drownings are up in the province : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2019/10/Coroner_BC-Coroners-Service.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "id": "https://www.mycariboonow.com/314071/news/health-care/are-you-up-for-the-national-participaction-community-challenge/",
+      "url": "https://www.mycariboonow.com/314071/news/health-care/are-you-up-for-the-national-participaction-community-challenge/",
+      "title": "Williams Lake vying to be named Canada’s most active community : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/12/WL-REC-COMPLEX-DEC-30-2025-e1767217887997.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>71</strong> · 🎨 theme:80 · 📝 Q:85 · 🎯 R:85 · 🔑 6 kw</p>\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
       "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
       "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-10T08:32:31.236177+00:00",
+      "date_published": "2026-06-15T01:03:57.169113+00:00",
       "authors": [
         {
           "name": "My Cariboo Now",
@@ -183,454 +140,183 @@
         }
       ],
       "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 13,
-      "_final_score": 13,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 71,
       "_keyword_matches": 6,
-      "_boosted_score": 100,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2019/10/Coroner_BC-Coroners-Service.png"
+      "_thin_body": true,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/12/WL-REC-COMPLEX-DEC-30-2025-e1767217887997.jpeg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-06-15T01:05:32.780439+00:00"
+      }
     },
     {
-      "id": "https://www.mycariboonow.com/314117/news/sports/hockey/kijhl/quesnel-river-rush/quesnel-river-rush-junior-hockey-team-looking-for-help-in-dealing-with-increased-costs/",
-      "url": "https://www.mycariboonow.com/314117/news/sports/hockey/kijhl/quesnel-river-rush/quesnel-river-rush-junior-hockey-team-looking-for-help-in-dealing-with-increased-costs/",
-      "title": "[My Cariboo Now] Quesnel River Rush junior hockey team looking for help in dealing with increased costs : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/10/Quesnel-River-Rush-logo.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-11T09:01:57.132565+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 12,
-      "_final_score": 12,
-      "_keyword_matches": 4,
-      "_boosted_score": 100,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/10/Quesnel-River-Rush-logo.png"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314141/news/rcmp/motor-vehicle-accident-in-south-cariboo-sends-one-person-to-hospital/",
-      "url": "https://www.mycariboonow.com/314141/news/rcmp/motor-vehicle-accident-in-south-cariboo-sends-one-person-to-hospital/",
-      "title": "[My Cariboo Now] Motor vehicle accident in South Cariboo sends one person to hospital : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-RCMP-Station_IMG_2228-e1763516200652.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-12T15:46:17.833214+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 11,
-      "_final_score": 11,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/09/100-Mile-House-RCMP-Station_IMG_2228-e1763516200652.jpg"
-    },
-    {
-      "id": "https://www.mycariboonow.com/314077/news/housing/b-c-rents-continue-to-fall-amid-sluggish-spring-rental-market/",
-      "url": "https://www.mycariboonow.com/314077/news/housing/b-c-rents-continue-to-fall-amid-sluggish-spring-rental-market/",
-      "title": "[My Cariboo Now] B.C. rents continue to fall amid sluggish spring rental market : My Cariboo Now",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
-      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
-      "date_published": "2026-06-10T08:32:31.236861+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 7,
-      "_final_score": 7,
-      "_keyword_matches": 6,
-      "_boosted_score": 100,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2021/08/mynow-icon.png"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/13/williams-lake-class-of-2026-makes-history-says-orange-shirt-day-founder/",
-      "url": "https://wltribune.com/2026/06/13/williams-lake-class-of-2026-makes-history-says-orange-shirt-day-founder/",
-      "title": "[Williams Lake Tribune] Williams Lake class of 2026 makes history says Orange Shirt Day founder",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42558731_web1_260618-WLT-2026-High-School-Graduates-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n## Williams Lake class of 2026 makes history says Orange Shirt Day founder Published 11:45 am Saturday, June 13, 2026 **By Rebecca Dyok** ![Lake City Secondary School held its 2026 graduation ceremony at the Cariboo Memorial Recreation Complex on Friday, June 12. (Rebecca Dyok/Williams Lake Tribune)](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42558731_web1_260618-WLT-2026-High-School-Graduates-_2.jpg?w=1024) 1/2 Lake City Secondary School held its 2026 graduation ceremony at the Cariboo Memorial Recreation Complex on Friday, June 12\\. (Rebecca Dyok/Williams Lake Tribune) ![Lake",
-      "summary": "## Williams Lake class of 2026 makes history says Orange Shirt Day founder Published 11:45 am Saturday, June 13, 2026 **By Rebecca Dyok** ![Lake City Secondary School held its 2026 graduation ceremony at the Cariboo Memorial Recreation Complex on Friday, June 12. (Rebecca Dyok/Williams Lake",
-      "_excerpt": "## Williams Lake class of 2026 makes history says Orange Shirt Day founder Published 11:45 am Saturday, June 13, 2026 **By Rebecca Dyok** ![Lake City Secondary School held its 2026 graduation ceremony at the Cariboo Memorial Recreation Complex on Friday, June 12. (Rebecca Dyok/Williams Lake Tribune)](https://wltribune.com/wp-content/uploads/sites/6/2026/06/42558731_web1_260618-WLT-2026-High-School-Graduates-_2.jpg?w=1024) 1/2 Lake City Secondary School held its 2026 graduation ceremony at the Cariboo Memorial Recreation Complex on Friday, June 12\\. (Rebecca Dyok/Williams Lake Tribune) ![Lake",
-      "date_published": "2026-06-13T19:18:34.969905+00:00",
+      "id": "https://wltribune.com/2026/06/17/williams-lake-business-owner-devastated-after-delivery-van-fire-deemed-suspicious/",
+      "url": "https://wltribune.com/2026/06/17/williams-lake-business-owner-devastated-after-delivery-van-fire-deemed-suspicious/",
+      "title": "[Williams Lake Tribune] Williams Lake business owner devastated after delivery van fire deemed suspicious",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42587943_web1_260618-WLT-Water-Factory-Delivery-Van-Fire-_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>70</strong> · 🎨 theme:73 · 📝 Q:66 · 🎯 R:66 · 🔑 1 kw · 🔒 sub</p>\n## Williams Lake business owner devastated after delivery van fire deemed suspicious Published 8:30 am Wednesday, June 17, 2026 **By Rebecca Dyok** Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13. (Gwen Garami-Balmer/Facebook photo) 1/2 Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13\\. (Gwen Garami-Balmer/Facebook photo) Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13. (Gwen Garami-Balmer/Facebook photo) RCMP confirm a person of",
+      "summary": "## Williams Lake business owner devastated after delivery van fire deemed suspicious Published 8:30 am Wednesday, June 17, 2026 **By Rebecca Dyok** Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13. (Gwen Garami-Balmer/Facebook photo) 1/2",
+      "_excerpt": "## Williams Lake business owner devastated after delivery van fire deemed suspicious Published 8:30 am Wednesday, June 17, 2026 **By Rebecca Dyok** Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13. (Gwen Garami-Balmer/Facebook photo) 1/2 Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13\\. (Gwen Garami-Balmer/Facebook photo) Firefighters work to extinguish a vehicle fire at the Williams Lake Water Factory on Saturday, June 13. (Gwen Garami-Balmer/Facebook photo) RCMP confirm a person of",
+      "date_published": "2026-06-17T15:34:45.478133+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 3,
-      "_boosted_score": 90,
+      "ai_score": 90,
+      "_quality": 66,
+      "_relevance": 66,
+      "_local": 0,
+      "_theme_score": 73,
+      "_composite_podcast": 70,
+      "_keyword_matches": 1,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42558731_web1_260618-WLT-2026-High-School-Graduates-_2.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/12/seniors-advocate-of-b-c-coming-to-the-cariboo/",
-      "url": "https://wltribune.com/2026/06/12/seniors-advocate-of-b-c-coming-to-the-cariboo/",
-      "title": "[Williams Lake Tribune] Senior’s Advocate of B.C. coming to the Cariboo",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42544690_web1_260618-OMH-Seniors-Advocate-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDan Levitt will be visiting 100 Mile House, Williams Lake and Ashcroft from June 22-23",
-      "summary": "Dan Levitt will be visiting 100 Mile House, Williams Lake and Ashcroft from June 22-23",
-      "_excerpt": "Dan Levitt will be visiting 100 Mile House, Williams Lake and Ashcroft from June 22-23",
-      "date_published": "2026-06-12T15:46:42.950036+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42587943_web1_260618-WLT-Water-Factory-Delivery-Van-Fire-_2.jpg?w=1024",
+      "tags": [
+        "subscriber-access"
       ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 3,
-      "_boosted_score": 90,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42544690_web1_260618-OMH-Seniors-Advocate-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
-      "url": "https://wltribune.com/2026/06/10/rotary-peace-pole-to-be-installed-in-williams-lake/",
-      "title": "[Williams Lake Tribune] Rotary Peace Pole to be installed in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe pole will promote peace in the world and community",
-      "summary": "The pole will promote peace in the world and community",
-      "_excerpt": "The pole will promote peace in the world and community",
-      "date_published": "2026-06-11T09:02:58.168752+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 12,
-      "_final_score": 12,
-      "_keyword_matches": 2,
-      "_boosted_score": 70,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
+      "_subscriber_access": "Williams Lake Tribune",
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42534240_web1_260618-WLT-Rotary-Peace-Pole-_1.jpg?w=1024"
+        "shown_at": "2026-06-19T09:11:32.594496+00:00"
+      }
     },
     {
-      "id": "https://wltribune.com/2026/06/10/5th-annual-cariboo-classic-jr-steer-and-heifer-show-a-hit-in-williams-lake/",
-      "url": "https://wltribune.com/2026/06/10/5th-annual-cariboo-classic-jr-steer-and-heifer-show-a-hit-in-williams-lake/",
-      "title": "[Williams Lake Tribune] 5th annual Cariboo Classic Jr Steer and Heifer Show a hit in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42504504_web1_260611-WLT-Cariboo-Classic-Junior-Steer-Heifer-_7.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe event took place June 5-7",
-      "summary": "The event took place June 5-7",
-      "_excerpt": "The event took place June 5-7",
-      "date_published": "2026-06-10T16:15:12.873626+00:00",
+      "id": "https://www.mycariboonow.com/314219/news/emergency-services/fire/early-morning-fire-causes-damage-to-downtown-williams-lake-business/",
+      "url": "https://www.mycariboonow.com/314219/news/emergency-services/fire/early-morning-fire-causes-damage-to-downtown-williams-lake-business/",
+      "title": "Early morning fire causes damage to downtown Williams Lake business : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/06/DOWNTOWN-FIRE-JUNE-16-2026-e1781624496309.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>68</strong> · 🎨 theme:80 · 📝 Q:77 · 🎯 R:77 · 🔑 6 kw</p>\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-19T09:09:03.089770+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
         }
       ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 2,
-      "_boosted_score": 70,
+      "ai_score": 85,
+      "_quality": 77,
+      "_relevance": 77,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 68,
+      "_keyword_matches": 6,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/06/DOWNTOWN-FIRE-JUNE-16-2026-e1781624496309.jpeg",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-20T02:45:47.431463+00:00"
+      }
+    },
+    {
+      "id": "https://www.mycariboonow.com/314247/news/rcmp/suspicious-fires-days-apart-under-investigation-by-williams-lake-rcmp/",
+      "url": "https://www.mycariboonow.com/314247/news/rcmp/suspicious-fires-days-apart-under-investigation-by-williams-lake-rcmp/",
+      "title": "2 separate suspicious fires days apart under investigation by Williams Lake RCMP : My Cariboo Now",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/12/RCMP-SIGN-e1766442595526.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">✨ <strong>68</strong> · 🎨 theme:80 · 📝 Q:78 · 🎯 R:78 · 🔑 6 kw</p>\nStay connected with My Cariboo Now — <strong>delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond</strong>.",
+      "summary": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "_excerpt": "Stay connected with My Cariboo Now — delivering local news, community events, weather alerts, and live radio to Quesnel, Williams Lake, 100 Mile House, and beyond .",
+      "date_published": "2026-06-18T15:59:39.365508+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 78,
+      "_relevance": 78,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 68,
+      "_keyword_matches": 6,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/12/RCMP-SIGN-e1766442595526.jpeg"
+    },
+    {
+      "id": "https://globalnews.ca/news/11914093/funeral-mapleton-children-crash/",
+      "url": "https://globalnews.ca/news/11914093/funeral-mapleton-children-crash/",
+      "title": "[Global News] Family prepares to bury 5 children killed in devastating Ontario crash",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/06/unway-2.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">📌 <strong>53</strong> · 🎨 theme:65 · 📝 Q:76 · 🎯 R:76 · 🔑 1 kw</p>\nFive children killed in a crash in rural Ontario last week will be laid to rest Saturday, as family, friends and community members gather to mourn the siblings.",
+      "summary": "Five children killed in a crash in rural Ontario last week will be laid to rest Saturday, as family, friends and community members gather to mourn the siblings.",
+      "_excerpt": "Five children killed in a crash in rural Ontario last week will be laid to rest Saturday, as family, friends and community members gather to mourn the siblings.",
+      "date_published": "2026-06-19T23:42:49+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 76,
+      "_relevance": 76,
+      "_local": 0,
+      "_theme_score": 65,
+      "_composite_podcast": 53,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/unway-2.jpg?quality=65&strip=all"
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/06/16/quesnel-air-cadets-praised-for-community-service-and-leadership-at-annual-review/",
+      "url": "https://quesnelobserver.com/2026/06/16/quesnel-air-cadets-praised-for-community-service-and-leadership-at-annual-review/",
+      "title": "[Quesnel Cariboo Observer] Quesnel Air Cadets praised for community service and leadership at annual review",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536168_web1_260617-QCO-Front-pic_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">📌 <strong>51</strong> · 🎨 theme:49 · 📝 Q:13 · 🎯 R:13 · 🔑 3 kw</p>\n## Quesnel Air Cadets praised for community service and leadership at annual review Published 2:00 pm Tuesday, June 16, 2026 **By Laísa Condé** Flight Sergeant Sebastien Denis, member of the Royal Canadian Air Cadets #768 Jet Ranger Squadron in Quesnel, received the Lord Strathcona Trust Fund Medal and was also honoured with the Warrant Officer Achievement Award. Denis was additionally recognized with the SSC Community Leadership Award, which was shared with Sgt. J. Wieler. See page A7. (Laísa Condé/Quesnel Cariboo Observer) 1/9 Flight Sergeant Sebastien Denis, member of the Royal Canadian",
+      "summary": "## Quesnel Air Cadets praised for community service and leadership at annual review Published 2:00 pm Tuesday, June 16, 2026 **By Laísa Condé** Flight Sergeant Sebastien Denis, member of the Royal Canadian Air Cadets #768 Jet Ranger Squadron in Quesnel, received the Lord Strathcona Trust Fund Medal",
+      "_excerpt": "## Quesnel Air Cadets praised for community service and leadership at annual review Published 2:00 pm Tuesday, June 16, 2026 **By Laísa Condé** Flight Sergeant Sebastien Denis, member of the Royal Canadian Air Cadets #768 Jet Ranger Squadron in Quesnel, received the Lord Strathcona Trust Fund Medal and was also honoured with the Warrant Officer Achievement Award. Denis was additionally recognized with the SSC Community Leadership Award, which was shared with Sgt. J. Wieler. See page A7. (Laísa Condé/Quesnel Cariboo Observer) 1/9 Flight Sergeant Sebastien Denis, member of the Royal Canadian",
+      "date_published": "2026-06-16T21:00:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 13,
+      "_relevance": 13,
+      "_local": 0,
+      "_theme_score": 49,
+      "_composite_podcast": 51,
+      "_keyword_matches": 3,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536168_web1_260617-QCO-Front-pic_1.jpg?w=1024",
       "_cross_theme": {
         "day": "wednesday",
-        "label": "Gear, Gadgets & Practical Tech",
-        "shown_at": "2026-06-10T16:16:31.786241+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42504504_web1_260611-WLT-Cariboo-Classic-Junior-Steer-Heifer-_7.jpg?w=1024"
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-06-17T09:22:55.696607+00:00"
+      }
     },
     {
-      "id": "https://wltribune.com/2026/06/08/b-c-funds-14-forest-resiliency-projects-in-cariboo-chilcotin/",
-      "url": "https://wltribune.com/2026/06/08/b-c-funds-14-forest-resiliency-projects-in-cariboo-chilcotin/",
-      "title": "[Williams Lake Tribune] B.C. funds 16 forest resiliency projects in Cariboo-Chilcotin",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507065_web1_231109-WLT-Old-Growth-print-quesnellake_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe projects will reduce wildfire risk, greenhouse emissions, restore ecosystems and create jobs",
-      "summary": "The projects will reduce wildfire risk, greenhouse emissions, restore ecosystems and create jobs",
-      "_excerpt": "The projects will reduce wildfire risk, greenhouse emissions, restore ecosystems and create jobs",
-      "date_published": "2026-06-09T06:10:52.941392+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 2,
-      "_boosted_score": 70,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42507065_web1_231109-WLT-Old-Growth-print-quesnellake_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
-      "url": "https://wltribune.com/2026/06/08/teen-presumed-drowned-after-boating-incident-northeast-of-quesnel/",
-      "title": "[Williams Lake Tribune] Teen presumed drowned after boating incident northeast of Quesnel",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The incident took place on June 6 at Stony Lake </p>",
-      "summary": "The incident took place on June 6 at Stony Lake",
-      "_excerpt": "The incident took place on June 6 at Stony Lake",
-      "date_published": "2026-06-08T15:35:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42513671_web1_stony-lake.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/12/williams-lake-writer-shortlisted-for-new-award-recognizing-outstanding-books-in-b-c/",
-      "url": "https://wltribune.com/2026/06/12/williams-lake-writer-shortlisted-for-new-award-recognizing-outstanding-books-in-b-c/",
-      "title": "[Williams Lake Tribune] Williams Lake writer shortlisted for new award recognizing outstanding books in B.C.",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42547807_web1_subwilliamderosebirchwater.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nSage Birchwater a finalist for the Al and Eurithe Purdy BC Award for Excellence",
-      "summary": "Sage Birchwater a finalist for the Al and Eurithe Purdy BC Award for Excellence",
-      "_excerpt": "Sage Birchwater a finalist for the Al and Eurithe Purdy BC Award for Excellence",
-      "date_published": "2026-06-13T03:30:04.161191+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 7,
-      "_final_score": 7,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42547807_web1_subwilliamderosebirchwater.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/11/inomin-mines-continues-exploration-near-williams-lake/",
-      "url": "https://wltribune.com/2026/06/11/inomin-mines-continues-exploration-near-williams-lake/",
-      "title": "[Williams Lake Tribune] Inomin Mines continues exploration near Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42541453_web1_260618-WLT-Inomin-Mines-Beaver-Lynx-Drilling-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n2 MIN READ",
-      "summary": "2 MIN READ",
-      "_excerpt": "2 MIN READ",
-      "date_published": "2026-06-12T08:47:49.949184+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 7,
-      "_final_score": 7,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42541453_web1_260618-WLT-Inomin-Mines-Beaver-Lynx-Drilling-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/10/williams-lake-rejects-jail-closure-idea-seeks-government-support-on-repeat-crime/",
-      "url": "https://wltribune.com/2026/06/10/williams-lake-rejects-jail-closure-idea-seeks-government-support-on-repeat-crime/",
-      "title": "[Williams Lake Tribune] Williams Lake rejects jail closure idea, seeks government support on repeat crime",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42528771_web1_260611-WLT-Councillor-Jail-Closure-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n7 MIN READ",
-      "summary": "7 MIN READ",
-      "_excerpt": "7 MIN READ",
-      "date_published": "2026-06-11T09:02:58.168941+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 5,
-      "_final_score": 5,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42528771_web1_260611-WLT-Councillor-Jail-Closure-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/11/xatsull-first-nation-bringing-calling-our-people-home-event-to-williams-lake/",
-      "url": "https://wltribune.com/2026/06/11/xatsull-first-nation-bringing-calling-our-people-home-event-to-williams-lake/",
-      "title": "[Williams Lake Tribune] Xat’sull First Nation bringing Calling Our People Home event to Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42537345_web1_am-callinghome8.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nEveryone is invited to visit Boitanio Park on June 17",
-      "summary": "Everyone is invited to visit Boitanio Park on June 17",
-      "_excerpt": "Everyone is invited to visit Boitanio Park on June 17",
-      "date_published": "2026-06-11T16:35:43.318142+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42537345_web1_am-callinghome8.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/13/escaped-alone-wins-best-production-in-williams-lake/",
-      "url": "https://wltribune.com/2026/06/13/escaped-alone-wins-best-production-in-williams-lake/",
-      "title": "[Williams Lake Tribune] ‘Escaped Alone’ wins best production in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556224_web1_260618-WLT-Theatre-winners_3.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nThe crew is taking on a provincial theatre competition next",
-      "summary": "The crew is taking on a provincial theatre competition next",
-      "_excerpt": "The crew is taking on a provincial theatre competition next",
-      "date_published": "2026-06-13T14:37:56.077627+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 100,
-      "_quality_score": 100,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_keyword_matches": 1,
-      "_boosted_score": 50,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42556224_web1_260618-WLT-Theatre-winners_3.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/08/bella-coola-residents-raise-environmental-concerns-about-area-hydro-proposal/",
-      "url": "https://wltribune.com/2026/06/08/bella-coola-residents-raise-environmental-concerns-about-area-hydro-proposal/",
-      "title": "[Williams Lake Tribune] Bella Coola residents raise environmental concerns about area hydro proposal",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42482589_web1_260611-WLT-Banana-lake-hydro_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nProject faces backlash from residents in Bella Coola area",
-      "summary": "Project faces backlash from residents in Bella Coola area",
-      "_excerpt": "Project faces backlash from residents in Bella Coola area",
-      "date_published": "2026-06-09T06:10:52.941048+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 91,
-      "_quality_score": 91,
-      "_theme_score": 23,
-      "_final_score": 23,
-      "_keyword_matches": 1,
-      "_boosted_score": 47,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42482589_web1_260611-WLT-Banana-lake-hydro_1.jpg?w=1024"
-    },
-    {
-      "id": "https://wltribune.com/2026/06/12/condolences-pour-in-following-death-of-longtime-city-of-salmon-arm-councillor-kevin-flynn/",
-      "url": "https://wltribune.com/2026/06/12/condolences-pour-in-following-death-of-longtime-city-of-salmon-arm-councillor-kevin-flynn/",
-      "title": "[Williams Lake Tribune] Condolences pour in following death of longtime Salmon Arm Councillor Kevin Flynn",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/06/42555732_web1_240105-SAA-Kevin-Flynn-MUG.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n‘We honour Kevin’s remarkable life, his lasting contributions to the community…’",
-      "summary": "‘We honour Kevin’s remarkable life, his lasting contributions to the community…’",
-      "_excerpt": "‘We honour Kevin’s remarkable life, his lasting contributions to the community…’",
-      "date_published": "2026-06-12T14:17:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 92,
-      "_quality_score": 92,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 1,
-      "_boosted_score": 47,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/06/42555732_web1_240105-SAA-Kevin-Flynn-MUG.jpg?w=1024"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
-      "url": "https://100milefreepress.net/2026/06/13/district-of-100-mile-house-debates-use-of-leftover-redip-funds/",
-      "title": "[100 Mile Free Press] District of 100 Mile House debates use of leftover REDIP funds",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Council has $68,000 left over from a previous project that needs to be spent </p>",
-      "summary": "Council has $68,000 left over from a previous project that needs to be spent",
-      "_excerpt": "Council has $68,000 left over from a previous project that needs to be spent",
-      "date_published": "2026-06-13T12:00:00+00:00",
+      "id": "https://100milefreepress.net/2026/06/19/lac-la-hache-library-temporarily-closing-this-summer-for-renovations/",
+      "url": "https://100milefreepress.net/2026/06/19/lac-la-hache-library-temporarily-closing-this-summer-for-renovations/",
+      "title": "[100 Mile Free Press] Lac La Hache Library temporarily closing this summer for renovations",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42616286_web1_260625-OMH-Lac-La-Hache-library_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">📌 <strong>49</strong> · 🎨 theme:26 · 📝 Q:12 · 🎯 R:12 · 🔑 5 kw</p>\n## Lac La Hache Library temporarily closing this summer for renovations Published 3:30 pm Friday, June 19, 2026 **By Laísa Condé** (Lac la Hache Community Club/Facebook) (Lac la Hache Community Club/Facebook) The Lac La Hache Library will close temporarily this summer as renovations are carried out in the building that houses the facility. According to a press release by the Cariboo Regional District (CRD), the closure is expected to begin in late June and last approximately two months while renovation work is completed. CRD said the improvements are part of a broader project within the",
+      "summary": "## Lac La Hache Library temporarily closing this summer for renovations Published 3:30 pm Friday, June 19, 2026 **By Laísa Condé** (Lac la Hache Community Club/Facebook) (Lac la Hache Community Club/Facebook) The Lac La Hache Library will close temporarily this summer as renovations are carried out",
+      "_excerpt": "## Lac La Hache Library temporarily closing this summer for renovations Published 3:30 pm Friday, June 19, 2026 **By Laísa Condé** (Lac la Hache Community Club/Facebook) (Lac la Hache Community Club/Facebook) The Lac La Hache Library will close temporarily this summer as renovations are carried out in the building that houses the facility. According to a press release by the Cariboo Regional District (CRD), the closure is expected to begin in late June and last approximately two months while renovation work is completed. CRD said the improvements are part of a broader project within the",
+      "date_published": "2026-06-19T22:30:00+00:00",
       "authors": [
         {
           "name": "100 Mile Free Press",
@@ -638,495 +324,215 @@
         }
       ],
       "ai_score": 85,
-      "_quality_score": 85,
+      "_quality": 12,
+      "_relevance": 12,
+      "_local": 0,
+      "_theme_score": 26,
+      "_composite_podcast": 49,
+      "_keyword_matches": 5,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42616286_web1_260625-OMH-Lac-La-Hache-library_1.jpg?w=1024"
+    },
+    {
+      "id": "https://cfjctoday.com/2026/06/18/counterfeit-bills-in-circulation-in-100-mile-area/",
+      "url": "https://cfjctoday.com/2026/06/18/counterfeit-bills-in-circulation-in-100-mile-area/",
+      "title": "[CFJC Today Kamloops] Counterfeit bills in circulation in 100 Mile area",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/69368767-b803-4d16-aed9-70e69bf67bfa.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">📌 <strong>45</strong> · 🎨 theme:30 · 📝 Q:70 · 🎯 R:70 · 🔑 1 kw</p>\nFile photo. (Image Credit: CFJC Today) By Aaron Schulze Counterfeit Bills # Counterfeit bills in circulation in 100 Mile area Jun 18, 2026 | 7:12 AM 100 MILE HOUSE, B.C. — RCMP are receiving reports of counterfeit bills in circulation in the 100 Mile area. On Friday, June 12, 100 Mile House RCMP say they were told of a man attempting to pay for items using a counterfeit $100 bill at a business on Horse Lake Road. Police say when the man was confronted about the bill being fake, he paid for the items with a debit card and left before officers arrived. In a news release issued Tuesday (June",
+      "summary": "File photo. (Image Credit: CFJC Today) By Aaron Schulze Counterfeit Bills # Counterfeit bills in circulation in 100 Mile area Jun 18, 2026 | 7:12 AM 100 MILE HOUSE, B.C. — RCMP are receiving reports of counterfeit bills in circulation in the 100 Mile area. On Friday, June 12, 100 Mile House RCMP",
+      "_excerpt": "File photo. (Image Credit: CFJC Today) By Aaron Schulze Counterfeit Bills # Counterfeit bills in circulation in 100 Mile area Jun 18, 2026 | 7:12 AM 100 MILE HOUSE, B.C. — RCMP are receiving reports of counterfeit bills in circulation in the 100 Mile area. On Friday, June 12, 100 Mile House RCMP say they were told of a man attempting to pay for items using a counterfeit $100 bill at a business on Horse Lake Road. Police say when the man was confronted about the bill being fake, he paid for the items with a debit card and left before officers arrived. In a news release issued Tuesday (June",
+      "date_published": "2026-06-18T14:12:54+00:00",
+      "authors": [
+        {
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality": 70,
+      "_relevance": 70,
+      "_local": 0,
       "_theme_score": 30,
-      "_final_score": 30,
+      "_composite_podcast": 45,
       "_keyword_matches": 1,
-      "_boosted_score": 45,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42549725_web1_220915-OMH-municipal-who-s-running-district-100milehouse_1.jpg?w=1024"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/06/08/hansen-flowers-summer-events-in-bloom-throughout-lac-la-hache/",
-      "url": "https://100milefreepress.net/2026/06/08/hansen-flowers-summer-events-in-bloom-throughout-lac-la-hache/",
-      "title": "[100 Mile Free Press] HANSEN: Flowers, summer events in bloom throughout Lac La Hache",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42504915_web1_260611-OMH-Hansen_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Barbara Hansen&#8217;s regular column to the 100 Mile Free Press </p>",
-      "summary": "Barbara Hansen’s regular column to the 100 Mile Free Press",
-      "_excerpt": "Barbara Hansen’s regular column to the 100 Mile Free Press",
-      "date_published": "2026-06-09T00:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 13,
-      "_final_score": 13,
-      "_keyword_matches": 1,
-      "_boosted_score": 45,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-09T06:12:15.434854+00:00"
-      },
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42504915_web1_260611-OMH-Hansen_2.jpg?w=1024"
-    },
-    {
-      "id": "https://100milefreepress.net/2026/06/12/cariboo-outdoors-why-are-lakes-stocked/",
-      "url": "https://100milefreepress.net/2026/06/12/cariboo-outdoors-why-are-lakes-stocked/",
-      "title": "[100 Mile Free Press] CARIBOO OUTDOORS: Why are lakes stocked?",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42504138_web1_260611-OMH-Cariboo-Outdoors-_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Doug Porter&#8217;s regular column to the 100 Mile Free Press </p>",
-      "summary": "Doug Porter’s regular column to the 100 Mile Free Press",
-      "_excerpt": "Doug Porter’s regular column to the 100 Mile Free Press",
-      "date_published": "2026-06-13T00:00:00+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 3,
-      "_final_score": 3,
-      "_keyword_matches": 1,
-      "_boosted_score": 45,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42504138_web1_260611-OMH-Cariboo-Outdoors-_1.jpg?w=1024"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/06/11/hometown-hero-lisa-mccargar-keeps-the-sounds-of-bagpipes-and-drums-alive-in-quesnel/",
-      "url": "https://quesnelobserver.com/2026/06/11/hometown-hero-lisa-mccargar-keeps-the-sounds-of-bagpipes-and-drums-alive-in-quesnel/",
-      "title": "[Quesnel Cariboo Observer] HOMETOWN HERO: Lisa McCargar keeps the sounds of bagpipes and drums alive in Quesnel",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42481692_web1_KCP_4242.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>What began as a celebration of Scottish heritage has become so much more </p>",
-      "summary": "What began as a celebration of Scottish heritage has become so much more",
-      "_excerpt": "What began as a celebration of Scottish heritage has become so much more",
-      "date_published": "2026-06-11T16:00:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 3,
-      "_final_score": 3,
-      "_keyword_matches": 1,
-      "_boosted_score": 45,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42481692_web1_KCP_4242.jpg?w=1024"
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/06/08/b-c-air-access-program-earmarks-20k-for-quesnel-airport/",
-      "url": "https://quesnelobserver.com/2026/06/08/b-c-air-access-program-earmarks-20k-for-quesnel-airport/",
-      "title": "[Quesnel Cariboo Observer] B.C. Air Access Program earmarks $20K for Quesnel Airport",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42497804_web1_240501-QCO-Quesnel-airport-renovations_2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>The investment will help fund the implementation of the airport&#8217;s master plan </p>",
-      "summary": "The investment will help fund the implementation of the airport’s master plan",
-      "_excerpt": "The investment will help fund the implementation of the airport’s master plan",
-      "date_published": "2026-06-08T21:15:00+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "ai_score": 85,
-      "_quality_score": 85,
-      "_theme_score": 1,
-      "_final_score": 1,
-      "_keyword_matches": 1,
-      "_boosted_score": 45,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-06-09T06:12:15.434854+00:00"
-      },
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42497804_web1_240501-QCO-Quesnel-airport-renovations_2.jpg?w=1024"
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/bc-news/body-of-teenager-recovered-from-bc-lake-three-days-after-boat-capsized-12401471",
-      "url": "https://www.piquenewsmagazine.com/bc-news/body-of-teenager-recovered-from-bc-lake-three-days-after-boat-capsized-12401471",
-      "title": "[Pique Newsmagazine] Body of teenager recovered from B.C. lake, three days after boat capsized",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/effea246786065efd2b4e695c6406bbf95f34264571c4f1375d8a252e785c0cf.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nQUESNEL — Police in British Columbia's central Interior say the body of a 17-year-old youth has been recovered three days after a vessel capsized at a local lake.",
-      "summary": "QUESNEL — Police in British Columbia's central Interior say the body of a 17-year-old youth has been recovered three days after a vessel capsized at a local lake.",
-      "_excerpt": "QUESNEL — Police in British Columbia's central Interior say the body of a 17-year-old youth has been recovered three days after a vessel capsized at a local lake.",
-      "date_published": "2026-06-10T16:00:13+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 1,
-      "_boosted_score": 44,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/69368767-b803-4d16-aed9-70e69bf67bfa.jpg",
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/06/effea246786065efd2b4e695c6406bbf95f34264571c4f1375d8a252e785c0cf.jpg;w=960"
+        "shown_at": "2026-06-19T09:11:32.594496+00:00"
+      }
     },
     {
-      "id": "https://theoo.dev/notes/living-life-like-a-video-game-13",
-      "url": "https://theoo.dev/notes/living-life-like-a-video-game-13",
-      "title": "[Kagi Small Web] Living life like a video game",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more).</p>\n<p>What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a shortcut if it turns out there is also a door on the other side and you go for it. Then on the way, you will most likely spot something else interesting, and that's where things get fun for real. Because you can either bookmark this thing in a corner of your head (or a note on your phone or whatever) or you can switch directions and go for that new thing instead.</p>\n<p>Generally, as you go from point of interest to point of interest, you end up in some random place, late and it's time to get home. On your way, you've probably spoken to a bunch of random people, had some type of sugary treat in a shop you didn't know about, picked up a cool rock or seen some nice birds.</p>\n<p>I think this is a great way to experience life and to discover more things about the area that you live in. This is especially fun to do in a city (even better if it's one you don't know much) or in the woods. Here are some of my tips for a great adventure:</p>\n<ul>\n<li>PRIVATE often doesn't really mean private. A lot of people are cool with you passing by when you explain what you are doing, and those who aren't ok will generally tell you off once they've checked you didn't steal anything.</li>\n<li>Give yourself an hour by which you should be back home and only walk for half of that time. The other half is used to come back! Trust me, you don't want to be trekking in some random woods 10km away from your home at night with no phone battery and your girlfriend waiting home. That doesn't end well.</li>\n<li>Be prepared for dead ends and going back on your steps a bunch. Not all roads lead to where you want and sometimes you take a wrong turn that leads nowhere and you have to walk half an hour back. That's just how it goes.</li>\n<li>Embrace opportunities and expect people to be nice. Especially in more remote places, people will be wondering what you are doing there and ask you about it. Explain your adventure and sometimes they might give you more stuff or they might even tell you about a new point of interest you should check out. Life is surprisingly like a video game when you live it like one.</li>\n<li>Bring ample amounts of water. It sucks to walk in the sun with nothing to drink and sometimes there is nowhere you can ask to refill your bottle.</li>\n<li>Treat yourself. If you see something you'd like to do or eat/drink and you can afford it, don't hesitate! Go for it and enjoy a nice moment in your adventure. Don't worry about the time, it's ok to have to go back home before you got to where you wanted.</li>\n<li>Everything is a path, you don't have to follow roads, cutting through woods or weird parking lots is fun and rarely that dangerous.</li>\n<li>Any means of transport is fine. If you feel like you live in a city you know like the back of your hand, well first, you don't, and second, you can take a train or a bus or your car to go somewhere else and start your adventure there instead! The adventure might even be getting back home from where the train/bus dropped you using your legs. Buses are also a real cheat code to be able to walk further since they make the &quot;getting home&quot; part much faster and can be found pretty much anywhere.</li>\n</ul>\n<p>I hope this text could inspire you to try to go on an adventure as well, it doesn't have to be long, walking for an hour can already take you quite far!</p>\n<p>If you do try (or maybe you already do this on a regular basis), I would be pleased to hear about fun stuff that happened during your adventures! You can email me at <a href=\"mailto:hello@theoo.dev\">hello@theoo.dev</a>.</p>",
-      "summary": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living",
-      "_excerpt": "A couple weeks ago, I went on an adventure. I used to do go on adventures all the time as a teenager, but I don't get around to doing it as much these days, work and responsibilities got in the way. (Though getting a dog will maybe get me to do more). What I call an adventure, is basically living your life like you're in some fun open world video game. You get out of your house with your stuff in your backpack and you start walking in whatever direction. Eventually, you spot something in the distance, or a street you've never gone through or a building entrance you feel like could become a",
-      "date_published": "2026-06-13T00:00:00+00:00",
+      "id": "https://quesnelobserver.com/2026/06/15/quesnel-dancer-wins-provincial-modern-dance-title-in-prince-george/",
+      "url": "https://quesnelobserver.com/2026/06/15/quesnel-dancer-wins-provincial-modern-dance-title-in-prince-george/",
+      "title": "[Quesnel Cariboo Observer] Quesnel dancer wins provincial modern dance title in Prince George",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536108_web1_AB466CF1-095D-4FD9-9D10-0A9338DFE4B1-IMG_1370.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">📌 <strong>41</strong> · 🎨 theme:16 · 🔑 1 kw</p>\n## Quesnel dancer wins provincial modern dance title in Prince George Published 2:00 pm Monday, June 15, 2026 **By Delaine Milette President of the Quesnel Festival of the Performing Arts** Quesnel had reason to cheer as 12-year-old dancer Zoey McDonald won First Place for Overall Modern Dance in her age group at the Provincial Competitions in Prince George this past week. (Quesnel Festival of the Performing Arts submitted) Quesnel had reason to cheer as",
+      "summary": "## Quesnel dancer wins provincial modern dance title in Prince George Published 2:00 pm Monday, June 15, 2026 **By Delaine Milette President of the Quesnel Festival of the Performing Arts** ![Quesnel had reason to cheer as 12-year-old dancer Zoey McDonald won First Place for Overall Modern Dance in",
+      "_excerpt": "## Quesnel dancer wins provincial modern dance title in Prince George Published 2:00 pm Monday, June 15, 2026 **By Delaine Milette President of the Quesnel Festival of the Performing Arts** ![Quesnel had reason to cheer as 12-year-old dancer Zoey McDonald won First Place for Overall Modern Dance in her age group at the Provincial Competitions in Prince George this past week. (Quesnel Festival of the Performing Arts submitted)](https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536108_web1_AB466CF1-095D-4FD9-9D10-0A9338DFE4B1-IMG_1370.jpg?w=1024) Quesnel had reason to cheer as",
+      "date_published": "2026-06-15T21:00:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 16,
+      "_composite_podcast": 41,
+      "_keyword_matches": 1,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42536108_web1_AB466CF1-095D-4FD9-9D10-0A9338DFE4B1-IMG_1370.jpg?w=1024"
+    },
+    {
+      "id": "https://cfjctoday.com/2026/06/17/recruitment-efforts-underway-as-clearwater-set-to-lose-4-physicians-by-september/",
+      "url": "https://cfjctoday.com/2026/06/17/recruitment-efforts-underway-as-clearwater-set-to-lose-4-physicians-by-september/",
+      "title": "[CFJC Today Kamloops] Recruitment efforts underway as Clearwater set to lose 4 physicians by September",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/f0d8c50f-efa7-4b11-89d7-78a74ea161ce.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">💤 <strong>39</strong> · 🎨 theme:17 · 📝 Q:76 · 🎯 R:76 · 🔑 1 kw</p>\n(Image Credit: Jeremy Russo/CFJC Today) By Victor Kaisar Physician Recruitment # Recruitment efforts underway as Clearwater set to lose 4 physicians by September Jun 17, 2026 | 5:03 PM CLEARWATER, B.C. — It’s a bit of a nervous time in Clearwater as the community is set to lose four of five doctors from the Wells Gray Medical Clinic by this September. However, efforts are underway to attract the next cohort of doctors. Letters announcing the departures of Kara Perdue (leaving on June 1), Sandra Okezue (leaving August 31) Oluwasola Ayosanmi (leaving on September 10) and Chibuikem Ofoegbu",
+      "summary": "(Image Credit: Jeremy Russo/CFJC Today) By Victor Kaisar Physician Recruitment # Recruitment efforts underway as Clearwater set to lose 4 physicians by September Jun 17, 2026 | 5:03 PM CLEARWATER, B.C. — It’s a bit of a nervous time in Clearwater as the community is set to lose four of five doctors",
+      "_excerpt": "(Image Credit: Jeremy Russo/CFJC Today) By Victor Kaisar Physician Recruitment # Recruitment efforts underway as Clearwater set to lose 4 physicians by September Jun 17, 2026 | 5:03 PM CLEARWATER, B.C. — It’s a bit of a nervous time in Clearwater as the community is set to lose four of five doctors from the Wells Gray Medical Clinic by this September. However, efforts are underway to attract the next cohort of doctors. Letters announcing the departures of Kara Perdue (leaving on June 1), Sandra Okezue (leaving August 31) Oluwasola Ayosanmi (leaving on September 10) and Chibuikem Ofoegbu",
+      "date_published": "2026-06-18T00:03:31+00:00",
+      "authors": [
+        {
+          "name": "CFJC Today Kamloops",
+          "url": "https://cfjctoday.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 76,
+      "_relevance": 76,
+      "_local": 0,
+      "_theme_score": 17,
+      "_composite_podcast": 39,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/2311/files/2026/06/f0d8c50f-efa7-4b11-89d7-78a74ea161ce.jpg",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-06-19T09:11:32.594496+00:00"
+      }
+    },
+    {
+      "id": "https://quesnelobserver.com/2026/06/15/we-were-always-in-it-together-unbc-graduates-celebrate-success-in-quesnel/",
+      "url": "https://quesnelobserver.com/2026/06/15/we-were-always-in-it-together-unbc-graduates-celebrate-success-in-quesnel/",
+      "title": "[Quesnel Cariboo Observer] ‘We were always in it together’: UNBC graduates celebrate success in Quesnel",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42555846_web1_260617-QCO-UNBC-grad_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">💤 <strong>34</strong> · 🎨 theme:5 · 📝 Q:85 · 🎯 R:85 · 🔑 1 kw</p>\n## ‘We were always in it together’: UNBC graduates celebrate success in Quesnel Published 8:40 am Monday, June 15, 2026 **By Laísa Condé** Students from the Bachelor of Social Work and Bachelor of Science in Nursing programs received their credentials at a graduation celebration in Quesnel. (University of Northern British Columbia photo) Students from the Bachelor of Social Work and Bachelor of Science in Nursing programs received their credentials at a graduation celebration in",
+      "summary": "## ‘We were always in it together’: UNBC graduates celebrate success in Quesnel Published 8:40 am Monday, June 15, 2026 **By Laísa Condé** ![Students from the Bachelor of Social Work and Bachelor of Science in Nursing programs received their credentials at a graduation celebration in Quesnel.",
+      "_excerpt": "## ‘We were always in it together’: UNBC graduates celebrate success in Quesnel Published 8:40 am Monday, June 15, 2026 **By Laísa Condé** ![Students from the Bachelor of Social Work and Bachelor of Science in Nursing programs received their credentials at a graduation celebration in Quesnel. (University of Northern British Columbia photo)](https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42555846_web1_260617-QCO-UNBC-grad_1.jpg?w=1024) Students from the Bachelor of Social Work and Bachelor of Science in Nursing programs received their credentials at a graduation celebration in",
+      "date_published": "2026-06-15T15:40:00+00:00",
+      "authors": [
+        {
+          "name": "Quesnel Cariboo Observer",
+          "url": "https://quesnelobserver.com"
+        }
+      ],
+      "ai_score": 85,
+      "_quality": 85,
+      "_relevance": 85,
+      "_local": 0,
+      "_theme_score": 5,
+      "_composite_podcast": 34,
+      "_keyword_matches": 1,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/06/42555846_web1_260617-QCO-UNBC-grad_1.jpg?w=1024"
+    },
+    {
+      "id": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "url": "https://siliconopera.com/the-startup-that-charges-more-on-day-one-usually-wins/",
+      "title": "[Kagi Small Web] The Startup That Charges More on Day One Usually Wins",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=kagi.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">💤 <strong>32</strong> · 🎨 theme:9 · 📝 Q:68 · 🎯 R:68 · 🔑 1 kw</p>\n<h2 id=\"the-seduction-of-the-low-price\">The Seduction of the Low Price</h2>\n<p>The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it&rsquo;s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they&rsquo;re being humble, customer-focused, pragmatic.</p>\n<p>What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try.</p>\n<p>The counterintuitive truth is that price is not just a revenue number. It&rsquo;s a signal to your market, a filter for your customers, and a constraint on your product decisions. Set it too low and you don&rsquo;t just make less money. You attract the wrong buyers, train your team to compete on cost, and starve the product of the resources it needs to improve. The startup that charges more on day one is playing a structurally different game, and it usually wins.</p>\n<h2 id=\"price-tells-customers-what-kind-of-company-you-are\">Price Tells Customers What Kind of Company You Are</h2>\n<p>B2B software buyers, in particular, read price as a proxy for quality and staying power. A tool priced at $10 per user per month signals something different than one priced at $50, even before the buyer has tried either. The lower price implies the vendor is still figuring things out, might not be around in two years, and probably can&rsquo;t support an enterprise integration. These inferences aren&rsquo;t always accurate, but they&rsquo;re predictable.</p>\n<p>This is why enterprise software vendors historically held firm on pricing even when startups tried to undercut them. Oracle and SAP weren&rsquo;t just protecting margin. They were communicating that their software was serious, mission-critical infrastructure. The price was part of the product.</p>\n<p>For early-stage companies, the same logic applies in reverse. Pricing low doesn&rsquo;t just leave money on the table. It actively recruits the customers most likely to churn when a cheaper alternative appears, because that&rsquo;s what they were optimizing for when they signed up. <a href=\"https://kagi.com/the-one-customer-type-that-kills-good-startups/\">The wrong early customers can quietly kill a company</a> by consuming support resources, demanding features that don&rsquo;t fit the core product, and paying so little that serving them is structurally unprofitable.</p>\n<h2 id=\"what-high-prices-actually-buy\">What High Prices Actually Buy</h2>\n<p>The clearest benefit of higher early pricing is unit economics. A company generating $500 per month from a customer has more room to invest in that relationship than one generating $50. More room to hire a dedicated support person, to build the integration the customer asked for, to staff a customer success function before the churn problem becomes visible in the cohort data.</p>\n<p>This is not a small operational detail. It determines whether a company can afford to learn from its customers or is simply trying to acquire more of them as fast as possible before the money runs out. Many of the startups that grew fast on low prices discovered too late that they had built a business where no unit of revenue was profitable enough to justify the cost of generating it.</p>\n<p>Higher prices also tend to attract larger, more stable buyers. A company willing to pay a premium is usually a company with a real budget, a real need, and a real procurement process. That last item sounds like a burden, but it&rsquo;s actually a signal: buyers who run procurement are buyers who have decided this is a real category worth spending on. They renew contracts. They provide structured feedback. They refer other serious buyers.</p>\n<p></p>\n<p>The math compounds over time. A startup that charges twice as much as its competitor needs half as many customers to reach the same revenue. Half as many customers means fewer support tickets, more focused product development, and a cleaner signal from the market about what actually matters. The company that has 500 deeply satisfied customers at $500 a month often has a clearer strategic picture than the one with 5,000 semi-satisfied customers at $50.</p>\n<h2 id=\"the-myth-of-the-penetration-strategy\">The Myth of the Penetration Strategy</h2>\n<p>The standard counterargument is that low prices drive volume, volume drives learning, and scale eventually creates leverage. There&rsquo;s a version of this that&rsquo;s real. It&rsquo;s how consumer internet companies built network-effect businesses, and how AWS priced cloud storage to build market share before margins became the priority.</p>\n<p>But most startups are not building consumer internet businesses, and most founders applying penetration logic to B2B SaaS are not Amazon. The penetration strategy only works when scale genuinely creates a defensible advantage, when the market is large enough that the volume math eventually closes, and when the company has enough capital to survive the years before the unit economics improve. Most early-stage startups meet none of these conditions.</p>\n<p>What they get instead is a business that looks healthy by top-line metrics and is quietly bleeding from every unit. <a href=\"https://kagi.com/charging-too-little-kills-startups-slower-and-worse/\">Charging too little kills startups slower and more painfully than most founders expect</a>, because the damage is gradual enough to explain away in every individual quarter.</p>\n<h2 id=\"raising-prices-is-harder-than-setting-them-right\">Raising Prices Is Harder Than Setting Them Right</h2>\n<p>There&rsquo;s an asymmetry that doesn&rsquo;t get enough attention: it is far easier to lower a price than to raise one. Customers anchor hard on what they first paid. A company that launches at $20 and tries to move to $50 after 18 months will face pushback from every existing customer, awkward grandfather clauses, and a public pricing page that signals the company wasn&rsquo;t confident in its value from the start.</p>\n<p>A company that launches at $50 and occasionally discounts strategically retains control of its positioning. The list price stays intact. The brand signal stays intact. The occasional discount is a negotiation tool, not a structural concession.</p>\n<p>This is why the pricing decision made at launch is one of the few early choices that genuinely compounds, in both directions. A startup that prices high early builds a cost structure, a customer base, and a market position that are all oriented around delivering real value. A startup that prices low early builds the opposite, and usually can&rsquo;t escape it without essentially relaunching.</p>\n<h2 id=\"the-price-is-the-strategy\">The Price Is the Strategy</h2>\n<p>Founding teams spend months on product roadmaps and go-to-market plans while treating the pricing page as an afterthought. It shouldn&rsquo;t be. The number you put on your product on day one is a strategic claim about who your customer is, what problem you&rsquo;re solving, and whether you believe your own pitch.</p>\n<p>Startups that charge more from the beginning aren&rsquo;t just being aggressive about revenue. They&rsquo;re making a bet that the product is worth it, and then building a company that has to prove that bet right. That pressure, it turns out, tends to produce better products. The founders who insist on earning a premium have to figure out what the premium is for. That question, asked early and answered honestly, is one of the most useful strategic exercises a startup can do.</p>",
+      "summary": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales",
+      "_excerpt": "The Seduction of the Low Price The instinct to underprice at launch is almost universal. A new startup has no brand, no track record, and no proof that anyone wants what it’s selling. Charging less feels like the rational hedge. It lowers the barrier to a first customer, makes the sales conversation easier, and lets the founders tell themselves they’re being humble, customer-focused, pragmatic. What it actually does is set a ceiling the company will spend years trying to break through, if it survives long enough to try. The counterintuitive truth is that price is not just a revenue number.",
+      "date_published": "2026-06-14T17:11:00+00:00",
       "authors": [
         {
           "name": "Kagi Small Web",
           "url": "https://kagi.com/smallweb"
         }
       ],
-      "ai_score": 70,
-      "_quality_score": 70,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 1,
-      "_boosted_score": 41,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/09/man-jailed-after-throwing-ninja-star-at-woman.html",
-      "url": "https://boingboing.net/2026/06/09/man-jailed-after-throwing-ninja-star-at-woman.html",
-      "title": "[Boing Boing] Man jailed after throwing ninja star at woman",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/02/shutterstock_1834210084-scaled.jpg?fit=2560%2C1707&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/09/man-jailed-after-throwing-ninja-star-at-woman.html\" rel=\"nofollow\" title=\"Man jailed after throwing ninja star at woman\"><img alt=\"image: Zysko Sergii/Shutterstock\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"1707\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2023/02/shutterstock_1834210084-scaled.jpg?fit=2560%2C1707&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"2560\" /></a><p class=\"wp-block-paragraph\">An Iowa man faces up to 10 years in prison after he allegedly <a href=\"https://www.communitynewspapergroup.com/oelwein_daily_register/news/crime/man-charged-with-throwing-ninja-star-during-assault/article_9c344a53-e2d8-48a2-bed2-291dfe523be3.html\">threw a ninja star at a woman</a> in Independence, writes Michael Hohenbrink at the Oelwein Daily Register.</p>\n<p class=\"wp-block-paragraph\">A Buchanan County deputy responded to a domestic call on the 200 block of 9th Ave. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/09/man-jailed-after-throwing-ninja-star-at-woman.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/09/man-jailed-after-throwing-ninja-star-at-woman.html\">Man jailed after throwing ninja star at woman</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "An Iowa man faces up to 10 years in prison after he allegedly threw a ninja star at a woman in Independence, writes Michael Hohenbrink at the Oelwein Daily Register. A Buchanan County deputy responded to a domestic call on the 200 block of 9th Ave. — Read the rest The post Man jailed after throwing",
-      "_excerpt": "An Iowa man faces up to 10 years in prison after he allegedly threw a ninja star at a woman in Independence, writes Michael Hohenbrink at the Oelwein Daily Register. A Buchanan County deputy responded to a domestic call on the 200 block of 9th Ave. — Read the rest The post Man jailed after throwing ninja star at woman appeared first on Boing Boing .",
-      "date_published": "2026-06-09T18:08:53+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
       "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 5,
-      "_final_score": 5,
+      "_quality": 68,
+      "_relevance": 68,
+      "_local": 0,
+      "_theme_score": 9,
+      "_composite_podcast": 32,
       "_keyword_matches": 1,
-      "_boosted_score": 40,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "wellness",
+      "_source_category": "wellness",
       "_is_bonus": false,
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2023/02/shutterstock_1834210084-scaled.jpg?fit=2560%2C1707&quality=60&ssl=1"
+      "image": "https://www.google.com/s2/favicons?domain=kagi.com&sz=128",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-06-17T09:22:55.696607+00:00"
+      }
     },
     {
-      "id": "https://www.myeastkootenaynow.com/55970/news/environment/kimberley-getting-wildfire-mitigation-funds/",
-      "url": "https://www.myeastkootenaynow.com/55970/news/environment/kimberley-getting-wildfire-mitigation-funds/",
-      "title": "[My East Kootenay Now] Kimberley getting wildfire mitigation funds : My East Kootenay Now",
-      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2022/03/contractor-cutting-down-a-tree-during-wildfire-mitigation-work-near-Cranbrook-March-28-2022-City-of-Cranbrook-e1763405377968.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
+      "id": "https://www.myeastkootenaynow.com/56113/news/rcmp/crime/woman-arrested-in-fernie-for-multiple-offences/",
+      "url": "https://www.myeastkootenaynow.com/56113/news/rcmp/crime/woman-arrested-in-fernie-for-multiple-offences/",
+      "title": "Woman arrested in Fernie for multiple offences : My East Kootenay Now",
+      "content_html": "<img src=\"https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/elk-e1781727892372.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">💤 <strong>30</strong> · 🎨 theme:28 · 📝 Q:73 · 🎯 R:73 · 🔑 1 kw</p>\nStay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow <strong>brings you community updates, weather forecasts, and more to keep you informed and connected</strong>.",
       "summary": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
       "_excerpt": "Stay up-to-date with the latest news, events, and local happenings in the East Kootenay region. MyEastKootenayNow brings you community updates, weather forecasts, and more to keep you informed and connected .",
-      "date_published": "2026-06-10T16:14:17.425169+00:00",
+      "date_published": "2026-06-18T15:59:40.211059+00:00",
       "authors": [
         {
           "name": "My East Kootenay Now",
           "url": "https://www.myeastkootenaynow.com"
         }
       ],
-      "ai_score": 69,
-      "_quality_score": 69,
-      "_theme_score": 3,
-      "_final_score": 3,
+      "ai_score": 78,
+      "_quality": 73,
+      "_relevance": 73,
+      "_local": 0,
+      "_theme_score": 28,
+      "_composite_podcast": 30,
       "_keyword_matches": 1,
-      "_boosted_score": 40,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2022/03/contractor-cutting-down-a-tree-during-wildfire-mitigation-work-near-Cranbrook-March-28-2022-City-of-Cranbrook-e1763405377968.jpg"
+      "_thin_body": true,
+      "image": "https://www.myeastkootenaynow.com/wp-content/uploads/2026/06/elk-e1781727892372.jpg"
     },
     {
-      "id": "https://100milefreepress.net/2026/06/11/forster-mountain-spruce-community-centre-rebuilding-following-recent-arsons/",
-      "url": "https://100milefreepress.net/2026/06/11/forster-mountain-spruce-community-centre-rebuilding-following-recent-arsons/",
-      "title": "[100 Mile Free Press] FORSTER: Mountain Spruce Community Centre rebuilding following recent arsons",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p>Diana Forster&#8217;s regular column to the 100 Mile Free Press </p>",
-      "summary": "Diana Forster’s regular column to the 100 Mile Free Press",
-      "_excerpt": "Diana Forster’s regular column to the 100 Mile Free Press",
-      "date_published": "2026-06-12T00:00:00+00:00",
+      "id": "https://www.resilience.org/stories/2026-06-16/social-capital-and-community-resilience-a-conversation-with-daniel-aldrich/",
+      "url": "https://www.resilience.org/stories/2026-06-16/social-capital-and-community-resilience-a-conversation-with-daniel-aldrich/",
+      "title": "[Resilience.org] Social capital and community resilience: A conversation with Daniel Aldrich",
+      "content_html": "<img src=\"https://www.resilience.org/wp-content/uploads/2026/06/Daniel_P._Aldrich.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">⚠️ <strong>19</strong> · 🎨 theme:7 · 📝 Q:80 · 🎯 R:80 · 🔑 1 kw</p>\nDaniel Aldrich is a leading expert on how social ties shape disaster recovery, his perspective shaped by his family’s flight from Katrina and his work at USAID. In this interview, he explains why social capital is vital to strengthening communities in the face of crises.",
+      "summary": "Daniel Aldrich is a leading expert on how social ties shape disaster recovery, his perspective shaped by his family’s flight from Katrina and his work at USAID. In this interview, he explains why social capital is vital to strengthening communities in the face of crises.",
+      "_excerpt": "Daniel Aldrich is a leading expert on how social ties shape disaster recovery, his perspective shaped by his family’s flight from Katrina and his work at USAID. In this interview, he explains why social capital is vital to strengthening communities in the face of crises.",
+      "date_published": "2026-06-16T08:00:24+00:00",
       "authors": [
         {
-          "name": "100 Mile Free Press",
-          "url": "https://www.100milefreepress.net"
-        }
-      ],
-      "ai_score": 66,
-      "_quality_score": 66,
-      "_theme_score": 6,
-      "_final_score": 6,
-      "_keyword_matches": 1,
-      "_boosted_score": 39,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/06/42505887_web1_260611-OMH-Fortser-Deka_1.jpeg?w=1024"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/bolivian-farmers-clash-with-police-as-ex-president-vows-resistance?traffic_source=rss",
-      "title": "[Al Jazeera English] Bolivian farmers clash with police as ex-president vows resistance",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivian farmers clash with police as ex-president vows resistance.",
-      "summary": "Bolivian farmers clash with police as ex-president vows resistance.",
-      "_excerpt": "Bolivian farmers clash with police as ex-president vows resistance.",
-      "date_published": "2026-06-11T05:20:55+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
+          "name": "Resilience.org",
+          "url": "https://www.resilience.org"
         }
       ],
       "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 23,
-      "_final_score": 23,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-8.16.12-AM-1781155049.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/10/bolivia-approves-military-measures-against-nationwide-protests?traffic_source=rss",
-      "title": "[Al Jazeera English] Bolivia approves military measures against nationwide protests",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nBolivia approves military measures against nationwide protests.",
-      "summary": "Bolivia approves military measures against nationwide protests.",
-      "_excerpt": "Bolivia approves military measures against nationwide protests.",
-      "date_published": "2026-06-10T03:09:22+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 80,
-      "_quality_score": 80,
-      "_theme_score": 22,
-      "_final_score": 22,
-      "_keyword_matches": 0,
-      "_boosted_score": 24,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T15:48:12.701885+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/reutersburning-1781060767.jpg?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/11/dahiyeh-crowds-rally-in-favour-of-iranian-support-against-israel?traffic_source=rss",
-      "title": "[Al Jazeera English] Dahiyeh crowds rally in favour of Iranian support against Israel",
-      "content_html": "<img src=\"https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nDahiyeh crowds rally in favour of Iranian support against Israel.",
-      "summary": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
-      "_excerpt": "Dahiyeh crowds rally in favour of Iranian support against Israel.",
-      "date_published": "2026-06-11T03:49:06+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 79,
-      "_quality_score": 79,
-      "_theme_score": 18,
-      "_final_score": 18,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T15:48:12.701885+00:00"
-      },
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/06/Screenshot-2026-06-11-at-6.47.55-AM-1781149693.png?resize=1920%2C1440"
-    },
-    {
-      "id": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
-      "url": "https://www.howtogeek.com/free-apps-i-self-host-instead-of-paying-2400-per-year-in-subscriptions/",
-      "title": "[How-To Geek] 5 free apps I self-host instead of paying $2,400 per year in subscriptions",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/a7303923.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI never knew self-hosting could save me so much money",
-      "summary": "I never knew self-hosting could save me so much money",
-      "_excerpt": "I never knew self-hosting could save me so much money",
-      "date_published": "2026-06-10T20:45:17+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
-      "_theme_score": 4,
-      "_final_score": 4,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/06/a7303923.jpg"
-    },
-    {
-      "id": "https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html",
-      "url": "https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html",
-      "title": "[Boing Boing] In 1932, John W. Campbell imagined machines outliving humanity",
-      "content_html": "<img src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<a href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\" rel=\"nofollow\" title=\"In 1932, John W. Campbell imagined machines outliving humanity\"><img alt=\"Robots\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"900\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><p class=\"wp-block-paragraph\">In 1932, a 22-year-old John W. Campbell — later the <em>Astounding</em> editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published <a href=\"https://www.gutenberg.org/files/27462/27462-h/27462-h.htm\">\"The Last Evolution\"</a> in <em>Amazing Stories</em>. It's narrated by the last thinking machine on Earth, recalling how humanity went extinct. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/06/11/in-1932-john-w-campbell-imagined-machines-outliving-humanity.html\">In 1932, John W. Campbell imagined machines outliving humanity</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
-      "summary": "In 1932, a 22-year-old John W. Campbell — later the Astounding editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published \"The Last Evolution\" in Amazing Stories . It's narrated by the last thinking machine on Earth, recalling how humanity went",
-      "_excerpt": "In 1932, a 22-year-old John W. Campbell — later the Astounding editor who shaped midcentury science fiction, and, as has been well documented, an open fascist — published \"The Last Evolution\" in Amazing Stories . It's narrated by the last thinking machine on Earth, recalling how humanity went extinct. — Read the rest The post In 1932, John W. Campbell imagined machines outliving humanity appeared first on Boing Boing .",
-      "date_published": "2026-06-11T20:19:48+00:00",
-      "authors": [
-        {
-          "name": "Boing Boing",
-          "url": "https://boingboing.net/"
-        }
-      ],
-      "ai_score": 77,
-      "_quality_score": 77,
+      "_quality": 80,
+      "_relevance": 80,
+      "_local": 0,
       "_theme_score": 7,
-      "_final_score": 7,
-      "_keyword_matches": 0,
-      "_boosted_score": 23,
-      "_category": "scifi",
-      "_source_category": "scifi",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/06/toohey-1114157.jpg?fit=1200%2C900&quality=60&ssl=1"
-    },
-    {
-      "id": "https://www.businessinsider.com/stressed-out-mom-solo-trip-helped-me-reset-2026-6",
-      "url": "https://www.businessinsider.com/stressed-out-mom-solo-trip-helped-me-reset-2026-6",
-      "title": "[Business Insider] As a stressed-out mom, I needed a break. I went on a 3-day trip to focus on myself — and it worked.",
-      "content_html": "<img src=\"https://i.insider.com/6a26e9ed2ab5f9757adda241?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nI was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
-      "summary": "I was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
-      "_excerpt": "I was feeling stressed out as a mom and needed a break. I took a three-day solo trip and it was just the reset I needed.",
-      "date_published": "2026-06-13T11:51:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 72,
-      "_quality_score": 72,
-      "_theme_score": 10,
-      "_final_score": 10,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "image": "https://i.insider.com/6a26e9ed2ab5f9757adda241?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/long-term-care-retirement-alzheimers-quit-job-2026-6",
-      "url": "https://www.businessinsider.com/long-term-care-retirement-alzheimers-quit-job-2026-6",
-      "title": "[Business Insider] I gave up my career at a Fortune 500 company to care for my mom full-time. Now, I struggle to pay my bills.",
-      "content_html": "<img src=\"https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nKathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
-      "summary": "Kathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
-      "_excerpt": "Kathy Mullen, 64, left her job at a Fortune 500 company to care for her mother with Alzheimer's, negatively impacting her health and finances.",
-      "date_published": "2026-06-10T11:15:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 73,
-      "_quality_score": 73,
-      "_theme_score": 8,
-      "_final_score": 8,
-      "_keyword_matches": 0,
-      "_boosted_score": 21,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-06-11T09:04:32.973539+00:00"
-      },
-      "image": "https://i.insider.com/6a271b825bcf40c28b6b053c?format=jpeg"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
-      "url": "https://www.nytimes.com/2026/06/10/business/economy/back-office-workers-ai.html",
-      "title": "[NYT Business] Forget Coders. The Real A.I. Threat Is in the Back Office.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\nAs artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
-      "summary": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
-      "_excerpt": "As artificial intelligence spreads, millions of middle-class jobs in human resources, billing and payroll could be at risk. Most are held by women.",
-      "date_published": "2026-06-10T14:49:41+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "ai_score": 68,
-      "_quality_score": 68,
-      "_theme_score": 2,
-      "_final_score": 2,
-      "_keyword_matches": 0,
-      "_boosted_score": 20,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-06-12T08:49:19.195951+00:00"
-      },
-      "image": "https://static01.nyt.com/images/2026/06/10/business/00back-office-sub2/00back-office-sub2-mediumSquareAt3X.jpg"
+      "_composite_podcast": 19,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://www.resilience.org/wp-content/uploads/2026/06/Daniel_P._Aldrich.png"
     }
   ]
 }
