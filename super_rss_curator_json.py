@@ -4271,7 +4271,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         "title": "📋 Daily Review — Article Training Feedback",
         "home_page_url": FEEDS_CONFIG['base_url'],
         "feed_url": f"{FEEDS_CONFIG['base_url']}/feed-review.json",
-        "description": f"20 articles for daily training feedback. Today: {today_label}",
+        "description": "20 articles for daily training feedback",
         "authors": [{"name": FEEDS_CONFIG['author']}],
         "language": "en",
         "_generated_at": now_iso,
