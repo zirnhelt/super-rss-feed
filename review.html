@@ -54,7 +54,6 @@
             border-radius: 12px; white-space: nowrap;
         }
         .badge-category { background: #e8effe; color: #667eea; }
-        .badge-today    { background: #f3e8ff; color: #764ba2; }
         .badge-source   { background: #f0f0f0; color: #555; font-weight: normal; }
         .badge-date     { color: #aaa; font-size: 0.78em; }
 
@@ -110,7 +109,6 @@
             transition: all 0.15s ease; text-align: center; line-height: 1.3;
         }
         .day-chip:hover { border-color: #667eea; color: #667eea; }
-        .day-chip.today-chip { border-color: #764ba2; color: #764ba2; font-weight: 600; }
         .day-chip.selected-chip { background: #667eea; border-color: #667eea; color: white; font-weight: 600; }
         .chip-day { display: block; }
         .chip-theme { display: block; font-size: 0.8em; opacity: 0.72; font-weight: 400; }
@@ -155,7 +153,7 @@
 <div class="container">
     <a href="index.html" class="back-link">← Back to feeds</a>
     <h1>📋 Daily Article Review</h1>
-    <p class="subtitle">Rate each article to train the model. Your feedback shapes tomorrow's feed.</p>
+    <p class="subtitle">Rate each article and tag it to the best podcast day. Your feedback shapes tomorrow's feed.</p>
 
     <!-- Main review UI -->
     <div id="review-pane">
@@ -274,8 +272,6 @@ function render() {
     const art = articles[currentIndex];
     const r   = ratings[art.url] || {};
 
-    const todayName  = (art._today || '').toLowerCase();
-    const todayLabel = art._today_label || '';
     const themeScores = art._theme_scores || {};
     const score = art._score || 0;
 
@@ -283,11 +279,15 @@ function render() {
     const dayShort = {monday:'Mon',tuesday:'Tue',wednesday:'Wed',thursday:'Thu',friday:'Fri',saturday:'Sat',sunday:'Sun'};
     const dayTheme = {monday:'Arts & Culture',tuesday:'Working Lands',wednesday:'Community Tech',thursday:'Indigenous Lands',friday:'Wild Spaces',saturday:'Cariboo Voices',sunday:'Science & Wonder'};
 
+    // Pre-select the best-scoring day when the article hasn't been rated yet
+    const bestDay = !r.rating
+        ? dayOrder.reduce((best, d) => (themeScores[d] || 0) > (themeScores[best] || 0) ? d : best, dayOrder[0])
+        : null;
+
     const chipsHtml = dayOrder.map(day => {
-        const isToday    = day === todayName;
-        const isSelected = r.better_theme === day || (isToday && r.rating === 'good' && !r.better_theme);
-        return `<button class="day-chip${isToday ? ' today-chip' : ''}${isSelected ? ' selected-chip' : ''}"
-                    onclick="rateDay('${day}')"><span class="chip-day">${dayShort[day]}${isToday ? ' ★' : ''}</span><span class="chip-theme">${dayTheme[day]}</span></button>`;
+        const isSelected = r.better_theme === day || (!r.rating && day === bestDay);
+        return `<button class="day-chip${isSelected ? ' selected-chip' : ''}"
+                    onclick="rateDay('${day}')"><span class="chip-day">${dayShort[day]}</span><span class="chip-theme">${dayTheme[day]}</span></button>`;
     }).join('');
 
     const descText = art.content_html
@@ -303,7 +303,6 @@ function render() {
     document.getElementById('article-card').innerHTML = `
         <div class="article-meta">
             <span class="badge badge-category">${art._category || 'news'}</span>
-            ${todayLabel ? `<span class="badge badge-today">📅 ${todayLabel}</span>` : ''}
             <span class="badge badge-source">${escHtml(art.authors?.[0]?.name || '')}</span>
             ${pubDate ? `<span class="badge-date">${pubDate}</span>` : ''}
         </div>
@@ -340,7 +339,7 @@ function render() {
         </div>
 
         <div class="rating-section">
-            <div class="day-chips-label">Better fit for a different day?</div>
+            <div class="day-chips-label">Tag to a podcast day</div>
             <div class="day-chips">${chipsHtml}</div>
         </div>
 
@@ -384,13 +383,7 @@ function rate(ratingValue) {
 function rateDay(day) {
     const art = articles[currentIndex];
     if (!art) return;
-    const todayName = (art._today || '').toLowerCase();
-    if (day === todayName) {
-        // Clicking today's day = Good Fit
-        ratings[art.url] = { ...ratings[art.url], rating: 'good', better_theme: null };
-    } else {
-        ratings[art.url] = { ...ratings[art.url], rating: 'good', better_theme: day };
-    }
+    ratings[art.url] = { ...ratings[art.url], rating: 'good', better_theme: day };
     saveRatings();
     render();
     if (currentIndex < articles.length - 1) {
