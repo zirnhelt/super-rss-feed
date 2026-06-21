@@ -1,0 +1,70 @@
+## Feedback Training Run — 2026-06-21 15:18 UTC
+
+**Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json
+**Ratings:** 91 Good, 75 Bad, 71 reassigned to different day
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (8), Global News (5), TechRadar (4), Boing Boing (4), My Cariboo Now (4)
+**Top disliked sources:** Al Jazeera English (9), NYT Top Stories (7), TechRadar (6), Pique Newsmagazine (5), Business Insider (5)
+**Categories liked:** news (70), local (12), wellness (5), ai-tech (4)
+**Categories disliked:** news (65), wellness (5), ai-tech (2), podcast-sunday (2), podcast-friday (1)
+
+**Day reassignment summary:**
+- tuesday → monday: 2 articles
+- tuesday → sunday: 1 articles
+- tuesday → saturday: 1 articles
+- wednesday → saturday: 8 articles
+- wednesday → friday: 7 articles
+- wednesday → sunday: 5 articles
+- wednesday → monday: 2 articles
+- wednesday → tuesday: 2 articles
+- wednesday → thursday: 2 articles
+- friday → wednesday: 6 articles
+- friday → thursday: 4 articles
+- friday → saturday: 3 articles
+- friday → sunday: 3 articles
+- friday → monday: 1 articles
+- saturday → sunday: 8 articles
+- saturday → wednesday: 5 articles
+- saturday → thursday: 2 articles
+- saturday → saturday: 2 articles
+- saturday → tuesday: 1 articles
+- saturday → friday: 1 articles
+- sunday → tuesday: 2 articles
+- sunday → friday: 1 articles
+- sunday → wednesday: 1 articles
+- sunday → sunday: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Calibration Guidance for RSS Curator
+
+**UPWEIGHT these signals:**
+
+- **Local/regional impact over national drama**: Williams Lake Tribune and Cariboo Now articles score highest (85–90) when focused on community resilience, infrastructure, local business, or civic action. Prioritize hyperlocal news.
+
+- **Solutions-oriented framing**: Articles about "how to fix," action plans, playbooks, and forward-looking analysis (e.g., "Why most AI projects don't deliver ROI and how to fix it") consistently score 70+. Avoid problem-only framing.
+
+- **Tech/AI with skepticism or critical analysis**: User likes balanced tech coverage (AI risks, security gaps, implementation challenges) more than product launches or stock movements. Gary Marcus critique and "AI projects don't deliver ROI" beat "New Pinterest AI app."
+
+- **Environmental/resource stories with nuance**: Oil prices, wildfire updates, and tailing pond impacts score well (56–72) when tied to economic or ecosystem specifics—not generic climate alarmism.
+
+- **Human-interest with substance**: Stories about press freedom, Indigenous festivals, pilgrimage transformation, and community resilience (scores 75–90) beat celebrity gossip or tabloid-style personal drama.
+
+- **Canadian/B.C. sources as native context**: Global News, APTN, and regional outlets appear frequently in high-scoring items. Don't penalize regional sources for smaller reach.
+
+---
+
+**DOWNWEIGHT these signals:**
+
+- **Disaster/rescue sensationalism**: Plane crashes, dramatic rescues, and fires framed as spectacle (score 78–83 in bad-fit) are rejected despite high engagement metrics. Check headline tone for "dramatic," "rescue," "crash."
+
+- **Celebrity/wealthy-person focus**: Elon Musk fortune comparisons, Ghislaine Maxwell gossip, and Lionel Messi emotional moments are consistently disliked. Exclude lifestyle/wealth puff pieces.
+
+- **Political horse-race or divisive culture-war framing**: Election takeaways, "send them back" migration stories, and Susan Collins Kavanaugh laments score low. Avoid Us-vs-Them polarization angles.
+
+- **Product reviews and consumer tech noise**: Chromebook plus labels, T-Mobile carrier rankings, and Ad Blocker Chrome stories score 26–48 in rejection. Deprioritize gadget reviews unless they address systemic issues.
+
+- **Crisis-without-context**: Health crises (congenital syphilis, UnitedHealthcare murder case, Ebola outbreak) and geopolitical incidents (Russian warship, West Bank attack) lack actionable value for
+
+---
