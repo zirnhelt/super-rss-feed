@@ -1,3 +1,75 @@
+## Feedback Training Run — 2026-06-21 17:09 UTC
+
+**Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json
+**Ratings:** 91 Good, 75 Bad, 71 reassigned to different day
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (8), Global News (5), TechRadar (4), Boing Boing (4), My Cariboo Now (4)
+**Top disliked sources:** Al Jazeera English (9), NYT Top Stories (7), TechRadar (6), Pique Newsmagazine (5), Business Insider (5)
+**Categories liked:** news (70), local (12), wellness (5), ai-tech (4)
+**Categories disliked:** news (65), wellness (5), ai-tech (2), podcast-sunday (2), podcast-friday (1)
+
+**Day reassignment summary:**
+- tuesday → monday: 2 articles
+- tuesday → sunday: 1 articles
+- tuesday → saturday: 1 articles
+- wednesday → saturday: 8 articles
+- wednesday → friday: 7 articles
+- wednesday → sunday: 5 articles
+- wednesday → monday: 2 articles
+- wednesday → tuesday: 2 articles
+- wednesday → thursday: 2 articles
+- friday → wednesday: 6 articles
+- friday → thursday: 4 articles
+- friday → saturday: 3 articles
+- friday → sunday: 3 articles
+- friday → monday: 1 articles
+- saturday → sunday: 8 articles
+- saturday → wednesday: 5 articles
+- saturday → thursday: 2 articles
+- saturday → saturday: 2 articles
+- saturday → tuesday: 1 articles
+- saturday → friday: 1 articles
+- sunday → tuesday: 2 articles
+- sunday → friday: 1 articles
+- sunday → wednesday: 1 articles
+- sunday → sunday: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Calibration Guidance
+
+**POSITIVE SIGNALS (Up-weight these):**
+
+- **Local/regional focus with personal impact**: Williams Lake Tribune and local BC news consistently rated highly (scores 75–90). Prefer articles with concrete community consequences over national abstraction.
+
+- **Solutions-oriented framing**: Articles about fixes, action plans, and "how-to" approaches score well (e.g., "B.C. releases action plan," "how to fix AI ROI"). Avoid pure-problem reporting without proposed remedies.
+
+- **Constructive tech/AI discourse**: Critical but balanced takes on AI (Marcus on tech stocks, "AI projects don't deliver ROI," "doom trolling needs to stop") outperform sensationalism or uncritical adoption coverage.
+
+- **Human resilience and cultural angles**: Personal transformation narratives ("Camino pilgrimage transforms nurses"), Indigenous representation, and artistic/cultural spotlights score high. Prefer human-centered framing over corporate/political angles.
+
+- **Environmental coverage with specificity**: Articles tied to measurable, local impacts (wildfire hectares, bird deaths in Alberta tailings, ice loss) score better than broad climate abstractions.
+
+- **Niche, substantive sources**: Open Culture, Resilience.org, The Narwhal, Williams Lake Tribune and XDA Developers outperform mainstream business/politics outlets (NYT Top Stories, Business Insider political pieces).
+
+**NEGATIVE SIGNALS (Down-weight these):**
+
+- **Crime/violence spectacle**: High-profile crashes, arrest drama, and violent incidents (plane crashes, warship standoffs, settler attacks) score poorly despite high Q/R alignment. Avoid sensational framing.
+
+- **Partisan political content**: Electoral coverage, politician statements, and US political drama (Susan Collins, Georgia runoffs) consistently rate as bad fit, even from prestige sources.
+
+- **Medical/health controversy without clarity**: Opinion pieces on sensitive health topics (congenital syphilis, psychiatric defenses, weight-loss drugs) underperform; prefer evidence-based explainers.
+
+- **Celebrity/wealth gossip**: Content about billionaire fortunes, entertainer deaths, and prison drama (Ghislaine Maxwell) scores consistently low.
+
+- **Generic tech product coverage**: Consumer device reviews and product launches (Carvana, T-Mobile rankings, Spotify changes) underperform; prioritize impact-driven tech analysis instead.
+
+**DAY-REASSIGNMENT PATTERN:**
+
+- Articles moved *away from Wednesday* (and toward Monday–Friday weekday slots) often feature cultural, local, or human-interest angles. Consider that Wednesday may be reserved for different content types; prioritize Mon/Tue/Fri/
+
+---
 ## Feedback Training Run — 2026-06-21 15:18 UTC
 
 **Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json
