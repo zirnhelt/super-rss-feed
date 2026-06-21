@@ -48,7 +48,7 @@ def main():
     all_good &= check_file('requirements.txt', 'Dependencies file')
     all_good &= check_file('feeds.opml', 'OPML feed list')
     all_good &= check_file('.github/workflows/generate-feed.yml', 'GitHub Actions workflow')
-    all_good &= check_file('index.html', 'Landing page')
+    all_good &= check_file('review.html', 'Article reviewer')
     all_good &= check_file('README.md', 'README')
     
     print()
