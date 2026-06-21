@@ -2462,11 +2462,23 @@ _DAY_ABBREV = {
     "thursday": "Thu", "friday": "Fri", "saturday": "Sat", "sunday": "Sun",
 }
 
+_DAY_EMOJI = {
+    "monday":    "🎨",  # Arts & Culture
+    "tuesday":   "🌾",  # Working Lands
+    "wednesday": "🔧",  # Repair & Tech
+    "thursday":  "🪶",  # Indigenous Lands
+    "friday":    "🌲",  # Wild Spaces
+    "saturday":  "🏔️",  # Cariboo Local
+    "sunday":    "🔭",  # Science & Wonder
+}
+
 _BADGE_STYLE = (
     "margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;"
     "border-left:3px solid #7b9fc4;border-radius:3px;"
     "font-size:0.82em;color:#444;line-height:1.8;"
 )
+
+_REVIEW_URL = "https://zirnhelt.github.io/super-rss-feed/review.html"
 
 
 def _make_score_badge(
@@ -2482,55 +2494,15 @@ def _make_score_badge(
     kw_matches: Optional[int] = None,
     is_bonus: bool = False,
     podcast_days: Optional[List[str]] = None,
+    article_url: str = "",
 ) -> str:
-    """Return an emoji-rich HTML badge for display in RSS readers like Inoreader."""
-    display_score = composite_score if composite_score is not None else score
-    parts: List[str] = []
-
-    if display_score > 0:
-        if display_score >= 80:   bucket = "🔥"
-        elif display_score >= 60: bucket = "✨"
-        elif display_score >= 40: bucket = "📌"
-        elif display_score >= 20: bucket = "💤"
-        else:                     bucket = "⚠️"
-        parts.append(f"{bucket} <strong>{display_score}</strong>")
-
-    if theme_score is not None:
-        parts.append(f"🎨 theme:{theme_score}")
-
-    if quality > 0:
-        parts.append(f"📝 Q:{quality}")
-    if relevance > 0:
-        parts.append(f"🎯 R:{relevance}")
-    if local_score > 0:
-        parts.append(f"📍 L:{local_score}")
-
-    if kw_matches:
-        parts.append(f"🔑 {kw_matches} kw")
-
-    if content_type:
-        ct_emoji = _CT_EMOJI.get(content_type, "📄")
-        parts.append(f"{ct_emoji} {html_escape(content_type)}")
-
-    if is_bonus:
-        parts.append("🎁 bonus")
-
-    for tag in tags:
-        if tag == "local-priority":
-            parts.append("📍 local")
-        elif tag == "subscriber-access":
-            parts.append("🔒 sub")
-        else:
-            parts.append(f"🏷️ {html_escape(tag)}")
-
-    if podcast_days:
-        abbrevs = [_DAY_ABBREV.get(d, d.capitalize()) for d in podcast_days]
-        parts.append(f"🎙️ {' · '.join(abbrevs)}")
-
-    if not parts:
+    """Return a minimal day-routing badge for display in RSS readers like Inoreader."""
+    if not podcast_days:
         return ""
-    inner = " · ".join(parts)
-    return f'<p style="{_BADGE_STYLE}">{inner}</p>\n'
+    emojis = " ".join(_DAY_EMOJI.get(d, "📅") for d in podcast_days)
+    fix_href = f"{_REVIEW_URL}?url={quote(article_url, safe='')}" if article_url else _REVIEW_URL
+    fix_link = f'<a href="{fix_href}" style="color:#7b9fc4;text-decoration:none;">✏️</a>'
+    return f'<p style="{_BADGE_STYLE}">{emojis} {fix_link}</p>\n'
 
 
 def generate_json_feed(articles: List[Article], category: str, output_path: str):
@@ -2579,6 +2551,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
             content_type=article.content_type,
             tags=item_tags,
             podcast_days=podcast_days or None,
+            article_url=article.link,
         )
 
         # image → badge → description
@@ -3602,6 +3575,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             theme_score=theme_score,
             kw_matches=kw_matches,
             is_bonus=is_bonus,
+            podcast_days=[theme_name],
+            article_url=article.link,
         )
 
         # image → badge → description

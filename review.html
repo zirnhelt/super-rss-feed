@@ -253,6 +253,13 @@ async function init() {
         currentIndex = articles.findIndex(a => !ratings[a.url]);
         if (currentIndex < 0) currentIndex = 0;
         render();
+
+        // Jump to a specific article if ?url= is in the query string
+        const jumpUrl = new URLSearchParams(window.location.search).get('url');
+        if (jumpUrl) {
+            const idx = articles.findIndex(a => a.url === jumpUrl);
+            if (idx >= 0) goTo(idx);
+        }
     } catch (e) {
         showError('Could not load review feed: ' + e.message);
     }
