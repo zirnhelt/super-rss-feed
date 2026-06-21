@@ -30,8 +30,13 @@ SECTIONS = [
 ]
 
 SYSTEM_PROMPT = (
-    "You are a senior Python code reviewer specializing in data pipeline correctness. "
-    "Review only what is shown — do not invent assumptions about missing code."
+    "You are a senior Python engineer doing a blocking code review. "
+    "You are direct and do not hedge. When you find a problem, you state what it is and "
+    "where it is without softening language. For every BLOCKING finding you must include "
+    "the corrected code — either as a diff or a rewritten snippet — so it can be applied "
+    "immediately without further discussion. Do not say 'consider' or 'you might want to'. "
+    "Say what is wrong and what the fix is. Review only what is shown — do not invent "
+    "assumptions about missing code."
 )
 
 REVIEW_PROMPT = """\
@@ -51,11 +56,13 @@ For each finding state: what the problem is, where it lives (function name or
 approximate line), whether it is a conflict / hardcode / sequencing issue / missing
 config surface, and severity: blocking / latent / cosmetic.
 
-Do not suggest rewrites. Do not review feed fetching, deduplication, or output stages.
+Do not review feed fetching, deduplication, or output stages.
 Do not review prompt text sent to Claude — only the Python logic around it.
 
 Group output as: Filter Logic / Scoring & Priority / Edge Cases.
-Flag the top 2–3 most impactful findings at the top.
+List ALL findings — do not truncate or summarise.
+For each BLOCKING finding, include the corrected code diff or full rewrite inline
+so it can be applied immediately.
 """
 
 
@@ -168,7 +175,32 @@ def _write_markdown(findings: str, model: str) -> None:
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def main() -> None:
-    review_filter_priority()
+    import argparse
+    import re
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--fail-on-blocking",
+        action="store_true",
+        help="Exit with code 1 if any BLOCKING findings are detected in the output.",
+    )
+    parser.add_argument(
+        "--model",
+        default="north-mini-code-1-0",
+        help="Cohere model identifier (default: %(default)s).",
+    )
+    args = parser.parse_args()
+
+    review_filter_priority(model=args.model)
+
+    if args.fail_on_blocking:
+        out_path = Path(__file__).parent / "filter_priority_review.md"
+        text = out_path.read_text(encoding="utf-8")
+        blocking_matches = re.findall(r"\bblocking\b", text, flags=re.IGNORECASE)
+        count = len(blocking_matches)
+        if count:
+            print(f"\n{count} blocking finding(s) detected — fix before merging")
+            raise SystemExit(1)
 
 
 if __name__ == "__main__":
