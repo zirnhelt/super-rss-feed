@@ -34,6 +34,10 @@ on:
         description: 'Generate and publish the consolidated weekly report'
         type: boolean
         default: true
+      run_filter_review:
+        description: 'Run filter/priority code review (Cohere code review of pipeline logic)'
+        type: boolean
+        default: true
       max_candidates:
         description: 'Override max new discovery candidates per run for gated sources (e.g. Kagi Small Web). Leave empty to use the config default.'
         required: false
@@ -257,9 +261,52 @@ jobs:
           git diff --cached --quiet || git commit -m "Add feed review and corpus alignment reports [skip ci]"
           git push
 
+  filter-review:
+    name: Filter & Priority Code Review
+    needs: [calibration, feedback-training]
+    if: always() && (github.event_name == 'schedule' || inputs.run_filter_review)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install cohere
+
+      - name: Run filter & priority review
+        env:
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+        run: python tools/review_filter_priority.py --fail-on-blocking
+        continue-on-error: true
+
+      - name: Commit findings to main branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tools/filter_priority_review.md
+          git diff --staged --quiet || git commit -m "Update filter/priority review findings [skip ci]"
+          git push
+
+      - name: Upload filter review as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: filter-priority-review
+          path: tools/filter_priority_review.md
+          retention-days: 30
+
   report:
     name: Weekly Report
-    needs: [discovery, calibration, feedback-training, quality-review]
+    needs: [discovery, calibration, feedback-training, quality-review, filter-review]
     if: always() && (github.event_name == 'schedule' || inputs.run_report)
     runs-on: ubuntu-latest
 
@@ -293,6 +340,14 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: feed-discovery-report
+        continue-on-error: true
+
+      - name: Download filter review artifact
+        if: needs.filter-review.result != 'skipped'
+        uses: actions/download-artifact@v4
+        with:
+          name: filter-priority-review
+          path: tools/
         continue-on-error: true
 
       - name: Generate weekly report
