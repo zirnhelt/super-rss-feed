@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super RSS Feed</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 { font-size: 1.8em; color: #667eea; margin-bottom: 4px; }
+        .subtitle { color: #666; font-size: 0.95em; margin-bottom: 32px; }
+
+        h2 { font-size: 1.1em; color: #444; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .section { margin-bottom: 28px; }
+
+        .card-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            background: #fafafa;
+            margin-bottom: 8px;
+            transition: all 0.15s ease;
+        }
+        .card-link:hover {
+            border-color: #667eea;
+            background: #f0f2ff;
+            color: #667eea;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+        }
+        .card-icon { font-size: 1.4em; flex-shrink: 0; }
+        .card-body { flex: 1; }
+        .card-title { font-weight: 600; font-size: 0.95em; }
+        .card-desc  { font-size: 0.8em; color: #888; margin-top: 2px; }
+        .card-link:hover .card-desc { color: #667eea; opacity: 0.75; }
+
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+        }
+        .feed-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #555;
+            background: #fafafa;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: all 0.15s ease;
+        }
+        .feed-pill:hover {
+            border-color: #667eea;
+            color: #667eea;
+            background: #f0f2ff;
+        }
+        .feed-pill-icon { font-size: 1.1em; }
+
+        .divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+
+        footer { margin-top: 8px; font-size: 0.78em; color: #bbb; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📡 Super RSS Feed</h1>
+    <p class="subtitle">Curated news, AI, science, wellness, homelab and more — updated daily.</p>
+
+    <div class="section">
+        <h2>Tools</h2>
+        <a href="review.html" class="card-link">
+            <span class="card-icon">📋</span>
+            <div class="card-body">
+                <div class="card-title">Daily Article Review</div>
+                <div class="card-desc">Rate articles and tag them to podcast days. Shapes tomorrow's feed.</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>Weekly Reports</h2>
+        <a href="weekly-report-2026-W25.html" class="card-link">
+            <span class="card-icon">📰</span>
+            <div class="card-body">
+                <div class="card-title">Week 25 · 2026</div>
+                <div class="card-desc">Jun 15 – Jun 21</div>
+            </div>
+        </a>
+        <a href="weekly-report-2026-W24.html" class="card-link">
+            <span class="card-icon">📰</span>
+            <div class="card-body">
+                <div class="card-title">Week 24 · 2026</div>
+                <div class="card-desc">Jun 8 – Jun 14</div>
+            </div>
+        </a>
+        <a href="weekly-report-2026-W23.html" class="card-link">
+            <span class="card-icon">📰</span>
+            <div class="card-body">
+                <div class="card-title">Week 23 · 2026</div>
+                <div class="card-desc">Jun 1 – Jun 7</div>
+            </div>
+        </a>
+        <a href="weekly-report-2026-W22.html" class="card-link">
+            <span class="card-icon">📰</span>
+            <div class="card-body">
+                <div class="card-title">Week 22 · 2026</div>
+                <div class="card-desc">May 25 – May 31</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>Feed JSON</h2>
+        <div class="feed-grid">
+            <a href="feed-news.json" class="feed-pill"><span class="feed-pill-icon">🗞️</span> News</a>
+            <a href="feed-ai-tech.json" class="feed-pill"><span class="feed-pill-icon">🤖</span> AI &amp; Tech</a>
+            <a href="feed-science.json" class="feed-pill"><span class="feed-pill-icon">🔬</span> Science</a>
+            <a href="feed-climate.json" class="feed-pill"><span class="feed-pill-icon">🌍</span> Climate</a>
+            <a href="feed-wellness.json" class="feed-pill"><span class="feed-pill-icon">🧘</span> Wellness</a>
+            <a href="feed-homelab.json" class="feed-pill"><span class="feed-pill-icon">🖥️</span> Homelab</a>
+            <a href="feed-scifi.json" class="feed-pill"><span class="feed-pill-icon">🚀</span> Sci-Fi</a>
+            <a href="feed-local.json" class="feed-pill"><span class="feed-pill-icon">📍</span> Local</a>
+            <a href="feed-review.json" class="feed-pill"><span class="feed-pill-icon">⭐</span> Review</a>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <footer>zirnhelt/super-rss-feed · GitHub Pages</footer>
+</div>
+</body>
+</html>
