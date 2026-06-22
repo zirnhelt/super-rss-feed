@@ -16,7 +16,8 @@ Two failure modes this surfaces:
   - STRANDED / RESCUE-DEPENDENT: the article fits some theme well (theme
     score >= that day's holdover_threshold) but its upstream score is too
     low to be considered for that day at all (rescue-dependent) or even to
-    enter the pool (stranded, upstream < min_claude_score).
+    enter the pool (stranded, upstream < per-category min_score_by_category
+    floor, falling back to min_claude_score).
 
 Usage:
     python corpus_alignment_report.py [--output PATH] [--json-summary PATH]
@@ -76,6 +77,10 @@ def main() -> None:
     schedule = schedule_cfg["schedule"]
     global_holdover = schedule_cfg.get("holdover_threshold", 30)
     min_claude_score = limits.get("min_claude_score", 20)
+    _score_by_cat = limits.get("min_score_by_category", {})
+
+    def _min_score_for_cat(cat: str) -> int:
+        return _score_by_cat.get(cat or "news", min_claude_score)
 
     day_label = {d: cfg["label"] for d, cfg in schedule.items()}
     day_min = {d: cfg.get("min_score", schedule_cfg.get("min_score", 25)) for d, cfg in schedule.items()}
@@ -125,13 +130,14 @@ def main() -> None:
         cat_besttheme[cat].append(best_score)
 
         # Per-day candidacy accounting
+        cat_floor = _min_score_for_cat(cat)
         for day in schedule:
             ts = theme_scores[day]
             day_theme_scores[day].append(ts)
             if ts >= day_hold[day]:
                 if upstream >= day_min[day]:
                     day_direct[day] += 1
-                elif upstream >= min_claude_score:
+                elif upstream >= cat_floor:
                     day_rescue[day] += 1
                 else:
                     day_unreachable[day] += 1
@@ -143,7 +149,7 @@ def main() -> None:
             if upstream >= day_min[best_day]:
                 cat_status[cat]["direct"] += 1
                 direct_examples.append((upstream, best_score, cat, title, best_day))
-            elif upstream >= min_claude_score:
+            elif upstream >= cat_floor:
                 cat_status[cat]["rescue"] += 1
                 rescue_examples.append((best_score, upstream, cat, title, best_day))
             else:
@@ -174,7 +180,7 @@ def main() -> None:
         f"| Articles missing theme-score data (skipped) | {missing_theme_data} |\n"
         f"| Direct-qualify (upstream score gates them in for their best theme) | {total_direct} |\n"
         f"| Rescue-dependent (good theme fit, upstream below day minimum) | {total_rescue} |\n"
-        f"| Stranded (good theme fit, upstream below `min_claude_score`={min_claude_score} — never bankable) | {total_stranded} |\n"
+        f"| Stranded (good theme fit, upstream below per-category quality floor — never bankable) | {total_stranded} |\n"
         f"| Filler (upstream ≥ {FILLER_UPSTREAM_FLOOR} but best theme fit < {FILLER_THEME_CEILING} for ALL 7 themes) | {total_filler} ({(total_filler/total*100 if total else 0):.0f}% of corpus) |\n"
     )
 
@@ -317,8 +323,9 @@ def main() -> None:
     if stranded_examples:
         sections.append("\n## Stranded Examples (good fit, never bankable)\n")
         sections.append(
-            f"Articles scoring ≥ a day's holdover threshold on theme fit, but below "
-            f"`min_claude_score`={min_claude_score} upstream — these are filtered out "
+            "Articles scoring ≥ a day's holdover threshold on theme fit, but below "
+            "their category's quality floor (`min_score_by_category`, falling back to "
+            f"`min_claude_score`={min_claude_score}) upstream — these are filtered out "
             "before theme routing ever considers them:\n"
         )
         sections.extend(_fmt_examples(
@@ -369,11 +376,11 @@ def main() -> None:
 
     if total_stranded:
         recs.append(
-            f"🌾 {total_stranded} article(s) fit a theme well but score below "
-            f"`min_claude_score`={min_claude_score} overall and are stranded — see the Stranded "
-            "Examples table. If these categories matter, consider a per-category "
-            "`min_score_by_category` floor (as already exists for `ai-tech`) so they survive "
-            "into the podcast pool."
+            f"🌾 {total_stranded} article(s) fit a theme well but score below their "
+            "per-category quality floor (`min_score_by_category` in `config/limits.json`, "
+            f"falling back to `min_claude_score`={min_claude_score}) and are stranded — "
+            "see the Stranded Examples table. Consider lowering or adding a floor for "
+            "those categories so they survive into the podcast pool."
         )
 
     for day, cfg in schedule.items():
