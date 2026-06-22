@@ -145,7 +145,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add config/limits.json config/podcast_schedule.json calibration_memory/ CALIBRATION_LOG.md
           git diff --cached --quiet || git commit -m "Weekly calibration agent run [skip ci]"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push
 
   feedback-training:
@@ -182,7 +182,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add config/feedback_examples.txt FEEDBACK_TRAINING_LOG.md 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Weekly feedback training run [skip ci]"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push
         continue-on-error: true
 
@@ -261,7 +261,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add FEED_REVIEW_*.md CORPUS_ALIGNMENT_REPORT_*.md
           git diff --cached --quiet || git commit -m "Add feed review and corpus alignment reports [skip ci]"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push
 
   filter-review:
@@ -298,7 +298,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add tools/filter_priority_review.md
           git diff --staged --quiet || git commit -m "Update filter/priority review findings [skip ci]"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push
 
       - name: Upload filter review as artifact
@@ -365,7 +365,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add weekly-state-article.json weekly-report-*.html
           git diff --cached --quiet || git commit -m "Add weekly state-of-the-feed report [skip ci]"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push
 
       - name: Deploy report to GitHub Pages
