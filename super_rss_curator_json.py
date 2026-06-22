@@ -27,7 +27,7 @@ from fetch_images import batch_fetch_images
 import cohere_integration
 import api_usage
 import config_loader
-from cache import Cache
+from cache import Cache, FeedHTTPCache
 
 # Configuration paths (kept for direct file access e.g. scoring_interests.txt)
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -91,6 +91,7 @@ THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-r
 THEME_HOLDOVER_TTL_DAYS = 28                         # 4 weeks — covers monthly themed episode cycles
 CALIBRATION_STATS_CACHE_FILE = 'calibration_stats_cache.json'  # Rolling per-run audit stats
 CALIBRATION_STATS_TTL_DAYS = 14                      # Window consumed by the weekly calibration agent
+FEED_HTTP_CACHE_FILE = 'feed_http_cache.json'        # Per-feed ETag/Last-Modified/skip_until state
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
@@ -102,6 +103,7 @@ _extract_cache = Cache(EXTRACT_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['sco
 _wlt_cache = Cache(WLT_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['scored_hours'])
 _shown_cache = Cache(SHOWN_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['shown_days'] * 24)
 _shown_terms_cache = Cache(SHOWN_TERMS_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['shown_days'] * 24, ts_field='ts')
+_feed_http_cache = FeedHTTPCache(FEED_HTTP_CACHE_FILE)
 
 # ---------------------------------------------------------------------------
 # URL canonicalization
@@ -1406,13 +1408,31 @@ def _fetch_via_kagi_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]
 def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
     """Fetch and parse articles from a feed"""
     try:
+        feed_url = feed['url']
+
+        if _feed_http_cache.should_skip(feed_url):
+            print(f"  ⏭ {feed['title']}: skipped (Cache-Control/Retry-After not yet expired)")
+            return []
+
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-            'Accept': 'application/rss+xml, application/xml, text/xml, */*'
+            'Accept': 'application/rss+xml, application/xml, text/xml, */*',
         }
-        
-        response = requests.get(feed['url'], headers=headers, timeout=10)
+        headers.update(_feed_http_cache.request_headers(feed_url))
+
+        response = requests.get(feed_url, headers=headers, timeout=10)
+
+        if response.status_code == 304:
+            print(f"  ✓ {feed['title']}: 304 Not Modified (no new articles)")
+            return []
+
+        if response.status_code in (429, 503):
+            retry_after = response.headers.get('Retry-After', '3600')
+            _feed_http_cache.set_retry_after(feed_url, retry_after)
+            response.raise_for_status()
+
         response.raise_for_status()
+        _feed_http_cache.update_from_response(feed_url, response)
         
         parsed = feedparser.parse(response.content)
 
@@ -3747,11 +3767,13 @@ def main():
     lookback_hours = SYSTEM['lookback_hours']
     cutoff_date = datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
     print(f"\n📥 Fetching articles from last {lookback_hours} hours...")
-    
+
+    _feed_http_cache.load()
     all_articles = []
     for feed in feeds:
         articles = fetch_feed_articles(feed, cutoff_date)
         all_articles.extend(articles)
+    _feed_http_cache.save()
 
     all_articles = apply_prescore_filter(all_articles)
 
