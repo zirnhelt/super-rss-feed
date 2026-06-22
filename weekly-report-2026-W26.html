@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of the Feed — Week of June 22–28, 2026</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { margin-top: 1.5rem; font-size: 1.1rem; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+    th, td { border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    a { color: #0066cc; }
+    ul { padding-left: 1.4rem; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <h1>State of the Feed — Week of June 22–28, 2026</h1>
+  <p class="meta">Published June 22, 2026 &middot; <a href="https://zirnhelt.github.io/super-rss-feed">Back to feed</a></p>
+  <p>The aggregator processed 33 runs during the week of June 22–28, 2026, fetching 1385 articles per run on average and delivering 24 quality articles per run. News dominated the category breakdown with 481 articles, followed by ai-tech (105 articles), wellness (89 articles), local (43 articles), climate (33 articles), and homelab and scifi each with 15 articles. The dimensional Q/R/L composite scoring model applied weights of 0.25 for quality, 0.55 for relevance, and 0.20 for local signal across all feeds.</p>
+<p>Five feeds reported errors this week: BC Gov News, Western Producer, Wildfire Today, OpenMedia, and First Peoples Cultural Council (Kagi). No new feeds were added to the subscription list. Pipeline efficiency baseline remains unestablished, preventing noise-to-signal ratio analysis. Feed discovery reporting was unavailable for the period.</p>
+<h3>Weekly Article Distribution</h3>
+<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>
+<tr><td>local</td><td>43</td></tr>
+<tr><td>ai-tech</td><td>105</td></tr>
+<tr><td>climate</td><td>33</td></tr>
+<tr><td>homelab</td><td>15</td></tr>
+<tr><td>wellness</td><td>89</td></tr>
+<tr><td>scifi</td><td>15</td></tr>
+<tr><td>news</td><td>481</td></tr>
+</tbody></table>
+<h3>Feed Issues</h3>
+<ul>
+  <li><strong>BC Gov News</strong>: HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with </li>
+  <li><strong>Western Producer</strong>: 403 Client Error: Forbidden for url: https://www.producer.com/feed/</li>
+  <li><strong>Wildfire Today</strong>: 403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/</li>
+  <li><strong>OpenMedia</strong>: 404 Client Error: Not Found for url: https://openmedia.org/feed</li>
+  <li><strong>First Peoples Cultural Council (Kagi)</strong>: HTTP 429 - {"meta":{"trace":"94ba06e9c860b51c974b7941184854da","ms":4,"node":"us</li>
+</ul>
+<h3>Quality Review</h3>
+<p>547 articles across 8 feeds. Scrub pass flagged 18 article(s), 18 recommended for removal.</p>
+<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>
+<tr><td>🤖 AI/ML & Tech</td><td>80</td><td>21.1</td><td>72</td><td>TechRadar (12.5%)</td></tr>
+<tr><td>🌍 Climate & Energy</td><td>24</td><td>10.5</td><td>20</td><td>ScienceDaily (16.7%)</td></tr>
+<tr><td>🏠 Homelab & DIY</td><td>11</td><td>14.3</td><td>10</td><td>XDA Developers (27.3%)</td></tr>
+<tr><td>🏔️ Williams Lake Local</td><td>30</td><td>78.2</td><td>26</td><td>Williams Lake Tribune (50.0%)</td></tr>
+<tr><td>📰 General News</td><td>324</td><td>61.4</td><td>287</td><td>Al Jazeera English (13.3%)</td></tr>
+<tr><td>🔬 Science</td><td>0</td><td>0.0</td><td>0</td><td>— (0%)</td></tr>
+<tr><td>🚀 Sci-Fi & Culture</td><td>12</td><td>19.9</td><td>11</td><td>Boing Boing (25.0%)</td></tr>
+<tr><td>🌿 Health & Wellness</td><td>66</td><td>38.5</td><td>62</td><td>STAT News (16.7%)</td></tr>
+</tbody></table><p>Corpus alignment: 441 articles analysed — 274 direct-qualify, 10 rescue-dependent, 5 stranded, 60 filler (13.6%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/CORPUS_ALIGNMENT_REPORT_2026-06-22.md">Full report</a>.</p>
+<p>Content type breakdown: null: 630, unknown: 202.</p>
+
+<h3>Calibration</h3>
+<p>No config changes applied this run.</p>
+
+<h3>Actions Taken This Week</h3>
+<p>No config or feed-list changes this week.</p>
+
+</body>
+</html>
