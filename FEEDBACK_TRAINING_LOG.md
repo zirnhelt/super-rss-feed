@@ -1,3 +1,77 @@
+## Feedback Training Run — 2026-06-22 03:29 UTC
+
+**Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json
+**Ratings:** 91 Good, 75 Bad, 71 reassigned to different day
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (8), Global News (5), TechRadar (4), Boing Boing (4), My Cariboo Now (4)
+**Top disliked sources:** Al Jazeera English (9), NYT Top Stories (7), TechRadar (6), Pique Newsmagazine (5), Business Insider (5)
+**Categories liked:** news (70), local (12), wellness (5), ai-tech (4)
+**Categories disliked:** news (65), wellness (5), ai-tech (2), podcast-sunday (2), podcast-friday (1)
+
+**Day reassignment summary:**
+- tuesday → monday: 2 articles
+- tuesday → sunday: 1 articles
+- tuesday → saturday: 1 articles
+- wednesday → saturday: 8 articles
+- wednesday → friday: 7 articles
+- wednesday → sunday: 5 articles
+- wednesday → monday: 2 articles
+- wednesday → tuesday: 2 articles
+- wednesday → thursday: 2 articles
+- friday → wednesday: 6 articles
+- friday → thursday: 4 articles
+- friday → saturday: 3 articles
+- friday → sunday: 3 articles
+- friday → monday: 1 articles
+- saturday → sunday: 8 articles
+- saturday → wednesday: 5 articles
+- saturday → thursday: 2 articles
+- saturday → saturday: 2 articles
+- saturday → tuesday: 1 articles
+- saturday → friday: 1 articles
+- sunday → tuesday: 2 articles
+- sunday → friday: 1 articles
+- sunday → wednesday: 1 articles
+- sunday → sunday: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# RSS Scoring Calibration: Relevance Signals
+
+**UPWEIGHT these signals:**
+
+- **Local/regional impact**: Articles about Williams Lake, Cariboo, B.C., and community-specific issues consistently score highest (85–90). Prioritize hyperlocal news over national equivalents.
+
+- **Constructive solutions & resilience**: Liked articles focus on problem-solving (action plans, community responses, resilience frameworks) rather than crisis recounting alone. Favor "how to fix" over "what went wrong."
+
+- **Innovation in tech with human context**: Tech stories that emphasize accessibility, user choice, or societal implications (AI opt-out features, wearables for autonomy, local AI) score higher than pure product reviews.
+
+- **Environmental/sustainability journalism**: Climate, wildlife, and resource stewardship stories (oilsands impact, ice loss, wildfire response) are consistently liked when paired with investigative depth.
+
+- **Press freedom & accountability**: Journalism about media independence and corporate/government scrutiny (press freedom, security breaches, supply-chain hacks) scores well.
+
+- **Cultural/artistic discovery**: Literary excerpts, music performances, and indigenous cultural celebration (Kwé festival, Clare Torry, "Great Gig in the Sky") score consistently despite low traffic expectations.
+
+**DOWNWEIGHT these signals:**
+
+- **Crime/tragedy spectacle**: Plane crashes, violent assaults, celebrity crime gossip, and prison drama are disliked even at high scores (80+). Adjust quality floor for accident/violence coverage downward.
+
+- **Political/electoral opinion**: Partisan commentary and electoral outcomes (Susan Collins, Georgia runoffs) score poorly. Reduce relevance weight for opinion-driven political content.
+
+- **Medical controversy & crisis health reporting**: Stories framing public health as threat/alarm (syphilis rates, psychiatric defense, weight-loss drug black markets) are disliked despite high scores. Apply discount to alarmist health framing.
+
+- **Celebrity/wealth lifestyle**: Elon Musk net worth comparisons, billionaire news, and entertainment gossip score low. De-prioritize personality-driven business coverage.
+
+**Source & Format Patterns:**
+
+- **Local/regional outlets outperform**: Williams Lake Tribune, My Cariboo Now, APTN News, The Narwhal, and Resilience.org show strong alignment. Boost trust weights for these sources.
+
+- **Podcast reassignments reveal scheduling preference**: Articles moved from Tuesday/Wednesday → Friday–Monday suggest user prefers weekend consumption of feel-good, cultural, and local stories. Consider day-specific relevance tuning.
+
+- **Avoid generic tech product reviews**: Basic device comparisons and carrier rankings (
+
+---
 ## Feedback Training Run — 2026-06-21 17:09 UTC
 
 **Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json
