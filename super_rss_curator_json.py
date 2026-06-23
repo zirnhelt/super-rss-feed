@@ -3875,6 +3875,8 @@ def main():
     print(f"\n✂️  Running headline scrub with Haiku ({len(scrub_candidates)} articles, {len(scrub_below)} below floor skipped)...")
     scrubbed, scrub_stats = scrub_feed_with_haiku(scrub_candidates, api_key)
     run_stats['scrub'] = scrub_stats
+    _scrubbed_hashes = {a.url_hash for a in scrubbed}
+    haiku_rejected = [a for a in scrub_candidates if a.url_hash not in _scrubbed_hashes]
 
     # Quality filter now works on pre-scrubbed candidates
     quality_articles = [a for a in scrubbed if a.score >= min_score_for_category(a.category)]
@@ -4054,7 +4056,7 @@ def main():
             print(f"⚠️ No podcast schedule for today ({today_name})")
 
     # Generate daily review feed for user training feedback
-    generate_review_feed(quality_articles, scrubbed, schedule_config)
+    generate_review_feed(quality_articles, scrubbed, schedule_config, haiku_rejected)
 
     # Load existing feeds to preserve old articles
     retention_days = LIMITS['feed_retention_days']
@@ -4168,7 +4170,8 @@ def main():
 
 
 def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article],
-                         schedule_config: Optional[Dict]):
+                         schedule_config: Optional[Dict],
+                         haiku_rejected: Optional[List[Article]] = None):
     """Select 20 articles for daily training feedback and write feed-review.json."""
     # Load already-reviewed URLs so we don't surface the same article twice.
     reviewed_urls: set = set()
@@ -4249,6 +4252,20 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
                 seen_hashes.add(a.url_hash)
                 seen_sources.add(a.source)
 
+    # Unfiltered slot: up to 10 haiku-rejected articles so over-filtering patterns
+    # are visible in the review cycle.
+    unfiltered_set: set = set()
+    if haiku_rejected:
+        for a in haiku_rejected:
+            if len(unfiltered_set) >= 10:
+                break
+            if a.link in reviewed_urls or a.url_hash in seen_hashes or a.source in seen_sources:
+                continue
+            selected.append(a)
+            seen_hashes.add(a.url_hash)
+            seen_sources.add(a.source)
+            unfiltered_set.add(a.url_hash)
+
     # Tag each with its selection bucket
     high_set   = {a.url_hash for a in high[:5]}
     mid_set    = {a.url_hash for a in mid[:8]}
@@ -4256,6 +4273,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     low_set    = {a.url_hash for a in low[:2]}
 
     def bucket_label(a: Article) -> str:
+        if a.url_hash in unfiltered_set: return 'unfiltered'
         if a.url_hash in high_set:   return 'high'
         if a.url_hash in mid_set:    return 'mid'
         if a.url_hash in border_set: return 'border'
@@ -4277,7 +4295,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         "items": [],
     }
 
-    for article in selected[:20]:
+    for article in selected:
         item = {
             "id": article.link,
             "url": article.link,
@@ -4303,8 +4321,10 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     with open('feed-review.json', 'w', encoding='utf-8') as fh:
         json.dump(feed, fh, indent=2, ensure_ascii=False)
 
-    print(f"📋 Review feed: {len(feed['items'])}/20 articles "
-          f"({len(reviewed_urls)} already-reviewed excluded)")
+    unfiltered_count = len(unfiltered_set)
+    print(f"📋 Review feed: {len(feed['items'])} articles "
+          f"(20 curated + {unfiltered_count} unfiltered, "
+          f"{len(reviewed_urls)} already-reviewed excluded)")
 
 
 def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
