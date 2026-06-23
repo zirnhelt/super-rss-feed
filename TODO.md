@@ -8,6 +8,56 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
+| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
+| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **Pluralistic** failed | `HTTPSConnectionPool(host='pluralistic.net', port=443): Read timed out. (read timeout=10)` |
+| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
+| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
+| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Ricochet Media (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Nation Talk (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Smart Home and Automation (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Gear Gadgets Repair (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **3D Printing (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **AI ML Infrastructure (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Clean Energy and EVs (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Mesh Networking and LoRa (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Williams Lake and BC Interior (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Indigenous Technology and Innovation (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Climate Science Research (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Wildfire and Conservation (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Working Lands (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Rural BC Infrastructure (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Indigenous Guardian Programs (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **AgTech and Resource Innovation (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Community Media and Digital Storytelling (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Wildlife and Backcountry (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Cariboo Local Community (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Rural Digital Equity (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Conservation and Parks (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Canadian Geographic (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Health and Wellness (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Examine.com (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Evidence-Based Health Research (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Longevity and Preventive Medicine (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Science Fiction Books (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Cariboo First Nations (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Indigenous Data and Language Tech (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Canadian Arts Technology (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Canadian Agriculture and Ranching (Brave)** failed | `HTTP 402` |
+| 2026-06-17 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Brave)** failed | `HTTP 402` |
+| 2026-06-16 | 🌅 4:30 AM Pacific | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
+| 2026-06-16 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
+| 2026-06-16 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Bella Coola Valley** failed | `403 Client Error: Forbidden for url: https://www.bellacoola.ca/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
@@ -83,56 +133,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **MakeUseOf** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
 | 2026-06-16 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
-| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
-| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **National Indigenous Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"34f1f462738e641ae84d437372ef0f1b","ms":2,"node":"us-central1"},"data":null,"errors":[{"code` |
-| 2026-06-15 | 🌅 4:30 AM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x40` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Nation Talk (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Smart Home and Automation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Gear Gadgets Repair (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Ricochet Media (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **3D Printing (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Clean Energy and EVs (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **AI ML Infrastructure (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Mesh Networking and LoRa (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Williams Lake and BC Interior (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Climate Science Research (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Indigenous Technology BC (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Wildfire and Conservation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Working Lands (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Rural BC Infrastructure (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Indigenous Guardian Programs (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **AgTech and Resource Innovation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Community Media and Digital Storytelling (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Backcountry and Wildlife (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Cariboo Local Community (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Rural Digital Equity (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Conservation and Parks (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Canadian Geographic (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Wildlife Ecology (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Health and Wellness (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Examine.com (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Evidence-Based Health Research (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Longevity and Preventive Medicine (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Science Fiction Books (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Cariboo First Nations (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Indigenous Data and Language Tech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Silviculture and Logging Tech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Canadian Arts Technology (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Canadian Agriculture and Ranching (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **National Indigenous Innovation (Brave)** failed | `invalid JSON response - Expecting value: line 1 column 1 (char 0)` |
-| 2026-06-15 | 🌙 8:30 PM Pacific | ⚠️ **Bella Coola Valley** failed | `HTTPSConnectionPool(host='bellacoola.ca', port=443): Read timed out. (read timeout=10)` |
-| 2026-06-15 | 🌙 8:30 PM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **IndigiNews** failed | `HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-15 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -140,6 +140,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-17 | 🔧 manual | 28 | news:15(54%), ai-tech:5(18%), wellness:5(18%) |
+| 2026-06-17 | 🌙 evening | 24 | news:15(62%), ai-tech:5(21%), homelab:2(8%) |
+| 2026-06-17 | 🔧 manual | 31 | news:15(48%), wellness:6(19%), ai-tech:5(16%) |
+| 2026-06-16 | 🌅 morning | 17 | news:10(59%), ai-tech:2(12%), wellness:2(12%) |
+| 2026-06-16 | 🔧 manual | 26 | news:10(38%), ai-tech:5(19%), wellness:4(15%) |
 | 2026-06-16 | 🔧 manual | 23 | news:10(43%), ai-tech:5(22%), wellness:4(17%) |
 | 2026-06-16 | 🔧 manual | 18 | news:10(56%), ai-tech:5(28%), wellness:2(11%) |
 | 2026-06-16 | 🔧 manual | 17 | news:10(59%), ai-tech:3(18%), local:2(12%) |
@@ -149,15 +154,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-16 | 🔧 manual | 12 | news:10(83%), wellness:2(17%) |
 | 2026-06-16 | 🔧 manual | 12 | news:10(83%), wellness:2(17%) |
 | 2026-06-16 | 🔧 manual | 4 | wellness:2(50%), news:2(50%) |
-| 2026-06-15 | 🌅 morning | 39 | news:33(85%), climate:2(5%), wellness:2(5%) |
-| 2026-06-15 | 🔧 manual | 63 | news:48(76%), ai-tech:5(8%), wellness:5(8%) |
-| 2026-06-15 | 🌙 evening | 20 | news:10(50%), ai-tech:5(25%), climate:2(10%) |
-| 2026-06-15 | 🔧 manual | 51 | news:33(65%), local:8(16%), ai-tech:5(10%) |
-| 2026-06-15 | 🔧 manual | 13 | news:5(38%), ai-tech:4(31%), wellness:2(15%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-22 09:54 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-23 07:58 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

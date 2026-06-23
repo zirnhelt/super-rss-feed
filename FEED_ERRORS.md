@@ -328,97 +328,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
-## 2026-06-15 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
-- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms":2,"node":"us-central1"},"data":null,"errors":[{"code`
-- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":2,"node":"us-central1"},"data":null,"errors":[{"code`
-- ⚠️ **National Indigenous Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"34f1f462738e641ae84d437372ef0f1b","ms":2,"node":"us-central1"},"data":null,"errors":[{"code`
-- ⚠️ **Kagi Summarizer** failed — `HTTP 429 x40`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (9:33 AM Pacific)
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
-- ⚠️ **Nation Talk (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Smart Home and Automation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Gear Gadgets Repair (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Ricochet Media (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **First Peoples Cultural Council (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **3D Printing (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Clean Energy and EVs (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **AI ML Infrastructure (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Mesh Networking and LoRa (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Williams Lake and BC Interior (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Climate Science Research (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Indigenous Technology BC (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Wildfire and Conservation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Working Lands (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Rural BC Infrastructure (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Indigenous Guardian Programs (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **AgTech and Resource Innovation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Community Media and Digital Storytelling (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Backcountry and Wildlife (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Cariboo Local Community (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Rural Digital Equity (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Conservation and Parks (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Canadian Geographic (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Wildlife Ecology (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Health and Wellness (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Examine.com (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Evidence-Based Health Research (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Longevity and Preventive Medicine (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Science Fiction Books (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Cariboo First Nations (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Indigenous Data and Language Tech (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Silviculture and Logging Tech (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Canadian Arts Technology (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Canadian Agriculture and Ranching (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **Precision Agriculture and AgTech (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-- ⚠️ **National Indigenous Innovation (Brave)** failed — `invalid JSON response - Expecting value: line 1 column 1 (char 0)`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Bella Coola Valley** failed — `HTTPSConnectionPool(host='bellacoola.ca', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (10:53 PM Pacific)
-- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (11:18 PM Pacific)
-- ⚠️ **IndigiNews** failed — `HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -695,6 +604,59 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ BC Forestry Tech and Silviculture (Kagi) failed — HTTP 400 - {"meta":{"trace":"11510d7846327f5253794620e835f481","ms"
 - ⚠️ Precision Agriculture and AgTech (Kagi) failed — HTTP 400 - {"meta":{"trace":"9982302388582755467869d5bf7dbf5b","ms":
 - ⚠️ National Indigenous Innovation (Kagi) failed — HTTP 400 - {"meta":{"trace":"5b66457f8b51b27f92d0d8372833a887","ms":2,
+
+
+---
+
+
+
+## Week of 2026-06-15–2026-06-15
+- 50 issues recorded
+- ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed
+- ⚠️ BC Forestry Tech and Silviculture (Kagi) failed — HTTP 429 - {"meta":{"trace":"714fbc76d7816d08583727270b6fa24a","ms"
+- ⚠️ Precision Agriculture and AgTech (Kagi) failed — HTTP 429 - {"meta":{"trace":"479a720f1f6166f42317da87cdd22a0c","ms":
+- ⚠️ National Indigenous Innovation (Kagi) failed — HTTP 429 - {"meta":{"trace":"34f1f462738e641ae84d437372ef0f1b","ms":2,
+- ⚠️ Kagi Summarizer failed — HTTP 429 x40
+- ⚠️ Nation Talk (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Smart Home and Automation (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Gear Gadgets Repair (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Ricochet Media (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ First Peoples Cultural Council (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ 3D Printing (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Clean Energy and EVs (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ AI ML Infrastructure (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Mesh Networking and LoRa (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Williams Lake and BC Interior (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Climate Science Research (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Indigenous Technology BC (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Wildfire and Conservation (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Working Lands (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Rural BC Infrastructure (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Indigenous Guardian Programs (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ AgTech and Resource Innovation (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Community Media and Digital Storytelling (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (c
+- ⚠️ BC Backcountry and Wildlife (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Cariboo Local Community (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Rural Digital Equity (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Conservation and Parks (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Canadian Geographic (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Wildlife Ecology (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Health and Wellness (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Examine.com (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Evidence-Based Health Research (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Longevity and Preventive Medicine (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Science Fiction Books (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Cariboo First Nations (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Indigenous Data and Language Tech (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Silviculture and Logging Tech (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Canadian Arts Technology (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Canadian Agriculture and Ranching (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ BC Forestry Tech and Silviculture (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Precision Agriculture and AgTech (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ National Indigenous Innovation (Brave) failed — invalid JSON response - Expecting value: line 1 column 1 (char 0)
+- ⚠️ Bella Coola Valley failed — HTTPSConnectionPool(host='bellacoola.ca', port=443): Read timed out. (read timeout=10)
+- ⚠️ Western Producer failed — 403 Client Error: Forbidden for url: https://www.producer.com/feed/
+- ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
 
 
 ---
