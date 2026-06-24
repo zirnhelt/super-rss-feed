@@ -16,7 +16,7 @@
     "limits.min_claude_score": {
       "file": "config/limits.json",
       "path": ["min_claude_score"],
-      "type": "int", "min": 10, "max": 30, "max_step": 3, "default": 20
+      "type": "int", "min": 10, "max": 30, "max_step": 3, "default": 13
     },
     "limits.cohere_prefilter_threshold": {
       "file": "config/limits.json",
@@ -120,35 +120,35 @@
 
     "feed_slots.max_slots.local": {
       "file": "config/feed_slots.json", "path": ["local", "max_slots"],
-      "type": "int", "min": 5, "max": 15, "max_step": 2, "default": 8
+      "type": "int", "min": 5, "max": 15, "max_step": 2, "default": 15
     },
     "feed_slots.max_slots.ai-tech": {
       "file": "config/feed_slots.json", "path": ["ai-tech", "max_slots"],
-      "type": "int", "min": 4, "max": 18, "max_step": 2, "default": 10
+      "type": "int", "min": 4, "max": 18, "max_step": 2, "default": 18
     },
     "feed_slots.max_slots.climate": {
       "file": "config/feed_slots.json", "path": ["climate", "max_slots"],
-      "type": "int", "min": 4, "max": 12, "max_step": 2, "default": 6
+      "type": "int", "min": 4, "max": 12, "max_step": 2, "default": 12
     },
     "feed_slots.max_slots.homelab": {
       "file": "config/feed_slots.json", "path": ["homelab", "max_slots"],
-      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 5
+      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 10
     },
     "feed_slots.max_slots.wellness": {
       "file": "config/feed_slots.json", "path": ["wellness", "max_slots"],
-      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 6
+      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 10
     },
     "feed_slots.max_slots.science": {
       "file": "config/feed_slots.json", "path": ["science", "max_slots"],
-      "type": "int", "min": 3, "max": 8, "max_step": 2, "default": 4
+      "type": "int", "min": 3, "max": 8, "max_step": 2, "default": 8
     },
     "feed_slots.max_slots.scifi": {
       "file": "config/feed_slots.json", "path": ["scifi", "max_slots"],
-      "type": "int", "min": 2, "max": 6, "max_step": 1, "default": 3
+      "type": "int", "min": 2, "max": 6, "max_step": 1, "default": 6
     },
     "feed_slots.max_slots.news": {
       "file": "config/feed_slots.json", "path": ["news", "max_slots"],
-      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 15
+      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 25
     }
   },
 
