@@ -3889,6 +3889,20 @@ def main():
     # Replaces enforce_local_priority + apply_source_preferences.
     scored_articles = apply_dimension_adjustments(scored_articles)
 
+    if scored_articles:
+        _scores = sorted(a.score for a in scored_articles)
+        _n = len(_scores)
+        _floor = LIMITS['min_claude_score']
+        _scrub_floor = LIMITS.get('haiku_scrub_floor', 15)
+        _above_floor = sum(1 for s in _scores if s >= _floor)
+        _above_scrub = sum(1 for s in _scores if s >= _scrub_floor)
+        print(
+            f"📊 Score dist: n={_n}  "
+            f"p25={_scores[_n // 4]}  p50={_scores[_n // 2]}  p75={_scores[3 * _n // 4]}  "
+            f"above_scrub_floor(>={_scrub_floor})={_above_scrub}  "
+            f"above_quality_floor(>={_floor})={_above_floor}"
+        )
+
     _dim_hists = _dimensional_histograms(scored_articles)
     run_stats['scoring'] = {
         'scored_count': len(scored_articles),
