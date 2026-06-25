@@ -1705,6 +1705,44 @@ def dedup_by_story_group(articles: List[Article]) -> List[Article]:
     return result
 
 
+def dedup_by_term_cluster(
+    articles: List[Article],
+    overlap_threshold: float,
+    max_per_cluster: int,
+) -> List[Article]:
+    """Greedy term-cluster dedup: cap articles that share high term overlap.
+
+    Catches breaking-news floods where many sources cover the same event with
+    different enough headlines to survive fuzzy dedup and story_group collapse
+    (e.g. inconsistent Claude labeling or null story_group).
+
+    Sorted by score descending. Each candidate is skipped if it matches
+    >= max_per_cluster already-selected articles at >= overlap_threshold
+    containment similarity.
+    """
+    sorted_arts = sorted(articles, key=lambda a: a.score, reverse=True)
+    selected: List[Article] = []
+    dropped = 0
+
+    for candidate in sorted_arts:
+        if not candidate.title_terms or len(candidate.title_terms) < 3:
+            selected.append(candidate)
+            continue
+        cluster_matches = sum(
+            1 for s in selected
+            if s.title_terms
+            and _story_overlap(candidate.title_terms, s.title_terms) >= overlap_threshold
+        )
+        if cluster_matches >= max_per_cluster:
+            dropped += 1
+        else:
+            selected.append(candidate)
+
+    if dropped:
+        print(f"🗞️  Term-cluster dedup: dropped {dropped} near-duplicate event articles")
+    return selected
+
+
 def categorize_article(title: str, description: str) -> Optional[str]:
     """Determine article category using keyword rules"""
     text = f"{title} {description}".lower()
@@ -4082,6 +4120,11 @@ def main():
         new_items = categorized[cat_key]
         diverse_new = apply_diversity_limits(new_items, cat_key)
         diverse_new = dedup_by_story_group(diverse_new)
+        diverse_new = dedup_by_term_cluster(
+            diverse_new,
+            overlap_threshold=LIMITS.get('story_cluster_overlap_threshold', 0.60),
+            max_per_cluster=LIMITS.get('max_per_story_cluster', 2),
+        )
 
         cat_cap = LIMITS.get('max_new_per_category', {}).get(cat_key)
         if cat_cap and len(diverse_new) > cat_cap:

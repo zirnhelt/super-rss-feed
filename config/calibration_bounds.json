@@ -111,6 +111,16 @@
       "path": ["haiku_scrub_floor"],
       "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 10
     },
+    "limits.story_cluster_overlap_threshold": {
+      "file": "config/limits.json",
+      "path": ["story_cluster_overlap_threshold"],
+      "type": "float", "min": 0.45, "max": 0.80, "max_step": 0.05, "default": 0.60
+    },
+    "limits.max_per_story_cluster": {
+      "file": "config/limits.json",
+      "path": ["max_per_story_cluster"],
+      "type": "int", "min": 1, "max": 5, "max_step": 1, "default": 2
+    },
 
     "source_preferences.kagi_search_result_limit": {
       "file": "config/source_preferences.json",
