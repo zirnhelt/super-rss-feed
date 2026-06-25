@@ -99,67 +99,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
-## 2026-06-17 (Wednesday)
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ **Pluralistic** failed — `HTTPSConnectionPool(host='pluralistic.net', port=443): Read timed out. (read timeout=10)`
-- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
-- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (6:03 PM Pacific)
-- ⚠️ **Ricochet Media (Brave)** failed — `HTTP 402`
-- ⚠️ **Nation Talk (Brave)** failed — `HTTP 402`
-- ⚠️ **Smart Home and Automation (Brave)** failed — `HTTP 402`
-- ⚠️ **Gear Gadgets Repair (Brave)** failed — `HTTP 402`
-- ⚠️ **First Peoples Cultural Council (Brave)** failed — `HTTP 402`
-- ⚠️ **3D Printing (Brave)** failed — `HTTP 402`
-- ⚠️ **AI ML Infrastructure (Brave)** failed — `HTTP 402`
-- ⚠️ **Clean Energy and EVs (Brave)** failed — `HTTP 402`
-- ⚠️ **Mesh Networking and LoRa (Brave)** failed — `HTTP 402`
-- ⚠️ **Williams Lake and BC Interior (Brave)** failed — `HTTP 402`
-- ⚠️ **Indigenous Technology and Innovation (Brave)** failed — `HTTP 402`
-- ⚠️ **Climate Science Research (Brave)** failed — `HTTP 402`
-- ⚠️ **BC Wildfire and Conservation (Brave)** failed — `HTTP 402`
-- ⚠️ **BC Working Lands (Brave)** failed — `HTTP 402`
-- ⚠️ **Rural BC Infrastructure (Brave)** failed — `HTTP 402`
-- ⚠️ **Indigenous Guardian Programs (Brave)** failed — `HTTP 402`
-- ⚠️ **AgTech and Resource Innovation (Brave)** failed — `HTTP 402`
-- ⚠️ **Community Media and Digital Storytelling (Brave)** failed — `HTTP 402`
-- ⚠️ **BC Wildlife and Backcountry (Brave)** failed — `HTTP 402`
-- ⚠️ **Cariboo Local Community (Brave)** failed — `HTTP 402`
-- ⚠️ **BC Rural Digital Equity (Brave)** failed — `HTTP 402`
-- ⚠️ **BC Conservation and Parks (Brave)** failed — `HTTP 402`
-- ⚠️ **Canadian Geographic (Brave)** failed — `HTTP 402`
-- ⚠️ **Health and Wellness (Brave)** failed — `HTTP 402`
-- ⚠️ **Examine.com (Brave)** failed — `HTTP 402`
-- ⚠️ **Evidence-Based Health Research (Brave)** failed — `HTTP 402`
-- ⚠️ **Longevity and Preventive Medicine (Brave)** failed — `HTTP 402`
-- ⚠️ **Science Fiction Books (Brave)** failed — `HTTP 402`
-- ⚠️ **Cariboo First Nations (Brave)** failed — `HTTP 402`
-- ⚠️ **Indigenous Data and Language Tech (Brave)** failed — `HTTP 402`
-- ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed — `HTTP 402`
-- ⚠️ **Canadian Arts Technology (Brave)** failed — `HTTP 402`
-- ⚠️ **Canadian Agriculture and Ranching (Brave)** failed — `HTTP 402`
-- ⚠️ **Precision Agriculture and AgTech (Brave)** failed — `HTTP 402`
-- ⚠️ Brave fallback failed for myeastkootenaynow.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/web/search?q=site%3Amyeastkootenaynow.com&count=10&freshness=pw
-- ⚠️ Brave fallback failed for civileats.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/web/search?q=site%3Acivileats.com&count=10&freshness=pw
-- ⚠️ Brave fallback failed for producer.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/web/search?q=site%3Aproducer.com&count=10&freshness=pw
-- ⚠️ Brave fallback failed for agweb.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/web/search?q=site%3Aagweb.com&count=10&freshness=pw
-- ⚠️ Brave fallback failed for wildfiretoday.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/web/search?q=site%3Awildfiretoday.com&count=10&freshness=pw
-- ⚠️ Brave fallback failed for openmedia.org: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/web/search?q=site%3Aopenmedia.org&count=10&freshness=pw
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -552,6 +491,58 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ How-To Geek failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 - ⚠️ Android Police failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 - ⚠️ MakeUseOf failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+
+---
+
+
+
+## Week of 2026-06-17–2026-06-17
+- 44 issues recorded
+- ⚠️ Pluralistic failed — HTTPSConnectionPool(host='pluralistic.net', port=443): Read timed out. (read timeout=10)
+- ⚠️ Western Producer failed — 403 Client Error: Forbidden for url: https://www.producer.com/feed/
+- ⚠️ Wildfire Today failed — 403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/
+- ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed
+- ⚠️ Ricochet Media (Brave) failed — HTTP 402
+- ⚠️ Nation Talk (Brave) failed — HTTP 402
+- ⚠️ Smart Home and Automation (Brave) failed — HTTP 402
+- ⚠️ Gear Gadgets Repair (Brave) failed — HTTP 402
+- ⚠️ First Peoples Cultural Council (Brave) failed — HTTP 402
+- ⚠️ 3D Printing (Brave) failed — HTTP 402
+- ⚠️ AI ML Infrastructure (Brave) failed — HTTP 402
+- ⚠️ Clean Energy and EVs (Brave) failed — HTTP 402
+- ⚠️ Mesh Networking and LoRa (Brave) failed — HTTP 402
+- ⚠️ Williams Lake and BC Interior (Brave) failed — HTTP 402
+- ⚠️ Indigenous Technology and Innovation (Brave) failed — HTTP 402
+- ⚠️ Climate Science Research (Brave) failed — HTTP 402
+- ⚠️ BC Wildfire and Conservation (Brave) failed — HTTP 402
+- ⚠️ BC Working Lands (Brave) failed — HTTP 402
+- ⚠️ Rural BC Infrastructure (Brave) failed — HTTP 402
+- ⚠️ Indigenous Guardian Programs (Brave) failed — HTTP 402
+- ⚠️ AgTech and Resource Innovation (Brave) failed — HTTP 402
+- ⚠️ Community Media and Digital Storytelling (Brave) failed — HTTP 402
+- ⚠️ BC Wildlife and Backcountry (Brave) failed — HTTP 402
+- ⚠️ Cariboo Local Community (Brave) failed — HTTP 402
+- ⚠️ BC Rural Digital Equity (Brave) failed — HTTP 402
+- ⚠️ BC Conservation and Parks (Brave) failed — HTTP 402
+- ⚠️ Canadian Geographic (Brave) failed — HTTP 402
+- ⚠️ Health and Wellness (Brave) failed — HTTP 402
+- ⚠️ Examine.com (Brave) failed — HTTP 402
+- ⚠️ Evidence-Based Health Research (Brave) failed — HTTP 402
+- ⚠️ Longevity and Preventive Medicine (Brave) failed — HTTP 402
+- ⚠️ Science Fiction Books (Brave) failed — HTTP 402
+- ⚠️ Cariboo First Nations (Brave) failed — HTTP 402
+- ⚠️ Indigenous Data and Language Tech (Brave) failed — HTTP 402
+- ⚠️ BC Forestry Tech and Silviculture (Brave) failed — HTTP 402
+- ⚠️ Canadian Arts Technology (Brave) failed — HTTP 402
+- ⚠️ Canadian Agriculture and Ranching (Brave) failed — HTTP 402
+- ⚠️ Precision Agriculture and AgTech (Brave) failed — HTTP 402
+- ⚠️ Brave fallback failed for myeastkootenaynow.com: 402 Client Error: Payment Required for url: https://api.search.brave
+- ⚠️ Brave fallback failed for civileats.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res
+- ⚠️ Brave fallback failed for producer.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/
+- ⚠️ Brave fallback failed for agweb.com: 402 Client Error: Payment Required for url: https://api.search.brave.com/res/v1/
+- ⚠️ Brave fallback failed for wildfiretoday.com: 402 Client Error: Payment Required for url: https://api.search.brave.com
+- ⚠️ Brave fallback failed for openmedia.org: 402 Client Error: Payment Required for url: https://api.search.brave.com/res
 
 
 ---

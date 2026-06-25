@@ -55,44 +55,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
 | 2026-06-19 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
 | 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **Pluralistic** failed | `HTTPSConnectionPool(host='pluralistic.net', port=443): Read timed out. (read timeout=10)` |
-| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
-| 2026-06-17 | 🌅 4:30 AM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Ricochet Media (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Nation Talk (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Smart Home and Automation (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Gear Gadgets Repair (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **3D Printing (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **AI ML Infrastructure (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Clean Energy and EVs (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Mesh Networking and LoRa (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Williams Lake and BC Interior (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Indigenous Technology and Innovation (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Climate Science Research (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Wildfire and Conservation (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Working Lands (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Rural BC Infrastructure (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Indigenous Guardian Programs (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **AgTech and Resource Innovation (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Community Media and Digital Storytelling (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Wildlife and Backcountry (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Cariboo Local Community (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Rural Digital Equity (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Conservation and Parks (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Canadian Geographic (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Health and Wellness (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Examine.com (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Evidence-Based Health Research (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Longevity and Preventive Medicine (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Science Fiction Books (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Cariboo First Nations (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Indigenous Data and Language Tech (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Canadian Arts Technology (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Canadian Agriculture and Ranching (Brave)** failed | `HTTP 402` |
-| 2026-06-17 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Brave)** failed | `HTTP 402` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -100,6 +62,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-23 | 🌙 evening | 35 | news:15(43%), wellness:6(17%), ai-tech:5(14%) |
+| 2026-06-22 | 🌅 morning | 26 | news:15(58%), wellness:6(23%), ai-tech:2(8%) |
+| 2026-06-21 | 🌅 morning | 22 | news:15(68%), ai-tech:3(14%), climate:2(9%) |
+| 2026-06-20 | 🌙 evening | 20 | news:15(75%), local:2(10%), wellness:2(10%) |
+| 2026-06-20 | 🔧 manual | 29 | news:15(52%), ai-tech:5(17%), wellness:3(10%) |
 | 2026-06-19 | 🌅 morning | 32 | news:15(47%), wellness:6(19%), ai-tech:5(16%) |
 | 2026-06-19 | 🔧 manual | 28 | news:15(54%), ai-tech:5(18%), local:3(11%) |
 | 2026-06-19 | 🔧 manual | 24 | news:15(62%), ai-tech:5(21%), wellness:2(8%) |
@@ -109,15 +76,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-19 | 🔧 manual | 28 | news:15(54%), ai-tech:5(18%), homelab:3(11%) |
 | 2026-06-19 | 🔧 manual | 24 | news:15(62%), ai-tech:3(12%), local:2(8%) |
 | 2026-06-18 | 🌙 evening | 35 | news:15(43%), ai-tech:5(14%), wellness:5(14%) |
-| 2026-06-17 | 🌅 morning | 16 | news:10(62%), ai-tech:2(12%), climate:2(12%) |
-| 2026-06-17 | 🔧 manual | 31 | news:15(48%), ai-tech:5(16%), local:3(10%) |
-| 2026-06-17 | 🔧 manual | 28 | news:15(54%), ai-tech:5(18%), wellness:5(18%) |
-| 2026-06-17 | 🌙 evening | 24 | news:15(62%), ai-tech:5(21%), homelab:2(8%) |
-| 2026-06-17 | 🔧 manual | 31 | news:15(48%), wellness:6(19%), ai-tech:5(16%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-24 07:54 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-25 07:56 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
