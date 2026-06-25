@@ -141,6 +141,7 @@ jobs:
           # secret-scanning push protection.
           REVERSED_TOKEN=$(echo -n "${{ secrets.REVIEW_PAT }}" | rev)
           sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" review.html > output/review.html
+          cp index.html output/
           cp curated-feeds.opml output/
 
           # Copy weekly report HTML files so they persist across deploys
