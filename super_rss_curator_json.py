@@ -67,6 +67,18 @@ def _build_prescore_keywords() -> frozenset:
 
 PRESCORE_KEYWORDS = _build_prescore_keywords()
 
+def _build_all_podcast_keywords(schedule_config: Dict) -> frozenset:
+    """Collect all keyword strings across all podcast themes (lowercased)."""
+    keywords = set()
+    for cfg in schedule_config.get('schedule', {}).values():
+        for kw in cfg.get('keywords', []):
+            keywords.add(kw.lower())
+    return frozenset(keywords)
+
+def _article_matches_podcast_keywords(article: 'Article', keywords: frozenset) -> bool:
+    text = f"{article.title} {article.description or ''}".lower()
+    return any(kw in text for kw in keywords)
+
 def min_score_for_category(category: str) -> int:
     """Per-category quality floor, falling back to the global min_claude_score."""
     return LIMITS.get('min_score_by_category', {}).get(category or 'news', LIMITS['min_claude_score'])
@@ -557,23 +569,27 @@ def load_podcast_cache():
         return []
 
 
-def save_podcast_cache(articles):
-    """Save articles to weekly podcast cache
+def save_podcast_cache(articles, main_feed_quality: bool = True):
+    """Save articles to weekly podcast cache.
 
     Args:
-        articles: List of Article objects to cache
+        articles: List of Article objects to cache.
+        main_feed_quality: True if articles passed all main-feed filters (safe for
+            bootstrap). False for podcast-only candidates captured before haiku scrub
+            or quality floor. Existing False entries are upgraded to True when the
+            same article later passes main-feed quality.
     """
     try:
-        # Load existing cache
         existing = load_podcast_cache()
 
-        # Build set of existing URLs to avoid duplicates
-        existing_urls = {item['link'] for item in existing}
+        # Index by link for O(1) lookup and in-place upgrade
+        existing_by_link: Dict[str, Dict] = {item['link']: item for item in existing}
 
-        # Add new articles
         for article in articles:
-            if article.link not in existing_urls and not _is_aggregator_url(article.link):
-                existing.append({
+            if _is_aggregator_url(article.link):
+                continue
+            if article.link not in existing_by_link:
+                entry = {
                     'link': article.link,
                     'title': article.title,
                     'description': article.description,
@@ -589,17 +605,21 @@ def save_podcast_cache(articles):
                     'local': getattr(article, 'local', 0),
                     'content_type': getattr(article, 'content_type', None),
                     'category': article.category,
-                    'image': getattr(article, 'image', None)
-                })
+                    'image': getattr(article, 'image', None),
+                    'main_feed_quality': main_feed_quality,
+                }
+                existing.append(entry)
+                existing_by_link[article.link] = entry
+            elif main_feed_quality and not existing_by_link[article.link].get('main_feed_quality', False):
+                existing_by_link[article.link]['main_feed_quality'] = True
 
-        # Sort by pub_date descending
         existing.sort(key=lambda x: x['pub_date'], reverse=True)
 
-        # Save back to file
         with open(PODCAST_CACHE_FILE, 'w', encoding='utf-8') as f:
             json.dump(existing, f, indent=2, ensure_ascii=False)
 
-        print(f"💾 Podcast cache updated: {len(existing)} articles (7-day window)")
+        label = 'main-feed' if main_feed_quality else 'podcast-candidate'
+        print(f"💾 Podcast cache updated: {len(existing)} articles ({label}, 7-day window)")
 
     except Exception as e:
         print(f"⚠️ Failed to save podcast cache: {e}")
@@ -3889,6 +3909,31 @@ def main():
     # Replaces enforce_local_priority + apply_source_preferences.
     scored_articles = apply_dimension_adjustments(scored_articles)
 
+    # Podcast candidate branch: capture theme-relevant articles BEFORE destructive
+    # main-feed filters (haiku scrub, content-type filter, quality floor).
+    # Articles killed by those filters may still score 90+ on a podcast theme —
+    # e.g. a CBC recap of wildfire news, or a niche local story below the quality floor.
+    # The rescue mechanism in generate_podcast_feed() will pull them in if they earn
+    # a strong theme score here.
+    schedule_config = load_podcast_schedule()
+    podcast_candidates: List[Article] = []
+    if schedule_config and schedule_config.get('enabled', False):
+        _pod_keywords = _build_all_podcast_keywords(schedule_config)
+        _pod_min = LIMITS.get('podcast_candidate_min_score', 5)
+        podcast_candidates = [
+            a for a in scored_articles
+            if a.score >= _pod_min
+            and getattr(a, 'content_type', None) != 'sponsored'
+            and not _is_aggregator_url(a.link)
+            and (
+                _article_matches_podcast_keywords(a, _pod_keywords)
+                or getattr(a, 'local', 0) >= 25
+            )
+        ]
+        print(f"🎙️  Podcast candidate branch: {len(podcast_candidates)} articles "
+              f"(from {len(scored_articles)} scored, before scrub/quality-floor)")
+        save_podcast_cache(podcast_candidates, main_feed_quality=False)
+
     if scored_articles:
         _scores = sorted(a.score for a in scored_articles)
         _n = len(_scores)
@@ -4001,12 +4046,11 @@ def main():
     # Save quality articles to weekly podcast cache
     save_podcast_cache(quality_articles)
 
-    # Score new articles for all themes at ingest time so daily podcast generation
-    # is a pure cache read with zero additional API calls (Options B + D).
-    # First, flush any completed async batch from the previous run into the cache.
-    schedule_config = load_podcast_schedule()
+    # Score all themes at ingest using the broader podcast candidate pool (not just
+    # quality_articles) so articles captured before the scrub/quality-floor also get
+    # theme scores. The rescue mechanism in generate_podcast_feed() then picks them up.
     process_pending_theme_batch(api_key)
-    score_all_themes_at_ingest(quality_articles, schedule_config, api_key)
+    score_all_themes_at_ingest(podcast_candidates or quality_articles, schedule_config, api_key)
 
     # Snapshot per-theme score distributions for the calibration agent. This reflects
     # the full cumulative cache (not just this run's deltas), which is what matters
@@ -4415,6 +4459,12 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     for item in cached:
         link = item.get('link', '')
         if not link:
+            skipped += 1
+            continue
+        # Skip podcast-only candidates — bootstrap should only repopulate feeds with
+        # articles that passed the full main-feed quality pipeline. Old cache entries
+        # without the flag default to True for backward compatibility.
+        if not item.get('main_feed_quality', True):
             skipped += 1
             continue
         try:
