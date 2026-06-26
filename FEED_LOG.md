@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-06-26 (Friday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1318** → dedup **773** → new **608** → quality **50**
+- Mix: local:5(10%), ai-tech:5(10%), climate:2(4%), homelab:1(2%), wellness:10(20%), scifi:2(4%), news:25(50%)
+- Feeds: local:13, ai-tech:27, climate:11, homelab:6, wellness:37, science:1, scifi:7, news:100
+- Images: 50/50
+- Topic queries: 342 articles from 34 queries
+- API calls: Claude:8, Cohere:25, Brave:41, Kagi:55 · 13,218 Claude tokens · est. cost $0.4801
+
+
+---
+
+
+
 ## 2026-06-25 (Thursday)
 
 #### 🌙 8:30 PM Pacific
@@ -208,21 +223,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 24/24
 - Topic queries: 285 articles from 34 queries
 - API calls: Claude:5, Cohere:23, Brave:41, Kagi:40 · 8,383 Claude tokens · est. cost $0.3572
-
-
----
-
-
-
-## 2026-06-18 (Thursday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1239** → dedup **799** → new **571** → quality **35**
-- Mix: local:4(11%), ai-tech:5(14%), climate:2(6%), homelab:2(6%), wellness:5(14%), scifi:2(6%), news:15(43%)
-- Feeds: local:30, ai-tech:76, climate:27, homelab:18, wellness:74, science:0, scifi:11, news:378
-- Images: 35/35
-- Topic queries: 307 articles from 34 queries
-- API calls: Claude:7, Cohere:25, Brave:42, Kagi:49 · 11,475 Claude tokens · est. cost $0.4324
 
 
 ---
@@ -1738,6 +1738,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 5 runs · avg fetched 1375 · avg quality 26
 - Dominant: **news** (54%) local:7 / ai-tech:22 / climate:7 / homelab:5 / wellness:17 / scifi:2 / news:70
 - API calls: Claude:25, Cohere:123, Brave:210, Kagi:212 · est. cost $1.8895
+
+
+---
+
+
+
+## Week of 2026-06-18–2026-06-18
+- 1 runs · avg fetched 1239 · avg quality 35
+- Dominant: **news** (43%) local:4 / ai-tech:5 / climate:2 / homelab:2 / wellness:5 / scifi:2 / news:15
+- API calls: Claude:7, Cohere:25, Brave:42, Kagi:49 · est. cost $0.4324
 
 
 ---
