@@ -6,55 +6,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 <!-- AUTO:START -->
 ## Feed Errors — Last 7 Days
 
-| Date | Slot | Issue | Detail |
-|------|------|-------|--------|
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **BC Gov News** failed | `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutErro` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
-| 2026-06-19 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
+_No errors recorded in the last 7 days._
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -62,24 +14,20 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-06-27 | 🌙 evening | 49 | news:25(51%), ai-tech:8(16%), wellness:8(16%) |
+| 2026-06-26 | 🌅 morning | 50 | news:25(50%), wellness:10(20%), local:5(10%) |
+| 2026-06-25 | 🌙 evening | 54 | news:25(46%), ai-tech:10(19%), wellness:10(19%) |
 | 2026-06-24 | 🌙 evening | 33 | news:15(45%), wellness:6(18%), ai-tech:5(15%) |
 | 2026-06-23 | 🌙 evening | 35 | news:15(43%), wellness:6(17%), ai-tech:5(14%) |
 | 2026-06-22 | 🌅 morning | 26 | news:15(58%), wellness:6(23%), ai-tech:2(8%) |
 | 2026-06-21 | 🌅 morning | 22 | news:15(68%), ai-tech:3(14%), climate:2(9%) |
 | 2026-06-20 | 🌙 evening | 20 | news:15(75%), local:2(10%), wellness:2(10%) |
 | 2026-06-20 | 🔧 manual | 29 | news:15(52%), ai-tech:5(17%), wellness:3(10%) |
-| 2026-06-19 | 🌅 morning | 32 | news:15(47%), wellness:6(19%), ai-tech:5(16%) |
-| 2026-06-19 | 🔧 manual | 28 | news:15(54%), ai-tech:5(18%), local:3(11%) |
-| 2026-06-19 | 🔧 manual | 24 | news:15(62%), ai-tech:5(21%), wellness:2(8%) |
-| 2026-06-19 | 🔧 manual | 22 | news:15(68%), ai-tech:5(23%), wellness:2(9%) |
-| 2026-06-19 | 🔧 manual | 18 | news:15(83%), wellness:2(11%), ai-tech:1(6%) |
-| 2026-06-19 | 🔧 manual | 18 | news:15(83%), wellness:2(11%), ai-tech:1(6%) |
-| 2026-06-19 | 🔧 manual | 28 | news:15(54%), ai-tech:5(18%), homelab:3(11%) |
-| 2026-06-19 | 🔧 manual | 24 | news:15(62%), ai-tech:3(12%), local:2(8%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-26 08:03 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-27 07:27 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
