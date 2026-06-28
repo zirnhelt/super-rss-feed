@@ -1784,38 +1784,13 @@ def categorize_article(title: str, description: str) -> Optional[str]:
 
 
 def semantic_dedup_articles(articles: List[Article]) -> List[Article]:
-    """Extra dedup pass using Cohere embeddings. No-op when Cohere is disabled.
+    """Passthrough — embedding-based dedup removed.
 
-    Runs after the URL-hash / fuzzy / term-set pass so it only sees the already-
-    reduced candidate set (~200-400 articles), keeping embedding costs minimal.
-    Articles with cosine similarity >= 0.92 are considered the same story; the
-    first (highest-priority) article wins, matching the existing dedup behaviour.
+    URL-hash + fuzzy-title + term-set dedup already handles near-duplicates.
+    The 0.92 cosine threshold caught almost nothing on the already-reduced
+    candidate set and cost ~6 Cohere Embed calls per run.
     """
-    if not cohere_integration.is_enabled():
-        return articles
-
-    embeddings = cohere_integration.embed_articles(articles)
-    if not embeddings:
-        return articles
-
-    THRESHOLD = 0.92
-    unique: List[Article] = []
-    seen: List[List[float]] = []
-
-    for article in articles:
-        emb = embeddings.get(article.url_hash)
-        if emb is None:
-            unique.append(article)
-            continue
-        is_dup = any(cohere_integration.cosine_sim(emb, s) >= THRESHOLD for s in seen)
-        if not is_dup:
-            unique.append(article)
-            seen.append(emb)
-
-    dropped = len(articles) - len(unique)
-    if dropped:
-        print(f"🔄 Semantic dedup: removed {dropped} additional near-duplicate articles")
-    return unique
+    return articles
 
 
 def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
@@ -1853,8 +1828,8 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
             article.relevance = entry.get('relevance', entry['score'])
             article.local = entry.get('local', 0)
             article.content_type = entry.get('content_type')
+            article.story_group = entry.get('story_group')
             article.cohere_scored = True
-            # story_group is intentionally not restored — clustering is run-scoped
             scored_articles.append(article)
         else:
             uncached.append(article)
@@ -1887,12 +1862,20 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
 
     _scored_cache.save(cache)
 
-    # Assign story groups for all articles in this run via embedding clusters.
-    # This replaces Claude's story_group string assignment; downstream
-    # dedup_by_story_group() is unchanged and works the same way.
-    print(f"   🔗 Clustering story groups for {len(scored_articles)} articles...")
-    embeddings = cohere_integration.embed_articles(scored_articles)
-    cohere_integration.cluster_story_groups(scored_articles, embeddings)
+    # Assign story groups only for newly-scored articles. Cached articles restore
+    # their story_group from the cache entry above (story_group: None means no
+    # cluster was found last time, which is fine). Embedding only the uncached
+    # subset avoids re-embedding the full ~500-article set every run.
+    if uncached:
+        print(f"   🔗 Clustering story groups for {len(uncached)} new articles...")
+        embeddings = cohere_integration.embed_articles(uncached)
+        cohere_integration.cluster_story_groups(uncached, embeddings)
+        # Persist the newly-assigned story_group labels back to the cache.
+        updated_cache = _scored_cache.load()
+        for article in uncached:
+            if article.url_hash in updated_cache and article.story_group:
+                updated_cache[article.url_hash]['story_group'] = article.story_group
+        _scored_cache.save(updated_cache)
 
     return scored_articles
 
@@ -3901,7 +3884,7 @@ def main():
     }
 
     if kagi_key := os.environ.get('KAGI_API_KEY', ''):
-        _kagi_enrich_articles(new_articles, kagi_key, prescore_keywords=PRESCORE_KEYWORDS)
+        _kagi_enrich_articles(new_articles, kagi_key, max_calls=10, prescore_keywords=PRESCORE_KEYWORDS)
 
     scored_articles = score_articles_with_claude(new_articles, api_key)
 

@@ -257,6 +257,56 @@ def get_calibration_changes(today: str) -> list:
 
 
 # ---------------------------------------------------------------------------
+# API cost summary from FEED_LOG.md
+# ---------------------------------------------------------------------------
+
+def get_api_cost_summary() -> dict:
+    """Parse FEED_LOG.md for the past 7 days and aggregate API call counts and costs."""
+    log_path = Path("FEED_LOG.md")
+    if not log_path.exists():
+        return {}
+
+    content = log_path.read_text("utf-8")
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
+
+    vendor_totals: dict = defaultdict(int)
+    total_tokens = 0
+    total_cost = 0.0
+    run_costs: list = []
+
+    for m_day in re.finditer(
+        r"^## (\d{4}-\d{2}-\d{2}[^\n]*)\n(.*?)(?=^## |\Z)",
+        content, re.MULTILINE | re.DOTALL,
+    ):
+        date_key = re.match(r"\d{4}-\d{2}-\d{2}", m_day.group(1))
+        if not date_key or date_key.group() < cutoff:
+            continue
+
+        day_text = m_day.group(2)
+        for m in re.finditer(
+            r"API calls:\s*([\w:,\s]+?)\s*·\s*([\d,]+)\s*Claude tokens\s*·\s*est\. cost \$([\d.]+)",
+            day_text,
+        ):
+            for vm in re.finditer(r"(\w+):(\d+)", m.group(1)):
+                vendor_totals[vm.group(1).lower()] += int(vm.group(2))
+            total_tokens += int(m.group(2).replace(",", ""))
+            cost = float(m.group(3))
+            total_cost += cost
+            run_costs.append(cost)
+
+    if not run_costs:
+        return {}
+
+    return {
+        "vendor_totals": dict(vendor_totals),
+        "total_tokens": total_tokens,
+        "total_cost": round(total_cost, 4),
+        "avg_cost_per_run": round(total_cost / len(run_costs), 4),
+        "run_count": len(run_costs),
+    }
+
+
+# ---------------------------------------------------------------------------
 # Quality review summaries (score_scrub_report.py / corpus_alignment_report.py)
 # ---------------------------------------------------------------------------
 
@@ -411,6 +461,7 @@ def build_content_html(
     quality_review: dict,
     actions: list,
     nts_benchmarks: list,
+    api_cost: dict,
 ) -> str:
     parts = [f"<p>{p.strip()}</p>" for p in narrative.split("\n\n") if p.strip()]
     html = "\n".join(parts)
@@ -445,6 +496,7 @@ def build_content_html(
 
     html += build_noise_signal_html(nts_benchmarks)
     html += build_quality_review_html(quality_review)
+    html += build_api_cost_html(api_cost)
     html += build_calibration_html(calibration_changes)
     html += build_actions_html(actions)
 
@@ -514,6 +566,45 @@ def build_calibration_html(calibration_changes: list) -> str:
         html += (
             f"<tr><td>{c.get('knob', '?')}</td><td>{c.get('old_value')}</td>"
             f"<td>{c.get('new_value')}</td><td>{c.get('rationale', '')}</td></tr>\n"
+        )
+    html += "</tbody></table>"
+    return html
+
+
+def build_api_cost_html(api_cost: dict) -> str:
+    if not api_cost:
+        return ""
+
+    VENDOR_ORDER = ["claude", "cohere", "brave", "kagi"]
+    FLAT_RATES = {"cohere": 0.002, "brave": 0.0, "kagi": 0.0075}
+
+    vendor_totals = api_cost.get("vendor_totals", {})
+    run_count = api_cost.get("run_count", 1)
+
+    html = "\n<h3>API Cost Review</h3>\n"
+    html += (
+        f"<p>{run_count} run(s) this week &middot; "
+        f"total est. cost <strong>${api_cost['total_cost']:.4f}</strong> &middot; "
+        f"avg <strong>${api_cost['avg_cost_per_run']:.4f}</strong>/run &middot; "
+        f"{api_cost['total_tokens']:,} Claude tokens</p>\n"
+    )
+
+    html += "<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>\n"
+    ordered = [v for v in VENDOR_ORDER if v in vendor_totals]
+    ordered += [v for v in sorted(vendor_totals) if v not in VENDOR_ORDER]
+    for vendor in ordered:
+        calls = vendor_totals[vendor]
+        avg = round(calls / run_count, 1)
+        if vendor == "claude":
+            rate_str = "token-based"
+            cost_str = "—"
+        else:
+            rate = FLAT_RATES.get(vendor, 0.0)
+            rate_str = f"${rate:.4f}/call" if rate else "free"
+            cost_str = f"${calls * rate:.4f}" if rate else "$0"
+        html += (
+            f"<tr><td>{vendor.title()}</td><td>{calls:,}</td>"
+            f"<td>{avg}</td><td>{rate_str}</td><td>{cost_str}</td></tr>\n"
         )
     html += "</tbody></table>"
     return html
@@ -630,6 +721,11 @@ def main():
     quality_review = get_quality_review()
     print(f"     scrub={'scrub' in quality_review}, alignment={'alignment' in quality_review}")
 
+    print("  → Aggregating API cost data from FEED_LOG.md...")
+    api_cost = get_api_cost_summary()
+    if api_cost:
+        print(f"     {api_cost['run_count']} run(s), total est. cost ${api_cost['total_cost']:.4f}")
+
     print("  → Building actions taken / rollback table...")
     actions = []
     if discovery_actions:
@@ -660,7 +756,7 @@ def main():
     content_html = build_content_html(
         narrative, stats, new_feeds, errors, discovery,
         calibration_changes, quality_review, actions,
-        nts_benchmarks,
+        nts_benchmarks, api_cost,
     )
 
     # JSON Feed article item
