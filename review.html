@@ -3,224 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Article Review</title>
+    <title>Near-Miss Article Review</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 24px 16px;
+            padding: 20px 14px 48px;
         }
 
-        .container {
+        .page-shell { max-width: 1100px; margin: 0 auto; }
+
+        /* ── Page header ── */
+        .page-header {
             background: white;
             border-radius: 16px;
-            padding: 32px;
-            max-width: 720px;
-            margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 20px 24px 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
+        .back-link { font-size: 0.82em; color: #667eea; text-decoration: none; display: inline-block; margin-bottom: 8px; }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-size: 1.5em; color: #667eea; margin-bottom: 2px; }
+        .subtitle { color: #777; font-size: 0.88em; margin-bottom: 10px; }
+        .progress-counter { font-size: 0.82em; color: #999; }
 
-        h1 { font-size: 1.8em; color: #667eea; margin-bottom: 4px; }
-        .subtitle { color: #666; font-size: 0.95em; margin-bottom: 24px; }
-
-        /* ── Progress bar ── */
-        #progress-section { margin-bottom: 20px; }
-        .progress-label { font-size: 0.9em; color: #666; margin-bottom: 6px; }
-        .progress-bar-track {
-            height: 6px; background: #eee; border-radius: 3px; overflow: hidden;
-        }
-        .progress-bar-fill {
-            height: 100%; background: #667eea; border-radius: 3px;
-            transition: width 0.3s ease;
+        /* ── Article grid ── */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         /* ── Article card ── */
-        #article-card {
-            border: 1px solid #e8e8e8; border-radius: 12px;
-            padding: 20px; margin-bottom: 20px;
-            background: #fafafa;
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid #e0e0e0;
+            border-top: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 13px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: border-left-color 0.2s ease;
         }
-        .article-meta {
-            display: flex; flex-wrap: wrap; gap: 8px;
-            align-items: center; margin-bottom: 8px;
-        }
+        .article-card.rating-good        { border-left-color: #43a047; }
+        .article-card.rating-interesting { border-left-color: #2196f3; }
+        .article-card.rating-bad         { border-left-color: #e53935; }
+        .article-card.rating-skip        { border-left-color: #bbb; }
+
+        /* ── Card header ── */
+        .card-header { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+
         .badge {
-            font-size: 0.75em; font-weight: 600; padding: 2px 8px;
-            border-radius: 12px; white-space: nowrap;
+            font-size: 0.70em; font-weight: 600; padding: 2px 6px;
+            border-radius: 9px; white-space: nowrap;
         }
-        .badge-category { background: #e8effe; color: #667eea; }
-        .badge-source   { background: #f0f0f0; color: #555; font-weight: normal; }
-        .badge-date     { color: #aaa; font-size: 0.78em; }
+        .badge-bucket-border     { background: #fff9e6; color: #8a6a00; border: 1px solid #ffd54f; }
+        .badge-bucket-low        { background: #fff3e0; color: #7a3e00; border: 1px solid #ffb74d; }
+        .badge-bucket-unfiltered { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
+        .badge-category          { background: #e8effe; color: #667eea; }
+        .badge-source            { background: #f0f0f0; color: #555; font-weight: normal; }
+        .badge-date              { color: #aaa; font-size: 0.70em; font-weight: normal; }
 
-        .article-title { font-size: 1.15em; font-weight: 700; margin-bottom: 8px; }
-        .article-title a { color: #333; text-decoration: none; }
-        .article-title a:hover { color: #667eea; text-decoration: underline; }
+        /* ── Card title ── */
+        .card-title { font-size: 0.93em; font-weight: 700; line-height: 1.4; }
+        .card-title a {
+            color: #222; text-decoration: none;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-title.expanded a { display: block; -webkit-line-clamp: unset; overflow: visible; }
+        .card-title a:hover { color: #667eea; }
+        .expand-btn {
+            background: none; border: none; color: #667eea; font-size: 0.75em;
+            cursor: pointer; padding: 0; margin-left: 4px; white-space: nowrap;
+        }
+        .expand-btn:hover { text-decoration: underline; }
 
-        .score-row {
-            display: flex; gap: 12px; margin-bottom: 10px;
-            font-size: 0.8em; color: #777;
-        }
-        .score-bar-wrap { flex: 1; display: flex; align-items: center; gap: 6px; }
-        .score-bar-track {
-            flex: 1; height: 6px; background: #eee; border-radius: 3px; overflow: hidden;
-        }
-        .score-bar-fill {
-            height: 100%; border-radius: 3px;
-            background: linear-gradient(to right, #e53935, #fdd835, #43a047);
+        /* ── Card meta ── */
+        .card-meta { font-size: 0.73em; color: #aaa; }
+
+        /* ── Description ── */
+        .card-desc {
+            font-size: 0.82em; color: #555; display: none;
+            padding: 6px 0 2px; border-top: 1px solid #f0f0f0;
         }
 
-        .article-desc {
-            font-size: 0.9em; color: #555; margin-bottom: 12px;
-            max-height: 80px; overflow: hidden; position: relative;
+        /* ── Day chips ── */
+        .card-days { display: flex; flex-wrap: wrap; gap: 4px; }
+
+        .day-chip {
+            display: inline-flex; flex-direction: column; align-items: center;
+            padding: 4px 7px; border-radius: 7px; font-size: 0.72em; line-height: 1.25;
+            flex: 1 1 56px; min-width: 56px; max-width: 78px; text-align: center;
         }
-        .article-desc.expanded { max-height: none; }
-        .show-more {
-            background: none; border: none; color: #667eea; cursor: pointer;
-            font-size: 0.85em; padding: 0; margin-bottom: 12px;
+        .chip-unselected {
+            background: white; border: 1px solid #ddd; color: #777; cursor: pointer;
         }
+        .chip-unselected:hover { border-color: #667eea; color: #667eea; }
+        .chip-selected {
+            background: #667eea; border: 1px solid #667eea; color: white;
+        }
+        .chip-top-row { display: flex; align-items: center; justify-content: center; gap: 2px; width: 100%; }
+        .chip-day   { font-weight: 700; }
+        .chip-theme { font-size: 0.82em; opacity: 0.82; display: block; }
+        .chip-x {
+            background: none; border: none; color: rgba(255,255,255,0.75);
+            font-size: 1.1em; cursor: pointer; padding: 0; line-height: 1; flex-shrink: 0;
+        }
+        .chip-x:hover { color: white; }
 
         /* ── Rating buttons ── */
-        .rating-section { margin-bottom: 12px; }
-        .rating-label { font-size: 0.82em; font-weight: 600; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
-        .rating-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
-
+        .card-rating-row { display: flex; gap: 4px; flex-wrap: wrap; }
         .btn-rate {
-            flex: 1; min-width: 80px; padding: 10px 8px;
-            border: 2px solid transparent; border-radius: 8px;
-            font-size: 0.9em; font-weight: 600; cursor: pointer;
-            transition: all 0.15s ease; background: #f5f5f5; color: #555;
+            flex: 1; min-width: 52px; padding: 6px 4px;
+            border: 2px solid transparent; border-radius: 6px;
+            font-size: 0.76em; font-weight: 600; cursor: pointer;
+            background: #f5f5f5; color: #666;
+            transition: all 0.12s ease;
         }
-        .btn-rate:hover { transform: translateY(-1px); }
-        .btn-rate.selected-good   { background: #e8f5e9; border-color: #43a047; color: #2e7d32; }
-        .btn-rate.selected-bad    { background: #ffebee; border-color: #e53935; color: #c62828; }
-        .btn-rate.selected-skip   { background: #f5f5f5; border-color: #bbb;    color: #555; }
-
-        /* ── Day chip row ── */
-        .day-chips-label { font-size: 0.82em; font-weight: 600; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
-        .day-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-        .day-chip {
-            padding: 6px 10px; border: 1px solid #ddd; border-radius: 8px;
-            background: white; color: #666; font-size: 0.82em; cursor: pointer;
-            transition: all 0.15s ease; text-align: center; line-height: 1.3;
-        }
-        .day-chip:hover { border-color: #667eea; color: #667eea; }
-        .day-chip.selected-chip { background: #667eea; border-color: #667eea; color: white; font-weight: 600; }
-        .chip-day { display: block; }
-        .chip-theme { display: block; font-size: 0.8em; opacity: 0.72; font-weight: 400; }
-        .day-chip.selected-chip .chip-theme { opacity: 0.85; }
+        .btn-rate:hover { opacity: 0.85; }
+        .btn-good.active        { background: #e8f5e9; border-color: #43a047; color: #2e7d32; }
+        .btn-interesting.active { background: #e3f2fd; border-color: #2196f3; color: #1565c0; }
+        .btn-bad.active         { background: #ffebee; border-color: #e53935; color: #c62828; }
+        .btn-skip.active        { background: #f5f5f5; border-color: #bbb;    color: #555; }
 
         /* ── Note field ── */
-        .note-wrap { margin-top: 10px; }
-        .note-wrap textarea {
-            width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
-            font-size: 0.85em; resize: vertical; min-height: 44px; font-family: inherit;
+        .card-note textarea {
+            width: 100%; padding: 5px 8px; border: 1px solid #ddd; border-radius: 5px;
+            font-size: 0.80em; resize: vertical; min-height: 36px; font-family: inherit; color: #444;
         }
 
-        /* ── Navigation ── */
-        .nav-buttons { display: flex; justify-content: space-between; align-items: center; }
-        .btn { padding: 10px 20px; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+        /* ── Loading / empty / error ── */
+        .loading { text-align: center; padding: 40px; color: white; font-size: 1.05em; }
+        .empty-box, .error-box {
+            background: white; border-radius: 12px; padding: 24px;
+            text-align: center; color: #666; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 14px;
+        }
+        .error-box { text-align: left; border-left: 4px solid #e53935; color: #c62828; }
+
+        /* ── Submit / done sections ── */
+        .submit-box, .done-box {
+            background: white; border-radius: 16px; padding: 18px 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .done-box { text-align: center; }
+        .done-box h2 { color: #43a047; margin-bottom: 8px; }
+        .done-box p { color: #666; }
+
+        .btn {
+            padding: 11px 22px; border-radius: 8px; font-size: 0.92em;
+            font-weight: 600; cursor: pointer; border: none; transition: all 0.2s;
+        }
         .btn-primary { background: #667eea; color: white; }
         .btn-primary:hover { background: #5568d3; }
-        .btn-secondary { background: #f0f0f0; color: #555; }
-        .btn-secondary:hover { background: #e0e0e0; }
-        .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+        .submit-btn { width: 100%; padding: 13px; }
 
-        /* ── Done state ── */
-        #done-section { display: none; text-align: center; padding: 20px 0; }
-        #done-section h2 { color: #43a047; margin-bottom: 8px; }
-
-        /* ── Submit section ── */
-        #submit-section { margin-top: 16px; display: none; }
-        .status-msg { font-size: 0.85em; margin-top: 8px; color: #666; }
-        .status-msg.error { color: #c62828; }
+        .status-msg { font-size: 0.82em; margin-top: 8px; color: #666; }
+        .status-msg.error   { color: #c62828; }
         .status-msg.success { color: #2e7d32; }
-
-        /* ── Loading / error states ── */
-        .loading { text-align: center; padding: 40px; color: #999; }
-        .error-box { background: #ffebee; border-left: 4px solid #e53935; color: #c62828; padding: 12px; border-radius: 6px; margin: 16px 0; }
-
-        /* ── Back to home link ── */
-        .back-link { font-size: 0.85em; color: #667eea; text-decoration: none; display: inline-block; margin-bottom: 16px; }
-        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-<div class="container">
-    <a href="index.html" class="back-link">← Back to feeds</a>
-    <h1>📋 Daily Article Review</h1>
-    <p class="subtitle">Rate each article and tag it to the best podcast day. Your feedback shapes tomorrow's feed.</p>
+<div class="page-shell">
 
-    <!-- Main review UI -->
-    <div id="review-pane">
-        <div id="progress-section">
-            <div class="progress-label" id="progress-label">Loading…</div>
-            <div class="progress-bar-track">
-                <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
-            </div>
-        </div>
+    <div class="page-header">
+        <a href="index.html" class="back-link">← Back to feeds</a>
+        <h1>📋 Near-Miss Article Review</h1>
+        <p class="subtitle">Articles that almost made the cut. Tag to a podcast day, mark as interesting, or flag as bad.</p>
+        <div class="progress-counter" id="progress-counter"></div>
+    </div>
 
-        <div id="article-card">
-            <div class="loading">Fetching today's review articles…</div>
-        </div>
+    <div id="loading-msg" class="loading">Fetching near-miss articles…</div>
+    <div id="empty-msg"   class="empty-box" style="display:none">No near-miss articles today — all scored above the midpoint. Check back after the next pipeline run.</div>
+    <div id="error-msg"   class="error-box" style="display:none"></div>
 
-        <div class="nav-buttons">
-            <button class="btn btn-secondary" id="btn-prev" onclick="goTo(currentIndex - 1)" disabled>← Prev</button>
-            <button class="btn btn-primary"   id="btn-next" onclick="goNext()">Next →</button>
-        </div>
+    <div class="article-grid" id="article-grid"></div>
 
-        <div id="submit-section">
-            <button class="btn btn-primary" style="width:100%;padding:14px;" onclick="submitFeedback()">
-                💾 Save Ratings to GitHub
-            </button>
+    <div id="submit-section" style="display:none; margin-bottom:14px;">
+        <div class="submit-box">
+            <button class="btn btn-primary submit-btn" onclick="submitFeedback()">💾 Save Ratings to GitHub</button>
             <div class="status-msg" id="submit-status"></div>
         </div>
     </div>
 
-    <div id="done-section">
-        <h2>✅ All done for today!</h2>
-        <p style="color:#666; margin-bottom:16px;">Come back tomorrow for a fresh batch of articles.</p>
-        <a href="index.html" class="btn btn-primary" style="text-decoration:none; display:inline-block;">View Feeds</a>
+    <div id="done-section" style="display:none; margin-bottom:14px;">
+        <div class="done-box">
+            <h2>✅ All done for today!</h2>
+            <p>Come back tomorrow for a fresh batch.</p>
+            <a href="index.html" class="btn btn-primary" style="text-decoration:none; display:inline-block; margin-top:12px;">View Feeds</a>
+        </div>
     </div>
 
 </div>
-
 <script>
 // ── Config ──────────────────────────────────────────────────────────────────
-const REPO_OWNER   = 'zirnhelt';
-const REPO_NAME    = 'super-rss-feed';
-const FEED_URL     = 'feed-review.json';
-const BAKED_TOKEN  = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : e.split('').reverse().join(''); })();
+const REPO_OWNER  = 'zirnhelt';
+const REPO_NAME   = 'super-rss-feed';
+const FEED_URL    = 'feed-review.json';
+const BAKED_TOKEN = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : e.split('').reverse().join(''); })();
 
-// ── State ───────────────────────────────────────────────────────────────────
-let articles    = [];   // from feed-review.json
-let ratings     = {};   // {url: {rating, better_theme, note}}
-let currentIndex = 0;
-const todayKey  = getTodayKey();  // YYYY-MM-DD in Vancouver time
+const SHOW_BUCKETS          = new Set(['border', 'low', 'unfiltered']);
+const AUTO_SUGGEST_THRESHOLD = 45;
+const SUBMIT_THRESHOLD       = 3;
 
-// ── Date helper ─────────────────────────────────────────────────────────────
+// ── State ────────────────────────────────────────────────────────────────────
+let articles     = [];
+let ratings      = {};
+const expandedSet = new Set();  // tracks which card indices have desc expanded
+const todayKey   = getTodayKey();
+
+const DAY_ORDER = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+const DAY_SHORT = { monday:'Mon', tuesday:'Tue', wednesday:'Wed', thursday:'Thu', friday:'Fri', saturday:'Sat', sunday:'Sun' };
+const DAY_THEME = { monday:'Arts & Culture', tuesday:'Working Lands', wednesday:'Community Tech', thursday:'Indigenous Lands', friday:'Wild Spaces', saturday:'Cariboo Voices', sunday:'Science & Wonder' };
+
+// ── Date helper ──────────────────────────────────────────────────────────────
 function getTodayKey() {
-    return new Date().toLocaleDateString('en-CA', {timeZone: 'America/Vancouver'});
+    return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Vancouver' });
 }
 
-// ── Persist ratings to localStorage ─────────────────────────────────────────
+// ── localStorage ─────────────────────────────────────────────────────────────
 function saveRatings() {
     localStorage.setItem('review_ratings_' + todayKey, JSON.stringify(ratings));
 }
 function loadRatings() {
-    try {
-        return JSON.parse(localStorage.getItem('review_ratings_' + todayKey) || '{}');
-    } catch { return {}; }
+    try { return JSON.parse(localStorage.getItem('review_ratings_' + todayKey) || '{}'); }
+    catch { return {}; }
 }
 
-// ── Boot ────────────────────────────────────────────────────────────────────
+// ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
     if (!BAKED_TOKEN) {
         showError('Token not substituted — open this page via the deployed GitHub Pages site, not directly from the repo.');
+        return;
+    }
+    if (localStorage.getItem('submitted_' + todayKey) === 'true') {
+        hide('loading-msg');
+        showDone();
         return;
     }
     init();
@@ -232,223 +263,252 @@ async function init() {
         const res = await fetch(FEED_URL + '?v=' + Date.now());
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const feed = await res.json();
-        articles = feed.items || [];
-        if (articles.length === 0) {
-            showError('No articles in today\'s review feed yet. Check back after the next pipeline run.');
-            return;
-        }
-        // Check if all already rated
-        const rated = articles.filter(a => ratings[a.url]);
-        if (rated.length === articles.length) {
-            if (localStorage.getItem('submitted_' + todayKey) === 'true') {
-                showDone();
-            } else {
-                // Rated but not yet submitted (e.g. previous save failed) — show from start
-                currentIndex = 0;
-                render();
-            }
-            return;
-        }
-        // Start from first unrated
-        currentIndex = articles.findIndex(a => !ratings[a.url]);
-        if (currentIndex < 0) currentIndex = 0;
-        render();
+        articles = (feed.items || []).filter(a => SHOW_BUCKETS.has(a._selection_bucket));
 
-        // Jump to a specific article if ?url= is in the query string
+        hide('loading-msg');
+
+        if (articles.length === 0) {
+            show('empty-msg');
+            return;
+        }
+
+        // Seed initial approved_days and migrate legacy better_theme
+        for (const art of articles) seedRating(art);
+
+        renderGrid();
+        updateProgress();
+
+        // Jump to specific article via ?url=
         const jumpUrl = new URLSearchParams(window.location.search).get('url');
         if (jumpUrl) {
             const idx = articles.findIndex(a => a.url === jumpUrl);
-            if (idx >= 0) goTo(idx);
+            if (idx >= 0) {
+                const card = document.querySelector(`.article-card[data-idx="${idx}"]`);
+                card?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
     } catch (e) {
+        hide('loading-msg');
         showError('Could not load review feed: ' + e.message);
     }
 }
 
+// Seed approved_days for a new article or migrate legacy better_theme format
+function seedRating(art) {
+    const url = art.url;
+    let r = ratings[url];
+    if (!r) {
+        ratings[url] = { rating: null, approved_days: getInitialDays(art), note: '' };
+    } else if (r.better_theme && !r.approved_days) {
+        ratings[url] = { ...r, approved_days: [r.better_theme] };
+    } else if (!r.approved_days) {
+        ratings[url] = { ...r, approved_days: getInitialDays(art) };
+    }
+}
+
+function getInitialDays(art) {
+    const scores = art._theme_scores || {};
+    const suggested = DAY_ORDER.filter(d => (scores[d] || 0) >= AUTO_SUGGEST_THRESHOLD);
+    if (suggested.length) return suggested;
+    // Fall back to the single highest-scoring day if any score > 0
+    const best = DAY_ORDER.slice().sort((a, b) => (scores[b] || 0) - (scores[a] || 0))[0];
+    return (scores[best] || 0) > 0 ? [best] : [];
+}
+
 // ── Rendering ────────────────────────────────────────────────────────────────
-function render() {
-    if (articles.length === 0) return;
-    const ratedCount = articles.filter(a => ratings[a.url]).length;
-    const pct = Math.round((ratedCount / articles.length) * 100);
-    document.getElementById('progress-label').textContent =
-        `${ratedCount} of ${articles.length} reviewed`;
-    document.getElementById('progress-bar').style.width = pct + '%';
+function renderGrid() {
+    const grid = document.getElementById('article-grid');
+    grid.innerHTML = '';
+    articles.forEach((art, idx) => {
+        const card = document.createElement('div');
+        card.className = 'article-card';
+        card.dataset.idx = idx;
+        card.innerHTML = buildCardInner(idx);
+        applyCardBorder(card, idx);
+        grid.appendChild(card);
+    });
+    show('article-grid');
+}
 
-    if (currentIndex >= articles.length) { showDone(); return; }
-
-    const art = articles[currentIndex];
+function buildCardInner(idx) {
+    const art = articles[idx];
     const r   = ratings[art.url] || {};
 
-    const themeScores = art._theme_scores || {};
-    const score = art._score || 0;
-
-    const dayOrder = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
-    const dayShort = {monday:'Mon',tuesday:'Tue',wednesday:'Wed',thursday:'Thu',friday:'Fri',saturday:'Sat',sunday:'Sun'};
-    const dayTheme = {monday:'Arts & Culture',tuesday:'Working Lands',wednesday:'Community Tech',thursday:'Indigenous Lands',friday:'Wild Spaces',saturday:'Cariboo Voices',sunday:'Science & Wonder'};
-
-    // Pre-select the best-scoring day when the article hasn't been rated yet
-    const bestDay = !r.rating
-        ? dayOrder.reduce((best, d) => (themeScores[d] || 0) > (themeScores[best] || 0) ? d : best, dayOrder[0])
-        : null;
-
-    const chipsHtml = dayOrder.map(day => {
-        const isSelected = r.better_theme === day || (!r.rating && day === bestDay);
-        return `<button class="day-chip${isSelected ? ' selected-chip' : ''}"
-                    onclick="rateDay('${day}')"><span class="chip-day">${dayShort[day]}</span><span class="chip-theme">${dayTheme[day]}</span></button>`;
-    }).join('');
-
-    const descText = art.content_html
-        ? art.content_html.replace(/<[^>]+>/g, '').trim().slice(0, 400)
-        : '';
+    const bucket    = art._selection_bucket || '';
+    const category  = art._category || 'news';
+    const source    = art.authors?.[0]?.name || '';
+    const score     = art._score || 0;
+    const quality   = art._quality || 0;
+    const relevance = art._relevance || 0;
+    const local     = art._local_score || 0;
+    const ratingVal = r.rating || '';
 
     const pubDate = art.date_published
-        ? new Date(art.date_published).toLocaleString('en-US', {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'})
+        ? new Date(art.date_published).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
         : '';
 
-    const scoreWidth = Math.min(100, Math.max(0, score));
+    const descRaw  = (art.content_html || '').replace(/<[^>]+>/g, '').trim();
+    const descText = descRaw.slice(0, 500);
+    const isExpanded = expandedSet.has(idx);
 
-    document.getElementById('article-card').innerHTML = `
-        <div class="article-meta">
-            <span class="badge badge-category">${art._category || 'news'}</span>
-            <span class="badge badge-source">${escHtml(art.authors?.[0]?.name || '')}</span>
+    const bucketLabel = { border: 'near-miss', low: 'low score', unfiltered: 'filtered' }[bucket] || bucket;
+
+    // Day chips
+    const approvedDays = r.approved_days || [];
+    const chipsHtml = DAY_ORDER.map(day => {
+        if (approvedDays.includes(day)) {
+            return `<span class="day-chip chip-selected">
+                <span class="chip-top-row">
+                    <span class="chip-day">${escHtml(DAY_SHORT[day])}</span>
+                    <button class="chip-x" onclick="handleDayClick(${idx},'${day}')" title="Remove">&times;</button>
+                </span>
+                <span class="chip-theme">${escHtml(DAY_THEME[day])}</span>
+            </span>`;
+        }
+        return `<button class="day-chip chip-unselected" onclick="handleDayClick(${idx},'${day}')">
+            <span class="chip-day">${escHtml(DAY_SHORT[day])}</span>
+            <span class="chip-theme">${escHtml(DAY_THEME[day])}</span>
+        </button>`;
+    }).join('');
+
+    return `
+        <div class="card-header">
+            <span class="badge badge-bucket-${bucket}">${bucketLabel}</span>
+            <span class="badge badge-category">${escHtml(category)}</span>
+            ${source ? `<span class="badge badge-source">${escHtml(source)}</span>` : ''}
             ${pubDate ? `<span class="badge-date">${pubDate}</span>` : ''}
         </div>
 
-        <div class="article-title">
-            <a href="${escAttr(art.url)}" target="_blank" rel="noopener">${escHtml(art.title)}</a>
+        <div class="card-title${isExpanded ? ' expanded' : ''}">
+            <a href="${escAttr(art.url)}" target="_blank" rel="noopener">${escHtml(art.title || '')}</a>
+            ${descText.length > 80 ? `<button class="expand-btn" onclick="toggleDesc(${idx})">${isExpanded ? '↑ less' : '↓ more'}</button>` : ''}
         </div>
 
-        <div class="score-row">
-            <div class="score-bar-wrap">
-                <span>Score ${score}</span>
-                <div class="score-bar-track">
-                    <div class="score-bar-fill" style="width:${scoreWidth}%"></div>
-                </div>
-            </div>
-            <span>Q:${art._quality||0} R:${art._relevance||0} L:${art._local_score||0}</span>
+        <div class="card-meta">Score ${score} · Q:${quality} R:${relevance} L:${local}</div>
+
+        ${descText ? `<div class="card-desc" id="desc-${idx}" style="display:${isExpanded ? 'block' : 'none'}">${escHtml(descText)}${descRaw.length > 500 ? '…' : ''}</div>` : ''}
+
+        <div class="card-days">${chipsHtml}</div>
+
+        <div class="card-rating-row">
+            <button class="btn-rate btn-good ${ratingVal === 'good' ? 'active' : ''}" onclick="rate(${idx},'good')">✓ Good</button>
+            <button class="btn-rate btn-interesting ${ratingVal === 'interesting' ? 'active' : ''}" onclick="rate(${idx},'interesting')">★ Interesting</button>
+            <button class="btn-rate btn-bad ${ratingVal === 'bad' ? 'active' : ''}" onclick="rate(${idx},'bad')">✗ Bad</button>
+            <button class="btn-rate btn-skip ${ratingVal === 'skip' ? 'active' : ''}" onclick="rate(${idx},'skip')">→ Skip</button>
         </div>
 
-        ${descText ? `
-        <div class="article-desc" id="desc-text">${escHtml(descText)}${descText.length >= 400 ? '…' : ''}</div>
-        ${descText.length >= 300 ? `<button class="show-more" onclick="toggleDesc()">Show more</button>` : ''}
-        ` : ''}
-
-        <div class="rating-section">
-            <div class="rating-label">Rate this article</div>
-            <div class="rating-buttons">
-                <button class="btn-rate ${r.rating === 'good' && !r.better_theme ? 'selected-good' : ''}"
-                    onclick="rate('good')">✓ Good Fit</button>
-                <button class="btn-rate ${r.rating === 'bad' ? 'selected-bad' : ''}"
-                    onclick="rate('bad')">✗ Bad Fit</button>
-                <button class="btn-rate ${r.rating === 'skip' ? 'selected-skip' : ''}"
-                    onclick="rate('skip')">→ Skip</button>
-            </div>
-        </div>
-
-        <div class="rating-section">
-            <div class="day-chips-label">Tag to a podcast day</div>
-            <div class="day-chips">${chipsHtml}</div>
-        </div>
-
-        <div class="note-wrap">
-            <textarea id="note-input" placeholder="Optional note (why good/bad?)"
-                maxlength="200" rows="2" oninput="saveNote()">${escHtml(r.note || '')}</textarea>
-        </div>
+        ${ratingVal ? `<div class="card-note">
+            <textarea placeholder="Optional note…" maxlength="200"
+                oninput="saveNote(${idx}, this.value)">${escHtml(r.note || '')}</textarea>
+        </div>` : ''}
     `;
-
-    // Navigation buttons
-    document.getElementById('btn-prev').disabled = currentIndex <= 0;
-    const allRated = articles.every(a => ratings[a.url]);
-    document.getElementById('btn-next').textContent =
-        currentIndex < articles.length - 1 ? 'Next →' : (allRated ? 'Finish ✓' : 'Next →');
-
-    // Show submit section once enough are rated
-    const ratedNow = articles.filter(a => ratings[a.url]).length;
-    const submitSection = document.getElementById('submit-section');
-    if (ratedNow >= 5) submitSection.style.display = 'block';
 }
 
-function toggleDesc() {
-    const el = document.getElementById('desc-text');
-    if (!el) return;
-    el.classList.toggle('expanded');
+function applyCardBorder(card, idx) {
+    const art = articles[idx];
+    const r   = ratings[art.url] || {};
+    card.className = 'article-card' + (r.rating ? ' rating-' + r.rating : '');
 }
 
-// ── Rating actions ───────────────────────────────────────────────────────────
-function rate(ratingValue) {
-    const art = articles[currentIndex];
-    if (!art) return;
-    ratings[art.url] = { ...ratings[art.url], rating: ratingValue, better_theme: null };
-    saveRatings();
-    render();
-    // Auto-advance after a short delay
-    if (currentIndex < articles.length - 1) {
-        setTimeout(() => goTo(currentIndex + 1), 320);
+function refreshCard(idx) {
+    const card = document.querySelector(`.article-card[data-idx="${idx}"]`);
+    if (!card) return;
+    card.innerHTML = buildCardInner(idx);
+    applyCardBorder(card, idx);
+}
+
+// ── Interactions ──────────────────────────────────────────────────────────────
+function toggleDesc(idx) {
+    if (expandedSet.has(idx)) expandedSet.delete(idx);
+    else expandedSet.add(idx);
+    refreshCard(idx);
+}
+
+function rate(idx, ratingValue) {
+    const art = articles[idx];
+    const r   = ratings[art.url] || {};
+    const updated = { ...r, rating: ratingValue };
+
+    if (ratingValue === 'good') {
+        if (!updated.approved_days || updated.approved_days.length === 0) {
+            updated.approved_days = getInitialDays(art);
+        }
+    } else {
+        // interesting, bad, skip all clear day assignments
+        updated.approved_days = [];
     }
+
+    ratings[art.url] = updated;
+    saveRatings();
+    refreshCard(idx);
+    updateProgress();
 }
 
-function rateDay(day) {
-    const art = articles[currentIndex];
-    if (!art) return;
-    ratings[art.url] = { ...ratings[art.url], rating: 'good', better_theme: day };
+function handleDayClick(idx, day) {
+    const art  = articles[idx];
+    const r    = ratings[art.url] || {};
+    const days = [...(r.approved_days || [])];
+    const pos  = days.indexOf(day);
+
+    if (pos >= 0) days.splice(pos, 1);
+    else days.push(day);
+
+    // Day assignment always implies "good"
+    ratings[art.url] = { ...r, rating: 'good', approved_days: days };
     saveRatings();
-    render();
-    if (currentIndex < articles.length - 1) {
-        setTimeout(() => goTo(currentIndex + 1), 320);
+    refreshCard(idx);
+    updateProgress();
+}
+
+function saveNote(idx, value) {
+    const art = articles[idx];
+    if (!ratings[art.url]) ratings[art.url] = { rating: null, approved_days: [], note: '' };
+    ratings[art.url].note = value;
+    saveRatings();
+    // No refreshCard — don't disturb textarea focus
+}
+
+// ── Progress & submit visibility ─────────────────────────────────────────────
+function updateProgress() {
+    const ratedCount = articles.filter(a => ratings[a.url]?.rating).length;
+    const total = articles.length;
+    document.getElementById('progress-counter').textContent =
+        `${ratedCount} of ${total} near-miss articles reviewed`;
+
+    if (ratedCount >= Math.min(SUBMIT_THRESHOLD, total)) {
+        show('submit-section');
     }
-}
-
-function saveNote() {
-    const art = articles[currentIndex];
-    if (!art) return;
-    const note = document.getElementById('note-input')?.value || '';
-    if (!ratings[art.url]) ratings[art.url] = { rating: null };
-    ratings[art.url].note = note;
-    saveRatings();
-}
-
-function goTo(idx) {
-    if (idx < 0 || idx >= articles.length) return;
-    currentIndex = idx;
-    render();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function goNext() {
-    const allRated = articles.every(a => ratings[a.url]);
-    if (currentIndex >= articles.length - 1 && allRated) { showDone(); return; }
-    goTo(currentIndex + 1);
 }
 
 // ── GitHub submission ─────────────────────────────────────────────────────────
 async function submitFeedback() {
-    const pat = BAKED_TOKEN;
-
+    const pat      = BAKED_TOKEN;
     const statusEl = document.getElementById('submit-status');
     statusEl.className = 'status-msg';
     statusEl.textContent = 'Saving to GitHub…';
 
     const ratingsList = articles
-        .filter(a => ratings[a.url] && ratings[a.url].rating)
+        .filter(a => ratings[a.url]?.rating)
         .map(a => ({
-            url: a.url,
-            title: a.title,
-            source: a.authors?.[0]?.name || '',
-            category: a._category || 'news',
-            score: a._score || 0,
-            quality: a._quality || 0,
-            relevance: a._relevance || 0,
-            local: a._local_score || 0,
-            content_type: a._content_type || null,
+            url:              a.url,
+            title:            a.title,
+            source:           a.authors?.[0]?.name || '',
+            category:         a._category || 'news',
+            score:            a._score || 0,
+            quality:          a._quality || 0,
+            relevance:        a._relevance || 0,
+            local:            a._local_score || 0,
+            content_type:     a._content_type || null,
             selection_bucket: a._selection_bucket || null,
-            theme_scores: a._theme_scores || {},
-            today: a._today || '',
-            today_label: a._today_label || '',
-            description: (a.content_html || '').replace(/<[^>]+>/g, '').trim().slice(0, 300),
-            rating: ratings[a.url].rating,
-            better_theme: ratings[a.url].better_theme || null,
-            note: ratings[a.url].note || null,
-            rated_at: new Date().toISOString(),
+            theme_scores:     a._theme_scores || {},
+            today:            a._today || '',
+            today_label:      a._today_label || '',
+            description:      (a.content_html || '').replace(/<[^>]+>/g, '').trim().slice(0, 300),
+            rating:           ratings[a.url].rating,
+            approved_days:    ratings[a.url].approved_days || [],
+            better_theme:     (ratings[a.url].approved_days || [])[0] || ratings[a.url].better_theme || null,
+            note:             ratings[a.url].note || null,
+            rated_at:         new Date().toISOString(),
         }));
 
     if (ratingsList.length === 0) {
@@ -458,36 +518,33 @@ async function submitFeedback() {
     }
 
     const payload = {
-        date: todayKey,
+        date:         todayKey,
         submitted_at: new Date().toISOString(),
-        ratings: ratingsList,
+        ratings:      ratingsList,
     };
 
     const filePath = `feedback/${todayKey}.json`;
     const apiBase  = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
     const headers  = {
-        'Authorization': `Bearer ${pat}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github+json',
+        'Authorization':        `Bearer ${pat}`,
+        'Content-Type':         'application/json',
+        'Accept':               'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28',
     };
 
     try {
-        // Check if file already exists (need SHA for updates)
         let sha = null;
         let existingRatings = [];
         const existing = await fetch(apiBase, { headers });
         if (existing.ok) {
             const existingData = await existing.json();
             sha = existingData.sha;
-            // Decode and merge existing ratings
             try {
                 const decoded = JSON.parse(atob(existingData.content.replace(/\n/g, '')));
                 existingRatings = decoded.ratings || [];
             } catch {}
         }
 
-        // Merge: existing + new (new ratings for same URL override existing)
         const existingByUrl = Object.fromEntries(existingRatings.map(r => [r.url, r]));
         for (const r of ratingsList) existingByUrl[r.url] = r;
         payload.ratings = Object.values(existingByUrl);
@@ -498,12 +555,7 @@ async function submitFeedback() {
             ...(sha ? { sha } : {}),
         };
 
-        const putRes = await fetch(apiBase, {
-            method: 'PUT',
-            headers,
-            body: JSON.stringify(body),
-        });
-
+        const putRes = await fetch(apiBase, { method: 'PUT', headers, body: JSON.stringify(body) });
         if (!putRes.ok) {
             const err = await putRes.json().catch(() => ({}));
             throw new Error(err.message || `HTTP ${putRes.status}`);
@@ -511,11 +563,8 @@ async function submitFeedback() {
 
         statusEl.className = 'status-msg success';
         statusEl.textContent = `✅ Saved ${ratingsList.length} ratings to GitHub!`;
-
-        // Mark submitted and clear in-progress ratings from localStorage
         localStorage.setItem('submitted_' + todayKey, 'true');
         localStorage.removeItem('review_ratings_' + todayKey);
-
         setTimeout(() => showDone(), 1500);
 
     } catch (e) {
@@ -524,18 +573,21 @@ async function submitFeedback() {
     }
 }
 
-// ── Done / error helpers ──────────────────────────────────────────────────────
+// ── UI helpers ────────────────────────────────────────────────────────────────
 function showDone() {
-    document.getElementById('review-pane').style.display  = 'none';
-    document.getElementById('done-section').style.display = 'block';
+    hide('article-grid');
+    hide('submit-section');
+    show('done-section');
 }
 
 function showError(msg) {
-    document.getElementById('article-card').innerHTML =
-        `<div class="error-box">${escHtml(msg)}</div>`;
+    document.getElementById('error-msg').innerHTML = escHtml(msg);
+    show('error-msg');
 }
 
-// ── HTML escape helpers ───────────────────────────────────────────────────────
+function show(id) { const el = document.getElementById(id); if (el) el.style.display = ''; }
+function hide(id) { const el = document.getElementById(id); if (el) el.style.display = 'none'; }
+
 function escHtml(s) {
     return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
