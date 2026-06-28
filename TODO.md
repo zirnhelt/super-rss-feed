@@ -15,6 +15,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-06-28 | 🌙 evening | 46 | news:25(54%), wellness:9(20%), ai-tech:5(11%) |
+| 2026-06-28 | 🔧 manual | 42 | news:25(60%), ai-tech:5(12%), climate:5(12%) |
 | 2026-06-27 | 🌙 evening | 49 | news:25(51%), ai-tech:8(16%), wellness:8(16%) |
 | 2026-06-26 | 🌅 morning | 50 | news:25(50%), wellness:10(20%), local:5(10%) |
 | 2026-06-25 | 🌙 evening | 54 | news:25(46%), ai-tech:10(19%), wellness:10(19%) |
@@ -23,9 +24,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-22 | 🌅 morning | 26 | news:15(58%), wellness:6(23%), ai-tech:2(8%) |
 | 2026-06-21 | 🌅 morning | 22 | news:15(68%), ai-tech:3(14%), climate:2(9%) |
 
-_Last updated by log\_feed\_results.py · 2026-06-28 07:58 UTC_
+_Last updated by log\_feed\_results.py · 2026-06-28 15:25 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
