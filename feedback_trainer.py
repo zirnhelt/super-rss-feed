@@ -66,9 +66,10 @@ def load_feedback(lookback_days: int = LOOKBACK_DAYS):
 
 def aggregate_stats(ratings: list) -> dict:
     """Compute aggregates from raw ratings list."""
-    good = [r for r in ratings if r.get('rating') == 'good']
-    bad  = [r for r in ratings if r.get('rating') == 'bad']
-    reassigned = [r for r in good if r.get('better_theme')]
+    good        = [r for r in ratings if r.get('rating') == 'good']
+    interesting = [r for r in ratings if r.get('rating') == 'interesting']
+    bad         = [r for r in ratings if r.get('rating') == 'bad']
+    reassigned  = [r for r in good if r.get('approved_days') or r.get('better_theme')]
 
     source_good: dict = defaultdict(int)
     source_bad: dict  = defaultdict(int)
@@ -84,11 +85,13 @@ def aggregate_stats(ratings: list) -> dict:
         cat_bad[r.get('category', '?')] += 1
     for r in reassigned:
         from_day = r.get('today', '?')
-        to_day   = r.get('better_theme', '?')
-        day_from_to[from_day][to_day] += 1
+        to_days  = r.get('approved_days') or ([r['better_theme']] if r.get('better_theme') else [])
+        for to_day in to_days:
+            day_from_to[from_day][to_day] += 1
 
     return {
         'good': good,
+        'interesting': interesting,
         'bad': bad,
         'reassigned': reassigned,
         'source_good': dict(source_good),
@@ -100,46 +103,46 @@ def aggregate_stats(ratings: list) -> dict:
 
 
 def build_claude_prompt(stats: dict) -> str:
-    good = stats['good']
-    bad  = stats['bad']
+    good        = stats['good']
+    interesting = stats['interesting']
+    bad         = stats['bad']
 
-    good_lines = '\n'.join(
-        f"- [{r.get('category','?')}] {r.get('title','?')} ({r.get('source','?')}) "
-        f"[score {r.get('score',0)}, Q{r.get('quality',0)} R{r.get('relevance',0)}]"
-        + (f" — note: {r['note']}" if r.get('note') else '')
-        for r in good[:40]
-    )
-    bad_lines = '\n'.join(
-        f"- [{r.get('category','?')}] {r.get('title','?')} ({r.get('source','?')}) "
-        f"[score {r.get('score',0)}, Q{r.get('quality',0)} R{r.get('relevance',0)}]"
-        + (f" — note: {r['note']}" if r.get('note') else '')
-        for r in bad[:40]
-    )
+    def fmt(r: dict) -> str:
+        line = (
+            f"- [{r.get('category','?')}] {r.get('title','?')} ({r.get('source','?')}) "
+            f"[score {r.get('score',0)}, Q{r.get('quality',0)} R{r.get('relevance',0)}]"
+        )
+        return line + (f" — note: {r['note']}" if r.get('note') else '')
+
+    good_lines        = '\n'.join(fmt(r) for r in good[:40])
+    interesting_lines = '\n'.join(fmt(r) for r in interesting[:30])
+    bad_lines         = '\n'.join(fmt(r) for r in bad[:40])
 
     reassign_lines = ''
     if stats['reassigned']:
-        reassign_lines = '\nDAY REASSIGNMENTS (articles rated Good but moved to a different podcast day):\n'
-        reassign_lines += '\n'.join(
-            f"- '{r.get('title','?')}' moved from {r.get('today','?')} → {r.get('better_theme','?')}"
-            for r in stats['reassigned'][:20]
-        )
+        reassign_lines = '\nDAY REASSIGNMENTS (articles tagged to specific podcast days):\n'
+        for r in stats['reassigned'][:20]:
+            to_days = r.get('approved_days') or ([r['better_theme']] if r.get('better_theme') else ['?'])
+            reassign_lines += f"- '{r.get('title','?')}' from {r.get('today','?')} → {', '.join(to_days)}\n"
 
-    return f"""A user has been rating RSS news articles as Good Fit or Bad Fit for their personal feed.
+    return f"""A user has been rating RSS news articles for their personal feed and podcast.
 Analyze the patterns and write concise, actionable bullet points for the curator's scoring prompt.
 
-GOOD FIT articles (user explicitly liked these):
+GOOD FIT articles (user liked these and tagged them to podcast days):
 {good_lines or '(none yet)'}
+
+INTERESTING articles (user finds these relevant but not podcast-quality — boost these topics in relevance scoring):
+{interesting_lines or '(none yet)'}
 
 BAD FIT articles (user explicitly disliked these):
 {bad_lines or '(none yet)'}
 {reassign_lines}
-
 Task: Write 6-12 bullet points that a news-scoring AI should use to calibrate RELEVANCE scores.
 Focus on:
-(a) Topic and framing signals that appear in liked articles but not disliked ones
-(b) Topic and framing signals that appear in disliked articles (to down-weight)
+(a) Topic and framing signals in Good/Interesting articles vs Bad articles
+(b) Topics in Interesting articles that may be under-represented in the main feed
 (c) Source or content-type patterns worth noting
-(d) Any day-reassignment patterns (e.g. articles consistently moved from one day to another)
+(d) Any day-reassignment patterns (articles consistently moved to specific podcast days)
 
 Format as plain bullet points (- ...). Be specific and actionable. Do not repeat the raw article list.
 Keep the total under 400 words."""
@@ -157,9 +160,10 @@ def synthesize_with_claude(prompt: str, api_key: str) -> str:
 
 def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> str:
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
-    good_count = len(stats['good'])
-    bad_count  = len(stats['bad'])
-    reassign_count = len(stats['reassigned'])
+    good_count        = len(stats['good'])
+    interesting_count = len(stats.get('interesting', []))
+    bad_count         = len(stats['bad'])
+    reassign_count    = len(stats['reassigned'])
 
     top_good_sources = sorted(stats['source_good'].items(), key=lambda x: x[1], reverse=True)[:5]
     top_bad_sources  = sorted(stats['source_bad'].items(),  key=lambda x: x[1], reverse=True)[:5]
@@ -178,7 +182,7 @@ def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> 
     return f"""## Feedback Training Run — {now}
 
 **Files processed:** {', '.join(files) if files else 'none'}
-**Ratings:** {good_count} Good, {bad_count} Bad, {reassign_count} reassigned to different day
+**Ratings:** {good_count} Good, {interesting_count} Interesting, {bad_count} Bad, {reassign_count} reassigned to day(s)
 **Status:** {status}
 
 **Top liked sources:** {', '.join(f'{s} ({n})' for s, n in top_good_sources) or 'n/a'}
