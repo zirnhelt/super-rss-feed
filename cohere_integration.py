@@ -253,7 +253,7 @@ def prefilter_scrub_articles(
     articles: List[Any],
     interests_text: str,
     local_signals: Optional[List[str]] = None,
-    threshold: float = 2.5,
+    threshold: float = 20.0,
 ) -> Tuple[List[Any], List[Any]]:
     """Pre-filter obvious junk before Claude scrubbing using Cohere Rerank.
 
