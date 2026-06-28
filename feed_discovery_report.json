@@ -1,11 +1,80 @@
 {
-  "generated_at": "2026-06-22T03:28:05.970622+00:00",
-  "total_candidates_evaluated": 1473,
-  "recommended_feeds": 0,
+  "generated_at": "2026-06-28T14:56:50.264206+00:00",
+  "total_candidates_evaluated": 1496,
+  "recommended_feeds": 4,
   "min_score_threshold": 60,
-  "categories": {},
+  "categories": {
+    "homelab": {
+      "count": 4,
+      "feeds": [
+        {
+          "title": "LoRaMeshDevices",
+          "url": "https://www.lorameshdevices.com/rss.xml",
+          "html_url": "https://www.lorameshdevices.com/blog/",
+          "source": "brave_search",
+          "average_score": 92.0,
+          "sample_articles": 1,
+          "reason": "Excellent match for your interests"
+        },
+        {
+          "title": "Daniele Messi. \u2014 Writing",
+          "url": "https://daniele-messi.com/rss.xml",
+          "html_url": "https://daniele-messi.com/en/blog/proxmox-home-lab-guide-self-hosting-2026/",
+          "source": "brave_search",
+          "average_score": 75.0,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
+        },
+        {
+          "title": "3D Printing blog",
+          "url": "https://www.antonmansson.com/3d-printing-blog?format=rss",
+          "html_url": "https://www.antonmansson.com/3d-printing-blog/category/Bambu+Lab",
+          "source": "brave_search",
+          "average_score": 72.0,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Bambu Lab Blog",
+          "url": "https://blog.bambulab.com/rss/",
+          "html_url": "https://blog.bambulab.com/",
+          "source": "brave_search",
+          "average_score": 61.7,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    }
+  },
   "summary": {
-    "by_category": {},
-    "top_recommendations": []
+    "by_category": {
+      "homelab": 4
+    },
+    "top_recommendations": [
+      {
+        "title": "LoRaMeshDevices",
+        "category": "homelab",
+        "score": 92.0,
+        "url": "https://www.lorameshdevices.com/rss.xml"
+      },
+      {
+        "title": "Daniele Messi. \u2014 Writing",
+        "category": "homelab",
+        "score": 75.0,
+        "url": "https://daniele-messi.com/rss.xml"
+      },
+      {
+        "title": "3D Printing blog",
+        "category": "homelab",
+        "score": 72.0,
+        "url": "https://www.antonmansson.com/3d-printing-blog?format=rss"
+      },
+      {
+        "title": "Bambu Lab Blog",
+        "category": "homelab",
+        "score": 61.7,
+        "url": "https://blog.bambulab.com/rss/"
+      }
+    ]
   }
 }
