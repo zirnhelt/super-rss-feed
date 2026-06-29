@@ -21,9 +21,22 @@
     "description": "Personal health, nutrition, mental health, fitness, and medicine - NOT sports, tech reviews, or crime/conflict news"
   },
   "science": {
-    "include": ["research paper", "research study", "scientific journal", "scientific discovery", "peer-reviewed", "particle physics", "published in the journal"],
+    "include": [
+      "research paper", "research study", "scientific journal", "scientific discovery",
+      "peer-reviewed", "particle physics", "published in the journal",
+      "quantum mechanics", "quantum entanglement", "quantum field",
+      "dark matter", "dark energy", "gravitational waves",
+      "exoplanet", "black hole", "neutron star", "supernova", "astronomical",
+      "paleontology", "fossil record", "natural selection", "evolutionary biology",
+      "new species", "marine biology", "particle accelerator", "CERN",
+      "mathematicians", "mathematical proof", "number theory", "topology",
+      "genome sequencing", "protein folding", "CRISPR gene",
+      "ecology", "ecologists", "astrophysics", "cosmology",
+      "scientists have discovered", "researchers have found", "new study reveals",
+      "scientific breakthrough", "Nobel Prize"
+    ],
     "exclude": ["product reviews", "consumer tech", "apps", "journalist", "photojournalist", "% off", "on sale", "deal", "discount", "tablet", "smartphone", "laptop", "monitor"],
-    "description": "Scientific research, discoveries, academic papers - NOT tech news, product deals, or journalism industry stories"
+    "description": "Scientific research, discoveries, and academic findings - astronomy, physics, biology, ecology, mathematics - NOT tech news, product deals, or journalism industry stories"
   },
   "scifi": {
     "include": ["science fiction", "sci-fi", "speculative fiction", "fantasy", "fiction book", "science fiction novel", "fantasy novel", "science fiction author", "fantasy author", "book review", "graphic novel", "worldbuilding", "solarpunk", "cli-fi", "cyberpunk", "dystopian", "space opera"],
