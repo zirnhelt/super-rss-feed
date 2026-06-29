@@ -247,6 +247,7 @@
 
         <h2>🔗 Quick Links</h2>
         <a href="review.html" class="button">📋 Review Today's Articles</a>
+        <a id="weeklyReportLink" href="#" class="button">📊 Weekly Report</a>
         <a href="curated-feeds.opml" class="button">📥 Download OPML</a>
         <a href="https://github.com/zirnhelt/super-rss-feed" class="button">🔧 View on GitHub</a>
     </div>
@@ -497,6 +498,27 @@
                 alert('Failed to copy. Please select and copy manually.');
             });
         }
+
+        function isoWeekLabel(date) {
+            const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+            const dayOfWeek = d.getUTCDay() || 7;
+            d.setUTCDate(d.getUTCDate() + 4 - dayOfWeek);
+            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            const weekNum = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+            return `${d.getUTCFullYear()}-W${String(weekNum).padStart(2, '0')}`;
+        }
+
+        (function wireWeeklyReport() {
+            // Reports are published on Sundays for the week that just ended.
+            // Always point to the most recently published report by resolving
+            // to last Sunday (or today if today is Sunday).
+            const now = new Date();
+            const lastSunday = new Date(now.getTime() - now.getUTCDay() * 24 * 60 * 60 * 1000);
+            const label = isoWeekLabel(lastSunday);
+            const link = document.getElementById('weeklyReportLink');
+            link.href = `weekly-report-${label}.html`;
+            link.title = `State of the feed for week ${label}`;
+        })();
 
         loadFeedInfo();
     </script>

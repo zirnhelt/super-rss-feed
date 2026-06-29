@@ -207,7 +207,12 @@ def get_discovery_highlights() -> list:
         return []
     try:
         data = json.loads(report_path.read_text("utf-8"))
-        candidates = data.get("candidates") or data.get("feeds") or []
+        candidates = (
+            data.get("summary", {}).get("top_recommendations")
+            or data.get("candidates")
+            or data.get("feeds")
+            or []
+        )
         scored = [c for c in candidates if c.get("score") or c.get("total_score")]
         scored.sort(key=lambda x: x.get("score", x.get("total_score", 0)), reverse=True)
         return [
