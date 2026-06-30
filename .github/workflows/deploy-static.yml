@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'review.html'
+      - 'share.html'
 
 permissions:
   contents: write
@@ -22,6 +23,7 @@ jobs:
           mkdir -p output
           REVERSED_TOKEN=$(echo "$REVIEW_PAT" | rev)
           sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" review.html > output/review.html
+          sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" share.html > output/share.html
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
