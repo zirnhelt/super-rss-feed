@@ -18,6 +18,14 @@ on:
         description: 'Calibration: analyze and log only, do not write config changes'
         type: boolean
         default: false
+      run_shared_articles:
+        description: 'Process shared articles (score + feed-probe links submitted via share.html)'
+        type: boolean
+        default: true
+      shared_articles_dry_run:
+        description: 'Shared articles: analyze and log only, do not write feedback/OPML changes'
+        type: boolean
+        default: false
       run_feedback_training:
         description: 'Run the feedback trainer (process user article ratings)'
         type: boolean
@@ -148,9 +156,49 @@ jobs:
           git pull --rebase --autostash origin main
           git push
 
+  shared-articles:
+    name: Shared Article Processor
+    needs: calibration
+    if: always() && (github.event_name == 'schedule' || inputs.run_shared_articles)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run shared article processor
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+          SHARED_ARTICLES_DRY_RUN: ${{ inputs.shared_articles_dry_run && 'true' || 'false' }}
+        run: python process_shared_articles.py
+
+      - name: Commit shared article results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add shared_articles_cache.json shared_source_candidates.json feeds.opml feedback/ SHARED_ARTICLES_LOG.md 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Weekly shared article processing run [skip ci]"
+          git pull --rebase --autostash origin main
+          git push
+        continue-on-error: true
+
   feedback-training:
     name: Feedback Trainer
-    needs: calibration
+    needs: [calibration, shared-articles]
     if: always() && (github.event_name == 'schedule' || inputs.run_feedback_training)
     runs-on: ubuntu-latest
 
