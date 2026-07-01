@@ -41,20 +41,26 @@ jobs:
           # This prevents stale repository files or HTML error responses from being
           # used as feed state, which would cause the retention window to drop all
           # existing articles and leave feeds with only that run's new articles.
+          # Retries a few times first since a transient blip here is otherwise
+          # indistinguishable from "this feed doesn't exist yet".
           download_json() {
             local url="$1"
             local dest="$2"
             local tmp="${dest}.tmp"
-            if wget -q --timeout=30 "$url" -O "$tmp" 2>/dev/null \
-               && python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$tmp" 2>/dev/null; then
-              mv "$tmp" "$dest"
-              echo "  ✓ $dest"
-            else
+            local attempt
+            for attempt in 1 2 3; do
+              if wget -q --timeout=30 "$url" -O "$tmp" 2>/dev/null \
+                 && python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$tmp" 2>/dev/null; then
+                mv "$tmp" "$dest"
+                echo "  ✓ $dest"
+                return 0
+              fi
               rm -f "$tmp"
-              # Remove any stale repo file so the curator builds fresh for this category
-              rm -f "$dest"
-              echo "  ✗ $dest (download failed or invalid JSON — will build fresh)"
-            fi
+              [ "$attempt" -lt 3 ] && sleep $((attempt * 3))
+            done
+            # Remove any stale repo file so the curator builds fresh for this category
+            rm -f "$dest"
+            echo "  ✗ $dest (download failed or invalid JSON after retries — will build fresh)"
           }
 
           for feed in local ai-tech climate homelab wellness news science scifi; do
@@ -73,7 +79,24 @@ jobs:
 
           echo "Download complete. Feed sizes:"
           wc -l feed-*.json 2>/dev/null || echo "(no feed files yet)"
-        continue-on-error: true
+
+          # Unlike category feeds, only *today's* podcast feed gets rebuilt each run —
+          # the other 6 are just passed through. If one of those failed to download,
+          # it would deploy as missing and (with keep_files: false) be permanently
+          # deleted from gh-pages until its weekday comes back around. Fail the job
+          # instead so gh-pages is left untouched and the next run retries the download.
+          today=$(TZ='America/Vancouver' date +%A | tr '[:upper:]' '[:lower:]')
+          missing=""
+          for day in monday tuesday wednesday thursday friday saturday sunday; do
+            if [ "$day" != "$today" ] && [ ! -s "feed-podcast-${day}.json" ]; then
+              missing="$missing $day"
+            fi
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Failed to download podcast feed(s) that won't be regenerated today ($today):$missing"
+            echo "Aborting before the deploy step to avoid deleting these feeds from gh-pages."
+            exit 1
+          fi
       
       - name: Bootstrap thin feeds from podcast cache
         env:
