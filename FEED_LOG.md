@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-01 (Wednesday)
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1277** → dedup **800** → new **728** → quality **60**
+- Mix: local:5(8%), ai-tech:6(10%), climate:4(7%), homelab:4(7%), wellness:10(17%), science:4(7%), scifi:2(3%), news:25(42%)
+- Feeds: local:23, ai-tech:46, climate:18, homelab:17, wellness:48, science:11, scifi:8, news:150
+- Images: 60/60
+- Topic queries: 357 articles from 34 queries
+- API calls: Claude:10, Cohere:16, Brave:42, Kagi:29 · 16,977 Claude tokens · est. cost $0.2709
+
+
+---
+
+
+
 ## 2026-06-30 (Tuesday)
 
 #### 🌅 4:30 AM Pacific
@@ -116,21 +131,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 33/33
 - Topic queries: 271 articles from 34 queries
 - API calls: Claude:7, Cohere:24, Brave:42, Kagi:46 · 11,277 Claude tokens · est. cost $0.4072
-
-
----
-
-
-
-## 2026-06-23 (Tuesday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1031** → dedup **640** → new **468** → quality **35**
-- Mix: local:2(6%), ai-tech:5(14%), climate:3(9%), homelab:3(9%), wellness:6(17%), scifi:1(3%), news:15(43%)
-- Feeds: local:20, ai-tech:44, climate:16, homelab:11, wellness:43, science:0, scifi:9, news:205
-- Images: 35/35
-- Topic queries: 267 articles from 34 queries
-- API calls: Claude:6, Cohere:22, Brave:42, Kagi:46 · 9,836 Claude tokens · est. cost $0.4024
 
 
 ---
@@ -1696,6 +1696,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 1 runs · avg fetched 843 · avg quality 26
 - Dominant: **news** (58%) ai-tech:2 / climate:2 / homelab:1 / wellness:6 / news:15
 - API calls: Claude:4, Cohere:19, Brave:42, Kagi:40 · est. cost $0.3479
+
+
+---
+
+
+
+## Week of 2026-06-23–2026-06-23
+- 1 runs · avg fetched 1031 · avg quality 35
+- Dominant: **news** (43%) local:2 / ai-tech:5 / climate:3 / homelab:3 / wellness:6 / scifi:1 / news:15
+- API calls: Claude:6, Cohere:22, Brave:42, Kagi:46 · est. cost $0.4024
 
 
 ---
