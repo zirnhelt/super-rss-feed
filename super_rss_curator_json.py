@@ -1425,6 +1425,49 @@ def _fetch_via_kagi_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]
     return articles
 
 
+def _fetch_via_google_news_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]:
+    """Fetch recent articles for a blocked domain via Google News RSS search.
+
+    Keyless last resort after Brave/Kagi, so it also covers manual runs where
+    USE_SEARCH_APIS is off. Links are opaque news.google.com proxy URLs, which
+    downstream stages already exclude from podcast pools and cross-run
+    retention — the articles still reach the category feeds.
+    """
+    domain = urlparse(feed.get('url', '')).netloc.replace('www.', '')
+    if not domain:
+        return []
+
+    lookback_days = max(1, (datetime.now(timezone.utc) - cutoff_date).days + 1)
+    query = quote(f'site:{domain} when:{lookback_days}d')
+    gn_url = f'https://news.google.com/rss/search?q={query}&hl=en-CA&gl=CA&ceid=CA:en'
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'application/rss+xml, application/xml, text/xml, */*',
+    }
+    try:
+        response = requests.get(gn_url, headers=headers, timeout=10)
+        response.raise_for_status()
+        parsed = feedparser.parse(response.content)
+    except Exception as e:
+        print(f"    ⚠️  Google News fallback failed for {domain}: {e}")
+        return []
+
+    articles = []
+    for entry in parsed.entries[:10]:
+        try:
+            article = Article(entry, feed['title'], feed.get('html_url', ''), gn_url)
+        except Exception:
+            continue
+        if article.pub_date < cutoff_date:
+            continue
+        if article.should_filter():
+            continue
+        articles.append(article)
+
+    return articles
+
+
 def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
     """Fetch and parse articles from a feed"""
     try:
@@ -1500,18 +1543,15 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         return articles
         
     except Exception as e:
-        is_403 = (
-            isinstance(e, requests.exceptions.HTTPError)
-            and e.response is not None
-            and e.response.status_code == 403
-        )
-        is_404 = (
-            isinstance(e, requests.exceptions.HTTPError)
-            and e.response is not None
-            and e.response.status_code == 404
+        status = (
+            e.response.status_code
+            if isinstance(e, requests.exceptions.HTTPError) and e.response is not None
+            else None
         )
         is_timeout = isinstance(e, (requests.exceptions.ReadTimeout, requests.exceptions.Timeout))
-        should_try_fallback = is_403 or is_404 or is_timeout
+        # 403: bot-blocked (common from Actions runner IPs). 404: feed URL moved.
+        # 421 Misdirected Request: persistent CDN/TLS misconfig (e.g. IndigiNews).
+        should_try_fallback = status in (403, 404, 421) or is_timeout
 
         if should_try_fallback and os.environ.get('BRAVE_API_KEY'):
             fallback = _fetch_via_brave_fallback(feed, cutoff_date)
@@ -1524,6 +1564,12 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             fallback = _fetch_via_kagi_fallback(feed, cutoff_date)
             if fallback:
                 print(f"  ↩ {feed['title']}: Kagi fallback → {len(fallback)} articles")
+                return fallback
+
+        if should_try_fallback:
+            fallback = _fetch_via_google_news_fallback(feed, cutoff_date)
+            if fallback:
+                print(f"  ↩ {feed['title']}: Google News fallback → {len(fallback)} articles")
                 return fallback
 
         print(f"  ✗ {feed['title']}: {e}")
