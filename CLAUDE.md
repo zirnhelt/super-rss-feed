@@ -193,7 +193,7 @@ Periodic cleanup of stale branches.
 
 The pipeline runs in this order. Understand it before touching any stage:
 
-1. **Fetch** — `feedparser` pulls all OPML feeds (last 48 h). Google News proxy URLs are unwrapped. HTTP 403 feeds fall back to Brave Search. `FeedHTTPCache` handles conditional GET (ETag/Last-Modified).
+1. **Fetch** — `feedparser` pulls all OPML feeds (last 48 h). Google News proxy URLs are unwrapped. Feeds failing with 403/404/421/timeout fall back to Brave Search → Kagi → Google News RSS (the last is keyless and runs even when `USE_SEARCH_APIS` is off). `FeedHTTPCache` handles conditional GET (ETag/Last-Modified).
 2. **WLT scrape** — BeautifulSoup scrapes Williams Lake Tribune directly.
 3. **Topic news** — Brave News API + Kagi queries from `config/topic_queries.json` (only when `USE_SEARCH_APIS=true`).
 4. **Filter** — blocks sources and keywords from `config/filters.json`; `blocked_keywords_unless_local` allows local override.
