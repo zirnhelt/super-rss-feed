@@ -297,37 +297,44 @@
             {
                 file: 'feed-podcast-monday.json',
                 name: '🎙️ Monday: Arts, Culture & Digital Storytelling',
-                description: 'Local arts scene, festivals, creative economy, media, and cultural tech'
+                description: 'Local arts scene, festivals, creative economy, media, and cultural tech',
+                day: 'monday'
             },
             {
                 file: 'feed-podcast-tuesday.json',
                 name: '🎙️ Tuesday: Working Lands & Industry',
-                description: 'Cariboo forestry, ranching, mining, agriculture — tech in the resource economy'
+                description: 'Cariboo forestry, ranching, mining, agriculture — tech in the resource economy',
+                day: 'tuesday'
             },
             {
                 file: 'feed-podcast-wednesday.json',
                 name: '🎙️ Wednesday: Community Tech & Governance',
-                description: 'SD27, CRD, Williams Lake council, municipal networks, civic innovation'
+                description: 'SD27, CRD, Williams Lake council, municipal networks, civic innovation',
+                day: 'wednesday'
             },
             {
                 file: 'feed-podcast-thursday.json',
                 name: '🎙️ Thursday: Indigenous Lands & Innovation',
-                description: 'Tŝilhqot\'in, Secwépemc, Dakelh — language, governance, land stewardship, and tech'
+                description: 'Tŝilhqot\'in, Secwépemc, Dakelh — language, governance, land stewardship, and tech',
+                day: 'thursday'
             },
             {
                 file: 'feed-podcast-friday.json',
                 name: '🎙️ Friday: Wild Spaces & Outdoor Life',
-                description: 'Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate'
+                description: 'Chilcotin wilderness, backcountry recreation, conservation tech, wildfire and climate',
+                day: 'friday'
             },
             {
                 file: 'feed-podcast-saturday.json',
                 name: '🎙️ Saturday: Cariboo Voices & Local News',
-                description: 'Williams Lake, Quesnel, 100 Mile House, Bella Coola — community stories and digital equity'
+                description: 'Williams Lake, Quesnel, 100 Mile House, Bella Coola — community stories and digital equity',
+                day: 'saturday'
             },
             {
                 file: 'feed-podcast-sunday.json',
                 name: '🎙️ Sunday: Science, Wonder & the Natural World',
-                description: 'Scientific discovery, natural phenomena, and ecology, grounded in the landscapes and living systems of the Cariboo'
+                description: 'Scientific discovery, natural phenomena, and ecology, grounded in the landscapes and living systems of the Cariboo',
+                day: 'sunday'
             }
         ];
 
@@ -372,6 +379,14 @@
             updatedEl.textContent = `Updated: ${lastUpdate}`;
             meta.appendChild(countEl);
             meta.appendChild(updatedEl);
+
+            if (feed.day) {
+                const cadenceEl = document.createElement('span');
+                cadenceEl.className = 'feed-updated';
+                const dayLabel = feed.day.charAt(0).toUpperCase() + feed.day.slice(1);
+                cadenceEl.textContent = `🔄 Refreshes weekly (${dayLabel}s)`;
+                meta.appendChild(cadenceEl);
+            }
             header.appendChild(meta);
             item.appendChild(header);
 
