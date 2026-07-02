@@ -43,6 +43,35 @@ jobs:
           # existing articles and leave feeds with only that run's new articles.
           # Retries a few times first since a transient blip here is otherwise
           # indistinguishable from "this feed doesn't exist yet".
+
+          # Fallback when the published site copy is missing or corrupt: the
+          # gh-pages branch keeps full history, so restore the newest commit
+          # that still contains a valid copy of the file. This covers both CDN
+          # flakiness and files already deleted from the gh-pages tip by an
+          # earlier bad deploy (keep_files: false removes anything missing).
+          GH_PAGES_FETCHED=""
+          restore_from_gh_pages_history() {
+            local dest="$1"
+            local tmp="${dest}.tmp"
+            local sha
+            if [ -z "$GH_PAGES_FETCHED" ]; then
+              git fetch --quiet --depth=100 origin gh-pages || return 1
+              GH_PAGES_FETCHED=1
+            fi
+            for sha in $(git rev-list FETCH_HEAD -- "$dest"); do
+              git cat-file -e "${sha}:${dest}" 2>/dev/null || continue
+              if git show "${sha}:${dest}" > "$tmp" 2>/dev/null \
+                 && python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$tmp" 2>/dev/null; then
+                mv "$tmp" "$dest"
+                echo "  ✓ $dest (restored from gh-pages history ${sha:0:7})"
+                return 0
+              fi
+              rm -f "$tmp"
+            done
+            rm -f "$tmp"
+            return 1
+          }
+
           download_json() {
             local url="$1"
             local dest="$2"
@@ -58,9 +87,12 @@ jobs:
               rm -f "$tmp"
               [ "$attempt" -lt 3 ] && sleep $((attempt * 3))
             done
+            if restore_from_gh_pages_history "$dest"; then
+              return 0
+            fi
             # Remove any stale repo file so the curator builds fresh for this category
             rm -f "$dest"
-            echo "  ✗ $dest (download failed or invalid JSON after retries — will build fresh)"
+            echo "  ✗ $dest (download failed, no valid copy in gh-pages history — will build fresh)"
           }
 
           for feed in local ai-tech climate homelab wellness news science scifi; do
@@ -83,8 +115,10 @@ jobs:
           # Unlike category feeds, only *today's* podcast feed gets rebuilt each run —
           # the other 6 are just passed through. If one of those failed to download,
           # it would deploy as missing and (with keep_files: false) be permanently
-          # deleted from gh-pages until its weekday comes back around. Fail the job
-          # instead so gh-pages is left untouched and the next run retries the download.
+          # deleted from gh-pages until its weekday comes back around. This should
+          # only trip if both the site download AND the gh-pages history restore
+          # failed; fail the job so gh-pages is left untouched and the next run
+          # retries.
           today=$(TZ='America/Vancouver' date +%A | tr '[:upper:]' '[:lower:]')
           missing=""
           for day in monday tuesday wednesday thursday friday saturday sunday; do
