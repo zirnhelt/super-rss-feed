@@ -252,31 +252,22 @@ def score_feed_against_interests(candidate_texts: List[str], interests_text: str
         return 0.0
 
 
-def prefilter_scrub_articles(
+def score_scrub_interest(
     articles: List[Any],
     interests_text: str,
-    local_signals: Optional[List[str]] = None,
-    threshold: float = 20.0,
-) -> Tuple[List[Any], List[Any]]:
-    """Pre-filter obvious junk before Claude scrubbing using Cohere Rerank.
+) -> Dict[str, float]:
+    """Score articles' interest relevance (0-100) via Cohere Rerank for scrub pre-filtering.
 
-    Returns (articles_for_claude, auto_removed).
-    Articles scoring below `threshold` (out of 100) against the interest query
-    are auto-removed, unless their title contains a local signal (those always
-    go to Claude). The default of 2.5 is deliberately conservative — the primary
-    scorer already filtered the bottom 70%, and the Haiku scrub handles
-    borderline content.
-    Returns (articles, []) when Cohere is disabled or on error.
+    Returns {article.url_hash: interest_score}. Returns {} when Cohere is
+    disabled, on error, or given no articles — callers should treat a missing
+    url_hash as "unscored" rather than assuming a neutral score.
     """
     if not is_enabled() or not articles:
-        return articles, []
+        return {}
 
     co = get_client()
     query = build_interest_query(interests_text) if interests_text else 'technology news community'
     documents = [f"{a.title}. {(a.description or '')[:100]}" for a in articles]
-    _local = [s.lower() for s in (local_signals or [])]
-
-    INTEREST_FLOOR = threshold
 
     try:
         api_usage.record_call('cohere')
@@ -286,17 +277,35 @@ def prefilter_scrub_articles(
             documents=documents,
             top_n=len(documents),
         )
-        interest_scores = {item.index: item.relevance_score * 100 for item in result.results}
+        return {articles[item.index].url_hash: item.relevance_score * 100 for item in result.results}
     except Exception as e:
         print(f"  ⚠️  Cohere scrub pre-filter error: {e}")
-        return articles, []
+        return {}
+
+
+def apply_scrub_threshold(
+    articles: List[Any],
+    interest_scores: Dict[str, float],
+    local_signals: Optional[List[str]] = None,
+    threshold: float = 20.0,
+) -> Tuple[List[Any], List[Any]]:
+    """Split articles into (kept, auto_removed) using cached/fresh interest scores.
+
+    Articles scoring below `threshold` (out of 100) are auto-removed, unless
+    their title contains a local signal (those always go to Claude). The
+    default of 2.5 is deliberately conservative — the primary scorer already
+    filtered the bottom 70%, and the Haiku scrub handles borderline content.
+    An article missing from `interest_scores` is treated as neutral (50) and
+    kept.
+    """
+    _local = [s.lower() for s in (local_signals or [])]
 
     kept, auto_removed = [], []
-    for i, article in enumerate(articles):
+    for article in articles:
         title_lower = article.title.lower()
         is_local = any(sig in title_lower for sig in _local)
-        iscore = interest_scores.get(i, 50.0)
-        if not is_local and iscore < INTEREST_FLOOR:
+        iscore = interest_scores.get(article.url_hash, 50.0)
+        if not is_local and iscore < threshold:
             print(f"  🔮 Pre-filtered (score={iscore:.0f}): {article.title[:80]}")
             auto_removed.append(article)
         else:
