@@ -15,6 +15,17 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-07-03 | 🔧 Manual Run | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
 | 2026-07-03 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
 | 2026-07-03 | 🔧 Manual Run | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Neowin** failed | `403 Client Error: Forbidden for url: https://www.neowin.net/news/rss/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `403 Client Error: Forbidden for url: https://civileats.com/feed/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **BC Gov News** failed | `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutErro` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Western Producer** failed | `403 Client Error: Forbidden for url: https://www.producer.com/feed/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **AgWeb** failed | `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
 | 2026-07-02 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-07-02 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-07-02 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -38,6 +49,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-07-03 | 🔧 manual | 43 | news:25(58%), ai-tech:5(12%), local:4(9%) |
 | 2026-07-03 | 🔧 manual | 36 | news:25(69%), ai-tech:5(14%), climate:2(6%) |
 | 2026-07-03 | 🔧 manual | 35 | news:25(71%), ai-tech:5(14%), climate:2(6%) |
+| 2026-07-03 | 🔧 manual | 40 | news:25(62%), ai-tech:5(12%), wellness:3(8%) |
 | 2026-07-02 | 🔧 manual | 57 | news:25(44%), wellness:10(18%), ai-tech:8(14%) |
 | 2026-07-02 | 🔧 manual | 53 | news:25(47%), wellness:10(19%), ai-tech:5(9%) |
 | 2026-07-01 | 🌅 morning | 60 | news:25(42%), wellness:10(17%), ai-tech:6(10%) |
@@ -48,9 +60,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-27 | 🌙 evening | 49 | news:25(51%), ai-tech:8(16%), wellness:8(16%) |
 | 2026-06-26 | 🌅 morning | 50 | news:25(50%), wellness:10(20%), local:5(10%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-03 14:14 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-03 18:21 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
