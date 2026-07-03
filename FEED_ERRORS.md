@@ -23,6 +23,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (7:04 AM Pacific)
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
+- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
+
+
+---
+
+
+
 ## 2026-07-02 (Thursday)
 
 #### 🔧 Manual Run (6:56 AM Pacific)
