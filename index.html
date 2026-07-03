@@ -383,8 +383,7 @@
             if (feed.day) {
                 const cadenceEl = document.createElement('span');
                 cadenceEl.className = 'feed-updated';
-                const dayLabel = feed.day.charAt(0).toUpperCase() + feed.day.slice(1);
-                cadenceEl.textContent = `🔄 Refreshes weekly (${dayLabel}s)`;
+                cadenceEl.textContent = '🔄 Refreshes daily';
                 meta.appendChild(cadenceEl);
             }
             header.appendChild(meta);

@@ -208,7 +208,7 @@ The pipeline runs in this order. Understand it before touching any stage:
 13. **Images** — `fetch_images.py` fetches Open Graph images for up to 50 articles.
 14. **Categorize** — assign to 8 feeds using keyword rules + Claude category assignment.
 15. **Podcast cache** — quality articles saved to rolling 7-day pool; theme scores computed in one batch at ingest time.
-16. **Podcast feed** — today's themed feed generated from the weekly pool, skipping last 7 days of used articles, routing holdover articles.
+16. **Podcast feed** — all 7 themed feeds regenerated every run from the weekly pool (ingest-time theme scoring means the 6 non-today feeds are pure cache reads, no extra API cost), skipping last 7 days of used articles per theme, routing holdover articles.
 17. **Diversify** — per-source caps enforced.
 18. **Merge & output** — new articles merged with retained articles (story-overlap dedup); write JSON Feed 1.1 files + `curated-feeds.opml`.
 
