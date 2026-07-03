@@ -2186,8 +2186,33 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
             interests_text = (CONFIG_DIR / 'scoring_interests.txt').read_text().strip()
         except Exception:
             interests_text = ''
-        articles, auto_removed = cohere_integration.prefilter_scrub_articles(
-            articles, interests_text, local_signals=local_signals,
+
+        # Reuse scored_articles_cache (keyed by url_hash, same TTL as scoring)
+        # so an article that keeps reappearing across runs without being
+        # "shown" doesn't get re-sent to Cohere Rerank every time.
+        scored_cache = _scored_cache.load()
+        interest_scores: Dict[str, float] = {}
+        uncached: List[Article] = []
+        for article in articles:
+            entry = scored_cache.get(article.url_hash)
+            if entry and 'scrub_interest_score' in entry:
+                interest_scores[article.url_hash] = entry['scrub_interest_score']
+            else:
+                uncached.append(article)
+
+        if uncached:
+            new_scores = cohere_integration.score_scrub_interest(uncached, interests_text)
+            if new_scores:
+                for article in uncached:
+                    score = new_scores.get(article.url_hash)
+                    if score is None:
+                        continue
+                    interest_scores[article.url_hash] = score
+                    scored_cache.setdefault(article.url_hash, {})['scrub_interest_score'] = score
+                _scored_cache.save(scored_cache)
+
+        articles, auto_removed = cohere_integration.apply_scrub_threshold(
+            articles, interest_scores, local_signals=local_signals,
             threshold=LIMITS.get('cohere_prefilter_threshold', 2.5)
         )
         auto_removed_count = len(auto_removed)
