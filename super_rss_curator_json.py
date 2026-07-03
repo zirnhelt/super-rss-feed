@@ -4109,76 +4109,83 @@ def main():
     # Load weekly cache for podcast feed generation
     podcast_cache = load_podcast_cache()
 
-    # Generate today's themed podcast feed from the accumulated weekly staging pool.
-    # Each daily run banks qualifying articles into the holdover cache for all 7 themes;
-    # by the actual day, the holdover holds up to a week of pre-qualified candidates.
-    # After generation, holdover entries are marked USED (appeared) or SKIPPED (passed over).
-    print(f"\n🎙️ Generating today's podcast feed from {len(podcast_cache)} cached articles...")
+    # Generate ALL 7 themed podcast feeds from the accumulated weekly staging pool.
+    # Ingest-time scoring (score_all_themes_at_ingest) already rates every cached
+    # article against every theme, so regenerating a non-today feed is a pure
+    # cache read with no extra Claude calls. Refreshing daily (instead of only on
+    # each theme's calendar day) means a single failed/skipped run no longer
+    # leaves a feed stale for up to a week.
+    print(f"\n🎙️ Generating all themed podcast feeds from {len(podcast_cache)} cached articles...")
     if schedule_config and schedule_config.get('enabled', False):
         today_name = datetime.now(ZoneInfo('America/Vancouver')).strftime('%A').lower()
-        if today_name in schedule_config['schedule']:
-            podcast_shown_cache = load_podcast_shown_cache()
-            # Bank qualifying articles into every day's holdover staging pool.
-            banking_stats = bank_articles_for_all_themes(podcast_cache, schedule_config)
-            run_stats['theme_routing'] = {
-                'routed_by_target_day': banking_stats,
-                'routed_count': sum(banking_stats.values()),
-            }
+        podcast_shown_cache = load_podcast_shown_cache()
+        # Bank qualifying articles into every day's holdover staging pool.
+        banking_stats = bank_articles_for_all_themes(podcast_cache, schedule_config)
+        run_stats['theme_routing'] = {
+            'routed_by_target_day': banking_stats,
+            'routed_count': sum(banking_stats.values()),
+        }
+        day_order = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+        podcast_feed_stats: Dict[str, Dict] = {}
+        now_iso = datetime.now(timezone.utc).isoformat()
+        today_date_str = now_iso[:10]
+        for day in day_order:
+            if day not in schedule_config['schedule']:
+                continue
+            label = schedule_config['schedule'][day]['label']
             selected_urls, feed_stats = generate_podcast_feed(
-                today_name, podcast_cache, podcast_shown_cache
+                day, podcast_cache, podcast_shown_cache
             )
             if feed_stats:
-                run_stats['podcast_feeds'] = {today_name: feed_stats}
-            # Mark today's holdover entries as USED or SKIPPED for auditing.
+                podcast_feed_stats[day] = feed_stats
+
+            # Mark this day's holdover entries as USED or SKIPPED for auditing.
             if selected_urls is not None:
                 _hov = load_theme_holdover_cache()
-                today_staged = _hov.get(today_name, [])
+                day_staged = _hov.get(day, [])
                 used_count = skipped_count = 0
-                for article in today_staged:
+                for article in day_staged:
                     if article['link'] in selected_urls:
                         article['status'] = 'USED'
                         used_count += 1
                     elif article.get('status') != 'USED':
                         article['status'] = 'SKIPPED'
                         skipped_count += 1
-                if today_staged:
-                    _hov[today_name] = today_staged
+                if day_staged:
+                    _hov[day] = day_staged
                     save_theme_holdover_cache(_hov)
-                    print(f"  ♻️  Holdover status: {used_count} USED, {skipped_count} SKIPPED")
-            holdover_cache_snapshot = load_theme_holdover_cache()
-            run_stats['holdover'] = {
-                'bank_size_by_day_eod': {
-                    day: len(arts) for day, arts in holdover_cache_snapshot.items()
-                },
-                'banked_today': feed_stats.get('banked_count', 0) if feed_stats else 0,
-            }
+                    print(f"  ♻️  [{label}] Holdover status: {used_count} USED, {skipped_count} SKIPPED")
+
             if selected_urls:
-                now_iso = datetime.now(timezone.utc).isoformat()
-                today_date_str = now_iso[:10]
                 newly_marked = 0
-                compound_key = lambda u: f"{u}:::{today_name}"
+                compound_key = lambda u: f"{u}:::{day}"
                 for url in selected_urls:
                     existing = podcast_shown_cache.get(compound_key(url), {})
                     # Don't overwrite a same-day entry so the original shown_at is preserved
                     if not existing.get('shown_at', '').startswith(today_date_str):
-                        podcast_shown_cache[compound_key(url)] = {'day': today_name, 'shown_at': now_iso}
+                        podcast_shown_cache[compound_key(url)] = {'day': day, 'shown_at': now_iso}
                         newly_marked += 1
-                save_podcast_shown_cache(podcast_shown_cache)
-                print(f"  📌 Marked {newly_marked} new articles as shown ({len(selected_urls) - newly_marked} already in today's episode)")
-            print(f"\n📅 Podcast day buckets:")
-            day_order = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-            for day in day_order:
-                if day not in schedule_config['schedule']:
-                    continue
-                label = schedule_config['schedule'][day]['label']
-                if day == today_name:
-                    count = feed_stats['article_count'] if feed_stats else 0
-                    print(f"  {day} ({label}): {count} articles [TODAY]")
-                else:
-                    staged = len(holdover_cache_snapshot.get(day, []))
-                    print(f"  {day} ({label}): {staged} staged")
-        else:
-            print(f"⚠️ No podcast schedule for today ({today_name})")
+                print(f"  📌 [{label}] Marked {newly_marked} new articles as shown ({len(selected_urls) - newly_marked} already in episode)")
+
+        save_podcast_shown_cache(podcast_shown_cache)
+        run_stats['podcast_feeds'] = podcast_feed_stats
+
+        holdover_cache_snapshot = load_theme_holdover_cache()
+        run_stats['holdover'] = {
+            'bank_size_by_day_eod': {
+                day: len(arts) for day, arts in holdover_cache_snapshot.items()
+            },
+            'banked_today': sum(s.get('banked_count', 0) for s in podcast_feed_stats.values()),
+        }
+
+        print(f"\n📅 Podcast day buckets:")
+        for day in day_order:
+            if day not in schedule_config['schedule']:
+                continue
+            label = schedule_config['schedule'][day]['label']
+            count = podcast_feed_stats.get(day, {}).get('article_count', 0)
+            marker = ' [TODAY]' if day == today_name else ''
+            print(f"  {day} ({label}): {count} articles{marker}")
 
     # Generate daily review feed for user training feedback
     generate_review_feed(quality_articles, scrubbed, schedule_config, haiku_rejected)
