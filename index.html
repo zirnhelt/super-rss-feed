@@ -338,7 +338,7 @@
             }
         ];
 
-        const baseUrl = window.location.href.replace(/\/$/, '');
+        const baseUrl = new URL('.', window.location.href).href.replace(/\/$/, '');
         const feedsContainer = document.getElementById('feedsList');
 
         function buildFeedItem(feed, items, lastUpdate) {
