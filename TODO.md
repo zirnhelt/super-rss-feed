@@ -9,6 +9,8 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
 | 2026-07-03 | 🌙 8:30 PM Pacific | ⚠️ **LoRaMeshDevices** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
+| 2026-07-03 | 🔧 Manual Run | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
 | 2026-07-02 | 🔧 Manual Run | ⚠️ **Gizmodo** failed | `403 Client Error: Forbidden for url: https://gizmodo.com/feed` |
 | 2026-07-02 | 🔧 Manual Run | ⚠️ **My Cariboo Now** failed | `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed` |
 | 2026-07-02 | 🔧 Manual Run | ⚠️ **My East Kootenay Now** failed | `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/` |
@@ -29,6 +31,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-07-03 | 🌙 evening | 46 | news:25(54%), wellness:7(15%), ai-tech:5(11%) |
+| 2026-07-03 | 🔧 manual | 43 | news:25(58%), ai-tech:5(12%), local:4(9%) |
 | 2026-07-02 | 🔧 manual | 57 | news:25(44%), wellness:10(18%), ai-tech:8(14%) |
 | 2026-07-02 | 🔧 manual | 53 | news:25(47%), wellness:10(19%), ai-tech:5(9%) |
 | 2026-07-01 | 🌅 morning | 60 | news:25(42%), wellness:10(17%), ai-tech:6(10%) |
@@ -39,9 +42,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-06-27 | 🌙 evening | 49 | news:25(51%), ai-tech:8(16%), wellness:8(16%) |
 | 2026-06-26 | 🌅 morning | 50 | news:25(50%), wellness:10(20%), local:5(10%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-03 07:33 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-03 14:00 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
