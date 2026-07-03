@@ -60,8 +60,11 @@ def build_interest_query(interests_text: str) -> str:
             continue
         if capturing and stripped.startswith('-'):
             phrase = stripped[1:].strip()
-            if ':' in phrase:
-                phrase = phrase.split(':')[0].strip()
+            # Drop trailing scoring-rubric commentary (e.g. "— score 70-100 for...")
+            # but keep the concrete example terms after the colon — those examples
+            # (mining, forestry, land rights, etc.) are the strongest signal for
+            # semantic matching and were previously discarded entirely.
+            phrase = re.split(r'\s+—\s+score\b', phrase, maxsplit=1, flags=re.IGNORECASE)[0].strip()
             phrases.append(phrase)
     return ', '.join(phrases) if phrases else 'technology, news, climate, local community'
 
