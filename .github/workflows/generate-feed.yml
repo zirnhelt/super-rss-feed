@@ -226,7 +226,12 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache and feed log [skip ci]"
           git push
       
+      # The deploy occasionally fails on GitHub's side (transient API/push
+      # errors). `uses:` steps can't retry internally, so attempt the deploy
+      # up to 3 times with backoff, then verify the published content.
       - name: Deploy to GitHub Pages
+        id: deploy
+        continue-on-error: true
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -234,3 +239,51 @@ jobs:
           publish_branch: gh-pages
           keep_files: false
           commit_message: 'Update RSS feed'
+
+      - name: Wait before deploy retry (attempt 2)
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy_retry1
+        if: steps.deploy.outcome == 'failure'
+        continue-on-error: true
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: false
+          commit_message: 'Update RSS feed'
+
+      - name: Wait before deploy retry (attempt 3)
+        if: steps.deploy.outcome == 'failure' && steps.deploy_retry1.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        if: steps.deploy.outcome == 'failure' && steps.deploy_retry1.outcome == 'failure'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: false
+          commit_message: 'Update RSS feed'
+
+      - name: Verify gh-pages deploy
+        run: |
+          # Confirm the feed files at the gh-pages tip byte-match what this
+          # run built, so a deploy that "succeeded" but pushed nothing (or
+          # stale content) fails loudly instead of silently serving old feeds.
+          git fetch --quiet --depth=1 origin gh-pages
+          fail=0
+          for f in output/feed-*.json; do
+            name=$(basename "$f")
+            if git show "FETCH_HEAD:$name" 2>/dev/null | cmp -s - "$f"; then
+              echo "  ✓ $name"
+            else
+              echo "::error::$name on gh-pages does not match this run's output"
+              fail=1
+            fi
+          done
+          exit $fail
