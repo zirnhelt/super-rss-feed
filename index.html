@@ -464,7 +464,12 @@
 
             for (const feed of feeds) {
                 try {
-                    const response = await fetch(feed.file);
+                    // Cache-bust the request. Home-screen web apps (opened via
+                    // ?homescreen=1) cache fetch() responses aggressively and do
+                    // not reliably revalidate, so a unique query param plus
+                    // no-store forces the freshest feed on every load.
+                    const url = `${feed.file}?_=${Date.now()}`;
+                    const response = await fetch(url, { cache: 'no-store' });
                     const data = await response.json();
 
                     const items = data.items || [];
