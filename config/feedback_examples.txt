@@ -1,21 +1,23 @@
 # Relevance Scoring Calibration Points
 
-- **Favor constructive solutions & resilience narratives**: Articles about community action, system improvements, and human-centered problem-solving score high (e.g., child/youth system fixes, social capital, L&D innovation). De-weight crisis-only coverage without forward momentum.
+- **Boost local/regional news significantly**: Williams Lake Tribune, CFJC, My Cariboo Now articles consistently score 85–90 when community-focused. Prioritize hyperlocal reporting over national crime/politics unless exceptional.
 
-- **Local/regional relevance heavily weighted**: Williams Lake and B.C./Cariboo region stories consistently receive 85–90 scores despite lower query/ranking metrics (Q21 R21). Prioritize hyperlocal sources and community impact angles over national outlets on local topics.
+- **Favor solutions-oriented and systemic framing**: Articles on community resilience, policy action plans, and "how-to fix" approaches score 15–20 points higher than sensational rescue/crime coverage, even when drama-heavy.
 
-- **Environmental/climate stories resonate when tied to tangible impacts**: Wildlife/habitat loss (birds in tailings), wildfire alerts, and resource management get strong scores. Avoid abstract climate discourse without specific regional or species-level detail.
+- **Deprioritize celebrity/scandal/violence narratives**: Crime drama (plane crashes, attacks, prison gossip), celebrity news, and conflict-focused international stories consistently score 0–50 and are frequently reassigned downward or rejected despite high Q/R scores.
 
-- **Human-interest + expertise framing outperforms celebrity/scandal framing**: Personal transformation narratives (pilgrimage nurses, wind phone) and credentialed expert voices (Daniel Aldrich on resilience, press freedom journalism) score high; gossip/crime tabloid angles (Ghislaine Maxwell, celebrity feuds) score low despite viral potential.
+- **AI/tech topics require nuance**: Enterprise AI, local AI accessibility, and AI ethics (Marcus, Amodei perspectives) score 70–80 and are podcast-quality. Consumer gadget reviews and AI product launches score only 10–13 and miss the mark.
 
-- **AI/tech coverage: critical analysis > hype**: Articles questioning AI ROI, data risks, and infrastructure limits (Gary Marcus, data centre moratorium, GPU accessibility caveats) score 70–80. Avoid uncritical product announcements and corporate AI claims (Pinterest AI app, enterprise AI adoption fluff).
+- **Environmental/resource stories with local ties outperform**: Wildfire alerts, bird deaths in oilsands, and BC policy changes score 64–90. Generic energy/oil market stories score 35.
 
-- **De-prioritize US politics, health scandal, and international conflict coverage**: Articles on elections, health/crime trials, geopolitical violence, and military incidents consistently appear in Bad Fit despite high query scores. These may rank well algorithmically but don't match curator preferences.
+- **Underrepresented but valued**: "Interesting" category shows appetite for philosophy/meaning (Hesse), disability awareness, and nuanced AI adoption questions—these score 45–50 but rarely appear in Good Fit. Increase weighting.
 
-- **Friday–Saturday slot attraction for environmental/community action**: Wildfire, habitat, and local impact stories reassigned to Fri/Sat suggest podcast day thematic clustering. Boost relevance for weekend-positioned environmental narratives.
+- **Monday assignments favor human-interest and cultural pieces**: Pilgrimage story, Indigenous festival coverage, literary excerpts, and "wind phone" were reassigned to Monday, suggesting weekend/reflective-content preference for day-of-week targeting.
 
-- **Monday reserved for cultural/creative/gentle-interest content**: Music, festivals, literary excerpts, and human-centered experiential pieces moved to Monday. Flag uplifting or artistic framing for early-week slots.
+- **Friday/Saturday prefer local urgency and policy**: Wildfires, suspicious fires, and community action plans move to Friday–Saturday, indicating appetite for time-sensitive local news mid-to-late week.
 
-- **Source diversity matters less than framing**: High-scoring articles span niche outlets (Resilience.org, The Narwhal, APTN) and mainstream (Global News, Quartz). Quality of insight trumps publication tier.
+- **Source matters more than raw topic**: The Narwhal, Resilience.org, and APTN News punch above typical story categories. TechRadar and Business Insider underperform relative to their coverage breadth—adjust source-level trust scores accordingly.
 
-- **Avoid sensationalism in headline/framing**: Dramatic rescue narratives (plane crashes, school fires) score 78–83 in Bad Fit despite high algorithmic ranking. Prefer measured, solutions-oriented framing over urgency-
+- **Avoid high-Q/R scores from mismatched sources**: "Dramatic rescue" and "offshore conflict" both scored Q80–R80 in Bad Fit. Don't rely on engagement signals alone; cross-check source alignment with curator preference.
+
+- **Wellness category is heterogeneous**: Wellness-tagged articles range from 25 (politics) to 90 (pilgrimage reflection). Use article framing/tone as

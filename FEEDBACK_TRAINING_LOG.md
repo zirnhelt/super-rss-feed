@@ -1,3 +1,85 @@
+## Feedback Training Run — 2026-07-05 14:50 UTC
+
+**Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json
+**Ratings:** 175 Good, 9 Interesting, 288 Bad, 153 reassigned to day(s)
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (13), TechRadar (8), My Cariboo Now (8), New Atlas (8), Global News (7)
+**Top disliked sources:** Al Jazeera English (17), Business Insider (14), Android Authority (13), Toms Guide (12), Pique Newsmagazine (11)
+**Categories liked:** news (129), local (23), wellness (10), ai-tech (10), climate (3)
+**Categories disliked:** news (252), wellness (14), ai-tech (11), local (5), podcast-sunday (2), scifi (2), podcast-friday (1), homelab (1)
+
+**Day reassignment summary:**
+- tuesday → monday: 4 articles
+- tuesday → sunday: 2 articles
+- tuesday → saturday: 2 articles
+- tuesday → thursday: 2 articles
+- tuesday → wednesday: 1 articles
+- tuesday → friday: 1 articles
+- wednesday → friday: 11 articles
+- wednesday → saturday: 8 articles
+- wednesday → sunday: 7 articles
+- wednesday → monday: 4 articles
+- wednesday → tuesday: 4 articles
+- wednesday → wednesday: 3 articles
+- wednesday → thursday: 2 articles
+- friday → wednesday: 8 articles
+- friday → sunday: 7 articles
+- friday → thursday: 5 articles
+- friday → saturday: 4 articles
+- friday → tuesday: 3 articles
+- friday → friday: 3 articles
+- friday → monday: 1 articles
+- saturday → sunday: 12 articles
+- saturday → wednesday: 6 articles
+- saturday → thursday: 4 articles
+- saturday → saturday: 2 articles
+- saturday → tuesday: 1 articles
+- saturday → friday: 1 articles
+- sunday → wednesday: 5 articles
+- sunday → tuesday: 4 articles
+- sunday → sunday: 4 articles
+- sunday → friday: 3 articles
+- sunday → saturday: 3 articles
+- monday → tuesday: 4 articles
+- monday → sunday: 3 articles
+- monday → wednesday: 2 articles
+- monday → saturday: 2 articles
+- monday → friday: 2 articles
+- monday → thursday: 2 articles
+- thursday → wednesday: 5 articles
+- thursday → friday: 4 articles
+- thursday → sunday: 4 articles
+- thursday → tuesday: 1 articles
+- thursday → thursday: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Relevance Scoring Calibration Points
+
+- **Boost local/regional news significantly**: Williams Lake Tribune, CFJC, My Cariboo Now articles consistently score 85–90 when community-focused. Prioritize hyperlocal reporting over national crime/politics unless exceptional.
+
+- **Favor solutions-oriented and systemic framing**: Articles on community resilience, policy action plans, and "how-to fix" approaches score 15–20 points higher than sensational rescue/crime coverage, even when drama-heavy.
+
+- **Deprioritize celebrity/scandal/violence narratives**: Crime drama (plane crashes, attacks, prison gossip), celebrity news, and conflict-focused international stories consistently score 0–50 and are frequently reassigned downward or rejected despite high Q/R scores.
+
+- **AI/tech topics require nuance**: Enterprise AI, local AI accessibility, and AI ethics (Marcus, Amodei perspectives) score 70–80 and are podcast-quality. Consumer gadget reviews and AI product launches score only 10–13 and miss the mark.
+
+- **Environmental/resource stories with local ties outperform**: Wildfire alerts, bird deaths in oilsands, and BC policy changes score 64–90. Generic energy/oil market stories score 35.
+
+- **Underrepresented but valued**: "Interesting" category shows appetite for philosophy/meaning (Hesse), disability awareness, and nuanced AI adoption questions—these score 45–50 but rarely appear in Good Fit. Increase weighting.
+
+- **Monday assignments favor human-interest and cultural pieces**: Pilgrimage story, Indigenous festival coverage, literary excerpts, and "wind phone" were reassigned to Monday, suggesting weekend/reflective-content preference for day-of-week targeting.
+
+- **Friday/Saturday prefer local urgency and policy**: Wildfires, suspicious fires, and community action plans move to Friday–Saturday, indicating appetite for time-sensitive local news mid-to-late week.
+
+- **Source matters more than raw topic**: The Narwhal, Resilience.org, and APTN News punch above typical story categories. TechRadar and Business Insider underperform relative to their coverage breadth—adjust source-level trust scores accordingly.
+
+- **Avoid high-Q/R scores from mismatched sources**: "Dramatic rescue" and "offshore conflict" both scored Q80–R80 in Bad Fit. Don't rely on engagement signals alone; cross-check source alignment with curator preference.
+
+- **Wellness category is heterogeneous**: Wellness-tagged articles range from 25 (politics) to 90 (pilgrimage reflection). Use article framing/tone as
+
+---
 ## Feedback Training Run — 2026-06-28 14:57 UTC
 
 **Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json
