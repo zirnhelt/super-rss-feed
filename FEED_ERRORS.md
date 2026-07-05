@@ -3,6 +3,30 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-05 (Sunday)
+
+#### 🔧 Manual Run (6:59 AM Pacific)
+- ⚠️ **LoRaMeshDevices** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Indigenous Technology and Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"b0626969c0c10a0a0173d353843adc93","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Wildfire and Conservation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"95bc24c103ffc387cd13563497311d8f","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"d1c780de826c66478e5df6bd4afc156c","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"f4b97f9599f2303aecfcab21e8207c5c","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"57ce60dfb1ad71134b2cfb1f6cadf51d","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **AgTech and Resource Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"4845145ec4b6d882972f390cbac57bbb","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Wildlife and Backcountry (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"43ffd0f5ba881242e6ff6810fd46bc28","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Canadian Geographic (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"d8664451227a7a6a1d83bdfb460d93ae","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Examine.com (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"5181f365d261fa2d88e19d99631e9841","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"7bca28adbe19dfee104c5eb11492d0b0","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"2fe4206f774fc3aaef17d526c201ced4","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"a785485c19439d503ace3ee3191fbc7f","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Canadian Arts Technology (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"97c9b1e5e71bca7d84107faa65946692","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
+- ⚠️ **Kagi Summarizer** failed — `HTTP 429 x10`
+
+
+---
+
+
+
 ## 2026-07-03 (Friday)
 
 #### 🌙 8:30 PM Pacific
