@@ -731,6 +731,7 @@ def write_changelog(
     clamping_notes: List[Dict],
     audit_data: Dict,
     dry_run: bool,
+    reason: Optional[str] = None,
 ) -> None:
     now = datetime.now(timezone.utc)
     run_date = now.strftime('%Y-%m-%d')
@@ -738,7 +739,12 @@ def write_changelog(
     lines = [f"\n## {run_date}{' (dry run)' if dry_run else ''}\n"]
 
     if result is None:
-        lines.append("No changes: Claude call or response parsing failed. See logs for details.\n")
+        if reason == 'no_api_key':
+            lines.append("No changes: ANTHROPIC_API_KEY not set.\n")
+        elif reason == 'no_stats':
+            lines.append("No changes: no calibration stats in the 14-day window.\n")
+        else:
+            lines.append("No changes: Claude call or response parsing failed. See logs for details.\n")
     else:
         lines.append(f"Audit window: {audit_data.get('run_count', 0)} runs "
                       f"({audit_data.get('date_range', {}).get('first', '?')} to "
@@ -784,6 +790,27 @@ def write_changelog(
         CALIBRATION_LOG_FILE.write_text("# Calibration Log\n", encoding='utf-8')
     with open(CALIBRATION_LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(section)
+
+    # Persist noise-to-signal benchmark snapshot (one entry per run date, rolling 52
+    # weeks). Runs regardless of whether the Claude analysis succeeded — it only
+    # depends on audit_data, which gather_audit_data() computes by pure arithmetic
+    # and which is available even when result is None.
+    nts = audit_data.get('noise_to_signal', {})
+    if nts.get('mean') is not None:
+        benchmarks = json.loads(BENCHMARKS_FILE.read_text(encoding='utf-8')) if BENCHMARKS_FILE.exists() else {'weeks': []}
+        benchmarks['weeks'] = [w for w in benchmarks.get('weeks', []) if w.get('week_date') != run_date]
+        benchmarks['weeks'].append({
+            'week_date': run_date,
+            'mean': nts['mean'],
+            'min': nts['min'],
+            'max': nts['max'],
+            'run_count': len(nts.get('series', [])),
+        })
+        benchmarks['weeks'] = sorted(benchmarks['weeks'], key=lambda w: w['week_date'])[-52:]
+        MEMORY_DIR.mkdir(exist_ok=True)
+        with open(BENCHMARKS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(benchmarks, f, indent=2, ensure_ascii=False)
+            f.write('\n')
 
     if result is None:
         return
@@ -845,25 +872,6 @@ def write_changelog(
     with open(NOTES_FILE, 'a', encoding='utf-8') as f:
         f.write(f"\n## {run_date}{' (dry run)' if dry_run else ''}\n\n{result.get('analysis', '').strip()}\n")
 
-    # Persist noise-to-signal benchmark snapshot (one entry per run date, rolling 52 weeks)
-    nts = audit_data.get('noise_to_signal', {})
-    if nts.get('mean') is not None:
-        benchmarks = json.loads(BENCHMARKS_FILE.read_text(encoding='utf-8')) if BENCHMARKS_FILE.exists() else {'weeks': []}
-        benchmarks['weeks'] = [w for w in benchmarks.get('weeks', []) if w.get('week_date') != run_date]
-        benchmarks['weeks'].append({
-            'week_date': run_date,
-            'mean': nts['mean'],
-            'min': nts['min'],
-            'max': nts['max'],
-            'run_count': len(nts.get('series', [])),
-        })
-        benchmarks['weeks'] = sorted(benchmarks['weeks'], key=lambda w: w['week_date'])[-52:]
-        MEMORY_DIR.mkdir(exist_ok=True)
-        with open(BENCHMARKS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(benchmarks, f, indent=2, ensure_ascii=False)
-            f.write('\n')
-
-
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -874,13 +882,13 @@ def main():
 
     if not api_key:
         print("❌ ANTHROPIC_API_KEY not set; skipping calibration run")
-        write_changelog(None, [], [], [], {}, dry_run)
+        write_changelog(None, [], [], [], {}, dry_run, reason='no_api_key')
         return
 
     audit_data = gather_audit_data()
     if audit_data.get('run_count', 0) == 0:
         print("ℹ️ No calibration stats in window; skipping calibration run")
-        write_changelog(None, [], [], [], audit_data, dry_run)
+        write_changelog(None, [], [], [], audit_data, dry_run, reason='no_stats')
         return
 
     memory = load_memory_context()
