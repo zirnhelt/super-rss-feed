@@ -182,7 +182,6 @@ class SimpleArticle:
         # Parse publication date
         try:
             if hasattr(entry, 'published_parsed') and entry.published_parsed:
-                from datetime import datetime, timezone
                 self.pub_date = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
             else:
                 self.pub_date = datetime.now(timezone.utc)
