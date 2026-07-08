@@ -2032,12 +2032,22 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
         try:
             claude_scored = score_articles_with_claude_pure(claude_candidates, api_key)
             
-            # Mark which articles got Claude scoring
-            claude_scored_set = {a.url_hash for a in claude_scored}
+            # Update articles in the main list with Claude scores
+            # Create a map from url_hash to scored article
+            claude_scored_map = {a.url_hash: a for a in claude_scored}
+            
             for article in articles:
-                if article.url_hash in claude_scored_set:
-                    article._claude_dimensional_score = article.score
-                    article.cohere_scored = False  # Prioritize Claude score
+                if article.url_hash in claude_scored_map:
+                    scored = claude_scored_map[article.url_hash]
+                    # Copy Claude's dimensional scores
+                    article.score = scored.score
+                    article.quality = scored.quality
+                    article.relevance = scored.relevance
+                    article.local = scored.local
+                    article.content_type = scored.content_type
+                    article.category = scored.category
+                    article.story_group = scored.story_group
+                    article.cohere_scored = False  # Mark as Claude-scored
         except Exception as e:
             print(f"  ⚠️ Claude scoring failed: {e}, keeping Cohere scores")
     else:
