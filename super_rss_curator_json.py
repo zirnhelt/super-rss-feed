@@ -2015,11 +2015,17 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
     
     # Attach Cohere scores to articles
     for article in articles:
-        cohere_score = cohere_scores.get(article.url_hash, 0)
-        # Enforce int type (not tuple)
-        article.score = int(cohere_score) if cohere_score else 0
+        cohere_result = cohere_scores.get(article.url_hash, 0)
+        # Extract score: cohere_result is either int or tuple (int, str)
+        if isinstance(cohere_result, tuple):
+            cohere_score = cohere_result[0]
+        else:
+            cohere_score = cohere_result
+        # Enforce int type
+        score_int = int(cohere_score) if cohere_score else 0
+        article.score = score_int
         article.cohere_scored = True
-        article._cohere_prescore = int(cohere_score) if cohere_score else 0
+        article._cohere_prescore = score_int
     
     # Step 2: Identify top X% by Cohere score for Claude review
     top_percent = config.get("claude_top_percent", 0.30)
