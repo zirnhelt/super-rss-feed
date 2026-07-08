@@ -3,6 +3,35 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-08 (Wednesday)
+
+#### 🔧 Manual Run (4:20 PM Pacific)
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
+- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
+- ⚠️ **First Peoples Cultural Council (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"cb9f31d617edf65c638e611378a8d285","ms":25,"node":"us-east4"},"data":null,"errors":[{"code":`
+- ⚠️ **Nation Talk (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"74a8abf9af7fb8f59b4b17eac8812e06","ms":17,"node":"us-east4"},"data":null,"errors":[{"code":`
+- ⚠️ **Mesh Networking and LoRa (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"cfa8d4407dd59c4e85d096e544500d61","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Technology and Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"8827d8df20b220c01e22c0a5f73ce98e","ms":58,"node":"us-east4"},"data":null,"errors":[{"code":`
+- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"97f8d51a7b4cec1442fac1657eb9daf6","ms":43,"node":"us-east4"},"data":null,"errors":[{"code":`
+- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"653a5a35560f8c0c472d1afc950f95a0","ms":42,"node":"us-east4"},"data":null,"errors":[{"code":`
+- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"c2a2840960fc4532afdc8b1e4b919dfd","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Community Media and Digital Storytelling (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"0ebc09b5088eec5c46d39a30faf106b2","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **AgTech and Resource Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"2872f2bc9737dc4626d5a06bc28a3f98","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Wildlife and Backcountry (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"d5cd3de6e06eaae3e345fddce836c2e5","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Examine.com (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"ea19f74e542836c1ae1f037898be8e42","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"699f3ce79f0c4a0741e8a006859ae001","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"6d45016667f6dd3ed41c0f0786e7e5a8","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"6478156314861f7e2913c9ef70046966","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"c994121e4c217322ec64f350f5c3c072","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
+- ⚠️ **Kagi Summarizer** failed — `HTTP 429 x10`
+- ⚠️ Kagi fallback failed for openmedia.org: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
+- ⚠️ Kagi fallback failed for daniele-messi.com: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
+
+
+---
+
+
+
 ## 2026-07-07 (Tuesday)
 
 #### 🌙 8:30 PM Pacific
@@ -178,26 +207,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
 - ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
 - ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-
-
----
-
-
-
-## 2026-06-30 (Tuesday)
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ Cohere Rerank error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '08a7b37a500763ab546a6e2b8d0e0f5a', 'date': 'Tue, 30 Jun 2026 08:00:50 GMT', 'x-envoy-upstream-service-time': '4', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '8ad1d2a0-c60a-4418-8450-6d8fd1b3b1ff', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'e62ad83901662e9fc0f3023910c0bad2', 'date': 'Tue, 30 Jun 2026 08:00:50 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '5e16c4b7-d095-46d0-825b-10a728448443', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere scrub pre-filter error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'e78fe9eb3bd7340cfbdd65d97c9f0870', 'date': 'Tue, 30 Jun 2026 08:00:50 GMT', 'x-envoy-upstream-service-time': '6', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': 'cbe7c878-bfb1-4776-a001-36da3fc47cc2', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Arts, Culture & Digital Storytelling]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '239d5c3527ddd8a3d71164b115bf2000', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '072cd920-76d0-45ff-889a-ead430e5ab83', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Working Lands & Industry]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '2bae6dc5164f2c513ca56a893ec82c75', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': 'b5d10175-675b-4e69-9321-758421b21db5', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Repair Culture & Practical Tech]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'd9642a5c7d606a8dde13cdf9a63c7d42', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '3f9c02f8-0776-4040-994b-3d17a497f10c', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Indigenous Lands & Innovation]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'a051074f47ff68d84f25b7c5846c4d14', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '2540ec63-8b79-48e0-89f4-f0ad8acc9619', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Wild Spaces & Outdoor Life]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'c9a75f8a4f40c0a2d2df265771081a70', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '2445694a-08bd-4487-a330-a96c72721a19', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Cariboo Local Affairs]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'f5fa7ba84b390adc34acec0653ac631e', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': 'a100e078-774c-4092-b061-c8bfb111d6bf', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Science, Wonder & the Natural World]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': '7c52ae0796e120eafed041756ce46eb1', 'date': 'Tue, 30 Jun 2026 08:01:31 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '117fa2e5-b2d7-46d7-a023-0d24ef1f5871', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
-- ⚠️ Cohere theme Rerank error [Working Lands & Industry]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'ae92b9928481af937476bbccc8c252e5', 'date': 'Tue, 30 Jun 2026 08:01:32 GMT', 'x-envoy-upstream-service-time': '3', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '6ac0c66d-b98f-493a-b4c7-30ca14323a0f', 'message': 'Maximum billing reached for this API key as set in your dashboard, please go to https://dashboard.cohere.com/billing?tab=payment to increase your maximum amount to continue using this API key. Your billing capacity will reset at the beginning of next month.'}
 
 
 ---
@@ -693,6 +702,24 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 13 issues recorded
 - ⚠️ IndigiNews failed — 421 Client Error: Misdirected Request for url: https://indiginews.com/feed/
 - ⚠️ LoRaMeshDevices failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+- ⚠️ Cohere Rerank error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-st
+- ⚠️ Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-sto
+- ⚠️ Cohere scrub pre-filter error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-ca
+- ⚠️ Cohere theme Rerank error [Arts, Culture & Digital Storytelling]: headers: {'access-control-expose-headers': 'X-Debug
+- ⚠️ Cohere theme Rerank error [Working Lands & Industry]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 
+- ⚠️ Cohere theme Rerank error [Repair Culture & Practical Tech]: headers: {'access-control-expose-headers': 'X-Debug-Trac
+- ⚠️ Cohere theme Rerank error [Indigenous Lands & Innovation]: headers: {'access-control-expose-headers': 'X-Debug-Trace-
+- ⚠️ Cohere theme Rerank error [Wild Spaces & Outdoor Life]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID'
+- ⚠️ Cohere theme Rerank error [Cariboo Local Affairs]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'ca
+- ⚠️ Cohere theme Rerank error [Science, Wonder & the Natural World]: headers: {'access-control-expose-headers': 'X-Debug-
+
+
+---
+
+
+
+## Week of 2026-06-30–2026-06-30
+- 11 issues recorded
 - ⚠️ Cohere Rerank error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-st
 - ⚠️ Cohere Embed error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-sto
 - ⚠️ Cohere scrub pre-filter error: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-ca
