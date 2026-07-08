@@ -2013,9 +2013,10 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
     # Attach Cohere scores to articles
     for article in articles:
         cohere_score = cohere_scores.get(article.url_hash, 0)
-        article.score = cohere_score
+        # Enforce int type (not tuple)
+        article.score = int(cohere_score) if cohere_score else 0
         article.cohere_scored = True
-        article._cohere_prescore = cohere_score
+        article._cohere_prescore = int(cohere_score) if cohere_score else 0
     
     # Step 2: Identify top X% by Cohere score for Claude review
     top_percent = config.get("claude_top_percent", 0.30)
@@ -2039,8 +2040,8 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
             for article in articles:
                 if article.url_hash in claude_scored_map:
                     scored = claude_scored_map[article.url_hash]
-                    # Copy Claude's dimensional scores
-                    article.score = scored.score
+                    # Copy Claude's dimensional scores — enforce int type
+                    article.score = int(scored.score) if scored.score else 50
                     article.quality = scored.quality
                     article.relevance = scored.relevance
                     article.local = scored.local
@@ -2055,7 +2056,14 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
     
     # Step 4: Ensure all articles have a score (fallback to Cohere)
     for article in articles:
-        if not hasattr(article, "score") or article.score == 0:
+        # Check if score is missing, zero, or a tuple (shouldn't happen but safeguard)
+        try:
+            score_val = article.score if hasattr(article, "score") else None
+            if score_val is None or score_val == 0 or isinstance(score_val, tuple):
+                article.score = cohere_scores.get(article.url_hash, 0)
+                article.cohere_scored = True
+        except Exception:
+            # If anything goes wrong, use Cohere score
             article.score = cohere_scores.get(article.url_hash, 0)
             article.cohere_scored = True
     
