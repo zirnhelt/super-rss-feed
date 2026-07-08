@@ -1893,14 +1893,17 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
     for article in articles:
         if article.url_hash in cache:
             entry = cache[article.url_hash]
-            article.score = entry['score']
+            # Extract score: entry['score'] is a tuple (int, str), get first element
+            score_tuple = entry['score']
+            score_val = score_tuple[0] if isinstance(score_tuple, tuple) else score_tuple
+            article.score = int(score_val) if score_val else 0
             article.category = entry['category']
             # Synthesize Q/R/L from composite score — Cohere has no dimensional breakdown.
             # Using score as a proxy keeps calibration histograms populated without
             # changing apply_dimension_adjustments behaviour (cohere_scored=True bypasses
             # the composite recompute there).
-            article.quality = entry.get('quality', entry['score'])
-            article.relevance = entry.get('relevance', entry['score'])
+            article.quality = int(score_val) if score_val else 0
+            article.relevance = int(score_val) if score_val else 0
             article.local = entry.get('local', 0)
             article.content_type = entry.get('content_type')
             article.story_group = entry.get('story_group')
@@ -2200,7 +2203,10 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
                 article.relevance = entry['relevance']
                 article.local = entry.get('local', 0)
                 article.content_type = entry.get('content_type')
-                article.score = entry['score']
+                # Extract score: could be tuple (int, str), get first element
+                score_tuple = entry['score']
+                score_val = score_tuple[0] if isinstance(score_tuple, tuple) else score_tuple
+                article.score = int(score_val) if score_val else 0
                 article.category = entry['category']
                 article.story_group = entry.get('story_group')
                 scored_articles.append(article)
