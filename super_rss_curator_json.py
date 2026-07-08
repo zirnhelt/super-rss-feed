@@ -2069,11 +2069,20 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
         try:
             score_val = article.score if hasattr(article, "score") else None
             if score_val is None or score_val == 0 or isinstance(score_val, tuple):
-                article.score = cohere_scores.get(article.url_hash, 0)
+                # Get Cohere score and extract from tuple if needed
+                cohere_result = cohere_scores.get(article.url_hash, 0)
+                if isinstance(cohere_result, tuple):
+                    article.score = int(cohere_result[0]) if cohere_result[0] else 0
+                else:
+                    article.score = int(cohere_result) if cohere_result else 0
                 article.cohere_scored = True
         except Exception:
             # If anything goes wrong, use Cohere score
-            article.score = cohere_scores.get(article.url_hash, 0)
+            cohere_result = cohere_scores.get(article.url_hash, 0)
+            if isinstance(cohere_result, tuple):
+                article.score = int(cohere_result[0]) if cohere_result[0] else 0
+            else:
+                article.score = int(cohere_result) if cohere_result else 0
             article.cohere_scored = True
     
     print(f"  ✅ Hybrid complete")
