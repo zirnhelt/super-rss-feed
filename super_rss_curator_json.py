@@ -51,6 +51,35 @@ SCORING_MODIFIERS = config_loader.load_scoring_modifiers() or {
 }
 FEED_SLOTS = config_loader.load_feed_slots_config()
 
+# ════════════════════════════════════════════════════════════════════════════════
+# Hybrid Scoring Configuration
+# ════════════════════════════════════════════════════════════════════════════════
+
+def load_scoring_mode_config() -> Dict:
+    """Load hybrid scoring configuration."""
+    path = CONFIG_DIR / "scoring_mode.json"
+    
+    defaults = {
+        "mode": "cohere-only",
+        "cohere_rerank_all": True,
+        "claude_depth_threshold": 0.70,
+        "claude_top_percent": 0.30,
+    }
+    
+    if path.exists():
+        try:
+            config = json.load(open(path))
+            result = {**defaults, **config}
+            print(f"  📋 Loaded scoring mode: {result['mode']}")
+            return result
+        except Exception as e:
+            print(f"  ⚠️ Failed to load scoring config: {e}, using defaults")
+            return defaults
+    
+    return defaults
+
+# ════════════════════════════════════════════════════════════════════════════════
+
 def _build_prescore_keywords() -> frozenset:
     """Union of all category include-keywords plus local signals.
 
@@ -1926,11 +1955,133 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
     return scored_articles
 
 
-def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
-    """Score and categorize articles using Claude API with prompt caching"""
-    if cohere_integration.is_enabled():
-        return score_articles_with_cohere(articles)
+# ════════════════════════════════════════════════════════════════════════════════
+# Hybrid Scoring: Cohere + Claude
+# ════════════════════════════════════════════════════════════════════════════════
 
+def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
+    """
+    Score articles using configured mode: pure Cohere, hybrid, or pure Claude.
+    
+    Dispatches to the appropriate scoring strategy based on config.
+    """
+    config = load_scoring_mode_config()
+    mode = config.get("mode", "cohere-only")
+    
+    if mode == "cohere-only":
+        # Pure Cohere path (existing behavior)
+        if cohere_integration.is_enabled():
+            return score_articles_with_cohere(articles)
+        else:
+            # Fallback if no Cohere API key
+            return score_articles_with_claude_pure(articles, api_key)
+    
+    elif mode == "hybrid":
+        # NEW: Hybrid Cohere + Claude
+        return score_articles_hybrid(articles, api_key, config)
+    
+    elif mode == "claude-only":
+        # Pure Claude (fallback for testing)
+        return score_articles_with_claude_pure(articles, api_key)
+    
+    else:
+        print(f"  ⚠️ Unknown scoring mode: {mode}, using cohere-only")
+        if cohere_integration.is_enabled():
+            return score_articles_with_cohere(articles)
+        return score_articles_with_claude_pure(articles, api_key)
+
+
+def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -> List[Article]:
+    """
+    Hybrid scoring: Cohere reranks all articles (fast filter), Claude scores top N.
+    
+    Flow:
+    1. Cohere rerank all articles (cheap, gives relevance ranking)
+    2. Take top 30% by Cohere score
+    3. Claude dimensional scoring on top articles
+    4. Rest get Cohere score as final score
+    """
+    if not articles:
+        return []
+    
+    print(f"\n🔀 Hybrid scoring: {len(articles)} articles")
+    
+    # Step 1: Get Cohere rankings for ALL articles
+    print(f"  1️⃣ Cohere rerank (all {len(articles)} articles)...")
+    cohere_scores = _cohere_prescore(articles)
+    
+    # Attach Cohere scores to articles
+    for article in articles:
+        cohere_score = cohere_scores.get(article.url_hash, 0)
+        article.score = cohere_score
+        article.cohere_scored = True
+        article._cohere_prescore = cohere_score
+    
+    # Step 2: Identify top X% by Cohere score for Claude review
+    top_percent = config.get("claude_top_percent", 0.30)
+    
+    # Sort by Cohere score, take top N
+    sorted_by_cohere = sorted(articles, key=lambda a: getattr(a, "score", 0), reverse=True)
+    num_for_claude = max(1, int(len(sorted_by_cohere) * top_percent))
+    claude_candidates = sorted_by_cohere[:num_for_claude]
+    
+    print(f"  2️⃣ Claude dimensions (top {num_for_claude}/{len(articles)} articles)...")
+    
+    # Step 3: Claude scores only the top candidates (dimensional: Quality/Relevance/Local)
+    if api_key:
+        try:
+            claude_scored = score_articles_with_claude_pure(claude_candidates, api_key)
+            
+            # Mark which articles got Claude scoring
+            claude_scored_set = {a.url_hash for a in claude_scored}
+            for article in articles:
+                if article.url_hash in claude_scored_set:
+                    article._claude_dimensional_score = article.score
+                    article.cohere_scored = False  # Prioritize Claude score
+        except Exception as e:
+            print(f"  ⚠️ Claude scoring failed: {e}, keeping Cohere scores")
+    else:
+        print("  ⚠️ No Claude API key, keeping Cohere scores for top articles")
+    
+    # Step 4: Ensure all articles have a score (fallback to Cohere)
+    for article in articles:
+        if not hasattr(article, "score") or article.score == 0:
+            article.score = cohere_scores.get(article.url_hash, 0)
+            article.cohere_scored = True
+    
+    print(f"  ✅ Hybrid complete")
+    
+    return articles
+
+
+def _cohere_prescore(articles: List[Article]) -> Dict[str, int]:
+    """
+    Use Cohere Rerank to score all articles, return scores by url_hash.
+    
+    Returns: {url_hash: score_0_to_100, ...}
+    """
+    interests_file = CONFIG_DIR / 'scoring_interests.txt'
+    
+    interests = "Technology, science, climate, local news"  # Fallback
+    if interests_file.exists():
+        try:
+            with open(interests_file, 'r') as f:
+                interests = f.read().strip()
+        except:
+            pass
+    
+    # Call existing Cohere integration
+    return cohere_integration.score_with_rerank(articles, interests)
+
+
+# ════════════════════════════════════════════════════════════════════════════════
+
+def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> List[Article]:
+    """Pure Claude scoring with dimensional analysis (Quality/Relevance/Local).
+    
+    This is the original dimensional scoring logic, now used as the deep-scoring
+    step for top articles in hybrid mode.
+    """
     if not articles:
         return []
 
