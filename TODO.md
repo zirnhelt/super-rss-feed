@@ -116,11 +116,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-07-02 | 🔧 manual | 57 | news:25(44%), wellness:10(18%), ai-tech:8(14%) |
 | 2026-07-02 | 🔧 manual | 53 | news:25(47%), wellness:10(19%), ai-tech:5(9%) |
 | 2026-07-01 | 🌅 morning | 60 | news:25(42%), wellness:10(17%), ai-tech:6(10%) |
-| 2026-06-30 | 🌅 morning | 80 | news:25(31%), ai-tech:18(22%), wellness:10(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-07 07:51 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-08 06:37 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
