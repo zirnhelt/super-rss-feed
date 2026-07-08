@@ -511,11 +511,11 @@ class Article:
         if any(keyword in text for keyword in FILTERS['blocked_keywords']):
             return True
 
-        # First-person anecdote listicles ("I ditched...", "My home server...") are
-        # low-depth regardless of outlet - one regex replaces the old per-phrase
-        # "I ___" blocklist entries.
+        # Title-pattern blocklist: first-person anecdote listicles ("I ditched...",
+        # "My home server...") plus deal/shopping-listicle commerce titles ("43% off",
+        # "15 best ice cream makers..."). Patterns match anywhere in the title.
         title_lower = self.title.lower()
-        if any(re.match(pattern, title_lower) for pattern in FILTERS.get('blocked_title_patterns', [])):
+        if any(re.search(pattern, title_lower) for pattern in FILTERS.get('blocked_title_patterns', [])):
             return True
 
         # Arts/entertainment keywords are skipped when article mentions local places
