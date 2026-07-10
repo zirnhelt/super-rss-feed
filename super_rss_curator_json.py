@@ -13,7 +13,7 @@ import concurrent.futures
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
-from collections import defaultdict
+from collections import defaultdict, Counter
 from typing import List, Dict, Optional, Tuple
 from pathlib import Path
 
@@ -423,6 +423,30 @@ def _clean_text(html_or_text: str, max_chars: int = 0) -> str:
     return text
 
 
+def _boilerplate_key(html_or_text: str) -> str:
+    """Reduce text to a markup/whitespace/punctuation-insensitive key.
+
+    Used to detect boilerplate descriptions: feeds that repeat their channel
+    tagline as every item's <description> often vary only in markup (e.g.
+    <strong> wrappers) or spacing, which defeats exact string comparison.
+    """
+    return re.sub(r'[^a-z0-9]+', '', _clean_text(html_or_text).lower())
+
+
+def _find_boilerplate_keys(descriptions: List[str], channel_key: str = '',
+                           min_repeats: int = 3) -> set:
+    """Return keys of descriptions that are channel boilerplate, not article text.
+
+    A description is boilerplate if it matches the channel-level description or
+    appears verbatim on min_repeats+ items — real article summaries are unique.
+    """
+    counts = Counter(_boilerplate_key(d) for d in descriptions)
+    return {
+        key for key, count in counts.items()
+        if key and (key == channel_key or count >= min_repeats)
+    }
+
+
 def _strip_markdown_links(text: str) -> str:
     """Convert markdown link syntax to plain text: [text](url) → text, ![alt](url) → alt.
 
@@ -590,6 +614,24 @@ def load_podcast_cache():
 
         if len(valid_articles) != len(cache_data):
             print(f"🧹 Cleaned podcast cache: {len(cache_data)} → {len(valid_articles)} articles")
+
+        # Strip boilerplate descriptions that entered the cache before fetch-time
+        # detection (or via fallback ingest paths that bypass it): a description
+        # shared verbatim by 3+ cached articles is channel boilerplate, not
+        # article content.
+        boilerplate_keys = _find_boilerplate_keys(
+            [item.get('description', '') for item in valid_articles]
+        )
+        if boilerplate_keys:
+            scrubbed = 0
+            for item in valid_articles:
+                if _boilerplate_key(item.get('description', '')) in boilerplate_keys:
+                    item['description'] = ''
+                    item['summary'] = ''
+                    item['excerpt'] = ''
+                    scrubbed += 1
+            if scrubbed:
+                print(f"🧹 Stripped boilerplate descriptions from {scrubbed} cached podcast articles")
 
         return valid_articles
 
@@ -1529,22 +1571,30 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         parsed = feedparser.parse(response.content)
 
         # Some feeds (e.g. My Cariboo Now) repeat the channel-level description
-        # verbatim as every item's <description>, producing identical boilerplate
-        # "summaries" that game keyword-based scoring. Detect and strip that case
-        # so the article is treated as having no description.
-        feed_description = _clean_text(
+        # as every item's <description> — sometimes with extra markup like
+        # <strong> wrappers — producing identical boilerplate "summaries" that
+        # hide the real article content and game keyword-based scoring. Detect
+        # and strip that case so the article is treated as having no description
+        # (the body-excerpt fetch below then recovers real article text).
+        channel_key = _boilerplate_key(
             parsed.feed.get('description', '') or parsed.feed.get('subtitle', '')
+        )
+        boilerplate_keys = _find_boilerplate_keys(
+            [e.get('description', '') or e.get('summary', '') for e in parsed.entries],
+            channel_key,
         )
 
         articles = []
         fetched_excerpts = 0
+        stripped_boilerplate = 0
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'], feed['url'])
 
-            if feed_description and _clean_text(article.description) == feed_description:
+            if boilerplate_keys and _boilerplate_key(article.description) in boilerplate_keys:
                 article.description = ''
                 article.summary = ''
                 article.excerpt = ''
+                stripped_boilerplate += 1
 
             if article.pub_date < cutoff_date:
                 continue
@@ -1557,7 +1607,9 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             if (len(article.summary) < 100
                     and any(d in article.link for d in _LOCAL_BC_DOMAINS)):
                 body = _fetch_article_excerpt(article.link, max_chars=600)
-                if body:
+                # The page's og:description fallback can be the same sitewide
+                # tagline the feed repeats — don't reinstate stripped boilerplate.
+                if body and _boilerplate_key(body) not in boilerplate_keys:
                     article.description = body
                     article.summary = _clean_text(body, max_chars=300)
                     article.excerpt = _clean_text(body, max_chars=600)
@@ -1567,6 +1619,8 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
 
         if articles:
             extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
+            if stripped_boilerplate:
+                extra += f", {stripped_boilerplate} boilerplate descriptions stripped"
             print(f"  ✓ {feed['title']}: {len(articles)} articles{extra}")
 
         return articles
