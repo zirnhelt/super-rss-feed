@@ -194,25 +194,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
-## 2026-07-02 (Thursday)
-
-#### 🔧 Manual Run (6:56 AM Pacific)
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **IndigiNews** failed — `421 Client Error: Misdirected Request for url: https://indiginews.com/feed/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
-- ⚠️ **AgWeb** failed — `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news`
-- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -730,6 +711,24 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Cohere theme Rerank error [Wild Spaces & Outdoor Life]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID'
 - ⚠️ Cohere theme Rerank error [Cariboo Local Affairs]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'ca
 - ⚠️ Cohere theme Rerank error [Science, Wonder & the Natural World]: headers: {'access-control-expose-headers': 'X-Debug-
+
+
+---
+
+
+
+## Week of 2026-07-02–2026-07-02
+- 10 issues recorded
+- ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- ⚠️ IndigiNews failed — 421 Client Error: Misdirected Request for url: https://indiginews.com/feed/
+- ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- ⚠️ Western Producer failed — 403 Client Error: Forbidden for url: https://www.producer.com/feed/
+- ⚠️ AgWeb failed — 403 Client Error: Forbidden for url: https://www.agweb.com/rss/news
+- ⚠️ Wildfire Today failed — 403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/
+- ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed/
+- ⚠️ Daniele Messi. — Writing failed — 404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml
 
 
 ---
