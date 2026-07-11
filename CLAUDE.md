@@ -70,6 +70,7 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 | `feed_discovery.py` | Weekly feed discovery — searches Brave/Kagi, scores candidates, writes `feed_discovery_report.json`. |
 | `integrate_discoveries.py` | Auto-adds high-confidence discovery candidates to `feeds.opml`. |
 | `corpus_alignment_report.py` | Audits whether upstream interest scores align with per-theme fit scores across the 7-day podcast cache. |
+| `article_review_audit.py` | Weekly offline audit joining `feedback/` ratings against pipeline scores, theme routing, and volume trends. Writes `ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (consumed by `calibration_agent.py` as ground truth and by the weekly report). Stdlib-only, no API calls. |
 | `score_scrub_report.py` | Spot-checks live feeds for scoring/scrubbing quality. |
 | `generate_weekly_report.py` | Produces `weekly-report-YYYY-WNN.html` from all weekly sub-reports. |
 | `log_feed_results.py` | Parses curator stdout, appends a run summary row to `FEED_LOG.md`. |
@@ -173,7 +174,7 @@ Six sequential jobs (each skippable via `workflow_dispatch` inputs):
 1. **discovery** — `feed_discovery.py` → `integrate_discoveries.py` → auto-merged PR adding high-confidence feeds (threshold 65).
 2. **calibration** — `calibration_agent.py` reads 14-day stats, proposes bounded config changes, commits to `main`.
 3. **feedback-training** — `feedback_trainer.py` reads `feedback/` ratings, updates `config/feedback_examples.txt`, commits to `main`.
-4. **quality-review** — `score_scrub_report.py` + `corpus_alignment_report.py`, commits reports to `main`.
+4. **quality-review** — `score_scrub_report.py` + `corpus_alignment_report.py` + `article_review_audit.py`, commits reports to `main` (including `article_review_audit_summary.json`, which the next week's calibration run reads).
 5. **filter-review** — `tools/review_filter_priority.py` (Cohere), commits `tools/filter_priority_review.md`.
 6. **report** — `generate_weekly_report.py`, deploys `weekly-report-*.html` to `gh-pages`.
 
@@ -258,7 +259,7 @@ if not results:
 
 ## Calibration Agent Safety
 
-The calibration agent only modifies keys whitelisted in `config/calibration_bounds.json`. Every proposed change is clamped to `[min, max]` bounds and checked against `global_caps`. A flip-flop guard prevents oscillating changes. All changes are logged to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`.
+The calibration agent only modifies keys whitelisted in `config/calibration_bounds.json`. Every proposed change is clamped to `[min, max]` bounds and checked against `global_caps`. A flip-flop guard prevents oscillating changes. All changes are logged to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. The agent's prompt includes a fresh (≤14 days) `article_review_audit_summary.json` when present — user review verdicts are treated as ground truth over pipeline-side histograms. Skip/failure reasons are written verbatim to `CALIBRATION_LOG.md` (a "no calibration stats" skip is not a Claude failure).
 
 ## Known Gotchas
 

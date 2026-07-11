@@ -345,6 +345,13 @@ def get_quality_review() -> dict:
         except Exception as exc:
             print(f"  ⚠️  Could not read corpus_alignment_summary.json: {exc}")
 
+    audit_path = Path("article_review_audit_summary.json")
+    if audit_path.exists():
+        try:
+            review["feedback_audit"] = json.loads(audit_path.read_text("utf-8"))
+        except Exception as exc:
+            print(f"  ⚠️  Could not read article_review_audit_summary.json: {exc}")
+
     return review
 
 
@@ -511,7 +518,8 @@ def build_content_html(
 def build_quality_review_html(quality_review: dict) -> str:
     scrub = quality_review.get("scrub")
     alignment = quality_review.get("alignment")
-    if not scrub and not alignment:
+    feedback_audit = quality_review.get("feedback_audit")
+    if not scrub and not alignment and not feedback_audit:
         return ""
 
     html = "\n<h3>Quality Review</h3>\n"
@@ -557,6 +565,34 @@ def build_quality_review_html(quality_review: dict) -> str:
                 for ct, n in sorted(alignment["content_type_breakdown"].items(), key=lambda x: -x[1])
             )
             html += f"<p>Content type breakdown: {ct_text}.</p>\n"
+
+    if feedback_audit:
+        counts = feedback_audit.get("counts", {})
+        routing = feedback_audit.get("theme_routing", {})
+        window = feedback_audit.get("window", {})
+        html += "\n<h3>User Feedback Audit</h3>\n"
+        html += (
+            f"<p>{feedback_audit.get('total_rated', 0)} articles rated "
+            f"({window.get('first', '?')} → {window.get('last', '?')}): "
+            f"{counts.get('good', 0)} good, {counts.get('interesting', 0)} interesting, "
+            f"{counts.get('bad', 0)} bad ({feedback_audit.get('bad_pct', 0)}% bad). "
+            f"Theme-day corrections: {routing.get('corrections', 0)} of "
+            f"{routing.get('rated_with_day', 0)} ({routing.get('correction_pct', 0)}%)."
+        )
+        report_date = str(feedback_audit.get("generated_at", "")).split(" ")[0]
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", report_date):
+            report_url = f"{GITHUB_REPO_URL}/blob/main/ARTICLE_REVIEW_AUDIT_{report_date}.md"
+            html += f' <a href="{report_url}">Full audit</a>.'
+        html += "</p>\n"
+        bands = feedback_audit.get("band_precision") or []
+        if bands:
+            html += "<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>\n"
+            for band in bands:
+                html += (
+                    f"<tr><td>{band.get('band')}</td><td>{band.get('n')}</td>"
+                    f"<td>{band.get('good_pct')}</td><td>{band.get('bad_pct')}</td></tr>\n"
+                )
+            html += "</tbody></table>"
 
     return html
 

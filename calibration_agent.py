@@ -21,6 +21,7 @@ so it never fails the workflow.
 import json
 import os
 import sys
+import traceback
 from collections import defaultdict
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
@@ -41,8 +42,11 @@ RECURRING_ISSUES_FILE = MEMORY_DIR / 'recurring_issues.json'
 CHANGE_HISTORY_FILE = MEMORY_DIR / 'change_history.json'
 NOTES_FILE = MEMORY_DIR / 'notes.md'
 BENCHMARKS_FILE = MEMORY_DIR / 'benchmarks.json'
+FEEDBACK_AUDIT_FILE = BASE_DIR / 'article_review_audit_summary.json'
 
 MODEL = "claude-sonnet-4-5"
+MAX_TOKENS = 8000
+FEEDBACK_AUDIT_MAX_AGE_DAYS = 14
 
 
 # ---------------------------------------------------------------------------
@@ -237,6 +241,53 @@ def gather_audit_data(window_days: int = 14) -> Dict:
     return summary
 
 
+def gather_feedback_audit() -> Dict:
+    """Compact ground-truth summary of user review ratings for the prompt.
+
+    Reads `article_review_audit_summary.json` (written weekly by
+    `article_review_audit.py` in the quality-review job). Returns {} when the
+    file is missing or older than FEEDBACK_AUDIT_MAX_AGE_DAYS, so the prompt
+    section is simply omitted rather than feeding the model stale verdicts.
+    """
+    if not FEEDBACK_AUDIT_FILE.exists():
+        return {}
+    try:
+        with open(FEEDBACK_AUDIT_FILE, 'r', encoding='utf-8') as f:
+            summary = json.load(f)
+    except Exception:
+        return {}
+
+    try:
+        generated = datetime.strptime(summary.get('generated_at', ''), '%Y-%m-%d %H:%M UTC')
+        age = datetime.now(timezone.utc) - generated.replace(tzinfo=timezone.utc)
+        if age.days > FEEDBACK_AUDIT_MAX_AGE_DAYS:
+            return {}
+    except ValueError:
+        return {}
+
+    routing = summary.get('theme_routing', {})
+    return {
+        'generated_at': summary.get('generated_at'),
+        'window': summary.get('window'),
+        'total_rated': summary.get('total_rated'),
+        'counts': summary.get('counts'),
+        'bad_pct': summary.get('bad_pct'),
+        'score_by_rating': summary.get('score_by_rating'),
+        'band_precision': summary.get('band_precision'),
+        'threshold_sweep': summary.get('threshold_sweep'),
+        'current_min_score': summary.get('current_min_score'),
+        'by_category': summary.get('by_category'),
+        'worst_sources': summary.get('worst_sources'),
+        'theme_routing': {
+            'rated_with_day': routing.get('rated_with_day'),
+            'corrections': routing.get('corrections'),
+            'correction_pct': routing.get('correction_pct'),
+            'root_cause': routing.get('root_cause'),
+            'per_day': routing.get('per_day'),
+        },
+    }
+
+
 # ---------------------------------------------------------------------------
 # Memory
 # ---------------------------------------------------------------------------
@@ -329,6 +380,14 @@ Guidelines:
 - When diagnosing low composite scores, check whether the issue is in a specific dimension (e.g.
   Q collapsing for a category, or L stuck at zero for articles that should be local). Propose
   dimensional modifier changes only if the histogram evidence is clear.
+- The audit data may include a "User feedback audit" section derived from the maintainer's explicit
+  good/interesting/bad ratings and theme-day corrections in the review UI. That section is ground
+  truth: when it conflicts with pipeline-side histograms, the user's verdicts win. Use it to justify
+  changes — e.g. the threshold_sweep table shows exactly how many user-rated bad articles each
+  candidate min_score floor would cut vs. good articles lost, band_precision shows whether the
+  composite score separates good from bad at all, worst_sources are candidates for
+  human_recommendations (source blocking is not auto-tunable), and theme_routing.root_cause splits
+  day corrections into selection bugs vs. theme-scoring misses.
 - Noise-to-signal ratio = (total articles fetched − sum of final feed sizes) / final_total.
   Lower = more efficient pipeline. The audit data includes per-run series and window mean/min/max;
   the benchmark history shows week-over-week trend. Use this to evaluate whether recent changes
@@ -348,6 +407,7 @@ def build_audit_prompt(
     current_config: Dict,
     bounds: Dict,
     interests_text: str,
+    feedback_audit: Optional[Dict] = None,
 ) -> Tuple[str, str]:
     system_prompt = PHILOSOPHY + "\n\n" + OUTPUT_SCHEMA
 
@@ -381,6 +441,13 @@ def build_audit_prompt(
         }, indent=2),
         "\n\n## Audit data (rolling window)\n",
         json.dumps(audit_data, indent=2),
+    ]
+    if feedback_audit:
+        user_parts += [
+            "\n\n## User feedback audit (ground truth from review ratings)\n",
+            json.dumps(feedback_audit, indent=2),
+        ]
+    user_parts += [
         "\n\n## Memory: recurring issues\n",
         json.dumps(memory.get('recurring_issues', {}), indent=2),
         "\n\n## Memory: recent change history\n",
@@ -398,33 +465,60 @@ def build_audit_prompt(
 # Claude call
 # ---------------------------------------------------------------------------
 
-def call_claude_with_memory(system_prompt: str, user_prompt: str, api_key: str) -> Optional[Dict]:
+def _parse_json_response(raw: str) -> Dict:
+    raw = raw.strip()
+    if raw.startswith("```"):
+        lines = raw.splitlines()
+        inner = lines[1:]
+        if inner and inner[-1].strip() == "```":
+            inner = inner[:-1]
+        raw = "\n".join(inner).strip()
+
+    start = raw.find('{')
+    if start == -1:
+        raise ValueError("No JSON object in response")
+    result, _ = json.JSONDecoder().raw_decode(raw, start)
+    return result
+
+
+def call_claude_with_memory(
+    system_prompt: str, user_prompt: str, api_key: str
+) -> Tuple[Optional[Dict], Optional[str]]:
+    """Run the calibration analysis. Returns (result, error_detail).
+
+    One retry with a larger max_tokens covers truncated responses; the SDK
+    already retries transient 429/5xx itself. error_detail carries the real
+    failure so the changelog never records generic boilerplate.
+    """
     client = anthropic.Anthropic(api_key=api_key)
-    try:
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=4000,
-            system=system_prompt,
-            messages=[{"role": "user", "content": user_prompt}],
-        )
-        api_usage.record_claude_usage(response.usage)
+    last_error: Optional[str] = None
+    for max_tokens in (MAX_TOKENS, MAX_TOKENS * 2):
+        try:
+            response = client.messages.create(
+                model=MODEL,
+                max_tokens=max_tokens,
+                system=system_prompt,
+                messages=[{"role": "user", "content": user_prompt}],
+            )
+            api_usage.record_claude_usage(response.usage)
 
-        raw = response.content[0].text.strip()
-        if raw.startswith("```"):
-            lines = raw.splitlines()
-            inner = lines[1:]
-            if inner and inner[-1].strip() == "```":
-                inner = inner[:-1]
-            raw = "\n".join(inner).strip()
+            if response.stop_reason == 'max_tokens':
+                last_error = f'response truncated at max_tokens={max_tokens}'
+                print(f"  ⚠️ Calibration response truncated at {max_tokens} tokens; retrying larger")
+                continue
 
-        start = raw.find('{')
-        if start == -1:
-            raise ValueError("No JSON object in response")
-        result, _ = json.JSONDecoder().raw_decode(raw, start)
-        return result
-    except Exception as e:
-        print(f"  ⚠️ Calibration agent Claude call/parse failed: {e}")
-        return None
+            text = next((b.text for b in response.content if b.type == 'text'), '')
+            return _parse_json_response(text), None
+        except (ValueError, json.JSONDecodeError) as e:
+            last_error = f'response parse failed: {e}'
+            print(f"  ⚠️ Calibration agent could not parse Claude response: {e}; retrying once")
+            continue
+        except Exception as e:
+            last_error = f'{type(e).__name__}: {e}'
+            print(f"  ⚠️ Calibration agent Claude call failed: {last_error}")
+            traceback.print_exc()
+            break
+    return None, last_error
 
 
 # ---------------------------------------------------------------------------
@@ -743,8 +837,10 @@ def write_changelog(
             lines.append("No changes: ANTHROPIC_API_KEY not set.\n")
         elif reason == 'no_stats':
             lines.append("No changes: no calibration stats in the 14-day window.\n")
+        elif reason:
+            lines.append(f"No changes: Claude analysis failed — {reason}\n")
         else:
-            lines.append("No changes: Claude call or response parsing failed. See logs for details.\n")
+            lines.append("No changes: Claude analysis failed for an unknown reason. See job logs.\n")
     else:
         lines.append(f"Audit window: {audit_data.get('run_count', 0)} runs "
                       f"({audit_data.get('date_range', {}).get('first', '?')} to "
@@ -876,7 +972,7 @@ def write_changelog(
 # Main
 # ---------------------------------------------------------------------------
 
-def main():
+def _run() -> None:
     api_key = os.environ.get('ANTHROPIC_API_KEY')
     dry_run = os.environ.get('CALIBRATION_DRY_RUN', 'true').strip().lower() not in ('0', 'false', 'no')
 
@@ -902,12 +998,17 @@ def main():
     }
     bounds = config_loader.load_calibration_bounds()
     interests_text = config_loader.load_scoring_interests()
+    feedback_audit = gather_feedback_audit()
+    if feedback_audit:
+        print(f"ℹ️ Including user feedback audit from {feedback_audit.get('generated_at')} "
+              f"({feedback_audit.get('total_rated')} ratings)")
 
-    system_prompt, user_prompt = build_audit_prompt(audit_data, memory, current_config, bounds, interests_text)
-    result = call_claude_with_memory(system_prompt, user_prompt, api_key)
+    system_prompt, user_prompt = build_audit_prompt(
+        audit_data, memory, current_config, bounds, interests_text, feedback_audit)
+    result, error = call_claude_with_memory(system_prompt, user_prompt, api_key)
 
     if result is None:
-        write_changelog(None, [], [], [], audit_data, dry_run)
+        write_changelog(None, [], [], [], audit_data, dry_run, reason=error)
         return
 
     accepted, rejected, clamping_notes = validate_and_clamp_changes(result, bounds, current_config, memory)
@@ -919,6 +1020,22 @@ def main():
     summary = api_usage.format_summary()
     if summary:
         print(summary)
+
+
+def main():
+    # The docstring contract: this job must never fail the workflow. Any
+    # unexpected error is logged truthfully and the process exits 0.
+    try:
+        _run()
+    except Exception as e:
+        print(f"❌ Calibration run aborted: {type(e).__name__}: {e}")
+        traceback.print_exc()
+        dry_run = os.environ.get('CALIBRATION_DRY_RUN', 'true').strip().lower() not in ('0', 'false', 'no')
+        try:
+            write_changelog(None, [], [], [], {}, dry_run,
+                            reason=f'unexpected error: {type(e).__name__}: {e}')
+        except Exception:
+            pass
 
 
 if __name__ == '__main__':
