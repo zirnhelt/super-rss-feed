@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-10 (Friday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
+
+
+---
+
+
+
 ## 2026-07-08 (Wednesday)
 
 #### 🔧 Manual Run (4:20 PM Pacific)
