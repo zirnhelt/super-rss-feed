@@ -1,9 +1,46 @@
 {
-  "generated_at": "2026-07-05T14:49:52.054977+00:00",
-  "total_candidates_evaluated": 1517,
-  "recommended_feeds": 1,
+  "generated_at": "2026-07-12T14:36:50.469840+00:00",
+  "total_candidates_evaluated": 1542,
+  "recommended_feeds": 4,
   "min_score_threshold": 60,
   "categories": {
+    "local": {
+      "count": 2,
+      "feeds": [
+        {
+          "title": "T\u015dilhqot\u2019in National Government",
+          "url": "https://tsilhqotin.ca/feed/",
+          "html_url": "https://tsilhqotin.ca/publications/",
+          "source": "brave_search",
+          "average_score": 70.0,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "EBSCO",
+          "url": "https://www.ebsco.com/rss.xml",
+          "html_url": "https://www.ebsco.com/research-starters/language-and-linguistics/secwepemc",
+          "source": "brave_search",
+          "average_score": 69.4,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "general": {
+      "count": 1,
+      "feeds": [
+        {
+          "title": "10ideas.bearblog.dev",
+          "url": "https://10ideas.bearblog.dev/feed/",
+          "html_url": "https://10ideas.bearblog.dev",
+          "source": "Kagi Small Web",
+          "average_score": 63.9,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
     "homelab": {
       "count": 1,
       "feeds": [
@@ -21,9 +58,29 @@
   },
   "summary": {
     "by_category": {
+      "local": 2,
+      "general": 1,
       "homelab": 1
     },
     "top_recommendations": [
+      {
+        "title": "T\u015dilhqot\u2019in National Government",
+        "category": "local",
+        "score": 70.0,
+        "url": "https://tsilhqotin.ca/feed/"
+      },
+      {
+        "title": "EBSCO",
+        "category": "local",
+        "score": 69.4,
+        "url": "https://www.ebsco.com/rss.xml"
+      },
+      {
+        "title": "10ideas.bearblog.dev",
+        "category": "general",
+        "score": 63.9,
+        "url": "https://10ideas.bearblog.dev/feed/"
+      },
       {
         "title": "Bambu Lab Blog",
         "category": "homelab",
