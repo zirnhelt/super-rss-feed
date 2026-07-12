@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-11 (Saturday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
+
+
+---
+
+
+
 ## 2026-07-10 (Friday)
 
 #### 🌙 8:30 PM Pacific
@@ -128,76 +138,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"a785485c19439d503ace3ee3191fbc7f","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
 - ⚠️ **Canadian Arts Technology (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"97c9b1e5e71bca7d84107faa65946692","ms":2,"node":"us-west2"},"data":null,"errors":[{"code":"`
 - ⚠️ **Kagi Summarizer** failed — `HTTP 429 x10`
-
-
----
-
-
-
-## 2026-07-03 (Friday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **LoRaMeshDevices** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (7:00 AM Pacific)
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (7:04 AM Pacific)
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (7:14 AM Pacific)
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (11:21 AM Pacific)
-- ⚠️ **Gizmodo** failed — `403 Client Error: Forbidden for url: https://gizmodo.com/feed`
-- ⚠️ **My Cariboo Now** failed — `403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed`
-- ⚠️ **My East Kootenay Now** failed — `403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/`
-- ⚠️ **Neowin** failed — `403 Client Error: Forbidden for url: https://www.neowin.net/news/rss/`
-- ⚠️ **Civil Eats** failed — `403 Client Error: Forbidden for url: https://civileats.com/feed/`
-- ⚠️ **BC Gov News** failed — `HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutErro`
-- ⚠️ **Western Producer** failed — `403 Client Error: Forbidden for url: https://www.producer.com/feed/`
-- ⚠️ **AgWeb** failed — `403 Client Error: Forbidden for url: https://www.agweb.com/rss/news`
-- ⚠️ **Wildfire Today** failed — `403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/`
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-- ⚠️ Google News fallback failed for gizmodo.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Agizmodo.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for mycariboonow.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Amycariboonow.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for myeastkootenaynow.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Amyeastkootenaynow.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for neowin.net: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Aneowin.net%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for civileats.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Acivileats.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for news.gov.bc.ca: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Anews.gov.bc.ca%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for producer.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Aproducer.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for agweb.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Aagweb.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for wildfiretoday.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Awildfiretoday.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for openmedia.org: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Aopenmedia.org%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
-- ⚠️ Google News fallback failed for daniele-messi.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site%3Adaniele-messi.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
 
 
 ---
@@ -739,6 +679,37 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Wildfire Today failed — 403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/
 - ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed/
 - ⚠️ Daniele Messi. — Writing failed — 404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml
+
+
+---
+
+
+
+## Week of 2026-07-03–2026-07-03
+- 29 issues recorded
+- ⚠️ LoRaMeshDevices failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+- ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed/
+- ⚠️ Daniele Messi. — Writing failed — 404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml
+- ⚠️ Gizmodo failed — 403 Client Error: Forbidden for url: https://gizmodo.com/feed
+- ⚠️ My Cariboo Now failed — 403 Client Error: Forbidden for url: https://www.mycariboonow.com/feed
+- ⚠️ My East Kootenay Now failed — 403 Client Error: Forbidden for url: https://www.myeastkootenaynow.com/feed/
+- ⚠️ Neowin failed — 403 Client Error: Forbidden for url: https://www.neowin.net/news/rss/
+- ⚠️ Civil Eats failed — 403 Client Error: Forbidden for url: https://civileats.com/feed/
+- ⚠️ BC Gov News failed — HTTPSConnectionPool(host='news.gov.bc.ca', port=443): Max retries exceeded with url: /feed (Caus
+- ⚠️ Western Producer failed — 403 Client Error: Forbidden for url: https://www.producer.com/feed/
+- ⚠️ AgWeb failed — 403 Client Error: Forbidden for url: https://www.agweb.com/rss/news
+- ⚠️ Wildfire Today failed — 403 Client Error: Forbidden for url: https://wildfiretoday.com/feed/
+- ⚠️ Google News fallback failed for gizmodo.com: 503 Server Error: Service Unavailable for url: https://news.google.com/r
+- ⚠️ Google News fallback failed for mycariboonow.com: 503 Server Error: Service Unavailable for url: https://news.google.
+- ⚠️ Google News fallback failed for myeastkootenaynow.com: 503 Server Error: Service Unavailable for url: https://news.go
+- ⚠️ Google News fallback failed for neowin.net: 503 Server Error: Service Unavailable for url: https://news.google.com/rs
+- ⚠️ Google News fallback failed for civileats.com: 503 Server Error: Service Unavailable for url: https://news.google.com
+- ⚠️ Google News fallback failed for news.gov.bc.ca: 503 Server Error: Service Unavailable for url: https://news.google.co
+- ⚠️ Google News fallback failed for producer.com: 503 Server Error: Service Unavailable for url: https://news.google.com/
+- ⚠️ Google News fallback failed for agweb.com: 503 Server Error: Service Unavailable for url: https://news.google.com/rss
+- ⚠️ Google News fallback failed for wildfiretoday.com: 503 Server Error: Service Unavailable for url: https://news.google
+- ⚠️ Google News fallback failed for openmedia.org: 503 Server Error: Service Unavailable for url: https://news.google.com
+- ⚠️ Google News fallback failed for daniele-messi.com: 503 Server Error: Service Unavailable for url: https://news.google
 
 
 ---

@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-07-11 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 403 x1` |
 | 2026-07-10 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 403 x1` |
 | 2026-07-08 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
 | 2026-07-08 | 🔧 Manual Run | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
@@ -95,6 +96,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-07-11 | 🌙 evening | 57 | news:25(44%), wellness:9(16%), science:8(14%) |
 | 2026-07-10 | 🌙 evening | 75 | news:25(33%), ai-tech:13(17%), local:11(15%) |
 | 2026-07-09 | 🌙 evening | 43 | news:25(58%), ai-tech:6(14%), science:6(14%) |
 | 2026-07-08 | 🔧 manual | 71 | news:25(35%), ai-tech:12(17%), local:10(14%) |
@@ -103,9 +105,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-07-05 | 🌙 evening | 44 | news:25(57%), ai-tech:5(11%), wellness:4(9%) |
 | 2026-07-05 | 🔧 manual | 34 | news:25(74%), science:3(9%), ai-tech:2(6%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-11 06:25 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-12 06:43 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
