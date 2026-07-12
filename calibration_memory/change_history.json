@@ -1,4 +1,23 @@
 {
   "_comment": "Append-only log of every config change applied by calibration_agent.py. Used for flip-flop detection: a proposal that reverses a change made within flip_flop_guard.lookback_runs/lookback_weeks is rejected unless new evidence is cited. Each entry: run_date, run_id, knob, old_value, new_value, delta, rationale, linked_issue (recurring_issues.json id or null).",
-  "changes": []
+  "changes": [
+    {
+      "run_date": "2026-07-12",
+      "knob": "limits.min_claude_score",
+      "old_value": 13,
+      "new_value": 16,
+      "delta": 3,
+      "rationale": "User feedback shows current min_claude_score=13 is far too permissive (only cutting 18.8% of bad articles). Threshold_sweep indicates 20 would cut 28.1% of bad at 5.7% good lost, but that's the max bound. Proposing 16 as a conservative first step: the June 24 reset went from 20→13 to fix feed scarcity, but final_feeds now show 295-398/run, well above the ~100 target. Raising to 16 tightens quality without risking the overshoot that triggered the manual intervention. This will reduce noise-to-signal by cutting more articles at the quality gate.",
+      "dry_run": false
+    },
+    {
+      "run_date": "2026-07-12",
+      "knob": "limits.haiku_scrub_floor",
+      "old_value": 10,
+      "new_value": 13,
+      "delta": 3,
+      "rationale": "The Haiku safety check currently reviews articles scoring 10+. User feedback shows 63.3% bad rate across all content, and the 0-19 composite band is 87.6% bad. Raising haiku_scrub_floor from 10→13 subjects more borderline articles to the safety check, which should catch additional fluff/sponsored content before it reaches the quality gate. This complements the min_claude_score raise and targets the same quality issue from a different stage of the pipeline.",
+      "dry_run": false
+    }
+  ]
 }

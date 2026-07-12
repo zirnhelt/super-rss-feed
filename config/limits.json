@@ -3,7 +3,7 @@
   "feed_retention_days": 5,
   "max_per_source": 8,
   "max_per_local": 15,
-  "min_claude_score": 13,
+  "min_claude_score": 16,
   "cohere_prefilter_threshold": 2.5,
   "min_score_by_category": {
     "ai-tech": 15,
@@ -24,7 +24,7 @@
     "ai-tech": 5,
     "wellness": 2
   },
-  "haiku_scrub_floor": 10,
+  "haiku_scrub_floor": 13,
   "haiku_scrub_batch_size": 40,
   "claude_scoring_batch_size": 15,
   "local_thin_day_score_floor": 80,
@@ -32,13 +32,13 @@
   "dedup_fuzzy_threshold": 78,
   "dedup_overlap_high": 0.55,
   "dedup_min_terms_high": 2,
-  "dedup_overlap_low": 0.40,
+  "dedup_overlap_low": 0.4,
   "dedup_min_terms_low": 3,
   "cross_category_overlap_threshold": 0.45,
   "cross_category_min_terms": 2,
-  "feed_merge_overlap_threshold": 0.50,
+  "feed_merge_overlap_threshold": 0.5,
   "feed_merge_min_terms": 2,
-  "story_cluster_overlap_threshold": 0.60,
+  "story_cluster_overlap_threshold": 0.6,
   "max_per_story_cluster": 2,
   "podcast_candidate_min_score": 5
 }
