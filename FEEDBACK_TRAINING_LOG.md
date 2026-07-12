@@ -1,3 +1,82 @@
+## Feedback Training Run — 2026-07-12 14:38 UTC
+
+**Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json
+**Ratings:** 199 Good, 10 Interesting, 365 Bad, 173 reassigned to day(s)
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (13), TechRadar (9), New Atlas (9), My Cariboo Now (8), Global News (7)
+**Top disliked sources:** Al Jazeera English (19), Business Insider (17), Toms Guide (17), Lifehacker (16), NYT Top Stories (14)
+**Categories liked:** news (140), local (24), ai-tech (12), wellness (10), climate (5), shared (4), science (4)
+**Categories disliked:** news (324), wellness (15), ai-tech (13), local (5), scifi (4), podcast-sunday (2), podcast-friday (1), homelab (1)
+
+**Day reassignment summary:**
+- tuesday → monday: 5 articles
+- tuesday → sunday: 4 articles
+- tuesday → saturday: 2 articles
+- tuesday → thursday: 2 articles
+- tuesday → wednesday: 2 articles
+- tuesday → friday: 1 articles
+- tuesday → tuesday: 1 articles
+- wednesday → friday: 11 articles
+- wednesday → saturday: 10 articles
+- wednesday → sunday: 10 articles
+- wednesday → tuesday: 6 articles
+- wednesday → wednesday: 5 articles
+- wednesday → monday: 4 articles
+- wednesday → thursday: 2 articles
+- friday → sunday: 10 articles
+- friday → wednesday: 9 articles
+- friday → thursday: 5 articles
+- friday → saturday: 5 articles
+- friday → tuesday: 4 articles
+- friday → friday: 3 articles
+- friday → monday: 1 articles
+- saturday → sunday: 12 articles
+- saturday → wednesday: 6 articles
+- saturday → thursday: 4 articles
+- saturday → saturday: 2 articles
+- saturday → tuesday: 1 articles
+- saturday → friday: 1 articles
+- sunday → wednesday: 5 articles
+- sunday → tuesday: 4 articles
+- sunday → sunday: 4 articles
+- sunday → friday: 3 articles
+- sunday → saturday: 3 articles
+- monday → sunday: 4 articles
+- monday → tuesday: 4 articles
+- monday → wednesday: 3 articles
+- monday → friday: 3 articles
+- monday → saturday: 2 articles
+- monday → thursday: 2 articles
+- thursday → friday: 5 articles
+- thursday → wednesday: 5 articles
+- thursday → sunday: 4 articles
+- thursday → tuesday: 2 articles
+- thursday → thursday: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Relevance Scoring Calibration for Podcast Feed
+
+- **Boost local/regional Canadian stories** (Williams Lake, BC, Cariboo region): High-scoring "good fit" articles cluster here (scores 75–90), especially community-focused, human-interest narratives. Prioritize local sources over celebrity/national politics.
+
+- **Favor constructive systems thinking over crisis reporting**: Articles scoring well discuss resilience, solutions, and community adaptation (e.g., "Social capital and community resilience," "B.C. action plan") vs. dramatic disasters or conflict (plane crashes, prison gossip, military standoffs score poorly despite high baseline salience).
+
+- **Deprioritize political/electoral coverage**: Articles on elections, legislative votes, and partisan conflict consistently land in "bad fit" (e.g., Susan Collins, Georgia runoffs, EU migration bills). Even policy-focused pieces score lower unless framed around local action or implementation.
+
+- **AI/tech topics need nuanced framing**: "Why most AI projects don't deliver ROI" and "Local AI accessibility challenges" score well; "Dario Amodei leaves OpenAI" and "Microsoft shareholders lawsuit" score poorly. Prefer practical impact and governance over insider drama or financial speculation.
+
+- **Humanize tech stories**: Wearable AI for accessibility, security camera upgrades, and WhatsApp privacy features score higher than device price hikes or app platform wars. Focus on tangible user benefit over consumption/commerce angles.
+
+- **Underrepresent celebrity, entertainment, and wealth-focused pieces**: Even moderately scored pieces about musicians, actors, and billionaires (Elon Musk comparisons, Ghislaine Maxwell) fall into "bad fit." These appear in "interesting" only when tied to cultural/literary merit (Clare Torry, Hanif Abdurraqib).
+
+- **Prioritize environmental/climate stories with local grounding**: Wildfire evacuation alerts, bird mortality in oilsands, prairie weather forecasts, and ice loss research score 56–69 and are consistently tagged. National climate abstractions score lower.
+
+- **Wellness/health content: filter by framing**: Avoid symptom/disease reporting and political arguments (syphilis, psychiatric defenses, eyeglass sunscreen myths). "Good fit" wellness articles lean toward personal narrative and wellbeing (Camino pilgrimage reflection).
+
+- **Source credibility varies by topic**: The Narwhal, Resilience.org, Williams Lake Tribune, and Quartz score consistently high; Al Jazeera English produces polarizing content (geopolitics scores 0–80 spread); tabloid-style pieces (Boing Boing crime
+
+---
 ## Feedback Training Run — 2026-07-05 14:50 UTC
 
 **Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json
