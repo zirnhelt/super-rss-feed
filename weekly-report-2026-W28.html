@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of the Feed — Week of July 6–12, 2026</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { margin-top: 1.5rem; font-size: 1.1rem; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+    th, td { border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    a { color: #0066cc; }
+    ul { padding-left: 1.4rem; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <h1>State of the Feed — Week of July 6–12, 2026</h1>
+  <p class="meta">Published July 12, 2026 &middot; <a href="https://zirnhelt.github.io/super-rss-feed">Back to feed</a></p>
+  <p>During the week of July 6–12, the aggregator completed 8 runs and processed 7,488 total articles, delivering 432 quality articles for curation. The news category dominated intake at 200 articles, followed by ai-tech and wellness each at 52 articles, with smaller contributions from science (40), local (38), climate (28), and homelab (19). The dimensional scoring model weighted relevance most heavily at 0.55, with quality and local factors at 0.25 and 0.20 respectively. Pipeline efficiency remained stable with a mean noise-to-signal ratio of 2.09 across seven measured runs, indicating consistent filtering performance within the expected range of 1.23–2.76.</p>
+<p>Feed health showed degradation in five sources: Kagi Summarizer, OpenMedia, Daniele Messi — Writing, First Peoples Cultural Council (Kagi), and Nation Talk (Kagi) all reported errors this week. Two new feeds were integrated into the pipeline: Tŝilhqot'in National Government and EBSCO. Feed discovery identified Bambu Lab Blog as a top candidate for addition, scoring 61.7 on the ranking algorithm and aligning with existing homelab content priorities.</p>
+<h3>New Feeds This Week</h3>
+<ul>
+  <li>Tŝilhqot’in National Government</li>
+  <li>EBSCO</li>
+</ul>
+<h3>Weekly Article Distribution</h3>
+<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>
+<tr><td>local</td><td>38</td></tr>
+<tr><td>ai-tech</td><td>52</td></tr>
+<tr><td>climate</td><td>28</td></tr>
+<tr><td>homelab</td><td>19</td></tr>
+<tr><td>wellness</td><td>52</td></tr>
+<tr><td>science</td><td>40</td></tr>
+<tr><td>scifi</td><td>4</td></tr>
+<tr><td>news</td><td>200</td></tr>
+</tbody></table>
+<h3>Feed Issues</h3>
+<ul>
+  <li><strong>Kagi Summarizer</strong>: HTTP 403 x1</li>
+  <li><strong>OpenMedia</strong>: 404 Client Error: Not Found for url: https://openmedia.org/feed/</li>
+  <li><strong>Daniele Messi. — Writing</strong>: 404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml</li>
+  <li><strong>First Peoples Cultural Council (Kagi)</strong>: HTTP 429 - {"meta":{"trace":"cb9f31d617edf65c638e611378a8d285","ms":25,"node":"u</li>
+  <li><strong>Nation Talk (Kagi)</strong>: HTTP 429 - {"meta":{"trace":"74a8abf9af7fb8f59b4b17eac8812e06","ms":17,"node":"u</li>
+</ul>
+<h3>Discovery Highlights</h3>
+<ul>
+  <li>Bambu Lab Blog (score: 61.7)</li>
+</ul>
+<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>
+<p>Noise-to-signal = (articles fetched &minus; articles in final feeds) &divide; final total. Lower is more efficient.</p>
+<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>
+<tr><td>2026-07-12</td><td>2.09</td><td>1.23</td><td>2.76</td><td>7</td></tr>
+</tbody></table>
+<h3>Quality Review</h3>
+
+<h3>User Feedback Audit</h3>
+<p>556 articles rated (2026-06-17 → 2026-07-11): 194 good, 10 interesting, 352 bad (63.3% bad). Theme-day corrections: 159 of 553 (28.8%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/ARTICLE_REVIEW_AUDIT_2026-07-11.md">Full audit</a>.</p>
+<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>
+<tr><td>80-100</td><td>50</td><td>56.0</td><td>44.0</td></tr>
+<tr><td>60-79</td><td>125</td><td>42.4</td><td>57.6</td></tr>
+<tr><td>40-59</td><td>174</td><td>37.9</td><td>58.0</td></tr>
+<tr><td>20-39</td><td>94</td><td>38.3</td><td>61.7</td></tr>
+<tr><td>0-19</td><td>113</td><td>9.7</td><td>87.6</td></tr>
+</tbody></table>
+<h3>API Cost Review</h3>
+<p>8 run(s) this week &middot; total est. cost <strong>$2.3739</strong> &middot; avg <strong>$0.2967</strong>/run &middot; 439,399 Claude tokens</p>
+<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>
+<tr><td>Claude</td><td>91</td><td>11.4</td><td>token-based</td><td>—</td></tr>
+<tr><td>Cohere</td><td>141</td><td>17.6</td><td>$0.0020/call</td><td>$0.2820</td></tr>
+<tr><td>Brave</td><td>345</td><td>43.1</td><td>free</td><td>$0</td></tr>
+<tr><td>Kagi</td><td>223</td><td>27.9</td><td>$0.0075/call</td><td>$1.6725</td></tr>
+</tbody></table>
+<h3>Calibration</h3>
+<table><thead><tr><th>Knob</th><th>Old</th><th>New</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>limits.min_claude_score</td><td>13</td><td>16</td><td>User feedback shows current min_claude_score=13 is far too permissive (only cutting 18.8% of bad articles). Threshold_sweep indicates 20 would cut 28.1% of bad at 5.7% good lost, but that's the max bound. Proposing 16 as a conservative first step: the June 24 reset went from 20→13 to fix feed scarcity, but final_feeds now show 295-398/run, well above the ~100 target. Raising to 16 tightens quality without risking the overshoot that triggered the manual intervention. This will reduce noise-to-signal by cutting more articles at the quality gate.</td></tr>
+<tr><td>limits.haiku_scrub_floor</td><td>10</td><td>13</td><td>The Haiku safety check currently reviews articles scoring 10+. User feedback shows 63.3% bad rate across all content, and the 0-19 composite band is 87.6% bad. Raising haiku_scrub_floor from 10→13 subjects more borderline articles to the safety check, which should catch additional fluff/sponsored content before it reaches the quality gate. This complements the min_claude_score raise and targets the same quality issue from a different stage of the pipeline.</td></tr>
+</tbody></table>
+<h3>Actions Taken This Week</h3>
+<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>
+<tr><td>Calibration</td><td>limits.min_claude_score: 13 → 16</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/37d41e4"><code>37d41e4</code></a> (<code>git revert 37d41e4</code> to undo)</td></tr>
+<tr><td>Calibration</td><td>limits.haiku_scrub_floor: 10 → 13</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/37d41e4"><code>37d41e4</code></a> (<code>git revert 37d41e4</code> to undo)</td></tr>
+</tbody></table>
+</body>
+</html>
