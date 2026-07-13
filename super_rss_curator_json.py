@@ -681,8 +681,12 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                 }
                 existing.append(entry)
                 existing_by_link[article.link] = entry
-            elif main_feed_quality and not existing_by_link[article.link].get('main_feed_quality', False):
-                existing_by_link[article.link]['main_feed_quality'] = True
+            else:
+                entry = existing_by_link[article.link]
+                if main_feed_quality and not entry.get('main_feed_quality', False):
+                    entry['main_feed_quality'] = True
+                if article.category and not entry.get('category'):
+                    entry['category'] = article.category
 
         existing.sort(key=lambda x: x['pub_date'], reverse=True)
 
@@ -2138,7 +2142,13 @@ def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -
             else:
                 article.score = int(cohere_result) if cohere_result else 0
             article.cohere_scored = True
-    
+
+    # Articles that didn't go through Claude never get a category there;
+    # use the same keyword-only fallback as the cohere-only path (no API cost).
+    for article in articles:
+        if not article.category:
+            article.category = categorize_article(article.title, article.description) or 'news'
+
     print(f"  ✅ Hybrid complete")
     
     return articles
