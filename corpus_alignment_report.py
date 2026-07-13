@@ -108,9 +108,9 @@ def main() -> None:
 
     for article in podcast_cache:
         link = article["link"]
-        cat = article.get("category", "unknown")
-        upstream = article.get("composite", article.get("score", 0))
-        title = article.get("title", "")
+        cat = article.get("category") or "unknown"
+        upstream = article.get("composite") or article.get("score") or 0
+        title = article.get("title") or ""
 
         theme_scores: dict[str, int] = {}
         for day, label in day_label.items():
@@ -298,6 +298,11 @@ def main() -> None:
             out.append("| " + " | ".join(str(v) for v in row) + " |")
         return out
 
+    def _by_scores(rows: list[tuple]) -> list[tuple]:
+        """Sort example rows by their two leading numeric fields only —
+        never compare the trailing string fields (which may be None)."""
+        return sorted(rows, key=lambda r: (r[0], r[1]), reverse=True)
+
     sections.append("\n---\n\n## Filler Examples (clears upstream gate, fits no theme)\n")
     sections.append(
         f"Top {TOP_N_EXAMPLES} by upstream score — these are the articles most likely "
@@ -305,7 +310,7 @@ def main() -> None:
         f"scoring below {FILLER_THEME_CEILING} on every one of the 7 daily themes:\n"
     )
     sections.extend(_fmt_examples(
-        sorted(filler_examples, reverse=True),
+        _by_scores(filler_examples),
         ["Upstream", "Best theme fit", "Category", "Title"],
     ))
 
@@ -316,7 +321,7 @@ def main() -> None:
         "their relevance:\n"
     )
     sections.extend(_fmt_examples(
-        sorted(rescue_examples, reverse=True),
+        _by_scores(rescue_examples),
         ["Best theme fit", "Upstream", "Category", "Title", "Best-fit day"],
     ))
 
@@ -329,7 +334,7 @@ def main() -> None:
             "before theme routing ever considers them:\n"
         )
         sections.extend(_fmt_examples(
-            sorted(stranded_examples, reverse=True),
+            _by_scores(stranded_examples),
             ["Best theme fit", "Upstream", "Category", "Title", "Best-fit day"],
         ))
 
