@@ -28,29 +28,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-07-08 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"6478156314861f7e2913c9ef70046966","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
 | 2026-07-08 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"c994121e4c217322ec64f350f5c3c072","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
 | 2026-07-08 | 🔧 Manual Run | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x10` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **First Peoples Cultural Council (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"9a85287b2a6796b830a50c7e4a1841c9","ms":4,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Ricochet Media (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"7ca0cada691df8b11a49a0390a2200fc","ms":4,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Nation Talk (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"3a076c04841aefc09ede74464754a67f","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Mesh Networking and LoRa (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"2160dea518ff6f28ae27328e946bf0cd","ms":4,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Indigenous Technology and Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"26e9cba398a7cbdde9db8e9b96fd123a","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Climate Science Research (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"370888d712d8d9afbe6671085ad5c7a7","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **BC Working Lands (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"6dbe35a2d5ce8aca0692603e78f8e7ea","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Rural BC Infrastructure (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"844b040fc16068888631042677c8488d","ms":6,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Indigenous Guardian Programs (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"38e5a4cbd5ea100dc77c76b5cf551002","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **AgTech and Resource Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"759148f156deae9f79cebb7ea0aae326","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **BC Wildlife and Backcountry (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"1447071981fd3a67a7afa2c5c29080ac","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Community Media and Digital Storytelling (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"125e76f8f1641eb26104d7397d1ac609","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Cariboo Local Community (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"5aa9b1eea717846a225348743a92b91a","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **BC Rural Digital Equity (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"a907a175c814a68896dd51e0df75be31","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Canadian Geographic (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"4e1f5bedc152fa48c13214ebf48663df","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Examine.com (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"dc374926ecfe788a784b065038be8952","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **BC Conservation and Parks (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"2a603078a0f810717fe121c883a93ef3","ms":6,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Cariboo First Nations (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"ab4430a5676279eb7ae6a997f7ad8d5c","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Indigenous Data and Language Tech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"fe8a8675efc03a6e31f03b23578b1a96","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"bd3df7e41f5bfd72c9a5cbc77bfafe45","ms":3,"node":"us-west2"},"data":null,"errors":[{"code":"` |
-| 2026-07-07 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x10` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -58,16 +35,17 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-07-14 | 🌙 evening | 79 | news:25(32%), ai-tech:14(18%), climate:10(13%) |
 | 2026-07-13 | 🌙 evening | 55 | news:25(45%), science:6(11%), ai-tech:5(9%) |
 | 2026-07-11 | 🌙 evening | 57 | news:25(44%), wellness:9(16%), science:8(14%) |
 | 2026-07-10 | 🌙 evening | 75 | news:25(33%), ai-tech:13(17%), local:11(15%) |
 | 2026-07-09 | 🌙 evening | 43 | news:25(58%), ai-tech:6(14%), science:6(14%) |
 | 2026-07-08 | 🔧 manual | 71 | news:25(35%), ai-tech:12(17%), local:10(14%) |
-| 2026-07-07 | 🌙 evening | 56 | news:25(45%), wellness:10(18%), local:5(9%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-14 06:22 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-15 06:26 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
