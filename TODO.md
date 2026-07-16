@@ -10,24 +10,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 |------|------|-------|--------|
 | 2026-07-11 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 403 x1` |
 | 2026-07-10 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 403 x1` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Daniele Messi. — Writing** failed | `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **First Peoples Cultural Council (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"cb9f31d617edf65c638e611378a8d285","ms":25,"node":"us-east4"},"data":null,"errors":[{"code":` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Nation Talk (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"74a8abf9af7fb8f59b4b17eac8812e06","ms":17,"node":"us-east4"},"data":null,"errors":[{"code":` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Mesh Networking and LoRa (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"cfa8d4407dd59c4e85d096e544500d61","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Indigenous Technology and Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"8827d8df20b220c01e22c0a5f73ce98e","ms":58,"node":"us-east4"},"data":null,"errors":[{"code":` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Rural BC Infrastructure (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"97f8d51a7b4cec1442fac1657eb9daf6","ms":43,"node":"us-east4"},"data":null,"errors":[{"code":` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **BC Working Lands (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"653a5a35560f8c0c472d1afc950f95a0","ms":42,"node":"us-east4"},"data":null,"errors":[{"code":` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Indigenous Guardian Programs (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"c2a2840960fc4532afdc8b1e4b919dfd","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Community Media and Digital Storytelling (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"0ebc09b5088eec5c46d39a30faf106b2","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **AgTech and Resource Innovation (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"2872f2bc9737dc4626d5a06bc28a3f98","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **BC Wildlife and Backcountry (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"d5cd3de6e06eaae3e345fddce836c2e5","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Examine.com (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"ea19f74e542836c1ae1f037898be8e42","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Indigenous Data and Language Tech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"699f3ce79f0c4a0741e8a006859ae001","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Cariboo First Nations (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"6d45016667f6dd3ed41c0f0786e7e5a8","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"6478156314861f7e2913c9ef70046966","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Precision Agriculture and AgTech (Kagi)** failed | `HTTP 429 - {"meta":{"trace":"c994121e4c217322ec64f350f5c3c072","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"` |
-| 2026-07-08 | 🔧 Manual Run | ⚠️ **Kagi Summarizer** failed | `HTTP 429 x10` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -35,16 +17,17 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-07-15 | 🌙 evening | 76 | news:25(33%), local:12(16%), wellness:10(13%) |
 | 2026-07-14 | 🌙 evening | 79 | news:25(32%), ai-tech:14(18%), climate:10(13%) |
 | 2026-07-13 | 🌙 evening | 55 | news:25(45%), science:6(11%), ai-tech:5(9%) |
 | 2026-07-11 | 🌙 evening | 57 | news:25(44%), wellness:9(16%), science:8(14%) |
 | 2026-07-10 | 🌙 evening | 75 | news:25(33%), ai-tech:13(17%), local:11(15%) |
 | 2026-07-09 | 🌙 evening | 43 | news:25(58%), ai-tech:6(14%), science:6(14%) |
-| 2026-07-08 | 🔧 manual | 71 | news:25(35%), ai-tech:12(17%), local:10(14%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-15 06:26 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-16 06:30 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
