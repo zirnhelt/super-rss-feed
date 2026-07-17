@@ -23,35 +23,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
-## 2026-07-08 (Wednesday)
-
-#### 🔧 Manual Run (4:20 PM Pacific)
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Daniele Messi. — Writing** failed — `404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml`
-- ⚠️ **First Peoples Cultural Council (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"cb9f31d617edf65c638e611378a8d285","ms":25,"node":"us-east4"},"data":null,"errors":[{"code":`
-- ⚠️ **Nation Talk (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"74a8abf9af7fb8f59b4b17eac8812e06","ms":17,"node":"us-east4"},"data":null,"errors":[{"code":`
-- ⚠️ **Mesh Networking and LoRa (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"cfa8d4407dd59c4e85d096e544500d61","ms":3,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Indigenous Technology and Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"8827d8df20b220c01e22c0a5f73ce98e","ms":58,"node":"us-east4"},"data":null,"errors":[{"code":`
-- ⚠️ **Rural BC Infrastructure (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"97f8d51a7b4cec1442fac1657eb9daf6","ms":43,"node":"us-east4"},"data":null,"errors":[{"code":`
-- ⚠️ **BC Working Lands (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"653a5a35560f8c0c472d1afc950f95a0","ms":42,"node":"us-east4"},"data":null,"errors":[{"code":`
-- ⚠️ **Indigenous Guardian Programs (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"c2a2840960fc4532afdc8b1e4b919dfd","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Community Media and Digital Storytelling (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"0ebc09b5088eec5c46d39a30faf106b2","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **AgTech and Resource Innovation (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"2872f2bc9737dc4626d5a06bc28a3f98","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **BC Wildlife and Backcountry (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"d5cd3de6e06eaae3e345fddce836c2e5","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Examine.com (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"ea19f74e542836c1ae1f037898be8e42","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Indigenous Data and Language Tech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"699f3ce79f0c4a0741e8a006859ae001","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Cariboo First Nations (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"6d45016667f6dd3ed41c0f0786e7e5a8","ms":4,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **BC Forestry Tech and Silviculture (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"6478156314861f7e2913c9ef70046966","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Precision Agriculture and AgTech (Kagi)** failed — `HTTP 429 - {"meta":{"trace":"c994121e4c217322ec64f350f5c3c072","ms":2,"node":"us-east4"},"data":null,"errors":[{"code":"`
-- ⚠️ **Kagi Summarizer** failed — `HTTP 429 x10`
-- ⚠️ Kagi fallback failed for openmedia.org: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
-- ⚠️ Kagi fallback failed for daniele-messi.com: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -704,6 +675,34 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Cariboo First Nations (Kagi) failed — HTTP 429 - {"meta":{"trace":"ab4430a5676279eb7ae6a997f7ad8d5c","ms":3,"node":"u
 - ⚠️ Indigenous Data and Language Tech (Kagi) failed — HTTP 429 - {"meta":{"trace":"fe8a8675efc03a6e31f03b23578b1a96","ms"
 - ⚠️ BC Forestry Tech and Silviculture (Kagi) failed — HTTP 429 - {"meta":{"trace":"bd3df7e41f5bfd72c9a5cbc77bfafe45","ms"
+- ⚠️ Kagi Summarizer failed — HTTP 429 x10
+- ⚠️ Kagi fallback failed for openmedia.org: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
+- ⚠️ Kagi fallback failed for daniele-messi.com: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/sear
+
+
+---
+
+
+
+## Week of 2026-07-08–2026-07-08
+- 20 issues recorded
+- ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed/
+- ⚠️ Daniele Messi. — Writing failed — 404 Client Error: Not Found for url: https://daniele-messi.com/rss.xml
+- ⚠️ First Peoples Cultural Council (Kagi) failed — HTTP 429 - {"meta":{"trace":"cb9f31d617edf65c638e611378a8d285","ms":25
+- ⚠️ Nation Talk (Kagi) failed — HTTP 429 - {"meta":{"trace":"74a8abf9af7fb8f59b4b17eac8812e06","ms":17,"node":"us-east4"}
+- ⚠️ Mesh Networking and LoRa (Kagi) failed — HTTP 429 - {"meta":{"trace":"cfa8d4407dd59c4e85d096e544500d61","ms":3,"node"
+- ⚠️ Indigenous Technology and Innovation (Kagi) failed — HTTP 429 - {"meta":{"trace":"8827d8df20b220c01e22c0a5f73ce98e","
+- ⚠️ Rural BC Infrastructure (Kagi) failed — HTTP 429 - {"meta":{"trace":"97f8d51a7b4cec1442fac1657eb9daf6","ms":43,"node"
+- ⚠️ BC Working Lands (Kagi) failed — HTTP 429 - {"meta":{"trace":"653a5a35560f8c0c472d1afc950f95a0","ms":42,"node":"us-ea
+- ⚠️ Indigenous Guardian Programs (Kagi) failed — HTTP 429 - {"meta":{"trace":"c2a2840960fc4532afdc8b1e4b919dfd","ms":2,"n
+- ⚠️ Community Media and Digital Storytelling (Kagi) failed — HTTP 429 - {"meta":{"trace":"0ebc09b5088eec5c46d39a30faf106b
+- ⚠️ AgTech and Resource Innovation (Kagi) failed — HTTP 429 - {"meta":{"trace":"2872f2bc9737dc4626d5a06bc28a3f98","ms":2,
+- ⚠️ BC Wildlife and Backcountry (Kagi) failed — HTTP 429 - {"meta":{"trace":"d5cd3de6e06eaae3e345fddce836c2e5","ms":2,"no
+- ⚠️ Examine.com (Kagi) failed — HTTP 429 - {"meta":{"trace":"ea19f74e542836c1ae1f037898be8e42","ms":2,"node":"us-east4"},
+- ⚠️ Indigenous Data and Language Tech (Kagi) failed — HTTP 429 - {"meta":{"trace":"699f3ce79f0c4a0741e8a006859ae001","ms"
+- ⚠️ Cariboo First Nations (Kagi) failed — HTTP 429 - {"meta":{"trace":"6d45016667f6dd3ed41c0f0786e7e5a8","ms":4,"node":"u
+- ⚠️ BC Forestry Tech and Silviculture (Kagi) failed — HTTP 429 - {"meta":{"trace":"6478156314861f7e2913c9ef70046966","ms"
+- ⚠️ Precision Agriculture and AgTech (Kagi) failed — HTTP 429 - {"meta":{"trace":"c994121e4c217322ec64f350f5c3c072","ms":
 - ⚠️ Kagi Summarizer failed — HTTP 429 x10
 - ⚠️ Kagi fallback failed for openmedia.org: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
 - ⚠️ Kagi fallback failed for daniele-messi.com: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/sear
