@@ -9,7 +9,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
 | 2026-07-11 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 403 x1` |
-| 2026-07-10 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Summarizer** failed | `HTTP 403 x1` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -17,16 +16,17 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-07-17 | 🌙 evening | 71 | news:25(35%), ai-tech:18(25%), science:8(11%) |
 | 2026-07-16 | 🌙 evening | 80 | news:25(31%), ai-tech:18(22%), wellness:10(12%) |
 | 2026-07-15 | 🌙 evening | 76 | news:25(33%), local:12(16%), wellness:10(13%) |
 | 2026-07-14 | 🌙 evening | 79 | news:25(32%), ai-tech:14(18%), climate:10(13%) |
 | 2026-07-13 | 🌙 evening | 55 | news:25(45%), science:6(11%), ai-tech:5(9%) |
 | 2026-07-11 | 🌙 evening | 57 | news:25(44%), wellness:9(16%), science:8(14%) |
-| 2026-07-10 | 🌙 evening | 75 | news:25(33%), ai-tech:13(17%), local:11(15%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-17 06:27 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-18 06:15 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-17 (Friday)
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1126** → dedup **787** → new **643** → quality **71**
+- Mix: local:5(7%), ai-tech:18(25%), climate:5(7%), homelab:2(3%), wellness:6(8%), science:8(11%), scifi:2(3%), news:25(35%)
+- Feeds: local:43, ai-tech:73, climate:37, homelab:10, wellness:49, science:44, scifi:9, news:131
+- Images: 71/71
+- Topic queries: 218 articles from 34 queries
+- API calls: Claude:17, Cohere:16, Brave:42, Kagi:23 · 116,897 Claude tokens · est. cost $0.3100
+
+
+---
+
+
+
 ## 2026-07-16 (Thursday)
 
 #### 🌙 8:30 PM Pacific
@@ -87,21 +102,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 75/75
 - Topic queries: 267 articles from 34 queries
 - API calls: Claude:21, Cohere:16, Brave:43, Kagi:25 · 130,558 Claude tokens · est. cost $0.3373
-
-
----
-
-
-
-## 2026-07-09 (Thursday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1165** → dedup **780** → new **627** → quality **43**
-- Mix: local:2(5%), ai-tech:6(14%), wellness:4(9%), science:6(14%), news:25(58%)
-- Feeds: local:25, ai-tech:36, climate:17, homelab:10, wellness:43, science:24, scifi:6, news:149
-- Images: 43/43
-- Topic queries: 261 articles from 34 queries
-- API calls: Claude:14, Cohere:16, Brave:42, Kagi:27 · 72,133 Claude tokens · est. cost $0.3094
 
 
 ---
@@ -1807,6 +1807,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 1 runs · avg fetched 1024 · avg quality 71
 - Dominant: **news** (35%) local:10 / ai-tech:12 / climate:7 / homelab:3 / wellness:8 / science:5 / scifi:1 / news:25
 - API calls: Claude:20, Cohere:16, Brave:44, Kagi:27 · est. cost $0.3387
+
+
+---
+
+
+
+## Week of 2026-07-09–2026-07-09
+- 1 runs · avg fetched 1165 · avg quality 43
+- Dominant: **news** (58%) local:2 / ai-tech:6 / wellness:4 / science:6 / news:25
+- API calls: Claude:14, Cohere:16, Brave:42, Kagi:27 · est. cost $0.3094
 
 
 ---
