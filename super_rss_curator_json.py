@@ -2974,7 +2974,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         if subscriber_label:
             item["title"] = f"🔓 {item['title']}"
             item["_subscriber_access"] = subscriber_label
-            if subscriber_label == "Apple News+":
+            if subscriber_label.startswith("Apple News"):
                 _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
                 item["_apple_news_url"] = build_apple_news_search_url(_clean or article.title)
 
@@ -4001,7 +4001,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
         if subscriber_label:
             item["_subscriber_access"] = subscriber_label
-            if subscriber_label == "Apple News+":
+            if subscriber_label.startswith("Apple News"):
                 _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
                 item["_apple_news_url"] = build_apple_news_search_url(_clean or article.title)
 
