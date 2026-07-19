@@ -13,16 +13,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
-## 2026-07-10 (Friday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -706,6 +696,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Kagi Summarizer failed — HTTP 429 x10
 - ⚠️ Kagi fallback failed for openmedia.org: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/search
 - ⚠️ Kagi fallback failed for daniele-messi.com: 429 Client Error: Too Many Requests for url: https://kagi.com/api/v1/sear
+
+
+---
+
+
+
+## Week of 2026-07-10–2026-07-10
+- 1 issues recorded
+- ⚠️ Kagi Summarizer failed — HTTP 403 x1
 
 
 ---
