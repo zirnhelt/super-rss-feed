@@ -18,6 +18,15 @@
       "delta": 3,
       "rationale": "The Haiku safety check currently reviews articles scoring 10+. User feedback shows 63.3% bad rate across all content, and the 0-19 composite band is 87.6% bad. Raising haiku_scrub_floor from 10→13 subjects more borderline articles to the safety check, which should catch additional fluff/sponsored content before it reaches the quality gate. This complements the min_claude_score raise and targets the same quality issue from a different stage of the pipeline.",
       "dry_run": false
+    },
+    {
+      "run_date": "2026-07-19",
+      "knob": "limits.min_claude_score",
+      "old_value": 16,
+      "new_value": 18,
+      "delta": 2,
+      "rationale": "User feedback threshold_sweep shows min_claude_score=20 would cut 28.1% of bad articles at 5.7% good lost—well within acceptable bounds. Current value of 16 (raised July 12) cuts 25.3% of bad at 4.1% good lost, an improvement but still insufficient given 63.3% overall bad rate. Proposing 18 as a conservative step toward the 20 ceiling: final feed sizes average 341/run (well above ~100 target), so we have capacity to tighten. This complements the existing haiku_scrub_floor=13 change and directly addresses the user-verified quality issue without risking the feed-scarcity overshoot that triggered June 24's manual intervention. The 18 threshold would cut an estimated 26-27% of bad articles (interpolating between sweep points) while losing ~5% of good articles—a favorable trade given current bad rate.",
+      "dry_run": false
     }
   ]
 }
