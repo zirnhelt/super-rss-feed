@@ -1,3 +1,87 @@
+## Feedback Training Run — 2026-07-19 14:31 UTC
+
+**Files processed:** 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json
+**Ratings:** 156 Good, 14 Interesting, 395 Bad, 150 reassigned to day(s)
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** New Atlas (8), Williams Lake Tribune (7), Boing Boing (7), My Cariboo Now (6), BC Gov News (6)
+**Top disliked sources:** Toms Guide (21), Business Insider (19), CNET (17), Al Jazeera English (16), Android Authority (15)
+**Categories liked:** news (102), local (16), ai-tech (12), wellness (8), science (8), climate (6), shared (4)
+**Categories disliked:** news (342), ai-tech (19), wellness (14), local (7), scifi (5), climate (5), homelab (3)
+
+**Day reassignment summary:**
+- saturday → sunday: 14 articles
+- saturday → wednesday: 7 articles
+- saturday → thursday: 5 articles
+- saturday → friday: 3 articles
+- saturday → saturday: 2 articles
+- saturday → tuesday: 2 articles
+- sunday → wednesday: 5 articles
+- sunday → tuesday: 4 articles
+- sunday → sunday: 4 articles
+- sunday → friday: 3 articles
+- sunday → saturday: 3 articles
+- monday → sunday: 7 articles
+- monday → tuesday: 7 articles
+- monday → wednesday: 5 articles
+- monday → friday: 5 articles
+- monday → saturday: 4 articles
+- monday → thursday: 2 articles
+- monday → monday: 2 articles
+- tuesday → sunday: 4 articles
+- tuesday → wednesday: 3 articles
+- tuesday → monday: 3 articles
+- tuesday → friday: 3 articles
+- tuesday → thursday: 2 articles
+- tuesday → saturday: 2 articles
+- tuesday → tuesday: 1 articles
+- wednesday → tuesday: 7 articles
+- wednesday → wednesday: 7 articles
+- wednesday → sunday: 6 articles
+- wednesday → friday: 5 articles
+- wednesday → monday: 2 articles
+- wednesday → saturday: 2 articles
+- wednesday → thursday: 1 articles
+- thursday → friday: 6 articles
+- thursday → wednesday: 5 articles
+- thursday → sunday: 4 articles
+- thursday → tuesday: 3 articles
+- thursday → thursday: 1 articles
+- friday → sunday: 8 articles
+- friday → tuesday: 5 articles
+- friday → wednesday: 4 articles
+- friday → friday: 3 articles
+- friday → saturday: 3 articles
+- friday → monday: 2 articles
+- friday → thursday: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Calibration Bullet Points
+
+- **Boost local/regional B.C. content significantly**: Articles about Cariboo, Williams Lake, Chilcotin, Lytton, and indigenous communities score highest (85–90). Prioritize hyperlocal news over national/international equivalents even at lower quality scores.
+
+- **Prefer constructive/solution-focused framing**: Good fits emphasize protection, healing, equitable agreements, and environmental stewardship. Reject crisis/tragedy-focused reporting (deadly crashes, shootings, explosions, conflict escalation) even when high-quality sources.
+
+- **Favor Indigenous voices and community-centered stories**: Articles from Eagle Feather News, APTN News, and stories about Treaty anniversaries, equine therapy centers, and Indigenous leadership consistently score well despite modest technical quality (Q/R scores).
+
+- **Weight Indigenous land/resource issues heavily**: Salmon protection, dam proposals affecting First Nations, and environmental management in traditional territories are strong signals—even niche, regional sources rank high when covering these topics.
+
+- **Underweight pure tech product reviews and gadget comparisons**: Articles about camera gear, smartwatch comparisons, and kitchen gadgets score in "Bad Fit" despite high source credibility (Canon, Anker reviews). Suppress consumer product roundups unless solving a specific user problem.
+
+- **Boost AI policy/ethics over AI product announcements**: Good fits include labor impacts, regulatory proposals (Bernie Sanders bill), worker training challenges, and existential concerns. Suppress incremental product launches and AI model comparisons (Moonshot, Kimi K3, A24 tools).
+
+- **Suppress violent crime, conflict, and tragedy reporting**: Articles on shootings, stabbings, deadly crashes, and international violence score 70–80 in Bad Fit. Quality source (NYT, Al Jazeera) doesn't override harmful framing.
+
+- **Privilege wellness and personal transformation narratives**: Parental brain changes, solitude/creativity meditations, deafblind awareness, and Indigenous healing ceremonies rank consistently (60–78). These bridge news and wellness categories.
+
+- **Reassignment pattern—Sunday/Wednesday for tech deep-dives**: Most CPU, AI safety, and file-sharing articles move to Wed/Sun, suggesting preference for "slow tech journalism" separate from news cycle. Route technical explanations away from breaking news days.
+
+- **Thursday preferred for Indigenous/environmental policy**: Salmon protection and dam discussions reassign to Thu, signaling a dedicated editorial slot for land-rights and resource governance stories.
+
+- **Lower tolerance for celebrity death, entertainment gossip, and viral moments**: CBC Arts pieces on actor deaths and audiobook trends score poorly. Maintain editorial discipline around celebrity/entertainment despite
+
+---
 ## Feedback Training Run — 2026-07-12 14:38 UTC
 
 **Files processed:** 2026-06-16.json, 2026-06-17.json, 2026-06-19.json, 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json
