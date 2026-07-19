@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of the Feed — Week of July 13–19, 2026</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { margin-top: 1.5rem; font-size: 1.1rem; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+    th, td { border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    a { color: #0066cc; }
+    ul { padding-left: 1.4rem; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <h1>State of the Feed — Week of July 13–19, 2026</h1>
+  <p class="meta">Published July 19, 2026 &middot; <a href="https://zirnhelt.github.io/super-rss-feed">Back to feed</a></p>
+  <p>Six aggregation runs completed during the week of July 13–19, 2026, processing an average of 1077 articles per run with an average yield of 70 quality articles per run. The largest content category was news at 150 articles, followed by ai-tech with 71 articles, wellness with 49 articles, science with 46 articles, local with 44 articles, climate with 39 articles, homelab with 15 articles, and scifi with 9 articles. The dimensional Q/R/L composite scoring model applied weights of 0.25 for quality, 0.55 for relevance, and 0.20 for local signals.</p>
+<p>Pipeline efficiency measured a mean noise-to-signal ratio of 2.07 articles fetched per 1 delivered, ranging from 1.23 to 2.76 across the 14-run observation period. This represents typical operational performance within acceptable bounds. Four new feeds were successfully integrated: Tŝilhqot'in National Government, EBSCO, ScienceAlert, and Neuroscience News – ScienceDaily, alongside Hacker News and BC Wildfire Service. No feed errors occurred during the week. Top discovery candidates for potential integration scored as follows: Tŝilhqot'in National Government at 70.0, EBSCO at 69.4, and 10ideas.bearblog.dev at 63.9.</p>
+<h3>New Feeds This Week</h3>
+<ul>
+  <li>Tŝilhqot’in National Government</li>
+  <li>EBSCO</li>
+  <li>ScienceAlert</li>
+  <li>Neuroscience News -- ScienceDaily</li>
+  <li>Hacker News</li>
+  <li>BC Wildfire Service</li>
+</ul>
+<h3>Weekly Article Distribution</h3>
+<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>
+<tr><td>local</td><td>44</td></tr>
+<tr><td>ai-tech</td><td>71</td></tr>
+<tr><td>climate</td><td>39</td></tr>
+<tr><td>homelab</td><td>15</td></tr>
+<tr><td>wellness</td><td>49</td></tr>
+<tr><td>science</td><td>46</td></tr>
+<tr><td>scifi</td><td>9</td></tr>
+<tr><td>news</td><td>150</td></tr>
+</tbody></table>
+<h3>Discovery Highlights</h3>
+<ul>
+  <li>Tŝilhqot’in National Government (score: 70.0)</li>
+  <li>EBSCO (score: 69.4)</li>
+  <li>10ideas.bearblog.dev (score: 63.9)</li>
+</ul>
+<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>
+<p>Noise-to-signal = (articles fetched &minus; articles in final feeds) &divide; final total. Lower is more efficient.</p>
+<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>
+<tr><td>2026-07-12</td><td>2.09</td><td>1.23</td><td>2.76</td><td>7</td></tr>
+<tr><td>2026-07-19</td><td>2.07</td><td>1.23</td><td>2.76</td><td>14</td></tr>
+</tbody></table>
+<h3>Quality Review</h3>
+<p>366 articles across 8 feeds. Scrub pass flagged 13 article(s), 13 recommended for removal.</p>
+<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>
+<tr><td>🤖 AI/ML & Tech</td><td>65</td><td>39.0</td><td>43</td><td>TechRadar (20.0%)</td></tr>
+<tr><td>🌍 Climate & Energy</td><td>35</td><td>46.1</td><td>28</td><td>Pique Newsmagazine (11.4%)</td></tr>
+<tr><td>🏠 Homelab & DIY</td><td>12</td><td>26.7</td><td>8</td><td>Hackaday (25.0%)</td></tr>
+<tr><td>🏔️ Williams Lake Local</td><td>40</td><td>82.2</td><td>28</td><td>Williams Lake Tribune (52.5%)</td></tr>
+<tr><td>📰 General News</td><td>123</td><td>42.8</td><td>78</td><td>NYT Top Stories (8.9%)</td></tr>
+<tr><td>🔬 Science</td><td>38</td><td>51.6</td><td>27</td><td>ScienceDaily (36.8%)</td></tr>
+<tr><td>🚀 Sci-Fi & Culture</td><td>6</td><td>12.7</td><td>3</td><td>Reactor Magazine (33.3%)</td></tr>
+<tr><td>🌿 Health & Wellness</td><td>47</td><td>40.1</td><td>35</td><td>STAT News (36.2%)</td></tr>
+</tbody></table><p>Corpus alignment: 1228 articles analysed — 492 direct-qualify, 130 rescue-dependent, 476 stranded, 36 filler (2.9%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/CORPUS_ALIGNMENT_REPORT_2026-07-19.md">Full report</a>.</p>
+<p>Content type breakdown: null: 585, breaking: 278, feature: 125, analysis: 122, fluff: 77, news: 36, opinion: 19, wire: 11, recap: 5, investigation: 1.</p>
+
+<h3>User Feedback Audit</h3>
+<p>667 articles rated (2026-06-17 → 2026-07-19): 222 good, 14 interesting, 431 bad (64.6% bad). Theme-day corrections: 181 of 660 (27.4%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/ARTICLE_REVIEW_AUDIT_2026-07-19.md">Full audit</a>.</p>
+<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>
+<tr><td>80-100</td><td>53</td><td>56.6</td><td>43.4</td></tr>
+<tr><td>60-79</td><td>127</td><td>42.5</td><td>57.5</td></tr>
+<tr><td>40-59</td><td>210</td><td>40.0</td><td>54.8</td></tr>
+<tr><td>20-39</td><td>117</td><td>32.5</td><td>67.5</td></tr>
+<tr><td>0-19</td><td>160</td><td>10.0</td><td>88.1</td></tr>
+</tbody></table>
+<h3>API Cost Review</h3>
+<p>6 run(s) this week &middot; total est. cost <strong>$1.9098</strong> &middot; avg <strong>$0.3183</strong>/run &middot; 660,316 Claude tokens</p>
+<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>
+<tr><td>Claude</td><td>97</td><td>16.2</td><td>token-based</td><td>—</td></tr>
+<tr><td>Cohere</td><td>96</td><td>16.0</td><td>$0.0020/call</td><td>$0.1920</td></tr>
+<tr><td>Brave</td><td>252</td><td>42.0</td><td>free</td><td>$0</td></tr>
+<tr><td>Kagi</td><td>151</td><td>25.2</td><td>$0.0075/call</td><td>$1.1325</td></tr>
+</tbody></table>
+<h3>Calibration</h3>
+<table><thead><tr><th>Knob</th><th>Old</th><th>New</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>limits.min_claude_score</td><td>16</td><td>18</td><td>User feedback threshold_sweep shows min_claude_score=20 would cut 28.1% of bad articles at 5.7% good lost—well within acceptable bounds. Current value of 16 (raised July 12) cuts 25.3% of bad at 4.1% good lost, an improvement but still insufficient given 63.3% overall bad rate. Proposing 18 as a conservative step toward the 20 ceiling: final feed sizes average 341/run (well above ~100 target), so we have capacity to tighten. This complements the existing haiku_scrub_floor=13 change and directly addresses the user-verified quality issue without risking the feed-scarcity overshoot that triggered June 24's manual intervention. The 18 threshold would cut an estimated 26-27% of bad articles (interpolating between sweep points) while losing ~5% of good articles—a favorable trade given current bad rate.</td></tr>
+</tbody></table>
+<h3>Actions Taken This Week</h3>
+<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>
+<tr><td>Discovery</td><td>Added feed “Tŝilhqot’in National Government” (local, score 70.0)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/e2fa2a6"><code>e2fa2a6</code></a> (<code>git revert e2fa2a6</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “EBSCO” (local, score 69.4)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/e2fa2a6"><code>e2fa2a6</code></a> (<code>git revert e2fa2a6</code> to undo)</td></tr>
+<tr><td>Calibration</td><td>limits.min_claude_score: 16 → 18</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/e8f871f"><code>e8f871f</code></a> (<code>git revert e8f871f</code> to undo)</td></tr>
+</tbody></table>
+</body>
+</html>
