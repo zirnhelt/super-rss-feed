@@ -3688,14 +3688,21 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Cross-theme reuse is intentional — the same article may appear in multiple
     # themed episodes with _cross_theme metadata on the second appearance.
 
-    # Cap the pool: sort by quality score and keep only the top candidates.
-    # Articles with lower quality scores are unlikely to beat well-scored candidates
-    # for theme fit, so scoring them wastes API calls.
+    # Cap the pool: sort by quality score and keep only the top direct-qualify
+    # candidates. Rescued/holdover articles are exempt — they already proved
+    # thematic fit via a cached theme score, so sorting by upstream quality score
+    # would systematically cut them (that's exactly why they needed rescuing).
+    # Scoring them costs nothing extra since their theme score is already cached.
     POOL_CAP = 300
     if len(theme_pool) > POOL_CAP:
-        theme_pool.sort(key=lambda a: a.score, reverse=True)
-        theme_pool = theme_pool[:POOL_CAP]
-        print(f"  📊 Pool capped at top {POOL_CAP} articles by quality score")
+        protected_links = {a.link for a in rescued} | {a.link for a in holdover_pool}
+        protected = [a for a in theme_pool if a.link in protected_links]
+        cappable = [a for a in theme_pool if a.link not in protected_links]
+        cappable.sort(key=lambda a: a.score, reverse=True)
+        room = max(0, POOL_CAP - len(protected))
+        theme_pool = protected + cappable[:room]
+        print(f"  📊 Pool capped at top {room} direct-qualify articles by quality score "
+              f"(+{len(protected)} rescued/holdover exempted from cap)")
 
     # Score articles for thematic fit using Claude
     theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
