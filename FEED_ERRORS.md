@@ -3,16 +3,6 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
-## 2026-07-11 (Saturday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -703,6 +693,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## Week of 2026-07-10–2026-07-10
+- 1 issues recorded
+- ⚠️ Kagi Summarizer failed — HTTP 403 x1
+
+
+---
+
+
+
+## Week of 2026-07-11–2026-07-11
 - 1 issues recorded
 - ⚠️ Kagi Summarizer failed — HTTP 403 x1
 
