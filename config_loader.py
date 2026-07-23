@@ -179,8 +179,10 @@ def validate_config() -> Dict[str, List[str]]:
                 errors.setdefault('filters.json', []).append(f"{key} must be list")
             elif not all(isinstance(x, str) for x in filters[key]):
                 errors.setdefault('filters.json', []).append(f"{key} must contain only strings")
-        # Optional lists: blocked_keywords_unless_local, local_signals, blocked_title_patterns
-        for key in ['blocked_keywords_unless_local', 'local_signals', 'blocked_title_patterns']:
+        # Optional lists: blocked_keywords_unless_local, local_signals, blocked_title_patterns,
+        # us_policy_signals, canadian_context_signals
+        for key in ['blocked_keywords_unless_local', 'local_signals', 'blocked_title_patterns',
+                    'us_policy_signals', 'canadian_context_signals']:
             if key in filters:
                 if not isinstance(filters[key], list):
                     errors.setdefault('filters.json', []).append(f"{key} must be list")

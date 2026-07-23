@@ -108,6 +108,45 @@ def _article_matches_podcast_keywords(article: 'Article', keywords: frozenset) -
     text = f"{article.title} {article.description or ''}".lower()
     return any(kw in text for kw in keywords)
 
+def _build_us_policy_keywords() -> frozenset:
+    """US-federal policy/program/agency signal terms (lowercased)."""
+    return frozenset(s.lower() for s in FILTERS.get('us_policy_signals', []))
+
+US_POLICY_KEYWORDS = _build_us_policy_keywords()
+
+def _build_canadian_context_keywords() -> frozenset:
+    """Terms signalling a Canadian angle; reuses local place-names."""
+    kws = {s.lower() for s in FILTERS.get('canadian_context_signals', [])}
+    kws |= {s.lower() for s in FILTERS.get('local_signals', [])}
+    return frozenset(kws)
+
+CANADIAN_CONTEXT_KEYWORDS = _build_canadian_context_keywords()
+
+def us_policy_scope(title: str, description: str) -> Optional[str]:
+    """Classify jurisdiction for US-policy stories.
+
+    Deterministic keyword match — no API cost. Returns None for stories that
+    aren't about US policy/programs, 'cross-border-impact' when a US-policy
+    story also carries a Canadian angle (direct/inspirational relevance), and
+    'out-of-jurisdiction' for pure US-jurisdiction stories.
+    """
+    text = f"{title} {description or ''}".lower()
+    if not any(kw in text for kw in US_POLICY_KEYWORDS):
+        return None
+    if any(kw in text for kw in CANADIAN_CONTEXT_KEYWORDS):
+        return 'cross-border-impact'
+    return 'out-of-jurisdiction'
+
+# Shared guidance appended to every theme-scoring system prompt so US-federal
+# policy stories are judged on their Cariboo/BC relevance and impact rather than
+# penalized for jurisdiction — the podcast host contextualizes that separately.
+US_POLICY_SCORING_GUIDANCE = (
+    "\n\nJURISDICTION NOTE: US federal policy/program stories are IN SCOPE. Score them on their "
+    "relevance and impact to the Cariboo/BC audience (trade effects, precedent, or inspiration) — "
+    "do NOT penalize a story merely for being US-jurisdiction. The host contextualizes jurisdiction "
+    "separately on-air."
+)
+
 def min_score_for_category(category: str) -> int:
     """Per-category quality floor, falling back to the global min_claude_score."""
     return LIMITS.get('min_score_by_category', {}).get(category or 'news', LIMITS['min_claude_score'])
@@ -125,7 +164,7 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
-THEME_SCORE_CACHE_VERSION = 'v2'  # Bump to invalidate caches from old raw-score formula
+THEME_SCORE_CACHE_VERSION = 'v3'  # Bump to invalidate caches from old raw-score formula
 PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
@@ -2923,6 +2962,10 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         if subscriber_label:
             item_tags.append("subscriber-access")
 
+        _us_scope = us_policy_scope(article.title, article.description or "")
+        if _us_scope:
+            item_tags.append("us-policy")
+
         podcast_days = sorted({
             entry['day']
             for key, entry in podcast_shown_cache.items()
@@ -2967,6 +3010,10 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
 
         if category == 'local':
             item["_local"] = True
+
+        if _us_scope:
+            item["_us_policy"] = True
+            item["_us_policy_scope"] = _us_scope
 
         if item_tags:
             item["tags"] = item_tags
@@ -3098,6 +3145,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
         f"BACKGROUND — curator interest profile (for context when judging relevance):\n{interests}\n\n"
         f"CONTENT TAXONOMY (for reference):\n{category_guide}\n\n"
         f"{theme_prompt}"
+        f"{US_POLICY_SCORING_GUIDANCE}"
     )
 
     batch_size = 30
@@ -3250,6 +3298,7 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
         f"BACKGROUND — curator interest profile (for context when judging relevance):\n{interests}\n\n"
         f"Score each article 0-100 for each of the following themes:\n\n"
         f"{theme_descriptions}"
+        f"{US_POLICY_SCORING_GUIDANCE}"
     )
 
     day_schema = ", ".join(f'"{d}": 0' for d in day_keys)
@@ -3957,6 +4006,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         if subscriber_label:
             pod_tags.append("subscriber-access")
 
+        _us_scope = us_policy_scope(article.title, article.description or "")
+        if _us_scope:
+            pod_tags.append("us-policy")
+
         badge = _make_score_badge(
             score=article.score,
             quality=getattr(article, 'quality', article.score),
@@ -4002,6 +4055,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
         if hasattr(article, 'image') and article.image:
             item["image"] = article.image
+
+        if _us_scope:
+            item["_us_policy"] = True
+            item["_us_policy_scope"] = _us_scope
 
         if pod_tags:
             item["tags"] = pod_tags
