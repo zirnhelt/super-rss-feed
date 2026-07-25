@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-24 (Friday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **LoRaMeshDevices** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+
+
+---
+
+
+
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)

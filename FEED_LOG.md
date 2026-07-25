@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-24 (Friday)
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1157** → dedup **767** → new **696** → quality **80**
+- Mix: local:9(11%), ai-tech:16(20%), climate:8(10%), homelab:2(2%), wellness:10(12%), science:8(10%), scifi:2(2%), news:25(31%)
+- Feeds: local:52, ai-tech:77, climate:26, homelab:14, wellness:43, science:33, scifi:8, news:133
+- Images: 80/80
+- Topic queries: 239 articles from 34 queries
+- API calls: Claude:18, Cohere:16, Brave:42, Kagi:24 · 126,364 Claude tokens · est. cost $0.3251
+
+
+---
+
+
+
 ## 2026-07-23 (Thursday)
 
 #### 🌙 8:30 PM Pacific
@@ -102,21 +117,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 71/71
 - Topic queries: 218 articles from 34 queries
 - API calls: Claude:17, Cohere:16, Brave:42, Kagi:23 · 116,897 Claude tokens · est. cost $0.3100
-
-
----
-
-
-
-## 2026-07-16 (Thursday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1191** → dedup **834** → new **689** → quality **80**
-- Mix: local:9(11%), ai-tech:18(22%), climate:7(9%), homelab:2(2%), wellness:10(12%), science:8(10%), scifi:1(1%), news:25(31%)
-- Feeds: local:42, ai-tech:56, climate:34, homelab:11, wellness:46, science:40, scifi:9, news:125
-- Images: 80/80
-- Topic queries: 235 articles from 34 queries
-- API calls: Claude:19, Cohere:16, Brave:42, Kagi:23 · 127,134 Claude tokens · est. cost $0.3185
 
 
 ---
@@ -1882,6 +1882,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 1 runs · avg fetched 1231 · avg quality 76
 - Dominant: **news** (33%) local:12 / ai-tech:9 / climate:8 / homelab:3 / wellness:10 / science:8 / scifi:1 / news:25
 - API calls: Claude:20, Cohere:16, Brave:42, Kagi:25 · est. cost $0.3371
+
+
+---
+
+
+
+## Week of 2026-07-16–2026-07-16
+- 1 runs · avg fetched 1191 · avg quality 80
+- Dominant: **news** (31%) local:9 / ai-tech:18 / climate:7 / homelab:2 / wellness:10 / science:8 / scifi:1 / news:25
+- API calls: Claude:19, Cohere:16, Brave:42, Kagi:23 · est. cost $0.3185
 
 
 ---
