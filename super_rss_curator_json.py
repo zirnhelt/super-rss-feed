@@ -4772,6 +4772,10 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         "_generated_at": now_iso,
         "_today": today_name,
         "_today_label": today_label,
+        "_categories": {
+            slug: {"name": cfg["name"], "emoji": cfg.get("emoji", "")}
+            for slug, cfg in CATEGORIES.items()
+        },
         "items": [],
     }
 

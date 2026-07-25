@@ -124,6 +124,14 @@
         }
         .chip-x:hover { color: white; }
 
+        /* ── Category chips ── */
+        .card-categories { display: flex; flex-wrap: wrap; gap: 4px; }
+        .category-chip {
+            display: inline-flex; align-items: center; gap: 3px;
+            padding: 3px 8px; border-radius: 9px; font-size: 0.72em; font-weight: 600;
+            white-space: nowrap; border: 1px solid transparent;
+        }
+
         /* ── Rating buttons ── */
         .card-rating-row { display: flex; gap: 4px; flex-wrap: wrap; }
         .btn-rate {
@@ -229,6 +237,19 @@ const DAY_ORDER = ['monday','tuesday','wednesday','thursday','friday','saturday'
 const DAY_SHORT = { monday:'Mon', tuesday:'Tue', wednesday:'Wed', thursday:'Thu', friday:'Fri', saturday:'Sat', sunday:'Sun' };
 const DAY_THEME = { monday:'Arts & Culture', tuesday:'Working Lands', wednesday:'Community Tech', thursday:'Indigenous Lands', friday:'Wild Spaces', saturday:'Cariboo Voices', sunday:'Science & Wonder' };
 
+// Fallback if an older cached feed-review.json lacks `_categories`
+const FALLBACK_CATEGORIES = {
+    local:    { name: 'Local News',       emoji: '🏔️' },
+    homelab:  { name: 'Homelab & DIY',    emoji: '🏠' },
+    climate:  { name: 'Climate & Energy', emoji: '🌍' },
+    science:  { name: 'Science',          emoji: '🔬' },
+    wellness: { name: 'Health & Wellness',emoji: '🌿' },
+    'ai-tech':{ name: 'AI & Tech',        emoji: '🤖' },
+    scifi:    { name: 'Sci-Fi & Culture', emoji: '🚀' },
+    news:     { name: 'General News',     emoji: '📰' },
+};
+let CATEGORIES = FALLBACK_CATEGORIES;
+
 // ── Date helper ──────────────────────────────────────────────────────────────
 function getTodayKey() {
     return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Vancouver' });
@@ -263,6 +284,7 @@ async function init() {
         const res = await fetch(FEED_URL + '?v=' + Date.now());
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const feed = await res.json();
+        if (feed._categories && Object.keys(feed._categories).length) CATEGORIES = feed._categories;
         articles = (feed.items || []).filter(a => SHOW_BUCKETS.has(a._selection_bucket));
 
         hide('loading-msg');
@@ -298,11 +320,16 @@ function seedRating(art) {
     const url = art.url;
     let r = ratings[url];
     if (!r) {
-        ratings[url] = { rating: null, approved_days: getInitialDays(art), note: '' };
-    } else if (r.better_theme && !r.approved_days) {
+        ratings[url] = { rating: null, approved_days: getInitialDays(art), category: art._category || 'news', note: '' };
+        return;
+    }
+    if (r.better_theme && !r.approved_days) {
         ratings[url] = { ...r, approved_days: [r.better_theme] };
     } else if (!r.approved_days) {
         ratings[url] = { ...r, approved_days: getInitialDays(art) };
+    }
+    if (!ratings[url].category) {
+        ratings[url] = { ...ratings[url], category: art._category || 'news' };
     }
 }
 
@@ -335,7 +362,7 @@ function buildCardInner(idx) {
     const r   = ratings[art.url] || {};
 
     const bucket    = art._selection_bucket || '';
-    const category  = art._category || 'news';
+    const category  = r.category || art._category || 'news';
     const source    = art.authors?.[0]?.name || '';
     const score     = art._score || 0;
     const quality   = art._quality || 0;
@@ -371,10 +398,17 @@ function buildCardInner(idx) {
         </button>`;
     }).join('');
 
+    // Category chips (confirm or retag the article's overarching topic)
+    const categoryChipsHtml = Object.keys(CATEGORIES).map(slug => {
+        const meta = CATEGORIES[slug];
+        const selected = slug === category;
+        return `<button class="category-chip ${selected ? 'chip-selected' : 'chip-unselected'}"
+            onclick="setCategory(${idx},'${slug}')">${escHtml(meta.emoji || '')} ${escHtml(meta.name || slug)}</button>`;
+    }).join('');
+
     return `
         <div class="card-header">
             <span class="badge badge-bucket-${bucket}">${bucketLabel}</span>
-            <span class="badge badge-category">${escHtml(category)}</span>
             ${source ? `<span class="badge badge-source">${escHtml(source)}</span>` : ''}
             ${pubDate ? `<span class="badge-date">${pubDate}</span>` : ''}
         </div>
@@ -387,6 +421,8 @@ function buildCardInner(idx) {
         <div class="card-meta">Score ${score} · Q:${quality} R:${relevance} L:${local}</div>
 
         ${descText ? `<div class="card-desc" id="desc-${idx}" style="display:${isExpanded ? 'block' : 'none'}">${escHtml(descText)}${descRaw.length > 500 ? '…' : ''}</div>` : ''}
+
+        <div class="card-categories">${categoryChipsHtml}</div>
 
         <div class="card-days">${chipsHtml}</div>
 
@@ -460,6 +496,16 @@ function handleDayClick(idx, day) {
     updateProgress();
 }
 
+function setCategory(idx, slug) {
+    const art = articles[idx];
+    const r   = ratings[art.url] || {};
+    if (r.category === slug) return;
+
+    ratings[art.url] = { ...r, category: slug };
+    saveRatings();
+    refreshCard(idx);
+}
+
 function saveNote(idx, value) {
     const art = articles[idx];
     if (!ratings[art.url]) ratings[art.url] = { rating: null, approved_days: [], note: '' };
@@ -493,7 +539,8 @@ async function submitFeedback() {
             url:              a.url,
             title:            a.title,
             source:           a.authors?.[0]?.name || '',
-            category:         a._category || 'news',
+            category:         ratings[a.url].category || a._category || 'news',
+            original_category: a._category || 'news',
             score:            a._score || 0,
             quality:          a._quality || 0,
             relevance:        a._relevance || 0,
