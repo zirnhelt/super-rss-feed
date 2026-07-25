@@ -254,6 +254,30 @@ def theme_routing_audit(ratings: List[Dict]) -> Dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Section 3b — category retag accuracy
+# ---------------------------------------------------------------------------
+
+def category_retag_audit(ratings: List[Dict]) -> Dict[str, Any]:
+    with_category = [r for r in ratings if r.get('original_category')]
+    corrections = [
+        r for r in with_category
+        if r.get('category') and r['category'] != r['original_category']
+    ]
+
+    confusion: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for r in corrections:
+        confusion[r['original_category']][r['category']] += 1
+
+    n = len(with_category)
+    return {
+        'rated_with_category': n,
+        'corrections': len(corrections),
+        'correction_pct': round(100 * len(corrections) / n, 1) if n else 0.0,
+        'confusion': {k: dict(v) for k, v in confusion.items()},
+    }
+
+
+# ---------------------------------------------------------------------------
 # Section 4 — volume trend
 # ---------------------------------------------------------------------------
 
@@ -414,6 +438,7 @@ def _md_table(headers: List[str], rows: List[List[Any]]) -> str:
 def build_report(audit: Dict[str, Any]) -> str:
     dist = audit['distribution']
     routing = audit['theme_routing']
+    category_retag = audit['category_retag']
     window = audit['window']
     lines = [
         '# Article Review Audit',
@@ -430,6 +455,7 @@ def build_report(audit: Dict[str, Any]) -> str:
             ['Theme-day corrections (`better_theme`)', f"{routing['corrections']} ({routing['correction_pct']}% of day-routed ratings)"],
             ['…caused by selection ignoring its own theme scores', routing['root_cause']['routing_bug']],
             ['…caused by the theme scorer itself missing', routing['root_cause']['theme_scoring_miss']],
+            ['Category retags', f"{category_retag['corrections']} ({category_retag['correction_pct']}% of categorized ratings)"],
         ]),
         '',
         '## 1. Scoring Precision vs. Your Verdicts',
@@ -530,6 +556,22 @@ def build_report(audit: Dict[str, Any]) -> str:
             ['Theme scores missing on the rating', routing['root_cause']['missing_scores']],
         ]),
         '',
+        '## 3b. Category Retag Accuracy',
+        '',
+        (f"Of **{category_retag['rated_with_category']}** ratings carrying a confirmed/retagged category, you retagged "
+         f"**{category_retag['corrections']}** ({category_retag['correction_pct']}%) to a different category."
+         if category_retag['rated_with_category'] else
+         '_No ratings with a confirmed/retagged category yet (requires the category-retag UI in review.html)._'),
+        '',
+        '### Category → category correction matrix (shown → corrected)',
+        '',
+        (_md_table(
+            ['Shown', 'Corrected to', 'Count'],
+            [[shown, target, count]
+             for shown, targets in category_retag['confusion'].items()
+             for target, count in sorted(targets.items(), key=lambda kv: -kv[1])])
+         if category_retag['confusion'] else '_No category retags recorded._'),
+        '',
         '## 4. Volume Trend — Is the Feed Lighter?',
         '',
         '_Average per-run articles fetched and passing the quality gate, by ISO week '
@@ -599,6 +641,7 @@ def run_audit() -> Dict[str, Any]:
         'bucket_by_rating': bucket_by_rating(ratings),
         'filler_trend': filler_trend(),
         'theme_routing': theme_routing_audit(ratings),
+        'category_retag': category_retag_audit(ratings),
         'volume_trend': parse_feed_log(),
         'funnel': current_funnel(runs),
         'feed_counts': feed_item_counts(),
@@ -632,6 +675,7 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
             'per_day': routing['per_day'],
             'confusion': routing['confusion'],
         },
+        'category_retag': audit['category_retag'],
         'volume_trend_recent': audit['volume_trend'][-8:],
         'process_health': audit['process_health'],
     }
@@ -654,7 +698,8 @@ def main() -> None:
         f.write(report)
     print(f"✅ Audit report written to {args.output} "
           f"({audit['distribution']['total']} ratings, "
-          f"{audit['theme_routing']['corrections']} theme corrections)")
+          f"{audit['theme_routing']['corrections']} theme corrections, "
+          f"{audit['category_retag']['corrections']} category retags)")
 
     if args.json_summary:
         with open(args.json_summary, 'w', encoding='utf-8') as f:

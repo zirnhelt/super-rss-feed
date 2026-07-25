@@ -71,11 +71,18 @@ def aggregate_stats(ratings: list) -> dict:
     bad         = [r for r in ratings if r.get('rating') == 'bad']
     reassigned  = [r for r in good if r.get('approved_days') or r.get('better_theme')]
 
+    recategorized = [
+        r for r in ratings
+        if r.get('original_category') and r.get('category')
+        and r['original_category'] != r['category']
+    ]
+
     source_good: dict = defaultdict(int)
     source_bad: dict  = defaultdict(int)
     cat_good: dict    = defaultdict(int)
     cat_bad: dict     = defaultdict(int)
     day_from_to: dict = defaultdict(lambda: defaultdict(int))
+    category_from_to: dict = defaultdict(lambda: defaultdict(int))
 
     for r in good:
         source_good[r.get('source', '?')] += 1
@@ -88,17 +95,21 @@ def aggregate_stats(ratings: list) -> dict:
         to_days  = r.get('approved_days') or ([r['better_theme']] if r.get('better_theme') else [])
         for to_day in to_days:
             day_from_to[from_day][to_day] += 1
+    for r in recategorized:
+        category_from_to[r['original_category']][r['category']] += 1
 
     return {
         'good': good,
         'interesting': interesting,
         'bad': bad,
         'reassigned': reassigned,
+        'recategorized': recategorized,
         'source_good': dict(source_good),
         'source_bad': dict(source_bad),
         'cat_good': dict(cat_good),
         'cat_bad': dict(cat_bad),
         'day_from_to': {k: dict(v) for k, v in day_from_to.items()},
+        'category_from_to': {k: dict(v) for k, v in category_from_to.items()},
     }
 
 
@@ -125,6 +136,12 @@ def build_claude_prompt(stats: dict) -> str:
             to_days = r.get('approved_days') or ([r['better_theme']] if r.get('better_theme') else ['?'])
             reassign_lines += f"- '{r.get('title','?')}' from {r.get('today','?')} → {', '.join(to_days)}\n"
 
+    recat_lines = ''
+    if stats['recategorized']:
+        recat_lines = '\nCATEGORY RETAGS (user corrected the curator\'s category assignment):\n'
+        for r in stats['recategorized'][:20]:
+            recat_lines += f"- '{r.get('title','?')}' from {r['original_category']} → {r['category']}\n"
+
     return f"""A user has been rating RSS news articles for their personal feed and podcast.
 Analyze the patterns and write concise, actionable bullet points for the curator's scoring prompt.
 
@@ -136,13 +153,14 @@ INTERESTING articles (user finds these relevant but not podcast-quality — boos
 
 BAD FIT articles (user explicitly disliked these):
 {bad_lines or '(none yet)'}
-{reassign_lines}
+{reassign_lines}{recat_lines}
 Task: Write 6-12 bullet points that a news-scoring AI should use to calibrate RELEVANCE scores.
 Focus on:
 (a) Topic and framing signals in Good/Interesting articles vs Bad articles
 (b) Topics in Interesting articles that may be under-represented in the main feed
 (c) Source or content-type patterns worth noting
 (d) Any day-reassignment patterns (articles consistently moved to specific podcast days)
+(e) Any category-retag patterns (articles consistently miscategorized by the curator)
 
 Format as plain bullet points (- ...). Be specific and actionable. Do not repeat the raw article list.
 Keep the total under 400 words."""
@@ -164,6 +182,7 @@ def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> 
     interesting_count = len(stats.get('interesting', []))
     bad_count         = len(stats['bad'])
     reassign_count    = len(stats['reassigned'])
+    recat_count       = len(stats.get('recategorized', []))
 
     top_good_sources = sorted(stats['source_good'].items(), key=lambda x: x[1], reverse=True)[:5]
     top_bad_sources  = sorted(stats['source_bad'].items(),  key=lambda x: x[1], reverse=True)[:5]
@@ -177,19 +196,26 @@ def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> 
             for to_day, count in sorted(to_days.items(), key=lambda x: x[1], reverse=True):
                 day_reassign_lines += f'- {from_day} → {to_day}: {count} articles\n'
 
+    category_retag_lines = ''
+    if stats.get('category_from_to'):
+        category_retag_lines = '\n**Category retag summary:**\n'
+        for from_cat, to_cats in stats['category_from_to'].items():
+            for to_cat, count in sorted(to_cats.items(), key=lambda x: x[1], reverse=True):
+                category_retag_lines += f'- {from_cat} → {to_cat}: {count} articles\n'
+
     status = '(DRY RUN — no changes written)' if dry_run else '✅ config/feedback_examples.txt updated'
 
     return f"""## Feedback Training Run — {now}
 
 **Files processed:** {', '.join(files) if files else 'none'}
-**Ratings:** {good_count} Good, {interesting_count} Interesting, {bad_count} Bad, {reassign_count} reassigned to day(s)
+**Ratings:** {good_count} Good, {interesting_count} Interesting, {bad_count} Bad, {reassign_count} reassigned to day(s), {recat_count} recategorized
 **Status:** {status}
 
 **Top liked sources:** {', '.join(f'{s} ({n})' for s, n in top_good_sources) or 'n/a'}
 **Top disliked sources:** {', '.join(f'{s} ({n})' for s, n in top_bad_sources) or 'n/a'}
 **Categories liked:** {', '.join(f'{c} ({n})' for c, n in top_good_cats) or 'n/a'}
 **Categories disliked:** {', '.join(f'{c} ({n})' for c, n in top_bad_cats) or 'n/a'}
-{day_reassign_lines}
+{day_reassign_lines}{category_retag_lines}
 **Synthesized signals (written to feedback_examples.txt):**
 
 {synthesis}
