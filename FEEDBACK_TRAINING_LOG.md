@@ -1,3 +1,93 @@
+## Feedback Training Run — 2026-07-26 20:24 UTC
+
+**Files processed:** 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json
+**Ratings:** 112 Good, 24 Interesting, 323 Bad, 107 reassigned to day(s), 5 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** New Atlas (6), Boing Boing (6), The Northern Miner (5), ScienceAlert (5), Global News (4)
+**Top disliked sources:** Toms Guide (18), Business Insider (16), CNET (15), Engadget (13), Android Authority (13)
+**Categories liked:** news (60), ai-tech (13), science (10), local (9), wellness (8), climate (7), shared (4), homelab (1)
+**Categories disliked:** news (276), ai-tech (14), wellness (14), scifi (6), local (5), climate (5), homelab (3)
+
+**Day reassignment summary:**
+- saturday → sunday: 7 articles
+- saturday → friday: 5 articles
+- saturday → wednesday: 4 articles
+- saturday → thursday: 3 articles
+- saturday → tuesday: 3 articles
+- sunday → wednesday: 10 articles
+- sunday → sunday: 6 articles
+- sunday → friday: 6 articles
+- sunday → saturday: 5 articles
+- sunday → tuesday: 4 articles
+- sunday → monday: 4 articles
+- sunday → thursday: 1 articles
+- monday → tuesday: 7 articles
+- monday → saturday: 6 articles
+- monday → friday: 5 articles
+- monday → sunday: 4 articles
+- monday → wednesday: 3 articles
+- monday → thursday: 2 articles
+- monday → monday: 2 articles
+- tuesday → wednesday: 6 articles
+- tuesday → sunday: 5 articles
+- tuesday → monday: 4 articles
+- tuesday → friday: 3 articles
+- tuesday → tuesday: 2 articles
+- tuesday → saturday: 1 articles
+- wednesday → wednesday: 5 articles
+- wednesday → tuesday: 5 articles
+- wednesday → sunday: 4 articles
+- wednesday → monday: 2 articles
+- wednesday → saturday: 2 articles
+- wednesday → friday: 1 articles
+- wednesday → thursday: 1 articles
+- thursday → tuesday: 4 articles
+- thursday → friday: 3 articles
+- thursday → sunday: 2 articles
+- thursday → wednesday: 1 articles
+- thursday → thursday: 1 articles
+- thursday → monday: 1 articles
+- friday → sunday: 4 articles
+- friday → friday: 3 articles
+- friday → saturday: 3 articles
+- friday → tuesday: 3 articles
+- friday → monday: 3 articles
+- friday → wednesday: 2 articles
+
+**Category retag summary:**
+- news → wellness: 2 articles
+- news → climate: 1 articles
+- news → science: 1 articles
+- news → ai-tech: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Relevance Scoring Calibration Points
+
+- **Boost local/regional BC content**: Williams Lake Tribune and My Cariboo Now articles consistently score 85–90 and get podcast priority. Weight location-specific news (Cariboo, Quesnel, Kelowna) higher than generic national coverage.
+
+- **Prioritize constructive + solutions-oriented framing**: Good-fit articles focus on community action, fundraising, and positive initiatives (students building boxes, teacher fundraising, biodiversity solutions). Avoid or downweight crisis-reactive coverage (accidents, arrests, political upheaval, job cuts).
+
+- **De-emphasize conflict/crisis framing in news**: Bad-fit articles are dominated by warfare updates, criminal proceedings, corporate crises, and natural disasters. These score well but user rejects them—filter for outcomes/resolution over drama.
+
+- **Wellness-to-science miscategorization pattern**: User retags wellness articles (Henry James, summer coping) suggest curator conflates life advice with wellness science. Reserve wellness for evidence-based health/fitness; move philosophy/lifestyle to appropriate tags.
+
+- **AI/tech policy over product hype**: Interesting articles score well on AI policy (OpenMedia, fair use, security restrictions, job impact). Good-fit includes some AI but focuses on implications, not gadget reviews. Downweight "Top Stories: New iPhone" type coverage.
+
+- **Sunday → midweek shift for speculative/aspirational content**: Astronomy, space exploration, future tech (antimatter propulsion, cotton-candy planets) and lighter summer pieces consistently move from Sunday to Tuesday–Wednesday, suggesting weekend-specific placement preference.
+
+- **Underweight entertainment/celebrity/streaming**: Significant Bad-fit cluster around TV shows, movies, streaming announcements (Magic School Bus, Mad Men lists, Netflix login drama, Prime Video). User rarely engages despite curator tagging as news.
+
+- **Wednesday consolidation hub for AI + infrastructure**: Day-reassignment pattern shows Wednesday absorbs speculative AI articles, tech infrastructure stories, and policy pieces. Likely a dedicated "tech deep-dive" day.
+
+- **Climate/energy under-represented in feed**: User manually retags mining/seabed deposits as science/climate; "Solar producers upset by BC Hydro" (score 87, shared) suggests energy/climate transition stories resonate but may be tagged as generic news. Create explicit climate category signal.
+
+- **Source trust pattern**: My Cariboo Now, BC Gov News, and APTN News outperform national sources (Engadget, TechCrunch, Business Insider) despite similar topic overlap. Weight regional/Indigenous-focused sources higher for reconciliation and local coverage.
+
+- **Shared/reader-submitted content gets
+
+---
 ## Feedback Training Run — 2026-07-26 14:43 UTC
 
 **Files processed:** 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json
