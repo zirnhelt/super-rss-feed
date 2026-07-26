@@ -1,4 +1,37 @@
 {
   "_comment": "Tracked recurring issues found by the weekly calibration agent. Each issue has: id, theme (or category, or null for global), first_observed (run_id), last_observed (run_id), status (open|monitoring|resolved), description, evidence_runs (list of run_ids), actions_taken (list of {run_date, action}), recommendation_pending (bool, true if the fix requires a human edit to a forbidden/prompt-level field).",
-  "issues": []
+  "issues": [
+    {
+      "id": "weekday-theme-score-collapse-2026-07-26",
+      "theme": "monday,tuesday,wednesday,thursday",
+      "first_observed": "2026-07-26",
+      "last_observed": "2026-07-26",
+      "status": "open",
+      "description": "Catastrophic theme score collapse in run 2026-07-26T19:16:45: Monday mean_theme_score 26.6→7.1, Tuesday 26.6→3.0, Wednesday 26.6→8.4, Thursday 26.6→4.2 (all from stable ~26.6 baseline across prior 14 runs). Composite score histograms show near-total concentration in 0-19 band: Monday 237/250 articles, Tuesday 249/250, Thursday 250/250. Friday/Saturday/Sunday recovered to 35-45 range in the same run, ruling out global scoring failure. This is either a scoring_prompt regression or a sudden upstream content shift specific to weekday themes. Theme-specific keyword lists have not changed recently. The collapse is severe and immediate (not gradual drift), indicating a prompt-level bug or a fundamental mismatch between theme definitions and available content.",
+      "evidence_runs": [
+        "2026-07-13T07:28:29.183589+00:00",
+        "2026-07-14T06:17:35.491468+00:00",
+        "2026-07-15T06:21:17.984425+00:00",
+        "2026-07-16T06:25:01.108796+00:00",
+        "2026-07-17T06:22:32.363219+00:00",
+        "2026-07-18T06:10:19.075806+00:00",
+        "2026-07-19T06:35:54.116378+00:00",
+        "2026-07-20T06:54:16.599439+00:00",
+        "2026-07-21T06:34:55.714447+00:00",
+        "2026-07-22T06:35:25.137439+00:00",
+        "2026-07-23T06:34:57.460147+00:00",
+        "2026-07-24T06:32:08.133283+00:00",
+        "2026-07-25T06:23:48.943095+00:00",
+        "2026-07-26T06:41:43.169266+00:00",
+        "2026-07-26T19:16:45.882303+00:00"
+      ],
+      "actions_taken": [
+        {
+          "run_date": "2026-07-26",
+          "action": "None—this requires human review of scoring_prompt and theme_description fields for Monday/Tuesday/Wednesday/Thursday, which are in the forbidden auto-edit list. No auto-tunable knob (min_score, holdover_threshold, keyword additions) will fix a near-zero mean_theme_score caused by a scoring failure. Flagging as open recurring issue pending human intervention."
+        }
+      ],
+      "recommendation_pending": true
+    }
+  ]
 }
