@@ -1,19 +1,19 @@
 # Article Review Audit
 
-_Generated: 2026-07-26 14:43 UTC — ratings window 2026-06-17 → 2026-07-25_
+_Generated: 2026-07-26 20:24 UTC — ratings window 2026-06-17 → 2026-07-26_
 
 ## Executive Summary
 
 | Metric | Value |
 |---|---|
-| Articles rated (unique URLs) | 729 |
-| Rated **bad** (fluff/noise that reached you) | 463 (63.5%) |
-| Rated **good** | 244 (33.5%) |
-| Rated **interesting** | 22 |
-| Theme-day corrections (`better_theme`) | 201 (27.8% of day-routed ratings) |
-| …caused by selection ignoring its own theme scores | 70 |
-| …caused by the theme scorer itself missing | 131 |
-| Category retags | 0 (0.0% of categorized ratings) |
+| Articles rated (unique URLs) | 741 |
+| Rated **bad** (fluff/noise that reached you) | 467 (63.0%) |
+| Rated **good** | 250 (33.7%) |
+| Rated **interesting** | 24 |
+| Theme-day corrections (`better_theme`) | 207 (28.2% of day-routed ratings) |
+| …caused by selection ignoring its own theme scores | 73 |
+| …caused by the theme scorer itself missing | 134 |
+| Category retags | 5 (41.7% of categorized ratings) |
 
 ## 1. Scoring Precision vs. Your Verdicts
 
@@ -21,19 +21,19 @@ _Generated: 2026-07-26 14:43 UTC — ratings window 2026-06-17 → 2026-07-25_
 
 | Verdict | n | Mean score | Median | Mean quality (Q) | Mean relevance (R) |
 |---|---|---|---|---|---|
-| good | 244 | 52.0 | 49.0 | 47.6 | 47.6 |
-| interesting | 22 | 41.3 | 48.0 | 53.2 | 45.4 |
-| bad | 463 | 37.8 | 35 | 38.1 | 34.9 |
+| good | 250 | 51.5 | 48.5 | 47.2 | 47.1 |
+| interesting | 24 | 40.6 | 48.0 | 53.0 | 44.8 |
+| bad | 467 | 37.9 | 35 | 37.9 | 34.7 |
 
 ### Precision by score band
 
 | Score band | n | good | bad | % good | % bad |
 |---|---|---|---|---|---|
-| 80-100 | 55 | 32 | 23 | 58.2 | 41.8 |
+| 80-100 | 56 | 32 | 24 | 57.1 | 42.9 |
 | 60-79 | 128 | 55 | 73 | 43.0 | 57.0 |
-| 40-59 | 234 | 96 | 121 | 41.0 | 51.7 |
-| 20-39 | 132 | 41 | 89 | 31.1 | 67.4 |
-| 0-19 | 180 | 20 | 157 | 11.1 | 87.2 |
+| 40-59 | 239 | 99 | 122 | 41.4 | 51.0 |
+| 20-39 | 133 | 41 | 89 | 30.8 | 66.9 |
+| 0-19 | 185 | 23 | 159 | 12.4 | 85.9 |
 
 ### Threshold sweep — what a higher quality floor would have done
 
@@ -41,27 +41,27 @@ Current `min_claude_score` floor: **20** (manually lowered 20 → 13 on 2026-06-
 
 | Floor | Bad cut | % of bad | Good lost | % of good |
 |---|---|---|---|---|
-| 13 | 68 | 14.7 | 7 | 2.9 |
-| 15 | 135 | 29.2 | 16 | 6.6 |
-| 20 | 157 | 33.9 | 20 | 8.2 |
-| 25 | 164 | 35.4 | 24 | 9.8 |
-| 30 | 220 | 47.5 | 46 | 18.9 |
-| 35 | 231 | 49.9 | 52 | 21.3 |
-| 40 | 246 | 53.1 | 61 | 25.0 |
-| 45 | 274 | 59.2 | 77 | 31.6 |
-| 50 | 329 | 71.1 | 143 | 58.6 |
-| 60 | 367 | 79.3 | 157 | 64.3 |
+| 13 | 68 | 14.6 | 7 | 2.8 |
+| 15 | 137 | 29.3 | 18 | 7.2 |
+| 20 | 159 | 34.0 | 23 | 9.2 |
+| 25 | 166 | 35.5 | 27 | 10.8 |
+| 30 | 222 | 47.5 | 49 | 19.6 |
+| 35 | 233 | 49.9 | 55 | 22.0 |
+| 40 | 248 | 53.1 | 64 | 25.6 |
+| 45 | 276 | 59.1 | 81 | 32.4 |
+| 50 | 332 | 71.1 | 149 | 59.6 |
+| 60 | 370 | 79.2 | 163 | 65.2 |
 
 ### By category
 
 | Category | n | good | interesting | bad | % bad |
 |---|---|---|---|---|---|
-| news | 566 | 162 | 11 | 393 | 69.4 |
-| ai-tech | 48 | 19 | 7 | 22 | 45.8 |
-| wellness | 38 | 13 | 2 | 23 | 60.5 |
-| local | 35 | 28 | 0 | 7 | 20.0 |
-| climate | 15 | 9 | 1 | 5 | 33.3 |
-| science | 8 | 8 | 0 | 0 | 0.0 |
+| news | 569 | 162 | 12 | 395 | 69.4 |
+| ai-tech | 50 | 20 | 8 | 22 | 44.0 |
+| wellness | 41 | 15 | 2 | 24 | 58.5 |
+| local | 36 | 28 | 0 | 8 | 22.2 |
+| climate | 16 | 10 | 1 | 5 | 31.2 |
+| science | 10 | 10 | 0 | 0 | 0.0 |
 | scifi | 7 | 0 | 0 | 7 | 100.0 |
 | homelab | 5 | 1 | 1 | 3 | 60.0 |
 | shared | 4 | 4 | 0 | 0 | 0.0 |
@@ -76,14 +76,14 @@ Current `min_claude_score` floor: **20** (manually lowered 20 → 13 on 2026-06-
 |---|---|---|---|---|
 | Eagle Feather News | 6 | 6 | 0 | 100.0 |
 | 100 Mile Free Press | 6 | 6 | 0 | 100.0 |
+| ScienceAlert | 5 | 5 | 0 | 100.0 |
 | Williams Lake Tribune | 16 | 13 | 3 | 81.2 |
 | BC Gov News | 10 | 8 | 2 | 80.0 |
 | The Narwhal | 5 | 4 | 1 | 80.0 |
 | New Atlas | 12 | 9 | 3 | 75.0 |
-| My Cariboo Now | 12 | 8 | 4 | 66.7 |
 | APTN News | 8 | 5 | 3 | 62.5 |
+| My Cariboo Now | 13 | 8 | 5 | 61.5 |
 | MakeUseOf | 5 | 3 | 2 | 60.0 |
-| Nautilus | 7 | 4 | 3 | 57.1 |
 
 **Highest bad-rate**
 
@@ -94,11 +94,11 @@ Current `min_claude_score` floor: **20** (manually lowered 20 → 13 on 2026-06-
 | Al Jazeera English | 27 | 3 | 24 | 88.9 |
 | Lifehacker | 17 | 2 | 15 | 88.2 |
 | My East Kootenay Now | 8 | 1 | 7 | 87.5 |
-| Atlas Obscura | 8 | 1 | 7 | 87.5 |
 | NPR Health News | 7 | 1 | 6 | 85.7 |
-| Toms Guide | 25 | 4 | 21 | 84.0 |
+| Toms Guide | 26 | 4 | 22 | 84.6 |
 | CBC Arts | 12 | 2 | 10 | 83.3 |
-| Quartz | 16 | 3 | 13 | 81.2 |
+| Quartz | 17 | 3 | 14 | 82.4 |
+| NYT Business | 20 | 3 | 16 | 80.0 |
 
 ## 2. Fluff Quantification
 
@@ -106,12 +106,12 @@ Current `min_claude_score` floor: **20** (manually lowered 20 → 13 on 2026-06-
 
 | Content type | good | interesting | bad |
 |---|---|---|---|
-| unlabeled | 196 | 9 | 382 |
-| breaking | 16 | 6 | 39 |
-| feature | 13 | 0 | 17 |
-| analysis | 15 | 6 | 8 |
+| unlabeled | 199 | 9 | 385 |
+| breaking | 17 | 7 | 39 |
+| feature | 13 | 1 | 18 |
+| analysis | 16 | 6 | 8 |
 | opinion | 0 | 1 | 9 |
-| news | 2 | 0 | 5 |
+| news | 3 | 0 | 5 |
 | wire | 1 | 0 | 2 |
 | recap | 1 | 0 | 0 |
 | fluff | 0 | 0 | 1 |
@@ -120,12 +120,12 @@ Current `min_claude_score` floor: **20** (manually lowered 20 → 13 on 2026-06-
 
 | Bucket | good | interesting | bad |
 |---|---|---|---|
-| border | 72 | 13 | 56 |
+| border | 74 | 13 | 57 |
 | low | 12 | 0 | 39 |
 | high | 28 | 0 | 16 |
 | mid | 85 | 0 | 102 |
 | unknown | 4 | 0 | 3 |
-| unfiltered | 43 | 9 | 247 |
+| unfiltered | 47 | 11 | 250 |
 
 ### Filler trend (from corpus alignment reports)
 
@@ -138,11 +138,11 @@ Current `min_claude_score` floor: **20** (manually lowered 20 → 13 on 2026-06-
 | 2026-06-28 | 490 | 46 | 9 |
 | 2026-07-05 | 1303 | 64 | 5 |
 | 2026-07-19 | 1228 | 36 | 3 |
-| 2026-07-26 | 756 | 21 | 3 |
+| 2026-07-26 | 310 | 19 | 6 |
 
 ## 3. Theme-Bucket Routing Accuracy
 
-Of **722** ratings tied to an aired day, you corrected the day on **201** (27.8%). Additionally 79 good articles were approved for other days.
+Of **734** ratings tied to an aired day, you corrected the day on **207** (28.2%). Additionally 85 good articles were approved for other days.
 
 ### Per theme day
 
@@ -153,7 +153,7 @@ Of **722** ratings tied to an aired day, you corrected the day on **201** (27.8%
 | wednesday | Repair Culture & Practical Tech | 145 | 64 | 79 | 44.1 | 42 |
 | thursday | Indigenous Lands & Innovation | 85 | 20 | 60 | 23.5 | 19 |
 | friday | Wild Spaces & Outdoor Life | 148 | 42 | 100 | 28.4 | 39 |
-| saturday | Cariboo Local Affairs | 89 | 32 | 56 | 36.0 | 29 |
+| saturday | Cariboo Local Affairs | 101 | 38 | 60 | 37.6 | 35 |
 | sunday | Science, Wonder & the Natural World | 84 | 29 | 52 | 34.5 | 24 |
 
 ### Day → day correction matrix (shown → should-have-been)
@@ -165,24 +165,29 @@ Of **722** ratings tied to an aired day, you corrected the day on **201** (27.8%
 | wednesday | 4 | 6 |  | 2 | 11 | 9 | 10 |
 | thursday | 1 | 3 | 5 |  | 6 |  | 4 |
 | friday | 3 | 5 | 9 | 5 |  | 6 | 11 |
-| saturday |  | 1 | 7 | 5 | 3 |  | 13 |
+| saturday |  | 3 | 8 | 5 | 6 |  | 13 |
 | sunday | 2 | 5 | 7 | 1 | 5 | 4 |  |
 
 ### Root cause of corrections
 
 | Cause | Count |
 |---|---|
-| Selection ignored its own theme scores (routing bug) | 70 |
-| Theme scorer disagreed with you (scoring miss) | 131 |
+| Selection ignored its own theme scores (routing bug) | 73 |
+| Theme scorer disagreed with you (scoring miss) | 134 |
 | Theme scores missing on the rating | 0 |
 
 ## 3b. Category Retag Accuracy
 
-_No ratings with a confirmed/retagged category yet (requires the category-retag UI in review.html)._
+Of **12** ratings carrying a confirmed/retagged category, you retagged **5** (41.7%) to a different category.
 
 ### Category → category correction matrix (shown → corrected)
 
-_No category retags recorded._
+| Shown | Corrected to | Count |
+|---|---|---|
+| news | wellness | 2 |
+| news | climate | 1 |
+| news | science | 1 |
+| news | ai-tech | 1 |
 
 ## 4. Volume Trend — Is the Feed Lighter?
 
@@ -211,7 +216,7 @@ _Average per-run articles fetched and passing the quality gate, by ISO week (fro
 | 2026-W27 | 12 | 972 | 48 |
 | 2026-W28 | 6 | 969 | 59 |
 | 2026-W29 | 7 | 1039 | 68 |
-| 2026-W30 | 6 | 1092 | 72 |
+| 2026-W30 | 7 | 1068 | 72 |
 
 ### Current funnel (calibration stats window)
 
@@ -231,26 +236,27 @@ _Average per-run articles fetched and passing the quality gate, by ISO week (fro
 | 2026-07-24T06:32:08.133283+00:00 | 1151 | 674 | 70 | 111 | 28 |
 | 2026-07-25T06:23:48.943095+00:00 | 1157 | 696 | 80 | 129 | 25 |
 | 2026-07-26T06:41:43.169266+00:00 | 996 | 521 | 53 | 90 | 23 |
+| 2026-07-26T19:16:45.882303+00:00 | 922 | 444 | 69 | 255 | 65 |
 
 ### Current category feed sizes
 
 | Feed | Items |
 |---|---|
-| news | 123 |
-| ai-tech | 69 |
-| local | 49 |
-| wellness | 43 |
-| science | 34 |
+| news | 144 |
+| ai-tech | 71 |
+| local | 50 |
+| wellness | 47 |
+| science | 37 |
 | climate | 23 |
-| homelab | 12 |
-| scifi | 6 |
+| homelab | 14 |
+| scifi | 8 |
 
 ## 5. Process Health
 
 | Check | State |
 |---|---|
-| Calibration log entries / "No changes" entries | 11 / 8 |
-| Calibration stats runs available | 14 |
+| Calibration log entries / "No changes" entries | 13 / 8 |
+| Calibration stats runs available | 15 |
 | Calibration stats range | 2026-07-13 → 2026-07-26 |
 | theme_holdover_cache.json present | False |
 
