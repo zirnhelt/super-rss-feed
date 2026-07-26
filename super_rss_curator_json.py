@@ -29,7 +29,7 @@ import api_usage
 import config_loader
 from cache import Cache, FeedHTTPCache
 
-# Configuration paths (kept for direct file access e.g. scoring_interests.txt)
+# Configuration paths (kept for direct file access e.g. scoring_mode.json)
 CONFIG_DIR = Path(__file__).parent / 'config'
 
 CATEGORIES = config_loader.load_categories_config()
@@ -42,7 +42,7 @@ SOURCE_PREFS = config_loader.load_source_preferences()
 SUBSCRIBER_ACCESS = SOURCE_PREFS.get('subscriber_access', {}).get('sources', {})
 SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
     'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
-    'podcast': {'w_quality': 0.10, 'w_relevance': 0.20, 'w_local': 0.10, 'w_theme': 0.60}
+    'podcast': {'w_quality': 0.25, 'w_relevance': 0.0, 'w_local': 0.10, 'w_theme': 0.65}
 }
 SCORING_MODIFIERS = config_loader.load_scoring_modifiers() or {
     'local_keyword_bonus': 25,
@@ -108,6 +108,22 @@ def _article_matches_podcast_keywords(article: 'Article', keywords: frozenset) -
     text = f"{article.title} {article.description or ''}".lower()
     return any(kw in text for kw in keywords)
 
+def _podcast_quality(article) -> Optional[int]:
+    """Best interest-independent quality signal for podcast gating.
+
+    Prefers the absolute quality gate score, then the Claude quality dimension.
+    Returns None when neither exists (legacy cache entries, Cohere-only
+    articles) so callers can decide their own fallback — never silently
+    substitute the interest composite here.
+    """
+    q = getattr(article, 'q_gate', None)
+    if q is not None:
+        return int(q)
+    q = getattr(article, 'quality', 0)
+    if q and q > 0 and not getattr(article, 'cohere_scored', False):
+        return int(q)
+    return None
+
 def _build_us_policy_keywords() -> frozenset:
     """US-federal policy/program/agency signal terms (lowercased)."""
     return frozenset(s.lower() for s in FILTERS.get('us_policy_signals', []))
@@ -164,7 +180,7 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
-THEME_SCORE_CACHE_VERSION = 'v3'  # Bump to invalidate caches from old raw-score formula
+THEME_SCORE_CACHE_VERSION = 'v4'  # v4: theme prompts decontaminated (interest profile removed)
 PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
@@ -543,6 +559,8 @@ class Article:
         self.local = 0         # L: Cariboo/BC/rural specificity (0-100)
         self.content_type = None  # analysis|breaking|opinion|feature|recap|fluff|sponsored|wire
         self.cohere_scored = False  # True when scored via Cohere (Q/R/L are synthesized, not real)
+        self.gate_scored = False   # True when only the quality gate scored this article (score == q_gate)
+        self.q_gate: Optional[int] = None  # Absolute newsworthiness score, interest-independent (0-100)
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -713,6 +731,7 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     'quality': getattr(article, 'quality', 0),
                     'relevance': getattr(article, 'relevance', 0),
                     'local': getattr(article, 'local', 0),
+                    'q_gate': getattr(article, 'q_gate', None),
                     'content_type': getattr(article, 'content_type', None),
                     'category': article.category,
                     'image': getattr(article, 'image', None),
@@ -800,6 +819,9 @@ def update_theme_holdover(theme_name: str, theme_label: str,
                 'source': article.source,
                 'source_url': article.source_url,
                 'score': article.score,
+                'quality': getattr(article, 'quality', 0),
+                'local': getattr(article, 'local', 0),
+                'q_gate': getattr(article, 'q_gate', None),
                 'category': article.category,
                 'image': getattr(article, 'image', None),
                 'theme_score': theme_score,
@@ -1977,11 +1999,9 @@ def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
 
     cache = _scored_cache.load()
 
-    interests_file = CONFIG_DIR / 'scoring_interests.txt'
     try:
-        with open(interests_file, 'r') as f:
-            interests = f.read().strip()
-    except FileNotFoundError:
+        interests = config_loader.load_news_interests().strip()
+    except Exception:
         interests = "Technology, science, climate, local news"
 
     scored_articles: List[Article] = []
@@ -2076,10 +2096,14 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
             # Fallback if no Cohere API key
             return score_articles_with_claude_pure(articles, api_key)
     
+    elif mode == "gated":
+        # Absolute quality gate + interest-ranked deep scoring
+        return score_articles_gated(articles, api_key, config)
+
     elif mode == "hybrid":
-        # NEW: Hybrid Cohere + Claude
+        # Hybrid Cohere + Claude (legacy rank-percentile eligibility; kept for rollback)
         return score_articles_hybrid(articles, api_key, config)
-    
+
     elif mode == "claude-only":
         # Pure Claude (fallback for testing)
         return score_articles_with_claude_pure(articles, api_key)
@@ -2089,6 +2113,192 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         if cohere_integration.is_enabled():
             return score_articles_with_cohere(articles)
         return score_articles_with_claude_pure(articles, api_key)
+
+
+def score_quality_gate(articles: List[Article], api_key: str) -> None:
+    """Assign an absolute, interest-independent newsworthiness score (article.q_gate).
+
+    This is the shared eligibility signal for both the news head and the podcast
+    pool: unlike the Cohere percentile scores it does not depend on how the rest
+    of the batch looks, and unlike the interest composite it does not depend on
+    the personal interest profile. Local articles bypass the gate entirely
+    (q_gate stays None) — local priority rules own their eligibility.
+
+    Fail-open: on API failure articles keep q_gate=None and downstream gates
+    treat missing values as passing, so an outage degrades to the legacy
+    behavior instead of emptying every feed.
+    """
+    if not articles or not api_key:
+        return
+
+    gate_cfg = LIMITS.get('quality_gate', {})
+    batch_size = int(gate_cfg.get('batch_size', 30))
+    charter = config_loader.load_quality_charter().strip()
+    cache = _scored_cache.load()
+    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
+
+    to_score: List[Article] = []
+    cached_hits = 0
+    bypassed = 0
+    for article in articles:
+        entry = cache.get(article.url_hash)
+        if isinstance(entry, dict) and entry.get('q_gate') is not None:
+            article.q_gate = int(entry['q_gate'])
+            cached_hits += 1
+            continue
+        title_l = article.title.lower()
+        if article.category == 'local' or any(s in title_l for s in local_signals):
+            bypassed += 1
+            continue
+        to_score.append(article)
+
+    print(f"\n🚪 Quality gate: {len(to_score)} to score "
+          f"({cached_hits} cached, {bypassed} local bypass)")
+    if not to_score:
+        return
+
+    client = anthropic.Anthropic(api_key=api_key)
+    system_blocks = [{
+        "type": "text",
+        "text": charter,
+        "cache_control": {"type": "ephemeral", "ttl": "1h"}
+    }]
+
+    timestamp = datetime.now(timezone.utc).timestamp()
+    scored = 0
+    for i in range(0, len(to_score), batch_size):
+        batch = to_score[i:i + batch_size]
+        articles_text = "\n\n".join(
+            f"Article {j+1}:\nTitle: {a.title}\nSource: {a.source}\n"
+            f"Description: {(a.description or '')[:200]}"
+            for j, a in enumerate(batch)
+        )
+        prompt = (
+            "Score each article's absolute newsworthiness/quality per the charter (0-100). "
+            "Respond with ONLY a JSON array, no other text:\n"
+            '[{"a": 1, "q": 55}, {"a": 2, "q": 12}]\n\n'
+            f"Articles:\n{articles_text}"
+        )
+        try:
+            response = client.messages.create(
+                model="claude-haiku-4-5",
+                max_tokens=700,
+                system=system_blocks,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            api_usage.record_claude_usage(response.usage)
+            response_text = response.content[0].text.strip()
+            _start, _end = response_text.find('['), response_text.rfind(']') + 1
+            if _start != -1 and _end > _start:
+                response_text = response_text[_start:_end]
+            for item in json.loads(response_text):
+                idx = int(item['a']) - 1
+                if 0 <= idx < len(batch):
+                    article = batch[idx]
+                    article.q_gate = min(100, max(0, int(item['q'])))
+                    entry = cache.get(article.url_hash)
+                    if not isinstance(entry, dict):
+                        entry = {}
+                        cache[article.url_hash] = entry
+                    entry['q_gate'] = article.q_gate
+                    entry.setdefault('timestamp', timestamp)
+                    scored += 1
+        except Exception as e:
+            print(f"  ⚠️ Quality gate batch failed (fail-open): {e}")
+
+    _scored_cache.save(cache)
+    if scored:
+        gated_scores = sorted(a.q_gate for a in to_score if a.q_gate is not None)
+        _n = len(gated_scores)
+        print(f"   Gate scored {scored} articles: "
+              f"p25={gated_scores[_n // 4]} p50={gated_scores[_n // 2]} p75={gated_scores[3 * _n // 4]}")
+
+
+def score_articles_gated(articles: List[Article], api_key: str, config: Dict) -> List[Article]:
+    """Gated scoring: absolute quality gate → interest ranking → targeted deep scoring.
+
+    Replaces the hybrid mode's rank-percentile eligibility (bottom 70% of every
+    batch hard-capped below the quality floor regardless of content) with an
+    absolute gate, then spends Claude Q/R/L scoring only on the display-bound
+    slice chosen by interest rank. Articles that fail the gate keep q_gate as
+    their score — low enough to miss news floors, but visible to the podcast
+    pool, which applies its own (lower) quality floor.
+    """
+    if not articles:
+        return []
+
+    gate_cfg = LIMITS.get('quality_gate', {})
+    gate_floor = gate_cfg.get('gate_floor', 25)
+
+    print(f"\n🔀 Gated scoring: {len(articles)} articles (gate_floor={gate_floor})")
+    score_quality_gate(articles, api_key)
+
+    survivors: List[Article] = []
+    failures: List[Article] = []
+    for a in articles:
+        q = a.q_gate
+        if q is None or q >= gate_floor or a.category == 'local':
+            survivors.append(a)
+        else:
+            failures.append(a)
+
+    for a in failures:
+        a.score = int(a.q_gate or 0)
+        a.gate_scored = True
+
+    # Interest ranking orders survivors for deep scoring; it never gates.
+    if cohere_integration.is_enabled():
+        order = cohere_integration.rank_with_rerank(
+            survivors, config_loader.load_news_interests())
+        if order:
+            rank_of = {h: i for i, h in enumerate(order)}
+            survivors.sort(key=lambda a: rank_of.get(a.url_hash, len(survivors)))
+        else:
+            survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+    else:
+        survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+
+    # Display-bound slice: per provisional category, up to 2x the category's
+    # max feed slots get full Q/R/L dimensional scoring. Everything else keeps
+    # its absolute gate score.
+    default_cfg = FEED_SLOTS.get('default', {'min_slots': 1, 'max_slots': 5})
+    deep: List[Article] = []
+    slice_counts: Dict[str, int] = defaultdict(int)
+    for a in survivors:
+        cat = a.category or categorize_article(a.title, a.description) or 'news'
+        cap = 2 * FEED_SLOTS.get(cat, default_cfg).get('max_slots', default_cfg.get('max_slots', 5))
+        if slice_counts[cat] < cap:
+            deep.append(a)
+            slice_counts[cat] += 1
+
+    print(f"  🎯 Deep scoring {len(deep)}/{len(survivors)} gate survivors "
+          f"({len(failures)} below gate floor)")
+    if deep:
+        try:
+            score_articles_with_claude_pure(deep, api_key)
+        except Exception as e:
+            print(f"  ⚠️ Deep scoring failed, keeping gate scores: {e}")
+
+    # A failed deep-scoring batch leaves synthetic 50/50 dims — prefer the
+    # real absolute gate score over that placeholder.
+    for a in deep:
+        if getattr(a, 'score_fallback', False) and a.q_gate is not None:
+            a.quality = 0
+            a.relevance = 0
+
+    # Anything without real dimensions carries its absolute gate score.
+    for a in survivors:
+        if a.quality <= 0 and a.relevance <= 0:
+            a.score = int(a.q_gate if a.q_gate is not None else a.score or 0)
+            a.gate_scored = True
+
+    # Keyword-only category fallback for articles Claude never saw (no API cost).
+    for a in articles:
+        if not a.category:
+            a.category = categorize_article(a.title, a.description) or 'news'
+
+    print(f"  ✅ Gated scoring complete")
+    return articles
 
 
 def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -> List[Article]:
@@ -2199,16 +2409,11 @@ def _cohere_prescore(articles: List[Article]) -> Dict[str, int]:
     
     Returns: {url_hash: score_0_to_100, ...}
     """
-    interests_file = CONFIG_DIR / 'scoring_interests.txt'
-    
-    interests = "Technology, science, climate, local news"  # Fallback
-    if interests_file.exists():
-        try:
-            with open(interests_file, 'r') as f:
-                interests = f.read().strip()
-        except:
-            pass
-    
+    try:
+        interests = config_loader.load_news_interests().strip()
+    except Exception:
+        interests = "Technology, science, climate, local news"
+
     # Call existing Cohere integration
     return cohere_integration.score_with_rerank(articles, interests)
 
@@ -2226,13 +2431,12 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
 
     cache = _scored_cache.load()
 
-    # Load scoring interests
-    interests_file = CONFIG_DIR / 'scoring_interests.txt'
+    # The relevance dimension is defined by the personal news interest profile;
+    # quality and local have their own interest-independent rubrics below.
     try:
-        with open(interests_file, 'r') as f:
-            interests = f.read().strip()
-    except FileNotFoundError:
-        print("⚠️ scoring_interests.txt not found, using basic scoring")
+        interests = config_loader.load_news_interests().strip()
+    except Exception:
+        print("⚠️ news interest profile not found, using basic scoring")
         interests = "Technology, science, climate, local news"
 
     client = anthropic.Anthropic(api_key=api_key)
@@ -2327,6 +2531,8 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
                 article.score = int(score_val) if score_val else 0
                 article.category = entry['category']
                 article.story_group = entry.get('story_group')
+                if entry.get('q_gate') is not None:
+                    article.q_gate = int(entry['q_gate'])
                 scored_articles.append(article)
             else:
                 # Old single-score format — force re-score to get dimensions
@@ -2427,6 +2633,7 @@ Articles to evaluate:
                             'content_type': article.content_type,
                             'category': article.category,
                             'story_group': article.story_group,
+                            'q_gate': getattr(article, 'q_gate', None),
                             'timestamp': timestamp
                         }
 
@@ -2440,6 +2647,7 @@ Articles to evaluate:
                     article.relevance = 50
                     article.local = 0
                     article.score = 50
+                    article.score_fallback = True  # synthetic neutral dims, not a real judgement
                     article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
 
@@ -2450,6 +2658,7 @@ Articles to evaluate:
                     article.relevance = 50
                     article.local = 0
                     article.score = 50
+                    article.score_fallback = True  # synthetic neutral dims, not a real judgement
                     article.category = categorize_article(article.title, article.description) or 'news'
                     scored_articles.append(article)
     
@@ -2476,7 +2685,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
     cohere_removed_by_category: Dict[str, int] = defaultdict(int)
     if cohere_integration.is_enabled():
         try:
-            interests_text = (CONFIG_DIR / 'scoring_interests.txt').read_text().strip()
+            interests_text = config_loader.load_news_interests().strip()
         except Exception:
             interests_text = ''
 
@@ -3112,19 +3321,14 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
 
     client = anthropic.Anthropic(api_key=api_key)
 
-    # Load curator interests and build category guide to prepend as background context.
-    # The bare theme prompt alone is ~300-500 tokens — well below the 4096-token minimum
-    # required for Haiku 4.5 prompt caching, so cache_control silently does nothing without
-    # this extra context. The interests + category guide together add ~4200 tokens, ensuring
-    # every theme (including the shortest) clears the threshold. The category guide is also
-    # genuinely useful: knowing the content taxonomy (e.g. homelab vs ai-tech) helps Claude
-    # correctly score how well an article fits a given theme.
-    interests_file = CONFIG_DIR / 'scoring_interests.txt'
-    try:
-        with open(interests_file, 'r') as f:
-            interests = f.read().strip()
-    except FileNotFoundError:
-        interests = "Technology, science, climate, local news"
+    # Theme fit must be judged by the theme's own editorial charter, NOT the
+    # personal interest profile — embedding scoring_interests.txt here skewed
+    # every theme score toward the news feed's interests. The quality charter
+    # provides interest-independent background on what good journalism looks
+    # like; the category guide supplies the content taxonomy. (This fallback
+    # path's system prompt sits below Haiku's 4096-token caching minimum, but
+    # it only runs for articles missed by ingest-time batch scoring.)
+    quality_charter = config_loader.load_quality_charter().strip()
 
     category_lines = []
     for key, cat_data in CATEGORIES.items():
@@ -3142,7 +3346,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
 
     cached_theme_system = (
         f"You are evaluating news articles for thematic relevance. Respond only with valid JSON arrays.\n\n"
-        f"BACKGROUND — curator interest profile (for context when judging relevance):\n{interests}\n\n"
+        f"BACKGROUND — quality charter (what good journalism looks like, independent of topic):\n{quality_charter}\n\n"
         f"CONTENT TAXONOMY (for reference):\n{category_guide}\n\n"
         f"{theme_prompt}"
         f"{US_POLICY_SCORING_GUIDANCE}"
@@ -3276,16 +3480,12 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
 
     client = anthropic.Anthropic(api_key=api_key)
 
-    # Load curator interests to prepend as background context.
-    # The 7 theme descriptions alone are ~2000 tokens — below the 4096-token minimum
-    # for Haiku 4.5 caching. Adding the interests file (~2100 tokens) pushes the
-    # combined system prompt well past the threshold.
-    interests_file = CONFIG_DIR / 'scoring_interests.txt'
-    try:
-        with open(interests_file, 'r') as f:
-            interests = f.read().strip()
-    except FileNotFoundError:
-        interests = "Technology, science, climate, local news"
+    # Theme fit is judged by each theme's editorial charter alone — the personal
+    # interest profile must NOT appear here (it skewed every theme score toward
+    # the news feed's interests). The quality charter replaces it as background:
+    # interest-independent, and together with the 7 theme prompts (~3.7k tokens)
+    # it keeps the combined system prompt past Haiku's 4096-token cache minimum.
+    quality_charter = config_loader.load_quality_charter().strip()
 
     theme_descriptions = "\n\n".join(
         f"Theme key \"{day}\" — {cfg['label']}:\n{cfg.get('scoring_prompt', '')}"
@@ -3295,7 +3495,7 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
     combined_system = (
         f"You are evaluating news articles for thematic relevance across multiple themes. "
         f"Respond only with valid JSON arrays.\n\n"
-        f"BACKGROUND — curator interest profile (for context when judging relevance):\n{interests}\n\n"
+        f"BACKGROUND — quality charter (what good journalism looks like, independent of topic):\n{quality_charter}\n\n"
         f"Score each article 0-100 for each of the following themes:\n\n"
         f"{theme_descriptions}"
         f"{US_POLICY_SCORING_GUIDANCE}"
@@ -3492,6 +3692,9 @@ def route_articles_to_best_themes(
                         'source': item['source'],
                         'source_url': item['source_url'],
                         'score': item['score'],
+                        'quality': item.get('quality', 0),
+                        'local': item.get('local', 0),
+                        'q_gate': item.get('q_gate'),
                         'category': item['category'],
                         'image': item.get('image'),
                         'theme_score': theme_score,
@@ -3563,6 +3766,9 @@ def bank_articles_for_all_themes(
                 'source': item['source'],
                 'source_url': item['source_url'],
                 'score': item['score'],
+                'quality': item.get('quality', 0),
+                'local': item.get('local', 0),
+                'q_gate': item.get('q_gate'),
                 'category': item['category'],
                 'image': item.get('image'),
                 'theme_score': entry['score'],
@@ -3645,9 +3851,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.source = data['source']
             self.source_url = data['source_url']
             self.score = data['score']
-            self.quality = data.get('quality', data['score'])
-            self.relevance = data.get('relevance', data['score'])
+            # Absent dimensions stay 0 — the podcast composite renormalizes
+            # weights over missing dims instead of substituting the interest
+            # composite (the old default made Q/R silently equal `score`).
+            self.quality = data.get('quality', 0)
+            self.relevance = data.get('relevance', 0)
             self.local = data.get('local', 0)
+            self.q_gate = data.get('q_gate')
             self.content_type = data.get('content_type')
             self.category = data['category']
             self.image = data.get('image')
@@ -3665,7 +3875,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         and f"{item['link']}:::{theme_name}" not in podcast_shown_cache
         and not _is_aggregator_url(item['link'])
         and item['link'] not in all_cached_urls  # already in 7-day pool
-        and item.get('score', 0) >= LIMITS['min_claude_score']  # enforce current quality floor
+        # Quality floor on the interest-independent signal (q_gate/quality);
+        # legacy entries without dims fall back to the stored composite.
+        and (item.get('q_gate') or item.get('quality') or item.get('score', 0)) >= LIMITS['min_claude_score']
     ]
     if holdover_pool:
         print(f"  📦 +{len(holdover_pool)} holdover articles from previous weeks")
@@ -3676,8 +3888,18 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     theme_set = set(theme_categories)
     theme_pool = list(all_cached)
 
-    # Filter by minimum quality score
-    theme_pool = [a for a in theme_pool if a.score >= min_score]
+    # Filter by minimum quality: the per-day min_score is a floor on the
+    # interest-independent quality signal (q_gate/quality dimension), NOT the
+    # personal-interest composite — theme fit is judged by the theme prompt,
+    # quality by the gate. Local articles pass on local strength; legacy
+    # entries without dims fall back to the stored composite.
+    def _pool_quality_ok(a) -> bool:
+        if getattr(a, 'local', 0) >= 25:
+            return True
+        q = _podcast_quality(a)
+        return (q if q is not None else a.score) >= min_score
+
+    theme_pool = [a for a in theme_pool if _pool_quality_ok(a)]
 
     # Track articles that qualify for this day's pool on upstream quality score
     # alone (not via rescue/holdover), so a theme-fit floor can be applied to
@@ -3690,7 +3912,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     theme_score_cache = load_theme_score_cache()
     rescued = [
         a for a in all_cached
-        if a.score < min_score
+        if not _pool_quality_ok(a)
         and not _is_aggregator_url(a.link)
         and f"{a.link}:::{theme_name}" not in podcast_shown_cache
         and theme_score_cache.get(f"{a.link}:::{theme_label}", {}).get('score', 0) >= holdover_threshold
@@ -3793,18 +4015,26 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     bonus_max_per_category = schedule_config.get('bonus_max_per_category', 3)
 
     _pod_weights = SCORING_WEIGHTS.get('podcast', {})
-    _pod_w_q = _pod_weights.get('w_quality', 0.10)
-    _pod_w_r = _pod_weights.get('w_relevance', 0.20)
+    _pod_w_q = _pod_weights.get('w_quality', 0.25)
+    _pod_w_r = _pod_weights.get('w_relevance', 0.0)
     _pod_w_l = _pod_weights.get('w_local', 0.10)
-    _pod_w_t = _pod_weights.get('w_theme', 0.60)
+    _pod_w_t = _pod_weights.get('w_theme', 0.65)
 
     def _podcast_composite(article, t_adjusted: float) -> int:
-        q = getattr(article, 'quality', 0) or getattr(article, 'score', 0)
-        r = getattr(article, 'relevance', 0) or getattr(article, 'score', 0)
-        l_ = getattr(article, 'local', 0)
-        return min(100, max(0, round(
-            _pod_w_q * q + _pod_w_r * r + _pod_w_l * l_ + _pod_w_t * t_adjusted
-        )))
+        # Use only dimensions that actually exist and renormalize weights over
+        # the missing ones. The old `or score` fallback silently substituted
+        # the personal-interest composite for Q and R on every Cohere-only,
+        # cached, and holdover article — 30%+ of the podcast composite.
+        parts = [(_pod_w_t, t_adjusted), (_pod_w_l, getattr(article, 'local', 0))]
+        q = _podcast_quality(article)
+        if q is not None:
+            parts.append((_pod_w_q, q))
+        r = getattr(article, 'relevance', 0)
+        if _pod_w_r > 0 and r > 0 and not getattr(article, 'cohere_scored', False):
+            parts.append((_pod_w_r, r))
+        total_w = sum(w for w, _ in parts)
+        raw = (sum(w * v for w, v in parts) / total_w) if total_w > 0 else t_adjusted
+        return min(100, max(0, round(raw)))
 
     # Build scored pool: (article, composite_podcast, T_adjusted, T_raw, kw_hits)
     # Signals for deprioritizing legislative procedural milestone items without analysis
@@ -4291,19 +4521,39 @@ def main():
     podcast_candidates: List[Article] = []
     if schedule_config and schedule_config.get('enabled', False):
         _pod_keywords = _build_all_podcast_keywords(schedule_config)
+        _pod_floor = LIMITS.get('quality_gate', {}).get('podcast_floor', 20)
         _pod_min = LIMITS.get('podcast_candidate_min_score', 5)
-        podcast_candidates = [
-            a for a in scored_articles
-            if a.score >= _pod_min
-            and getattr(a, 'content_type', None) != 'sponsored'
-            and not _is_aggregator_url(a.link)
-            and (
-                _article_matches_podcast_keywords(a, _pod_keywords)
-                or getattr(a, 'local', 0) >= 25
-            )
-        ]
+
+        def _pool_eligible(a: Article) -> bool:
+            if getattr(a, 'content_type', None) == 'sponsored' or _is_aggregator_url(a.link):
+                return False
+            if getattr(a, 'local', 0) >= 25:
+                return True
+            q = _podcast_quality(a)
+            if q is not None:
+                # Absolute quality floor — no interest score, no keyword gate.
+                # Theme fit is judged downstream by the theme scoring prompt;
+                # keywords only boost T at generation time.
+                return q >= _pod_floor
+            # Legacy fallback (no gate ran, e.g. hybrid rollback mode): old
+            # interest-composite + keyword gate.
+            return a.score >= _pod_min and _article_matches_podcast_keywords(a, _pod_keywords)
+
+        podcast_candidates = [a for a in scored_articles if _pool_eligible(a)]
+
+        # Without the keyword gate the pool can balloon on heavy news days, and
+        # every new pool entry costs 7 theme scores at ingest. Cap per-run
+        # intake to the highest-quality candidates to bound API cost.
+        _pod_cap = LIMITS.get('podcast_candidate_max_per_run', 250)
+        if len(podcast_candidates) > _pod_cap:
+            podcast_candidates.sort(
+                key=lambda a: (_podcast_quality(a) or 0, getattr(a, 'local', 0)),
+                reverse=True)
+            podcast_candidates = podcast_candidates[:_pod_cap]
+
         print(f"🎙️  Podcast candidate branch: {len(podcast_candidates)} articles "
-              f"(from {len(scored_articles)} scored, before scrub/quality-floor)")
+              f"(from {len(scored_articles)} scored, quality floor {_pod_floor}, "
+              f"before scrub/quality-floor)")
         save_podcast_cache(podcast_candidates, main_feed_quality=False)
 
     if scored_articles:
@@ -4321,12 +4571,21 @@ def main():
         )
 
     _dim_hists = _dimensional_histograms(scored_articles)
+    # q_gate distribution (global, not per-category — the gate runs before
+    # categorization) so the calibration agent can tune gate_floor/podcast_floor.
+    _qg_buckets = ["0-19", "20-39", "40-59", "60-79", "80-100"]
+    _qg_hist = {b: 0 for b in _qg_buckets}
+    _qg_values = [a.q_gate for a in scored_articles if getattr(a, 'q_gate', None) is not None]
+    for _qg in _qg_values:
+        _qg_hist[_qg_buckets[min(max(0, min(100, _qg)) // 20, 4)]] += 1
     run_stats['scoring'] = {
         'scored_count': len(scored_articles),
         'score_histogram_by_category': _score_histogram(scored_articles),
         'quality_histogram_by_category': _dim_hists['quality'],
         'relevance_histogram_by_category': _dim_hists['relevance'],
         'local_histogram_by_category': _dim_hists['local'],
+        'q_gate_histogram': _qg_hist,
+        'q_gate_scored_count': len(_qg_values),
         'content_type_breakdown_by_category': _content_type_breakdown(scored_articles),
     }
 
@@ -4889,10 +5148,9 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     # Only articles missing from the cache, or present in the old single-score
     # format (no 'quality' key), are sent to the scoring API.
     if cohere_integration.is_enabled():
-        interests_file = CONFIG_DIR / 'scoring_interests.txt'
         try:
-            interests = interests_file.read_text().strip()
-        except FileNotFoundError:
+            interests = config_loader.load_news_interests().strip()
+        except Exception:
             interests = 'Technology, science, climate, local news'
 
         scored_cache = _scored_cache.load()

@@ -113,3 +113,25 @@ Theme scores remain stable (mean 26.5-26.7 across all themes after July 8) with 
 - The scifi category shows 100% bad rate over 5 rated articles in the user feedback window. This suggests either a source mix problem (Reactor Magazine is 88.9% bad and likely dominates scifi) or a category definition issue. Recommend human review of scifi sources and/or the category assignment logic.
 - Theme routing shows 27.4% correction rate with 124 theme-scoring misses vs 57 routing bugs. The misses indicate the podcast theme scoring_prompts are not aligning with curator intent—Wednesday (Repair Culture), Friday (Wild Spaces), and Saturday (Cariboo Local) had the highest correction counts (42, 37, 29 respectively). These prompts need human review to better capture what the curator considers thematic fit for each day.
 - The composite score weighting (0.25Q + 0.55R + 0.20L) appears to collapse scores for non-local content because the L dimension is zero for most articles. User feedback shows poor band_precision: even 80-100 composite scores are only 56.6% good. The dimensional histograms reveal that quality and relevance scores are more normally distributed, but the composite collapses everything into 0-19 when L=0. Consider whether the L weight should be reduced (and Q/R increased proportionally) to allow non-local high-quality content to score higher, or whether a different composite formula is needed.
+
+## 2026-07-26 (manual — scoring rearchitecture)
+
+Pipeline rearchitected to "gated" scoring mode (absolute quality gate + two
+ranking heads). Semantic changes the calibration agent must account for:
+
+- New knobs `limits.quality_gate.gate_floor` (news eligibility) and
+  `limits.quality_gate.podcast_floor` (podcast pool entry) — floors on the
+  new interest-independent `q_gate` newsworthiness score, not the composite.
+- Per-day `podcast.schedule.<day>.min_score` is now a floor on the
+  interest-independent quality signal (q_gate/quality dimension), NOT the
+  personal-interest composite. Historical values (18-30) were calibrated
+  against composites and may need re-tuning against the new q_gate
+  distribution (see `q_gate_histogram` in run stats).
+- Theme scores are decontaminated: the personal interest profile was removed
+  from theme-scoring prompts and the Cohere theme mapping switched from
+  batch-relative percentiles to an absolute log-scale mapping.
+  THEME_SCORE_CACHE_VERSION bumped v3 → v4; theme-score history spanning the
+  cutover is not comparable.
+- Podcast composite weights rebalanced: w_relevance 0.20 → 0, w_quality
+  0.10 → 0.25, w_theme 0.60 → 0.65 (missing dimensions now renormalize
+  instead of substituting the interest composite).
