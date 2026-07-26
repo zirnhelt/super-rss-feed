@@ -52,9 +52,29 @@ def load_category_rules_config() -> Dict:
         return json.load(f)
 
 def load_scoring_interests() -> str:
-    """Load Claude scoring interests as plain text."""
+    """Load Claude scoring interests as plain text (legacy single-file profile)."""
     with open(CONFIG_DIR / "scoring_interests.txt", 'r') as f:
         return f.read()
+
+def load_news_interests() -> str:
+    """Load the personal interest profile used by the news head only.
+
+    Falls back to scoring_interests.txt so the pipeline keeps working
+    until the split files are deployed everywhere.
+    """
+    path = CONFIG_DIR / "news_interests.txt"
+    if path.exists():
+        return path.read_text()
+    print("⚠️  config/news_interests.txt missing — falling back to scoring_interests.txt")
+    return load_scoring_interests()
+
+def load_quality_charter() -> str:
+    """Load the interest-independent newsworthiness rubric (quality gate + theme prompts)."""
+    path = CONFIG_DIR / "quality_charter.txt"
+    if path.exists():
+        return path.read_text()
+    print("⚠️  config/quality_charter.txt missing — falling back to scoring_interests.txt")
+    return load_scoring_interests()
 
 def load_podcast_schedule_config() -> Dict:
     """Load podcast schedule configuration (themed feed routing/scoring)."""
@@ -159,11 +179,18 @@ def validate_config() -> Dict[str, List[str]]:
     
     try:
         limits = load_limits_config()
-        
-        # Check all limits are positive integers
+
+        # Scalar limits must be non-negative numbers; per-category maps must be
+        # dicts of non-negative numbers (min_score_by_category, quality_gate, ...).
         for key, value in limits.items():
-            if not isinstance(value, int) or value < 0:
-                errors.setdefault('limits.json', []).append(f"{key} must be positive integer")
+            if isinstance(value, dict):
+                for sub_key, sub_value in value.items():
+                    if not isinstance(sub_value, (int, float)) or sub_value < 0:
+                        errors.setdefault('limits.json', []).append(
+                            f"{key}.{sub_key} must be a non-negative number"
+                        )
+            elif not isinstance(value, (int, float)) or value < 0:
+                errors.setdefault('limits.json', []).append(f"{key} must be a non-negative number")
                 
     except Exception as e:
         errors['limits.json'] = [f"Failed to load: {str(e)}"]
@@ -232,15 +259,14 @@ def validate_config() -> Dict[str, List[str]]:
     except Exception as e:
         errors['feeds.json'] = [f"Failed to load: {str(e)}"]
     
-    try:
-        interests = load_scoring_interests()
-
-        # Check it's not empty
-        if not interests.strip():
-            errors['scoring_interests.txt'] = ["File is empty"]
-
-    except Exception as e:
-        errors['scoring_interests.txt'] = [f"Failed to load: {str(e)}"]
+    for name, loader in [('scoring_interests.txt', load_scoring_interests),
+                         ('news_interests.txt', load_news_interests),
+                         ('quality_charter.txt', load_quality_charter)]:
+        try:
+            if not loader().strip():
+                errors[name] = ["File is empty"]
+        except Exception as e:
+            errors[name] = [f"Failed to load: {str(e)}"]
 
     try:
         prefs = load_source_preferences()

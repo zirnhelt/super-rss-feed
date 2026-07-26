@@ -246,7 +246,7 @@ def main():
 
     print(f'   {len(new_shares)} new of {len(shares)} total shared articles')
 
-    interests_text = config_loader.load_scoring_interests()
+    interests_text = config_loader.load_news_interests()
     opml_tree = integrate_discoveries.load_opml(OPML_PATH)
     existing_feeds = integrate_discoveries.get_existing_feeds(opml_tree)
 

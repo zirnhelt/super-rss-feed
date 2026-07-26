@@ -997,7 +997,7 @@ def _run() -> None:
         'feed_slots': config_loader.load_feed_slots_config(),
     }
     bounds = config_loader.load_calibration_bounds()
-    interests_text = config_loader.load_scoring_interests()
+    interests_text = config_loader.load_news_interests()
     feedback_audit = gather_feedback_audit()
     if feedback_audit:
         print(f"ℹ️ Including user feedback audit from {feedback_audit.get('generated_at')} "

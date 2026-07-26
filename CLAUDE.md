@@ -93,7 +93,9 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 | `filters.json` | `blocked_sources`, `blocked_keywords`, `blocked_keywords_unless_local`, `local_signals`. |
 | `categories.json` | Category definitions: name, emoji, description. |
 | `category_rules.json` | Per-category include/exclude keyword rules (used when Cohere is active). |
-| `scoring_interests.txt` | The master interest hierarchy sent to Claude for scoring. Extensive examples included. Edit carefully — this is the most impactful tuning lever. |
+| `news_interests.txt` | The personal interest hierarchy used by the **news head only** (relevance dimension + Cohere interest ranking). Extensive examples included. Edit carefully — this is the most impactful news-feed tuning lever. |
+| `quality_charter.txt` | Interest-independent newsworthiness rubric. Drives the absolute quality gate (`q_gate`) and provides background context in theme-scoring prompts. Never mention personal interests here. |
+| `scoring_interests.txt` | Legacy single-file profile. Kept as a fallback for `news_interests.txt`/`quality_charter.txt`; no longer read directly by the pipeline. |
 | `feeds.json` | Output feed metadata: titles, descriptions, base URL for JSON Feed 1.1. |
 | `source_preferences.json` | Source type map (`print`/`broadcast`) with per-type score adjustments and `max_per_source` caps. |
 | `feed_slots.json` | Per-category min/max article counts. |
@@ -201,14 +203,16 @@ The pipeline runs in this order. Understand it before touching any stage:
 5. **Prescore gate** — high-volume aggregator sources (e.g. Kagi Small Web) must match at least one keyword from `PRESCORE_KEYWORDS` before reaching paid scoring.
 6. **Deduplicate** — URL hash → fuzzy title (`SequenceMatcher`, threshold `dedup_fuzzy_threshold`) → term-set containment. Source priority: local > print > broadcast. + Cohere cosine similarity pass when enabled.
 7. **Cross-run dedup** — compares new article term-sets against `shown_terms_cache`.
-8. **Score** — Claude Haiku batch scoring (batch size `claude_scoring_batch_size=15`) using `config/scoring_interests.txt` + `config/feedback_examples.txt`. Cohere Rerank replaces this step when enabled.
+8. **Score (gated mode)** — two-stage:
+   a. **Quality gate** — `score_quality_gate()`: Haiku scores every article's absolute, interest-independent newsworthiness (`q_gate`, 0-100) against `config/quality_charter.txt` (batch `quality_gate.batch_size=30`, cached in `scored_articles_cache`). Local articles bypass the gate; API failure fails open. This is the shared eligibility signal for both news and podcast heads.
+   b. **News head** — gate survivors (`q_gate >= quality_gate.gate_floor`) are ordered by Cohere Rerank against `config/news_interests.txt` (ordering only — never converted to a pass/fail score), then the display-bound top slice (2× `feed_slots` max per category) gets full Q/R/L dimensional Haiku scoring with `config/feedback_examples.txt`. Everything else keeps `q_gate` as its score (`gate_scored=True`). Legacy `hybrid`/`cohere-only`/`claude-only` modes remain selectable in `config/scoring_mode.json` for rollback.
 9. **Local priority enforcement** — any article matching `local_signals` gets score ≥ 80 and is routed to the `local` feed.
 10. **Source preferences** — apply per-type score adjustments from `config/source_preferences.json`.
 11. **Quality filter** — drop articles below `min_claude_score` (with per-category floors from `min_score_by_category`).
 12. **Final scrub** — Claude Haiku reviews all passing headlines in batches of `haiku_scrub_batch_size=40` to catch sports/celebrity/AI-fluff that passed keyword filters. Floor: `haiku_scrub_floor=10`.
 13. **Images** — `fetch_images.py` fetches Open Graph images for up to 50 articles.
 14. **Categorize** — assign to 8 feeds using keyword rules + Claude category assignment.
-15. **Podcast cache** — quality articles saved to rolling 7-day pool; theme scores computed in one batch at ingest time.
+15. **Podcast cache** — pool entry is gated by `q_gate >= quality_gate.podcast_floor` (or `local >= 25`) — no interest score, no keyword gate (theme keywords only boost T at generation time; per-run intake capped at `podcast_candidate_max_per_run`). Theme scores computed in one batch at ingest time against theme charters + the quality charter — the personal interest profile never appears in theme prompts. Per-day `min_score` in `podcast_schedule.json` is a floor on `q_gate`/quality, not the interest composite; the podcast composite (`w_theme=0.65, w_quality=0.25, w_local=0.10, w_relevance=0`) renormalizes over missing dimensions instead of substituting the interest score.
 16. **Podcast feed** — all 7 themed feeds regenerated every run from the weekly pool (ingest-time theme scoring means the 6 non-today feeds are pure cache reads, no extra API cost), skipping last 7 days of used articles per theme, routing holdover articles.
 17. **Diversify** — per-source caps enforced.
 18. **Merge & output** — new articles merged with retained articles (story-overlap dedup); write JSON Feed 1.1 files + `curated-feeds.opml`.

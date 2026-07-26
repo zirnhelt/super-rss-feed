@@ -69,6 +69,36 @@ def build_interest_query(interests_text: str) -> str:
     return ', '.join(phrases) if phrases else 'technology, news, climate, local community'
 
 
+def rank_with_rerank(articles: List[Any], interests_text: str) -> List[str]:
+    """Order articles by interest relevance via Cohere Rerank — ordering only.
+
+    Returns url_hashes best-first. Unlike score_with_rerank, no percentile
+    score is synthesized: the caller supplies its own absolute eligibility
+    signal (the quality gate), so rank is never converted to a pass/fail score.
+    Returns [] when disabled or on error so callers can fall back.
+    """
+    if not articles or not is_enabled():
+        return []
+
+    co = get_client()
+    query = build_interest_query(interests_text)
+    documents = [f"{a.title}. {(a.description or '')[:200]}" for a in articles]
+
+    try:
+        api_usage.record_call('cohere')
+        result = co.rerank(
+            model="rerank-english-v3.0",
+            query=query,
+            documents=documents,
+            top_n=len(documents),
+        )
+        ranked = sorted(result.results, key=lambda x: x.relevance_score, reverse=True)
+        return [articles[item.index].url_hash for item in ranked]
+    except Exception as e:
+        print(f"  ⚠️  Cohere Rerank error: {e}")
+        return []
+
+
 def score_with_rerank(articles: List[Any], interests_text: str) -> Dict[str, Tuple[int, str]]:
     """Score articles using Cohere Rerank against the interest query.
 
@@ -346,23 +376,20 @@ def score_themes_with_rerank(
                 documents=documents,
                 top_n=len(documents),
             )
-            # Rank-percentile normalization: Cohere's raw relevance scores for niche
-            # themes (farming, forestry, local industry) are typically 0.00–0.05, which
-            # maps to 0–5 when multiplied directly by 100. This causes all articles to
-            # fall below the holdover_threshold floor (~25–30), leaving themed podcasts
-            # with near-zero avg theme score and no thematically-selected content.
-            # Map to percentile bands so top 30% of matches score 30–80 and the
-            # bottom 70% score 0–29, calibrated to the typical holdover_threshold.
-            ranked = sorted(result.results, key=lambda x: x.relevance_score, reverse=True)
-            n = len(ranked)
-            for rank, item in enumerate(ranked):
+            # Absolute log-scale normalization. Raw Rerank scores for niche themes
+            # (farming, forestry, local industry) sit in 0.00–0.05, so a linear
+            # x100 mapping starved every theme. The previous fix (rank-percentile
+            # bands) made scores batch-relative: the same article scored 80 on a
+            # thin day and 5 on a busy one, and downstream absolute floors
+            # (holdover_threshold, theme routing) silently became lottery draws.
+            # A log curve spreads the operative raw range over 0–100 while
+            # keeping the score a pure function of (article, theme query):
+            #   raw 0.001 → 10,  0.01 → 35,  0.1 → 67,  1.0 → 100
+            for item in result.results:
                 link = articles[item.index].link
-                p = rank / max(n - 1, 1)  # 0.0 = best, 1.0 = worst
-                if p <= 0.30:
-                    score = int(80 - 50 * (p / 0.30))   # 80 → 30
-                else:
-                    score = int(30 * (1.0 - p) / 0.70)  # 30 → 0
-                results[link][label] = score
+                raw = max(0.0, float(item.relevance_score))
+                score = int(round(100 * math.log10(raw * 1000 + 1) / 3))
+                results[link][label] = min(100, max(0, score))
         except Exception as e:
             print(f"  ⚠️  Cohere theme Rerank error [{label}]: {e}")
             for a in articles:

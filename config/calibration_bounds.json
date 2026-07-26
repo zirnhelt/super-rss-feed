@@ -23,6 +23,18 @@
       "path": ["cohere_prefilter_threshold"],
       "type": "float", "min": 1.0, "max": 10.0, "max_step": 1.0, "default": 2.5
     },
+    "limits.quality_gate.gate_floor": {
+      "file": "config/limits.json",
+      "path": ["quality_gate", "gate_floor"],
+      "type": "int", "min": 15, "max": 40, "max_step": 3, "default": 25,
+      "_comment": "Absolute newsworthiness floor (q_gate) for news-feed eligibility in gated scoring mode"
+    },
+    "limits.quality_gate.podcast_floor": {
+      "file": "config/limits.json",
+      "path": ["quality_gate", "podcast_floor"],
+      "type": "int", "min": 10, "max": 35, "max_step": 3, "default": 20,
+      "_comment": "Absolute newsworthiness floor (q_gate) for podcast pool entry"
+    },
 
     "podcast.schedule.monday.min_score": {
       "file": "config/podcast_schedule.json", "path": ["schedule", "monday", "min_score"],
@@ -197,6 +209,8 @@
     "podcast.schedule.*.description",
     "podcast.schedule.*.label",
     "podcast.schedule.*.categories",
-    "scoring_interests.txt"
+    "scoring_interests.txt",
+    "news_interests.txt",
+    "quality_charter.txt"
   ]
 }

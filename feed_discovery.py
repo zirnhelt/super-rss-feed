@@ -493,7 +493,7 @@ class FeedDiscovery:
         # — instead of a separately-maintained interest list — is what lets discovery
         # absorb the podcast's evolving interests/categories without manual syncing.
         try:
-            interests_text = config_loader.load_scoring_interests().strip()
+            interests_text = config_loader.load_news_interests().strip()
         except Exception:
             interests_text = ''
 

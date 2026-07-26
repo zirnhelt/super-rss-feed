@@ -40,5 +40,11 @@
   "feed_merge_min_terms": 2,
   "story_cluster_overlap_threshold": 0.6,
   "max_per_story_cluster": 2,
-  "podcast_candidate_min_score": 5
+  "podcast_candidate_min_score": 5,
+  "podcast_candidate_max_per_run": 250,
+  "quality_gate": {
+    "gate_floor": 25,
+    "podcast_floor": 20,
+    "batch_size": 30
+  }
 }
