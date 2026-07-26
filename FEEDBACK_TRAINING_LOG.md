@@ -1,3 +1,87 @@
+## Feedback Training Run — 2026-07-26 14:43 UTC
+
+**Files processed:** 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json
+**Ratings:** 106 Good, 22 Interesting, 319 Bad, 101 reassigned to day(s), 0 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** New Atlas (6), Boing Boing (6), The Northern Miner (4), Global News (4), ScienceAlert (4)
+**Top disliked sources:** Toms Guide (17), Business Insider (15), CNET (15), Engadget (13), Android Authority (13)
+**Categories liked:** news (60), ai-tech (12), local (9), science (8), wellness (6), climate (6), shared (4), homelab (1)
+**Categories disliked:** news (274), ai-tech (14), wellness (13), scifi (6), climate (5), local (4), homelab (3)
+
+**Day reassignment summary:**
+- saturday → sunday: 6 articles
+- saturday → thursday: 3 articles
+- saturday → wednesday: 2 articles
+- saturday → friday: 2 articles
+- saturday → tuesday: 1 articles
+- sunday → wednesday: 10 articles
+- sunday → sunday: 6 articles
+- sunday → friday: 6 articles
+- sunday → saturday: 5 articles
+- sunday → tuesday: 4 articles
+- sunday → monday: 4 articles
+- sunday → thursday: 1 articles
+- monday → tuesday: 7 articles
+- monday → saturday: 6 articles
+- monday → friday: 5 articles
+- monday → sunday: 4 articles
+- monday → wednesday: 3 articles
+- monday → thursday: 2 articles
+- monday → monday: 2 articles
+- tuesday → wednesday: 6 articles
+- tuesday → sunday: 5 articles
+- tuesday → monday: 4 articles
+- tuesday → friday: 3 articles
+- tuesday → tuesday: 2 articles
+- tuesday → saturday: 1 articles
+- wednesday → wednesday: 5 articles
+- wednesday → tuesday: 5 articles
+- wednesday → sunday: 4 articles
+- wednesday → monday: 2 articles
+- wednesday → saturday: 2 articles
+- wednesday → friday: 1 articles
+- wednesday → thursday: 1 articles
+- thursday → tuesday: 4 articles
+- thursday → friday: 3 articles
+- thursday → sunday: 2 articles
+- thursday → wednesday: 1 articles
+- thursday → thursday: 1 articles
+- thursday → monday: 1 articles
+- friday → sunday: 4 articles
+- friday → friday: 3 articles
+- friday → saturday: 3 articles
+- friday → tuesday: 3 articles
+- friday → monday: 3 articles
+- friday → wednesday: 2 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Calibration Recommendations
+
+- **Boost local BC/Cariboo stories significantly** — Williams Lake Tribune and My Cariboo Now articles consistently score 85–90 and are tagged for podcasts. Prioritize hyperlocal community angles over national news.
+
+- **Favor constructive solutions and human achievement over crisis/disaster coverage** — Good fit articles highlight fundraising, reconciliation efforts, and innovation; bad fit articles cluster around job cuts, deaths, political crises, and emergency response.
+
+- **Deprioritize sensationalism and celebrity news** — Articles about DUI arrests, TV show casting, and tabloid-style coverage score poorly even when they might score high on engagement metrics. Avoid "outrage bait."
+
+- **AI/tech coverage needs nuance filtering** — The same topic (e.g., AI regulation, model releases) scores well when framed as policy/industry analysis (76–78 points) but poorly when framed as product lists or hype (43–48 points). Favor substantive over listicle framing.
+
+- **International conflict and breaking news consistently underperform** — Ukrainian war updates, earthquake reports, and crime breaking news score 72–82 but are disliked. Reduce priority on geopolitical crisis coverage unless explicitly relevant to BC/Canada.
+
+- **Wellness/health topics perform best when science-driven, not lifestyle-driven** — Sleep neuroscience and vitamin D studies score well (26–49); relationship advice and wellness platitudes score poorly (10 points).
+
+- **Environmental/energy topics are under-represented in current feed** — "Interesting" category shows strong engagement with solar net metering, heat pump tech, and EV infrastructure (71–87 points). Increase relevance weighting for clean energy and climate adaptation.
+
+- **Reassignment pattern: Tech policy → Wednesday, hard science → Sunday** — Articles about government regulation, OpenAI announcements, and emerging tech are consistently moved to mid-week. Consider scheduling rules for tech policy content.
+
+- **Reassignment pattern: Local community service → Saturday** — Student initiatives and volunteer profiles (RCMP boxes, Honour House fundraiser) are prioritized for Saturday. Weight community engagement stories accordingly.
+
+- **Avoid product reviews and shopping guides** — Even discounted/deals content (Prime Day, gear listicles) scores 10–28 in bad fit. De-prioritize product roundups and commerce-driven content.
+
+- **Re-tag some "ai-tech" as "news"** — Articles on AI policy (Trump OpenAI, Anthropic lawsuits, regulation debates) are tagged [ai-tech] but function as policy news. Consider splitting: [ai-tech] = tools/
+
+---
 ## Feedback Training Run — 2026-07-19 14:31 UTC
 
 **Files processed:** 2026-06-20.json, 2026-06-21.json, 2026-06-22.json, 2026-06-23.json, 2026-06-24.json, 2026-06-25.json, 2026-06-26.json, 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json
