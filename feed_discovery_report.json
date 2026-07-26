@@ -1,77 +1,27 @@
 {
-  "generated_at": "2026-07-19T14:29:36.080916+00:00",
-  "total_candidates_evaluated": 355,
-  "recommended_feeds": 10,
+  "generated_at": "2026-07-26T14:41:25.328328+00:00",
+  "total_candidates_evaluated": 306,
+  "recommended_feeds": 8,
   "min_score_threshold": 60,
   "categories": {
-    "tech": {
-      "count": 6,
-      "feeds": [
-        {
-          "title": "ScienceAlert",
-          "url": "https://www.sciencealert.com/rss",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 68.9,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Neuroscience News -- ScienceDaily",
-          "url": "https://sciencedaily.com/rss/mind_brain/neuroscience.xml",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 68.0,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Hacker News",
-          "url": "http://news.ycombinator.com/rss",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 65.1,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "HBR.org",
-          "url": "http://feeds.harvardbusiness.org/harvardbusiness/",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 63.0,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Tech in Asia",
-          "url": "https://feeds2.feedburner.com/PennOlson",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 62.4,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "MIT News - Science, Technology, and Society | Technology and society | Program in STS | History of science | History of MIT",
-          "url": "https://news.mit.edu/rss/topic/science-technology-and-society",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 61.7,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
-    },
     "climate": {
-      "count": 1,
+      "count": 2,
       "feeds": [
         {
-          "title": "BC Wildfire Service",
-          "url": "https://blog.gov.bc.ca/bcwildfire/feed/",
-          "html_url": "https://blog.gov.bc.ca/bcwildfire/",
+          "title": "Information Bulletins \u2013 BC Wildfire Service",
+          "url": "https://blog.gov.bc.ca/bcwildfire/category/information-bulletins/feed/",
+          "html_url": "https://blog.gov.bc.ca/bcwildfire/category/information-bulletins/",
           "source": "brave_search",
-          "average_score": 66.8,
+          "average_score": 73.0,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Vancouver Sun",
+          "url": "https://vancouversun.com/feed/atom",
+          "html_url": "https://vancouversun.com/news/bc-wildfires-new-evacuation-orders-issued-south-chilcotin",
+          "source": "brave_search",
+          "average_score": 65.1,
           "sample_articles": 3,
           "reason": "Good potential addition"
         }
@@ -105,6 +55,38 @@
         }
       ]
     },
+    "tech": {
+      "count": 3,
+      "feeds": [
+        {
+          "title": "HBR.org",
+          "url": "http://feeds.harvardbusiness.org/harvardbusiness/",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 63.0,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Tech in Asia",
+          "url": "https://feeds2.feedburner.com/PennOlson",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 62.4,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "MIT News - Science, Technology, and Society | Technology and society | Program in STS | History of science | History of MIT",
+          "url": "https://news.mit.edu/rss/topic/science-technology-and-society",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 61.7,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
     "homelab": {
       "count": 1,
       "feeds": [
@@ -122,36 +104,24 @@
   },
   "summary": {
     "by_category": {
-      "tech": 6,
-      "climate": 1,
+      "climate": 2,
       "local": 1,
       "general": 1,
+      "tech": 3,
       "homelab": 1
     },
     "top_recommendations": [
       {
-        "title": "ScienceAlert",
-        "category": "tech",
-        "score": 68.9,
-        "url": "https://www.sciencealert.com/rss"
-      },
-      {
-        "title": "Neuroscience News -- ScienceDaily",
-        "category": "tech",
-        "score": 68.0,
-        "url": "https://sciencedaily.com/rss/mind_brain/neuroscience.xml"
-      },
-      {
-        "title": "BC Wildfire Service",
+        "title": "Information Bulletins \u2013 BC Wildfire Service",
         "category": "climate",
-        "score": 66.8,
-        "url": "https://blog.gov.bc.ca/bcwildfire/feed/"
+        "score": 73.0,
+        "url": "https://blog.gov.bc.ca/bcwildfire/category/information-bulletins/feed/"
       },
       {
-        "title": "Hacker News",
-        "category": "tech",
+        "title": "Vancouver Sun",
+        "category": "climate",
         "score": 65.1,
-        "url": "http://news.ycombinator.com/rss"
+        "url": "https://vancouversun.com/feed/atom"
       },
       {
         "title": "Municipal News Archives : My Cariboo Now",
