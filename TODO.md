@@ -23,11 +23,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-07-23 | 🌙 evening | 70 | news:25(36%), local:12(17%), wellness:10(14%) |
 | 2026-07-22 | 🌙 evening | 77 | news:25(32%), ai-tech:18(23%), local:13(17%) |
 | 2026-07-21 | 🌙 evening | 81 | news:25(31%), ai-tech:18(22%), local:10(12%) |
-| 2026-07-20 | 🌙 evening | 71 | news:25(35%), ai-tech:18(25%), local:7(10%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-27 07:42 UTC_
+_Last updated by log\_feed\_results.py · 2026-07-28 06:37 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
