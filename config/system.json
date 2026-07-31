@@ -15,5 +15,11 @@
     "wlt_news": "https://wltribune.com/",
     "super_rss_base": "https://zirnhelt.github.io/super-rss-feed"
   },
-  "lookback_hours": 48
+  "lookback_hours": 48,
+  "kagi_news": {
+    "enabled": true,
+    "base_url": "https://kite.kagi.com",
+    "categories": ["World", "USA", "Business", "Technology", "Science", "Health"],
+    "max_stories_per_category": 8
+  }
 }
