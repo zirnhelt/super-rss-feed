@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-07-30 (Thursday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ JSON parsing error: Unterminated string starting at: line 110 column 14 (char 4995)
+
+
+---
+
+
+
 ## 2026-07-24 (Friday)
 
 #### 🌙 8:30 PM Pacific
