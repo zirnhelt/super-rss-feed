@@ -23,7 +23,7 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Indigenous Lands & Innovation' — Indigenous nations using technology, governance, and stewardship on their own terms.\n\nCALIBRATION — use this ladder. Indigenous-led journalism on governance, rights, and self-determination should score in the moderate-to-good range even without an explicit technology angle — do not collapse everything that lacks a 'tech' hook to near 0:\n- 70-100: Cariboo-specific stories bridging Indigenous governance/culture AND technology — Tŝilhqot'in/Secwépemc/Dakelh language revitalization tech, guardian programs using sensors/drones, GIS land mapping, Indigenous-led connectivity, digital cultural heritage projects.\n- 45-69: Pan-Canadian Indigenous governance, sovereignty, land rights, treaty, or reconciliation journalism — APTN, Eagle Feather News, or IndigiNews-style coverage of First Nations governance, MMIWG, land claims, self-determination, or Indigenous-led services — even without a technology angle, per the curator's standing interest in Indigenous governance and sovereignty.\n- 25-44: Indigenous cultural, community, or human-interest stories (awards, events, ceremonies) with limited governance or tech substance, or BC land-stewardship/environmental stories with meaningful First Nations involvement.\n- 10-24: General BC land, environmental, or forestry stories that mention Indigenous communities only in passing.\n- 0-9: No Indigenous angle at all.\n\nStrong fits include: language revitalization technology for Tŝilhqot'in/Secwépemc/Dakelh, Indigenous guardian programs using remote monitoring and sensors, land management tech and environmental monitoring on Indigenous lands, digital tools for traditional knowledge preservation, community mapping and GIS for land claims, Indigenous-led connectivity projects, technology for cultural heritage documentation, mobile apps for language learning, drone/satellite monitoring for stewardship, reconciliation through digital collaboration, how Cariboo Indigenous nations use innovation for self-determination, and Indigenous governance, sovereignty, treaty, and land-rights journalism from any Canadian nation. Prefer articles that bridge Indigenous governance/culture AND technology, but governance/sovereignty journalism alone is a solid fit. Penalise heavily (score 0–9): international geopolitical and war news with no Indigenous rights angle; general wildfire and BC Wildlife Service updates not led by or directly impacting Indigenous communities or guardians; provincial forestry and environmental policy without explicit First Nations involvement; consumer tech and gadget reviews; science discoveries without Indigenous stewardship or sovereignty context; crime and judicial news unrelated to Indigenous rights. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "thursday",
-    "generated_at": "2026-08-01T06:41:04.294872+00:00",
+    "generated_at": "2026-08-01T13:17:06.088918+00:00",
     "article_count": 6,
     "bonus_count": 0,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
@@ -118,7 +118,12 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "image": "https://cdn.mos.cms.futurecdn.net/4xatXwThhDy7w9fuU7JoAG-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/4xatXwThhDy7w9fuU7JoAG-1280-80.jpg",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-01T06:41:02.579433+00:00"
+      }
     },
     {
       "id": "https://www.theverge.com/ai-artificial-intelligence/973741/ai-music-major-record-labels-charts",
@@ -178,7 +183,12 @@
       "_keyword_matches": 1,
       "_category": "wellness",
       "_source_category": "wellness",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-01T06:41:02.579433+00:00"
+      }
     },
     {
       "id": "https://wildfiretoday.com/australia-sets-air-tanker-sops-after-737-crash-findings/",
@@ -204,7 +214,12 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "_thin_body": true
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-01T06:41:02.579433+00:00"
+      }
     }
   ]
 }
