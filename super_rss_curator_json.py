@@ -1827,28 +1827,67 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         return []
 
 
-def _source_priority(article: Article) -> int:
-    """Return sort key for dedup ordering. Lower = processed first = wins ties."""
+# Dedup rank per source type. Lower = wins ties. Every type declared in
+# config/source_preferences.json must appear here, otherwise it silently lands
+# in the unclassified bucket and can outrank types it should lose to.
+_SOURCE_TYPE_DEDUP_RANK = {
+    'preferred_local': 1,
+    'print': 3,
+    'maker_gadget': 4,       # specialty gadget/repair outlets: below newspapers
+    'broadcast': 6,
+    'personal_listicle': 7,  # thin first-person listicles: never the best version
+}
+_UNCLASSIFIED_DEDUP_RANK = 5
+
+# Subscriber tier, used only to break ties between sources of equal type rank.
+# Lower = wins. Paid subscriptions beat free Apple News channels, which beat
+# sources we have no access to at all.
+_SUBSCRIBER_DEDUP_RANK = {
+    'Williams Lake Tribune': 0,
+    'New York Times': 1,
+    'Apple News+': 2,
+    'Apple News': 3,
+}
+_UNRANKED_SUBSCRIBER_RANK = 4   # subscribed, but the label is not listed above
+_NO_SUBSCRIBER_RANK = 9         # no paywall-free access
+
+
+def _subscriber_priority(article: Article) -> int:
+    """Return the subscriber tiebreak rank for an article's source."""
+    label = SUBSCRIBER_ACCESS.get(article.source)
+    if not label:
+        return _NO_SUBSCRIBER_RANK
+    if label in _SUBSCRIBER_DEDUP_RANK:
+        return _SUBSCRIBER_DEDUP_RANK[label]
+    if label.startswith('Apple News'):
+        return _SUBSCRIBER_DEDUP_RANK['Apple News']
+    return _UNRANKED_SUBSCRIBER_RANK
+
+
+def _source_priority(article: Article) -> Tuple[int, int]:
+    """Return sort key for dedup ordering. Lower = processed first = wins ties.
+
+    The first element is the source-type rank; the second breaks ties between
+    equally ranked sources in favour of outlets we can actually read (direct
+    subscription > Apple News+ > free Apple News channel > no access).
+    """
     source_map = SOURCE_PREFS.get('source_map', {})
     source_type = source_map.get(article.source)
+    sub_rank = _subscriber_priority(article)
     # WLT scraper articles are pre-scored at local_priority_score before dedup runs.
     # RSS feeds for the same paper (e.g. www.wltribune.com/feed/) share the same
     # source name and therefore the same preferred_local type, so without this
     # check the RSS version (fetched first) would win and the richer scraper
     # version would be silently dropped as a duplicate.
     if source_type == 'preferred_local' and article.score == LIMITS.get('local_priority_score', 100):
-        return 0
+        return (0, sub_rank)
     # Subscribed / preferred local paper via RSS
     if source_type == 'preferred_local':
-        return 1
-    # Other explicitly local-priority articles
+        return (1, sub_rank)
+    # Other explicitly local-priority articles, whatever their source type
     if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
-        return 2
-    if source_type == 'print':
-        return 3
-    if source_type == 'broadcast':
-        return 5
-    return 4  # unclassified sources
+        return (2, sub_rank)
+    return (_SOURCE_TYPE_DEDUP_RANK.get(source_type, _UNCLASSIFIED_DEDUP_RANK), sub_rank)
 
 
 def _fuzz_ratio(a: str, b: str) -> int:
@@ -1873,7 +1912,8 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
          all covering the same product launch with unique titles).
 
     Sorts by source preference first so that local / print sources win
-    when two outlets cover the same story.
+    when two outlets cover the same story, with subscriber access breaking
+    ties between sources of equal rank.
     """
     # Preferred sources get processed first so they survive dedup
     sorted_articles = sorted(articles, key=_source_priority)
@@ -1987,11 +2027,12 @@ _CONTENT_TYPE_RANK = {
 }
 
 
-def _dedup_story_key(article) -> tuple:
-    """Sort key for story-group dedup: prefer by content_type hierarchy, then Q score."""
+def _dedup_story_key(article: Article) -> Tuple[int, float, int]:
+    """Sort key for story-group dedup (max wins): content_type, Q score, access."""
     ct = getattr(article, 'content_type', None) or ''
     q = getattr(article, 'quality', 0) or getattr(article, 'score', 0)
-    return (_CONTENT_TYPE_RANK.get(ct, 0), q)
+    # Negated so that a lower (better) subscriber rank sorts higher under max().
+    return (_CONTENT_TYPE_RANK.get(ct, 0), q, -_subscriber_priority(article))
 
 
 def dedup_by_story_group(articles: List[Article]) -> List[Article]:
@@ -1999,7 +2040,8 @@ def dedup_by_story_group(articles: List[Article]) -> List[Article]:
 
     Within a story group, prefer original reporting over wire reprints using
     content_type hierarchy (analysis > feature > opinion > breaking > wire > recap).
-    Tiebreak within same type by quality score.
+    Tiebreak within same type by quality score, then by subscriber access so a
+    readable version wins over one behind a paywall.
     """
     groups: dict = defaultdict(list)
     ungrouped = []
