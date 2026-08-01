@@ -8,7 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
-| 2026-07-24 | 🌙 8:30 PM Pacific | ⚠️ **LoRaMeshDevices** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-07-31 | 🌙 8:30 PM Pacific | ⚠️ **LoRaMeshDevices** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -16,17 +16,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-07-31 | 🌙 evening | 63 | news:25(40%), ai-tech:10(16%), wellness:10(16%) |
 | 2026-07-30 | 🌙 evening | 77 | news:25(32%), ai-tech:14(18%), wellness:10(13%) |
 | 2026-07-29 | 🌙 evening | 68 | news:25(37%), ai-tech:18(26%), wellness:10(15%) |
 | 2026-07-28 | 🌙 evening | 70 | news:25(36%), ai-tech:13(19%), wellness:10(14%) |
 | 2026-07-27 | 🌙 evening | 47 | news:25(53%), science:8(17%), ai-tech:5(11%) |
 | 2026-07-26 | 🔧 manual | 69 | news:25(36%), ai-tech:13(19%), wellness:10(14%) |
 | 2026-07-25 | 🌙 evening | 53 | news:25(47%), ai-tech:11(21%), science:6(11%) |
-| 2026-07-24 | 🌙 evening | 80 | news:25(31%), ai-tech:16(20%), wellness:10(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-07-31 06:55 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-01 06:41 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
