@@ -13,6 +13,12 @@ on:
 permissions:
   contents: write
 
+# Two overlapping runs of this workflow would fight over the same cache files
+# on main; queue the second rather than let it race.
+concurrency:
+  group: generate-feed
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -224,7 +230,7 @@ jobs:
           git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json
           git add FEED_LOG.md FEED_ERRORS.md TODO.md 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache and feed log [skip ci]"
-          git push
+          bash .github/scripts/git_push_retry.sh main
       
       # The deploy occasionally fails on GitHub's side (transient API/push
       # errors). `uses:` steps can't retry internally, so attempt the deploy

@@ -153,8 +153,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add config/limits.json config/podcast_schedule.json calibration_memory/ CALIBRATION_LOG.md
           git diff --cached --quiet || git commit -m "Weekly calibration agent run [skip ci]"
-          git pull --rebase --autostash origin main
-          git push
+          bash .github/scripts/git_push_retry.sh main
 
   shared-articles:
     name: Shared Article Processor
@@ -192,8 +191,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add shared_articles_cache.json shared_source_candidates.json feeds.opml feedback/ SHARED_ARTICLES_LOG.md 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Weekly shared article processing run [skip ci]"
-          git pull --rebase --autostash origin main
-          git push
+          bash .github/scripts/git_push_retry.sh main
         continue-on-error: true
 
   feedback-training:
@@ -230,8 +228,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add config/feedback_examples.txt FEEDBACK_TRAINING_LOG.md 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Weekly feedback training run [skip ci]"
-          git pull --rebase --autostash origin main
-          git push
+          bash .github/scripts/git_push_retry.sh main
         continue-on-error: true
 
   quality-review:
@@ -314,8 +311,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add FEED_REVIEW_*.md CORPUS_ALIGNMENT_REPORT_*.md ARTICLE_REVIEW_AUDIT_*.md article_review_audit_summary.json
           git diff --cached --quiet || git commit -m "Add feed review, corpus alignment, and article review audit reports [skip ci]"
-          git pull --rebase --autostash origin main
-          git push
+          bash .github/scripts/git_push_retry.sh main
 
   filter-review:
     name: Filter & Priority Code Review
@@ -351,8 +347,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add tools/filter_priority_review.md
           git diff --staged --quiet || git commit -m "Update filter/priority review findings [skip ci]"
-          git pull --rebase --autostash origin main
-          git push
+          bash .github/scripts/git_push_retry.sh main
 
       - name: Upload filter review as artifact
         uses: actions/upload-artifact@v4
@@ -418,8 +413,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add weekly-state-article.json weekly-report-*.html
           git diff --cached --quiet || git commit -m "Add weekly state-of-the-feed report [skip ci]"
-          git pull --rebase --autostash origin main
-          git push
+          bash .github/scripts/git_push_retry.sh main
 
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
