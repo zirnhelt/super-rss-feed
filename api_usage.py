@@ -22,9 +22,9 @@ HAIKU_PRICING = {'input': 1.00, 'output': 5.00, 'cache_write': 1.25, 'cache_read
 BATCH_DISCOUNT = 0.5
 
 # Flat per-call estimates for vendors without token-based pricing tracked here.
-FLAT_COST_PER_CALL = {'cohere': 0.002, 'brave': 0.0, 'kagi': 0.0075}
+FLAT_COST_PER_CALL = {'cohere': 0.002, 'brave': 0.0, 'kagi': 0.0075, 'kite': 0.0}
 
-VENDOR_ORDER = ['claude', 'cohere', 'brave', 'kagi']
+VENDOR_ORDER = ['claude', 'cohere', 'brave', 'kagi', 'kite']
 
 
 def record_call(vendor: str, n: int = 1) -> None:

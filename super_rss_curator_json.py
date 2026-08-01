@@ -417,6 +417,109 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     return all_articles
 
 
+def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
+    """Fetch broad, pre-clustered headlines from Kagi's Kite News API.
+
+    Unlike the curated OPML feeds and topic queries (all individually chosen
+    for personal relevance), this pulls Kite's own category batches — each
+    story is already a multi-source cluster, giving a general "front page"
+    survey independent of the personal interest profile. Keyless per the
+    published spec, but sends KAGI_API_KEY when set in case it raises
+    anonymous rate limits. Fails open: any error just yields no articles.
+    """
+    news_cfg = SYSTEM.get('kagi_news', {})
+    if not news_cfg.get('enabled', False):
+        return []
+
+    base_url = news_cfg.get('base_url', 'https://kite.kagi.com')
+    wanted_categories = {c.lower() for c in news_cfg.get('categories', [])}
+    max_per_category = news_cfg.get('max_stories_per_category', 8)
+
+    kagi_key = os.environ.get('KAGI_API_KEY', '')
+    headers = {'Authorization': f'Bearer {kagi_key}'} if kagi_key else {}
+
+    def _make_kite_article(story: dict) -> Optional['Article']:
+        primary = (story.get('articles') or [{}])[0]
+        url = primary.get('link', '')
+        parsed_url = urlparse(url)
+        if not (parsed_url.scheme and parsed_url.netloc):
+            return None
+        domain = parsed_url.netloc.lower()
+        if domain.startswith('www.'):
+            domain = domain[4:]
+        source_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+
+        class _SyntheticEntry:
+            def get(self, key, default=''):
+                return default
+
+        article = Article(_SyntheticEntry(), domain, source_url, feed_url='')
+        article.title = (story.get('title') or '').strip()
+        if not article.title:
+            return None
+        article.link = url
+        article.url_hash = hashlib.md5(canonicalize_url(url).encode()).hexdigest()
+        description = story.get('short_summary', '') or ''
+        article.description = description
+        article.summary = _clean_text(description, max_chars=300)
+        article.excerpt = _clean_text(description, max_chars=600)
+        image = (story.get('primary_image') or {}).get('url')
+        if image:
+            article.image = image
+
+        pub_str = primary.get('date', '')
+        try:
+            article.pub_date = (datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
+                                 if pub_str else datetime.now(timezone.utc))
+        except Exception:
+            article.pub_date = datetime.now(timezone.utc)
+        if article.pub_date < cutoff_date:
+            return None
+        return article
+
+    try:
+        api_usage.record_call('kite')
+        resp = requests.get(f"{base_url}/api/batches/latest/categories",
+                             headers=headers, params={'lang': 'en'}, timeout=15)
+        resp.raise_for_status()
+        categories = resp.json().get('categories') or []
+    except Exception as e:
+        print(f"  ✗ Kite News categories: {e}")
+        return []
+
+    matched = [c for c in categories
+               if c.get('categoryId', '').lower() in wanted_categories
+               or c.get('categoryName', '').lower() in wanted_categories]
+
+    all_articles: List['Article'] = []
+    for cat in matched:
+        category_id = cat.get('id', '')
+        label = cat.get('categoryName', category_id)
+        if not category_id:
+            continue
+        try:
+            api_usage.record_call('kite')
+            resp = requests.get(
+                f"{base_url}/api/batches/latest/categories/{category_id}/stories",
+                headers=headers,
+                params={'limit': max_per_category, 'lang': 'en'},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            stories = resp.json().get('stories') or []
+            count = 0
+            for story in stories:
+                article = _make_kite_article(story)
+                if article:
+                    all_articles.append(article)
+                    count += 1
+            print(f"  ✓ Kite News/{label}: {count} stories")
+        except Exception as e:
+            print(f"  ✗ Kite News/{label}: {e}")
+
+    print(f"  📰 Kite News: {len(all_articles)} broad headlines from {len(matched)} categories")
+    return all_articles
+
 
 # ---------------------------------------------------------------------------
 # Term-set utilities for story-level deduplication
@@ -2246,17 +2349,34 @@ def score_articles_gated(articles: List[Article], api_key: str, config: Dict) ->
         a.score = int(a.q_gate or 0)
         a.gate_scored = True
 
-    # Interest ranking orders survivors for deep scoring; it never gates.
+    # Resolve each survivor's provisional category once, up front, so both the
+    # ordering pass below and the slice-cap pass can share it.
+    provisional_cat = {
+        a.url_hash: (a.category or categorize_article(a.title, a.description) or 'news')
+        for a in survivors
+    }
+
+    # Interest ranking orders survivors for deep scoring; it never gates. `news`
+    # is a broad, non-personalized survey category, so its deep-scoring priority
+    # is q_gate (interest-independent newsworthiness) instead — otherwise the
+    # limited deep-scoring budget for `news` would keep going to whichever
+    # articles happen to match personal interests rather than the biggest
+    # stories. Every other category keeps interest-rank ordering.
     if cohere_integration.is_enabled():
         order = cohere_integration.rank_with_rerank(
             survivors, config_loader.load_news_interests())
-        if order:
-            rank_of = {h: i for i, h in enumerate(order)}
-            survivors.sort(key=lambda a: rank_of.get(a.url_hash, len(survivors)))
-        else:
-            survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+        rank_of = {h: i for i, h in enumerate(order)} if order else {}
     else:
-        survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+        rank_of = {}
+
+    news_survivors = [a for a in survivors if provisional_cat[a.url_hash] == 'news']
+    other_survivors = [a for a in survivors if provisional_cat[a.url_hash] != 'news']
+    news_survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+    if rank_of:
+        other_survivors.sort(key=lambda a: rank_of.get(a.url_hash, len(other_survivors)))
+    else:
+        other_survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+    survivors = other_survivors + news_survivors
 
     # Display-bound slice: per provisional category, up to 2x the category's
     # max feed slots get full Q/R/L dimensional scoring. Everything else keeps
@@ -2265,7 +2385,7 @@ def score_articles_gated(articles: List[Article], api_key: str, config: Dict) ->
     deep: List[Article] = []
     slice_counts: Dict[str, int] = defaultdict(int)
     for a in survivors:
-        cat = a.category or categorize_article(a.title, a.description) or 'news'
+        cat = provisional_cat[a.url_hash]
         cap = 2 * FEED_SLOTS.get(cat, default_cfg).get('max_slots', default_cfg.get('max_slots', 5))
         if slice_counts[cat] < cap:
             deep.append(a)
@@ -2934,7 +3054,7 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
 def compute_composite_score(article: 'Article', weights: dict = None) -> int:
     """Compute composite score from Q, R, L dimensions using configured weights."""
     if weights is None:
-        weights = SCORING_WEIGHTS.get('general', {})
+        weights = SCORING_WEIGHTS.get(article.category, SCORING_WEIGHTS.get('general', {}))
     w_q = weights.get('w_quality', 0.25)
     w_r = weights.get('w_relevance', 0.55)
     w_l = weights.get('w_local', 0.20)
@@ -4456,6 +4576,9 @@ def main():
 
     topic_articles = fetch_topic_news(cutoff_date)
     all_articles.extend(topic_articles)
+
+    kite_articles = fetch_kite_news(cutoff_date)
+    all_articles.extend(kite_articles)
 
     print(f"\n📈 Total fetched: {len(all_articles)} articles")
     
