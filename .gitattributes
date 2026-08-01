@@ -1,0 +1,7 @@
+# Append-only run logs: concurrent writers add rows at the end, so keep both
+# sides instead of raising a conflict when a push has to rebase.
+FEED_LOG.md merge=union
+FEED_ERRORS.md merge=union
+CALIBRATION_LOG.md merge=union
+FEEDBACK_TRAINING_LOG.md merge=union
+SHARED_ARTICLES_LOG.md merge=union
