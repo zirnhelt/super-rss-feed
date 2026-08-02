@@ -5,9 +5,9 @@
       "id": "weekday-theme-score-collapse-2026-07-26",
       "theme": "monday,tuesday,wednesday,thursday",
       "first_observed": "2026-07-26",
-      "last_observed": "2026-07-26",
+      "last_observed": "2026-08-02",
       "status": "open",
-      "description": "Catastrophic theme score collapse in run 2026-07-26T19:16:45: Monday mean_theme_score 26.6→7.1, Tuesday 26.6→3.0, Wednesday 26.6→8.4, Thursday 26.6→4.2 (all from stable ~26.6 baseline across prior 14 runs). Composite score histograms show near-total concentration in 0-19 band: Monday 237/250 articles, Tuesday 249/250, Thursday 250/250. Friday/Saturday/Sunday recovered to 35-45 range in the same run, ruling out global scoring failure. This is either a scoring_prompt regression or a sudden upstream content shift specific to weekday themes. Theme-specific keyword lists have not changed recently. The collapse is severe and immediate (not gradual drift), indicating a prompt-level bug or a fundamental mismatch between theme definitions and available content.",
+      "description": "Catastrophic theme score collapse affecting weekday themes (Monday/Tuesday/Wednesday/Thursday) starting July 26, persisting through August 2 (10 consecutive runs). Mean theme scores: Monday 26.6→7.1→8.0 (stable pre-collapse, now collapsed), Tuesday 26.6→3.0→3.1 (dead), Wednesday 26.6→8.4→8.9 (weak recovery), Thursday 26.6→4.2→4.6 (dead). Weekend themes unaffected (Friday 37.4, Saturday 39.1, Sunday 48.7 as of Aug 2). Composite histograms show near-total 0-19 concentration for collapsed themes (e.g., Tuesday Aug 2: 1762/1773 articles in 0-19 band). This is a scoring_prompt regression, not upstream content shift—the collapse was immediate, not gradual, and weekend themes prove the pipeline can still generate healthy scores. Podcast feeds for collapsed themes are critically thin (Monday 4–36 articles vs target 100, Tuesday 1–25 articles), while weekend holdover banks overflow (1400+ banked for Friday/Saturday/Sunday vs 85–462 for weekdays). Root cause is almost certainly a scoring_prompt or theme_description change that broke weekday theme matching around July 26.",
       "evidence_runs": [
         "2026-07-13T07:28:29.183589+00:00",
         "2026-07-14T06:17:35.491468+00:00",
@@ -29,6 +29,10 @@
         {
           "run_date": "2026-07-26",
           "action": "None—this requires human review of scoring_prompt and theme_description fields for Monday/Tuesday/Wednesday/Thursday, which are in the forbidden auto-edit list. No auto-tunable knob (min_score, holdover_threshold, keyword additions) will fix a near-zero mean_theme_score caused by a scoring failure. Flagging as open recurring issue pending human intervention."
+        },
+        {
+          "run_date": "2026-08-02",
+          "action": "None—this requires human review of scoring_prompt and theme_description fields for Monday/Tuesday/Wednesday/Thursday, which are in the forbidden auto-edit list. Lowering min_score or holdover_threshold will not fix a near-zero mean_theme_score caused by a fundamental scoring failure. The issue has persisted for 10 runs with no sign of self-correction. Flagging as critical open recurring issue pending human intervention."
         }
       ],
       "recommendation_pending": true
