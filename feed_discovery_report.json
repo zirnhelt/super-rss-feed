@@ -1,35 +1,30 @@
 {
-  "generated_at": "2026-07-26T20:22:20.437473+00:00",
-  "total_candidates_evaluated": 326,
-  "recommended_feeds": 7,
+  "generated_at": "2026-08-02T14:42:46.619351+00:00",
+  "total_candidates_evaluated": 330,
+  "recommended_feeds": 12,
   "min_score_threshold": 60,
   "categories": {
-    "general": {
-      "count": 2,
+    "local": {
+      "count": 5,
       "feeds": [
         {
-          "title": "blog.bgcarlisle.com",
-          "url": "http://blog.bgcarlisle.com/feed",
-          "html_url": "http://blog.bgcarlisle.com",
-          "source": "Kagi Small Web",
-          "average_score": 70.2,
-          "sample_articles": 1,
-          "reason": "Good potential addition"
+          "title": "Regional News Archives - Williams Lake Tribune",
+          "url": "https://wltribune.com/category/news/regional-news/feed/",
+          "html_url": "https://www.wltribune.com/local-news",
+          "source": "brave_search",
+          "average_score": 81.2,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
         },
         {
-          "title": "10ideas.bearblog.dev",
-          "url": "https://10ideas.bearblog.dev/feed/",
-          "html_url": "https://10ideas.bearblog.dev",
-          "source": "Kagi Small Web",
-          "average_score": 63.9,
-          "sample_articles": 1,
+          "title": "Williams Lake Tribune",
+          "url": "https://wltribune.com/feed",
+          "html_url": "https://wltribune.com/",
+          "source": "brave_search",
+          "average_score": 71.3,
+          "sample_articles": 3,
           "reason": "Good potential addition"
-        }
-      ]
-    },
-    "local": {
-      "count": 1,
-      "feeds": [
+        },
         {
           "title": "Municipal News Archives : My Cariboo Now",
           "url": "https://www.mycariboonow.com/news/municipal-news/feed/",
@@ -37,6 +32,75 @@
           "source": "brave_search",
           "average_score": 64.2,
           "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com/feed/",
+          "html_url": "https://www.mycariboonow.com/news/williams-lake/",
+          "source": "brave_search",
+          "average_score": 63.9,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Cariboo News, Events, Weather and Local Radio.",
+          "url": "https://www.mycariboonow.com/news/feed/",
+          "html_url": "https://www.mycariboonow.com/news/",
+          "source": "brave_search",
+          "average_score": 63.9,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "climate": {
+      "count": 1,
+      "feeds": [
+        {
+          "title": "globalnews.ca",
+          "url": "https://globalnews.ca/tag/bc-wildfire/feed/",
+          "html_url": "https://globalnews.ca/tag/bc-wildfire/",
+          "source": "brave_search",
+          "average_score": 74.1,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "homelab": {
+      "count": 2,
+      "feeds": [
+        {
+          "title": "Bambu Lab Blog",
+          "url": "https://blog.bambulab.com/rss/",
+          "html_url": "https://blog.bambulab.com/",
+          "source": "brave_search",
+          "average_score": 73.7,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Wikipedia  - Recent changes [en]",
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom",
+          "html_url": "https://en.wikipedia.org/wiki/Meshtastic",
+          "source": "brave_search",
+          "average_score": 66.7,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "general": {
+      "count": 1,
+      "feeds": [
+        {
+          "title": "10ideas.bearblog.dev",
+          "url": "https://10ideas.bearblog.dev/feed/",
+          "html_url": "https://10ideas.bearblog.dev",
+          "source": "Kagi Small Web",
+          "average_score": 63.9,
+          "sample_articles": 1,
           "reason": "Good potential addition"
         }
       ]
@@ -72,35 +136,46 @@
           "reason": "Good potential addition"
         }
       ]
-    },
-    "homelab": {
-      "count": 1,
-      "feeds": [
-        {
-          "title": "Bambu Lab Blog",
-          "url": "https://blog.bambulab.com/rss/",
-          "html_url": "https://blog.bambulab.com/",
-          "source": "brave_search",
-          "average_score": 61.7,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
     }
   },
   "summary": {
     "by_category": {
-      "general": 2,
-      "local": 1,
-      "tech": 3,
-      "homelab": 1
+      "local": 5,
+      "climate": 1,
+      "homelab": 2,
+      "general": 1,
+      "tech": 3
     },
     "top_recommendations": [
       {
-        "title": "blog.bgcarlisle.com",
-        "category": "general",
-        "score": 70.2,
-        "url": "http://blog.bgcarlisle.com/feed"
+        "title": "Regional News Archives - Williams Lake Tribune",
+        "category": "local",
+        "score": 81.2,
+        "url": "https://wltribune.com/category/news/regional-news/feed/"
+      },
+      {
+        "title": "globalnews.ca",
+        "category": "climate",
+        "score": 74.1,
+        "url": "https://globalnews.ca/tag/bc-wildfire/feed/"
+      },
+      {
+        "title": "Bambu Lab Blog",
+        "category": "homelab",
+        "score": 73.7,
+        "url": "https://blog.bambulab.com/rss/"
+      },
+      {
+        "title": "Williams Lake Tribune",
+        "category": "local",
+        "score": 71.3,
+        "url": "https://wltribune.com/feed"
+      },
+      {
+        "title": "Wikipedia  - Recent changes [en]",
+        "category": "homelab",
+        "score": 66.7,
+        "url": "https://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom"
       },
       {
         "title": "Municipal News Archives : My Cariboo Now",
@@ -115,28 +190,22 @@
         "url": "https://10ideas.bearblog.dev/feed/"
       },
       {
+        "title": "My Cariboo Now",
+        "category": "local",
+        "score": 63.9,
+        "url": "https://www.mycariboonow.com/feed/"
+      },
+      {
+        "title": "Cariboo News, Events, Weather and Local Radio.",
+        "category": "local",
+        "score": 63.9,
+        "url": "https://www.mycariboonow.com/news/feed/"
+      },
+      {
         "title": "HBR.org",
         "category": "tech",
         "score": 63.0,
         "url": "http://feeds.harvardbusiness.org/harvardbusiness/"
-      },
-      {
-        "title": "Tech in Asia",
-        "category": "tech",
-        "score": 62.4,
-        "url": "https://feeds2.feedburner.com/PennOlson"
-      },
-      {
-        "title": "MIT News - Science, Technology, and Society | Technology and society | Program in STS | History of science | History of MIT",
-        "category": "tech",
-        "score": 61.7,
-        "url": "https://news.mit.edu/rss/topic/science-technology-and-society"
-      },
-      {
-        "title": "Bambu Lab Blog",
-        "category": "homelab",
-        "score": 61.7,
-        "url": "https://blog.bambulab.com/rss/"
       }
     ]
   }
