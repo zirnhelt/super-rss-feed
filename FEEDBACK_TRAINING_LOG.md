@@ -1,3 +1,103 @@
+## Feedback Training Run — 2026-08-02 14:44 UTC
+
+**Files processed:** 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json
+**Ratings:** 89 Good, 26 Interesting, 305 Bad, 89 reassigned to day(s), 15 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** ScienceAlert (6), TechCrunch (4), The Northern Miner (4), 100 Mile Free Press (4), Boing Boing (4)
+**Top disliked sources:** Toms Guide (19), Business Insider (16), CNET (15), The Verge (14), NYT Business (13)
+**Categories liked:** news (38), ai-tech (18), science (12), climate (7), local (6), wellness (6), homelab (2)
+**Categories disliked:** news (260), ai-tech (14), wellness (12), climate (6), local (5), scifi (5), homelab (2), science (1)
+
+**Day reassignment summary:**
+- friday → sunday: 4 articles
+- friday → tuesday: 4 articles
+- friday → wednesday: 3 articles
+- friday → saturday: 3 articles
+- friday → monday: 3 articles
+- friday → friday: 2 articles
+- sunday → wednesday: 6 articles
+- sunday → friday: 5 articles
+- sunday → monday: 4 articles
+- sunday → saturday: 3 articles
+- sunday → sunday: 3 articles
+- sunday → tuesday: 2 articles
+- sunday → thursday: 1 articles
+- monday → wednesday: 5 articles
+- monday → sunday: 5 articles
+- monday → saturday: 5 articles
+- monday → friday: 4 articles
+- monday → tuesday: 4 articles
+- monday → monday: 2 articles
+- monday → thursday: 1 articles
+- tuesday → wednesday: 6 articles
+- tuesday → sunday: 5 articles
+- tuesday → monday: 4 articles
+- tuesday → tuesday: 3 articles
+- tuesday → friday: 2 articles
+- tuesday → saturday: 2 articles
+- wednesday → tuesday: 7 articles
+- wednesday → sunday: 6 articles
+- wednesday → wednesday: 6 articles
+- wednesday → saturday: 2 articles
+- wednesday → thursday: 2 articles
+- wednesday → friday: 1 articles
+- wednesday → monday: 1 articles
+- thursday → tuesday: 4 articles
+- thursday → friday: 3 articles
+- thursday → sunday: 3 articles
+- thursday → wednesday: 3 articles
+- thursday → monday: 1 articles
+- saturday → friday: 6 articles
+- saturday → sunday: 4 articles
+- saturday → wednesday: 3 articles
+- saturday → tuesday: 3 articles
+- saturday → thursday: 1 articles
+- saturday → saturday: 1 articles
+
+**Category retag summary:**
+- news → ai-tech: 7 articles
+- news → wellness: 3 articles
+- news → climate: 1 articles
+- news → science: 1 articles
+- news → homelab: 1 articles
+- news → local: 1 articles
+- science → climate: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# RSS Curator Scoring Calibration Points
+
+**Topic & Framing Signals**
+
+- **Prioritize innovation with practical impact**: Science/tech breakthroughs that solve real problems (robot nursing care, EV charging, biodiversity monitoring) score higher than speculative or CEO-wealth stories
+- **Favor local/regional angles over national celebrity gossip**: Bridge Lake Stampede, local fire response, and Indigenous wellness initiatives significantly outperform entertainment celebrity coverage and luxury real estate pieces
+- **De-emphasize commerce and product deals**: Shopping promotions, product launch announcements, and "best deals" content consistently rank in Bad Fit despite high raw scores—apply relevance penalty regardless of Q/R metrics
+
+**Under-Represented Topics (Boost in Scoring)**
+
+- **Workplace rights & labor issues**: Atlassian firing case and "always-on" culture reporting are marked Interesting but under-delivered—increase relevance weight for tech industry labor stories
+- **Critical AI ethics & regulation**: Copyright lawsuits, security vulnerabilities, and policy debates (fair use, restrictions) perform well—prioritize over hype-driven AI announcements
+- **Deep-dive analysis over breaking news**: Explainer content (Darwin's natural selection, router antenna positioning, parked domain cybercrime) consistently preferred over surface-level product news
+
+**Source & Content-Type Patterns**
+
+- **Privilege long-form editorial sources**: The Atlantic, The Marginalian, Nautilus, and The Tyee articles perform better than breaking news wires when covering the same topics
+- **Distrust commerce-driven outlets**: Gizmodo, Tom's Guide, Lifehacker deal-focused content consistently scores Bad regardless of source authority
+- **Trust niche/specialist publications**: Northern Miner mining stories, EarthSky astronomy, and 100 Mile Free Press local coverage show strong fit despite smaller reach
+
+**Day-Assignment Patterns**
+
+- **Sunday = science/wonder**: Plasma waves, calderas, space mysteries, high-elevation mice, and radio rings predominantly reassigned to Sunday—maintain this contemplative weekend slot
+- **Wednesday = AI/tech policy**: Robot plans, startup funding, cybersecurity warnings cluster on Wednesday—align with mid-week tech focus
+- **Friday = practical outdoors/gear**: Outdoor essentials, hiking shoes, and field tools concentrated Friday—weekend preparation angle
+
+**Category Retag Patterns**
+
+- **Climate articles mistagged as general news**: Multiple environmental pieces (penguin chemicals, rare earth mining, water scarcity) were initially filed under "news"—improve climate classification threshold
+- **Wellness vs. News boundary**: Lifestyle philosophy and health practice articles frequently misfiled—apply stricter wellness category gating
+
+---
 ## Feedback Training Run — 2026-07-26 20:24 UTC
 
 **Files processed:** 2026-06-27.json, 2026-06-28.json, 2026-06-29.json, 2026-06-30.json, 2026-07-01.json, 2026-07-02.json, 2026-07-03.json, 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json

@@ -1,23 +1,30 @@
-# Relevance Scoring Calibration Points
+# RSS Curator Scoring Calibration Points
 
-- **Boost local/regional BC content**: Williams Lake Tribune and My Cariboo Now articles consistently score 85–90 and get podcast priority. Weight location-specific news (Cariboo, Quesnel, Kelowna) higher than generic national coverage.
+**Topic & Framing Signals**
 
-- **Prioritize constructive + solutions-oriented framing**: Good-fit articles focus on community action, fundraising, and positive initiatives (students building boxes, teacher fundraising, biodiversity solutions). Avoid or downweight crisis-reactive coverage (accidents, arrests, political upheaval, job cuts).
+- **Prioritize innovation with practical impact**: Science/tech breakthroughs that solve real problems (robot nursing care, EV charging, biodiversity monitoring) score higher than speculative or CEO-wealth stories
+- **Favor local/regional angles over national celebrity gossip**: Bridge Lake Stampede, local fire response, and Indigenous wellness initiatives significantly outperform entertainment celebrity coverage and luxury real estate pieces
+- **De-emphasize commerce and product deals**: Shopping promotions, product launch announcements, and "best deals" content consistently rank in Bad Fit despite high raw scores—apply relevance penalty regardless of Q/R metrics
 
-- **De-emphasize conflict/crisis framing in news**: Bad-fit articles are dominated by warfare updates, criminal proceedings, corporate crises, and natural disasters. These score well but user rejects them—filter for outcomes/resolution over drama.
+**Under-Represented Topics (Boost in Scoring)**
 
-- **Wellness-to-science miscategorization pattern**: User retags wellness articles (Henry James, summer coping) suggest curator conflates life advice with wellness science. Reserve wellness for evidence-based health/fitness; move philosophy/lifestyle to appropriate tags.
+- **Workplace rights & labor issues**: Atlassian firing case and "always-on" culture reporting are marked Interesting but under-delivered—increase relevance weight for tech industry labor stories
+- **Critical AI ethics & regulation**: Copyright lawsuits, security vulnerabilities, and policy debates (fair use, restrictions) perform well—prioritize over hype-driven AI announcements
+- **Deep-dive analysis over breaking news**: Explainer content (Darwin's natural selection, router antenna positioning, parked domain cybercrime) consistently preferred over surface-level product news
 
-- **AI/tech policy over product hype**: Interesting articles score well on AI policy (OpenMedia, fair use, security restrictions, job impact). Good-fit includes some AI but focuses on implications, not gadget reviews. Downweight "Top Stories: New iPhone" type coverage.
+**Source & Content-Type Patterns**
 
-- **Sunday → midweek shift for speculative/aspirational content**: Astronomy, space exploration, future tech (antimatter propulsion, cotton-candy planets) and lighter summer pieces consistently move from Sunday to Tuesday–Wednesday, suggesting weekend-specific placement preference.
+- **Privilege long-form editorial sources**: The Atlantic, The Marginalian, Nautilus, and The Tyee articles perform better than breaking news wires when covering the same topics
+- **Distrust commerce-driven outlets**: Gizmodo, Tom's Guide, Lifehacker deal-focused content consistently scores Bad regardless of source authority
+- **Trust niche/specialist publications**: Northern Miner mining stories, EarthSky astronomy, and 100 Mile Free Press local coverage show strong fit despite smaller reach
 
-- **Underweight entertainment/celebrity/streaming**: Significant Bad-fit cluster around TV shows, movies, streaming announcements (Magic School Bus, Mad Men lists, Netflix login drama, Prime Video). User rarely engages despite curator tagging as news.
+**Day-Assignment Patterns**
 
-- **Wednesday consolidation hub for AI + infrastructure**: Day-reassignment pattern shows Wednesday absorbs speculative AI articles, tech infrastructure stories, and policy pieces. Likely a dedicated "tech deep-dive" day.
+- **Sunday = science/wonder**: Plasma waves, calderas, space mysteries, high-elevation mice, and radio rings predominantly reassigned to Sunday—maintain this contemplative weekend slot
+- **Wednesday = AI/tech policy**: Robot plans, startup funding, cybersecurity warnings cluster on Wednesday—align with mid-week tech focus
+- **Friday = practical outdoors/gear**: Outdoor essentials, hiking shoes, and field tools concentrated Friday—weekend preparation angle
 
-- **Climate/energy under-represented in feed**: User manually retags mining/seabed deposits as science/climate; "Solar producers upset by BC Hydro" (score 87, shared) suggests energy/climate transition stories resonate but may be tagged as generic news. Create explicit climate category signal.
+**Category Retag Patterns**
 
-- **Source trust pattern**: My Cariboo Now, BC Gov News, and APTN News outperform national sources (Engadget, TechCrunch, Business Insider) despite similar topic overlap. Weight regional/Indigenous-focused sources higher for reconciliation and local coverage.
-
-- **Shared/reader-submitted content gets
+- **Climate articles mistagged as general news**: Multiple environmental pieces (penguin chemicals, rare earth mining, water scarcity) were initially filed under "news"—improve climate classification threshold
+- **Wellness vs. News boundary**: Lifestyle philosophy and health practice articles frequently misfiled—apply stricter wellness category gating
