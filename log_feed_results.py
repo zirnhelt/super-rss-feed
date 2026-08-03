@@ -42,7 +42,7 @@ RETENTION_DAYS = 7
 SLOT_BY_UTC_HOUR = {12: 'morning', 4: 'evening'}
 SLOT_EMOJIS  = {'morning': '🌅', 'evening': '🌙', 'manual': '🔧'}
 SLOT_LABELS  = {'morning': '4:30 AM Pacific', 'evening': '8:30 PM Pacific', 'manual': 'Manual Run'}
-CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'wellness', 'science', 'scifi', 'news']
+CATEGORY_ORDER = ['local', 'ai-tech', 'climate', 'homelab', 'homestead', 'wellness', 'science', 'scifi', 'design', 'news']
 
 AUTO_START = '<!-- AUTO:START -->'
 AUTO_END   = '<!-- AUTO:END -->'

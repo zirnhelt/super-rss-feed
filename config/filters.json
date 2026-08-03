@@ -139,8 +139,8 @@
     "reality tv"
   ],
   "blocked_title_patterns": [
-    "^i(['’]m|['’]ve|['’]d)?\\s+\\w",
-    "^my\\s+\\w",
+    "^i(['’]m|['’]ve|['’]d)?\\s+(just\\s+|finally\\s+|only\\s+)?(tried|tested|test-drove|spent|used|using|switched|swapped|replaced|ditched|dumped|bought|built|found|installed|wore|streamed|reviewed|ranked|compared)\\b",
+    "^my\\s+(favou?rite|go-to|top|new|old|current|daily|everyday|entire|whole)\\b",
     "\\$\\d[\\d,]*\\s+off\\b",
     "\\d+%\\s+off\\b",
     "\\blowest price\\b",

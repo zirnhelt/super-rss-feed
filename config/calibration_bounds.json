@@ -6,7 +6,17 @@
     "limits.min_score_by_category.ai-tech": {
       "file": "config/limits.json",
       "path": ["min_score_by_category", "ai-tech"],
-      "type": "int", "min": 15, "max": 45, "max_step": 5, "default": 30
+      "type": "int", "min": 15, "max": 45, "max_step": 5, "default": 15
+    },
+    "limits.min_score_by_category.homestead": {
+      "file": "config/limits.json",
+      "path": ["min_score_by_category", "homestead"],
+      "type": "int", "min": 8, "max": 25, "max_step": 3, "default": 12
+    },
+    "limits.min_score_by_category.design": {
+      "file": "config/limits.json",
+      "path": ["min_score_by_category", "design"],
+      "type": "int", "min": 8, "max": 25, "max_step": 3, "default": 12
     },
     "limits.min_score_by_category.homelab": {
       "file": "config/limits.json",
@@ -80,7 +90,7 @@
     },
     "podcast.schedule.saturday.min_score": {
       "file": "config/podcast_schedule.json", "path": ["schedule", "saturday", "min_score"],
-      "type": "int", "min": 10, "max": 50, "max_step": 5, "default": 25
+      "type": "int", "min": 10, "max": 50, "max_step": 5, "default": 18
     },
     "podcast.schedule.saturday.holdover_threshold": {
       "file": "config/podcast_schedule.json", "path": ["schedule", "saturday", "holdover_threshold"],
@@ -121,7 +131,7 @@
     "limits.haiku_scrub_floor": {
       "file": "config/limits.json",
       "path": ["haiku_scrub_floor"],
-      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 10
+      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 13
     },
     "limits.story_cluster_overlap_threshold": {
       "file": "config/limits.json",
@@ -167,6 +177,14 @@
     "feed_slots.max_slots.scifi": {
       "file": "config/feed_slots.json", "path": ["scifi", "max_slots"],
       "type": "int", "min": 2, "max": 6, "max_step": 1, "default": 6
+    },
+    "feed_slots.max_slots.homestead": {
+      "file": "config/feed_slots.json", "path": ["homestead", "max_slots"],
+      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 8
+    },
+    "feed_slots.max_slots.design": {
+      "file": "config/feed_slots.json", "path": ["design", "max_slots"],
+      "type": "int", "min": 3, "max": 8, "max_step": 2, "default": 6
     },
     "feed_slots.max_slots.news": {
       "file": "config/feed_slots.json", "path": ["news", "max_slots"],
