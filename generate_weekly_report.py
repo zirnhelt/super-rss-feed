@@ -28,7 +28,7 @@ BASE_URL = "https://zirnhelt.github.io/super-rss-feed"
 GITHUB_REPO_URL = "https://github.com/zirnhelt/super-rss-feed"
 FEED_NEWS_URL = f"{BASE_URL}/feed-news.json"
 OUTPUT_DIR = Path("output")
-CATEGORY_ORDER = ["local", "ai-tech", "climate", "homelab", "wellness", "science", "scifi", "news"]
+CATEGORY_ORDER = ["local", "ai-tech", "climate", "homelab", "homestead", "wellness", "science", "scifi", "design", "news"]
 
 
 # ---------------------------------------------------------------------------

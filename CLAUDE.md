@@ -24,7 +24,7 @@ You are an expert software engineer and product manager. Your persona is direct,
 
 ## What This Is
 
-**Super RSS Feed Curator** — an AI-powered RSS aggregator that pulls from 80+ feeds, deduplicates, scores, and publishes 8 categorized JSON feeds plus 7 themed daily podcast feeds via GitHub Pages. Runs twice daily on GitHub Actions. The audience is a single user in Williams Lake, BC (Cariboo region).
+**Super RSS Feed Curator** — an AI-powered RSS aggregator that pulls from 100+ feeds, deduplicates, scores, and publishes 10 categorized JSON feeds plus 7 themed daily podcast feeds via GitHub Pages. Runs twice daily on GitHub Actions. The audience is a single user in Williams Lake, BC (Cariboo region).
 
 Live site: `https://zirnhelt.github.io/super-rss-feed/`
 Repo: `github.com/zirnhelt/super-rss-feed`
@@ -108,12 +108,13 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 
 ## Output Feeds
 
-8 category feeds + 7 daily podcast feeds, all JSON Feed 1.1:
+10 category feeds + 7 daily podcast feeds, all JSON Feed 1.1:
 
 ```
 feed-local.json        feed-ai-tech.json      feed-climate.json
 feed-homelab.json      feed-wellness.json     feed-news.json
-feed-science.json      feed-scifi.json
+feed-science.json      feed-scifi.json        feed-homestead.json
+feed-design.json
 
 feed-podcast-monday.json    feed-podcast-tuesday.json   feed-podcast-wednesday.json
 feed-podcast-thursday.json  feed-podcast-friday.json    feed-podcast-saturday.json

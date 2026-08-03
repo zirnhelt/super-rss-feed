@@ -10,15 +10,20 @@
     "exclude": ["consumer tips", "phone accessories", "charging cables", "AirTag", "product reviews"],
     "description": "Self-hosted infrastructure, 3D printing, serious home automation - NOT consumer gadgets or tips"
   },
+  "homestead": {
+    "include": ["homestead", "homesteading", "hobby farm", "small farm", "smallholding", "acreage", "market garden", "permaculture", "regenerative farming", "regenerative agriculture", "backyard chickens", "laying hens", "small livestock", "goats", "beekeeping", "rotational grazing", "pasture management", "haying", "woodlot", "orchard", "seed saving", "heirloom seeds", "food preservation", "canning", "root cellar", "fermentation", "composting", "soil health", "rainwater harvesting", "well water", "off-grid living", "self-sufficiency", "homestead solar", "4-H"],
+    "exclude": ["commodity futures", "grain futures", "crop insurance", "farm equipment earnings", "tractor deal", "% off", "on sale", "3D printing", "Bambu Lab", "home automation", "HomeKit", "farmers market app", "stock", "IPO"],
+    "description": "Small-scale and hobby farming, market gardens, small livestock, food preservation, woodlots, and rural self-sufficiency - NOT industrial/commodity agriculture, farm finance, or homelab electronics"
+  },
   "climate": {
     "include": ["climate", "climate change", "climate policy", "renewable energy", "solar power", "wind power", "EV battery", "EV charging", "EV market", "EV sales", "EV fleet", "EV adoption", "EV truck", "all-electric", "electric vehicle", "carbon capture", "carbon emissions", "carbon market", "clean energy policy", "fossil fuel"],
     "exclude": ["consumer electronics", "phone chargers", "USB accessories", "general tech gadgets", "earnings", "revenue analysis", "valuation", "% rally", "RCMP", "missing person", "crime", "disappearance", "murder", "monitor", "OLED", "tablet", "laptop", "dementia", "obesity", "Computex", "GPU", "cryptocurrency"],
     "description": "Climate tech, renewable energy, EVs - NOT general electronics, gadgets, financial news, or crime"
   },
   "wellness": {
-    "include": ["health", "wellness", "nutrition", "fitness", "mental health", "exercise", "sleep", "diet", "longevity", "gut health", "microbiome", "preventive health", "preventative", "chronic disease", "wellbeing", "medicine", "healthcare", "anxiety", "depression", "stress", "mindfulness", "therapy", "physical activity", "obesity", "diabetes", "heart disease", "immune system", "inflammation"],
+    "include": ["health", "wellness", "nutrition", "fitness", "mental health", "exercise", "sleep", "diet", "longevity", "gut health", "microbiome", "preventive health", "preventative", "chronic disease", "wellbeing", "medicine", "healthcare", "anxiety", "depression", "stress", "mindfulness", "therapy", "physical activity", "obesity", "diabetes", "heart disease", "immune system", "inflammation", "aging", "ageing", "healthy aging", "older adults", "seniors", "geriatric", "dementia", "Alzheimer", "cognitive decline", "eldercare", "elder care", "caregiving", "caregiver", "fall prevention", "mobility loss", "palliative care", "long-term care", "assisted living", "menopause", "bone density", "osteoporosis", "hearing loss", "vision loss"],
     "exclude": ["sports scores", "game results", "athlete stats", "product review", "gadget review", "consumer electronics", "war live", "live blog", "live updates", "shooter", "shooting", "RCMP", "crime unit", "gunman", "hostage"],
-    "description": "Personal health, nutrition, mental health, fitness, and medicine - NOT sports, tech reviews, or crime/conflict news"
+    "description": "Personal health, nutrition, mental health, fitness, medicine, and healthy aging/eldercare - NOT sports, tech reviews, or crime/conflict news"
   },
   "science": {
     "include": [
@@ -42,6 +47,11 @@
     "include": ["science fiction", "sci-fi", "speculative fiction", "fantasy", "fiction book", "science fiction novel", "fantasy novel", "science fiction author", "fantasy author", "book review", "graphic novel", "worldbuilding", "solarpunk", "cli-fi", "cyberpunk", "dystopian", "space opera"],
     "exclude": ["apps", "digital minimalism", "productivity", "phone features", "tech lifestyle", "free e-book", "kindle deal", "e-book deal", "ebook deal", "free kindle", "amazon prime books"],
     "description": "Science fiction and fantasy ONLY - NOT tech lifestyle, productivity apps, or promotional e-book deals"
+  },
+  "design": {
+    "include": ["architecture", "architect", "architectural", "built environment", "building science", "passive house", "Passivhaus", "mass timber", "cross-laminated timber", "timber frame", "energy retrofit", "deep retrofit", "building envelope", "net-zero building", "tiny home", "small dwelling", "cabin design", "prefab housing", "modular housing", "adaptive reuse", "heritage building", "heritage restoration", "vernacular architecture", "urban design", "placemaking", "land use planning", "zoning reform", "missing middle housing", "industrial design", "product design", "design studio"],
+    "exclude": ["software architecture", "system architecture", "reference architecture", "chip architecture", "processor architecture", "network architecture", "cloud architecture", "housing market", "home prices", "mortgage rates", "real estate listing", "% off", "on sale", "celebrity home", "red carpet"],
+    "description": "Built environment, building science, rural and vernacular architecture, small dwellings, placemaking, and industrial design - NOT software/system architecture, real estate markets, or celebrity home tours"
   },
   "ai-tech": {
     "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "large language model", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure", "ChatGPT", "OpenAI", "Gemini", "Claude AI", "foundation model", "neural network", "deep learning", "computer vision", "natural language processing", "generative AI", "model training", "fine-tuning", "transformer model", "Microsoft Copilot", "Google AI", "Apple Intelligence", "AI agent", "AI model", "language model"],

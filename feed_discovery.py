@@ -67,6 +67,14 @@ BRAVE_SEARCH_TOPICS = [
     ("ecology natural science wonder discovery Cariboo BC interior blog rss feed", "science"),
     # Health & Wellness category has no dedicated query yet
     ("evidence-based health wellness nutrition longevity research blog rss feed", "wellness"),
+    ("healthy aging dementia eldercare caregiving rural seniors blog rss feed", "wellness"),
+    # Homestead & Hobby Farm
+    ("homesteading hobby farm market garden small livestock blog rss feed", "homestead"),
+    ("food preservation canning seed saving root cellar homestead blog rss feed", "homestead"),
+    ("BC small farm acreage woodlot rural self-sufficiency blog rss feed", "homestead"),
+    # Architecture & Design
+    ("architecture building science passive house mass timber blog rss feed", "design"),
+    ("tiny home cabin prefab vernacular rural architecture blog rss feed", "design"),
 ]
 FEED_PROBE_PATHS = ["/feed", "/rss", "/atom.xml", "/feed.xml", "/index.xml", "/rss.xml"]
 
