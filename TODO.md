@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-08-03 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
 | 2026-07-31 | 🌙 8:30 PM Pacific | ⚠️ **LoRaMeshDevices** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
@@ -23,11 +24,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-07-30 | 🌙 evening | 77 | news:25(32%), ai-tech:14(18%), wellness:10(13%) |
 | 2026-07-29 | 🌙 evening | 68 | news:25(37%), ai-tech:18(26%), wellness:10(15%) |
 | 2026-07-28 | 🌙 evening | 70 | news:25(36%), ai-tech:13(19%), wellness:10(14%) |
-| 2026-07-27 | 🌙 evening | 47 | news:25(53%), science:8(17%), ai-tech:5(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-03 07:38 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-04 06:39 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
