@@ -153,6 +153,21 @@
             font-size: 0.80em; resize: vertical; min-height: 36px; font-family: inherit; color: #444;
         }
 
+        /* ── Exemplar box ── */
+        .exemplar-box {
+            background: white; border-radius: 16px; padding: 18px 24px;
+            margin-bottom: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .exemplar-box h2 { font-size: 1.1em; color: #667eea; margin-bottom: 2px; }
+        .exemplar-box .subtitle { margin-bottom: 12px; }
+        .exemplar-form { display: flex; flex-direction: column; gap: 8px; }
+        .exemplar-form input, .exemplar-form select, .exemplar-form textarea {
+            width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
+            font-size: 0.88em; font-family: inherit; color: #333;
+        }
+        .exemplar-form textarea { resize: vertical; min-height: 44px; }
+        .exemplar-form button { align-self: flex-start; }
+
         /* ── Loading / empty / error ── */
         .loading { text-align: center; padding: 40px; color: white; font-size: 1.05em; }
         .empty-box, .error-box {
@@ -192,6 +207,19 @@
         <h1>📋 Near-Miss Article Review</h1>
         <p class="subtitle">Articles that almost made the cut. Tag to a podcast day, mark as interesting, or flag as bad.</p>
         <div class="progress-counter" id="progress-counter"></div>
+    </div>
+
+    <div class="exemplar-box" id="exemplar-box">
+        <h2>⭐ Add a Great Example</h2>
+        <p class="subtitle">Found an article elsewhere that's a perfect example of what you want more of? Add it here — it feeds the weekly trainer as your strongest signal.</p>
+        <div class="exemplar-form">
+            <input type="url" id="exemplar-url" placeholder="Article URL" />
+            <input type="text" id="exemplar-title" placeholder="Article title" />
+            <select id="exemplar-category"></select>
+            <textarea id="exemplar-note" placeholder="Why is this a great example? (optional)" maxlength="200"></textarea>
+            <button class="btn btn-primary" onclick="submitExemplar()">⭐ Add Example</button>
+            <div class="status-msg" id="exemplar-status"></div>
+        </div>
     </div>
 
     <div id="loading-msg" class="loading">Fetching near-miss articles…</div>
@@ -268,6 +296,7 @@ function loadRatings() {
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
+    populateExemplarCategories();
     if (!BAKED_TOKEN) {
         showError('Token not substituted — open this page via the deployed GitHub Pages site, not directly from the repo.');
         return;
@@ -280,13 +309,23 @@ window.addEventListener('DOMContentLoaded', () => {
     init();
 });
 
+function populateExemplarCategories() {
+    const sel = document.getElementById('exemplar-category');
+    sel.innerHTML = Object.entries(CATEGORIES)
+        .map(([slug, meta]) => `<option value="${escAttr(slug)}">${escHtml(meta.emoji || '')} ${escHtml(meta.name || slug)}</option>`)
+        .join('');
+}
+
 async function init() {
     ratings = loadRatings();
     try {
         const res = await fetch(FEED_URL + '?v=' + Date.now());
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const feed = await res.json();
-        if (feed._categories && Object.keys(feed._categories).length) CATEGORIES = feed._categories;
+        if (feed._categories && Object.keys(feed._categories).length) {
+            CATEGORIES = feed._categories;
+            populateExemplarCategories();
+        }
         articles = (feed.items || []).filter(a => SHOW_BUCKETS.has(a._selection_bucket));
 
         hide('loading-msg');
@@ -529,8 +568,52 @@ function updateProgress() {
 }
 
 // ── GitHub submission ─────────────────────────────────────────────────────────
+// Merges `entries` into feedback/<today>.json by url and writes it back via the GitHub Contents API.
+async function saveFeedbackEntries(entries) {
+    const filePath = `feedback/${todayKey}.json`;
+    const apiBase  = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
+    const headers  = {
+        'Authorization':        `Bearer ${BAKED_TOKEN}`,
+        'Content-Type':         'application/json',
+        'Accept':               'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+    };
+
+    let sha = null;
+    let existingRatings = [];
+    const existing = await fetch(apiBase, { headers });
+    if (existing.ok) {
+        const existingData = await existing.json();
+        sha = existingData.sha;
+        try {
+            const decoded = JSON.parse(atob(existingData.content.replace(/\n/g, '')));
+            existingRatings = decoded.ratings || [];
+        } catch {}
+    }
+
+    const existingByUrl = Object.fromEntries(existingRatings.map(r => [r.url, r]));
+    for (const r of entries) existingByUrl[r.url] = r;
+
+    const payload = {
+        date:         todayKey,
+        submitted_at: new Date().toISOString(),
+        ratings:      Object.values(existingByUrl),
+    };
+
+    const body = {
+        message: `Add review feedback ${todayKey} [skip ci]`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2)))),
+        ...(sha ? { sha } : {}),
+    };
+
+    const putRes = await fetch(apiBase, { method: 'PUT', headers, body: JSON.stringify(body) });
+    if (!putRes.ok) {
+        const err = await putRes.json().catch(() => ({}));
+        throw new Error(err.message || `HTTP ${putRes.status}`);
+    }
+}
+
 async function submitFeedback() {
-    const pat      = BAKED_TOKEN;
     const statusEl = document.getElementById('submit-status');
     statusEl.className = 'status-msg';
     statusEl.textContent = 'Saving to GitHub…';
@@ -566,56 +649,71 @@ async function submitFeedback() {
         return;
     }
 
-    const payload = {
-        date:         todayKey,
-        submitted_at: new Date().toISOString(),
-        ratings:      ratingsList,
-    };
-
-    const filePath = `feedback/${todayKey}.json`;
-    const apiBase  = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
-    const headers  = {
-        'Authorization':        `Bearer ${pat}`,
-        'Content-Type':         'application/json',
-        'Accept':               'application/vnd.github+json',
-        'X-GitHub-Api-Version': '2022-11-28',
-    };
-
     try {
-        let sha = null;
-        let existingRatings = [];
-        const existing = await fetch(apiBase, { headers });
-        if (existing.ok) {
-            const existingData = await existing.json();
-            sha = existingData.sha;
-            try {
-                const decoded = JSON.parse(atob(existingData.content.replace(/\n/g, '')));
-                existingRatings = decoded.ratings || [];
-            } catch {}
-        }
-
-        const existingByUrl = Object.fromEntries(existingRatings.map(r => [r.url, r]));
-        for (const r of ratingsList) existingByUrl[r.url] = r;
-        payload.ratings = Object.values(existingByUrl);
-
-        const body = {
-            message: `Add review feedback ${todayKey} [skip ci]`,
-            content: btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2)))),
-            ...(sha ? { sha } : {}),
-        };
-
-        const putRes = await fetch(apiBase, { method: 'PUT', headers, body: JSON.stringify(body) });
-        if (!putRes.ok) {
-            const err = await putRes.json().catch(() => ({}));
-            throw new Error(err.message || `HTTP ${putRes.status}`);
-        }
-
+        await saveFeedbackEntries(ratingsList);
         statusEl.className = 'status-msg success';
         statusEl.textContent = `✅ Saved ${ratingsList.length} ratings to GitHub!`;
         localStorage.setItem('submitted_' + todayKey, 'true');
         localStorage.removeItem('review_ratings_' + todayKey);
         setTimeout(() => showDone(), 1500);
+    } catch (e) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = '❌ Save failed: ' + e.message;
+    }
+}
 
+// User-submitted exemplar: an article found elsewhere that's a great example of their interests.
+async function submitExemplar() {
+    const statusEl = document.getElementById('exemplar-status');
+
+    if (!BAKED_TOKEN) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = 'Token not substituted — open this page via the deployed GitHub Pages site.';
+        return;
+    }
+
+    const urlEl   = document.getElementById('exemplar-url');
+    const titleEl = document.getElementById('exemplar-title');
+    const catEl   = document.getElementById('exemplar-category');
+    const noteEl  = document.getElementById('exemplar-note');
+
+    const url   = urlEl.value.trim();
+    const title = titleEl.value.trim();
+
+    if (!url || !title) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = 'URL and title are required.';
+        return;
+    }
+
+    let source = '';
+    try { source = new URL(url).hostname.replace(/^www\./, ''); } catch {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = 'That doesn\'t look like a valid URL.';
+        return;
+    }
+
+    const entry = {
+        url,
+        title,
+        source,
+        category: catEl.value,
+        rating:   'exemplar',
+        manual:   true,
+        note:     noteEl.value.trim() || null,
+        rated_at: new Date().toISOString(),
+    };
+
+    statusEl.className = 'status-msg';
+    statusEl.textContent = 'Saving…';
+
+    try {
+        await saveFeedbackEntries([entry]);
+        statusEl.className = 'status-msg success';
+        statusEl.textContent = `✅ Added "${title}" as a great example.`;
+        urlEl.value = '';
+        titleEl.value = '';
+        noteEl.value = '';
     } catch (e) {
         statusEl.className = 'status-msg error';
         statusEl.textContent = '❌ Save failed: ' + e.message;
