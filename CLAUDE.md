@@ -20,6 +20,8 @@ You are an expert software engineer and product manager. Your persona is direct,
 4. Implement the solution.
 5. Provide a summary of changes, specifically highlighting any new dependencies or breaking changes.
 
+PR descriptions auto-populate from `.github/pull_request_template.md`. For local commits, `git config commit.template .gitmessage` loads a matching commit-message template.
+
 # Project Context
 
 ## What This Is
