@@ -2,9 +2,12 @@
 """Weekly feedback trainer — reads user article ratings and updates config/feedback_examples.txt.
 
 Reads all feedback/YYYY-MM-DD.json files committed by the review.html UI, analyzes
-patterns in Good vs Bad ratings, calls Claude to synthesize actionable interest-profile
-signals, and writes the result to config/feedback_examples.txt. The main curator injects
-this file into the Claude scoring prompt so future runs reflect explicit user preferences.
+patterns in Exemplar/Good/Interesting/Bad ratings, calls Claude to synthesize actionable
+interest-profile signals, and writes the result to config/feedback_examples.txt. The main
+curator injects this file into the Claude scoring prompt so future runs reflect explicit
+user preferences. Exemplars (rating='exemplar') are user-submitted articles from anywhere
+on the web — added via the "Add a Great Example" form in review.html — and are treated as
+the strongest available signal.
 
 Also analyzes day-reassignment patterns (articles tagged for a different podcast day)
 and appends recommendations to FEEDBACK_TRAINING_LOG.md.
@@ -66,6 +69,7 @@ def load_feedback(lookback_days: int = LOOKBACK_DAYS):
 
 def aggregate_stats(ratings: list) -> dict:
     """Compute aggregates from raw ratings list."""
+    exemplars   = [r for r in ratings if r.get('rating') == 'exemplar']
     good        = [r for r in ratings if r.get('rating') == 'good']
     interesting = [r for r in ratings if r.get('rating') == 'interesting']
     bad         = [r for r in ratings if r.get('rating') == 'bad']
@@ -99,6 +103,7 @@ def aggregate_stats(ratings: list) -> dict:
         category_from_to[r['original_category']][r['category']] += 1
 
     return {
+        'exemplars': exemplars,
         'good': good,
         'interesting': interesting,
         'bad': bad,
@@ -114,6 +119,7 @@ def aggregate_stats(ratings: list) -> dict:
 
 
 def build_claude_prompt(stats: dict) -> str:
+    exemplars   = stats.get('exemplars', [])
     good        = stats['good']
     interesting = stats['interesting']
     bad         = stats['bad']
@@ -125,9 +131,14 @@ def build_claude_prompt(stats: dict) -> str:
         )
         return line + (f" — note: {r['note']}" if r.get('note') else '')
 
-    good_lines        = '\n'.join(fmt(r) for r in good[:40])
-    interesting_lines = '\n'.join(fmt(r) for r in interesting[:30])
-    bad_lines         = '\n'.join(fmt(r) for r in bad[:40])
+    def fmt_exemplar(r: dict) -> str:
+        line = f"- [{r.get('category','?')}] {r.get('title','?')} ({r.get('source','?')})"
+        return line + (f" — why: {r['note']}" if r.get('note') else '')
+
+    exemplar_lines     = '\n'.join(fmt_exemplar(r) for r in exemplars[:20])
+    good_lines         = '\n'.join(fmt(r) for r in good[:40])
+    interesting_lines  = '\n'.join(fmt(r) for r in interesting[:30])
+    bad_lines          = '\n'.join(fmt(r) for r in bad[:40])
 
     reassign_lines = ''
     if stats['reassigned']:
@@ -145,6 +156,10 @@ def build_claude_prompt(stats: dict) -> str:
     return f"""A user has been rating RSS news articles for their personal feed and podcast.
 Analyze the patterns and write concise, actionable bullet points for the curator's scoring prompt.
 
+USER-CURATED EXEMPLARS (manually flagged by the user, from anywhere on the web, as ideal examples of
+their interests — this is the strongest signal available, stronger than the passive ratings below):
+{exemplar_lines or '(none yet)'}
+
 GOOD FIT articles (user liked these and tagged them to podcast days):
 {good_lines or '(none yet)'}
 
@@ -156,8 +171,8 @@ BAD FIT articles (user explicitly disliked these):
 {reassign_lines}{recat_lines}
 Task: Write 6-12 bullet points that a news-scoring AI should use to calibrate RELEVANCE scores.
 Focus on:
-(a) Topic and framing signals in Good/Interesting articles vs Bad articles
-(b) Topics in Interesting articles that may be under-represented in the main feed
+(a) Topic and framing signals from the exemplars first, then Good/Interesting vs Bad articles
+(b) Topics in exemplars or Interesting articles that may be under-represented in the main feed
 (c) Source or content-type patterns worth noting
 (d) Any day-reassignment patterns (articles consistently moved to specific podcast days)
 (e) Any category-retag patterns (articles consistently miscategorized by the curator)
@@ -178,6 +193,7 @@ def synthesize_with_claude(prompt: str, api_key: str) -> str:
 
 def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> str:
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    exemplar_count    = len(stats.get('exemplars', []))
     good_count        = len(stats['good'])
     interesting_count = len(stats.get('interesting', []))
     bad_count         = len(stats['bad'])
@@ -208,7 +224,7 @@ def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> 
     return f"""## Feedback Training Run — {now}
 
 **Files processed:** {', '.join(files) if files else 'none'}
-**Ratings:** {good_count} Good, {interesting_count} Interesting, {bad_count} Bad, {reassign_count} reassigned to day(s), {recat_count} recategorized
+**Ratings:** {exemplar_count} Exemplars, {good_count} Good, {interesting_count} Interesting, {bad_count} Bad, {reassign_count} reassigned to day(s), {recat_count} recategorized
 **Status:** {status}
 
 **Top liked sources:** {', '.join(f'{s} ({n})' for s, n in top_good_sources) or 'n/a'}
@@ -245,9 +261,10 @@ def main():
         print(f'ℹ️  Insufficient feedback ({len(qualifying)} qualifying files, need {MIN_FILES}). Skipping.')
         sys.exit(0)
 
-    good_count = len([r for r in ratings if r.get('rating') == 'good'])
-    bad_count  = len([r for r in ratings if r.get('rating') == 'bad'])
-    print(f'   {len(qualifying)} files, {good_count} Good / {bad_count} Bad ratings')
+    exemplar_count = len([r for r in ratings if r.get('rating') == 'exemplar'])
+    good_count     = len([r for r in ratings if r.get('rating') == 'good'])
+    bad_count      = len([r for r in ratings if r.get('rating') == 'bad'])
+    print(f'   {len(qualifying)} files, {exemplar_count} Exemplars / {good_count} Good / {bad_count} Bad ratings')
 
     stats  = aggregate_stats(ratings)
     prompt = build_claude_prompt(stats)
