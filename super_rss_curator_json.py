@@ -297,9 +297,9 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
             return None
         article.link = url
         article.url_hash = hashlib.md5(canonicalize_url(url).encode()).hexdigest()
-        article.description = snippet
-        article.summary = _clean_text(snippet, max_chars=300)
-        article.excerpt = _clean_text(snippet, max_chars=600)
+        article.description = '' if _is_tagline_boilerplate(snippet) else snippet
+        article.summary = _clean_text(article.description, max_chars=300)
+        article.excerpt = _clean_text(article.description, max_chars=600)
         if pub_str:
             try:
                 article.pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
@@ -414,6 +414,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
 
     print(f"  🔍 Topic queries: {len(all_articles)} articles from {len(queries)} "
           f"queries (Brave={'on' if brave_key else 'off'}, Kagi={'on' if kagi_key else 'off'})")
+    _enrich_thin_local_articles(all_articles)
     return all_articles
 
 
@@ -605,6 +606,23 @@ def _find_boilerplate_keys(descriptions: List[str], channel_key: str = '',
     }
 
 
+# The "Now" network of Cariboo/Kootenay local news sites (My Cariboo Now, My East
+# Kootenay Now, etc.) republishes this site-wide tagline as every article's RSS/meta
+# description. Their feeds also reliably 403 on direct fetch (see FEED_ERRORS.md), so
+# these articles always come in through the Brave/Kagi/Google News search fallbacks,
+# which have no parsed channel description and often only 1-2 items per run — too few
+# to trip _find_boilerplate_keys's count/channel heuristic. Match the tagline directly
+# so it's stripped regardless of fetch path or batch size.
+_TAGLINE_BOILERPLATE_RE = re.compile(
+    r'stay connected with .{0,60}now\b.{0,20}delivering local news', re.IGNORECASE
+)
+
+
+def _is_tagline_boilerplate(text: str) -> bool:
+    """True if text is the 'Stay connected with My Cariboo Now...' site tagline."""
+    return bool(text) and bool(_TAGLINE_BOILERPLATE_RE.search(text))
+
+
 def _strip_markdown_links(text: str) -> str:
     """Convert markdown link syntax to plain text: [text](url) → text, ![alt](url) → alt.
 
@@ -650,6 +668,8 @@ class Article:
             self.title = raw_title
         self.link = entry.get('link', '').strip()
         self.description = entry.get('description', '') or entry.get('summary', '')
+        if _is_tagline_boilerplate(self.description):
+            self.description = ''
         self.pub_date = self._parse_date(entry)
         # For Google News feeds, use the outlet name embedded in the title suffix
         # (e.g. "TechCrunch") rather than the generic feed title ("GN AI ML Infrastructure")
@@ -1274,6 +1294,28 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
         return ''
 
 
+def _enrich_thin_local_articles(articles: List['Article']) -> int:
+    """Fetch a body excerpt for thin/empty descriptions from known local BC domains.
+
+    Recovers real article text once a boilerplate tagline has been stripped to ''
+    (see _is_tagline_boilerplate), and covers feed/search results that never had a
+    usable description to begin with. Used by every fetch path — direct RSS and the
+    Brave/Kagi/Google News fallbacks — so local articles get consistent treatment
+    regardless of which path sourced them.
+    """
+    fetched = 0
+    for article in articles:
+        if (len(article.summary) < 100
+                and any(d in article.link for d in _LOCAL_BC_DOMAINS)):
+            body = _fetch_article_excerpt(article.link, max_chars=600)
+            if body and not _is_tagline_boilerplate(body):
+                article.description = body
+                article.summary = _clean_text(body, max_chars=300)
+                article.excerpt = _clean_text(body, max_chars=600)
+                fetched += 1
+    return fetched
+
+
 def _kagi_enrich_articles(
     articles: List['Article'],
     kagi_key: str,
@@ -1589,6 +1631,9 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
         except Exception:
             continue
 
+    # Search snippets for local BC domains are often the site-wide tagline (already
+    # stripped in Article.__init__) rather than real article text — recover it now.
+    _enrich_thin_local_articles(articles)
     return articles
 
 
@@ -1661,6 +1706,9 @@ def _fetch_via_kagi_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]
         except Exception:
             continue
 
+    # Search snippets for local BC domains are often the site-wide tagline (already
+    # stripped in Article.__init__) rather than real article text — recover it now.
+    _enrich_thin_local_articles(articles)
     return articles
 
 
@@ -1704,6 +1752,7 @@ def _fetch_via_google_news_fallback(feed: Dict, cutoff_date: datetime) -> List[A
             continue
         articles.append(article)
 
+    _enrich_thin_local_articles(articles)
     return articles
 
 
@@ -1753,7 +1802,6 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         )
 
         articles = []
-        fetched_excerpts = 0
         stripped_boilerplate = 0
         for entry in parsed.entries:
             article = Article(entry, feed['title'], feed['html_url'], feed['url'])
@@ -1770,20 +1818,11 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             if article.should_filter():
                 continue
 
-            # For known local BC sources with a stub description, attempt a body
-            # fetch while the article is still within the paywall-free window.
-            if (len(article.summary) < 100
-                    and any(d in article.link for d in _LOCAL_BC_DOMAINS)):
-                body = _fetch_article_excerpt(article.link, max_chars=600)
-                # The page's og:description fallback can be the same sitewide
-                # tagline the feed repeats — don't reinstate stripped boilerplate.
-                if body and _boilerplate_key(body) not in boilerplate_keys:
-                    article.description = body
-                    article.summary = _clean_text(body, max_chars=300)
-                    article.excerpt = _clean_text(body, max_chars=600)
-                    fetched_excerpts += 1
-
             articles.append(article)
+
+        # For known local BC sources with a stub (or just-stripped) description,
+        # attempt a body fetch while the article is still within the paywall-free window.
+        fetched_excerpts = _enrich_thin_local_articles(articles)
 
         if articles:
             extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
