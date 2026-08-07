@@ -155,7 +155,18 @@ def aggregate_stats(ratings: list) -> dict:
     }
 
 
-def build_claude_prompt(stats: dict) -> str:
+def load_archived_summary() -> str:
+    """Distilled aggregates from archived feedback, so signal older than the 30-day
+    lookback still informs the synthesis. Empty string when nothing is archived yet."""
+    try:
+        from feedback_archive import rollup_summary
+        return rollup_summary()
+    except Exception as e:
+        print(f'⚠️  Could not read feedback rollup: {e}')
+        return ''
+
+
+def build_claude_prompt(stats: dict, archived_summary: str = '') -> str:
     exemplars   = stats.get('exemplars', [])
     good        = stats['good']
     interesting = stats['interesting']
@@ -191,9 +202,17 @@ def build_claude_prompt(stats: dict) -> str:
         for r in stats['recategorized'][:20]:
             recat_lines += f"- '{r.get('title','?')}' from {r['original_category']} → {r['category']}\n"
 
+    archived_block = ''
+    if archived_summary:
+        archived_block = (
+            "\nLONG-TERM BACKGROUND (distilled aggregates from feedback older than the "
+            f"{LOOKBACK_DAYS}-day window; use for durable patterns, but let the recent "
+            "ratings below win where they disagree):\n" + archived_summary + '\n'
+        )
+
     return f"""A user has been rating RSS news articles for their personal feed and podcast.
 Analyze the patterns and write concise, actionable bullet points for the curator's scoring prompt.
-
+{archived_block}
 USER-CURATED EXEMPLARS (manually flagged by the user, from anywhere on the web, as ideal examples of
 their interests — this is the strongest signal available, stronger than the passive ratings below):
 {exemplar_lines or '(none yet)'}
@@ -307,8 +326,11 @@ def main():
     bad_count      = len([r for r in ratings if r.get('rating') == 'bad'])
     print(f'   {len(qualifying)} files, {exemplar_count} Exemplars / {good_count} Good / {bad_count} Bad ratings')
 
-    stats  = aggregate_stats(ratings)
-    prompt = build_claude_prompt(stats)
+    stats = aggregate_stats(ratings)
+    archived_summary = load_archived_summary()
+    if archived_summary:
+        print(f'   + archived rollup ({archived_summary.splitlines()[0]})')
+    prompt = build_claude_prompt(stats, archived_summary)
 
     print('🤖 Synthesizing feedback signals with Claude...')
     synthesis = synthesize_with_claude(prompt, api_key)

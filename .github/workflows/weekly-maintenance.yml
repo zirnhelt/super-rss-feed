@@ -34,6 +34,14 @@ on:
         description: 'Feedback trainer: analyze and log only, do not write config changes'
         type: boolean
         default: false
+      run_feedback_archive:
+        description: 'Archive old feedback (distil into rollup, compress raw files)'
+        type: boolean
+        default: true
+      feedback_archive_dry_run:
+        description: 'Feedback archive: report only, do not move or delete files'
+        type: boolean
+        default: false
       run_quality_review:
         description: 'Run quality review (score/scrub + corpus alignment reports)'
         type: boolean
@@ -216,6 +224,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Archive first so the trainer's synthesis can draw on a current rollup. The two
+      # touch disjoint windows (trainer reads 30 days, archiver moves files older than
+      # feedback_retention_days), so this is ordering for clarity, not correctness.
+      - name: Archive old feedback
+        if: github.event_name == 'schedule' || inputs.run_feedback_archive
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python feedback_archive.py \
+            ${{ inputs.feedback_archive_dry_run && '--dry-run' || '' }}
+
       - name: Run feedback trainer
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -227,6 +246,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add config/feedback_examples.txt FEEDBACK_TRAINING_LOG.md 2>/dev/null || true
+          git add -A feedback 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Weekly feedback training run [skip ci]"
           bash .github/scripts/git_push_retry.sh main
         continue-on-error: true

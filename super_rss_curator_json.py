@@ -5114,13 +5114,24 @@ def main():
     print("\n✅ Feed generation complete!")
 
 
-def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article],
-                         schedule_config: Optional[Dict],
-                         haiku_rejected: Optional[List[Article]] = None):
-    """Select 20 articles for daily training feedback and write feed-review.json."""
-    # Load already-reviewed URLs so we don't surface the same article twice.
+def load_reviewed_urls() -> set:
+    """Every URL the user has already rated, so review feeds never re-surface one.
+
+    Reads `feedback/reviewed_urls.json` — the compact ledger maintained by
+    feedback_archive.py — and unions in any live `feedback/YYYY-MM-DD.json` files, which
+    covers ratings submitted since the last archiver run. Falls back cleanly to the live
+    files alone when the ledger does not exist yet.
+    """
     reviewed_urls: set = set()
     feedback_dir = Path('feedback')
+
+    ledger_file = feedback_dir / 'reviewed_urls.json'
+    try:
+        ledger = json.loads(ledger_file.read_text(encoding='utf-8'))
+        reviewed_urls.update(ledger.get('urls', {}).keys())
+    except Exception:
+        pass
+
     if feedback_dir.exists():
         for f in feedback_dir.glob('????-??-??.json'):
             try:
@@ -5131,6 +5142,16 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
                         reviewed_urls.add(r['url'])
             except Exception:
                 pass
+
+    return reviewed_urls
+
+
+def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article],
+                         schedule_config: Optional[Dict],
+                         haiku_rejected: Optional[List[Article]] = None):
+    """Select 20 articles for daily training feedback and write feed-review.json."""
+    # Load already-reviewed URLs so we don't surface the same article twice.
+    reviewed_urls = load_reviewed_urls()
 
     today_name = datetime.now(ZoneInfo('America/Vancouver')).strftime('%A').lower()
     today_label = ''
