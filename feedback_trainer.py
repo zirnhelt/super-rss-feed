@@ -28,6 +28,8 @@ except ImportError:
     print("❌ anthropic package not installed")
     sys.exit(1)
 
+from fetch_images import fetch_page_title
+
 FEEDBACK_DIR     = Path('feedback')
 EXAMPLES_FILE    = Path('config/feedback_examples.txt')
 LOG_FILE         = Path('FEEDBACK_TRAINING_LOG.md')
@@ -65,6 +67,41 @@ def load_feedback(lookback_days: int = LOOKBACK_DAYS):
         ratings.extend(file_ratings)
 
     return files, ratings
+
+
+def backfill_exemplar_titles(lookback_days: int = LOOKBACK_DAYS) -> int:
+    """Scrape titles for exemplars submitted without one. Returns count backfilled."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=lookback_days)
+    backfilled = 0
+
+    if not FEEDBACK_DIR.exists():
+        return backfilled
+
+    for f in sorted(FEEDBACK_DIR.glob('????-??-??.json')):
+        try:
+            date = datetime.fromisoformat(f.stem).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        if date < cutoff:
+            continue
+        try:
+            data = json.loads(f.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+
+        dirty = False
+        for r in data.get('ratings', []):
+            if r.get('rating') == 'exemplar' and not r.get('title'):
+                title = fetch_page_title(r['url'])
+                if title:
+                    r['title'] = title
+                    dirty = True
+                    backfilled += 1
+
+        if dirty and not DRY_RUN:
+            f.write_text(json.dumps(data, indent=2), encoding='utf-8')
+
+    return backfilled
 
 
 def aggregate_stats(ratings: list) -> dict:
@@ -132,7 +169,8 @@ def build_claude_prompt(stats: dict) -> str:
         return line + (f" — note: {r['note']}" if r.get('note') else '')
 
     def fmt_exemplar(r: dict) -> str:
-        line = f"- [{r.get('category','?')}] {r.get('title','?')} ({r.get('source','?')})"
+        label = r.get('title') or r.get('source') or r.get('url', '?')
+        line = f"- [{r.get('category','?')}] {label} ({r.get('source','?')})"
         return line + (f" — why: {r['note']}" if r.get('note') else '')
 
     exemplar_lines     = '\n'.join(fmt_exemplar(r) for r in exemplars[:20])
@@ -254,6 +292,9 @@ def main():
         sys.exit(1)
 
     print('📊 Feedback Trainer — loading ratings...')
+    backfilled = backfill_exemplar_titles(LOOKBACK_DAYS)
+    if backfilled:
+        print(f'   🔎 Backfilled {backfilled} exemplar title(s) from source pages')
     files, ratings = load_feedback(LOOKBACK_DAYS)
     qualifying = [f for f in files]
 

@@ -79,6 +79,32 @@ def fetch_opengraph_image(url, timeout=3):
         return None
 
 
+def fetch_page_title(url, timeout=3):
+    """Fetch og:title or <title> from a page"""
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader/1.0)',
+            'Accept': 'text/html,application/xhtml+xml'
+        }
+
+        response = requests.get(url, headers=headers, timeout=timeout, allow_redirects=True)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        og_title = soup.find('meta', property='og:title')
+        if og_title and og_title.get('content'):
+            return og_title['content'].strip()
+
+        if soup.title and soup.title.string:
+            return soup.title.string.strip()
+
+        return None
+
+    except Exception:
+        return None
+
+
 def get_source_logo(source_url):
     """Get favicon/logo for a source domain"""
     try:
