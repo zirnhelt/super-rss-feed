@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-08-06 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
 | 2026-08-05 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
 | 2026-08-05 | 🌙 8:30 PM Pacific | ⚠️ **LoRaMeshDevices** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-08-04 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
@@ -21,17 +22,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-08-06 | 🌙 evening | 89 | news:25(31%), ai-tech:18(22%), wellness:10(12%) |
 | 2026-08-05 | 🌙 evening | 99 | news:25(28%), ai-tech:18(20%), local:11(12%) |
 | 2026-08-04 | 🌙 evening | 89 | news:25(31%), ai-tech:18(22%), wellness:10(12%) |
 | 2026-08-03 | 🌙 evening | 68 | news:25(37%), ai-tech:11(16%), wellness:9(13%) |
 | 2026-08-01 | 🔧 manual | 55 | news:25(45%), ai-tech:8(15%), science:7(13%) |
 | 2026-08-01 | 🌙 evening | 62 | news:25(40%), ai-tech:13(21%), science:8(13%) |
 | 2026-07-31 | 🌙 evening | 63 | news:25(40%), ai-tech:10(16%), wellness:10(16%) |
-| 2026-07-30 | 🌙 evening | 77 | news:25(32%), ai-tech:14(18%), wellness:10(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-06 06:43 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-07 05:52 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
