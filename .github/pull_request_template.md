@@ -1,14 +1,33 @@
+## Context
+
+Why this change was needed. What problem does it solve? Any architectural tradeoffs or constraints worth noting?
+
 ## Summary
-<!-- What changed and why. -->
+
+What changed. Keep this concise — the Context section explains the motivation and tradeoffs above.
 
 ## New dependencies or breaking changes
-<!-- Anything added to requirements.txt? Any output/config format change? None if not applicable. -->
+
+- Any additions to `requirements.txt`? Version pinned? Compatibility notes?
+- Any changes to output/config format? Schema updates to JSON feeds or cached state files?
+- None if not applicable.
 
 ## API cost impact
-<!-- Does this change Claude/Cohere/Brave/Kagi call volume, model choice, or batch sizes? None if not applicable. -->
+
+- Did Claude model choice, batch size, or call frequency change?
+- Cohere/Brave/Kagi call volume changes?
+- Net impact on daily/weekly API costs?
+- None if not applicable.
 
 ## Config changes
-<!-- Any files under config/ touched? Note if calibration_bounds.json whitelisting needs updating. None if not applicable. -->
+
+- Files under `config/` touched? Which ones?
+- Did `calibration_bounds.json` whitelist need updating to allow new tunable knobs?
+- Any changes to scoring weights, thresholds, or category definitions?
+- None if not applicable.
 
 ## Testing
-<!-- How was this verified — test_setup.py, a local run of super_rss_curator_json.py, dry-run flags, etc. -->
+
+- What test? (unit test, integration run, local `super_rss_curator_json.py` run, dry-run, etc.)
+- Command or steps to reproduce verification?
+- None if verification is obvious from the diff and commit message.
