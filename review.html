@@ -214,7 +214,7 @@
         <p class="subtitle">Found an article elsewhere that's a perfect example of what you want more of? Add it here — it feeds the weekly trainer as your strongest signal.</p>
         <div class="exemplar-form">
             <input type="url" id="exemplar-url" placeholder="Article URL" />
-            <input type="text" id="exemplar-title" placeholder="Article title" />
+            <input type="text" id="exemplar-title" placeholder="Article title (optional)" />
             <select id="exemplar-category"></select>
             <textarea id="exemplar-note" placeholder="Why is this a great example? (optional)" maxlength="200"></textarea>
             <button class="btn btn-primary" onclick="submitExemplar()">⭐ Add Example</button>
@@ -680,9 +680,9 @@ async function submitExemplar() {
     const url   = urlEl.value.trim();
     const title = titleEl.value.trim();
 
-    if (!url || !title) {
+    if (!url) {
         statusEl.className = 'status-msg error';
-        statusEl.textContent = 'URL and title are required.';
+        statusEl.textContent = 'URL is required.';
         return;
     }
 
@@ -695,7 +695,7 @@ async function submitExemplar() {
 
     const entry = {
         url,
-        title,
+        title: title || null,
         source,
         category: catEl.value,
         rating:   'exemplar',
@@ -710,7 +710,7 @@ async function submitExemplar() {
     try {
         await saveFeedbackEntries([entry]);
         statusEl.className = 'status-msg success';
-        statusEl.textContent = `✅ Added "${title}" as a great example.`;
+        statusEl.textContent = `✅ Added "${title || url}" as a great example.`;
         urlEl.value = '';
         titleEl.value = '';
         noteEl.value = '';
