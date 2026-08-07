@@ -117,7 +117,11 @@ def load_ledger() -> Dict[str, str]:
     return urls if isinstance(urls, dict) else {}
 
 
-def save_ledger(urls: Dict[str, str]) -> None:
+def save_ledger(urls: Dict[str, str]) -> bool:
+    """Write the ledger. No-op when the URL set is unchanged, so a quiet weekly run
+    does not produce a timestamp-only diff for CI to commit. Returns True if written."""
+    if urls == load_ledger() and LEDGER_FILE.exists():
+        return False
     LEDGER_FILE.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         'version': LEDGER_VERSION,
@@ -126,12 +130,20 @@ def save_ledger(urls: Dict[str, str]) -> None:
         'urls': dict(sorted(urls.items())),
     }
     LEDGER_FILE.write_text(json.dumps(payload, separators=(',', ':')), encoding='utf-8')
+    return True
 
 
-def save_rollup(rollup: Dict[str, Any]) -> None:
+def save_rollup(rollup: Dict[str, Any]) -> bool:
+    """Write the rollup, skipping timestamp-only rewrites. Returns True if written."""
+    existing = _read_json(ROLLUP_FILE)
+    if isinstance(existing, dict) and ROLLUP_FILE.exists():
+        if {k: v for k, v in existing.items() if k != 'updated_at'} == \
+           {k: v for k, v in rollup.items() if k != 'updated_at'}:
+            return False
     ROLLUP_FILE.parent.mkdir(parents=True, exist_ok=True)
     rollup['updated_at'] = datetime.now(timezone.utc).isoformat(timespec='seconds')
     ROLLUP_FILE.write_text(json.dumps(rollup, indent=2, sort_keys=True), encoding='utf-8')
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -481,12 +493,13 @@ def archive(retention_days: int, ledger_days: int, dry_run: bool,
         else:
             print('   ⚠️  No ANTHROPIC_API_KEY — statistics-only rollup (topic signal not distilled)')
 
+    wrote = False
     if not dry_run:
         rollup['archived_files'] = sorted(set(rollup.get('archived_files', [])))
-        save_rollup(rollup)
-        save_ledger(ledger)
+        wrote = save_rollup(rollup) | save_ledger(ledger)
 
     return {
+        'wrote': wrote,
         'archived_files': archived,
         'ratings_absorbed': absorbed_total,
         'ledger_size': len(ledger),
@@ -573,6 +586,8 @@ def main() -> None:
     print(f"   URL ledger: {result['ledger_size']} URLs "
           f"(+{result['ledger_new']} new, −{result['ledger_pruned']} pruned)")
     print(f"   Live files remaining: {result['remaining_files']}")
+    if not args.dry_run and not result['wrote']:
+        print('   Nothing changed — no files rewritten.')
 
     if not args.dry_run and (result['archived_files'] or result['ledger_new']):
         append_log(build_log_entry(result, retention_days, args.dry_run))
