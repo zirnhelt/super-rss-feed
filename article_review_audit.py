@@ -50,21 +50,37 @@ MIN_SOURCE_RATINGS = 5
 # ---------------------------------------------------------------------------
 
 def load_ratings(feedback_dir: Path = FEEDBACK_DIR) -> List[Dict]:
-    """All ratings across feedback files, deduplicated by URL (latest wins)."""
+    """All ratings, live and archived, deduplicated by URL (latest wins).
+
+    Live files cover the retention window; older ratings live in the gzipped shards
+    written by feedback_archive.py, so the audit keeps its full horizon even after the
+    raw `feedback/YYYY-MM-DD.json` files have been compressed away.
+    """
     by_url: Dict[str, Dict] = {}
-    for path in sorted(glob.glob(str(feedback_dir / '????-??-??.json'))):
-        try:
-            with open(path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-        except Exception:
-            continue
-        for rating in data.get('ratings', []):
+
+    def absorb(ratings: List[Dict]) -> None:
+        for rating in ratings:
             url = rating.get('url')
             if not url or rating.get('rating') not in ('good', 'interesting', 'bad', 'skip'):
                 continue
             prev = by_url.get(url)
             if prev is None or (rating.get('rated_at') or '') >= (prev.get('rated_at') or ''):
                 by_url[url] = rating
+
+    try:
+        from feedback_archive import read_archived_ratings
+        absorb(read_archived_ratings(feedback_dir / 'archive'))
+    except Exception as e:
+        print(f'⚠️ Could not read archived feedback shards: {e}')
+
+    for path in sorted(glob.glob(str(feedback_dir / '????-??-??.json'))):
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        absorb(data.get('ratings', []))
+
     return sorted(by_url.values(), key=lambda r: r.get('rated_at') or '')
 
 
