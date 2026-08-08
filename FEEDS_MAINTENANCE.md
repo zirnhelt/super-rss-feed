@@ -179,6 +179,26 @@ clarity and specificity about the Cariboo context matter more than elegance.
    ```
 4. Run locally or let the next CI run pick it up. Check `TODO.md` the next day.
 
+**To add a source you can read paywall-free (Apple News+, direct subscription):**
+
+Add it under `subscriber_access.sources` in `config/source_preferences.json`,
+keyed by the exact OPML `title`:
+
+```json
+"The New Yorker": "Apple News+"
+```
+
+The curator then skips the paywall scoring penalty, prefixes the item title with
+🔓, and sets `_subscriber_access` on the JSON Feed item. Any label starting with
+`Apple News` additionally sets `_apple_news_url` —
+`applenews://search?term=<title>`, with the trailing publication name stripped —
+which `index.html` renders as a 📰 link beside the article. Tapping it on a device
+with Apple News installed opens the article in the app.
+
+Note that Apple assigns per-article `apple.news/A…` IDs opaquely; they cannot be
+derived from a publisher URL, so the title search is the only linking method that
+works from RSS alone.
+
 **To add a Google News fallback feed** (when no direct RSS exists):
 
 ```xml
