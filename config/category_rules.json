@@ -6,9 +6,9 @@
     "description": "Williams Lake and Cariboo region local news only"
   },
   "homelab": {
-    "include": ["self-hosting", "self-hosted", "home server", "3D printing", "Bambu Lab", "home automation", "HomeKit", "HomeBridge", "Omada", "mesh networking", "Meshtastic", "proxmox", "home assistant", "truenas", "jellyfin", "plex server", "docker compose", "wireguard vpn", "kubernetes homelab", "NAS storage"],
+    "include": ["self-hosting", "self-hosted", "home server", "3D printing", "Bambu Lab", "home automation", "HomeKit", "HomeBridge", "Omada", "mesh networking", "Meshtastic", "proxmox", "home assistant", "truenas", "jellyfin", "plex server", "docker compose", "wireguard vpn", "kubernetes homelab", "NAS storage", "woodworking", "wood shop", "workshop", "hand tools", "hand plane", "joinery", "cabinetmaking", "workbench", "furniture making", "tool restoration", "sharpening", "home repair", "drywall", "shop build"],
     "exclude": ["consumer tips", "phone accessories", "charging cables", "AirTag", "product reviews"],
-    "description": "Self-hosted infrastructure, 3D printing, serious home automation - NOT consumer gadgets or tips"
+    "description": "Self-hosted infrastructure, 3D printing, serious home automation, and hands-on shop craft - woodworking, joinery, hand tools, tool restoration, home repair - NOT consumer gadgets or tips"
   },
   "homestead": {
     "include": ["homestead", "homesteading", "hobby farm", "small farm", "smallholding", "acreage", "market garden", "permaculture", "regenerative farming", "regenerative agriculture", "backyard chickens", "laying hens", "small livestock", "goats", "beekeeping", "rotational grazing", "pasture management", "haying", "woodlot", "orchard", "seed saving", "heirloom seeds", "food preservation", "canning", "root cellar", "fermentation", "composting", "soil health", "rainwater harvesting", "well water", "off-grid living", "self-sufficiency", "homestead solar", "4-H"],
@@ -49,14 +49,19 @@
     "description": "Science fiction and fantasy ONLY - NOT tech lifestyle, productivity apps, or promotional e-book deals"
   },
   "design": {
-    "include": ["architecture", "architect", "architectural", "built environment", "building science", "passive house", "Passivhaus", "mass timber", "cross-laminated timber", "timber frame", "energy retrofit", "deep retrofit", "building envelope", "net-zero building", "tiny home", "small dwelling", "cabin design", "prefab housing", "modular housing", "adaptive reuse", "heritage building", "heritage restoration", "vernacular architecture", "urban design", "placemaking", "land use planning", "zoning reform", "missing middle housing", "industrial design", "product design", "design studio"],
+    "include": ["architecture", "architect", "architectural", "built environment", "building science", "passive house", "Passivhaus", "mass timber", "cross-laminated timber", "timber frame", "energy retrofit", "deep retrofit", "building envelope", "net-zero building", "tiny home", "small dwelling", "cabin design", "prefab housing", "modular housing", "adaptive reuse", "heritage building", "heritage restoration", "vernacular architecture", "urban design", "placemaking", "land use planning", "zoning reform", "missing middle housing", "industrial design", "product design", "design studio", "old house", "period home", "historic home", "heritage home", "historic restoration", "sash window", "timber restoration", "listed building", "home renovation"],
     "exclude": ["software architecture", "system architecture", "reference architecture", "chip architecture", "processor architecture", "network architecture", "cloud architecture", "housing market", "home prices", "mortgage rates", "real estate listing", "% off", "on sale", "celebrity home", "red carpet"],
-    "description": "Built environment, building science, rural and vernacular architecture, small dwellings, placemaking, and industrial design - NOT software/system architecture, real estate markets, or celebrity home tours"
+    "description": "Built environment, building science, rural and vernacular architecture, small dwellings, placemaking, industrial design, and period-home restoration work - NOT software/system architecture, real estate markets, or celebrity home tours"
   },
   "ai-tech": {
     "include": ["AI infrastructure", "MLOps", "machine learning", "LLM", "large language model", "artificial intelligence", "platform engineering", "observability", "telemetry", "cloud infrastructure", "ChatGPT", "OpenAI", "Gemini", "Claude AI", "foundation model", "neural network", "deep learning", "computer vision", "natural language processing", "generative AI", "model training", "fine-tuning", "transformer model", "Microsoft Copilot", "Google AI", "Apple Intelligence", "AI agent", "AI model", "language model"],
     "exclude": ["consumer apps", "phone reviews", "gadget reviews", "charging tips"],
     "description": "AI/ML systems, platform engineering, infrastructure, and AI product news - NOT consumer tech reviews unrelated to AI"
+  },
+  "outdoors": {
+    "include": ["hiking", "hiking trail", "trail network", "long-distance trail", "thru-hike", "trail running", "backpacking", "backcountry", "wilderness travel", "camping", "campsite", "canoe", "kayak", "paddling", "packrafting", "bikepacking", "mountain biking", "gravel riding", "cycle touring", "snowshoe", "ski touring", "backcountry skiing", "mountaineering", "scrambling", "fly fishing", "angling", "hunting season", "trip report", "national park", "provincial park", "park trail", "route finding", "wilderness first aid", "leave no trace"],
+    "exclude": ["wildfire evacuation", "evacuation order", "evacuation alert", "conservation policy", "species at risk", "habitat restoration", "watershed restoration", "race results", "podium finish", "world championship", "stage win", "% off", "on sale", "best deals", "buying guide", "gear guide", "tested and ranked", "housing market"],
+    "description": "Outdoor recreation and human-powered travel - hiking, backcountry, camping, paddling, cycling, fishing and hunting, parks and trip reporting - NOT wildfire emergencies or conservation and habitat policy (those are climate/local), and NOT competitive racing"
   },
   "news": {
     "description": "Default category for everything else: politics, business, product reviews, consumer tech tips, general technology news",

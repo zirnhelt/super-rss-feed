@@ -18,6 +18,11 @@
       "path": ["min_score_by_category", "design"],
       "type": "int", "min": 8, "max": 25, "max_step": 3, "default": 12
     },
+    "limits.min_score_by_category.outdoors": {
+      "file": "config/limits.json",
+      "path": ["min_score_by_category", "outdoors"],
+      "type": "int", "min": 8, "max": 25, "max_step": 3, "default": 12
+    },
     "limits.min_score_by_category.homelab": {
       "file": "config/limits.json",
       "path": ["min_score_by_category", "homelab"],
@@ -185,6 +190,10 @@
     "feed_slots.max_slots.design": {
       "file": "config/feed_slots.json", "path": ["design", "max_slots"],
       "type": "int", "min": 3, "max": 8, "max_step": 2, "default": 6
+    },
+    "feed_slots.max_slots.outdoors": {
+      "file": "config/feed_slots.json", "path": ["outdoors", "max_slots"],
+      "type": "int", "min": 3, "max": 10, "max_step": 2, "default": 8
     },
     "feed_slots.max_slots.news": {
       "file": "config/feed_slots.json", "path": ["news", "max_slots"],
