@@ -75,6 +75,10 @@ BRAVE_SEARCH_TOPICS = [
     # Architecture & Design
     ("architecture building science passive house mass timber blog rss feed", "design"),
     ("tiny home cabin prefab vernacular rural architecture blog rss feed", "design"),
+    # Outdoors & Recreation
+    ("backcountry hiking trail trip report BC wilderness blog rss feed", "outdoors"),
+    ("canoe kayak paddling bikepacking cycle touring blog rss feed", "outdoors"),
+    ("ski touring snowshoe backcountry safety route finding blog rss feed", "outdoors"),
 ]
 FEED_PROBE_PATHS = ["/feed", "/rss", "/atom.xml", "/feed.xml", "/index.xml", "/rss.xml"]
 

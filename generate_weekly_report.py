@@ -28,7 +28,7 @@ BASE_URL = "https://zirnhelt.github.io/super-rss-feed"
 GITHUB_REPO_URL = "https://github.com/zirnhelt/super-rss-feed"
 FEED_NEWS_URL = f"{BASE_URL}/feed-news.json"
 OUTPUT_DIR = Path("output")
-CATEGORY_ORDER = ["local", "ai-tech", "climate", "homelab", "homestead", "wellness", "science", "scifi", "design", "news"]
+CATEGORY_ORDER = ["local", "ai-tech", "climate", "homelab", "homestead", "wellness", "science", "scifi", "design", "outdoors", "news"]
 
 
 # ---------------------------------------------------------------------------
@@ -129,7 +129,7 @@ def get_weekly_stats() -> dict:
         for qm in re.finditer(r"quality \*\*(\d+)\*\*", day_text):
             total_quality += int(qm.group(1))
         for cm in re.finditer(
-            r"(local|ai-tech|climate|homelab|wellness|news|science|scifi):(\d+)\(", day_text
+            r"(local|ai-tech|climate|homelab|homestead|wellness|news|science|scifi|design|outdoors):(\d+)\(", day_text
         ):
             cat_totals[cm.group(1)] += int(cm.group(2))
 

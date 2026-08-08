@@ -26,7 +26,7 @@ PR descriptions auto-populate from `.github/pull_request_template.md`. For local
 
 ## What This Is
 
-**Super RSS Feed Curator** — an AI-powered RSS aggregator that pulls from 100+ feeds, deduplicates, scores, and publishes 10 categorized JSON feeds plus 7 themed daily podcast feeds via GitHub Pages. Runs twice daily on GitHub Actions. The audience is a single user in Williams Lake, BC (Cariboo region).
+**Super RSS Feed Curator** — an AI-powered RSS aggregator that pulls from 100+ feeds, deduplicates, scores, and publishes 11 categorized JSON feeds plus 7 themed daily podcast feeds via GitHub Pages. Runs twice daily on GitHub Actions. The audience is a single user in Williams Lake, BC (Cariboo region).
 
 Live site: `https://zirnhelt.github.io/super-rss-feed/`
 Repo: `github.com/zirnhelt/super-rss-feed`
@@ -140,13 +140,13 @@ Consumers: `article_review_audit.py` reads live **and** archived shards (full ho
 
 ## Output Feeds
 
-10 category feeds + 7 daily podcast feeds, all JSON Feed 1.1:
+11 category feeds + 7 daily podcast feeds, all JSON Feed 1.1:
 
 ```
 feed-local.json        feed-ai-tech.json      feed-climate.json
 feed-homelab.json      feed-wellness.json     feed-news.json
 feed-science.json      feed-scifi.json        feed-homestead.json
-feed-design.json
+feed-design.json       feed-outdoors.json
 
 feed-podcast-monday.json    feed-podcast-tuesday.json   feed-podcast-wednesday.json
 feed-podcast-thursday.json  feed-podcast-friday.json    feed-podcast-saturday.json

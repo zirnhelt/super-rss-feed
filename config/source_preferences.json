@@ -96,13 +96,12 @@
     "sources": [
       "Kagi Small Web",
       "Forbes Innovation",
-      "Rolling Stone",
       "Vox",
       "Fast Company",
       "Macworld"
     ],
     "max_candidates_per_source": 15,
-    "description": "Free pre-scoring gate: articles from these high-volume sources must match a CATEGORY_RULES interest keyword and are capped per source before reaching Claude/Cohere scoring. Only sources whose worthwhile output is well covered by PRESCORE_KEYWORDS belong here — the keyword set is tuned for news/tech/science/climate/health, so gating lifestyle titles (Country Living UK, Popular Woodworking, Domino, AFAR, Bicycling, ...) would drop nearly all of their articles. Those rely on the quality gate and Haiku scrub instead."
+    "description": "Free pre-scoring gate: articles from these high-volume sources must match a CATEGORY_RULES interest keyword and are capped per source before reaching Claude/Cohere scoring. Only sources whose worthwhile output is well covered by PRESCORE_KEYWORDS belong here — the keyword set is tuned for news/tech/science/climate/health, so gating lifestyle titles (Country Living UK, Popular Woodworking, Domino, AFAR, Bicycling, ...) would drop nearly all of their articles. Culture-led magazines are excluded for the same reason: PRESCORE_KEYWORDS carries no music, film, or arts vocabulary, and the 'news' category is the default catch-all with no include list of its own, so a gated culture title (Rolling Stone) loses even its long-form political reporting before scoring. Those rely on the quality gate and Haiku scrub instead."
   },
   "discovery_prescore_filter": {
     "sources": ["Kagi Small Web"],
