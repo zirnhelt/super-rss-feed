@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-08 (Saturday)
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1436** → dedup **956** → new **868** → quality **92**
+- Mix: local:10(11%), ai-tech:14(15%), climate:10(11%), homelab:4(4%), homestead:2(2%), wellness:10(11%), science:8(9%), scifi:2(2%), design:6(7%), outdoors:1(1%), news:25(27%)
+- Feeds: local:40, ai-tech:85, climate:38, homelab:23, homestead:14, wellness:54, science:41, scifi:10, design:30, outdoors:1, news:124
+- Images: 92/92
+- Topic queries: 289 articles from 41 queries
+- API calls: Claude:46, Cohere:16, Brave:58, Kagi:30, Kite:6 · 196,374 Claude tokens · est. cost $0.4726
+
+
+---
+
+
+
 ## 2026-08-07 (Friday)
 
 #### 🌙 8:30 PM Pacific
@@ -101,21 +116,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 62/62
 - Topic queries: 212 articles from 34 queries
 - API calls: Claude:24, Cohere:12, Brave:41, Kagi:21, Kite:6 · 91,169 Claude tokens · est. cost $0.2854
-
-
----
-
-
-
-## 2026-07-31 (Friday)
-
-#### 🌙 8:30 PM Pacific
-- Fetched **1115** → dedup **762** → new **673** → quality **63**
-- Mix: local:6(10%), ai-tech:10(16%), climate:7(11%), homelab:2(3%), wellness:10(16%), science:3(5%), news:25(40%)
-- Feeds: local:28, ai-tech:68, climate:30, homelab:12, wellness:53, science:32, scifi:4, news:128
-- Images: 63/63
-- Topic queries: 232 articles from 34 queries
-- API calls: Claude:38, Cohere:16, Brave:42, Kagi:24 · 148,181 Claude tokens · est. cost $0.3870
 
 
 ---
@@ -2021,6 +2021,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 1 runs · avg fetched 1136 · avg quality 77
 - Dominant: **news** (32%) local:8 / ai-tech:14 / climate:7 / homelab:4 / wellness:10 / science:8 / scifi:1 / news:25
 - API calls: Claude:40, Cohere:16, Brave:42, Kagi:23 · est. cost $0.3926
+
+
+---
+
+
+
+## Week of 2026-07-31–2026-07-31
+- 1 runs · avg fetched 1115 · avg quality 63
+- Dominant: **news** (40%) local:6 / ai-tech:10 / climate:7 / homelab:2 / wellness:10 / science:3 / news:25
+- API calls: Claude:38, Cohere:16, Brave:42, Kagi:24 · est. cost $0.3870
 
 
 ---
