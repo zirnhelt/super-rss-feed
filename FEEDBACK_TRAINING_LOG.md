@@ -1,3 +1,116 @@
+## Feedback Training Run — 2026-08-09 14:00 UTC
+
+**Files processed:** 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json, 2026-08-03.json, 2026-08-04.json, 2026-08-05.json, 2026-08-06.json, 2026-08-07.json, 2026-08-08.json
+**Ratings:** 5 Exemplars, 80 Good, 45 Interesting, 256 Bad, 80 reassigned to day(s), 23 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** ScienceAlert (5), Business Insider (4), The Northern Miner (4), Al Jazeera English (4), 100 Mile Free Press (3)
+**Top disliked sources:** Toms Guide (16), Boing Boing (12), Business Insider (12), CNET (11), The Verge (11)
+**Categories liked:** news (28), ai-tech (20), wellness (9), climate (8), science (8), local (5), homelab (2)
+**Categories disliked:** news (210), ai-tech (14), wellness (13), climate (6), local (5), scifi (4), homelab (2), science (2)
+
+**Day reassignment summary:**
+- friday → tuesday: 4 articles
+- friday → saturday: 3 articles
+- friday → monday: 3 articles
+- friday → sunday: 2 articles
+- friday → wednesday: 2 articles
+- friday → friday: 1 articles
+- saturday → friday: 6 articles
+- saturday → sunday: 4 articles
+- saturday → wednesday: 3 articles
+- saturday → tuesday: 3 articles
+- saturday → thursday: 1 articles
+- saturday → saturday: 1 articles
+- monday → saturday: 7 articles
+- monday → sunday: 5 articles
+- monday → wednesday: 5 articles
+- monday → tuesday: 4 articles
+- monday → friday: 4 articles
+- monday → monday: 2 articles
+- monday → thursday: 1 articles
+- tuesday → wednesday: 6 articles
+- tuesday → friday: 4 articles
+- tuesday → sunday: 4 articles
+- tuesday → tuesday: 3 articles
+- tuesday → monday: 3 articles
+- tuesday → saturday: 2 articles
+- wednesday → wednesday: 5 articles
+- wednesday → tuesday: 5 articles
+- wednesday → sunday: 4 articles
+- wednesday → friday: 2 articles
+- wednesday → thursday: 2 articles
+- wednesday → monday: 1 articles
+- thursday → sunday: 6 articles
+- thursday → wednesday: 5 articles
+- thursday → tuesday: 4 articles
+- thursday → friday: 3 articles
+- thursday → monday: 1 articles
+- thursday → thursday: 1 articles
+- sunday → wednesday: 6 articles
+- sunday → friday: 4 articles
+- sunday → monday: 4 articles
+- sunday → sunday: 3 articles
+- sunday → saturday: 2 articles
+- sunday → tuesday: 2 articles
+- sunday → thursday: 1 articles
+
+**Category retag summary:**
+- news → ai-tech: 12 articles
+- news → wellness: 4 articles
+- news → climate: 2 articles
+- news → science: 1 articles
+- news → homelab: 1 articles
+- news → local: 1 articles
+- science → climate: 1 articles
+- design → homelab: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Relevance Scoring Guidance for RSS Curator
+
+**Core Topic Priorities**
+- **Strongly prioritize**: Practical DIY/maker content (3D printing, homelabs, electronics), Indigenous knowledge systems & community service, local BC/regional news with civic impact, and applied science breakthroughs with tangible use cases. These consistently score 85+ when hitting exemplar criteria.
+- **High value**: AI/tech policy, governance, and ethics angles (prompt injection, censorship, copyright fairness) score well; avoid pure product announcements or funding round coverage unless paired with novel technical insight.
+- **Climate sweet spot**: EV technology and grid challenges—not generic wildfire/disaster reporting. User engages with *solutions* (battery innovation, charging speed) more than catastrophe narratives.
+
+**Underrepresented Signals Worth Boosting**
+- Indigenous/First Nations perspectives on arts, culture, infrastructure, and knowledge systems (appears in exemplars but sparse in main feed).
+- Community agriculture and youth development pipelines (4-H, regional agriculture infrastructure).
+- Wellness content grounded in Indigenous healing or specific health solutions (not lifestyle trends).
+- Local outdoors/recreation tied to specific regions (Kokanee fishing got 85; generic "beach workout" scored 13).
+
+**Source & Framing Patterns**
+- Regional/independent outlets (Pique, 100 Mile Free Press, Eagle Feather News, My East Kootenay Now) outperform national celebrity/entertainment coverage from mainstream media.
+- Avoid: celebrity culture, generic product reviews, entertainment gossip, and "listicle" wellness tips. These consistently score 10–13.
+- Technical deep-dives and historical context (Hackaday, detailed hardware retrospectives) score strongly.
+
+**Day-Assignment Patterns**
+- **Tuesday/Friday are hubs**: Climate, AI governance, regional news, and breaking local/national stories gravitate here.
+- **Sunday**: Science (astronomy, physics mysteries), quantum/advanced tech, climate innovation.
+- **Wednesday**: AI/tech policy and ethical concerns.
+- Avoid Monday for evergreen "how-to" or soft-interest pieces.
+
+**Category Misclassification Trends**
+- **news → ai-tech** is frequent: The curator routinely recategorizes product announcements, software updates, and tech policy as "ai-tech" rather than generic news. Honor this signal—technical specificity matters more than surface category.
+- **news → climate**: Retags cluster around infrastructure, resource scarcity, and environmental policy (not disaster reporting).
+- **news → wellness**: Health-focused content with Indigenous or systemic angles, not fitness trends.
+
+**
+
+---
+## Feedback Archive Run — 2026-08-09 14:00 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 0 (none)
+**Ratings folded into rollup:** 0 (rollup now holds 0)
+**Topic/framing lessons:** n/a (no batch archived)
+**Raw bytes freed:** 0.0 KB
+**Live files remaining:** 52
+**URL ledger:** 933 URLs (+14 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-08-02 14:44 UTC
 
 **Files processed:** 2026-07-04.json, 2026-07-05.json, 2026-07-06.json, 2026-07-07.json, 2026-07-08.json, 2026-07-09.json, 2026-07-10.json, 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json
