@@ -9,6 +9,11 @@ of the 7 daily podcast themes) to check whether the upstream score is a good
 proxy for thematic fit — i.e. whether it's correctly gating which articles
 become eligible for each day's themed bucket.
 
+Theme scores are percentile-normalized before comparison, matching what the
+curator selects on. Raw charter output is not comparable across themes — a
+narrow charter sits an order of magnitude below a broad one on the same corpus
+— so a raw argmax or a raw threshold measures charter generosity, not fit.
+
 Two failure modes this surfaces:
   - FILLER: upstream score clears a day's quality gate, but the article
     doesn't fit ANY theme well. These pad "direct qualify" candidacy
@@ -31,12 +36,16 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Single source of truth for the ranking semantics — this report must agree
+# with what the curator actually selected on.
+from super_rss_curator_json import normalize_theme_scores
+
 PODCAST_CACHE_FILE = "podcast_articles_cache.json"
 THEME_SCORE_CACHE_FILE = "theme_scores_cache.json"
 SCHEDULE_FILE = "config/podcast_schedule.json"
 LIMITS_FILE = "config/limits.json"
 
-FILLER_THEME_CEILING = 30   # best theme fit below this counts as "no real fit"
+FILLER_THEME_CEILING = 30   # best theme-fit percentile below this counts as "no real fit"
 FILLER_UPSTREAM_FLOOR = 50  # upstream score at/above this is treated as "passes a gate"
 TOP_N_EXAMPLES = 12
 
@@ -104,7 +113,11 @@ def main() -> None:
     day_direct = {d: 0 for d in schedule}               # qualifies AND upstream >= day_min[d]
     day_rescue = {d: 0 for d in schedule}               # qualifies via holdover, upstream < day_min[d]
     day_unreachable = {d: 0 for d in schedule}          # qualifies on theme but upstream < min_claude_score
-    day_theme_scores: dict[str, list[int]] = {d: [] for d in schedule}  # raw theme-fit scores, whole corpus
+    day_theme_scores: dict[str, list[int]] = {d: [] for d in schedule}  # theme-fit percentiles, whole corpus
+
+    theme_pct = normalize_theme_scores(
+        theme_cache, schedule, {a["link"] for a in podcast_cache}
+    )
 
     for article in podcast_cache:
         link = article["link"]
@@ -113,11 +126,11 @@ def main() -> None:
         title = article.get("title") or ""
 
         theme_scores: dict[str, int] = {}
-        for day, label in day_label.items():
-            entry = theme_cache.get(f"{link}:::{label}")
-            if entry is None:
+        for day in day_label:
+            pct = theme_pct.get(f"{link}:::{day}")
+            if pct is None:
                 continue
-            theme_scores[day] = entry["score"]
+            theme_scores[day] = pct
 
         if len(theme_scores) < len(schedule):
             missing_theme_data += 1

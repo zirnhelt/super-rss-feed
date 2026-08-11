@@ -14,7 +14,7 @@ from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from collections import defaultdict, Counter
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Set, Tuple
 from pathlib import Path
 
 import feedparser
@@ -180,7 +180,7 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
-THEME_SCORE_CACHE_VERSION = 'v4'  # v4: theme prompts decontaminated (interest profile removed)
+THEME_SCORE_CACHE_VERSION = 'v5'  # v5: weekday theme charters recalibrated; selection now percentile-normalized
 PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
@@ -1031,6 +1031,77 @@ def save_theme_score_cache(cache: Dict):
             json.dump(pruned, f)
     except Exception as e:
         print(f"⚠️ Failed to save theme score cache: {e}")
+
+
+def percentile_ranks(scores: List[int]) -> List[int]:
+    """Convert raw scores to 0-100 percentile ranks, preserving order.
+
+    Ties share the lower rank, so a large block of identical scores (common at
+    the bottom of a narrow theme) does not fan out into spurious separation.
+    A single value, or an all-identical set, maps to 50.
+    """
+    total = len(scores)
+    if total == 0:
+        return []
+    if total == 1:
+        return [50]
+
+    rank_of_score: Dict[int, int] = {}
+    for idx, raw in enumerate(sorted(scores)):
+        if raw not in rank_of_score:
+            rank_of_score[raw] = idx
+
+    return [max(0, min(100, round(rank_of_score[s] / (total - 1) * 100))) for s in scores]
+
+
+def normalize_theme_scores(theme_cache: Dict, schedule: Dict,
+                           pool_links: Optional[Set[str]] = None) -> Dict[str, int]:
+    """Map raw theme scores to within-theme percentile ranks (0-100).
+
+    Raw scores are not comparable across themes: each theme's charter judges a
+    different slice of the corpus, so a narrow theme (Working Lands) sits at a
+    mean of ~3 while a broad one (Science) sits near ~49 on the *same* pool.
+    Any absolute threshold shared across themes — the theme-fit floor,
+    ``holdover_threshold``, ``theme_routing_min_score`` — is therefore wrong by
+    construction, and ``argmax`` over raw scores tracks charter generosity
+    rather than fit.
+
+    Ranking within each theme removes the scale entirely. This mirrors the news
+    head, where Cohere Rerank orders candidates and never becomes a pass/fail
+    score; absolute "is this worth airing" stays with ``q_gate``.
+
+    Args:
+        theme_cache: ``{f"{url}:::{label}": {"score": int, ...}}``
+        schedule: The ``schedule`` block of ``podcast_schedule.json``.
+        pool_links: Restrict ranking to these URLs. Percentiles are relative to
+            the ranked set, so passing the live podcast pool keeps stale cache
+            entries from skewing the distribution. ``None`` ranks everything.
+
+    Returns:
+        ``{f"{url}:::{day}": percentile}`` keyed by *day name* (not label), so
+        callers can look up by the same day key the schedule uses. Ties share
+        the lower rank, and a theme whose scores are all identical maps to 50.
+    """
+    normalized: Dict[str, int] = {}
+
+    for day, cfg in schedule.items():
+        suffix = f":::{cfg['label']}"
+        scored: List[Tuple[str, int]] = []
+        for key, entry in theme_cache.items():
+            if not key.endswith(suffix) or not isinstance(entry, dict):
+                continue
+            url = key[:-len(suffix)]
+            if pool_links is not None and url not in pool_links:
+                continue
+            scored.append((url, entry.get('score', 0)))
+
+        if not scored:
+            continue
+
+        for (url, _), pct in zip(scored, percentile_ranks([s for _, s in scored])):
+            normalized[f"{url}:::{day}"] = pct
+
+    return normalized
 
 
 def load_calibration_stats_cache() -> List[Dict]:
@@ -3842,6 +3913,11 @@ def route_articles_to_best_themes(
 
     Articles missing a cached score for any theme are left for normal
     today-centric processing — routing only acts on complete data.
+
+    Comparisons run on percentile-normalized scores (see
+    ``normalize_theme_scores``). On raw scores this function was structurally
+    one-way: the narrow weekday charters top out below ``theme_routing_min_score``,
+    so no article could ever be routed *to* them.
     """
     schedule = schedule_config.get('schedule', {})
     routing_gap = schedule_config.get('theme_routing_gap', 20)
@@ -3852,6 +3928,8 @@ def route_articles_to_best_themes(
         return {'routed_by_target_day': {}, 'routed_count': 0}
 
     theme_cache = load_theme_score_cache()
+    pool_links = {item['link'] for item in cached_articles}
+    normalized = normalize_theme_scores(theme_cache, schedule, pool_links)
     to_bank: Dict[str, list] = defaultdict(list)  # {day_name: [(item_dict, score)]}
 
     for item in cached_articles:
@@ -3859,11 +3937,11 @@ def route_articles_to_best_themes(
         all_scores: Dict[str, int] = {}
         complete = True
         for day, cfg in schedule.items():
-            entry = theme_cache.get(f"{url}:::{cfg['label']}")
-            if entry is None:
+            pct = normalized.get(f"{url}:::{day}")
+            if pct is None:
                 complete = False
                 break
-            all_scores[day] = entry['score']
+            all_scores[day] = pct
 
         if not complete:
             continue
@@ -3941,11 +4019,17 @@ def bank_articles_for_all_themes(
     holdover pool holds up to a week's worth of pre-scored candidates.
     Articles already present in the holdover (regardless of status) are skipped
     to avoid overwriting USED/SKIPPED annotations set after generation.
+
+    ``holdover_threshold`` is applied to the percentile-normalized score, so it
+    means "top (100 - threshold)% of this theme's candidates" rather than a raw
+    cutoff that only the broad charters could ever clear.
     """
     theme_cache = load_theme_score_cache()
     schedule = schedule_config.get('schedule', {})
     global_threshold = schedule_config.get('holdover_threshold', 30)
     holdover = load_theme_holdover_cache()
+    pool_links = {item['link'] for item in cached_articles}
+    normalized = normalize_theme_scores(theme_cache, schedule, pool_links)
     now_iso = datetime.now(timezone.utc).isoformat()
     newly_banked: Dict[str, int] = defaultdict(int)
 
@@ -3953,9 +4037,8 @@ def bank_articles_for_all_themes(
         url = item['link']
         for day, cfg in schedule.items():
             threshold = cfg.get('holdover_threshold', global_threshold)
-            label = cfg['label']
-            entry = theme_cache.get(f"{url}:::{label}")
-            if entry is None or entry['score'] < threshold:
+            pct = normalized.get(f"{url}:::{day}")
+            if pct is None or pct < threshold:
                 continue
             existing_urls = {a['link'] for a in holdover.get(day, [])}
             if url in existing_urls:
@@ -3975,7 +4058,10 @@ def bank_articles_for_all_themes(
                 'q_gate': item.get('q_gate'),
                 'category': item['category'],
                 'image': item.get('image'),
-                'theme_score': entry['score'],
+                'theme_score': pct,
+                # Raw charter output kept alongside the percentile so scale
+                # drift stays auditable after normalization hides it.
+                'theme_score_raw': (theme_cache.get(f"{url}:::{cfg['label']}") or {}).get('score'),
                 'banked_at': now_iso,
             })
             newly_banked[day] += 1
@@ -4110,16 +4196,27 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # them after theme scoring below.
     direct_qualify_links = {a.link for a in theme_pool}
 
-    # Rescue: include articles below the base threshold when they already have a
-    # cached theme score >= holdover_threshold.  These proved their thematic fit
-    # even though their general quality score is low (e.g. niche local sources).
+    # Percentile-normalized theme scores: raw charter output is not comparable
+    # across themes, so every threshold below reads "top N% of this theme's
+    # candidates" instead of an absolute cutoff only broad charters can clear.
+    # Ranked over the 7-day pool so stale cache entries don't skew the spread.
     theme_score_cache = load_theme_score_cache()
+    theme_pct = normalize_theme_scores(
+        theme_score_cache, schedule, {a.link for a in all_cached}
+    )
+
+    def _theme_pct(link: str, default: int = 0) -> int:
+        return theme_pct.get(f"{link}:::{theme_name}", default)
+
+    # Rescue: include articles below the base threshold when they already rank
+    # in this theme's top tier.  These proved their thematic fit even though
+    # their general quality score is low (e.g. niche local sources).
     rescued = [
         a for a in all_cached
         if not _pool_quality_ok(a)
         and not _is_aggregator_url(a.link)
         and f"{a.link}:::{theme_name}" not in podcast_shown_cache
-        and theme_score_cache.get(f"{a.link}:::{theme_label}", {}).get('score', 0) >= holdover_threshold
+        and _theme_pct(a.link) >= holdover_threshold
     ]
     if rescued:
         print(f"  🌾 +{len(rescued)} theme-relevant articles rescued (base score < {min_score})")
@@ -4187,9 +4284,20 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         print(f"  ⚠️ Theme scoring returned empty for {theme_label}, falling back to quality scores")
         theme_scored = [(article, article.score) for article in theme_pool]
 
+    # Re-rank within the candidate set actually being selected from. This covers
+    # holdover articles carried in from earlier weeks, which are absent from the
+    # pool-wide ranking above. Raw scores are kept for stats and audit only.
+    theme_raw = {a.link: ts for a, ts in theme_scored}
+    theme_scored = [
+        (article, pct)
+        for (article, _), pct in zip(
+            theme_scored, percentile_ranks([ts for _, ts in theme_scored])
+        )
+    ]
+
     # Theme-fit floor for the direct-qualify path: articles that only entered the
-    # pool via the upstream quality score (not rescue/holdover) must also clear
-    # the holdover_threshold theme-fit bar — unless they have a keyword hit —
+    # pool via the upstream quality score (not rescue/holdover) must also rank
+    # above the holdover_threshold percentile — unless they have a keyword hit —
     # so generic high-upstream-score content (e.g. local civic news boosted by
     # the Williams Lake bonus) doesn't crowd out genuinely on-theme picks on
     # its best-scoring but still-weak day.
@@ -4271,7 +4379,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
         scored_pool.append((article, composite, t_adjusted, theme_score, raw_kw_hits))
 
-    # Bank articles with strong raw theme scores for future episodes.
+    # Bank top-ranked articles for future episodes (percentile, same basis as
+    # the threshold that will admit them back).
     banked_count = update_theme_holdover(theme_name, theme_label,
                           [(a, ts) for a, _, _, ts, _ in scored_pool],
                           holdover_threshold)
@@ -4544,6 +4653,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
     avg_final_score = sum(cp for _, cp, _ in all_entries) / len(all_entries) if all_entries else 0
+    # Raw charter mean over the selected set. Percentiles are uniform by
+    # construction, so only this can reveal a charter drifting off-scale.
+    selected_raw = [theme_raw[a.link] for a, _, _ in theme_articles if a.link in theme_raw]
+    avg_theme_raw = sum(selected_raw) / len(selected_raw) if selected_raw else 0
     cross_cat = bonus_count
     print(f"🎙️ Podcast feed {theme_name} ({theme_label}): {len(all_entries)} articles (avg theme score: {avg_theme_score:.1f}, {cross_cat} cross-category)")
 
@@ -4552,7 +4665,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         'bonus_count': bonus_count,
         'mean_final_score': round(avg_final_score, 1),
         'mean_theme_score': round(avg_theme_score, 1),
-        'relative_scaled': False,
+        'mean_theme_score_raw': round(avg_theme_raw, 1),
+        'relative_scaled': True,
         'banked_count': banked_count,
     }
     return {a.link for a, _, _ in all_entries}, feed_stats
@@ -5172,7 +5286,20 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
 
     theme_cache = load_theme_score_cache()
 
+    # Surface the same percentile-normalized scores the pipeline selects on, so
+    # the day picker in review.html — and the routing_bug/scoring_miss split
+    # article_review_audit.py derives from these ratings — reflect what actually
+    # drove routing rather than the incomparable raw charter output.
+    theme_pct = normalize_theme_scores(
+        theme_cache,
+        (schedule_config or {}).get('schedule', {}),
+        {a['link'] for a in load_podcast_cache()},
+    )
+
     def theme_scores(article: Article) -> Dict[str, int]:
+        return {day: theme_pct.get(f"{article.link}:::{day}", 0) for day in day_labels}
+
+    def theme_scores_raw(article: Article) -> Dict[str, int]:
         out: Dict[str, int] = {}
         for day, label in day_labels.items():
             entry = theme_cache.get(f"{article.link}:::{label}", {})
@@ -5290,6 +5417,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
             "_content_type": article.content_type,
             "_selection_bucket": bucket_label(article),
             "_theme_scores": theme_scores(article),
+            "_theme_scores_raw": theme_scores_raw(article),
             "_today": today_name,
             "_today_label": today_label,
         }
