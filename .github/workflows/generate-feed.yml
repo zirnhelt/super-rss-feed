@@ -112,6 +112,7 @@ jobs:
           download_json "${BASE}/podcast_articles_cache.json"  "podcast_articles_cache.json"
           download_json "${BASE}/theme_scores_cache.json"      "theme_scores_cache.json"
           download_json "${BASE}/podcast_shown_cache.json"     "podcast_shown_cache.json"
+          download_json "${BASE}/theme_holdover_cache.json"    "theme_holdover_cache.json"
           download_json "${BASE}/image_cache.json"             "image_cache.json"
           download_json "${BASE}/shown_terms_cache.json"      "shown_terms_cache.json"
 
@@ -186,7 +187,11 @@ jobs:
           fi
         continue-on-error: true
       
+      # Runs before the deploy so its output sits next to the curator log, but
+      # must not block publishing — one starved feed shouldn't stop the other
+      # six from shipping. The outcome is re-raised after the deploy instead.
       - name: Validate podcast feed quality
+        id: validate_podcast
         run: python validate_podcast_feeds.py
         continue-on-error: true
 
@@ -218,6 +223,7 @@ jobs:
           cp podcast_articles_cache.json output/
           cp theme_scores_cache.json output/ 2>/dev/null || true
           cp podcast_shown_cache.json output/ 2>/dev/null || true
+          cp theme_holdover_cache.json output/ 2>/dev/null || true
           cp image_cache.json output/ 2>/dev/null || true
           cp shown_terms_cache.json output/ 2>/dev/null || true
           echo "Files in output directory:"
@@ -227,7 +233,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json
+          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json
           git add FEED_LOG.md FEED_ERRORS.md TODO.md 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache and feed log [skip ci]"
           bash .github/scripts/git_push_retry.sh main
@@ -293,3 +299,12 @@ jobs:
             fi
           done
           exit $fail
+
+      # Re-raise the podcast validation result now that the deploy is done, so
+      # a starved or low-quality themed feed turns the run red instead of
+      # scrolling past. Feeds are already published at this point.
+      - name: Report podcast validation result
+        if: steps.validate_podcast.outcome == 'failure'
+        run: |
+          echo "::error::Podcast feed validation failed — see the 'Validate podcast feed quality' step."
+          exit 1

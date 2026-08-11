@@ -11,6 +11,11 @@ Thresholds (per feed):
   - At least 8 articles with summary length >= 100 chars
   - At least 5 articles with ai_score > 0
   - At least 3 articles with _keyword_matches > 0
+
+Also checks episode sizes *across* themes. A charter whose scoring_prompt drifts
+off-scale starves its own feed while the others stay healthy — that regression
+ran undetected for 16 consecutive runs (see CALIBRATION_LOG.md, 2026-07-26)
+because per-feed checks alone can't see the imbalance.
 """
 
 import json
@@ -25,6 +30,13 @@ THRESHOLDS = {
     'min_with_ai_score': 5,
     'min_with_keyword_matches': 3,
 }
+
+# A feed holding less than this share of the healthiest feed's size is starved
+# relative to its peers, even if it clears the absolute per-feed floors.
+# Compared against the max rather than the median deliberately: the 2026-07-26
+# regression starved four of seven themes at once, which drags the median down
+# with it and hides the very failure this check exists to catch.
+STARVATION_RATIO = 0.25
 
 
 def validate_feed(path: Path) -> list[str]:
@@ -71,14 +83,44 @@ def validate_feed(path: Path) -> list[str]:
     return failures
 
 
+def check_theme_balance(sizes: dict[str, int]) -> list[str]:
+    """Return failures for feeds starved relative to their peers.
+
+    Percentile-normalized theme selection should keep episode sizes broadly
+    comparable. A single feed collapsing while the rest stay healthy is the
+    signature of a scoring_prompt that has drifted off-scale.
+    """
+    if len(sizes) < 3:
+        return []
+
+    healthiest = max(sizes.values())
+    if healthiest <= 0:
+        return []
+
+    floor = healthiest * STARVATION_RATIO
+    return [
+        f"{day}: {n} articles vs {healthiest} for the healthiest theme "
+        f"(< {STARVATION_RATIO:.0%}) — check scoring_prompt for scale drift"
+        for day, n in sorted(sizes.items())
+        if n < floor
+    ]
+
+
 def main():
     any_failed = False
+    sizes: dict[str, int] = {}
 
     for day in DAYS:
         path = Path(f'feed-podcast-{day}.json')
         if not path.exists():
             print(f'⏭️  {path.name}: not found, skipping')
             continue
+
+        try:
+            with open(path, encoding='utf-8') as f:
+                sizes[day] = len(json.load(f).get('items', []))
+        except (OSError, json.JSONDecodeError):
+            pass  # validate_feed reports the read failure below
 
         failures = validate_feed(path)
         if failures:
@@ -89,9 +131,16 @@ def main():
         else:
             print(f'✅ {path.name}: OK')
 
+    balance_failures = check_theme_balance(sizes)
+    if balance_failures:
+        any_failed = True
+        print('\n❌ Theme balance: feeds starved relative to their peers')
+        for msg in balance_failures:
+            print(f'   • {msg}')
+
     if any_failed:
         print('\n⚠️  One or more podcast feeds failed quality validation.')
-        print('   The deploy will proceed but upstream scoring/summary extraction may need investigation.')
+        print('   Upstream scoring/summary extraction needs investigation.')
         sys.exit(1)
     else:
         print('\n✅ All podcast feeds passed quality validation.')
