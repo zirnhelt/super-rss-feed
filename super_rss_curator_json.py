@@ -5044,6 +5044,14 @@ def main():
         def _retained_is_fresh(item: dict) -> bool:
             if item['url'] in new_urls:
                 return False
+            if '/weekly-report-' in item['url']:
+                # Weekly "State of the Feed" meta-article. Its title is short and
+                # generic ("State of the Feed — Week of <Month> <year>"), so the
+                # containment-similarity check below false-positives against any
+                # ordinary headline sharing two of those terms (e.g. a month/year
+                # date). It isn't a news story that can duplicate one, so it's
+                # exempt from story-overlap dedup entirely.
+                return True
             _raw_title = re.sub(r'^(?:🔓\s*)+', '', item.get('title', ''))
             r_terms = _term_set(re.sub(r'^\[.*?\]\s*', '', _raw_title).lower())
             if len(r_terms) < merge_min_terms:
