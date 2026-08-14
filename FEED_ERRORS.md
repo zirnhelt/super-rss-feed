@@ -3,6 +3,18 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-13 (Thursday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Kagi Small Web** failed — `503 Server Error: Service Unavailable for url: https://kagi.com/api/v1/smallweb/feed`
+- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+
+
+---
+
+
+
 ## 2026-08-12 (Wednesday)
 
 #### 🌙 8:30 PM Pacific
@@ -72,17 +84,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🌙 8:30 PM Pacific
 - ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
-
-
----
-
-
-
-## 2026-08-05 (Wednesday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
-- ⚠️ **LoRaMeshDevices** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 
 
 ---
@@ -833,6 +834,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## Week of 2026-08-04–2026-08-04
+- 2 issues recorded
+- ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
+- ⚠️ LoRaMeshDevices failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+
+---
+
+
+
+## Week of 2026-08-05–2026-08-05
 - 2 issues recorded
 - ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 - ⚠️ LoRaMeshDevices failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
