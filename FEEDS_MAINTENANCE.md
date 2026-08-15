@@ -189,15 +189,44 @@ keyed by the exact OPML `title`:
 ```
 
 The curator then skips the paywall scoring penalty, prefixes the item title with
-🔓, and sets `_subscriber_access` on the JSON Feed item. Any label starting with
-`Apple News` additionally sets `_apple_news_url` —
-`applenews://search?term=<title>`, with the trailing publication name stripped —
-which `index.html` renders as a 📰 link beside the article. Tapping it on a device
-with Apple News installed opens the article in the app.
+🔓, and sets `_subscriber_access` on the JSON Feed item.
+
+For any label starting with `Apple News`, `apply_subscriber_links()` also makes
+the Apple News deep link the item's **primary** link, so feed readers open the
+News app instead of the publisher's paywall:
+
+| Field | Value |
+|---|---|
+| `url` | `applenews://search?term=<title>` (trailing publication name stripped) |
+| `external_url` | the publisher URL |
+| `id` | the publisher URL — **never** the deep link |
+| `_apple_news_url` | same as `url`, kept for `review.html` and older consumers |
+
+`id` stays on the publisher URL because it is the identity key behind cross-run
+dedup, the shown/scored caches and the feedback ledger. For the same reason,
+**anything reading a written feed back in must call `item_source_link(item)`**
+(`external_url or url`) rather than reading `url` directly — the retention
+merge, the bootstrap dedup and `score_scrub_report.py` all do. Reading `url`
+directly means an Apple News article stops matching itself between runs and
+accumulates a fresh duplicate every night.
+
+Two surfaces deliberately opt out of the swap:
+
+- **`feed-review.json` / `review.html`** — every rating is keyed on `art.url`
+  and the feedback ledger has to stay joinable with pipeline links, so `url`
+  stays canonical there and Apple News is a separate 📰 link beside the title.
+- **`index.html`** — the headline follows the swapped `url` into Apple News,
+  with a 🌐 link to `external_url` as the escape hatch on non-Apple devices.
+
+The tradeoff of the swap: on a device without Apple News installed (desktop,
+Android), the primary link in a feed reader dead-ends, and a few readers refuse
+to render non-`http(s)` schemes at all. `external_url` is the fallback in both
+cases, but not every reader surfaces it.
 
 Note that Apple assigns per-article `apple.news/A…` IDs opaquely; they cannot be
 derived from a publisher URL, so the title search is the only linking method that
-works from RSS alone.
+works from RSS alone — which also means the deep link lands on a News *search
+results* page, not always the article itself.
 
 **To add a Google News fallback feed** (when no direct RSS exists):
 

@@ -426,18 +426,27 @@
 
                     const link = document.createElement('a');
                     link.href = article.url;
-                    link.target = '_blank';
-                    link.rel = 'noopener';
+                    // applenews:// must stay in the current tab — a _blank target
+                    // leaves an empty tab behind after the app handoff.
+                    if (/^https?:/i.test(article.url)) {
+                        link.target = '_blank';
+                        link.rel = 'noopener';
+                    }
                     link.textContent = article.title || article.url;
                     li.appendChild(link);
 
-                    if (article._apple_news_url) {
-                        const appleLink = document.createElement('a');
-                        appleLink.href = article._apple_news_url;
-                        appleLink.className = 'feed-article-apple-news';
-                        appleLink.title = 'Open in Apple News';
-                        appleLink.textContent = '📰';
-                        li.appendChild(appleLink);
+                    // Apple News sources link to applenews:// from `url` itself,
+                    // with the paywalled publisher URL kept in `external_url`.
+                    // Offer that as an escape hatch for non-Apple devices.
+                    if (article.external_url) {
+                        const webLink = document.createElement('a');
+                        webLink.href = article.external_url;
+                        webLink.target = '_blank';
+                        webLink.rel = 'noopener';
+                        webLink.className = 'feed-article-apple-news';
+                        webLink.title = 'Open on the web (may be paywalled)';
+                        webLink.textContent = '🌐';
+                        li.appendChild(webLink);
                     }
 
                     if (article.date_published) {
