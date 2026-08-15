@@ -419,6 +419,24 @@ _Last updated by log\_feed\_results.py · 2026-08-15 04:47 UTC_
 
 ## Notes & Review
 
+### 2026-08-15 — Commented out two dead sources (homestead, design)
+
+Per the Feed Errors table above and `FEEDS_MAINTENANCE.md`'s persistence
+rules, commented out two sources in `feeds.opml` that failed on every run
+in the visible window with no sign of recovery:
+- **Mother Earth News** (homestead) — `500 Server Error` on all 8 runs
+  since at least 2026-08-03 (12 consecutive failures across the fuller
+  history in `FEED_ERRORS.md`).
+- **Old House Journal** (design) — `NameResolutionError` for
+  `oldhouseonline.com` on all 7 runs since 2026-08-08; a DNS failure this
+  consistent usually means the domain itself is gone, not a transient
+  block.
+
+Could not curl-verify from this session (proxy blocks general web egress).
+Left as XML comments rather than deleting, per `FEEDS_MAINTENANCE.md`
+convention — restore if either starts resolving again, otherwise delete
+outright on the next maintenance pass.
+
 ### 2026-06-14 — Added newsletter sources from Cariboo Signals inbox label
 
 Added three newsletters to `feeds.opml`, sourced from recurring senders in
