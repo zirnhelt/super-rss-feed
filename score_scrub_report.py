@@ -39,6 +39,16 @@ STALE_HOURS = 48          # articles older than this are "stale"
 SOURCE_DOMINANCE_PCT = 40      # flag if one source > this % of a feed
 SOURCE_DOMINANCE_MIN_ITEMS = 8 # only check dominance on feeds with this many articles
 
+
+def item_source_link(item: dict) -> str:
+    """Publisher URL for a feed item.
+
+    Apple News subscriber items put the applenews:// deep link in ``url`` and
+    the publisher URL in ``external_url``; reports want the clickable one.
+    """
+    return item.get("external_url") or item.get("url", "")
+
+
 SCRUB_SYSTEM = (
     "You are a strict content quality reviewer for a personal RSS feed curator. "
     "The curator is interested in: AI/ML tech, climate/energy, homelab/self-hosting, "
@@ -192,7 +202,7 @@ def run_scrub_pass(
                 "feed": feed_name,
                 "feed_title": analysis["title"],
                 "title": item.get("title", ""),
-                "url": item.get("url", ""),
+                "url": item_source_link(item),
                 "score": item.get(SCORE_FIELD, 0),
                 "local": item.get(LOCAL_FIELD, False),
             })
@@ -368,7 +378,7 @@ def generate_report(
             for item in a["low_score_items"][:15]:
                 score = item.get(SCORE_FIELD, "?")
                 title = item.get("title", "Untitled")
-                url = item.get("url", "")
+                url = item_source_link(item)
                 sections.append(f"- `[{score:>3}]` {title}  \n  <{url}>")
 
         sections.append("")

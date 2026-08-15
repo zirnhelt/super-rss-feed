@@ -306,6 +306,7 @@ The calibration agent only modifies keys whitelisted in `config/calibration_boun
 4. **shown_articles_cache bloat** — cleanup logic runs in `load_shown_cache()` if the file grows past ~300K.
 5. **`THEME_SCORE_CACHE_VERSION`** — bump this constant in `super_rss_curator_json.py` whenever the theme score formula changes, to invalidate stale cached scores.
 6. **Bootstrap flag** — `python super_rss_curator_json.py --bootstrap-feeds` repopulates thin feeds from the 7-day podcast cache. The CI workflow triggers this automatically when any feed < 20 items.
+7. **Feed item `url` is not article identity** — for Apple News subscriber sources (`subscriber_access` in `config/source_preferences.json`) the item's `url` is an `applenews://` deep link and the publisher URL lives in `external_url`. `id` always stays the publisher URL. Any code reading a written feed back in must use `item_source_link(item)`, never `item['url']`, or those articles stop matching themselves across runs and duplicate nightly. See `FEEDS_MAINTENANCE.md` § "add a source you can read paywall-free".
 
 ---
 
