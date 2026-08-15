@@ -85,6 +85,12 @@
         }
         .card-title.expanded a { display: block; -webkit-line-clamp: unset; overflow: visible; }
         .card-title a:hover { color: #667eea; }
+        /* Opt out of the headline's line-clamp box so the badge stays inline. */
+        .card-title a.apple-news-link,
+        .card-title.expanded a.apple-news-link {
+            display: inline; overflow: visible; -webkit-line-clamp: unset;
+            text-decoration: none; margin-left: 4px;
+        }
         .expand-btn {
             background: none; border: none; color: #667eea; font-size: 0.75em;
             cursor: pointer; padding: 0; margin-left: 4px; white-space: nowrap;
@@ -457,6 +463,7 @@ function buildCardInner(idx) {
 
         <div class="card-title${isExpanded ? ' expanded' : ''}">
             <a href="${escAttr(art.url)}" target="_blank" rel="noopener">${escHtml(art.title || '')}</a>
+            ${art._apple_news_url ? `<a href="${escAttr(art._apple_news_url)}" class="apple-news-link" title="Open in Apple News">📰</a>` : ''}
             ${descText.length > 80 ? `<button class="expand-btn" onclick="toggleDesc(${idx})">${isExpanded ? '↑ less' : '↓ more'}</button>` : ''}
         </div>
 
