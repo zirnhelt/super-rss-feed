@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-14 (Friday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+
+
+---
+
+
+
 ## 2026-08-13 (Thursday)
 
 #### 🌙 8:30 PM Pacific
@@ -71,16 +82,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## 2026-08-07 (Friday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
-
-
----
-
-
-
-## 2026-08-06 (Thursday)
 
 #### 🌙 8:30 PM Pacific
 - ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
@@ -847,6 +848,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 - ⚠️ LoRaMeshDevices failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+
+---
+
+
+
+## Week of 2026-08-06–2026-08-06
+- 1 issues recorded
+- ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 
 
 ---
