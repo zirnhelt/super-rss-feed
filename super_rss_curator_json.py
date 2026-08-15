@@ -1943,9 +1943,18 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             else None
         )
         is_timeout = isinstance(e, (requests.exceptions.ReadTimeout, requests.exceptions.Timeout))
+        # ConnectionError covers DNS failures (NameResolutionError) and refused/reset
+        # connections — the direct fetch can never work, but the outlet may still be
+        # searchable (e.g. a CDN/DNS hiccup, or content mirrored elsewhere).
+        is_connection_error = isinstance(e, requests.exceptions.ConnectionError)
         # 403: bot-blocked (common from Actions runner IPs). 404: feed URL moved.
         # 421 Misdirected Request: persistent CDN/TLS misconfig (e.g. IndigiNews).
-        should_try_fallback = status in (403, 404, 421) or is_timeout
+        # 500: origin server error on the feed route specifically — the outlet
+        # itself is usually still up and searchable even when its feed 500s.
+        # (503 is deliberately excluded: it already gets a Retry-After skip_until
+        # circuit breaker above, so hitting the paid API fallback for it too would
+        # just burn quota on a source we're already backing off from.)
+        should_try_fallback = status in (403, 404, 421, 500) or is_timeout or is_connection_error
 
         if should_try_fallback and os.environ.get('BRAVE_API_KEY'):
             fallback = _fetch_via_brave_fallback(feed, cutoff_date)

@@ -28,6 +28,10 @@ Thumbs.db
 super-feed.json
 discovery_summary.md
 
+# Per-run feed output — downloaded from gh-pages and regenerated every run;
+# never committed by CI (see generate-feed.yml "Commit cache and log files").
+feed-*.json
+
 # Environment / secrets — never commit
 .env
 *.env
