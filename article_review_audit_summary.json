@@ -1,39 +1,39 @@
 {
-  "generated_at": "2026-08-09 14:01 UTC",
+  "generated_at": "2026-08-16 13:44 UTC",
   "window": {
     "first": "2026-06-17",
-    "last": "2026-08-08"
+    "last": "2026-08-16"
   },
-  "total_rated": 928,
+  "total_rated": 1050,
   "counts": {
-    "good": 277,
-    "bad": 596,
-    "interesting": 54,
+    "good": 293,
+    "bad": 684,
+    "interesting": 72,
     "skip": 1
   },
-  "bad_pct": 64.2,
-  "good_pct": 29.8,
+  "bad_pct": 65.1,
+  "good_pct": 27.9,
   "score_by_rating": {
     "good": {
-      "n": 277,
-      "mean_score": 50.2,
+      "n": 293,
+      "mean_score": 49.6,
       "median_score": 48,
-      "mean_quality": 44.6,
-      "mean_relevance": 44.3
+      "mean_quality": 43.8,
+      "mean_relevance": 43.2
     },
     "interesting": {
-      "n": 54,
-      "mean_score": 38.6,
-      "median_score": 48.0,
-      "mean_quality": 36.8,
-      "mean_relevance": 30.4
+      "n": 72,
+      "mean_score": 36.7,
+      "median_score": 46.0,
+      "mean_quality": 31.0,
+      "mean_relevance": 25.8
     },
     "bad": {
-      "n": 596,
-      "mean_score": 35.8,
+      "n": 684,
+      "mean_score": 35.2,
       "median_score": 29.0,
-      "mean_quality": 31.4,
-      "mean_relevance": 28.3
+      "mean_quality": 28.3,
+      "mean_relevance": 25.4
     }
   },
   "band_precision": [
@@ -55,126 +55,126 @@
     },
     {
       "band": "40-59",
-      "n": 294,
-      "good": 112,
-      "bad": 149,
-      "good_pct": 38.1,
-      "bad_pct": 50.7
+      "n": 336,
+      "good": 122,
+      "bad": 176,
+      "good_pct": 36.3,
+      "bad_pct": 52.4
     },
     {
       "band": "20-39",
-      "n": 217,
-      "good": 51,
-      "bad": 152,
-      "good_pct": 23.5,
-      "bad_pct": 70.0
+      "n": 274,
+      "good": 56,
+      "bad": 195,
+      "good_pct": 20.4,
+      "bad_pct": 71.2
     },
     {
       "band": "0-19",
-      "n": 231,
-      "good": 26,
-      "bad": 197,
-      "good_pct": 11.3,
-      "bad_pct": 85.3
+      "n": 254,
+      "good": 27,
+      "bad": 215,
+      "good_pct": 10.6,
+      "bad_pct": 84.6
     }
   ],
   "threshold_sweep": [
     {
       "threshold": 13,
       "bad_cut": 68,
-      "bad_cut_pct": 11.4,
+      "bad_cut_pct": 9.9,
       "good_lost": 7,
-      "good_lost_pct": 2.5
+      "good_lost_pct": 2.4
     },
     {
       "threshold": 15,
-      "bad_cut": 141,
-      "bad_cut_pct": 23.7,
+      "bad_cut": 149,
+      "bad_cut_pct": 21.8,
       "good_lost": 18,
-      "good_lost_pct": 6.5
+      "good_lost_pct": 6.1
     },
     {
       "threshold": 20,
-      "bad_cut": 197,
-      "bad_cut_pct": 33.1,
-      "good_lost": 26,
-      "good_lost_pct": 9.4
+      "bad_cut": 215,
+      "bad_cut_pct": 31.4,
+      "good_lost": 27,
+      "good_lost_pct": 9.2
     },
     {
       "threshold": 25,
-      "bad_cut": 226,
-      "bad_cut_pct": 37.9,
-      "good_lost": 33,
+      "bad_cut": 254,
+      "bad_cut_pct": 37.1,
+      "good_lost": 35,
       "good_lost_pct": 11.9
     },
     {
       "threshold": 30,
-      "bad_cut": 309,
-      "bad_cut_pct": 51.8,
-      "good_lost": 61,
-      "good_lost_pct": 22.0
+      "bad_cut": 355,
+      "bad_cut_pct": 51.9,
+      "good_lost": 65,
+      "good_lost_pct": 22.2
     },
     {
       "threshold": 35,
-      "bad_cut": 329,
-      "bad_cut_pct": 55.2,
-      "good_lost": 67,
-      "good_lost_pct": 24.2
+      "bad_cut": 387,
+      "bad_cut_pct": 56.6,
+      "good_lost": 73,
+      "good_lost_pct": 24.9
     },
     {
       "threshold": 40,
-      "bad_cut": 349,
-      "bad_cut_pct": 58.6,
-      "good_lost": 77,
-      "good_lost_pct": 27.8
+      "bad_cut": 410,
+      "bad_cut_pct": 59.9,
+      "good_lost": 83,
+      "good_lost_pct": 28.3
     },
     {
       "threshold": 45,
-      "bad_cut": 382,
-      "bad_cut_pct": 64.1,
-      "good_lost": 94,
-      "good_lost_pct": 33.9
+      "bad_cut": 449,
+      "bad_cut_pct": 65.6,
+      "good_lost": 100,
+      "good_lost_pct": 34.1
     },
     {
       "threshold": 50,
-      "bad_cut": 458,
-      "bad_cut_pct": 76.8,
-      "good_lost": 175,
-      "good_lost_pct": 63.2
+      "bad_cut": 545,
+      "bad_cut_pct": 79.7,
+      "good_lost": 191,
+      "good_lost_pct": 65.2
     },
     {
       "threshold": 60,
-      "bad_cut": 498,
-      "bad_cut_pct": 83.6,
-      "good_lost": 189,
-      "good_lost_pct": 68.2
+      "bad_cut": 586,
+      "bad_cut_pct": 85.7,
+      "good_lost": 205,
+      "good_lost_pct": 70.0
     }
   ],
   "current_min_score": 20,
   "by_category": {
     "news": {
-      "n": 706,
-      "good": 167,
-      "interesting": 28,
-      "bad": 511,
-      "bad_pct": 72.4,
-      "good_pct": 23.7
+      "n": 783,
+      "good": 172,
+      "interesting": 30,
+      "bad": 581,
+      "bad_pct": 74.2,
+      "good_pct": 22.0
     },
     "ai-tech": {
-      "n": 72,
-      "good": 32,
-      "interesting": 14,
-      "bad": 26,
-      "bad_pct": 36.1,
-      "good_pct": 44.4
+      "n": 78,
+      "good": 33,
+      "interesting": 16,
+      "bad": 29,
+      "bad_pct": 37.2,
+      "good_pct": 42.3
     },
     "wellness": {
-      "n": 55,
-      "good": 19,
-      "interesting": 7,
-      "bad": 28,
-      "bad_pct": 50.9,
-      "good_pct": 34.5
+      "n": 69,
+      "good": 21,
+      "interesting": 9,
+      "bad": 38,
+      "bad_pct": 55.1,
+      "good_pct": 30.4
     },
     "local": {
       "n": 39,
@@ -185,36 +185,44 @@
       "good_pct": 74.4
     },
     "climate": {
-      "n": 21,
+      "n": 22,
       "good": 12,
-      "interesting": 3,
+      "interesting": 4,
       "bad": 6,
-      "bad_pct": 28.6,
-      "good_pct": 57.1
+      "bad_pct": 27.3,
+      "good_pct": 54.5
     },
     "science": {
-      "n": 14,
-      "good": 12,
+      "n": 17,
+      "good": 15,
       "interesting": 0,
       "bad": 2,
-      "bad_pct": 14.3,
-      "good_pct": 85.7
-    },
-    "scifi": {
-      "n": 7,
-      "good": 0,
-      "interesting": 0,
-      "bad": 7,
-      "bad_pct": 100.0,
-      "good_pct": 0.0
+      "bad_pct": 11.8,
+      "good_pct": 88.2
     },
     "homelab": {
-      "n": 7,
-      "good": 2,
-      "interesting": 2,
+      "n": 12,
+      "good": 3,
+      "interesting": 5,
+      "bad": 4,
+      "bad_pct": 33.3,
+      "good_pct": 25.0
+    },
+    "scifi": {
+      "n": 9,
+      "good": 1,
+      "interesting": 1,
+      "bad": 7,
+      "bad_pct": 77.8,
+      "good_pct": 11.1
+    },
+    "design": {
+      "n": 8,
+      "good": 1,
+      "interesting": 4,
       "bad": 3,
-      "bad_pct": 42.9,
-      "good_pct": 28.6
+      "bad_pct": 37.5,
+      "good_pct": 12.5
     },
     "shared": {
       "n": 4,
@@ -223,6 +231,22 @@
       "bad": 0,
       "bad_pct": 0.0,
       "good_pct": 100.0
+    },
+    "outdoors": {
+      "n": 3,
+      "good": 1,
+      "interesting": 1,
+      "bad": 1,
+      "bad_pct": 33.3,
+      "good_pct": 33.3
+    },
+    "homestead": {
+      "n": 3,
+      "good": 1,
+      "interesting": 2,
+      "bad": 0,
+      "bad_pct": 0.0,
+      "good_pct": 33.3
     },
     "podcast-sunday": {
       "n": 2,
@@ -242,6 +266,13 @@
     }
   },
   "worst_sources": {
+    "Rolling Stone": {
+      "n": 8,
+      "good": 0,
+      "bad": 8,
+      "good_pct": 0.0,
+      "bad_pct": 100.0
+    },
     "Reactor Magazine": {
       "n": 10,
       "good": 1,
@@ -270,6 +301,13 @@
       "good_pct": 14.3,
       "bad_pct": 85.7
     },
+    "Edge (GamesRadar)": {
+      "n": 7,
+      "good": 0,
+      "bad": 6,
+      "good_pct": 0.0,
+      "bad_pct": 85.7
+    },
     "CBC Arts": {
       "n": 13,
       "good": 2,
@@ -277,71 +315,58 @@
       "good_pct": 15.4,
       "bad_pct": 84.6
     },
-    "Al Jazeera English": {
-      "n": 34,
-      "good": 5,
-      "bad": 28,
-      "good_pct": 14.7,
-      "bad_pct": 82.4
-    },
-    "Android Authority": {
-      "n": 25,
-      "good": 5,
-      "bad": 20,
-      "good_pct": 20.0,
-      "bad_pct": 80.0
-    },
-    "Open Culture": {
-      "n": 5,
+    "Dwell": {
+      "n": 6,
       "good": 1,
-      "bad": 4,
-      "good_pct": 20.0,
-      "bad_pct": 80.0
+      "bad": 5,
+      "good_pct": 16.7,
+      "bad_pct": 83.3
     },
     "NYT Top Stories": {
-      "n": 24,
+      "n": 28,
       "good": 3,
-      "bad": 19,
-      "good_pct": 12.5,
-      "bad_pct": 79.2
+      "bad": 23,
+      "good_pct": 10.7,
+      "bad_pct": 82.1
     },
-    "Quartz": {
-      "n": 19,
-      "good": 3,
-      "bad": 15,
-      "good_pct": 15.8,
-      "bad_pct": 78.9
+    "Al Jazeera English": {
+      "n": 35,
+      "good": 5,
+      "bad": 28,
+      "good_pct": 14.3,
+      "bad_pct": 80.0
     }
   },
   "content_type_by_rating": {
     "unlabeled": {
-      "good": 216,
-      "bad": 497,
-      "interesting": 28,
+      "good": 225,
+      "bad": 575,
+      "interesting": 42,
       "skip": 1
     },
     "breaking": {
-      "good": 21,
-      "bad": 43,
-      "interesting": 12
+      "good": 22,
+      "bad": 45,
+      "interesting": 13
     },
     "analysis": {
-      "good": 19,
-      "bad": 13,
-      "interesting": 10
+      "good": 23,
+      "bad": 18,
+      "interesting": 11
     },
     "feature": {
-      "good": 14,
-      "bad": 22,
-      "interesting": 3
+      "good": 15,
+      "bad": 24,
+      "interesting": 5
+    },
+    "opinion": {
+      "bad": 10,
+      "interesting": 1,
+      "good": 1
     },
     "news": {
       "bad": 7,
       "good": 4
-    },
-    "opinion": {
-      "bad": 9,
-      "interesting": 1
     },
     "wire": {
       "bad": 2,
@@ -356,77 +381,77 @@
     }
   },
   "theme_routing": {
-    "rated_with_day": 921,
-    "corrections": 231,
-    "correction_pct": 25.1,
+    "rated_with_day": 1043,
+    "corrections": 242,
+    "correction_pct": 23.2,
     "root_cause": {
-      "routing_bug": 85,
-      "theme_scoring_miss": 146,
+      "routing_bug": 88,
+      "theme_scoring_miss": 154,
       "missing_scores": 0
     },
     "per_day": {
       "monday": {
         "label": "Arts, Culture & Digital Storytelling",
-        "n": 136,
-        "good": 32,
-        "bad": 94,
-        "good_pct": 23.5,
-        "corrected_away": 31
+        "n": 150,
+        "good": 33,
+        "bad": 105,
+        "good_pct": 22.0,
+        "corrected_away": 32
       },
       "tuesday": {
         "label": "Working Lands & Industry",
-        "n": 122,
+        "n": 137,
         "good": 33,
-        "bad": 87,
-        "good_pct": 27.0,
+        "bad": 101,
+        "good_pct": 24.1,
         "corrected_away": 27
       },
       "wednesday": {
         "label": "Repair Culture & Practical Tech",
-        "n": 177,
-        "good": 68,
-        "bad": 98,
-        "good_pct": 38.4,
-        "corrected_away": 45
+        "n": 193,
+        "good": 69,
+        "bad": 113,
+        "good_pct": 35.8,
+        "corrected_away": 46
       },
       "thursday": {
         "label": "Indigenous Lands & Innovation",
-        "n": 113,
-        "good": 27,
-        "bad": 73,
-        "good_pct": 23.9,
-        "corrected_away": 26
+        "n": 128,
+        "good": 30,
+        "bad": 80,
+        "good_pct": 23.4,
+        "corrected_away": 28
       },
       "friday": {
         "label": "Wild Spaces & Outdoor Life",
-        "n": 174,
-        "good": 44,
-        "bad": 117,
-        "good_pct": 25.3,
-        "corrected_away": 41
+        "n": 189,
+        "good": 48,
+        "bad": 123,
+        "good_pct": 25.4,
+        "corrected_away": 44
       },
       "saturday": {
         "label": "Cariboo Local Affairs",
-        "n": 115,
-        "good": 40,
-        "bad": 72,
-        "good_pct": 34.8,
-        "corrected_away": 37
+        "n": 146,
+        "good": 43,
+        "bad": 97,
+        "good_pct": 29.5,
+        "corrected_away": 40
       },
       "sunday": {
         "label": "Science, Wonder & the Natural World",
-        "n": 84,
-        "good": 29,
-        "bad": 52,
-        "good_pct": 34.5,
-        "corrected_away": 24
+        "n": 100,
+        "good": 33,
+        "bad": 62,
+        "good_pct": 33.0,
+        "corrected_away": 25
       }
     },
     "confusion": {
       "monday": {
         "wednesday": 7,
         "saturday": 4,
-        "sunday": 7,
+        "sunday": 8,
         "tuesday": 7,
         "friday": 5,
         "thursday": 1
@@ -443,34 +468,35 @@
         "friday": 12,
         "monday": 4,
         "saturday": 9,
-        "sunday": 11,
+        "sunday": 12,
         "tuesday": 7,
         "thursday": 2
       },
       "thursday": {
         "friday": 6,
         "wednesday": 6,
-        "sunday": 9,
+        "sunday": 10,
         "tuesday": 4,
-        "monday": 1
+        "monday": 1,
+        "saturday": 1
       },
       "friday": {
         "thursday": 5,
-        "monday": 3,
+        "monday": 4,
         "saturday": 6,
         "wednesday": 9,
-        "sunday": 12,
-        "tuesday": 6
+        "sunday": 13,
+        "tuesday": 7
       },
       "saturday": {
-        "sunday": 14,
+        "sunday": 15,
         "thursday": 5,
-        "wednesday": 8,
+        "wednesday": 9,
         "tuesday": 3,
-        "friday": 7
+        "friday": 8
       },
       "sunday": {
-        "tuesday": 5,
+        "tuesday": 6,
         "friday": 5,
         "wednesday": 7,
         "saturday": 4,
@@ -480,17 +506,21 @@
     }
   },
   "category_retag": {
-    "rated_with_category": 199,
-    "corrections": 23,
-    "correction_pct": 11.6,
+    "rated_with_category": 321,
+    "corrections": 35,
+    "correction_pct": 10.9,
     "confusion": {
       "news": {
         "climate": 2,
         "science": 1,
-        "wellness": 4,
-        "ai-tech": 12,
-        "homelab": 1,
-        "local": 1
+        "wellness": 5,
+        "ai-tech": 13,
+        "homelab": 2,
+        "local": 1,
+        "scifi": 1,
+        "outdoors": 2,
+        "design": 3,
+        "homestead": 3
       },
       "science": {
         "climate": 1
@@ -501,12 +531,6 @@
     }
   },
   "volume_trend_recent": [
-    {
-      "week": "2026-W25",
-      "runs": 33,
-      "avg_fetched": 1385,
-      "avg_quality": 24
-    },
     {
       "week": "2026-W26",
       "runs": 8,
@@ -545,16 +569,22 @@
     },
     {
       "week": "2026-W32",
-      "runs": 6,
-      "avg_fetched": 1293,
+      "runs": 7,
+      "avg_fetched": 1287,
       "avg_quality": 86
+    },
+    {
+      "week": "2026-W33",
+      "runs": 6,
+      "avg_fetched": 1616,
+      "avg_quality": 93
     }
   ],
   "process_health": {
-    "calibration_log_entries": 15,
+    "calibration_log_entries": 16,
     "calibration_no_change_entries": 8,
-    "calibration_stats_runs": 17,
-    "calibration_stats_range": "2026-07-26 → 2026-08-09",
-    "theme_holdover_cache_present": false
+    "calibration_stats_runs": 15,
+    "calibration_stats_range": "2026-08-02 → 2026-08-16",
+    "theme_holdover_cache_present": true
   }
 }
