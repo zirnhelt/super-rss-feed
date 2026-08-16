@@ -1,1058 +1,5 @@
 [
   {
-    "run_id": "2026-08-01T06:35:31.274281+00:00",
-    "timestamp": "2026-08-01T06:35:31.274281+00:00",
-    "slot": "morning",
-    "ingest": {
-      "fetched": 1115,
-      "deduped": 762,
-      "new": 673,
-      "cross_run_story_dupes": 55
-    },
-    "scoring": {
-      "scored_count": 673,
-      "score_histogram_by_category": {
-        "local": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 4,
-          "80-100": 3
-        },
-        "news": {
-          "0-19": 134,
-          "20-39": 208,
-          "40-59": 212,
-          "60-79": 57,
-          "80-100": 1
-        },
-        "ai-tech": {
-          "0-19": 1,
-          "20-39": 9,
-          "40-59": 8,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "climate": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 6,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 5,
-          "20-39": 5,
-          "40-59": 6,
-          "60-79": 4,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 3,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 2,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "quality_histogram_by_category": {
-        "local": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 3,
-          "60-79": 1,
-          "80-100": 2
-        },
-        "news": {
-          "0-19": 546,
-          "20-39": 25,
-          "40-59": 26,
-          "60-79": 14,
-          "80-100": 1
-        },
-        "ai-tech": {
-          "0-19": 4,
-          "20-39": 0,
-          "40-59": 7,
-          "60-79": 7,
-          "80-100": 0
-        },
-        "climate": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 2,
-          "60-79": 4,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 13,
-          "20-39": 2,
-          "40-59": 2,
-          "60-79": 3,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 1,
-          "20-39": 1,
-          "40-59": 1,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 0,
-          "60-79": 3,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "relevance_histogram_by_category": {
-        "local": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 1,
-          "60-79": 0,
-          "80-100": 6
-        },
-        "news": {
-          "0-19": 573,
-          "20-39": 24,
-          "40-59": 14,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "ai-tech": {
-          "0-19": 4,
-          "20-39": 3,
-          "40-59": 10,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "climate": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 1,
-          "60-79": 5,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 13,
-          "20-39": 1,
-          "40-59": 5,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 1,
-          "60-79": 2,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 0,
-          "60-79": 3,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "local_histogram_by_category": {
-        "local": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 1,
-          "80-100": 6
-        },
-        "news": {
-          "0-19": 605,
-          "20-39": 5,
-          "40-59": 0,
-          "60-79": 2,
-          "80-100": 0
-        },
-        "ai-tech": {
-          "0-19": 18,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "climate": {
-          "0-19": 7,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 20,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 4,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 4,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "q_gate_histogram": {
-        "0-19": 123,
-        "20-39": 228,
-        "40-59": 250,
-        "60-79": 66,
-        "80-100": 0
-      },
-      "q_gate_scored_count": 667,
-      "content_type_breakdown_by_category": {
-        "local": {
-          "breaking": 4,
-          "fluff": 1,
-          "news": 2
-        },
-        "news": {
-          "breaking": 35,
-          "unknown": 545,
-          "analysis": 9,
-          "opinion": 3,
-          "feature": 6,
-          "fluff": 10,
-          "wire": 1,
-          "recap": 1,
-          "news": 2
-        },
-        "ai-tech": {
-          "feature": 1,
-          "analysis": 8,
-          "breaking": 3,
-          "unknown": 4,
-          "fluff": 2
-        },
-        "climate": {
-          "unknown": 1,
-          "analysis": 4,
-          "breaking": 2
-        },
-        "wellness": {
-          "unknown": 13,
-          "feature": 4,
-          "fluff": 2,
-          "opinion": 1
-        },
-        "science": {
-          "breaking": 2,
-          "analysis": 1,
-          "unknown": 1
-        },
-        "homelab": {
-          "fluff": 1,
-          "feature": 2,
-          "recap": 1
-        },
-        "scifi": {
-          "unknown": 1
-        }
-      }
-    },
-    "content_type_filter": {
-      "content_type_removed": {
-        "fluff": 16,
-        "recap_nonlocal": 2
-      }
-    },
-    "scrub": {
-      "cohere_removed_by_category": {},
-      "haiku_removed_by_category": {
-        "news": 119,
-        "wellness": 5,
-        "ai-tech": 6,
-        "scifi": 1
-      }
-    },
-    "quality_gate": {
-      "passed_count": 63,
-      "passed_by_category": {
-        "local": 6,
-        "news": 25,
-        "wellness": 10,
-        "homelab": 2,
-        "climate": 7,
-        "science": 3,
-        "ai-tech": 10
-      },
-      "dropped_below_floor_by_category": {
-        "local": 0,
-        "news": 397,
-        "ai-tech": 0,
-        "climate": 0,
-        "wellness": 1,
-        "science": 0,
-        "homelab": 0
-      }
-    },
-    "theme_scoring": {
-      "monday": {
-        "scored": 1528,
-        "histogram": {
-          "0-19": 1436,
-          "20-39": 83,
-          "40-59": 2,
-          "60-79": 7,
-          "80-100": 0
-        },
-        "mean": 7.7,
-        "max": 66
-      },
-      "tuesday": {
-        "scored": 1521,
-        "histogram": {
-          "0-19": 1512,
-          "20-39": 9,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "mean": 3.1,
-        "max": 33
-      },
-      "wednesday": {
-        "scored": 1555,
-        "histogram": {
-          "0-19": 1434,
-          "20-39": 118,
-          "40-59": 3,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "mean": 8.8,
-        "max": 57
-      },
-      "thursday": {
-        "scored": 1521,
-        "histogram": {
-          "0-19": 1513,
-          "20-39": 8,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "mean": 4.5,
-        "max": 32
-      },
-      "friday": {
-        "scored": 1533,
-        "histogram": {
-          "0-19": 170,
-          "20-39": 668,
-          "40-59": 630,
-          "60-79": 64,
-          "80-100": 1
-        },
-        "mean": 37.2,
-        "max": 83
-      },
-      "saturday": {
-        "scored": 1539,
-        "histogram": {
-          "0-19": 120,
-          "20-39": 651,
-          "40-59": 692,
-          "60-79": 74,
-          "80-100": 2
-        },
-        "mean": 38.9,
-        "max": 83
-      },
-      "sunday": {
-        "scored": 1528,
-        "histogram": {
-          "0-19": 104,
-          "20-39": 322,
-          "40-59": 681,
-          "60-79": 389,
-          "80-100": 32
-        },
-        "mean": 48.4,
-        "max": 90
-      }
-    },
-    "theme_routing": {
-      "routed_by_target_day": {
-        "friday": 1353,
-        "saturday": 1395,
-        "sunday": 1343,
-        "wednesday": 423,
-        "monday": 196,
-        "thursday": 75,
-        "tuesday": 23
-      },
-      "routed_count": 4808
-    },
-    "podcast_feeds": {
-      "monday": {
-        "article_count": 10,
-        "bonus_count": 5,
-        "mean_final_score": 25.0,
-        "mean_theme_score": 16.1,
-        "relative_scaled": false,
-        "banked_count": 3
-      },
-      "tuesday": {
-        "article_count": 8,
-        "bonus_count": 1,
-        "mean_final_score": 25.2,
-        "mean_theme_score": 6.8,
-        "relative_scaled": false,
-        "banked_count": 2
-      },
-      "wednesday": {
-        "article_count": 28,
-        "bonus_count": 15,
-        "mean_final_score": 20.7,
-        "mean_theme_score": 9.7,
-        "relative_scaled": false,
-        "banked_count": 3
-      },
-      "thursday": {
-        "article_count": 6,
-        "bonus_count": 0,
-        "mean_final_score": 23.5,
-        "mean_theme_score": 3.7,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "friday": {
-        "article_count": 100,
-        "bonus_count": 88,
-        "mean_final_score": 36.0,
-        "mean_theme_score": 36.5,
-        "relative_scaled": false,
-        "banked_count": 4
-      },
-      "saturday": {
-        "article_count": 100,
-        "bonus_count": 88,
-        "mean_final_score": 37.0,
-        "mean_theme_score": 38.2,
-        "relative_scaled": false,
-        "banked_count": 4
-      },
-      "sunday": {
-        "article_count": 100,
-        "bonus_count": 85,
-        "mean_final_score": 44.2,
-        "mean_theme_score": 49.7,
-        "relative_scaled": false,
-        "banked_count": 4
-      }
-    },
-    "holdover": {
-      "bank_size_by_day_eod": {
-        "friday": 1357,
-        "saturday": 1399,
-        "sunday": 1347,
-        "wednesday": 426,
-        "monday": 199,
-        "thursday": 75,
-        "tuesday": 25
-      },
-      "banked_today": 20
-    },
-    "final_feeds": {
-      "local": 28,
-      "homelab": 12,
-      "climate": 30,
-      "science": 32,
-      "wellness": 53,
-      "ai-tech": 68,
-      "scifi": 4,
-      "news": 128
-    },
-    "api_usage": {
-      "calls": {
-        "brave": 42,
-        "kagi": 24,
-        "claude": 38,
-        "cohere": 16
-      },
-      "claude_tokens": 148181,
-      "est_cost_usd": 0.387
-    }
-  },
-  {
-    "run_id": "2026-08-01T13:12:43.371003+00:00",
-    "timestamp": "2026-08-01T13:12:43.371003+00:00",
-    "slot": "evening",
-    "ingest": {
-      "fetched": 1088,
-      "deduped": 706,
-      "new": 585,
-      "cross_run_story_dupes": 50
-    },
-    "scoring": {
-      "scored_count": 585,
-      "score_histogram_by_category": {
-        "news": {
-          "0-19": 113,
-          "20-39": 192,
-          "40-59": 217,
-          "60-79": 12,
-          "80-100": 0
-        },
-        "ai-tech": {
-          "0-19": 0,
-          "20-39": 11,
-          "40-59": 5,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "local": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 2,
-          "80-100": 0
-        },
-        "climate": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 2,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 4,
-          "20-39": 7,
-          "40-59": 3,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 7,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 1,
-          "20-39": 4,
-          "40-59": 1,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "quality_histogram_by_category": {
-        "news": {
-          "0-19": 482,
-          "20-39": 12,
-          "40-59": 20,
-          "60-79": 17,
-          "80-100": 3
-        },
-        "ai-tech": {
-          "0-19": 2,
-          "20-39": 1,
-          "40-59": 8,
-          "60-79": 5,
-          "80-100": 0
-        },
-        "local": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 1
-        },
-        "climate": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 1,
-          "60-79": 2,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 7,
-          "20-39": 2,
-          "40-59": 1,
-          "60-79": 4,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 1,
-          "60-79": 6,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 1,
-          "20-39": 2,
-          "40-59": 3,
-          "60-79": 0,
-          "80-100": 1
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "relevance_histogram_by_category": {
-        "news": {
-          "0-19": 494,
-          "20-39": 27,
-          "40-59": 11,
-          "60-79": 2,
-          "80-100": 0
-        },
-        "ai-tech": {
-          "0-19": 2,
-          "20-39": 5,
-          "40-59": 9,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "local": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 2
-        },
-        "climate": {
-          "0-19": 0,
-          "20-39": 1,
-          "40-59": 1,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 7,
-          "20-39": 3,
-          "40-59": 4,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 4,
-          "60-79": 3,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 1,
-          "20-39": 1,
-          "40-59": 4,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "local_histogram_by_category": {
-        "news": {
-          "0-19": 532,
-          "20-39": 1,
-          "40-59": 0,
-          "60-79": 1,
-          "80-100": 0
-        },
-        "ai-tech": {
-          "0-19": 16,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "local": {
-          "0-19": 0,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 1,
-          "80-100": 1
-        },
-        "climate": {
-          "0-19": 3,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "wellness": {
-          "0-19": 14,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "science": {
-          "0-19": 8,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "homelab": {
-          "0-19": 7,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "scifi": {
-          "0-19": 1,
-          "20-39": 0,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        }
-      },
-      "q_gate_histogram": {
-        "0-19": 121,
-        "20-39": 197,
-        "40-59": 223,
-        "60-79": 42,
-        "80-100": 0
-      },
-      "q_gate_scored_count": 583,
-      "content_type_breakdown_by_category": {
-        "news": {
-          "breaking": 17,
-          "unknown": 481,
-          "analysis": 14,
-          "feature": 7,
-          "fluff": 11,
-          "wire": 1,
-          "news": 3
-        },
-        "ai-tech": {
-          "analysis": 6,
-          "fluff": 4,
-          "breaking": 2,
-          "unknown": 2,
-          "news": 2
-        },
-        "local": {
-          "fluff": 1,
-          "feature": 1
-        },
-        "climate": {
-          "analysis": 2,
-          "breaking": 1
-        },
-        "wellness": {
-          "unknown": 7,
-          "analysis": 1,
-          "fluff": 2,
-          "opinion": 1,
-          "breaking": 1,
-          "feature": 2
-        },
-        "science": {
-          "feature": 6,
-          "analysis": 1,
-          "unknown": 1
-        },
-        "homelab": {
-          "news": 1,
-          "analysis": 3,
-          "fluff": 2,
-          "unknown": 1
-        },
-        "scifi": {
-          "unknown": 1
-        }
-      }
-    },
-    "content_type_filter": {
-      "content_type_removed": {
-        "fluff": 20
-      }
-    },
-    "scrub": {
-      "cohere_removed_by_category": {},
-      "haiku_removed_by_category": {
-        "news": 109,
-        "wellness": 4,
-        "ai-tech": 4,
-        "scifi": 1
-      }
-    },
-    "quality_gate": {
-      "passed_count": 55,
-      "passed_by_category": {
-        "local": 1,
-        "news": 25,
-        "homelab": 5,
-        "science": 7,
-        "climate": 3,
-        "wellness": 6,
-        "ai-tech": 8
-      },
-      "dropped_below_floor_by_category": {
-        "news": 334,
-        "ai-tech": 0,
-        "local": 0,
-        "climate": 0,
-        "science": 0,
-        "wellness": 0,
-        "homelab": 0
-      }
-    },
-    "theme_scoring": {
-      "monday": {
-        "scored": 1628,
-        "histogram": {
-          "0-19": 1528,
-          "20-39": 90,
-          "40-59": 2,
-          "60-79": 8,
-          "80-100": 0
-        },
-        "mean": 7.8,
-        "max": 71
-      },
-      "tuesday": {
-        "scored": 1621,
-        "histogram": {
-          "0-19": 1611,
-          "20-39": 10,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "mean": 3.1,
-        "max": 33
-      },
-      "wednesday": {
-        "scored": 1655,
-        "histogram": {
-          "0-19": 1525,
-          "20-39": 126,
-          "40-59": 4,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "mean": 8.9,
-        "max": 57
-      },
-      "thursday": {
-        "scored": 1621,
-        "histogram": {
-          "0-19": 1612,
-          "20-39": 9,
-          "40-59": 0,
-          "60-79": 0,
-          "80-100": 0
-        },
-        "mean": 4.6,
-        "max": 32
-      },
-      "friday": {
-        "scored": 1633,
-        "histogram": {
-          "0-19": 180,
-          "20-39": 703,
-          "40-59": 679,
-          "60-79": 70,
-          "80-100": 1
-        },
-        "mean": 37.3,
-        "max": 83
-      },
-      "saturday": {
-        "scored": 1639,
-        "histogram": {
-          "0-19": 131,
-          "20-39": 683,
-          "40-59": 742,
-          "60-79": 81,
-          "80-100": 2
-        },
-        "mean": 39.0,
-        "max": 83
-      },
-      "sunday": {
-        "scored": 1628,
-        "histogram": {
-          "0-19": 111,
-          "20-39": 335,
-          "40-59": 720,
-          "60-79": 428,
-          "80-100": 34
-        },
-        "mean": 48.6,
-        "max": 90
-      }
-    },
-    "theme_routing": {
-      "routed_by_target_day": {
-        "thursday": 80,
-        "friday": 1403,
-        "saturday": 1448,
-        "sunday": 1391,
-        "wednesday": 447,
-        "monday": 215,
-        "tuesday": 25
-      },
-      "routed_count": 5009
-    },
-    "podcast_feeds": {
-      "monday": {
-        "article_count": 11,
-        "bonus_count": 6,
-        "mean_final_score": 25.4,
-        "mean_theme_score": 16.0,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "tuesday": {
-        "article_count": 8,
-        "bonus_count": 1,
-        "mean_final_score": 25.2,
-        "mean_theme_score": 6.8,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "wednesday": {
-        "article_count": 33,
-        "bonus_count": 17,
-        "mean_final_score": 20.6,
-        "mean_theme_score": 10.2,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "thursday": {
-        "article_count": 6,
-        "bonus_count": 0,
-        "mean_final_score": 23.5,
-        "mean_theme_score": 3.7,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "friday": {
-        "article_count": 100,
-        "bonus_count": 86,
-        "mean_final_score": 37.7,
-        "mean_theme_score": 38.2,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "saturday": {
-        "article_count": 100,
-        "bonus_count": 87,
-        "mean_final_score": 38.7,
-        "mean_theme_score": 40.0,
-        "relative_scaled": false,
-        "banked_count": 0
-      },
-      "sunday": {
-        "article_count": 100,
-        "bonus_count": 81,
-        "mean_final_score": 45.8,
-        "mean_theme_score": 51.2,
-        "relative_scaled": false,
-        "banked_count": 0
-      }
-    },
-    "holdover": {
-      "bank_size_by_day_eod": {
-        "thursday": 80,
-        "friday": 1403,
-        "saturday": 1448,
-        "sunday": 1391,
-        "wednesday": 447,
-        "monday": 215,
-        "tuesday": 25
-      },
-      "banked_today": 0
-    },
-    "final_feeds": {
-      "local": 29,
-      "homelab": 16,
-      "climate": 30,
-      "science": 35,
-      "wellness": 58,
-      "ai-tech": 71,
-      "scifi": 4,
-      "news": 147
-    },
-    "api_usage": {
-      "calls": {
-        "brave": 42,
-        "kagi": 23,
-        "kite": 6,
-        "claude": 22,
-        "cohere": 9
-      },
-      "claude_tokens": 75361,
-      "est_cost_usd": 0.2691
-    }
-  },
-  {
     "run_id": "2026-08-02T06:39:02.102559+00:00",
     "timestamp": "2026-08-02T06:39:02.102559+00:00",
     "slot": "morning",
@@ -9558,6 +8505,622 @@
       },
       "claude_tokens": 245119,
       "est_cost_usd": 0.4935
+    }
+  },
+  {
+    "run_id": "2026-08-16T04:41:25.880350+00:00",
+    "timestamp": "2026-08-16T04:41:25.880350+00:00",
+    "slot": "morning",
+    "ingest": {
+      "fetched": 1448,
+      "deduped": 929,
+      "new": 793,
+      "cross_run_story_dupes": 82
+    },
+    "scoring": {
+      "scored_count": 793,
+      "score_histogram_by_category": {
+        "local": {
+          "0-19": 0,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 2,
+          "80-100": 3
+        },
+        "news": {
+          "0-19": 109,
+          "20-39": 247,
+          "40-59": 255,
+          "60-79": 47,
+          "80-100": 0
+        },
+        "wellness": {
+          "0-19": 8,
+          "20-39": 15,
+          "40-59": 28,
+          "60-79": 3,
+          "80-100": 0
+        },
+        "ai-tech": {
+          "0-19": 3,
+          "20-39": 8,
+          "40-59": 12,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "climate": {
+          "0-19": 0,
+          "20-39": 1,
+          "40-59": 9,
+          "60-79": 1,
+          "80-100": 0
+        },
+        "science": {
+          "0-19": 0,
+          "20-39": 2,
+          "40-59": 10,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "design": {
+          "0-19": 4,
+          "20-39": 11,
+          "40-59": 4,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "homelab": {
+          "0-19": 1,
+          "20-39": 1,
+          "40-59": 4,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "outdoors": {
+          "0-19": 1,
+          "20-39": 1,
+          "40-59": 1,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "scifi": {
+          "0-19": 1,
+          "20-39": 1,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        }
+      },
+      "quality_histogram_by_category": {
+        "local": {
+          "0-19": 0,
+          "20-39": 0,
+          "40-59": 2,
+          "60-79": 2,
+          "80-100": 1
+        },
+        "news": {
+          "0-19": 609,
+          "20-39": 8,
+          "40-59": 20,
+          "60-79": 18,
+          "80-100": 3
+        },
+        "wellness": {
+          "0-19": 40,
+          "20-39": 1,
+          "40-59": 2,
+          "60-79": 10,
+          "80-100": 1
+        },
+        "ai-tech": {
+          "0-19": 3,
+          "20-39": 3,
+          "40-59": 9,
+          "60-79": 8,
+          "80-100": 0
+        },
+        "climate": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 5,
+          "60-79": 5,
+          "80-100": 0
+        },
+        "science": {
+          "0-19": 1,
+          "20-39": 1,
+          "40-59": 1,
+          "60-79": 8,
+          "80-100": 1
+        },
+        "design": {
+          "0-19": 4,
+          "20-39": 4,
+          "40-59": 7,
+          "60-79": 4,
+          "80-100": 0
+        },
+        "homelab": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 3,
+          "60-79": 2,
+          "80-100": 0
+        },
+        "outdoors": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 1,
+          "60-79": 1,
+          "80-100": 0
+        },
+        "scifi": {
+          "0-19": 0,
+          "20-39": 1,
+          "40-59": 1,
+          "60-79": 0,
+          "80-100": 0
+        }
+      },
+      "relevance_histogram_by_category": {
+        "local": {
+          "0-19": 0,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 2,
+          "80-100": 3
+        },
+        "news": {
+          "0-19": 616,
+          "20-39": 19,
+          "40-59": 21,
+          "60-79": 2,
+          "80-100": 0
+        },
+        "wellness": {
+          "0-19": 40,
+          "20-39": 1,
+          "40-59": 6,
+          "60-79": 7,
+          "80-100": 0
+        },
+        "ai-tech": {
+          "0-19": 3,
+          "20-39": 3,
+          "40-59": 13,
+          "60-79": 4,
+          "80-100": 0
+        },
+        "climate": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 4,
+          "60-79": 6,
+          "80-100": 0
+        },
+        "science": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 8,
+          "60-79": 3,
+          "80-100": 0
+        },
+        "design": {
+          "0-19": 7,
+          "20-39": 8,
+          "40-59": 4,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "homelab": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 2,
+          "60-79": 3,
+          "80-100": 0
+        },
+        "outdoors": {
+          "0-19": 1,
+          "20-39": 0,
+          "40-59": 2,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "scifi": {
+          "0-19": 1,
+          "20-39": 1,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        }
+      },
+      "local_histogram_by_category": {
+        "local": {
+          "0-19": 0,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 5
+        },
+        "news": {
+          "0-19": 657,
+          "20-39": 1,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "wellness": {
+          "0-19": 54,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "ai-tech": {
+          "0-19": 23,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "climate": {
+          "0-19": 8,
+          "20-39": 3,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "science": {
+          "0-19": 12,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "design": {
+          "0-19": 19,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "homelab": {
+          "0-19": 6,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "outdoors": {
+          "0-19": 3,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "scifi": {
+          "0-19": 2,
+          "20-39": 0,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        }
+      },
+      "q_gate_histogram": {
+        "0-19": 144,
+        "20-39": 289,
+        "40-59": 266,
+        "60-79": 90,
+        "80-100": 0
+      },
+      "q_gate_scored_count": 789,
+      "content_type_breakdown_by_category": {
+        "local": {
+          "breaking": 3,
+          "feature": 2
+        },
+        "news": {
+          "unknown": 608,
+          "breaking": 9,
+          "analysis": 17,
+          "feature": 12,
+          "recap": 2,
+          "fluff": 4,
+          "opinion": 6
+        },
+        "wellness": {
+          "unknown": 40,
+          "breaking": 4,
+          "analysis": 7,
+          "feature": 2,
+          "fluff": 1
+        },
+        "ai-tech": {
+          "breaking": 6,
+          "feature": 3,
+          "analysis": 4,
+          "news": 5,
+          "unknown": 3,
+          "opinion": 2
+        },
+        "climate": {
+          "analysis": 4,
+          "feature": 5,
+          "unknown": 1,
+          "recap": 1
+        },
+        "science": {
+          "analysis": 3,
+          "feature": 5,
+          "unknown": 1,
+          "recap": 2,
+          "breaking": 1
+        },
+        "design": {
+          "feature": 12,
+          "fluff": 3,
+          "unknown": 4
+        },
+        "homelab": {
+          "unknown": 1,
+          "feature": 3,
+          "analysis": 2
+        },
+        "outdoors": {
+          "fluff": 1,
+          "analysis": 1,
+          "unknown": 1
+        },
+        "scifi": {
+          "fluff": 1,
+          "feature": 1
+        }
+      }
+    },
+    "content_type_filter": {
+      "content_type_removed": {
+        "fluff": 10,
+        "recap_nonlocal": 5
+      }
+    },
+    "scrub": {
+      "cohere_removed_by_category": {
+        "news": 1
+      },
+      "haiku_removed_by_category": {
+        "news": 158,
+        "wellness": 14,
+        "design": 5,
+        "homelab": 1,
+        "ai-tech": 4,
+        "science": 1,
+        "scifi": 1
+      }
+    },
+    "quality_gate": {
+      "passed_count": 87,
+      "passed_by_category": {
+        "local": 5,
+        "wellness": 10,
+        "climate": 10,
+        "news": 25,
+        "science": 8,
+        "ai-tech": 17,
+        "design": 6,
+        "homelab": 5,
+        "outdoors": 1
+      },
+      "dropped_below_floor_by_category": {
+        "local": 0,
+        "news": 398,
+        "wellness": 27,
+        "ai-tech": 0,
+        "climate": 0,
+        "science": 1,
+        "design": 5,
+        "homelab": 0,
+        "outdoors": 0
+      }
+    },
+    "theme_scoring": {
+      "monday": {
+        "scored": 1432,
+        "histogram": {
+          "0-19": 1040,
+          "20-39": 363,
+          "40-59": 29,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "mean": 14.7,
+        "max": 56
+      },
+      "tuesday": {
+        "scored": 1449,
+        "histogram": {
+          "0-19": 1422,
+          "20-39": 25,
+          "40-59": 2,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "mean": 4.8,
+        "max": 44
+      },
+      "wednesday": {
+        "scored": 1420,
+        "histogram": {
+          "0-19": 1419,
+          "20-39": 1,
+          "40-59": 0,
+          "60-79": 0,
+          "80-100": 0
+        },
+        "mean": 2.4,
+        "max": 20
+      },
+      "thursday": {
+        "scored": 1440,
+        "histogram": {
+          "0-19": 1312,
+          "20-39": 126,
+          "40-59": 1,
+          "60-79": 1,
+          "80-100": 0
+        },
+        "mean": 7.9,
+        "max": 60
+      },
+      "friday": {
+        "scored": 1366,
+        "histogram": {
+          "0-19": 193,
+          "20-39": 618,
+          "40-59": 497,
+          "60-79": 58,
+          "80-100": 0
+        },
+        "mean": 35.5,
+        "max": 77
+      },
+      "saturday": {
+        "scored": 1364,
+        "histogram": {
+          "0-19": 128,
+          "20-39": 611,
+          "40-59": 559,
+          "60-79": 65,
+          "80-100": 1
+        },
+        "mean": 38.0,
+        "max": 80
+      },
+      "sunday": {
+        "scored": 1364,
+        "histogram": {
+          "0-19": 117,
+          "20-39": 326,
+          "40-59": 572,
+          "60-79": 322,
+          "80-100": 27
+        },
+        "mean": 46.8,
+        "max": 88
+      }
+    },
+    "theme_routing": {
+      "routed_by_target_day": {
+        "monday": 169,
+        "saturday": 160,
+        "tuesday": 124,
+        "wednesday": 133,
+        "thursday": 142,
+        "friday": 151,
+        "sunday": 148
+      },
+      "routed_count": 1027
+    },
+    "podcast_feeds": {
+      "monday": {
+        "article_count": 100,
+        "bonus_count": 93,
+        "mean_final_score": 60.8,
+        "mean_theme_score": 78.9,
+        "mean_theme_score_raw": 17.4,
+        "relative_scaled": true,
+        "banked_count": 7
+      },
+      "tuesday": {
+        "article_count": 100,
+        "bonus_count": 91,
+        "mean_final_score": 55.8,
+        "mean_theme_score": 72.9,
+        "mean_theme_score_raw": 5.9,
+        "relative_scaled": true,
+        "banked_count": 9
+      },
+      "wednesday": {
+        "article_count": 100,
+        "bonus_count": 92,
+        "mean_final_score": 53.3,
+        "mean_theme_score": 69.0,
+        "mean_theme_score_raw": 3.3,
+        "relative_scaled": true,
+        "banked_count": 5
+      },
+      "thursday": {
+        "article_count": 100,
+        "bonus_count": 96,
+        "mean_final_score": 57.4,
+        "mean_theme_score": 74.0,
+        "mean_theme_score_raw": 10.1,
+        "relative_scaled": true,
+        "banked_count": 79
+      },
+      "friday": {
+        "article_count": 100,
+        "bonus_count": 95,
+        "mean_final_score": 60.0,
+        "mean_theme_score": 79.8,
+        "mean_theme_score_raw": 37.8,
+        "relative_scaled": true,
+        "banked_count": 10
+      },
+      "saturday": {
+        "article_count": 100,
+        "bonus_count": 90,
+        "mean_final_score": 59.7,
+        "mean_theme_score": 78.6,
+        "mean_theme_score_raw": 39.6,
+        "relative_scaled": true,
+        "banked_count": 16
+      },
+      "sunday": {
+        "article_count": 100,
+        "bonus_count": 89,
+        "mean_final_score": 60.4,
+        "mean_theme_score": 79.3,
+        "mean_theme_score_raw": 50.7,
+        "relative_scaled": true,
+        "banked_count": 17
+      }
+    },
+    "holdover": {
+      "bank_size_by_day_eod": {
+        "monday": 1251,
+        "thursday": 1254,
+        "friday": 1236,
+        "saturday": 1286,
+        "sunday": 1202,
+        "tuesday": 1168,
+        "wednesday": 1113
+      },
+      "banked_today": 143
+    },
+    "final_feeds": {
+      "local": 46,
+      "homelab": 27,
+      "homestead": 7,
+      "climate": 49,
+      "science": 41,
+      "wellness": 53,
+      "ai-tech": 90,
+      "scifi": 8,
+      "design": 30,
+      "outdoors": 6,
+      "news": 126
+    },
+    "api_usage": {
+      "calls": {
+        "brave": 64,
+        "kagi": 35,
+        "kite": 6,
+        "claude": 39,
+        "cohere": 16
+      },
+      "claude_tokens": 169631,
+      "est_cost_usd": 0.4726
     }
   }
 ]
