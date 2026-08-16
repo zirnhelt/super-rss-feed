@@ -191,42 +191,75 @@ keyed by the exact OPML `title`:
 The curator then skips the paywall scoring penalty, prefixes the item title with
 🔓, and sets `_subscriber_access` on the JSON Feed item.
 
-For any label starting with `Apple News`, `apply_subscriber_links()` also makes
-the Apple News deep link the item's **primary** link, so feed readers open the
-News app instead of the publisher's paywall:
+`url` defaults to the publisher URL — the only link that resolves on every
+device and in every reader. For `Apple News` labels the tiered resolver then
+tries to upgrade it.
 
-| Field | Value |
-|---|---|
-| `url` | `applenews://search?term=<title>` (trailing publication name stripped) |
-| `external_url` | the publisher URL |
-| `id` | the publisher URL — **never** the deep link |
-| `_apple_news_url` | same as `url`, kept for `review.html` and older consumers |
+### The tiered Apple News resolver
 
-`id` stays on the publisher URL because it is the identity key behind cross-run
-dedup, the shown/scored caches and the feedback ledger. For the same reason,
-**anything reading a written feed back in must call `item_source_link(item)`**
-(`external_url or url`) rather than reading `url` directly — the retention
-merge, the bootstrap dedup and `score_scrub_report.py` all do. Reading `url`
-directly means an Apple News article stops matching itself between runs and
-accumulates a fresh duplicate every night.
+`resolve_apple_news_url()` returns the best available `https://apple.news/…`
+link and which tier produced it:
 
-Two surfaces deliberately opt out of the swap:
+| Tier | Source of the ID | Lands on | Promoted to `url`? |
+|---|---|---|---|
+| `article` | `A…` scraped from the publisher's own page | the article itself | yes |
+| `channel` | `T…` scraped from the page, else `apple_news_channels.sources` in `config/source_preferences.json` | the publication's channel | only if `use_as_primary_link` |
+| — | nothing found | publisher URL is kept | n/a |
 
-- **`feed-review.json` / `review.html`** — every rating is keyed on `art.url`
-  and the feedback ledger has to stay joinable with pipeline links, so `url`
-  stays canonical there and Apple News is a separate 📰 link beside the title.
-- **`index.html`** — the headline follows the swapped `url` into Apple News,
-  with a 🌐 link to `external_url` as the escape hatch on non-Apple devices.
+Both tiers are https universal links: Apple devices hand off into the News app,
+everything else follows Apple's web fallback. An article-tier link is strictly
+better than the publisher URL everywhere, so it is always promoted. A
+channel-tier link is not — in a desktop browser it lands on the channel rather
+than the piece you clicked — so by default it only rides along as
+`_apple_news_url`, rendered as a 📰 badge in `index.html` and `review.html`.
+Flip `apple_news_channels.use_as_primary_link` to `true` if you read the feed
+almost entirely from Apple devices.
 
-The tradeoff of the swap: on a device without Apple News installed (desktop,
-Android), the primary link in a feed reader dead-ends, and a few readers refuse
-to render non-`http(s)` schemes at all. `external_url` is the fallback in both
-cases, but not every reader surfaces it.
+When `url` is promoted, the publisher URL moves to `external_url` and `id`
+stays the publisher URL — it is the identity key behind cross-run dedup, the
+shown/scored caches and the feedback ledger. **Anything reading a written feed
+back in must call `item_source_link(item)`** (`external_url or url`), never
+`url` directly, or those articles stop matching themselves between runs and
+accumulate a duplicate every night. `feed-review.json` opts out of the swap
+entirely: every rating is keyed on `art.url` and has to stay joinable with
+pipeline links, so Apple News is only ever a badge there.
 
-Note that Apple assigns per-article `apple.news/A…` IDs opaquely; they cannot be
-derived from a publisher URL, so the title search is the only linking method that
-works from RSS alone — which also means the deep link lands on a News *search
-results* page, not always the article itself.
+### Where the IDs come from
+
+Apple assigns `A…` and `T…` IDs opaquely. They cannot be derived from a
+publisher URL and the Apple News API is scoped to a publisher's own channel, so
+there is no reverse lookup — an ID has to be found in the wild or copied by
+hand. **Never construct one**; a wrong ID is a dead link.
+
+`extract_apple_news_ids()` scrapes them from the article HTML that
+`fetch_images.py` is already fetching for Open Graph images, so harvesting costs
+no extra request and no API spend. An ID is only accepted when the page carries
+exactly one distinct candidate of that kind — a related-articles rail makes the
+article ID ambiguous, and guessing wrong sends you to the wrong story. Results
+persist in `apple_news_cache.json` (article IDs pruned at 14 days, channel IDs
+kept forever, first sighting wins).
+
+Coverage grows on its own: channel IDs only need to be seen once to cover every
+future article from that publication. For publications whose pages never expose
+one, add it by hand — on an Apple device, News app → the channel → ••• → Share
+Channel → Copy Link, then take the token after `apple.news/`.
+
+### Why there is no `applenews://` deep link
+
+A previous version set `url` to `applenews://search?term=<title>`. That URL form
+does not exist. Apple News registers the `applenews://` scheme, so iOS and macOS
+launch the app, but the app only understands the path form mirroring an
+`apple.news` share link (`applenews:///A-oPQmJNfTyi9oHKs1xCY3w`) — there is no
+search path. The app opened and did nothing. Feed readers were worse: a
+non-`http(s)` scheme is never handed to the OS at all, so the link was inert in
+Inoreader.
+
+The only real article link is `https://apple.news/A…`. It is an https universal
+link: Apple devices hand off into the News app, everything else redirects to the
+publisher. Apple assigns the `A…` ID opaquely — it cannot be derived from a
+publisher URL, and the Apple News API is scoped to a publisher's own channel, so
+there is no reverse lookup. It has to be discovered, which is what the tiered
+resolver does.
 
 **To add a Google News fallback feed** (when no direct RSS exists):
 

@@ -66,7 +66,7 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 | `cache.py` | `Cache` (TTL JSON dict) and `FeedHTTPCache` (ETag/Last-Modified/skip_until per feed URL). |
 | `api_usage.py` | Thread-safe tracker for Claude token counts + Cohere/Brave/Kagi call counts + cost estimate. Call `api_usage.record_claude_usage(usage)` after every Claude response. |
 | `cohere_integration.py` | Cohere Rerank + Embed integration. Auto-activates when `COHERE_API_KEY` is set. All public functions are no-ops when disabled — code can always call them. |
-| `fetch_images.py` | Scrapes Open Graph images for articles; falls back to favicon. |
+| `fetch_images.py` | Scrapes Open Graph images for articles; falls back to favicon. Also harvests `apple.news` article/channel IDs from the same page fetch (`extract_apple_news_ids`). |
 | `calibration_agent.py` | Weekly agent that reads `calibration_stats_cache.json` and proposes bounded adjustments to `config/limits.json` and `config/podcast_schedule.json`. Uses `claude-sonnet-4-5`. |
 | `feedback_trainer.py` | Weekly agent that reads `feedback/YYYY-MM-DD.json` ratings from `review.html` and updates `config/feedback_examples.txt`. Also injects the archived rollup so signal older than its 30-day window still counts. |
 | `feedback_archive.py` | Weekly. Distils feedback older than `feedback_retention_days` into `feedback/feedback_rollup.json`, compresses the raw files into `feedback/archive/YYYY-MM.jsonl.gz`, and maintains the `feedback/reviewed_urls.json` ledger. Statistics are stdlib; one Haiku call per *archived batch* (~monthly, ~$0.013) consolidates the topic/framing `lessons` block. Idempotent; `--dry-run` and `--no-distil` supported. |
@@ -170,6 +170,7 @@ These files persist pipeline state between runs. They live in the repo root and 
 | `feed_http_cache.json` | ETag/Last-Modified/skip_until per feed URL for conditional GET. | — |
 | `calibration_stats_cache.json` | Per-run audit stats consumed by the calibration agent. | 14 days |
 | `theme_holdover_cache.json` | Cross-week pool of articles that scored well on a future theme. | 28 days |
+| `apple_news_cache.json` | Harvested `apple.news` article IDs (by publisher URL) and channel IDs (by source name), scraped for free during the image fetch. | articles 14 days; channels permanent |
 
 ## Calibration Memory (`calibration_memory/`)
 
@@ -306,7 +307,8 @@ The calibration agent only modifies keys whitelisted in `config/calibration_boun
 4. **shown_articles_cache bloat** — cleanup logic runs in `load_shown_cache()` if the file grows past ~300K.
 5. **`THEME_SCORE_CACHE_VERSION`** — bump this constant in `super_rss_curator_json.py` whenever the theme score formula changes, to invalidate stale cached scores.
 6. **Bootstrap flag** — `python super_rss_curator_json.py --bootstrap-feeds` repopulates thin feeds from the 7-day podcast cache. The CI workflow triggers this automatically when any feed < 20 items.
-7. **Feed item `url` is not article identity** — for Apple News subscriber sources (`subscriber_access` in `config/source_preferences.json`) the item's `url` is an `applenews://` deep link and the publisher URL lives in `external_url`. `id` always stays the publisher URL. Any code reading a written feed back in must use `item_source_link(item)`, never `item['url']`, or those articles stop matching themselves across runs and duplicate nightly. See `FEEDS_MAINTENANCE.md` § "add a source you can read paywall-free".
+7. **Feed item `url` is not article identity** — `url` is whatever link the reader should follow; whenever that is not the publisher URL, the publisher URL lives in `external_url` and `id` always stays the publisher URL. Any code reading a written feed back in must use `item_source_link(item)`, never `item['url']`, or those articles stop matching themselves across runs and duplicate nightly. See `FEEDS_MAINTENANCE.md` § "add a source you can read paywall-free".
+8. **`applenews://search?term=` is not a real URL** — it was tried and reverted; the scheme launches the News app but has no search path, and feed readers drop non-`http(s)` links entirely. Only `https://apple.news/…` works, and its ID must be **discovered, never constructed** — Apple assigns them opaquely and a fabricated ID is a dead link. `resolve_apple_news_url()` tiers a harvested per-article `A…` ID over a per-publication `T…` channel ID over the publisher URL; only the article tier is promoted to `url` by default. See `FEEDS_MAINTENANCE.md` § "the tiered Apple News resolver".
 
 ---
 

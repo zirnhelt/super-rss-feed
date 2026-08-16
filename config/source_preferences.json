@@ -110,6 +110,11 @@
     "description": "Feed discovery gate for high-volume OPML sources: per run, only this many not-yet-cached candidate feeds are evaluated (remaining candidates trickle in on later runs), and a candidate is skipped without an LLM call if none of its sampled articles match a CATEGORY_RULES interest keyword."
   },
   "kagi_search_result_limit": 10,
+  "apple_news_channels": {
+    "description": "Hand-maintained apple.news channel IDs, used as the tier-2 fallback when page-scraping never finds one for a publication. Get an ID on an Apple device: News app > the publication's channel > ... > Share Channel > Copy Link, then take the token after 'apple.news/' (it starts with T). Never invent one — a wrong ID is a dead link. Keys are exact OPML titles, matching subscriber_access below.",
+    "use_as_primary_link": false,
+    "sources": {}
+  },
   "subscriber_access": {
     "description": "Sources where the user has paywall-free access (direct subscription, Apple News+, or a free Apple News channel). Used to skip the paywall scoring penalty and tag matching articles in the output feed. Any label starting with 'Apple News' also adds an applenews:// deep link to the article.",
     "sources": {
