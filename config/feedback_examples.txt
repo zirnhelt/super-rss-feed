@@ -1,30 +1,28 @@
-# Relevance Scoring Guidance for RSS Curator
+# Relevance Scoring Calibration for User's Feed
 
 **Core Topic Priorities**
-- **Strongly prioritize**: Practical DIY/maker content (3D printing, homelabs, electronics), Indigenous knowledge systems & community service, local BC/regional news with civic impact, and applied science breakthroughs with tangible use cases. These consistently score 85+ when hitting exemplar criteria.
-- **High value**: AI/tech policy, governance, and ethics angles (prompt injection, censorship, copyright fairness) score well; avoid pure product announcements or funding round coverage unless paired with novel technical insight.
-- **Climate sweet spot**: EV technology and grid challenges—not generic wildfire/disaster reporting. User engages with *solutions* (battery innovation, charging speed) more than catastrophe narratives.
+- **Heavily favor:** AI/ML infrastructure, security, and adoption metrics (especially telemetry, prompt injection, model comparisons); 3D printing materials & applications; smart home automation; local BC/Kootenay news with community/cultural angle
+- **Strong secondary:** Applied science with practical outcomes (micro-drones, rare earth mining, material breakthroughs); EV infrastructure and battery tech; wildlife/ecological management with human impact angle
+- **Deprioritize:** Consumer gadget deals, entertainment lifestyle content (fashion, gaming, streaming), political opinion pieces, and generic product announcements
 
-**Underrepresented Signals Worth Boosting**
-- Indigenous/First Nations perspectives on arts, culture, infrastructure, and knowledge systems (appears in exemplars but sparse in main feed).
-- Community agriculture and youth development pipelines (4-H, regional agriculture infrastructure).
-- Wellness content grounded in Indigenous healing or specific health solutions (not lifestyle trends).
-- Local outdoors/recreation tied to specific regions (Kokanee fishing got 85; generic "beach workout" scored 13).
+**Underrepresented High-Value Topics**
+- **AI governance & policy** appears in "Interesting" but scores lower than warranted—boost scoring for regulatory frameworks, fair-use debates, infrastructure partnerships
+- **Remote sensing & sensor tech** (car parking sensors in micro-drone context)—flag articles combining automation with novel sensor applications
+- **Agriculture-tech pipeline** (4-H as career pathway)—prioritize agricultural community/education stories alongside climate/sustainability angles
 
-**Source & Framing Patterns**
-- Regional/independent outlets (Pique, 100 Mile Free Press, Eagle Feather News, My East Kootenay Now) outperform national celebrity/entertainment coverage from mainstream media.
-- Avoid: celebrity culture, generic product reviews, entertainment gossip, and "listicle" wellness tips. These consistently score 10–13.
-- Technical deep-dives and historical context (Hackaday, detailed hardware retrospectives) score strongly.
+**Source & Content-Type Signals**
+- **Prioritize specialist/technical sources:** Hackaday, Tom's Hardware, GitHub blog, All3DP—these consistently score high and align with hands-on maker/automation interests
+- **Diversify locality:** User shows strong engagement with regional BC outlets (Williams Lake Tribune, My East Kootenay Now, 100 Mile Free Press) at high scores (79–85)—weight local sources more heavily, but filter for community/infrastructure stories, not event coverage alone
+- **Penalize:** Product-hunting, shopping guides, celebrity/entertainment news, and generic tech gossip regardless of source authority
 
-**Day-Assignment Patterns**
-- **Tuesday/Friday are hubs**: Climate, AI governance, regional news, and breaking local/national stories gravitate here.
-- **Sunday**: Science (astronomy, physics mysteries), quantum/advanced tech, climate innovation.
-- **Wednesday**: AI/tech policy and ethical concerns.
-- Avoid Monday for evergreen "how-to" or soft-interest pieces.
+**Category Retag Pattern**
+- **AI-tech is a catch-all:** User consistently retagged tech policy, infrastructure, and tool reviews into "ai-tech" from "news"—treat as signal that AI adoption/business impact stories merit higher relevance than pure news framing
 
-**Category Misclassification Trends**
-- **news → ai-tech** is frequent: The curator routinely recategorizes product announcements, software updates, and tech policy as "ai-tech" rather than generic news. Honor this signal—technical specificity matters more than surface category.
-- **news → climate**: Retags cluster around infrastructure, resource scarcity, and environmental policy (not disaster reporting).
-- **news → wellness**: Health-focused content with Indigenous or systemic angles, not fitness trends.
+**Day-of-Week Reassignment Patterns**
+- **Friday/Saturday:** Micro-drones, wildfire/climate, local awards—practical/urgent environmental + community content
+- **Wednesday:** AI security, retro tech, regulatory/policy deep-dives—mid-week thoughtful analysis
+- **Monday:** Cultural/arts, sci-fi adjacent curiosities—lighter engagement mid-week recovery
+- **Tuesday:** Agriculture, natural resources, climate policy—sector-specific expertise content
+- No clear pattern for Sunday exclusivity—don't over-weight day assignments; focus on topic fit instead
 
-**
+**Low-Signal Red Flags**

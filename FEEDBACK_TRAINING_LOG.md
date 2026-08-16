@@ -1,3 +1,117 @@
+## Feedback Training Run — 2026-08-16 13:43 UTC
+
+**Files processed:** 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json, 2026-08-03.json, 2026-08-04.json, 2026-08-05.json, 2026-08-06.json, 2026-08-07.json, 2026-08-08.json, 2026-08-09.json, 2026-08-10.json, 2026-08-11.json, 2026-08-12.json, 2026-08-13.json, 2026-08-14.json, 2026-08-15.json, 2026-08-16.json
+**Ratings:** 8 Exemplars, 78 Good, 59 Interesting, 276 Bad, 77 reassigned to day(s), 35 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** ScienceAlert (6), Engadget (4), Business Insider (3), Outside Online (3), 100 Mile Free Press (3)
+**Top disliked sources:** Toms Guide (13), NYT Business (11), Boing Boing (10), The Verge (10), The Atlantic Culture (10)
+**Categories liked:** news (23), ai-tech (19), science (10), wellness (9), climate (6), local (4), homelab (3), scifi (1), homestead (1), design (1), outdoors (1)
+**Categories disliked:** news (232), wellness (20), ai-tech (10), local (4), design (3), scifi (2), science (2), climate (1), outdoors (1), homelab (1)
+
+**Day reassignment summary:**
+- friday → tuesday: 4 articles
+- friday → monday: 4 articles
+- friday → sunday: 3 articles
+- friday → saturday: 3 articles
+- friday → wednesday: 3 articles
+- friday → friday: 2 articles
+- saturday → friday: 7 articles
+- saturday → sunday: 4 articles
+- saturday → wednesday: 4 articles
+- saturday → tuesday: 3 articles
+- saturday → saturday: 1 articles
+- sunday → wednesday: 7 articles
+- sunday → sunday: 6 articles
+- sunday → friday: 4 articles
+- sunday → monday: 4 articles
+- sunday → saturday: 3 articles
+- sunday → tuesday: 3 articles
+- sunday → thursday: 1 articles
+- monday → saturday: 5 articles
+- monday → wednesday: 3 articles
+- monday → sunday: 3 articles
+- monday → friday: 2 articles
+- monday → tuesday: 1 articles
+- monday → thursday: 1 articles
+- tuesday → wednesday: 5 articles
+- tuesday → tuesday: 3 articles
+- tuesday → sunday: 3 articles
+- tuesday → monday: 3 articles
+- tuesday → friday: 2 articles
+- tuesday → saturday: 1 articles
+- thursday → sunday: 7 articles
+- thursday → wednesday: 5 articles
+- thursday → tuesday: 3 articles
+- thursday → friday: 2 articles
+- thursday → monday: 1 articles
+- thursday → thursday: 1 articles
+- thursday → saturday: 1 articles
+- wednesday → sunday: 4 articles
+- wednesday → wednesday: 3 articles
+- wednesday → tuesday: 2 articles
+- wednesday → thursday: 1 articles
+- wednesday → monday: 1 articles
+- wednesday → friday: 1 articles
+
+**Category retag summary:**
+- news → ai-tech: 13 articles
+- news → wellness: 5 articles
+- news → design: 3 articles
+- news → homestead: 3 articles
+- news → climate: 2 articles
+- news → homelab: 2 articles
+- news → outdoors: 2 articles
+- news → science: 1 articles
+- news → local: 1 articles
+- news → scifi: 1 articles
+- science → climate: 1 articles
+- design → homelab: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Relevance Scoring Calibration for User's Feed
+
+**Core Topic Priorities**
+- **Heavily favor:** AI/ML infrastructure, security, and adoption metrics (especially telemetry, prompt injection, model comparisons); 3D printing materials & applications; smart home automation; local BC/Kootenay news with community/cultural angle
+- **Strong secondary:** Applied science with practical outcomes (micro-drones, rare earth mining, material breakthroughs); EV infrastructure and battery tech; wildlife/ecological management with human impact angle
+- **Deprioritize:** Consumer gadget deals, entertainment lifestyle content (fashion, gaming, streaming), political opinion pieces, and generic product announcements
+
+**Underrepresented High-Value Topics**
+- **AI governance & policy** appears in "Interesting" but scores lower than warranted—boost scoring for regulatory frameworks, fair-use debates, infrastructure partnerships
+- **Remote sensing & sensor tech** (car parking sensors in micro-drone context)—flag articles combining automation with novel sensor applications
+- **Agriculture-tech pipeline** (4-H as career pathway)—prioritize agricultural community/education stories alongside climate/sustainability angles
+
+**Source & Content-Type Signals**
+- **Prioritize specialist/technical sources:** Hackaday, Tom's Hardware, GitHub blog, All3DP—these consistently score high and align with hands-on maker/automation interests
+- **Diversify locality:** User shows strong engagement with regional BC outlets (Williams Lake Tribune, My East Kootenay Now, 100 Mile Free Press) at high scores (79–85)—weight local sources more heavily, but filter for community/infrastructure stories, not event coverage alone
+- **Penalize:** Product-hunting, shopping guides, celebrity/entertainment news, and generic tech gossip regardless of source authority
+
+**Category Retag Pattern**
+- **AI-tech is a catch-all:** User consistently retagged tech policy, infrastructure, and tool reviews into "ai-tech" from "news"—treat as signal that AI adoption/business impact stories merit higher relevance than pure news framing
+
+**Day-of-Week Reassignment Patterns**
+- **Friday/Saturday:** Micro-drones, wildfire/climate, local awards—practical/urgent environmental + community content
+- **Wednesday:** AI security, retro tech, regulatory/policy deep-dives—mid-week thoughtful analysis
+- **Monday:** Cultural/arts, sci-fi adjacent curiosities—lighter engagement mid-week recovery
+- **Tuesday:** Agriculture, natural resources, climate policy—sector-specific expertise content
+- No clear pattern for Sunday exclusivity—don't over-weight day assignments; focus on topic fit instead
+
+**Low-Signal Red Flags**
+
+---
+## Feedback Archive Run — 2026-08-16 13:43 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 0 (none)
+**Ratings folded into rollup:** 0 (rollup now holds 0)
+**Topic/framing lessons:** n/a (no batch archived)
+**Raw bytes freed:** 0.0 KB
+**Live files remaining:** 60
+**URL ledger:** 1058 URLs (+125 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-08-09 14:00 UTC
 
 **Files processed:** 2026-07-11.json, 2026-07-12.json, 2026-07-13.json, 2026-07-14.json, 2026-07-15.json, 2026-07-16.json, 2026-07-17.json, 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json, 2026-08-03.json, 2026-08-04.json, 2026-08-05.json, 2026-08-06.json, 2026-08-07.json, 2026-08-08.json
