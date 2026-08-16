@@ -762,46 +762,19 @@ class Article:
         return False
 
 
-APPLE_NEWS_TITLE_SUFFIX_RE = re.compile(r'\s*[\|–—-]\s*[^|–—-]{1,50}$')
-
-
-def build_apple_news_search_url(title: str) -> str:
-    """Build an applenews://search URL from a cleaned article title."""
-    clean_title = APPLE_NEWS_TITLE_SUFFIX_RE.sub('', title).strip() or title
-    return f"applenews://search?term={quote(clean_title)}"
-
-
-def apply_subscriber_links(item: Dict, article: 'Article', subscriber_label: str) -> None:
-    """Route a subscriber-access item to Apple News instead of the paywalled site.
-
-    For any ``Apple News``/``Apple News+`` source the item's ``url`` becomes the
-    applenews:// deep link, so feed readers open the article in the News app
-    rather than the publisher's paywall. The publisher URL moves to
-    ``external_url``.
-
-    ``id`` deliberately stays the publisher URL: it is the stable identity key
-    behind cross-run dedup, the shown/scored caches and the feedback ledger.
-    Anything reading a written feed back in must use `item_source_link()`.
-    """
-    item["_subscriber_access"] = subscriber_label
-    if not subscriber_label.startswith("Apple News"):
-        return
-
-    clean_title = re.sub(r'^\[.*?\]\s*', '', article.title) or article.title
-    apple_url = build_apple_news_search_url(clean_title)
-    item["_apple_news_url"] = apple_url
-    item["external_url"] = item["url"]
-    item["url"] = apple_url
-
-
 def item_source_link(item: Dict) -> str:
     """Return the publisher URL for a feed item written by this pipeline.
 
-    Apple News items carry the deep link in ``url`` and the publisher URL in
-    ``external_url`` (see `apply_subscriber_links`). Every read-back that treats
-    a URL as article identity — retention dedup, bootstrap dedup, reporting —
-    must go through here instead of touching ``url`` directly, or Apple News
-    articles will fail to match themselves and accumulate duplicates.
+    ``url`` is the link the reader follows and is not guaranteed to be the
+    publisher URL; whenever it is not, ``external_url`` holds the publisher URL.
+    Every read-back that treats a URL as article identity — retention dedup,
+    bootstrap dedup, reporting — must go through here instead of touching
+    ``url`` directly, or those articles fail to match themselves across runs
+    and accumulate a duplicate every night.
+
+    Feeds already deployed to gh-pages still carry ``applenews://`` in ``url``
+    from the reverted deep-link experiment, so this is also the migration path:
+    retained items are rebuilt from the value returned here.
     """
     return item.get('external_url') or item.get('url', '')
 
@@ -3546,7 +3519,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
 
         if subscriber_label:
             item["title"] = f"🔓 {item['title']}"
-            apply_subscriber_links(item, article, subscriber_label)
+            item["_subscriber_access"] = subscriber_label
 
         feed["items"].append(item)
 
@@ -4646,7 +4619,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             item["tags"] = pod_tags
 
         if subscriber_label:
-            apply_subscriber_links(item, article, subscriber_label)
+            item["_subscriber_access"] = subscriber_label
 
         # Mark articles that previously appeared in a different theme's episode
         prior_appearances = [
@@ -5461,15 +5434,11 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         if getattr(article, 'image', None):
             item['image'] = article.image
 
-        # Review items keep the publisher URL in `url`: review.html keys every
-        # rating on it and the feedback ledger must stay joinable with pipeline
-        # links. Apple News is offered as a separate link instead.
+        # review.html keys every rating on `url` and the feedback ledger has to
+        # stay joinable with pipeline links, so `url` is always the publisher URL.
         subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
         if subscriber_label:
             item['_subscriber_access'] = subscriber_label
-            if subscriber_label.startswith("Apple News"):
-                _clean = re.sub(r'^\[.*?\]\s*', '', article.title)
-                item['_apple_news_url'] = build_apple_news_search_url(_clean or article.title)
 
         feed['items'].append(item)
 
@@ -5707,7 +5676,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
             if subscriber_label:
                 feed_item['title'] = f"🔓 {feed_item['title']}"
                 feed_item.setdefault('tags', []).append('subscriber-access')
-                apply_subscriber_links(feed_item, article, subscriber_label)
+                feed_item['_subscriber_access'] = subscriber_label
 
             feed['items'].append(feed_item)
             existing_urls.add(article.link)
