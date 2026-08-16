@@ -213,6 +213,12 @@
             flex-shrink: 0;
         }
 
+        .feed-article-apple-news {
+            flex-shrink: 0;
+            text-decoration: none !important;
+            margin: 0 4px;
+        }
+
         .loading {
             text-align: center;
             padding: 40px;
@@ -424,6 +430,19 @@
                     link.rel = 'noopener';
                     link.textContent = article.title || article.url;
                     li.appendChild(link);
+
+                    // Apple News link, when it isn't already `url` itself. Both
+                    // are https, so no special target handling is needed.
+                    if (article._apple_news_url && article._apple_news_url !== article.url) {
+                        const appleLink = document.createElement('a');
+                        appleLink.href = article._apple_news_url;
+                        appleLink.target = '_blank';
+                        appleLink.rel = 'noopener';
+                        appleLink.className = 'feed-article-apple-news';
+                        appleLink.title = 'Open in Apple News';
+                        appleLink.textContent = '📰';
+                        li.appendChild(appleLink);
+                    }
 
                     if (article.date_published) {
                         const dateEl = document.createElement('span');

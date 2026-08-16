@@ -40,6 +40,10 @@ SYSTEM = config_loader.load_system_config()
 FEEDS_CONFIG = config_loader.load_feeds_config()
 SOURCE_PREFS = config_loader.load_source_preferences()
 SUBSCRIBER_ACCESS = SOURCE_PREFS.get('subscriber_access', {}).get('sources', {})
+APPLE_NEWS_CHANNELS = SOURCE_PREFS.get('apple_news_channels', {}).get('sources', {})
+APPLE_NEWS_PRIMARY_CHANNEL_LINK = SOURCE_PREFS.get('apple_news_channels', {}).get(
+    'use_as_primary_link', False
+)
 SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
     'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
     'podcast': {'w_quality': 0.25, 'w_relevance': 0.0, 'w_local': 0.10, 'w_theme': 0.65}
@@ -188,6 +192,8 @@ THEME_HOLDOVER_TTL_DAYS = 28                         # 4 weeks — covers monthl
 CALIBRATION_STATS_CACHE_FILE = 'calibration_stats_cache.json'  # Rolling per-run audit stats
 CALIBRATION_STATS_TTL_DAYS = 14                      # Window consumed by the weekly calibration agent
 FEED_HTTP_CACHE_FILE = 'feed_http_cache.json'        # Per-feed ETag/Last-Modified/skip_until state
+APPLE_NEWS_CACHE_FILE = 'apple_news_cache.json'      # Harvested apple.news article + channel IDs
+APPLE_NEWS_ARTICLE_TTL_DAYS = 14                     # Matches the longest category-feed retention
 
 # URLs
 WLT_BASE_URL = SYSTEM['urls']['wlt_base']
@@ -200,6 +206,10 @@ _wlt_cache = Cache(WLT_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['scored_hour
 _shown_cache = Cache(SHOWN_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['shown_days'] * 24)
 _shown_terms_cache = Cache(SHOWN_TERMS_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['shown_days'] * 24, ts_field='ts')
 _feed_http_cache = FeedHTTPCache(FEED_HTTP_CACHE_FILE)
+# Harvested apple.news IDs. Read deep in the item-building call tree (like
+# SUBSCRIBER_ACCESS), so it is module-level rather than threaded through four
+# feed generators. Populated by load_apple_news_cache() in main()/bootstrap.
+_apple_news_cache: Dict = {'articles': {}, 'channels': {}}
 
 # ---------------------------------------------------------------------------
 # URL canonicalization
@@ -760,6 +770,108 @@ class Article:
                 return True
 
         return False
+
+
+def load_apple_news_cache() -> Dict:
+    """Load harvested apple.news IDs, pruning stale article entries.
+
+    Channel IDs are never pruned — a publication's channel does not change, and
+    it is the tier that gives near-total coverage once learned.
+    """
+    empty = {'articles': {}, 'channels': {}}
+    if not os.path.exists(APPLE_NEWS_CACHE_FILE):
+        return empty
+
+    try:
+        with open(APPLE_NEWS_CACHE_FILE, 'r', encoding='utf-8') as f:
+            cache = json.load(f)
+        if not isinstance(cache, dict):
+            return empty
+    except Exception:
+        return empty
+
+    cutoff = datetime.now(timezone.utc).timestamp() - (APPLE_NEWS_ARTICLE_TTL_DAYS * 86400)
+    articles = {
+        url: entry for url, entry in (cache.get('articles') or {}).items()
+        if isinstance(entry, dict) and entry.get('ts', 0) > cutoff
+    }
+    channels = {
+        source: entry for source, entry in (cache.get('channels') or {}).items()
+        if isinstance(entry, dict) and entry.get('id')
+    }
+    return {'articles': articles, 'channels': channels}
+
+
+def save_apple_news_cache(cache: Dict) -> None:
+    """Persist harvested apple.news IDs."""
+    try:
+        with open(APPLE_NEWS_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"⚠️ Failed to save Apple News cache: {e}")
+
+
+def resolve_apple_news_url(article: 'Article', apple_news_cache: Dict) -> Tuple[Optional[str], str]:
+    """Best available `https://apple.news/…` link for a subscriber-access article.
+
+    Returns ``(url, tier)`` where tier is ``'article'``, ``'channel'`` or
+    ``''``. Most precise first:
+
+    1. the article's own harvested `A…` ID — lands on the article itself;
+    2. the publication's `T…` channel ID — lands on the channel, where a
+       <48 h-old article is normally near the top;
+    3. nothing, and the caller keeps the publisher URL.
+
+    Tier 2 falls back to the hand-maintained `apple_news_channels` map in
+    `config/source_preferences.json` for publications whose pages never expose a
+    channel link. Both tiers yield an https universal link, so Apple devices
+    hand off into the News app and everything else redirects to Apple's web
+    fallback — which is the whole reason the `applenews://` scheme was dropped.
+    """
+    entry = (apple_news_cache.get('articles') or {}).get(article.link)
+    if entry and entry.get('id'):
+        return f"https://apple.news/{entry['id']}", 'article'
+
+    channel = (apple_news_cache.get('channels') or {}).get(article.source)
+    channel_id = channel.get('id') if channel else APPLE_NEWS_CHANNELS.get(article.source)
+    if channel_id:
+        return f"https://apple.news/{channel_id}", 'channel'
+
+    return None, ''
+
+
+def apply_subscriber_links(item: Dict, article: 'Article', subscriber_label: str) -> None:
+    """Tag a subscriber-access item and route it into Apple News when possible.
+
+    For an `Apple News` label with a resolvable link, `url` becomes the
+    apple.news link and the publisher URL moves to `external_url`. `id` stays
+    the publisher URL — it is the identity key behind cross-run dedup, the
+    shown/scored caches and the feedback ledger — so every read-back of a
+    written feed must go through `item_source_link()`.
+
+    Only an *article*-tier link is promoted to `url` by default: it is strictly
+    better than the publisher URL everywhere, opening the article in News on
+    Apple devices and redirecting elsewhere. A *channel*-tier link is not — in a
+    desktop browser it lands on the publication's channel rather than the piece
+    you clicked — so it stays a secondary `_apple_news_url` badge unless
+    `apple_news_channels.use_as_primary_link` is set. Turn that on if you read
+    the feed almost entirely from Apple devices.
+
+    With nothing resolvable, `url` stays the publisher URL. The reader always
+    gets a link that works; the Apple News tiers only ever upgrade it.
+    """
+    item['_subscriber_access'] = subscriber_label
+    if not subscriber_label.startswith('Apple News'):
+        return
+
+    apple_url, tier = resolve_apple_news_url(article, _apple_news_cache)
+    if not apple_url:
+        return
+
+    item['_apple_news_url'] = apple_url
+    if tier == 'article' or APPLE_NEWS_PRIMARY_CHANNEL_LINK:
+        item['external_url'] = item['url']
+        item['url'] = apple_url
 
 
 def item_source_link(item: Dict) -> str:
@@ -3519,7 +3631,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
 
         if subscriber_label:
             item["title"] = f"🔓 {item['title']}"
-            item["_subscriber_access"] = subscriber_label
+            apply_subscriber_links(item, article, subscriber_label)
 
         feed["items"].append(item)
 
@@ -4619,7 +4731,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             item["tags"] = pod_tags
 
         if subscriber_label:
-            item["_subscriber_access"] = subscriber_label
+            apply_subscriber_links(item, article, subscriber_label)
 
         # Mark articles that previously appeared in a different theme's episode
         prior_appearances = [
@@ -4754,6 +4866,9 @@ def main():
     lookback_hours = SYSTEM['lookback_hours']
     cutoff_date = datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
     print(f"\n📥 Fetching articles from last {lookback_hours} hours...")
+
+    global _apple_news_cache
+    _apple_news_cache = load_apple_news_cache()
 
     _feed_http_cache.load()
     all_articles = []
@@ -4986,11 +5101,23 @@ def main():
         },
     }
 
-    # Fetch images for quality articles only (after filtering)
+    # Fetch images for quality articles only (after filtering). The same page
+    # fetch harvests any apple.news IDs the publisher exposes — no extra request.
     print(f"🖼️  Fetching images for quality articles...")
-    quality_articles = batch_fetch_images(quality_articles, max_fetch=50)
+    _apple_before = len(_apple_news_cache.get('channels', {}))
+    quality_articles = batch_fetch_images(
+        quality_articles, max_fetch=50, apple_news_cache=_apple_news_cache
+    )
     images_found = sum(1 for a in quality_articles if hasattr(a, 'image') and a.image)
     print(f"   Found images for {images_found}/{len(quality_articles)} articles")
+
+    _apple_channels = _apple_news_cache.get('channels', {})
+    print(
+        f"📰 Apple News: {len(_apple_news_cache.get('articles', {}))} article links cached, "
+        f"{len(_apple_channels)} channels known "
+        f"(+{len(_apple_channels) - _apple_before} new)"
+    )
+    save_apple_news_cache(_apple_news_cache)
     
     categorized = defaultdict(list)
     for article in quality_articles:
@@ -5435,10 +5562,15 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
             item['image'] = article.image
 
         # review.html keys every rating on `url` and the feedback ledger has to
-        # stay joinable with pipeline links, so `url` is always the publisher URL.
+        # stay joinable with pipeline links, so `url` is always the publisher URL
+        # here. Apple News rides along as a separate badge instead of a swap.
         subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
         if subscriber_label:
             item['_subscriber_access'] = subscriber_label
+            if subscriber_label.startswith('Apple News'):
+                apple_url, _tier = resolve_apple_news_url(article, _apple_news_cache)
+                if apple_url:
+                    item['_apple_news_url'] = apple_url
 
         feed['items'].append(item)
 
@@ -5465,6 +5597,11 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     if not os.path.exists(PODCAST_CACHE_FILE):
         print("❌ podcast_articles_cache.json not found")
         return
+
+    # Read-only here: bootstrap does no page fetching, so it can resolve against
+    # links a previous run harvested but cannot learn new ones.
+    global _apple_news_cache
+    _apple_news_cache = load_apple_news_cache()
 
     try:
         with open(PODCAST_CACHE_FILE, 'r', encoding='utf-8') as f:
@@ -5676,7 +5813,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
             if subscriber_label:
                 feed_item['title'] = f"🔓 {feed_item['title']}"
                 feed_item.setdefault('tags', []).append('subscriber-access')
-                feed_item['_subscriber_access'] = subscriber_label
+                apply_subscriber_links(feed_item, article, subscriber_label)
 
             feed['items'].append(feed_item)
             existing_urls.add(article.link)

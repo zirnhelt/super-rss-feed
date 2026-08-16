@@ -115,6 +115,7 @@ jobs:
           download_json "${BASE}/theme_holdover_cache.json"    "theme_holdover_cache.json"
           download_json "${BASE}/image_cache.json"             "image_cache.json"
           download_json "${BASE}/shown_terms_cache.json"      "shown_terms_cache.json"
+          download_json "${BASE}/apple_news_cache.json"       "apple_news_cache.json"
 
           echo "Download complete. Feed sizes:"
           wc -l feed-*.json 2>/dev/null || echo "(no feed files yet)"
@@ -226,6 +227,7 @@ jobs:
           cp theme_holdover_cache.json output/ 2>/dev/null || true
           cp image_cache.json output/ 2>/dev/null || true
           cp shown_terms_cache.json output/ 2>/dev/null || true
+          cp apple_news_cache.json output/ 2>/dev/null || true
           echo "Files in output directory:"
           ls -la output/
 
@@ -233,7 +235,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json
+          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json apple_news_cache.json
           git add FEED_LOG.md FEED_ERRORS.md TODO.md 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || git commit -m "Update cache and feed log [skip ci]"
           bash .github/scripts/git_push_retry.sh main

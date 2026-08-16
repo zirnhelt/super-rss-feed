@@ -191,9 +191,58 @@ keyed by the exact OPML `title`:
 The curator then skips the paywall scoring penalty, prefixes the item title with
 🔓, and sets `_subscriber_access` on the JSON Feed item.
 
-`url` stays the publisher URL. That is the only link that resolves on every
-device and in every reader, so it is the safe default for a subscriber-access
-item even though it lands on a paywall preview.
+`url` defaults to the publisher URL — the only link that resolves on every
+device and in every reader. For `Apple News` labels the tiered resolver then
+tries to upgrade it.
+
+### The tiered Apple News resolver
+
+`resolve_apple_news_url()` returns the best available `https://apple.news/…`
+link and which tier produced it:
+
+| Tier | Source of the ID | Lands on | Promoted to `url`? |
+|---|---|---|---|
+| `article` | `A…` scraped from the publisher's own page | the article itself | yes |
+| `channel` | `T…` scraped from the page, else `apple_news_channels.sources` in `config/source_preferences.json` | the publication's channel | only if `use_as_primary_link` |
+| — | nothing found | publisher URL is kept | n/a |
+
+Both tiers are https universal links: Apple devices hand off into the News app,
+everything else follows Apple's web fallback. An article-tier link is strictly
+better than the publisher URL everywhere, so it is always promoted. A
+channel-tier link is not — in a desktop browser it lands on the channel rather
+than the piece you clicked — so by default it only rides along as
+`_apple_news_url`, rendered as a 📰 badge in `index.html` and `review.html`.
+Flip `apple_news_channels.use_as_primary_link` to `true` if you read the feed
+almost entirely from Apple devices.
+
+When `url` is promoted, the publisher URL moves to `external_url` and `id`
+stays the publisher URL — it is the identity key behind cross-run dedup, the
+shown/scored caches and the feedback ledger. **Anything reading a written feed
+back in must call `item_source_link(item)`** (`external_url or url`), never
+`url` directly, or those articles stop matching themselves between runs and
+accumulate a duplicate every night. `feed-review.json` opts out of the swap
+entirely: every rating is keyed on `art.url` and has to stay joinable with
+pipeline links, so Apple News is only ever a badge there.
+
+### Where the IDs come from
+
+Apple assigns `A…` and `T…` IDs opaquely. They cannot be derived from a
+publisher URL and the Apple News API is scoped to a publisher's own channel, so
+there is no reverse lookup — an ID has to be found in the wild or copied by
+hand. **Never construct one**; a wrong ID is a dead link.
+
+`extract_apple_news_ids()` scrapes them from the article HTML that
+`fetch_images.py` is already fetching for Open Graph images, so harvesting costs
+no extra request and no API spend. An ID is only accepted when the page carries
+exactly one distinct candidate of that kind — a related-articles rail makes the
+article ID ambiguous, and guessing wrong sends you to the wrong story. Results
+persist in `apple_news_cache.json` (article IDs pruned at 14 days, channel IDs
+kept forever, first sighting wins).
+
+Coverage grows on its own: channel IDs only need to be seen once to cover every
+future article from that publication. For publications whose pages never expose
+one, add it by hand — on an Apple device, News app → the channel → ••• → Share
+Channel → Copy Link, then take the token after `apple.news/`.
 
 ### Why there is no `applenews://` deep link
 
