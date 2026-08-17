@@ -19,8 +19,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-08-11 | 🌙 8:30 PM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
 | 2026-08-10 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
 | 2026-08-10 | 🌙 8:30 PM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
-| 2026-08-09 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
-| 2026-08-09 | 🌙 8:30 PM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -28,17 +26,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-08-16 | 🌙 evening | 92 | news:25(27%), ai-tech:15(16%), homelab:10(11%) |
 | 2026-08-15 | 🌙 evening | 87 | news:25(29%), ai-tech:17(20%), climate:10(11%) |
 | 2026-08-14 | 🌙 evening | 94 | news:25(27%), ai-tech:18(19%), climate:12(13%) |
 | 2026-08-13 | 🌙 evening | 92 | news:25(27%), ai-tech:18(20%), wellness:10(11%) |
 | 2026-08-12 | 🌙 evening | 92 | news:25(27%), ai-tech:18(20%), wellness:10(11%) |
 | 2026-08-11 | 🌙 evening | 101 | news:25(25%), ai-tech:18(18%), local:11(11%) |
 | 2026-08-10 | 🌙 evening | 90 | news:25(28%), ai-tech:18(20%), wellness:10(11%) |
-| 2026-08-09 | 🌙 evening | 86 | news:25(29%), ai-tech:15(17%), wellness:10(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-16 04:48 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-17 04:57 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
