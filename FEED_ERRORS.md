@@ -59,17 +59,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
-## 2026-08-09 (Sunday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-
-
----
-
-
-
 ## Week of 2026-06-13–2026-06-13
 - 153 issues recorded
 - ⚠️ IndigiNews failed — HTTPSConnectionPool(host='indiginews.com', port=443): Read timed out. (read timeout=10)
@@ -852,6 +841,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## Week of 2026-08-08–2026-08-08
+- 2 issues recorded
+- ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+
+
+---
+
+
+
+## Week of 2026-08-09–2026-08-09
 - 2 issues recorded
 - ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 - ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
