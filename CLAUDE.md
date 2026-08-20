@@ -140,7 +140,8 @@ Consumers: `article_review_audit.py` reads live **and** archived shards (full ho
 
 ## Output Feeds
 
-11 category feeds + 7 daily podcast feeds, all JSON Feed 1.1:
+11 category feeds + 7 daily podcast feeds, all JSON Feed 1.1 (plus an RSS 2.0 mirror
+for `local` — see below):
 
 ```
 feed-local.json        feed-ai-tech.json      feed-climate.json
@@ -152,6 +153,20 @@ feed-podcast-monday.json    feed-podcast-tuesday.json   feed-podcast-wednesday.j
 feed-podcast-thursday.json  feed-podcast-friday.json    feed-podcast-saturday.json
 feed-podcast-sunday.json
 ```
+
+### RSS 2.0 mirrors
+
+Any feed whose `config/feeds.json` entry carries `"rss": true` also gets a
+`feed-<category>.xml` RSS 2.0 mirror — currently `local` only. `generate_rss_feed()`
+renders it from the finished JSON Feed dict rather than re-walking the articles, so
+the two can never drift, and `curated-feeds.opml` points a `type="rss"` outline at
+the `.xml` wherever one exists. The mirror is capped at `RSS_MAX_ITEMS` (100) — a
+reader only needs a recent window; the JSON feed stays the full retention archive.
+
+Item mapping: `<link>` is the reader-facing `url` (not always the publisher URL),
+`<guid isPermaLink="false">` is `id` (always the publisher URL, so read/unread state
+survives an Apple News link upgrade), `<description>` is the escaped `content_html`.
+To add a mirror for another category, set `"rss": true` on it — nothing else.
 
 ## Runtime Cache Files (root directory, committed by CI)
 

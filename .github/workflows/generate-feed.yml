@@ -205,6 +205,10 @@ jobs:
           # Copy all category feeds and podcast feeds
           cp feed-*.json output/
 
+          # RSS mirrors (currently feed-local.xml). Not every category has one,
+          # so an empty glob is not an error.
+          cp feed-*.xml output/ 2>/dev/null || true
+
           # Bake the long-lived REVIEW_PAT into review.html so the
           # browser can write feedback to the repo. Token is reversed to avoid
           # secret-scanning push protection.
@@ -291,7 +295,8 @@ jobs:
           # stale content) fails loudly instead of silently serving old feeds.
           git fetch --quiet --depth=1 origin gh-pages
           fail=0
-          for f in output/feed-*.json; do
+          for f in output/feed-*.json output/feed-*.xml; do
+            [ -e "$f" ] || continue
             name=$(basename "$f")
             if git show "FETCH_HEAD:$name" 2>/dev/null | cmp -s - "$f"; then
               echo "  ✓ $name"

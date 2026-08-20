@@ -70,6 +70,13 @@ https://YOUR-USERNAME.github.io/super-rss-feed/feed-ai-tech.json
 ...
 ```
 
+The local feed is also published as RSS 2.0, for readers that do not speak JSON Feed:
+```
+https://YOUR-USERNAME.github.io/super-rss-feed/feed-local.xml
+```
+Same articles, same order. To publish an RSS mirror of another category, add
+`"rss": true` to its entry in `config/feeds.json`.
+
 The workflow runs automatically **twice daily** (4:30 AM and 8:30 PM Pacific).
 Each run fetches the last 48 hours of articles and merges new ones into a 7-day rolling feed.
 
@@ -206,7 +213,7 @@ python super_rss_curator_json.py --bootstrap-feeds
 12. **Podcast cache** — Quality articles are saved to a 7-day rolling cache. At ingest, all articles are scored for every podcast theme in one Claude batch (or Cohere calls), so daily podcast generation needs zero additional API calls.
 13. **Podcast feed** — Today's themed feed is generated from the weekly pool, skipping articles already used in the last 7 days of episodes and routing articles that clearly belong to an upcoming day's theme.
 14. **Diversify** — Limits articles per source, with per-type caps from source preferences.
-15. **Merge & output** — New articles are merged with retained articles from the previous 7 days (story-overlap dedup removes stale versions of the same story). Generates JSON Feed 1.1 files and a curated OPML index.
+15. **Merge & output** — New articles are merged with retained articles from the previous 7 days (story-overlap dedup removes stale versions of the same story). Generates JSON Feed 1.1 files, an RSS 2.0 mirror for any feed flagged `"rss": true`, and a curated OPML index.
 
 ## Podcast Feeds
 
