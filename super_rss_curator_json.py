@@ -12,6 +12,7 @@ import re
 import concurrent.futures
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 from zoneinfo import ZoneInfo
 from collections import defaultdict, Counter
 from typing import List, Dict, Optional, Set, Tuple
@@ -3541,6 +3542,117 @@ def _make_score_badge(
     return f'<p style="{_BADGE_STYLE}">{emojis} {fix_link}</p>\n'
 
 
+# RSS 2.0 mirror ---------------------------------------------------------
+# Readers that speak JSON Feed (NetNewsWire, Reeder, Feedbin, Miniflux) get the
+# .json file; everything else gets a .xml mirror of it. Which categories get a
+# mirror is driven by `"rss": true` in config/feeds.json.
+
+# A reader only needs a recent window, and content_html carries an image and a
+# badge per item, so the mirror is capped well below `max_feed_size`. The JSON
+# feed remains the full retention archive.
+RSS_MAX_ITEMS = 100
+
+# Characters outside these ranges are illegal in XML 1.0. Escaping does not
+# rescue them — a single one makes the whole feed unparseable for every
+# reader — so they are dropped.
+_XML_ILLEGAL = re.compile(
+    r'[^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\U00010000-\U0010FFFF]'
+)
+
+
+def _xml_text(value: str) -> str:
+    """Escape a string for use as XML character data."""
+    return html_escape(_XML_ILLEGAL.sub('', value or ''), quote=True)
+
+
+def _rfc822(iso_timestamp: str) -> str:
+    """Convert an ISO-8601 timestamp to the RFC 822 form RSS 2.0 requires."""
+    dt = datetime.fromisoformat(iso_timestamp.replace('Z', '+00:00'))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return format_datetime(dt)
+
+
+def generate_rss_feed(feed: Dict, output_path: str) -> None:
+    """Render an RSS 2.0 file from an already-built JSON Feed dict.
+
+    The mirror is a projection of the JSON feed rather than a second pass over
+    the articles, so the two cannot drift. Mapping decisions worth knowing:
+
+    * ``<link>`` is the item's ``url`` — the link the reader should follow,
+      which is not always the publisher URL (see ``apply_subscriber_links``).
+    * ``<guid isPermaLink="false">`` is the item's ``id``, which is always the
+      publisher URL and is the identity key everywhere else in the pipeline.
+      Keeping it here means a reader's read/unread state survives an Apple News
+      link upgrade instead of resurfacing the article as new.
+    * ``<description>`` carries the same ``content_html`` as the JSON feed —
+      image and day-routing badge included — escaped rather than wrapped in
+      CDATA, which would break on a ``]]>`` inside scraped article text.
+    * ``<dc:creator>`` holds the source name; RSS's own ``<author>`` is
+      specified as an email address and readers render a bare name there badly.
+    """
+    self_url = f"{FEEDS_CONFIG['base_url']}/{os.path.basename(output_path)}"
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" '
+        'xmlns:dc="http://purl.org/dc/elements/1.1/" '
+        'xmlns:media="http://search.yahoo.com/mrss/">',
+        '<channel>',
+        f"<title>{_xml_text(feed['title'])}</title>",
+        f"<link>{_xml_text(feed['home_page_url'])}</link>",
+        f'<atom:link href="{_xml_text(self_url)}" rel="self" '
+        'type="application/rss+xml" />',
+        f"<description>{_xml_text(feed['description'])}</description>",
+        f"<language>{_xml_text(feed.get('language', 'en'))}</language>",
+        f'<lastBuildDate>{format_datetime(datetime.now(timezone.utc))}</lastBuildDate>',
+        '<generator>Super RSS Feed Curator</generator>',
+    ]
+
+    if feed.get('icon'):
+        lines += [
+            '<image>',
+            f"<url>{_xml_text(feed['icon'])}</url>",
+            f"<title>{_xml_text(feed['title'])}</title>",
+            f"<link>{_xml_text(feed['home_page_url'])}</link>",
+            '</image>',
+        ]
+
+    for item in feed['items'][:RSS_MAX_ITEMS]:
+        lines.append('<item>')
+        lines.append(f"<title>{_xml_text(item['title'])}</title>")
+        lines.append(f"<link>{_xml_text(item['url'])}</link>")
+        lines.append(
+            f'<guid isPermaLink="false">{_xml_text(item["id"])}</guid>'
+        )
+        lines.append(f"<pubDate>{_rfc822(item['date_published'])}</pubDate>")
+
+        authors = item.get('authors') or []
+        if authors and authors[0].get('name'):
+            lines.append(f"<dc:creator>{_xml_text(authors[0]['name'])}</dc:creator>")
+
+        for tag in item.get('tags', []):
+            lines.append(f"<category>{_xml_text(tag)}</category>")
+
+        if item.get('image'):
+            lines.append(
+                f'<media:content url="{_xml_text(item["image"])}" medium="image" />'
+            )
+
+        lines.append(
+            f"<description>{_xml_text(item.get('content_html', ''))}</description>"
+        )
+        lines.append('</item>')
+
+    lines += ['</channel>', '</rss>', '']
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+
+    item_count = min(len(feed['items']), RSS_MAX_ITEMS)
+    print(f"✅ Generated RSS mirror: {output_path} ({item_count} articles)")
+
+
 def generate_json_feed(articles: List[Article], category: str, output_path: str):
     """Generate JSON Feed format output"""
     cat_config = CATEGORIES[category]
@@ -3639,6 +3751,9 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Generated {category} feed: {len(feed['items'])} articles")
+
+    if feed_config.get('rss'):
+        generate_rss_feed(feed, f"{os.path.splitext(output_path)[0]}.xml")
 
 
 def load_podcast_schedule():
@@ -4812,7 +4927,11 @@ def generate_opml():
 
     for cat_key, cat_config in CATEGORIES.items():
         feed_title = f"{cat_config['emoji']} {cat_config['name']}"
-        feed_url = f"{FEEDS_CONFIG['base_url']}/feed-{cat_key}.json"
+        # Every outline is declared type="rss", so point at the real RSS mirror
+        # wherever one exists — a reader that only speaks XML cannot do
+        # anything with the JSON URL it would otherwise be handed.
+        ext = 'xml' if FEEDS_CONFIG['feeds'].get(cat_key, {}).get('rss') else 'json'
+        feed_url = f"{FEEDS_CONFIG['base_url']}/feed-{cat_key}.{ext}"
 
         ET.SubElement(category_folder, 'outline', {
             'type': 'rss',
@@ -4843,6 +4962,7 @@ def generate_opml():
             })
 
     tree = ET.ElementTree(opml)
+    ET.indent(tree)  # the file is downloaded and read by hand; keep it legible
     tree.write('curated-feeds.opml', encoding='utf-8', xml_declaration=True)
     print("✅ Generated OPML file: curated-feeds.opml")
 
@@ -5824,6 +5944,11 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
 
         with open(feed_file, 'w', encoding='utf-8') as f:
             json.dump(feed, f, indent=2, ensure_ascii=False)
+
+        # Keep the RSS mirror in step, so a standalone bootstrap run does not
+        # leave subscribers on a stale .xml.
+        if feed_config.get('rss'):
+            generate_rss_feed(feed, f"{os.path.splitext(feed_file)[0]}.xml")
 
         if added:
             print(f"  ✅ {cat_key}: wrote {added} bootstrap articles ({len(feed['items'])} total)")
