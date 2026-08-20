@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erich's Super RSS Feed</title>
+    <link rel="alternate" type="application/rss+xml"
+          title="🏔️ Local News" href="feed-local.xml">
     <style>
         * {
             margin: 0;
@@ -256,6 +258,7 @@
         const feeds = [
             {
                 file: 'feed-local.json',
+                rss: 'feed-local.xml',
                 name: '🏔️ Local News',
                 description: 'Williams Lake Tribune and BC Interior coverage (always top priority)'
             },
@@ -382,6 +385,18 @@
             subscribeEl.textContent = '📡 Subscribe';
             titleRow.appendChild(subscribeEl);
 
+            // Feeds with an RSS mirror get a second link. Same articles as the
+            // JSON feed, for readers that do not speak JSON Feed.
+            if (feed.rss) {
+                const rssEl = document.createElement('a');
+                rssEl.className = 'feed-subscribe';
+                rssEl.href = `${baseUrl}/${feed.rss}`;
+                rssEl.target = '_blank';
+                rssEl.rel = 'noopener';
+                rssEl.textContent = '📻 RSS';
+                titleRow.appendChild(rssEl);
+            }
+
             header.appendChild(titleRow);
 
             const meta = document.createElement('div');
@@ -415,6 +430,16 @@
             urlDiv.textContent = feedUrl;
             urlDiv.addEventListener('click', () => copyToClipboard(feedUrl));
             item.appendChild(urlDiv);
+
+            if (feed.rss) {
+                const rssUrl = `${baseUrl}/${feed.rss}`;
+                const rssUrlDiv = document.createElement('div');
+                rssUrlDiv.className = 'feed-url';
+                rssUrlDiv.title = 'Click to copy';
+                rssUrlDiv.textContent = rssUrl;
+                rssUrlDiv.addEventListener('click', () => copyToClipboard(rssUrl));
+                item.appendChild(rssUrlDiv);
+            }
 
             if (itemCount > 0) {
                 const articlesList = document.createElement('ul');
