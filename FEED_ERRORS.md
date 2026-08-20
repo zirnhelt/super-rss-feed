@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-19 (Wednesday)
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Noema Magazine** failed — `521 Server Error: <none> for url: https://www.noemamag.com/feed/`
+
+
+---
+
+
+
 ## 2026-08-14 (Friday)
 
 #### 🌙 8:30 PM Pacific
