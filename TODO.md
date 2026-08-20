@@ -13,8 +13,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-08-13 | 🌙 8:30 PM Pacific | ⚠️ **Kagi Small Web** failed | `503 Server Error: Service Unavailable for url: https://kagi.com/api/v1/smallweb/feed` |
 | 2026-08-13 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
 | 2026-08-13 | 🌙 8:30 PM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
-| 2026-08-12 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
-| 2026-08-12 | 🌙 8:30 PM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -22,17 +20,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-08-19 | 🔧 manual | 88 | news:25(28%), ai-tech:18(20%), wellness:10(11%) |
 | 2026-08-18 | 🌙 evening | 100 | news:25(25%), ai-tech:18(18%), homelab:10(10%) |
 | 2026-08-17 | 🌙 evening | 95 | news:25(26%), ai-tech:18(19%), wellness:10(11%) |
 | 2026-08-16 | 🌙 evening | 92 | news:25(27%), ai-tech:15(16%), homelab:10(11%) |
 | 2026-08-15 | 🌙 evening | 87 | news:25(29%), ai-tech:17(20%), climate:10(11%) |
 | 2026-08-14 | 🌙 evening | 94 | news:25(27%), ai-tech:18(19%), climate:12(13%) |
 | 2026-08-13 | 🌙 evening | 92 | news:25(27%), ai-tech:18(20%), wellness:10(11%) |
-| 2026-08-12 | 🌙 evening | 92 | news:25(27%), ai-tech:18(20%), wellness:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-19 04:51 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-20 02:54 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
