@@ -5088,8 +5088,17 @@ def main():
         _pod_keywords = _build_all_podcast_keywords(schedule_config)
         _pod_floor = LIMITS.get('quality_gate', {}).get('podcast_floor', 20)
         _pod_min = LIMITS.get('podcast_candidate_min_score', 5)
+        _pod_excluded = set(schedule_config.get('excluded_sources', []))
 
         def _pool_eligible(a: Article) -> bool:
+            # Sources that report *on* the podcast (the Cariboo Signals episode
+            # review feed) must never re-enter the pool: routed into an episode,
+            # the show would discuss its own review of itself, and the next
+            # review would review that discussion. Cut here rather than at
+            # generation time — this is the one choke point upstream of both
+            # podcast_articles_cache and theme_holdover_cache.
+            if a.source in _pod_excluded:
+                return False
             if getattr(a, 'content_type', None) == 'sponsored' or _is_aggregator_url(a.link):
                 return False
             if getattr(a, 'local', 0) >= 25:
