@@ -3,6 +3,23 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-21 (Friday)
+
+#### 🔧 Manual Run (7:28 AM Pacific)
+- ⚠️ **FolkloreThursday** failed — `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SS`
+- ⚠️ **Small Farm Canada** failed — `404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ **Comments for The Road Goes Ever On** failed — `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/`
+- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
+- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
+
+
+---
+
+
+
 ## 2026-08-19 (Wednesday)
 
 #### 🌙 8:30 PM Pacific
@@ -16,18 +33,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## 2026-08-14 (Friday)
 
 #### 🌙 8:30 PM Pacific
-- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-
-
----
-
-
-
-## 2026-08-13 (Thursday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Kagi Small Web** failed — `503 Server Error: Service Unavailable for url: https://kagi.com/api/v1/smallweb/feed`
 - ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
 - ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
 
@@ -859,6 +864,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 ## Week of 2026-08-12–2026-08-12
 - 2 issues recorded
+- ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+
+
+---
+
+
+
+## Week of 2026-08-13–2026-08-13
+- 3 issues recorded
+- ⚠️ Kagi Small Web failed — 503 Server Error: Service Unavailable for url: https://kagi.com/api/v1/smallweb/feed
 - ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 - ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
 
