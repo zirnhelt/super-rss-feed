@@ -5045,10 +5045,18 @@ def main():
             continue
         # Cross-run story dedup: skip if ≥3 significant terms overlap with a
         # recently-shown article at ≥50% containment similarity.
+        #
+        # Both sides must carry ≥3 terms and share ≥3 of them, matching the
+        # guards deduplicate_articles() already applies in-run. Containment is
+        # |A∩B| / min(|A|,|B|), so without a shared-term floor a two-term stored
+        # headline suppresses anything sharing a single common word: {'eggzellant',
+        # 'review'} scores 0.50 against any headline containing "review".
         if (a.title_terms
                 and len(a.title_terms) >= 3
                 and any(
-                    _story_overlap(a.title_terms, stored) >= 0.50
+                    len(stored) >= 3
+                    and len(a.title_terms & stored) >= 3
+                    and _story_overlap(a.title_terms, stored) >= 0.50
                     for stored in stored_term_sets
                 )):
             story_dupes += 1
