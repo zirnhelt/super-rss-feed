@@ -26,6 +26,46 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (7:39 AM Pacific)
+- ⚠️ **Neowin** failed — `521 Server Error: <none> for url: https://www.neowin.net/news/rss/`
+- ⚠️ **FolkloreThursday** failed — `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SS`
+- ⚠️ **Small Farm Canada** failed — `404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ **Comments for The Road Goes Ever On** failed — `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/`
+- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
+- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
+- ⚠️ Quality gate batch failed (fail-open): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaU1zNXNdT5qKqBNoE'}
+- ⚠️ Quality gate batch failed (fail-open): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaUdwbpvXKM2QNwENv'}
+- ⚠️ Quality gate batch failed (fail-open): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaV7iSFZ48GWxme1oA'}
+- ⚠️ API error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaiDGXuxNg6AeHAEqY'}
+- ⚠️ API error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaiuw7oH4J8e6Lvj46'}
+- ⚠️ Scrub batch 1 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxantoLnwti1jQu1v4i'}), keeping all
+- ⚠️ Scrub batch 2 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaoQ4KS7kHd9Xh9SBh'}), keeping all
+- ⚠️ Scrub batch 3 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaovof1PogycN5kapx'}), keeping all
+- ⚠️ Scrub batch 4 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxapWHfAtvK5MLpNnWp'}), keeping all
+- ⚠️ Scrub batch 5 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaq5mFtVBuKTysTwGy'}), keeping all
+- ⚠️ Scrub batch 6 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaqdzsftnTxwAZThPE'}), keeping all
+- ⚠️ Scrub batch 7 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxarBEr52YKuZTCb6oF'}), keeping all
+- ⚠️ Scrub batch 8 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxaroSjTbUVwT5WJDVE'}), keeping all
+- ⚠️ Scrub batch 9 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxasLh9VWm7a9J3REiM'}), keeping all
+- ⚠️ Scrub batch 10 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxastRsouM3qpHXkGG4'}), keeping all
+- ⚠️ Scrub batch 11 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxatQwE4HQeEkCSd5re'}), keeping all
+- ⚠️ Scrub batch 12 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxatvwXMVnhoR7rNoX8'}), keeping all
+- ⚠️ Scrub batch 13 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxauTwLGZP653nRyFzr'}), keeping all
+- ⚠️ Scrub batch 14 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxav2vJbxLdHUAr7S8H'}), keeping all
+- ⚠️ Scrub batch 15 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxavsX4iruUKzXprpNc'}), keeping all
+- ⚠️ Scrub batch 16 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxawP2PcfGB3JLcWxSg'}), keeping all
+- ⚠️ Scrub batch 17 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHxawuXSt6mnG2Tubh8m'}), keeping all
+
+
+---
+
+
+
 ## 2026-08-21 (Friday)
 
 #### 🔧 Manual Run (7:28 AM Pacific)
