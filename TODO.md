@@ -16,9 +16,8 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-08-21 | 🔧 Manual Run | ⚠️ **Comments for The Road Goes Ever On** failed | `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/` |
 | 2026-08-21 | 🔧 Manual Run | ⚠️ **Comments for Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/` |
 | 2026-08-21 | 🔧 Manual Run | ⚠️ **Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/` |
+| 2026-08-21 | 🌙 8:30 PM Pacific | ⚠️ **Neowin** failed | `521 Server Error: <none> for url: https://www.neowin.net/news/rss/` |
 | 2026-08-19 | 🌙 8:30 PM Pacific | ⚠️ **Noema Magazine** failed | `521 Server Error: <none> for url: https://www.noemamag.com/feed/` |
-| 2026-08-14 | 🌙 8:30 PM Pacific | ⚠️ **Mother Earth News** failed | `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/` |
-| 2026-08-14 | 🌙 8:30 PM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -27,6 +26,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-08-21 | 🔧 manual | 82 | news:25(30%), ai-tech:18(22%), wellness:10(12%) |
+| 2026-08-21 | 🌙 evening | 96 | news:25(26%), ai-tech:18(19%), local:13(14%) |
 | 2026-08-20 | 🌙 evening | 92 | news:25(27%), ai-tech:18(20%), wellness:10(11%) |
 | 2026-08-19 | 🔧 manual | 88 | news:25(28%), ai-tech:18(20%), wellness:10(11%) |
 | 2026-08-19 | 🌙 evening | 77 | news:25(32%), ai-tech:18(23%), wellness:10(13%) |
@@ -34,11 +34,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-08-17 | 🌙 evening | 95 | news:25(26%), ai-tech:18(19%), wellness:10(11%) |
 | 2026-08-16 | 🌙 evening | 92 | news:25(27%), ai-tech:15(16%), homelab:10(11%) |
 | 2026-08-15 | 🌙 evening | 87 | news:25(29%), ai-tech:17(20%), climate:10(11%) |
-| 2026-08-14 | 🌙 evening | 94 | news:25(27%), ai-tech:18(19%), climate:12(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-21 14:28 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-22 04:50 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

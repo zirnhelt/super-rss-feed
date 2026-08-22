@@ -20,6 +20,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ **Neowin** failed — `521 Server Error: <none> for url: https://www.neowin.net/news/rss/`
+
+
+---
+
+
+
 ## 2026-08-19 (Wednesday)
 
 #### 🌙 8:30 PM Pacific
