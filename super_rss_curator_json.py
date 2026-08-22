@@ -3081,6 +3081,22 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
 
     local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
 
+    # Sources held out of both passes below. The scrub judges headlines alone and
+    # has no category for meta-commentary on this pipeline's own output, so the
+    # Cariboo Signals episode review reads as entertainment filler and is cut
+    # every run. Exempting the source is narrower than loosening the shared
+    # prompt, which screens every article in the run.
+    exempt_sources = set(SOURCE_PREFS.get('scrub_exempt_sources', []))
+    exempt: List[Article] = []
+    if exempt_sources:
+        reviewable: List[Article] = []
+        for article in articles:
+            (exempt if article.source in exempt_sources else reviewable).append(article)
+        if exempt:
+            articles = reviewable
+            print(f"🛡️  Scrub exempt: {len(exempt)} article(s) from "
+                  f"{sorted({a.source for a in exempt})}")
+
     # Cohere pre-filter: auto-remove high-confidence junk before calling Claude.
     # Very conservative threshold avoids false positives.
     # Local articles are never auto-removed regardless of score.
@@ -3219,6 +3235,8 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
         except Exception as e:
             print(f"  ⚠️ Scrub batch {i // batch_size + 1} failed ({e}), keeping all")
             kept.extend(batch)
+
+    kept.extend(exempt)
 
     if total_removed:
         print(f"✂️  Final scrub removed {total_removed} article(s) from {len(articles)} quality articles")
