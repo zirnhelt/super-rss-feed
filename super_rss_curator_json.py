@@ -15,6 +15,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 from zoneinfo import ZoneInfo
 from collections import defaultdict, Counter
+from functools import lru_cache
 from typing import List, Dict, Optional, Set, Tuple
 from pathlib import Path
 
@@ -3813,10 +3814,27 @@ def load_podcast_schedule():
         return None
 
 
+@lru_cache(maxsize=2048)
+def _keyword_pattern(keyword: str) -> "re.Pattern":
+    """Word-boundary matcher for one keyword, tolerating a plural 's'.
+
+    Lookarounds rather than \\b so a keyword ending in punctuation still
+    matches: \\b after the final '.' of "b.c." requires a word character
+    next, so "B.C. legislature" never matched.
+    """
+    return re.compile(r'(?<!\w)' + re.escape(keyword.lower()) + r's?(?!\w)')
+
+
 def _keyword_match_count(text: str, keywords: List[str]) -> int:
-    """Count how many keywords appear in the text (case-insensitive)."""
+    """Count how many keywords appear in the text (case-insensitive).
+
+    Word boundaries, not substrings. Saturday's theme carries "AI" as a
+    keyword and `"ai" in text` matches "said", "trained" and "maintenance",
+    which would mark the entire pool as a strong theme match; the same
+    substring bug quietly matched "arts" inside "starts" on Mondays.
+    """
     text_lower = text.lower()
-    return sum(1 for kw in keywords if kw.lower() in text_lower)
+    return sum(1 for kw in keywords if _keyword_pattern(kw).search(text_lower))
 
 
 def _net_keyword_match_count(text: str, keywords: List[str], anti_keywords: List[str]) -> int:

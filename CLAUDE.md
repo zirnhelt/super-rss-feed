@@ -102,7 +102,7 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 | `feeds.json` | Output feed metadata: titles, descriptions, base URL for JSON Feed 1.1. |
 | `source_preferences.json` | Source type map (`print`/`broadcast`) with per-type score adjustments and `max_per_source` caps. |
 | `feed_slots.json` | Per-category min/max article counts. |
-| `podcast_schedule.json` | 7 daily themed podcast feed definitions: label, categories, keywords, scoring_prompt, min_score, holdover_threshold. **Tunable by calibration agent.** |
+| `podcast_schedule.json` | 7 daily themed podcast feed definitions: label, categories, keywords, scoring_prompt, min_score, holdover_threshold. `label` must match the theme `name` in the consumer's `config/themes.json` — the podcast generator looks up lens, anti-keywords, source boost, jurisdiction ranking and the ambient bed BY NAME, and rejects a label it has no theme for. Keywords are matched on **word boundaries** (`_keyword_match_count`): Saturday's set carries the bare token `AI`, and substring matching made it hit "said", "trained" and "maintenance". **Tunable by calibration agent.** |
 | `calibration_bounds.json` | Whitelist of auto-tunable config knobs and their safety bounds for the calibration agent. |
 | `scoring_weights.json` | Dimensional composite weights for general feeds (`w_quality`, `w_relevance`, `w_local`) and podcast feeds (+ `w_theme`). |
 | `scoring_modifiers.json` | `local_keyword_bonus`, `wire_quality_penalty`, `source_type_quality_adjustments`. |
