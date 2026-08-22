@@ -23,9 +23,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — forestry, ranching, mining, and agriculture, the resource economy that defines the Cariboo and rural BC.\n\nOUT OF SCOPE — score 0-14: geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; wildlife content with no agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories.\n\nCALIBRATION — apply this ladder to everything else. Trade-press journalism counts fully: equipment, markets, and operations coverage is a real fit, not a near-zero. A BC tie raises a score but is NOT required to reach the top band.\n- 80-100: Excellent working-lands journalism. BC/Cariboo forestry, ranching, mining, and agriculture stories land here (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen) — and so does outstanding national trade reporting with real operational or economic depth.\n- 55-79: Solid resource-economy journalism anywhere in Canada or beyond — Western Producer or Northern Miner-style coverage of farm machinery, harvest technology, livestock and commodity markets, mining operations and exploration, AgTech and precision agriculture, silviculture, sawmills, drone survey work, mine automation, and labour/workforce stories in these industries. Most genuine trade journalism belongs HERE, not below.\n- 30-54: Broader agriculture, forestry, or mining news with clear working-lands relevance but thin reporting — general farm economics, international resource-industry briefs, climate impacts on working lands.\n- 15-29: Tangential mentions — a business, policy, or science story that touches forestry/agriculture/mining in passing, or Cariboo civic news unrelated to working lands.\n\nANCHORS: 'Williams Lake sawmill cuts second shift as beetle-kill supply dwindles' → 95. 'New John Deere baler cuts hay-drying time by a third' → 70. 'Cattle futures slip on weaker export demand' → 60. 'Global copper prices hit two-year high' → 40.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-08-22T13:59:47.715779+00:00",
+    "generated_at": "2026-08-22T14:39:42.503879+00:00",
     "article_count": 100,
-    "bonus_count": 86,
+    "bonus_count": 82,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -198,6 +198,37 @@
       }
     },
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, August 22, 2026",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fzirnhelt.github.io%2Fcurated-podcast-generator%2Fpodcasts%2Freviews%2Fepisode-review-2026-08-22.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><em>What the pipeline did, what broke, and what it chose when something broke. Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/32562874398\">32562874398</a>.</em></p>\n\n<h3>Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead</h3>\n\n<p>The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total.</p>\n\n<p>The timeout itself is tracked: Gemini's generativelanguage.googleapis.com endpoint returned read timeouts on multiple canary checks. This is infrastructure fragility, not a code problem. The system detected it before publishing and chose safety over economy.</p>\n\n<h3>Brave Search broke on three separate queries</h3>\n\n<p>The Brave API returned 400 errors on three research queries, all malformed requests according to the logs. Two involved the Bald Range wildfire story; one targeted Aurora Borealis content from Atlas Obscura. The pipeline did not retry these or mark them as fallback triggers. They simply failed and the episode moved forward without them.</p>\n\n<h3>Short-segment TTS had a 78% failure rate</h3>\n\n<p>Nine short audio segments were queued for text-to-speech synthesis. Seven failed and could not be recovered. The pipeline retried but did not escalate; these segments likely dropped from the final mix. This is a secondary degradation—the main episode rendered successfully—but it represents missing content downstream of the primary voice work.</p>\n\n<h3>38 roundup items were culled; 5 deep dives made it through</h3>\n\n<p>The pipeline dropped 38 candidate stories from the daily roundup. Five deep-dive pieces survived the curation gate: a cycling training ride in the Cariboo, B.C. lumber trade relief, ranching families west of Williams Lake (two Tribune stories), and Tyson Foods beef plant closures tied to drought. Citation alignment data shows 8 sources in the first tier, 15 in the second, none in the third, and 5 scattered elsewhere—an uneven distribution that suggests some sources clustered heavily while others appeared once.</p>\n\n<h3>The episode landed on the central question about regional economic power</h3>\n\n<p>Today's debate framing: \"Does the Cariboo region have meaningful formal input into economic decisions made at federal and provincial levels, or does it only absorb outcomes determined elsewhere?\" The deep dives anchor this—trade deals, closures, drought impacts, and local initiatives all touch the question of who decides and who adapts.</p>\n\n<h3>The run timeline: three attempts, all late</h3>\n\n<p>Primary run triggered at 1:05 AM Pacific, arrived at 1:39 AM (34 minutes late). Fallback 1 at 2:05 AM, arrived at 2:25 AM (20 minutes late). Fallback 2 at 3:05 AM began at 3:30 AM (25 minutes late) and was still in progress at report time. The primary and first fallback both completed successfully. Script generation took 11.5 minutes of the primary run's total 27.6 minutes; rendering and deployment consumed the rest.</p>\n\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific)</td><td>2026-08-22T08:39:54Z</td><td>+34 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific)</td><td>2026-08-22T09:25:55Z</td><td>+20 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific)</td><td>2026-08-22T10:30:13Z</td><td>+25 min</td><td>in_progress</td></tr>\n</tbody>\n</table>\n\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>7 pattern hit(s), voice ratio 0.93, 2946 words</td></tr>\n<tr><td>Audio</td><td>18.4 min</td></tr>\n<tr><td>Audio size</td><td>16.8 MB</td></tr>\n<tr><td>Citations matched</td><td>8/15 roundup, 0/5 deep dive</td></tr>\n<tr><td>Feed</td><td>207 episodes</td></tr>\n<tr><td>Anthropic spend</td><td>85,701 input tokens, calls {'claude': 8}</td></tr>\n</tbody>\n</table>",
+      "summary": "What the pipeline did, what broke, and what it chose when something broke. Run 32562874398 . Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline",
+      "_excerpt": "What the pipeline did, what broke, and what it chose when something broke. Run 32562874398 . Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total. The timeout itself is tracked:",
+      "date_published": "2026-08-22T10:30:45+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 50,
+      "_relevance": 55,
+      "_local": 100,
+      "_theme_score": 88,
+      "_composite_podcast": 88,
+      "_keyword_matches": 3,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
       "id": "https://hackaday.com/2026/08/21/pvc-pipe-turned-diy-digital-telescope/",
       "url": "https://hackaday.com/2026/08/21/pvc-pipe-turned-diy-digital-telescope/",
       "title": "[Hackaday] PVC Pipe Turned DIY Digital Telescope",
@@ -246,8 +277,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 89,
-      "_composite_podcast": 81,
+      "_theme_score": 88,
+      "_composite_podcast": 80,
       "_keyword_matches": 1,
       "_category": "wellness",
       "_source_category": "wellness",
@@ -257,36 +288,6 @@
         "subscriber-access"
       ],
       "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.theguardian.com/global-development/2026/aug/15/five-years-taliban-rule-afghanistan-collapse-visualised",
-      "url": "https://www.theguardian.com/global-development/2026/aug/15/five-years-taliban-rule-afghanistan-collapse-visualised",
-      "title": "[The Guardian Global Development] Five years into Taliban rule, Afghanistan plunges into a state of collapse – visualised",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theguardian.com%2Fglobal-development%2F2026%2Faug%2F15%2Ffive-years-taliban-rule-afghanistan-collapse-visualised\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>The stark figures show that since the hardliners seized power in 2021, women have been erased from public life, poverty is forcing hopeless families to marry off their daughters and healthcare is on the brink of failure</p><p>‘I married off my daughter so that none of us would die of hunger.” Malika hesitated before saying the words aloud. The 46-year-old lives with her husband and four youngest children (three girls and a boy) in Chihil Dukhtarān, one of Kabul’s poorest neighbourhoods.</p><p>Poverty pushed the family to the brink before Malika and her husband made what they describe as the hardest decision of their lives: marrying off their eldest daughter, Maryam, for 200,000 afghanis (£2,270). She was still a teenager.</p> <a href=\"https://www.theguardian.com/global-development/2026/aug/15/five-years-taliban-rule-afghanistan-collapse-visualised\">Continue reading...</a>",
-      "summary": "The stark figures show that since the hardliners seized power in 2021, women have been erased from public life, poverty is forcing hopeless families to marry off their daughters and healthcare is on the brink of failure ‘I married off my daughter so that none of us would die of hunger.” Malika",
-      "_excerpt": "The stark figures show that since the hardliners seized power in 2021, women have been erased from public life, poverty is forcing hopeless families to marry off their daughters and healthcare is on the brink of failure ‘I married off my daughter so that none of us would die of hunger.” Malika hesitated before saying the words aloud. The 46-year-old lives with her husband and four youngest children (three girls and a boy) in Chihil Dukhtarān, one of Kabul’s poorest neighbourhoods. Poverty pushed the family to the brink before Malika and her husband made what they describe as the hardest",
-      "date_published": "2026-08-15T06:00:49+00:00",
-      "authors": [
-        {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
-        }
-      ],
-      "ai_score": 53,
-      "_quality": 77,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 81,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -352,8 +353,38 @@
       ],
       "_subscriber_access": "Apple News",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
+      "url": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
+      "title": "[The Northern Miner] First Nations group pulls support for Seabridge’s KSM",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Ffirst-nations-group-pulls-support-for-seabridges-ksm%2F1003894189%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold&#8216;s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/\">First Nations group pulls support for Seabridge&#8217;s KSM</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
+      "summary": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
+      "_excerpt": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
+      "date_published": "2026-08-21T13:35:10+00:00",
+      "authors": [
+        {
+          "name": "The Northern Miner",
+          "url": "https://www.northernminer.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 90,
+      "_composite_podcast": 80,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-22T04:50:05.414271+00:00"
       }
     },
@@ -389,67 +420,6 @@
       }
     },
     {
-      "id": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
-      "url": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
-      "title": "[The Northern Miner] First Nations group pulls support for Seabridge’s KSM",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Ffirst-nations-group-pulls-support-for-seabridges-ksm%2F1003894189%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold&#8216;s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/\">First Nations group pulls support for Seabridge&#8217;s KSM</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "summary": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
-      "_excerpt": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
-      "date_published": "2026-08-21T13:35:10+00:00",
-      "authors": [
-        {
-          "name": "The Northern Miner",
-          "url": "https://www.northernminer.com"
-        }
-      ],
-      "ai_score": 71,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 80,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://nautil.us/is-this-the-worlds-oldest-image-of-a-mind%e2%80%91altering-plant-1283811/",
-      "url": "https://nautil.us/is-this-the-worlds-oldest-image-of-a-mind%e2%80%91altering-plant-1283811/",
-      "title": "[Nautilus] Is This the World’s Oldest Image of a Mind‑altering Plant?",
-      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Pothier_HERO.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnautil.us%2Fis-this-the-worlds-oldest-image-of-a-mind%25e2%2580%2591altering-plant-1283811%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>A painted panel deep in a Spanish cave may push the human relationship with mind-altering plants back thousands of years, earlier than anything previously known</p>\n<p>The post <a href=\"https://nautil.us/is-this-the-worlds-oldest-image-of-a-mind%e2%80%91altering-plant-1283811/\">Is This the World’s Oldest Image of a Mind‑altering Plant?</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
-      "summary": "A painted panel deep in a Spanish cave may push the human relationship with mind-altering plants back thousands of years, earlier than anything previously known The post Is This the World’s Oldest Image of a Mind‑altering Plant? appeared first on Nautilus .",
-      "_excerpt": "A painted panel deep in a Spanish cave may push the human relationship with mind-altering plants back thousands of years, earlier than anything previously known The post Is This the World’s Oldest Image of a Mind‑altering Plant? appeared first on Nautilus .",
-      "date_published": "2026-08-15T13:30:00+00:00",
-      "authors": [
-        {
-          "name": "Nautilus",
-          "url": "https://nautil.us/"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 72,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 86,
-      "_composite_podcast": 79,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Pothier_HERO.png?w=564",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
       "id": "https://hackaday.com/2026/08/22/building-an-analog-geiger-counter/",
       "url": "https://hackaday.com/2026/08/22/building-an-analog-geiger-counter/",
       "title": "[Hackaday] Building an Analog Geiger Counter",
@@ -481,24 +451,54 @@
       }
     },
     {
-      "id": "https://www.northernminer.com/regulatory-issues/government-cash-reshaping-mining-finance-report/1003894187/",
-      "url": "https://www.northernminer.com/regulatory-issues/government-cash-reshaping-mining-finance-report/1003894187/",
-      "title": "[The Northern Miner] Government cash reshaping mining finance: report",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fregulatory-issues%2Fgovernment-cash-reshaping-mining-finance-report%2F1003894187%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>As the United States announces more investments in mining and processing, mining companies and the general public need to be more aware of how the trend is changing the government’s...</p>\n<p>The post <a href=\"https://www.northernminer.com/regulatory-issues/government-cash-reshaping-mining-finance-report/1003894187/\">Government cash reshaping mining finance: report</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "summary": "As the United States announces more investments in mining and processing, mining companies and the general public need to be more aware of how the trend is changing the government’s... The post Government cash reshaping mining finance: report appeared first on The Northern Miner .",
-      "_excerpt": "As the United States announces more investments in mining and processing, mining companies and the general public need to be more aware of how the trend is changing the government’s... The post Government cash reshaping mining finance: report appeared first on The Northern Miner .",
-      "date_published": "2026-08-21T14:03:05+00:00",
+      "id": "https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/",
+      "url": "https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/",
+      "title": "[New Atlas] Containerized GHOST system puts rocket launch infrastructure on the go",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Fmilitary%2Fghost-gives-rocket-launch-sites-flat-pack-treatment%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"The first GHOST site will be in Alaska\" src=\"https://assets.newatlas.com/dims4/default/ecf129a/2147483647/strip/true/crop/2422x1368+0+0/resize/1440x813!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2Ffd%2F70%2F9e5dd1084e07958f2084315ee6fa%2Fhpy8rqowiaas-se.jpeg\" /><p>Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers.</p><p><a href=\"https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/military/\">Military</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/rocket-lab/\" rel=\"tag\">Rocket Lab</a>, <a href=\"https://newatlas.com/tag/us-space-force/\" rel=\"tag\">US Space Force</a>, <a href=\"https://newatlas.com/tag/rocket/\" rel=\"tag\">Rocket</a>, <a href=\"https://newatlas.com/tag/launch/\" rel=\"tag\">Launch</a></p>",
+      "summary": "Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers. Continue Reading Category: Military ,",
+      "_excerpt": "Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers. Continue Reading Category: Military , Engineering Tags: Rocket Lab , US Space Force , Rocket , Launch",
+      "date_published": "2026-08-15T14:03:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 90,
+      "_composite_podcast": 78,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.northernminer.com/aboriginal/brazils-top-court-breaks-indigenous-mining-deadlock/1003894192/",
+      "url": "https://www.northernminer.com/aboriginal/brazils-top-court-breaks-indigenous-mining-deadlock/1003894192/",
+      "title": "[The Northern Miner] Brazil’s top court breaks Indigenous mining deadlock",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Faboriginal%2Fbrazils-top-court-breaks-indigenous-mining-deadlock%2F1003894192%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Brazil’s Supreme Court has upheld a ruling allowing Cinta Larga Indigenous communities to legally conduct mineral exploration in four territories under temporary safeguards while lawmakers develop long-delayed legislation that governs...</p>\n<p>The post <a href=\"https://www.northernminer.com/aboriginal/brazils-top-court-breaks-indigenous-mining-deadlock/1003894192/\">Brazil’s top court breaks Indigenous mining deadlock</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
+      "summary": "Brazil’s Supreme Court has upheld a ruling allowing Cinta Larga Indigenous communities to legally conduct mineral exploration in four territories under temporary safeguards while lawmakers develop long-delayed legislation that governs... The post Brazil’s top court breaks Indigenous mining deadlock",
+      "_excerpt": "Brazil’s Supreme Court has upheld a ruling allowing Cinta Larga Indigenous communities to legally conduct mineral exploration in four territories under temporary safeguards while lawmakers develop long-delayed legislation that governs... The post Brazil’s top court breaks Indigenous mining deadlock appeared first on The Northern Miner .",
+      "date_published": "2026-08-21T10:07:45+00:00",
       "authors": [
         {
           "name": "The Northern Miner",
           "url": "https://www.northernminer.com"
         }
       ],
-      "ai_score": 68,
+      "ai_score": 72,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 86,
+      "_theme_score": 84,
       "_composite_podcast": 78,
       "_keyword_matches": 1,
       "_category": "news",
@@ -508,67 +508,6 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/08/260814011039.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/08/260814011039.htm",
-      "title": "[ScienceDaily] Scientists solve the mystery of a brain “switch” that can trigger weight loss in opposite ways",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F08%2F260814011039.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nScientists have uncovered why two seemingly opposite ways of targeting the same brain receptor can both promote weight loss. In mice, activating the GIP receptor in the brainstem reduced appetite, while blocking it in the hypothalamus removed a kind of “brake” on fullness signals. The discovery helps explain why very different obesity drugs can achieve similar results and suggests that carefully combining GIP-targeting treatments with GLP-1 drugs like those related to Wegovy and Ozempic could produce stronger effects.",
-      "summary": "Scientists have uncovered why two seemingly opposite ways of targeting the same brain receptor can both promote weight loss. In mice, activating the GIP receptor in the brainstem reduced appetite, while blocking it in the hypothalamus removed a kind of “brake” on fullness signals. The discovery",
-      "_excerpt": "Scientists have uncovered why two seemingly opposite ways of targeting the same brain receptor can both promote weight loss. In mice, activating the GIP receptor in the brainstem reduced appetite, while blocking it in the hypothalamus removed a kind of “brake” on fullness signals. The discovery helps explain why very different obesity drugs can achieve similar results and suggests that carefully combining GIP-targeting treatments with GLP-1 drugs like those related to Wegovy and Ozempic could produce stronger effects.",
-      "date_published": "2026-08-15T10:55:39+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 47,
-      "_quality": 68,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 89,
-      "_composite_podcast": 78,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://hackaday.com/2026/08/15/a-tape-deck-gets-a-service/",
-      "url": "https://hackaday.com/2026/08/15/a-tape-deck-gets-a-service/",
-      "title": "[Hackaday] A Tape Deck Gets a Service",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/08/tape-deck-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F08%2F15%2Fa-tape-deck-gets-a-service%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/08/tape-deck-featured.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>If there&#8217;s an engineer&#8217;s equivalent to those YouTube ASMR videos, then perhaps it comes in a good repair or servicing journey filmed without edits at the bench. Relaxing to watch, <a class=\"read-more\" href=\"https://hackaday.com/2026/08/15/a-tape-deck-gets-a-service/\">&#8230;read more</a>",
-      "summary": "If there’s an engineer’s equivalent to those YouTube ASMR videos, then perhaps it comes in a good repair or servicing journey filmed without edits at the bench. Relaxing to watch, …read more",
-      "_excerpt": "If there’s an engineer’s equivalent to those YouTube ASMR videos, then perhaps it comes in a good repair or servicing journey filmed without edits at the bench. Relaxing to watch, …read more",
-      "date_published": "2026-08-15T08:00:36+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 92,
-      "_composite_podcast": 77,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/08/tape-deck-featured.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
     {
@@ -589,7 +528,7 @@
       "_quality": 78,
       "_relevance": 72,
       "_local": 65,
-      "_theme_score": 95,
+      "_theme_score": 94,
       "_composite_podcast": 75,
       "_keyword_matches": 0,
       "_category": "local",
@@ -597,70 +536,6 @@
       "_is_bonus": true,
       "_thin_body": true,
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/70734cde53d0fa0e253b770d71cc9bfd5434cb16de3b4066e156c54a4074dd5a.jpg;w=960",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.motherjones.com/environment/2026/08/community-solar-illinois-serlf-storage-units-chicago/",
-      "url": "https://www.motherjones.com/environment/2026/08/community-solar-illinois-serlf-storage-units-chicago/",
-      "title": "[Mother Jones] Solar Panels on Storage Units: Illinois Is Going All In on This No-Brainer",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.motherjones.com%2Fenvironment%2F2026%2F08%2Fcommunity-solar-illinois-serlf-storage-units-chicago%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThis story was originally published by&#160;Canary Media&#160;and&#160;is reproduced here as part of the&#160;Climate Desk&#160;collaboration. Krzysztof Wasowicz, mayor of Justice, Illinois, has some concerns about solar: that it takes up farmland and enriches China. But he&#8217;s all-in on the community solar array that was recently deployed at a&#160;Public Storage facility in his village, a&#160;suburb of Chicago. [&#8230;]",
-      "summary": "This story was originally published by Canary Media and is reproduced here as part of the Climate Desk collaboration. Krzysztof Wasowicz, mayor of Justice, Illinois, has some concerns about solar: that it takes up farmland and enriches China. But he’s all-in on the community solar array that was",
-      "_excerpt": "This story was originally published by Canary Media and is reproduced here as part of the Climate Desk collaboration. Krzysztof Wasowicz, mayor of Justice, Illinois, has some concerns about solar: that it takes up farmland and enriches China. But he’s all-in on the community solar array that was recently deployed at a Public Storage facility in his village, a suburb of Chicago. […]",
-      "date_published": "2026-08-15T11:30:00+00:00",
-      "authors": [
-        {
-          "name": "Mother Jones",
-          "url": "https://www.motherjones.com"
-        }
-      ],
-      "ai_score": 56,
-      "_quality": 67,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 83,
-      "_composite_podcast": 73,
-      "_keyword_matches": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://earthsky.org/space/cracks-on-venus-seafloor-mud-polygons/",
-      "url": "https://earthsky.org/space/cracks-on-venus-seafloor-mud-polygons/",
-      "title": "[EarthSky] Were these polygonal cracks on Venus once on a seafloor?",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fearthsky.org%2Fspace%2Fcracks-on-venus-seafloor-mud-polygons%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Sprawling, huge cracks on Venus have long puzzled scientists. A new study suggests the polygon shapes formed from drying mud on an ancient seafloor.</p>\n<p>The post <a href=\"https://earthsky.org/space/cracks-on-venus-seafloor-mud-polygons/\">Were these polygonal cracks on Venus once on a seafloor?</a> first appeared on <a href=\"https://earthsky.org\">EarthSky</a>.</p>",
-      "summary": "Sprawling, huge cracks on Venus have long puzzled scientists. A new study suggests the polygon shapes formed from drying mud on an ancient seafloor. The post Were these polygonal cracks on Venus once on a seafloor? first appeared on EarthSky .",
-      "_excerpt": "Sprawling, huge cracks on Venus have long puzzled scientists. A new study suggests the polygon shapes formed from drying mud on an ancient seafloor. The post Were these polygonal cracks on Venus once on a seafloor? first appeared on EarthSky .",
-      "date_published": "2026-08-15T10:55:50+00:00",
-      "authors": [
-        {
-          "name": "EarthSky",
-          "url": "https://earthsky.org"
-        }
-      ],
-      "ai_score": 48,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 86,
-      "_composite_podcast": 73,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -685,8 +560,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 83,
-      "_composite_podcast": 73,
+      "_theme_score": 84,
+      "_composite_podcast": 74,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -719,13 +594,78 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 70,
+      "_theme_score": 57,
+      "_composite_podcast": 73,
       "_keyword_matches": 3,
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": false,
       "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/p-1-91590409-when-everyone-has-the-same-ai-what-makes-your-company-smarter.jpg",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
+      "title": "[ScienceDaily] A 30-year-old fossil was hiding bones from a mysterious ancient sea monster",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F08%2F260813045555.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even more intriguing, parts of the skull show unusual anatomical features that don’t match known mosasaurs, raising the possibility that the remains belong to an entirely new species.",
+      "summary": "Fossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even",
+      "_excerpt": "Fossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even more intriguing, parts of the skull show unusual anatomical features that don’t match known mosasaurs, raising the possibility that the remains belong to an entirely new species.",
+      "date_published": "2026-08-15T14:19:45+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 54,
+      "_quality": 72,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 71,
+      "_keyword_matches": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.fastcompany.com/91593584/workplace-surveillance-rise-how-protect-your-personal-data-your-employer",
+      "url": "https://www.fastcompany.com/91593584/workplace-surveillance-rise-how-protect-your-personal-data-your-employer",
+      "title": "[Fast Company] Workplace surveillance is on the rise. Here’s how to protect your personal data from your employer",
+      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/AP26230823793439.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.fastcompany.com%2F91593584%2Fworkplace-surveillance-rise-how-protect-your-personal-data-your-employer\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"wp-block-paragraph\">College administrators read an adjunct professor&#8217;s comments to students on personal essays. Managers told a pharmacist to spend less time with patients after tracking the number and length of her appointments. Scanners on a warehouse conveyor belt monitored the pace of workers to ensure they inspected hundreds of items per hour.<br /><br />Thousands of <a href=\"https://www.fastcompany.com/91577271/ai-surveillance-is-destroying-the-workplace\">employers are keeping tabs</a> on the whereabouts, <a href=\"https://www.fastcompany.com/section/productivity\" title=\"Productivity\">productivity</a> and communications of workers with technology that was adopted widely during the coronavirus pandemic. A vast array of digital tools still are being used to track locations, collect data on task completion rates, and access work-issued smartphone and laptop cameras, raising concerns about how much privacy employees have relinquished, even in their own homes.<br /><br />Employers have always <a href=\"https://www.fastcompany.com/90870268/how-much-your-boss-spying-on-you-can-you-do-anything\">monitored workers</a>, but recent <a href=\"https://www.fastcompany.com/91563851/meta-hits-pause-on-tracking-employee-keystrokes-to-train-ai-after-internal-leak\">advances in artificial intelligence</a> and data science enable them to create extensive data sets or &#8220;dossiers&#8221; that can be used to punish workers or attempt to predict employee behavior, said Wilneida Negrón, director of research and policy at Coworker, a nonprofit that helps workers organize to improve working conditions.<br /><br />&#8220;Oftentimes, the workers with the least amount of power in the labor markets tend to be testing grounds for some of the more intrusive forms of data collection,&#8221; Negrón said.<br /><br />Some of the most common <a href=\"https://www.fastcompany.com/91381406/samsung-is-tracking-employee-office-attendance\">workplace monitoring programs</a> have shared names, email addresses and other personal worker data with hundreds of outside data brokers and technology companies without clearly disclosing the practice, according to an investigation by Vanderbilt University, Northeastern University and the University of California at Berkeley.<br /><br />Data privacy experts and workers who say they&#8217;ve been closely monitored spoke with The Associated Press about what they see as the risks of employer surveillance and the steps employees can take to protect their personal information.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-team-up-with-like-minded-colleagues-to-advocate-for-yourself\">Team up with like-minded colleagues to advocate for yourself</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Pharmacist Lannie Duong&#8217;s job at a medical clinic involved meeting with patients who had chronic conditions such as diabetes, hypertension and heart disease. She reviewed their medical histories, blood work and symptoms, and adjusted their medications. She frequently enlisted interpreters to help her communicate with patients who had limited English language skills.<br /><br />Duong said her employer tracked the length of her phone calls and appointments, and in performance evaluations questioned why she took so long with each patient.<br /><br />&#8220;Everything was counted. How many minutes you&#8217;re on the phone. The minutiae of it was ridiculous,&#8221; Duong said. &#8220;We&#8217;re just tasked to do what feels like the impossible.&#8221;<br /><br />Under what she described as unrelenting pressure, Duong felt &#8220;not trusted, not appreciated, almost completely hopeless. It was so depressing.&#8221; She eventually went on medical leave and began volunteering with other pharmacists to organize a union.<br /><br />&#8220;I spoke up, hoping others would voice their concerns as well, but that didn&#8217;t really pan out,&#8221; Duong said. She says her employment was terminated after the medical leave.<br /><br />Many of the employers using surveillance tools do so transparently and engage employee boards in reviewing how the tools are used, Negrón said. But there are also employers tracking, ranking and scoring employees in ways that are not transparent to workers, she said.<br /><br />&#8220;Workers are going to have to come together because the forces of centralizing this kind of tracking and monitoring are moving too fast,&#8221; Negrón said.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-find-out-what-kind-of-data-your-employer-is-collecting-about-you\">Find out what kind of data your employer is collecting about you</h2>\n\n\n\n<p class=\"wp-block-paragraph\">As awareness about surveillance tools grows, some workers are pushing back on tools that track how long it takes to fulfill tasks, saying such monitoring contributes to injuries, and questioning what personal information is being collected and how it&#8217;s being used, said Hayley Tsukayama, director of state affairs at the Electronic Frontier Foundation, a nonprofit that focuses on digital privacy.<br /><br />&#8220;Unfortunately, if you are on a machine that&#8217;s been issued by your workplace, you should expect that there&#8217;s some type of monitoring,&#8221; Tsukayama said.<br /><br />Researching data collection and surveillance trends in your industry is a good idea, according to Negrón. Without that knowledge, workers may find themselves unprepared when confronted with information unearthed during surveillance.<br /><br />While teaching a college writing class, Arianna Anaya discovered that an administrator was reading the papers her students uploaded to the school&#8217;s learning management software and the comments Anaya made on the work. The students often wrote about intimate topics, including abuse, eating disorders and family trauma.<br /><br />&#8220;The school essentially used the online learning system to allow administrators and staff to read student work that was often immensely private and personal, something we were specifically told students should not know about,&#8221; Anaya said.<br /><br />A colleague who printed out the comments criticized the casual tone Anaya used with students and accused her of not sticking to the course syllabus. A few months later, Anaya&#8217;s teaching contract wasn&#8217;t renewed, although she doesn&#8217;t know the exact reason.<br /><br />&#8220;It made me quite paranoid,&#8221; Anaya said. &#8220;It made me feel less safe in the world.&#8221;</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-check-state-laws-to-see-what-s-required-of-employers\">Check state laws to see what&#8217;s required of employers</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Some states, including New York, Connecticut, Delaware and Maine, require employers to notify workers if they&#8217;re being monitored. Maine&#8217;s law goes further, prohibiting visual monitoring in employees&#8217; homes or personal vehicles unless that kind of observation is required for the duties of the job, said Edward Halle, a privacy and <a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">AI</a> compliance manager.<br /><br />&#8220;The question becomes, what does the law mean by &#8216;the duties of the job&#8217;?&#8221; Halle said. &#8220;A telehealth nurse needs a camera; the camera is the job. A productivity webcam bolted onto ordinary desk work almost certainly isn&#8217;t. Where that line falls is the first thing the Department of Labor will be asked to sort out.&#8221;<br /><br />If you work in a state without a notification requirement, it&#8217;s difficult to find out if an employer is using technology to monitor your performance.<br /><br />To raise the issue with managers, Tsukayama suggests coordinating with a union. If that&#8217;s not an option and you&#8217;re asking managers individually, approach the topic cautiously and take a curious tone, she advised. You could say you&#8217;ve noticed something on the computer and have questions, such as &#8220;How is this information being used within the company? How might it get out of the company?&#8221; Tsukayama said.<br /><br />One place to start is asking what specific employee data your organization collects, said Aiha Nguyen, director of the Labor Futures Initiative at Data &amp; Society, a nonprofit institute studying the impacts of technology. If your manager doesn&#8217;t know, the information technology department may have answers, since the people working there often are the ones turning on the features, Nguyen said.<br /><br />Some common software programs such as Microsoft Office and Zoom have tools that can be used for tracking worker productivity, but the tracking features aren&#8217;t always activated. Knowing whether those tracking features are turned on can be difficult, because they&#8217;re built into the programs, Nguyen said.<br /><br />&#8220;It&#8217;s automatic. It&#8217;s considered something that employers have been able to say, &#8216;This is necessary for work. You have to use these tools,'&#8221; she said.<br /><br />To help safeguard personal information, don&#8217;t use work devices to handle family matters or sensitive personal information such as medical conditions, experts advise.<br /><br />&#8220;I think most people know that,&#8221; Nguyen said. &#8220;But it can become tedious to switch between phones, or people don&#8217;t really think it&#8217;s that harmful. &#8230; You don&#8217;t want to potentially put yourself at risk.&#8221;</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\" />\n\n\n\n<p class=\"wp-block-paragraph\">Share your stories and questions about workplace wellness at <a href=\"mailto:cbussewitz@ap.org\">cbussewitz@ap.org</a>. Follow AP&#8217;s Be Well coverage, focusing on wellness, fitness, diet and mental health at <a href=\"https://apnews.com/hub/be-well\">https://apnews.com/hub/be-well</a></p>\n\n\n\n<p class=\"wp-block-paragraph\"><em>—Cathy Bussewitz, Associated Press</em></p>",
+      "summary": "College administrators read an adjunct professor’s comments to students on personal essays. Managers told a pharmacist to spend less time with patients after tracking the number and length of her appointments. Scanners on a warehouse conveyor belt monitored the pace of workers to ensure they",
+      "_excerpt": "College administrators read an adjunct professor’s comments to students on personal essays. Managers told a pharmacist to spend less time with patients after tracking the number and length of her appointments. Scanners on a warehouse conveyor belt monitored the pace of workers to ensure they inspected hundreds of items per hour. Thousands of employers are keeping tabs on the whereabouts, productivity and communications of workers with technology that was adopted widely during the coronavirus pandemic. A vast array of digital tools still are being used to track locations, collect data on task",
+      "date_published": "2026-08-21T14:08:09+00:00",
+      "authors": [
+        {
+          "name": "Fast Company",
+          "url": "https://www.fastcompany.com"
+        }
+      ],
+      "ai_score": 73,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 69,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/AP26230823793439.jpg",
       "tags": [
         "subscriber-access"
       ],
@@ -754,8 +694,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 98,
-      "_composite_podcast": 70,
+      "_theme_score": 97,
+      "_composite_podcast": 69,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -768,37 +708,33 @@
       }
     },
     {
-      "id": "https://www.fastcompany.com/91593584/workplace-surveillance-rise-how-protect-your-personal-data-your-employer",
-      "url": "https://www.fastcompany.com/91593584/workplace-surveillance-rise-how-protect-your-personal-data-your-employer",
-      "title": "[Fast Company] Workplace surveillance is on the rise. Here’s how to protect your personal data from your employer",
-      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/AP26230823793439.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.fastcompany.com%2F91593584%2Fworkplace-surveillance-rise-how-protect-your-personal-data-your-employer\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"wp-block-paragraph\">College administrators read an adjunct professor&#8217;s comments to students on personal essays. Managers told a pharmacist to spend less time with patients after tracking the number and length of her appointments. Scanners on a warehouse conveyor belt monitored the pace of workers to ensure they inspected hundreds of items per hour.<br /><br />Thousands of <a href=\"https://www.fastcompany.com/91577271/ai-surveillance-is-destroying-the-workplace\">employers are keeping tabs</a> on the whereabouts, <a href=\"https://www.fastcompany.com/section/productivity\" title=\"Productivity\">productivity</a> and communications of workers with technology that was adopted widely during the coronavirus pandemic. A vast array of digital tools still are being used to track locations, collect data on task completion rates, and access work-issued smartphone and laptop cameras, raising concerns about how much privacy employees have relinquished, even in their own homes.<br /><br />Employers have always <a href=\"https://www.fastcompany.com/90870268/how-much-your-boss-spying-on-you-can-you-do-anything\">monitored workers</a>, but recent <a href=\"https://www.fastcompany.com/91563851/meta-hits-pause-on-tracking-employee-keystrokes-to-train-ai-after-internal-leak\">advances in artificial intelligence</a> and data science enable them to create extensive data sets or &#8220;dossiers&#8221; that can be used to punish workers or attempt to predict employee behavior, said Wilneida Negrón, director of research and policy at Coworker, a nonprofit that helps workers organize to improve working conditions.<br /><br />&#8220;Oftentimes, the workers with the least amount of power in the labor markets tend to be testing grounds for some of the more intrusive forms of data collection,&#8221; Negrón said.<br /><br />Some of the most common <a href=\"https://www.fastcompany.com/91381406/samsung-is-tracking-employee-office-attendance\">workplace monitoring programs</a> have shared names, email addresses and other personal worker data with hundreds of outside data brokers and technology companies without clearly disclosing the practice, according to an investigation by Vanderbilt University, Northeastern University and the University of California at Berkeley.<br /><br />Data privacy experts and workers who say they&#8217;ve been closely monitored spoke with The Associated Press about what they see as the risks of employer surveillance and the steps employees can take to protect their personal information.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-team-up-with-like-minded-colleagues-to-advocate-for-yourself\">Team up with like-minded colleagues to advocate for yourself</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Pharmacist Lannie Duong&#8217;s job at a medical clinic involved meeting with patients who had chronic conditions such as diabetes, hypertension and heart disease. She reviewed their medical histories, blood work and symptoms, and adjusted their medications. She frequently enlisted interpreters to help her communicate with patients who had limited English language skills.<br /><br />Duong said her employer tracked the length of her phone calls and appointments, and in performance evaluations questioned why she took so long with each patient.<br /><br />&#8220;Everything was counted. How many minutes you&#8217;re on the phone. The minutiae of it was ridiculous,&#8221; Duong said. &#8220;We&#8217;re just tasked to do what feels like the impossible.&#8221;<br /><br />Under what she described as unrelenting pressure, Duong felt &#8220;not trusted, not appreciated, almost completely hopeless. It was so depressing.&#8221; She eventually went on medical leave and began volunteering with other pharmacists to organize a union.<br /><br />&#8220;I spoke up, hoping others would voice their concerns as well, but that didn&#8217;t really pan out,&#8221; Duong said. She says her employment was terminated after the medical leave.<br /><br />Many of the employers using surveillance tools do so transparently and engage employee boards in reviewing how the tools are used, Negrón said. But there are also employers tracking, ranking and scoring employees in ways that are not transparent to workers, she said.<br /><br />&#8220;Workers are going to have to come together because the forces of centralizing this kind of tracking and monitoring are moving too fast,&#8221; Negrón said.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-find-out-what-kind-of-data-your-employer-is-collecting-about-you\">Find out what kind of data your employer is collecting about you</h2>\n\n\n\n<p class=\"wp-block-paragraph\">As awareness about surveillance tools grows, some workers are pushing back on tools that track how long it takes to fulfill tasks, saying such monitoring contributes to injuries, and questioning what personal information is being collected and how it&#8217;s being used, said Hayley Tsukayama, director of state affairs at the Electronic Frontier Foundation, a nonprofit that focuses on digital privacy.<br /><br />&#8220;Unfortunately, if you are on a machine that&#8217;s been issued by your workplace, you should expect that there&#8217;s some type of monitoring,&#8221; Tsukayama said.<br /><br />Researching data collection and surveillance trends in your industry is a good idea, according to Negrón. Without that knowledge, workers may find themselves unprepared when confronted with information unearthed during surveillance.<br /><br />While teaching a college writing class, Arianna Anaya discovered that an administrator was reading the papers her students uploaded to the school&#8217;s learning management software and the comments Anaya made on the work. The students often wrote about intimate topics, including abuse, eating disorders and family trauma.<br /><br />&#8220;The school essentially used the online learning system to allow administrators and staff to read student work that was often immensely private and personal, something we were specifically told students should not know about,&#8221; Anaya said.<br /><br />A colleague who printed out the comments criticized the casual tone Anaya used with students and accused her of not sticking to the course syllabus. A few months later, Anaya&#8217;s teaching contract wasn&#8217;t renewed, although she doesn&#8217;t know the exact reason.<br /><br />&#8220;It made me quite paranoid,&#8221; Anaya said. &#8220;It made me feel less safe in the world.&#8221;</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-check-state-laws-to-see-what-s-required-of-employers\">Check state laws to see what&#8217;s required of employers</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Some states, including New York, Connecticut, Delaware and Maine, require employers to notify workers if they&#8217;re being monitored. Maine&#8217;s law goes further, prohibiting visual monitoring in employees&#8217; homes or personal vehicles unless that kind of observation is required for the duties of the job, said Edward Halle, a privacy and <a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">AI</a> compliance manager.<br /><br />&#8220;The question becomes, what does the law mean by &#8216;the duties of the job&#8217;?&#8221; Halle said. &#8220;A telehealth nurse needs a camera; the camera is the job. A productivity webcam bolted onto ordinary desk work almost certainly isn&#8217;t. Where that line falls is the first thing the Department of Labor will be asked to sort out.&#8221;<br /><br />If you work in a state without a notification requirement, it&#8217;s difficult to find out if an employer is using technology to monitor your performance.<br /><br />To raise the issue with managers, Tsukayama suggests coordinating with a union. If that&#8217;s not an option and you&#8217;re asking managers individually, approach the topic cautiously and take a curious tone, she advised. You could say you&#8217;ve noticed something on the computer and have questions, such as &#8220;How is this information being used within the company? How might it get out of the company?&#8221; Tsukayama said.<br /><br />One place to start is asking what specific employee data your organization collects, said Aiha Nguyen, director of the Labor Futures Initiative at Data &amp; Society, a nonprofit institute studying the impacts of technology. If your manager doesn&#8217;t know, the information technology department may have answers, since the people working there often are the ones turning on the features, Nguyen said.<br /><br />Some common software programs such as Microsoft Office and Zoom have tools that can be used for tracking worker productivity, but the tracking features aren&#8217;t always activated. Knowing whether those tracking features are turned on can be difficult, because they&#8217;re built into the programs, Nguyen said.<br /><br />&#8220;It&#8217;s automatic. It&#8217;s considered something that employers have been able to say, &#8216;This is necessary for work. You have to use these tools,'&#8221; she said.<br /><br />To help safeguard personal information, don&#8217;t use work devices to handle family matters or sensitive personal information such as medical conditions, experts advise.<br /><br />&#8220;I think most people know that,&#8221; Nguyen said. &#8220;But it can become tedious to switch between phones, or people don&#8217;t really think it&#8217;s that harmful. &#8230; You don&#8217;t want to potentially put yourself at risk.&#8221;</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\" />\n\n\n\n<p class=\"wp-block-paragraph\">Share your stories and questions about workplace wellness at <a href=\"mailto:cbussewitz@ap.org\">cbussewitz@ap.org</a>. Follow AP&#8217;s Be Well coverage, focusing on wellness, fitness, diet and mental health at <a href=\"https://apnews.com/hub/be-well\">https://apnews.com/hub/be-well</a></p>\n\n\n\n<p class=\"wp-block-paragraph\"><em>—Cathy Bussewitz, Associated Press</em></p>",
-      "summary": "College administrators read an adjunct professor’s comments to students on personal essays. Managers told a pharmacist to spend less time with patients after tracking the number and length of her appointments. Scanners on a warehouse conveyor belt monitored the pace of workers to ensure they",
-      "_excerpt": "College administrators read an adjunct professor’s comments to students on personal essays. Managers told a pharmacist to spend less time with patients after tracking the number and length of her appointments. Scanners on a warehouse conveyor belt monitored the pace of workers to ensure they inspected hundreds of items per hour. Thousands of employers are keeping tabs on the whereabouts, productivity and communications of workers with technology that was adopted widely during the coronavirus pandemic. A vast array of digital tools still are being used to track locations, collect data on task",
-      "date_published": "2026-08-21T14:08:09+00:00",
+      "id": "https://www.aljazeera.com/news/2026/8/22/at-least-13-tunisians-missing-as-migrant-boat-headed-for-italy-capsizes?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/8/22/at-least-13-tunisians-missing-as-migrant-boat-headed-for-italy-capsizes?traffic_source=rss",
+      "title": "[Al Jazeera English] At least 13 Tunisians missing as migrant boat headed for Italy capsizes",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2026%2F8%2F22%2Fat-least-13-tunisians-missing-as-migrant-boat-headed-for-italy-capsizes%3Ftraffic_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThousands of people have died since 2014 trying to cross the Mediterranean Sea and reach Europe.",
+      "summary": "Thousands of people have died since 2014 trying to cross the Mediterranean Sea and reach Europe.",
+      "_excerpt": "Thousands of people have died since 2014 trying to cross the Mediterranean Sea and reach Europe.",
+      "date_published": "2026-08-22T04:24:11+00:00",
       "authors": [
         {
-          "name": "Fast Company",
-          "url": "https://www.fastcompany.com"
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
         }
       ],
-      "ai_score": 73,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 68,
+      "_theme_score": 97,
+      "_composite_podcast": 69,
       "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
-      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/AP26230823793439.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
+      "_thin_body": true,
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-22T04:50:05.414271+00:00"
       }
     },
@@ -820,8 +756,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 67,
+      "_theme_score": 80,
+      "_composite_podcast": 68,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
@@ -873,6 +809,37 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/8/21/el-nino-set-to-be-most-intense-for-over-a-century-uk-forecasters?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/8/21/el-nino-set-to-be-most-intense-for-over-a-century-uk-forecasters?traffic_source=rss",
+      "title": "[Al Jazeera English] El Nino set to be most intense ‘for over a century’: UK forecasters",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2026%2F8%2F21%2Fel-nino-set-to-be-most-intense-for-over-a-century-uk-forecasters%3Ftraffic_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMet Office predicts &#039;unprecedented&#039; sea surface temperature rise of 3C (5.4F) plus will heighten extreme weather risks.",
+      "summary": "Met Office predicts 'unprecedented' sea surface temperature rise of 3C (5.4F) plus will heighten extreme weather risks.",
+      "_excerpt": "Met Office predicts 'unprecedented' sea surface temperature rise of 3C (5.4F) plus will heighten extreme weather risks.",
+      "date_published": "2026-08-21T13:12:07+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 94,
+      "_composite_podcast": 67,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
       }
     },
     {
@@ -943,42 +910,6 @@
       }
     },
     {
-      "id": "https://www.idealhome.co.uk/garden/garden-advice/how-to-repair-bald-lawn-patches",
-      "url": "https://www.idealhome.co.uk/garden/garden-advice/how-to-repair-bald-lawn-patches",
-      "title": "[Ideal Home (Country Homes & Interiors)] Experts reveal how to repair bald lawn patches after a summer of heat and drought – the simple steps to help your grass recover",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/yVQgNrhpUyRArADb4zFzcK-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.idealhome.co.uk%2Fgarden%2Fgarden-advice%2Fhow-to-repair-bald-lawn-patches\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe simple steps to help your grass recover",
-      "summary": "The simple steps to help your grass recover",
-      "_excerpt": "The simple steps to help your grass recover",
-      "date_published": "2026-08-15T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "Ideal Home (Country Homes & Interiors)",
-          "url": "https://www.idealhome.co.uk"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 97,
-      "_composite_podcast": 66,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/yVQgNrhpUyRArADb4zFzcK-1280-80.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
       "id": "https://www.scientificamerican.com/article/why-this-el-nino-will-be-the-largest-in-living-memory/",
       "url": "https://www.scientificamerican.com/article/why-this-el-nino-will-be-the-largest-in-living-memory/",
       "title": "[Scientific American] Why this El Niño will be the largest in living memory",
@@ -1031,7 +962,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 90,
+      "_theme_score": 91,
       "_composite_podcast": 65,
       "_keyword_matches": 1,
       "_category": "news",
@@ -1044,9 +975,9 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1075,101 +1006,6 @@
       "_is_bonus": true,
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/fL8Ba8CiJjt2qsAVpr6UmK-1280-80.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/8/21/editor-of-us-military-newspaper-stars-and-stripes-says-he-was-fired?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/8/21/editor-of-us-military-newspaper-stars-and-stripes-says-he-was-fired?traffic_source=rss",
-      "title": "[Al Jazeera English] Editor of US newspaper Stars and Stripes reportedly fired under Trump",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2026%2F8%2F21%2Feditor-of-us-military-newspaper-stars-and-stripes-says-he-was-fired%3Ftraffic_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEditor-in-chief Erik Slavin has suggested his firing was retaliation for speaking out about editorial independence.",
-      "summary": "Editor-in-chief Erik Slavin has suggested his firing was retaliation for speaking out about editorial independence.",
-      "_excerpt": "Editor-in-chief Erik Slavin has suggested his firing was retaliation for speaking out about editorial independence.",
-      "date_published": "2026-08-21T23:51:40+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 65,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 65,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.tomshardware.com/pc-components/dram/nanya-engineer-used-360-degree-cam-hidden-in-snacks-in-attempt-to-steal-dram-process-tech-for-china-it-security-team-pinpointed-perp-due-to-cameras-leaky-wireless-signals",
-      "url": "https://www.tomshardware.com/pc-components/dram/nanya-engineer-used-360-degree-cam-hidden-in-snacks-in-attempt-to-steal-dram-process-tech-for-china-it-security-team-pinpointed-perp-due-to-cameras-leaky-wireless-signals",
-      "title": "[Tom's Hardware] Engineer used 360-degree cam hidden in bag of snacks in attempt to steal DRAM process tech for China — IT security team pinpointed perp due to camera's leaky wireless signals",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/vnqdtRupVqWHAik43ZWctH-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fpc-components%2Fdram%2Fnanya-engineer-used-360-degree-cam-hidden-in-snacks-in-attempt-to-steal-dram-process-tech-for-china-it-security-team-pinpointed-perp-due-to-cameras-leaky-wireless-signals\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNanya engineer tried to steal DRAM process technology, manufacturing methods to pass them to a Chinese rival and get a higher-paid job, but gets caught and now faces time in prison.",
-      "summary": "Nanya engineer tried to steal DRAM process technology, manufacturing methods to pass them to a Chinese rival and get a higher-paid job, but gets caught and now faces time in prison.",
-      "_excerpt": "Nanya engineer tried to steal DRAM process technology, manufacturing methods to pass them to a Chinese rival and get a higher-paid job, but gets caught and now faces time in prison.",
-      "date_published": "2026-08-15T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 46,
-      "_quality": 68,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 96,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/vnqdtRupVqWHAik43ZWctH-1280-80.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.techradar.com/computing/windows/took-me-months-to-work-this-out-redditor-explains-how-windows-11-can-end-up-stripping-out-the-gpu-driver-on-your-gaming-laptop",
-      "url": "https://www.techradar.com/computing/windows/took-me-months-to-work-this-out-redditor-explains-how-windows-11-can-end-up-stripping-out-the-gpu-driver-on-your-gaming-laptop",
-      "title": "[TechRadar] 'Took me months to work this out': Redditor explains how Windows 11 can end up stripping out the GPU driver on your gaming laptop",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/nZ9MtUnriwdKNUAo7Dv4qM-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fcomputing%2Fwindows%2Ftook-me-months-to-work-this-out-redditor-explains-how-windows-11-can-end-up-stripping-out-the-gpu-driver-on-your-gaming-laptop\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWindows 11 removed the driver for an Nvidia RTX 5070 Ti laptop graphics card, and you can blame Eco mode.",
-      "summary": "Windows 11 removed the driver for an Nvidia RTX 5070 Ti laptop graphics card, and you can blame Eco mode.",
-      "_excerpt": "Windows 11 removed the driver for an Nvidia RTX 5070 Ti laptop graphics card, and you can blame Eco mode.",
-      "date_published": "2026-08-21T21:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 70,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 89,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/nZ9MtUnriwdKNUAo7Dv4qM-1280-80.png",
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -1215,139 +1051,159 @@
       }
     },
     {
-      "id": "https://www.tomshardware.com/tech-industry/cyber-security/white-house-authorizes-private-companies-to-hack-foreign-cybercrime-groups",
-      "url": "https://www.tomshardware.com/tech-industry/cyber-security/white-house-authorizes-private-companies-to-hack-foreign-cybercrime-groups",
-      "title": "[Tom's Hardware] White House authorizes private companies to launch 'hack-back' cyberattacks that destroy data and systems, targeting foreign cybercrime organizations  — vetted organizations can now conduct offensive cyber operations",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/hTfKM8rHjtxfhQ4vqVziJj-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Ftech-industry%2Fcyber-security%2Fwhite-house-authorizes-private-companies-to-hack-foreign-cybercrime-groups\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nPresident Trump signed a memorandum on August 12 establishing the first U.S. program that lets vetted private companies conduct offensive cyber operations.",
-      "summary": "President Trump signed a memorandum on August 12 establishing the first U.S. program that lets vetted private companies conduct offensive cyber operations.",
-      "_excerpt": "President Trump signed a memorandum on August 12 establishing the first U.S. program that lets vetted private companies conduct offensive cyber operations.",
-      "date_published": "2026-08-15T13:00:00+00:00",
+      "id": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
+      "url": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
+      "title": "[Pique Newsmagazine] Aid workers say Canada's Ebola quarantine hinders response, hope it won't be extended",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.piquenewsmagazine.com%2Fthe-mix%2Faid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
+      "summary": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
+      "_excerpt": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
+      "date_published": "2026-08-22T10:00:08+00:00",
       "authors": [
         {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 44,
-      "_quality": 56,
+      "ai_score": 62,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 83,
-      "_composite_podcast": 61,
+      "_theme_score": 90,
+      "_composite_podcast": 64,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/hTfKM8rHjtxfhQ4vqVziJj-1280-80.jpg",
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "us-policy"
-      ],
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
     {
-      "id": "https://www.techradar.com/pro/security/why-was-there-an-evil-delta-airlines-wi-fi-network-the-experts-weigh-in",
-      "url": "https://www.techradar.com/pro/security/why-was-there-an-evil-delta-airlines-wi-fi-network-the-experts-weigh-in",
-      "title": "[TechRadar] Why was there an 'evil’ Delta airlines Wi-Fi network? The experts weigh in",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/KZMrozx7RQQq5F2nbhK2iZ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fpro%2Fsecurity%2Fwhy-was-there-an-evil-delta-airlines-wi-fi-network-the-experts-weigh-in\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA passenger set up an evil Wi-Fi network on a post-DEF CON Delta flight - we find out what the experts think.",
-      "summary": "A passenger set up an evil Wi-Fi network on a post-DEF CON Delta flight - we find out what the experts think.",
-      "_excerpt": "A passenger set up an evil Wi-Fi network on a post-DEF CON Delta flight - we find out what the experts think.",
-      "date_published": "2026-08-15T13:00:00+00:00",
+      "id": "https://www.techradar.com/computing/windows/took-me-months-to-work-this-out-redditor-explains-how-windows-11-can-end-up-stripping-out-the-gpu-driver-on-your-gaming-laptop",
+      "url": "https://www.techradar.com/computing/windows/took-me-months-to-work-this-out-redditor-explains-how-windows-11-can-end-up-stripping-out-the-gpu-driver-on-your-gaming-laptop",
+      "title": "[TechRadar] 'Took me months to work this out': Redditor explains how Windows 11 can end up stripping out the GPU driver on your gaming laptop",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/nZ9MtUnriwdKNUAo7Dv4qM-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fcomputing%2Fwindows%2Ftook-me-months-to-work-this-out-redditor-explains-how-windows-11-can-end-up-stripping-out-the-gpu-driver-on-your-gaming-laptop\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWindows 11 removed the driver for an Nvidia RTX 5070 Ti laptop graphics card, and you can blame Eco mode.",
+      "summary": "Windows 11 removed the driver for an Nvidia RTX 5070 Ti laptop graphics card, and you can blame Eco mode.",
+      "_excerpt": "Windows 11 removed the driver for an Nvidia RTX 5070 Ti laptop graphics card, and you can blame Eco mode.",
+      "date_published": "2026-08-21T21:00:00+00:00",
       "authors": [
         {
           "name": "TechRadar",
           "url": "https://www.techradar.com"
         }
       ],
-      "ai_score": 57,
+      "ai_score": 70,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 89,
-      "_composite_podcast": 61,
+      "_theme_score": 88,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/KZMrozx7RQQq5F2nbhK2iZ-1280-80.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/nZ9MtUnriwdKNUAo7Dv4qM-1280-80.png",
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
       }
     },
     {
-      "id": "https://www.businessinsider.com/western-spy-drones-journey-from-factory-to-ukraine-war-2026-8",
-      "url": "https://www.businessinsider.com/western-spy-drones-journey-from-factory-to-ukraine-war-2026-8",
-      "title": "[Business Insider] Factory to front lines: A Western spy drone’s journey to war in Ukraine",
-      "content_html": "<img src=\"https://i.insider.com/6a74943f8fcc2e955f7ddc63?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fwestern-spy-drones-journey-from-factory-to-ukraine-war-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBusiness Insider traveled from a production line in the UK to southeastern Ukraine, following a surveillance drone on its journey to war.",
-      "summary": "Business Insider traveled from a production line in the UK to southeastern Ukraine, following a surveillance drone on its journey to war.",
-      "_excerpt": "Business Insider traveled from a production line in the UK to southeastern Ukraine, following a surveillance drone on its journey to war.",
-      "date_published": "2026-08-15T10:00:01+00:00",
+      "id": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
+      "url": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
+      "title": "[Popular Mechanics] A B-52 Accidentally Lost Two Hydrogen Bombs Over North Carolina. One Nearly Detonated. One Is Still Buried.",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.popularmechanics.com%2Fmilitary%2Fa73355695%2Fb52-crash-hydrogen-bombs-goldsboro-north-carolina%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"rte-simple-html-paragraph\">The night that dumb luck may have saved America.</p>",
+      "summary": "The night that dumb luck may have saved America.",
+      "_excerpt": "The night that dumb luck may have saved America.",
+      "date_published": "2026-08-21T15:08:44+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "Popular Mechanics",
+          "url": "https://www.popularmechanics.com"
         }
       ],
-      "ai_score": 53,
-      "_quality": 71,
+      "ai_score": 62,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 61,
+      "_theme_score": 88,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://i.insider.com/6a74943f8fcc2e955f7ddc63?format=jpeg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.newyorker.com/news/the-lede/how-trump-is-trying-to-weaken-migrant-childrens-legal-defense",
-      "url": "https://www.newyorker.com/news/the-lede/how-trump-is-trying-to-weaken-migrant-childrens-legal-defense",
-      "title": "[The New Yorker] How Trump Is Trying to Weaken Migrant Children’s Legal Defense",
-      "content_html": "<img src=\"https://media.newyorker.com/photos/6a7f5932dd5e6a45393a7d89/master/pass/Marcus%20:%20Law%20firms%20representing%20migrant%20children%20-%20GettyImages-2288466062%20copy.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.newyorker.com%2Fnews%2Fthe-lede%2Fhow-trump-is-trying-to-weaken-migrant-childrens-legal-defense\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAfter failing to eliminate funding for unaccompanied minors’ lawyers altogether, the Administration is pushing cases toward entities that lack both immigration expertise and the capacity to take them on.",
-      "summary": "After failing to eliminate funding for unaccompanied minors’ lawyers altogether, the Administration is pushing cases toward entities that lack both immigration expertise and the capacity to take them on.",
-      "_excerpt": "After failing to eliminate funding for unaccompanied minors’ lawyers altogether, the Administration is pushing cases toward entities that lack both immigration expertise and the capacity to take them on.",
-      "date_published": "2026-08-15T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "The New Yorker",
-          "url": "https://www.newyorker.com"
-        }
-      ],
-      "ai_score": 30,
-      "_quality": 43,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 83,
-      "_composite_podcast": 61,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://media.newyorker.com/photos/6a7f5932dd5e6a45393a7d89/master/pass/Marcus%20:%20Law%20firms%20representing%20migrant%20children%20-%20GettyImages-2288466062%20copy.jpg",
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://vancouversun.com/business/bc-company-starts-approval-process-for-new-major-mine-northeast-of-kamloops",
+      "url": "https://vancouversun.com/business/bc-company-starts-approval-process-for-new-major-mine-northeast-of-kamloops",
+      "title": "[Vancouver Sun] B.C. company starts approval process for new major mine northeast of Kamloops",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fvancouversun.com%2Fbusiness%2Fbc-company-starts-approval-process-for-new-major-mine-northeast-of-kamloops\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEstimates are that if Trekor Metals' Yellowhead copper project's were developed into a mine, it would increase Canada's copper production by 16 per cent",
+      "summary": "Estimates are that if Trekor Metals' Yellowhead copper project's were developed into a mine, it would increase Canada's copper production by 16 per cent",
+      "_excerpt": "Estimates are that if Trekor Metals' Yellowhead copper project's were developed into a mine, it would increase Canada's copper production by 16 per cent",
+      "date_published": "2026-08-21T13:00:19+00:00",
+      "authors": [
+        {
+          "name": "Vancouver Sun",
+          "url": "https://vancouversun.com/news/bc-wildfires-new-evacuation-orders-issued-south-chilcotin"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 88,
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+      }
+    },
+    {
+      "id": "https://www.tomsguide.com/wellness/fitness-trackers/i-walked-4-000-steps-with-the-pixel-watch-5-vs-samsung-galaxy-watch-9-and-we-have-a-new-android-champ",
+      "url": "https://www.tomsguide.com/wellness/fitness-trackers/i-walked-4-000-steps-with-the-pixel-watch-5-vs-samsung-galaxy-watch-9-and-we-have-a-new-android-champ",
+      "title": "[Toms Guide] I walked 4,000 steps with the Pixel Watch 5 vs Samsung Galaxy Watch 9 — and we have a new Android champ",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/cHa3NJgTZQ6WEMqK2PhBiU-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fwellness%2Ffitness-trackers%2Fi-walked-4-000-steps-with-the-pixel-watch-5-vs-samsung-galaxy-watch-9-and-we-have-a-new-android-champ\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSamsung Galaxy Watch 9 or Google Pixel Watch 5: which is the more accurate fitness tracker? I decided to find out by logging a workout with one on either wrist and comparing the data.",
+      "summary": "Samsung Galaxy Watch 9 or Google Pixel Watch 5: which is the more accurate fitness tracker? I decided to find out by logging a workout with one on either wrist and comparing the data.",
+      "_excerpt": "Samsung Galaxy Watch 9 or Google Pixel Watch 5: which is the more accurate fitness tracker? I decided to find out by logging a workout with one on either wrist and comparing the data.",
+      "date_published": "2026-08-22T05:30:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 95,
+      "_composite_podcast": 62,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/cHa3NJgTZQ6WEMqK2PhBiU-1280-80.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
@@ -1388,66 +1244,34 @@
       }
     },
     {
-      "id": "https://www.tomshardware.com/pc-components/storage/catastrophic-optical-disc-shattering-blamed-on-cleaning-chemicals-and-packing-foam-another-data-preservation-concern-to-add-to-bit-rot-and-laser-rot",
-      "url": "https://www.tomshardware.com/pc-components/storage/catastrophic-optical-disc-shattering-blamed-on-cleaning-chemicals-and-packing-foam-another-data-preservation-concern-to-add-to-bit-rot-and-laser-rot",
-      "title": "[Tom's Hardware] Catastrophic optical disc shattering blamed on cleaning chemicals and packing foam — another data preservation concern to add to bit rot and laser rot",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/E7p3Jushyj3fihoyC9SvFG-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fpc-components%2Fstorage%2Fcatastrophic-optical-disc-shattering-blamed-on-cleaning-chemicals-and-packing-foam-another-data-preservation-concern-to-add-to-bit-rot-and-laser-rot\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBitrot isn't the only worry, CDs and DVDs are also susceptible to damage caused by cleaning or foam off-gassing chemicals.",
-      "summary": "Bitrot isn't the only worry, CDs and DVDs are also susceptible to damage caused by cleaning or foam off-gassing chemicals.",
-      "_excerpt": "Bitrot isn't the only worry, CDs and DVDs are also susceptible to damage caused by cleaning or foam off-gassing chemicals.",
-      "date_published": "2026-08-15T09:30:00+00:00",
+      "id": "https://www.howtogeek.com/vibe-coded-app-claude-fix-one-windows-annoyances/",
+      "url": "https://www.howtogeek.com/vibe-coded-app-claude-fix-one-windows-annoyances/",
+      "title": "[How-To Geek] I vibe-coded an app with Claude just to fix one of my smallest Windows annoyances",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/07/ultrawide-monitor-showing-four-tiled-claude-code-terminal-windows-all-displaying-the-welcome-back-dibakar-startup-screen.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Fvibe-coded-app-claude-fix-one-windows-annoyances%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n45 minutes with Claude solved a 10-year-old problem.",
+      "summary": "45 minutes with Claude solved a 10-year-old problem.",
+      "_excerpt": "45 minutes with Claude solved a 10-year-old problem.",
+      "date_published": "2026-08-22T13:30:13+00:00",
       "authors": [
         {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
         }
       ],
-      "ai_score": 40,
-      "_quality": 55,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 93,
-      "_composite_podcast": 60,
-      "_keyword_matches": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/E7p3Jushyj3fihoyC9SvFG-1280-80.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.cnet.com/tech/mobile/wireless-earbud-drivers-explained/",
-      "url": "https://www.cnet.com/tech/mobile/wireless-earbud-drivers-explained/",
-      "title": "[CNET] Here’s Why Your Wireless Earbuds Sound the Way They Do",
-      "content_html": "<img src=\"https://www.cnet.com/wp-content/uploads/sites/2/7430eb7e-d8d9-46aa-be0e-b44706fbd103.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.cnet.com%2Ftech%2Fmobile%2Fwireless-earbud-drivers-explained%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMore than just tech jargon, the type of driver in your earbuds can make a dramatic difference in audio performance.",
-      "summary": "More than just tech jargon, the type of driver in your earbuds can make a dramatic difference in audio performance.",
-      "_excerpt": "More than just tech jargon, the type of driver in your earbuds can make a dramatic difference in audio performance.",
-      "date_published": "2026-08-15T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "ai_score": 55,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
       "_theme_score": 86,
-      "_composite_podcast": 60,
+      "_composite_podcast": 61,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/7430eb7e-d8d9-46aa-be0e-b44706fbd103.jpg",
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/07/ultrawide-monitor-showing-four-tiled-claude-code-terminal-windows-all-displaying-the-welcome-back-dibakar-startup-screen.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
@@ -1488,34 +1312,94 @@
       }
     },
     {
-      "id": "https://www.scientificamerican.com/article/is-lettuce-safe-to-eat-yet-new-data-suggests-cyclosporiasis-cases-are-slowing/",
-      "url": "https://www.scientificamerican.com/article/is-lettuce-safe-to-eat-yet-new-data-suggests-cyclosporiasis-cases-are-slowing/",
-      "title": "[Scientific American] Is lettuce safe to eat yet? New data suggest cyclosporiasis cases are slowing",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Fis-lettuce-safe-to-eat-yet-new-data-suggests-cyclosporiasis-cases-are-slowing%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>After a spike in infections in July, this explosive-diarrhea-causing outbreak may be coming to an end</p>",
-      "summary": "After a spike in infections in July, this explosive-diarrhea-causing outbreak may be coming to an end",
-      "_excerpt": "After a spike in infections in July, this explosive-diarrhea-causing outbreak may be coming to an end",
-      "date_published": "2026-08-21T18:00:00+00:00",
+      "id": "https://qz.com/hyundai-motor-union-full-strike-wages-ai-jobs-082126",
+      "url": "https://qz.com/hyundai-motor-union-full-strike-wages-ai-jobs-082126",
+      "title": "[Quartz] Hyundai Motor workers staged their first full strike in 10 years over wages and AI job fears",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2232557251.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fhyundai-motor-union-full-strike-wages-ai-jobs-082126\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAbout 40,000 union members walked off the job Friday, halting production at plants in Ulsan, Asan, and Jeonju",
+      "summary": "About 40,000 union members walked off the job Friday, halting production at plants in Ulsan, Asan, and Jeonju",
+      "_excerpt": "About 40,000 union members walked off the job Friday, halting production at plants in Ulsan, Asan, and Jeonju",
+      "date_published": "2026-08-21T13:00:37+00:00",
       "authors": [
         {
-          "name": "Scientific American",
-          "url": "https://www.scientificamerican.com"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "ai_score": 63,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 56,
+      "_theme_score": 84,
+      "_composite_podcast": 60,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "tags": [
-        "subscriber-access"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2232557251.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+      }
+    },
+    {
+      "id": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
+      "url": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
+      "title": "[Business Insider] Lawsuit alleges Sony investigated WPP's media operation and said it ran a 'global crime scene'",
+      "content_html": "<img src=\"https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Flawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "summary": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "_excerpt": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "date_published": "2026-08-21T14:26:24+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
       ],
-      "_subscriber_access": "Apple News+"
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 84,
+      "_composite_podcast": 60,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg"
+    },
+    {
+      "id": "https://hackaday.com/2026/08/21/thermoacoustic-sterling-engine-is-now-fully-3d-printable/",
+      "url": "https://hackaday.com/2026/08/21/thermoacoustic-sterling-engine-is-now-fully-3d-printable/",
+      "title": "[Hackaday] Thermoacoustic Sterling Engine is Now Fully 3D Printable",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/08/sterling-engine-feat-e1787243009107.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F08%2F21%2Fthermoacoustic-sterling-engine-is-now-fully-3d-printable%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"238\" src=\"https://hackaday.com/wp-content/uploads/2026/08/sterling-engine-feat-e1787243009107.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>Would you like to make your own energy? Why, who doesn&#8217;t in this era of rising costs! A sterling engine always looks like a good fit for that: highly efficient, <a class=\"read-more\" href=\"https://hackaday.com/2026/08/21/thermoacoustic-sterling-engine-is-now-fully-3d-printable/\">&#8230;read more</a>",
+      "summary": "Would you like to make your own energy? Why, who doesn’t in this era of rising costs! A sterling engine always looks like a good fit for that: highly efficient, …read more",
+      "_excerpt": "Would you like to make your own energy? Why, who doesn’t in this era of rising costs! A sterling engine always looks like a good fit for that: highly efficient, …read more",
+      "date_published": "2026-08-21T20:00:14+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 58,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/08/sterling-engine-feat-e1787243009107.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
     },
     {
       "id": "https://www.sciencealert.com/hidden-structures-in-clouds-may-solve-a-longstanding-mystery-about-rainfall",
@@ -1535,8 +1419,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 55,
+      "_theme_score": 57,
+      "_composite_podcast": 58,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1548,204 +1432,160 @@
       }
     },
     {
-      "id": "https://argumate.tumblr.com/post/825010044979593216",
-      "url": "https://argumate.tumblr.com/post/825010044979593216",
-      "title": "[Kagi Small Web] you repost/post a fair amount of info about frontier LLMs and I was just wondering—where do you look to keep up with news on their development? None of the sites I regularly use (guardian, bbc, ft) seem to regularly track ai news so I only ever find out by the time something major happens (like the Hugging Face hack or China’s big new frontier model). Suggestions?",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fargumate.tumblr.com%2Fpost%2F825010044979593216\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Simon Willison’s blog is probably the most direct and straightforward coverage by someone who uses them hands on, but honestly these days the difficulty isn’t so much finding AI news it’s escaping it.</p>",
-      "summary": "Simon Willison’s blog is probably the most direct and straightforward coverage by someone who uses them hands on, but honestly these days the difficulty isn’t so much finding AI news it’s escaping it.",
-      "_excerpt": "Simon Willison’s blog is probably the most direct and straightforward coverage by someone who uses them hands on, but honestly these days the difficulty isn’t so much finding AI news it’s escaping it.",
-      "date_published": "2026-08-15T10:48:10+00:00",
+      "id": "https://www.businessinsider.com/how-uber-uses-ai-to-charge-you-more-2026-8",
+      "url": "https://www.businessinsider.com/how-uber-uses-ai-to-charge-you-more-2026-8",
+      "title": "[Business Insider] How Uber uses AI to charge you more",
+      "content_html": "<img src=\"https://i.insider.com/6a874f288a99fa493d60e7b0?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fhow-uber-uses-ai-to-charge-you-more-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nUber once sold riders on a simple promise: Order a car right from your phone for less than a taxi. Since then, prices have risen dramatically.",
+      "summary": "Uber once sold riders on a simple promise: Order a car right from your phone for less than a taxi. Since then, prices have risen dramatically.",
+      "_excerpt": "Uber once sold riders on a simple promise: Order a car right from your phone for less than a taxi. Since then, prices have risen dramatically.",
+      "date_published": "2026-08-21T20:37:42+00:00",
       "authors": [
         {
-          "name": "Kagi Small Web",
-          "url": "https://kagi.com/smallweb"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
-      "ai_score": 37,
-      "_quality": 35,
+      "ai_score": 62,
+      "_quality": 0,
       "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 58,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6a874f288a99fa493d60e7b0?format=jpeg"
+    },
+    {
+      "id": "https://qz.com/venezuela-oil-deals-hunt-oil-slb-houston-082126",
+      "url": "https://qz.com/venezuela-oil-deals-hunt-oil-slb-houston-082126",
+      "title": "[Quartz] Venezuela signed its first U.S. oil deals since Maduro's capture — and wants more",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1092321046%2520(1).jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fvenezuela-oil-deals-hunt-oil-slb-houston-082126\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nOil minister Paula Henao said 916 areas are available for exploration and production, as Venezuela seeks investment to rebuild after a June earthquake",
+      "summary": "Oil minister Paula Henao said 916 areas are available for exploration and production, as Venezuela seeks investment to rebuild after a June earthquake",
+      "_excerpt": "Oil minister Paula Henao said 916 areas are available for exploration and production, as Venezuela seeks investment to rebuild after a June earthquake",
+      "date_published": "2026-08-21T13:50:25+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 58,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1092321046%2520(1).jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+      }
+    },
+    {
+      "id": "https://www.techradar.com/pro/google-and-the-uk-government-are-looking-to-remove-aircraft-contrails-using-ai",
+      "url": "https://www.techradar.com/pro/google-and-the-uk-government-are-looking-to-remove-aircraft-contrails-using-ai",
+      "title": "[TechRadar] Google and the UK government are looking to remove aircraft contrails using AI",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/WvwBDtCowJNJZy2zCtQe6n-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fpro%2Fgoogle-and-the-uk-government-are-looking-to-remove-aircraft-contrails-using-ai\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nResearchers are working with the Met Office, the UK Government, and Google on Operation Blue Skies to use AI to reduce the incidence of contrails over the North Atlantic.",
+      "summary": "Researchers are working with the Met Office, the UK Government, and Google on Operation Blue Skies to use AI to reduce the incidence of contrails over the North Atlantic.",
+      "_excerpt": "Researchers are working with the Met Office, the UK Government, and Google on Operation Blue Skies to use AI to reduce the incidence of contrails over the North Atlantic.",
+      "date_published": "2026-08-22T06:00:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 56,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/WvwBDtCowJNJZy2zCtQe6n-1280-80.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+      }
+    },
+    {
+      "id": "https://www.scientificamerican.com/article/is-lettuce-safe-to-eat-yet-new-data-suggests-cyclosporiasis-cases-are-slowing/",
+      "url": "https://www.scientificamerican.com/article/is-lettuce-safe-to-eat-yet-new-data-suggests-cyclosporiasis-cases-are-slowing/",
+      "title": "[Scientific American] Is lettuce safe to eat yet? New data suggest cyclosporiasis cases are slowing",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Fis-lettuce-safe-to-eat-yet-new-data-suggests-cyclosporiasis-cases-are-slowing%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>After a spike in infections in July, this explosive-diarrhea-causing outbreak may be coming to an end</p>",
+      "summary": "After a spike in infections in July, this explosive-diarrhea-causing outbreak may be coming to an end",
+      "_excerpt": "After a spike in infections in July, this explosive-diarrhea-causing outbreak may be coming to an end",
+      "date_published": "2026-08-21T18:00:00+00:00",
+      "authors": [
+        {
+          "name": "Scientific American",
+          "url": "https://www.scientificamerican.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 56,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.xda-developers.com/a-cheap-used-gpu-turned-my-home-server-into-something-far-more-useful/",
+      "url": "https://www.xda-developers.com/a-cheap-used-gpu-turned-my-home-server-into-something-far-more-useful/",
+      "title": "[XDA Developers] My home server was already useful, but here's how adding a used GPU turned it into something entirely different",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/amd-radeon-rx-7900-xt-installed-threadripper-server.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fa-cheap-used-gpu-turned-my-home-server-into-something-far-more-useful%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nGive your home server a boost with some gaming firepower.",
+      "summary": "Give your home server a boost with some gaming firepower.",
+      "_excerpt": "Give your home server a boost with some gaming firepower.",
+      "date_published": "2026-08-22T11:00:16+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 68,
+      "_relevance": 82,
       "_local": 0,
       "_theme_score": 86,
       "_composite_podcast": 54,
       "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_category": "homelab",
+      "_source_category": "homelab",
       "_is_bonus": true,
       "_thin_body": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/amd-radeon-rx-7900-xt-installed-threadripper-server.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.businessinsider.com/darpa-wants-to-help-injured-brains-rewire-themselves-after-injury-2026-8",
-      "url": "https://www.businessinsider.com/darpa-wants-to-help-injured-brains-rewire-themselves-after-injury-2026-8",
-      "title": "[Business Insider] DARPA wants injured brains to rewire and repair themselves as the US military confronts traumatic brain injuries",
-      "content_html": "<img src=\"https://i.insider.com/6a7f6b6bc78818eff7d2d437?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fdarpa-wants-to-help-injured-brains-rewire-themselves-after-injury-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Pentagon's research arm wants new, noninvasive ways to help injured brains heal themselves.",
-      "summary": "The Pentagon's research arm wants new, noninvasive ways to help injured brains heal themselves.",
-      "_excerpt": "The Pentagon's research arm wants new, noninvasive ways to help injured brains heal themselves.",
-      "date_published": "2026-08-15T12:24:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 51,
-      "_quality": 66,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 54,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://i.insider.com/6a7f6b6bc78818eff7d2d437?format=jpeg",
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "us-policy"
-      ],
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.gamesradar.com/games/action/insomniac-had-to-ditch-spider-mans-open-world-for-marvels-wolverine-because-logan-is-not-somebody-who-has-a-friendly-neighborhood/",
-      "url": "https://www.gamesradar.com/games/action/insomniac-had-to-ditch-spider-mans-open-world-for-marvels-wolverine-because-logan-is-not-somebody-who-has-a-friendly-neighborhood/",
-      "title": "[Edge (GamesRadar)] Insomniac had to ditch Spider-Man's open-world for Marvel's Wolverine because Logan is \"not somebody who has a friendly neighborhood\"",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/tSSXPBy9PeiTX9DL4KT4bf-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.gamesradar.com%2Fgames%2Faction%2Finsomniac-had-to-ditch-spider-mans-open-world-for-marvels-wolverine-because-logan-is-not-somebody-who-has-a-friendly-neighborhood%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBig Preview | Wolverine is a very different character from Spider-Man, and the developers wanted to reflect that every step of the way",
-      "summary": "Big Preview | Wolverine is a very different character from Spider-Man, and the developers wanted to reflect that every step of the way",
-      "_excerpt": "Big Preview | Wolverine is a very different character from Spider-Man, and the developers wanted to reflect that every step of the way",
-      "date_published": "2026-08-15T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "Edge (GamesRadar)",
-          "url": "https://www.gamesradar.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 54,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/tSSXPBy9PeiTX9DL4KT4bf-1280-80.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.businessinsider.com/big-four-ey-creates-ai-value-realization-office-2026-8",
-      "url": "https://www.businessinsider.com/big-four-ey-creates-ai-value-realization-office-2026-8",
-      "title": "[Business Insider] EY is creating a 'value realization' office to make sure its AI spending pays off",
-      "content_html": "<img src=\"https://i.insider.com/6a6b6d3354f987526177bb9b?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fbig-four-ey-creates-ai-value-realization-office-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAI can't be managed by any existing department, so the Big Four firm EY is creating a new one. It's called the AI Value Realization Office.",
-      "summary": "AI can't be managed by any existing department, so the Big Four firm EY is creating a new one. It's called the AI Value Realization Office.",
-      "_excerpt": "AI can't be managed by any existing department, so the Big Four firm EY is creating a new one. It's called the AI Value Realization Office.",
-      "date_published": "2026-08-15T10:32:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 38,
-      "_quality": 52,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://i.insider.com/6a6b6d3354f987526177bb9b?format=jpeg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.countrylife.co.uk/gardens-interiors/finest-to-visit/the-somerset-house-that-brought-jungle-gardening-to-the-english-country-cottage",
-      "url": "https://www.countrylife.co.uk/gardens-interiors/finest-to-visit/the-somerset-house-that-brought-jungle-gardening-to-the-english-country-cottage",
-      "title": "[Country Life] The Somerset house that brought 'jungle gardening' to the English",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/FfcczyaTtJA3BjHbNRPt7b-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.countrylife.co.uk%2Fgardens-interiors%2Ffinest-to-visit%2Fthe-somerset-house-that-brought-jungle-gardening-to-the-english-country-cottage\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEast Lambrook Manor in Somerset — home of Andrew and Alison Johnson— where Margery Fish’s exuberant ‘jungle gardening’ style took shape, is flourishing once again under new custodianship. Charles Quest-Ritson paid a visit; photography by Jonathan Buckley.",
-      "summary": "East Lambrook Manor in Somerset — home of Andrew and Alison Johnson— where Margery Fish’s exuberant ‘jungle gardening’ style took shape, is flourishing once again under new custodianship. Charles Quest-Ritson paid a visit; photography by Jonathan Buckley.",
-      "_excerpt": "East Lambrook Manor in Somerset — home of Andrew and Alison Johnson— where Margery Fish’s exuberant ‘jungle gardening’ style took shape, is flourishing once again under new custodianship. Charles Quest-Ritson paid a visit; photography by Jonathan Buckley.",
-      "date_published": "2026-08-15T06:00:00+00:00",
-      "authors": [
-        {
-          "name": "Country Life",
-          "url": "https://www.countrylife.co.uk"
-        }
-      ],
-      "ai_score": 34,
-      "_quality": 59,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 79,
-      "_composite_podcast": 52,
-      "_keyword_matches": 0,
-      "_category": "design",
-      "_source_category": "design",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/FfcczyaTtJA3BjHbNRPt7b-1280-80.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://earthsky.org/sun/sun-news-activity-solar-flare-cme-aurora-updates/",
-      "url": "https://earthsky.org/sun/sun-news-activity-solar-flare-cme-aurora-updates/",
-      "title": "[EarthSky] Sun news: A sun blast is headed Earth’s way",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fearthsky.org%2Fsun%2Fsun-news-activity-solar-flare-cme-aurora-updates%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Sun news August 15, 2026: The August 14 filament eruption hurled solar plasma and magnetic fields toward Earth. Arrival time August 17.</p>\n<p>The post <a href=\"https://earthsky.org/sun/sun-news-activity-solar-flare-cme-aurora-updates/\">Sun news: A sun blast is headed Earth’s way</a> first appeared on <a href=\"https://earthsky.org\">EarthSky</a>.</p>",
-      "summary": "Sun news August 15, 2026: The August 14 filament eruption hurled solar plasma and magnetic fields toward Earth. Arrival time August 17. The post Sun news: A sun blast is headed Earth’s way first appeared on EarthSky .",
-      "_excerpt": "Sun news August 15, 2026: The August 14 filament eruption hurled solar plasma and magnetic fields toward Earth. Arrival time August 17. The post Sun news: A sun blast is headed Earth’s way first appeared on EarthSky .",
-      "date_published": "2026-08-15T11:03:53+00:00",
-      "authors": [
-        {
-          "name": "EarthSky",
-          "url": "https://earthsky.org"
-        }
-      ],
-      "ai_score": 52,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 52,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
@@ -1767,7 +1607,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 79,
+      "_theme_score": 80,
       "_composite_podcast": 51,
       "_keyword_matches": 0,
       "_category": "wellness",
@@ -1779,9 +1619,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
     {
@@ -1802,8 +1642,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 42,
+      "_theme_score": 57,
+      "_composite_podcast": 45,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -1818,9 +1658,9 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
     {
@@ -1841,8 +1681,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 40,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1877,8 +1717,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 40,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1909,8 +1749,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 40,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1927,35 +1767,115 @@
       }
     },
     {
-      "id": "https://techcrunch.com/2026/08/15/every-fusion-startup-that-has-raised-over-100m/",
-      "url": "https://techcrunch.com/2026/08/15/every-fusion-startup-that-has-raised-over-100m/",
-      "title": "[TechCrunch] Every fusion startup that has raised over $100M",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F15%2Fevery-fusion-startup-that-has-raised-over-100m%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFusion startups have raised $7.1 billion to date, with the majority of it going to a handful of companies.",
-      "summary": "Fusion startups have raised $7.1 billion to date, with the majority of it going to a handful of companies.",
-      "_excerpt": "Fusion startups have raised $7.1 billion to date, with the majority of it going to a handful of companies.",
-      "date_published": "2026-08-15T13:15:20+00:00",
+      "id": "https://www.themarginalian.org/2026/08/21/the-other-significant-others/",
+      "url": "https://www.themarginalian.org/2026/08/21/the-other-significant-others/",
+      "title": "[The Marginalian] The Other Significant Others: Living and Loving Outside the Confines of Conventional Friendship and Compulsory Coupledom",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.themarginalian.org%2F2026%2F08%2F21%2Fthe-other-significant-others%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n\"While we weaken friendships by expecting too little of them, we undermine romantic relationships by expecting too much of them.\"",
+      "summary": "\"While we weaken friendships by expecting too little of them, we undermine romantic relationships by expecting too much of them.\"",
+      "_excerpt": "\"While we weaken friendships by expecting too little of them, we undermine romantic relationships by expecting too much of them.\"",
+      "date_published": "2026-08-21T19:56:40+00:00",
+      "authors": [
+        {
+          "name": "The Marginalian",
+          "url": "https://www.themarginalian.org"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true
+    },
+    {
+      "id": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
+      "url": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
+      "title": "[TechCrunch] US government lab is probing Chinese lidar for security vulnerabilities",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F21%2Fus-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
+      "summary": "The security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
+      "_excerpt": "The security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
+      "date_published": "2026-08-21T16:01:54+00:00",
       "authors": [
         {
           "name": "TechCrunch",
           "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 58,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 39,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true
+    },
+    {
+      "id": "https://qz.com/airbus-return-to-office-union-strikes-082126",
+      "url": "https://qz.com/airbus-return-to-office-union-strikes-082126",
+      "title": "[Quartz] Airbus is backing down on its push to get workers back in the office after union strikes",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/resize.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fairbus-return-to-office-union-strikes-082126\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe planemaker will allow staff to maintain existing two-days-a-week remote work arrangements after on-off strikes at its Spanish facilities",
+      "summary": "The planemaker will allow staff to maintain existing two-days-a-week remote work arrangements after on-off strikes at its Spanish facilities",
+      "_excerpt": "The planemaker will allow staff to maintain existing two-days-a-week remote work arrangements after on-off strikes at its Spanish facilities",
+      "date_published": "2026-08-21T13:20:27+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/resize.webp",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-16T04:48:17.485209+00:00"
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
       }
+    },
+    {
+      "id": "https://www.businessinsider.com/ukraine-teaching-nato-troops-how-ground-robots-work-war-2026-8",
+      "url": "https://www.businessinsider.com/ukraine-teaching-nato-troops-how-ground-robots-work-war-2026-8",
+      "title": "[Business Insider] Ukraine is teaching NATO troops how ground robots work in war — and where they don't",
+      "content_html": "<img src=\"https://i.insider.com/6a8582950b0f848e0c307062?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fukraine-teaching-nato-troops-how-ground-robots-work-war-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nUkrainian troops receiving training through Norway-led Operation Legio are telling their trainers how robots work in real war.",
+      "summary": "Ukrainian troops receiving training through Norway-led Operation Legio are telling their trainers how robots work in real war.",
+      "_excerpt": "Ukrainian troops receiving training through Norway-led Operation Legio are telling their trainers how robots work in real war.",
+      "date_published": "2026-08-21T11:44:01+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 43,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6a8582950b0f848e0c307062?format=jpeg"
     },
     {
       "id": "https://www.scientificamerican.com/article/how-ziplines-drone-delivery-system-works-in-u-s-suburbs/",
@@ -1975,8 +1895,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 39,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2010,8 +1930,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 39,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2046,14 +1966,19 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 39,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.engadget.com/img/gallery/nevada-allows-uber-tesla-and-waymo-to-start-paid-robotaxi-service/l-intro-1787301948.jpg"
+      "image": "https://www.engadget.com/img/gallery/nevada-allows-uber-tesla-and-waymo-to-start-paid-robotaxi-service/l-intro-1787301948.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
     },
     {
       "id": "https://thetyee.ca/Opinion/2026/08/20/UCP-Phoney-Claim-Alberta-Distinct-Legal-Tradition/",
@@ -2073,8 +1998,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 39,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2105,8 +2030,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 39,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2119,230 +2044,35 @@
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.piquenewsmagazine.com/world-news/former-mayor-luke-bronin-wins-democratic-primary-in-connecticut-ousting-us-rep-john-larson-12655072",
-      "url": "https://www.piquenewsmagazine.com/world-news/former-mayor-luke-bronin-wins-democratic-primary-in-connecticut-ousting-us-rep-john-larson-12655072",
-      "title": "[Pique Newsmagazine] Former Mayor Luke Bronin wins Democratic primary in Connecticut, ousting U.S. Rep. John Larson",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/c8576f0e88ede60feffa6ce67ab0e52c4a3480c2f9676e277b004df4fbcb7532.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.piquenewsmagazine.com%2Fworld-news%2Fformer-mayor-luke-bronin-wins-democratic-primary-in-connecticut-ousting-us-rep-john-larson-12655072\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFormer Hartford Mayor Luke Bronin defeated longtime U.S. Rep. John Larson in Connecticut’s Democratic primary Tuesday, as voters embraced generational change and a call for more urgency in the party’s fight with President Donald Trump.",
-      "summary": "Former Hartford Mayor Luke Bronin defeated longtime U.S. Rep. John Larson in Connecticut’s Democratic primary Tuesday, as voters embraced generational change and a call for more urgency in the party’s fight with President Donald Trump.",
-      "_excerpt": "Former Hartford Mayor Luke Bronin defeated longtime U.S. Rep. John Larson in Connecticut’s Democratic primary Tuesday, as voters embraced generational change and a call for more urgency in the party’s fight with President Donald Trump.",
-      "date_published": "2026-08-12T03:39:31+00:00",
+      "id": "https://www.newyorker.com/books/second-read/the-glorious-disorder-of-michael-ondaatjes-early-work",
+      "url": "https://www.newyorker.com/books/second-read/the-glorious-disorder-of-michael-ondaatjes-early-work",
+      "title": "[The New Yorker] The Glorious Disorder of Michael Ondaatje’s Early Work",
+      "content_html": "<img src=\"https://media.newyorker.com/photos/6a7b53e3a8b512e5f72a3d9f/master/pass/Kumar-Michael-Ondaatje.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.newyorker.com%2Fbooks%2Fsecond-read%2Fthe-glorious-disorder-of-michael-ondaatjes-early-work\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFor writers like me, who had crossed borders to arrive in the West, Ondaatje’s disregard for established boundaries taught us how to spell out our own liberation.",
+      "summary": "For writers like me, who had crossed borders to arrive in the West, Ondaatje’s disregard for established boundaries taught us how to spell out our own liberation.",
+      "_excerpt": "For writers like me, who had crossed borders to arrive in the West, Ondaatje’s disregard for established boundaries taught us how to spell out our own liberation.",
+      "date_published": "2026-08-19T14:39:36+00:00",
       "authors": [
         {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
+          "name": "The New Yorker",
+          "url": "https://www.newyorker.com"
         }
       ],
-      "ai_score": 55,
+      "ai_score": 63,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/c8576f0e88ede60feffa6ce67ab0e52c4a3480c2f9676e277b004df4fbcb7532.jpg;w=960",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-20T02:54:02.717534+00:00"
-      }
-    },
-    {
-      "id": "https://globalnews.ca/news/12019132/dagher-montreal-police-racism/",
-      "url": "https://globalnews.ca/news/12019132/dagher-montreal-police-racism/",
-      "title": "[Global News] Montreal police chief says change will take time amid racism allegations",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/08/Fady-Dagher-e1786569407137.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12019132%2Fdagher-montreal-police-racism%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFor over a decade, residents of Montreal North have expressed discontent with the city’s police force over concerns about racial profiling and discrimination.",
-      "summary": "For over a decade, residents of Montreal North have expressed discontent with the city’s police force over concerns about racial profiling and discrimination.",
-      "_excerpt": "For over a decade, residents of Montreal North have expressed discontent with the city’s police force over concerns about racial profiling and discrimination.",
-      "date_published": "2026-08-12T23:04:45+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 32,
-      "_quality": 43,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/08/Fady-Dagher-e1786569407137.jpg?quality=65&strip=all",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-21T04:56:14.647179+00:00"
-      }
-    },
-    {
-      "id": "https://www.gamesradar.com/games/echoing-palworld-dev-video-game-lawyer-says-all-her-clients-have-anti-ai-contracts-because-gamers-hate-it-and-its-a-copyright-landmine-i-think-were-going-to-see-lawsuits/",
-      "url": "https://www.gamesradar.com/games/echoing-palworld-dev-video-game-lawyer-says-all-her-clients-have-anti-ai-contracts-because-gamers-hate-it-and-its-a-copyright-landmine-i-think-were-going-to-see-lawsuits/",
-      "title": "[Edge (GamesRadar)] Echoing Palworld dev, video game lawyer says all her clients have anti-AI contracts because gamers hate it and it's a copyright landmine: \"I think we're going to see lawsuits\"",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/RpwAGo8wiBn3WGfd4EGH3A-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.gamesradar.com%2Fgames%2Fechoing-palworld-dev-video-game-lawyer-says-all-her-clients-have-anti-ai-contracts-because-gamers-hate-it-and-its-a-copyright-landmine-i-think-were-going-to-see-lawsuits%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n\"Don't touch it. It's not worth the legal liability\"",
-      "summary": "\"Don't touch it. It's not worth the legal liability\"",
-      "_excerpt": "\"Don't touch it. It's not worth the legal liability\"",
-      "date_published": "2026-08-12T20:37:36+00:00",
-      "authors": [
-        {
-          "name": "Edge (GamesRadar)",
-          "url": "https://www.gamesradar.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/RpwAGo8wiBn3WGfd4EGH3A-1280-80.jpg",
+      "image": "https://media.newyorker.com/photos/6a7b53e3a8b512e5f72a3d9f/master/pass/Kumar-Michael-Ondaatje.jpg",
       "tags": [
         "subscriber-access"
       ],
       "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.theatlantic.com/ideas/2026/08/wisconsin-primary-francesca-hong-david-crowley/688263/?utm_source=feed",
-      "url": "https://www.theatlantic.com/ideas/2026/08/wisconsin-primary-francesca-hong-david-crowley/688263/?utm_source=feed",
-      "title": "[The Atlantic] AOC Knows a Lemon When She Sees One",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theatlantic.com%2Fideas%2F2026%2F08%2Fwisconsin-primary-francesca-hong-david-crowley%2F688263%2F%3Futm_source%3Dfeed\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFrancesca Hong’s surprise loss in Wisconsin is a blessing to the Democratic Party.",
-      "summary": "Francesca Hong’s surprise loss in Wisconsin is a blessing to the Democratic Party.",
-      "_excerpt": "Francesca Hong’s surprise loss in Wisconsin is a blessing to the Democratic Party.",
-      "date_published": "2026-08-12T18:36:08+00:00",
-      "authors": [
-        {
-          "name": "The Atlantic",
-          "url": "https://www.theatlantic.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.androidauthority.com/google-pixel-11-pro-series-pro-stable-video-3693813/",
-      "url": "https://www.androidauthority.com/google-pixel-11-pro-series-pro-stable-video-3693813/",
-      "title": "[Android Authority] Pixel 11 Pro phones get Pro Stable Video mode, but there’s a huge limitation",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/08/google-pixel-11-pro-pixel-11-pro-xl-hands-on-11-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Fgoogle-pixel-11-pro-series-pro-stable-video-3693813%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Pixel 11 Pro line's new video mode has a major weakness compared to similar modes on rival phones.",
-      "summary": "The Pixel 11 Pro line's new video mode has a major weakness compared to similar modes on rival phones.",
-      "_excerpt": "The Pixel 11 Pro line's new video mode has a major weakness compared to similar modes on rival phones.",
-      "date_published": "2026-08-12T14:00:19+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/google-pixel-11-pro-pixel-11-pro-xl-hands-on-11-scaled.jpg",
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-08-21T04:56:14.647179+00:00"
-      }
-    },
-    {
-      "id": "https://www.tomsguide.com/phones/google-pixel-phones/i-held-the-pixel-tag-and-it-does-one-critical-thing-that-the-airtag-doesnt-heres-what-it-is",
-      "url": "https://www.tomsguide.com/phones/google-pixel-phones/i-held-the-pixel-tag-and-it-does-one-critical-thing-that-the-airtag-doesnt-heres-what-it-is",
-      "title": "[Toms Guide] I held the Pixel Tag and it does one critical thing that the AirTag doesn’t — here’s what it is",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/kqbfghowtgi2Z5x6ez2AQe-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fphones%2Fgoogle-pixel-phones%2Fi-held-the-pixel-tag-and-it-does-one-critical-thing-that-the-airtag-doesnt-heres-what-it-is\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Google Pixel Tag takes on the AirTag 2 with an ultra-slim chassis, two-way phone finding, and persistent low-battery reminders that make it the ultimate tracker.",
-      "summary": "The Google Pixel Tag takes on the AirTag 2 with an ultra-slim chassis, two-way phone finding, and persistent low-battery reminders that make it the ultimate tracker.",
-      "_excerpt": "The Google Pixel Tag takes on the AirTag 2 with an ultra-slim chassis, two-way phone finding, and persistent low-battery reminders that make it the ultimate tracker.",
-      "date_published": "2026-08-12T14:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/kqbfghowtgi2Z5x6ez2AQe-1280-80.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://kffhealthnews.org/health-care-costs/hospital-prepayment-requirements-upfront-patient-insurance-deductible/",
-      "url": "https://kffhealthnews.org/health-care-costs/hospital-prepayment-requirements-upfront-patient-insurance-deductible/",
-      "title": "[KFF Health News] Hospital Prepayment Requirements Add New Wrinkles to Patients’ Financial Responsibility",
-      "content_html": "<img src=\"https://kffhealthnews.org/wp-content/uploads/sites/8/2026/08/GettyImages-2197979475.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fkffhealthnews.org%2Fhealth-care-costs%2Fhospital-prepayment-requirements-upfront-patient-insurance-deductible%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nHospitals and other medical providers are increasingly asking for payment before providing care, collecting more of what patients might owe as rising insurance deductibles add to Americans' financial pressures.",
-      "summary": "Hospitals and other medical providers are increasingly asking for payment before providing care, collecting more of what patients might owe as rising insurance deductibles add to Americans' financial pressures.",
-      "_excerpt": "Hospitals and other medical providers are increasingly asking for payment before providing care, collecting more of what patients might owe as rising insurance deductibles add to Americans' financial pressures.",
-      "date_published": "2026-08-12T09:00:00+00:00",
-      "authors": [
-        {
-          "name": "KFF Health News",
-          "url": "https://kffhealthnews.org"
-        }
-      ],
-      "ai_score": 46,
-      "_quality": 72,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://kffhealthnews.org/wp-content/uploads/sites/8/2026/08/GettyImages-2197979475.jpg",
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -2350,93 +2080,31 @@
       }
     },
     {
-      "id": "https://macleans.ca/society/the-americans-are-coming/",
-      "url": "https://macleans.ca/society/the-americans-are-coming/",
-      "title": "[Maclean's] The Americans Are Coming - Macleans.ca",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fmacleans.ca%2Fsociety%2Fthe-americans-are-coming%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMy wife and I adopted our son from South Korea, imagining he’d live free from persecution. Now, that’s only possible in Canada. Get the Best of Maclean’s straight to your inbox.",
-      "summary": "My wife and I adopted our son from South Korea, imagining he’d live free from persecution. Now, that’s only possible in Canada. Get the Best of Maclean’s straight to your inbox.",
-      "_excerpt": "My wife and I adopted our son from South Korea, imagining he’d live free from persecution. Now, that’s only possible in Canada. Get the Best of Maclean’s straight to your inbox.",
-      "date_published": "2026-08-14T05:42:51.435782+00:00",
-      "authors": [
-        {
-          "name": "Maclean's",
-          "url": "https://macleans.ca"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-16T04:48:17.485209+00:00"
-      }
-    },
-    {
-      "id": "https://www.engadget.com/2236683/netflix-shuts-down-oxenfree-studio-night-school-weeks-after-praising-its-really-solid-numbers/",
-      "url": "https://www.engadget.com/2236683/netflix-shuts-down-oxenfree-studio-night-school-weeks-after-praising-its-really-solid-numbers/",
-      "title": "[Engadget] Netflix shuts down Oxenfree studio Night School weeks after praising its 'really solid numbers'",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/netflix-shuts-down-oxenfree-studio-night-school-weeks-after-praising-its-really-solid-numbers/l-intro-1786656103.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2236683%2Fnetflix-shuts-down-oxenfree-studio-night-school-weeks-after-praising-its-really-solid-numbers%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nExecs praised Night School's latest game, Unhinged, before pulling the rug.",
-      "summary": "Execs praised Night School's latest game, Unhinged, before pulling the rug.",
-      "_excerpt": "Execs praised Night School's latest game, Unhinged, before pulling the rug.",
-      "date_published": "2026-08-13T21:24:22+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.engadget.com/img/gallery/netflix-shuts-down-oxenfree-studio-night-school-weeks-after-praising-its-really-solid-numbers/l-intro-1786656103.jpg"
-    },
-    {
-      "id": "https://www.gamesradar.com/games/sony-killing-playstation-discs-will-make-ps-store-prices-cheaper-former-square-enix-financial-exec-says-and-you-only-need-to-look-at-steam-to-understand-why/",
-      "url": "https://www.gamesradar.com/games/sony-killing-playstation-discs-will-make-ps-store-prices-cheaper-former-square-enix-financial-exec-says-and-you-only-need-to-look-at-steam-to-understand-why/",
-      "title": "[Edge (GamesRadar)] Sony killing PlayStation discs will make PS Store prices cheaper, former Square Enix financial exec says, and you only need to look at Steam to understand why",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/3mV3FHFfPKcMq2BRAAKX2Q-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.gamesradar.com%2Fgames%2Fsony-killing-playstation-discs-will-make-ps-store-prices-cheaper-former-square-enix-financial-exec-says-and-you-only-need-to-look-at-steam-to-understand-why%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSquare Enix, Ubisoft, EA, and other publishers will be competing more directly",
-      "summary": "Square Enix, Ubisoft, EA, and other publishers will be competing more directly",
-      "_excerpt": "Square Enix, Ubisoft, EA, and other publishers will be competing more directly",
-      "date_published": "2026-08-13T14:29:18+00:00",
+      "id": "https://www.gamesradar.com/games/mmo/star-citizen-stream-lifts-veil-on-the-usd1-billion-crowdfunded-games-buggy-state-after-14-years-in-development-and-neither-devs-nor-fans-seem-impressed-such-a-s-show/",
+      "url": "https://www.gamesradar.com/games/mmo/star-citizen-stream-lifts-veil-on-the-usd1-billion-crowdfunded-games-buggy-state-after-14-years-in-development-and-neither-devs-nor-fans-seem-impressed-such-a-s-show/",
+      "title": "[Edge (GamesRadar)] Star Citizen stream lifts veil on the $1 billion crowdfunded game's buggy state after 14 years in development, and neither devs nor fans seem impressed: \"Such a s*** show\"",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/UweWx8SLnPQVZ6gLWDVfrk-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.gamesradar.com%2Fgames%2Fmmo%2Fstar-citizen-stream-lifts-veil-on-the-usd1-billion-crowdfunded-games-buggy-state-after-14-years-in-development-and-neither-devs-nor-fans-seem-impressed-such-a-s-show%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n\"Hopefully they will learn a lesson from this\"",
+      "summary": "\"Hopefully they will learn a lesson from this\"",
+      "_excerpt": "\"Hopefully they will learn a lesson from this\"",
+      "date_published": "2026-08-18T14:09:18+00:00",
       "authors": [
         {
           "name": "Edge (GamesRadar)",
           "url": "https://www.gamesradar.com"
         }
       ],
-      "ai_score": 60,
+      "ai_score": 63,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 38,
+      "_theme_score": 57,
+      "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/3mV3FHFfPKcMq2BRAAKX2Q-1280-80.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/UweWx8SLnPQVZ6gLWDVfrk-1280-80.jpg",
       "tags": [
         "subscriber-access"
       ],
@@ -2444,37 +2112,231 @@
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-20T04:52:04.055238+00:00"
+      }
+    },
+    {
+      "id": "https://www.tomsguide.com/home/coffee-makers/casabrews-ultra-pro-review",
+      "url": "https://www.tomsguide.com/home/coffee-makers/casabrews-ultra-pro-review",
+      "title": "[Toms Guide] Casabrews Ultra Pro review: Why don’t all espresso machines have a built-in timer?",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/gd5oFXTPbjZpEGMLNUfB4F-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fhome%2Fcoffee-makers%2Fcasabrews-ultra-pro-review\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Casabrews Ultra Pro is a midrange espresso machine with a PID controller and a built-in timer, but the steam wand issues still haven’t been fixed.",
+      "summary": "The Casabrews Ultra Pro is a midrange espresso machine with a PID controller and a built-in timer, but the steam wand issues still haven’t been fixed.",
+      "_excerpt": "The Casabrews Ultra Pro is a midrange espresso machine with a PID controller and a built-in timer, but the steam wand issues still haven’t been fixed.",
+      "date_published": "2026-08-13T12:44:11+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 56,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 41,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/gd5oFXTPbjZpEGMLNUfB4F-1280-80.jpg",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
     {
-      "id": "https://telescoper.blog/2026/08/15/weekly-update-from-the-open-journal-of-astrophysics-15-08-2026/",
-      "url": "https://telescoper.blog/2026/08/15/weekly-update-from-the-open-journal-of-astrophysics-15-08-2026/",
-      "title": "[Kagi Small Web] Weekly Update from the Open Journal of Astrophysics 15/08/2026",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftelescoper.blog%2F2026%2F08%2F15%2Fweekly-update-from-the-open-journal-of-astrophysics-15-08-2026%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSince the last update we have published a further for papers, bringing the number in Volume 9 (2026) to 167 and the total so far published by OJAp up to 615.",
-      "summary": "Since the last update we have published a further for papers, bringing the number in Volume 9 (2026) to 167 and the total so far published by OJAp up to 615.",
-      "_excerpt": "Since the last update we have published a further for papers, bringing the number in Volume 9 (2026) to 167 and the total so far published by OJAp up to 615.",
-      "date_published": "2026-08-15T10:55:37+00:00",
+      "id": "https://techcrunch.com/2026/08/14/self-driving-trucks-are-officially-testing-on-california-highways/",
+      "url": "https://techcrunch.com/2026/08/14/self-driving-trucks-are-officially-testing-on-california-highways/",
+      "title": "[TechCrunch] Self-driving trucks are officially testing on California highways",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F14%2Fself-driving-trucks-are-officially-testing-on-california-highways%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAurora Innovation and Kodiak AI, two companies developing self-driving trucks, have received permits from the California Department of Motor Vehicles.",
+      "summary": "Aurora Innovation and Kodiak AI, two companies developing self-driving trucks, have received permits from the California Department of Motor Vehicles.",
+      "_excerpt": "Aurora Innovation and Kodiak AI, two companies developing self-driving trucks, have received permits from the California Department of Motor Vehicles.",
+      "date_published": "2026-08-14T20:37:49+00:00",
       "authors": [
         {
-          "name": "Kagi Small Web",
-          "url": "https://kagi.com/smallweb"
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
         }
       ],
-      "ai_score": 45,
-      "_quality": 45,
+      "ai_score": 56,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
-      "_composite_podcast": 37,
+      "_theme_score": 57,
+      "_composite_podcast": 41,
       "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.tomsguide.com/computing/gpus/5-beginner-pc-building-tips-from-the-mad-genius-who-built-a-usd34k-353-pound-desktop-with-not-one-but-two-rtx-5090s",
+      "url": "https://www.tomsguide.com/computing/gpus/5-beginner-pc-building-tips-from-the-mad-genius-who-built-a-usd34k-353-pound-desktop-with-not-one-but-two-rtx-5090s",
+      "title": "[Toms Guide] 5 beginner PC building tips from the mad genius who built a $34k, 353-pound desktop with not one, but two RTX 5090s",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/EkM8QVa2VXeqE6d6qWH7uJ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fcomputing%2Fgpus%2F5-beginner-pc-building-tips-from-the-mad-genius-who-built-a-usd34k-353-pound-desktop-with-not-one-but-two-rtx-5090s\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI interviewed artist Robbin Snijders, creator of 'Yuga' — a $34,000, 353-pound PC with dual RTX 5090s — to get 5 tips for first-time PC builders.",
+      "summary": "I interviewed artist Robbin Snijders, creator of 'Yuga' — a $34,000, 353-pound PC with dual RTX 5090s — to get 5 tips for first-time PC builders.",
+      "_excerpt": "I interviewed artist Robbin Snijders, creator of 'Yuga' — a $34,000, 353-pound PC with dual RTX 5090s — to get 5 tips for first-time PC builders.",
+      "date_published": "2026-08-14T08:00:00+00:00",
+      "authors": [
+        {
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
+        }
+      ],
+      "ai_score": 56,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 41,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/EkM8QVa2VXeqE6d6qWH7uJ-1280-80.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+      }
+    },
+    {
+      "id": "https://techcrunch.com/2026/08/14/kog-is-going-deeper-to-squeeze-more-inference-out-of-gpus/",
+      "url": "https://techcrunch.com/2026/08/14/kog-is-going-deeper-to-squeeze-more-inference-out-of-gpus/",
+      "title": "[TechCrunch] Kog is going deeper to squeeze more inference out of GPUs",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F14%2Fkog-is-going-deeper-to-squeeze-more-inference-out-of-gpus%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe idea that GPUs are poorly suited for agentic workflows may be a misconception, according to French startup Kog.",
+      "summary": "The idea that GPUs are poorly suited for agentic workflows may be a misconception, according to French startup Kog.",
+      "_excerpt": "The idea that GPUs are poorly suited for agentic workflows may be a misconception, according to French startup Kog.",
+      "date_published": "2026-08-14T14:50:11+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 54,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 41,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.engadget.com/2230983/differences-between-bluetooth-wifi-2-4g-wireless-explained/",
+      "url": "https://www.engadget.com/2230983/differences-between-bluetooth-wifi-2-4g-wireless-explained/",
+      "title": "[Engadget] What are the differences between Bluetooth, Wi-Fi and 2.4G wireless devices?",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/what-are-the-differences-between-bluetooth-wi-fi-and-2-4g-wireless-devices/l-intro-1785414021.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2230983%2Fdifferences-between-bluetooth-wifi-2-4g-wireless-explained%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWireless connectivity comes in many different flavors, here's how they differ.",
+      "summary": "Wireless connectivity comes in many different flavors, here's how they differ.",
+      "_excerpt": "Wireless connectivity comes in many different flavors, here's how they differ.",
+      "date_published": "2026-08-10T14:30:00+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 57,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 40,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.engadget.com/img/gallery/what-are-the-differences-between-bluetooth-wi-fi-and-2-4g-wireless-devices/l-intro-1785414021.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-20T04:52:04.055238+00:00"
+      }
+    },
+    {
+      "id": "https://www.zdnet.com/article/why-software-factories-are-back-ai/",
+      "url": "https://www.zdnet.com/article/why-software-factories-are-back-ai/",
+      "title": "[ZDNet] Why software factories are back - and how they work in the age of AI",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.zdnet.com%2Farticle%2Fwhy-software-factories-are-back-ai%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nImagine submitting your vibe-coded app to a service that validates, tests, and then mass-produces it in a repeatable, automated fashion for delivery to a wide audience.",
+      "summary": "Imagine submitting your vibe-coded app to a service that validates, tests, and then mass-produces it in a repeatable, automated fashion for delivery to a wide audience.",
+      "_excerpt": "Imagine submitting your vibe-coded app to a service that validates, tests, and then mass-produces it in a repeatable, automated fashion for delivery to a wide audience.",
+      "date_published": "2026-08-11T21:23:33+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 49,
+      "_quality": 68,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 39,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+      }
+    },
+    {
+      "id": "https://www.wired.com/story/mcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave/",
+      "url": "https://www.wired.com/story/mcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave/",
+      "title": "[WIRED] McDonald’s Built a 515-Page Dossier on Me. It Says I’ll Never Stop Eating There",
+      "content_html": "<img src=\"https://media.wired.com/photos/6a732836d7ca3092e7932054/master/pass/McDData.gif\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.wired.com%2Fstory%2Fmcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI requested a copy of my data from McDonald’s loyalty program and received an extensive, personalized report that algorithmically predicts my next purchase.",
+      "summary": "I requested a copy of my data from McDonald’s loyalty program and received an extensive, personalized report that algorithmically predicts my next purchase.",
+      "_excerpt": "I requested a copy of my data from McDonald’s loyalty program and received an extensive, personalized report that algorithmically predicts my next purchase.",
+      "date_published": "2026-08-12T10:15:00+00:00",
+      "authors": [
+        {
+          "name": "WIRED",
+          "url": "https://www.wired.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality": 77,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 57,
+      "_composite_podcast": 39,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://media.wired.com/photos/6a732836d7ca3092e7932054/master/pass/McDData.gif",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
     },
@@ -2496,8 +2358,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 5,
-      "_composite_podcast": 25,
+      "_theme_score": 7,
+      "_composite_podcast": 26,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -2535,7 +2397,12 @@
       "_keyword_matches": 1,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+      }
     }
   ]
 }
