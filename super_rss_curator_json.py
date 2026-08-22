@@ -54,6 +54,17 @@ APPLE_NEWS_PRIMARY_CHANNEL_LINK = SOURCE_PREFS.get('apple_news_channels', {}).ge
 # second. Exempt sources still pass through scoring, dedup, the quality floor and
 # slot allocation like anything else.
 EDITORIAL_EXEMPT_SOURCES = frozenset(SOURCE_PREFS.get('editorial_exempt_sources', []))
+# Sources that must never enter the podcast pool. A source reporting *on* the
+# podcast would otherwise be routed into an episode, and the show would discuss
+# its own review of itself. Enforced in save_podcast_cache() and both cache
+# loaders rather than at one call site: the pool has two writers (the candidate
+# branch and the post-categorisation save of every published article), and only
+# the loaders can evict entries an earlier build already banked.
+try:
+    PODCAST_EXCLUDED_SOURCES = frozenset(
+        config_loader.load_podcast_schedule_config().get('excluded_sources', []))
+except Exception:
+    PODCAST_EXCLUDED_SOURCES = frozenset()
 SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
     'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
     'podcast': {'w_quality': 0.25, 'w_relevance': 0.0, 'w_local': 0.10, 'w_theme': 0.65}
@@ -917,7 +928,9 @@ def load_podcast_cache():
         valid_articles = []
         for item in cache_data:
             pub_date = datetime.fromisoformat(item['pub_date'])
-            if pub_date > cutoff and not _is_aggregator_url(item.get('link', '')):
+            if (pub_date > cutoff
+                    and not _is_aggregator_url(item.get('link', ''))
+                    and item.get('source') not in PODCAST_EXCLUDED_SOURCES):
                 valid_articles.append(item)
 
         if len(valid_articles) != len(cache_data):
@@ -966,6 +979,8 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
 
         for article in articles:
             if _is_aggregator_url(article.link):
+                continue
+            if article.source in PODCAST_EXCLUDED_SOURCES:
                 continue
             if article.link not in existing_by_link:
                 entry = {
@@ -1024,7 +1039,9 @@ def load_theme_holdover_cache() -> Dict:
         cutoff = datetime.now(timezone.utc) - timedelta(days=THEME_HOLDOVER_TTL_DAYS)
         pruned = {}
         for day, articles in data.items():
-            valid = [a for a in articles if datetime.fromisoformat(a['banked_at']) > cutoff]
+            valid = [a for a in articles
+                     if datetime.fromisoformat(a['banked_at']) > cutoff
+                     and a.get('source') not in PODCAST_EXCLUDED_SOURCES]
             if valid:
                 pruned[day] = valid
         return pruned
@@ -5127,16 +5144,10 @@ def main():
         _pod_keywords = _build_all_podcast_keywords(schedule_config)
         _pod_floor = LIMITS.get('quality_gate', {}).get('podcast_floor', 20)
         _pod_min = LIMITS.get('podcast_candidate_min_score', 5)
-        _pod_excluded = set(schedule_config.get('excluded_sources', []))
-
         def _pool_eligible(a: Article) -> bool:
-            # Sources that report *on* the podcast (the Cariboo Signals episode
-            # review feed) must never re-enter the pool: routed into an episode,
-            # the show would discuss its own review of itself, and the next
-            # review would review that discussion. Cut here rather than at
-            # generation time — this is the one choke point upstream of both
-            # podcast_articles_cache and theme_holdover_cache.
-            if a.source in _pod_excluded:
+            # Excluded sources are rejected by save_podcast_cache() too; skipping
+            # them here as well avoids paying for their theme scores at ingest.
+            if a.source in PODCAST_EXCLUDED_SOURCES:
                 return False
             if getattr(a, 'content_type', None) == 'sponsored' or _is_aggregator_url(a.link):
                 return False
