@@ -45,6 +45,15 @@ APPLE_NEWS_CHANNELS = SOURCE_PREFS.get('apple_news_channels', {}).get('sources',
 APPLE_NEWS_PRIMARY_CHANNEL_LINK = SOURCE_PREFS.get('apple_news_channels', {}).get(
     'use_as_primary_link', False
 )
+# Sources exempt from the two subjective content gates — filter_by_content_type()
+# and scrub_feed_with_haiku(). Those gates triage 1200 articles nobody chose, by
+# judging whether a headline is newsworthy consumer content. A feed added to
+# feeds.opml deliberately has already answered that question, and a machine-written
+# operational report is a category error for the rubric: the Cariboo Signals episode
+# review scored 'analysis'/84 one day and 'fluff'/56 the next, and was dropped on the
+# second. Exempt sources still pass through scoring, dedup, the quality floor and
+# slot allocation like anything else.
+EDITORIAL_EXEMPT_SOURCES = frozenset(SOURCE_PREFS.get('editorial_exempt_sources', []))
 SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
     'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
     'podcast': {'w_quality': 0.25, 'w_relevance': 0.0, 'w_local': 0.10, 'w_theme': 0.65}
@@ -3081,17 +3090,13 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
 
     local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
 
-    # Sources held out of both passes below. The scrub judges headlines alone and
-    # has no category for meta-commentary on this pipeline's own output, so the
-    # Cariboo Signals episode review reads as entertainment filler and is cut
-    # every run. Exempting the source is narrower than loosening the shared
-    # prompt, which screens every article in the run.
-    exempt_sources = set(SOURCE_PREFS.get('scrub_exempt_sources', []))
+    # Editorial-exempt sources skip both passes below (see EDITORIAL_EXEMPT_SOURCES).
     exempt: List[Article] = []
-    if exempt_sources:
+    if EDITORIAL_EXEMPT_SOURCES:
         reviewable: List[Article] = []
         for article in articles:
-            (exempt if article.source in exempt_sources else reviewable).append(article)
+            (exempt if article.source in EDITORIAL_EXEMPT_SOURCES
+             else reviewable).append(article)
         if exempt:
             articles = reviewable
             print(f"🛡️  Scrub exempt: {len(exempt)} article(s) from "
@@ -3435,6 +3440,7 @@ def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict
     - recap: drop unless article.local >= 50 (local recaps may have community value)
     - wire: kept but flagged; dedup already prefers original reporting over wire
     - None/unknown: pass through (e.g. Cohere-scored articles)
+    - EDITORIAL_EXEMPT_SOURCES: pass through regardless of type
     """
     ALWAYS_DROP = {'fluff', 'sponsored'}
     # AI/tech articles above this threshold have already been reviewed leniently by
@@ -3445,10 +3451,15 @@ def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict
     kept = []
     removed: Dict[str, int] = defaultdict(int)
 
+    exempted = 0
     for article in articles:
         ct = article.content_type
         if not ct:
             kept.append(article)
+            continue
+        if article.source in EDITORIAL_EXEMPT_SOURCES:
+            kept.append(article)
+            exempted += 1
             continue
         if ct in ALWAYS_DROP:
             if (ct == 'fluff'
@@ -3463,6 +3474,8 @@ def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict
             continue
         kept.append(article)
 
+    if exempted:
+        print(f"🛡️  Content type exempt: {exempted} article(s) from editorial-exempt sources")
     total = sum(removed.values())
     if total:
         breakdown = ', '.join(f"{v} {k}" for k, v in removed.items())
