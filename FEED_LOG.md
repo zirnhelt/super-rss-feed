@@ -30,6 +30,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🔧 Manual Run (7:50 AM Pacific)
+- Fetched **1259** → dedup **1039** → new **744** → quality **45**
+- Mix: local:1(2%), wellness:10(22%), scifi:2(4%), design:6(13%), outdoors:1(2%), news:25(56%)
+- Feeds: local:51, ai-tech:149, climate:41, homelab:47, homestead:13, wellness:103, science:62, scifi:20, design:53, outdoors:20, news:248
+- Images: 45/45
+- API calls: Cohere:13, Kagi:10, Kite:6 · est. cost $0.1010
+
+
+---
+
+
+
 ## 2026-08-21 (Friday)
 
 #### 🔧 Manual Run (7:28 AM Pacific)
