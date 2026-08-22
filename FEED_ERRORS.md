@@ -3,6 +3,29 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-22 (Saturday)
+
+#### 🔧 Manual Run (6:59 AM Pacific)
+- ⚠️ **Neowin** failed — `521 Server Error: <none> for url: https://www.neowin.net/news/rss/`
+- ⚠️ **FolkloreThursday** failed — `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SS`
+- ⚠️ **Small Farm Canada** failed — `404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ **Comments for The Road Goes Ever On** failed — `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/`
+- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
+- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
+- ⚠️ Scrub batch 17 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHuYgG3APetnfX6zUFtg'}), keeping all
+- ⚠️ Scrub batch 18 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHuYhBM6qB7yD69zRUA3'}), keeping all
+- ⚠️ Scrub batch 19 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHuYhYRnLSHZ31UWK8JQ'}), keeping all
+- ⚠️ Scrub batch 20 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeHuYhvFVuC9ShMNnKRyS'}), keeping all
+
+
+---
+
+
+
 ## 2026-08-21 (Friday)
 
 #### 🔧 Manual Run (7:28 AM Pacific)
@@ -33,17 +56,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🌙 8:30 PM Pacific
 - ⚠️ **Noema Magazine** failed — `521 Server Error: <none> for url: https://www.noemamag.com/feed/`
-
-
----
-
-
-
-## 2026-08-14 (Friday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Mother Earth News** failed — `500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/`
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
 
 
 ---
@@ -884,6 +896,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-08-13–2026-08-13
 - 3 issues recorded
 - ⚠️ Kagi Small Web failed — 503 Server Error: Service Unavailable for url: https://kagi.com/api/v1/smallweb/feed
+- ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+
+
+---
+
+
+
+## Week of 2026-08-14–2026-08-14
+- 2 issues recorded
 - ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 - ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
 
