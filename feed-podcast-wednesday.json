@@ -23,7 +23,7 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Repair Culture & Practical Tech' — the right to repair movement, gear that outlasts its manufacturer, DIY fixes, and tools built for longevity.\n\nOUT OF SCOPE — score 0-9: geopolitical conflict; natural disasters without an engineering or preparedness angle; wildlife and conservation; working-lands policy; Indigenous governance; science discoveries with no DIY or hardware relevance; financial market news.\n\nCALIBRATION — apply this ladder to everything else. Hands-on hardware journalism counts fully even without an explicit right-to-repair hook.\n- 80-100: Directly about repairability — right-to-repair legislation wins and losses, iFixit-style teardowns scoring repairability, gear designed for user serviceability, products outliving manufacturer support and how owners keep them running, permacomputing, vintage hardware still in active use, open-source hardware, Rossmann-style repair advocacy, 3D-printed replacement parts, battery replacement guides, rural and off-grid repair self-sufficiency.\n- 55-79: Hands-on maker and DIY content — builds, modifications, hardware hacks, workshop projects, practical electronics guides with real technical depth, 3D printing hardware and filament, off-grid and solar gear, home lab hardware, tools and workshop equipment, battery and power tech. Most genuine hands-on hardware journalism belongs HERE, not below.\n- 30-54: Gadget and device reviews with some technical substance; consumer electronics touching software longevity or ecosystem lock-in; hardware whose selling point is open firmware or modular design.\n- 10-29: Surface-level product announcements, gadget speculation, leaked specs, general tech news with no hardware or repair angle.\n\nANCHORS: 'Framework Laptop 16 teardown: a 9/10 repairability score' → 98. 'Oregon's right-to-repair law takes effect' → 92. 'Building a solar-powered Raspberry Pi weather station' → 68. 'Samsung teases thinner bezels on next Galaxy' → 15.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-08-22T14:39:44.158304+00:00",
+    "generated_at": "2026-08-22T14:49:57.129130+00:00",
     "article_count": 100,
     "bonus_count": 85,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
@@ -146,7 +146,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 90,
+      "_theme_score": 91,
       "_composite_podcast": 82,
       "_keyword_matches": 1,
       "_category": "news",
@@ -219,7 +219,12 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Williams Lake Tribune"
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://www.fastcompany.com/91583717/soulcycle-cult-following-1-decision-changed-everything",
@@ -251,9 +256,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -348,9 +353,9 @@
       "_is_bonus": false,
       "image": "https://hackaday.com/wp-content/uploads/2026/08/Potassium_883f28.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -419,36 +424,6 @@
       }
     },
     {
-      "id": "https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/",
-      "url": "https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/",
-      "title": "[New Atlas] Containerized GHOST system puts rocket launch infrastructure on the go",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Fmilitary%2Fghost-gives-rocket-launch-sites-flat-pack-treatment%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"The first GHOST site will be in Alaska\" src=\"https://assets.newatlas.com/dims4/default/ecf129a/2147483647/strip/true/crop/2422x1368+0+0/resize/1440x813!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2Ffd%2F70%2F9e5dd1084e07958f2084315ee6fa%2Fhpy8rqowiaas-se.jpeg\" /><p>Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers.</p><p><a href=\"https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/military/\">Military</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/rocket-lab/\" rel=\"tag\">Rocket Lab</a>, <a href=\"https://newatlas.com/tag/us-space-force/\" rel=\"tag\">US Space Force</a>, <a href=\"https://newatlas.com/tag/rocket/\" rel=\"tag\">Rocket</a>, <a href=\"https://newatlas.com/tag/launch/\" rel=\"tag\">Launch</a></p>",
-      "summary": "Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers. Continue Reading Category: Military ,",
-      "_excerpt": "Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers. Continue Reading Category: Military , Engineering Tags: Rocket Lab , US Space Force , Rocket , Launch",
-      "date_published": "2026-08-15T14:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 77,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
-      }
-    },
-    {
       "id": "https://www.theverge.com/tech/983598/amazon-price-increase-echo-kindle-fire-tv",
       "url": "https://www.theverge.com/tech/983598/amazon-price-increase-echo-kindle-fire-tv",
       "title": "[The Verge] Amazon just hiked the prices for Echo, Fire TV, and Kindle products by up to 60 percent",
@@ -477,9 +452,9 @@
       ],
       "_subscriber_access": "Apple News",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -705,9 +680,9 @@
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -735,7 +710,12 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/08/a-dual-pane-terminal-display-on-a-laptop-demontsrating-linux-namespaces-in-action.jpg"
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/08/a-dual-pane-terminal-display-on-a-laptop-demontsrating-linux-namespaces-in-action.jpg",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://www.scientificamerican.com/article/why-this-el-nino-will-be-the-largest-in-living-memory/",
@@ -936,9 +916,9 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -971,9 +951,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1003,9 +983,9 @@
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/cHa3NJgTZQ6WEMqK2PhBiU-1280-80.jpg",
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -1067,9 +1047,9 @@
       "_thin_body": true,
       "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/07/ultrawide-monitor-showing-four-tiled-claude-code-terminal-windows-all-displaying-the-welcome-back-dibakar-startup-screen.jpg",
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -1099,9 +1079,75 @@
       "_thin_body": true,
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960",
       "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
+      "id": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
+      "url": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
+      "title": "[Popular Mechanics] A B-52 Accidentally Lost Two Hydrogen Bombs Over North Carolina. One Nearly Detonated. One Is Still Buried.",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.popularmechanics.com%2Fmilitary%2Fa73355695%2Fb52-crash-hydrogen-bombs-goldsboro-north-carolina%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"rte-simple-html-paragraph\">The night that dumb luck may have saved America.</p>",
+      "summary": "The night that dumb luck may have saved America.",
+      "_excerpt": "The night that dumb luck may have saved America.",
+      "date_published": "2026-08-21T15:08:44+00:00",
+      "authors": [
+        {
+          "name": "Popular Mechanics",
+          "url": "https://www.popularmechanics.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 91,
+      "_composite_podcast": 65,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
+      "id": "https://www.zdnet.com/article/ai-deepfakes-passwords-defense/",
+      "url": "https://www.zdnet.com/article/ai-deepfakes-passwords-defense/",
+      "title": "[ZDNet] A low-tech solution from the past may be your best defense against AI deepfakes",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.zdnet.com%2Farticle%2Fai-deepfakes-passwords-defense%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
+      "summary": "AI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
+      "_excerpt": "AI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
+      "date_published": "2026-08-21T11:36:51+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 91,
+      "_composite_podcast": 65,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
         "day": "tuesday",
         "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -1131,71 +1177,10 @@
       "_thin_body": true,
       "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/amd-radeon-rx-7900-xt-installed-threadripper-server.jpg",
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
-    },
-    {
-      "id": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
-      "url": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
-      "title": "[Popular Mechanics] A B-52 Accidentally Lost Two Hydrogen Bombs Over North Carolina. One Nearly Detonated. One Is Still Buried.",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.popularmechanics.com%2Fmilitary%2Fa73355695%2Fb52-crash-hydrogen-bombs-goldsboro-north-carolina%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"rte-simple-html-paragraph\">The night that dumb luck may have saved America.</p>",
-      "summary": "The night that dumb luck may have saved America.",
-      "_excerpt": "The night that dumb luck may have saved America.",
-      "date_published": "2026-08-21T15:08:44+00:00",
-      "authors": [
-        {
-          "name": "Popular Mechanics",
-          "url": "https://www.popularmechanics.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
-      }
-    },
-    {
-      "id": "https://www.zdnet.com/article/ai-deepfakes-passwords-defense/",
-      "url": "https://www.zdnet.com/article/ai-deepfakes-passwords-defense/",
-      "title": "[ZDNet] A low-tech solution from the past may be your best defense against AI deepfakes",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.zdnet.com%2Farticle%2Fai-deepfakes-passwords-defense%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
-      "summary": "AI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
-      "_excerpt": "AI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
-      "date_published": "2026-08-21T11:36:51+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true
     },
     {
       "id": "https://vancouversun.com/news/bc-wildfires-evacuees-smoke-related-illness-upon-return-home",
@@ -1295,9 +1280,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1327,9 +1312,9 @@
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/WvwBDtCowJNJZy2zCtQe6n-1280-80.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1365,6 +1350,38 @@
       }
     },
     {
+      "id": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
+      "url": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
+      "title": "[Business Insider] Lawsuit alleges Sony investigated WPP's media operation and said it ran a 'global crime scene'",
+      "content_html": "<img src=\"https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Flawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "summary": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "_excerpt": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "date_published": "2026-08-21T14:26:24+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 83,
+      "_composite_podcast": 59,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
       "id": "https://www.businessinsider.com/apache-black-hawk-drill-taiwan-impact-ukraine-drone-war-2026-8",
       "url": "https://www.businessinsider.com/apache-black-hawk-drill-taiwan-impact-ukraine-drone-war-2026-8",
       "title": "[Business Insider] An Apache and Black Hawk drill in Taiwan shows how Ukraine’s drones are changing helicopter warfare",
@@ -1389,7 +1406,12 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://i.insider.com/6a86bfae0b0f848e0c307710?format=jpeg"
+      "image": "https://i.insider.com/6a86bfae0b0f848e0c307710?format=jpeg",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://www.npr.org/2026/08/20/nx-s1-5939549/heidi-overton-fda-commissioner-trump-senate-nomination",
@@ -1421,38 +1443,6 @@
       "tags": [
         "us-policy"
       ]
-    },
-    {
-      "id": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
-      "url": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
-      "title": "[Business Insider] Lawsuit alleges Sony investigated WPP's media operation and said it ran a 'global crime scene'",
-      "content_html": "<img src=\"https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Flawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
-      "summary": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
-      "_excerpt": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
-      "date_published": "2026-08-21T14:26:24+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 83,
-      "_composite_podcast": 59,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg",
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
-      }
     },
     {
       "id": "https://www.nytimes.com/2026/08/21/world/europe/prince-harry-daily-mail-publisher-pay.html",
@@ -1535,8 +1525,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 38,
+      "_theme_score": 25,
+      "_composite_podcast": 39,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -1546,37 +1536,6 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
-      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
-      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, August 22, 2026",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fzirnhelt.github.io%2Fcurated-podcast-generator%2Fpodcasts%2Freviews%2Fepisode-review-2026-08-22.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><em>What the pipeline did, what broke, and what it chose when something broke. Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/32562874398\">32562874398</a>.</em></p>\n\n<h3>Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead</h3>\n\n<p>The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total.</p>\n\n<p>The timeout itself is tracked: Gemini's generativelanguage.googleapis.com endpoint returned read timeouts on multiple canary checks. This is infrastructure fragility, not a code problem. The system detected it before publishing and chose safety over economy.</p>\n\n<h3>Brave Search broke on three separate queries</h3>\n\n<p>The Brave API returned 400 errors on three research queries, all malformed requests according to the logs. Two involved the Bald Range wildfire story; one targeted Aurora Borealis content from Atlas Obscura. The pipeline did not retry these or mark them as fallback triggers. They simply failed and the episode moved forward without them.</p>\n\n<h3>Short-segment TTS had a 78% failure rate</h3>\n\n<p>Nine short audio segments were queued for text-to-speech synthesis. Seven failed and could not be recovered. The pipeline retried but did not escalate; these segments likely dropped from the final mix. This is a secondary degradation—the main episode rendered successfully—but it represents missing content downstream of the primary voice work.</p>\n\n<h3>38 roundup items were culled; 5 deep dives made it through</h3>\n\n<p>The pipeline dropped 38 candidate stories from the daily roundup. Five deep-dive pieces survived the curation gate: a cycling training ride in the Cariboo, B.C. lumber trade relief, ranching families west of Williams Lake (two Tribune stories), and Tyson Foods beef plant closures tied to drought. Citation alignment data shows 8 sources in the first tier, 15 in the second, none in the third, and 5 scattered elsewhere—an uneven distribution that suggests some sources clustered heavily while others appeared once.</p>\n\n<h3>The episode landed on the central question about regional economic power</h3>\n\n<p>Today's debate framing: \"Does the Cariboo region have meaningful formal input into economic decisions made at federal and provincial levels, or does it only absorb outcomes determined elsewhere?\" The deep dives anchor this—trade deals, closures, drought impacts, and local initiatives all touch the question of who decides and who adapts.</p>\n\n<h3>The run timeline: three attempts, all late</h3>\n\n<p>Primary run triggered at 1:05 AM Pacific, arrived at 1:39 AM (34 minutes late). Fallback 1 at 2:05 AM, arrived at 2:25 AM (20 minutes late). Fallback 2 at 3:05 AM began at 3:30 AM (25 minutes late) and was still in progress at report time. The primary and first fallback both completed successfully. Script generation took 11.5 minutes of the primary run's total 27.6 minutes; rendering and deployment consumed the rest.</p>\n\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific)</td><td>2026-08-22T08:39:54Z</td><td>+34 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific)</td><td>2026-08-22T09:25:55Z</td><td>+20 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific)</td><td>2026-08-22T10:30:13Z</td><td>+25 min</td><td>in_progress</td></tr>\n</tbody>\n</table>\n\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>7 pattern hit(s), voice ratio 0.93, 2946 words</td></tr>\n<tr><td>Audio</td><td>18.4 min</td></tr>\n<tr><td>Audio size</td><td>16.8 MB</td></tr>\n<tr><td>Citations matched</td><td>8/15 roundup, 0/5 deep dive</td></tr>\n<tr><td>Feed</td><td>207 episodes</td></tr>\n<tr><td>Anthropic spend</td><td>85,701 input tokens, calls {'claude': 8}</td></tr>\n</tbody>\n</table>",
-      "summary": "What the pipeline did, what broke, and what it chose when something broke. Run 32562874398 . Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline",
-      "_excerpt": "What the pipeline did, what broke, and what it chose when something broke. Run 32562874398 . Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total. The timeout itself is tracked:",
-      "date_published": "2026-08-22T10:30:45+00:00",
-      "authors": [
-        {
-          "name": "Cariboo Signals Reviews",
-          "url": "https://zirnhelt.github.io/curated-podcast-generator"
-        }
-      ],
-      "ai_score": 63,
-      "_quality": 50,
-      "_relevance": 55,
-      "_local": 100,
-      "_theme_score": 23,
-      "_composite_podcast": 37,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1597,8 +1556,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 36,
+      "_theme_score": 25,
+      "_composite_podcast": 37,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1611,6 +1570,40 @@
         "day": "thursday",
         "label": "Indigenous Lands & Innovation",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
+      }
+    },
+    {
+      "id": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message",
+      "title": "[The Verge] Over 1 million people have clicked LinkedIn’s AI slop button",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fai-artificial-intelligence%2F983502%2Flinkedin-ai-slop-button-one-million-people-message\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nLinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a [&#8230;]",
+      "summary": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three",
+      "_excerpt": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a […]",
+      "date_published": "2026-08-21T21:25:50+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "ai_score": 66,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 37,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
       }
     },
     {
@@ -1631,8 +1624,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 36,
+      "_theme_score": 25,
+      "_composite_podcast": 37,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1661,8 +1654,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 36,
+      "_theme_score": 25,
+      "_composite_podcast": 37,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1671,40 +1664,6 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message",
-      "title": "[The Verge] Over 1 million people have clicked LinkedIn’s AI slop button",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fai-artificial-intelligence%2F983502%2Flinkedin-ai-slop-button-one-million-people-message\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nLinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a [&#8230;]",
-      "summary": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three",
-      "_excerpt": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a […]",
-      "date_published": "2026-08-21T21:25:50+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 66,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 35,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
       }
     },
     {
@@ -1725,41 +1684,46 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 35,
+      "_theme_score": 25,
+      "_composite_podcast": 37,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
-      "id": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
-      "title": "[ScienceDaily] A 30-year-old fossil was hiding bones from a mysterious ancient sea monster",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F08%2F260813045555.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even more intriguing, parts of the skull show unusual anatomical features that don’t match known mosasaurs, raising the possibility that the remains belong to an entirely new species.",
-      "summary": "Fossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even",
-      "_excerpt": "Fossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even more intriguing, parts of the skull show unusual anatomical features that don’t match known mosasaurs, raising the possibility that the remains belong to an entirely new species.",
-      "date_published": "2026-08-15T14:19:45+00:00",
+      "id": "https://www.theguardian.com/global-development/2026/aug/21/ebola-outbreak-five-big-questions",
+      "url": "https://www.theguardian.com/global-development/2026/aug/21/ebola-outbreak-five-big-questions",
+      "title": "[The Guardian Global Development] Ebola outbreak: five big questions",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theguardian.com%2Fglobal-development%2F2026%2Faug%2F21%2Febola-outbreak-five-big-questions\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>On 23 August, it will be 100 days since the Bundibugyo strain was first reported. How did it became the DRC’s most deadly outbreak and what must be done to stop it becoming the world’s largest?</p><p>Almost 100 days ago, Africa’s public health watchdog reported an outbreak of Ebola in the Democratic Republic of the Congo.</p><p>There have now been almost 5,000 cases and more than 2,000 deaths since 15 May, making this Ebola outbreak the biggest and most deadly in the DRC’s history.</p> <a href=\"https://www.theguardian.com/global-development/2026/aug/21/ebola-outbreak-five-big-questions\">Continue reading...</a>",
+      "summary": "On 23 August, it will be 100 days since the Bundibugyo strain was first reported. How did it became the DRC’s most deadly outbreak and what must be done to stop it becoming the world’s largest? Almost 100 days ago, Africa’s public health watchdog reported an outbreak of Ebola in the Democratic",
+      "_excerpt": "On 23 August, it will be 100 days since the Bundibugyo strain was first reported. How did it became the DRC’s most deadly outbreak and what must be done to stop it becoming the world’s largest? Almost 100 days ago, Africa’s public health watchdog reported an outbreak of Ebola in the Democratic Republic of the Congo. There have now been almost 5,000 cases and more than 2,000 deaths since 15 May, making this Ebola outbreak the biggest and most deadly in the DRC’s history. Continue reading...",
+      "date_published": "2026-08-21T09:02:22+00:00",
       "authors": [
         {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
+          "name": "The Guardian Global Development",
+          "url": "https://www.theguardian.com/global-development"
         }
       ],
-      "ai_score": 54,
-      "_quality": 72,
+      "ai_score": 67,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 34,
+      "_theme_score": 25,
+      "_composite_podcast": 32,
       "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
+      "_category": "wellness",
+      "_source_category": "wellness",
       "_is_bonus": true,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
       }
     },
     {
@@ -1780,8 +1744,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 31,
+      "_theme_score": 25,
+      "_composite_podcast": 32,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
@@ -1810,8 +1774,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 31,
+      "_theme_score": 25,
+      "_composite_podcast": 32,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
@@ -1823,33 +1787,34 @@
       }
     },
     {
-      "id": "https://www.theguardian.com/global-development/2026/aug/21/ebola-outbreak-five-big-questions",
-      "url": "https://www.theguardian.com/global-development/2026/aug/21/ebola-outbreak-five-big-questions",
-      "title": "[The Guardian Global Development] Ebola outbreak: five big questions",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theguardian.com%2Fglobal-development%2F2026%2Faug%2F21%2Febola-outbreak-five-big-questions\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>On 23 August, it will be 100 days since the Bundibugyo strain was first reported. How did it became the DRC’s most deadly outbreak and what must be done to stop it becoming the world’s largest?</p><p>Almost 100 days ago, Africa’s public health watchdog reported an outbreak of Ebola in the Democratic Republic of the Congo.</p><p>There have now been almost 5,000 cases and more than 2,000 deaths since 15 May, making this Ebola outbreak the biggest and most deadly in the DRC’s history.</p> <a href=\"https://www.theguardian.com/global-development/2026/aug/21/ebola-outbreak-five-big-questions\">Continue reading...</a>",
-      "summary": "On 23 August, it will be 100 days since the Bundibugyo strain was first reported. How did it became the DRC’s most deadly outbreak and what must be done to stop it becoming the world’s largest? Almost 100 days ago, Africa’s public health watchdog reported an outbreak of Ebola in the Democratic",
-      "_excerpt": "On 23 August, it will be 100 days since the Bundibugyo strain was first reported. How did it became the DRC’s most deadly outbreak and what must be done to stop it becoming the world’s largest? Almost 100 days ago, Africa’s public health watchdog reported an outbreak of Ebola in the Democratic Republic of the Congo. There have now been almost 5,000 cases and more than 2,000 deaths since 15 May, making this Ebola outbreak the biggest and most deadly in the DRC’s history. Continue reading...",
-      "date_published": "2026-08-21T09:02:22+00:00",
+      "id": "https://nautil.us/why-you-move-factors-in-to-whether-it-protects-you-from-dementia-1283940/",
+      "url": "https://nautil.us/why-you-move-factors-in-to-whether-it-protects-you-from-dementia-1283940/",
+      "title": "[Nautilus] Why You Move Factors in to Whether It Protects You From Dementia",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Currie_HERO_cbe7be.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnautil.us%2Fwhy-you-move-factors-in-to-whether-it-protects-you-from-dementia-1283940%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Movement for movement’s sake isn’t the safeguard you might think</p>\n<p>The post <a href=\"https://nautil.us/why-you-move-factors-in-to-whether-it-protects-you-from-dementia-1283940/\">Why You Move Factors in to Whether It Protects You From Dementia</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "summary": "Movement for movement’s sake isn’t the safeguard you might think The post Why You Move Factors in to Whether It Protects You From Dementia appeared first on Nautilus .",
+      "_excerpt": "Movement for movement’s sake isn’t the safeguard you might think The post Why You Move Factors in to Whether It Protects You From Dementia appeared first on Nautilus .",
+      "date_published": "2026-08-18T22:30:00+00:00",
       "authors": [
         {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
         }
       ],
-      "ai_score": 67,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 30,
+      "_theme_score": 25,
+      "_composite_podcast": 32,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Currie_HERO_cbe7be.png?w=564",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-20T04:52:04.055238+00:00"
       }
     },
     {
@@ -1870,8 +1835,8 @@
       "_quality": 73,
       "_relevance": 62,
       "_local": 75,
-      "_theme_score": 23,
-      "_composite_podcast": 24,
+      "_theme_score": 25,
+      "_composite_podcast": 26,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
@@ -1879,9 +1844,9 @@
       "_thin_body": true,
       "image": "https://thetyee.ca/Opinion/2026/08/20/BCGovDirectory.jpg",
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-21T04:56:14.647179+00:00"
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1902,8 +1867,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 23,
+      "_theme_score": 25,
+      "_composite_podcast": 24,
       "_keyword_matches": 1,
       "_category": "wellness",
       "_source_category": "wellness",
@@ -1915,6 +1880,33 @@
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-22T13:59:46.418432+00:00"
       }
+    },
+    {
+      "id": "https://www.engadget.com/2240108/google-pixel-android-bluetooth-diagnostics-feature/",
+      "url": "https://www.engadget.com/2240108/google-pixel-android-bluetooth-diagnostics-feature/",
+      "title": "[Engadget] This handy Google Pixel feature can help solve annoying Android Bluetooth problems",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/this-handy-google-pixel-feature-can-help-solve-annoying-android-bluetooth-problems/l-intro-1786976534.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2240108%2Fgoogle-pixel-android-bluetooth-diagnostics-feature%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIf you're having trouble with Bluetooth connections on your Pixel phone, this tool is a great place to start your troubleshooting.",
+      "summary": "If you're having trouble with Bluetooth connections on your Pixel phone, this tool is a great place to start your troubleshooting.",
+      "_excerpt": "If you're having trouble with Bluetooth connections on your Pixel phone, this tool is a great place to start your troubleshooting.",
+      "date_published": "2026-08-22T12:30:00+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://www.engadget.com/img/gallery/this-handy-google-pixel-feature-can-help-solve-annoying-android-bluetooth-problems/l-intro-1786976534.jpg"
     },
     {
       "id": "https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/",
@@ -1939,34 +1931,12 @@
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false
-    },
-    {
-      "id": "https://www.engadget.com/2240108/google-pixel-android-bluetooth-diagnostics-feature/",
-      "url": "https://www.engadget.com/2240108/google-pixel-android-bluetooth-diagnostics-feature/",
-      "title": "[Engadget] This handy Google Pixel feature can help solve annoying Android Bluetooth problems",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/this-handy-google-pixel-feature-can-help-solve-annoying-android-bluetooth-problems/l-intro-1786976534.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2240108%2Fgoogle-pixel-android-bluetooth-diagnostics-feature%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIf you're having trouble with Bluetooth connections on your Pixel phone, this tool is a great place to start your troubleshooting.",
-      "summary": "If you're having trouble with Bluetooth connections on your Pixel phone, this tool is a great place to start your troubleshooting.",
-      "_excerpt": "If you're having trouble with Bluetooth connections on your Pixel phone, this tool is a great place to start your troubleshooting.",
-      "date_published": "2026-08-22T12:30:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 63,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
       "_is_bonus": false,
-      "_thin_body": true,
-      "image": "https://www.engadget.com/img/gallery/this-handy-google-pixel-feature-can-help-solve-annoying-android-bluetooth-problems/l-intro-1786976534.jpg"
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://www.nytimes.com/2026/08/21/us/politics/us-liberia-deportees-payment.html",
@@ -1986,8 +1956,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2025,8 +1995,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2057,8 +2027,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2096,8 +2066,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2111,6 +2081,109 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-20T02:54:02.717534+00:00"
+      }
+    },
+    {
+      "id": "https://thetyee.ca/Opinion/2026/08/21/Data-Centre-Sell-Job/",
+      "url": "https://thetyee.ca/Opinion/2026/08/21/Data-Centre-Sell-Job/",
+      "title": "[The Tyee] Lights! Camera! Action! Roll the Data Centre Sell Job!",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/08/20/SmithDataCentrePhotoIllo.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FOpinion%2F2026%2F08%2F21%2FData-Centre-Sell-Job%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNotes on Premier Smith’s video attempt to reassure Albertans that AI tycoons are everybody’s friends.",
+      "summary": "Notes on Premier Smith’s video attempt to reassure Albertans that AI tycoons are everybody’s friends.",
+      "_excerpt": "Notes on Premier Smith’s video attempt to reassure Albertans that AI tycoons are everybody’s friends.",
+      "date_published": "2026-08-21T07:40:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "ai_score": 67,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://thetyee.ca/Opinion/2026/08/20/SmithDataCentrePhotoIllo.jpg",
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+      }
+    },
+    {
+      "id": "https://www.nytimes.com/2026/08/19/world/africa/dangote-iran-refinery-oil-nigeria.html",
+      "url": "https://www.nytimes.com/2026/08/19/world/africa/dangote-iran-refinery-oil-nigeria.html",
+      "title": "[NYT Business] How the Iran War Made Africa’s Richest Man Even Richer",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/08/19/multimedia/19int-nigeria-iran-dangote-1-jgwp/19int-nigeria-iran-dangote-1-jgwp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nytimes.com%2F2026%2F08%2F19%2Fworld%2Fafrica%2Fdangote-iran-refinery-oil-nigeria.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAfricans have turned to one of their own for fuel as the world’s supplies run low. But they are not the only ones with the continent’s richest man on speed dial.",
+      "summary": "Africans have turned to one of their own for fuel as the world’s supplies run low. But they are not the only ones with the continent’s richest man on speed dial.",
+      "_excerpt": "Africans have turned to one of their own for fuel as the world’s supplies run low. But they are not the only ones with the continent’s richest man on speed dial.",
+      "date_published": "2026-08-19T09:00:49+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 67,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static01.nyt.com/images/2026/08/19/multimedia/19int-nigeria-iran-dangote-1-jgwp/19int-nigeria-iran-dangote-1-jgwp-mediumSquareAt3X.jpg",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.theatlantic.com/ideas/2026/08/lindsay-clancy-murder-trial-insanity/688286/?utm_source=feed",
+      "url": "https://www.theatlantic.com/ideas/2026/08/lindsay-clancy-murder-trial-insanity/688286/?utm_source=feed",
+      "title": "[The Atlantic] Why Lindsay Clancy’s Insanity Defense Might Fail",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theatlantic.com%2Fideas%2F2026%2F08%2Flindsay-clancy-murder-trial-insanity%2F688286%2F%3Futm_source%3Dfeed\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA jury will soon decide whether the evident suffering that moved her to violence also mitigates it.",
+      "summary": "A jury will soon decide whether the evident suffering that moved her to violence also mitigates it.",
+      "_excerpt": "A jury will soon decide whether the evident suffering that moved her to violence also mitigates it.",
+      "date_published": "2026-08-17T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Atlantic",
+          "url": "https://www.theatlantic.com"
+        }
+      ],
+      "ai_score": 67,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
       }
     },
     {
@@ -2131,8 +2204,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2163,8 +2236,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 21,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2177,205 +2250,220 @@
       }
     },
     {
-      "id": "https://www.nytimes.com/2026/08/11/business/dealbook/ai-lending-nvidia-blackrock.html",
-      "url": "https://www.nytimes.com/2026/08/11/business/dealbook/ai-lending-nvidia-blackrock.html",
-      "title": "[NYT Business] The Perils of Wall St.’s Race to Pour Billions More Into A.I.",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/08/11/multimedia/11db-fink1-wjmv/11db-fink1-wjmv-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nytimes.com%2F2026%2F08%2F11%2Fbusiness%2Fdealbook%2Fai-lending-nvidia-blackrock.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nInvestors including BlackRock have committed an eye-popping amount to lend to the artificial intelligence industry. That enthusiasm isn’t shared by everyone.",
-      "summary": "Investors including BlackRock have committed an eye-popping amount to lend to the artificial intelligence industry. That enthusiasm isn’t shared by everyone.",
-      "_excerpt": "Investors including BlackRock have committed an eye-popping amount to lend to the artificial intelligence industry. That enthusiasm isn’t shared by everyone.",
-      "date_published": "2026-08-11T11:59:33+00:00",
+      "id": "https://insideevs.com/news/805476/electric-truck-range-extender-mahle/",
+      "url": "https://insideevs.com/news/805476/electric-truck-range-extender-mahle/",
+      "title": "[InsideEVs] This New All-In-One Range Extender Is Ready To Go Into Any Electric Truck",
+      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/G3QLr8/s3/mahle-electric-truck-range-extender.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Finsideevs.com%2Fnews%2F805476%2Felectric-truck-range-extender-mahle%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMahle says its new range extender can fit in the same space as a battery module, increasing driving range to roughly 500 miles.",
+      "summary": "Mahle says its new range extender can fit in the same space as a battery module, increasing driving range to roughly 500 miles.",
+      "_excerpt": "Mahle says its new range extender can fit in the same space as a battery module, increasing driving range to roughly 500 miles.",
+      "date_published": "2026-08-22T12:00:00+00:00",
       "authors": [
         {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
         }
       ],
-      "ai_score": 57,
-      "_quality": 80,
+      "ai_score": 62,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 20,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://static01.nyt.com/images/2026/08/11/multimedia/11db-fink1-wjmv/11db-fink1-wjmv-mediumSquareAt3X.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
+      "image": "https://cdn.motor1.com/images/mgl/G3QLr8/s3/mahle-electric-truck-range-extender.jpg",
       "_cross_theme": {
         "day": "thursday",
         "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-21T04:56:14.647179+00:00"
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
-      "id": "https://thetyee.ca/Opinion/2026/08/21/Data-Centre-Sell-Job/",
-      "url": "https://thetyee.ca/Opinion/2026/08/21/Data-Centre-Sell-Job/",
-      "title": "[The Tyee] Lights! Camera! Action! Roll the Data Centre Sell Job!",
-      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/08/20/SmithDataCentrePhotoIllo.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FOpinion%2F2026%2F08%2F21%2FData-Centre-Sell-Job%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNotes on Premier Smith’s video attempt to reassure Albertans that AI tycoons are everybody’s friends.",
-      "summary": "Notes on Premier Smith’s video attempt to reassure Albertans that AI tycoons are everybody’s friends.",
-      "_excerpt": "Notes on Premier Smith’s video attempt to reassure Albertans that AI tycoons are everybody’s friends.",
-      "date_published": "2026-08-21T07:40:00+00:00",
+      "id": "https://www.themarginalian.org/2026/08/21/the-other-significant-others/",
+      "url": "https://www.themarginalian.org/2026/08/21/the-other-significant-others/",
+      "title": "[The Marginalian] The Other Significant Others: Living and Loving Outside the Confines of Conventional Friendship and Compulsory Coupledom",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.themarginalian.org%2F2026%2F08%2F21%2Fthe-other-significant-others%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n\"While we weaken friendships by expecting too little of them, we undermine romantic relationships by expecting too much of them.\"",
+      "summary": "\"While we weaken friendships by expecting too little of them, we undermine romantic relationships by expecting too much of them.\"",
+      "_excerpt": "\"While we weaken friendships by expecting too little of them, we undermine romantic relationships by expecting too much of them.\"",
+      "date_published": "2026-08-21T19:56:40+00:00",
       "authors": [
         {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
+          "name": "The Marginalian",
+          "url": "https://www.themarginalian.org"
         }
       ],
-      "ai_score": 67,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 20,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://thetyee.ca/Opinion/2026/08/20/SmithDataCentrePhotoIllo.jpg",
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
-      }
-    },
-    {
-      "id": "https://www.theatlantic.com/ideas/2026/08/lindsay-clancy-murder-trial-insanity/688286/?utm_source=feed",
-      "url": "https://www.theatlantic.com/ideas/2026/08/lindsay-clancy-murder-trial-insanity/688286/?utm_source=feed",
-      "title": "[The Atlantic] Why Lindsay Clancy’s Insanity Defense Might Fail",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theatlantic.com%2Fideas%2F2026%2F08%2Flindsay-clancy-murder-trial-insanity%2F688286%2F%3Futm_source%3Dfeed\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA jury will soon decide whether the evident suffering that moved her to violence also mitigates it.",
-      "summary": "A jury will soon decide whether the evident suffering that moved her to violence also mitigates it.",
-      "_excerpt": "A jury will soon decide whether the evident suffering that moved her to violence also mitigates it.",
-      "date_published": "2026-08-17T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "The Atlantic",
-          "url": "https://www.theatlantic.com"
-        }
-      ],
-      "ai_score": 67,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 20,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.makeuseof.com/8-local-ai-models-that-run-great-on-8gb-of-vram-or-less/",
-      "url": "https://www.makeuseof.com/8-local-ai-models-that-run-great-on-8gb-of-vram-or-less/",
-      "title": "[MakeUseOf] 8 local AI models that run great on 8GB of VRAM or less",
-      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/local-ai.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.makeuseof.com%2F8-local-ai-models-that-run-great-on-8gb-of-vram-or-less%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n8GB is still enough for certain use cases.",
-      "summary": "8GB is still enough for certain use cases.",
-      "_excerpt": "8GB is still enough for certain use cases.",
-      "date_published": "2026-08-10T19:00:13+00:00",
-      "authors": [
-        {
-          "name": "MakeUseOf",
-          "url": "https://www.makeuseof.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 72,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 19,
-      "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/06/local-ai.jpeg",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
-      }
-    },
-    {
-      "id": "https://www.forbes.com/sites/cloudera/2026/08/11/how-ai-is-reshaping-enterprise-data-architecture/",
-      "url": "https://www.forbes.com/sites/cloudera/2026/08/11/how-ai-is-reshaping-enterprise-data-architecture/",
-      "title": "[Forbes Innovation] How AI Is Reshaping Enterprise Data Architecture",
-      "content_html": "<img src=\"https://imageio.forbes.com/specials-images/imageserve/6a63dcaa516989d0f7fed828/0x0.jpg?width=1920\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.forbes.com%2Fsites%2Fcloudera%2F2026%2F08%2F11%2Fhow-ai-is-reshaping-enterprise-data-architecture%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nOrganizations need an architecture that supports changing workload requirements without forcing a fundamental redesign when priorities shift.",
-      "summary": "Organizations need an architecture that supports changing workload requirements without forcing a fundamental redesign when priorities shift.",
-      "_excerpt": "Organizations need an architecture that supports changing workload requirements without forcing a fundamental redesign when priorities shift.",
-      "date_published": "2026-08-12T00:00:41+00:00",
-      "authors": [
-        {
-          "name": "Forbes Innovation",
-          "url": "https://www.forbes.com/innovation"
-        }
-      ],
-      "ai_score": 34,
-      "_quality": 45,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 19,
-      "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://imageio.forbes.com/specials-images/imageserve/6a63dcaa516989d0f7fed828/0x0.jpg?width=1920",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://telescoper.blog/2026/08/15/weekly-update-from-the-open-journal-of-astrophysics-15-08-2026/",
-      "url": "https://telescoper.blog/2026/08/15/weekly-update-from-the-open-journal-of-astrophysics-15-08-2026/",
-      "title": "[Kagi Small Web] Weekly Update from the Open Journal of Astrophysics 15/08/2026",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftelescoper.blog%2F2026%2F08%2F15%2Fweekly-update-from-the-open-journal-of-astrophysics-15-08-2026%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSince the last update we have published a further for papers, bringing the number in Volume 9 (2026) to 167 and the total so far published by OJAp up to 615.",
-      "summary": "Since the last update we have published a further for papers, bringing the number in Volume 9 (2026) to 167 and the total so far published by OJAp up to 615.",
-      "_excerpt": "Since the last update we have published a further for papers, bringing the number in Volume 9 (2026) to 167 and the total so far published by OJAp up to 615.",
-      "date_published": "2026-08-15T10:55:37+00:00",
-      "authors": [
-        {
-          "name": "Kagi Small Web",
-          "url": "https://kagi.com/smallweb"
-        }
-      ],
-      "ai_score": 45,
-      "_quality": 45,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 23,
-      "_composite_podcast": 18,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
+      "id": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
+      "url": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
+      "title": "[TechCrunch] US government lab is probing Chinese lidar for security vulnerabilities",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F21%2Fus-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
+      "summary": "The security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
+      "_excerpt": "The security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
+      "date_published": "2026-08-21T16:01:54+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
+      "id": "https://qz.com/micron-ceo-ai-memory-business-boom-bust-082126",
+      "url": "https://qz.com/micron-ceo-ai-memory-business-boom-bust-082126",
+      "title": "[Quartz] Micron's CEO is arguing AI has permanently broken memory's boom-bust cycle",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2147904172.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fmicron-ceo-ai-memory-business-boom-bust-082126\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSanjay Mehrotra argues persistent AI demand is replacing the industry's historic cycle of oversupply and price collapse",
+      "summary": "Sanjay Mehrotra argues persistent AI demand is replacing the industry's historic cycle of oversupply and price collapse",
+      "_excerpt": "Sanjay Mehrotra argues persistent AI demand is replacing the industry's historic cycle of oversupply and price collapse",
+      "date_published": "2026-08-21T12:10:26+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 22,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2147904172.jpg",
+      "_cross_theme": {
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.statnews.com/2026/08/11/cms-rapid-breakthrough-device-coverage-health-tech/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/08/11/cms-rapid-breakthrough-device-coverage-health-tech/?utm_campaign=rss",
+      "title": "[STAT News] STAT+: A RAPID proposal for breakthrough coverage, and nurses push back on AI",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2023/06/AdobeStock_533699194_Editorial_Use_Only-645x645.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.statnews.com%2F2026%2F08%2F11%2Fcms-rapid-breakthrough-device-coverage-health-tech%2F%3Futm_campaign%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIn this edition of STAT Health Tech: Details from CMS and FDA on the RAPID pathway for breakthrough devices, and nurses push back on AI.",
+      "summary": "In this edition of STAT Health Tech: Details from CMS and FDA on the RAPID pathway for breakthrough devices, and nurses push back on AI.",
+      "_excerpt": "In this edition of STAT Health Tech: Details from CMS and FDA on the RAPID pathway for breakthrough devices, and nurses push back on AI.",
+      "date_published": "2026-08-11T13:15:49+00:00",
+      "authors": [
+        {
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality": 55,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 21,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.statnews.com/wp-content/uploads/2023/06/AdobeStock_533699194_Editorial_Use_Only-645x645.jpeg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-20T04:52:04.055238+00:00"
+      }
+    },
+    {
+      "id": "https://www.tomshardware.com/service-providers/streaming/geforce-now-exploit-lets-you-access-the-full-windows-desktop-through-a-simple-file-swap-modder-runs-local-ai-models-on-ultimate-tier-with-48gb-of-vram-and-no-restrictions",
+      "url": "https://www.tomshardware.com/service-providers/streaming/geforce-now-exploit-lets-you-access-the-full-windows-desktop-through-a-simple-file-swap-modder-runs-local-ai-models-on-ultimate-tier-with-48gb-of-vram-and-no-restrictions",
+      "title": "[Tom's Hardware] GeForce NOW exploit lets you access the full Windows desktop through a simple file swap — Modder runs local AI models on Ultimate tier with 48GB of VRAM and no restrictions",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/o8QHDsy25pZHA59RNRBtra-1280-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fservice-providers%2Fstreaming%2Fgeforce-now-exploit-lets-you-access-the-full-windows-desktop-through-a-simple-file-swap-modder-runs-local-ai-models-on-ultimate-tier-with-48gb-of-vram-and-no-restrictions\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSwapping the executable of a game with a modified file will fool Steam into thinking it's opening that game when it's really just giving you unrestricted desktop access. This is against GeForce NOW's terms of service, though, so you run the risk of getting banned.",
+      "summary": "Swapping the executable of a game with a modified file will fool Steam into thinking it's opening that game when it's really just giving you unrestricted desktop access. This is against GeForce NOW's terms of service, though, so you run the risk of getting banned.",
+      "_excerpt": "Swapping the executable of a game with a modified file will fool Steam into thinking it's opening that game when it's really just giving you unrestricted desktop access. This is against GeForce NOW's terms of service, though, so you run the risk of getting banned.",
+      "date_published": "2026-08-10T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 58,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 20,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/o8QHDsy25pZHA59RNRBtra-1280-80.png"
+    },
+    {
+      "id": "https://www.tomshardware.com/tech-industry/artificial-intelligence/dev-uses-claude-ai-to-create-native-macos-driver-for-obscure-windows-only-printer-linux-container-hack-enables-system-wide-cmd-p-printing-driver-now-available-on-github",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/dev-uses-claude-ai-to-create-native-macos-driver-for-obscure-windows-only-printer-linux-container-hack-enables-system-wide-cmd-p-printing-driver-now-available-on-github",
+      "title": "[Tom's Hardware] Dev uses Claude AI to create native macOS driver for 'obscure' Windows-only printer — Linux container hack enables system-wide Cmd-P printing, driver now available on Github",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/MEhj2kjie9xAZfBevnC5jT-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Ftech-industry%2Fartificial-intelligence%2Fdev-uses-claude-ai-to-create-native-macos-driver-for-obscure-windows-only-printer-linux-container-hack-enables-system-wide-cmd-p-printing-driver-now-available-on-github\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA developer has revealed that they used Claude Code to create a macOS laser printer driver for the HP Laser 1008a, a machine designed for Windows users.",
+      "summary": "A developer has revealed that they used Claude Code to create a macOS laser printer driver for the HP Laser 1008a, a machine designed for Windows users.",
+      "_excerpt": "A developer has revealed that they used Claude Code to create a macOS laser printer driver for the HP Laser 1008a, a machine designed for Windows users.",
+      "date_published": "2026-08-19T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality": 78,
+      "_relevance": 82,
+      "_local": 0,
+      "_theme_score": 25,
+      "_composite_podcast": 20,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/MEhj2kjie9xAZfBevnC5jT-1280-80.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {

@@ -10,7 +10,7 @@
     }
   ],
   "language": "en",
-  "_generated_at": "2026-08-22T14:39:51.907179+00:00",
+  "_generated_at": "2026-08-22T14:50:04.440991+00:00",
   "_today": "saturday",
   "_today_label": "Cariboo Local Affairs",
   "_categories": {
@@ -61,100 +61,18 @@
   },
   "items": [
     {
-      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
-      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
-      "title": "Episode Review — Cariboo Signals, August 22, 2026",
-      "content_html": "<p><em>What the pipeline did, what broke, and what it chose when something broke. Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/32562874398\">32562874398</a>.</em></p>\n\n<h3>Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead</h3>\n\n<p>The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total.</p>\n\n<p>The timeout itself is tracked: Gemini's generativelanguage.googleapis.com endpoint returned read timeouts on multiple canary checks. This is infrastructure fragility, not a code problem. The system detected it before publishing and chose safety over economy.</p>\n\n<h3>Brave Search broke on three separate queries</h3>\n\n<p>The Brave API returned 400 errors on three research queries, all malformed requests according to the logs. Two involved the Bald Range wildfire story; one targeted Aurora Borealis content from Atlas Obscura. The pipeline did not retry these or mark them as fallback triggers. They simply failed and the episode moved forward without them.</p>\n\n<h3>Short-segment TTS had a 78% failure rate</h3>\n\n<p>Nine short audio segments were queued for text-to-speech synthesis. Seven failed and could not be recovered. The pipeline retried but did not escalate; these segments likely dropped from the final mix. This is a secondary degradation—the main episode rendered successfully—but it represents missing content downstream of the primary voice work.</p>\n\n<h3>38 roundup items were culled; 5 deep dives made it through</h3>\n\n<p>The pipeline dropped 38 candidate stories from the daily roundup. Five deep-dive pieces survived the curation gate: a cycling training ride in the Cariboo, B.C. lumber trade relief, ranching families west of Williams Lake (two Tribune stories), and Tyson Foods beef plant closures tied to drought. Citation alignment data shows 8 sources in the first tier, 15 in the second, none in the third, and 5 scattered elsewhere—an uneven distribution that suggests some sources clustered heavily while others appeared once.</p>\n\n<h3>The episode landed on the central question about regional economic power</h3>\n\n<p>Today's debate framing: \"Does the Cariboo region have meaningful formal input into economic decisions made at federal and provincial levels, or does it only absorb outcomes determined elsewhere?\" The deep dives anchor this—trade deals, closures, drought impacts, and local initiatives all touch the question of who decides and who adapts.</p>\n\n<h3>The run timeline: three attempts, all late</h3>\n\n<p>Primary run triggered at 1:05 AM Pacific, arrived at 1:39 AM (34 minutes late). Fallback 1 at 2:05 AM, arrived at 2:25 AM (20 minutes late). Fallback 2 at 3:05 AM began at 3:30 AM (25 minutes late) and was still in progress at report time. The primary and first fallback both completed successfully. Script generation took 11.5 minutes of the primary run's total 27.6 minutes; rendering and deployment consumed the rest.</p>\n\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific)</td><td>2026-08-22T08:39:54Z</td><td>+34 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific)</td><td>2026-08-22T09:25:55Z</td><td>+20 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific)</td><td>2026-08-22T10:30:13Z</td><td>+25 min</td><td>in_progress</td></tr>\n</tbody>\n</table>\n\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>7 pattern hit(s), voice ratio 0.93, 2946 words</td></tr>\n<tr><td>Audio</td><td>18.4 min</td></tr>\n<tr><td>Audio size</td><td>16.8 MB</td></tr>\n<tr><td>Citations matched</td><td>8/15 roundup, 0/5 deep dive</td></tr>\n<tr><td>Feed</td><td>207 episodes</td></tr>\n<tr><td>Anthropic spend</td><td>85,701 input tokens, calls {'claude': 8}</td></tr>\n</tbody>\n</table>",
-      "date_published": "2026-08-22T10:30:45+00:00",
+      "id": "https://www.northernminer.com/news/fortescue-exec-kept-on-job-during-sex-harassment-probe/1003894134/",
+      "url": "https://www.northernminer.com/news/fortescue-exec-kept-on-job-during-sex-harassment-probe/1003894134/",
+      "title": "Fortescue exec kept on job during sex-harassment probe",
+      "content_html": "<p>Fortescue (ASX: FMG) is keeping an unnamed senior executive at work while external lawyers investigate allegations of sexual harassment and bullying, energy chief Gus Pichot said Thursday. The Australian miner...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/fortescue-exec-kept-on-job-during-sex-harassment-probe/1003894134/\">Fortescue exec kept on job during sex-harassment probe</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
+      "date_published": "2026-08-20T20:55:00+00:00",
       "authors": [
         {
-          "name": "Cariboo Signals Reviews",
-          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+          "name": "The Northern Miner",
+          "url": "https://www.northernminer.com"
         }
       ],
-      "_score": 63,
-      "_quality": 50,
-      "_relevance": 55,
-      "_local_score": 100,
-      "_category": "local",
-      "_content_type": "fluff",
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 52,
-        "tuesday": 73,
-        "wednesday": 19,
-        "thursday": 17,
-        "friday": 7,
-        "saturday": 46,
-        "sunday": 20
-      },
-      "_theme_scores_raw": {
-        "monday": 14,
-        "tuesday": 6,
-        "wednesday": 1,
-        "thursday": 2,
-        "friday": 17,
-        "saturday": 39,
-        "sunday": 35
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128"
-    },
-    {
-      "id": "https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/",
-      "url": "https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/",
-      "title": "New excavator interface lets rookies match veteran operators on day one",
-      "content_html": "<p><img alt=\"The World-Space Interface, gripped like the excavator's own bucket instead of a joystick\" src=\"https://assets.newatlas.com/dims4/default/6fb2fa6/2147483647/strip/true/crop/3196x1752+0+0/resize/1440x789!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F0b%2Fe9%2F8d70d00b4395a80ea92a9c7f1770%2Fscreenshot-2026-08-20-at-16-56-35.png\" /><p>Watching skilled excavator operators work is almost hypnotic. They make it look so easy that the machine seems to move like an extension of the operator's own arm. That intuition usually takes years to build, but a new controller from MIT engineers compresses that learning curve to a single session.</p><p><a href=\"https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/robotics/\">Robotics</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/robotics/\" rel=\"tag\">Robotics</a>, <a href=\"https://newatlas.com/tag/mit/\" rel=\"tag\">MIT</a>, <a href=\"https://newatlas.com/tag/interface/\" rel=\"tag\">Interface</a>, <a href=\"https://newatlas.com/tag/robotic-construction/\" rel=\"tag\">Robotic construction</a>, <a href=\"https://newatlas.com/tag/construction/\" rel=\"tag\">Construction</a></p>",
-      "date_published": "2026-08-21T08:33:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 27,
-        "tuesday": 26,
-        "wednesday": 0,
-        "thursday": 28,
-        "friday": 55,
-        "saturday": 46,
-        "sunday": 41
-      },
-      "_theme_scores_raw": {
-        "monday": 8,
-        "tuesday": 2,
-        "wednesday": 0,
-        "thursday": 3,
-        "friday": 40,
-        "saturday": 39,
-        "sunday": 46
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://assets.newatlas.com/dims4/default/9ab6ac2/2147483647/strip/true/crop/3196x1678+0+37/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F0b%2Fe9%2F8d70d00b4395a80ea92a9c7f1770%2Fscreenshot-2026-08-20-at-16-56-35.png&na.image_optimisation=0"
-    },
-    {
-      "id": "https://www.howtogeek.com/vibe-coded-app-claude-fix-one-windows-annoyances/",
-      "url": "https://www.howtogeek.com/vibe-coded-app-claude-fix-one-windows-annoyances/",
-      "title": "I vibe-coded an app with Claude just to fix one of my smallest Windows annoyances",
-      "content_html": "45 minutes with Claude solved a 10-year-old problem.",
-      "date_published": "2026-08-22T13:30:13+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "_score": 62,
+      "_score": 59,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
@@ -163,80 +81,39 @@
       "_selection_bucket": "mid",
       "_theme_scores": {
         "monday": 56,
-        "tuesday": 65,
-        "wednesday": 82,
-        "thursday": 67,
-        "friday": 47,
-        "saturday": 66,
-        "sunday": 61
+        "tuesday": 27,
+        "wednesday": 0,
+        "thursday": 17,
+        "friday": 87,
+        "saturday": 49,
+        "sunday": 48
       },
       "_theme_scores_raw": {
         "monday": 15,
-        "tuesday": 5,
-        "wednesday": 5,
-        "thursday": 9,
-        "friday": 37,
-        "saturday": 45,
-        "sunday": 55
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/07/ultrawide-monitor-showing-four-tiled-claude-code-terminal-windows-all-displaying-the-welcome-back-dibakar-startup-screen.jpg"
-    },
-    {
-      "id": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
-      "url": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
-      "title": "US government lab is probing Chinese lidar for security vulnerabilities",
-      "content_html": "The security review is being performed by the Idaho National Laboratory, and the research is being funded by a company -- or a group of companies -- in the electric and autonomous vehicle industries.",
-      "date_published": "2026-08-21T16:01:54+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 42,
-        "tuesday": 26,
-        "wednesday": 19,
-        "thursday": 28,
-        "friday": 52,
+        "tuesday": 2,
+        "wednesday": 0,
+        "thursday": 2,
+        "friday": 53,
         "saturday": 40,
-        "sunday": 45
-      },
-      "_theme_scores_raw": {
-        "monday": 12,
-        "tuesday": 2,
-        "wednesday": 1,
-        "thursday": 3,
-        "friday": 39,
-        "saturday": 37,
-        "sunday": 48
+        "sunday": 49
       },
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
-      "image": "https://techcrunch.com/wp-content/uploads/2023/01/hesai-baidu-getty.jpg?resize=1200,799"
+      "image": "https://www.northernminer.com/wp-content/uploads/2023/03/TNM-Logo-3x-300x38.png"
     },
     {
-      "id": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
-      "url": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
-      "title": "Aid workers say Canada's Ebola quarantine hinders response, hope it won't be extended",
-      "content_html": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
-      "date_published": "2026-08-22T10:00:08+00:00",
+      "id": "https://www.techradar.com/audio/apple-music/better-move-would-be-to-ban-it-apple-music-steps-up-plan-for-ai-generated-song-labels-but-some-users-think-it-doesnt-go-far-enough",
+      "url": "https://www.techradar.com/audio/apple-music/better-move-would-be-to-ban-it-apple-music-steps-up-plan-for-ai-generated-song-labels-but-some-users-think-it-doesnt-go-far-enough",
+      "title": "‘Better move would be to ban it’: Apple Music steps up plan for AI-generated song labels, but some users think it doesn’t go far enough",
+      "content_html": "Apple Music will require artists to label their AI-generated music so users know what they’re getting.",
+      "date_published": "2026-08-21T22:00:00+00:00",
       "authors": [
         {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "_score": 62,
+      "_score": 59,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
@@ -244,149 +121,274 @@
       "_content_type": null,
       "_selection_bucket": "mid",
       "_theme_scores": {
-        "monday": 69,
-        "tuesday": 78,
-        "wednesday": 82,
-        "thursday": 62,
-        "friday": 66,
-        "saturday": 53,
-        "sunday": 84
-      },
-      "_theme_scores_raw": {
-        "monday": 19,
-        "tuesday": 7,
-        "wednesday": 5,
-        "thursday": 8,
-        "friday": 44,
-        "saturday": 41,
-        "sunday": 66
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960"
-    },
-    {
-      "id": "https://cpj.org/2026/08/cpj-joins-call-to-extend-un-fact-finding-mission-on-sudan/",
-      "url": "https://cpj.org/2026/08/cpj-joins-call-to-extend-un-fact-finding-mission-on-sudan/",
-      "title": "CPJ joins call to extend UN fact-finding mission on Sudan",
-      "content_html": "New York, August 21, 2026 – The Committee to Protect Journalists (CPJ) joined 67 other civil society organizations in calling on the UN Human Rights Council to extend the mandate of the Independent International Fact-Finding Mission for the Sudan (FFM) for two years and provide it with adequate resources to investigate grave violations and support...",
-      "date_published": "2026-08-21T09:21:03+00:00",
-      "authors": [
-        {
-          "name": "Committee to Protect Journalists",
-          "url": "https://cpj.org"
-        }
-      ],
-      "_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 31,
-        "tuesday": 26,
-        "wednesday": 19,
-        "thursday": 37,
-        "friday": 34,
-        "saturday": 35,
-        "sunday": 29
-      },
-      "_theme_scores_raw": {
-        "monday": 9,
-        "tuesday": 2,
-        "wednesday": 1,
-        "thursday": 4,
-        "friday": 32,
-        "saturday": 35,
-        "sunday": 40
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://cpj.org/wp-content/uploads/2026/08/AFP__20260819__C4ZL6KE__v1__HighRes__SudanConflictRsf.jpg?fit=4096,4096&strip=all&quality=80"
-    },
-    {
-      "id": "https://earthsky.org/earth/what-are-pyrocumulonimbus-clouds-fire-thunderstorms/",
-      "url": "https://earthsky.org/earth/what-are-pyrocumulonimbus-clouds-fire-thunderstorms/",
-      "title": "Pyrocumulonimbus clouds are fire-generated thunderstorms",
-      "content_html": "<p>This summer, NASA has been studying pyrocumulonimbus clouds, or fire-driven thunderstorms. Researchers are flying planes right into the plumes for samples.</p>\n<p>The post <a href=\"https://earthsky.org/earth/what-are-pyrocumulonimbus-clouds-fire-thunderstorms/\">Pyrocumulonimbus clouds are fire-generated thunderstorms</a> first appeared on <a href=\"https://earthsky.org\">EarthSky</a>.</p>",
-      "date_published": "2026-08-20T15:30:44+00:00",
-      "authors": [
-        {
-          "name": "EarthSky",
-          "url": "https://earthsky.org"
-        }
-      ],
-      "_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 72,
-        "tuesday": 73,
+        "monday": 66,
+        "tuesday": 43,
         "wednesday": 48,
-        "thursday": 71,
-        "friday": 77,
-        "saturday": 66,
-        "sunday": 68
-      },
-      "_theme_scores_raw": {
-        "monday": 20,
-        "tuesday": 6,
-        "wednesday": 2,
-        "thursday": 10,
-        "friday": 48,
-        "saturday": 45,
-        "sunday": 58
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://earthsky.org/upl/2026/05/utahfire_pyrocumulonimbus-Aug-3-2026-NASA-e1787239737153.jpg"
-    },
-    {
-      "id": "https://www.dezeen.com/2026/08/20/studio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth/",
-      "url": "https://www.dezeen.com/2026/08/20/studio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth/",
-      "title": "Studio Barnes and Ch_studio to convert former KKK building in Texas into arts centre",
-      "content_html": "<p>A team including Studio Barnes and Ch_studio has revealed designs to transform the 1920s building once used by the white supremacist group the Ku Klux Klan in Fort Worth, Texas, into a \"catalyst for community and restoration\". The 35,000-square-foot (3,251 square metre) building is located between Fort Worth's Historic Northside and downtown area, and its</p>\n<p>The post <a href=\"https://www.dezeen.com/2026/08/20/studio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth/\">Studio Barnes and Ch_studio to convert former KKK building in Texas into arts centre</a> appeared first on <a href=\"https://www.dezeen.com\">Dezeen</a>.</p>",
-      "date_published": "2026-08-20T18:19:06+00:00",
-      "authors": [
-        {
-          "name": "Dezeen",
-          "url": "https://www.dezeen.com"
-        }
-      ],
-      "_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 72,
-        "tuesday": 42,
-        "wednesday": 48,
-        "thursday": 57,
-        "friday": 60,
+        "thursday": 52,
+        "friday": 58,
         "saturday": 35,
         "sunday": 56
       },
       "_theme_scores_raw": {
-        "monday": 20,
+        "monday": 18,
         "tuesday": 3,
         "wednesday": 2,
-        "thursday": 7,
-        "friday": 42,
+        "thursday": 6,
+        "friday": 41,
         "saturday": 35,
         "sunday": 53
       },
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
-      "image": "http://static.dezeen.com/uploads/2026/08/center-for-arts-and-community-healing-fort-worth-texas-studio-barnes-ch-studio_dezeen_2364_sq-2-411x411.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/mHR88ToNSF9ZfWouuiPsLW-1280-80.jpg"
+    },
+    {
+      "id": "https://wltribune.com/2026/08/21/less-than-half-expected-sockeye-returning-to-b-c-s-fraser-river-this-year/",
+      "url": "https://wltribune.com/2026/08/21/less-than-half-expected-sockeye-returning-to-b-c-s-fraser-river-this-year/",
+      "title": "Less than half expected sockeye returning to B.C.’s Fraser River this year",
+      "content_html": "## Less than half expected sockeye returning to B.C.’s Fraser River this year Published 4:58 pm Friday, August 21, 2026 **By Mark Page/Black Press** Estimates for this year's Fraser Sockeye salmon run have been revised downward (Image courtesy Pacific Salmon Foundation) | **Getting your Trinity Audio player ready...** | | -------------------------------------------------------------------------- | The Pacific Salmon Commission has slashed estimates for this year’s Fraser River Sockeye run by more than 50 per cent. The initial prediction of 7,743,390 sockeye salmon returning to the Fraser",
+      "date_published": "2026-08-21T23:58:00+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 91,
+        "tuesday": 88,
+        "wednesday": 82,
+        "thursday": 96,
+        "friday": 85,
+        "saturday": 32,
+        "sunday": 94
+      },
+      "_theme_scores_raw": {
+        "monday": 29,
+        "tuesday": 10,
+        "wednesday": 5,
+        "thursday": 24,
+        "friday": 51,
+        "saturday": 34,
+        "sunday": 74
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/08/Infographic-fraser-sockeye-runs-1920-x-1280-px-1.jpeg?w=1024",
+      "_subscriber_access": "Williams Lake Tribune"
+    },
+    {
+      "id": "https://www.popularmechanics.com/science/a73436117/booksellers-soviet-spy-ring/",
+      "url": "https://www.popularmechanics.com/science/a73436117/booksellers-soviet-spy-ring/",
+      "title": "They Handed the Soviets the Blueprint for the Atomic Bomb—and Remained At Large for 10 More Years",
+      "content_html": "<p class=\"rte-simple-html-paragraph\">Morris and Lona Cohen began spying for the USSR at the beginning of World War II and went virtually undetected across two decades of espionage.</p>",
+      "date_published": "2026-08-21T18:00:00+00:00",
+      "authors": [
+        {
+          "name": "Popular Mechanics",
+          "url": "https://www.popularmechanics.com"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 52,
+        "tuesday": 78,
+        "wednesday": 64,
+        "thursday": 57,
+        "friday": 47,
+        "saturday": 59,
+        "sunday": 61
+      },
+      "_theme_scores_raw": {
+        "monday": 14,
+        "tuesday": 7,
+        "wednesday": 3,
+        "thursday": 7,
+        "friday": 37,
+        "saturday": 43,
+        "sunday": 55
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/5deb7cf0-a9b0-48fd-98db-a01688057308.jpeg?crop=1xw:0.727233676976xh;center,top&resize=1200:*",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/8/22/russian-strikes-kill-6-people-in-ukraine-day-after-shopping-complex-attack?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/8/22/russian-strikes-kill-6-people-in-ukraine-day-after-shopping-complex-attack?traffic_source=rss",
+      "title": "Russian strikes kill 6 people in Ukraine, day after shopping complex attack",
+      "content_html": "Meanwhile, Ukrainian drone hits home in southern Russia, killing two children and injuring their parents, officials say.",
+      "date_published": "2026-08-22T12:09:09+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 91,
+        "tuesday": 94,
+        "wednesday": 90,
+        "thursday": 94,
+        "friday": 94,
+        "saturday": 92,
+        "sunday": 93
+      },
+      "_theme_scores_raw": {
+        "monday": 29,
+        "tuesday": 13,
+        "wednesday": 7,
+        "thursday": 22,
+        "friday": 57,
+        "saturday": 58,
+        "sunday": 73
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/08/afp_6a895a729448-1787386482.jpg?resize=1200%2C675"
+    },
+    {
+      "id": "https://lifehacker.com/tech/emergency-features-you-should-enable-on-your-android?utm_medium=RSS",
+      "url": "https://lifehacker.com/tech/emergency-features-you-should-enable-on-your-android?utm_medium=RSS",
+      "title": "Seven Emergency Features You Should Enable on Your Google Pixel",
+      "content_html": "A little bit of preparation goes a long way in a crisis.",
+      "date_published": "2026-08-21T19:30:29+00:00",
+      "authors": [
+        {
+          "name": "Lifehacker",
+          "url": "https://lifehacker.com/feed/rss"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 56,
+        "tuesday": 27,
+        "wednesday": 19,
+        "thursday": 62,
+        "friday": 70,
+        "saturday": 80,
+        "sunday": 54
+      },
+      "_theme_scores_raw": {
+        "monday": 15,
+        "tuesday": 2,
+        "wednesday": 1,
+        "thursday": 8,
+        "friday": 45,
+        "saturday": 50,
+        "sunday": 52
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://lifehacker.com/imagery/articles/01M0BDAGCXA56M8AFE9TRDRV0F/hero-image.jpg"
+    },
+    {
+      "id": "https://nautil.us/are-you-in-danger-of-becoming-a-robot-1284114/",
+      "url": "https://nautil.us/are-you-in-danger-of-becoming-a-robot-1284114/",
+      "title": "Are You in Danger of Becoming a Robot?",
+      "content_html": "<p>How interacting with social chatbots could reduce your “personhood”</p>\n<p>The post <a href=\"https://nautil.us/are-you-in-danger-of-becoming-a-robot-1284114/\">Are You in Danger of Becoming a Robot?</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "date_published": "2026-08-21T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 52,
+        "tuesday": 65,
+        "wednesday": 74,
+        "thursday": 77,
+        "friday": 67,
+        "saturday": 56,
+        "sunday": 52
+      },
+      "_theme_scores_raw": {
+        "monday": 14,
+        "tuesday": 5,
+        "wednesday": 4,
+        "thursday": 12,
+        "friday": 44,
+        "saturday": 42,
+        "sunday": 51
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/French_HERO_d9a1ee.png?w=564"
+    },
+    {
+      "id": "https://www.themarginalian.org/2026/08/21/anais-nin-d-h-lawrence/",
+      "url": "https://www.themarginalian.org/2026/08/21/anais-nin-d-h-lawrence/",
+      "title": "How to Be Un-Dead: Notes on Waking Up from the Trance of Near-Living",
+      "content_html": "\"Life is a process of becoming, a combination of states we have to go through. Where people fail is that they wish to elect a state and remain in it. This is a kind of death.\"",
+      "date_published": "2026-08-22T01:03:18+00:00",
+      "authors": [
+        {
+          "name": "The Marginalian",
+          "url": "https://www.themarginalian.org"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 14,
+        "tuesday": 27,
+        "wednesday": 19,
+        "thursday": 28,
+        "friday": 16,
+        "saturday": 25,
+        "sunday": 15
+      },
+      "_theme_scores_raw": {
+        "monday": 5,
+        "tuesday": 2,
+        "wednesday": 1,
+        "thursday": 3,
+        "friday": 23,
+        "saturday": 31,
+        "sunday": 30
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://www.themarginalian.org/wp-content/uploads/2017/01/anaisnin_books1.jpg?fit=600%2C315&ssl=1"
     },
     {
       "id": "https://www.nytimes.com/2026/08/22/us/politics/election-polls-confusion-prediction-markets.html",
@@ -409,7 +411,7 @@
       "_selection_bucket": "border",
       "_theme_scores": {
         "monday": 39,
-        "tuesday": 26,
+        "tuesday": 27,
         "wednesday": 48,
         "thursday": 37,
         "friday": 39,
@@ -450,22 +452,22 @@
       "_content_type": null,
       "_selection_bucket": "border",
       "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
+        "monday": 23,
+        "tuesday": 8,
+        "wednesday": 19,
+        "thursday": 37,
+        "friday": 45,
+        "saturday": 25,
+        "sunday": 52
       },
       "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
+        "monday": 7,
+        "tuesday": 1,
+        "wednesday": 1,
+        "thursday": 4,
+        "friday": 36,
+        "saturday": 31,
+        "sunday": 51
       },
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
@@ -493,7 +495,7 @@
       "_selection_bucket": "border",
       "_theme_scores": {
         "monday": 35,
-        "tuesday": 26,
+        "tuesday": 27,
         "wednesday": 19,
         "thursday": 17,
         "friday": 70,
@@ -512,47 +514,6 @@
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
       "_subscriber_access": "Apple News"
-    },
-    {
-      "id": "https://www.techradar.com/pro/back-to-school-on-a-budget-our-top-5-mini-pcs-under-usd600-for-work-and-study",
-      "url": "https://www.techradar.com/pro/back-to-school-on-a-budget-our-top-5-mini-pcs-under-usd600-for-work-and-study",
-      "title": "Back to school on a budget: Our top 5 mini PCs under $600 for work and study",
-      "content_html": "Based on our tests, these 5 mini PCs under $600 are perfect for studying, productivity, streaming, and everyday tasks.",
-      "date_published": "2026-08-21T19:20:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "_score": 49,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "border",
-      "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://cdn.mos.cms.futurecdn.net/ptHmroCTEaHMf7Eefx2xYM-1280-80.jpg"
     },
     {
       "id": "https://www.newyorker.com/news/annals-of-activism/a-political-awakening-in-arab-america",
@@ -577,10 +538,10 @@
         "monday": 69,
         "tuesday": 55,
         "wednesday": 64,
-        "thursday": 67,
-        "friday": 84,
+        "thursday": 68,
+        "friday": 85,
         "saturday": 91,
-        "sunday": 80
+        "sunday": 81
       },
       "_theme_scores_raw": {
         "monday": 19,
@@ -594,6 +555,47 @@
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
       "image": "https://media.newyorker.com/photos/6a85f041afb6b24f830d16de/master/pass/new-yorker-fury-hi-res.jpg",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.bicycling.com/bikes-gear/a22450486/best-cycling-shoes/",
+      "url": "https://www.bicycling.com/bikes-gear/a22450486/best-cycling-shoes/",
+      "title": "The Best Cycling Shoes for Road, Gravel, and MTB—12 Editor-Tested Picks for Comfort and Power Transfer",
+      "content_html": "<p class=\"rte-simple-html-paragraph\">Find the right shoe for your ride, from race-ready road models to rugged off-road picks.</p>",
+      "date_published": "2026-08-20T17:45:00+00:00",
+      "authors": [
+        {
+          "name": "Bicycling",
+          "url": "https://www.bicycling.com"
+        }
+      ],
+      "_score": 48,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
+      },
+      "_theme_scores_raw": {
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 3,
+        "saturday": 6,
+        "sunday": 2
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
       "_subscriber_access": "Apple News+"
     },
     {
@@ -639,101 +641,58 @@
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.nytimes.com/2026/08/21/travel/cruise-lines-fees.html",
-      "url": "https://www.nytimes.com/2026/08/21/travel/cruise-lines-fees.html",
-      "title": "Why Cruise Line Are Hiking Certain Fees",
-      "content_html": "Some major lines are increasing gratuities and deposit requirements, and charging more for certain packages. It’s all adding up.",
-      "date_published": "2026-08-21T09:03:46+00:00",
+      "id": "https://newatlas.com/campervans/hunker-camper-van-pod/",
+      "url": "https://newatlas.com/campervans/hunker-camper-van-pod/",
+      "title": "Plug-n-play US camper pod turns a bare van into a homey RV in 1 hour",
+      "content_html": "<p><img alt=\"The Hunker Pod is a full camper van that rolls in and out of the van\" src=\"https://assets.newatlas.com/dims4/default/00093d8/2147483647/strip/true/crop/6592x4978+0+0/resize/1271x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F7e%2Fb1%2F5a6630f2461a93e8edb444a9fc31%2Fdsc02743.jpg\" /><p>I want the camper van ... but without tying myself to one van. That's essentially what spinoff brand Hunker sells with its new slide-in camper system. An all-in-one camper van floor plan on roller skates, the Hunker Pod turns an empty Ram Promaster into a warm, inviting camper van with kitchen, dining area, queen bed and toilet – no time-sucking DIY conversion work, no six-figure custom build, and no bottomless pit of never-ending obstacles and expenses. The pod and van combined cost well less than most US-market fully built camper vans, and the Hunker Pod will even outlast the van itself, installing in a new van just as easily as the first time.</p><p><a href=\"https://newatlas.com/campervans/hunker-camper-van-pod/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/campervans/\">Campervans</a>, <a href=\"https://newatlas.com/adventure-vehicles/\">Adventure Vehicles</a>, <a href=\"https://newatlas.com/outdoors/\">Outdoors</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/camper-in-a-box/\" rel=\"tag\">camper-in-a-box</a>, <a href=\"https://newatlas.com/tag/campervan/\" rel=\"tag\">Campervan</a>, <a href=\"https://newatlas.com/tag/rv/\" rel=\"tag\">RV</a>, <a href=\"https://newatlas.com/tag/modular/\" rel=\"tag\">Modular</a>, <a href=\"https://newatlas.com/tag/ram/\" rel=\"tag\">RAM</a>, <a href=\"https://newatlas.com/tag/camping/\" rel=\"tag\">Camping</a>, <a href=\"https://newatlas.com/tag/outdoor/\" rel=\"tag\">Outdoors and Camping</a>, <a href=\"https://newatlas.com/tag/van/\" rel=\"tag\">Van</a></p>",
+      "date_published": "2026-08-20T20:47:00+00:00",
       "authors": [
         {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
         }
       ],
-      "_score": 28,
-      "_quality": 40,
-      "_relevance": 15,
+      "_score": 29,
+      "_quality": 38,
+      "_relevance": 28,
       "_local_score": 0,
       "_category": "news",
-      "_content_type": "news",
+      "_content_type": "breaking",
       "_selection_bucket": "mid",
       "_theme_scores": {
-        "monday": 27,
-        "tuesday": 26,
-        "wednesday": 19,
-        "thursday": 37,
-        "friday": 28,
-        "saturday": 32,
-        "sunday": 29
-      },
-      "_theme_scores_raw": {
-        "monday": 8,
-        "tuesday": 2,
-        "wednesday": 1,
-        "thursday": 4,
-        "friday": 30,
-        "saturday": 34,
-        "sunday": 40
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://static01.nyt.com/images/2026/08/21/multimedia/xx-trav-cruise-fees-mzlk/xx-trav-cruise-fees-mzlk-mediumSquareAt3X.jpg",
-      "_subscriber_access": "New York Times"
-    },
-    {
-      "id": "https://www.northernminer.com/news/artemis-drilling-points-to-blackwater-resource-growth/1003894167/",
-      "url": "https://www.northernminer.com/news/artemis-drilling-points-to-blackwater-resource-growth/1003894167/",
-      "title": "Artemis drilling points to Blackwater resource growth",
-      "content_html": "<p>Artemis Gold’s (TSXV: ARTG; US-OTC: ARGTF) first two holes in a 25,000-metre expansion program at its Blackwater mine in British Columbia have encountered substantial mineralization beyond the current reserve, suggesting...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/artemis-drilling-points-to-blackwater-resource-growth/1003894167/\">Artemis drilling points to Blackwater resource growth</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "date_published": "2026-08-21T14:15:18+00:00",
-      "authors": [
-        {
-          "name": "The Northern Miner",
-          "url": "https://www.northernminer.com"
-        }
-      ],
-      "_score": 61,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 23,
-        "tuesday": 26,
+        "monday": 0,
+        "tuesday": 0,
         "wednesday": 0,
-        "thursday": 17,
-        "friday": 3,
-        "saturday": 9,
-        "sunday": 7
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
       "_theme_scores_raw": {
-        "monday": 7,
-        "tuesday": 2,
+        "monday": 0,
+        "tuesday": 0,
         "wednesday": 0,
-        "thursday": 2,
-        "friday": 12,
-        "saturday": 22,
-        "sunday": 22
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
       "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://www.northernminer.com/wp-content/uploads/2026/08/BlackwaterMine-pit-May292025.jpg"
+      "_today_label": "Cariboo Local Affairs"
     },
     {
-      "id": "https://www.theatlantic.com/politics/2026/08/james-fishback-republican-young-voters-florida/688366/?utm_source=feed",
-      "url": "https://www.theatlantic.com/politics/2026/08/james-fishback-republican-young-voters-florida/688366/?utm_source=feed",
-      "title": "An Unsettling Glimpse Into the GOP’s Future",
-      "content_html": "James Fishback lost badly in Florida but showed that there’s support for bigotry among the young.",
-      "date_published": "2026-08-20T22:30:00+00:00",
+      "id": "https://www.tomsguide.com/tvs/4k-tvs/i-test-tvs-for-a-living-heres-what-id-buy-for-usd500-usd1-000-and-usd2-000-in-2026",
+      "url": "https://www.tomsguide.com/tvs/4k-tvs/i-test-tvs-for-a-living-heres-what-id-buy-for-usd500-usd1-000-and-usd2-000-in-2026",
+      "title": "I test TVs for a living — here's what I'd buy for $500, $1,000 and $2,000 in 2026",
+      "content_html": "I've spent over a decade testing and reviewing the best TVs on shelves. Here are the TV deals I'd buy right now across three popular price points.",
+      "date_published": "2026-08-22T08:30:00+00:00",
       "authors": [
         {
-          "name": "The Atlantic",
-          "url": "https://www.theatlantic.com"
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
         }
       ],
-      "_score": 60,
+      "_score": 58,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
@@ -741,124 +700,122 @@
       "_content_type": null,
       "_selection_bucket": "mid",
       "_theme_scores": {
-        "monday": 35,
-        "tuesday": 55,
-        "wednesday": 64,
-        "thursday": 57,
-        "friday": 45,
-        "saturday": 72,
-        "sunday": 66
-      },
-      "_theme_scores_raw": {
-        "monday": 10,
-        "tuesday": 4,
-        "wednesday": 3,
-        "thursday": 7,
-        "friday": 36,
-        "saturday": 47,
-        "sunday": 57
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://cdn.theatlantic.com/thumbor/Hg6cxSB7J0dYB-Zs-5XRHKAm5QQ=/0x85:3994x2165/1200x625/media/img/mt/2026/08/2026_08_20_The_Biggest_Winner_Who_Lost_in_the_Primaries_Ali_Breland/original.jpg",
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.scientificamerican.com/article/why-trauma-changes-how-our-memory-engages-with-our-conscious-experience/",
-      "url": "https://www.scientificamerican.com/article/why-trauma-changes-how-our-memory-engages-with-our-conscious-experience/",
-      "title": "Why trauma changes how our memory engages with our conscious experience",
-      "content_html": "<p>Trauma can distort how memories are stored and retrieved in the brain</p>",
-      "date_published": "2026-08-22T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "Scientific American",
-          "url": "https://www.scientificamerican.com"
-        }
-      ],
-      "_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 42,
-        "tuesday": 42,
-        "wednesday": 19,
-        "thursday": 46,
-        "friday": 58,
-        "saturday": 59,
-        "sunday": 48
-      },
-      "_theme_scores_raw": {
-        "monday": 12,
-        "tuesday": 3,
-        "wednesday": 1,
-        "thursday": 5,
-        "friday": 41,
-        "saturday": 43,
-        "sunday": 49
-      },
-      "_today": "saturday",
-      "_today_label": "Cariboo Local Affairs",
-      "image": "https://static.scientificamerican.com/dam/m/7c64d2d8ed3d7d56/original/brain_disintegrating_illustration.jpg?m=1732720871.354&w=1200",
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://thetyee.ca/Presents/2026/08/21/Vancouver-Farmers-Markets/",
-      "url": "https://thetyee.ca/Presents/2026/08/21/Vancouver-Farmers-Markets/",
-      "title": "Please Don’t Squeeze the Tomatoes!",
-      "content_html": "Vancouver’s farmers markets are growing. Is the city making enough space for them?",
-      "date_published": "2026-08-22T00:30:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_theme_scores": {
-        "monday": 23,
-        "tuesday": 42,
+        "monday": 18,
+        "tuesday": 27,
         "wednesday": 48,
-        "thursday": 37,
-        "friday": 10,
-        "saturday": 17,
-        "sunday": 22
+        "thursday": 17,
+        "friday": 13,
+        "saturday": 10,
+        "sunday": 12
       },
       "_theme_scores_raw": {
-        "monday": 7,
-        "tuesday": 3,
+        "monday": 6,
+        "tuesday": 2,
         "wednesday": 2,
-        "thursday": 4,
-        "friday": 19,
-        "saturday": 28,
-        "sunday": 36
+        "thursday": 2,
+        "friday": 21,
+        "saturday": 23,
+        "sunday": 27
       },
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
-      "image": "https://thetyee.ca/Presents/2026/08/14/SqueezeTomato.png"
+      "image": "https://cdn.mos.cms.futurecdn.net/hRsaSUENiEU9eBTastd9Jg-1280-80.jpg"
     },
     {
-      "id": "https://makezine.com/article/technology/microcontrollers/romu-the-rp2350-board-small-enough-to-lose/",
-      "url": "https://makezine.com/article/technology/microcontrollers/romu-the-rp2350-board-small-enough-to-lose/",
-      "title": "Romu, the RP2350 Board Small Enough To Lose",
-      "content_html": "<div><img alt=\"Romu, the RP2350 Board Small Enough To Lose\" class=\"attachment-medium size-medium wp-post-image\" height=\"348\" src=\"https://i0.wp.com/makezine.com/wp-content/uploads/2026/08/Romu-4.png?fit=597%2C348&amp;ssl=1\" style=\"margin-bottom: 15px;\" width=\"597\" /></div>\n<p>The RP2354A-powered Romu is smaller than a bread bag clip.</p>\n<p>The post <a href=\"https://makezine.com/article/technology/microcontrollers/romu-the-rp2350-board-small-enough-to-lose/\">Romu, the RP2350 Board Small Enough To Lose</a> appeared first on <a href=\"https://makezine.com\">Make: DIY Projects and Ideas for Makers</a>.</p>",
-      "date_published": "2026-08-20T15:00:00+00:00",
+      "id": "https://www.zdnet.com/article/china-drops-windows-for-linux/",
+      "url": "https://www.zdnet.com/article/china-drops-windows-for-linux/",
+      "title": "China joins Europe in scrapping Windows for Linux",
+      "content_html": "The specialized Chinese version of Windows was already scheduled for retirement in February 2027, but now its end-of-life date has been moved up.",
+      "date_published": "2026-08-21T11:18:30+00:00",
       "authors": [
         {
-          "name": "Make Magazine",
-          "url": "https://makezine.com"
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
         }
       ],
-      "_score": 60,
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 69,
+        "tuesday": 78,
+        "wednesday": 64,
+        "thursday": 71,
+        "friday": 75,
+        "saturday": 75,
+        "sunday": 64
+      },
+      "_theme_scores_raw": {
+        "monday": 19,
+        "tuesday": 7,
+        "wednesday": 3,
+        "thursday": 10,
+        "friday": 47,
+        "saturday": 48,
+        "sunday": 56
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://www.zdnet.com/a/img/resize/103ee016d13ec3d621d286d99c8a137de4cb8389/2026/08/21/c6c182d2-5771-4285-ac19-329e0e354fee/gettyimages-602384283.jpg?auto=webp&fit=crop&height=675&width=1200"
+    },
+    {
+      "id": "https://insideevs.com/news/805659/aptera-production-partner-china/",
+      "url": "https://insideevs.com/news/805659/aptera-production-partner-china/",
+      "title": "Aptera Reveals The Secret To Building Its Solar EV: China",
+      "content_html": "The California startup has partnered with a design-for-manufacturing company to supercharge its solar EV production plans.",
+      "date_published": "2026-08-21T06:06:30+00:00",
+      "authors": [
+        {
+          "name": "InsideEVs",
+          "url": "https://www.insideevs.com"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 5,
+        "tuesday": 8,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 19,
+        "saturday": 13,
+        "sunday": 2
+      },
+      "_theme_scores_raw": {
+        "monday": 3,
+        "tuesday": 1,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 25,
+        "saturday": 25,
+        "sunday": 12
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://cdn.motor1.com/images/mgl/ojGv1p/s3/aptera-solar-electric-vehicle-production-validation-vehicle.jpg"
+    },
+    {
+      "id": "https://www.macrumors.com/2026/08/21/smartphone-sales-falling-but-apple-grows/",
+      "url": "https://www.macrumors.com/2026/08/21/smartphone-sales-falling-but-apple-grows/",
+      "title": "Smartphone Sales Are Falling Worldwide, But Apple Keeps Growing",
+      "content_html": "Apple gained ground in India, Latin America, and Europe even as all three markets contracted, according to a new series of <a href=\"https://www.counterpointresearch.com/insights\">Counterpoint Research</a> reports.\n<br />\n\n<br />\n<img alt=\"\" class=\"aligncenter size-full wp-image-1056654\" height=\"1406\" src=\"https://images.macrumors.com/article-new/2026/07/iPhone-17-17-Pro-and-Air-Feature.jpg\" width=\"2500\" />\n<br />\nBetween late March and the beginning of August, <a href=\"https://counterpointresearch.com/en/insights/india-smartphone-weekly-sales-decline-for-three-consecutive-weeks\">Indian smartphone sales</a> ran 14% behind the equivalent stretch of 2025, and the market slipped for three straight weeks once major promotions in July had finished. Apple outperformed every rival with a 15% rise, which Counterpoint attributes to strong <a href=\"https://www.macrumors.com/roundup/iphone-17/\">iPhone 17</a> demand holding up alongside continued affordability offers. Samsung and OPPO each grew just 4% in the country.\n<br />\n\n<br />\nThe research firm added that promotions are borrowing demand from the weeks either side of them, rather than growing the market. Amid broad price rises, Counterpoint expects the Indian smartphone market to finish 2026 down around 13%.\n<br />\n\n<br />\n<a href=\"https://counterpointresearch.com/en/insights/samsung-apple-growth-latam-market-q2-2026\">Latin American smartphone shipments</a> fell 10% in the second quarter, which is the region's steepest annual drop since the third quarter of 2023. Apple and Samsung were the only brands to grow, by 5% and 6% respectively, while Motorola, HONOR, and Xiaomi all receded in the market. Apple's gains apparently came from absorbing component cost increases rather than passing them on to customers, and the company now accounts for roughly 51% of everything sold above &#36;600 in the region.\n<br />\n\n<br />\n<a href=\"https://counterpointresearch.com/en/insights/europe-smartphone-shipments-drop-10-percent-yoy-in-q2%202026\">European shipments</a> dropped 10% to 35 million units, which is the weakest second quarter in three years. Apple added nine percentage points of market share to achieve parity with Samsung, with each now on 34%, and Xiaomi on 15%. No other brands sit above 4%. Counterpoint expects further declines as inventory dries up, but forecasts that Apple will continue outperforming the wider market.\n<br />\n\n<br />\nThe <a href=\"https://counterpointresearch.com/en/insights/china-smartphone-market-saw-sharper-contraction-after-618\">smartphone market in China</a> was down 8.6% across the first 30 weeks of the year, with the rate of decline widening back into double digits once the popular 618 shopping festival had concluded. Apple's sales have slowed since July, with discounts pulled back across retail channels and much of the summer's demand already spent during promotions. Counterpoint expects that lull to last until the new iPhone lineup arrives. Huawei, meanwhile, led the market throughout in the region, holding more than a fifth of weekly sales since April.\n<br />\n\n<br />\nCounterpoint expects constrained memory supply and elevated prices to run through the remainder of 2026, with a recovery unlikely before 2028. Apple is expected to introduce its next iPhone lineup in September, featuring the <a href=\"https://www.macrumors.com/roundup/iphone-18-pro/\">iPhone 18 Pro</a>, &zwnj;iPhone 18 Pro&zwnj; Max, and foldable \"<a href=\"https://www.macrumors.com/guide/iphone-ultra/\">iPhone Ultra</a>.\"<div class=\"linkback\">Tags: <a href=\"https://www.macrumors.com/guide/china/\">China</a>, <a href=\"https://www.macrumors.com/guide/counterpoint/\">Counterpoint</a>, <a href=\"https://www.macrumors.com/guide/europe/\">Europe</a>, <a href=\"https://www.macrumors.com/guide/india/\">India</a>, <a href=\"https://www.macrumors.com/guide/latin-america/\">Latin America</a></div><br />This article, &quot;<a href=\"https://www.macrumors.com/2026/08/21/smartphone-sales-falling-but-apple-grows/\">Smartphone Sales Are Falling Worldwide, But Apple Keeps Growing</a>&quot; first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br /><br /><a href=\"https://forums.macrumors.com/threads/smartphone-sales-are-falling-worldwide-but-apple-keeps-growing.2487669/\">Discuss this article</a> in our forums<br /><br />",
+      "date_published": "2026-08-21T13:38:47+00:00",
+      "authors": [
+        {
+          "name": "MacRumors",
+          "url": "https://www.macrumors.com"
+        }
+      ],
+      "_score": 58,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
@@ -867,25 +824,66 @@
       "_selection_bucket": "mid",
       "_theme_scores": {
         "monday": 52,
-        "tuesday": 55,
+        "tuesday": 8,
         "wednesday": 19,
-        "thursday": 52,
-        "friday": 63,
-        "saturday": 35,
-        "sunday": 41
+        "thursday": 17,
+        "friday": 55,
+        "saturday": 43,
+        "sunday": 44
       },
       "_theme_scores_raw": {
         "monday": 14,
-        "tuesday": 4,
+        "tuesday": 1,
         "wednesday": 1,
-        "thursday": 6,
-        "friday": 43,
-        "saturday": 35,
-        "sunday": 46
+        "thursday": 2,
+        "friday": 40,
+        "saturday": 38,
+        "sunday": 47
       },
       "_today": "saturday",
       "_today_label": "Cariboo Local Affairs",
-      "image": "https://i0.wp.com/makezine.com/wp-content/uploads/2026/08/Romu-4.png?fit=597%2C348&ssl=1"
+      "image": "https://images.macrumors.com/t/gQVaO6C8CS0AFFpG1TiFJjl3jkk=/2500x/article-new/2026/07/iPhone-17-17-Pro-and-Air-Feature.jpg"
+    },
+    {
+      "id": "https://www.androidauthority.com/ads-on-pixel-phones-how-turn-off-3699375/",
+      "url": "https://www.androidauthority.com/ads-on-pixel-phones-how-turn-off-3699375/",
+      "title": "Google is starting to show ads on Pixel phones — here’s how to turn them off",
+      "content_html": "Ads suck, but at least you can get rid of this one.",
+      "date_published": "2026-08-22T12:00:15+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "_score": 58,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_theme_scores": {
+        "monday": 75,
+        "tuesday": 82,
+        "wednesday": 95,
+        "thursday": 84,
+        "friday": 58,
+        "saturday": 59,
+        "sunday": 56
+      },
+      "_theme_scores_raw": {
+        "monday": 21,
+        "tuesday": 8,
+        "wednesday": 9,
+        "thursday": 15,
+        "friday": 41,
+        "saturday": 43,
+        "sunday": 53
+      },
+      "_today": "saturday",
+      "_today_label": "Cariboo Local Affairs",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/google-pixel-11-pro-my-pixel-app-new-features-scaled.jpg"
     }
   ]
 }

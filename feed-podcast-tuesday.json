@@ -23,9 +23,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — forestry, ranching, mining, and agriculture, the resource economy that defines the Cariboo and rural BC.\n\nOUT OF SCOPE — score 0-14: geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; wildlife content with no agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories.\n\nCALIBRATION — apply this ladder to everything else. Trade-press journalism counts fully: equipment, markets, and operations coverage is a real fit, not a near-zero. A BC tie raises a score but is NOT required to reach the top band.\n- 80-100: Excellent working-lands journalism. BC/Cariboo forestry, ranching, mining, and agriculture stories land here (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen) — and so does outstanding national trade reporting with real operational or economic depth.\n- 55-79: Solid resource-economy journalism anywhere in Canada or beyond — Western Producer or Northern Miner-style coverage of farm machinery, harvest technology, livestock and commodity markets, mining operations and exploration, AgTech and precision agriculture, silviculture, sawmills, drone survey work, mine automation, and labour/workforce stories in these industries. Most genuine trade journalism belongs HERE, not below.\n- 30-54: Broader agriculture, forestry, or mining news with clear working-lands relevance but thin reporting — general farm economics, international resource-industry briefs, climate impacts on working lands.\n- 15-29: Tangential mentions — a business, policy, or science story that touches forestry/agriculture/mining in passing, or Cariboo civic news unrelated to working lands.\n\nANCHORS: 'Williams Lake sawmill cuts second shift as beetle-kill supply dwindles' → 95. 'New John Deere baler cuts hay-drying time by a third' → 70. 'Cattle futures slip on weaker export demand' → 60. 'Global copper prices hit two-year high' → 40.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-08-22T14:39:42.503879+00:00",
+    "generated_at": "2026-08-22T14:49:56.015938+00:00",
     "article_count": 100,
-    "bonus_count": 82,
+    "bonus_count": 81,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -198,37 +198,6 @@
       }
     },
     {
-      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
-      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-08-22.html",
-      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, August 22, 2026",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fzirnhelt.github.io%2Fcurated-podcast-generator%2Fpodcasts%2Freviews%2Fepisode-review-2026-08-22.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><em>What the pipeline did, what broke, and what it chose when something broke. Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/32562874398\">32562874398</a>.</em></p>\n\n<h3>Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead</h3>\n\n<p>The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total.</p>\n\n<p>The timeout itself is tracked: Gemini's generativelanguage.googleapis.com endpoint returned read timeouts on multiple canary checks. This is infrastructure fragility, not a code problem. The system detected it before publishing and chose safety over economy.</p>\n\n<h3>Brave Search broke on three separate queries</h3>\n\n<p>The Brave API returned 400 errors on three research queries, all malformed requests according to the logs. Two involved the Bald Range wildfire story; one targeted Aurora Borealis content from Atlas Obscura. The pipeline did not retry these or mark them as fallback triggers. They simply failed and the episode moved forward without them.</p>\n\n<h3>Short-segment TTS had a 78% failure rate</h3>\n\n<p>Nine short audio segments were queued for text-to-speech synthesis. Seven failed and could not be recovered. The pipeline retried but did not escalate; these segments likely dropped from the final mix. This is a secondary degradation—the main episode rendered successfully—but it represents missing content downstream of the primary voice work.</p>\n\n<h3>38 roundup items were culled; 5 deep dives made it through</h3>\n\n<p>The pipeline dropped 38 candidate stories from the daily roundup. Five deep-dive pieces survived the curation gate: a cycling training ride in the Cariboo, B.C. lumber trade relief, ranching families west of Williams Lake (two Tribune stories), and Tyson Foods beef plant closures tied to drought. Citation alignment data shows 8 sources in the first tier, 15 in the second, none in the third, and 5 scattered elsewhere—an uneven distribution that suggests some sources clustered heavily while others appeared once.</p>\n\n<h3>The episode landed on the central question about regional economic power</h3>\n\n<p>Today's debate framing: \"Does the Cariboo region have meaningful formal input into economic decisions made at federal and provincial levels, or does it only absorb outcomes determined elsewhere?\" The deep dives anchor this—trade deals, closures, drought impacts, and local initiatives all touch the question of who decides and who adapts.</p>\n\n<h3>The run timeline: three attempts, all late</h3>\n\n<p>Primary run triggered at 1:05 AM Pacific, arrived at 1:39 AM (34 minutes late). Fallback 1 at 2:05 AM, arrived at 2:25 AM (20 minutes late). Fallback 2 at 3:05 AM began at 3:30 AM (25 minutes late) and was still in progress at report time. The primary and first fallback both completed successfully. Script generation took 11.5 minutes of the primary run's total 27.6 minutes; rendering and deployment consumed the rest.</p>\n\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific)</td><td>2026-08-22T08:39:54Z</td><td>+34 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific)</td><td>2026-08-22T09:25:55Z</td><td>+20 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific)</td><td>2026-08-22T10:30:13Z</td><td>+25 min</td><td>in_progress</td></tr>\n</tbody>\n</table>\n\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>7 pattern hit(s), voice ratio 0.93, 2946 words</td></tr>\n<tr><td>Audio</td><td>18.4 min</td></tr>\n<tr><td>Audio size</td><td>16.8 MB</td></tr>\n<tr><td>Citations matched</td><td>8/15 roundup, 0/5 deep dive</td></tr>\n<tr><td>Feed</td><td>207 episodes</td></tr>\n<tr><td>Anthropic spend</td><td>85,701 input tokens, calls {'claude': 8}</td></tr>\n</tbody>\n</table>",
-      "summary": "What the pipeline did, what broke, and what it chose when something broke. Run 32562874398 . Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline",
-      "_excerpt": "What the pipeline did, what broke, and what it chose when something broke. Run 32562874398 . Gemini's voice failed mid-pipeline, so the whole episode ran on OpenAI instead The Gemini text-to-speech service timed out during pre-flight checks. Rather than risk a voice switch mid-episode, the pipeline fell back to OpenAI for the complete render. This is the correct failure mode—18.4 minutes of continuous audio demands a single voice—but it means the episode cost more than planned. The spend data shows Claude at 8 units; the full OpenAI render added to that total. The timeout itself is tracked:",
-      "date_published": "2026-08-22T10:30:45+00:00",
-      "authors": [
-        {
-          "name": "Cariboo Signals Reviews",
-          "url": "https://zirnhelt.github.io/curated-podcast-generator"
-        }
-      ],
-      "ai_score": 63,
-      "_quality": 50,
-      "_relevance": 55,
-      "_local": 100,
-      "_theme_score": 88,
-      "_composite_podcast": 88,
-      "_keyword_matches": 3,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
-      }
-    },
-    {
       "id": "https://hackaday.com/2026/08/21/pvc-pipe-turned-diy-digital-telescope/",
       "url": "https://hackaday.com/2026/08/21/pvc-pipe-turned-diy-digital-telescope/",
       "title": "[Hackaday] PVC Pipe Turned DIY Digital Telescope",
@@ -289,9 +258,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -359,36 +328,6 @@
       }
     },
     {
-      "id": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
-      "url": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
-      "title": "[The Northern Miner] First Nations group pulls support for Seabridge’s KSM",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Ffirst-nations-group-pulls-support-for-seabridges-ksm%2F1003894189%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold&#8216;s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/\">First Nations group pulls support for Seabridge&#8217;s KSM</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "summary": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
-      "_excerpt": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
-      "date_published": "2026-08-21T13:35:10+00:00",
-      "authors": [
-        {
-          "name": "The Northern Miner",
-          "url": "https://www.northernminer.com"
-        }
-      ],
-      "ai_score": 71,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 80,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
       "id": "https://www.mycariboonow.com/315687/news/emergency-services/fire/wildfires/stolen-pumps-hamper-crews-as-summerland-area-wildfire-grows-by-600-hectares/",
       "url": "https://www.mycariboonow.com/315687/news/emergency-services/fire/wildfires/stolen-pumps-hamper-crews-as-summerland-area-wildfire-grows-by-600-hectares/",
       "title": "Stolen pumps hamper crews as Summerland-area wildfire grows by 600 hectares : My Cariboo Now",
@@ -413,6 +352,36 @@
       "_source_category": "local",
       "_is_bonus": true,
       "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
+      "url": "https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/",
+      "title": "[The Northern Miner] First Nations group pulls support for Seabridge’s KSM",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Ffirst-nations-group-pulls-support-for-seabridges-ksm%2F1003894189%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold&#8216;s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/first-nations-group-pulls-support-for-seabridges-ksm/1003894189/\">First Nations group pulls support for Seabridge&#8217;s KSM</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
+      "summary": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
+      "_excerpt": "Citing the need for improved consultation, a First Nations group has pulled its support for Seabridge Gold‘s (TSX: SEA, NYSE: SA) KSM mine in northwestern British Columbia. The Hereditary Chiefs... The post First Nations group pulls support for Seabridge’s KSM appeared first on The Northern Miner .",
+      "date_published": "2026-08-21T13:35:10+00:00",
+      "authors": [
+        {
+          "name": "The Northern Miner",
+          "url": "https://www.northernminer.com"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 89,
+      "_composite_podcast": 79,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -445,38 +414,8 @@
       "_is_bonus": true,
       "image": "https://hackaday.com/wp-content/uploads/2026/08/Potassium_883f28.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/",
-      "url": "https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/",
-      "title": "[New Atlas] Containerized GHOST system puts rocket launch infrastructure on the go",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Fmilitary%2Fghost-gives-rocket-launch-sites-flat-pack-treatment%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"The first GHOST site will be in Alaska\" src=\"https://assets.newatlas.com/dims4/default/ecf129a/2147483647/strip/true/crop/2422x1368+0+0/resize/1440x813!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2Ffd%2F70%2F9e5dd1084e07958f2084315ee6fa%2Fhpy8rqowiaas-se.jpeg\" /><p>Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers.</p><p><a href=\"https://newatlas.com/military/ghost-gives-rocket-launch-sites-flat-pack-treatment/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/military/\">Military</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/rocket-lab/\" rel=\"tag\">Rocket Lab</a>, <a href=\"https://newatlas.com/tag/us-space-force/\" rel=\"tag\">US Space Force</a>, <a href=\"https://newatlas.com/tag/rocket/\" rel=\"tag\">Rocket</a>, <a href=\"https://newatlas.com/tag/launch/\" rel=\"tag\">Launch</a></p>",
-      "summary": "Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers. Continue Reading Category: Military ,",
-      "_excerpt": "Land-based launch sites for orbital rockets just got the flat-pack treatment as Rocket Lab announced its Global Hypersonic & Orbital Spaceport Technology (GHOST) system. The initiative packs a complete launch system into standard shipping containers. Continue Reading Category: Military , Engineering Tags: Rocket Lab , US Space Force , Rocket , Launch",
-      "date_published": "2026-08-15T14:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 78,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
         "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
@@ -571,9 +510,9 @@
       ],
       "_subscriber_access": "Apple News",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -594,7 +533,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 73,
       "_keyword_matches": 3,
       "_category": "wellness",
@@ -612,33 +551,34 @@
       }
     },
     {
-      "id": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
-      "title": "[ScienceDaily] A 30-year-old fossil was hiding bones from a mysterious ancient sea monster",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F08%2F260813045555.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even more intriguing, parts of the skull show unusual anatomical features that don’t match known mosasaurs, raising the possibility that the remains belong to an entirely new species.",
-      "summary": "Fossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even",
-      "_excerpt": "Fossils collected in Osaka more than 30 years ago have revealed a surprise hiding in plain sight: four previously unrecognized bones from a giant Cretaceous mosasaur. Among them is the first confirmed premaxilla—the frontmost bone of the upper jaw—ever identified in a Japanese mosasaur fossil. Even more intriguing, parts of the skull show unusual anatomical features that don’t match known mosasaurs, raising the possibility that the remains belong to an entirely new species.",
-      "date_published": "2026-08-15T14:19:45+00:00",
+      "id": "https://www.dezeen.com/2026/08/20/studio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth/",
+      "url": "https://www.dezeen.com/2026/08/20/studio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth/",
+      "title": "[Dezeen] Studio Barnes and Ch_studio to convert former KKK building in Texas into arts centre",
+      "content_html": "<img src=\"http://static.dezeen.com/uploads/2026/08/center-for-arts-and-community-healing-fort-worth-texas-studio-barnes-ch-studio_dezeen_2364_sq-2-411x411.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dezeen.com%2F2026%2F08%2F20%2Fstudio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>A team including Studio Barnes and Ch_studio has revealed designs for the 1920s building once used by the white supremacist group the Ku Klux Klan in Fort Worth, Texas, into a \"catalyst for community and restoration\". The 35,000-square-foot (3,251 square metre) building is located between Fort Worth's Historic Northside and downtown area, and its planned</p>\n<p>The post <a href=\"https://www.dezeen.com/2026/08/20/studio-barnes-ch-studio-convert-kkk-building-arts-centre-fort-worth/\">Studio Barnes and Ch_studio to convert former KKK building in Texas into arts centre</a> appeared first on <a href=\"https://www.dezeen.com\">Dezeen</a>.</p>",
+      "summary": "A team including Studio Barnes and Ch_studio has revealed designs for the 1920s building once used by the white supremacist group the Ku Klux Klan in Fort Worth, Texas, into a \"catalyst for community and restoration\". The 35,000-square-foot (3,251 square metre) building is located between Fort",
+      "_excerpt": "A team including Studio Barnes and Ch_studio has revealed designs for the 1920s building once used by the white supremacist group the Ku Klux Klan in Fort Worth, Texas, into a \"catalyst for community and restoration\". The 35,000-square-foot (3,251 square metre) building is located between Fort Worth's Historic Northside and downtown area, and its planned The post Studio Barnes and Ch_studio to convert former KKK building in Texas into arts centre appeared first on Dezeen .",
+      "date_published": "2026-08-20T18:19:06+00:00",
       "authors": [
         {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
+          "name": "Dezeen",
+          "url": "https://www.dezeen.com"
         }
       ],
-      "ai_score": 54,
-      "_quality": 72,
+      "ai_score": 62,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
       "_theme_score": 80,
-      "_composite_podcast": 71,
+      "_composite_podcast": 73,
       "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
+      "image": "http://static.dezeen.com/uploads/2026/08/center-for-arts-and-community-healing-fort-worth-texas-studio-barnes-ch-studio_dezeen_2364_sq-2-411x411.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-21T04:56:14.647179+00:00"
       }
     },
     {
@@ -733,9 +673,9 @@
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -837,9 +777,9 @@
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -962,7 +902,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 91,
+      "_theme_score": 90,
       "_composite_podcast": 65,
       "_keyword_matches": 1,
       "_category": "news",
@@ -1045,41 +985,9 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
-      }
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
-      "url": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
-      "title": "[Pique Newsmagazine] Aid workers say Canada's Ebola quarantine hinders response, hope it won't be extended",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.piquenewsmagazine.com%2Fthe-mix%2Faid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
-      "summary": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
-      "_excerpt": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
-      "date_published": "2026-08-22T10:00:08+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960",
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1115,6 +1023,38 @@
       }
     },
     {
+      "id": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
+      "url": "https://www.piquenewsmagazine.com/the-mix/aid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509",
+      "title": "[Pique Newsmagazine] Aid workers say Canada's Ebola quarantine hinders response, hope it won't be extended",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.piquenewsmagazine.com%2Fthe-mix%2Faid-workers-say-canadas-ebola-quarantine-hinders-response-hope-it-wont-be-extended-12695509\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
+      "summary": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
+      "_excerpt": "TORONTO — The night before Lily-Madeleine Seguin was set to book her flight to the Democratic Republic of Congo in late May, the Canadian government announced a three-week quarantine for travellers returning from the Ebola-stricken country.",
+      "date_published": "2026-08-22T10:00:08+00:00",
+      "authors": [
+        {
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 89,
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/77030b6fdc7b98f4faaec9ee62668ca805c7169a79967019033c32f5d4954cca.jpg;w=960",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
       "id": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
       "url": "https://www.popularmechanics.com/military/a73355695/b52-crash-hydrogen-bombs-goldsboro-north-carolina/",
       "title": "[Popular Mechanics] A B-52 Accidentally Lost Two Hydrogen Bombs Over North Carolina. One Nearly Detonated. One Is Still Buried.",
@@ -1142,7 +1082,12 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://vancouversun.com/business/bc-company-starts-approval-process-for-new-major-mine-northeast-of-kamloops",
@@ -1176,6 +1121,38 @@
       }
     },
     {
+      "id": "https://www.howtogeek.com/linux-namespaces-are-complex-but-worth-using/",
+      "url": "https://www.howtogeek.com/linux-namespaces-are-complex-but-worth-using/",
+      "title": "[How-To Geek] I rebuilt my Linux workflow around Namespaces and never looked back",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/08/a-dual-pane-terminal-display-on-a-laptop-demontsrating-linux-namespaces-in-action.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Flinux-namespaces-are-complex-but-worth-using%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI noticed some performance issues with my Linux machine. So I used namespaces to shine some light on the problem.",
+      "summary": "I noticed some performance issues with my Linux machine. So I used namespaces to shine some light on the problem.",
+      "_excerpt": "I noticed some performance issues with my Linux machine. So I used namespaces to shine some light on the problem.",
+      "date_published": "2026-08-21T11:30:12+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 89,
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/08/a-dual-pane-terminal-display-on-a-laptop-demontsrating-linux-namespaces-in-action.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
       "id": "https://www.tomsguide.com/wellness/fitness-trackers/i-walked-4-000-steps-with-the-pixel-watch-5-vs-samsung-galaxy-watch-9-and-we-have-a-new-android-champ",
       "url": "https://www.tomsguide.com/wellness/fitness-trackers/i-walked-4-000-steps-with-the-pixel-watch-5-vs-samsung-galaxy-watch-9-and-we-have-a-new-android-champ",
       "title": "[Toms Guide] I walked 4,000 steps with the Pixel Watch 5 vs Samsung Galaxy Watch 9 — and we have a new Android champ",
@@ -1202,9 +1179,9 @@
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/cHa3NJgTZQ6WEMqK2PhBiU-1280-80.jpg",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -1270,9 +1247,69 @@
       "_thin_body": true,
       "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/07/ultrawide-monitor-showing-four-tiled-claude-code-terminal-windows-all-displaying-the-welcome-back-dibakar-startup-screen.jpg",
       "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
+      "id": "https://cpj.org/2026/08/cpj-joins-call-to-extend-un-fact-finding-mission-on-sudan/",
+      "url": "https://cpj.org/2026/08/cpj-joins-call-to-extend-un-fact-finding-mission-on-sudan/",
+      "title": "[Committee to Protect Journalists] CPJ joins call to extend UN fact-finding mission on Sudan",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fcpj.org%2F2026%2F08%2Fcpj-joins-call-to-extend-un-fact-finding-mission-on-sudan%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNew York, August 21, 2026 – The Committee to Protect Journalists (CPJ) joined 67 other civil society organizations in calling on the UN Human Rights Council to extend the mandate of the Independent International Fact-Finding Mission for the Sudan (FFM) for two years and provide it with adequate resources to investigate grave violations and support...",
+      "summary": "New York, August 21, 2026 – The Committee to Protect Journalists (CPJ) joined 67 other civil society organizations in calling on the UN Human Rights Council to extend the mandate of the Independent International Fact-Finding Mission for the Sudan (FFM) for two years and provide it with adequate",
+      "_excerpt": "New York, August 21, 2026 – The Committee to Protect Journalists (CPJ) joined 67 other civil society organizations in calling on the UN Human Rights Council to extend the mandate of the Independent International Fact-Finding Mission for the Sudan (FFM) for two years and provide it with adequate resources to investigate grave violations and support...",
+      "date_published": "2026-08-21T09:21:03+00:00",
+      "authors": [
+        {
+          "name": "Committee to Protect Journalists",
+          "url": "https://cpj.org"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 58,
+      "_composite_podcast": 60,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/",
+      "url": "https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/",
+      "title": "[New Atlas] New excavator interface lets rookies match veteran operators on day one",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Frobotics%2Fmit-excavator-interface-exoskeleton-operators-training%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"The World-Space Interface, gripped like the excavator's own bucket instead of a joystick\" src=\"https://assets.newatlas.com/dims4/default/6fb2fa6/2147483647/strip/true/crop/3196x1752+0+0/resize/1440x789!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F0b%2Fe9%2F8d70d00b4395a80ea92a9c7f1770%2Fscreenshot-2026-08-20-at-16-56-35.png\" /><p>Watching skilled excavator operators work is almost hypnotic. They make it look so easy that the machine seems to move like an extension of the operator's own arm. That intuition usually takes years to build, but a new controller from MIT engineers compresses that learning curve to a single session.</p><p><a href=\"https://newatlas.com/robotics/mit-excavator-interface-exoskeleton-operators-training/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/robotics/\">Robotics</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/robotics/\" rel=\"tag\">Robotics</a>, <a href=\"https://newatlas.com/tag/mit/\" rel=\"tag\">MIT</a>, <a href=\"https://newatlas.com/tag/interface/\" rel=\"tag\">Interface</a>, <a href=\"https://newatlas.com/tag/robotic-construction/\" rel=\"tag\">Robotic construction</a>, <a href=\"https://newatlas.com/tag/construction/\" rel=\"tag\">Construction</a></p>",
+      "summary": "Watching skilled excavator operators work is almost hypnotic. They make it look so easy that the machine seems to move like an extension of the operator's own arm. That intuition usually takes years to build, but a new controller from MIT engineers compresses that learning curve to a single",
+      "_excerpt": "Watching skilled excavator operators work is almost hypnotic. They make it look so easy that the machine seems to move like an extension of the operator's own arm. That intuition usually takes years to build, but a new controller from MIT engineers compresses that learning curve to a single session. Continue Reading Category: Robotics , Engineering Tags: Robotics , MIT , Interface , Robotic construction , Construction",
+      "date_published": "2026-08-21T08:33:00+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 58,
+      "_composite_podcast": 60,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1306,9 +1343,41 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
+      "url": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
+      "title": "[Business Insider] Lawsuit alleges Sony investigated WPP's media operation and said it ran a 'global crime scene'",
+      "content_html": "<img src=\"https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Flawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "summary": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "_excerpt": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
+      "date_published": "2026-08-21T14:26:24+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 84,
+      "_composite_podcast": 60,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg",
+      "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -1344,33 +1413,6 @@
       }
     },
     {
-      "id": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
-      "url": "https://www.businessinsider.com/lawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8",
-      "title": "[Business Insider] Lawsuit alleges Sony investigated WPP's media operation and said it ran a 'global crime scene'",
-      "content_html": "<img src=\"https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Flawsuit-alleges-sony-investigation-into-wpp-rebates-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
-      "summary": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
-      "_excerpt": "A legal filing alleges Sony hired investigators to probe WPP, who said the agency improperly withheld rebates from clients.",
-      "date_published": "2026-08-21T14:26:24+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 84,
-      "_composite_podcast": 60,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://i.insider.com/6a7f7c7fe3df4d0cbe6864db?format=jpeg"
-    },
-    {
       "id": "https://hackaday.com/2026/08/21/thermoacoustic-sterling-engine-is-now-fully-3d-printable/",
       "url": "https://hackaday.com/2026/08/21/thermoacoustic-sterling-engine-is-now-fully-3d-printable/",
       "title": "[Hackaday] Thermoacoustic Sterling Engine is Now Fully 3D Printable",
@@ -1388,8 +1430,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 58,
+      "_theme_score": 58,
+      "_composite_podcast": 59,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1419,8 +1461,8 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 58,
+      "_theme_score": 58,
+      "_composite_podcast": 59,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1456,7 +1498,12 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://i.insider.com/6a874f288a99fa493d60e7b0?format=jpeg"
+      "image": "https://i.insider.com/6a874f288a99fa493d60e7b0?format=jpeg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://qz.com/venezuela-oil-deals-hunt-oil-slb-houston-082126",
@@ -1485,9 +1532,72 @@
       "_thin_body": true,
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-1092321046%2520(1).jpg",
       "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
+    },
+    {
+      "id": "https://www.zdnet.com/article/ai-deepfakes-passwords-defense/",
+      "url": "https://www.zdnet.com/article/ai-deepfakes-passwords-defense/",
+      "title": "[ZDNet] A low-tech solution from the past may be your best defense against AI deepfakes",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.zdnet.com%2Farticle%2Fai-deepfakes-passwords-defense%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
+      "summary": "AI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
+      "_excerpt": "AI-enabled identity theft is getting too sophisticated to have predictable tells anymore, so experts recommend answering with a seemingly old-fashioned approach.",
+      "date_published": "2026-08-21T11:36:51+00:00",
+      "authors": [
+        {
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 58,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.businessinsider.com/apache-black-hawk-drill-taiwan-impact-ukraine-drone-war-2026-8",
+      "url": "https://www.businessinsider.com/apache-black-hawk-drill-taiwan-impact-ukraine-drone-war-2026-8",
+      "title": "[Business Insider] An Apache and Black Hawk drill in Taiwan shows how Ukraine’s drones are changing helicopter warfare",
+      "content_html": "<img src=\"https://i.insider.com/6a86bfae0b0f848e0c307710?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fapache-black-hawk-drill-taiwan-impact-ukraine-drone-war-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAs its helicopters refueled and rearmed, Taiwan deployed anti-drone teams and jamming guns to defend the vulnerable rotorcraft.",
+      "summary": "As its helicopters refueled and rearmed, Taiwan deployed anti-drone teams and jamming guns to defend the vulnerable rotorcraft.",
+      "_excerpt": "As its helicopters refueled and rearmed, Taiwan deployed anti-drone teams and jamming guns to defend the vulnerable rotorcraft.",
+      "date_published": "2026-08-21T06:11:25+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 80,
+      "_composite_podcast": 58,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6a86bfae0b0f848e0c307710?format=jpeg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1517,9 +1627,9 @@
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/WvwBDtCowJNJZy2zCtQe6n-1280-80.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1584,9 +1694,9 @@
       "_thin_body": true,
       "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/amd-radeon-rx-7900-xt-installed-threadripper-server.jpg",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
@@ -1619,9 +1729,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1642,7 +1752,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 45,
       "_keyword_matches": 1,
       "_category": "news",
@@ -1681,7 +1791,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
@@ -1694,9 +1804,9 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-21T04:56:14.647179+00:00"
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1717,7 +1827,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
@@ -1749,7 +1859,42 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
+      "_composite_podcast": 43,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
+    },
+    {
+      "id": "https://www.scientificamerican.com/article/how-ziplines-drone-delivery-system-works-in-u-s-suburbs/",
+      "url": "https://www.scientificamerican.com/article/how-ziplines-drone-delivery-system-works-in-u-s-suburbs/",
+      "title": "[Scientific American] How Zipline’s drone delivery system works in U.S. suburbs",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Fhow-ziplines-drone-delivery-system-works-in-u-s-suburbs%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Zipline&rsquo;s tethered delivery system lowers packages from the sky. Now it has to show that people want the service</p>",
+      "summary": "Zipline’s tethered delivery system lowers packages from the sky. Now it has to show that people want the service",
+      "_excerpt": "Zipline’s tethered delivery system lowers packages from the sky. Now it has to show that people want the service",
+      "date_published": "2026-08-18T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "Scientific American",
+          "url": "https://www.scientificamerican.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
@@ -1763,7 +1908,7 @@
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+        "shown_at": "2026-08-21T04:56:14.647179+00:00"
       }
     },
     {
@@ -1784,13 +1929,18 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "_thin_body": true
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://techcrunch.com/2026/08/21/us-government-lab-is-probing-chinese-lidar-for-security-vulnerabilities/",
@@ -1810,13 +1960,18 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
-      "_thin_body": true
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
+      }
     },
     {
       "id": "https://qz.com/airbus-return-to-office-union-strikes-082126",
@@ -1836,7 +1991,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
@@ -1845,72 +2000,37 @@
       "_thin_body": true,
       "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/resize.webp",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T14:49:53.877827+00:00"
       }
     },
     {
-      "id": "https://www.businessinsider.com/ukraine-teaching-nato-troops-how-ground-robots-work-war-2026-8",
-      "url": "https://www.businessinsider.com/ukraine-teaching-nato-troops-how-ground-robots-work-war-2026-8",
-      "title": "[Business Insider] Ukraine is teaching NATO troops how ground robots work in war — and where they don't",
-      "content_html": "<img src=\"https://i.insider.com/6a8582950b0f848e0c307062?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fukraine-teaching-nato-troops-how-ground-robots-work-war-2026-8\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nUkrainian troops receiving training through Norway-led Operation Legio are telling their trainers how robots work in real war.",
-      "summary": "Ukrainian troops receiving training through Norway-led Operation Legio are telling their trainers how robots work in real war.",
-      "_excerpt": "Ukrainian troops receiving training through Norway-led Operation Legio are telling their trainers how robots work in real war.",
-      "date_published": "2026-08-21T11:44:01+00:00",
+      "id": "https://nautil.us/youre-not-a-universal-mosquito-magnet-1284049/",
+      "url": "https://nautil.us/youre-not-a-universal-mosquito-magnet-1284049/",
+      "title": "[Nautilus] You’re Not a Universal Mosquito Magnet",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Currie_HERO_708cf6.png?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnautil.us%2Fyoure-not-a-universal-mosquito-magnet-1284049%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>But you might be particularly enticing to different species</p>\n<p>The post <a href=\"https://nautil.us/youre-not-a-universal-mosquito-magnet-1284049/\">You’re Not a Universal Mosquito Magnet</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "summary": "But you might be particularly enticing to different species The post You’re Not a Universal Mosquito Magnet appeared first on Nautilus .",
+      "_excerpt": "But you might be particularly enticing to different species The post You’re Not a Universal Mosquito Magnet appeared first on Nautilus .",
+      "date_published": "2026-08-20T20:00:00+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
         }
       ],
       "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 43,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://i.insider.com/6a8582950b0f848e0c307062?format=jpeg"
-    },
-    {
-      "id": "https://www.scientificamerican.com/article/how-ziplines-drone-delivery-system-works-in-u-s-suburbs/",
-      "url": "https://www.scientificamerican.com/article/how-ziplines-drone-delivery-system-works-in-u-s-suburbs/",
-      "title": "[Scientific American] How Zipline’s drone delivery system works in U.S. suburbs",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Fhow-ziplines-drone-delivery-system-works-in-u-s-suburbs%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Zipline&rsquo;s tethered delivery system lowers packages from the sky. Now it has to show that people want the service</p>",
-      "summary": "Zipline’s tethered delivery system lowers packages from the sky. Now it has to show that people want the service",
-      "_excerpt": "Zipline’s tethered delivery system lowers packages from the sky. Now it has to show that people want the service",
-      "date_published": "2026-08-18T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "Scientific American",
-          "url": "https://www.scientificamerican.com"
-        }
-      ],
-      "ai_score": 65,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 42,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-21T04:56:14.647179+00:00"
-      }
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Currie_HERO_708cf6.png?w=564"
     },
     {
       "id": "https://www.nytimes.com/2026/08/21/world/europe/giorgia-meloni-rare-interview-takeaways.html",
@@ -1930,7 +2050,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
@@ -1943,9 +2063,9 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -1966,7 +2086,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
@@ -1998,7 +2118,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
@@ -2007,9 +2127,9 @@
       "_thin_body": true,
       "image": "https://thetyee.ca/Opinion/2026/08/19/DanielleSmithCowboyHat.jpg",
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-20T04:52:04.055238+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
@@ -2030,7 +2150,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
@@ -2041,7 +2161,12 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
+      }
     },
     {
       "id": "https://www.newyorker.com/books/second-read/the-glorious-disorder-of-michael-ondaatjes-early-work",
@@ -2061,7 +2186,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
@@ -2097,7 +2222,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 42,
       "_keyword_matches": 0,
       "_category": "news",
@@ -2110,37 +2235,100 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-20T04:52:04.055238+00:00"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-22T14:39:39.851423+00:00"
       }
     },
     {
-      "id": "https://www.tomsguide.com/home/coffee-makers/casabrews-ultra-pro-review",
-      "url": "https://www.tomsguide.com/home/coffee-makers/casabrews-ultra-pro-review",
-      "title": "[Toms Guide] Casabrews Ultra Pro review: Why don’t all espresso machines have a built-in timer?",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/gd5oFXTPbjZpEGMLNUfB4F-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fhome%2Fcoffee-makers%2Fcasabrews-ultra-pro-review\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Casabrews Ultra Pro is a midrange espresso machine with a PID controller and a built-in timer, but the steam wand issues still haven’t been fixed.",
-      "summary": "The Casabrews Ultra Pro is a midrange espresso machine with a PID controller and a built-in timer, but the steam wand issues still haven’t been fixed.",
-      "_excerpt": "The Casabrews Ultra Pro is a midrange espresso machine with a PID controller and a built-in timer, but the steam wand issues still haven’t been fixed.",
-      "date_published": "2026-08-13T12:44:11+00:00",
+      "id": "https://www.tomsguide.com/vehicle-tech/evs/2026-lucid-air-touring-review",
+      "url": "https://www.tomsguide.com/vehicle-tech/evs/2026-lucid-air-touring-review",
+      "title": "[Toms Guide] I drove the Lucid Air Touring for a week — and it feels like a genuine supercar (with 400-mile range)",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/BbbKwXhewefqx3JPEWi6xK-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fvehicle-tech%2Fevs%2F2026-lucid-air-touring-review\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe 2026 Lucid Air Touring is a highly efficient luxury EV that blends a curvy supercar design with class-leading interior legroom.",
+      "summary": "The 2026 Lucid Air Touring is a highly efficient luxury EV that blends a curvy supercar design with class-leading interior legroom.",
+      "_excerpt": "The 2026 Lucid Air Touring is a highly efficient luxury EV that blends a curvy supercar design with class-leading interior legroom.",
+      "date_published": "2026-08-15T08:30:00+00:00",
       "authors": [
         {
           "name": "Toms Guide",
           "url": "https://www.tomsguide.com"
         }
       ],
-      "ai_score": 56,
+      "ai_score": 52,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
+      "_theme_score": 58,
       "_composite_podcast": 41,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/gd5oFXTPbjZpEGMLNUfB4F-1280-80.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/BbbKwXhewefqx3JPEWi6xK-1280-80.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+      }
+    },
+    {
+      "id": "https://techcrunch.com/2026/08/14/thrives-joshua-kushner-chides-silicon-valley-vcs-over-ai-euphoria/",
+      "url": "https://techcrunch.com/2026/08/14/thrives-joshua-kushner-chides-silicon-valley-vcs-over-ai-euphoria/",
+      "title": "[TechCrunch] Thrive’s Joshua Kushner chides Silicon Valley VCs over AI euphoria",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F14%2Fthrives-joshua-kushner-chides-silicon-valley-vcs-over-ai-euphoria%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe AI opportunity is huge, but \"it would also be a grave error in our minds to let excitement weaken our investment discipline,\" Kushner warns in his first-ever investment letter.",
+      "summary": "The AI opportunity is huge, but \"it would also be a grave error in our minds to let excitement weaken our investment discipline,\" Kushner warns in his first-ever investment letter.",
+      "_excerpt": "The AI opportunity is huge, but \"it would also be a grave error in our minds to let excitement weaken our investment discipline,\" Kushner warns in his first-ever investment letter.",
+      "date_published": "2026-08-14T19:33:00+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "ai_score": 52,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 58,
+      "_composite_podcast": 41,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-22T04:50:05.414271+00:00"
+      }
+    },
+    {
+      "id": "https://www.howtogeek.com/gemini-chatgpt-copilot-build-offline-kanban-board/",
+      "url": "https://www.howtogeek.com/gemini-chatgpt-copilot-build-offline-kanban-board/",
+      "title": "[How-To Geek] I asked Gemini, ChatGPT, and Copilot to build a project management app—the winner surprised me",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/08/laptop-screen-showing-an-offline-kanban-board-made-using-chatgpt.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Fgemini-chatgpt-copilot-build-offline-kanban-board%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAll three assistants created usable offline tools, but one stood out with smarter decisions and thoughtful extras.",
+      "summary": "All three assistants created usable offline tools, but one stood out with smarter decisions and thoughtful extras.",
+      "_excerpt": "All three assistants created usable offline tools, but one stood out with smarter decisions and thoughtful extras.",
+      "date_published": "2026-08-11T21:00:13+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 40,
+      "_quality": 55,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 58,
+      "_composite_podcast": 37,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/08/laptop-screen-showing-an-offline-kanban-board-made-using-chatgpt.jpg",
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
@@ -2148,196 +2336,35 @@
       }
     },
     {
-      "id": "https://techcrunch.com/2026/08/14/self-driving-trucks-are-officially-testing-on-california-highways/",
-      "url": "https://techcrunch.com/2026/08/14/self-driving-trucks-are-officially-testing-on-california-highways/",
-      "title": "[TechCrunch] Self-driving trucks are officially testing on California highways",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F14%2Fself-driving-trucks-are-officially-testing-on-california-highways%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAurora Innovation and Kodiak AI, two companies developing self-driving trucks, have received permits from the California Department of Motor Vehicles.",
-      "summary": "Aurora Innovation and Kodiak AI, two companies developing self-driving trucks, have received permits from the California Department of Motor Vehicles.",
-      "_excerpt": "Aurora Innovation and Kodiak AI, two companies developing self-driving trucks, have received permits from the California Department of Motor Vehicles.",
-      "date_published": "2026-08-14T20:37:49+00:00",
+      "id": "https://www.androidpolice.com/my-auto-browse-trust-problem/",
+      "url": "https://www.androidpolice.com/my-auto-browse-trust-problem/",
+      "title": "[Android Police] I finally understand why handing an AI agent your Chrome session is terrifying",
+      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/08/robotic-hand-holding-a-key-beside-a-red-warning-symbol-over-a-google-chrome-browser-window.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidpolice.com%2Fmy-auto-browse-trust-problem%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nGoogle built defences for this and they're good but not invulnerable",
+      "summary": "Google built defences for this and they're good but not invulnerable",
+      "_excerpt": "Google built defences for this and they're good but not invulnerable",
+      "date_published": "2026-08-11T12:30:16+00:00",
       "authors": [
         {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
+          "name": "Android Police",
+          "url": "https://www.androidpolice.com"
         }
       ],
-      "ai_score": 56,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 41,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.tomsguide.com/computing/gpus/5-beginner-pc-building-tips-from-the-mad-genius-who-built-a-usd34k-353-pound-desktop-with-not-one-but-two-rtx-5090s",
-      "url": "https://www.tomsguide.com/computing/gpus/5-beginner-pc-building-tips-from-the-mad-genius-who-built-a-usd34k-353-pound-desktop-with-not-one-but-two-rtx-5090s",
-      "title": "[Toms Guide] 5 beginner PC building tips from the mad genius who built a $34k, 353-pound desktop with not one, but two RTX 5090s",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/EkM8QVa2VXeqE6d6qWH7uJ-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Fcomputing%2Fgpus%2F5-beginner-pc-building-tips-from-the-mad-genius-who-built-a-usd34k-353-pound-desktop-with-not-one-but-two-rtx-5090s\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI interviewed artist Robbin Snijders, creator of 'Yuga' — a $34,000, 353-pound PC with dual RTX 5090s — to get 5 tips for first-time PC builders.",
-      "summary": "I interviewed artist Robbin Snijders, creator of 'Yuga' — a $34,000, 353-pound PC with dual RTX 5090s — to get 5 tips for first-time PC builders.",
-      "_excerpt": "I interviewed artist Robbin Snijders, creator of 'Yuga' — a $34,000, 353-pound PC with dual RTX 5090s — to get 5 tips for first-time PC builders.",
-      "date_published": "2026-08-14T08:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 56,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 41,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/EkM8QVa2VXeqE6d6qWH7uJ-1280-80.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
-      }
-    },
-    {
-      "id": "https://techcrunch.com/2026/08/14/kog-is-going-deeper-to-squeeze-more-inference-out-of-gpus/",
-      "url": "https://techcrunch.com/2026/08/14/kog-is-going-deeper-to-squeeze-more-inference-out-of-gpus/",
-      "title": "[TechCrunch] Kog is going deeper to squeeze more inference out of GPUs",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F14%2Fkog-is-going-deeper-to-squeeze-more-inference-out-of-gpus%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe idea that GPUs are poorly suited for agentic workflows may be a misconception, according to French startup Kog.",
-      "summary": "The idea that GPUs are poorly suited for agentic workflows may be a misconception, according to French startup Kog.",
-      "_excerpt": "The idea that GPUs are poorly suited for agentic workflows may be a misconception, according to French startup Kog.",
-      "date_published": "2026-08-14T14:50:11+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 54,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 41,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-22T04:50:05.414271+00:00"
-      }
-    },
-    {
-      "id": "https://www.engadget.com/2230983/differences-between-bluetooth-wifi-2-4g-wireless-explained/",
-      "url": "https://www.engadget.com/2230983/differences-between-bluetooth-wifi-2-4g-wireless-explained/",
-      "title": "[Engadget] What are the differences between Bluetooth, Wi-Fi and 2.4G wireless devices?",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/what-are-the-differences-between-bluetooth-wi-fi-and-2-4g-wireless-devices/l-intro-1785414021.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2230983%2Fdifferences-between-bluetooth-wifi-2-4g-wireless-explained%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWireless connectivity comes in many different flavors, here's how they differ.",
-      "summary": "Wireless connectivity comes in many different flavors, here's how they differ.",
-      "_excerpt": "Wireless connectivity comes in many different flavors, here's how they differ.",
-      "date_published": "2026-08-10T14:30:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 40,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.engadget.com/img/gallery/what-are-the-differences-between-bluetooth-wi-fi-and-2-4g-wireless-devices/l-intro-1785414021.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-20T04:52:04.055238+00:00"
-      }
-    },
-    {
-      "id": "https://www.zdnet.com/article/why-software-factories-are-back-ai/",
-      "url": "https://www.zdnet.com/article/why-software-factories-are-back-ai/",
-      "title": "[ZDNet] Why software factories are back - and how they work in the age of AI",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.zdnet.com%2Farticle%2Fwhy-software-factories-are-back-ai%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nImagine submitting your vibe-coded app to a service that validates, tests, and then mass-produces it in a repeatable, automated fashion for delivery to a wide audience.",
-      "summary": "Imagine submitting your vibe-coded app to a service that validates, tests, and then mass-produces it in a repeatable, automated fashion for delivery to a wide audience.",
-      "_excerpt": "Imagine submitting your vibe-coded app to a service that validates, tests, and then mass-produces it in a repeatable, automated fashion for delivery to a wide audience.",
-      "date_published": "2026-08-11T21:23:33+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "ai_score": 49,
+      "ai_score": 58,
       "_quality": 68,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 39,
+      "_theme_score": 58,
+      "_composite_podcast": 37,
       "_keyword_matches": 0,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
       "_thin_body": true,
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-08-21T14:27:54.197217+00:00"
-      }
-    },
-    {
-      "id": "https://www.wired.com/story/mcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave/",
-      "url": "https://www.wired.com/story/mcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave/",
-      "title": "[WIRED] McDonald’s Built a 515-Page Dossier on Me. It Says I’ll Never Stop Eating There",
-      "content_html": "<img src=\"https://media.wired.com/photos/6a732836d7ca3092e7932054/master/pass/McDData.gif\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.wired.com%2Fstory%2Fmcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI requested a copy of my data from McDonald’s loyalty program and received an extensive, personalized report that algorithmically predicts my next purchase.",
-      "summary": "I requested a copy of my data from McDonald’s loyalty program and received an extensive, personalized report that algorithmically predicts my next purchase.",
-      "_excerpt": "I requested a copy of my data from McDonald’s loyalty program and received an extensive, personalized report that algorithmically predicts my next purchase.",
-      "date_published": "2026-08-12T10:15:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 77,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 57,
-      "_composite_podcast": 39,
-      "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://media.wired.com/photos/6a732836d7ca3092e7932054/master/pass/McDData.gif",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
+      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/08/robotic-hand-holding-a-key-beside-a-red-warning-symbol-over-a-google-chrome-browser-window.png",
       "_cross_theme": {
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-22T13:59:46.418432+00:00"
+        "shown_at": "2026-08-17T04:57:19.499058+00:00"
       }
     },
     {
