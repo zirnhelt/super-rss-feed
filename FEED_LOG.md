@@ -43,6 +43,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- Fetched **1499** → dedup **991** → new **722** → quality **61**
+- Mix: local:2(3%), ai-tech:11(18%), climate:2(3%), homelab:2(3%), homestead:1(2%), wellness:10(16%), science:2(3%), scifi:2(3%), design:2(3%), outdoors:2(3%), news:25(41%)
+- Feeds: local:46, ai-tech:148, climate:38, homelab:43, homestead:12, wellness:108, science:57, scifi:19, design:53, outdoors:20, news:254
+- Images: 61/61
+- Topic queries: 295 articles from 41 queries
+- API calls: Cohere:16, Brave:67, Kagi:37, Kite:6 · est. cost $0.3095
+
+
+---
+
+
+
 ## 2026-08-21 (Friday)
 
 #### 🔧 Manual Run (7:28 AM Pacific)
