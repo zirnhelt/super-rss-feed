@@ -1,28 +1,25 @@
-# Relevance Scoring Calibration for User's Feed
+# Scoring Prompt: Relevance Calibration
 
 **Core Topic Priorities**
-- **Heavily favor:** AI/ML infrastructure, security, and adoption metrics (especially telemetry, prompt injection, model comparisons); 3D printing materials & applications; smart home automation; local BC/Kootenay news with community/cultural angle
-- **Strong secondary:** Applied science with practical outcomes (micro-drones, rare earth mining, material breakthroughs); EV infrastructure and battery tech; wildlife/ecological management with human impact angle
-- **Deprioritize:** Consumer gadget deals, entertainment lifestyle content (fashion, gaming, streaming), political opinion pieces, and generic product announcements
+- **AI/Tech with practical impact**: Prioritize AI-tech articles demonstrating real-world adoption, infrastructure, or tooling (GitHub telemetry, Copilot ROI, AI agent ecosystems) over speculative or policy-only pieces.
+- **DIY/maker applied to autonomy**: Score highly articles combining hands-on technology (3D printing, Home Assistant, smart home automation) with functional independence or problem-solving—especially when they enable user control.
+- **Localized community infrastructure**: Weight local articles about civic/cultural projects (4-H, First Nation arts funding, hospice planning) more heavily than general local news or sports coverage.
 
-**Underrepresented High-Value Topics**
-- **AI governance & policy** appears in "Interesting" but scores lower than warranted—boost scoring for regulatory frameworks, fair-use debates, infrastructure partnerships
-- **Remote sensing & sensor tech** (car parking sensors in micro-drone context)—flag articles combining automation with novel sensor applications
-- **Agriculture-tech pipeline** (4-H as career pathway)—prioritize agricultural community/education stories alongside climate/sustainability angles
+**Underrepresented Topics to Boost**
+- **Climate tech solutions**: Articles on EV charging, battery innovation, and renewable energy infrastructure score well but are fewer than climate-crisis warnings. Boost constructive climate-tech coverage.
+- **Materials science & manufacturing**: 3D-printable materials, rare earth sourcing, and industrial innovation (tungsten carbide, seabed deposits) indicate strong interest—promote similar manufacturing/materials stories.
+- **Health/biology with systemic implications**: Microplastics, PFAS, hormonal disruption research scores high; prioritize rigorous science over sensationalist medical scare-stories.
 
-**Source & Content-Type Signals**
-- **Prioritize specialist/technical sources:** Hackaday, Tom's Hardware, GitHub blog, All3DP—these consistently score high and align with hands-on maker/automation interests
-- **Diversify locality:** User shows strong engagement with regional BC outlets (Williams Lake Tribune, My East Kootenay Now, 100 Mile Free Press) at high scores (79–85)—weight local sources more heavily, but filter for community/infrastructure stories, not event coverage alone
-- **Penalize:** Product-hunting, shopping guides, celebrity/entertainment news, and generic tech gossip regardless of source authority
+**Content-Type Red Flags (Avoid)**
+- Listicles ("10 best X," "5 ways to Y") consistently score low unless deeply specialized (Cool Tools curated lists are exceptions).
+- Sensationalist health framing (rare disease horror stories, extreme symptom narratives) are explicitly disliked even with high scores.
+- Sports coverage, entertainment reviews, and generic tech product comparisons (specs, gift guides, product launches without broader context).
+- Travel listicles, streaming recommendations, and entertainment gossip.
 
-**Category Retag Pattern**
-- **AI-tech is a catch-all:** User consistently retagged tech policy, infrastructure, and tool reviews into "ai-tech" from "news"—treat as signal that AI adoption/business impact stories merit higher relevance than pure news framing
+**Source & Framing Patterns**
+- **Trusted sources**: GitHub Blog, Hackaday, XDA-Developers, All3DP, and specialized publications (The Northern Miner, ScienceAlert, APTN News) score consistently well.
+- **Preferred framing**: Technical deep-dives, community impact, systemic analysis, and preservation/sustainability angles outperform hype or corporate announcements.
+- **Avoid**: Corporate PR (Apple product announcements, Samsung smartwatch comparisons), geopolitical opinion pieces without technical substance.
 
-**Day-of-Week Reassignment Patterns**
-- **Friday/Saturday:** Micro-drones, wildfire/climate, local awards—practical/urgent environmental + community content
-- **Wednesday:** AI security, retro tech, regulatory/policy deep-dives—mid-week thoughtful analysis
-- **Monday:** Cultural/arts, sci-fi adjacent curiosities—lighter engagement mid-week recovery
-- **Tuesday:** Agriculture, natural resources, climate policy—sector-specific expertise content
-- No clear pattern for Sunday exclusivity—don't over-weight day assignments; focus on topic fit instead
-
-**Low-Signal Red Flags**
+**Day & Category Correction Patterns**
+- **Category drift**: News outlet miscategorizations are frequent—apply stricter category enforcement for AI-tech (not "news"), homelab/DIY (not "design"), climate (not generic

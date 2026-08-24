@@ -1,3 +1,112 @@
+## Feedback Training Run — 2026-08-24 03:18 UTC
+
+**Files processed:** 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json, 2026-08-03.json, 2026-08-04.json, 2026-08-05.json, 2026-08-06.json, 2026-08-07.json, 2026-08-08.json, 2026-08-09.json, 2026-08-10.json, 2026-08-11.json, 2026-08-12.json, 2026-08-13.json, 2026-08-14.json, 2026-08-15.json, 2026-08-16.json, 2026-08-17.json, 2026-08-18.json, 2026-08-19.json, 2026-08-20.json, 2026-08-21.json, 2026-08-22.json
+**Ratings:** 10 Exemplars, 56 Good, 68 Interesting, 288 Bad, 54 reassigned to day(s), 43 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** ScienceAlert (5), Engadget (5), The Northern Miner (3), Al Jazeera English (3), ScienceDaily (2)
+**Top disliked sources:** Rolling Stone (14), Toms Guide (11), Ideal Home (Country Homes & Interiors) (11), NYT Business (10), Edge (GamesRadar) (10)
+**Categories liked:** ai-tech (16), news (12), wellness (8), science (7), climate (4), homelab (2), local (2), homestead (2), scifi (1), design (1), outdoors (1)
+**Categories disliked:** news (247), wellness (19), ai-tech (9), design (4), local (3), science (2), climate (1), outdoors (1), homelab (1), scifi (1)
+
+**Day reassignment summary:**
+- saturday → friday: 6 articles
+- saturday → wednesday: 3 articles
+- saturday → sunday: 3 articles
+- saturday → tuesday: 2 articles
+- saturday → saturday: 1 articles
+- monday → wednesday: 4 articles
+- monday → sunday: 4 articles
+- monday → saturday: 3 articles
+- monday → friday: 2 articles
+- monday → tuesday: 2 articles
+- monday → monday: 1 articles
+- monday → thursday: 1 articles
+- tuesday → tuesday: 2 articles
+- tuesday → friday: 2 articles
+- tuesday → monday: 1 articles
+- tuesday → saturday: 1 articles
+- tuesday → sunday: 1 articles
+- tuesday → wednesday: 1 articles
+- wednesday → sunday: 4 articles
+- wednesday → wednesday: 3 articles
+- wednesday → tuesday: 2 articles
+- wednesday → thursday: 1 articles
+- wednesday → monday: 1 articles
+- wednesday → friday: 1 articles
+- thursday → sunday: 7 articles
+- thursday → wednesday: 5 articles
+- thursday → tuesday: 2 articles
+- thursday → friday: 1 articles
+- thursday → thursday: 1 articles
+- thursday → saturday: 1 articles
+- friday → tuesday: 2 articles
+- friday → wednesday: 2 articles
+- friday → sunday: 2 articles
+- friday → saturday: 1 articles
+- friday → monday: 1 articles
+- friday → friday: 1 articles
+- sunday → sunday: 3 articles
+- sunday → wednesday: 3 articles
+- sunday → tuesday: 2 articles
+- sunday → saturday: 2 articles
+- sunday → monday: 2 articles
+
+**Category retag summary:**
+- news → ai-tech: 15 articles
+- news → wellness: 6 articles
+- news → design: 5 articles
+- news → homestead: 4 articles
+- news → homelab: 3 articles
+- news → climate: 2 articles
+- news → scifi: 2 articles
+- news → outdoors: 2 articles
+- news → science: 1 articles
+- news → local: 1 articles
+- science → climate: 1 articles
+- design → homelab: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Prompt: Relevance Calibration
+
+**Core Topic Priorities**
+- **AI/Tech with practical impact**: Prioritize AI-tech articles demonstrating real-world adoption, infrastructure, or tooling (GitHub telemetry, Copilot ROI, AI agent ecosystems) over speculative or policy-only pieces.
+- **DIY/maker applied to autonomy**: Score highly articles combining hands-on technology (3D printing, Home Assistant, smart home automation) with functional independence or problem-solving—especially when they enable user control.
+- **Localized community infrastructure**: Weight local articles about civic/cultural projects (4-H, First Nation arts funding, hospice planning) more heavily than general local news or sports coverage.
+
+**Underrepresented Topics to Boost**
+- **Climate tech solutions**: Articles on EV charging, battery innovation, and renewable energy infrastructure score well but are fewer than climate-crisis warnings. Boost constructive climate-tech coverage.
+- **Materials science & manufacturing**: 3D-printable materials, rare earth sourcing, and industrial innovation (tungsten carbide, seabed deposits) indicate strong interest—promote similar manufacturing/materials stories.
+- **Health/biology with systemic implications**: Microplastics, PFAS, hormonal disruption research scores high; prioritize rigorous science over sensationalist medical scare-stories.
+
+**Content-Type Red Flags (Avoid)**
+- Listicles ("10 best X," "5 ways to Y") consistently score low unless deeply specialized (Cool Tools curated lists are exceptions).
+- Sensationalist health framing (rare disease horror stories, extreme symptom narratives) are explicitly disliked even with high scores.
+- Sports coverage, entertainment reviews, and generic tech product comparisons (specs, gift guides, product launches without broader context).
+- Travel listicles, streaming recommendations, and entertainment gossip.
+
+**Source & Framing Patterns**
+- **Trusted sources**: GitHub Blog, Hackaday, XDA-Developers, All3DP, and specialized publications (The Northern Miner, ScienceAlert, APTN News) score consistently well.
+- **Preferred framing**: Technical deep-dives, community impact, systemic analysis, and preservation/sustainability angles outperform hype or corporate announcements.
+- **Avoid**: Corporate PR (Apple product announcements, Samsung smartwatch comparisons), geopolitical opinion pieces without technical substance.
+
+**Day & Category Correction Patterns**
+- **Category drift**: News outlet miscategorizations are frequent—apply stricter category enforcement for AI-tech (not "news"), homelab/DIY (not "design"), climate (not generic
+
+---
+## Feedback Archive Run — 2026-08-24 03:18 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 0 (none)
+**Ratings folded into rollup:** 0 (rollup now holds 0)
+**Topic/framing lessons:** n/a (no batch archived)
+**Raw bytes freed:** 0.0 KB
+**Live files remaining:** 66
+**URL ledger:** 1152 URLs (+94 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-08-16 13:43 UTC
 
 **Files processed:** 2026-07-18.json, 2026-07-19.json, 2026-07-20.json, 2026-07-21.json, 2026-07-22.json, 2026-07-24.json, 2026-07-25.json, 2026-07-26.json, 2026-07-27.json, 2026-07-28.json, 2026-07-29.json, 2026-07-30.json, 2026-07-31.json, 2026-08-01.json, 2026-08-02.json, 2026-08-03.json, 2026-08-04.json, 2026-08-05.json, 2026-08-06.json, 2026-08-07.json, 2026-08-08.json, 2026-08-09.json, 2026-08-10.json, 2026-08-11.json, 2026-08-12.json, 2026-08-13.json, 2026-08-14.json, 2026-08-15.json, 2026-08-16.json
