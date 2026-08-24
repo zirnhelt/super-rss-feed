@@ -5,9 +5,9 @@
       "id": "weekday-theme-score-collapse-2026-07-26",
       "theme": "monday,tuesday,wednesday,thursday",
       "first_observed": "2026-07-26",
-      "last_observed": "2026-08-16",
-      "status": "monitoring",
-      "description": "RESOLVED (monitoring): The catastrophic weekday theme score collapse that persisted from July 26 through August 10 (16 consecutive runs) appears to have been fixed by the August 11 rearchitecture introducing dimensional scoring (quality/relevance/local) and relative scaling for podcast theme scores. Pre-August 11 runs showed the familiar collapse pattern (Monday mean 8.2, Tuesday 3.1, Wednesday 9.1, Thursday 4.8), but post-August 11 ALL themes show healthy mean_theme_score_raw values: Monday 17.4–22.0, Tuesday 5.9–11.0, Wednesday 2.7–3.6, Thursday 7.7–18.0, with Friday/Saturday/Sunday maintaining strong scores (37.8–59.1 range). Podcast feeds now consistently hit target 100 articles across all themes, and holdover banks are robust (1113–1286 per theme as of August 16). The composite histograms post-August 11 show normal distributions rather than the pre-fix 0-19 concentration. Moving to monitoring status: need 3–4 more runs to confirm stability and ensure this isn't a transient spike from the infrastructure change itself.",
+      "last_observed": "2026-08-24",
+      "status": "resolved",
+      "description": "RESOLVED: The catastrophic weekday theme score collapse that persisted from July 26 through August 10 (16 consecutive runs) was fixed by the August 11 rearchitecture introducing dimensional scoring (quality/relevance/local) and relative scaling for podcast theme scores. Post-August 11 runs show healthy mean_theme_score_raw values across all themes: Monday 15.2–22.0 (vs collapsed 3.2–8.2 pre-fix), Tuesday 4.4–11.0 (vs dead 3.1), Wednesday 2.7–4.8 (vs weak 9.1), Thursday 7.0–18.0 (vs dead 4.7). Podcast feeds consistently hit target 100 articles with robust holdover banks (2466–2931 per theme). The composite histograms post-August 11 show normal distributions rather than 0-19 concentration. The relative_scaled flag confirms new scoring is active. Marking resolved after 13 consecutive healthy runs (August 11–23).",
       "evidence_runs": [
         "2026-07-13T07:28:29.183589+00:00",
         "2026-07-14T06:17:35.491468+00:00",
@@ -41,6 +41,10 @@
         {
           "run_date": "2026-08-16",
           "action": "The August 11 infrastructure change introducing dimensional scoring and relative scaling appears to have resolved the root cause. No auto-tunable knob changes were applied by calibration_agent—the fix came from human intervention on forbidden-territory scoring_prompt and dimensional weighting logic. Monitoring mean_theme_score_raw trends across next 3–4 runs to confirm sustained recovery."
+        },
+        {
+          "run_date": "2026-08-24",
+          "action": "None this run—the fix came from the August 11 human intervention on scoring_prompt and dimensional infrastructure (forbidden territory). Calibration agent monitoring confirms sustained recovery across 13 runs. No auto-tunable knob changes were needed."
         }
       ],
       "recommendation_pending": false

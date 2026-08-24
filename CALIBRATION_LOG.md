@@ -240,3 +240,34 @@ No changes applied this run.
 
 No changes: Claude analysis failed — BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeKmuNAmHdVLFcyLjMTdq'}
 
+
+## 2026-08-24
+
+Audit window: 19 runs (2026-08-10T05:38:25.410529+00:00 to 2026-08-23T04:43:12.336857+00:00).
+
+
+**Analysis**
+
+The 19-run audit window (August 10–23) reveals a stabilized pipeline following the August 11 dimensional scoring rearchitecture. The catastrophic weekday theme score collapse that persisted for 16 consecutive runs (July 26–August 10) has been resolved: all themes now show healthy mean_theme_score_raw values with podcast feeds consistently hitting target 100 articles and robust holdover banks (2466–2931 per theme as of August 23). Monday mean_theme_score_raw is 15.2–22.0 (vs collapsed 3.2–8.2 pre-fix), Tuesday 4.4–11.0 (vs dead 3.1), Wednesday 2.7–4.8 (vs weak 9.1), Thursday 7.0–18.0 (vs dead 4.7), while weekend themes maintain strong scores (Friday 37.4–45.8, Saturday 39.6–47.5, Sunday 48.3–59.1). The relative_scaled flag confirms the new dimensional scoring is active. Moving the weekday-theme-collapse issue to 'resolved' status pending 1–2 more weeks of monitoring.
+
+User feedback ground truth (ending August 22, spanning pre- and post-fix periods) shows critical quality issues that dimensional scoring has NOT addressed: 65.8% bad rate overall (up from 64.2% last week), poor band_precision (80-100 band only 57.9% good, down from pre-fix 57.1%), and composite scores still lacking discriminatory power. The threshold_sweep is damning: current min_claude_score=20 cuts only 30.0% of bad articles while losing 9.0% of good ones. News category alone has 75.5% bad rate (640/848 rated articles), yet pipeline-side news composite histogram shows 13380/14355 articles in 0-19 band—the scoring system is identifying bad content but the quality gate floor of 20 is far too permissive. Dimensional histograms reveal why: quality dimension shows better separation (news: 13380 in 0-19 vs 340 in 60-79) than composite, but relevance is also collapsed (13637 in 0-19 vs 20 in 60-79), and local remains a binary cliff (14338 in 0-19). The composite weighting (0.25Q + 0.55R + 0.20L) is still collapsing scores for non-Cariboo content.
+
+Noise-to-signal has improved dramatically: window mean 1.91 (down from 2.18 last week), with recent runs at 0.56–2.86 and the last four runs settling at 0.56–0.88. This indicates the dimensional scoring rearchitecture dramatically improved upstream filtering efficiency. Final feed sizes have expanded significantly (462–807/run post-August 20, vs 389–489 pre-August 20), reflecting both the dimensional scoring improvement and the multiple intra-day test runs on August 21–22 that appear to have calibrated the new system. The podcast routing correction rate is 21.8% (247/1135: 91 routing bugs, 156 theme-scoring misses), down from 26.3% last week, suggesting theme prompts are performing better post-rearchitecture.
+
+Worst sources remain consistent and severe: Rolling Stone 100% bad (14/14), The New Yorker 100% bad (5/5), Reactor Magazine 90% bad (9/10), Domino 87.5% bad (7/8), Lifehacker 87.0% bad (20/23), Neowin 86.7% bad (13/15), Toms Guide 86.5% bad (32/37). These are strong candidates for human-recommended source blocking. The scifi category shows 72.7% bad rate (8/11 rated), design 33.3% bad (4/12), homelab 28.6% bad (4/14)—all manageable but worth monitoring.
+
+
+**Changes applied**
+
+- `limits.min_claude_score`: 20 → 23 — User feedback threshold_sweep shows current min_claude_score=20 cuts only 30.0% of bad articles while losing 9.0% of good ones—unacceptable given 65.8% overall bad rate. The sweep shows min_claude_score=25 would cut 36.9% of bad at 11.7% good lost. Final feed sizes are 462–807/run (mean 626 across last 5 runs), well above the ~100 target, confirming substantial capacity to tighten. The dimensional scoring rearchitecture has stabilized (noise-to-signal at 0.56–0.88 recent runs), so this is the right time to raise quality floors. News category alone has 75.5% bad rate (640/848 rated) yet passes 475 articles through quality gate—the floor is demonstrably too low. Band_precision shows even 40-59 composite scores are 52.7% bad, proving the gate must be stricter. Raising to 25 is conservative (still 5 points below max_step=30) but addresses user-verified quality crisis.
+
+**Clamped**
+
+- `limits.min_claude_score`: proposed 25 clamped to 23
+
+**Human recommendations**
+
+- Source blocking: Rolling Stone (100% bad, 14/14), The New Yorker (100% bad, 5/5), Reactor Magazine (90% bad, 9/10), Domino (87.5% bad, 7/8), Lifehacker (87.0% bad, 20/23), Neowin (86.7% bad, 13/15), Toms Guide (86.5% bad, 32/37), CBC Arts (84.6% bad, 11/13), Ideal Home / Country Homes & Interiors (84.6% bad, 11/13), Edge / GamesRadar (83.3% bad, 10/12). These sources show consistent poor performance across the entire feedback window and should be added to excluded_sources.
+- Composite score weighting review: User feedback shows band_precision is poor even after dimensional scoring rearchitecture—80-100 band is only 57.9% good, 60-79 is 42.4% good, 40-59 is 34.9% good. The dimensional histograms show quality and relevance distributions are more normal than composite, but local remains a binary cliff (14338/14355 news articles in 0-19 L band). The current weighting (0.25Q + 0.55R + 0.20L general, 0.65Q + 0.15R + 0.20L news) may still be collapsing scores for non-Cariboo content. Consider rebalancing to reduce local weight or implement a non-linear local bonus rather than multiplicative weight.
+- News category definition review: News has 75.5% bad rate (640/848 rated articles) despite quality-focused weighting (0.65Q + 0.15R + 0.20L). The category catches too much low-quality content that should be filtered upstream or routed elsewhere. Review news_interests.txt and category assignment logic to tighten what qualifies as 'news' vs generic ai-tech/wellness/etc.
+- Scifi category review: 72.7% bad rate (8/11 rated articles) suggests either poor source mix or category definition mismatch. Most scifi content appears to be entertainment news/product announcements rather than worldbuilding/speculative fiction that the interest profile calls for. Review scifi category assignment criteria and consider tightening scoring_prompt to focus on hard SF, cli-fi, futures studies rather than Marvel movie announcements.

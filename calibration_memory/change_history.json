@@ -36,6 +36,15 @@
       "delta": 2,
       "rationale": "User feedback threshold_sweep shows min_claude_score=20 would cut 28.5% of bad articles while losing only 5.9% of good articles—a favorable trade given the 63.3% overall bad rate. Current value of 18 (raised July 19) is an improvement but insufficient: we're still passing far too many bad articles (band_precision shows even 40-59 composite scores are 54.8% bad). Final feed sizes average 353/run, well above the ~100 target, confirming we have capacity. The previous raises (13→16→18) were conservative steps; user feedback now provides clear evidence to move to the calibration ceiling. This directly addresses the verified quality issue without risking feed scarcity.",
       "dry_run": false
+    },
+    {
+      "run_date": "2026-08-24",
+      "knob": "limits.min_claude_score",
+      "old_value": 20,
+      "new_value": 23,
+      "delta": 3,
+      "rationale": "User feedback threshold_sweep shows current min_claude_score=20 cuts only 30.0% of bad articles while losing 9.0% of good ones—unacceptable given 65.8% overall bad rate. The sweep shows min_claude_score=25 would cut 36.9% of bad at 11.7% good lost. Final feed sizes are 462–807/run (mean 626 across last 5 runs), well above the ~100 target, confirming substantial capacity to tighten. The dimensional scoring rearchitecture has stabilized (noise-to-signal at 0.56–0.88 recent runs), so this is the right time to raise quality floors. News category alone has 75.5% bad rate (640/848 rated) yet passes 475 articles through quality gate—the floor is demonstrably too low. Band_precision shows even 40-59 composite scores are 52.7% bad, proving the gate must be stricter. Raising to 25 is conservative (still 5 points below max_step=30) but addresses user-verified quality crisis.",
+      "dry_run": false
     }
   ]
 }
