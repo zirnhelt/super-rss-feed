@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of the Feed — Week of August 24–30, 2026</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { margin-top: 1.5rem; font-size: 1.1rem; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+    th, td { border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    a { color: #0066cc; }
+    ul { padding-left: 1.4rem; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <h1>State of the Feed — Week of August 24–30, 2026</h1>
+  <p class="meta">Published August 24, 2026 &middot; <a href="https://zirnhelt.github.io/super-rss-feed">Back to feed</a></p>
+  <p>The aggregator processed 16,863 articles across 11 runs this week, averaging 80 quality articles per run. News dominated the category breakdown with 275 articles, followed by AI-tech with 166 and wellness with 110. Local, climate, and homelab content each contributed between 48–54 articles, while design and science each yielded 62. Remaining categories (scifi, outdoors, homestead) produced 14–22 articles collectively. The dimensional scoring model weighted relevance at 0.55, quality at 0.25, and local interest at 0.20.</p>
+<p>Pipeline efficiency remained stable with a mean noise-to-signal ratio of 1.91 across 19 runs (range 0.56–2.86), indicating consistent filtering performance. Twenty feeds were added this week, including Columbia Journalism Review, Nieman Lab, and Hyperallergic for editorial and design content, alongside technical blogs from Dropbox, Pinterest, and MIT's STS program. Feed health monitoring flagged 5 feeds with persistent errors: Neowin, FolkloreThursday, Small Farm Canada, Harvard Health Blog, and Old House Journal.</p>
+<p>Discovery analysis identified three high-scoring candidates for potential subscription: the comments section from an article on regenerative agriculture (87.5), comments on Solarpunk Magazine (81.3), and the Solarpunk Magazine feed itself (75.4).</p>
+<h3>New Feeds This Week</h3>
+<ul>
+  <li>Cariboo Signals Reviews</li>
+  <li>Columbia Journalism Review</li>
+  <li>Nieman Lab</li>
+  <li>Nieman Storyboard</li>
+  <li>Committee to Protect Journalists</li>
+  <li>Hyperallergic</li>
+  <li>Colossal</li>
+  <li>FolkloreThursday</li>
+  <li>The Public Domain Review</li>
+  <li>Dangerous Minds</li>
+  <li>Ness Labs</li>
+  <li>Dropbox Tech</li>
+  <li>Tech in Asia</li>
+  <li>Pinterest Engineering Blog - Medium</li>
+  <li>MIT News - Science, Technology, and Society | Technology and society | Program in STS | History of science | History of MIT</li>
+  <li>Social Media Examiner | Social Media Marketing</li>
+  <li>Neuroscience News</li>
+  <li>NN/g latest articles and announcements</li>
+  <li>Singularity Hub</li>
+</ul>
+<h3>Weekly Article Distribution</h3>
+<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>
+<tr><td>local</td><td>54</td></tr>
+<tr><td>ai-tech</td><td>166</td></tr>
+<tr><td>climate</td><td>48</td></tr>
+<tr><td>homelab</td><td>50</td></tr>
+<tr><td>homestead</td><td>14</td></tr>
+<tr><td>wellness</td><td>110</td></tr>
+<tr><td>science</td><td>62</td></tr>
+<tr><td>scifi</td><td>22</td></tr>
+<tr><td>design</td><td>62</td></tr>
+<tr><td>outdoors</td><td>21</td></tr>
+<tr><td>news</td><td>275</td></tr>
+</tbody></table>
+<h3>Feed Issues</h3>
+<ul>
+  <li><strong>Neowin</strong>: 521 Server Error: <none> for url: https://www.neowin.net/news/rss/</li>
+  <li><strong>FolkloreThursday</strong>: HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded</li>
+  <li><strong>Small Farm Canada</strong>: 404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/</li>
+  <li><strong>Harvard Health Blog</strong>: 404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed</li>
+  <li><strong>Old House Journal</strong>: HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceed</li>
+</ul>
+<h3>Discovery Highlights</h3>
+<ul>
+  <li>Comments for Investing in regenerative agriculture (score: 87.5)</li>
+  <li>Comments for Solarpunk Magazine (score: 81.3)</li>
+  <li>Solarpunk Magazine (score: 75.4)</li>
+</ul>
+<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>
+<p>Noise-to-signal = (articles fetched &minus; articles in final feeds) &divide; final total. Lower is more efficient.</p>
+<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>
+<tr><td>2026-07-12</td><td>2.09</td><td>1.23</td><td>2.76</td><td>7</td></tr>
+<tr><td>2026-07-19</td><td>2.07</td><td>1.23</td><td>2.76</td><td>14</td></tr>
+<tr><td>2026-07-26</td><td>1.98</td><td>1.23</td><td>2.74</td><td>15</td></tr>
+<tr><td>2026-08-02</td><td>1.85</td><td>1.21</td><td>2.5</td><td>16</td></tr>
+<tr><td>2026-08-09</td><td>1.84</td><td>1.21</td><td>2.25</td><td>16</td></tr>
+<tr><td>2026-08-16</td><td>2.18</td><td>1.36</td><td>2.79</td><td>14</td></tr>
+<tr><td>2026-08-23</td><td>1.91</td><td>0.56</td><td>2.86</td><td>19</td></tr>
+<tr><td>2026-08-24</td><td>1.91</td><td>0.56</td><td>2.86</td><td>19</td></tr>
+</tbody></table>
+<h3>Quality Review</h3>
+<p>798 articles across 11 feeds. Scrub pass flagged 16 article(s), 16 recommended for removal.</p>
+<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>
+<tr><td>🤖 AI/ML & Tech</td><td>148</td><td>49.6</td><td>123</td><td>TechRadar (15.5%)</td></tr>
+<tr><td>🌍 Climate & Energy</td><td>38</td><td>49.0</td><td>30</td><td>Mother Jones (13.2%)</td></tr>
+<tr><td>🏛️ Architecture & Design</td><td>53</td><td>41.9</td><td>47</td><td>ArchDaily (43.4%)</td></tr>
+<tr><td>🏠 Homelab & DIY</td><td>43</td><td>51.5</td><td>33</td><td>XDA Developers (25.6%)</td></tr>
+<tr><td>🌾 Homestead & Hobby Farm</td><td>12</td><td>43.2</td><td>11</td><td>Hobby Farms (41.7%)</td></tr>
+<tr><td>🏔️ Williams Lake Local</td><td>46</td><td>72.4</td><td>29</td><td>My Cariboo Now (41.3%)</td></tr>
+<tr><td>📰 General News</td><td>254</td><td>63.1</td><td>216</td><td>NYT Business (8.7%)</td></tr>
+<tr><td>🥾 Outdoors & Recreation</td><td>20</td><td>34.0</td><td>14</td><td>Outside Online (40.0%)</td></tr>
+<tr><td>🔬 Science</td><td>57</td><td>43.0</td><td>49</td><td>ScienceDaily (19.3%)</td></tr>
+<tr><td>🚀 Sci-Fi & Culture</td><td>19</td><td>22.3</td><td>13</td><td>Comments for Solarpunk Magazine (21.1%)</td></tr>
+<tr><td>🌿 Health & Wellness</td><td>108</td><td>55.1</td><td>82</td><td>ScienceDaily (13.0%)</td></tr>
+</tbody></table><p>Corpus alignment: 1753 articles analysed — 1649 direct-qualify, 7 rescue-dependent, 1 stranded, 189 filler (10.8%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/CORPUS_ALIGNMENT_REPORT_2026-08-24.md">Full report</a>.</p>
+<p>Content type breakdown: null: 1244, analysis: 236, feature: 195, breaking: 166, news: 35, opinion: 23, fluff: 22, recap: 3, wire: 1, investigation: 1.</p>
+
+<h3>User Feedback Audit</h3>
+<p>1142 articles rated (2026-06-17 → 2026-08-22): 300 good, 90 interesting, 751 bad (65.8% bad). Theme-day corrections: 247 of 1135 (21.8%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/ARTICLE_REVIEW_AUDIT_2026-08-24.md">Full audit</a>.</p>
+<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>
+<tr><td>80-100</td><td>57</td><td>57.9</td><td>42.1</td></tr>
+<tr><td>60-79</td><td>132</td><td>42.4</td><td>56.8</td></tr>
+<tr><td>40-59</td><td>364</td><td>34.9</td><td>52.7</td></tr>
+<tr><td>20-39</td><td>323</td><td>17.6</td><td>72.8</td></tr>
+<tr><td>0-19</td><td>266</td><td>10.2</td><td>84.6</td></tr>
+</tbody></table>
+<h3>API Cost Review</h3>
+<p>8 run(s) this week &middot; total est. cost <strong>$3.6712</strong> &middot; avg <strong>$0.4589</strong>/run &middot; 1,646,346 Claude tokens</p>
+<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>
+<tr><td>Claude</td><td>382</td><td>47.8</td><td>token-based</td><td>—</td></tr>
+<tr><td>Cohere</td><td>120</td><td>15.0</td><td>$0.0020/call</td><td>$0.2400</td></tr>
+<tr><td>Brave</td><td>401</td><td>50.1</td><td>free</td><td>$0</td></tr>
+<tr><td>Kagi</td><td>225</td><td>28.1</td><td>$0.0075/call</td><td>$1.6875</td></tr>
+<tr><td>Kite</td><td>48</td><td>6.0</td><td>free</td><td>$0</td></tr>
+</tbody></table>
+<h3>Calibration</h3>
+<table><thead><tr><th>Knob</th><th>Old</th><th>New</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>limits.min_claude_score</td><td>20</td><td>23</td><td>User feedback threshold_sweep shows current min_claude_score=20 cuts only 30.0% of bad articles while losing 9.0% of good ones—unacceptable given 65.8% overall bad rate. The sweep shows min_claude_score=25 would cut 36.9% of bad at 11.7% good lost. Final feed sizes are 462–807/run (mean 626 across last 5 runs), well above the ~100 target, confirming substantial capacity to tighten. The dimensional scoring rearchitecture has stabilized (noise-to-signal at 0.56–0.88 recent runs), so this is the right time to raise quality floors. News category alone has 75.5% bad rate (640/848 rated) yet passes 475 articles through quality gate—the floor is demonstrably too low. Band_precision shows even 40-59 composite scores are 52.7% bad, proving the gate must be stricter. Raising to 25 is conservative (still 5 points below max_step=30) but addresses user-verified quality crisis.</td></tr>
+</tbody></table>
+<h3>Actions Taken This Week</h3>
+<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>
+<tr><td>Discovery</td><td>Added feed “Comments for Investing in regenerative agriculture” (climate, score 87.5)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7bddd05"><code>7bddd05</code></a> (<code>git revert 7bddd05</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “Comments for Solarpunk Magazine” (scifi, score 81.3)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7bddd05"><code>7bddd05</code></a> (<code>git revert 7bddd05</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “Solarpunk Magazine” (scifi, score 75.4)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7bddd05"><code>7bddd05</code></a> (<code>git revert 7bddd05</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “Curated Collections of Complete Audio Fiction” (scifi, score 71.3)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7bddd05"><code>7bddd05</code></a> (<code>git revert 7bddd05</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “alpennia.com” (general, score 71.2)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7bddd05"><code>7bddd05</code></a> (<code>git revert 7bddd05</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “Universe Discovery” (design, score 65.4)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7bddd05"><code>7bddd05</code></a> (<code>git revert 7bddd05</code> to undo)</td></tr>
+<tr><td>Calibration</td><td>limits.min_claude_score: 20 → 23</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/12e6674"><code>12e6674</code></a> (<code>git revert 12e6674</code> to undo)</td></tr>
+</tbody></table>
+</body>
+</html>
