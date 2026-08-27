@@ -18,6 +18,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 
 
 
+
+#### 🌅 4:30 AM Pacific
+- Fetched **1982** → dedup **1231** → new **1083** → quality **77**
+- Mix: local:1(1%), ai-tech:15(19%), climate:3(4%), homelab:4(5%), homestead:2(3%), wellness:10(13%), science:8(10%), scifi:2(3%), design:6(8%), outdoors:1(1%), news:25(32%)
+- Feeds: local:32, ai-tech:90, climate:29, homelab:30, homestead:8, wellness:65, science:40, scifi:13, design:33, outdoors:10, news:128
+- Images: 77/77
+- Topic queries: 422 articles from 41 queries
+- API calls: Claude:36, Cohere:9, Brave:1, Kagi:77, Kite:6 · 111,446 Claude tokens · est. cost $0.7220
+
+
+---
+
+
+
 ## 2026-08-25 (Tuesday)
 
 #### 🌙 8:30 PM Pacific
