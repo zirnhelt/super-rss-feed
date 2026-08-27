@@ -210,6 +210,11 @@ PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async 
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
 THEME_HOLDOVER_TTL_DAYS = 28                         # 4 weeks — covers monthly themed episode cycles
+# Upper bound on each day's *available* (non-USED) holdover bank. Banking is
+# unconditional and percentile-based, so it admits far more per run than one
+# episode can drain; left unbounded the bank grew ~70-100 entries/day/theme and
+# eventually consumed the whole candidate pool. See save_theme_holdover_cache().
+THEME_HOLDOVER_MAX_AVAILABLE_PER_DAY = 400
 CALIBRATION_STATS_CACHE_FILE = 'calibration_stats_cache.json'  # Rolling per-run audit stats
 CALIBRATION_STATS_TTL_DAYS = 14                      # Window consumed by the weekly calibration agent
 FEED_HTTP_CACHE_FILE = 'feed_http_cache.json'        # Per-feed ETag/Last-Modified/skip_until state
@@ -1051,9 +1056,35 @@ def load_theme_holdover_cache() -> Dict:
 
 
 def save_theme_holdover_cache(holdover: Dict):
+    """Persist the cross-week holdover bank, bounding each day's available pool.
+
+    ``bank_articles_for_all_themes`` admits every article above a *percentile*
+    threshold (e.g. 12 == "top 88% of this theme's candidates"), on every run,
+    for every day — far more than a single episode's ~100 selections can drain.
+    Unbounded, each day's available bank grew monotonically until it exceeded the
+    candidate-pool cap in ``generate_podcast_feed``, at which point no fresh
+    article could enter the pool at all and the feed regenerated from week-old
+    material only.
+
+    Keeping the best-fitting ``THEME_HOLDOVER_MAX_AVAILABLE_PER_DAY`` entries
+    preserves the bank's purpose (a deep reserve for thin themes) without letting
+    it become the pool. USED entries are retained — they suppress re-banking and
+    re-airing — and age out on the normal 28-day TTL.
+    """
+    bounded: Dict = {}
+    for day, articles in holdover.items():
+        used = [a for a in articles if a.get('status') == 'USED']
+        available = [a for a in articles if a.get('status') != 'USED']
+        if len(available) > THEME_HOLDOVER_MAX_AVAILABLE_PER_DAY:
+            available.sort(
+                key=lambda a: (a.get('theme_score') or 0, a.get('banked_at') or ''),
+                reverse=True,
+            )
+            available = available[:THEME_HOLDOVER_MAX_AVAILABLE_PER_DAY]
+        bounded[day] = used + available
     try:
         with open(THEME_HOLDOVER_FILE, 'w', encoding='utf-8') as f:
-            json.dump(holdover, f, indent=2, ensure_ascii=False)
+            json.dump(bounded, f, indent=2, ensure_ascii=False)
     except Exception as e:
         print(f"⚠️ Failed to save theme holdover cache: {e}")
 
@@ -4442,22 +4473,50 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     all_cached = [CachedArticle(item) for item in cached_articles]
     all_cached_urls = {a.link for a in all_cached}
 
+    # Stage-by-stage pool composition tracing (PODCAST_POOL_DEBUG=1). "fresh" is
+    # anything in the current 7-day weekly cache; "hold" is a cross-week holdover
+    # carry-in. A feed whose final selection is 100% hold is a stale feed.
+    _pool_debug = os.getenv('PODCAST_POOL_DEBUG') == '1'
+
+    def _dbg(stage: str, items: List) -> None:
+        if not _pool_debug:
+            return
+        links = [getattr(x, 'link', None) if not isinstance(x, tuple) else getattr(x[0], 'link', None)
+                 for x in items]
+        fresh = sum(1 for l in links if l in all_cached_urls)
+        print(f"  🔬 [{theme_name}] {stage:<28} total={len(links):4d} fresh={fresh:4d} hold={len(links) - fresh:4d}")
+
     # Load cross-week holdover: articles that scored well on this theme in previous
     # runs and were banked for future episodes (28-day retention).
     holdover_cache = load_theme_holdover_cache()
     holdover_raw = holdover_cache.get(theme_name, [])
-    holdover_pool = [
-        CachedArticle(item) for item in holdover_raw
-        if item.get('status') != 'USED'  # exclude articles already used in this theme's episode
-        and f"{item['link']}:::{theme_name}" not in podcast_shown_cache
-        and not _is_aggregator_url(item['link'])
-        and item['link'] not in all_cached_urls  # already in 7-day pool
-        # Quality floor on the interest-independent signal (q_gate/quality);
-        # legacy entries without dims fall back to the stored composite.
-        and (item.get('q_gate') or item.get('quality') or item.get('score', 0)) >= LIMITS['min_claude_score']
-    ]
+
+    def _holdover_eligible(item: Dict) -> bool:
+        return (
+            item.get('status') != 'USED'  # exclude articles already used in this theme's episode
+            and f"{item['link']}:::{theme_name}" not in podcast_shown_cache
+            and not _is_aggregator_url(item['link'])
+            and item['link'] not in all_cached_urls  # already in 7-day pool
+            # Quality floor on the interest-independent signal (q_gate/quality);
+            # legacy entries without dims fall back to the stored composite.
+            and (item.get('q_gate') or item.get('quality') or item.get('score', 0)) >= LIMITS['min_claude_score']
+        )
+
+    holdover_pool = []
+    for item in holdover_raw:
+        if not _holdover_eligible(item):
+            continue
+        carried = CachedArticle(item)
+        # Percentile recorded when the article was banked. Carried through so the
+        # bank can be ranked — and trimmed worst-first — when it has to make room
+        # for current-week candidates at the pool cap below.
+        carried.banked_theme_score = item.get('theme_score') or 0
+        carried.banked_at = item.get('banked_at') or ''
+        holdover_pool.append(carried)
     if holdover_pool:
         print(f"  📦 +{len(holdover_pool)} holdover articles from previous weeks")
+    _dbg('holdover_pool', holdover_pool)
+    _dbg('weekly_cache', all_cached)
 
     # The theme scoring prompt is the real semantic filter, so score ALL
     # quality-eligible articles — not just those in the day's primary categories.
@@ -4477,6 +4536,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         return (q if q is not None else a.score) >= min_score
 
     theme_pool = [a for a in theme_pool if _pool_quality_ok(a)]
+    _dbg('after quality filter', theme_pool)
 
     # Track articles that qualify for this day's pool on upstream quality score
     # alone (not via rescue/holdover), so a theme-fit floor can be applied to
@@ -4508,9 +4568,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     if rescued:
         print(f"  🌾 +{len(rescued)} theme-relevant articles rescued (base score < {min_score})")
         theme_pool.extend(rescued)
+    _dbg('after rescue', theme_pool)
 
     # Merge holdover articles into the pool (already theme-qualified and quality-filtered above)
     theme_pool.extend(holdover_pool)
+    _dbg('after holdover merge', theme_pool)
 
     # Exclude articles already used in a recent podcast episode.
     # Exception: allow articles shown *earlier today* for *today's theme* back into
@@ -4532,6 +4594,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     shown_excluded = before_shown_filter - len(theme_pool)
     if shown_excluded:
         print(f"  🔄 Excluded {shown_excluded} articles already shown in recent podcast episodes")
+    _dbg('after shown filter', theme_pool)
 
     # Exclude articles whose link goes through a search-engine aggregator
     # (e.g. Google News encoded proxy URLs). These opaque URLs defeat
@@ -4542,26 +4605,56 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     agg_excluded = before_agg - len(theme_pool)
     if agg_excluded:
         print(f"  🚫 Excluded {agg_excluded} aggregator-URL articles (e.g. Google News)")
+    _dbg('after aggregator filter', theme_pool)
 
     # Articles banked for other days via theme routing are NOT excluded here.
     # Cross-theme reuse is intentional — the same article may appear in multiple
     # themed episodes with _cross_theme metadata on the second appearance.
 
     # Cap the pool: sort by quality score and keep only the top direct-qualify
-    # candidates. Rescued/holdover articles are exempt — they already proved
-    # thematic fit via a cached theme score, so sorting by upstream quality score
-    # would systematically cut them (that's exactly why they needed rescuing).
-    # Scoring them costs nothing extra since their theme score is already cached.
+    # candidates. Rescued/holdover articles are exempt from the *quality* sort —
+    # they already proved thematic fit via a cached theme score, so sorting by
+    # upstream quality score would systematically cut them (that's exactly why
+    # they needed rescuing). Scoring them costs nothing extra since their theme
+    # score is already cached.
+    #
+    # They are NOT, however, exempt from the cap itself. The bank grows every run
+    # and the exemption used to be unbounded, so once it passed POOL_CAP the
+    # direct-qualify allowance `room` fell to zero and no current-week article
+    # could enter the pool at all — the episode regenerated purely from holdover
+    # and its newest item sat a full week behind the run date. FRESH_POOL_SHARE
+    # reserves a floor for current-week candidates; the reserve shrinks to what
+    # is actually available, so a genuinely thin week still fills from the bank.
     POOL_CAP = 300
+    FRESH_POOL_SHARE = 0.5
     if len(theme_pool) > POOL_CAP:
-        protected_links = {a.link for a in rescued} | {a.link for a in holdover_pool}
-        protected = [a for a in theme_pool if a.link in protected_links]
-        cappable = [a for a in theme_pool if a.link not in protected_links]
+        rescued_links = {a.link for a in rescued}
+        holdover_links = {a.link for a in holdover_pool} - rescued_links
+        # Rescued articles are current-week too, so they count toward the fresh
+        # side and are never trimmed; only the cross-week bank gives up slots.
+        rescued_in_pool = [a for a in theme_pool if a.link in rescued_links]
+        from_bank = [a for a in theme_pool if a.link in holdover_links]
+        cappable = [a for a in theme_pool
+                    if a.link not in rescued_links and a.link not in holdover_links]
         cappable.sort(key=lambda a: a.score, reverse=True)
+
+        fresh_reserve = min(len(cappable), int(POOL_CAP * FRESH_POOL_SHARE))
+        bank_room = max(0, POOL_CAP - len(rescued_in_pool) - fresh_reserve)
+        if len(from_bank) > bank_room:
+            from_bank.sort(
+                key=lambda a: (getattr(a, 'banked_theme_score', 0),
+                               getattr(a, 'banked_at', '')),
+                reverse=True,
+            )
+            print(f"  ✂️ Holdover bank trimmed {len(from_bank)} → {bank_room} "
+                  f"to reserve {fresh_reserve} pool slots for current-week articles")
+            from_bank = from_bank[:bank_room]
+        protected = rescued_in_pool + from_bank
         room = max(0, POOL_CAP - len(protected))
         theme_pool = protected + cappable[:room]
         print(f"  📊 Pool capped at top {room} direct-qualify articles by quality score "
               f"(+{len(protected)} rescued/holdover exempted from cap)")
+    _dbg('after POOL_CAP', theme_pool)
 
     # Score articles for thematic fit using Claude
     theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
@@ -4581,6 +4674,12 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             theme_scored, percentile_ranks([ts for _, ts in theme_scored])
         )
     ]
+    _dbg('after theme scoring', theme_scored)
+    if _pool_debug:
+        _top = sorted(theme_scored, key=lambda x: x[1], reverse=True)[:max_articles * 3]
+        _tf = sum(1 for a, _ in _top if a.link in all_cached_urls)
+        print(f"  🔬 [{theme_name}] top-{len(_top)} by theme pct        "
+              f"fresh={_tf:4d} hold={len(_top) - _tf:4d}")
 
     # Theme-fit floor for the direct-qualify path: articles that only entered the
     # pool via the upstream quality score (not rescue/holdover) must also rank
@@ -4604,6 +4703,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         theme_scored = filtered_theme_scored
     elif floor_dropped:
         print(f"  ⚠️ Theme-fit floor would drop all {floor_dropped} candidates for {theme_label}; keeping unfiltered pool")
+    _dbg('after theme-fit floor', theme_scored)
 
     # Keyword boost applies to T (theme dimension) before composite computation.
     # Rural context is no longer a hardcoded penalty — incorporate guidance into
@@ -4687,6 +4787,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
         kw_match.sort(key=lambda x: x[1], reverse=True)
         non_match.sort(key=lambda x: x[1], reverse=True)
+        _dbg('kw_match candidates', kw_match)
+        _dbg('non_match candidates', non_match)
 
         # Fill keyword-matched first, then bonus candidates capped per category.
         selected = list(kw_match[:max_articles])
@@ -4716,6 +4818,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     else:
         scored_pool.sort(key=lambda x: x[1], reverse=True)
         theme_articles = [(a, comp, ts) for a, comp, _, ts, _ in scored_pool[:max_articles]]
+    _dbg('SELECTED (theme_articles)', theme_articles)
 
     # Optionally include top articles from other categories as bonus picks
     # with theme-aware scoring for diversity
@@ -4766,6 +4869,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                     break
 
     all_entries = theme_articles + bonus_entries
+    _dbg('FINAL (incl. bonus)', all_entries)
 
     if not all_entries:
         print(f"🎙️ Podcast feed ({theme_label}): no articles met criteria")
