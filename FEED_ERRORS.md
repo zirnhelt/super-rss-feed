@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-27 (Thursday)
+
+#### 🔧 Manual Run (7:09 AM Pacific)
+- ⚠️ **Climate Science Research (Brave)** failed — `HTTP 402 — quota exceeded, disabling Brave for this run`
+
+
+---
+
+
+
 ## 2026-08-22 (Saturday)
 
 #### 🔧 Manual Run (6:59 AM Pacific)
@@ -160,16 +170,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🌙 8:30 PM Pacific
 - ⚠️ **Neowin** failed — `521 Server Error: <none> for url: https://www.neowin.net/news/rss/`
-
-
----
-
-
-
-## 2026-08-19 (Wednesday)
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Noema Magazine** failed — `521 Server Error: <none> for url: https://www.noemamag.com/feed/`
 
 
 ---
@@ -1022,6 +1022,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Mother Earth News failed — 500 Server Error: Internal Server Error for url: https://www.motherearthnews.com/feed/
 - ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+
+
+---
+
+
+
+## Week of 2026-08-19–2026-08-19
+- 1 issues recorded
+- ⚠️ Noema Magazine failed — 521 Server Error: <none> for url: https://www.noemamag.com/feed/
 
 
 ---
