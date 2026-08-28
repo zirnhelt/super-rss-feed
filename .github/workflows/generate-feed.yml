@@ -3,6 +3,7 @@ name: Generate Super RSS Feed
 on:
   schedule:
     - cron: '0 4 * * *'  # 8:00 PM Pacific / 11:00 PM Eastern (4:00 UTC)
+    - cron: '0 7 * * *'  # Backup tick, 3h later — see the preflight job
   workflow_dispatch:
     inputs:
       use_search_apis:
@@ -12,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  actions: read   # preflight lists this workflow's own runs
 
 # Two overlapping runs of this workflow would fight over the same cache files
 # on main; queue the second rather than let it race.
@@ -20,7 +22,60 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # GitHub's cron is best-effort: it delays scheduled workflows under load and
+  # drops the tick outright once the delay passes the next window. The 07:00 UTC
+  # backup cron covers a dropped 04:00 tick, but it must not double the daily API
+  # spend, so it asks whether anything has already covered today and stands down
+  # if so. The check fails open — a missed feed costs more than a duplicate run,
+  # and a same-day repeat is safe: the caches upsert by URL and the podcast
+  # shown-cache refuses to re-stamp a same-day entry.
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: Stand down if today is already covered
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          if [ "${EVENT_SCHEDULE:-}" != "0 7 * * *" ]; then
+            echo "Not the backup tick — running."
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          today=$(date -u +%Y-%m-%d)
+          runs=$(curl -sS \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/actions/workflows/generate-feed.yml/runs?per_page=50" \
+            || echo '')
+
+          covered=$(printf '%s' "$runs" | jq -r --arg self "$GITHUB_RUN_ID" --arg today "$today" '
+            [ .workflow_runs[]
+              | select((.id | tostring) != $self)
+              | select(.created_at | startswith($today))
+              | select(.conclusion == "success" or .status == "queued" or .status == "in_progress")
+            ] | length' 2>/dev/null || echo '')
+
+          # Anything non-numeric means the check itself failed — fail open.
+          case "$covered" in
+            ''|*[!0-9]*) echo "Coverage check inconclusive — running anyway."
+                         echo "should_run=true" >> "$GITHUB_OUTPUT" ;;
+            0)           echo "No run has covered $today — running."
+                         echo "should_run=true" >> "$GITHUB_OUTPUT" ;;
+            *)           echo "$covered run(s) already cover $today — standing down."
+                         echo "should_run=false" >> "$GITHUB_OUTPUT" ;;
+          esac
+
   build:
+    needs: preflight
+    if: needs.preflight.outputs.should_run == 'true'
     runs-on: ubuntu-latest
 
     steps:
