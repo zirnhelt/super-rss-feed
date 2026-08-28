@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-28 (Friday)
+
+#### 🔧 Manual Run (6:24 AM Pacific)
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ **Comments for The Road Goes Ever On** failed — `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/`
+- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
+- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
+- ⚠️ **Neuroscience News** failed — `403 Client Error: Forbidden for url: https://neurosciencenews.com/feed/`
+
+
+---
+
+
+
 ## 2026-08-27 (Thursday)
 
 #### 🔧 Manual Run (7:09 AM Pacific)
