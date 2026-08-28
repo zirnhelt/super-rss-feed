@@ -21,6 +21,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🌙 8:30 PM Pacific
+- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
+
+
+---
+
+
+
 ## 2026-08-27 (Thursday)
 
 #### 🔧 Manual Run (7:09 AM Pacific)
