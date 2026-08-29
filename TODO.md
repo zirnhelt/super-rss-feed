@@ -49,15 +49,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-08-22 | 🔧 Manual Run | ⚠️ **Comments for The Road Goes Ever On** failed | `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/` |
 | 2026-08-22 | 🔧 Manual Run | ⚠️ **Comments for Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/` |
 | 2026-08-22 | 🔧 Manual Run | ⚠️ **Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SS` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **Small Farm Canada** failed | `404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **Consumer Reports** failed | `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **farmonaut.com** failed | `403 Client Error: Forbidden for url: https://farmonaut.com/feed` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **Comments for The Road Goes Ever On** failed | `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **Comments for Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/` |
-| 2026-08-21 | 🔧 Manual Run | ⚠️ **Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/` |
-| 2026-08-21 | 🌙 8:30 PM Pacific | ⚠️ **Neowin** failed | `521 Server Error: <none> for url: https://www.neowin.net/news/rss/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -65,6 +56,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-08-29 | 🌅 morning | 80 | news:25(31%), ai-tech:13(16%), wellness:10(12%) |
 | 2026-08-28 | 🔧 manual | 97 | news:25(26%), ai-tech:18(19%), local:10(10%) |
 | 2026-08-28 | 🌙 evening | 78 | news:25(32%), ai-tech:18(23%), wellness:10(13%) |
 | 2026-08-27 | 🔧 manual | 92 | news:25(27%), ai-tech:18(20%), wellness:10(11%) |
@@ -76,12 +68,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-08-22 | 🔧 manual | 62 | news:25(40%), ai-tech:11(18%), wellness:10(16%) |
 | 2026-08-22 | 🔧 manual | 45 | news:25(56%), wellness:10(22%), design:6(13%) |
 | 2026-08-22 | 🌙 evening | 61 | news:25(41%), ai-tech:11(18%), wellness:10(16%) |
-| 2026-08-21 | 🔧 manual | 82 | news:25(30%), ai-tech:18(22%), wellness:10(12%) |
-| 2026-08-21 | 🌙 evening | 96 | news:25(26%), ai-tech:18(19%), local:13(14%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-28 16:38 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-29 11:06 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

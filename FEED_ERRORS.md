@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-08-29 (Saturday)
+
+#### 🌅 4:30 AM Pacific
+- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
+
+
+---
+
+
+
 ## 2026-08-28 (Friday)
 
 #### 🔧 Manual Run (6:24 AM Pacific)
@@ -180,32 +190,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Scrub batch 9 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeK5J8GDrHYsLy8LHbrds'}), keeping all
 - ⚠️ Scrub batch 10 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeK5J8rCB5tdfAMFUkdei'}), keeping all
 - ⚠️ Scrub batch 11 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeK5J9PSCW8647AxwoZ6N'}), keeping all
-
-
----
-
-
-
-## 2026-08-21 (Friday)
-
-#### 🔧 Manual Run (7:28 AM Pacific)
-- ⚠️ **FolkloreThursday** failed — `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SS`
-- ⚠️ **Small Farm Canada** failed — `404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/`
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
-- ⚠️ **Comments for The Road Goes Ever On** failed — `403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/`
-- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
-- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
-
-
----
-
-
-
-
-#### 🌙 8:30 PM Pacific
-- ⚠️ **Neowin** failed — `521 Server Error: <none> for url: https://www.neowin.net/news/rss/`
 
 
 ---
@@ -1067,6 +1051,23 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-08-19–2026-08-19
 - 1 issues recorded
 - ⚠️ Noema Magazine failed — 521 Server Error: <none> for url: https://www.noemamag.com/feed/
+
+
+---
+
+
+
+## Week of 2026-08-21–2026-08-21
+- 9 issues recorded
+- ⚠️ FolkloreThursday failed — HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: 
+- ⚠️ Small Farm Canada failed — 404 Client Error: Not Found for url: https://www.smallfarmcanada.ca/feed/
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+- ⚠️ Consumer Reports failed — 404 Client Error: Not Found for url: https://www.consumerreports.org/rss/
+- ⚠️ farmonaut.com failed — 403 Client Error: Forbidden for url: https://farmonaut.com/feed
+- ⚠️ Comments for The Road Goes Ever On failed — 403 Client Error: Forbidden for url: https://mariaadey.com/comments/feed/
+- ⚠️ Comments for Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/
+- ⚠️ Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/
+- ⚠️ Neowin failed — 521 Server Error: <none> for url: https://www.neowin.net/news/rss/
 
 
 ---
