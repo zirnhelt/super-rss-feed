@@ -271,3 +271,33 @@ Worst sources remain consistent and severe: Rolling Stone 100% bad (14/14), The 
 - Composite score weighting review: User feedback shows band_precision is poor even after dimensional scoring rearchitecture—80-100 band is only 57.9% good, 60-79 is 42.4% good, 40-59 is 34.9% good. The dimensional histograms show quality and relevance distributions are more normal than composite, but local remains a binary cliff (14338/14355 news articles in 0-19 L band). The current weighting (0.25Q + 0.55R + 0.20L general, 0.65Q + 0.15R + 0.20L news) may still be collapsing scores for non-Cariboo content. Consider rebalancing to reduce local weight or implement a non-linear local bonus rather than multiplicative weight.
 - News category definition review: News has 75.5% bad rate (640/848 rated articles) despite quality-focused weighting (0.65Q + 0.15R + 0.20L). The category catches too much low-quality content that should be filtered upstream or routed elsewhere. Review news_interests.txt and category assignment logic to tighten what qualifies as 'news' vs generic ai-tech/wellness/etc.
 - Scifi category review: 72.7% bad rate (8/11 rated articles) suggests either poor source mix or category definition mismatch. Most scifi content appears to be entertainment news/product announcements rather than worldbuilding/speculative fiction that the interest profile calls for. Review scifi category assignment criteria and consider tightening scoring_prompt to focus on hard SF, cli-fi, futures studies rather than Marvel movie announcements.
+
+## 2026-08-30
+
+Audit window: 23 runs (2026-08-17T04:50:51.265048+00:00 to 2026-08-30T12:21:08.068946+00:00).
+
+
+**Analysis**
+
+The 23-run audit window (August 17–30) shows a stabilized pipeline following the August 11 dimensional scoring rearchitecture, but user feedback reveals a persistent quality crisis that dimensional scoring has not addressed. The weekday theme score collapse is confirmed RESOLVED—all themes show healthy mean_theme_score_raw values (Monday 15.2–33.4, Tuesday 4.4–13.3, Wednesday 2.7–10.8, Thursday 7.0–23.1, Friday 37.4–60.2, Saturday 39.0–59.5, Sunday 48.3–74.5) with podcast feeds consistently hitting 100 articles and robust holdover banks.
+
+However, user feedback ground truth (ending August 22) reveals the dimensional scoring fix did not resolve the fundamental quality problem: 65.8% bad rate overall, with composite scores showing poor band precision (80-100 band only 57.9% good, 40-59 band 52.7% bad). The threshold_sweep is damning: current min_claude_score=20 cuts only 30.0% of bad articles while losing 9.0% of good ones, and the sweep shows min_claude_score=25 would cut 36.9% of bad at 11.7% good lost—a favorable trade. Final feed sizes are 462–807/run (mean 626 recent runs), well above the ~100 target, confirming substantial capacity to tighten. News category alone has 75.5% bad rate (640/848) yet pipeline passes 475 articles through quality gate—the floor is demonstrably too low. The dimensional histograms show quality dimension has better separation than composite (news: 16676 in 0-19 vs 444 in 60-79), but relevance is collapsed (17003 in 0-19 vs 18 in 60-79) and local remains a binary cliff (17911 in 0-19).
+
+Noise-to-signal shows mixed but generally positive trends: window mean 1.77 (down from 1.91 last week), with dramatic improvement visible in mid-window runs (0.56–0.88 on August 22–23) but some regression at window edges (2.86 on August 20, 2.46 on August 19, 2.46 on August 28). The recent uptick (1.90 on August 30) suggests either upstream content mix shift or threshold changes needed. The podcast routing correction rate is 21.8% (91 routing bugs, 156 theme-scoring misses), indicating theme prompts are performing adequately post-rearchitecture but still need monitoring.
+
+Worst sources remain severe and consistent: Rolling Stone 100% bad (14/14), The New Yorker 100% bad (5/5), Reactor Magazine 90% bad, Domino 87.5% bad, Lifehacker 87.0% bad, Neowin 86.7% bad, Toms Guide 86.5% bad—these are strong candidates for human-recommended blocking. The per-category bad rates reveal news (75.5%), scifi (72.7%), and wellness (53.8%) need attention, while local (25.0%), climate (26.1%), science (11.8%), and homestead (0.0%) perform well.
+
+
+No changes applied this run.
+
+
+**Rejected**
+
+- `limits.min_claude_score`: no-op after clamping (already at/near value)
+
+**Human recommendations**
+
+- Source blocking: Rolling Stone (100% bad, 14/14 rated), The New Yorker (100% bad, 5/5), Reactor Magazine (90% bad, 9/10), Domino (87.5% bad, 7/8), Lifehacker (87% bad, 20/23), Neowin (86.7% bad, 13/15), and Toms Guide (86.5% bad, 32/37) show consistently severe bad rates across the user feedback window. These sources are producing content that scores well enough to pass quality gates but fails user review at catastrophic rates. Recommend adding these to a source blocklist or applying aggressive source-specific penalties.
+- News category scoring review: News has 75.5% bad rate (640/848 rated articles) despite dimensional scoring improvements. The dimensional histograms show relevance is collapsed for news (17003/17928 in 0-19 band), suggesting the news_interests.txt prompt or relevance scoring logic may be misaligned with user expectations. This is forbidden-territory prompt work, but the evidence is clear that news relevance scoring needs human review.
+- Theme routing prompt review: The 21.8% correction rate (156 theme-scoring misses vs 91 routing bugs) shows theme prompts are performing adequately post-rearchitecture but 156 theme-scoring misses across 1135 routed articles indicates there's still room for improvement. The per-day breakdown shows Wednesday (33.0% good), Saturday (29.5% good), and Sunday (31.6% good) outperform Monday (21.1%), Tuesday (21.9%), Thursday (21.1%), and Friday (24.0%)—this suggests weekday theme prompts may still need refinement despite the score-collapse fix.
+- Scifi category review: Scifi shows 72.7% bad rate (8/11 rated) and the composite histogram shows 84/136 articles in 0-19 band. This category may have source mix issues (Reactor Magazine is a major source and scores 90% bad) or the category definition in scoring_interests.txt may be misaligned with user expectations. Recommend human review of scifi sources and category definition.
