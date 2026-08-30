@@ -13,6 +13,22 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (4:23 AM Pacific)
+- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
+- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Cottage Life** failed — `403 Client Error: Forbidden for url: https://cottagelife.com/feed/`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
+- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
+
+
+---
+
+
+
 ## 2026-08-29 (Saturday)
 
 #### 🌅 4:30 AM Pacific

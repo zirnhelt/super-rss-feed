@@ -8,6 +8,14 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **Cottage Life** failed | `403 Client Error: Forbidden for url: https://cottagelife.com/feed/` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **Consumer Reports** failed | `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **farmonaut.com** failed | `403 Client Error: Forbidden for url: https://farmonaut.com/feed` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **Comments for Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/` |
+| 2026-08-30 | 🔧 Manual Run | ⚠️ **Solarpunk Magazine** failed | `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/` |
 | 2026-08-28 | 🔧 Manual Run | ⚠️ **OpenMedia** failed | `404 Client Error: Not Found for url: https://openmedia.org/feed/` |
 | 2026-08-28 | 🔧 Manual Run | ⚠️ **Harvard Health Blog** failed | `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed` |
 | 2026-08-28 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
@@ -26,6 +34,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-08-30 | 🌅 morning | 76 | news:25(33%), ai-tech:15(20%), wellness:10(13%) |
+| 2026-08-30 | 🔧 manual | 57 | news:25(44%), wellness:10(18%), ai-tech:5(9%) |
 | 2026-08-29 | 🌅 morning | 80 | news:25(31%), ai-tech:13(16%), wellness:10(12%) |
 | 2026-08-28 | 🔧 manual | 97 | news:25(26%), ai-tech:18(19%), local:10(10%) |
 | 2026-08-28 | 🌙 evening | 78 | news:25(32%), ai-tech:18(23%), wellness:10(13%) |
@@ -35,9 +44,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-08-24 | 🌙 evening | 95 | news:25(26%), ai-tech:18(19%), climate:10(11%) |
 | 2026-08-23 | 🌙 evening | 84 | news:25(30%), ai-tech:11(13%), homelab:10(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-08-30 10:00 UTC_
+_Last updated by log\_feed\_results.py · 2026-08-30 11:23 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
