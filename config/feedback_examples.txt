@@ -1,25 +1,21 @@
-# Scoring Prompt: Relevance Calibration
+# Scoring Calibration Bullets for Curator Feed
 
-**Core Topic Priorities**
-- **AI/Tech with practical impact**: Prioritize AI-tech articles demonstrating real-world adoption, infrastructure, or tooling (GitHub telemetry, Copilot ROI, AI agent ecosystems) over speculative or policy-only pieces.
-- **DIY/maker applied to autonomy**: Score highly articles combining hands-on technology (3D printing, Home Assistant, smart home automation) with functional independence or problem-solving—especially when they enable user control.
-- **Localized community infrastructure**: Weight local articles about civic/cultural projects (4-H, First Nation arts funding, hospice planning) more heavily than general local news or sports coverage.
+**Core Topic Signals (Exemplars = Highest Priority)**
+- **Practical DIY + emerging tech**: 3D printing, Home Assistant, smart home automation, repurposing existing hardware (e.g., making old iPads/bikes useful) score highest. Favor hands-on, implementable projects over passive consumption.
+- **AI adoption & telemetry**: GitHub ecosystem, enterprise AI dashboards, and measurable ROI/impact of AI tools are exemplar-level. De-prioritize generic AI hype or product launches.
+- **Local + community infrastructure**: Williams Lake Tribune coverage of 4-H, Indigenous projects, and local civic initiatives score high. Prioritize regional BC/Cariboo content with community service angles over generic "local news."
+- **Applied science with real-world impact**: Microplastics, cholesterol treatments removing PFAS, fault detection—science that affects daily life or policy ranks above pure discovery.
 
-**Underrepresented Topics to Boost**
-- **Climate tech solutions**: Articles on EV charging, battery innovation, and renewable energy infrastructure score well but are fewer than climate-crisis warnings. Boost constructive climate-tech coverage.
-- **Materials science & manufacturing**: 3D-printable materials, rare earth sourcing, and industrial innovation (tungsten carbide, seabed deposits) indicate strong interest—promote similar manufacturing/materials stories.
-- **Health/biology with systemic implications**: Microplastics, PFAS, hormonal disruption research scores high; prioritize rigorous science over sensationalist medical scare-stories.
+**Under-Represented Topics Worth Boosting**
+- **Homestead + agriculture**: Farm economics, cattle ranching policy, agricultural infrastructure (e.g., pizza ovens, lawn care) appear in Interesting/Good but are sparse. Boost articles on food systems, farming tech, and rural land use.
+- **Climate + regional environmental challenges**: Wildfires, EV infrastructure, conservation. Many reassigned to multiple days, indicating strong interest.
+- **Wellness with agency**: Longevity, health monitoring, mental load—but avoid generic "how-to" wellness fluff (e.g., "How to Stop Procrastinating").
 
-**Content-Type Red Flags (Avoid)**
-- Listicles ("10 best X," "5 ways to Y") consistently score low unless deeply specialized (Cool Tools curated lists are exceptions).
-- Sensationalist health framing (rare disease horror stories, extreme symptom narratives) are explicitly disliked even with high scores.
-- Sports coverage, entertainment reviews, and generic tech product comparisons (specs, gift guides, product launches without broader context).
-- Travel listicles, streaming recommendations, and entertainment gossip.
+**Category Re-tagging Pattern** *(Curator consistently corrects curator's own categorization)*
+- **AI-tech is broader than assumed**: Includes hardware (headphones, iPads, assistants), EV records, and even consumer tech news. Don't limit to software/tools.
+- **News → Homelab/Homestead/Outdoors**: Generic "news" tags often mask maker/DIY/practical lifestyle content. Re-categorize articles about upgrading homes, outdoor gear, or hands-on projects.
+- **Wellness is underused**: Mental health, fitness, and health-monitoring articles mislabeled as "news." Recategorize opinion/lifestyle wellness pieces accordingly.
 
-**Source & Framing Patterns**
-- **Trusted sources**: GitHub Blog, Hackaday, XDA-Developers, All3DP, and specialized publications (The Northern Miner, ScienceAlert, APTN News) score consistently well.
-- **Preferred framing**: Technical deep-dives, community impact, systemic analysis, and preservation/sustainability angles outperform hype or corporate announcements.
-- **Avoid**: Corporate PR (Apple product announcements, Samsung smartwatch comparisons), geopolitical opinion pieces without technical substance.
-
-**Day & Category Correction Patterns**
-- **Category drift**: News outlet miscategorizations are frequent—apply stricter category enforcement for AI-tech (not "news"), homelab/DIY (not "design"), climate (not generic
+**Day Reassignment Pattern**
+- **Weekend podcasts (Friday–Sunday) favor climate, science, wellness, and community news**—articles reassigned heavily to these days. Weekday episodes skew toward homelab, AI-tech, and work-relevant content.
+- **Cariboo Signals (local podcast) is sacred** (score 86)—never filter or dep
