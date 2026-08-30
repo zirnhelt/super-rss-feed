@@ -4611,12 +4611,13 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Cross-theme reuse is intentional — the same article may appear in multiple
     # themed episodes with _cross_theme metadata on the second appearance.
 
-    # Cap the pool: sort by quality score and keep only the top direct-qualify
-    # candidates. Rescued/holdover articles are exempt from the *quality* sort —
-    # they already proved thematic fit via a cached theme score, so sorting by
-    # upstream quality score would systematically cut them (that's exactly why
-    # they needed rescuing). Scoring them costs nothing extra since their theme
-    # score is already cached.
+    # Cap the pool: keep only the top direct-qualify candidates, ranked by theme
+    # fit for a reserved share of the slots and by quality score for the rest
+    # (see the two-list fill below). Rescued/holdover articles are exempt from
+    # the *quality* sort — they already proved thematic fit via a cached theme
+    # score, so sorting by upstream quality score would systematically cut them
+    # (that's exactly why they needed rescuing). Scoring them costs nothing
+    # extra since their theme score is already cached.
     #
     # They are NOT, however, exempt from the cap itself. The bank grows every run
     # and the exemption used to be unbounded, so once it passed POOL_CAP the
@@ -4627,6 +4628,10 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # is actually available, so a genuinely thin week still fills from the bank.
     POOL_CAP = 300
     FRESH_POOL_SHARE = 0.5
+    # Share of the direct-qualify allowance held for the strongest theme fits,
+    # and the percentile an article must reach to compete for one of those slots.
+    THEME_RESERVE_SHARE = 0.4
+    THEME_RESERVE_MIN_PCT = 80
     if len(theme_pool) > POOL_CAP:
         rescued_links = {a.link for a in rescued}
         holdover_links = {a.link for a in holdover_pool} - rescued_links
@@ -4636,7 +4641,6 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         from_bank = [a for a in theme_pool if a.link in holdover_links]
         cappable = [a for a in theme_pool
                     if a.link not in rescued_links and a.link not in holdover_links]
-        cappable.sort(key=lambda a: a.score, reverse=True)
 
         fresh_reserve = min(len(cappable), int(POOL_CAP * FRESH_POOL_SHARE))
         bank_room = max(0, POOL_CAP - len(rescued_in_pool) - fresh_reserve)
@@ -4651,9 +4655,33 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             from_bank = from_bank[:bank_room]
         protected = rescued_in_pool + from_bank
         room = max(0, POOL_CAP - len(protected))
-        theme_pool = protected + cappable[:room]
-        print(f"  📊 Pool capped at top {room} direct-qualify articles by quality score "
-              f"(+{len(protected)} rescued/holdover exempted from cap)")
+
+        # Fill the direct-qualify allowance from two ranked lists, not one.
+        # Ranking solely by a.score is theme-blind by construction — it is the
+        # general-interest composite — so on a day whose subject matter sits
+        # outside the corpus's high-scoring mainstream, the most on-theme
+        # articles are cut here, before theme scoring ever sees them. On
+        # 2026-08-30 the Thursday episode was built entirely from articles whose
+        # raw charter scores were 10-20, while eight APTN First Nations stories
+        # sitting at the 97th-99th theme percentile were dropped for scoring
+        # 47-57 upstream against a cutoff of 67. Percentile normalization then
+        # rescaled the survivors to look like a 90-100 fit, hiding the failure.
+        #
+        # Articles with no cached theme score default to percentile 0, so they
+        # never take a reserve slot; they compete on quality exactly as before.
+        theme_reserve = max(0, int(room * THEME_RESERVE_SHARE))
+        on_theme = [a for a in cappable if _theme_pct(a.link) >= THEME_RESERVE_MIN_PCT]
+        on_theme.sort(key=lambda a: (_theme_pct(a.link), a.score), reverse=True)
+        reserved = on_theme[:theme_reserve]
+        reserved_links = {a.link for a in reserved}
+
+        by_quality = [a for a in cappable if a.link not in reserved_links]
+        by_quality.sort(key=lambda a: a.score, reverse=True)
+
+        theme_pool = protected + reserved + by_quality[:max(0, room - len(reserved))]
+        print(f"  📊 Pool capped at top {room} direct-qualify articles "
+              f"({len(reserved)} held for theme fit ≥ p{THEME_RESERVE_MIN_PCT}, "
+              f"rest by quality score; +{len(protected)} rescued/holdover exempted)")
     _dbg('after POOL_CAP', theme_pool)
 
     # Score articles for thematic fit using Claude
@@ -4979,6 +5007,11 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "_relevance": getattr(article, 'relevance', article.score),
             "_local": getattr(article, 'local', 0),
             "_theme_score": theme_score,
+            # Charter's own 0-100 output, kept alongside the percentile because
+            # normalization rescales the top of a collapsed distribution to
+            # 90-100 and so cannot show scale drift. validate_podcast_feeds.py
+            # asserts on this field.
+            "_theme_score_raw": theme_raw.get(article.link),
             "_composite_podcast": composite_podcast,
             "_keyword_matches": kw_matches,
             "_category": article.category,
