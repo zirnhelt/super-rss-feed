@@ -11,6 +11,7 @@ Thresholds (per feed):
   - At least 8 articles with summary length >= 100 chars
   - At least 5 articles with ai_score > 0
   - At least 3 articles with _keyword_matches > 0
+  - Top-10 mean _theme_score_raw >= 25
 
 Also checks episode sizes *across* themes. A charter whose scoring_prompt drifts
 off-scale starves its own feed while the others stay healthy — that regression
@@ -30,6 +31,22 @@ THRESHOLDS = {
     'min_with_ai_score': 5,
     'min_with_keyword_matches': 3,
 }
+
+# Absolute floor on the charter's own output, which percentile normalization
+# cannot reach. Selection ranks articles *within* a theme, so the top of a
+# collapsed distribution is promoted to `_theme_score` 90-100 regardless of how
+# poorly it actually fits: on 2026-08-30 the Thursday episode carried a Windows
+# 11 performance-boost article at percentile 90 whose raw charter score was 16.
+# `_theme_score_raw` is the un-rescaled 0-100 charter judgement, so a theme
+# whose best candidates sit near the bottom of its own ladder is airing filler
+# — either the charter's scoring_prompt has drifted off-scale or the corpus
+# genuinely holds nothing on-theme. Both need a human.
+#
+# Measured over the best few items rather than the whole episode: the tail is
+# expected to be weak (episodes are padded with bonus/cross-theme articles by
+# design), so only the top says whether the theme found anything at all.
+MIN_TOP_RAW_MEAN = 25
+TOP_RAW_SAMPLE = 10
 
 # A feed holding less than this share of the healthiest feed's size is starved
 # relative to its peers, even if it clears the absolute per-feed floors.
@@ -79,6 +96,22 @@ def validate_feed(path: Path) -> list[str]:
             f"_keyword_matches > 0: {with_kw}/{len(items)} "
             f"(need {THRESHOLDS['min_with_keyword_matches']})"
         )
+
+    # Raw charter fit. Skipped when no item carries the field, so a feed built
+    # before the field existed reports its other checks instead of failing here.
+    raw_scores = [it['_theme_score_raw'] for it in items
+                  if isinstance(it.get('_theme_score_raw'), (int, float))]
+    if raw_scores:
+        top = sorted(raw_scores, reverse=True)[:TOP_RAW_SAMPLE]
+        top_mean = sum(top) / len(top)
+        if top_mean < MIN_TOP_RAW_MEAN:
+            failures.append(
+                f"raw theme fit: top-{len(top)} mean _theme_score_raw "
+                f"{top_mean:.1f} (need {MIN_TOP_RAW_MEAN}) — the charter scores "
+                f"its own best candidates this low, so percentile "
+                f"normalization is masking an off-scale scoring_prompt or an "
+                f"empty corpus for this theme"
+            )
 
     return failures
 
