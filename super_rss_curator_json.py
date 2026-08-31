@@ -2255,7 +2255,6 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
             if discovered:
                 content = _fetch_url_bytes(discovered)
                 if content and _looks_like_feed(content):
-                    adopted_url = discovered
                     _feed_http_cache.set_resolved_url(cache_key, discovered)
                     _feed_http_cache.record_success(cache_key)
                     print(f"  ↩ {feed['title']}: feed moved → {discovered} (update feeds.opml)")
@@ -5370,6 +5369,13 @@ def main():
     _apple_news_cache = load_apple_news_cache()
 
     _feed_http_cache.load()
+    # Feeds relocated or retired by the weekly health agent leave their old
+    # OPML URL behind as a dead cache key. Drop those before the fetch loop so
+    # the file tracks the live feed list rather than every URL ever polled.
+    pruned = _feed_http_cache.prune_to(f['url'] for f in feeds)
+    if pruned:
+        print(f"  🧹 Pruned {pruned} HTTP cache entries for feeds no longer in the OPML")
+
     all_articles = []
     for feed in feeds:
         articles = fetch_feed_articles(feed, cutoff_date)

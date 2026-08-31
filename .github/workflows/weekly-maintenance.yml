@@ -10,6 +10,14 @@ on:
         description: 'Run feed discovery (find & auto-add new feeds)'
         type: boolean
         default: true
+      run_feed_health:
+        description: 'Run the feed health agent (repair, retire, or restore failing feeds)'
+        type: boolean
+        default: true
+      feed_health_dry_run:
+        description: 'Feed health: probe and log only, do not edit feeds.opml'
+        type: boolean
+        default: false
       run_calibration:
         description: 'Run the calibration agent (tune config from 14-day stats)'
         type: boolean
@@ -127,9 +135,62 @@ jobs:
             discovery_actions.json
           retention-days: 30
 
+  # Discovery adds feeds; this repairs the ones already there. It runs after
+  # discovery rather than beside it because both rewrite feeds.opml, and
+  # git_push_retry.sh deliberately refuses to auto-resolve a conflict in a
+  # hand-editable file — sequencing them is what keeps that from firing.
+  feed-health:
+    name: Feed Health Agent
+    needs: discovery
+    if: always() && (github.event_name == 'schedule' || inputs.run_feed_health)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Reads feed_http_cache.json (committed by the daily run) and the last
+      # 7 days of FEED_ERRORS.md, re-verifies each failing feed against the
+      # live network, then relocates, substitutes, retires or restores it.
+      # No API keys: every probe is a plain HTTP fetch.
+      - name: Run feed health agent
+        run: |
+          python integrate_discoveries.py --heal \
+            --heal-actions-file feed_health_actions.json \
+            ${{ inputs.feed_health_dry_run && '--dry-run' || '' }}
+
+      - name: Commit feed health fixes to main branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add feeds.opml FEED_HEALTH_LOG.md 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Weekly feed health run [skip ci]"
+          bash .github/scripts/git_push_retry.sh main
+
+      - name: Upload feed health actions as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: feed-health-actions
+          path: |
+            feed_health_actions.json
+            FEED_HEALTH_LOG.md
+          retention-days: 30
+
   calibration:
     name: Calibration Agent
-    needs: discovery
+    needs: [discovery, feed-health]
     if: always() && (github.event_name == 'schedule' || inputs.run_calibration)
     runs-on: ubuntu-latest
 
@@ -378,7 +439,7 @@ jobs:
 
   report:
     name: Weekly Report
-    needs: [discovery, calibration, feedback-training, quality-review, filter-review]
+    needs: [discovery, feed-health, calibration, feedback-training, quality-review, filter-review]
     if: always() && (github.event_name == 'schedule' || inputs.run_report)
     runs-on: ubuntu-latest
 
@@ -412,6 +473,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: feed-discovery-report
+        continue-on-error: true
+
+      - name: Download feed health actions artifact
+        if: needs.feed-health.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: feed-health-actions
         continue-on-error: true
 
       - name: Download filter review artifact

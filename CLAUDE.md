@@ -71,7 +71,7 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 | `feedback_trainer.py` | Weekly agent that reads `feedback/YYYY-MM-DD.json` ratings from `review.html` and updates `config/feedback_examples.txt`. Also injects the archived rollup so signal older than its 30-day window still counts. |
 | `feedback_archive.py` | Weekly. Distils feedback older than `feedback_retention_days` into `feedback/feedback_rollup.json`, compresses the raw files into `feedback/archive/YYYY-MM.jsonl.gz`, and maintains the `feedback/reviewed_urls.json` ledger. Statistics are stdlib; one Haiku call per *archived batch* (~monthly, ~$0.013) consolidates the topic/framing `lessons` block. Idempotent; `--dry-run` and `--no-distil` supported. |
 | `feed_discovery.py` | Weekly feed discovery — searches Brave/Kagi, scores candidates, writes `feed_discovery_report.json`. |
-| `integrate_discoveries.py` | Auto-adds high-confidence discovery candidates to `feeds.opml`. |
+| `integrate_discoveries.py` | Reconciles `feeds.opml` with reality. `--auto-add-threshold` adds high-confidence discovery candidates; `--heal` is the weekly feed health agent — it re-verifies chronically failing feeds against the live network and relocates, substitutes, retires, or restores them. Writes `FEED_HEALTH_LOG.md`. |
 | `corpus_alignment_report.py` | Audits whether upstream interest scores align with per-theme fit scores across the 7-day podcast cache. |
 | `article_review_audit.py` | Weekly offline audit joining `feedback/` ratings against pipeline scores, theme routing, and volume trends. Writes `ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (consumed by `calibration_agent.py` as ground truth and by the weekly report). Stdlib-only, no API calls. |
 | `score_scrub_report.py` | Spot-checks live feeds for scoring/scrubbing quality. |
@@ -223,11 +223,12 @@ Persistent memory for the weekly calibration agent:
 Six sequential jobs (each skippable via `workflow_dispatch` inputs):
 
 1. **discovery** — `feed_discovery.py` → `integrate_discoveries.py` → auto-merged PR adding high-confidence feeds (threshold 65).
-2. **calibration** — `calibration_agent.py` reads 14-day stats, proposes bounded config changes, commits to `main`.
-3. **feedback-training** — `feedback_archive.py` distils + archives old ratings, then `feedback_trainer.py` reads `feedback/` ratings, updates `config/feedback_examples.txt`, commits to `main` (including `feedback/`).
-4. **quality-review** — `score_scrub_report.py` + `corpus_alignment_report.py` + `article_review_audit.py`, commits reports to `main` (including `article_review_audit_summary.json`, which the next week's calibration run reads).
-5. **filter-review** — `tools/review_filter_priority.py` (Cohere), commits `tools/filter_priority_review.md`.
-6. **report** — `generate_weekly_report.py`, deploys `weekly-report-*.html` to `gh-pages`.
+2. **feed-health** — `integrate_discoveries.py --heal` repairs feeds that have been failing, commits `feeds.opml` + `FEED_HEALTH_LOG.md` to `main`. Runs after discovery, not beside it: both rewrite `feeds.opml`, and `git_push_retry.sh` refuses to auto-resolve conflicts in hand-editable files.
+3. **calibration** — `calibration_agent.py` reads 14-day stats, proposes bounded config changes, commits to `main`.
+4. **feedback-training** — `feedback_archive.py` distils + archives old ratings, then `feedback_trainer.py` reads `feedback/` ratings, updates `config/feedback_examples.txt`, commits to `main` (including `feedback/`).
+5. **quality-review** — `score_scrub_report.py` + `corpus_alignment_report.py` + `article_review_audit.py`, commits reports to `main` (including `article_review_audit_summary.json`, which the next week's calibration run reads).
+6. **filter-review** — `tools/review_filter_priority.py` (Cohere), commits `tools/filter_priority_review.md`.
+7. **report** — `generate_weekly_report.py`, deploys `weekly-report-*.html` to `gh-pages`.
 
 ## `deploy-static.yml` — On push to `main` touching `review.html`
 
@@ -310,6 +311,32 @@ if not results:
     results = score_with_claude(articles)
 ```
 
+## Feed Health Agent Safety
+
+`integrate_discoveries.py --heal` is the only automation that edits the *feed list* rather than
+config, so its bounds are about never losing a source by mistake.
+
+**Evidence never decides anything on its own.** A feed becomes a *candidate* from failure
+history — `feed_http_cache.json` counts, plus the last 7 days of `FEED_ERRORS.md` as a backstop
+for a lost cache — and must clear both floors (`--heal-min-failures` 3, `--heal-min-days` 2)
+before it is touched. What actually happens to it is decided by a **fresh probe against the
+live network**, in the pipeline's own escalation order: still works → left alone; moved →
+relocated; unreachable but still publishing → Google News stand-in; nothing answers → retired.
+
+**Nothing is deleted.** Retirement flips `type="rss"` to `type="retired"`, which `parse_opml()`
+stops selecting. The URL, title, reason and date stay in the file, `get_existing_feeds()` still
+counts it so discovery cannot re-add it, and `recheck_retired()` restores it automatically once
+the source answers again — removing any Google News stand-in that replaced it.
+
+**A broken runner is not a week of dead outlets.** Every verdict is inferred from a failed
+request, so before applying anything the agent probes up to 3 feeds with *no* failure history.
+If none of them answers, the fault is local and the pass makes no changes at all. `--heal-max-feeds`
+(25) caps the blast radius further, spending the budget worst-first.
+
+Google News substitution additionally requires the search feed to carry an article from the last
+30 days — the index still answers for a dead outlet, with years-old results, and adopting that
+would quietly resurrect a source that stopped publishing.
+
 ## Calibration Agent Safety
 
 The calibration agent only modifies keys whitelisted in `config/calibration_bounds.json`. Every proposed change is clamped to `[min, max]` bounds and checked against `global_caps`. A flip-flop guard prevents oscillating changes. All changes are logged to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. The agent's prompt includes a fresh (≤14 days) `article_review_audit_summary.json` when present — user review verdicts are treated as ground truth over pipeline-side histograms. Skip/failure reasons are written verbatim to `CALIBRATION_LOG.md` (a "no calibration stats" skip is not a Claude failure).
@@ -328,7 +355,9 @@ The calibration agent only modifies keys whitelisted in `config/calibration_boun
 
 10. **The podcast pool cap must stay theme-aware** — the direct-qualify half of `POOL_CAP` is filled from *two* ranked lists: `THEME_RESERVE_SHARE` (0.4) of the slots go to candidates at or above `THEME_RESERVE_MIN_PCT` (p80) of the day's theme, the rest by upstream `a.score`. `a.score` is the general-interest composite and is theme-blind by construction, so ranking on it alone cuts the most on-theme articles *before* theme scoring ever sees them: on 2026-08-30 the Thursday episode was built entirely from articles with raw charter scores of 10-20 while eight APTN First Nations stories at the 97th-99th theme percentile were dropped for scoring 47-57 upstream against a cutoff of 67. The reserve does not change the pool size, so it costs no extra API calls. Articles with no cached theme score default to percentile 0 and compete on quality as before.
 
-11. **A rediscovered feed URL lives in the cache, not the OPML** — when `_discover_feed_url()` finds a moved feed it writes `resolved_url` into `feed_http_cache.json` rather than rewriting `feeds.opml`, because the OPML is user-curated *and* rewritten by `integrate_discoveries.py`. The feed works again immediately, but the fix is only as durable as the cache. The run prints `↩ <feed>: feed moved → <url> (update feeds.opml)` — paste it into the OPML to make it permanent. If the resolved URL later fails, it is cleared so the next run rediscovers from the OPML URL rather than compounding one bad guess.
+11. **A rediscovered feed URL lives in the cache until the weekly heal promotes it** — when `_discover_feed_url()` finds a moved feed mid-run it writes `resolved_url` into `feed_http_cache.json` rather than rewriting `feeds.opml`, because the OPML is user-curated and a curation run is the wrong place to edit it. The feed works again immediately but the fix is only as durable as the cache, so `--heal` re-verifies the resolved URL each Sunday and writes it into the OPML for real (recording `relocatedFrom`). If the resolved URL later fails it is cleared, so the next run rediscovers from the OPML URL rather than compounding one bad guess.
+
+    **That whole mechanism is inert unless `feed_http_cache.json` is persisted.** It is a runtime cache in a repo that gets a fresh checkout every run: until it was added to the gh-pages download, the `output/` copy and the commit list in `generate-feed.yml`, every failure count reset to zero nightly — the paid-fallback cutoff at 3 consecutive failures could never be reached, the backoff ladder never fired, and each moved feed was rediscovered again the next day. If failure counts ever read as implausibly low, check that plumbing first.
 
 12. **WordPress comment feeds are not article feeds** — `/comments/feed/` (title "Comments for …") carries reader comments: no headline, no body, nothing scoreable. Discovery used to score them like any other feed and four reached `feeds.opml`; they are also disproportionately WAF-blocked, so each cost a failed fetch plus a search fallback every run. `integrate_discoveries.is_comment_feed()` now rejects them at the gate. Never add one by hand.
 

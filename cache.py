@@ -138,6 +138,10 @@ class FeedHTTPCache:
         entry['failures'] = entry.get('failures', 0) + 1
         entry['failure_kind'] = kind
         entry['last_failure'] = time.time()
+        # A count alone cannot distinguish "failed 4 times in one bad afternoon"
+        # from "failed every run for a week". Retirement decisions need the
+        # latter, so remember when the current failure streak started.
+        entry.setdefault('first_failure', entry['last_failure'])
         self._data[url] = entry
         return entry['failures']
 
@@ -146,8 +150,41 @@ class FeedHTTPCache:
         entry = self._data.get(url)
         if not entry:
             return
-        for key in ('failures', 'failure_kind', 'last_failure'):
+        for key in ('failures', 'failure_kind', 'last_failure', 'first_failure'):
             entry.pop(key, None)
+
+    def entry(self, url: str) -> dict:
+        """Read-only view of one feed's cached state ({} if untracked)."""
+        return dict(self._data.get(url, {}))
+
+    def failure_age_days(self, url: str) -> float:
+        """Days since the current failure streak began (0.0 if not failing).
+
+        Falls back to last_failure for entries written before first_failure
+        was tracked, which reads as a brand-new streak — deliberately
+        conservative, since it can only delay a retirement, never rush one.
+        """
+        entry = self._data.get(url, {})
+        if not entry.get('failures'):
+            return 0.0
+        started = entry.get('first_failure') or entry.get('last_failure')
+        if not started:
+            return 0.0
+        return max(0.0, (time.time() - started) / 86400)
+
+    def prune_to(self, known_urls) -> int:
+        """Drop state for feeds no longer in the OPML. Returns entries removed.
+
+        Entries are keyed on the OPML URL, so a feed that is renamed, retired,
+        or relocated by the health agent leaves its old key behind. Without
+        this the file grows forever and, worse, a feed restored under its old
+        URL would inherit a stale failure streak it never earned.
+        """
+        known = set(known_urls)
+        stale = [url for url in self._data if url not in known]
+        for url in stale:
+            del self._data[url]
+        return len(stale)
 
     def failure_count(self, url: str) -> int:
         return self._data.get(url, {}).get('failures', 0)
