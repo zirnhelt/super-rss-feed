@@ -22,7 +22,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from difflib import SequenceMatcher
-from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, quote
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, quote, urljoin
 import anthropic
 from fetch_images import batch_fetch_images
 import cohere_integration
@@ -1797,6 +1797,38 @@ class _AttrDict:
         return self._data.get(name)
 
 
+# The browser identity we lead with. Most feeds are served by CDNs that
+# reject the python-requests default outright.
+_BROWSER_UA = (
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+    '(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+)
+
+# ...and the identity we fall back to on a 403. WAFs that block a browser UA
+# coming from a datacenter IP (Cloudflare bot-fight, Wordfence) routinely
+# allowlist self-identifying feed readers, because publishers want to be
+# syndicated even when they don't want to be scraped. Declaring what we
+# actually are is both more honest and, empirically, more likely to be let
+# through — and it costs nothing, unlike the search-API fallbacks below.
+_FEED_READER_UA = (
+    'SuperRSSCurator/1.0 (+https://zirnhelt.github.io/super-rss-feed/) '
+    'RSS/Atom feed reader'
+)
+
+_FEED_ACCEPT = 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*'
+
+# Conventional feed locations, probed only when a feed 404s and the site
+# advertises no <link rel="alternate">. Ordered by how common they are.
+_COMMON_FEED_PATHS = (
+    '/feed/', '/rss/', '/rss.xml', '/feed.xml', '/atom.xml', '/index.xml',
+    '/blog/feed/', '/news/feed/', '/feeds/posts/default',
+)
+
+# Cap on HTTP requests spent looking for one moved feed, so rediscovery stays
+# cheap and polite even when every guess misses.
+_MAX_DISCOVERY_PROBES = 6
+
+
 def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]:
     """Query Brave Search for recent articles from a domain that blocked direct RSS access.
 
@@ -1975,10 +2007,7 @@ def _fetch_via_google_news_fallback(feed: Dict, cutoff_date: datetime) -> List[A
     query = quote(f'site:{domain} when:{lookback_days}d')
     gn_url = f'https://news.google.com/rss/search?q={query}&hl=en-CA&gl=CA&ceid=CA:en'
 
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-        'Accept': 'application/rss+xml, application/xml, text/xml, */*',
-    }
+    headers = {'User-Agent': _BROWSER_UA, 'Accept': _FEED_ACCEPT}
     try:
         response = requests.get(gn_url, headers=headers, timeout=10)
         response.raise_for_status()
@@ -2003,82 +2032,194 @@ def _fetch_via_google_news_fallback(feed: Dict, cutoff_date: datetime) -> List[A
     return articles
 
 
-def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
-    """Fetch and parse articles from a feed"""
-    try:
-        feed_url = feed['url']
+def _looks_like_feed(content: bytes) -> bool:
+    """True only if the bytes parse as a feed that actually carries entries.
 
-        if _feed_http_cache.should_skip(feed_url):
-            print(f"  ⏭ {feed['title']}: skipped (Cache-Control/Retry-After not yet expired)")
+    Guards against soft 404s: many CMSs answer an unknown /feed path with a
+    200 HTML error page, which feedparser will happily parse into an empty
+    feed. Requiring entries means we can never adopt one as a replacement.
+    """
+    try:
+        parsed = feedparser.parse(content)
+    except Exception:
+        return False
+    return bool(parsed.entries) and bool(parsed.get('version'))
+
+
+def _fetch_url_bytes(url: str, user_agent: str = _BROWSER_UA) -> Optional[bytes]:
+    """GET a URL, returning its body or None on any failure. Never raises."""
+    try:
+        response = requests.get(
+            url,
+            headers={'User-Agent': user_agent, 'Accept': _FEED_ACCEPT},
+            timeout=10,
+        )
+        response.raise_for_status()
+        return response.content
+    except Exception:
+        return None
+
+
+def _autodiscovery_links(page_url: str) -> List[str]:
+    """Read a page's <link rel="alternate"> feed advertisements."""
+    html = _fetch_url_bytes(page_url)
+    if not html:
+        return []
+    try:
+        soup = BeautifulSoup(html, 'html.parser')
+    except Exception:
+        return []
+
+    links = []
+    for tag in soup.find_all('link', rel=lambda v: v and 'alternate' in v):
+        mime = (tag.get('type') or '').lower()
+        href = tag.get('href')
+        if href and ('rss' in mime or 'atom' in mime):
+            links.append(urljoin(page_url, href))
+    return links
+
+
+def _discover_feed_url(feed: Dict) -> Optional[str]:
+    """Find where a 404ing feed moved to, without spending an API call.
+
+    A 404 means the feed URL is stale, not that the outlet is gone — the usual
+    cause is a CMS migration that moved /feed to somewhere else on the same
+    site. Search-API fallbacks paper over that at a per-run cost and return
+    thin search-index summaries instead of real feed entries; rediscovery
+    fixes the cause once, for free, and restores full-fidelity articles.
+    """
+    old_url = feed.get('url', '')
+    parsed = urlparse(old_url)
+    if not parsed.netloc:
+        return None
+    origin = f'{parsed.scheme}://{parsed.netloc}'
+
+    candidates: List[str] = []
+    for page in dict.fromkeys(p for p in (feed.get('html_url'), origin) if p):
+        candidates.extend(_autodiscovery_links(page))
+    candidates.extend(urljoin(origin, path) for path in _COMMON_FEED_PATHS)
+
+    seen = {old_url}
+    probes = 0
+    for candidate in candidates:
+        if candidate in seen:
+            continue
+        seen.add(candidate)
+        if probes >= _MAX_DISCOVERY_PROBES:
+            break
+        probes += 1
+        content = _fetch_url_bytes(candidate)
+        if content and _looks_like_feed(content):
+            return candidate
+    return None
+
+
+def _articles_from_feed_bytes(
+    content: bytes, feed: Dict, cutoff_date: datetime, source_url: str
+) -> List[Article]:
+    """Turn a fetched feed body into filtered, enriched Article objects."""
+    parsed = feedparser.parse(content)
+
+    # Some feeds (e.g. My Cariboo Now) repeat the channel-level description
+    # as every item's <description> — sometimes with extra markup like
+    # <strong> wrappers — producing identical boilerplate "summaries" that
+    # hide the real article content and game keyword-based scoring. Detect
+    # and strip that case so the article is treated as having no description
+    # (the body-excerpt fetch below then recovers real article text).
+    channel_key = _boilerplate_key(
+        parsed.feed.get('description', '') or parsed.feed.get('subtitle', '')
+    )
+    boilerplate_keys = _find_boilerplate_keys(
+        [e.get('description', '') or e.get('summary', '') for e in parsed.entries],
+        channel_key,
+    )
+
+    articles = []
+    stripped_boilerplate = 0
+    for entry in parsed.entries:
+        article = Article(entry, feed['title'], feed['html_url'], source_url)
+
+        if boilerplate_keys and _boilerplate_key(article.description) in boilerplate_keys:
+            article.description = ''
+            article.summary = ''
+            article.excerpt = ''
+            stripped_boilerplate += 1
+
+        if article.pub_date < cutoff_date:
+            continue
+
+        if article.should_filter():
+            continue
+
+        articles.append(article)
+
+    # For known local BC sources with a stub (or just-stripped) description,
+    # attempt a body fetch while the article is still within the paywall-free window.
+    fetched_excerpts = _enrich_thin_local_articles(articles)
+
+    if articles:
+        extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
+        if stripped_boilerplate:
+            extra += f", {stripped_boilerplate} boilerplate descriptions stripped"
+        print(f"  ✓ {feed['title']}: {len(articles)} articles{extra}")
+
+    return articles
+
+
+def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
+    """Fetch and parse articles from a feed.
+
+    Failures escalate through free recovery before paid recovery: a 403 gets
+    one retry under a feed-reader identity, a 404 gets free rediscovery of the
+    feed's new URL, and only then do the search-API fallbacks run — and those
+    are cut off entirely for feeds that have been failing for several runs
+    (see FeedHTTPCache.should_skip_paid_fallback), so a permanently dead
+    source stops competing for Brave/Kagi quota with recoverable ones.
+    """
+    # Cache state is always keyed on the OPML URL — that is the feed's stable
+    # identity — while the request may go to a rediscovered URL.
+    cache_key = feed['url']
+    request_url = _feed_http_cache.resolved_url(cache_key) or cache_key
+
+    try:
+        if _feed_http_cache.should_skip(cache_key):
+            # Two very different reasons to skip. A healthy feed inside its
+            # Cache-Control window simply isn't due yet — leave it alone. A
+            # feed serving out its failure backoff, though, is producing
+            # nothing at all, so still give it the keyless Google News
+            # fallback: the backoff exists to stop wasting direct fetches and
+            # paid search on a dead source, not to drop its coverage.
+            if _feed_http_cache.failure_count(cache_key):
+                fallback = _fetch_via_google_news_fallback(feed, cutoff_date)
+                if fallback:
+                    print(f"  ↩ {feed['title']}: in backoff, Google News fallback → {len(fallback)} articles")
+                    return fallback
+                print(f"  ⏭ {feed['title']}: skipped (backing off after repeated failures)")
+            else:
+                print(f"  ⏭ {feed['title']}: skipped (Cache-Control/Retry-After not yet expired)")
             return []
 
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-            'Accept': 'application/rss+xml, application/xml, text/xml, */*',
-        }
-        headers.update(_feed_http_cache.request_headers(feed_url))
+        headers = {'User-Agent': _BROWSER_UA, 'Accept': _FEED_ACCEPT}
+        headers.update(_feed_http_cache.request_headers(cache_key))
 
-        response = requests.get(feed_url, headers=headers, timeout=10)
+        response = requests.get(request_url, headers=headers, timeout=10)
 
         if response.status_code == 304:
             print(f"  ✓ {feed['title']}: 304 Not Modified (no new articles)")
+            _feed_http_cache.record_success(cache_key)
             return []
 
         if response.status_code in (429, 503):
             retry_after = response.headers.get('Retry-After', '3600')
-            _feed_http_cache.set_retry_after(feed_url, retry_after)
+            _feed_http_cache.set_retry_after(cache_key, retry_after)
             response.raise_for_status()
 
         response.raise_for_status()
-        _feed_http_cache.update_from_response(feed_url, response)
-        
-        parsed = feedparser.parse(response.content)
+        _feed_http_cache.update_from_response(cache_key, response)
+        _feed_http_cache.record_success(cache_key)
 
-        # Some feeds (e.g. My Cariboo Now) repeat the channel-level description
-        # as every item's <description> — sometimes with extra markup like
-        # <strong> wrappers — producing identical boilerplate "summaries" that
-        # hide the real article content and game keyword-based scoring. Detect
-        # and strip that case so the article is treated as having no description
-        # (the body-excerpt fetch below then recovers real article text).
-        channel_key = _boilerplate_key(
-            parsed.feed.get('description', '') or parsed.feed.get('subtitle', '')
-        )
-        boilerplate_keys = _find_boilerplate_keys(
-            [e.get('description', '') or e.get('summary', '') for e in parsed.entries],
-            channel_key,
-        )
+        return _articles_from_feed_bytes(response.content, feed, cutoff_date, request_url)
 
-        articles = []
-        stripped_boilerplate = 0
-        for entry in parsed.entries:
-            article = Article(entry, feed['title'], feed['html_url'], feed['url'])
-
-            if boilerplate_keys and _boilerplate_key(article.description) in boilerplate_keys:
-                article.description = ''
-                article.summary = ''
-                article.excerpt = ''
-                stripped_boilerplate += 1
-
-            if article.pub_date < cutoff_date:
-                continue
-
-            if article.should_filter():
-                continue
-
-            articles.append(article)
-
-        # For known local BC sources with a stub (or just-stripped) description,
-        # attempt a body fetch while the article is still within the paywall-free window.
-        fetched_excerpts = _enrich_thin_local_articles(articles)
-
-        if articles:
-            extra = f", {fetched_excerpts} body excerpts fetched" if fetched_excerpts else ""
-            if stripped_boilerplate:
-                extra += f", {stripped_boilerplate} boilerplate descriptions stripped"
-            print(f"  ✓ {feed['title']}: {len(articles)} articles{extra}")
-
-        return articles
-        
     except Exception as e:
         status = (
             e.response.status_code
@@ -2090,6 +2231,43 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         # connections — the direct fetch can never work, but the outlet may still be
         # searchable (e.g. a CDN/DNS hiccup, or content mirrored elsewhere).
         is_connection_error = isinstance(e, requests.exceptions.ConnectionError)
+        is_dns_failure = is_connection_error and 'NameResolution' in str(e)
+
+        # A rediscovered URL that has itself started failing is stale — forget
+        # it so the next run rediscovers from the OPML URL rather than
+        # compounding one bad guess into a permanent one.
+        if request_url != cache_key:
+            _feed_http_cache.clear_resolved_url(cache_key)
+
+        # --- Free recovery, tried before anything that costs money ---------
+
+        # 403: bot-blocked. Retry once as a self-identified feed reader.
+        if status == 403:
+            content = _fetch_url_bytes(request_url, user_agent=_FEED_READER_UA)
+            if content and _looks_like_feed(content):
+                print(f"  ↩ {feed['title']}: 403 as browser, allowed as feed reader")
+                _feed_http_cache.record_success(cache_key)
+                return _articles_from_feed_bytes(content, feed, cutoff_date, request_url)
+
+        # 404/410: the feed moved. Find its new home instead of buying summaries.
+        if status in (404, 410):
+            discovered = _discover_feed_url(feed)
+            if discovered:
+                content = _fetch_url_bytes(discovered)
+                if content and _looks_like_feed(content):
+                    adopted_url = discovered
+                    _feed_http_cache.set_resolved_url(cache_key, discovered)
+                    _feed_http_cache.record_success(cache_key)
+                    print(f"  ↩ {feed['title']}: feed moved → {discovered} (update feeds.opml)")
+                    return _articles_from_feed_bytes(content, feed, cutoff_date, discovered)
+
+        # --- Paid recovery, rationed by failure history --------------------
+
+        failures = _feed_http_cache.record_failure(
+            cache_key,
+            'dns' if is_dns_failure else ('http_%s' % status if status else 'network'),
+        )
+
         # 403: bot-blocked (common from Actions runner IPs). 404: feed URL moved.
         # 421 Misdirected Request: persistent CDN/TLS misconfig (e.g. IndigiNews).
         # 500: origin server error on the feed route specifically — the outlet
@@ -2099,14 +2277,21 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
         # just burn quota on a source we're already backing off from.)
         should_try_fallback = status in (403, 404, 421, 500) or is_timeout or is_connection_error
 
-        if should_try_fallback and os.environ.get('BRAVE_API_KEY'):
+        # A feed that has failed this many runs in a row is not having a bad
+        # day. Brave is already hitting its 402 quota ceiling mid-run, so every
+        # call spent re-confirming a dead source is one denied to a live one.
+        skip_paid = _feed_http_cache.should_skip_paid_fallback(cache_key)
+        if should_try_fallback and skip_paid:
+            print(f"  ⚠ {feed['title']}: {failures} consecutive failures — free fallback only")
+
+        if should_try_fallback and not skip_paid and os.environ.get('BRAVE_API_KEY'):
             fallback = _fetch_via_brave_fallback(feed, cutoff_date)
             if fallback:
                 print(f"  ↩ {feed['title']}: Brave fallback → {len(fallback)} articles")
                 return fallback
             print(f"  ⚠ {feed['title']}: Brave fallback returned 0 articles")
 
-        if should_try_fallback and os.environ.get('KAGI_API_KEY'):
+        if should_try_fallback and not skip_paid and os.environ.get('KAGI_API_KEY'):
             fallback = _fetch_via_kagi_fallback(feed, cutoff_date)
             if fallback:
                 print(f"  ↩ {feed['title']}: Kagi fallback → {len(fallback)} articles")
@@ -2118,8 +2303,17 @@ def fetch_feed_articles(feed: Dict, cutoff_date: datetime) -> List[Article]:
                 print(f"  ↩ {feed['title']}: Google News fallback → {len(fallback)} articles")
                 return fallback
 
+        # Nothing worked. A dead domain or a feed that no longer exists cannot
+        # fix itself, so stop polling it every run — the ladder still retries
+        # periodically in case the outlet comes back.
+        if is_dns_failure or status in (404, 410):
+            backoff = _feed_http_cache.set_failure_backoff(cache_key)
+            if backoff:
+                print(f"  ⏸ {feed['title']}: backing off {backoff // 3600}h ({failures} consecutive failures)")
+
         print(f"  ✗ {feed['title']}: {e}")
         return []
+
 
 
 # Dedup rank per source type. Lower = wins ties. Every type declared in

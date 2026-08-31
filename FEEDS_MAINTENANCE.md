@@ -29,19 +29,61 @@ in `config/podcast_schedule.json`. **That file is the main thing to tune.**
 ### 1. Check for broken sources (5 min)
 
 Open `TODO.md` — the AUTO section is regenerated on every run and shows
-feed errors from the last 7 days. Look for:
+feed errors from the last 7 days.
 
-- **403 Forbidden** — the site is blocking the GitHub Actions user-agent.
-  Comment the source out in `feeds.opml` and add a note.
-  Example: My Cariboo Now has been 403-ing since at least March 2026.
+Most failures now recover on their own. `fetch_feed_articles()` escalates
+through **free** recovery before it will spend anything, and it remembers
+failures across runs so a dead source stops costing money:
+
+| Failure | What the curator does, in order |
+|---|---|
+| **403 Forbidden** | Retries once as a self-identified feed reader (`SuperRSSCurator/1.0`). WAFs that block a browser UA from a datacenter IP routinely allowlist declared aggregators. |
+| **404 / 410** | Rediscovers the feed: reads `<link rel="alternate">` off the site, then probes conventional paths (`/feed/`, `/rss.xml`, `/atom.xml`, …). A candidate is adopted only if it parses as a feed **with entries**, so a soft-404 HTML page can never be mistaken for one. |
+| **DNS / timeout / 421 / 500** | No free recovery exists — goes straight to the fallback chain. |
+| **429 / 503** | Honours `Retry-After` and skips the feed until it expires. Never reaches the paid fallbacks. |
+
+Only if free recovery fails does it try Brave → Kagi → Google News. Feeds
+that have failed **3 runs in a row** are cut off from Brave and Kagi entirely
+and get the keyless Google News fallback only — Brave hits its 402 quota
+ceiling mid-run, so a call spent re-confirming a dead source is a call denied
+to a recoverable one. Feeds whose failure cannot resolve itself (dead DNS,
+404 with no rediscoverable feed) additionally back off polling: 6 h at 2
+consecutive failures, 24 h at 4, 72 h at 8. Any successful fetch clears all
+of it.
+
+So what still needs you:
+
+- **`↩ … feed moved → <url> (update feeds.opml)`** — rediscovery worked and
+  the new URL is cached in `feed_http_cache.json`, so the feed is already
+  live again. Paste the new URL into `feeds.opml` at your convenience to make
+  it durable; the cache is a redirect, not a fix.
+
+- **`⏸ … backing off Nh`** — the source is dead or gone, not blocked. Nothing
+  will bring it back. Find a replacement source or remove it from
+  `feeds.opml`. Example: `oldhouseonline.com` (Old House Journal) stopped
+  resolving in DNS entirely — the brand's site is gone, not moved.
+
+- **`⚠ … N consecutive failures — free fallback only`** — the feed has been
+  down for 3+ runs and is now costing nothing. Decide whether the Google News
+  fallback is carrying it well enough, or retire it.
+
+- **403 that survives the feed-reader retry** — a genuinely hostile WAF.
+  Replace with a Google News search feed for that outlet (pattern below), or
+  comment the source out.
 
 - **415 Unsupported Media Type** — feedparser is sending a content-type the
-  server rejects. Try opening the feed URL in a browser; if it works, add a
-  `User-Agent` override or replace with a Google News search feed for that
-  outlet.
+  server rejects. Try opening the feed URL in a browser; if it works, replace
+  with a Google News search feed for that outlet.
 
-- **Timeout / RemoteDisconnected** — usually transient. If it persists for
-  3+ consecutive days, comment it out and open a TODO.
+- **Timeout / RemoteDisconnected** — usually transient, and the backoff
+  ladder does not apply to these (they can resolve on their own). If it
+  persists for 3+ consecutive days, comment it out and open a TODO.
+
+**Never add a WordPress comment feed** (`/comments/feed/`, or a title
+starting "Comments for "). They carry reader comments, not articles, and are
+disproportionately WAF-blocked. `integrate_discoveries.is_comment_feed()`
+rejects them at the discovery gate; four had already slipped into
+`feeds.opml` and were removed.
 
 **For sources added in the March 2026 batch**, pay particular attention to:
 
