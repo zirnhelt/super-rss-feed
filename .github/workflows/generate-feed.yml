@@ -2,8 +2,17 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    - cron: '0 4 * * *'  # 8:00 PM Pacific / 11:00 PM Eastern (4:00 UTC)
-    - cron: '0 7 * * *'  # Backup tick, 3h later — see the preflight job
+    # The 04:00 and 07:00 UTC ticks now arrive as workflow_dispatch from the
+    # Cloudflare Worker in curated-podcast-generator's cloudflare/scheduler —
+    # GitHub's cron is best-effort and this feed has a hard downstream deadline:
+    # the podcast reads the scored pool at 08:05 UTC.
+    #
+    # This one stays as the backstop for the *Worker* being down, and is timed
+    # to pair with the podcast's own GitHub backstop at 11:05 UTC rather than
+    # with the Worker's 08:05 slot. On a normal night it costs ~20 s: it
+    # starts, preflight sees the day is covered, and it stands down.
+    # Do not remove it, and do not add the two ticks back here.
+    - cron: '0 10 * * *'  # Backstop only — see cloudflare/scheduler/README.md
   workflow_dispatch:
     inputs:
       use_search_apis:
@@ -27,20 +36,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # GitHub's cron is best-effort: it delays scheduled workflows under load and
-  # drops the tick outright once the delay passes the next window. This feed has
-  # a hard downstream deadline — the podcast reads the scored pool at 08:05 UTC —
-  # so the two ticks are moving to a Cloudflare Worker, which sends run_slot in
-  # place of the github.event.schedule string this job used to branch on.
-  #
-  # Exactly one trigger a day may run unconditionally; every later one must not
-  # double the daily API spend, so it asks whether anything has already covered
-  # today and stands down if so. If two unconditional triggers ever collided the
-  # spend would double, and if none were unconditional both could see the other
-  # queued and stand down — no feed that day. Keep the count at one.
-  #
-  # Until the follow-up commit, the 04:00 GitHub cron is that trigger and the
-  # Worker is not firing; after it, run_slot=1 is.
+  # Exactly one trigger a day may run unconditionally — here the 04:00 primary
+  # (run_slot=1), plus any manual run. Every later one must not double the daily
+  # API spend, so it asks whether anything has already covered today and stands
+  # down if so: the 07:00 backup rung (run_slot=2) and the 10:00 UTC GitHub
+  # backstop. Two unconditional triggers would double the spend; none would let
+  # two simultaneous runs each see the other queued and both stand down, and
+  # there would be no feed that day. Keep the count at one.
   #
   # The check fails open — a missed feed costs more than a duplicate run, and a
   # same-day repeat is safe: the caches upsert by URL and the podcast
@@ -60,11 +62,9 @@ jobs:
         run: |
           set -euo pipefail
 
-          # First trigger of the day: the Cloudflare primary (run_slot=1), the
-          # 04:00 GitHub cron it runs beside during the rollout, or a human at
-          # the Actions tab. Everything else checks coverage first.
+          # run_slot=1 is the Cloudflare primary; an empty run_slot with no
+          # schedule is a human at the Actions tab. Both run unconditionally.
           if [ "${RUN_SLOT:-}" = "1" ] \
-             || [ "${EVENT_SCHEDULE:-}" = "0 4 * * *" ] \
              || { [ -z "${RUN_SLOT:-}" ] && [ -z "${EVENT_SCHEDULE:-}" ]; }; then
             echo "First trigger of the day (run_slot='${RUN_SLOT:-}', schedule='${EVENT_SCHEDULE:-}') — running."
             echo "should_run=true" >> "$GITHUB_OUTPUT"
