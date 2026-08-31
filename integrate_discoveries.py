@@ -39,6 +39,28 @@ def get_existing_feeds(tree: ET.ElementTree) -> set:
             existing.add(url.strip())
     return existing
 
+# WordPress publishes a parallel comment feed next to every content feed
+# (/comments/feed/, ?feed=comments-rss2). Discovery scores them like any other
+# feed because they look identical structurally, but they carry reader comments
+# rather than articles — no headline, no body, nothing scoreable — and they are
+# disproportionately WAF-blocked, so each one also costs a failed fetch and a
+# search-API fallback on every run. Reject them at the gate.
+_COMMENT_FEED_MARKERS = (
+    '/comments/feed',
+    '/comment-feed',
+    'feed=comments-rss2',
+    'feed=comments-atom',
+)
+
+
+def is_comment_feed(url: str, title: str = '') -> bool:
+    """True if a discovered feed carries reader comments rather than articles."""
+    lowered = (url or '').lower()
+    if any(marker in lowered for marker in _COMMENT_FEED_MARKERS):
+        return True
+    return (title or '').strip().lower().startswith('comments for ')
+
+
 def add_feeds_to_opml(tree: ET.ElementTree, feeds_to_add: List[Dict], category_name: str = "Discovered Feeds") -> int:
     """Add new feeds to OPML under a category"""
     if not feeds_to_add:
@@ -64,6 +86,9 @@ def add_feeds_to_opml(tree: ET.ElementTree, feeds_to_add: List[Dict], category_n
     # Add feeds to category
     added_count = 0
     for feed in feeds_to_add:
+        if is_comment_feed(feed['url'], feed.get('title', '')):
+            print(f"   ✗ Skipping comment feed: {feed.get('title') or feed['url']}")
+            continue
         # Create feed entry
         ET.SubElement(category_folder, 'outline',
                      type='rss',

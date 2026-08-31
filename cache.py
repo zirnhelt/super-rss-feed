@@ -1,6 +1,7 @@
 import json
 import time
 from email.utils import parsedate_to_datetime
+from typing import Optional
 
 
 class Cache:
@@ -111,6 +112,93 @@ class FeedHTTPCache:
             entry.pop('skip_until', None)
 
         self._data[url] = entry
+
+    # --- Failure memory ------------------------------------------------
+    #
+    # A feed that fails does so for one of three reasons, and they want very
+    # different treatment: a transient blip is worth retrying immediately, a
+    # bot-block is worth retrying with a different identity, and a dead
+    # domain is worth not retrying at all. Without memory across runs every
+    # failure looks transient, so a permanently dead feed burns a Brave and a
+    # Kagi call on every run forever. Tracking consecutive failures lets the
+    # caller escalate: retry, then stop paying, then stop polling.
+
+    # Beyond this many consecutive failures, a feed stops being worth paid
+    # search fallbacks — the free ones still run.
+    PAID_FALLBACK_FAILURE_LIMIT = 3
+
+    # Escalating poll backoff for failures that cannot resolve themselves
+    # (dead DNS, feed permanently gone). Keyed by consecutive-failure count,
+    # applied as the largest threshold met.
+    _BACKOFF_LADDER = ((8, 72 * 3600), (4, 24 * 3600), (2, 6 * 3600))
+
+    def record_failure(self, url: str, kind: str) -> int:
+        """Note a failed fetch. Returns the new consecutive-failure count."""
+        entry = self._data.get(url, {})
+        entry['failures'] = entry.get('failures', 0) + 1
+        entry['failure_kind'] = kind
+        entry['last_failure'] = time.time()
+        self._data[url] = entry
+        return entry['failures']
+
+    def record_success(self, url: str) -> None:
+        """Clear failure state after any fetch that produced a usable feed."""
+        entry = self._data.get(url)
+        if not entry:
+            return
+        for key in ('failures', 'failure_kind', 'last_failure'):
+            entry.pop(key, None)
+
+    def failure_count(self, url: str) -> int:
+        return self._data.get(url, {}).get('failures', 0)
+
+    def should_skip_paid_fallback(self, url: str) -> bool:
+        """True once a feed has failed often enough that paid search is waste."""
+        return self.failure_count(url) >= self.PAID_FALLBACK_FAILURE_LIMIT
+
+    def set_failure_backoff(self, url: str) -> Optional[int]:
+        """Back off polling a feed whose failure cannot resolve on its own.
+
+        Returns the backoff in seconds, or None if the feed has not failed
+        enough times to earn one yet.
+        """
+        failures = self.failure_count(url)
+        for threshold, seconds in self._BACKOFF_LADDER:
+            if failures >= threshold:
+                entry = self._data.get(url, {})
+                entry['skip_until'] = time.time() + seconds
+                self._data[url] = entry
+                return seconds
+        return None
+
+    # --- Rediscovered feed URLs -----------------------------------------
+    #
+    # When autodiscovery finds a feed's new home, remember it here rather
+    # than rewriting feeds.opml: the OPML is user-curated (and rewritten by
+    # integrate_discoveries.py), while this cache is committed by CI after
+    # every run, so the redirect survives without touching curated state.
+
+    def set_resolved_url(self, url: str, resolved: str) -> None:
+        entry = self._data.get(url, {})
+        entry['resolved_url'] = resolved
+        entry['resolved_at'] = time.time()
+        # ETag/Last-Modified describe whichever URL we last fetched. Pointing
+        # the feed at a different one invalidates them: a stale validator can
+        # draw a 304 that we would read as "no new articles" indefinitely.
+        entry.pop('etag', None)
+        entry.pop('last_modified', None)
+        self._data[url] = entry
+
+    def resolved_url(self, url: str) -> Optional[str]:
+        resolved = self._data.get(url, {}).get('resolved_url')
+        return resolved if resolved and resolved != url else None
+
+    def clear_resolved_url(self, url: str) -> None:
+        """Forget a rediscovered URL that has itself stopped working."""
+        entry = self._data.get(url)
+        if entry:
+            for key in ('resolved_url', 'resolved_at', 'etag', 'last_modified'):
+                entry.pop(key, None)
 
     def set_retry_after(self, url: str, retry_after: str) -> None:
         """Parse a Retry-After header (seconds or HTTP-date) and store skip_until."""
