@@ -23,7 +23,7 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — forestry, ranching, mining, and agriculture, the resource economy that defines the Cariboo and rural BC.\n\nOUT OF SCOPE — score 0-14: geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; wildlife content with no agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories.\n\nCALIBRATION — apply this ladder to everything else. Trade-press journalism counts fully: equipment, markets, and operations coverage is a real fit, not a near-zero. A BC tie raises a score but is NOT required to reach the top band.\n- 80-100: Excellent working-lands journalism. BC/Cariboo forestry, ranching, mining, and agriculture stories land here (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen) — and so does outstanding national trade reporting with real operational or economic depth.\n- 55-79: Solid resource-economy journalism anywhere in Canada or beyond — Western Producer or Northern Miner-style coverage of farm machinery, harvest technology, livestock and commodity markets, mining operations and exploration, AgTech and precision agriculture, silviculture, sawmills, drone survey work, mine automation, and labour/workforce stories in these industries. Most genuine trade journalism belongs HERE, not below.\n- 30-54: Broader agriculture, forestry, or mining news with clear working-lands relevance but thin reporting — general farm economics, international resource-industry briefs, climate impacts on working lands.\n- 15-29: Tangential mentions — a business, policy, or science story that touches forestry/agriculture/mining in passing, or Cariboo civic news unrelated to working lands.\n\nANCHORS: 'Williams Lake sawmill cuts second shift as beetle-kill supply dwindles' → 95. 'New John Deere baler cuts hay-drying time by a third' → 70. 'Cattle futures slip on weaker export demand' → 60. 'Global copper prices hit two-year high' → 40.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-08-31T10:51:07.985304+00:00",
+    "generated_at": "2026-08-31T14:39:07.135978+00:00",
     "article_count": 100,
     "bonus_count": 88,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
@@ -47,9 +47,9 @@
       "_quality": 88,
       "_relevance": 88,
       "_local": 92,
-      "_theme_score": 98,
+      "_theme_score": 96,
       "_theme_score_raw": 13,
-      "_composite_podcast": 100,
+      "_composite_podcast": 99,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
@@ -82,9 +82,9 @@
       "_quality": 86,
       "_relevance": 88,
       "_local": 92,
-      "_theme_score": 99,
+      "_theme_score": 98,
       "_theme_score_raw": 14,
-      "_composite_podcast": 100,
+      "_composite_podcast": 99,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
@@ -149,13 +149,18 @@
       "_quality": 62,
       "_relevance": 58,
       "_local": 0,
-      "_theme_score": 96,
+      "_theme_score": 94,
       "_theme_score_raw": 11,
       "_composite_podcast": 76,
       "_keyword_matches": 1,
       "_category": "outdoors",
       "_source_category": "outdoors",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://ourworldindata.org/beef-production-in-brazil-has-been-the-largest-driver-of-global-deforestation-in-recent-decades",
@@ -175,9 +180,9 @@
       "_quality": 72,
       "_relevance": 68,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 74,
+      "_composite_podcast": 73,
       "_keyword_matches": 1,
       "_category": "climate",
       "_source_category": "climate",
@@ -206,9 +211,9 @@
       "_quality": 82,
       "_relevance": 92,
       "_local": 100,
-      "_theme_score": 54,
+      "_theme_score": 57,
       "_theme_score_raw": 6,
-      "_composite_podcast": 71,
+      "_composite_podcast": 73,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
@@ -224,30 +229,31 @@
       }
     },
     {
-      "id": "https://www.northernminer.com/news/small-suppliers-need-financial-tools-amid-trade-war-msta-canada-says/1003894385/",
-      "url": "https://www.northernminer.com/news/small-suppliers-need-financial-tools-amid-trade-war-msta-canada-says/1003894385/",
-      "title": "[The Northern Miner] Small suppliers need financial tools amid trade war, MSTA Canada says",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Fsmall-suppliers-need-financial-tools-amid-trade-war-msta-canada-says%2F1003894385%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>In light of ongoing tariff escalation, the Mining Suppliers Trade Association of Canada (MSTA Canada) says the government needs to give more support to small and medium-sized enterprises (SMEs). In...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/small-suppliers-need-financial-tools-amid-trade-war-msta-canada-says/1003894385/\">Small suppliers need financial tools amid trade war, MSTA Canada says</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "summary": "In light of ongoing tariff escalation, the Mining Suppliers Trade Association of Canada (MSTA Canada) says the government needs to give more support to small and medium-sized enterprises (SMEs). In... The post Small suppliers need financial tools amid trade war, MSTA Canada says appeared first on",
-      "_excerpt": "In light of ongoing tariff escalation, the Mining Suppliers Trade Association of Canada (MSTA Canada) says the government needs to give more support to small and medium-sized enterprises (SMEs). In... The post Small suppliers need financial tools amid trade war, MSTA Canada says appeared first on The Northern Miner .",
-      "date_published": "2026-08-27T14:14:54+00:00",
+      "id": "https://nautil.us/how-a-psychic-horse-named-clever-hans-changed-the-way-we-do-science-1284622/",
+      "url": "https://nautil.us/how-a-psychic-horse-named-clever-hans-changed-the-way-we-do-science-1284622/",
+      "title": "[Nautilus] How a “Psychic” Horse Named Clever Hans Changed the Way We Do Science",
+      "content_html": "<img src=\"https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Osten_und_Hans.jpg?w=564\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnautil.us%2Fhow-a-psychic-horse-named-clever-hans-changed-the-way-we-do-science-1284622%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>His tutor Wilhelm von Osten was convinced that animals possessed an intelligence equal to humans</p>\n<p>The post <a href=\"https://nautil.us/how-a-psychic-horse-named-clever-hans-changed-the-way-we-do-science-1284622/\">How a “Psychic” Horse Named Clever Hans Changed the Way We Do Science</a> appeared first on <a href=\"https://nautil.us\">Nautilus</a>.</p>",
+      "summary": "His tutor Wilhelm von Osten was convinced that animals possessed an intelligence equal to humans The post How a “Psychic” Horse Named Clever Hans Changed the Way We Do Science appeared first on Nautilus .",
+      "_excerpt": "His tutor Wilhelm von Osten was convinced that animals possessed an intelligence equal to humans The post How a “Psychic” Horse Named Clever Hans Changed the Way We Do Science appeared first on Nautilus .",
+      "date_published": "2026-08-31T14:00:00+00:00",
       "authors": [
         {
-          "name": "The Northern Miner",
-          "url": "https://www.northernminer.com"
+          "name": "Nautilus",
+          "url": "https://nautil.us/"
         }
       ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
+      "ai_score": 56,
+      "_quality": 76,
+      "_relevance": 68,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 69,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false
+      "_composite_podcast": 72,
+      "_keyword_matches": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/08/Osten_und_Hans.jpg?w=564"
     },
     {
       "id": "https://www.aljazeera.com/video/newsfeed/2026/8/31/two-palestinians-reported-dead-as-israeli-forces-raid-nablus?traffic_source=rss",
@@ -282,6 +288,43 @@
       }
     },
     {
+      "id": "https://www.nytimes.com/2026/08/31/world/asia/nepal-floods-teacher.html",
+      "url": "https://www.nytimes.com/2026/08/31/world/asia/nepal-floods-teacher.html",
+      "title": "[NYT Top Stories] A Principal Saved 900 Children Before His School Was Washed Away in Nepal",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/08/31/multimedia/31xp-nepalteacher1-wfcp/31xp-nepalteacher1-wfcp-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nytimes.com%2F2026%2F08%2F31%2Fworld%2Fasia%2Fnepal-floods-teacher.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nRajendra Dawadi had less than 15 minutes to act on a warning of approaching floodwaters. His swift evacuation plan saved hundreds of lives.",
+      "summary": "Rajendra Dawadi had less than 15 minutes to act on a warning of approaching floodwaters. His swift evacuation plan saved hundreds of lives.",
+      "_excerpt": "Rajendra Dawadi had less than 15 minutes to act on a warning of approaching floodwaters. His swift evacuation plan saved hundreds of lives.",
+      "date_published": "2026-08-31T13:20:45+00:00",
+      "authors": [
+        {
+          "name": "NYT Top Stories",
+          "url": "https://nytimes.com"
+        }
+      ],
+      "ai_score": 61,
+      "_quality": 83,
+      "_relevance": 45,
+      "_local": 0,
+      "_theme_score": 96,
+      "_theme_score_raw": 13,
+      "_composite_podcast": 69,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static01.nyt.com/images/2026/08/31/multimedia/31xp-nepalteacher1-wfcp/31xp-nepalteacher1-wfcp-mediumSquareAt3X.jpg",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
+      }
+    },
+    {
       "id": "https://www.aljazeera.com/news/2026/8/31/tunisia-swelters-as-power-cuts-disrupt-water-supplies?traffic_source=rss",
       "url": "https://www.aljazeera.com/news/2026/8/31/tunisia-swelters-as-power-cuts-disrupt-water-supplies?traffic_source=rss",
       "title": "[Al Jazeera English] Tunisia swelters as power cuts disrupt water supplies",
@@ -299,7 +342,7 @@
       "_quality": 48,
       "_relevance": 35,
       "_local": 0,
-      "_theme_score": 97,
+      "_theme_score": 96,
       "_theme_score_raw": 12,
       "_composite_podcast": 69,
       "_keyword_matches": 0,
@@ -311,6 +354,97 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://www.northernminer.com/news/small-suppliers-need-financial-tools-amid-trade-war-msta-canada-says/1003894385/",
+      "url": "https://www.northernminer.com/news/small-suppliers-need-financial-tools-amid-trade-war-msta-canada-says/1003894385/",
+      "title": "[The Northern Miner] Small suppliers need financial tools amid trade war, MSTA Canada says",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Fsmall-suppliers-need-financial-tools-amid-trade-war-msta-canada-says%2F1003894385%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>In light of ongoing tariff escalation, the Mining Suppliers Trade Association of Canada (MSTA Canada) says the government needs to give more support to small and medium-sized enterprises (SMEs). In...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/small-suppliers-need-financial-tools-amid-trade-war-msta-canada-says/1003894385/\">Small suppliers need financial tools amid trade war, MSTA Canada says</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
+      "summary": "In light of ongoing tariff escalation, the Mining Suppliers Trade Association of Canada (MSTA Canada) says the government needs to give more support to small and medium-sized enterprises (SMEs). In... The post Small suppliers need financial tools amid trade war, MSTA Canada says appeared first on",
+      "_excerpt": "In light of ongoing tariff escalation, the Mining Suppliers Trade Association of Canada (MSTA Canada) says the government needs to give more support to small and medium-sized enterprises (SMEs). In... The post Small suppliers need financial tools amid trade war, MSTA Canada says appeared first on The Northern Miner .",
+      "date_published": "2026-08-27T14:14:54+00:00",
+      "authors": [
+        {
+          "name": "The Northern Miner",
+          "url": "https://www.northernminer.com"
+        }
+      ],
+      "ai_score": 57,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 68,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false
+    },
+    {
+      "id": "https://qz.com/brent-oil-90-us-iran-larak-island-strike-083126",
+      "url": "https://qz.com/brent-oil-90-us-iran-larak-island-strike-083126",
+      "title": "[Quartz] Brent oil surges back above $90 as the U.S. strikes Iran for first time in a month",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2273021577.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fbrent-oil-90-us-iran-larak-island-strike-083126\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nU.S. forces struck two Iranian rocket launchers on Larak Island, marking the first publicly acknowledged combat between the two sides since late July",
+      "summary": "U.S. forces struck two Iranian rocket launchers on Larak Island, marking the first publicly acknowledged combat between the two sides since late July",
+      "_excerpt": "U.S. forces struck two Iranian rocket launchers on Larak Island, marking the first publicly acknowledged combat between the two sides since late July",
+      "date_published": "2026-08-31T12:21:40+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 56,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 99,
+      "_theme_score_raw": 19,
+      "_composite_podcast": 68,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2273021577.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
+      }
+    },
+    {
+      "id": "https://www.aljazeera.com/news/2026/8/31/why-is-piracy-picking-up-off-somalias-coast-again?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/8/31/why-is-piracy-picking-up-off-somalias-coast-again?traffic_source=rss",
+      "title": "[Al Jazeera English] Why is piracy picking up off Somalia’s coast again?",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2026%2F8%2F31%2Fwhy-is-piracy-picking-up-off-somalias-coast-again%3Ftraffic_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nPiracy is surging back off Somalia&#039;s coast, though not yet at the scale of its 2011 peak.",
+      "summary": "Piracy is surging back off Somalia's coast, though not yet at the scale of its 2011 peak.",
+      "_excerpt": "Piracy is surging back off Somalia's coast, though not yet at the scale of its 2011 peak.",
+      "date_published": "2026-08-31T13:52:15+00:00",
+      "authors": [
+        {
+          "name": "Al Jazeera English",
+          "url": "https://www.aljazeera.com"
+        }
+      ],
+      "ai_score": 19,
+      "_quality": 28,
+      "_relevance": 5,
+      "_local": 0,
+      "_theme_score": 94,
+      "_theme_score_raw": 11,
+      "_composite_podcast": 68,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
       }
     },
     {
@@ -331,17 +465,17 @@
       "_quality": 75,
       "_relevance": 72,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 68,
+      "_composite_podcast": 67,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -362,7 +496,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 99,
+      "_theme_score": 98,
       "_theme_score_raw": 15,
       "_composite_podcast": 67,
       "_keyword_matches": 0,
@@ -376,66 +510,6 @@
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
-    },
-    {
-      "id": "https://www.aljazeera.com/news/2026/8/31/us-plans-to-sanction-another-bank-to-keep-economic-pressure-on-iran?traffic_source=rss",
-      "url": "https://www.aljazeera.com/news/2026/8/31/us-plans-to-sanction-another-bank-to-keep-economic-pressure-on-iran?traffic_source=rss",
-      "title": "[Al Jazeera English] US plans to sanction another bank to keep economic pressure on Iran",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2026%2F8%2F31%2Fus-plans-to-sanction-another-bank-to-keep-economic-pressure-on-iran%3Ftraffic_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWashington has recently stepped up efforts to economically pressure Tehran amid the deadlocked truce talks.",
-      "summary": "Washington has recently stepped up efforts to economically pressure Tehran amid the deadlocked truce talks.",
-      "_excerpt": "Washington has recently stepped up efforts to economically pressure Tehran amid the deadlocked truce talks.",
-      "date_published": "2026-08-31T02:08:46+00:00",
-      "authors": [
-        {
-          "name": "Al Jazeera English",
-          "url": "https://www.aljazeera.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 98,
-      "_theme_score_raw": 13,
-      "_composite_podcast": 67,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://thetyee.ca/Opinion/2026/08/31/Bat-Hit-Me-Clock-Started-Ticking/",
-      "url": "https://thetyee.ca/Opinion/2026/08/31/Bat-Hit-Me-Clock-Started-Ticking/",
-      "title": "[The Tyee] A Bat Hit Me. And the Clock Started Ticking",
-      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/08/30/BatEmergencyRoomIllustration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FOpinion%2F2026%2F08%2F31%2FBat-Hit-Me-Clock-Started-Ticking%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTime is critical for a rabies shot. But I was stuck in BC’s nerve-fraying, overloaded emergency health system.",
-      "summary": "Time is critical for a rabies shot. But I was stuck in BC’s nerve-fraying, overloaded emergency health system.",
-      "_excerpt": "Time is critical for a rabies shot. But I was stuck in BC’s nerve-fraying, overloaded emergency health system.",
-      "date_published": "2026-08-31T07:40:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "ai_score": 75,
-      "_quality": 79,
-      "_relevance": 72,
-      "_local": 80,
-      "_theme_score": 88,
-      "_theme_score_raw": 10,
-      "_composite_podcast": 67,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://thetyee.ca/Opinion/2026/08/30/BatEmergencyRoomIllustration.jpg"
     },
     {
       "id": "https://www.sciencealert.com/scientists-filmed-an-alien-looking-fish-moonwalking-across-the-seafloor",
@@ -455,7 +529,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 67,
       "_keyword_matches": 0,
@@ -486,7 +560,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 67,
       "_keyword_matches": 0,
@@ -495,38 +569,76 @@
       "_is_bonus": true,
       "image": "https://cdn.neowin.com/news/images/uploaded/2026/07/1783690458_red_windows_11_story.webp",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
-      "id": "https://www.androidauthority.com/galaxy-s25-edge-one-year-later-3703679/",
-      "url": "https://www.androidauthority.com/galaxy-s25-edge-one-year-later-3703679/",
-      "title": "[Android Authority] I lived with Samsung’s worst 2025 Android phone for a year. Here’s why I’m finally giving up",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/08/Galaxy-S25-Edge-1-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Fgalaxy-s25-edge-one-year-later-3703679%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI tried so hard to love the Galaxy S25 Edge, but I couldn't keep it.",
-      "summary": "I tried so hard to love the Galaxy S25 Edge, but I couldn't keep it.",
-      "_excerpt": "I tried so hard to love the Galaxy S25 Edge, but I couldn't keep it.",
-      "date_published": "2026-08-31T10:30:32+00:00",
+      "id": "https://thetyee.ca/Opinion/2026/08/31/Bat-Hit-Me-Clock-Started-Ticking/",
+      "url": "https://thetyee.ca/Opinion/2026/08/31/Bat-Hit-Me-Clock-Started-Ticking/",
+      "title": "[The Tyee] A Bat Hit Me. And the Clock Started Ticking",
+      "content_html": "<img src=\"https://thetyee.ca/Opinion/2026/08/30/BatEmergencyRoomIllustration.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FOpinion%2F2026%2F08%2F31%2FBat-Hit-Me-Clock-Started-Ticking%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTime is critical for a rabies shot. But I was stuck in BC’s nerve-fraying, overloaded emergency health system.",
+      "summary": "Time is critical for a rabies shot. But I was stuck in BC’s nerve-fraying, overloaded emergency health system.",
+      "_excerpt": "Time is critical for a rabies shot. But I was stuck in BC’s nerve-fraying, overloaded emergency health system.",
+      "date_published": "2026-08-31T07:40:00+00:00",
       "authors": [
         {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "ai_score": 48,
+      "ai_score": 75,
+      "_quality": 79,
+      "_relevance": 72,
+      "_local": 80,
+      "_theme_score": 86,
+      "_theme_score_raw": 10,
+      "_composite_podcast": 66,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://thetyee.ca/Opinion/2026/08/30/BatEmergencyRoomIllustration.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://www.engadget.com/2245494/does-turning-off-bluetooth-actually-make-wi-fi-better/",
+      "url": "https://www.engadget.com/2245494/does-turning-off-bluetooth-actually-make-wi-fi-better/",
+      "title": "[Engadget] Does turning off Bluetooth actually make Wi-Fi better?",
+      "content_html": "<img src=\"https://www.engadget.com/img/gallery/does-turning-off-bluetooth-actually-make-wi-fi-better/l-intro-1787155365.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2245494%2Fdoes-turning-off-bluetooth-actually-make-wi-fi-better%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDoes turning off Bluetooth actually make Wi-Fi better?",
+      "summary": "Does turning off Bluetooth actually make Wi-Fi better?",
+      "_excerpt": "Does turning off Bluetooth actually make Wi-Fi better?",
+      "date_published": "2026-08-31T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "Engadget",
+          "url": "http://www.engadget.com"
+        }
+      ],
+      "ai_score": 53,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
       "_theme_score": 98,
-      "_theme_score_raw": 13,
+      "_theme_score_raw": 16,
       "_composite_podcast": 66,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/Galaxy-S25-Edge-1-scaled.jpg"
+      "image": "https://www.engadget.com/img/gallery/does-turning-off-bluetooth-actually-make-wi-fi-better/l-intro-1787155365.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
+      }
     },
     {
       "id": "https://hackaday.com/2026/08/29/wikipedia-on-a-cheap-yellow-display/",
@@ -546,7 +658,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 66,
       "_keyword_matches": 0,
@@ -584,7 +696,108 @@
       "_keyword_matches": 1,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://www.outsideonline.com/outdoor-gear/gear-news/reju-patrik-frisk/",
+      "url": "https://www.outsideonline.com/outdoor-gear/gear-news/reju-patrik-frisk/",
+      "title": "[Outside Online] How Reju Is Turning Polyester Textile Waste Into New Materials",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.outsideonline.com%2Foutdoor-gear%2Fgear-news%2Freju-patrik-frisk%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<figure><img alt=\"How Reju Is Turning Polyester Textile Waste Into New Materials\" src=\"https://cdn.outsideonline.com/wp-content/uploads/2026/08/1.png?width=1200\" /></figure>\n<p>Reju is developing a process that separates polyester from blended fabrics and turns it back into material for new clothes—like base layers, fleeces, and shells.</p>\n<p>The post <a href=\"https://www.outsideonline.com/outdoor-gear/gear-news/reju-patrik-frisk/\">How Reju Is Turning Polyester Textile Waste Into New Materials</a> appeared first on <a href=\"https://www.outsideonline.com\">Outside Online</a>.</p>",
+      "summary": "Reju is developing a process that separates polyester from blended fabrics and turns it back into material for new clothes—like base layers, fleeces, and shells. The post How Reju Is Turning Polyester Textile Waste Into New Materials appeared first on Outside Online .",
+      "_excerpt": "Reju is developing a process that separates polyester from blended fabrics and turns it back into material for new clothes—like base layers, fleeces, and shells. The post How Reju Is Turning Polyester Textile Waste Into New Materials appeared first on Outside Online .",
+      "date_published": "2026-08-31T11:05:35+00:00",
+      "authors": [
+        {
+          "name": "Outside Online",
+          "url": "https://www.outsideonline.com"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 65,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.androidauthority.com/galaxy-s25-edge-one-year-later-3703679/",
+      "url": "https://www.androidauthority.com/galaxy-s25-edge-one-year-later-3703679/",
+      "title": "[Android Authority] I lived with Samsung’s worst 2025 Android phone for a year. Here’s why I’m finally giving up",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/08/Galaxy-S25-Edge-1-scaled.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Fgalaxy-s25-edge-one-year-later-3703679%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI tried so hard to love the Galaxy S25 Edge, but I couldn't keep it.",
+      "summary": "I tried so hard to love the Galaxy S25 Edge, but I couldn't keep it.",
+      "_excerpt": "I tried so hard to love the Galaxy S25 Edge, but I couldn't keep it.",
+      "date_published": "2026-08-31T10:30:32+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 96,
+      "_theme_score_raw": 13,
+      "_composite_podcast": 64,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/Galaxy-S25-Edge-1-scaled.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://eaglefeathernews.com/2026/08/30/100-years-later-stolen-teepee-returned-to-kawacatoose-first-nation/",
+      "url": "https://eaglefeathernews.com/2026/08/30/100-years-later-stolen-teepee-returned-to-kawacatoose-first-nation/",
+      "title": "[Eagle Feather News] 100 years later, stolen tipi returned to Kawacatoose First Nation",
+      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/08/img-7990-scaled.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Feaglefeathernews.com%2F2026%2F08%2F30%2F100-years-later-stolen-teepee-returned-to-kawacatoose-first-nation%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nKawacatoose First Nation welcoming home their ancestor’s tipi (photo: Andrew Miller)",
+      "summary": "Kawacatoose First Nation welcoming home their ancestor’s tipi (photo: Andrew Miller)",
+      "_excerpt": "Kawacatoose First Nation welcoming home their ancestor’s tipi (photo: Andrew Miller)",
+      "date_published": "2026-08-30T16:38:27+00:00",
+      "authors": [
+        {
+          "name": "Eagle Feather News",
+          "url": "https://www.eaglefeathernews.com"
+        }
+      ],
+      "ai_score": 57,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 99,
+      "_theme_score_raw": 20,
+      "_composite_podcast": 63,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/08/img-7990-scaled.jpeg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.nytimes.com/2026/08/29/travel/flash-flood-nepal-global-warming-himalayas.html",
@@ -604,9 +817,9 @@
       "_quality": 77,
       "_relevance": 58,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 64,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
@@ -618,79 +831,42 @@
       ],
       "_subscriber_access": "New York Times",
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
-      }
-    },
-    {
-      "id": "https://www.howtogeek.com/your-wi-fi-router-has-a-cpu-and-its-slowing-down-because-of-these-settings/",
-      "url": "https://www.howtogeek.com/your-wi-fi-router-has-a-cpu-and-its-slowing-down-because-of-these-settings/",
-      "title": "[How-To Geek] Your router's CPU is throttling your Wi-Fi—here's which 6 settings to disable first",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/microsd-card-slot-on-the-tp-link-ax3000.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Fyour-wi-fi-router-has-a-cpu-and-its-slowing-down-because-of-these-settings%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCheck if you really need all of these before complaining about your router being slow",
-      "summary": "Check if you really need all of these before complaining about your router being slow",
-      "_excerpt": "Check if you really need all of these before complaining about your router being slow",
-      "date_published": "2026-08-23T19:00:13+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 53,
-      "_quality": 68,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 96,
-      "_theme_score_raw": 11,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2025/09/microsd-card-slot-on-the-tp-link-ax3000.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
-      "id": "https://www.nytimes.com/article/us-iran-economy-sanctions-trade-trump-china.html",
-      "url": "https://www.nytimes.com/article/us-iran-economy-sanctions-trade-trump-china.html",
-      "title": "[NYT Business] Which Countries Could Be Hurt Most by Trump’s Plan to Hit Iran’s Economy?",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/08/20/multimedia/20xp-sanctions-china-topart-vctq/20xp-sanctions-china-topart-vctq-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nytimes.com%2Farticle%2Fus-iran-economy-sanctions-trade-trump-china.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nPresident Trump has threatened economic penalties on countries that do business with Iran as he seeks to add pressure on Tehran to negotiate an end to the war.",
-      "summary": "President Trump has threatened economic penalties on countries that do business with Iran as he seeks to add pressure on Tehran to negotiate an end to the war.",
-      "_excerpt": "President Trump has threatened economic penalties on countries that do business with Iran as he seeks to add pressure on Tehran to negotiate an end to the war.",
-      "date_published": "2026-08-24T08:49:48+00:00",
+      "id": "https://www.piquenewsmagazine.com/world-news/hundreds-of-workers-feared-stuck-in-hydropower-tunnels-as-nepal-flood-deaths-cross-900-12723668",
+      "url": "https://www.piquenewsmagazine.com/world-news/hundreds-of-workers-feared-stuck-in-hydropower-tunnels-as-nepal-flood-deaths-cross-900-12723668",
+      "title": "[Pique Newsmagazine] Hundreds of workers feared stuck in hydropower tunnels as Nepal flood deaths cross 900",
+      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/5d3b9d81ea4347c595991c5b357e125338da78c46cbaaad3a7b0713b16deeb12.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.piquenewsmagazine.com%2Fworld-news%2Fhundreds-of-workers-feared-stuck-in-hydropower-tunnels-as-nepal-flood-deaths-cross-900-12723668\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nKATHMANDU, Nepal (AP) — Rescuers rushed Monday to reach workers believed to be trapped in tunnels at hydropower sites buried in mud after  catastrophic flooding in Nepal  and China, as the death toll continued to rise and increasingly desperate famil",
+      "summary": "KATHMANDU, Nepal (AP) — Rescuers rushed Monday to reach workers believed to be trapped in tunnels at hydropower sites buried in mud after catastrophic flooding in Nepal and China, as the death toll continued to rise and increasingly desperate famil",
+      "_excerpt": "KATHMANDU, Nepal (AP) — Rescuers rushed Monday to reach workers believed to be trapped in tunnels at hydropower sites buried in mud after catastrophic flooding in Nepal and China, as the death toll continued to rise and increasingly desperate famil",
+      "date_published": "2026-08-31T09:18:04+00:00",
       "authors": [
         {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
+          "name": "Pique Newsmagazine",
+          "url": "https://www.piquenewsmagazine.com"
         }
       ],
-      "ai_score": 53,
-      "_quality": 77,
+      "ai_score": 48,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 10,
-      "_composite_podcast": 64,
+      "_theme_score": 94,
+      "_theme_score_raw": 11,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://static01.nyt.com/images/2026/08/20/multimedia/20xp-sanctions-china-topart-vctq/20xp-sanctions-china-topart-vctq-mediumSquareAt3X.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times",
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/5d3b9d81ea4347c595991c5b357e125338da78c46cbaaad3a7b0713b16deeb12.jpg;w=960",
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
       }
     },
     {
@@ -711,48 +887,15 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 96,
+      "_theme_score": 94,
       "_theme_score_raw": 11,
-      "_composite_podcast": 64,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
       "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/41240dcd9b7b7b9384833259dd80463142846017883fa9892c2ddf5051cae947.jpg;w=960",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://www.tomsguide.com/audio/over-ear-headphones/grado-sr325-review",
-      "url": "https://www.tomsguide.com/audio/over-ear-headphones/grado-sr325-review",
-      "title": "[Toms Guide] I’ve been testing the Grado SR325: They’re not the most comfortable, but I could still listen for hours",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/d9PJ2s9Mdx2vuYN7sPVhLP-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Faudio%2Fover-ear-headphones%2Fgrado-sr325-review\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Grado SR325 open-back headphones provide great vocal clarity and balance, but they could be more comfortable.",
-      "summary": "The Grado SR325 open-back headphones provide great vocal clarity and balance, but they could be more comfortable.",
-      "_excerpt": "The Grado SR325 open-back headphones provide great vocal clarity and balance, but they could be more comfortable.",
-      "date_published": "2026-08-31T08:00:00+00:00",
-      "authors": [
-        {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 96,
-      "_theme_score_raw": 11,
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/d9PJ2s9Mdx2vuYN7sPVhLP-1280-80.jpg",
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -777,9 +920,9 @@
       "_quality": 77,
       "_relevance": 35,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 64,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -814,9 +957,9 @@
       "_quality": 63,
       "_relevance": 32,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 64,
+      "_composite_podcast": 63,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -834,72 +977,6 @@
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://eaglefeathernews.com/2026/08/30/100-years-later-stolen-teepee-returned-to-kawacatoose-first-nation/",
-      "url": "https://eaglefeathernews.com/2026/08/30/100-years-later-stolen-teepee-returned-to-kawacatoose-first-nation/",
-      "title": "[Eagle Feather News] 100 years later, stolen tipi returned to Kawacatoose First Nation",
-      "content_html": "<img src=\"https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/08/img-7990-scaled.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Feaglefeathernews.com%2F2026%2F08%2F30%2F100-years-later-stolen-teepee-returned-to-kawacatoose-first-nation%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nKawacatoose First Nation welcoming home their ancestor’s tipi (photo: Andrew Miller)",
-      "summary": "Kawacatoose First Nation welcoming home their ancestor’s tipi (photo: Andrew Miller)",
-      "_excerpt": "Kawacatoose First Nation welcoming home their ancestor’s tipi (photo: Andrew Miller)",
-      "date_published": "2026-08-30T16:38:27+00:00",
-      "authors": [
-        {
-          "name": "Eagle Feather News",
-          "url": "https://www.eaglefeathernews.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 100,
-      "_theme_score_raw": 20,
-      "_composite_podcast": 63,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_thin_body": true,
-      "image": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3254/files/2026/08/img-7990-scaled.jpeg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://globalnews.ca/news/12037332/n-s-government-changes-income-assistance-rules-to-exclude-people-living-in-tents/",
-      "url": "https://globalnews.ca/news/12037332/n-s-government-changes-income-assistance-rules-to-exclude-people-living-in-tents/",
-      "title": "[Global News] N.S. government changes income assistance rules to exclude people living in tents",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/08/8450d5d9d2dfc821c175a2362414b4fae549b8cda44c9c1bedc1c467c946f72d.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12037332%2Fn-s-government-changes-income-assistance-rules-to-exclude-people-living-in-tents%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Nova Scotia government has made changes to its income assistance regulations to exclude homeless residents living in tents from getting access to enhanced financial support.",
-      "summary": "The Nova Scotia government has made changes to its income assistance regulations to exclude homeless residents living in tents from getting access to enhanced financial support.",
-      "_excerpt": "The Nova Scotia government has made changes to its income assistance regulations to exclude homeless residents living in tents from getting access to enhanced financial support.",
-      "date_published": "2026-08-27T12:01:07+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 10,
-      "_composite_podcast": 63,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/08/8450d5d9d2dfc821c175a2362414b4fae549b8cda44c9c1bedc1c467c946f72d.jpg?quality=65&strip=all",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
       }
     },
     {
@@ -941,68 +1018,63 @@
       }
     },
     {
-      "id": "https://cpj.org/2026/08/pentagon-fires-stars-and-stripes-staffers-after-editorial-independence-comments/",
-      "url": "https://cpj.org/2026/08/pentagon-fires-stars-and-stripes-staffers-after-editorial-independence-comments/",
-      "title": "[Committee to Protect Journalists] Pentagon fires Stars and Stripes staffers after editorial independence comments",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fcpj.org%2F2026%2F08%2Fpentagon-fires-stars-and-stripes-staffers-after-editorial-independence-comments%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMiami, August 25, 2026—The Pentagon is acting directly against government transparency and press freedom by firing the longtime publisher, the editor-in-chief, and a senior reporter at Stars and Stripes newspaper, said the Committee to Protect Journalists on Tuesday. CPJ calls on Congress to codify Stars and Stripes’ editorial independence by supporting a proposal in the...",
-      "summary": "Miami, August 25, 2026—The Pentagon is acting directly against government transparency and press freedom by firing the longtime publisher, the editor-in-chief, and a senior reporter at Stars and Stripes newspaper, said the Committee to Protect Journalists on Tuesday. CPJ calls on Congress to codify",
-      "_excerpt": "Miami, August 25, 2026—The Pentagon is acting directly against government transparency and press freedom by firing the longtime publisher, the editor-in-chief, and a senior reporter at Stars and Stripes newspaper, said the Committee to Protect Journalists on Tuesday. CPJ calls on Congress to codify Stars and Stripes’ editorial independence by supporting a proposal in the...",
-      "date_published": "2026-08-25T15:47:34+00:00",
+      "id": "https://www.sciencedaily.com/releases/2026/08/260829035223.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/08/260829035223.htm",
+      "title": "[ScienceDaily] Scientists discover diamonds can generate electricity",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F08%2F260829035223.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDiamond was thought to be incapable of producing electricity through mechanical deformation, but ultrathin flexible diamond membranes have now shown a strong and repeatable piezoelectric effect. The unexpected discovery could open the door to diamond-powered sensors, tiny energy systems, and self-powered medical implants.",
+      "summary": "Diamond was thought to be incapable of producing electricity through mechanical deformation, but ultrathin flexible diamond membranes have now shown a strong and repeatable piezoelectric effect. The unexpected discovery could open the door to diamond-powered sensors, tiny energy systems, and",
+      "_excerpt": "Diamond was thought to be incapable of producing electricity through mechanical deformation, but ultrathin flexible diamond membranes have now shown a strong and repeatable piezoelectric effect. The unexpected discovery could open the door to diamond-powered sensors, tiny energy systems, and self-powered medical implants.",
+      "date_published": "2026-08-31T04:13:53+00:00",
       "authors": [
         {
-          "name": "Committee to Protect Journalists",
-          "url": "https://cpj.org"
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
         }
       ],
-      "ai_score": 46,
-      "_quality": 62,
-      "_relevance": 35,
+      "ai_score": 48,
+      "_quality": 65,
+      "_relevance": 58,
       "_local": 0,
       "_theme_score": 62,
       "_theme_score_raw": 8,
-      "_composite_podcast": 63,
+      "_composite_podcast": 62,
       "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "us-policy"
-      ],
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true
     },
     {
-      "id": "https://globalnews.ca/news/12038712/a-painful-homecoming-faulder-residents-return-to-see-what-the-bald-range-fire-left-behind/",
-      "url": "https://globalnews.ca/news/12038712/a-painful-homecoming-faulder-residents-return-to-see-what-the-bald-range-fire-left-behind/",
-      "title": "[Global News] A painful homecoming: Faulder residents return to see what the Bald range fire left behind",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/08/Screenshot-2026-08-27-193053.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12038712%2Fa-painful-homecoming-faulder-residents-return-to-see-what-the-bald-range-fire-left-behind%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nResidents of Faulder were finally allowed to return to their properties, getting their first chance to walk through the areas hit by the Bald Range wildfire",
-      "summary": "Residents of Faulder were finally allowed to return to their properties, getting their first chance to walk through the areas hit by the Bald Range wildfire",
-      "_excerpt": "Residents of Faulder were finally allowed to return to their properties, getting their first chance to walk through the areas hit by the Bald Range wildfire",
-      "date_published": "2026-08-28T03:24:02+00:00",
+      "id": "https://www.tomsguide.com/audio/over-ear-headphones/grado-sr325-review",
+      "url": "https://www.tomsguide.com/audio/over-ear-headphones/grado-sr325-review",
+      "title": "[Toms Guide] I’ve been testing the Grado SR325: They’re not the most comfortable, but I could still listen for hours",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/d9PJ2s9Mdx2vuYN7sPVhLP-1280-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomsguide.com%2Faudio%2Fover-ear-headphones%2Fgrado-sr325-review\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Grado SR325 open-back headphones provide great vocal clarity and balance, but they could be more comfortable.",
+      "summary": "The Grado SR325 open-back headphones provide great vocal clarity and balance, but they could be more comfortable.",
+      "_excerpt": "The Grado SR325 open-back headphones provide great vocal clarity and balance, but they could be more comfortable.",
+      "date_published": "2026-08-31T08:00:00+00:00",
       "authors": [
         {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
+          "name": "Toms Guide",
+          "url": "https://www.tomsguide.com"
         }
       ],
-      "ai_score": 53,
+      "ai_score": 45,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 10,
+      "_theme_score": 94,
+      "_theme_score_raw": 11,
       "_composite_podcast": 62,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/08/Screenshot-2026-08-27-193053.png"
+      "image": "https://cdn.mos.cms.futurecdn.net/d9PJ2s9Mdx2vuYN7sPVhLP-1280-80.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.theguardian.com/global-development/2026/aug/26/iran-criminalises-contact-foreign-media-human-rights-crackdown",
@@ -1028,141 +1100,11 @@
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true
-    },
-    {
-      "id": "https://www.theverge.com/policy/984723/trump-h1b-fee-asylum-legal-immigration",
-      "url": "https://www.theverge.com/policy/984723/trump-h1b-fee-asylum-legal-immigration",
-      "title": "[The Verge] Trump is upping the price of Big Tech’s favorite visa",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpolicy%2F984723%2Ftrump-h1b-fee-asylum-legal-immigration\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIn the span of a few hours on Monday, the Department of Homeland Security announced that it would be implementing a fee of over $103,000 on H-1B visas, and news broke that the State Department plans on revoking the visas of up to 200,000 asylum seekers - which, according to The Associated Press, would be [&#8230;]",
-      "summary": "In the span of a few hours on Monday, the Department of Homeland Security announced that it would be implementing a fee of over $103,000 on H-1B visas, and news broke that the State Department plans on revoking the visas of up to 200,000 asylum seekers - which, according to The Associated Press,",
-      "_excerpt": "In the span of a few hours on Monday, the Department of Homeland Security announced that it would be implementing a fee of over $103,000 on H-1B visas, and news broke that the State Department plans on revoking the visas of up to 200,000 asylum seekers - which, according to The Associated Press, would be […]",
-      "date_published": "2026-08-25T21:45:00+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 42,
-      "_quality": 57,
-      "_relevance": 35,
-      "_local": 0,
-      "_theme_score": 62,
-      "_theme_score_raw": 8,
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "subscriber-access",
-        "us-policy"
-      ],
-      "_subscriber_access": "Apple News",
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
-      }
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/08/260822015213.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/08/260822015213.htm",
-      "title": "[ScienceDaily] Scientists just imaged the hidden quantum shape of a molecule",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F08%2F260822015213.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nResearchers have found a way to create a complete 3D image of a molecule’s wavefunction, one of quantum mechanics’ most fundamental yet elusive features. By combining advanced photoelectron measurements with newly designed algorithms, the University of Göttingen team reconstructed the molecular orbital of a nanometer-sized organic molecule in remarkable detail, even resolving features smaller than the spacing between its carbon atoms.",
-      "summary": "Researchers have found a way to create a complete 3D image of a molecule’s wavefunction, one of quantum mechanics’ most fundamental yet elusive features. By combining advanced photoelectron measurements with newly designed algorithms, the University of Göttingen team reconstructed the molecular",
-      "_excerpt": "Researchers have found a way to create a complete 3D image of a molecule’s wavefunction, one of quantum mechanics’ most fundamental yet elusive features. By combining advanced photoelectron measurements with newly designed algorithms, the University of Göttingen team reconstructed the molecular orbital of a nanometer-sized organic molecule in remarkable detail, even resolving features smaller than the spacing between its carbon atoms.",
-      "date_published": "2026-08-24T09:55:19+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 72,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 58,
-      "_theme_score_raw": 7,
-      "_composite_podcast": 61,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://www.androidauthority.com/best-smartphone-battery-life-3562028/",
-      "url": "https://www.androidauthority.com/best-smartphone-battery-life-3562028/",
-      "title": "[Android Authority] Which smartphone has the best battery life? I tested dozens to find the winner",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2025/06/Android-phones-battery-life-compared.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Fbest-smartphone-battery-life-3562028%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAlways wanted multi-day battery life? These are the phones you should buy.",
-      "summary": "Always wanted multi-day battery life? These are the phones you should buy.",
-      "_excerpt": "Always wanted multi-day battery life? These are the phones you should buy.",
-      "date_published": "2026-08-27T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 10,
-      "_composite_podcast": 61,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2025/06/Android-phones-battery-life-compared.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://www.piquenewsmagazine.com/national-news/politicians-indigenous-leaders-hope-next-150-years-of-treaty-6-better-than-the-past-12696910",
-      "url": "https://www.piquenewsmagazine.com/national-news/politicians-indigenous-leaders-hope-next-150-years-of-treaty-6-better-than-the-past-12696910",
-      "title": "[Pique Newsmagazine] Politicians, Indigenous leaders hope next 150 years of Treaty 6 better than the past",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/998eadb2285e5cf89056b846c2688408a808478365752cad33ac0571b7a61b47.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.piquenewsmagazine.com%2Fnational-news%2Fpoliticians-indigenous-leaders-hope-next-150-years-of-treaty-6-better-than-the-past-12696910\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDUCK LAKE — Standing in the same place where it was signed, politicians, Crown representatives, Indigenous chiefs and elders marked the 150th anniversary of Treaty 6 on Sunday by saying they hoped the future would be nothing like the past.",
-      "summary": "DUCK LAKE — Standing in the same place where it was signed, politicians, Crown representatives, Indigenous chiefs and elders marked the 150th anniversary of Treaty 6 on Sunday by saying they hoped the future would be nothing like the past.",
-      "_excerpt": "DUCK LAKE — Standing in the same place where it was signed, politicians, Crown representatives, Indigenous chiefs and elders marked the 150th anniversary of Treaty 6 on Sunday by saying they hoped the future would be nothing like the past.",
-      "date_published": "2026-08-24T03:45:37+00:00",
-      "authors": [
-        {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 10,
-      "_composite_podcast": 61,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/08/998eadb2285e5cf89056b846c2688408a808478365752cad33ac0571b7a61b47.jpg;w=960",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
       }
     },
     {
@@ -1183,9 +1125,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 58,
+      "_theme_score": 60,
       "_theme_score_raw": 7,
-      "_composite_podcast": 60,
+      "_composite_podcast": 61,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -1197,24 +1139,57 @@
       }
     },
     {
-      "id": "https://www.nytimes.com/2026/08/31/world/middleeast/us-iran-uae-jordan-attacks.html",
-      "url": "https://www.nytimes.com/2026/08/31/world/middleeast/us-iran-uae-jordan-attacks.html",
-      "title": "[NYT Top Stories] U.S. and Iran Exchange Strikes Overnight After Monthlong Calm",
-      "content_html": "<img src=\"https://static01.nyt.com/images/2026/08/31/multimedia/31int-mideast-attacks-pcjw/31int-mideast-attacks-pcjw-mediumSquareAt3X.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nytimes.com%2F2026%2F08%2F31%2Fworld%2Fmiddleeast%2Fus-iran-uae-jordan-attacks.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe renewed attacks were the latest sign that the war that began six months ago appears far from over.",
-      "summary": "The renewed attacks were the latest sign that the war that began six months ago appears far from over.",
-      "_excerpt": "The renewed attacks were the latest sign that the war that began six months ago appears far from over.",
-      "date_published": "2026-08-31T10:16:54+00:00",
+      "id": "https://globalnews.ca/news/12037332/n-s-government-changes-income-assistance-rules-to-exclude-people-living-in-tents/",
+      "url": "https://globalnews.ca/news/12037332/n-s-government-changes-income-assistance-rules-to-exclude-people-living-in-tents/",
+      "title": "[Global News] N.S. government changes income assistance rules to exclude people living in tents",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/08/8450d5d9d2dfc821c175a2362414b4fae549b8cda44c9c1bedc1c467c946f72d.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12037332%2Fn-s-government-changes-income-assistance-rules-to-exclude-people-living-in-tents%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Nova Scotia government has made changes to its income assistance regulations to exclude homeless residents living in tents from getting access to enhanced financial support.",
+      "summary": "The Nova Scotia government has made changes to its income assistance regulations to exclude homeless residents living in tents from getting access to enhanced financial support.",
+      "_excerpt": "The Nova Scotia government has made changes to its income assistance regulations to exclude homeless residents living in tents from getting access to enhanced financial support.",
+      "date_published": "2026-08-27T12:01:07+00:00",
       "authors": [
         {
-          "name": "NYT Top Stories",
-          "url": "https://nytimes.com"
+          "name": "Global News",
+          "url": "https://globalnews.ca"
         }
       ],
       "ai_score": 57,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
+      "_theme_score_raw": 10,
+      "_composite_podcast": 61,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/08/8450d5d9d2dfc821c175a2362414b4fae549b8cda44c9c1bedc1c467c946f72d.jpg?quality=65&strip=all",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+      }
+    },
+    {
+      "id": "https://www.androidauthority.com/best-smartphone-battery-life-3562028/",
+      "url": "https://www.androidauthority.com/best-smartphone-battery-life-3562028/",
+      "title": "[Android Authority] Which smartphone has the best battery life? I tested dozens to find the winner",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2025/06/Android-phones-battery-life-compared.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Fbest-smartphone-battery-life-3562028%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAlways wanted multi-day battery life? These are the phones you should buy.",
+      "summary": "Always wanted multi-day battery life? These are the phones you should buy.",
+      "_excerpt": "Always wanted multi-day battery life? These are the phones you should buy.",
+      "date_published": "2026-08-27T11:00:00+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
       "_composite_podcast": 60,
       "_keyword_matches": 0,
@@ -1222,11 +1197,40 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://static01.nyt.com/images/2026/08/31/multimedia/31int-mideast-attacks-pcjw/31int-mideast-attacks-pcjw-mediumSquareAt3X.jpg",
-      "tags": [
-        "subscriber-access"
+      "image": "https://www.androidauthority.com/wp-content/uploads/2025/06/Android-phones-battery-life-compared.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://globalnews.ca/news/12038712/a-painful-homecoming-faulder-residents-return-to-see-what-the-bald-range-fire-left-behind/",
+      "url": "https://globalnews.ca/news/12038712/a-painful-homecoming-faulder-residents-return-to-see-what-the-bald-range-fire-left-behind/",
+      "title": "[Global News] A painful homecoming: Faulder residents return to see what the Bald range fire left behind",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/08/Screenshot-2026-08-27-193053.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12038712%2Fa-painful-homecoming-faulder-residents-return-to-see-what-the-bald-range-fire-left-behind%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nResidents of Faulder were finally allowed to return to their properties, getting their first chance to walk through the areas hit by the Bald Range wildfire",
+      "summary": "Residents of Faulder were finally allowed to return to their properties, getting their first chance to walk through the areas hit by the Bald Range wildfire",
+      "_excerpt": "Residents of Faulder were finally allowed to return to their properties, getting their first chance to walk through the areas hit by the Bald Range wildfire",
+      "date_published": "2026-08-28T03:24:02+00:00",
+      "authors": [
+        {
+          "name": "Global News",
+          "url": "https://globalnews.ca"
+        }
       ],
-      "_subscriber_access": "New York Times"
+      "ai_score": 53,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 86,
+      "_theme_score_raw": 10,
+      "_composite_podcast": 60,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://globalnews.ca/wp-content/uploads/2026/08/Screenshot-2026-08-27-193053.png"
     },
     {
       "id": "https://www.newyorker.com/magazine/2026/09/07/the-art-of-leaping-out-of-planes-to-fight-wildfires",
@@ -1246,9 +1250,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 60,
+      "_composite_podcast": 59,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1283,15 +1287,20 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 60,
+      "_composite_podcast": 59,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/sz6gFYTwfpR5a6TbDhtViJ-1280-80.png"
+      "image": "https://cdn.mos.cms.futurecdn.net/sz6gFYTwfpR5a6TbDhtViJ-1280-80.png",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.tomshardware.com/tech-industry/man-uses-robot-vacuum-to-covertly-record-his-wifes-affair-wins-divorce-settlement-but-gets-sentenced-to-prison-for-making-an-illegal-recording-husband-lands-behind-bars-after-counter-suit-over-privacy-rights",
@@ -1311,9 +1320,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 60,
+      "_composite_podcast": 59,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1339,18 +1348,18 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 59,
+      "_composite_podcast": 58,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -1389,127 +1398,6 @@
       }
     },
     {
-      "id": "https://www.fastcompany.com/91593679/ai-is-taking-over-logistics-endless-calls-and-emails",
-      "url": "https://www.fastcompany.com/91593679/ai-is-taking-over-logistics-endless-calls-and-emails",
-      "title": "[Fast Company] AI is taking over logistics’ endless calls and emails",
-      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/p-1-91593679-ai-is-taking-over-logistics-endless-calls-and-emails.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.fastcompany.com%2F91593679%2Fai-is-taking-over-logistics-endless-calls-and-emails\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"wp-block-paragraph\">The&nbsp;<a href=\"https://finance.yahoo.com/news/logistics-market-size-worth-usd-150300906.html\" rel=\"noopener\" target=\"_blank\">multi-trillion-dollar logistics industry</a>&nbsp;runs on trucks and trains,&nbsp;ships&nbsp;and planes. It also runs on calls, texts, and email.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“We get hundreds of thousands of emails saying, ‘Hey, I have this freight that needs to move from X to Y—how much would it cost?’” says Mike Neill,&nbsp;<a href=\"https://www.chrobinson.com/en-us/\" rel=\"noopener\" target=\"_blank\">chief technology officer at logistics provider C.H. Robinson</a>.&nbsp;&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">The details vary from load to load and mode to mode, but&nbsp;generally a&nbsp;company that wants to ship a load of goods reaches out to freight brokers, who in turn connect with carriers who&nbsp;actually haul&nbsp;the goods from place to place. Getting the details right, like whether the shipper has a full truckload, specific insurance requirements, or cargo needing special handling, and when and where the carrier must send a truck, can mean a lot of back and forth that’s traditionally been handled by people sitting at phones or computers.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Now,&nbsp;it’s&nbsp;increasingly being handled by <a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">artificial intelligence</a>, which can help all parties in the equation respond to emails, communicate availability, and even&nbsp;solicit&nbsp;bids and issue quotes, often much faster than humans feasibly can.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“We determined that&nbsp;the humans&nbsp;weren&#8217;t getting to all the opportunities,” says Neill. “They weren&#8217;t getting to it in a timely manner.”&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">As a result, C.H. Robinson&nbsp;gradually rolled out a suite of AI agents, starting with bots that simply detected whether incoming emails were asking for shipping quotes. Over time, those advanced to pull out more information from quote requests and&nbsp;ultimately respond&nbsp;to many requests automatically. That means&nbsp;many shippers can now get a response within seconds,&nbsp;helping the company win more business, increase the number of shipments processed by&nbsp;each&nbsp;employee, and boost its margins per transaction.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">C.H. Robinson, considered&nbsp;the largest freight broker in North America&nbsp;in managing 37 million shipments per year, rolled out much of its AI infrastructure in-house. And other&nbsp;logistics&nbsp;companies have turned to tech companies focused specifically on applying AI to the sprawling sector, where they say it can help cut costs and boost efficiencies. That,&nbsp;they say, lets humans focus on the most complex problems and building relationships key to repeat business rather than&nbsp;spending their days&nbsp;playing phone tag and&nbsp;scurrying&nbsp;to&nbsp;answer&nbsp;emails.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">While much of the public’s attention on transportation automation has focused on self-driving trucks and drone deliveries, AI has quietly made inroads in the offices&nbsp;(and semi-truck cabs)&nbsp;where deals are&nbsp;done&nbsp;and plans are made.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Harish Abbott, cofounder and CEO of&nbsp;supply chain AI company Augment, describes the pre-AI system of calls and emails as imposing a “coordination tax” that leads to waste and unnecessary delays in transporting goods. “Trucks have to wait, they go empty&nbsp;miles,&nbsp;warehouses have to have underutilized labor, or businesses have to carry more inventory,” he says.&nbsp;&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Augment’s AI system, called Augie, can sift through brokers’ incoming email to spot shippers looking for a quote or the status of a delivery or detect when a carrier is looking to get paid or seeking more cargo to transport. The AI can generate quotes based on rules provided to Augie or by integration with an existing quoting engine, understanding when more information is&nbsp;needed&nbsp;and routing requests to a human if necessary.&nbsp;The system can also run automated security checks, making sure that a potential counterparty is actually someone a business wants to&nbsp;deal with.&nbsp;&nbsp;Since the AI&nbsp;logs&nbsp;its work, it also makes it easier to track win rates and&nbsp;identify&nbsp;patterns in winning and losing bids, Abbott says.&nbsp;&nbsp;Augie can even place calls or emails to carriers, speaking in a variety of languages as needed, and extract data from emailed updates in a variety of formats.&nbsp;&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">The company also offers its technology to carriers themselves, where it can also respond to incoming quote requests, pull important data about shipments, and communicate with drivers about their status. In some cases, Augie may even be&nbsp;participating&nbsp;on both sides of a conversation, though Abbott&nbsp;emphasizes that&nbsp;each instance of the software is acting on behalf of the&nbsp;appropriate client’s&nbsp;best interests.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“Literally every month, the number of incidences where AI is talking to AI, Augie is talking to Augie, is going up,” he says.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">But Abbott and others in the industry say AI is unlikely to completely replace humans any time soon. Instead, says Robert Nathan, founder and CEO of&nbsp;logistics&nbsp;AI company&nbsp;<a href=\"https://tryenvoy.ai/\" rel=\"noopener\" target=\"_blank\">Envoy AI</a>, the technology can help shift people away from busywork like answering emails, tracking shipments, and transcribing updates from carrier to shipper.&nbsp;&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“These are college-educated individuals doing low-level tasks, and I think that this next generation of operators deserves better,” says Nathan.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Envoy’s AI, known as Ellie, can help carrier&nbsp;reps,&nbsp;the people at freight brokers tasked with connecting with shipping carriers, negotiate pricing, communicating with carriers via email, phone, or text as&nbsp;appropriate. “You really try to communicate and meet the trucker or the dispatcher where they are,” says Nathan.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Like other AI providers in the industry, Envoy’s&nbsp;system can be configured to negotiate within existing guardrails and get human pre-approval before deals are done to minimize the effects of AI hallucinations, so&nbsp;businesses&nbsp;shouldn’t&nbsp;have to worry about AI proposing or accepting money-losing bids. And as Nathan points out, the AI can answer emails around the clock and&nbsp;doesn’t&nbsp;experience hunger or fatigue, factors that can&nbsp;impact&nbsp;humans in their negotiations.&nbsp;&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">In turn, human employees can spend more time building relationships with business associates, which can help&nbsp;establish&nbsp;longer term arrangements&nbsp;for regularly recurring shipments or make it easier to address&nbsp;any&nbsp;problems&nbsp;so they&nbsp;don’t&nbsp;happen again.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“Spending less time on this very tactical stuff, but now spending more time on saying, how do I strategically build a repeat business,” says Abbott. “That&#8217;s where the relationships matter, and that&#8217;s where the real majority of the business is.” </p>\n\n\n\n<p class=\"wp-block-paragraph\">While&nbsp;logistics&nbsp;is for good reason often called a “people business,”&nbsp;it’s&nbsp;also one in which numbers, speed, accuracy, and volume matter, says Simson Demmer, chief customer officer at&nbsp;<a href=\"https://www.cargo.one/\" rel=\"noopener\" target=\"_blank\">Cargo.one</a>. The company provides AI focused on air and sea transport for both carriers and freight forwarders, capable of generating quotes based on its customers’ parameters. Those can include everything from bidding policies to email tone of voice. Cargo.one also has an extensive database of air and sea transport rates. And though it’s only been in recent times that AI models have been powerful enough for automated pricing and communication, Demmer says the integrations with customer records,&nbsp;which are&nbsp;also used to&nbsp;test&nbsp;the AI against historic quotes before launch, and with its own trove of industry data are at least as vital.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“If you don&#8217;t have the price for tomorrow&#8217;s flight or tomorrow&#8217;s ocean line crossing, the best AI doesn&#8217;t close that gap for you,” he says.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Carriers, too, can&nbsp;benefit&nbsp;from AI communication tools, especially since many are mom-and-pop trucking operations where dispatchers or drivers themselves must regularly reach out to brokers seeking loads to transport.&nbsp;&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“There are hundreds of thousands of small trucking companies across the United States,” says Paul Singer,&nbsp;cofounder&nbsp;and CEO of&nbsp;<a href=\"https://www.fleetworks.ai/\" rel=\"noopener\" target=\"_blank\">FleetWorks</a>. “Most of them are getting most of their freight through a phone call, an email, a text message.”&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">FleetWorks’ AI can proactively call brokers on carriers’ behalf and help brokers find vetted carriers able to transport goods. The Y Combinator-backed company’s network of carriers and brokers is growing rapidly, now including 40 of the top 100 freight brokers and&nbsp;nearly 29,000&nbsp;carriers, Singer says.&nbsp;It’s&nbsp;already helped brokers’ carrier reps work significantly more efficiently. One customer recently reported a single carrier rep moved from booking&nbsp;roughly 150&nbsp;loads per month to more than 300, he says.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“We doubled the <a href=\"https://www.fastcompany.com/section/productivity\" title=\"Productivity\">productivity</a> of this carrier rep by bringing that carrier rep a lot more options, and handling most of the communication for them,” he says. “They&#8217;re also spending a lot more time building relationships, because they’re not handling transactional bookings.”&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Exactly how much AI will&nbsp;ultimately transform&nbsp;the transportation world remains to be&nbsp;determined, though companies in the industry are already pointing to those kinds of visible gains from automated price quoting and negotiation.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Logistics&nbsp;companies are also increasingly using AI for parsing and generating the&nbsp;often-voluminous&nbsp;sets of documents related to shipments, as well as tracking the locations of goods, handling invoices and payments, and helping carriers resolve any issues along the way.</p>\n\n\n\n<p class=\"wp-block-paragraph\">To AI enthusiasts in the industry, the sheer volume of verbal communication and written documents—which until recent years were seen as&nbsp;an impediment&nbsp;to automation—are a clear sign the field is ripe for efficiency gains from large-language models.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“There&#8217;s just so much unstructured data and so much opportunity within these businesses,&#8221; Singer says, &#8220;because all this data has been sitting in siloed systems of record for a very long time.”&nbsp;&nbsp;</p>",
-      "summary": "The multi-trillion-dollar logistics industry runs on trucks and trains, ships and planes. It also runs on calls, texts, and email. “We get hundreds of thousands of emails saying, ‘Hey, I have this freight that needs to move from X to Y—how much would it cost?’” says Mike Neill, chief technology",
-      "_excerpt": "The multi-trillion-dollar logistics industry runs on trucks and trains, ships and planes. It also runs on calls, texts, and email. “We get hundreds of thousands of emails saying, ‘Hey, I have this freight that needs to move from X to Y—how much would it cost?’” says Mike Neill, chief technology officer at logistics provider C.H. Robinson . The details vary from load to load and mode to mode, but generally a company that wants to ship a load of goods reaches out to freight brokers, who in turn connect with carriers who actually haul the goods from place to place. Getting the details right,",
-      "date_published": "2026-08-24T10:09:00+00:00",
-      "authors": [
-        {
-          "name": "Fast Company",
-          "url": "https://www.fastcompany.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 58,
-      "_theme_score_raw": 7,
-      "_composite_podcast": 57,
-      "_keyword_matches": 1,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": false,
-      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/p-1-91593679-ai-is-taking-over-logistics-endless-calls-and-emails.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.sciencealert.com/scientists-observe-quantum-heat-waves-at-room-temperature-for-the-first-time",
-      "url": "https://www.sciencealert.com/scientists-observe-quantum-heat-waves-at-room-temperature-for-the-first-time",
-      "title": "[ScienceAlert] Scientists Observe Quantum Heat Waves at Room Temperature For The First Time",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencealert.com%2Fscientists-observe-quantum-heat-waves-at-room-temperature-for-the-first-time\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"Phonon heat flow\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/08/PhononFocusedHeat.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />Another notable step forward.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
-      "summary": "Another notable step forward. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "_excerpt": "Another notable step forward. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "date_published": "2026-08-23T20:00:00+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 43,
-      "_quality": 72,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 54,
-      "_theme_score_raw": 6,
-      "_composite_podcast": 57,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true
-    },
-    {
-      "id": "https://www.neowin.net/news/user-unexpectedly-discovers-microsoft-can-purposefully-delete-windows-driver-without-warning/?utm_source=rss",
-      "url": "https://www.neowin.net/news/user-unexpectedly-discovers-microsoft-can-purposefully-delete-windows-driver-without-warning/?utm_source=rss",
-      "title": "[Neowin] User unexpectedly discovers Microsoft can purposefully delete Windows driver without warning",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/03/1772543834_windows_11_red_neowin_story.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.neowin.net%2Fnews%2Fuser-unexpectedly-discovers-microsoft-can-purposefully-delete-windows-driver-without-warning%2F%3Futm_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/03/1772543834_windows_11_red_neowin_medium.webp\" /></div>Microsoft can silently delete Windows 11 drivers without warning. A user investigated to find out what could actually be happening. <a href=\"https://www.neowin.net/news/user-unexpectedly-discovers-microsoft-can-purposefully-delete-windows-driver-without-warning/\">Read more...</a>",
-      "summary": "Microsoft can silently delete Windows 11 drivers without warning. A user investigated to find out what could actually be happening. Read more...",
-      "_excerpt": "Microsoft can silently delete Windows 11 drivers without warning. A user investigated to find out what could actually be happening. Read more...",
-      "date_published": "2026-08-24T08:42:02+00:00",
-      "authors": [
-        {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
-        }
-      ],
-      "ai_score": 58,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 58,
-      "_theme_score_raw": 7,
-      "_composite_podcast": 57,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/03/1772543834_windows_11_red_neowin_story.webp",
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
-      }
-    },
-    {
-      "id": "https://indiginews.com/first-person/we-lost-a-community-we-are-allowed-to-grieve-it/",
-      "url": "https://indiginews.com/first-person/we-lost-a-community-we-are-allowed-to-grieve-it/",
-      "title": "[IndigiNews] We lost a community — we are allowed to grieve it",
-      "content_html": "<img src=\"https://media.indiginews.com/2026/08/DSC_8514-1024x684.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Findiginews.com%2Ffirst-person%2Fwe-lost-a-community-we-are-allowed-to-grieve-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>In the wake of a devastating wildfire at Okanagan Indian Band, writer kelsie kilawna pens a letter to her community returning home</p>\n<p>The post <a href=\"https://indiginews.com/first-person/we-lost-a-community-we-are-allowed-to-grieve-it/\">We lost a community — we are allowed to grieve it</a> appeared first on <a href=\"https://indiginews.com\">Indiginews</a>.</p>",
-      "summary": "In the wake of a devastating wildfire at Okanagan Indian Band, writer kelsie kilawna pens a letter to her community returning home The post We lost a community — we are allowed to grieve it appeared first on Indiginews .",
-      "_excerpt": "In the wake of a devastating wildfire at Okanagan Indian Band, writer kelsie kilawna pens a letter to her community returning home The post We lost a community — we are allowed to grieve it appeared first on Indiginews .",
-      "date_published": "2026-08-23T13:31:37+00:00",
-      "authors": [
-        {
-          "name": "IndigiNews",
-          "url": "https://indiginews.com/"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 58,
-      "_theme_score_raw": 7,
-      "_composite_podcast": 56,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://media.indiginews.com/2026/08/DSC_8514-1024x684.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
       "id": "https://www.statnews.com/2026/08/28/lindsay-clancy-postpartum-psychosis-reproductive-psychiatrists-liability/?utm_campaign=rss",
       "url": "https://www.statnews.com/2026/08/28/lindsay-clancy-postpartum-psychosis-reproductive-psychiatrists-liability/?utm_campaign=rss",
       "title": "[STAT News] Opinion: The unintended consequences of the Lindsay Clancy case",
@@ -1527,68 +1415,40 @@
       "_quality": 65,
       "_relevance": 52,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 10,
-      "_composite_podcast": 55,
+      "_composite_podcast": 54,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/08/AP26229766962785-645x645.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/your-gpus-upscaler-has-a-secret-second-job-and-nobodys-talking-about-it/",
-      "url": "https://www.xda-developers.com/your-gpus-upscaler-has-a-secret-second-job-and-nobodys-talking-about-it/",
-      "title": "[XDA Developers] Your GPU's upscaler has a secret second job, and nobody's talking about it",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/nvidia-geforce-rtx-4070-ti-lifestyle-image.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fyour-gpus-upscaler-has-a-secret-second-job-and-nobodys-talking-about-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nUpscaling doesn't just boost your frame rate",
-      "summary": "Upscaling doesn't just boost your frame rate",
-      "_excerpt": "Upscaling doesn't just boost your frame rate",
-      "date_published": "2026-08-23T20:30:16+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 54,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_theme_score_raw": 9,
-      "_composite_podcast": 55,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/nvidia-geforce-rtx-4070-ti-lifestyle-image.jpg",
+      "image": "https://www.statnews.com/wp-content/uploads/2026/08/AP26229766962785-645x645.jpg",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
-      "id": "https://www.noahpinion.blog/p/what-if-our-biggest-problems-arent",
-      "url": "https://www.noahpinion.blog/p/what-if-our-biggest-problems-arent",
-      "title": "[Noahpinion] What if our biggest problems aren’t economic?",
-      "content_html": "<img src=\"https://substackcdn.com/image/fetch/$s_!VV6l!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cc2eb18-2f6e-413f-b7df-e3100a9f35ac_1020x680.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.noahpinion.blog%2Fp%2Fwhat-if-our-biggest-problems-arent\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA new social challenge for a new century.",
-      "summary": "A new social challenge for a new century.",
-      "_excerpt": "A new social challenge for a new century.",
-      "date_published": "2026-08-24T08:46:48+00:00",
+      "id": "https://qz.com/kalshi-george-santos-lifetime-ban-prediction-market-083126",
+      "url": "https://qz.com/kalshi-george-santos-lifetime-ban-prediction-market-083126",
+      "title": "[Quartz] Kalshi handed George Santos its first-ever lifetime ban over prediction market manipulation",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2211298959.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fkalshi-george-santos-lifetime-ban-prediction-market-083126\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe company also imposed a $71,356 penalty on the former congressman, who settled related CFTC charges in July",
+      "summary": "The company also imposed a $71,356 penalty on the former congressman, who settled related CFTC charges in July",
+      "_excerpt": "The company also imposed a $71,356 penalty on the former congressman, who settled related CFTC charges in July",
+      "date_published": "2026-08-31T14:25:40+00:00",
       "authors": [
         {
-          "name": "Noahpinion",
-          "url": "https://www.noahpinion.blog"
+          "name": "Quartz",
+          "url": "https://qz.com"
         }
       ],
-      "ai_score": 58,
+      "ai_score": 62,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 54,
       "_keyword_matches": 0,
@@ -1596,7 +1456,7 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://substackcdn.com/image/fetch/$s_!VV6l!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cc2eb18-2f6e-413f-b7df-e3100a9f35ac_1020x680.jpeg"
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2211298959.jpg"
     },
     {
       "id": "https://www.tomsguide.com/wellness/running/i-ran-40-miles-in-the-on-cloudboom-volt-and-its-a-snappy-super-sneaker-for-training-and-racing",
@@ -1616,9 +1476,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 54,
+      "_composite_podcast": 53,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1626,9 +1486,9 @@
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/JtAjsKDhA2sYHzEukDuzqL-1280-80.jpg",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -1649,9 +1509,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 54,
+      "_composite_podcast": 53,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1682,9 +1542,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 54,
+      "_composite_podcast": 53,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1692,129 +1552,8 @@
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/G4YHFng8EzKzoEAcjKCD8k-1280-80.jpg",
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
-      }
-    },
-    {
-      "id": "https://globalnews.ca/news/12032182/bc-thunderstorm-lightning-wildfires/",
-      "url": "https://globalnews.ca/news/12032182/bc-thunderstorm-lightning-wildfires/",
-      "title": "[Global News] B.C. storm causes new wildfires, airport delays after more than 7K lightning strikes",
-      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/08/vancouver-lightning.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12032182%2Fbc-thunderstorm-lightning-wildfires%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAfter a fierce storm caused havoc in B.C. overnight Saturday, officials warn the hot, dry and windy conditions in the forecast could increase the potential for wildfire activity.",
-      "summary": "After a fierce storm caused havoc in B.C. overnight Saturday, officials warn the hot, dry and windy conditions in the forecast could increase the potential for wildfire activity.",
-      "_excerpt": "After a fierce storm caused havoc in B.C. overnight Saturday, officials warn the hot, dry and windy conditions in the forecast could increase the potential for wildfire activity.",
-      "date_published": "2026-08-23T21:30:41+00:00",
-      "authors": [
-        {
-          "name": "Global News",
-          "url": "https://globalnews.ca"
-        }
-      ],
-      "ai_score": 53,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_theme_score_raw": 9,
-      "_composite_podcast": 54,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://globalnews.ca/wp-content/uploads/2026/08/vancouver-lightning.jpg?quality=65&strip=all",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
-      }
-    },
-    {
-      "id": "https://www.producer.com/opinion/agriculture-industry-gets-caught-up-in-immigration-backlash/",
-      "url": "https://www.producer.com/opinion/agriculture-industry-gets-caught-up-in-immigration-backlash/",
-      "title": "Agriculture industry gets caught up in immigration backlash | The Western Producer",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.producer.com%2Fopinion%2Fagriculture-industry-gets-caught-up-in-immigration-backlash%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n“When it comes to jobs, Canadians are always first in line. To be clear: the Temporary Foreign Worker Program is a last resort option for employers,” said a federal press release in July. Many producers are frustrated that farming is caught up in the TFWP mess.",
-      "summary": "“When it comes to jobs, Canadians are always first in line. To be clear: the Temporary Foreign Worker Program is a last resort option for employers,” said a federal press release in July. Many producers are frustrated that farming is caught up in the TFWP mess.",
-      "_excerpt": "“When it comes to jobs, Canadians are always first in line. To be clear: the Temporary Foreign Worker Program is a last resort option for employers,” said a federal press release in July. Many producers are frustrated that farming is caught up in the TFWP mess.",
-      "date_published": "2026-08-24T04:52:51.508400+00:00",
-      "authors": [
-        {
-          "name": "Western Producer",
-          "url": "https://www.producer.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 62,
-      "_theme_score_raw": 8,
-      "_composite_podcast": 53,
-      "_keyword_matches": 2,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "_thin_body": true
-    },
-    {
-      "id": "https://www.howtogeek.com/heres-why-nas-owners-and-homelabbers-keep-buying-this-ikea-table/",
-      "url": "https://www.howtogeek.com/heres-why-nas-owners-and-homelabbers-keep-buying-this-ikea-table/",
-      "title": "[How-To Geek] Here's why NAS owners and homelabbers keep buying this $17 IKEA table",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/08/a-nas-and-networking-gear-on-an-ikea-lack-table-setup.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Fheres-why-nas-owners-and-homelabbers-keep-buying-this-ikea-table%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA $17 IKEA table became an accidental 8U rack for homelabs.",
-      "summary": "A $17 IKEA table became an accidental 8U rack for homelabs.",
-      "_excerpt": "A $17 IKEA table became an accidental 8U rack for homelabs.",
-      "date_published": "2026-08-30T22:30:13+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_theme_score_raw": 9,
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/08/a-nas-and-networking-gear-on-an-ikea-lack-table-setup.png"
-    },
-    {
-      "id": "https://qz.com/walmart-settles-federal-opioid-lawsuit-pharmacies-082826",
-      "url": "https://qz.com/walmart-settles-federal-opioid-lawsuit-pharmacies-082826",
-      "title": "[Quartz] Walmart settled the U.S. government's long-running opioid lawsuit over its pharmacies",
-      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2259784299.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fwalmart-settles-federal-opioid-lawsuit-pharmacies-082826\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Justice Department sued Walmart in 2020, alleging its pharmacies unlawfully dispensed opioids and other controlled substances since 2013",
-      "summary": "The Justice Department sued Walmart in 2020, alleging its pharmacies unlawfully dispensed opioids and other controlled substances since 2013",
-      "_excerpt": "The Justice Department sued Walmart in 2020, alleging its pharmacies unlawfully dispensed opioids and other controlled substances since 2013",
-      "date_published": "2026-08-28T14:00:52+00:00",
-      "authors": [
-        {
-          "name": "Quartz",
-          "url": "https://qz.com"
-        }
-      ],
-      "ai_score": 54,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_theme_score_raw": 9,
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2259784299.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
@@ -1836,7 +1575,7 @@
       "_quality": 77,
       "_relevance": 52,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 52,
       "_keyword_matches": 0,
@@ -1853,9 +1592,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -1876,7 +1615,7 @@
       "_quality": 42,
       "_relevance": 58,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 52,
       "_keyword_matches": 0,
@@ -1889,38 +1628,6 @@
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-30T11:23:30.016928+00:00"
-      }
-    },
-    {
-      "id": "https://hackaday.com/2026/08/23/3d-printing-a-railway-pump-car/",
-      "url": "https://hackaday.com/2026/08/23/3d-printing-a-railway-pump-car/",
-      "title": "[Hackaday] 3D Printing a Railway Pump Car",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/08/railway_pump_car_assembly_sam_barker_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F08%2F23%2F3d-printing-a-railway-pump-car%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"490\" src=\"https://hackaday.com/wp-content/uploads/2026/08/railway_pump_car_assembly_sam_barker_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>A staple of old movies featuring railways, many handcars &#8211; also called pump trolleys or pump cars &#8211; feature the characteristic seesawing beam. Requiring at least two people, the motion <a class=\"read-more\" href=\"https://hackaday.com/2026/08/23/3d-printing-a-railway-pump-car/\">&#8230;read more</a>",
-      "summary": "A staple of old movies featuring railways, many handcars – also called pump trolleys or pump cars – feature the characteristic seesawing beam. Requiring at least two people, the motion …read more",
-      "_excerpt": "A staple of old movies featuring railways, many handcars – also called pump trolleys or pump cars – feature the characteristic seesawing beam. Requiring at least two people, the motion …read more",
-      "date_published": "2026-08-24T02:00:00+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 83,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 54,
-      "_theme_score_raw": 6,
-      "_composite_podcast": 52,
-      "_keyword_matches": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/08/railway_pump_car_assembly_sam_barker_youtube.jpg",
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-30T10:00:31.253930+00:00"
       }
     },
     {
@@ -1941,7 +1648,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 52,
       "_keyword_matches": 0,
@@ -1977,7 +1684,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 52,
       "_keyword_matches": 0,
@@ -1991,9 +1698,75 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
+      }
+    },
+    {
+      "id": "https://www.howtogeek.com/heres-why-nas-owners-and-homelabbers-keep-buying-this-ikea-table/",
+      "url": "https://www.howtogeek.com/heres-why-nas-owners-and-homelabbers-keep-buying-this-ikea-table/",
+      "title": "[How-To Geek] Here's why NAS owners and homelabbers keep buying this $17 IKEA table",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/08/a-nas-and-networking-gear-on-an-ikea-lack-table-setup.png\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Fheres-why-nas-owners-and-homelabbers-keep-buying-this-ikea-table%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA $17 IKEA table became an accidental 8U rack for homelabs.",
+      "summary": "A $17 IKEA table became an accidental 8U rack for homelabs.",
+      "_excerpt": "A $17 IKEA table became an accidental 8U rack for homelabs.",
+      "date_published": "2026-08-30T22:30:13+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 52,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/08/a-nas-and-networking-gear-on-an-ikea-lack-table-setup.png",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://qz.com/walmart-settles-federal-opioid-lawsuit-pharmacies-082826",
+      "url": "https://qz.com/walmart-settles-federal-opioid-lawsuit-pharmacies-082826",
+      "title": "[Quartz] Walmart settled the U.S. government's long-running opioid lawsuit over its pharmacies",
+      "content_html": "<img src=\"https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2259784299.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fqz.com%2Fwalmart-settles-federal-opioid-lawsuit-pharmacies-082826\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Justice Department sued Walmart in 2020, alleging its pharmacies unlawfully dispensed opioids and other controlled substances since 2013",
+      "summary": "The Justice Department sued Walmart in 2020, alleging its pharmacies unlawfully dispensed opioids and other controlled substances since 2013",
+      "_excerpt": "The Justice Department sued Walmart in 2020, alleging its pharmacies unlawfully dispensed opioids and other controlled substances since 2013",
+      "date_published": "2026-08-28T14:00:52+00:00",
+      "authors": [
+        {
+          "name": "Quartz",
+          "url": "https://qz.com"
+        }
+      ],
+      "ai_score": 54,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 52,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://qz.com/cdn-cgi/image/width=600,quality=85,format=auto/https://assets.qz.com/media/GettyImages-2259784299.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -2014,7 +1787,7 @@
       "_quality": 80,
       "_relevance": 58,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 52,
       "_keyword_matches": 0,
@@ -2034,24 +1807,24 @@
       }
     },
     {
-      "id": "https://www.androidauthority.com/oppo-reno-16-pro-hands-on-3698232/",
-      "url": "https://www.androidauthority.com/oppo-reno-16-pro-hands-on-3698232/",
-      "title": "[Android Authority] Vloggers will love this phone and rear screen add-on, but will anyone else?",
-      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/08/OPPO-Bubble-on-back-of-Reno-16-Pro-scaled-e1787058642485-500w-260h.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Foppo-reno-16-pro-hands-on-3698232%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe OPPO Reno 16 Pro is a solid Android phone with a quirky accessory, but the price tag is a stretch to get it all.",
-      "summary": "The OPPO Reno 16 Pro is a solid Android phone with a quirky accessory, but the price tag is a stretch to get it all.",
-      "_excerpt": "The OPPO Reno 16 Pro is a solid Android phone with a quirky accessory, but the price tag is a stretch to get it all.",
-      "date_published": "2026-08-29T09:45:04+00:00",
+      "id": "https://globalnews.ca/news/12038193/immigrant-groups-say-racism-rising-alberta-referendum/",
+      "url": "https://globalnews.ca/news/12038193/immigrant-groups-say-racism-rising-alberta-referendum/",
+      "title": "[Global News] Immigrant groups say racism rising in Alberta as referendum looms",
+      "content_html": "<img src=\"https://globalnews.ca/wp-content/uploads/2026/02/referendum_1.jpg?quality=65&amp;strip=all\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fglobalnews.ca%2Fnews%2F12038193%2Fimmigrant-groups-say-racism-rising-alberta-referendum%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nUniversity of Alberta political science professor Jared Wesley says the upcoming referendum in Alberta is at least partially to blame.",
+      "summary": "University of Alberta political science professor Jared Wesley says the upcoming referendum in Alberta is at least partially to blame.",
+      "_excerpt": "University of Alberta political science professor Jared Wesley says the upcoming referendum in Alberta is at least partially to blame.",
+      "date_published": "2026-08-29T10:00:03+00:00",
       "authors": [
         {
-          "name": "Android Authority",
-          "url": "https://www.androidauthority.com"
+          "name": "Global News",
+          "url": "https://globalnews.ca"
         }
       ],
       "ai_score": 50,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 52,
       "_keyword_matches": 0,
@@ -2059,7 +1832,76 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/OPPO-Bubble-on-back-of-Reno-16-Pro-scaled-e1787058642485-500w-260h.jpg",
+      "image": "https://globalnews.ca/wp-content/uploads/2026/02/referendum_1.jpg?quality=65&strip=all",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://hackaday.com/2026/08/23/using-the-basic-snes-hardware-to-play-minecraft/",
+      "url": "https://hackaday.com/2026/08/23/using-the-basic-snes-hardware-to-play-minecraft/",
+      "title": "[Hackaday] Using the Basic SNES Hardware to Play Minecraft",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/08/3d_minecraft_on_snes_game_of_tobi_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F08%2F23%2Fusing-the-basic-snes-hardware-to-play-minecraft%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"469\" src=\"https://hackaday.com/wp-content/uploads/2026/08/3d_minecraft_on_snes_game_of_tobi_youtube.jpg?w=800\" style=\"margin: 0 auto; margin-bottom: 15px;\" width=\"800\" /></div>After previously putting a very basic version of Minecraft on the Game Boy Color, [Tobi] decided to have some fun and port that version also to the Super Nintendo (SNES), <a class=\"read-more\" href=\"https://hackaday.com/2026/08/23/using-the-basic-snes-hardware-to-play-minecraft/\">&#8230;read more</a>",
+      "summary": "After previously putting a very basic version of Minecraft on the Game Boy Color, [Tobi] decided to have some fun and port that version also to the Super Nintendo (SNES), …read more",
+      "_excerpt": "After previously putting a very basic version of Minecraft on the Game Boy Color, [Tobi] decided to have some fun and port that version also to the Super Nintendo (SNES), …read more",
+      "date_published": "2026-08-23T20:00:00+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "ai_score": 47,
+      "_quality": 67,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 51,
+      "_theme_score_raw": 5,
+      "_composite_podcast": 51,
+      "_keyword_matches": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/08/3d_minecraft_on_snes_game_of_tobi_youtube.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://www.nytimes.com/2026/08/31/business/g20-finance-iran-bessent.html",
+      "url": "https://www.nytimes.com/2026/08/31/business/g20-finance-iran-bessent.html",
+      "title": "[NYT Business] G20 Finance Officials Gather in U.S. as Iran War Grips Global Economy",
+      "content_html": "<img src=\"https://static01.nyt.com/images/2026/08/31/multimedia/31dc-g20-lktm/31dc-g20-lktm-mediumSquareAt3X-v2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nytimes.com%2F2026%2F08%2F31%2Fbusiness%2Fg20-finance-iran-bessent.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe meeting is expected to focus on the ongoing economic shock from the war in Iran, which has driven up oil prices globally.",
+      "summary": "The meeting is expected to focus on the ongoing economic shock from the war in Iran, which has driven up oil prices globally.",
+      "_excerpt": "The meeting is expected to focus on the ongoing economic shock from the war in Iran, which has driven up oil prices globally.",
+      "date_published": "2026-08-31T09:09:44+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "ai_score": 53,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 51,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static01.nyt.com/images/2026/08/31/multimedia/31dc-g20-lktm/31dc-g20-lktm-mediumSquareAt3X-v2.jpg",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times",
       "_cross_theme": {
         "day": "monday",
         "label": "Arts, Culture & Digital Storytelling",
@@ -2084,7 +1926,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 51,
       "_keyword_matches": 0,
@@ -2096,7 +1938,45 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
+    },
+    {
+      "id": "https://www.androidauthority.com/oppo-reno-16-pro-hands-on-3698232/",
+      "url": "https://www.androidauthority.com/oppo-reno-16-pro-hands-on-3698232/",
+      "title": "[Android Authority] Vloggers will love this phone and rear screen add-on, but will anyone else?",
+      "content_html": "<img src=\"https://www.androidauthority.com/wp-content/uploads/2026/08/OPPO-Bubble-on-back-of-Reno-16-Pro-scaled-e1787058642485-500w-260h.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidauthority.com%2Foppo-reno-16-pro-hands-on-3698232%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe OPPO Reno 16 Pro is a solid Android phone with a quirky accessory, but the price tag is a stretch to get it all.",
+      "summary": "The OPPO Reno 16 Pro is a solid Android phone with a quirky accessory, but the price tag is a stretch to get it all.",
+      "_excerpt": "The OPPO Reno 16 Pro is a solid Android phone with a quirky accessory, but the price tag is a stretch to get it all.",
+      "date_published": "2026-08-29T09:45:04+00:00",
+      "authors": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 51,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.androidauthority.com/wp-content/uploads/2026/08/OPPO-Bubble-on-back-of-Reno-16-Pro-scaled-e1787058642485-500w-260h.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.tomsguide.com/gaming/modretro-m64-review",
@@ -2116,7 +1996,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 51,
       "_keyword_matches": 0,
@@ -2124,7 +2004,12 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/afu8Rdtchxcs4rePXsBizT-1280-80.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/afu8Rdtchxcs4rePXsBizT-1280-80.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.androidpolice.com/blip-file-peer-transfer-cross-platform/",
@@ -2144,7 +2029,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
       "_composite_podcast": 51,
       "_keyword_matches": 0,
@@ -2157,39 +2042,6 @@
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-30T11:23:30.016928+00:00"
-      }
-    },
-    {
-      "id": "https://www.androidpolice.com/replacing-notion-with-a-simpler-note-app-solved-my-daily-productivity-paralysis/",
-      "url": "https://www.androidpolice.com/replacing-notion-with-a-simpler-note-app-solved-my-daily-productivity-paralysis/",
-      "title": "[Android Police] Replacing Notion with a simpler note app solved my daily productivity paralysis",
-      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/08/google-keep-notes-on-a-phone-beside-google-keep-and-notion-icons.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidpolice.com%2Freplacing-notion-with-a-simpler-note-app-solved-my-daily-productivity-paralysis%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nForget schema, Google Keep lets you instantly jot down notes and get work done",
-      "summary": "Forget schema, Google Keep lets you instantly jot down notes and get work done",
-      "_excerpt": "Forget schema, Google Keep lets you instantly jot down notes and get work done",
-      "date_published": "2026-08-23T16:15:10+00:00",
-      "authors": [
-        {
-          "name": "Android Police",
-          "url": "https://www.androidpolice.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_theme_score_raw": 9,
-      "_composite_podcast": 51,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/08/google-keep-notes-on-a-phone-beside-google-keep-and-notion-icons.jpg",
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -2222,7 +2074,12 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.androidpolice.com/i-cut-my-monthly-television-bill-to-0-using-fire-tv-live-channel-tools/",
@@ -2242,9 +2099,9 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 9,
-      "_composite_podcast": 50,
+      "_composite_podcast": 49,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -2255,6 +2112,75 @@
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
         "shown_at": "2026-08-30T12:27:57.325403+00:00"
+      }
+    },
+    {
+      "id": "https://www.androidpolice.com/i-finally-ditched-spotify-for-youtube-music-and-took-my-tracks-with-me/",
+      "url": "https://www.androidpolice.com/i-finally-ditched-spotify-for-youtube-music-and-took-my-tracks-with-me/",
+      "title": "[Android Police] I moved my entire Spotify library to YouTube Music without losing a single song",
+      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/08/spotify-playlists-transferring-to-youtube-music-on-a-smartphone.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidpolice.com%2Fi-finally-ditched-spotify-for-youtube-music-and-took-my-tracks-with-me%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI replaced Spotify with YouTube Music using this hidden transfer tool buried in settings",
+      "summary": "I replaced Spotify with YouTube Music using this hidden transfer tool buried in settings",
+      "_excerpt": "I replaced Spotify with YouTube Music using this hidden transfer tool buried in settings",
+      "date_published": "2026-08-29T17:00:10+00:00",
+      "authors": [
+        {
+          "name": "Android Police",
+          "url": "https://www.androidpolice.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 75,
+      "_theme_score_raw": 9,
+      "_composite_podcast": 49,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/08/spotify-playlists-transferring-to-youtube-music-on-a-smartphone.jpg",
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+      }
+    },
+    {
+      "id": "https://www.theatlantic.com/politics/2026/08/naturalized-citizens-ban-elected-office-trump/688415/?utm_source=feed",
+      "url": "https://www.theatlantic.com/politics/2026/08/naturalized-citizens-ban-elected-office-trump/688415/?utm_source=feed",
+      "title": "[The Atlantic] Not American Enough",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theatlantic.com%2Fpolitics%2F2026%2F08%2Fnaturalized-citizens-ban-elected-office-trump%2F688415%2F%3Futm_source%3Dfeed\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nGOP lawmakers are pushing to restrict the rights of naturalized and dual citizens—including their ability to run for office.",
+      "summary": "GOP lawmakers are pushing to restrict the rights of naturalized and dual citizens—including their ability to run for office.",
+      "_excerpt": "GOP lawmakers are pushing to restrict the rights of naturalized and dual citizens—including their ability to run for office.",
+      "date_published": "2026-08-27T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "The Atlantic",
+          "url": "https://www.theatlantic.com"
+        }
+      ],
+      "ai_score": 51,
+      "_quality": 73,
+      "_relevance": 25,
+      "_local": 0,
+      "_theme_score": 62,
+      "_theme_score_raw": 8,
+      "_composite_podcast": 49,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -2282,7 +2208,12 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "_thin_body": true
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "wednesday",
+        "label": "Repair Culture & Practical Tech",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
+      }
     },
     {
       "id": "https://www.forbes.com/sites/lauriewinkless/2026/08/31/wildfires-have-left-the-forest-and-moved-into-the-city/",
@@ -2314,39 +2245,11 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://insideevs.com/news/805888/europe-ev-sales-july-increase/",
-      "url": "https://insideevs.com/news/805888/europe-ev-sales-july-increase/",
-      "title": "[InsideEVs] Europe’s EV Sales Explode, Now Making Up A Quarter Of New Cars",
-      "content_html": "<img src=\"https://cdn.motor1.com/images/mgl/ko4VAe/s3/renault-5-e-tech.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Finsideevs.com%2Fnews%2F805888%2Feurope-ev-sales-july-increase%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nRising fuel prices are convincing more and more Europeans that electric cars are worth it in the long run.",
-      "summary": "Rising fuel prices are convincing more and more Europeans that electric cars are worth it in the long run.",
-      "_excerpt": "Rising fuel prices are convincing more and more Europeans that electric cars are worth it in the long run.",
-      "date_published": "2026-08-24T12:21:56+00:00",
-      "authors": [
-        {
-          "name": "InsideEVs",
-          "url": "https://www.insideevs.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality": 48,
-      "_relevance": 62,
-      "_local": 8,
-      "_theme_score": 62,
-      "_theme_score_raw": 8,
-      "_composite_podcast": 45,
-      "_keyword_matches": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.motor1.com/images/mgl/ko4VAe/s3/renault-5-e-tech.jpg",
+      "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-08-31T10:51:05.292155+00:00"
       }
     },
     {
@@ -2378,67 +2281,73 @@
       "image": "https://cdn.mos.cms.futurecdn.net/rooXvESoBpBpBGCkrJPnwC-1280-80.jpg"
     },
     {
-      "id": "https://www.livefortheoutdoors.com/hiking/accessories/best-base-layers/",
-      "url": "https://www.livefortheoutdoors.com/hiking/accessories/best-base-layers/",
-      "title": "[Live for the Outdoors (Country Walking)] Avoid miserable walks and hikes with these excellent base layers",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.livefortheoutdoors.com%2Fhiking%2Faccessories%2Fbest-base-layers%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nOne of the first pieces of advice you’re told about hiking is &#x27;layer up&#x27;. And the first piece of a layering system is the base layer. This is our guide to the best base layers to make your hiking experience much more comfortable.",
-      "summary": "One of the first pieces of advice you’re told about hiking is 'layer up'. And the first piece of a layering system is the base layer. This is our guide to the best base layers to make your hiking experience much more comfortable.",
-      "_excerpt": "One of the first pieces of advice you’re told about hiking is 'layer up'. And the first piece of a layering system is the base layer. This is our guide to the best base layers to make your hiking experience much more comfortable.",
-      "date_published": "2026-08-25T04:46:07.483865+00:00",
+      "id": "https://www.xda-developers.com/your-wi-fi-router-leaking-airtime-to-legacy-devices-the-10-second-fix/",
+      "url": "https://www.xda-developers.com/your-wi-fi-router-leaking-airtime-to-legacy-devices-the-10-second-fix/",
+      "title": "[XDA Developers] Your Wi-Fi router is leaking airtime to legacy devices, and here is the 10-second fix",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/01/acer-predator-connect-w6-review-top-front-lights.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fyour-wi-fi-router-leaking-airtime-to-legacy-devices-the-10-second-fix%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAdjust these settings so your network isn't trapped in 1999.",
+      "summary": "Adjust these settings so your network isn't trapped in 1999.",
+      "_excerpt": "Adjust these settings so your network isn't trapped in 1999.",
+      "date_published": "2026-08-23T18:30:16+00:00",
       "authors": [
         {
-          "name": "Live for the Outdoors (Country Walking)",
-          "url": "https://www.livefortheoutdoors.com"
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
         }
       ],
-      "ai_score": 42,
-      "_quality": 53,
-      "_relevance": 52,
+      "ai_score": 50,
+      "_quality": 65,
+      "_relevance": 0,
       "_local": 0,
-      "_theme_score": 62,
-      "_theme_score_raw": 8,
-      "_composite_podcast": 39,
+      "_theme_score": 60,
+      "_theme_score_raw": 7,
+      "_composite_podcast": 41,
       "_keyword_matches": 0,
-      "_category": "outdoors",
-      "_source_category": "outdoors",
+      "_category": "homelab",
+      "_source_category": "homelab",
       "_is_bonus": true,
       "_thin_body": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/01/acer-predator-connect-w6-review-top-front-lights.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
+      }
+    },
+    {
+      "id": "https://www.fastcompany.com/91585152/output-used-to-mean-you-cared-with-ai-it-now-means-nothing-technology-ai-career-advice",
+      "url": "https://www.fastcompany.com/91585152/output-used-to-mean-you-cared-with-ai-it-now-means-nothing-technology-ai-career-advice",
+      "title": "[Fast Company] In the age of AI, how much work you do matters less than it used to. Here’s what matters more",
+      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/p-1-91585152-Tech-Output-used-to-mean-you-cared.-With-AI-it-now-means-nothing.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\" />\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.fastcompany.com%2F91585152%2Foutput-used-to-mean-you-cared-with-ai-it-now-means-nothing-technology-ai-career-advice\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"wp-block-paragraph\">The most important skills in today&#8217;s workplace are judgment and discretion.</p>\n\n\n\n<p class=\"wp-block-paragraph\">This is because the cost of output has never been cheaper. With models like Fable producing yet another step-function increase in capabilities, it&#8217;s easier than ever to run a million miles per hour in any direction, so that means you better be running in the right one.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><a href=\"https://www.fastcompany.com/section/productivity\" title=\"Productivity\">Productivity</a> at work used to be measured largely by output. Yes, results and impact have always been the flagship markers of success, but you could get pretty far in yesterday&#8217;s world by producing a high volume of just-fine output. That&#8217;s because output used to be expensive—you had to think and devote energy towards what you were creating. The effort itself signaled that you cared enough to think through what you were putting into the world, and visibly caring about your job was typically good enough to keep you from getting fired.</p>\n\n\n\n<p class=\"wp-block-paragraph\">So because of that, most of us, to one degree or another, are hard-wired to believe that output equals good. Or at least productive, and productive equals good.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But that mental model starts to break in a world where you can chat with Claude, paste in a co-worker&#8217;s proposal for a new strategy, type &#8220;Nah, let&#8217;s try a different direction,&#8221; and get 1,000 words of modestly well-reasoned prose. The language is coherent. It&#8217;s probably more formally correct than most people can write. And it took nine seconds.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That shift creates a problem for companies like Amazon, JPMorgan, Meta, and Disney that are trying to drive <a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">AI</a> adoption by deploying AI leaderboards that reward pure quantity of output. One Disney employee <a href=\"https://www.businessinsider.com/disney-ai-adoption-dashboard-tokens-tokenmaxxing-claude-cursor-josh-damaro-2026-4\">reportedly</a> hit Claude over 400,000 times in nine days. When output is no longer scarce, rewarding more of it may not optimize the thing that creates the most value.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Now, at this point, most people will say, &#8220;Well Nick, you just have to use AI correctly.&#8221; I agree! Better prompting produces better output, and the people who are good at this are getting meaningfully more done.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But that&#8217;s not the problem I&#8217;m worried about.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because when output is cheap, and you put it out into the world without substantial discretion, you&#8217;re not being productive. You&#8217;re shifting effort that should be yours onto your colleagues. You did the easy part, and you left them the hard part, figuring out whether any of it is true, relevant, or worth doing anything about.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That&#8217;s what judgment is. Deciding which ideas deserve attention—yours, your colleagues&#8217;, your organization&#8217;s.</p>\n\n\n\n<p class=\"wp-block-paragraph\">You&#8217;ve seen what happens when nobody exercises it. The 10-page AI-generated strategy memo that could have been two. The Slack update that buries no substance under ten beautifully formatted bullets. In volume, they suffocate a company, and they drain exactly the velocity AI promised to create.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-effort-is-cheap\">Effort is cheap</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Before AI, effort itself was the signal. There was an implicit social contract in reading and writing: if you were reading someone&#8217;s work, you knew it was worth reading, because the act of devoting time and energy to it signaled that the writer cared enough to work on it. If someone spent a few hours on something, it was probably worth a quick skim on your part.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Now that output is cheap, quantity isn&#8217;t a signal for &#8220;I care.&#8221; And the problem is, we don&#8217;t know what the new signal is. I only want to read things my colleagues have deemed important enough to spend real mental energy on. That used to be easy to spot, but today it&#8217;s much harder to tease out.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"h-the-playbook\">The playbook</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Until we figure it out, we need some ground rules for what we put into the world:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Think first; use AI second.</li>\n\n\n\n<li>Every sentence should earn its place, and the meaning of every sentence should be clear.</li>\n\n\n\n<li>Bias toward producing content that only you could have written—proprietary data, your actual opinion, your voice. If I wanted to ask Claude, I would have!</li>\n\n\n\n<li>You’re probably sending slop if it takes more time for someone to read the output than it took you to think about your perspective and do the input.</li>\n\n\n\n<li>Assume the quantity of AI output can be cut by 50% to 75% and cut it.</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\">I&#8217;m fortunate to have received a decent education in writing, and most of the rules above are fundamentals that were drilled into me in high school. Reflecting on those lessons, I now appreciate William Faulkner&#8217;s line as more true than ever: &#8220;In writing, you must kill all your darlings.&#8221; The exercise has always been agonizing.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But it&#8217;s more relevant now than it&#8217;s ever been. What changed is that this homicide has become mission-critical to a high-functioning workplace. Deciding which ideas deserve to exist is one of the most important competencies of modern work.</p>\n\n\n\n<p class=\"wp-block-paragraph\">We should spend at least a fraction of the time AI saves us deciding what&#8217;s actually worth putting into the world. To do this, especially in the face of increasing pressure to move faster than ever, requires not just the skill to do so, but a work environment and leaders that champion slowing down to speed up. Spend 15 minutes with a blank canvas before touching Claude. Ruthlessly edit output. Rewrite it in your voice.</p>\n\n\n\n<p class=\"wp-block-paragraph\">AI can generate almost anything—that doesn&#8217;t mean almost everything deserves to exist. Today’s winners won’t be defined by their ability to produce quickly. Instead, the breakout companies of today’s generation will be defined by their judgment about what should be produced in the first place. And if we do that, I&#8217;m confident we&#8217;d move faster than ever, and in exactly the right direction.</p>",
+      "summary": "The most important skills in today’s workplace are judgment and discretion. This is because the cost of output has never been cheaper. With models like Fable producing yet another step-function increase in capabilities, it’s easier than ever to run a million miles per hour in any direction, so that",
+      "_excerpt": "The most important skills in today’s workplace are judgment and discretion. This is because the cost of output has never been cheaper. With models like Fable producing yet another step-function increase in capabilities, it’s easier than ever to run a million miles per hour in any direction, so that means you better be running in the right one. Productivity at work used to be measured largely by output. Yes, results and impact have always been the flagship markers of success, but you could get pretty far in yesterday’s world by producing a high volume of just-fine output. That’s because output",
+      "date_published": "2026-08-31T10:50:00+00:00",
+      "authors": [
+        {
+          "name": "Fast Company",
+          "url": "https://www.fastcompany.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 27,
+      "_theme_score_raw": 2,
+      "_composite_podcast": 40,
+      "_keyword_matches": 1,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/08/p-1-91585152-Tech-Output-used-to-mean-you-cared.-With-AI-it-now-means-nothing.jpg",
       "tags": [
         "subscriber-access"
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-08-30T11:23:30.016928+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-08-31T14:39:04.649495+00:00"
       }
-    },
-    {
-      "id": "https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/",
-      "url": "https://techcrunch.com/2026/08/23/is-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated/",
-      "title": "[TechCrunch] Is it legal to train AI models on copyrighted books? It’s complicated",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Ftechcrunch.com%2F2026%2F08%2F23%2Fis-it-legal-to-train-ai-models-on-copyrighted-books-its-complicated%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMost published authors have, without their knowledge or consent, contributed to the development of the same AI tools that threaten to undermine their livelihoods. That seems illegal, right?",
-      "summary": "Most published authors have, without their knowledge or consent, contributed to the development of the same AI tools that threaten to undermine their livelihoods. That seems illegal, right?",
-      "_excerpt": "Most published authors have, without their knowledge or consent, contributed to the development of the same AI tools that threaten to undermine their livelihoods. That seems illegal, right?",
-      "date_published": "2026-08-23T15:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechCrunch",
-          "url": "https://techcrunch.com"
-        }
-      ],
-      "ai_score": 51,
-      "_quality": 68,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 49,
-      "_theme_score_raw": 5,
-      "_composite_podcast": 32,
-      "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": true,
-      "_thin_body": true
     }
   ]
 }
