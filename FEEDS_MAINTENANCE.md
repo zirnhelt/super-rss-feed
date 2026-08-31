@@ -51,33 +51,43 @@ to a recoverable one. Feeds whose failure cannot resolve itself (dead DNS,
 consecutive failures, 24 h at 4, 72 h at 8. Any successful fetch clears all
 of it.
 
+That gets the *run* through a broken feed. Repairing `feeds.opml` itself is
+the Sunday `feed-health` job (`integrate_discoveries.py --heal`), which takes
+the four follow-ups that used to be yours and does them:
+
+| What you used to do by hand | What the heal pass does |
+|---|---|
+| Paste a `↩ feed moved → <url>` line into `feeds.opml` | Re-fetches the rediscovered URL and, if it still parses as a feed with entries, writes it into the OPML with `relocatedFrom` recording where it came from |
+| Decide what replaces a `⏸ backing off` source | Retires it — `type="rss"` becomes `type="retired"`, which `parse_opml()` stops selecting |
+| Swap a hostile-WAF outlet for a Google News search feed | Does exactly that, keeping the original as a retired outline, but only if the search feed carries an article from the last 30 days |
+| Notice a source came back and re-add it | `recheck_retired()` probes retired outlines weekly and restores any that answer, deleting the Google News stand-in that replaced it |
+
+Read `FEED_HEALTH_LOG.md` for what it did and why; each row carries the
+evidence that qualified the feed. Every change is one word in the OPML to
+reverse, and a retired feed is still visible to discovery, so nothing you
+retired comes back as a "new" find.
+
 So what still needs you:
 
-- **`↩ … feed moved → <url> (update feeds.opml)`** — rediscovery worked and
-  the new URL is cached in `feed_http_cache.json`, so the feed is already
-  live again. Paste the new URL into `feeds.opml` at your convenience to make
-  it durable; the cache is a redirect, not a fix.
-
-- **`⏸ … backing off Nh`** — the source is dead or gone, not blocked. Nothing
-  will bring it back. Find a replacement source or remove it from
-  `feeds.opml`. Example: `oldhouseonline.com` (Old House Journal) stopped
-  resolving in DNS entirely — the brand's site is gone, not moved.
-
-- **`⚠ … N consecutive failures — free fallback only`** — the feed has been
-  down for 3+ runs and is now costing nothing. Decide whether the Google News
-  fallback is carrying it well enough, or retire it.
-
-- **403 that survives the feed-reader retry** — a genuinely hostile WAF.
-  Replace with a Google News search feed for that outlet (pattern below), or
-  comment the source out.
+- **A feed you disagree about.** The agent is deliberately conservative — it
+  needs 3 failures across 2+ days and a live probe before acting — but it
+  cannot know that a Google News stand-in reads worse than the real feed did.
+  Flip `type="retired"` back to `"rss"`, or delete the `GN …` outline.
 
 - **415 Unsupported Media Type** — feedparser is sending a content-type the
-  server rejects. Try opening the feed URL in a browser; if it works, replace
-  with a Google News search feed for that outlet.
+  server rejects. The probe sees the same rejection and will retire the feed;
+  if the URL opens fine in a browser, a Google News search feed for that
+  outlet is the better replacement.
 
-- **Timeout / RemoteDisconnected** — usually transient, and the backoff
-  ladder does not apply to these (they can resolve on their own). If it
-  persists for 3+ consecutive days, comment it out and open a TODO.
+- **Timeout / RemoteDisconnected** — usually transient, and the backoff ladder
+  does not apply (they can resolve on their own). A feed that times out for
+  3+ consecutive days will clear the heal floor and be retired on Sunday.
+
+- **A week where nothing was healed and the log says `🛑 None of N known-good
+  feeds is reachable`** — that is the network sanity guard: the runner itself
+  could not reach anything, so the agent refused to read that as N dead
+  outlets. Nothing was changed. If it repeats, the runner's egress is the
+  problem, not the feeds.
 
 **Never add a WordPress comment feed** (`/comments/feed/`, or a title
 starting "Comments for "). They carry reader comments, not articles, and are

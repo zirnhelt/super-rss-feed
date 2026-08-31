@@ -243,6 +243,28 @@ def get_discovery_actions() -> list:
 
 
 # ---------------------------------------------------------------------------
+# Feed health actions (feeds repaired, retired, or restored this run)
+# ---------------------------------------------------------------------------
+
+def get_feed_health_actions() -> list:
+    """Health fixes the weekly heal pass applied to feeds.opml.
+
+    'recovered' entries are dropped: a feed that started working again on its
+    own is a non-event for a table whose purpose is "what changed, and how do
+    I undo it". They stay in FEED_HEALTH_LOG.md for anyone tracing a feed.
+    """
+    path = Path("feed_health_actions.json")
+    if not path.exists():
+        return []
+    try:
+        actions = json.loads(path.read_text("utf-8"))
+    except Exception as exc:
+        print(f"  ⚠️  Could not read feed_health_actions.json: {exc}")
+        return []
+    return [a for a in actions if a.get("action") != "recovered"]
+
+
+# ---------------------------------------------------------------------------
 # Calibration changes from calibration_memory/change_history.json
 # ---------------------------------------------------------------------------
 
@@ -749,6 +771,10 @@ def main():
     discovery_actions = get_discovery_actions()
     print(f"     {len(discovery_actions)} feed(s) auto-added")
 
+    print("  → Reading feed_health_actions.json...")
+    health_actions = get_feed_health_actions()
+    print(f"     {len(health_actions)} feed health fix(es)")
+
     print("  → Reading calibration_memory/change_history.json...")
     today = now.strftime("%Y-%m-%d")
     calibration_changes = get_calibration_changes(today)
@@ -775,6 +801,16 @@ def main():
             actions.append({
                 "component": "Discovery",
                 "action": f"Added feed “{feed['title']}” ({feed.get('category', '—')}, score {feed.get('score', 0)})",
+                "commit": commit,
+            })
+    if health_actions:
+        commit = git_commit_for(["feeds.opml", "FEED_HEALTH_LOG.md"])
+        for fix in health_actions:
+            target = f" → {fix['new_url']}" if fix.get("new_url") else ""
+            actions.append({
+                "component": "Feed health",
+                "action": (f"{fix.get('action', '?').title()} “{fix.get('title', '?')}”"
+                           f"{target} ({fix.get('reason', '')}; {fix.get('evidence', '')})"),
                 "commit": commit,
             })
     if calibration_changes:
