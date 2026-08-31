@@ -201,29 +201,25 @@ Persistent memory for the weekly calibration agent:
 
 # CI/CD Workflows
 
-## `generate-feed.yml` — Twice-daily pipeline
+## `generate-feed.yml` — Daily pipeline
 
 **Schedule:** the 04:00 UTC run (8 PM Pacific the previous day) and its 07:00 UTC
-backup rung are moving to a **Cloudflare Worker**, which lives in the sibling repo
-at `curated-podcast-generator/cloudflare/scheduler/` and dispatches this workflow
-with a `run_slot` input. GitHub's cron is best-effort — it delays scheduled
+backup rung both arrive as `workflow_dispatch` from a **Cloudflare Worker**, which
+lives in the sibling repo at `curated-podcast-generator/cloudflare/scheduler/` and
+sends a `run_slot` input. GitHub's cron is best-effort — it delays scheduled
 workflows under load and drops the tick outright once the delay passes the next
 window — and this feed has a hard downstream deadline: the podcast reads the
 scored pool at 08:05 UTC.
 
-**Rollout: this commit changes no schedule.** The GitHub crons still run the feed
-and the Worker is not firing yet; `run_slot` is accepted and reads as empty. The
-follow-up commit hands the ticks over and demotes GitHub to a single backstop cron
-at `0 10 * * *`.
+**One GitHub cron remains**, `0 10 * * *`, purely as the backstop for the *Worker*
+being down, timed to pair with the podcast's own GitHub backstop at 11:05 UTC. On
+a normal night it costs ~20 s — it starts, `preflight` sees the day is covered,
+and it stands down. Do not remove it, and do not add the two ticks back to the
+`schedule:` block; that is what keeps the schedule from depending on one vendor.
 
-**Exactly one trigger a day may run unconditionally.** Two would double the daily
-API spend; none would let both see the other queued and stand down, and there
-would be no feed that day. Today that trigger is the 04:00 GitHub cron; after the
-handover it is `run_slot=1`. The two schedulers are never run in parallel.
-
-**`preflight` gates on `inputs.run_slot`, not just `github.event.schedule`.**
-Anything that needs to know which rung it is on must read the input — a
-schedule-triggered run leaves it empty.
+**`preflight` gates on `inputs.run_slot`, not `github.event.schedule`.** Anything
+that needs to know which rung it is on must read the input — a schedule-triggered
+run leaves it empty, which is how the backstop is told apart from a manual run.
 
 `weekly-maintenance.yml` and `cleanup-branches.yml` stay on GitHub's cron:
 Workers Free allows only 5 Cron Triggers per account, all five are spent on the
