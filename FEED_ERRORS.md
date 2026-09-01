@@ -3,6 +3,18 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-01 (Tuesday)
+
+#### 🔧 Manual Run (12:05 AM Pacific)
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **Ness Labs** failed — `HTTPSConnectionPool(host='nesslabs.com', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(`
+
+
+---
+
+
+
 ## 2026-08-31 (Monday)
 
 #### 🌅 4:30 AM Pacific
