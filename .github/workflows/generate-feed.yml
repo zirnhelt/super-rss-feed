@@ -257,7 +257,16 @@ jobs:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
           KAGI_API_KEY: ${{ secrets.KAGI_API_KEY }}
-          USE_SEARCH_APIS: ${{ github.event_name == 'schedule' || inputs.use_search_apis == true }}
+          # Scheduled run, OR any run the Cloudflare scheduler dispatched (run_slot
+          # set), OR an explicit manual opt-in. The `schedule` test alone was
+          # written before the ladder moved to the Worker: since then the nightly
+          # runs arrive as workflow_dispatch with use_search_apis defaulting to
+          # false, so topic queries and the Brave/Kagi feed-recovery fallbacks were
+          # off on every real run — only the 10:00 UTC backstop had them on, and
+          # that one stands down as soon as preflight sees the day is covered.
+          # This is the same migration footgun preflight documents: what used to
+          # branch on github.event.schedule must now also read inputs.run_slot.
+          USE_SEARCH_APIS: ${{ github.event_name == 'schedule' || inputs.run_slot != '' || inputs.use_search_apis == true }}
         run: |
           set -o pipefail
           python super_rss_curator_json.py feeds.opml 2>&1 | tee /tmp/feed_output.txt

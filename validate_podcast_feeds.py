@@ -65,11 +65,28 @@ THRESHOLDS = {
 # every run from the day it was added, while a genuine 50% collapse in Sunday
 # would have sailed through at 40.
 #
-# Wednesday is the clearest case: 'Repair Culture & Practical Tech' is a narrow
-# subject (right-to-repair, teardowns, DIY longevity) with a long OUT OF SCOPE
-# list scoring 0-9, run against a general RSS corpus that rarely holds a real
-# right-to-repair story. Its charter is not off-scale — it is honestly
-# reporting weak fit, which is the answer.
+# **That reading of the low end was wrong, and the numbers above are a record of
+# a bug rather than of theme breadth.** The note here used to conclude that
+# Wednesday's 'Repair Culture & Practical Tech' was "honestly reporting weak
+# fit" against a general corpus. It was not: `score_all_themes_at_ingest` rated
+# each article against all 7 charters in one Haiku response, and a model asked
+# for 7 numbers at once apportions one general-interest magnitude instead of
+# applying each charter. On the 2026-09-01 cache, Science was the best-fit theme
+# for 82.4% of 2,004 articles and Working Lands, Repair Culture, Arts and
+# Indigenous Lands were best-fit for *none*; Repair Culture's maximum over 2,121
+# articles was 35, on a charter whose own anchors put a teardown at 98 and a
+# Raspberry Pi weather-station build at 68. Hackaday was supplying ~44 hands-on
+# hardware articles a week the whole time — "Reviving an SD Card With Shorted
+# Capacitors" scored 11. The rank order these floors were fitted to is that
+# fixed per-theme prior, not a property of the subjects.
+#
+# `rescore_underserved_themes()` now re-asks the question one charter at a time
+# for the affected days. **So tuesday and wednesday's floors below are stale by
+# construction** — they describe the collapsed scorer. They are left as-is
+# rather than guessed upward: they still catch a true collapse, and raising
+# them on prediction would trade a floor fitted to real numbers for one fitted
+# to hope. Refit all seven off a measured month *after* the rescore has been
+# running, using the per-theme values this report prints on every run.
 #
 # **These floors are provisional and instrumented for refit.** They are 0.6x
 # each theme's observed minimum over eight runs — a ~40% drop below the bottom
