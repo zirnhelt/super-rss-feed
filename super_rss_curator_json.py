@@ -5203,7 +5203,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             # Charter's own 0-100 output, kept alongside the percentile because
             # normalization rescales the top of a collapsed distribution to
             # 90-100 and so cannot show scale drift. validate_podcast_feeds.py
-            # asserts on this field.
+            # reports on this field against a per-theme floor (the scales are
+            # not comparable across themes — see its RAW_FIT_FLOORS).
             "_theme_score_raw": theme_raw.get(article.link),
             "_composite_podcast": composite_podcast,
             "_keyword_matches": kw_matches,
