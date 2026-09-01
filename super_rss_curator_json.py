@@ -4057,11 +4057,21 @@ def _net_keyword_match_count(text: str, keywords: List[str], anti_keywords: List
     return max(0, hits - anti_hits)
 
 
-def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str) -> List[tuple]:
+def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str,
+                             force: bool = False) -> List[tuple]:
     """Score articles for thematic fit using Claude.
 
     Results are cached by (article URL, theme label) for THEME_SCORE_CACHE_TTL_DAYS days
     so repeated runs do not re-score the same articles.
+
+    Args:
+        force: Re-score even when a cached score exists, and bypass the Cohere
+            branch. This is the targeted-rescore path (see
+            ``rescore_underserved_themes``), whose entire purpose is to obtain a
+            judgment against *this theme's charter alone* — a cached score from
+            the joint 7-theme call is the thing being corrected, and Rerank
+            cosine similarity is not a charter judgment either. Entries written
+            under ``force`` are stamped ``rescored`` so the work is paid once.
 
     Returns list of tuples: (article, theme_score)
     where theme_score is 0-100 indicating fit to the daily theme.
@@ -4077,7 +4087,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
     uncached = []
     for article in articles:
         cache_key = f"{article.link}:::{theme_label}"
-        if cache_key in theme_cache:
+        if cache_key in theme_cache and not force:
             scored_results.append((article, theme_cache[cache_key]['score']))
         else:
             uncached.append(article)
@@ -4091,8 +4101,10 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
     if not uncached:
         return scored_results
 
-    # Cohere Rerank branch — uses the theme's scoring_prompt as the relevance query
-    if cohere_integration.is_enabled():
+    # Cohere Rerank branch — uses the theme's scoring_prompt as the relevance query.
+    # Skipped under `force`: a rescore exists to get a charter judgment, and
+    # embedding similarity to the charter text is not one.
+    if cohere_integration.is_enabled() and not force:
         theme_results = cohere_integration.score_themes_with_rerank(
             uncached,
             {theme_label: {'label': theme_label, 'scoring_prompt': theme_prompt}},
@@ -4196,7 +4208,10 @@ Articles to evaluate:
                     theme_score = score_data.get('theme_score', 0)
                     scored_results.append((article, theme_score))
                     cache_key = f"{article.link}:::{theme_label}"
-                    theme_cache[cache_key] = {'score': theme_score, 'cached_at': now_iso}
+                    entry = {'score': theme_score, 'cached_at': now_iso}
+                    if force:
+                        entry['rescored'] = True
+                    theme_cache[cache_key] = entry
 
         except json.JSONDecodeError as e:
             print(f"  ⚠️ JSON parsing error: {e}")
@@ -4402,6 +4417,158 @@ Articles to evaluate:
                             theme_cache[key] = {'score': 50, 'cached_at': now_iso}
         save_theme_score_cache(theme_cache)
         print(f"   ✅ Sync fallback complete ({len(uncached)} articles × {len(schedule)} themes cached)")
+
+
+
+# ---------------------------------------------------------------------------
+# Targeted single-theme rescore
+# ---------------------------------------------------------------------------
+#
+# `score_all_themes_at_ingest` rates one article against all 7 charters in a
+# single Haiku response. That is cheap, and for most of the corpus it is fine —
+# but a model asked for 7 numbers at once apportions one general-interest
+# magnitude across them instead of applying each charter independently. Measured
+# over 2,004 fully-scored articles (2026-09-01 cache): "Science, Wonder & the
+# Natural World" was the top-scoring theme for 82.4% of them, and Working Lands,
+# Repair Culture, Arts and Indigenous Lands were top for *zero*. Repair Culture's
+# maximum score over 2,121 articles was 35, against a charter whose own anchors
+# put a Raspberry Pi weather-station build at 68 and a teardown at 98 — Hackaday's
+# "Reviving an SD Card With Shorted Capacitors" scored 11.
+#
+# The effect is a fixed per-theme prior, not a reading of the material, so no
+# amount of new subject-matter sourcing can lift a narrow theme: fresh forestry
+# or repair articles land in the same 5-12 band and stay below `min_score`.
+#
+# The fix is to ask the question properly for the themes that need it, and only
+# for the articles that could plausibly answer. Candidates come from two places:
+#
+#   - `rescore_sources` — outlets whose entire output is on-theme by
+#     construction (Hackaday, iFixit, The Northern Miner, Western Producer).
+#     This is the load-bearing half. Keyword matching alone misses precisely the
+#     articles that matter, because trade-press headlines rarely restate their
+#     own beat: "Reviving an SD Card With Shorted Capacitors" contains none of
+#     Wednesday's 40 configured keywords.
+#   - `min_keyword_hits` (default 2) against the day's keyword list, for on-theme
+#     material from general outlets. Two hits, not one, for the reason
+#     `_build_strict_theme_keywords` exists in the sibling repo: a single
+#     generic word ("tool", "build", "resource") is not evidence.
+#
+# Already-strong scores are left alone (`score_ceiling`), each article is paid
+# for once (the `rescored` stamp), and `max_articles_per_run` bounds a runaway
+# day. At the configured defaults that is at most 4 extra Haiku calls per run
+# (40 articles per theme against `score_articles_for_theme`'s batch size of 30,
+# for two days) while the existing pool's backlog clears, and 1-2 in steady
+# state, when only that day's new articles are eligible.
+def rescore_underserved_themes(cached_articles: List[Dict], schedule_config: Dict, api_key: str) -> Dict:
+    """Re-score selected articles against one theme's charter alone.
+
+    Returns per-day stats for the run report: candidates considered, articles
+    rescored, and the before/after mean.
+    """
+    stats: Dict[str, Dict] = {}
+    if not cached_articles or not schedule_config or not schedule_config.get('enabled', False):
+        return stats
+
+    cfg = schedule_config.get('targeted_rescore') or {}
+    if not cfg.get('enabled', False):
+        return stats
+
+    days = cfg.get('days') or []
+    if not days:
+        return stats
+
+    schedule = schedule_config.get('schedule', {})
+    min_hits = int(cfg.get('min_keyword_hits', 2))
+    ceiling = int(cfg.get('score_ceiling', 55))
+    max_per_run = int(cfg.get('max_articles_per_run', 40))
+
+    theme_cache = load_theme_score_cache()
+
+    class _PoolArticle:
+        """Minimal shim — score_articles_for_theme reads only these four fields."""
+
+        def __init__(self, data: Dict):
+            self.link = data['link']
+            self.title = data.get('title', '')
+            self.source = data.get('source', '')
+            self.description = data.get('description', '')
+
+    for day in days:
+        day_cfg = schedule.get(day)
+        if not day_cfg:
+            print(f"  ⚠️ Targeted rescore: unknown day '{day}' in config, skipping")
+            continue
+
+        label = day_cfg['label']
+        keywords = day_cfg.get('keywords', [])
+        sources = {s.lower() for s in (day_cfg.get('rescore_sources') or [])}
+
+        candidates = []
+        for item in cached_articles:
+            key = f"{item['link']}:::{label}"
+            entry = theme_cache.get(key)
+            # Only rescore what the joint call has already judged and scored low.
+            # An article with no cached score yet is still in flight in the async
+            # batch; it becomes eligible next run, once there is a score to correct.
+            if not isinstance(entry, dict) or entry.get('rescored'):
+                continue
+            if entry.get('score', 0) >= ceiling:
+                continue
+            if (item.get('source') or '').lower() in sources:
+                candidates.append(item)
+                continue
+            text = f"{item.get('title', '')} {item.get('description', '')}"
+            if _keyword_match_count(text, keywords) >= min_hits:
+                candidates.append(item)
+
+        if not candidates:
+            continue
+
+        # Worst-first would rescore the least promising material. Spend the
+        # budget on the articles the joint call rated highest among the low
+        # scorers — those are the ones nearest to clearing `min_score`.
+        candidates.sort(key=lambda a: theme_cache.get(f"{a['link']}:::{label}", {}).get('score', 0),
+                        reverse=True)
+        considered = len(candidates)
+        candidates = candidates[:max_per_run]
+
+        before = [theme_cache[f"{a['link']}:::{label}"]['score'] for a in candidates]
+
+        print(f"\n🔁 Targeted rescore [{day} — {label}]: "
+              f"{len(candidates)} of {considered} candidates against the theme charter alone")
+
+        results = score_articles_for_theme(
+            [_PoolArticle(a) for a in candidates],
+            day_cfg.get('scoring_prompt', ''),
+            label,
+            api_key,
+            force=True,
+        )
+
+        after = [s for _, s in results]
+        if not after:
+            continue
+
+        before_mean = round(sum(before) / len(before), 1)
+        after_mean = round(sum(after) / len(after), 1)
+        print(f"   📊 mean {before_mean} → {after_mean}  "
+              f"(max {max(before)} → {max(after)}, "
+              f"{sum(1 for s in after if s >= day_cfg.get('min_score', 30))} now clear min_score)")
+
+        stats[day] = {
+            'considered': considered,
+            'rescored': len(after),
+            'mean_before': before_mean,
+            'mean_after': after_mean,
+            'max_before': max(before),
+            'max_after': max(after),
+        }
+
+        # score_articles_for_theme persists as it goes; reload so the next day's
+        # pass sees the `rescored` stamps it just wrote.
+        theme_cache = load_theme_score_cache()
+
+    return stats
 
 
 def route_articles_to_best_themes(
@@ -5657,6 +5824,15 @@ def main():
     process_pending_theme_batch(api_key)
     score_all_themes_at_ingest(podcast_candidates or quality_articles, schedule_config, api_key)
 
+    # Load the weekly pool now: the targeted rescore corrects scores the joint
+    # 7-theme call has already written, which for this run's articles means the
+    # batch that just landed above — so it must run over the accumulated pool,
+    # not this run's new candidates.
+    podcast_cache = load_podcast_cache()
+    rescore_stats = rescore_underserved_themes(podcast_cache, schedule_config, api_key)
+    if rescore_stats:
+        run_stats['targeted_rescore'] = rescore_stats
+
     # Snapshot per-theme score distributions for the calibration agent. This reflects
     # the full cumulative cache (not just this run's deltas), which is what matters
     # for detecting theme-score collapse over time.
@@ -5682,8 +5858,35 @@ def main():
             }
         run_stats['theme_scoring'] = theme_scoring_stats
 
-    # Load weekly cache for podcast feed generation
-    podcast_cache = load_podcast_cache()
+        # Cross-theme argmax share — the signal per-theme histograms cannot show.
+        # Each theme's own distribution looked merely "narrow" while the joint
+        # 7-theme scoring call was in fact collapsing to a single general-interest
+        # axis: on the 2026-09-01 cache, Science was the top-scoring theme for
+        # 82.4% of 2,004 articles and four of the seven themes were top for none.
+        # A theme that never wins any article is not a narrow theme, it is a theme
+        # the scorer has stopped reading the charter for.
+        labels = {cfg['label']: day for day, cfg in schedule_config.get('schedule', {}).items()}
+        per_article: Dict[str, Dict[str, int]] = {}
+        for key, val in theme_score_snapshot.items():
+            link, _, label = key.rpartition(':::')
+            if label in labels and isinstance(val, dict):
+                per_article.setdefault(link, {})[label] = val['score']
+        complete = [r for r in per_article.values() if len(r) == len(labels)]
+        if complete:
+            wins = {day: 0 for day in labels.values()}
+            for row in complete:
+                wins[labels[max(row, key=row.get)]] += 1
+            run_stats['theme_argmax'] = {
+                'articles': len(complete),
+                'wins': wins,
+                'never_wins': sorted(d for d, n in wins.items() if n == 0),
+            }
+            never = run_stats['theme_argmax']['never_wins']
+            if never:
+                print(f"  ⚠️ Theme scoring: {', '.join(never)} is the best-fit theme for "
+                      f"0 of {len(complete)} articles — check charter adherence, not supply")
+
+    # (podcast_cache was loaded above for the targeted rescore)
 
     # Generate ALL 7 themed podcast feeds from the accumulated weekly staging pool.
     # Ingest-time scoring (score_all_themes_at_ingest) already rates every cached
