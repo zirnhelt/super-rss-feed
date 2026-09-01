@@ -13,6 +13,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (9:09 PM Pacific)
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+
+
+---
+
+
+
 ## 2026-08-30 (Sunday)
 
 #### 🌅 4:30 AM Pacific
