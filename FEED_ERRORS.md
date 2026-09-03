@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-02 (Wednesday)
+
+#### 🔧 Manual Run (9:13 PM Pacific)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2299 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-01 (Tuesday)
 
 #### 🔧 Manual Run (12:05 AM Pacific)
