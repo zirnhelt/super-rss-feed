@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-03 (Thursday)
+
+#### 🔧 Manual Run (9:13 PM Pacific)
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2145 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-02 (Wednesday)
 
 #### 🔧 Manual Run (9:13 PM Pacific)
