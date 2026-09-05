@@ -418,6 +418,26 @@ The calibration agent only modifies keys whitelisted in `config/calibration_boun
 
     Cost is bounded on three sides — `score_ceiling` skips what already scores well, `max_articles_per_run` caps a runaway day, and each entry is stamped `rescored` so the work is paid once. At the configured defaults that is at most 4 extra Haiku calls per run (40 articles per theme against a batch size of 30, for two days) while the backlog in the existing pool clears, settling to 1-2 once only each day's new articles are eligible. An article with **no** cached score yet is skipped rather than scored: it is still in flight in the async batch, and becomes eligible next run once there is a score to correct.
 
+    **Saturday was added to `targeted_rescore` on 2026-09-05, and the trigger was an
+    editorial miss rather than a histogram.** "Three Williams Lake city councillors not
+    seeking re-election this fall" (Williams Lake Tribune) — the single most on-theme story
+    available for a Cariboo Local Affairs day inside the municipal nomination window —
+    scored **11** against Saturday's `min_score` of 18 and never reached the podcast feed,
+    while a Quesnel shelter-siting story scored 22 and aired as the deep dive. Saturday's
+    `rescore_sources` are the Cariboo outlets whose whole output is on-theme by construction
+    (Williams Lake Tribune, My Cariboo Now, Quesnel Cariboo Observer, 100 Mile Free Press),
+    which is the same test Hackaday and The Northern Miner pass on the other two days. Cost
+    is the documented one: at most 2 more Haiku calls per run while the backlog clears,
+    settling to 1.
+
+    The Saturday `scoring_prompt` also now carries a **jurisdiction ordering** — Williams
+    Lake / CRD / SD27 are the home jurisdiction and score at the top of their band, the
+    neighbouring municipalities one band lower absent a region-wide angle — and a
+    **date-bounded election clause** for the October 17, 2026 general local election. Both
+    are ordering rules, not exclusions. The clause names its own expiry ("until late
+    October") and explicitly excludes provincial, federal and non-Canadian elections, which
+    stay in the 0-19 band; the sibling repo's `event_focus` window closes on the same date.
+
     **The standing guard is `run_stats['theme_argmax']`**, not a floor: it records how many articles each theme wins and prints a warning naming any theme that wins none. A per-theme histogram cannot show this — each theme's own distribution merely looked narrow for months. A theme that is best-fit for zero articles is not a narrow theme; it is a theme the scorer has stopped reading the charter for.
 
 ---
