@@ -3,6 +3,18 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-04 (Friday)
+
+#### 🔧 Manual Run (9:13 PM Pacific)
+- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
+- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2051 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-03 (Thursday)
 
 #### 🔧 Manual Run (9:13 PM Pacific)
@@ -138,25 +150,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 #### 🌙 8:30 PM Pacific
-- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
-
-
----
-
-
-
-## 2026-08-27 (Thursday)
-
-#### 🔧 Manual Run (7:09 AM Pacific)
-- ⚠️ **Climate Science Research (Brave)** failed — `HTTP 402 — quota exceeded, disabling Brave for this run`
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
 - ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
 
 
@@ -1077,6 +1070,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Scrub batch 15 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'You
 - ⚠️ Scrub batch 16 failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'You
 - ⚠️ LoRaMeshDevices failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+
+---
+
+
+
+## Week of 2026-08-27–2026-08-27
+- 2 issues recorded
+- ⚠️ Climate Science Research (Brave) failed — HTTP 402 — quota exceeded, disabling Brave for this run
+- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
 
 
 ---
