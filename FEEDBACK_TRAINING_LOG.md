@@ -1,3 +1,94 @@
+## Feedback Training Run — 2026-09-06 16:14 UTC
+
+**Files processed:** 2026-08-08.json, 2026-08-09.json, 2026-08-10.json, 2026-08-11.json, 2026-08-12.json, 2026-08-13.json, 2026-08-14.json, 2026-08-15.json, 2026-08-16.json, 2026-08-17.json, 2026-08-18.json, 2026-08-19.json, 2026-08-20.json, 2026-08-21.json, 2026-08-22.json, 2026-08-24.json, 2026-08-25.json, 2026-08-26.json, 2026-08-28.json, 2026-08-31.json, 2026-09-01.json, 2026-09-02.json, 2026-09-03.json, 2026-09-04.json, 2026-09-05.json, 2026-09-06.json
+**Ratings:** 7 Exemplars, 36 Good, 59 Interesting, 293 Bad, 33 reassigned to day(s), 26 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** WIRED (3), Outside Online (2), Engadget (2), ScienceAlert (2), Fast Company (2)
+**Top disliked sources:** Rolling Stone (24), Edge (GamesRadar) (20), Ideal Home (Country Homes & Interiors) (20), Outside Online (14), Domino (14)
+**Categories liked:** news (11), ai-tech (5), wellness (4), science (3), homestead (3), climate (3), homelab (2), design (2), scifi (1), outdoors (1), local (1)
+**Categories disliked:** news (254), wellness (19), ai-tech (6), design (5), homelab (3), outdoors (2), local (2), science (1), scifi (1)
+
+**Day reassignment summary:**
+- friday → sunday: 4 articles
+- friday → wednesday: 3 articles
+- friday → tuesday: 2 articles
+- friday → saturday: 2 articles
+- friday → monday: 2 articles
+- friday → friday: 2 articles
+- friday → thursday: 1 articles
+- saturday → friday: 3 articles
+- saturday → wednesday: 3 articles
+- saturday → sunday: 3 articles
+- saturday → saturday: 1 articles
+- saturday → monday: 1 articles
+- sunday → sunday: 3 articles
+- sunday → tuesday: 3 articles
+- sunday → wednesday: 3 articles
+- sunday → saturday: 2 articles
+- sunday → monday: 2 articles
+- monday → sunday: 3 articles
+- monday → tuesday: 3 articles
+- monday → monday: 1 articles
+- monday → wednesday: 1 articles
+- monday → thursday: 1 articles
+- monday → friday: 1 articles
+- monday → saturday: 1 articles
+- wednesday → sunday: 1 articles
+- thursday → saturday: 1 articles
+- thursday → sunday: 1 articles
+- tuesday → tuesday: 1 articles
+- tuesday → thursday: 1 articles
+
+**Category retag summary:**
+- news → design: 6 articles
+- news → homestead: 5 articles
+- news → ai-tech: 3 articles
+- news → outdoors: 3 articles
+- news → homelab: 2 articles
+- news → wellness: 2 articles
+- news → scifi: 2 articles
+- news → local: 1 articles
+- science → wellness: 1 articles
+- science → news: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Prompt for RSS Relevance Calibration
+
+- **Prioritize practical autonomy & self-sufficiency**: Home automation, smart home accessibility (plain English configs), DIY tools, homesteading infrastructure (water collection, outdoor cooking), and tech that enables independence score highest when framed as "how-to" or capability-focused rather than product reviews.
+
+- **Local + community impact > general news**: Williams Lake Tribune articles about 4H, First Nations cultural projects, and local non-profits rank as exemplars. Boost BC/Canada-specific news about agriculture, community grants, and Indigenous initiatives; deprioritize generic national politics and celebrity culture.
+
+- **AI/tech only when tied to adoption, telemetry, or real work impact**: GitHub blog posts about infrastructure and ROI metrics score high; generic AI news, product rumors, and smartphone launches score low. Avoid speculative AI hype; favor implementation stories and practical tools.
+
+- **Science & climate require systems-level insight**: Articles about PFAS microplastics, geophysics, hidden infrastructure threats, and climate-agriculture intersections (agrivoltaics, soil science) rank high. Avoid listicles ("7 TV shows"), celebrity health gossip, and surface-level wellness tips.
+
+- **Design & homestead articles should emphasize functional renovation, not aesthetics alone**: Bathroom value-adds, self-build mistakes, patterned flooring, and garden planning score higher than pure interior inspiration or celebrity homes. Retag design/homestead content miscategorized as "news."
+
+- **Outdoor content = function + accessibility**: E-bikes, trail runner training tools, and fishing gear framed as "core" functionality score higher than fashion or lifestyle. Avoid recreational entertainment without practical application.
+
+- **Consistently reassign high-value articles to Sunday**: Science, climate, health research, and investigative journalism (NPS sign removal, volcanic threats) migrate to Sunday; retag wellness/nature writing; keep Monday-Wednesday for work-relevant content (AI, GitHub, automation).
+
+- **Downweight entertainment, celebrity, and lifestyle gossip hard**: TV reviews, celebrity health updates, game delays, watch launches, and luxury car culture score consistently low. Filter aggressively unless framed as cultural criticism (Jill Lepore) or systemic analysis (Steam economy).
+
+- **Retag aggressively when source suggests wrong category**: Gadget reviews mistagged as "news," music criticism as "scifi," household items as "news." Use source domain + framing to correct category before scoring relevance.
+
+- **Favor long-form investigation & policy over quick takes**: Articles with >67 Q/R scores cluster around substantive reporting (NPS removal, settlement agreements, health
+
+---
+## Feedback Archive Run — 2026-09-06 16:14 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 0 (none)
+**Ratings folded into rollup:** 0 (rollup now holds 0)
+**Topic/framing lessons:** n/a (no batch archived)
+**Raw bytes freed:** 0.0 KB
+**Live files remaining:** 77
+**URL ledger:** 1315 URLs (+104 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-08-30 17:16 UTC
 
 **Files processed:** 2026-08-01.json, 2026-08-02.json, 2026-08-03.json, 2026-08-04.json, 2026-08-05.json, 2026-08-06.json, 2026-08-07.json, 2026-08-08.json, 2026-08-09.json, 2026-08-10.json, 2026-08-11.json, 2026-08-12.json, 2026-08-13.json, 2026-08-14.json, 2026-08-15.json, 2026-08-16.json, 2026-08-17.json, 2026-08-18.json, 2026-08-19.json, 2026-08-20.json, 2026-08-21.json, 2026-08-22.json, 2026-08-24.json, 2026-08-25.json, 2026-08-26.json, 2026-08-28.json
