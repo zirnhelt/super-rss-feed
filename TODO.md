@@ -8,6 +8,8 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-09-05 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/` |
+| 2026-09-05 | 🔧 Manual Run | ⚠️ **alpennia.com** failed | `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/` |
 | 2026-09-04 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
 | 2026-09-04 | 🔧 Manual Run | ⚠️ **farmonaut.com** failed | `403 Client Error: Forbidden for url: https://farmonaut.com/feed` |
 | 2026-09-03 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
@@ -40,6 +42,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-05 | 🔧 manual | 92 | news:25(27%), ai-tech:18(20%), homelab:10(11%) |
 | 2026-09-04 | 🔧 manual | 99 | news:25(25%), ai-tech:18(18%), local:10(10%) |
 | 2026-09-03 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), climate:12(12%) |
 | 2026-09-02 | 🔧 manual | 101 | news:25(25%), ai-tech:18(18%), climate:12(12%) |
@@ -50,11 +53,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-08-31 | 🔧 manual | 95 | news:25(26%), ai-tech:18(19%), wellness:10(11%) |
 | 2026-08-30 | 🌅 morning | 76 | news:25(33%), ai-tech:15(20%), wellness:10(13%) |
 | 2026-08-30 | 🔧 manual | 57 | news:25(44%), wellness:10(18%), ai-tech:5(9%) |
-| 2026-08-29 | 🌅 morning | 80 | news:25(31%), ai-tech:13(16%), wellness:10(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-05 04:13 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-06 04:10 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
