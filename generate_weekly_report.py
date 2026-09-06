@@ -15,7 +15,6 @@ import json
 import os
 import re
 import subprocess
-import sys
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from datetime import datetime, timezone, timedelta
@@ -395,8 +394,71 @@ def git_commit_for(paths: list) -> str | None:
 # Claude Haiku narrative
 # ---------------------------------------------------------------------------
 
+def _fallback_narrative(
+    week_label: str,
+    stats: dict,
+    new_feeds: list,
+    errors: list,
+    discovery: list,
+    nts_benchmarks: list,
+) -> str:
+    """Deterministic stand-in for the Haiku narrative.
+
+    Every other section of this report is aggregated from local files with no
+    API call, so a failed narrative must not cost the whole report — which is
+    exactly what happened on 2026-08-23, when an Anthropic billing error took
+    down the Weekly Report job and week W34 was never published. Same facts,
+    same shape, no tokens.
+    """
+    cat_totals = stats.get("cat_totals", {})
+    ranked = sorted(
+        ((c, n) for c, n in cat_totals.items() if n > 0),
+        key=lambda kv: kv[1], reverse=True,
+    )
+    volume = (
+        "; ".join(f"{cat} {count}" for cat, count in ranked[:5])
+        if ranked else "no category data"
+    )
+
+    para1 = (
+        f"{week_label}: {stats.get('total_runs', 0)} aggregation run(s), averaging "
+        f"{stats.get('avg_fetched', 0)} articles fetched and "
+        f"{stats.get('avg_quality', 0)} quality articles delivered per run. "
+        f"Leading categories by volume: {volume}."
+    )
+    if nts_benchmarks:
+        latest = nts_benchmarks[-1]
+        para1 += (
+            f" Pipeline efficiency held at a mean noise-to-signal ratio of "
+            f"{latest.get('mean', '?')} (range {latest.get('min', '?')}"
+            f"–{latest.get('max', '?')}) over "
+            f"{latest.get('run_count', '?')} run(s)."
+        )
+
+    if new_feeds:
+        para2 = (f"{len(new_feeds)} new feed(s) were added: "
+                 + ", ".join(f["title"] for f in new_feeds[:8]) + ".")
+    else:
+        para2 = "No new feeds were added this week."
+    if errors:
+        para2 += (f" {len(errors)} feed(s) reported delivery errors: "
+                  + ", ".join(e["feed"] for e in errors[:5]) + ".")
+    else:
+        para2 += " No feed delivery errors were recorded."
+    if discovery:
+        para2 += (" Top discovery candidates: "
+                  + ", ".join(f"{d['title']} ({d['score']})" for d in discovery[:3]) + ".")
+
+    para3 = (
+        "This week's narrative was generated without the summarisation model — "
+        "the Claude call was unavailable, so the figures above are reported "
+        "directly. Every other section of this report is unaffected."
+    )
+    return f"{para1}\n\n{para2}\n\n{para3}"
+
+
 def generate_narrative(
-    client: anthropic.Anthropic,
+    client: anthropic.Anthropic | None,
     week_label: str,
     stats: dict,
     new_feeds: list,
@@ -455,12 +517,33 @@ def generate_narrative(
         f"Mention pipeline efficiency if the noise-to-signal ratio is notably high or low."
     )
 
-    response = client.messages.create(
-        model="claude-haiku-4-5",
-        max_tokens=500,
-        messages=[{"role": "user", "content": prompt}],
+    if client is None:
+        print("     ⚠️  No Anthropic client — using stats-only narrative")
+        return _fallback_narrative(
+            week_label, stats, new_feeds, errors, discovery, nts_benchmarks
+        )
+
+    # One paragraph of prose sits on top of a report that is otherwise pure
+    # local-file aggregation. Retry once for a transient failure, then degrade
+    # rather than lose the report, the permalink and the feed item with it.
+    last_exc: Exception | None = None
+    for attempt in range(2):
+        try:
+            response = client.messages.create(
+                model="claude-haiku-4-5",
+                max_tokens=500,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return response.content[0].text.strip()
+        except Exception as exc:
+            last_exc = exc
+            if attempt == 0:
+                print(f"     ⚠️  Narrative call failed ({exc}); retrying once")
+
+    print(f"     ⚠️  Narrative unavailable ({last_exc}) — using stats-only narrative")
+    return _fallback_narrative(
+        week_label, stats, new_feeds, errors, discovery, nts_benchmarks
     )
-    return response.content[0].text.strip()
 
 
 # ---------------------------------------------------------------------------
@@ -732,8 +815,7 @@ def build_html_page(title: str, content_html: str, week_label: str, pub_date: st
 def main():
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
-        print("❌ ANTHROPIC_API_KEY not set")
-        sys.exit(1)
+        print("⚠️  ANTHROPIC_API_KEY not set — report will use a stats-only narrative")
 
     now = datetime.now(timezone.utc)
     iso_year, iso_week, _ = now.isocalendar()
@@ -827,7 +909,7 @@ def main():
     print(f"     {len(actions)} action(s) this week")
 
     print("  → Generating narrative with Claude Haiku...")
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic.Anthropic(api_key=api_key) if api_key else None
     narrative = generate_narrative(client, week_label, stats, new_feeds, errors, discovery, nts_benchmarks)
 
     content_html = build_content_html(
