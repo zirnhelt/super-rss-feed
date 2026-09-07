@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-06 (Sunday)
+
+#### 🔧 Manual Run (9:08 PM Pacific)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1956 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-05 (Saturday)
 
 #### 🔧 Manual Run (9:10 PM Pacific)
@@ -126,16 +136,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
 - ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
 - ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
-
-
----
-
-
-
-## 2026-08-29 (Saturday)
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
 
 
 ---
@@ -1082,6 +1082,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Comments for Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/
 - ⚠️ Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/
 - ⚠️ Neuroscience News failed — 403 Client Error: Forbidden for url: https://neurosciencenews.com/feed/
+- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
+
+
+---
+
+
+
+## Week of 2026-08-29–2026-08-29
+- 1 issues recorded
 - ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
 
 
