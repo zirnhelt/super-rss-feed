@@ -67,8 +67,11 @@
             font-size: 0.70em; font-weight: 600; padding: 2px 6px;
             border-radius: 9px; white-space: nowrap;
         }
+        .badge-bucket-high       { background: #e8f5e9; color: #2e7d32; border: 1px solid #81c784; }
+        .badge-bucket-mid        { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
         .badge-bucket-border     { background: #fff9e6; color: #8a6a00; border: 1px solid #ffd54f; }
         .badge-bucket-low        { background: #fff3e0; color: #7a3e00; border: 1px solid #ffb74d; }
+        .badge-bucket-floor_fill { background: #fbe9e7; color: #8d3b1f; border: 1px solid #ffab91; }
         .badge-bucket-unfiltered { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
         .badge-category          { background: #e8effe; color: #667eea; }
         .badge-source            { background: #f0f0f0; color: #555; font-weight: normal; }
@@ -228,8 +231,8 @@
         </div>
     </div>
 
-    <div id="loading-msg" class="loading">Fetching near-miss articles…</div>
-    <div id="empty-msg"   class="empty-box" style="display:none">No near-miss articles today — all scored above the midpoint. Check back after the next pipeline run.</div>
+    <div id="loading-msg" class="loading">Fetching articles…</div>
+    <div id="empty-msg"   class="empty-box" style="display:none">Nothing to review today. Check back after the next pipeline run.</div>
     <div id="error-msg"   class="error-box" style="display:none"></div>
 
     <div class="article-grid" id="article-grid"></div>
@@ -257,7 +260,12 @@ const REPO_NAME   = 'super-rss-feed';
 const FEED_URL    = 'feed-review.json';
 const BAKED_TOKEN = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : e.split('').reverse().join(''); })();
 
-const SHOW_BUCKETS          = new Set(['border', 'low', 'unfiltered']);
+// Every stratum, deliberately. Dropping 'high' and 'mid' on 2026-08-25 made the
+// review corpus a sample of near-misses and rejects only, so the audit's precision
+// numbers described the hardest slice of the feed rather than the feed — and left
+// no way to detect a quality regression at the top, because the top was never shown.
+// Each item carries a _stratum_weight so the audit can reweight back to the population.
+const SHOW_BUCKETS          = new Set(['high', 'mid', 'border', 'low', 'floor_fill', 'unfiltered']);
 const AUTO_SUGGEST_THRESHOLD = 45;
 const SUBMIT_THRESHOLD       = 3;
 
@@ -426,7 +434,8 @@ function buildCardInner(idx) {
     const descText = descRaw.slice(0, 500);
     const isExpanded = expandedSet.has(idx);
 
-    const bucketLabel = { border: 'near-miss', low: 'low score', unfiltered: 'filtered' }[bucket] || bucket;
+    const bucketLabel = { high: 'top score', mid: 'mid score', border: 'near-miss',
+                          low: 'low score', floor_fill: 'below floor', unfiltered: 'filtered' }[bucket] || bucket;
 
     // Day chips
     const approvedDays = r.approved_days || [];
@@ -568,7 +577,7 @@ function updateProgress() {
     const ratedCount = articles.filter(a => ratings[a.url]?.rating).length;
     const total = articles.length;
     document.getElementById('progress-counter').textContent =
-        `${ratedCount} of ${total} near-miss articles reviewed`;
+        `${ratedCount} of ${total} articles reviewed`;
 
     if (ratedCount >= Math.min(SUBMIT_THRESHOLD, total)) {
         show('submit-section');
@@ -640,6 +649,8 @@ async function submitFeedback() {
             local:            a._local_score || 0,
             content_type:     a._content_type || null,
             selection_bucket: a._selection_bucket || null,
+            stratum_weight:   a._stratum_weight ?? null,
+            shipped:          a._shipped ?? null,
             theme_scores:     a._theme_scores || {},
             today:            a._today || '',
             today_label:      a._today_label || '',

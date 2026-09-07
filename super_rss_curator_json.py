@@ -720,6 +720,10 @@ class Article:
         self.cohere_scored = False  # True when scored via Cohere (Q/R/L are synthesized, not real)
         self.gate_scored = False   # True when only the quality gate scored this article (score == q_gate)
         self.q_gate: Optional[int] = None  # Absolute newsworthiness score, interest-independent (0-100)
+        # Topical reject flag from the same gate call: True when the article's
+        # PRIMARY subject is unwanted (sports, celebrity, deals, advice, AI hype).
+        # None means never judged — treated as "keep" downstream (fail-open).
+        self.gate_reject: Optional[bool] = None
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -2748,18 +2752,64 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
         return score_articles_with_claude_pure(articles, api_key)
 
 
+# The topical-reject rubric the gate applies alongside its 0-100 score. This used
+# to be a second Haiku pass (scrub_feed_with_haiku) running after dimensional
+# scoring — two calls answering the same "is this the kind of thing we cover?"
+# question, on two different floors, free to disagree. Asking once is cheaper and
+# cannot contradict itself.
+GATE_REJECT_RUBRIC = """
+
+--- UNWANTED SUBJECTS ---
+Alongside the score, flag any article whose PRIMARY subject is one of:
+- Sports: game scores/recaps, drafts, trades, player stats, sports leagues
+  (NFL, NBA, NHL, MLB, CFL, MLS, UFC, MMA, FIFA, PGA, NASCAR, Premier League,
+  Champions League, World Cup, Olympics, Super Bowl), tournaments, championships,
+  playoff coverage, athlete profiles focused on sport performance
+- Celebrity gossip: tabloid content, paparazzi, red carpet, award show results,
+  celebrity relationships/feuds
+- Deals/promotions: promo codes, coupons, flash sales, best-deals roundups
+- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
+- Fluffy AI/tech (ONLY for articles tagged ai-tech or homelab): pure
+  funding/valuation announcements ('raises $X million', 'valued at $Y billion',
+  'goes public'), product launch press releases with no hands-on content, AI
+  benchmark releases with no practical application, conference keynote summaries
+  that are pure announcement without substance, 'X is transforming Y' hype takes
+  without specific findings or implementation detail.
+
+Apply the fluff rule leniently to anything you are scoring 40 or above — at that
+score only clear fluff should be flagged.
+
+KEEP (do not flag) articles that use sports/entertainment as context for a deeper
+story: technology in sports, the economics of a league, health research on athletes.
+KEEP local community news that is not primarily about sport — local politics,
+infrastructure, business, community events.
+FLAG local articles whose primary subject is a sports game, score, result, draft,
+trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
+KEEP ai-tech articles with hands-on content, research findings or practical guides.
+"""
+
+
 def score_quality_gate(articles: List[Article], api_key: str) -> None:
-    """Assign an absolute, interest-independent newsworthiness score (article.q_gate).
+    """Assign an absolute newsworthiness score (article.q_gate) and a topical
+    reject flag (article.gate_reject) in one Haiku pass.
 
-    This is the shared eligibility signal for both the news head and the podcast
-    pool: unlike the Cohere percentile scores it does not depend on how the rest
-    of the batch looks, and unlike the interest composite it does not depend on
-    the personal interest profile. Local articles bypass the gate entirely
-    (q_gate stays None) — local priority rules own their eligibility.
+    q_gate is the shared eligibility signal for both the news head and the
+    podcast pool: unlike the Cohere percentile scores it does not depend on how
+    the rest of the batch looks, and unlike the interest composite it does not
+    depend on the personal interest profile.
 
-    Fail-open: on API failure articles keep q_gate=None and downstream gates
-    treat missing values as passing, so an outage degrades to the legacy
-    behavior instead of emptying every feed.
+    gate_reject is the judgment that used to be a separate post-scoring pass.
+    Merging them removes a second call over the same articles and makes the two
+    answers self-consistent — an article can no longer score 70 here and be
+    thrown out as sports three stages later.
+
+    Local articles still bypass the *score* (q_gate stays None — local priority
+    rules own their eligibility) but are still judged for rejection, because
+    "local" never exempted sports coverage and merging must not smuggle that in.
+
+    Fail-open: on API failure articles keep q_gate=None / gate_reject=None and
+    downstream gates treat missing values as passing, so an outage degrades to
+    the legacy behavior instead of emptying every feed.
     """
     if not articles or not api_key:
         return
@@ -2771,51 +2821,71 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
     local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
 
     to_score: List[Article] = []
+    score_exempt: set = set()   # url_hashes that get a reject verdict but no q_gate
     cached_hits = 0
-    bypassed = 0
     for article in articles:
         entry = cache.get(article.url_hash)
-        if isinstance(entry, dict) and entry.get('q_gate') is not None:
-            article.q_gate = int(entry['q_gate'])
+        if isinstance(entry, dict):
+            if entry.get('q_gate') is not None:
+                article.q_gate = int(entry['q_gate'])
+            if entry.get('gate_reject') is not None:
+                article.gate_reject = bool(entry['gate_reject'])
+
+        title_l = article.title.lower()
+        is_local = article.category == 'local' or any(s in title_l for s in local_signals)
+        # Editorial-exempt sources are never rejected on subject, so they need no
+        # verdict — only a score, and only if they are not local.
+        is_editorial_exempt = article.source in EDITORIAL_EXEMPT_SOURCES
+        needs_score = (not is_local) and article.q_gate is None
+        needs_verdict = (not is_editorial_exempt) and article.gate_reject is None
+        if not needs_score and not needs_verdict:
             cached_hits += 1
             continue
-        title_l = article.title.lower()
-        if article.category == 'local' or any(s in title_l for s in local_signals):
-            bypassed += 1
-            continue
+        if not needs_score:
+            score_exempt.add(article.url_hash)
         to_score.append(article)
 
     print(f"\n🚪 Quality gate: {len(to_score)} to score "
-          f"({cached_hits} cached, {bypassed} local bypass)")
+          f"({cached_hits} cached, {len(score_exempt)} verdict-only)")
     if not to_score:
         return
 
     client = anthropic.Anthropic(api_key=api_key)
     system_blocks = [{
         "type": "text",
-        "text": charter,
+        "text": charter + GATE_REJECT_RUBRIC,
         "cache_control": {"type": "ephemeral", "ttl": "1h"}
     }]
 
     timestamp = datetime.now(timezone.utc).timestamp()
     scored = 0
+    rejected = 0
     for i in range(0, len(to_score), batch_size):
         batch = to_score[i:i + batch_size]
-        articles_text = "\n\n".join(
-            f"Article {j+1}:\nTitle: {a.title}\nSource: {a.source}\n"
-            f"Description: {(a.description or '')[:200]}"
-            for j, a in enumerate(batch)
-        )
+        lines = []
+        for j, a in enumerate(batch):
+            cat = a.category or categorize_article(a.title, a.description) or 'news'
+            local_tag = '[LOCAL] ' if (
+                a.category == 'local'
+                or any(sig in a.title.lower() for sig in local_signals)
+            ) else ''
+            lines.append(
+                f"Article {j+1}: {local_tag}[{cat}]\nTitle: {a.title}\nSource: {a.source}\n"
+                f"Description: {(a.description or '')[:200]}"
+            )
+        articles_text = "\n\n".join(lines)
         prompt = (
-            "Score each article's absolute newsworthiness/quality per the charter (0-100). "
+            "For each article return its absolute newsworthiness/quality per the charter "
+            '(0-100) as "q", and "x": 1 if its primary subject is unwanted per the '
+            'UNWANTED SUBJECTS rubric, else 0. '
             "Respond with ONLY a JSON array, no other text:\n"
-            '[{"a": 1, "q": 55}, {"a": 2, "q": 12}]\n\n'
+            '[{"a": 1, "q": 55, "x": 0}, {"a": 2, "q": 12, "x": 1}]\n\n'
             f"Articles:\n{articles_text}"
         )
         try:
             response = client.messages.create(
                 model="claude-haiku-4-5",
-                max_tokens=700,
+                max_tokens=1200,
                 system=system_blocks,
                 messages=[{"role": "user", "content": prompt}]
             )
@@ -2826,16 +2896,22 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
                 response_text = response_text[_start:_end]
             for item in json.loads(response_text):
                 idx = int(item['a']) - 1
-                if 0 <= idx < len(batch):
-                    article = batch[idx]
+                if not (0 <= idx < len(batch)):
+                    continue
+                article = batch[idx]
+                entry = cache.get(article.url_hash)
+                if not isinstance(entry, dict):
+                    entry = {}
+                    cache[article.url_hash] = entry
+                if article.url_hash not in score_exempt:
                     article.q_gate = min(100, max(0, int(item['q'])))
-                    entry = cache.get(article.url_hash)
-                    if not isinstance(entry, dict):
-                        entry = {}
-                        cache[article.url_hash] = entry
                     entry['q_gate'] = article.q_gate
-                    entry.setdefault('timestamp', timestamp)
                     scored += 1
+                if article.source not in EDITORIAL_EXEMPT_SOURCES:
+                    article.gate_reject = bool(int(item.get('x', 0)))
+                    entry['gate_reject'] = article.gate_reject
+                    rejected += int(article.gate_reject)
+                entry.setdefault('timestamp', timestamp)
         except Exception as e:
             print(f"  ⚠️ Quality gate batch failed (fail-open): {e}")
 
@@ -2845,6 +2921,58 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         _n = len(gated_scores)
         print(f"   Gate scored {scored} articles: "
               f"p25={gated_scores[_n // 4]} p50={gated_scores[_n // 2]} p75={gated_scores[3 * _n // 4]}")
+    print(f"   Gate flagged {rejected} article(s) as unwanted subjects")
+
+
+# Share of the news deep-scoring queue reserved for interest rank rather than
+# newsworthiness. Mirrors THEME_RESERVE_SHARE in generate_podcast_feed(), and
+# exists for the same reason: one ranked list cannot answer two questions.
+NEWS_INTEREST_RESERVE_SHARE = 0.4
+
+
+def _interleave_reserved(primary: List[Article], reserved: List[Article],
+                         reserve_share: float) -> List[Article]:
+    """Merge two orderings of the same articles, giving `reserved` a share of slots.
+
+    The share holds at every prefix length, not just overall, because the consumer
+    truncates this list — a reserve honoured only in the tail would be a reserve of
+    nothing. An article near the top of both lists is simply reached sooner.
+    """
+    if not reserved or reserve_share <= 0:
+        return list(primary)
+
+    out: List[Article] = []
+    seen: set = set()
+    pi = ri = 0
+    taken_reserved = 0
+    total = len(primary)
+
+    def _advance(lst: List[Article], i: int) -> int:
+        while i < len(lst) and lst[i].url_hash in seen:
+            i += 1
+        return i
+
+    while len(out) < total:
+        pick = None
+        if taken_reserved < reserve_share * (len(out) + 1):
+            ri = _advance(reserved, ri)
+            if ri < len(reserved):
+                pick = ('reserved', reserved[ri])
+        if pick is None:
+            pi = _advance(primary, pi)
+            if pi < len(primary):
+                pick = ('primary', primary[pi])
+            else:
+                ri = _advance(reserved, ri)
+                if ri >= len(reserved):
+                    break
+                pick = ('reserved', reserved[ri])
+        kind, article = pick
+        out.append(article)
+        seen.add(article.url_hash)
+        if kind == 'reserved':
+            taken_reserved += 1
+    return out
 
 
 def score_articles_gated(articles: List[Article], api_key: str, config: Dict) -> List[Article]:
@@ -2901,7 +3029,29 @@ def score_articles_gated(articles: List[Article], api_key: str, config: Dict) ->
 
     news_survivors = [a for a in survivors if provisional_cat[a.url_hash] == 'news']
     other_survivors = [a for a in survivors if provisional_cat[a.url_hash] != 'news']
-    news_survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
+
+    # This queue decides which articles ever get a real relevance score — anything
+    # below the slice cap keeps q_gate as its score for good. News gets 2x25 slots
+    # against ~600 survivors, so ordering it purely by q_gate meant ~550 news
+    # articles a night never had relevance computed at all. Measured against the
+    # review corpus that is the wrong signal to ration on: within news, q_gate
+    # separates kept-from-discarded at AUC 0.42 (worse than chance) while relevance
+    # manages 0.76.
+    #
+    # Ordering purely by interest rank is the opposite failure and the reason the
+    # q_gate sort was written: news is a broad survey category, and a personalized
+    # queue would drop the biggest stories of the day out of deep scoring entirely.
+    # So the slots are split rather than reassigned — most of the queue stays
+    # newsworthiness-first, a reserved share goes to interest rank.
+    news_by_gate = sorted(news_survivors, key=lambda a: a.q_gate or 0, reverse=True)
+    if rank_of:
+        news_by_interest = sorted(
+            news_survivors, key=lambda a: rank_of.get(a.url_hash, len(news_survivors)))
+        news_survivors = _interleave_reserved(
+            news_by_gate, news_by_interest, NEWS_INTEREST_RESERVE_SHARE)
+    else:
+        news_survivors = news_by_gate
+
     if rank_of:
         other_survivors.sort(key=lambda a: rank_of.get(a.url_hash, len(other_survivors)))
     else:
@@ -3320,11 +3470,19 @@ Articles to evaluate:
 
 
 def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[Article], Dict]:
-    """Final headline-only pass with Haiku to catch unwanted subjects that slipped through keyword filters.
+    """Apply the topical reject verdicts the quality gate already produced, plus
+    the Cohere interest pre-filter.
 
-    Returns (kept_articles, scrub_stats) where scrub_stats has
-    'cohere_removed_by_category' and 'haiku_removed_by_category' dicts,
-    used for the calibration agent's audit data.
+    This used to make its own Haiku pass over every article above
+    `haiku_scrub_floor` — a second call asking the same question the gate had
+    already been asked, after dimensional scoring had been paid for. Of the
+    scrub rejects in the review corpus, 35% had been fully deep-scored first.
+    `score_quality_gate` now returns the verdict alongside the score, so this
+    stage is a partition rather than a call. The name and the
+    `(kept, scrub_stats)` contract are unchanged because the calibration agent
+    reads `scrub_stats` and the review feed reads the rejects.
+
+    `api_key` is retained for signature compatibility and is unused.
     """
     if not articles:
         return [], {'cohere_removed_by_category': {}, 'haiku_removed_by_category': {}}
@@ -3343,7 +3501,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
             print(f"🛡️  Scrub exempt: {len(exempt)} article(s) from "
                   f"{sorted({a.source for a in exempt})}")
 
-    # Cohere pre-filter: auto-remove high-confidence junk before calling Claude.
+    # Cohere pre-filter: auto-remove high-confidence junk.
     # Very conservative threshold avoids false positives.
     # Local articles are never auto-removed regardless of score.
     auto_removed_count = 0
@@ -3386,104 +3544,28 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
         for a in auto_removed:
             cohere_removed_by_category[a.category or 'news'] += 1
 
-    client = anthropic.Anthropic(api_key=api_key)
-
-    system_prompt = (
-        "You are a strict content filter reviewing article headlines.\n\n"
-        "Each headline is prefixed with its category and relevance score, e.g. [ai-tech, score=22].\n\n"
-        "Remove articles whose PRIMARY subject is one of:\n"
-        "- Sports: game scores/recaps, drafts, trades, player stats, sports leagues "
-        "(NFL, NBA, NHL, MLB, CFL, MLS, UFC, MMA, FIFA, PGA, NASCAR, Premier League, "
-        "Champions League, World Cup, Olympics, Super Bowl), sports tournaments, "
-        "championships, playoff coverage, athlete profiles focused on sport performance\n"
-        "- Celebrity gossip: tabloid content, paparazzi, red carpet, award show results, "
-        "celebrity relationships/feuds\n"
-        "- Deals/promotions: promo codes, coupons, flash sales, best deals roundups, "
-        "discount codes\n"
-        "- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice\n"
-        "- Fluffy AI/tech (ONLY for ai-tech or homelab category articles): "
-        "pure funding/valuation announcements ('raises $X million', 'valued at $Y billion', "
-        "'goes public'), product launch press releases with no hands-on content, "
-        "AI benchmark releases with no practical application ('scores X on Y benchmark'), "
-        "conference keynote summaries that are pure announcement without substance, "
-        "'X is transforming Y' hype takes without specific findings or implementation detail. "
-        "Be more lenient for higher-scored articles (score >= 40) — only remove clear fluff.\n\n"
-        "KEEP articles that use sports/entertainment as context for a deeper story "
-        "(e.g. technology in sports, economics of a league, health research on athletes).\n"
-        "KEEP local community news that is NOT primarily about sport (local politics, "
-        "infrastructure, business, community events).\n"
-        "REMOVE local articles whose primary subject is a sports game, score, result, "
-        "draft, trade, player stat, or team recap — the [LOCAL] tag does not exempt "
-        "sports coverage.\n"
-        "KEEP ai-tech articles with hands-on content, research findings, or practical guides.\n\n"
-        "Respond ONLY with valid JSON: {\"remove\": [list of article numbers to remove]}\n"
-        "If nothing should be removed respond with: {\"remove\": []}"
-    )
-
+    # Apply the gate's verdicts. gate_reject is None for anything the gate never
+    # judged (API failure, editorial exemption, or a pre-merge cache entry that
+    # carries q_gate but no verdict) — those are kept, matching the old
+    # "scrub batch failed, keeping all" behavior.
     kept: List[Article] = []
     total_removed = auto_removed_count
     haiku_removed_by_category: Dict[str, int] = defaultdict(int)
-
-    batch_size = LIMITS.get('haiku_scrub_batch_size', 40)
-    for i in range(0, len(articles), batch_size):
-        batch = articles[i:i + batch_size]
-
-        # Build numbered headline list with category+score hint so Haiku can apply
-        # category-aware filtering (e.g. stricter on low-scoring ai-tech articles).
-        lines = []
-        for j, article in enumerate(batch):
-            title_lower = article.title.lower()
-            is_local = any(sig in title_lower for sig in local_signals)
-            cat_tag = f"{article.category or 'news'}, score={article.score}"
-            if is_local:
-                prefix = f"{j+1}. [LOCAL] [{cat_tag}] "
-            else:
-                prefix = f"{j+1}. [{cat_tag}] "
-            lines.append(f"{prefix}{article.title}")
-        headlines_text = "\n".join(lines)
-
-        prompt = f"Review these headlines and identify any whose primary subject is unwanted:\n\n{headlines_text}"
-
-        try:
-            response = client.messages.create(
-                model="claude-haiku-4-5",
-                max_tokens=300,
-                system=system_prompt,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            api_usage.record_claude_usage(response.usage)
-
-            raw = response.content[0].text.strip()
-            # Strip markdown fences if present
-            if raw.startswith("```"):
-                lines_r = raw.splitlines()
-                inner = lines_r[1:]
-                if inner and inner[-1].strip() == "```":
-                    inner = inner[:-1]
-                raw = "\n".join(inner).strip()
-
-            # Use raw_decode so trailing text after the JSON object doesn't
-            # cause "Extra data" errors (model sometimes appends a note).
-            start = raw.find('{')
-            if start == -1:
-                raise ValueError("No JSON object in response")
-            result, _ = json.JSONDecoder().raw_decode(raw, start)
-            remove_nums = set(result.get("remove", []))
-
-            for j, article in enumerate(batch):
-                if (j + 1) in remove_nums:
-                    print(f"  ✂️  Scrubbed: {article.title[:90]}")
-                    total_removed += 1
-                    haiku_removed_by_category[article.category or 'news'] += 1
-                else:
-                    kept.append(article)
-
-        except Exception as e:
-            print(f"  ⚠️ Scrub batch {i // batch_size + 1} failed ({e}), keeping all")
-            kept.extend(batch)
+    unjudged = 0
+    for article in articles:
+        if article.gate_reject is None:
+            unjudged += 1
+        if article.gate_reject:
+            print(f"  ✂️  Scrubbed: {article.title[:90]}")
+            total_removed += 1
+            haiku_removed_by_category[article.category or 'news'] += 1
+        else:
+            kept.append(article)
 
     kept.extend(exempt)
 
+    if unjudged:
+        print(f"  ℹ️  {unjudged} article(s) carried no gate verdict (kept)")
     if total_removed:
         print(f"✂️  Final scrub removed {total_removed} article(s) from {len(articles)} quality articles")
     else:
@@ -3492,9 +3574,9 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
     scrub_stats = {
         'cohere_removed_by_category': dict(cohere_removed_by_category),
         'haiku_removed_by_category': dict(haiku_removed_by_category),
+        'unjudged': unjudged,
     }
     return kept, scrub_stats
-
 
 
 def apply_prescore_filter(articles: List[Article]) -> List[Article]:
@@ -3552,12 +3634,28 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
 
 
 def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
-    """Phase 8: Category slot allocation — guarantee min_slots per category,
-    cap at max_slots, fill greedily by composite score.
+    """Phase 8: fill each category's slots by rank, using the score floor as a
+    ceiling-guard rather than as the gate.
 
-    Uses config/feed_slots.json. Falls back to 'default' slot config for
-    categories not explicitly listed. Runs after quality filtering and floor
-    rescue so it has the full available pool to draw from.
+    The floor used to run first and decide the feed: everything at/above
+    `min_score_for_category` shipped, everything below was cut, and a rescue pass
+    patched the categories that came out empty. That makes feed size a function of
+    where the day's scores happened to land — the funnel swung between 50 and 101
+    articles a run on a scale whose top band (>=80) held 4% of the pool. It also
+    meant a floor could not be tightened without starving a niche category, and
+    could not be loosened without flooding `news`.
+
+    Ranking inverts that. Every category is filled best-first:
+
+    - **Pass 1 fills `min_slots` regardless of the floor.** A category that had a
+      thin day still ships its best available articles, which is what the old
+      `min_per_category` rescue did — folded in here so there is one mechanism
+      rather than a filter and its apology.
+    - **Pass 2 fills up to `max_slots`, floor-respecting.** Past the guaranteed
+      minimum the floor is a real quality bar again, so a heavy news day cannot
+      spend a category's capacity on articles nobody would want.
+
+    The floor therefore still bounds *quality*; it no longer determines *volume*.
     """
     if not FEED_SLOTS:
         return articles
@@ -3571,30 +3669,41 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
 
     result: List[Article] = []
     cat_counts: Dict[str, int] = defaultdict(int)
+    below_floor_admitted = 0
 
-    # Pass 1: guarantee min_slots for every category that has articles
+    # Pass 1: guarantee min_slots for every category that has articles, floor or not.
     for cat, arts in by_cat.items():
         cfg = FEED_SLOTS.get(cat, default_cfg)
         min_s = cfg.get('min_slots', default_cfg.get('min_slots', 1))
+        floor = min_score_for_category(cat)
         for a in arts[:min_s]:
             result.append(a)
             cat_counts[cat] += 1
+            if a.score < floor:
+                below_floor_admitted += 1
 
     included_ids = {id(a) for a in result}
 
-    # Pass 2: fill remaining capacity greedily by composite score up to max_slots
+    # Pass 2: fill remaining capacity by composite score up to max_slots. Only
+    # articles clearing their category floor are eligible here — the guarantee is
+    # spent, so quality governs the rest.
     remaining = [a for a in sorted(articles, key=lambda x: x.score, reverse=True)
                  if id(a) not in included_ids]
     for a in remaining:
         cat = a.category or 'news'
         cfg = FEED_SLOTS.get(cat, default_cfg)
         max_s = cfg.get('max_slots', default_cfg.get('max_slots', 5))
-        if cat_counts[cat] < max_s:
-            result.append(a)
-            cat_counts[cat] += 1
+        if cat_counts[cat] >= max_s:
+            continue
+        if a.score < min_score_for_category(cat):
+            continue
+        result.append(a)
+        cat_counts[cat] += 1
 
     slot_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(cat_counts.items()))
     print(f"📊 Feed slot allocation: {len(articles)} → {len(result)} articles [{slot_summary}]")
+    if below_floor_admitted:
+        print(f"   🌱 {below_floor_admitted} below-floor article(s) admitted to hold min_slots")
     return result
 
 
@@ -5723,55 +5832,51 @@ def main():
     scored_articles, content_type_stats = filter_by_content_type(scored_articles)
     run_stats['content_type_filter'] = content_type_stats
 
-    # Haiku scrub: semantic safety net for subjects that slip past content_type filter
-    # (e.g. sports articles classified as 'breaking'). Runs on articles above a low floor.
-    # Articles below SCRUB_FLOOR are preserved for category floor rescue only.
+    # Scrub: apply the topical reject verdicts the quality gate already returned,
+    # plus the Cohere interest pre-filter. No Claude call — the verdict rides on
+    # the gate response (see score_quality_gate / GATE_REJECT_RUBRIC).
+    # SCRUB_FLOOR is now purely an exemption boundary: articles below it are held
+    # back from removal so the per-category floor rescue still has a pool to draw
+    # from when a niche category scored badly across the board.
     SCRUB_FLOOR = LIMITS.get('haiku_scrub_floor', 15)
     scrub_candidates = [a for a in scored_articles if a.score >= SCRUB_FLOOR]
     scrub_below = [a for a in scored_articles if a.score < SCRUB_FLOOR]
-    print(f"\n✂️  Running headline scrub with Haiku ({len(scrub_candidates)} articles, {len(scrub_below)} below floor skipped)...")
+    print(f"\n✂️  Applying gate scrub verdicts ({len(scrub_candidates)} articles, "
+          f"{len(scrub_below)} below floor exempt)...")
     scrubbed, scrub_stats = scrub_feed_with_haiku(scrub_candidates, api_key)
     run_stats['scrub'] = scrub_stats
     _scrubbed_hashes = {a.url_hash for a in scrubbed}
     haiku_rejected = [a for a in scrub_candidates if a.url_hash not in _scrubbed_hashes]
 
-    # Quality filter now works on pre-scrubbed candidates
-    quality_articles = [a for a in scrubbed if a.score >= min_score_for_category(a.category)]
-    print(f"⭐ Quality filter (composite >= {LIMITS['min_claude_score']}, "
-          f"per-category overrides {LIMITS.get('min_score_by_category', {})}): "
-          f"{len(scrubbed)} → {len(quality_articles)} articles")
+    # Selection is the slot allocator's job now, not the floor's. It receives the
+    # whole clean pool — including the below-SCRUB_FLOOR articles the old
+    # `min_per_category` rescue had to reach back for — and fills each category
+    # best-first, guaranteeing min_slots and applying the floor only past that
+    # (see apply_feed_slot_allocation). One mechanism instead of a filter, a rescue
+    # that undoes part of it, and a slot pass that trims what is left.
+    #
+    # Below-floor articles now carry the gate's topical verdict, so a sports recap
+    # can no longer be rescued into a starved category the way it could when this
+    # pool was exempt from scrubbing entirely.
+    selection_pool = scrubbed + [a for a in scrub_below if not a.gate_reject]
+    _at_floor = sum(1 for a in selection_pool
+                    if a.score >= min_score_for_category(a.category))
+    print(f"⭐ Selection pool: {len(selection_pool)} articles "
+          f"({_at_floor} at/above their category floor; "
+          f"min_claude_score={LIMITS['min_claude_score']}, "
+          f"per-category overrides {LIMITS.get('min_score_by_category', {})})")
 
-    # Per-category floor: rescue the top-N articles for categories under their minimum quota.
-    # Draws from the scrubbed pool (clean) plus below-floor articles so niche categories
-    # aren't starved when all their content scored below SCRUB_FLOOR.
-    min_per_cat = LIMITS.get('min_per_category', {})
-    if min_per_cat:
-        quality_urls = {a.url_hash for a in quality_articles}
-        subthreshold = [a for a in scrubbed if a.url_hash not in quality_urls] + scrub_below
-        quality_by_cat: Dict[str, int] = defaultdict(int)
-        for a in quality_articles:
-            quality_by_cat[a.category or 'news'] += 1
-        by_cat: Dict[str, List[Article]] = defaultdict(list)
-        for a in subthreshold:
-            by_cat[a.category or 'news'].append(a)
-        rescued: List[Article] = []
-        for cat, floor in min_per_cat.items():
-            need = floor - quality_by_cat.get(cat, 0)
-            if need > 0:
-                top = sorted(by_cat.get(cat, []), key=lambda a: a.score, reverse=True)
-                rescued.extend(top[:need])
-        if rescued:
-            print(f"🌱 Category floors rescued {len(rescued)} additional articles")
-            quality_articles.extend(rescued)
-
-    # Phase 8: Category slot allocation — enforce min/max per category using feed_slots.json.
-    # Runs after floor rescue so the full available pool is visible. When FEED_SLOTS is empty
-    # (config missing), this is a no-op and the existing min_per_category/max_new_per_category
-    # limits.json knobs remain in effect.
-    quality_articles = apply_feed_slot_allocation(quality_articles)
+    # Phase 8: rank-based category slot allocation using feed_slots.json. When
+    # FEED_SLOTS is empty (config missing) this is a no-op, so fall back to the
+    # old hard floor rather than shipping the unranked pool.
+    if FEED_SLOTS:
+        quality_articles = apply_feed_slot_allocation(selection_pool)
+    else:
+        quality_articles = [a for a in selection_pool
+                            if a.score >= min_score_for_category(a.category)]
 
     scrubbed_by_cat: Dict[str, int] = defaultdict(int)
-    for a in scrubbed:
+    for a in selection_pool:
         scrubbed_by_cat[a.category or 'news'] += 1
     passed_by_cat: Dict[str, int] = defaultdict(int)
     for a in quality_articles:
@@ -6174,6 +6279,12 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     mid    = sorted([a for a in candidates if 50 <= a.score < 80], key=lambda a: a.score, reverse=True)
     border = sorted([a for a in candidates if 30 <= a.score < 50], key=lambda a: a.score, reverse=True)
     low    = sorted([a for a in candidates if 20 <= a.score < 30], key=lambda a: a.score, reverse=True)
+    # Articles the slot allocator admitted below their category floor to hold
+    # min_slots. They have no score band of their own, and before this existed
+    # bucket_label()'s fallback filed them under 'mid' — which would have put a
+    # score-5 article in the 50-79 stratum and corrupted the sampling weights the
+    # audit reweights on.
+    floor_fill = sorted([a for a in candidates if a.score < 20], key=lambda a: a.score, reverse=True)
 
     selected: List[Article] = []
     seen_hashes: set = set()
@@ -6189,7 +6300,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
             seen_hashes.add(a.url_hash)
             seen_sources.add(a.source)
 
-    for pool, quota in [(high, 5), (mid, 8), (border, 5), (low, 2)]:
+    for pool, quota in [(high, 5), (mid, 8), (border, 5), (low, 2), (floor_fill, 2)]:
         taken = 0
         for a in pool:
             if taken >= quota:
@@ -6230,6 +6341,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     mid_set    = {a.url_hash for a in mid[:8]}
     border_set = {a.url_hash for a in border[:5]}
     low_set    = {a.url_hash for a in low[:2]}
+    floor_set  = {a.url_hash for a in floor_fill[:2]}
 
     def bucket_label(a: Article) -> str:
         if a.url_hash in unfiltered_set: return 'unfiltered'
@@ -6237,7 +6349,30 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         if a.url_hash in mid_set:    return 'mid'
         if a.url_hash in border_set: return 'border'
         if a.url_hash in low_set:    return 'low'
+        if a.url_hash in floor_set:  return 'floor_fill'
         return 'mid'
+
+    # Sampling weights. The review feed is a QUOTA sample, not a proportional one:
+    # it takes a handful from each score band plus up to 10 rejects, so the raw
+    # good-rate across ratings describes the sample design, not the feed. Recording
+    # each item's inverse sampling probability is what lets the audit reweight back
+    # to the population. Without it the headline read 24% good on a feed measuring
+    # ~41% once reweighted, because half of all ratings were on rejected articles.
+    _stratum_pool = {
+        'high': len(high), 'mid': len(mid), 'border': len(border), 'low': len(low),
+        'floor_fill': len(floor_fill), 'unfiltered': len(haiku_rejected or []),
+    }
+    _stratum_sampled: Dict[str, int] = defaultdict(int)
+    for _a in selected:
+        _stratum_sampled[bucket_label(_a)] += 1
+
+    def stratum_weight(a: Article) -> float:
+        """Articles this one stands for: pool size / number sampled from that pool."""
+        b = bucket_label(a)
+        taken = _stratum_sampled.get(b, 0)
+        if not taken:
+            return 1.0
+        return round(_stratum_pool.get(b, taken) / taken, 4)
 
     now_iso = datetime.now(timezone.utc).isoformat()
     feed = {
@@ -6251,6 +6386,10 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         "_generated_at": now_iso,
         "_today": today_name,
         "_today_label": today_label,
+        "_strata": {
+            b: {"pool": _stratum_pool.get(b, 0), "sampled": _stratum_sampled.get(b, 0)}
+            for b in ('high', 'mid', 'border', 'low', 'floor_fill', 'unfiltered')
+        },
         "_categories": {
             slug: {"name": cfg["name"], "emoji": cfg.get("emoji", "")}
             for slug, cfg in CATEGORIES.items()
@@ -6273,6 +6412,8 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
             "_category": article.category or 'news',
             "_content_type": article.content_type,
             "_selection_bucket": bucket_label(article),
+            "_stratum_weight": stratum_weight(article),
+            "_shipped": bucket_label(article) != 'unfiltered',
             "_theme_scores": theme_scores(article),
             "_theme_scores_raw": theme_scores_raw(article),
             "_today": today_name,
