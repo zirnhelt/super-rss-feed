@@ -134,6 +134,79 @@ def rating_distribution(ratings: List[Dict]) -> Dict[str, Any]:
     }
 
 
+SHIPPED_STRATA = ('high', 'mid', 'border', 'low', 'floor_fill')
+POSITIVE = ('good', 'interesting', 'exemplar')
+
+
+def stratified_estimate(ratings: List[Dict]) -> Dict[str, Any]:
+    """Reweight the quota sample back to the population it was drawn from.
+
+    The review feed is a stratified sample with fixed quotas — a handful from each
+    score band plus up to 10 scrub rejects — so the raw good-rate across all
+    ratings describes that quota design, not the feed. Rates *within* a stratum are
+    unbiased; the overall number is only meaningful once each rating is weighted by
+    how many articles it stands for.
+
+    It also matters which side of the pipeline a rating is on. A 'bad' verdict on a
+    scrub reject is the pipeline working; a 'bad' verdict on something that shipped
+    is the pipeline failing. Summing them, as the old headline did, reported 67.5%
+    bad on a corpus where two thirds of the bad verdicts were correct rejections.
+    """
+    per_stratum: Dict[str, Dict[str, Any]] = {}
+    for r in ratings:
+        b = r.get('selection_bucket') or 'unknown'
+        cell = per_stratum.setdefault(
+            b, {'n': 0, 'good': 0, 'interesting': 0, 'bad': 0, 'weight_sum': 0.0, 'weighted': 0})
+        cell['n'] += 1
+        if r['rating'] in ('good', 'interesting', 'bad'):
+            cell[r['rating']] += 1
+        w = r.get('stratum_weight')
+        if isinstance(w, (int, float)) and w > 0:
+            cell['weight_sum'] += w
+            cell['weighted'] += 1
+    for cell in per_stratum.values():
+        n = cell['n']
+        cell['good_pct'] = round(100 * cell['good'] / n, 1) if n else 0.0
+        cell['positive_pct'] = round(100 * (cell['good'] + cell['interesting']) / n, 1) if n else 0.0
+
+    # Weighted estimate over what actually shipped. Only rows carrying a recorded
+    # weight can contribute; `coverage` says how much of the corpus that is, so a
+    # thin estimate reads as thin rather than as fact.
+    num = den = 0.0
+    weighted_rows = 0
+    for r in ratings:
+        if (r.get('selection_bucket') or '') not in SHIPPED_STRATA:
+            continue
+        w = r.get('stratum_weight')
+        if not isinstance(w, (int, float)) or w <= 0:
+            continue
+        weighted_rows += 1
+        den += w
+        if r['rating'] in POSITIVE:
+            num += w
+    shipped_rows = sum(1 for r in ratings if (r.get('selection_bucket') or '') in SHIPPED_STRATA)
+
+    # Shipped vs correctly-rejected split of the bad verdicts.
+    bad_shipped = sum(1 for r in ratings
+                      if r['rating'] == 'bad' and (r.get('selection_bucket') or '') in SHIPPED_STRATA)
+    bad_rejected = sum(1 for r in ratings
+                       if r['rating'] == 'bad' and r.get('selection_bucket') == 'unfiltered')
+    rejects = [r for r in ratings if r.get('selection_bucket') == 'unfiltered']
+    false_neg = sum(1 for r in rejects if r['rating'] in POSITIVE)
+
+    return {
+        'per_stratum': per_stratum,
+        'weighted_positive_pct': round(100 * num / den, 1) if den else None,
+        'weight_coverage_pct': round(100 * weighted_rows / shipped_rows, 1) if shipped_rows else 0.0,
+        'weighted_rows': weighted_rows,
+        'shipped_rows': shipped_rows,
+        'bad_shipped': bad_shipped,
+        'bad_correctly_rejected': bad_rejected,
+        'rejects_n': len(rejects),
+        'reject_false_negative_pct': round(100 * false_neg / len(rejects), 1) if rejects else 0.0,
+    }
+
+
 def score_stats_by_rating(ratings: List[Dict]) -> Dict[str, Dict[str, float]]:
     stats: Dict[str, Dict[str, float]] = {}
     for verdict in ('good', 'interesting', 'bad'):
@@ -225,6 +298,15 @@ def theme_routing_audit(ratings: List[Dict]) -> Dict[str, Any]:
     # Root-cause split: did the pipeline's own theme scores already prefer the
     # user's corrected day? If yes, selection ignored its own signal (routing);
     # if no, the theme scorer itself missed (scoring).
+    # How many of these corrections are about an article podcast selection actually
+    # routed? `today` is the weekday the rating was made, not a routing decision, and
+    # almost every rated article comes from a *category* feed. So a correction where
+    # the theme scorer already preferred your day is not evidence of a routing bug —
+    # the router never saw the article. Counting it as one sends people looking for a
+    # defect in generate_podcast_feed() that is not there.
+    podcast_routed = sum(
+        1 for r in corrections if str(r.get('category') or '').startswith('podcast-'))
+
     routing_bugs = scoring_misses = unsplittable = 0
     for r in corrections:
         ts = r.get('theme_scores') or {}
@@ -260,6 +342,7 @@ def theme_routing_audit(ratings: List[Dict]) -> Dict[str, Any]:
         'correction_pct': round(100 * len(corrections) / n_day, 1) if n_day else 0.0,
         'reassigned_via_approved_days': len(reassigned_via_days),
         'confusion': {d: dict(t) for d, t in confusion.items() if t},
+        'podcast_routed': podcast_routed,
         'root_cause': {
             'routing_bug': routing_bugs,
             'theme_scoring_miss': scoring_misses,
@@ -453,6 +536,7 @@ def _md_table(headers: List[str], rows: List[List[Any]]) -> str:
 
 def build_report(audit: Dict[str, Any]) -> str:
     dist = audit['distribution']
+    strat = audit['stratified']
     routing = audit['theme_routing']
     category_retag = audit['category_retag']
     window = audit['window']
@@ -465,14 +549,35 @@ def build_report(audit: Dict[str, Any]) -> str:
         '',
         _md_table(['Metric', 'Value'], [
             ['Articles rated (unique URLs)', dist['total']],
-            ['Rated **bad** (fluff/noise that reached you)', f"{dist['counts'].get('bad', 0)} ({dist['bad_pct']}%)"],
+            ['Rated **bad** — reached you (pipeline failed)', strat['bad_shipped']],
+            ['Rated **bad** — correctly rejected (pipeline worked)', strat['bad_correctly_rejected']],
             ['Rated **good**', f"{dist['counts'].get('good', 0)} ({dist['good_pct']}%)"],
             ['Rated **interesting**', dist['counts'].get('interesting', 0)],
+            ['Reweighted good-or-interesting rate of the **shipped** feed',
+             (f"{strat['weighted_positive_pct']}% "
+              f"(from {strat['weight_coverage_pct']}% of shipped ratings)")
+             if strat['weighted_positive_pct'] is not None
+             else 'not yet estimable — no sampling weights recorded'],
+            ['Scrub false-negative rate (wanted articles thrown away)',
+             f"{strat['reject_false_negative_pct']}% of {strat['rejects_n']} rejects"],
             ['Theme-day corrections (`better_theme`)', f"{routing['corrections']} ({routing['correction_pct']}% of day-routed ratings)"],
-            ['…caused by selection ignoring its own theme scores', routing['root_cause']['routing_bug']],
-            ['…caused by the theme scorer itself missing', routing['root_cause']['theme_scoring_miss']],
+            ['…where the theme scorer already preferred your day', routing['root_cause']['routing_bug']],
+            ['…where the theme scorer disagreed with you', routing['root_cause']['theme_scoring_miss']],
+            ['…of those, actually routed by podcast selection', routing['podcast_routed']],
             ['Category retags', f"{category_retag['corrections']} ({category_retag['correction_pct']}% of categorized ratings)"],
         ]),
+        '',
+        '### Sampling strata',
+        '',
+        'The review feed is a **quota** sample: a fixed handful from each score band '
+        'plus up to 10 scrub rejects. Rates within a stratum are unbiased; the '
+        'corpus-wide rate is not, because half the ratings come from the reject pile. '
+        'Reweight before comparing anything across strata.',
+        '',
+        _md_table(
+            ['Stratum', 'n', 'good', 'interesting', 'bad', '% good', '% good+int'],
+            [[b, c['n'], c['good'], c['interesting'], c['bad'], c['good_pct'], c['positive_pct']]
+             for b, c in sorted(strat['per_stratum'].items(), key=lambda kv: -kv[1]['n'])]),
         '',
         '## 1. Scoring Precision vs. Your Verdicts',
         '',
@@ -655,6 +760,7 @@ def run_audit() -> Dict[str, Any]:
         'current_min_score': load_current_min_score(),
         'content_type_by_rating': content_type_by_rating(ratings),
         'bucket_by_rating': bucket_by_rating(ratings),
+        'stratified': stratified_estimate(ratings),
         'filler_trend': filler_trend(),
         'theme_routing': theme_routing_audit(ratings),
         'category_retag': category_retag_audit(ratings),
@@ -681,6 +787,7 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
         'threshold_sweep': audit['threshold_sweep'],
         'current_min_score': audit['current_min_score'],
         'by_category': dist['by_category'],
+        'stratified': audit['stratified'],
         'worst_sources': dist['worst_sources'],
         'content_type_by_rating': audit['content_type_by_rating'],
         'theme_routing': {
