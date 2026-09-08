@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-07 (Monday)
+
+#### 🔧 Manual Run (9:09 PM Pacific)
+- ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1675 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-06 (Sunday)
 
 #### 🔧 Manual Run (9:08 PM Pacific)
@@ -110,32 +121,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (9:09 PM Pacific)
 - ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
 - ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-
-
----
-
-
-
-## 2026-08-30 (Sunday)
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ Brave fallback failed for boingboing.net: 402 — quota exceeded, disabling Brave for this run
-
-
----
-
-
-
-
-#### 🔧 Manual Run (4:23 AM Pacific)
-- ⚠️ **OpenMedia** failed — `404 Client Error: Not Found for url: https://openmedia.org/feed/`
-- ⚠️ **Harvard Health Blog** failed — `404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed`
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Cottage Life** failed — `403 Client Error: Forbidden for url: https://cottagelife.com/feed/`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
-- ⚠️ **Comments for Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/feed/`
-- ⚠️ **Solarpunk Magazine** failed — `403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/`
 
 
 ---
@@ -1092,6 +1077,23 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-08-29–2026-08-29
 - 1 issues recorded
 - ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
+
+
+---
+
+
+
+## Week of 2026-08-30–2026-08-30
+- 9 issues recorded
+- ⚠️ Brave fallback failed for boingboing.net: 402 — quota exceeded, disabling Brave for this run
+- ⚠️ OpenMedia failed — 404 Client Error: Not Found for url: https://openmedia.org/feed/
+- ⚠️ Harvard Health Blog failed — 404 Client Error: Not Found for url: https://www.health.harvard.edu/blog/feed
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+- ⚠️ Cottage Life failed — 403 Client Error: Forbidden for url: https://cottagelife.com/feed/
+- ⚠️ Consumer Reports failed — 404 Client Error: Not Found for url: https://www.consumerreports.org/rss/
+- ⚠️ farmonaut.com failed — 403 Client Error: Forbidden for url: https://farmonaut.com/feed
+- ⚠️ Comments for Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/
+- ⚠️ Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/
 
 
 ---
