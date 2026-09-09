@@ -16,16 +16,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-09-03 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
 | 2026-09-03 | 🔧 Manual Run | ⚠️ **Consumer Reports** failed | `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/` |
 | 2026-09-03 | 🔧 Manual Run | ⚠️ **farmonaut.com** failed | `403 Client Error: Forbidden for url: https://farmonaut.com/feed` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Consumer Reports** failed | `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Ness Labs** failed | `HTTPSConnectionPool(host='nesslabs.com', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(` |
-| 2026-09-01 | 🌅 4:30 AM Pacific | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
-| 2026-09-01 | 🌅 4:30 AM Pacific | ⚠️ **Consumer Reports** failed | `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Canadaland** failed | `503 Server Error: Service Unavailable for url: https://www.canadaland.com/feed/` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Canadaland** failed | `503 Server Error: Service Unavailable for url: https://www.canadaland.com/feed/` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Old House Journal** failed | `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol` |
-| 2026-09-01 | 🔧 Manual Run | ⚠️ **Consumer Reports** failed | `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -33,19 +23,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-09 | 🔧 manual | 98 | news:25(26%), ai-tech:18(18%), local:11(11%) |
 | 2026-09-07 | 🔧 manual | 93 | news:25(27%), ai-tech:17(18%), climate:10(11%) |
 | 2026-09-06 | 🔧 manual | 80 | news:25(31%), ai-tech:11(14%), homelab:10(12%) |
 | 2026-09-05 | 🔧 manual | 92 | news:25(27%), ai-tech:18(20%), homelab:10(11%) |
 | 2026-09-04 | 🔧 manual | 99 | news:25(25%), ai-tech:18(18%), local:10(10%) |
 | 2026-09-03 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), climate:12(12%) |
 | 2026-09-02 | 🔧 manual | 101 | news:25(25%), ai-tech:18(18%), climate:12(12%) |
-| 2026-09-01 | 🔧 manual | 53 | news:25(47%), ai-tech:7(13%), wellness:6(11%) |
-| 2026-09-01 | 🌅 morning | 84 | news:25(30%), ai-tech:13(15%), homelab:10(12%) |
-| 2026-09-01 | 🔧 manual | 89 | news:25(28%), ai-tech:18(20%), homelab:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-08 04:09 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-09 07:12 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

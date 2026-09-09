@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-09 (Wednesday)
+
+#### 🔧 Manual Run (12:12 AM Pacific)
+- ⚠️ JSON parsing error: Unterminated string starting at: line 109 column 5 (char 5219)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1424 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-07 (Monday)
 
 #### 🔧 Manual Run (9:09 PM Pacific)
@@ -65,62 +76,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:13 PM Pacific)
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2299 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-01 (Tuesday)
-
-#### 🔧 Manual Run (12:05 AM Pacific)
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-- ⚠️ **Ness Labs** failed — `HTTPSConnectionPool(host='nesslabs.com', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(`
-
-
----
-
-
-
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-
-
----
-
-
-
-
-#### 🔧 Manual Run (9:12 PM Pacific)
-- ⚠️ **Canadaland** failed — `503 Server Error: Service Unavailable for url: https://www.canadaland.com/feed/`
-- ⚠️ **FolkloreThursday** failed — `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/`
-- ⚠️ **Canadaland** failed — `503 Server Error: Service Unavailable for url: https://www.canadaland.com/feed/`
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2356 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-08-31 (Monday)
-
-#### 🌅 4:30 AM Pacific
-- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
-
-
----
-
-
-
-
-#### 🔧 Manual Run (9:09 PM Pacific)
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
 
 
 ---
@@ -1094,6 +1049,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ farmonaut.com failed — 403 Client Error: Forbidden for url: https://farmonaut.com/feed
 - ⚠️ Comments for Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/comments/
 - ⚠️ Solarpunk Magazine failed — 403 Client Error: Forbidden for url: https://solarpunkmagazine.com/feed/
+
+
+---
+
+
+
+## Week of 2026-08-31–2026-09-01
+- 14 issues recorded
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+- ⚠️ Consumer Reports failed — 404 Client Error: Not Found for url: https://www.consumerreports.org/rss/
+- ⚠️ Ness Labs failed — HTTPSConnectionPool(host='nesslabs.com', port=443): Max retries exceeded with url: /feed (Caused b
+- ⚠️ Canadaland failed — 503 Server Error: Service Unavailable for url: https://www.canadaland.com/feed/
+- ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2356 articles — check charter adherence, not supply
+- ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
 
 
 ---
