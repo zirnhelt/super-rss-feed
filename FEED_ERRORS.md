@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-10 (Thursday)
+
+#### 🔧 Manual Run (7:06 AM Pacific)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1449 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-09 (Wednesday)
 
 #### 🔧 Manual Run (12:12 AM Pacific)
@@ -66,16 +76,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
 - ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2145 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-02 (Wednesday)
-
-#### 🔧 Manual Run (9:13 PM Pacific)
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2299 articles — check charter adherence, not supply
 
 
 ---
@@ -1064,6 +1064,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2356 articles — check charter adherence, not supply
 - ⚠️ Brave fallback failed for gizmodo.com: 402 — quota exceeded, disabling Brave for this run
+
+
+---
+
+
+
+## Week of 2026-09-02–2026-09-02
+- 1 issues recorded
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2299 articles — check charter adherence, not supply
 
 
 ---
