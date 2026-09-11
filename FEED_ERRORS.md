@@ -13,6 +13,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (9:10 PM Pacific)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1616 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-09 (Wednesday)
 
 #### 🔧 Manual Run (12:12 AM Pacific)
