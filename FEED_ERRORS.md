@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-11 (Friday)
+
+#### 🔧 Manual Run (9:12 PM Pacific)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1618 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-10 (Thursday)
 
 #### 🔧 Manual Run (7:06 AM Pacific)
@@ -72,19 +82,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
 - ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2051 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-03 (Thursday)
-
-#### 🔧 Manual Run (9:13 PM Pacific)
-- ⚠️ **Old House Journal** failed — `HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResol`
-- ⚠️ **Consumer Reports** failed — `404 Client Error: Not Found for url: https://www.consumerreports.org/rss/`
-- ⚠️ **farmonaut.com** failed — `403 Client Error: Forbidden for url: https://farmonaut.com/feed`
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2145 articles — check charter adherence, not supply
 
 
 ---
@@ -1082,6 +1079,18 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-09-02–2026-09-02
 - 1 issues recorded
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2299 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-03–2026-09-03
+- 4 issues recorded
+- ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
+- ⚠️ Consumer Reports failed — 404 Client Error: Not Found for url: https://www.consumerreports.org/rss/
+- ⚠️ farmonaut.com failed — 403 Client Error: Forbidden for url: https://farmonaut.com/feed
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2145 articles — check charter adherence, not supply
 
 
 ---
