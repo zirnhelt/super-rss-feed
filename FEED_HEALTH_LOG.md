@@ -21,3 +21,8 @@ _Every entry was verified against the live network before it was applied._
 | 🗑 Retired | Old House Journal | unrecoverable (dns) | 6 failures over 6d (dns, via feed_http_cache.json+FEED_ERRORS.md) |
 | 🔁 Substituted | Grainews | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:grainews.ca&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (http_403, via feed_http_cache.json) |
 | 🔁 Substituted | Country Guide | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:country-guide.ca&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (http_403, via feed_http_cache.json) |
+
+
+## 2026-09-13
+
+No feed met the failure floor — nothing to heal.
