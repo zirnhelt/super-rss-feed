@@ -1,21 +1,31 @@
-# Scoring Prompt for RSS Relevance Calibration
+# Relevance Scoring Calibration for User Feed
 
-- **Prioritize practical autonomy & self-sufficiency**: Home automation, smart home accessibility (plain English configs), DIY tools, homesteading infrastructure (water collection, outdoor cooking), and tech that enables independence score highest when framed as "how-to" or capability-focused rather than product reviews.
+**Core Topic Priorities:**
+- **AI/tech adoption & automation** score highest when focused on practical tools, infrastructure, or real-world impact (GitHub, battery tech, deepfakes) — avoid abstract techno-solutionism
+- **Climate & environmental solutions** consistently score well; prioritize actionable science (seaweed livelihoods, water management, wildfire prep) over policy-only pieces
+- **Homestead/farming content** performs best when technically grounded (equipment reviews, settlement agreements, ranching economics) — avoid pure gardening aesthetics
+- **Local/regional news** (BC, Cariboo, Saskatchewan) scores exceptionally high when community-focused; never filter these even at lower scores
 
-- **Local + community impact > general news**: Williams Lake Tribune articles about 4H, First Nations cultural projects, and local non-profits rank as exemplars. Boost BC/Canada-specific news about agriculture, community grants, and Indigenous initiatives; deprioritize generic national politics and celebrity culture.
+**Under-represented Topics to Boost:**
+- **Outdoors + tech fusion** (e-bike conversions, functional gear, gravel racing) — only 2 exemplars but consistent interest
+- **Homelab/maker culture** — scores in 49–68 range; increase relevance for DIY tools, 3D printing, hands-on tech projects
+- **Science with direct human application** (aging research, brain circuits, medical breakthroughs) — prioritize over celebrity health gossip
 
-- **AI/tech only when tied to adoption, telemetry, or real work impact**: GitHub blog posts about infrastructure and ROI metrics score high; generic AI news, product rumors, and smartphone launches score low. Avoid speculative AI hype; favor implementation stories and practical tools.
+**Topics to Deprioritize:**
+- **US political content** — explicitly rejected despite high quality scores (Q/R scores >60)
+- **Celebrity/entertainment news** — consistently low across all ratings; deprioritize even when tagged differently
+- **Luxury lifestyle/shopping guides** — reject "best of" roundups and product placement disguised as editorial
+- **General wellness listicles** — score low unless tied to specific science or aging research
 
-- **Science & climate require systems-level insight**: Articles about PFAS microplastics, geophysics, hidden infrastructure threats, and climate-agriculture intersections (agrivoltaics, soil science) rank high. Avoid listicles ("7 TV shows"), celebrity health gossip, and surface-level wellness tips.
+**Source & Framing Patterns:**
+- **Trusted sources:** Fast Company, WIRED, ScienceDaily, ScienceAlert, NYT (when not politics), Forbes Innovation, The Tyee, local BC media
+- **Avoid:** Rolling Stone for non-music, Domino/Ideal Home/Country Living when pure styling (not technical/sustainable), generic roundup formats
+- **Preferred framing:** Problem-solution, infrastructure impact, policy consequences — avoid "trends" and aspirational lifestyle pieces
 
-- **Design & homestead articles should emphasize functional renovation, not aesthetics alone**: Bathroom value-adds, self-build mistakes, patterned flooring, and garden planning score higher than pure interior inspiration or celebrity homes. Retag design/homestead content miscategorized as "news."
+**Category Assignment Corrections to Implement:**
+- News articles about **equipment, gardens, or homeware** → retag as homestead/design/homelab before scoring
+- **Tech how-tos and device setup** → retag as ai-tech, not news
+- **Gaming economy analysis** → tag as scifi, not news
 
-- **Outdoor content = function + accessibility**: E-bikes, trail runner training tools, and fishing gear framed as "core" functionality score higher than fashion or lifestyle. Avoid recreational entertainment without practical application.
-
-- **Consistently reassign high-value articles to Sunday**: Science, climate, health research, and investigative journalism (NPS sign removal, volcanic threats) migrate to Sunday; retag wellness/nature writing; keep Monday-Wednesday for work-relevant content (AI, GitHub, automation).
-
-- **Downweight entertainment, celebrity, and lifestyle gossip hard**: TV reviews, celebrity health updates, game delays, watch launches, and luxury car culture score consistently low. Filter aggressively unless framed as cultural criticism (Jill Lepore) or systemic analysis (Steam economy).
-
-- **Retag aggressively when source suggests wrong category**: Gadget reviews mistagged as "news," music criticism as "scifi," household items as "news." Use source domain + framing to correct category before scoring relevance.
-
-- **Favor long-form investigation & policy over quick takes**: Articles with >67 Q/R scores cluster around substantive reporting (NPS removal, settlement agreements, health
+**Day Distribution Insight:**
+- Articles scoring 49 with high Q/R scores spread across multiple days (Tuesday–Sunday) — distribute
