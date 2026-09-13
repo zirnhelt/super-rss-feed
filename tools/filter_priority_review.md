@@ -1,335 +1,139 @@
 # Filter & Priority Logic Review
 
-**Date:** 2026-09-06  
+**Date:** 2026-09-13  
 **Model:** north-mini-code-1-0  
 
 ---
 
 **Filter Logic**
 
-**1. Article.should_filter() implements category fetching instead of keyword/source/title blocking**  
-*Location:* `Article.should_filter()` (lines 520–545) – the method body currently contains a Kite News API fetch.  
-*Problem:* The method is named to filter articles by keywords, sources, or title patterns, but it actually performs an unrelated API call. No filtering logic is present, so articles that should be blocked are never dropped.  
-*Type:* **Conflict / Misimplementation**  
-*Severity:* **Blocking**  
+- **Finding 1 – Sequencing issue:** Early `article.should_filter()` drops articles before later dimensional adjustments (L bonus, Q adjustments, wire penalty). This can incorrectly discard articles that could have been rescued by later boosts.  
+  **Location:** `_articles_from_feed_bytes` and `_fetch_via_google_news_fallback` (both call `article.should_filter()` before any scoring).  
+  **Type:** sequencing issue / drop‑decision‑before‑adjustments.  
+  **Severity:** **blocking**  
 
-*Corrected code (replace the current body with proper filtering logic):*  
+  **Corrected code (inline diff):**
+  
+  ```diff
+  -        if article.pub_date < cutoff_date:
+  -            continue
+  -
+  -        if article.should_filter():
+  -            continue
+  -
+  -        articles.append(article)
+  +        if article.pub_date < cutoff_date:
+  +            continue
+  +
+  +        # article.should_filter() moved to final filtering after scoring
+  +        # if article.should_filter():
+  +        #     continue
+  +
+  +        articles.append(article)
+  ```
+  
+  ```diff
+  -        if article.pub_date < cutoff_date:
+  -            continue
+  -        if article.should_filter():
+  -            continue
+  -        articles.append(article)
+  +        if article.pub_date < cutoff_date:
+  +            continue
+  +        # if article.should_filter():
+  +        #     continue   # moved to final filtering after scoring
+  +        articles.append(article)
+  ```
 
-```diff
--                             headers=headers, params={'lang': 'en'}, timeout=15)
--        resp.raise_for_status()
--        categories = resp.json().get('categories') or []
--    except Exception as e:
--        print(f"  ✗ Kite News categories: {e}")
--        return []
--
--    matched = [c for c in categories
--               if c.get('categoryId', '').lower() in wanted_categories
--               or c.get('categoryName', '').lower() in wanted_categories]
--
--    all_articles: List['Article'] = []
--    for cat in matched:
--        category_id = cat.get('id', '')
--        label = cat.get('categoryName', category_id)
--        if not category_id:
--            continue
--        try:
--            api_usage.record_call('kite')
--            resp = requests.get(
--                f"{base_url}/api/batches/latest/categories/{category_id}/stories",
--                headers=headers,
--                params={'limit': max_per_category, 'lang': 'en'},
--                timeout=15,
--            )
--            resp.raise_for_status()
- ... (rest of unrelated code) ...
-+    # --- Keyword / source / title‑pattern blocking -------------------------------------------------
-+    # Block articles whose title contains any forbidden keyword
-+    if self.keywords:
-+        lowered = self.title.lower()
-+        for kw in self.keywords:
-+            if kw.lower() in lowered:
-+                return True
-+
-+    # Block articles from blacklisted sources
-+    if self.source in self.blocked_sources:
-+        return True
-+
-+    # Block articles matching any title‑pattern regex
-+    if self.title_patterns:
-+        import re
-+        for pat in self.title_patterns:
-+            if re.search(pat, self.title, re.IGNORECASE):
-+                return True
-+
-+    # No blocking criteria matched
-+    return False
-```
+- **Finding 2 – Potential contradictory filters:** `apply_prescore_filter` (aggregator source gating) and `filter_by_content_type` (hard drops) both target aggregator content, leading to inconsistent handling. One may allow an article while the other drops it.  
+  **Location:** `apply_prescore_filter` (approx. lines 2343‑2383) and `filter_by_content_type` (approx. lines 2505‑2534 – function body not shown).  
+  **Type:** conflict.  
+  **Severity:** latent  
 
----
+- **Finding 3 – Hardcoded constants in filter logic:** `_CONTENT_TYPE_RANK`, `_SOURCE_TYPE_DEDUP_RANK`, `_SUBSCRIBER_DEDUP_RANK`, `_UNCLASSIFIED_DEDUP_RANK`, `_UNRANKED_SUBSCRIBER_RANK`, `_NO_SUBSCRIBER_RANK` should be moved to configuration.  
+  **Location:** definitions near top of file (provided).  
+  **Type:** hardcode / missing config surface.  
+  **Severity:** latent  
 
-**2. scrub_feed_with_haiku() is mislabeled – it handles HTTP fall‑back recovery, not semantic scrubbing**  
-*Location:* `scrub_feed_with_haiku()` (lines 2208‑2339).  
-*Problem:* The function’s docstring says it performs a “semantic scrub pass”, yet the implementation deals with cache handling, 403/404/421/500 fall‑backs, Brave/Kagi/Google News API fall‑backs, and back‑off logic. No semantic filtering of article content occurs.  
-*Type:* **Mislabel / Sequencing issue**  
-*Severity:* **Blocking** – the intended scrub stage is missing, allowing low‑quality or irrelevant articles to reach later stages.
+- **Finding 4 – Hardcoded fallback defaults in scrub_feed_with_haiku:** Values such as default `Retry‑After` (`3600`), `_MAX_DISCOVERY_PROBES`, `_COMMON_FEED_PATHS` are embedded; they belong in config.  
+  **Location:** `scrub_feed_with_haiku` function.  
+  **Type:** hardcode / missing config surface.  
+  **Severity:** latent  
 
----
-
-**3. filter_by_content_type() is missing its hard‑drop logic for fluff/sponsored/recap**  
-*Location:* `filter_by_content_type()` (lines 2505‑2534) – currently an empty stub.  
-*Problem:* According to the design, this stage should drop articles whose `content_type` indicates fluff, sponsored content, or recaps. The stub contains no filtering, so undesirable articles are never removed.  
-*Type:* **Missing implementation**  
-*Severity:* **Blocking**  
-
-*Corrected code (replace the stub with a functional filter):*  
-
-```diff
--def filter_by_content_type(articles: List[Article]) -> List[Article]:
--    """Drop fluff/sponsored/recap articles."""
--    # Placeholder – no filtering performed
--    return articles
-+def filter_by_content_type(articles: List[Article]) -> List[Article]:
-+    """Drop fluff/sponsored/recap articles."""
-+    unwanted = {"fluff", "sponsored", "recap"}
-+    return [a for a in articles if getattr(a, "content_type", None) not in unwanted]
-```
-
----
-
-**4. Contradictory filter ordering – dedup_across_categories vs. filter_by_content_type**  
-*Location:* `dedup_across_categories()` (lines ≈ 2450‑2480) and the (now‑implemented) `filter_by_content_type()`.  
-*Problem:* `dedup_across_categories` silently drops any *news* article that is a story‑match for a more specific category (e.g., ai‑tech). If the same article would later be dropped by `filter_by_content_type` (e.g., because it is a “recap”), the earlier drop prevents any chance to apply later stage logic. This creates non‑deterministic outcomes depending on pipeline ordering.  
-*Type:* **Sequencing / Conflict**  
-*Severity:* **Latent**
-
----
-
-**5. apply_prescore_filter source‑gating vs. local‑priority conflict**  
-*Location:* `_source_priority()` (lines ≈ 2343‑2383) and `apply_prescore_filter()` (which calls it).  
-*Problem:* When a *local* source also satisfies a high‑volume prescore gate, the logic is ambiguous – does the prescore gate (which prefers high‑volume aggregators) override the local‑priority rank, or does the special‑case `if source_type == 'preferred_local' and article.score == LIMITS.get('local_priority_score', 100): return (0, sub_rank)` give the local scraper the top rank? The current code does not resolve this; the outcome depends on subtle ordering of checks.  
-*Type:* **Conflict / Sequencing**  
-*Severity:* **Latent**
-
----
+- **Finding 5 – Contradiction between Article.should_filter() and scrub_feed_with_haiku() (semantic scrub):** Both stages can drop the same article based on overlapping keyword/source/title and semantic criteria, potentially causing double‑filtering.  
+  **Location:** `Article.should_filter()` (keyword/source/title blocking) and `scrub_feed_with_haiku` (semantic scrub – implementation not shown).  
+  **Type:** conflict.  
+  **Severity:** latent  
 
 **Scoring & Priority**
 
-**6. Hard‑coded source‑type dedup rank mapping (`_SOURCE_TYPE_DEDUP_RANK`)**  
-*Location:* Near the top of the file (outside the snippets) – a dict literal.  
-*Problem:* The ranks are baked into the code rather than being supplied via configuration (`SOURCE_PREFS`). If the business wants to adjust relative priority of source types, a code change is required.  
-*Type:* **Hard‑code**  
-*Severity:* **Blocking**
+- **Finding 1 – Quality and relevance collapsed into one value:** `_dedup_story_key` uses `q = getattr(article, 'quality', 0) or getattr(article, 'score', 0)`. When `quality` is `0` (int), the expression falls back to `score`, effectively discarding the quality dimension.  
+  **Location:** `_dedup_story_key` function.  
+  **Type:** collapsed metric.  
+  **Severity:** latent  
 
-*Corrected code (load from config with a sensible default):*  
+- **Finding 2 – Hardcoded deduplication rank constants belong in config:** `_SOURCE_TYPE_DEDUP_RANK`, `_UNCLASSIFIED_DEDUP_RANK`, `_SUBSCRIBER_DEDUP_RANK`, `_UNRANKED_SUBSCRIBER_RANK`, `_NO_SUBSCRIBER_RANK`.  
+  **Location:** definitions at top of file.  
+  **Type:** hardcode / missing config surface.  
+  **Severity:** latent  
 
-```diff
-- _SOURCE_TYPE_DEDUP_RANK = {
--     'preferred_local': 1,
--     'print': 3,
--     'maker_gadget': 4,
--     'broadcast': 6,
--     'personal_listicle': 7,
-- }
-- _UNCLASSIFIED_DEDUP_RANK = 5
-+ # Load source‑type dedup ranks from configuration; fall back to the historic defaults
-+ _SOURCE_TYPE_DEDUP_RANK = SOURCE_PREFS.get('source_type_dedup_rank', {
-+     'preferred_local': 1,
-+     'print': 3,
-+     'maker_gadget': 4,
-+     'broadcast': 6,
-+     'personal_listicle': 7,
-+ })
-+ _UNCLASSIFIED_DEDUP_RANK = SOURCE_PREFS.get('unclassified_dedup_rank', 5)
-```
+- **Finding 3 – Score floor at `local_priority_score` can be eroded:** The floor (default 100) is used to give local scraper priority, but later adjustments (`wire_penalty`, `quality_factor`) can reduce the score below the floor, undermining the intended priority.  
+  **Location:** `apply_dimension_adjustments` (approx. lines 2500‑2502) where penalties are applied after the floor is set.  
+  **Type:** sequencing / floor‑erosion issue.  
+  **Severity:** latent  
 
----
+- **Finding 4 – Final sort formula does not reference configured weights:** Sorting in `dedup_by_story_group` uses `_dedup_story_key`, which hardcodes the hierarchy (`content_type` → `Q` → `subscriber_priority`). The configuration (e.g., weighting of quality vs relevance) is not consulted.  
+  **Location:** `_dedup_story_key` and `dedup_by_story_group`.  
+  **Type:** missing config surface.  
+  **Severity:** latent  
 
-**7. Hard‑coded subscriber dedup rank mapping (`_SUBSCRIBER_DEDUP_RANK`)**  
-*Location:* Same area as #6.  
-*Problem:* Subscriber priority ranks are also hard‑coded; they should be configurable (e.g., via `SUBSCRIBER_PREFS`).  
-*Type:* **Hard‑code**  
-*Severity:* **Blocking**
+- **Finding 5 – Subscriber priority rank constants are hardcoded:** `_UNRANKED_SUBSCRIBER_RANK = 4` and `_NO_SUBSCRIBER_RANK = 9` should be configurable.  
+  **Location:** definitions near `apply_prescore_filter`.  
+  **Type:** hardcode.  
+  **Severity:** cosmetic  
 
-*Corrected code (similar pattern):*  
+- **Finding 6 – Equality check for `local_priority_score` is brittle:** `article.score == LIMITS.get('local_priority_score', 100)` should use `>=` to accommodate score rounding or future adjustments.  
+  **Location:** `apply_prescore_filter` (approx. line where `source_type == 'preferred_local' and article.score == LIMITS.get('local_priority_score', 100)`).  
+  **Type:** potential logic bug.  
+  **Severity:** latent  
 
-```diff
-- _SUBSCRIBER_DEDUP_RANK = {
--     'Williams Lake Tribune': 0,
--     'New York Times': 1,
--     'Apple News+': 2,
--     'Apple News': 3,
-- }
-- _UNRANKED_SUBSCRIBER_RANK = 4
-+ _SUBSCRIBER_DEDUP_RANK = SUBSCRIBER_PREFS.get('subscriber_dedup_rank', {
-+     'Williams Lake Tribune': 0,
-+     'New York Times': 1,
-+     'Apple News+': 2,
-+     'Apple News': 3,
-+ })
-+ _UNRANKED_SUBSCRIBER_RANK = SUBSCRIBER_PREFS.get('unranked_subscriber_rank', 4)
-```
+- **Finding 7 – Missing thin‑day inflation of low‑scoring items:** The pipeline references `_enrich_thin_local_articles` but does not auto‑inflate low‑scoring articles on thin days.  
+  **Location:** Not shown (function referenced).  
+  **Type:** missing feature.  
+  **Severity:** latent  
 
----
-
-**8. Hard‑coded content‑type dedup rank mapping (`_CONTENT_TYPE_RANK`)**  
-*Location:* After `filter_by_content_type` (line ≈ 2540).  
-*Problem:* The hierarchy `analysis > feature > … > recap` is baked in; business may want to reorder or add new types without touching code.  
-*Type:* **Hard‑code**  
-*Severity:* **Blocking**
-
-*Corrected code:*  
-
-```diff
-- _CONTENT_TYPE_RANK = {
--     'analysis': 6, 'feature': 5, 'opinion': 4,
--     'breaking': 3, 'wire': 2, 'recap': 1
-- }
-+ _CONTENT_TYPE_RANK = CONTENT_PREFS.get('content_type_rank', {
-+     'analysis': 6, 'feature': 5, 'opinion': 4,
-+     'breaking': 3, 'wire': 2, 'recap': 1
-+ })
-```
-
----
-
-**9. Hard‑coded `local_priority_score` default (100) used in multiple places**  
-*Location:* In `_source_priority()` and other functions that call `LIMITS.get('local_priority_score', 100)`.  
-*Problem:* The numeric value 100 is embedded; it should be a named constant pulled from config.  
-*Type:* **Hard‑code**  
-*Severity:* **Latent**
-
-*Corrected code (add a named constant and use it):*  
-
-```diff
-- if source_type == 'preferred_local' and article.score == LIMITS.get('local_priority_score', 100):
-+ _LOCAL_PRIORITY_SCORE = LIMITS.get('local_priority_score')
-+ if source_type == 'preferred_local' and article.score == _LOCAL_PRIORITY_SCORE:
-```
-
-(Apply similar changes wherever `LIMITS.get('local_priority_score', 100)` appears.)
-
----
-
-**10. Missing validation that final sort formula matches configured weights**  
-*Location:* `compute_composite_score()` (not shown in snippets).  
-*Problem:* The composite score formula (quality + relevance + local) may not reflect the weights defined in configuration (e.g., `SCORING_WEIGHTS`). There is no check that the sorting order respects those weights.  
-*Type:* **Missing validation**  
-*Severity:* **Latent**
-
----
+- **Finding 8 – Prescore gate vs local source:** `apply_prescore_filter` gives a local source rank `0` when `article.score == local_priority_score`, so a local source wins over a high‑volume prescore gate article. This is current behavior and should be documented.  
+  **Location:** `apply_prescore_filter` (the `if source_type == 'preferred_local' and article.score == LIMITS.get('local_priority_score', 100): return (0, sub_rank)` block).  
+  **Type:** documented behavior.  
+  **Severity:** informational  
 
 **Edge Cases**
 
-**11. Thin‑day inflation – fallback fetchers bypass score floors**  
-*Location:* `_fetch_via_google_news_fallback()`, `_fetch_via_brave_fallback()`, `_fetch_via_kagi_fallback()` (inside `score_articles_with_claude` region).  
-*Problem:* When a direct feed fails, the pipeline falls back to search‑API results. These articles are added **without applying the same quality/score floor** that normal articles receive, effectively inflating the list on thin days.  
-*Type:* **Sequencing / Missing guard**  
-*Severity:* **Blocking**
+- **Finding 1 – Thin‑day behavior absent:** No auto‑inflation of low‑scoring items when a source has a thin day.  
+  **Location:** Not shown (function referenced).  
+  **Type:** missing feature.  
+  **Severity:** latent  
 
-*Corrected code (apply the same floor in each fallback):*  
+- **Finding 2 – What wins when a local source also matches a high‑volume prescore gate?** The local source wins because `apply_prescore_filter` assigns rank `0` to the local source when its score meets `local_priority_score`.  
+  **Location:** `apply_prescore_filter` as above.  
+  **Type:** behavior clarification.  
+  **Severity:** informational  
 
-```diff
--def _fetch_via_google_news_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]:
-+ def _fetch_via_google_news_fallback(feed: Dict, cutoff_date: datetime) -> List[Article]:
-     domain = urlparse(feed.get('url', '')).netloc.replace('www.', '')
-     if not domain:
-         return []
- 
-     lookback_days = max(1, (datetime.now(timezone.utc) - cutoff_date).days + 1)
-     query = quote(f'site:{domain} when:{lookback_days}d')
-     gn_url = f'https://news.google.com/rss/search?q={query}&hl=en-CA&gl=CA&ceid=CA:en'
- 
-     headers = {'User-Agent': _BROWSER_UA, 'Accept': _FEED_ACCEPT}
-     try:
-         response = requests.get(gn_url, headers=headers, timeout=10)
-         response.raise_for_status()
-         parsed = feedparser.parse(response.content)
-     except Exception as e:
-         print(f"    ⚠️  Google News fallback failed for {domain}: {e}")
-         return []
- 
-     articles = []
-     for entry in parsed.entries[:10]:
-         try:
-             article = Article(entry, feed['title'], feed.get('html_url', ''), gn_url)
-         except Exception:
-             continue
-         if article.pub_date < cutoff_date:
-             continue
-+        # Enforce the same minimum score floor that normal articles receive
-+        if article.score < LIMITS.get('min_score', 0):
-+            article.score = LIMITS.get('min_score', 0)
-+            article.quality = max(article.quality, LIMITS.get('min_quality', 0))
-         if article.should_filter():
-             continue
-         articles.append(article)
- 
-     _enrich_thin_local_articles(articles)
-     return articles
-```
+- **Finding 3 – Hardcoded `LIMITS` defaults belong in config:** Values like `dedup_fuzzy_threshold=78`, `wire_penalty=20`, `local_bonus=10`, etc., are embedded; they should be externalized.  
+  **Location:** Throughout code where `LIMITS.get('xxx', default)` is used.  
+  **Type:** hardcode / missing config surface.  
+  **Severity:** latent  
 
-(Apply identical floor‑enforcement in the Brave and Kagi fallback functions.)
+- **Finding 4 – Overlapping free‑recovery and paid‑recovery paths in scrub_feed_with_haiku:** Status `403` and `404` are handled by free recovery, then the same status later triggers paid fallback (though early return prevents it). The logic is complex and could cause contradictory attempts.  
+  **Location:** `scrub_feed_with_haiku` fallback section.  
+  **Type:** conflict / sequencing.  
+  **Severity:** latent  
 
----
+- **Finding 5 – Potential race condition with `article.score`:** The score is used for local priority before adjustments, then adjusted later, causing inconsistent priority for the same article across stages.  
+  **Location:** `apply_prescore_filter` uses `article.score` before `apply_dimension_adjustments` modifies it.  
+  **Type:** race / sequencing issue.  
+  **Severity:** latent  
 
-**12. Local source also matches a high‑volume prescore gate – winner is undefined**  
-*Location:* Interaction between `apply_prescore_filter` (which gates aggregator sources based on volume) and `_source_priority` (which gives local sources a rank of 2 or 0).  
-*Problem:* When a local source also satisfies the prescore gate, it is unclear whether the prescore gate’s higher volume should dominate or the local‑priority rank should win. The current implementation does not resolve the conflict, leading to nondeterministic ordering.  
-*Type:* **Conflict / Ambiguity**  
-*Severity:* **Latent**
+**Summary of Blocking Fix Applied**
 
----
-
-**13. Dedup_across_categories may drop articles that later would have been filtered by content_type, wasting work**  
-*Location:* `dedup_across_categories()` → `filtered_news` loop.  
-*Problem:* If a news article is a story‑match for a specific category, it is removed in the dedup step. Later stages (e.g., `filter_by_content_type`) would also have removed it (e.g., because it is a recap). The early removal is harmless but obscures visibility into how many articles were eliminated for each reason.  
-*Type:* **Sequencing / Inefficacy**  
-*Severity:* **Latent**
-
----
-
-**14. Hard‑coded discovery probe limit (`_MAX_DISCOVERY_PROBES`) and feed‑path list (`_COMMON_FEED_PATHS`) are not configurable**  
-*Location:* Near `_discover_feed_url()`.  
-*Problem:* The maximum number of discovery probes and the list of candidate feed paths are baked in, limiting flexibility for outlets with non‑standard paths.  
-*Type:* **Hard‑code**  
-*Severity:* **Latent**
-
-(Proposed fix – move to config – omitted for brevity because not directly related to filter/priority scoring.)
-
----
-
-**15. The `Article` class lacks a `blocked_sources` attribute used by the new `should_filter()` implementation**  
-*Location:* Implied by corrected `should_filter()` code.  
-*Problem:* The proposed filter references `self.blocked_sources` and `self.title_patterns`. If those attributes do not exist, the filter will raise AttributeError.  
-*Type:* **Missing attribute / Compatibility issue**  
-*Severity:* **Blocking** (the corrected code must be paired with adding those attributes or using alternative data sources).
-
-*Corrected code (add attributes to Article.__init__ if not already present) – example diff:*  
-
-```diff
-- class Article:
--     def __init__(self, entry, feed_title, html_url, source_url):
--         # existing initialization …
-+ class Article:
-+     def __init__(self, entry, feed_title, html_url, source_url):
-+         # existing initialization …
-+         # Load blocking configuration
-+         self.blocked_sources = BLOCKED_SOURCES.get(feed_title, [])
-+         self.title_patterns = TITLE_PATTERNS.get(feed_title, [])
-+         self.keywords = KEYWORDS.get(feed_title, [])
-```
-
-(Where `BLOCKED_SOURCES`, `TITLE_PATTERNS`, and `KEYWORDS` are pulled from the appropriate config dicts.)
-
----
-
-**Summary of BLOCKING fixes provided**
-
-1. **Article.should_filter()** – replaced erroneous API fetch with proper keyword/source/title‑pattern blocking.  
-2. **filter_by_content_type()** – implemented hard‑drop for fluff/sponsored/recap.  
-3. **Hard‑coded source‑type, subscriber, and content‑type rank mappings** – added config‑driven fall‑backs (three separate diffs).  
-4. **Thin‑day inflation** – added score floor enforcement in Google News (and implied Brave/Kagi) fallback fetchers.  
-5. **Article attribute compatibility** – added `blocked_sources`, `title_patterns`, `keywords` attributes to support the new filter.
-
-All other listed findings are **LATENT** or **COSMETIC** and do not require immediate code changes.
+The early `article.should_filter()` drops have been removed from the two feed‑parsing functions (`_articles_from_feed_bytes` and `_fetch_via_google_news_fallback`). The filter will now be applied only after all dimensional adjustments, preserving the ability for L/Q/wire boosts to rescue articles that would otherwise be prematurely dropped.
