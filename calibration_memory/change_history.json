@@ -63,6 +63,15 @@
       "delta": -3,
       "rationale": "News category is the primary driver of feed bloat: passes 475 articles through quality gate in recent runs despite 76.0% user-rated bad rate (679/893). Current max_slots.news=25 allows far too much low-quality news through. User feedback shows news has the worst bad rate of any category (76.0% vs 35.6% ai-tech, 54.8% wellness). Lowering max_slots.news from 25→20 will reduce final feed sizes (currently 462-807/run, target ~100) while forcing the pipeline to surface only the highest-scoring news articles. This complements the min_claude_score raise by capping downstream volume even if borderline articles pass quality gate.",
       "dry_run": false
+    },
+    {
+      "run_date": "2026-09-13",
+      "knob": "source_preferences.kagi_search_result_limit",
+      "old_value": 10,
+      "new_value": 12,
+      "delta": 2,
+      "rationale": "Noise-to-signal has spiked to 1.98-3.76 recent runs (window mean 1.6 vs 1.48 last week), indicating upstream volume is insufficient after quality tightening. The September 6 min_claude_score raise to 25 is correct (user feedback supports it), but we need more raw material. Current kagi_search_result_limit=10 fetches 1442-1884 articles/run, but with 67.5% bad rate and strict quality gate we're not finding enough good content. Raising to 12 (+2) is conservative and directly addresses the volume shortage without lowering quality floors.",
+      "dry_run": false
     }
   ]
 }
