@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-13 (Sunday)
+
+#### 🔧 Manual Run (9:07 PM Pacific)
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1643 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-12 (Saturday)
 
 #### 🔧 Manual Run (9:08 PM Pacific)
@@ -68,18 +78,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:08 PM Pacific)
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1956 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-05 (Saturday)
-
-#### 🔧 Manual Run (9:10 PM Pacific)
-- ⚠️ **FolkloreThursday** failed — `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/`
-- ⚠️ **alpennia.com** failed — `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/`
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2062 articles — check charter adherence, not supply
 
 
 ---
@@ -1100,6 +1098,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Old House Journal failed — HTTPSConnectionPool(host='www.oldhouseonline.com', port=443): Max retries exceeded with ur
 - ⚠️ farmonaut.com failed — 403 Client Error: Forbidden for url: https://farmonaut.com/feed
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2051 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-05–2026-09-05
+- 3 issues recorded
+- ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
+- ⚠️ alpennia.com failed — 415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2062 articles — check charter adherence, not supply
 
 
 ---
