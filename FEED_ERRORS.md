@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-14 (Monday)
+
+#### 🔧 Manual Run (9:10 PM Pacific)
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1430 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-13 (Sunday)
 
 #### 🔧 Manual Run (9:07 PM Pacific)
@@ -68,16 +78,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (9:09 PM Pacific)
 - ⚠️ **Kagi Summarizer** failed — `HTTP 403 x1`
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1675 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-06 (Sunday)
-
-#### 🔧 Manual Run (9:08 PM Pacific)
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1956 articles — check charter adherence, not supply
 
 
 ---
@@ -1109,6 +1109,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
 - ⚠️ alpennia.com failed — 415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 2062 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-06–2026-09-06
+- 1 issues recorded
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1956 articles — check charter adherence, not supply
 
 
 ---
