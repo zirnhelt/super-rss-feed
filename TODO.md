@@ -14,6 +14,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-16 | 🔧 manual | 105 | news:25(24%), ai-tech:18(17%), local:15(14%) |
 | 2026-09-15 | 🔧 manual | 105 | news:25(24%), ai-tech:18(17%), local:12(11%) |
 | 2026-09-14 | 🔧 manual | 104 | news:25(24%), ai-tech:18(17%), local:15(14%) |
 | 2026-09-13 | 🔧 manual | 83 | news:25(30%), ai-tech:18(22%), wellness:10(12%) |
@@ -21,11 +22,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-09-11 | 🔧 manual | 101 | news:25(25%), ai-tech:18(18%), local:11(11%) |
 | 2026-09-10 | 🔧 manual | 98 | news:25(26%), ai-tech:18(18%), homelab:10(10%) |
 | 2026-09-10 | 🔧 manual | 90 | news:25(28%), ai-tech:18(20%), wellness:10(11%) |
-| 2026-09-09 | 🔧 manual | 98 | news:25(26%), ai-tech:18(18%), local:11(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-16 04:10 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-17 04:11 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
