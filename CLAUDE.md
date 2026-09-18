@@ -522,6 +522,53 @@ ground-truth ratings.
     The New Yorker (9), Cottage Life (8). Those are in `filters.blocked_sources`. Two
     more (The Atlantic n=5, Live for the Outdoors n=6) are held back as too thin.
 
+18. **The podcast pool filters two subjects the category feeds keep** —
+    `podcast_content_exclusion()` drops op-eds and crime incidents from
+    `generate_podcast_feed()`'s candidate pool and nowhere else. "Is this worth
+    reading?" is what `q_gate` and the charters answer; "is this twenty-two minutes
+    of two hosts talking?" is a different question, and a crime incident fails it
+    however well reported — there is nothing for the hosts to weigh that is not
+    either speculation about a person or a recital of the police release. The
+    reader still gets the local RCMP story in `feed-local.json`.
+
+    Configured in `config/podcast_schedule.json` → `excluded_content`. Opinion is
+    the existing `content_type` label, so it costs nothing; `content_type_exempt_sources`
+    is the seam against `news_interests.txt`'s standing judgment that a Western
+    Producer column on equipment subscriptions is working-lands journalism rather
+    than a hot take. **Widen the exemption list, never the rule.**
+
+    **The crime classifier is fitted, not guessed.** The first version cut 20 of the
+    1,545 articles cached on 2026-09-18 and 11 were wrong: a gaming monitor "for
+    shooters", Windows drivers "on trial", "Lone Butte woman sees success in
+    competitive shooting", and an AI-hallucinated-witnesses story that is exactly
+    the show's beat. Three narrowing rules took it to 7 hits and 0 false positives:
+
+    - **The category gates it** (`categories`: local, news). A crime word inside an
+      ai-tech story is describing the subject of the technology, not the story.
+    - **The title anchors it.** Primary subject is a question of placement, not
+      volume — a headline states what a story is about, and the CPJ and Amnesty
+      pieces that cite an arrest in their body are press-freedom and human-rights
+      reporting.
+    - **Ambiguous terms need justice context.** 'shooting' is a sport and a verdict;
+      'on trial' is a driver deprecation. The unambiguous list (stabbing, homicide,
+      manslaughter, drug bust) stands on a title hit alone.
+
+    Exemptions clear an article ahead of all three and are the show's actual beats:
+    cybercrime is ai-tech material, MMIWG and residential schools are Indigenous
+    Lands material whose subject is the system rather than the incident, a Wildlife
+    Act sentencing is Wild Spaces, and licence-plate cameras are a surveillance
+    story. **Refit against the live pool, never against appetite** — missing one
+    blotter item costs a thin roundup entry; a false positive deletes the day's
+    strongest story with nothing in the log naming it, which is why the filter
+    prints its own breakdown.
+
+    Applied at **one** choke point, after the fresh, rescued and holdover pools
+    merge. Filtering at intake would bake the rule into `podcast_articles_cache.json`,
+    so widening a keyword list would leave every already-banked article uncaught.
+    The sibling repo's `article_holding.json` is the one gap: articles held there
+    before this shipped were admitted under the old rule and age out on its 14-day
+    window.
+
 ---
 
 # Local Development

@@ -65,6 +65,135 @@ try:
         config_loader.load_podcast_schedule_config().get('excluded_sources', []))
 except Exception:
     PODCAST_EXCLUDED_SOURCES = frozenset()
+# --- Podcast-only content exclusions -----------------------------------------
+# Two subjects the show does not do: an opinion column and a crime incident.
+# Deliberately scoped to the podcast pool and nowhere else — the reader still
+# wants a local RCMP story in feed-local.json, and the two questions are not the
+# same one. "Is this worth reading?" is what q_gate and the charters answer.
+# "Is this 22 minutes of two hosts talking?" is this one, and a crime incident
+# fails it however well reported: there is nothing for Riley and Casey to weigh
+# that is not either speculation about a person or a recital of the police
+# release. The pool loses ~1-3 stories a day, which the roundup's airtime
+# budget (NEWS_ROUNDUP_COUNT, sibling repo) was already cutting anyway.
+#
+# Applied at ONE choke point in generate_podcast_feed(), after the fresh,
+# rescued and holdover pools are merged — so a change to these lists takes
+# effect on the next run rather than only on newly-cached articles, and an
+# article banked before the rule existed is caught on its way out of the bank.
+try:
+    PODCAST_EXCLUDED_CONTENT = (
+        config_loader.load_podcast_schedule_config().get('excluded_content', {}))
+except Exception:
+    PODCAST_EXCLUDED_CONTENT = {}
+
+
+def _crime_hit_count(text: str, keywords) -> int:
+    """Word-boundary hits, never substrings.
+
+    Plain `in` matching files "Charleston" as a charge and "assaulted the
+    record" as an assault. The sibling repo learned the same lesson filing a
+    Highway 1 story under astrophysics because 'star' is inside 'starting'.
+    """
+    if not text:
+        return 0
+    return sum(1 for kw in keywords
+               if re.search(r'\b' + re.escape(kw) + r'\b', text))
+
+
+def _is_general_crime_story(title: str, description: str, category: str = None) -> bool:
+    """True when the article's PRIMARY subject is a crime incident.
+
+    Three narrowing rules, each of which removes a false positive measured
+    against the live 1,545-article pool on 2026-09-18 rather than a
+    hypothetical one. The unfiltered version cut 20 articles and 11 of them
+    were wrong.
+
+    1. **The category gates it.** A crime word inside an ai-tech story is
+       describing the subject of the technology, not the story: "Lawyer fined
+       $5K over AI-hallucinated witnesses in a murder case" is an AI-in-the-
+       courts story the show covers on purpose, and so are Flock licence-plate
+       cameras and a gaming monitor built for shooters. Only the categories in
+       `categories` are judged at all.
+
+    2. **The title anchors it.** Primary subject is a question about placement,
+       not volume — a headline states what a story is about. A description-only
+       hit is a passing mention: the CPJ and Amnesty pieces that cite an arrest
+       in their body are press-freedom and human-rights reporting, and an
+       article whose headline never says crime is not primarily about crime.
+
+    3. **Ambiguous terms need justice context.** 'shooting' is a sport in
+       "Lone Butte woman sees success in competitive shooting" and a verdict in
+       "B.C. shooting-murder trial closes"; 'on trial' is a Windows driver
+       deprecation. The unambiguous list (stabbing, homicide, manslaughter,
+       drug bust) stands on a title hit alone; everything else needs a police,
+       court or Crown term somewhere in the article.
+
+    Any exemption hit clears the article outright, ahead of all three. The
+    exemptions are the show's actual beats: cybercrime is ai-tech material,
+    MMIWG and residential schools are Indigenous Lands material whose subject
+    is the system rather than the incident, and a Wildlife Act sentencing is a
+    Wild Spaces story. Missing one blotter item costs a thin roundup entry;
+    a false positive deletes the day's strongest story with nothing in the log
+    naming it.
+    """
+    crime_cfg = PODCAST_EXCLUDED_CONTENT.get('crime', {})
+    if not crime_cfg.get('enabled', False):
+        return False
+
+    categories = {c.lower() for c in crime_cfg.get('categories', [])}
+    if categories and (category or 'news').lower() not in categories:
+        return False
+
+    unambiguous = [k.lower() for k in crime_cfg.get('incident_keywords', [])]
+    ambiguous = [k.lower() for k in crime_cfg.get('ambiguous_keywords', [])]
+    justice = [k.lower() for k in crime_cfg.get('justice_context_keywords', [])]
+    exempt = [k.lower() for k in crime_cfg.get('exempt_keywords', [])]
+
+    title_l = (title or '').lower()
+    full_l = f"{title_l} {(description or '').lower()}"
+
+    if _crime_hit_count(full_l, exempt):
+        return False
+    if _crime_hit_count(title_l, unambiguous):
+        return True
+    if _crime_hit_count(title_l, ambiguous):
+        return bool(_crime_hit_count(full_l, justice))
+    return False
+
+
+def podcast_content_exclusion(article) -> Optional[str]:
+    """Reason this article must not enter a podcast episode, or None.
+
+    Returns the reason string rather than a bool so the run can report what it
+    cut and why — a filter that silently removes articles is indistinguishable
+    from a thin news day, which is the failure mode the sibling repo's
+    ROUNDUP_THEME_FLOOR degradation exists to catch from the other end.
+    """
+    if not PODCAST_EXCLUDED_CONTENT.get('enabled', False):
+        return None
+
+    source = getattr(article, 'source', '') or ''
+    title = getattr(article, 'title', '') or ''
+    description = getattr(article, 'description', '') or ''
+
+    # Opinion. The charters deliberately protect grounded trade-press
+    # commentary (news_interests.txt: a Western Producer column on equipment
+    # subscriptions is working-lands journalism, not a hot take), so the
+    # exemption list is the seam between "the show avoids op-eds" and that
+    # standing judgment. Widen or empty the list rather than the rule.
+    excluded_types = {t.lower() for t in PODCAST_EXCLUDED_CONTENT.get('content_types', [])}
+    exempt_sources = set(PODCAST_EXCLUDED_CONTENT.get('content_type_exempt_sources', []))
+    content_type = (getattr(article, 'content_type', None) or '').lower()
+    if content_type and content_type in excluded_types and source not in exempt_sources:
+        return f'content_type:{content_type}'
+
+    if _is_general_crime_story(title, description,
+                               getattr(article, 'category', None)):
+        return 'crime_incident'
+
+    return None
+
+
 SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
     'general': {'w_quality': 0.25, 'w_relevance': 0.55, 'w_local': 0.20},
     'podcast': {'w_quality': 0.25, 'w_relevance': 0.0, 'w_local': 0.10, 'w_theme': 0.65}
@@ -5042,6 +5171,30 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     # Merge holdover articles into the pool (already theme-qualified and quality-filtered above)
     theme_pool.extend(holdover_pool)
     _dbg('after holdover merge', theme_pool)
+
+    # Podcast-only subject/type exclusion — see podcast_content_exclusion().
+    # Placed here, after fresh + rescued + holdover have merged, because that is
+    # the one point every candidate passes through: filtering at intake would
+    # bake the rule into the cache, so widening the keyword list would leave
+    # every already-banked article uncaught.
+    if theme_pool:
+        _excl_before = len(theme_pool)
+        _excl_reasons: Dict[str, int] = defaultdict(int)
+        _kept_pool = []
+        for _a in theme_pool:
+            _reason = podcast_content_exclusion(_a)
+            if _reason:
+                _excl_reasons[_reason] += 1
+                if _pool_debug:
+                    print(f"  \U0001f6ab [{theme_name}] {_reason}: {_a.title[:70]}")
+            else:
+                _kept_pool.append(_a)
+        theme_pool = _kept_pool
+        if _excl_reasons:
+            _breakdown = ', '.join(f"{v} {k}" for k, v in sorted(_excl_reasons.items()))
+            print(f"  \U0001f6ab Podcast content filter: removed "
+                  f"{_excl_before - len(theme_pool)} ({_breakdown})")
+        _dbg('after content exclusion', theme_pool)
 
     # Exclude articles already used in a recent podcast episode.
     # Exception: allow articles shown *earlier today* for *today's theme* back into
