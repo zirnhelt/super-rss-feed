@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-17 (Thursday)
+
+#### 🔧 Manual Run (9:12 PM Pacific)
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1425 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-16 (Wednesday)
 
 #### 🔧 Manual Run (9:11 PM Pacific)
@@ -76,17 +87,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:10 PM Pacific)
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1616 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-09 (Wednesday)
-
-#### 🔧 Manual Run (12:12 AM Pacific)
-- ⚠️ JSON parsing error: Unterminated string starting at: line 109 column 5 (char 5219)
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1424 articles — check charter adherence, not supply
 
 
 ---
@@ -1137,6 +1137,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Kagi Summarizer failed — HTTP 403 x1
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1675 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-09–2026-09-09
+- 2 issues recorded
+- ⚠️ JSON parsing error: Unterminated string starting at: line 109 column 5 (char 5219)
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1424 articles — check charter adherence, not supply
 
 
 ---
