@@ -1,3 +1,133 @@
+## Feedback Training Run — 2026-09-20 16:57 UTC
+
+**Files processed:** 2026-08-22.json, 2026-08-24.json, 2026-08-25.json, 2026-08-26.json, 2026-08-28.json, 2026-08-31.json, 2026-09-01.json, 2026-09-02.json, 2026-09-03.json, 2026-09-04.json, 2026-09-05.json, 2026-09-06.json, 2026-09-08.json, 2026-09-09.json, 2026-09-11.json, 2026-09-12.json, 2026-09-13.json, 2026-09-14.json, 2026-09-15.json, 2026-09-16.json, 2026-09-17.json, 2026-09-18.json
+**Ratings:** 0 Exemplars, 77 Good, 61 Interesting, 341 Bad, 75 reassigned to day(s), 41 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (5), My Cariboo Now (5), Scientific American (4), ScienceDaily (4), Popular Mechanics (3)
+**Top disliked sources:** Edge (GamesRadar) (21), Ideal Home (Country Homes & Interiors) (14), NYT Top Stories (12), TechRadar (12), Country Life (11)
+**Categories liked:** local (16), news (13), climate (11), ai-tech (10), wellness (9), science (8), homelab (5), outdoors (3), homestead (1), design (1)
+**Categories disliked:** news (287), ai-tech (22), wellness (10), local (10), design (4), homelab (3), climate (2), outdoors (1), scifi (1), science (1)
+
+**Day reassignment summary:**
+- sunday → sunday: 5 articles
+- sunday → tuesday: 3 articles
+- sunday → wednesday: 2 articles
+- sunday → friday: 2 articles
+- sunday → thursday: 1 articles
+- sunday → saturday: 1 articles
+- sunday → monday: 1 articles
+- monday → sunday: 10 articles
+- monday → wednesday: 6 articles
+- monday → tuesday: 5 articles
+- monday → saturday: 5 articles
+- monday → friday: 4 articles
+- monday → thursday: 3 articles
+- monday → monday: 3 articles
+- tuesday → tuesday: 4 articles
+- tuesday → thursday: 1 articles
+- tuesday → wednesday: 1 articles
+- tuesday → sunday: 1 articles
+- friday → saturday: 5 articles
+- friday → sunday: 4 articles
+- friday → tuesday: 4 articles
+- friday → thursday: 4 articles
+- friday → friday: 4 articles
+- friday → wednesday: 3 articles
+- friday → monday: 2 articles
+- saturday → sunday: 6 articles
+- saturday → wednesday: 3 articles
+- saturday → friday: 2 articles
+- saturday → saturday: 2 articles
+- saturday → monday: 2 articles
+- saturday → tuesday: 1 articles
+- saturday → thursday: 1 articles
+- wednesday → friday: 10 articles
+- wednesday → sunday: 9 articles
+- wednesday → saturday: 8 articles
+- wednesday → thursday: 8 articles
+- wednesday → tuesday: 7 articles
+- wednesday → wednesday: 7 articles
+- wednesday → monday: 4 articles
+- thursday → sunday: 8 articles
+- thursday → tuesday: 5 articles
+- thursday → saturday: 5 articles
+- thursday → friday: 4 articles
+- thursday → wednesday: 4 articles
+- thursday → thursday: 3 articles
+- thursday → monday: 2 articles
+
+**Category retag summary:**
+- news → ai-tech: 9 articles
+- news → homelab: 8 articles
+- news → outdoors: 4 articles
+- news → climate: 3 articles
+- news → local: 2 articles
+- news → science: 2 articles
+- news → wellness: 2 articles
+- news → homestead: 1 articles
+- news → design: 1 articles
+- news → scifi: 1 articles
+- science → wellness: 1 articles
+- science → news: 1 articles
+- local → news: 1 articles
+- local → climate: 1 articles
+- local → wellness: 1 articles
+- wellness → climate: 1 articles
+- wellness → ai-tech: 1 articles
+- wellness → news: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# SCORING CALIBRATION BULLETS
+
+**STRONG TOPICAL SIGNALS**
+
+- **Local BC/Cariboo stories**: Consistently highest scores (88–93). Prioritize Williams Lake Tribune, 100 Mile Free Press, My Cariboo Now coverage of governance, infrastructure, wildlife, and community events. Tag accurately as `local`, not `news`.
+
+- **Environmental solutions & climate science**: High relevance when framed as action, protection, or adaptation (wildfire response, water management, sustainable farming, tech solutions). Boost scores for climate + tech intersections (data centers, renewable energy, agrivoltaic systems).
+
+- **Indigenous & First Nations governance & reconciliation**: Strong performer. Look for land claims, policy, and community leadership stories—these are distinct from generic "Indigenous culture" features.
+
+- **Science discovery & nature behavior**: Favor unusual phenomena (black holes, nose-brain circuits, material properties) over medical wellness angles. Flag ScienceAlert, Scientific American, and similar sources as reliable.
+
+- **AI nuance over hype**: Accept critical analysis (job impact, deployment risks, student skepticism, shadow AI risks), reject product launches and VC narratives. Articles on AI education and workplace adoption score well.
+
+- **Practical tech & homelab**: High engagement with accessible how-tos, DIY electronics, and user-empowering privacy/security guides. Retag design/architecture projects as `homelab` or `design` when relevant, not `news`.
+
+**UNDER-REPRESENTED OPPORTUNITIES**
+
+- **Homelab/maker culture**: Articles on ESP32, KiCad, Hackaday-style projects are consistently reclassified and score high—actively surface similar technical DIY content.
+
+- **Outdoor/active gear that prioritizes technique**: User likes cycling mechanics and practical outdoor skills over gear-as-lifestyle. Distinguish from `outdoors` travel/tourism content (low relevance).
+
+- **Wellness science only**: Reject symptom guides and trend content; accept only peer-reviewed discoveries (aging, metabolism, neuroscience). Reframe "wellness" as science when applicable.
+
+**EXCLUSION ZONES**
+
+- **Lifestyle, interior design, luxury real estate, food/travel reviews**: Consistently low scores across Domino, Country Living, AFAR, restaurant reviews. Even technically sound pieces in these categories score poorly.
+
+- **Celebrity, entertainment, and true-crime tragedy**: Accident coverage, death tributes, scandal reporting—reject regardless of source quality.
+
+- **Geopolitical conflict & military reporting**: Historically strong dislike (Al Jazeera, military/ceasefire updates).
+
+**CATEGORY & DAY PATTERNS**
+
+- **Retag discipline**:
+
+---
+## Feedback Archive Run — 2026-09-20 16:57 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 6 (2026-06-16.json … 2026-06-22.json)
+**Ratings folded into rollup:** 186 (rollup now holds 186)
+**Topic/framing lessons:** ✅ consolidated to 216 words
+**Raw bytes freed:** 184.5 KB
+**Live files remaining:** 81
+**URL ledger:** 1616 URLs (+151 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-09-13 17:02 UTC
 
 **Files processed:** 2026-08-15.json, 2026-08-16.json, 2026-08-17.json, 2026-08-18.json, 2026-08-19.json, 2026-08-20.json, 2026-08-21.json, 2026-08-22.json, 2026-08-24.json, 2026-08-25.json, 2026-08-26.json, 2026-08-28.json, 2026-08-31.json, 2026-09-01.json, 2026-09-02.json, 2026-09-03.json, 2026-09-04.json, 2026-09-05.json, 2026-09-06.json, 2026-09-08.json, 2026-09-09.json, 2026-09-11.json, 2026-09-12.json, 2026-09-13.json

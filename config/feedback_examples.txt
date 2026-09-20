@@ -1,31 +1,35 @@
-# Relevance Scoring Calibration for User Feed
+# SCORING CALIBRATION BULLETS
 
-**Core Topic Priorities:**
-- **AI/tech adoption & automation** score highest when focused on practical tools, infrastructure, or real-world impact (GitHub, battery tech, deepfakes) — avoid abstract techno-solutionism
-- **Climate & environmental solutions** consistently score well; prioritize actionable science (seaweed livelihoods, water management, wildfire prep) over policy-only pieces
-- **Homestead/farming content** performs best when technically grounded (equipment reviews, settlement agreements, ranching economics) — avoid pure gardening aesthetics
-- **Local/regional news** (BC, Cariboo, Saskatchewan) scores exceptionally high when community-focused; never filter these even at lower scores
+**STRONG TOPICAL SIGNALS**
 
-**Under-represented Topics to Boost:**
-- **Outdoors + tech fusion** (e-bike conversions, functional gear, gravel racing) — only 2 exemplars but consistent interest
-- **Homelab/maker culture** — scores in 49–68 range; increase relevance for DIY tools, 3D printing, hands-on tech projects
-- **Science with direct human application** (aging research, brain circuits, medical breakthroughs) — prioritize over celebrity health gossip
+- **Local BC/Cariboo stories**: Consistently highest scores (88–93). Prioritize Williams Lake Tribune, 100 Mile Free Press, My Cariboo Now coverage of governance, infrastructure, wildlife, and community events. Tag accurately as `local`, not `news`.
 
-**Topics to Deprioritize:**
-- **US political content** — explicitly rejected despite high quality scores (Q/R scores >60)
-- **Celebrity/entertainment news** — consistently low across all ratings; deprioritize even when tagged differently
-- **Luxury lifestyle/shopping guides** — reject "best of" roundups and product placement disguised as editorial
-- **General wellness listicles** — score low unless tied to specific science or aging research
+- **Environmental solutions & climate science**: High relevance when framed as action, protection, or adaptation (wildfire response, water management, sustainable farming, tech solutions). Boost scores for climate + tech intersections (data centers, renewable energy, agrivoltaic systems).
 
-**Source & Framing Patterns:**
-- **Trusted sources:** Fast Company, WIRED, ScienceDaily, ScienceAlert, NYT (when not politics), Forbes Innovation, The Tyee, local BC media
-- **Avoid:** Rolling Stone for non-music, Domino/Ideal Home/Country Living when pure styling (not technical/sustainable), generic roundup formats
-- **Preferred framing:** Problem-solution, infrastructure impact, policy consequences — avoid "trends" and aspirational lifestyle pieces
+- **Indigenous & First Nations governance & reconciliation**: Strong performer. Look for land claims, policy, and community leadership stories—these are distinct from generic "Indigenous culture" features.
 
-**Category Assignment Corrections to Implement:**
-- News articles about **equipment, gardens, or homeware** → retag as homestead/design/homelab before scoring
-- **Tech how-tos and device setup** → retag as ai-tech, not news
-- **Gaming economy analysis** → tag as scifi, not news
+- **Science discovery & nature behavior**: Favor unusual phenomena (black holes, nose-brain circuits, material properties) over medical wellness angles. Flag ScienceAlert, Scientific American, and similar sources as reliable.
 
-**Day Distribution Insight:**
-- Articles scoring 49 with high Q/R scores spread across multiple days (Tuesday–Sunday) — distribute
+- **AI nuance over hype**: Accept critical analysis (job impact, deployment risks, student skepticism, shadow AI risks), reject product launches and VC narratives. Articles on AI education and workplace adoption score well.
+
+- **Practical tech & homelab**: High engagement with accessible how-tos, DIY electronics, and user-empowering privacy/security guides. Retag design/architecture projects as `homelab` or `design` when relevant, not `news`.
+
+**UNDER-REPRESENTED OPPORTUNITIES**
+
+- **Homelab/maker culture**: Articles on ESP32, KiCad, Hackaday-style projects are consistently reclassified and score high—actively surface similar technical DIY content.
+
+- **Outdoor/active gear that prioritizes technique**: User likes cycling mechanics and practical outdoor skills over gear-as-lifestyle. Distinguish from `outdoors` travel/tourism content (low relevance).
+
+- **Wellness science only**: Reject symptom guides and trend content; accept only peer-reviewed discoveries (aging, metabolism, neuroscience). Reframe "wellness" as science when applicable.
+
+**EXCLUSION ZONES**
+
+- **Lifestyle, interior design, luxury real estate, food/travel reviews**: Consistently low scores across Domino, Country Living, AFAR, restaurant reviews. Even technically sound pieces in these categories score poorly.
+
+- **Celebrity, entertainment, and true-crime tragedy**: Accident coverage, death tributes, scandal reporting—reject regardless of source quality.
+
+- **Geopolitical conflict & military reporting**: Historically strong dislike (Al Jazeera, military/ceasefire updates).
+
+**CATEGORY & DAY PATTERNS**
+
+- **Retag discipline**:
