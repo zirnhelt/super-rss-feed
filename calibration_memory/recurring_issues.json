@@ -5,9 +5,9 @@
       "id": "weekday-theme-score-collapse-2026-07-26",
       "theme": "monday,tuesday,wednesday,thursday",
       "first_observed": "2026-07-26",
-      "last_observed": "2026-09-13",
+      "last_observed": "2026-09-20",
       "status": "resolved",
-      "description": "RESOLVED: The catastrophic weekday theme score collapse that persisted from July 26 through August 10 (16 consecutive runs) was fixed by the August 11 rearchitecture introducing dimensional scoring (quality/relevance/local) and relative scaling for podcast theme scores. Post-August 11 runs show healthy mean_theme_score_raw values across all themes: Monday 14.4-15.3 (vs collapsed 3.2-8.2 pre-fix), Tuesday 4.7-6.9 (vs dead 3.1), Wednesday 2.9-7.6 (vs weak 9.1), Thursday 7.1-7.2 (vs dead 4.7). Podcast feeds consistently hit target 100 articles with robust holdover banks (2466-3400 per theme). The composite histograms post-August 11 show normal distributions rather than 0-19 concentration. The relative_scaled flag confirms new scoring is active. No regression observed across 19+ consecutive healthy runs (August 11-September 13). Issue definitively resolved.",
+      "description": "RESOLVED: The catastrophic weekday theme score collapse that persisted from July 26 through August 10 (16 consecutive runs) was fixed by the August 11 rearchitecture introducing dimensional scoring (quality/relevance/local) and relative scaling for podcast theme scores. Post-August 11 runs show healthy mean_theme_score_raw values across all themes: Monday 14.0–14.6 (vs collapsed 3.2–8.2 pre-fix), Tuesday 5.3–6.9 (vs dead 3.1), Wednesday 5.3–7.6 (vs weak 9.1), Thursday 6.9–7.2 (vs dead 4.7). Podcast feeds consistently hit target 100 articles with robust holdover banks (2631–3468 per theme). The composite histograms post-August 11 show normal distributions rather than 0-19 concentration. The relative_scaled flag confirms new scoring is active. No regression observed across 30+ consecutive healthy runs (August 11–September 20). Issue definitively resolved.",
       "evidence_runs": [
         "2026-07-13T07:28:29.183589+00:00",
         "2026-07-14T06:17:35.491468+00:00",
@@ -57,6 +57,10 @@
         {
           "run_date": "2026-09-13",
           "action": "None this run—the fix came from the August 11 human intervention on scoring_prompt and dimensional infrastructure (forbidden territory). Calibration agent monitoring confirms sustained recovery across 19+ runs. Closing issue as permanently resolved."
+        },
+        {
+          "run_date": "2026-09-20",
+          "action": "None this run—the fix came from the August 11 human intervention on scoring_prompt and dimensional infrastructure (forbidden territory). Calibration agent monitoring confirms sustained recovery across 30+ runs. No auto-tunable knob changes were needed. Closing issue as permanently resolved."
         }
       ],
       "recommendation_pending": false

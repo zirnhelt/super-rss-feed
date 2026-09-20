@@ -72,6 +72,15 @@
       "delta": 2,
       "rationale": "Noise-to-signal has spiked to 1.98-3.76 recent runs (window mean 1.6 vs 1.48 last week), indicating upstream volume is insufficient after quality tightening. The September 6 min_claude_score raise to 25 is correct (user feedback supports it), but we need more raw material. Current kagi_search_result_limit=10 fetches 1442-1884 articles/run, but with 67.5% bad rate and strict quality gate we're not finding enough good content. Raising to 12 (+2) is conservative and directly addresses the volume shortage without lowering quality floors.",
       "dry_run": false
+    },
+    {
+      "run_date": "2026-09-20",
+      "knob": "source_preferences.kagi_search_result_limit",
+      "old_value": 10,
+      "new_value": 12,
+      "delta": 2,
+      "rationale": "Noise-to-signal has spiked to 1.98–3.76 recent runs (window mean 2.39 vs 1.48 last week), indicating upstream volume is insufficient after quality tightening. The September 6 min_claude_score raise to 25 is correct (user feedback shows 67.2% bad rate and threshold_sweep supports it), but current kagi_search_result_limit=10 fetches only 1127–1907 articles/run. With 67.2% bad rate and strict quality gate (dropping 9224/13012 news articles), we're not finding enough good content. Final feeds average 476/run vs ~100 target, but news category alone passes 119–126/run (filling all 25 max_slots), proving we need more raw material to find qualifying articles, not lower thresholds. Raising to 12 (+2 from current 10) is conservative and directly addresses volume scarcity without compromising quality floors.",
+      "dry_run": false
     }
   ]
 }
