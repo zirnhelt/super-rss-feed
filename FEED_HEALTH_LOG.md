@@ -26,3 +26,11 @@ _Every entry was verified against the live network before it was applied._
 ## 2026-09-13
 
 No feed met the failure floor — nothing to heal.
+
+
+## 2026-09-20
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| 🔁 Substituted | BC Gov News | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:news.gov.bc.ca&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (network, via feed_http_cache.json) |
+| 🗑 Retired | Trip Reports | unrecoverable (timeout) | 3 failures over 3d (timeout, via feed_http_cache.json+FEED_ERRORS.md) |
