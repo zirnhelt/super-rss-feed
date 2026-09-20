@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-19 (Saturday)
+
+#### 🔧 Manual Run (9:07 PM Pacific)
+- ⚠️ **Trip Reports** failed — `HTTPSConnectionPool(host='backcountrypost.com', port=443): Read timed out. (read timeout=10)`
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1600 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-18 (Friday)
 
 #### 🔧 Manual Run (9:12 PM Pacific)
@@ -69,16 +80,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:08 PM Pacific)
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1598 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-11 (Friday)
-
-#### 🔧 Manual Run (9:12 PM Pacific)
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1618 articles — check charter adherence, not supply
 
 
 ---
@@ -1149,6 +1150,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1449 articles — check charter adherence, not supply
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1616 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-11–2026-09-11
+- 1 issues recorded
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1618 articles — check charter adherence, not supply
 
 
 ---

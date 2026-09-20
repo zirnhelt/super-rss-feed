@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-19 (Saturday)
+
+#### 🔧 Manual Run (9:07 PM Pacific)
+- Fetched **1444** → dedup **924** → new **847** → quality **85**
+- Mix: local:7(8%), ai-tech:18(21%), homelab:6(7%), homestead:1(1%), wellness:10(12%), science:8(9%), scifi:2(2%), design:6(7%), outdoors:2(2%), news:25(29%)
+- Feeds: local:47, ai-tech:88, climate:34, homelab:46, homestead:6, wellness:51, science:42, scifi:8, design:29, outdoors:9, news:125
+- Images: 85/85
+- Topic queries: 327 articles from 45 queries
+- API calls: Claude:25, Cohere:15, Brave:46, Kagi:33, Kite:6 · 177,596 Claude tokens · est. cost $0.4615
+
+
+---
+
+
+
 ## 2026-09-18 (Friday)
 
 #### 🔧 Manual Run (9:12 PM Pacific)
@@ -102,21 +117,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - Images: 91/91
 - Topic queries: 320 articles from 45 queries
 - API calls: Claude:26, Cohere:16, Brave:47, Kagi:34, Kite:6 · 183,073 Claude tokens · est. cost $0.4823
-
-
----
-
-
-
-## 2026-09-11 (Friday)
-
-#### 🔧 Manual Run (9:12 PM Pacific)
-- Fetched **1782** → dedup **1213** → new **1135** → quality **101**
-- Mix: local:11(11%), ai-tech:18(18%), climate:8(8%), homelab:6(6%), homestead:3(3%), wellness:10(10%), science:8(8%), scifi:1(1%), design:6(6%), outdoors:5(5%), news:25(25%)
-- Feeds: local:40, ai-tech:89, climate:40, homelab:40, homestead:9, wellness:54, science:42, scifi:7, design:29, outdoors:10, news:124
-- Images: 101/101
-- Topic queries: 293 articles from 45 queries
-- API calls: Claude:39, Cohere:16, Brave:46, Kagi:31, Kite:6 · 263,577 Claude tokens · est. cost $0.5543
 
 
 ---
@@ -2392,6 +2392,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Full detail kept for the la
 - 2 runs · avg fetched 1864 · avg quality 94
 - Dominant: **news** (27%) local:17 / ai-tech:36 / climate:14 / homelab:14 / homestead:2 / wellness:20 / science:16 / scifi:4 / design:12 / outdoors:3 / news:50
 - API calls: Claude:80, Cohere:32, Brave:91, Kagi:56, Kite:12 · est. cost $1.0761
+
+
+---
+
+
+
+## Week of 2026-09-11–2026-09-11
+- 1 runs · avg fetched 1782 · avg quality 101
+- Dominant: **news** (25%) local:11 / ai-tech:18 / climate:8 / homelab:6 / homestead:3 / wellness:10 / science:8 / scifi:1 / design:6 / outdoors:5 / news:25
+- API calls: Claude:39, Cohere:16, Brave:46, Kagi:31, Kite:6 · est. cost $0.5543
 
 
 ---

@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-09-19 | 🔧 Manual Run | ⚠️ **Trip Reports** failed | `HTTPSConnectionPool(host='backcountrypost.com', port=443): Read timed out. (read timeout=10)` |
 | 2026-09-18 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/` |
 | 2026-09-17 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
 
@@ -17,17 +18,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-19 | 🔧 manual | 85 | news:25(29%), ai-tech:18(21%), wellness:10(12%) |
 | 2026-09-18 | 🔧 manual | 93 | news:25(27%), ai-tech:18(19%), homelab:10(11%) |
 | 2026-09-17 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), homelab:10(10%) |
 | 2026-09-16 | 🔧 manual | 105 | news:25(24%), ai-tech:18(17%), local:15(14%) |
 | 2026-09-15 | 🔧 manual | 105 | news:25(24%), ai-tech:18(17%), local:12(11%) |
 | 2026-09-14 | 🔧 manual | 104 | news:25(24%), ai-tech:18(17%), local:15(14%) |
 | 2026-09-13 | 🔧 manual | 83 | news:25(30%), ai-tech:18(22%), wellness:10(12%) |
-| 2026-09-12 | 🔧 manual | 91 | news:25(27%), ai-tech:17(19%), homelab:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-19 04:12 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-20 04:07 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
