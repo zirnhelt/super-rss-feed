@@ -1,20 +1,65 @@
 {
-  "generated_at": "2026-09-13T16:59:58.686325+00:00",
-  "total_candidates_evaluated": 317,
-  "recommended_feeds": 22,
+  "generated_at": "2026-09-20T16:53:01.157117+00:00",
+  "total_candidates_evaluated": 316,
+  "recommended_feeds": 21,
   "min_score_threshold": 60,
   "categories": {
-    "scifi": {
-      "count": 1,
+    "general": {
+      "count": 6,
       "feeds": [
         {
-          "title": "Comments for Solarpunk Magazine",
-          "url": "https://solarpunkmagazine.com/comments/feed/",
-          "html_url": "https://solarpunkmagazine.com/blog/",
-          "source": "brave_search",
-          "average_score": 81.3,
+          "title": "a3nm.net",
+          "url": "http://a3nm.net/blog/feed.xml",
+          "html_url": "http://a3nm.net",
+          "source": "Kagi Small Web",
+          "average_score": 73.1,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "blog.lmorchard.com.s3-website-us-east-1.amazonaws.com",
+          "url": "http://blog.lmorchard.com.s3-website-us-east-1.amazonaws.com/index.rss",
+          "html_url": "http://blog.lmorchard.com.s3-website-us-east-1.amazonaws.com",
+          "source": "Kagi Small Web",
+          "average_score": 65.8,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "astroblogger.blogspot.com",
+          "url": "http://astroblogger.blogspot.com/atom.xml",
+          "html_url": "http://astroblogger.blogspot.com",
+          "source": "Kagi Small Web",
+          "average_score": 63.9,
           "sample_articles": 3,
-          "reason": "Strong alignment with your interests"
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "atank.interlogy.com",
+          "url": "http://atank.interlogy.com/feed/",
+          "html_url": "http://atank.interlogy.com",
+          "source": "Kagi Small Web",
+          "average_score": 62.1,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "beachburg.blogspot.com",
+          "url": "http://beachburg.blogspot.com/atom.xml",
+          "html_url": "http://beachburg.blogspot.com",
+          "source": "Kagi Small Web",
+          "average_score": 60.7,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "ai.mee.nu",
+          "url": "http://ai.mee.nu/feed/atom",
+          "html_url": "http://ai.mee.nu",
+          "source": "Kagi Small Web",
+          "average_score": 60.5,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
         }
       ]
     },
@@ -33,17 +78,8 @@
       ]
     },
     "outdoors": {
-      "count": 3,
+      "count": 2,
       "feeds": [
-        {
-          "title": "The Road Goes Ever On",
-          "url": "https://mariaadey.com/feed/",
-          "html_url": "https://mariaadey.com/bc-outdoors-2/backpacking-trips/",
-          "source": "brave_search",
-          "average_score": 69.0,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
         {
           "title": "Comments for The Road Goes Ever On",
           "url": "https://mariaadey.com/comments/feed/",
@@ -141,47 +177,6 @@
         }
       ]
     },
-    "general": {
-      "count": 4,
-      "feeds": [
-        {
-          "title": "astroblogger.blogspot.com",
-          "url": "http://astroblogger.blogspot.com/atom.xml",
-          "html_url": "http://astroblogger.blogspot.com",
-          "source": "Kagi Small Web",
-          "average_score": 63.9,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "atank.interlogy.com",
-          "url": "http://atank.interlogy.com/feed/",
-          "html_url": "http://atank.interlogy.com",
-          "source": "Kagi Small Web",
-          "average_score": 62.1,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "beachburg.blogspot.com",
-          "url": "http://beachburg.blogspot.com/atom.xml",
-          "html_url": "http://beachburg.blogspot.com",
-          "source": "Kagi Small Web",
-          "average_score": 60.7,
-          "sample_articles": 2,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "ai.mee.nu",
-          "url": "http://ai.mee.nu/feed/atom",
-          "html_url": "http://ai.mee.nu",
-          "source": "Kagi Small Web",
-          "average_score": 60.5,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
-    },
     "local": {
       "count": 4,
       "feeds": [
@@ -222,38 +217,22 @@
           "reason": "Good potential addition"
         }
       ]
-    },
-    "homelab": {
-      "count": 1,
-      "feeds": [
-        {
-          "title": "Comments for Virtualization Howto",
-          "url": "https://www.virtualizationhowto.com/comments/feed/",
-          "html_url": "https://www.virtualizationhowto.com/2023/12/freshrss-docker-compose-setup-guide-self-hosted-rss-reader/",
-          "source": "brave_search",
-          "average_score": 60.8,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
     }
   },
   "summary": {
     "by_category": {
-      "scifi": 1,
+      "general": 6,
       "homestead": 1,
-      "outdoors": 3,
+      "outdoors": 2,
       "tech": 8,
-      "general": 4,
-      "local": 4,
-      "homelab": 1
+      "local": 4
     },
     "top_recommendations": [
       {
-        "title": "Comments for Solarpunk Magazine",
-        "category": "scifi",
-        "score": 81.3,
-        "url": "https://solarpunkmagazine.com/comments/feed/"
+        "title": "a3nm.net",
+        "category": "general",
+        "score": 73.1,
+        "url": "http://a3nm.net/blog/feed.xml"
       },
       {
         "title": "Comments for Homesteading Family",
@@ -262,16 +241,16 @@
         "url": "https://homesteadingfamily.com/comments/feed/"
       },
       {
-        "title": "The Road Goes Ever On",
-        "category": "outdoors",
-        "score": 69.0,
-        "url": "https://mariaadey.com/feed/"
-      },
-      {
         "title": "Comments for The Road Goes Ever On",
         "category": "outdoors",
         "score": 68.6,
         "url": "https://mariaadey.com/comments/feed/"
+      },
+      {
+        "title": "blog.lmorchard.com.s3-website-us-east-1.amazonaws.com",
+        "category": "general",
+        "score": 65.8,
+        "url": "http://blog.lmorchard.com.s3-website-us-east-1.amazonaws.com/index.rss"
       },
       {
         "title": "Hacker News: Show HN",
