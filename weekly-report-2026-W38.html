@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of the Feed — Week of September 14–20, 2026</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { margin-top: 1.5rem; font-size: 1.1rem; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+    th, td { border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    a { color: #0066cc; }
+    ul { padding-left: 1.4rem; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <h1>State of the Feed — Week of September 14–20, 2026</h1>
+  <p class="meta">Published September 20, 2026 &middot; <a href="https://zirnhelt.github.io/super-rss-feed">Back to feed</a></p>
+  <p>Seven aggregation runs completed this week, processing 11,417 articles and delivering 672 quality items across ten content categories. News sources dominated intake at 175 articles, followed by AI-tech at 126 and local coverage at 63. Wellness, homelab, and local content each represented meaningful volume, while sci-fi and outdoors contributed minimal throughput. The dimensional scoring model (quality 0.25, relevance 0.55, local 0.20) maintained consistent filtering across heterogeneous sources.</p>
+<p>Pipeline efficiency measured 2.39 mean noise-to-signal ratio over fourteen total runs, indicating stable operational performance within the expected range of 1.35–3.76. Three feeds exhibited errors this week: Trip Reports, FolkloreThursday, and EEVblog. Three new feeds were integrated: GN BC Gov News, a3nm.net, and blog.lmorchard.com.s3-website-us-east-1.amazonaws.com, expanding local and personal technology coverage.</p>
+<p>Feed discovery identified three high-scoring candidates for addition: Comments for Solarpunk Magazine (81.3), Comments for Homesteading Family (70.1), and The Road Goes Ever On (69.0). These sources align with existing homestead and design categories and warrant evaluation for inclusion in the next aggregation cycle.</p>
+<h3>New Feeds This Week</h3>
+<ul>
+  <li>GN BC Gov News</li>
+  <li>a3nm.net</li>
+  <li>blog.lmorchard.com.s3-website-us-east-1.amazonaws.com</li>
+</ul>
+<h3>Weekly Article Distribution</h3>
+<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>
+<tr><td>local</td><td>63</td></tr>
+<tr><td>ai-tech</td><td>126</td></tr>
+<tr><td>climate</td><td>50</td></tr>
+<tr><td>homelab</td><td>63</td></tr>
+<tr><td>homestead</td><td>6</td></tr>
+<tr><td>wellness</td><td>70</td></tr>
+<tr><td>science</td><td>54</td></tr>
+<tr><td>scifi</td><td>12</td></tr>
+<tr><td>design</td><td>42</td></tr>
+<tr><td>outdoors</td><td>10</td></tr>
+<tr><td>news</td><td>175</td></tr>
+</tbody></table>
+<h3>Feed Issues</h3>
+<ul>
+  <li><strong>Trip Reports</strong>: HTTPSConnectionPool(host='backcountrypost.com', port=443): Read timed out. (read</li>
+  <li><strong>FolkloreThursday</strong>: 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/f</li>
+  <li><strong>EEVblog</strong>: 502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/</li>
+</ul>
+<h3>Discovery Highlights</h3>
+<ul>
+  <li>Comments for Solarpunk Magazine (score: 81.3)</li>
+  <li>Comments for Homesteading Family (score: 70.1)</li>
+  <li>The Road Goes Ever On (score: 69.0)</li>
+</ul>
+<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>
+<p>Noise-to-signal = (articles fetched &minus; articles in final feeds) &divide; final total. Lower is more efficient.</p>
+<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>
+<tr><td>2026-08-09</td><td>1.84</td><td>1.21</td><td>2.25</td><td>16</td></tr>
+<tr><td>2026-08-16</td><td>2.18</td><td>1.36</td><td>2.79</td><td>14</td></tr>
+<tr><td>2026-08-23</td><td>1.91</td><td>0.56</td><td>2.86</td><td>19</td></tr>
+<tr><td>2026-08-24</td><td>1.91</td><td>0.56</td><td>2.86</td><td>19</td></tr>
+<tr><td>2026-08-30</td><td>1.77</td><td>0.56</td><td>3.67</td><td>23</td></tr>
+<tr><td>2026-09-06</td><td>1.48</td><td>0.07</td><td>3.67</td><td>21</td></tr>
+<tr><td>2026-09-13</td><td>1.6</td><td>0.07</td><td>3.76</td><td>17</td></tr>
+<tr><td>2026-09-20</td><td>2.39</td><td>1.35</td><td>3.76</td><td>14</td></tr>
+</tbody></table>
+<h3>Quality Review</h3>
+<p>485 articles across 11 feeds. Scrub pass flagged 2 article(s), 2 recommended for removal.</p>
+<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>
+<tr><td>🤖 AI/ML & Tech</td><td>88</td><td>53.3</td><td>69</td><td>WIRED (11.4%)</td></tr>
+<tr><td>🌍 Climate & Energy</td><td>34</td><td>52.3</td><td>31</td><td>New Atlas (14.7%)</td></tr>
+<tr><td>🏛️ Architecture & Design</td><td>29</td><td>53.4</td><td>23</td><td>ArchDaily (37.9%)</td></tr>
+<tr><td>🏠 Homelab & DIY</td><td>46</td><td>49.3</td><td>37</td><td>Adafruit Blog (21.7%)</td></tr>
+<tr><td>🌾 Homestead & Hobby Farm</td><td>6</td><td>40.0</td><td>5</td><td>Hobby Farms (33.3%)</td></tr>
+<tr><td>🏔️ Williams Lake Local</td><td>47</td><td>79.4</td><td>37</td><td>My Cariboo Now (53.2%)</td></tr>
+<tr><td>📰 General News</td><td>125</td><td>67.9</td><td>101</td><td>WIRED (12.0%)</td></tr>
+<tr><td>🥾 Outdoors & Recreation</td><td>9</td><td>42.0</td><td>7</td><td>Outside Online (33.3%)</td></tr>
+<tr><td>🔬 Science</td><td>42</td><td>52.3</td><td>35</td><td>ScienceDaily (19.0%)</td></tr>
+<tr><td>🚀 Sci-Fi & Culture</td><td>8</td><td>33.2</td><td>6</td><td>Kagi Small Web (37.5%)</td></tr>
+<tr><td>🌿 Health & Wellness</td><td>51</td><td>61.3</td><td>42</td><td>Fast Company (7.8%)</td></tr>
+</tbody></table><p>Corpus alignment: 1397 articles analysed — 1256 direct-qualify, 25 rescue-dependent, 46 stranded, 147 filler (10.5%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/CORPUS_ALIGNMENT_REPORT_2026-09-20.md">Full report</a>.</p>
+<p>Content type breakdown: null: 961, feature: 173, analysis: 171, breaking: 144, news: 33, opinion: 18, fluff: 14, recap: 4, investigation: 2, how-to: 2, wire: 2.</p>
+
+<h3>User Feedback Audit</h3>
+<p>1606 articles rated (2026-06-17 → 2026-09-18): 376 good, 148 interesting, 1081 bad (67.3% bad). Theme-day corrections: 310 of 1599 (19.4%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/ARTICLE_REVIEW_AUDIT_2026-09-20.md">Full audit</a>.</p>
+<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>
+<tr><td>80-100</td><td>78</td><td>61.5</td><td>35.9</td></tr>
+<tr><td>60-79</td><td>225</td><td>36.0</td><td>58.7</td></tr>
+<tr><td>40-59</td><td>491</td><td>31.6</td><td>54.8</td></tr>
+<tr><td>20-39</td><td>462</td><td>13.6</td><td>75.3</td></tr>
+<tr><td>0-19</td><td>350</td><td>8.3</td><td>86.9</td></tr>
+</tbody></table>
+<h3>API Cost Review</h3>
+<p>7 run(s) this week &middot; total est. cost <strong>$3.7429</strong> &middot; avg <strong>$0.5347</strong>/run &middot; 1,829,858 Claude tokens</p>
+<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>
+<tr><td>Claude</td><td>265</td><td>37.9</td><td>token-based</td><td>—</td></tr>
+<tr><td>Cohere</td><td>111</td><td>15.9</td><td>$0.0020/call</td><td>$0.2220</td></tr>
+<tr><td>Brave</td><td>323</td><td>46.1</td><td>free</td><td>$0</td></tr>
+<tr><td>Kagi</td><td>208</td><td>29.7</td><td>$0.0075/call</td><td>$1.5600</td></tr>
+<tr><td>Kite</td><td>42</td><td>6.0</td><td>free</td><td>$0</td></tr>
+</tbody></table>
+<h3>Calibration</h3>
+<table><thead><tr><th>Knob</th><th>Old</th><th>New</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>source_preferences.kagi_search_result_limit</td><td>10</td><td>12</td><td>Noise-to-signal has spiked to 1.98–3.76 recent runs (window mean 2.39 vs 1.48 last week), indicating upstream volume is insufficient after quality tightening. The September 6 min_claude_score raise to 25 is correct (user feedback shows 67.2% bad rate and threshold_sweep supports it), but current kagi_search_result_limit=10 fetches only 1127–1907 articles/run. With 67.2% bad rate and strict quality gate (dropping 9224/13012 news articles), we're not finding enough good content. Final feeds average 476/run vs ~100 target, but news category alone passes 119–126/run (filling all 25 max_slots), proving we need more raw material to find qualifying articles, not lower thresholds. Raising to 12 (+2 from current 10) is conservative and directly addresses volume scarcity without compromising quality floors.</td></tr>
+</tbody></table>
+<h3>Actions Taken This Week</h3>
+<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>
+<tr><td>Discovery</td><td>Added feed “Comments for Solarpunk Magazine” (scifi, score 81.3)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7c4bd39"><code>7c4bd39</code></a> (<code>git revert 7c4bd39</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “Comments for Homesteading Family” (homestead, score 70.1)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7c4bd39"><code>7c4bd39</code></a> (<code>git revert 7c4bd39</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “The Road Goes Ever On” (outdoors, score 69.0)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7c4bd39"><code>7c4bd39</code></a> (<code>git revert 7c4bd39</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “Comments for The Road Goes Ever On” (outdoors, score 68.6)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7c4bd39"><code>7c4bd39</code></a> (<code>git revert 7c4bd39</code> to undo)</td></tr>
+<tr><td>Feed health</td><td>Substituted “BC Gov News” → https://news.google.com/rss/search?q=site:news.gov.bc.ca&hl=en&gl=CA&ceid=CA:en (outlet unreachable but still publishing; 5 failures over 5d (network, via feed_http_cache.json))</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7c4bd39"><code>7c4bd39</code></a> (<code>git revert 7c4bd39</code> to undo)</td></tr>
+<tr><td>Feed health</td><td>Retired “Trip Reports” (unrecoverable (timeout); 3 failures over 3d (timeout, via feed_http_cache.json+FEED_ERRORS.md))</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/7c4bd39"><code>7c4bd39</code></a> (<code>git revert 7c4bd39</code> to undo)</td></tr>
+<tr><td>Calibration</td><td>source_preferences.kagi_search_result_limit: 10 → 12</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/5bab704"><code>5bab704</code></a> (<code>git revert 5bab704</code> to undo)</td></tr>
+</tbody></table>
+</body>
+</html>
