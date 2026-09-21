@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 import config_loader
 import cohere_integration
+from integrate_discoveries import is_comment_feed
 
 
 def _build_prescore_keywords() -> frozenset:
@@ -152,8 +153,15 @@ def _probe_page_for_feeds(page_url: str) -> List[str]:
             link_type = link.get('type', '')
             if 'rss' in link_type or 'atom' in link_type:
                 href = link.get('href', '')
-                if href:
-                    feeds.append(urljoin(page_url, href))
+                if not href:
+                    continue
+                resolved = urljoin(page_url, href)
+                # A WordPress post page advertises its own comment feed beside
+                # the site feed. Dropping it here costs nothing: the site feed
+                # is on the same page, so the blog is still discovered.
+                if is_comment_feed(resolved, link.get('title', '')):
+                    continue
+                feeds.append(resolved)
     except Exception:
         pass
 
@@ -452,6 +460,15 @@ class FeedDiscovery:
     def evaluate_candidates(self, candidates: List[FeedCandidate]) -> List[FeedCandidate]:
         """Evaluate feed candidates using Claude scoring"""
         
+        # Comment feeds are dropped before the cache split, not after: an
+        # already-cached score is exactly as meaningless, and letting one
+        # through puts it in feed_discovery_report.json, where the weekly
+        # report reads it back as a recommendation week after week.
+        kept = [c for c in candidates if not is_comment_feed(c.url, c.title)]
+        if len(kept) < len(candidates):
+            print(f"  🗑  Dropped {len(candidates) - len(kept)} comment feed(s) before scoring")
+        candidates = kept
+
         # Separate cached vs new candidates
         cached_candidates = []
         new_candidates = []

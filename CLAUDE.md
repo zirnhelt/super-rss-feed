@@ -455,7 +455,30 @@ ground-truth ratings.
 
     **That whole mechanism is inert unless `feed_http_cache.json` is persisted.** It is a runtime cache in a repo that gets a fresh checkout every run: until it was added to the gh-pages download, the `output/` copy and the commit list in `generate-feed.yml`, every failure count reset to zero nightly — the paid-fallback cutoff at 3 consecutive failures could never be reached, the backoff ladder never fired, and each moved feed was rediscovered again the next day. If failure counts ever read as implausibly low, check that plumbing first.
 
-12. **WordPress comment feeds are not article feeds** — `/comments/feed/` (title "Comments for …") carries reader comments: no headline, no body, nothing scoreable. Discovery used to score them like any other feed and four reached `feeds.opml`; they are also disproportionately WAF-blocked, so each cost a failed fetch plus a search fallback every run. `integrate_discoveries.is_comment_feed()` now rejects them at the gate. Never add one by hand.
+12. **WordPress comment feeds are not article feeds** — `/comments/feed/` (title "Comments for …") carries reader comments: no headline, no body, nothing scoreable. Discovery used to score them like any other feed and four reached `feeds.opml`; they are also disproportionately WAF-blocked, so each cost a failed fetch plus a search fallback every run. `integrate_discoveries.is_comment_feed()` is the single predicate. Never add one by hand.
+
+    **A score threshold will never catch them, because they score well.** A comment
+    entry is titled `Comment on <Article Title> by <Name>`, so `score_articles_with_claude`
+    is reading the *host blog's* headlines and rating those — "Comments for Investing in
+    regenerative agriculture" scored 87.5. That number is a true statement about the blog
+    and a meaningless one about the feed, which is why the check is structural.
+
+    **The gate was correct and ran one stage too late.** It sat only in
+    `add_feeds_to_opml()`/`--heal`, so nothing reached `feeds.opml` — but
+    `feed_discovery.py` still fetched each one, spent Haiku on it, and wrote it into
+    `feed_discovery_report.json`, where the weekly report read it back as a source that
+    "warrants evaluation for inclusion". That recurred in W36, W37 and W38 of 2026 and
+    reads exactly like a repeat failure of the gate. It now also runs at the top of
+    `evaluate_candidates()` (one choke point for the OPML, Brave and Kagi paths, ahead of
+    the cache split so a stale cached score cannot smuggle one back) and in
+    `_probe_page_for_feeds()`, which drops the comment feed a WordPress post page
+    advertises beside its site feed — the site feed is on the same page, so the blog is
+    still discovered. That is how `mariaadey.com/feed/` was added in W37 while its own
+    comment feed was being recommended separately.
+
+    Two forms carry no `/comments/feed` marker and are covered by the title prefix and
+    the Blogger path respectively: WordPress serves a *per-post* comment feed at
+    `<post-slug>/feed/` (title "Comments on: …"), and Blogger uses `/feeds/comments/default`.
 
 13. **Percentile-normalized `_theme_score` cannot show charter collapse** — selection ranks *within* a theme (`normalize_theme_scores()`), so the top of a bad distribution is promoted to 90-100 no matter how poor the actual fit; the same Thursday episode showed `_theme_score` 90 for a Windows 11 performance-boost article whose raw charter score was 16. Every item therefore also carries `_theme_score_raw`, the un-rescaled charter output, and `validate_podcast_feeds.py` reports the top-10 mean against a floor.
 
