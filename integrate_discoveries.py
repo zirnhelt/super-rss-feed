@@ -65,17 +65,37 @@ def get_existing_feeds(tree: ET.ElementTree) -> set:
             existing.add(url.strip())
     return existing
 
-# WordPress publishes a parallel comment feed next to every content feed
-# (/comments/feed/, ?feed=comments-rss2). Discovery scores them like any other
-# feed because they look identical structurally, but they carry reader comments
-# rather than articles — no headline, no body, nothing scoreable — and they are
+# WordPress and Blogger publish a parallel comment feed next to every content
+# feed (/comments/feed/, ?feed=comments-rss2, /feeds/comments/default). They
+# look identical structurally, but they carry reader comments rather than
+# articles — no headline, no body, nothing scoreable — and they are
 # disproportionately WAF-blocked, so each one also costs a failed fetch and a
-# search-API fallback on every run. Reject them at the gate.
+# search-API fallback on every run.
+#
+# They score *well*, which is why a score threshold will never catch them: a
+# comment entry is titled "Comment on <Article Title> by <Name>", so the
+# scorer is reading the host blog's headlines and rating those. The score is a
+# true statement about the blog and a worthless one about the feed. Only a
+# structural check works, so this predicate is the only gate — feed_discovery
+# applies it before scoring, and the functions below apply it again before
+# anything reaches feeds.opml.
 _COMMENT_FEED_MARKERS = (
     '/comments/feed',
     '/comment-feed',
+    '/comments/default',   # Blogger, blog-level and per-post
     'feed=comments-rss2',
     'feed=comments-atom',
+)
+
+# A per-post comment feed (WordPress serves one at <post-slug>/feed/) carries no
+# marker in its URL at all. Its own <title> is the only tell. Both forms are
+# verbatim WordPress templates ("Comments for %s", "Comments on: %s") and are
+# matched as exact prefixes — a blog legitimately titled "Comments on Canadian
+# forestry policy" is a source, not a comment feed, and cutting one costs more
+# than letting a comment feed through costs.
+_COMMENT_FEED_TITLE_PREFIXES = (
+    'comments for ',
+    'comments on: ',
 )
 
 
@@ -84,7 +104,8 @@ def is_comment_feed(url: str, title: str = '') -> bool:
     lowered = (url or '').lower()
     if any(marker in lowered for marker in _COMMENT_FEED_MARKERS):
         return True
-    return (title or '').strip().lower().startswith('comments for ')
+    lowered_title = (title or '').strip().lower()
+    return lowered_title.startswith(_COMMENT_FEED_TITLE_PREFIXES)
 
 
 # ---------------------------------------------------------------------------
