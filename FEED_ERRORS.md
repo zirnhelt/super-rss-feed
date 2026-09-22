@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-21 (Monday)
+
+#### 🔧 Manual Run (9:09 PM Pacific)
+- ⚠️ **NRDC** failed — `520 Server Error: <none> for url: https://www.nrdc.org/rss.xml`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1635 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-20 (Sunday)
 
 #### 🔧 Manual Run (9:06 PM Pacific)
@@ -71,16 +82,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:10 PM Pacific)
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1430 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-13 (Sunday)
-
-#### 🔧 Manual Run (9:07 PM Pacific)
-- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1643 articles — check charter adherence, not supply
 
 
 ---
@@ -1169,6 +1170,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-09-12–2026-09-12
 - 1 issues recorded
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1598 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-13–2026-09-13
+- 1 issues recorded
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1643 articles — check charter adherence, not supply
 
 
 ---
