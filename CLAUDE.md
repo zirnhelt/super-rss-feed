@@ -133,7 +133,7 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 
 **RSS 2.0 mirrors:** a feed with `"rss": true` in `config/feeds.json` (currently `local`) also gets `feed-<category>.xml`, rendered by `generate_rss_feed()` from the finished JSON Feed dict so the two can't drift, capped at `RSS_MAX_ITEMS` (100). `<guid>` is `id` (always the publisher URL).
 
-**The podcast feeds are a contract.** `curated-podcast-generator` reads their underscore fields (`_is_bonus`, `_keyword_matches`, `_theme_score`, `_theme_score_raw`, `_excerpt`, …). Renaming or dropping one breaks the show silently.
+**The podcast feeds are a contract.** `curated-podcast-generator` reads the keys in `PODCAST_FEED_CONTRACT` and defaults any that are missing, so renaming or dropping one changes the show without an error. `tests/test_podcast_feed_contract.py` pins the list against `generate_podcast_feed()`; the podcast keeps a matching list and degrades its run on a breach. Change both lists together.
 
 ## Runtime Cache Files (root, committed by CI, mirrored to gh-pages)
 
