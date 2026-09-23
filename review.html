@@ -176,6 +176,11 @@
         }
         .exemplar-form textarea { resize: vertical; min-height: 44px; }
         .exemplar-form button { align-self: flex-start; }
+        .token-label { font-size: 0.85em; color: #667eea; font-weight: 600; }
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
 
         /* ── Loading / empty / error ── */
         .loading { text-align: center; padding: 40px; color: white; font-size: 1.05em; }
@@ -218,6 +223,16 @@
         <div class="progress-counter" id="progress-counter"></div>
     </div>
 
+    <!-- Filled from a password manager; the page keeps it only while it is open. The readonly
+         username gives 1Password a login to save and match against. -->
+    <form class="exemplar-box" id="token-box" autocomplete="on" onsubmit="return false">
+        <div class="exemplar-form">
+            <label for="gh-token" class="token-label">GitHub token (needed to save)</label>
+            <input type="text" name="username" autocomplete="username" value="super-rss-feed review" readonly class="visually-hidden" tabindex="-1" aria-hidden="true" />
+            <input type="password" id="gh-token" name="password" autocomplete="current-password" placeholder="Fill from 1Password" spellcheck="false" autocapitalize="off" />
+        </div>
+    </form>
+
     <div class="exemplar-box" id="exemplar-box">
         <h2>⭐ Add a Great Example</h2>
         <p class="subtitle">Found an article elsewhere that's a perfect example of what you want more of? Add it here — it feeds the weekly trainer as your strongest signal.</p>
@@ -255,10 +270,13 @@
 </div>
 <script>
 // ── Config ──────────────────────────────────────────────────────────────────
-const REPO_OWNER  = 'zirnhelt';
-const REPO_NAME   = 'super-rss-feed';
 const FEED_URL    = 'feed-review.json';
-const BAKED_TOKEN = (() => { const e = '__BAKED_GH_TOKEN__'; return e.startsWith('__') ? null : e.split('').reverse().join(''); })();
+// Saving writes straight to the GitHub Contents API with a token filled from a password
+// manager into the field at the top of the page. The page never stores it: a token baked
+// into this page's source was public from 2026-06-17 until it was revoked on 2026-09-23, and
+// one kept in browser storage would be readable by any script that ever ran on this origin.
+const GITHUB_CONTENTS = 'https://api.github.com/repos/zirnhelt/super-rss-feed/contents/';
+const SAVE_ATTEMPTS   = 3;
 
 // Every stratum, deliberately. Dropping 'high' and 'mid' on 2026-08-25 made the
 // review corpus a sample of near-misses and rejects only, so the audit's precision
@@ -312,10 +330,6 @@ function loadRatings() {
 // ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
     populateExemplarCategories();
-    if (!BAKED_TOKEN) {
-        showError('Token not substituted — open this page via the deployed GitHub Pages site, not directly from the repo.');
-        return;
-    }
     if (localStorage.getItem('submitted_' + todayKey) === 'true') {
         hide('loading-msg');
         showDone();
@@ -584,49 +598,85 @@ function updateProgress() {
     }
 }
 
-// ── GitHub submission ─────────────────────────────────────────────────────────
-// Merges `entries` into feedback/<today>.json by url and writes it back via the GitHub Contents API.
+// ── Submission ────────────────────────────────────────────────────────────────
+const TOKEN_REJECTED = 'GitHub rejected the token (expired, revoked, or no Contents access to super-rss-feed)';
+
+function readToken() {
+    const field = document.getElementById('gh-token');
+    const token = (field?.value || '').trim();
+    if (!token) {
+        field?.focus();
+        throw new Error('fill the GitHub token field at the top of the page, then save again');
+    }
+    return token;
+}
+
+// btoa/atob are Latin-1. Going through bytes keeps titles like "Secwépemc" intact; the old
+// writer decoded with bare atob() and turned them into mojibake on every second save of a day.
+function encodeUtf8Base64(text) {
+    const bytes = new TextEncoder().encode(text);
+    let binary = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+    return btoa(binary);
+}
+function decodeUtf8Base64(b64) {
+    const binary = atob(b64.replace(/\s/g, ''));
+    return new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(binary, c => c.charCodeAt(0)));
+}
+
+// Merges `entries` into feedback/<today>.json by url. A file that exists but cannot be read is
+// refused, never overwritten: the old writer fell back to an empty list and replaced the day's
+// earlier ratings with the new ones.
 async function saveFeedbackEntries(entries) {
-    const filePath = `feedback/${todayKey}.json`;
-    const apiBase  = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
-    const headers  = {
-        'Authorization':        `Bearer ${BAKED_TOKEN}`,
-        'Content-Type':         'application/json',
+    const token   = readToken();
+    const fileUrl = `${GITHUB_CONTENTS}feedback/${todayKey}.json`;
+    const headers = {
+        'Authorization':        `Bearer ${token}`,
         'Accept':               'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28',
     };
 
-    let sha = null;
-    let existingRatings = [];
-    const existing = await fetch(apiBase, { headers });
-    if (existing.ok) {
-        const existingData = await existing.json();
-        sha = existingData.sha;
-        try {
-            const decoded = JSON.parse(atob(existingData.content.replace(/\n/g, '')));
-            existingRatings = decoded.ratings || [];
-        } catch {}
-    }
+    for (let attempt = 1; attempt <= SAVE_ATTEMPTS; attempt++) {
+        // no-store: the API sends max-age=60, and a cached read hands back a stale sha.
+        const current = await fetch(fileUrl, { headers, cache: 'no-store' });
+        if (current.status === 401 || current.status === 403) throw new Error(TOKEN_REJECTED);
 
-    const existingByUrl = Object.fromEntries(existingRatings.map(r => [r.url, r]));
-    for (const r of entries) existingByUrl[r.url] = r;
+        let sha = null;
+        let prior = [];
+        if (current.ok) {
+            const file = await current.json();
+            try {
+                prior = JSON.parse(decodeUtf8Base64(file.content)).ratings;
+            } catch {
+                prior = null;
+            }
+            if (!file.sha || !Array.isArray(prior)) {
+                throw new Error("today's feedback file could not be read, so it was not overwritten");
+            }
+            sha = file.sha;
+        } else if (current.status !== 404) {
+            throw new Error(`GitHub read failed (HTTP ${current.status})`);
+        }
 
-    const payload = {
-        date:         todayKey,
-        submitted_at: new Date().toISOString(),
-        ratings:      Object.values(existingByUrl),
-    };
+        const merged = new Map(prior.map((r, i) => [typeof r?.url === 'string' ? r.url : `\u0000${i}`, r]));
+        for (const r of entries) merged.set(r.url, r);
+        const payload = { date: todayKey, submitted_at: new Date().toISOString(), ratings: [...merged.values()] };
 
-    const body = {
-        message: `Add review feedback ${todayKey} [skip ci]`,
-        content: btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2)))),
-        ...(sha ? { sha } : {}),
-    };
-
-    const putRes = await fetch(apiBase, { method: 'PUT', headers, body: JSON.stringify(body) });
-    if (!putRes.ok) {
-        const err = await putRes.json().catch(() => ({}));
-        throw new Error(err.message || `HTTP ${putRes.status}`);
+        const put = await fetch(fileUrl, {
+            method:  'PUT',
+            headers: { ...headers, 'Content-Type': 'application/json' },
+            body:    JSON.stringify({
+                message: `Add review feedback ${todayKey} [skip ci]`,
+                content: encodeUtf8Base64(JSON.stringify(payload, null, 2)),
+                ...(sha ? { sha } : {}),
+            }),
+        });
+        if (put.ok) return;
+        if (put.status === 401 || put.status === 403) throw new Error(TOKEN_REJECTED);
+        // 409: another save landed between the read and the write. 422: the file appeared after a 404.
+        if ((put.status === 409 || put.status === 422) && attempt < SAVE_ATTEMPTS) continue;
+        const err = await put.json().catch(() => ({}));
+        throw new Error(err.message || `HTTP ${put.status}`);
     }
 }
 
@@ -684,12 +734,6 @@ async function submitFeedback() {
 // User-submitted exemplar: an article found elsewhere that's a great example of their interests.
 async function submitExemplar() {
     const statusEl = document.getElementById('exemplar-status');
-
-    if (!BAKED_TOKEN) {
-        statusEl.className = 'status-msg error';
-        statusEl.textContent = 'Token not substituted — open this page via the deployed GitHub Pages site.';
-        return;
-    }
 
     const urlEl   = document.getElementById('exemplar-url');
     const titleEl = document.getElementById('exemplar-title');

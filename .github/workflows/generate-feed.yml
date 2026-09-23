@@ -294,12 +294,11 @@ jobs:
           # so an empty glob is not an error.
           cp feed-*.xml output/ 2>/dev/null || true
 
-          # Bake the long-lived REVIEW_PAT into review.html so the
-          # browser can write feedback to the repo. Token is reversed to avoid
-          # secret-scanning push protection.
-          REVERSED_TOKEN=$(echo -n "${{ secrets.REVIEW_PAT }}" | rev)
-          sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" review.html > output/review.html
-          sed "s|__BAKED_GH_TOKEN__|${REVERSED_TOKEN}|g" share.html > output/share.html
+          # review.html carries no credential: it asks for a token (filled from a
+          # password manager) at save time and keeps it only while the page is
+          # open. One was baked in here from 2026-06-17 until it was revoked on
+          # 2026-09-23 — never write a secret into a page.
+          cp review.html output/
           cp index.html output/
           cp curated-feeds.opml output/
 

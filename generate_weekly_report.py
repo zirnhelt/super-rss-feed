@@ -17,6 +17,7 @@ import re
 import subprocess
 import xml.etree.ElementTree as ET
 from collections import defaultdict
+from html import escape
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -550,6 +551,15 @@ def generate_narrative(
 # HTML builders
 # ---------------------------------------------------------------------------
 
+def _esc(value: object) -> str:
+    """Escape a value for the report's HTML.
+
+    The report is published on the same origin as review.html. Feed titles and error
+    text come from arbitrary third-party feeds found by search, and the narrative and
+    rationale come from a model that read them, so none of it is markup we wrote.
+    """
+    return escape(str(value), quote=True)
+
 def build_noise_signal_html(nts_benchmarks: list) -> str:
     if not nts_benchmarks:
         return ""
@@ -558,11 +568,11 @@ def build_noise_signal_html(nts_benchmarks: list) -> str:
     html += "<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>\n"
     for w in nts_benchmarks:
         html += (
-            f"<tr><td>{w.get('week_date', '?')}</td>"
-            f"<td>{w.get('mean', '?')}</td>"
-            f"<td>{w.get('min', '?')}</td>"
-            f"<td>{w.get('max', '?')}</td>"
-            f"<td>{w.get('run_count', '?')}</td></tr>\n"
+            f"<tr><td>{_esc(w.get('week_date', '?'))}</td>"
+            f"<td>{_esc(w.get('mean', '?'))}</td>"
+            f"<td>{_esc(w.get('min', '?'))}</td>"
+            f"<td>{_esc(w.get('max', '?'))}</td>"
+            f"<td>{_esc(w.get('run_count', '?'))}</td></tr>\n"
         )
     html += "</tbody></table>"
     return html
@@ -580,13 +590,13 @@ def build_content_html(
     nts_benchmarks: list,
     api_cost: dict,
 ) -> str:
-    parts = [f"<p>{p.strip()}</p>" for p in narrative.split("\n\n") if p.strip()]
+    parts = [f"<p>{_esc(p.strip())}</p>" for p in narrative.split("\n\n") if p.strip()]
     html = "\n".join(parts)
 
     if new_feeds:
         html += "\n<h3>New Feeds This Week</h3>\n<ul>\n"
         for feed in new_feeds:
-            html += f"  <li>{feed['title']}</li>\n"
+            html += f"  <li>{_esc(feed['title'])}</li>\n"
         html += "</ul>"
 
     cat_totals = stats.get("cat_totals", {})
@@ -596,19 +606,19 @@ def build_content_html(
         for cat in CATEGORY_ORDER:
             count = cat_totals.get(cat, 0)
             if count:
-                html += f"<tr><td>{cat}</td><td>{count}</td></tr>\n"
+                html += f"<tr><td>{_esc(cat)}</td><td>{_esc(count)}</td></tr>\n"
         html += "</tbody></table>"
 
     if errors:
         html += "\n<h3>Feed Issues</h3>\n<ul>\n"
         for err in errors[:5]:
-            html += f"  <li><strong>{err['feed']}</strong>: {err['error']}</li>\n"
+            html += f"  <li><strong>{_esc(err['feed'])}</strong>: {_esc(err['error'])}</li>\n"
         html += "</ul>"
 
     if discovery:
         html += "\n<h3>Discovery Highlights</h3>\n<ul>\n"
         for d in discovery:
-            html += f"  <li>{d['title']} (score: {d['score']})</li>\n"
+            html += f"  <li>{_esc(d['title'])} (score: {_esc(d['score'])})</li>\n"
         html += "</ul>"
 
     html += build_noise_signal_html(nts_benchmarks)
@@ -644,9 +654,9 @@ def build_quality_review_html(quality_review: dict) -> str:
         html += "<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>\n"
         for feed in scrub.get("feeds", {}).values():
             html += (
-                f"<tr><td>{feed['title']}</td><td>{feed['count']}</td>"
-                f"<td>{feed['avg_score']}</td><td>{feed['stale_count']}</td>"
-                f"<td>{feed['top_source']} ({feed['top_source_pct']}%)</td></tr>\n"
+                f"<tr><td>{_esc(feed['title'])}</td><td>{_esc(feed['count'])}</td>"
+                f"<td>{_esc(feed['avg_score'])}</td><td>{_esc(feed['stale_count'])}</td>"
+                f"<td>{_esc(feed['top_source'])} ({_esc(feed['top_source_pct'])}%)</td></tr>\n"
             )
         html += "</tbody></table>"
 
@@ -669,7 +679,7 @@ def build_quality_review_html(quality_review: dict) -> str:
                 f"{ct}: {n}"
                 for ct, n in sorted(alignment["content_type_breakdown"].items(), key=lambda x: -x[1])
             )
-            html += f"<p>Content type breakdown: {ct_text}.</p>\n"
+            html += f"<p>Content type breakdown: {_esc(ct_text)}.</p>\n"
 
     if feedback_audit:
         counts = feedback_audit.get("counts", {})
@@ -678,7 +688,7 @@ def build_quality_review_html(quality_review: dict) -> str:
         html += "\n<h3>User Feedback Audit</h3>\n"
         html += (
             f"<p>{feedback_audit.get('total_rated', 0)} articles rated "
-            f"({window.get('first', '?')} → {window.get('last', '?')}): "
+            f"({_esc(window.get('first', '?'))} → {_esc(window.get('last', '?'))}): "
             f"{counts.get('good', 0)} good, {counts.get('interesting', 0)} interesting, "
             f"{counts.get('bad', 0)} bad ({feedback_audit.get('bad_pct', 0)}% bad). "
             f"Theme-day corrections: {routing.get('corrections', 0)} of "
@@ -694,8 +704,8 @@ def build_quality_review_html(quality_review: dict) -> str:
             html += "<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>\n"
             for band in bands:
                 html += (
-                    f"<tr><td>{band.get('band')}</td><td>{band.get('n')}</td>"
-                    f"<td>{band.get('good_pct')}</td><td>{band.get('bad_pct')}</td></tr>\n"
+                    f"<tr><td>{_esc(band.get('band'))}</td><td>{_esc(band.get('n'))}</td>"
+                    f"<td>{_esc(band.get('good_pct'))}</td><td>{_esc(band.get('bad_pct'))}</td></tr>\n"
                 )
             html += "</tbody></table>"
 
@@ -710,8 +720,8 @@ def build_calibration_html(calibration_changes: list) -> str:
     html += "<table><thead><tr><th>Knob</th><th>Old</th><th>New</th><th>Rationale</th></tr></thead><tbody>\n"
     for c in calibration_changes:
         html += (
-            f"<tr><td>{c.get('knob', '?')}</td><td>{c.get('old_value')}</td>"
-            f"<td>{c.get('new_value')}</td><td>{c.get('rationale', '')}</td></tr>\n"
+            f"<tr><td>{_esc(c.get('knob', '?'))}</td><td>{_esc(c.get('old_value'))}</td>"
+            f"<td>{_esc(c.get('new_value'))}</td><td>{_esc(c.get('rationale', ''))}</td></tr>\n"
         )
     html += "</tbody></table>"
     return html
@@ -749,7 +759,7 @@ def build_api_cost_html(api_cost: dict) -> str:
             rate_str = f"${rate:.4f}/call" if rate else "free"
             cost_str = f"${calls * rate:.4f}" if rate else "$0"
         html += (
-            f"<tr><td>{vendor.title()}</td><td>{calls:,}</td>"
+            f"<tr><td>{_esc(vendor.title())}</td><td>{calls:,}</td>"
             f"<td>{avg}</td><td>{rate_str}</td><td>{cost_str}</td></tr>\n"
         )
     html += "</tbody></table>"
@@ -767,13 +777,13 @@ def build_actions_html(actions: list) -> str:
     for a in actions:
         if a.get("commit"):
             commit_cell = (
-                f'<a href="{GITHUB_REPO_URL}/commit/{a["commit"]}"><code>{a["commit"]}</code></a>'
-                f' (<code>git revert {a["commit"]}</code> to undo)'
+                f'<a href="{GITHUB_REPO_URL}/commit/{_esc(a["commit"])}"><code>{_esc(a["commit"])}</code></a>'
+                f' (<code>git revert {_esc(a["commit"])}</code> to undo)'
             )
         else:
             commit_cell = "—"
         html += (
-            f"<tr><td>{a['component']}</td><td>{a['action']}</td><td>{commit_cell}</td></tr>\n"
+            f"<tr><td>{_esc(a['component'])}</td><td>{_esc(a['action'])}</td><td>{commit_cell}</td></tr>\n"
         )
     html += "</tbody></table>"
     return html
