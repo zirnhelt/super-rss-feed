@@ -4777,6 +4777,19 @@ def bank_articles_for_all_themes(
     return dict(newly_banked)
 
 
+# What curated-podcast-generator reads from feed-podcast-{day}.json. Its own copy
+# (FEED_CONTRACT_ITEM_FIELDS / FEED_CONTRACT_FEED_FIELDS in podcast_generator.py)
+# degrades the show's run when a key goes missing; this one is pinned against the
+# literals below by tests/test_podcast_feed_contract.py, so a rename fails CI here
+# first. Every read on that side defaults a missing key, so nothing else would
+# notice: without `_is_bonus` every article reads as on-theme.
+PODCAST_FEED_CONTRACT = {
+    "items": ("id", "url", "title", "summary", "date_published", "authors", "ai_score",
+              "_excerpt", "_is_bonus", "_keyword_matches", "_theme_score", "_theme_score_raw"),
+    "_podcast": ("theme", "theme_description"),
+}
+
+
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
                           reserved_urls: set = None) -> Tuple[set, Optional[Dict]]:
     """Generate a themed podcast feed from weekly cached articles.
