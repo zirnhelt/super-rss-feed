@@ -207,21 +207,22 @@ def validate_config() -> Dict[str, List[str]]:
             elif not all(isinstance(x, str) for x in filters[key]):
                 errors.setdefault('filters.json', []).append(f"{key} must contain only strings")
         # Optional lists: blocked_keywords_unless_local, local_signals, blocked_title_patterns,
-        # us_policy_signals, canadian_context_signals
+        # blocked_url_path_patterns, us_policy_signals, canadian_context_signals
         for key in ['blocked_keywords_unless_local', 'local_signals', 'blocked_title_patterns',
-                    'us_policy_signals', 'canadian_context_signals']:
+                    'blocked_url_path_patterns', 'us_policy_signals', 'canadian_context_signals']:
             if key in filters:
                 if not isinstance(filters[key], list):
                     errors.setdefault('filters.json', []).append(f"{key} must be list")
                 elif not all(isinstance(x, str) for x in filters[key]):
                     errors.setdefault('filters.json', []).append(f"{key} must contain only strings")
-        # blocked_title_patterns must be valid regexes — fail here rather than mid-pipeline
-        for pattern in filters.get('blocked_title_patterns', []):
-            if isinstance(pattern, str):
-                try:
-                    re.compile(pattern)
-                except re.error as e:
-                    errors.setdefault('filters.json', []).append(f"Invalid regex in blocked_title_patterns: {pattern!r} ({e})")
+        # Pattern lists must be valid regexes — fail here rather than mid-pipeline
+        for key in ('blocked_title_patterns', 'blocked_url_path_patterns'):
+            for pattern in filters.get(key, []):
+                if isinstance(pattern, str):
+                    try:
+                        re.compile(pattern)
+                    except re.error as e:
+                        errors.setdefault('filters.json', []).append(f"Invalid regex in {key}: {pattern!r} ({e})")
                 
     except Exception as e:
         errors['filters.json'] = [f"Failed to load: {str(e)}"]

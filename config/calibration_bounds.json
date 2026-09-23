@@ -197,7 +197,8 @@
     },
     "feed_slots.max_slots.news": {
       "file": "config/feed_slots.json", "path": ["news", "max_slots"],
-      "type": "int", "min": 5, "max": 25, "max_step": 3, "default": 25
+      "type": "int", "min": 5, "max": 15, "max_step": 3, "default": 10,
+      "_note": "Capped at 15 on 2026-09-23: in September news was 18% positive among shipped items the reader rated, against 50-92% for every other category."
     }
   },
 

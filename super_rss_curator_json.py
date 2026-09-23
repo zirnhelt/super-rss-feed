@@ -152,7 +152,10 @@ def _is_general_crime_story(title: str, description: str, category: str = None) 
     title_l = (title or '').lower()
     full_l = f"{title_l} {(description or '').lower()}"
 
-    if _crime_hit_count(full_l, exempt):
+    # "Local Journalism Initiative" is a reporter-funding byline, not a press-freedom
+    # story. Left in, it matched the `journalism` exemption and cleared a Quesnel jail
+    # story that led the 2026-09-22 roundup.
+    if _crime_hit_count(full_l.replace('local journalism initiative', ' '), exempt):
         return False
     if _crime_hit_count(title_l, unambiguous):
         return True
@@ -918,6 +921,17 @@ class Article:
         # "15 best ice cream makers..."). Patterns match anywhere in the title.
         title_lower = self.title.lower()
         if any(re.search(pattern, title_lower) for pattern in FILTERS.get('blocked_title_patterns', [])):
+            return True
+
+        # A homepage or section front is not an article ("Macleans.ca - Canada's magazine"),
+        # and a story filed under a sports section is sports whatever its headline says.
+        # Both are free to catch here and were reaching the paid gate. A bare path with a
+        # query string is kept: WordPress serves real posts at /?p=123.
+        parsed_link = urlparse(self.link or '')
+        if parsed_link.path in ('', '/') and not parsed_link.query:
+            return True
+        link_path = parsed_link.path.lower()
+        if any(re.search(pattern, link_path) for pattern in FILTERS.get('blocked_url_path_patterns', [])):
             return True
 
         # Arts/entertainment keywords are skipped when article mentions local places
@@ -2893,10 +2907,21 @@ Alongside the score, flag any article whose PRIMARY subject is one of:
 - Sports: game scores/recaps, drafts, trades, player stats, sports leagues
   (NFL, NBA, NHL, MLB, CFL, MLS, UFC, MMA, FIFA, PGA, NASCAR, Premier League,
   Champions League, World Cup, Olympics, Super Bowl), tournaments, championships,
-  playoff coverage, athlete profiles focused on sport performance
+  playoff coverage, season previews, team rosters and schedules, athlete profiles
+  focused on sport performance
 - Celebrity gossip: tabloid content, paparazzi, red carpet, award show results,
   celebrity relationships/feuds
 - Deals/promotions: promo codes, coupons, flash sales, best-deals roundups
+- Product reviews and buying guides: a review of one consumer product (phone,
+  headphones, TV, car, charger), "best X" guides, ranked lists of products or
+  destinations, price-drop posts. KEEP hands-on technical depth: teardowns,
+  repairs, builds, measured testing.
+- US domestic politics: partisan politics, elections and campaigns, Congress and
+  White House fights, US political figures, immigration enforcement, and US
+  health-policy or culture-war battles (vaccine politics, Medicare/Medicaid
+  administration). KEEP a US story whose primary subject applies beyond the US
+  (how AI or platforms can be regulated at all, a scientific finding) or that has
+  a direct Canadian effect (tariffs, softwood lumber, the border, shared water).
 - Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
 - Fluffy AI/tech (ONLY for articles tagged ai-tech or homelab): pure
   funding/valuation announcements ('raises $X million', 'valued at $Y billion',
