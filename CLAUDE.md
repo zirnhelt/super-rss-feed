@@ -91,7 +91,7 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 
 | File | Purpose |
 |------|---------|
-| `system.json` | Cache file paths, cache TTLs, base URLs, `lookback_hours` (default 48). |
+| `system.json` | Cache file paths, cache TTLs, base URLs, `lookback_hours` (default 48), `kagi_news` and `topic_queries` on/off switches. |
 | `limits.json` | Feed sizes, retention days, per-source caps, score thresholds, dedup parameters, batch sizes. **Tunable by calibration agent.** |
 | `filters.json` | `blocked_sources`, `blocked_keywords`, `blocked_keywords_unless_local`, `local_signals`. |
 | `categories.json` | Category definitions: name, emoji, description. |
@@ -291,7 +291,7 @@ The pipeline runs in this order. Understand it before touching any stage:
 
 1. **Fetch** — `feedparser` pulls all OPML feeds (last 48 h). Google News proxy URLs are unwrapped. `FeedHTTPCache` handles conditional GET (ETag/Last-Modified) and remembers per-feed failures across runs. Failures escalate through **free** recovery before paid: a 403 gets one retry under a feed-reader User-Agent (`_FEED_READER_UA`), a 404/410 gets `_discover_feed_url()` — `<link rel="alternate">` autodiscovery plus conventional paths, adopting a candidate only if it parses as a feed *with entries* — and the result is cached as `resolved_url` so later runs go direct. Only then do 403/404/421/500/timeout/DNS failures fall back to Brave Search → Kagi → Google News RSS (the last is keyless and runs even when `USE_SEARCH_APIS` is off). Feeds with ≥3 consecutive failures skip Brave and Kagi entirely (free fallback only), and unrecoverable failures (dead DNS, un-rediscoverable 404) back off polling on a 6 h/24 h/72 h ladder.
 2. **WLT scrape** — BeautifulSoup scrapes Williams Lake Tribune directly.
-3. **Topic news** — Brave News API + Kagi queries from `config/topic_queries.json` (only when `USE_SEARCH_APIS=true`).
+3. **Topic news** — Brave News API + Kagi queries from `config/topic_queries.json` (only when `USE_SEARCH_APIS=true` **and** `system.json` → `topic_queries.enabled`). **Off since 2026-09-23 as a two-week trial; review 2026-10-07.** The 45 queries were ~47 Brave calls a night — about half the traffic on a Brave Search key the podcast shares, whose cap is the podcast's research budget too — and supplied 1 of 467 category-feed items and 15 of 569 podcast-feed items. The curator prints `Topic queries: disabled` and `FEED_LOG.md` shows it, so the switch cannot read as a quiet week. Feed-recovery searches for failing feeds (step 1) are separate and still run.
 4. **Filter** — blocks sources and keywords from `config/filters.json`; `blocked_keywords_unless_local` allows local override.
 5. **Prescore gate** — high-volume aggregator sources (e.g. Kagi Small Web) must match at least one keyword from `PRESCORE_KEYWORDS` before reaching paid scoring.
 6. **Deduplicate** — URL hash → fuzzy title (`SequenceMatcher`, threshold `dedup_fuzzy_threshold`) → term-set containment. Source priority: local > print > broadcast. + Cohere cosine similarity pass when enabled.
