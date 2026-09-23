@@ -28,6 +28,7 @@ GENERATED_PATTERNS=(
   '*_cache.json'
   'calibration_memory/*'
   'article_review_audit_summary.json'
+  'feedback/standing_proposals.json'
   'weekly-state-article.json'
   'FEED_LOG.md'
   'FEED_ERRORS.md'

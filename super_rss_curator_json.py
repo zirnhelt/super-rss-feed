@@ -2765,7 +2765,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
 # scoring — two calls answering the same "is this the kind of thing we cover?"
 # question, on two different floors, free to disagree. Asking once is cheaper and
 # cannot contradict itself.
-GATE_REJECT_RUBRIC = """
+_GATE_REJECT_RUBRIC_TEMPLATE = """
 
 --- UNWANTED SUBJECTS ---
 Alongside the score, flag any article whose PRIMARY subject is one of:
@@ -2777,17 +2777,7 @@ Alongside the score, flag any article whose PRIMARY subject is one of:
 - Celebrity gossip: tabloid content, paparazzi, red carpet, award show results,
   celebrity relationships/feuds
 - Deals/promotions: promo codes, coupons, flash sales, best-deals roundups
-- Product reviews and buying guides: a review of one consumer product (phone,
-  headphones, TV, car, charger), "best X" guides, ranked lists of products or
-  destinations, price-drop posts. KEEP hands-on technical depth: teardowns,
-  repairs, builds, measured testing.
-- US domestic politics: partisan politics, elections and campaigns, Congress and
-  White House fights, US political figures, immigration enforcement, and US
-  health-policy or culture-war battles (vaccine politics, Medicare/Medicaid
-  administration). KEEP a US story whose primary subject applies beyond the US
-  (how AI or platforms can be regulated at all, a scientific finding) or that has
-  a direct Canadian effect (tariffs, softwood lumber, the border, shared water).
-- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
+{standing_preferences}- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
 - Fluffy AI/tech (ONLY for articles tagged ai-tech or homelab): pure
   funding/valuation announcements ('raises $X million', 'valued at $Y billion',
   'goes public'), product launch press releases with no hands-on content, AI
@@ -2806,6 +2796,23 @@ FLAG local articles whose primary subject is a sports game, score, result, draft
 trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
 KEEP ai-tech articles with hands-on content, research findings or practical guides.
 """
+
+
+def build_gate_reject_rubric(standing: Optional[List[str]] = None) -> str:
+    """The reject rubric with the reader's standing preferences in its subject list.
+
+    The pipeline owns the structural subjects above; the reader owns the lines in
+    config/standing_preferences.txt, which sit in the same list so the gate weighs
+    them exactly like the built-in ones. They ride in the cached system block, so a
+    preference costs no extra call.
+    """
+    if standing is None:
+        standing = config_loader.load_standing_preferences()
+    bullets = ''.join(f"- {line}\n" for line in standing)
+    return _GATE_REJECT_RUBRIC_TEMPLATE.replace('{standing_preferences}', bullets)
+
+
+GATE_REJECT_RUBRIC = build_gate_reject_rubric()
 
 
 def score_quality_gate(articles: List[Article], api_key: str) -> None:

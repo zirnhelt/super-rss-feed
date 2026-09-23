@@ -59,6 +59,18 @@ def load_quality_charter() -> str:
     """Load the interest-independent newsworthiness rubric (quality gate + theme prompts)."""
     return (CONFIG_DIR / "quality_charter.txt").read_text()
 
+def load_standing_preferences() -> List[str]:
+    """The reader's standing reject rules, one per non-comment line.
+
+    Missing file means no preferences, never a failed run: the gate still applies
+    its built-in subjects.
+    """
+    path = CONFIG_DIR / "standing_preferences.txt"
+    if not path.exists():
+        return []
+    return [line.strip() for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")]
+
 def load_podcast_schedule_config() -> Dict:
     """Load podcast schedule configuration (themed feed routing/scoring)."""
     with open(CONFIG_DIR / "podcast_schedule.json", 'r') as f:
@@ -244,6 +256,10 @@ def validate_config() -> Dict[str, List[str]]:
     except Exception as e:
         errors['feeds.json'] = [f"Failed to load: {str(e)}"]
     
+    standing = load_standing_preferences()
+    if len(standing) != len(set(standing)):
+        errors['standing_preferences.txt'] = ["Duplicate lines"]
+
     for name, loader in [('news_interests.txt', load_news_interests),
                          ('quality_charter.txt', load_quality_charter)]:
         try:

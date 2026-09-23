@@ -42,6 +42,10 @@ on:
         description: 'Feedback archive: report only, do not move or delete files'
         type: boolean
         default: false
+      run_standing_preferences:
+        description: 'Propose standing preferences from rating notes (opens a PR for you to merge or close)'
+        type: boolean
+        default: true
       run_quality_review:
         description: 'Run quality review (score/scrub + corpus alignment reports)'
         type: boolean
@@ -268,6 +272,71 @@ jobs:
           git diff --cached --quiet || git commit -m "Weekly feedback training run [skip ci]"
           bash .github/scripts/git_push_retry.sh main
         continue-on-error: true
+
+  # Rating notes -> proposed standing preferences, as a PR the reader merges or
+  # closes. Never auto-merged: config/standing_preferences.txt is the reader's.
+  # One proposal PR at a time — a second run would replace a pending PR's branch
+  # and lose proposals the ledger already counts as made.
+  standing-preferences:
+    name: Standing Preferences
+    needs: feedback-training
+    if: always() && (github.event_name == 'schedule' || inputs.run_standing_preferences)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Skip while a proposal PR is open
+        id: pending
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          open=$(gh pr list --head standing-preferences --state open --json number --jq 'length')
+          echo "open=${open}" >> "$GITHUB_OUTPUT"
+          if [ "${open}" != "0" ]; then echo "::notice::A standing-preferences PR is still open; merge or close it first."; fi
+
+      - name: Set up Python
+        if: steps.pending.outputs.open == '0'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        if: steps.pending.outputs.open == '0'
+        run: pip install -r requirements.txt
+
+      - name: Propose standing preferences
+        id: propose
+        if: steps.pending.outputs.open == '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python standing_preferences.py
+          if [ -f standing_preferences_pr.md ]; then echo "proposed=1" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Record proposals on main
+        if: steps.pending.outputs.open == '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add feedback/standing_proposals.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Record standing-preference proposals [skip ci]"
+          bash .github/scripts/git_push_retry.sh main
+
+      - name: Open the proposal PR
+        if: steps.propose.outputs.proposed == '1'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: config/standing_preferences.txt
+          commit-message: 'Propose standing preferences from rating notes'
+          title: 'Standing preferences: new proposals from your rating notes'
+          body-path: standing_preferences_pr.md
+          branch: standing-preferences
+          delete-branch: true
 
   quality-review:
     name: Quality Review
