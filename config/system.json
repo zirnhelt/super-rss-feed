@@ -16,6 +16,10 @@
     "super_rss_base": "https://zirnhelt.github.io/super-rss-feed"
   },
   "lookback_hours": 48,
+  "topic_queries": {
+    "enabled": false,
+    "_note": "Off from 2026-09-23 as a two-week trial; review on 2026-10-07. The 45 queries in topic_queries.json cost ~47 Brave calls a night on a Search key the podcast shares, and on 2026-09-23 had supplied 1 of 467 category-feed items and 15 of 569 podcast-feed items. Set true to restore. Feed-recovery searches for failing feeds are unaffected."
+  },
   "kagi_news": {
     "enabled": true,
     "base_url": "https://kite.kagi.com",

@@ -434,6 +434,12 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     if os.environ.get('USE_SEARCH_APIS', 'true').lower() != 'true':
         return []
 
+    # Printed, not silent: a source channel that is switched off reads exactly
+    # like a quiet week (see USE_SEARCH_APIS in CLAUDE.md).
+    if not SYSTEM.get('topic_queries', {}).get('enabled', True):
+        print("  🔍 Topic queries: disabled (config/system.json topic_queries.enabled)")
+        return []
+
     queries = _load_topic_queries()
     if not queries:
         return []

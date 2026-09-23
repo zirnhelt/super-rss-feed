@@ -84,6 +84,7 @@ def parse_output(text: str) -> dict:
         'images_total':     None,
         'topic_query_articles': None,
         'topic_query_count':    None,
+        'topic_queries_disabled': False,
         'api_calls':        {},
         'api_tokens':       None,
         'api_cost':         None,
@@ -106,6 +107,8 @@ def parse_output(text: str) -> dict:
             m['after_dedup'] = grab(r'After dedup:\s*(\d+)')
 
         # "🔍 Topic queries: 87 articles from 39 queries (Brave=on, Kagi=on)"
+        if 'Topic queries: disabled' in line:
+            m['topic_queries_disabled'] = True
         if m['topic_query_articles'] is None:
             hit = re.search(r'Topic queries:\s*(\d+) articles from (\d+) queries', line)
             if hit:
@@ -220,7 +223,9 @@ def format_run_section(slot: str, metrics: dict, pac_time: datetime = None) -> s
         lines.append(f'- Images: {metrics["images_found"]}/{metrics["images_total"]}')
 
     # Topic queries (Brave/Kagi)
-    if metrics['topic_query_articles'] is not None:
+    if metrics.get('topic_queries_disabled'):
+        lines.append('- Topic queries: **disabled** (config/system.json)')
+    elif metrics['topic_query_articles'] is not None:
         lines.append(f'- Topic queries: {metrics["topic_query_articles"]} articles '
                       f'from {metrics["topic_query_count"]} queries')
 
