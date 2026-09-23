@@ -1,0 +1,17 @@
+# Standing reader preferences — yours, applied on every run.
+#
+# Each line that does not start with '#' is a subject you never want to see. The
+# quality gate adds these lines to its reject rubric (the same Haiku call it already
+# makes, so they cost nothing extra). A matching article is dropped from every
+# category feed and from the podcast pool.
+#
+# Write a line as "<Subject>: <what it covers>. KEEP <the exception>." A line with no
+# KEEP clause is applied broadly.
+#
+# Every Sunday, standing_preferences.py reads the notes on your "bad" ratings and, when
+# at least two share a subject nothing here covers, opens a pull request proposing a
+# line. Merging it adopts the line. Closing it declines it, and it will not be proposed
+# again. Edit or delete any line by hand at any time.
+
+Product reviews and buying guides: a review of one consumer product (phone, headphones, TV, car, charger), "best X" guides, ranked lists of products or destinations, price-drop posts. KEEP hands-on technical depth: teardowns, repairs, builds, measured testing.
+US domestic politics: partisan politics, elections and campaigns, Congress and White House fights, US political figures, immigration enforcement, and US health-policy or culture-war battles (vaccine politics, Medicare/Medicaid administration). KEEP a US story whose primary subject applies beyond the US (how AI or platforms can be regulated at all, a scientific finding) or that has a direct Canadian effect (tariffs, softwood lumber, the border, shared water).

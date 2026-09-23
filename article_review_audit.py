@@ -482,7 +482,7 @@ def feed_item_counts() -> Dict[str, int]:
 
 def filler_trend() -> List[Dict[str, Any]]:
     trend = []
-    for path in sorted(BASE_DIR.glob('CORPUS_ALIGNMENT_REPORT_*.md')):
+    for path in sorted((BASE_DIR / 'reports').glob('CORPUS_ALIGNMENT_REPORT_*.md')):
         m_date = re.search(r'(\d{4}-\d{2}-\d{2})', path.name)
         try:
             text = path.read_text(encoding='utf-8')
@@ -806,7 +806,7 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description='Audit user review ratings vs. pipeline behaviour (offline).')
-    default_output = f"ARTICLE_REVIEW_AUDIT_{datetime.now(timezone.utc).strftime('%Y-%m-%d')}.md"
+    default_output = f"reports/ARTICLE_REVIEW_AUDIT_{datetime.now(timezone.utc).strftime('%Y-%m-%d')}.md"
     parser.add_argument('--output', default=default_output, help='Markdown report path')
     parser.add_argument('--json-summary', default=None, help='Optional compact JSON summary path')
     args = parser.parse_args()
@@ -817,6 +817,7 @@ def main() -> None:
         return
 
     report = build_report(audit)
+    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     with open(args.output, 'w', encoding='utf-8') as f:
         f.write(report)
     print(f"✅ Audit report written to {args.output} "

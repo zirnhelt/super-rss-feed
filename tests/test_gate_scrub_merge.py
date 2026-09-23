@@ -156,7 +156,7 @@ def test_gated_scoring_composes_with_the_scrub_and_the_allocator(monkeypatch, tm
     monkeypatch.setattr(m, 'LIMITS', dict(m.LIMITS, quality_gate={'gate_floor': 25, 'batch_size': 30},
                                           min_claude_score=25, min_score_by_category={'news': 20}))
 
-    m.score_articles_gated(arts, 'test-key', {})
+    m.score_articles_gated(arts, 'test-key')
     assert len(client.calls) == 1, 'the gate is the only call in this path'
 
     kept, stats = m.scrub_feed_with_haiku(arts, 'test-key')

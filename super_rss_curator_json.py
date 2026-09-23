@@ -209,33 +209,6 @@ SCORING_MODIFIERS = config_loader.load_scoring_modifiers() or {
 FEED_SLOTS = config_loader.load_feed_slots_config()
 
 # ════════════════════════════════════════════════════════════════════════════════
-# Hybrid Scoring Configuration
-# ════════════════════════════════════════════════════════════════════════════════
-
-def load_scoring_mode_config() -> Dict:
-    """Load hybrid scoring configuration."""
-    path = CONFIG_DIR / "scoring_mode.json"
-    
-    defaults = {
-        "mode": "cohere-only",
-        "cohere_rerank_all": True,
-        "claude_depth_threshold": 0.70,
-        "claude_top_percent": 0.30,
-    }
-    
-    if path.exists():
-        try:
-            config = json.load(open(path))
-            result = {**defaults, **config}
-            print(f"  📋 Loaded scoring mode: {result['mode']}")
-            return result
-        except Exception as e:
-            print(f"  ⚠️ Failed to load scoring config: {e}, using defaults")
-            return defaults
-    
-    return defaults
-
-# ════════════════════════════════════════════════════════════════════════════════
 
 def _build_prescore_keywords() -> frozenset:
     """Union of all category include-keywords plus local signals.
@@ -435,7 +408,7 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
         return []
 
     # Printed, not silent: a source channel that is switched off reads exactly
-    # like a quiet week (see USE_SEARCH_APIS in CLAUDE.md).
+    # like a quiet week (see USE_SEARCH_APIS in docs/decisions/scheduling-and-ci.md).
     if not SYSTEM.get('topic_queries', {}).get('enabled', True):
         print("  🔍 Topic queries: disabled (config/system.json topic_queries.enabled)")
         return []
@@ -2773,132 +2746,18 @@ def semantic_dedup_articles(articles: List[Article]) -> List[Article]:
     return articles
 
 
-def score_articles_with_cohere(articles: List[Article]) -> List[Article]:
-    """Score and categorize articles using Cohere Rerank + embedding story clustering.
-
-    Drop-in replacement for score_articles_with_claude() when COHERE_API_KEY is set.
-    Uses the same scored_articles_cache so switching back to Claude on subsequent
-    runs is safe (cache entries include score, category, and a null story_group).
-    """
-    if not articles:
-        return []
-
-    cache = _scored_cache.load()
-
-    try:
-        interests = config_loader.load_news_interests().strip()
-    except Exception:
-        interests = "Technology, science, climate, local news"
-
-    scored_articles: List[Article] = []
-    uncached: List[Article] = []
-
-    for article in articles:
-        if article.url_hash in cache:
-            entry = cache[article.url_hash]
-            # Extract score: entry['score'] is a tuple (int, str), get first element
-            score_tuple = entry['score']
-            score_val = score_tuple[0] if isinstance(score_tuple, tuple) else score_tuple
-            article.score = int(score_val) if score_val else 0
-            article.category = entry['category']
-            # Synthesize Q/R/L from composite score — Cohere has no dimensional breakdown.
-            # Using score as a proxy keeps calibration histograms populated without
-            # changing apply_dimension_adjustments behaviour (cohere_scored=True bypasses
-            # the composite recompute there).
-            article.quality = int(score_val) if score_val else 0
-            article.relevance = int(score_val) if score_val else 0
-            article.local = entry.get('local', 0)
-            article.content_type = entry.get('content_type')
-            article.story_group = entry.get('story_group')
-            article.cohere_scored = True
-            scored_articles.append(article)
-        else:
-            uncached.append(article)
-
-    if uncached:
-        print(f"\n🔮 Scoring {len(uncached)} new articles with Cohere Rerank...")
-        print(f"   (using cache for {len(scored_articles)} articles)")
-
-        rerank_scores = cohere_integration.score_with_rerank(uncached, interests)
-        timestamp = datetime.now(timezone.utc).timestamp()
-
-        for article in uncached:
-            score, _ = rerank_scores.get(article.url_hash, (50, ''))
-            article.score = score
-            article.quality = score   # synthesized: Q/R set to composite as best proxy
-            article.relevance = score
-            article.local = 0
-            article.cohere_scored = True
-            article.category = categorize_article(article.title, article.description) or 'news'
-            cache[article.url_hash] = {
-                'score': article.score,
-                'quality': article.quality,
-                'relevance': article.relevance,
-                'local': article.local,
-                'category': article.category,
-                'story_group': None,
-                'timestamp': timestamp,
-            }
-            scored_articles.append(article)
-
-    _scored_cache.save(cache)
-
-    # Assign story groups only for newly-scored articles. Cached articles restore
-    # their story_group from the cache entry above (story_group: None means no
-    # cluster was found last time, which is fine). Embedding only the uncached
-    # subset avoids re-embedding the full ~500-article set every run.
-    if uncached:
-        print(f"   🔗 Clustering story groups for {len(uncached)} new articles...")
-        embeddings = cohere_integration.embed_articles(uncached)
-        cohere_integration.cluster_story_groups(uncached, embeddings)
-        # Persist the newly-assigned story_group labels back to the cache.
-        updated_cache = _scored_cache.load()
-        for article in uncached:
-            if article.url_hash in updated_cache and article.story_group:
-                updated_cache[article.url_hash]['story_group'] = article.story_group
-        _scored_cache.save(updated_cache)
-
-    return scored_articles
-
-
 # ════════════════════════════════════════════════════════════════════════════════
-# Hybrid Scoring: Cohere + Claude
+# Scoring entry point
 # ════════════════════════════════════════════════════════════════════════════════
 
 def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Article]:
-    """
-    Score articles using configured mode: pure Cohere, hybrid, or pure Claude.
-    
-    Dispatches to the appropriate scoring strategy based on config.
-    """
-    config = load_scoring_mode_config()
-    mode = config.get("mode", "cohere-only")
-    
-    if mode == "cohere-only":
-        # Pure Cohere path (existing behavior)
-        if cohere_integration.is_enabled():
-            return score_articles_with_cohere(articles)
-        else:
-            # Fallback if no Cohere API key
-            return score_articles_with_claude_pure(articles, api_key)
-    
-    elif mode == "gated":
-        # Absolute quality gate + interest-ranked deep scoring
-        return score_articles_gated(articles, api_key, config)
+    """Score articles: absolute quality gate, then interest-ranked deep scoring.
 
-    elif mode == "hybrid":
-        # Hybrid Cohere + Claude (legacy rank-percentile eligibility; kept for rollback)
-        return score_articles_hybrid(articles, api_key, config)
-
-    elif mode == "claude-only":
-        # Pure Claude (fallback for testing)
-        return score_articles_with_claude_pure(articles, api_key)
-    
-    else:
-        print(f"  ⚠️ Unknown scoring mode: {mode}, using cohere-only")
-        if cohere_integration.is_enabled():
-            return score_articles_with_cohere(articles)
-        return score_articles_with_claude_pure(articles, api_key)
+    The hybrid, cohere-only and claude-only modes selectable through
+    config/scoring_mode.json were kept for rollback from 2026-07-26 and removed
+    on 2026-09-23; git history has them.
+    """
+    return score_articles_gated(articles, api_key)
 
 
 # The topical-reject rubric the gate applies alongside its 0-100 score. This used
@@ -2906,7 +2765,7 @@ def score_articles_with_claude(articles: List[Article], api_key: str) -> List[Ar
 # scoring — two calls answering the same "is this the kind of thing we cover?"
 # question, on two different floors, free to disagree. Asking once is cheaper and
 # cannot contradict itself.
-GATE_REJECT_RUBRIC = """
+_GATE_REJECT_RUBRIC_TEMPLATE = """
 
 --- UNWANTED SUBJECTS ---
 Alongside the score, flag any article whose PRIMARY subject is one of:
@@ -2918,17 +2777,7 @@ Alongside the score, flag any article whose PRIMARY subject is one of:
 - Celebrity gossip: tabloid content, paparazzi, red carpet, award show results,
   celebrity relationships/feuds
 - Deals/promotions: promo codes, coupons, flash sales, best-deals roundups
-- Product reviews and buying guides: a review of one consumer product (phone,
-  headphones, TV, car, charger), "best X" guides, ranked lists of products or
-  destinations, price-drop posts. KEEP hands-on technical depth: teardowns,
-  repairs, builds, measured testing.
-- US domestic politics: partisan politics, elections and campaigns, Congress and
-  White House fights, US political figures, immigration enforcement, and US
-  health-policy or culture-war battles (vaccine politics, Medicare/Medicaid
-  administration). KEEP a US story whose primary subject applies beyond the US
-  (how AI or platforms can be regulated at all, a scientific finding) or that has
-  a direct Canadian effect (tariffs, softwood lumber, the border, shared water).
-- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
+{standing_preferences}- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
 - Fluffy AI/tech (ONLY for articles tagged ai-tech or homelab): pure
   funding/valuation announcements ('raises $X million', 'valued at $Y billion',
   'goes public'), product launch press releases with no hands-on content, AI
@@ -2947,6 +2796,23 @@ FLAG local articles whose primary subject is a sports game, score, result, draft
 trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
 KEEP ai-tech articles with hands-on content, research findings or practical guides.
 """
+
+
+def build_gate_reject_rubric(standing: Optional[List[str]] = None) -> str:
+    """The reject rubric with the reader's standing preferences in its subject list.
+
+    The pipeline owns the structural subjects above; the reader owns the lines in
+    config/standing_preferences.txt, which sit in the same list so the gate weighs
+    them exactly like the built-in ones. They ride in the cached system block, so a
+    preference costs no extra call.
+    """
+    if standing is None:
+        standing = config_loader.load_standing_preferences()
+    bullets = ''.join(f"- {line}\n" for line in standing)
+    return _GATE_REJECT_RUBRIC_TEMPLATE.replace('{standing_preferences}', bullets)
+
+
+GATE_REJECT_RUBRIC = build_gate_reject_rubric()
 
 
 def score_quality_gate(articles: List[Article], api_key: str) -> None:
@@ -3135,7 +3001,7 @@ def _interleave_reserved(primary: List[Article], reserved: List[Article],
     return out
 
 
-def score_articles_gated(articles: List[Article], api_key: str, config: Dict) -> List[Article]:
+def score_articles_gated(articles: List[Article], api_key: str) -> List[Article]:
     """Gated scoring: absolute quality gate → interest ranking → targeted deep scoring.
 
     Replaces the hybrid mode's rank-percentile eligibility (bottom 70% of every
@@ -3259,123 +3125,6 @@ def score_articles_gated(articles: List[Article], api_key: str, config: Dict) ->
 
     print(f"  ✅ Gated scoring complete")
     return articles
-
-
-def score_articles_hybrid(articles: List[Article], api_key: str, config: Dict) -> List[Article]:
-    """
-    Hybrid scoring: Cohere reranks all articles (fast filter), Claude scores top N.
-    
-    Flow:
-    1. Cohere rerank all articles (cheap, gives relevance ranking)
-    2. Take top 30% by Cohere score
-    3. Claude dimensional scoring on top articles
-    4. Rest get Cohere score as final score
-    """
-    if not articles:
-        return []
-    
-    print(f"\n🔀 Hybrid scoring: {len(articles)} articles")
-    
-    # Step 1: Get Cohere rankings for ALL articles
-    print(f"  1️⃣ Cohere rerank (all {len(articles)} articles)...")
-    cohere_scores = _cohere_prescore(articles)
-    
-    # Attach Cohere scores to articles
-    for article in articles:
-        cohere_result = cohere_scores.get(article.url_hash, 0)
-        # Extract score: cohere_result is either int or tuple (int, str)
-        if isinstance(cohere_result, tuple):
-            cohere_score = cohere_result[0]
-        else:
-            cohere_score = cohere_result
-        # Enforce int type
-        score_int = int(cohere_score) if cohere_score else 0
-        article.score = score_int
-        article.cohere_scored = True
-        article._cohere_prescore = score_int
-    
-    # Step 2: Identify top X% by Cohere score for Claude review
-    top_percent = config.get("claude_top_percent", 0.30)
-    
-    # Sort by Cohere score, take top N
-    sorted_by_cohere = sorted(articles, key=lambda a: getattr(a, "score", 0), reverse=True)
-    num_for_claude = max(1, int(len(sorted_by_cohere) * top_percent))
-    claude_candidates = sorted_by_cohere[:num_for_claude]
-    
-    print(f"  2️⃣ Claude dimensions (top {num_for_claude}/{len(articles)} articles)...")
-    
-    # Step 3: Claude scores only the top candidates (dimensional: Quality/Relevance/Local)
-    if api_key:
-        try:
-            claude_scored = score_articles_with_claude_pure(claude_candidates, api_key)
-            
-            # Update articles in the main list with Claude scores
-            # Create a map from url_hash to scored article
-            claude_scored_map = {a.url_hash: a for a in claude_scored}
-            
-            for article in articles:
-                if article.url_hash in claude_scored_map:
-                    scored = claude_scored_map[article.url_hash]
-                    # Copy Claude's dimensional scores — enforce int type
-                    article.score = int(scored.score) if scored.score else 50
-                    article.quality = scored.quality
-                    article.relevance = scored.relevance
-                    article.local = scored.local
-                    article.content_type = scored.content_type
-                    article.category = scored.category
-                    article.story_group = scored.story_group
-                    article.cohere_scored = False  # Mark as Claude-scored
-        except Exception as e:
-            print(f"  ⚠️ Claude scoring failed: {e}, keeping Cohere scores")
-    else:
-        print("  ⚠️ No Claude API key, keeping Cohere scores for top articles")
-    
-    # Step 4: Ensure all articles have a score (fallback to Cohere)
-    for article in articles:
-        # Check if score is missing, zero, or a tuple (shouldn't happen but safeguard)
-        try:
-            score_val = article.score if hasattr(article, "score") else None
-            if score_val is None or score_val == 0 or isinstance(score_val, tuple):
-                # Get Cohere score and extract from tuple if needed
-                cohere_result = cohere_scores.get(article.url_hash, 0)
-                if isinstance(cohere_result, tuple):
-                    article.score = int(cohere_result[0]) if cohere_result[0] else 0
-                else:
-                    article.score = int(cohere_result) if cohere_result else 0
-                article.cohere_scored = True
-        except Exception:
-            # If anything goes wrong, use Cohere score
-            cohere_result = cohere_scores.get(article.url_hash, 0)
-            if isinstance(cohere_result, tuple):
-                article.score = int(cohere_result[0]) if cohere_result[0] else 0
-            else:
-                article.score = int(cohere_result) if cohere_result else 0
-            article.cohere_scored = True
-
-    # Articles that didn't go through Claude never get a category there;
-    # use the same keyword-only fallback as the cohere-only path (no API cost).
-    for article in articles:
-        if not article.category:
-            article.category = categorize_article(article.title, article.description) or 'news'
-
-    print(f"  ✅ Hybrid complete")
-    
-    return articles
-
-
-def _cohere_prescore(articles: List[Article]) -> Dict[str, int]:
-    """
-    Use Cohere Rerank to score all articles, return scores by url_hash.
-    
-    Returns: {url_hash: score_0_to_100, ...}
-    """
-    try:
-        interests = config_loader.load_news_interests().strip()
-    except Exception:
-        interests = "Technology, science, climate, local news"
-
-    # Call existing Cohere integration
-    return cohere_integration.score_with_rerank(articles, interests)
 
 
 # ════════════════════════════════════════════════════════════════════════════════

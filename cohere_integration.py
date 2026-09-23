@@ -42,7 +42,7 @@ def cosine_sim(a: List[float], b: List[float]) -> float:
 
 
 def build_interest_query(interests_text: str) -> str:
-    """Extract key interest phrases from PRIMARY and SECONDARY sections of scoring_interests.txt."""
+    """Extract key interest phrases from PRIMARY and SECONDARY sections of news_interests.txt."""
     phrases = []
     capturing = False
     for line in interests_text.splitlines():

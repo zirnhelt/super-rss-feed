@@ -7,7 +7,7 @@ generate-feed @ 12:30 UTC have both completed).
 Outputs:
   output/feed-news.json              — feed-news with the new article prepended
   output/weekly-report-YYYY-Www.html — standalone HTML permalink
-  weekly-report-YYYY-Www.html        — committed to main so generate-feed persists it
+  reports/weekly-report-YYYY-Www.html — committed to main so generate-feed persists it
   weekly-state-article.json          — committed to main for reference
 """
 
@@ -671,7 +671,7 @@ def build_quality_review_html(quality_review: dict) -> str:
         )
         report_date = str(alignment.get("generated", "")).split(" ")[0]
         if re.match(r"^\d{4}-\d{2}-\d{2}$", report_date):
-            report_url = f"{GITHUB_REPO_URL}/blob/main/CORPUS_ALIGNMENT_REPORT_{report_date}.md"
+            report_url = f"{GITHUB_REPO_URL}/blob/main/reports/CORPUS_ALIGNMENT_REPORT_{report_date}.md"
             html += f' <a href="{report_url}">Full report</a>.'
         html += "</p>\n"
         if alignment.get("content_type_breakdown"):
@@ -696,7 +696,7 @@ def build_quality_review_html(quality_review: dict) -> str:
         )
         report_date = str(feedback_audit.get("generated_at", "")).split(" ")[0]
         if re.match(r"^\d{4}-\d{2}-\d{2}$", report_date):
-            report_url = f"{GITHUB_REPO_URL}/blob/main/ARTICLE_REVIEW_AUDIT_{report_date}.md"
+            report_url = f"{GITHUB_REPO_URL}/blob/main/reports/ARTICLE_REVIEW_AUDIT_{report_date}.md"
             html += f' <a href="{report_url}">Full audit</a>.'
         html += "</p>\n"
         bands = feedback_audit.get("band_precision") or []
@@ -944,10 +944,11 @@ def main():
         json.dumps(article, indent=2, ensure_ascii=False), "utf-8"
     )
 
-    # HTML permalink — written to both root (for generate-feed.yml to copy) and output/
+    # HTML permalink — written to both reports/ (for generate-feed.yml to copy) and output/
     html_page = build_html_page(title, content_html, week_label, pub_date_human)
     html_filename = f"{article_slug}.html"
-    Path(html_filename).write_text(html_page, "utf-8")
+    Path("reports").mkdir(exist_ok=True)
+    (Path("reports") / html_filename).write_text(html_page, "utf-8")
 
     # Fetch current feed-news.json from GitHub Pages and prepend the article
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -983,7 +984,7 @@ def main():
 
     print(f"  ✓ output/feed-news.json ({len(feed_news['items'])} items)")
     print(f"  ✓ output/{html_filename}")
-    print(f"  ✓ {html_filename} (repo root)")
+    print(f"  ✓ reports/{html_filename}")
     print(f"  ✓ weekly-state-article.json (repo root)")
     print(f"\n✅ Weekly report complete → {article_url}")
 

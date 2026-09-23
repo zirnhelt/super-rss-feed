@@ -303,7 +303,7 @@ jobs:
           cp curated-feeds.opml output/
 
           # Copy weekly report HTML files so they persist across deploys
-          cp weekly-report-*.html output/ 2>/dev/null || true
+          cp reports/weekly-report-*.html output/ 2>/dev/null || true
 
           # Copy cache files (for persistence between runs)
           cp scored_articles_cache.json output/
