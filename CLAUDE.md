@@ -382,7 +382,7 @@ would quietly resurrect a source that stopped publishing.
 
 ## Calibration Agent Safety
 
-The calibration agent only modifies keys whitelisted in `config/calibration_bounds.json`. Every proposed change is clamped to `[min, max]` bounds and checked against `global_caps`. A flip-flop guard prevents oscillating changes. All changes are logged to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. The agent's prompt includes a fresh (≤14 days) `article_review_audit_summary.json` when present — user review verdicts are treated as ground truth over pipeline-side histograms. Skip/failure reasons are written verbatim to `CALIBRATION_LOG.md` (a "no calibration stats" skip is not a Claude failure).
+The calibration agent only modifies keys whitelisted in `config/calibration_bounds.json`. **The workflow commits all of `config/`**: it used to name two files while the agent writes five, so feed_slots / source_preferences / scoring_modifiers changes were logged as applied and never committed (2026-09-06 to 09-20). Every proposed change is clamped to `[min, max]` bounds and checked against `global_caps`. A flip-flop guard prevents oscillating changes. All changes are logged to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. The agent's prompt includes a fresh (≤14 days) `article_review_audit_summary.json` when present — user review verdicts are treated as ground truth over pipeline-side histograms. Skip/failure reasons are written verbatim to `CALIBRATION_LOG.md` (a "no calibration stats" skip is not a Claude failure).
 
 ## Ranked Slot Fill (`apply_feed_slot_allocation`)
 
@@ -584,6 +584,12 @@ ground-truth ratings.
     blotter item costs a thin roundup entry; a false positive deletes the day's
     strongest story with nothing in the log naming it, which is why the filter
     prints its own breakdown.
+
+    **Refit 2026-09-23** against 1,515 cached articles, after two Quesnel court
+    stories led a Working Lands roundup: sentencing, jail and plea phrasing joined the
+    incident list (4 new catches, 0 false positives), and the "Local Journalism
+    Initiative" byline is stripped before the exemption check — it matched
+    `journalism` and cleared local court stories wholesale.
 
     Applied at **one** choke point, after the fresh, rescued and holdover pools
     merge. Filtering at intake would bake the rule into `podcast_articles_cache.json`,

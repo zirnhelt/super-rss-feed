@@ -120,6 +120,76 @@ class TestCrimeFalsePositives:
             'oppose them as 3 people are arrested', '', 'news')
 
 
+class TestRefit20260923:
+    """Two Quesnel court stories led the 2026-09-22 Working Lands roundup.
+
+    Sentencing and jail phrasing were only ambiguous terms needing a justice word,
+    and the Local Journalism Initiative byline matched the `journalism` exemption.
+    Refit against 1,515 cached articles: 4 new catches, 0 false positives.
+    """
+
+    def test_sentencing_story_whose_only_justice_words_are_jail(self):
+        assert m._is_general_crime_story(
+            'Man sentenced in connection with serious incident outside a temporary '
+            'shelter in Quesnel',
+            'pleaded guilty to a charge of assault with a weapon ... and was sentenced '
+            'to 88 days in jail and 18 months probation.', 'local')
+
+    def test_jail_story_with_an_lji_byline(self):
+        assert m._is_general_crime_story(
+            "Quesnel man whose life 'was off the rails' spending another 88 days in jail",
+            'By Bob Mackin, Local Journalism Initiative. Quesnel court room.', 'local')
+
+    def test_guilty_plea(self):
+        assert m._is_general_crime_story(
+            'Maduro ally Alex Saab pleads guilty to money laundering, fraud', '', 'news')
+
+    def test_press_freedom_reporting_is_still_exempt(self):
+        assert not m._is_general_crime_story(
+            'Journalist jailed for reporting on protests, press freedom groups say',
+            '', 'news')
+
+    def test_court_alone_is_context_not_an_incident(self):
+        assert not m._is_general_crime_story(
+            'City approves new pickleball court at Boitanio Park', '', 'local')
+
+
+class TestFeedFilters:
+    """Free checks in Article.should_filter, ahead of the paid gate. Every rule
+    below drops only items the reader had already rated bad (1,659 ratings);
+    the two positively rated homepages were votes for an outlet, not articles."""
+
+    def _filtered(self, title, link):
+        a = m.Article.__new__(m.Article)
+        a.title, a.description, a.source, a.link = title, '', 'Example', link
+        return a.should_filter()
+
+    def test_homepage_is_not_an_article(self):
+        assert self._filtered('Macleans.ca - Canada’s magazine', 'https://macleans.ca/')
+
+    def test_wordpress_query_post_is_kept(self):
+        assert not self._filtered('Community garden opens', 'https://example.com/?p=1234')
+
+    def test_sports_section_url(self):
+        assert self._filtered(
+            'Kodiaks drop season opener to Raiders',
+            'https://www.mycariboonow.com/315117/news/sports/kodiaks-drop-season-opener')
+
+    def test_review_and_guide_title_shapes(self):
+        assert self._filtered('Sennheiser Momentum 5 Wireless Headphones Review (2026)',
+                              'https://www.wired.com/review/sennheiser-momentum-5/')
+        assert self._filtered('Best Android Charger: Wireless, Portable, Cable (2026)',
+                              'https://www.wired.com/story/best-android-charger/')
+        assert self._filtered('Save $200 on This Lenovo Chromebook Plus',
+                              'https://www.cnet.com/deals/lenovo-chromebook-plus-deal/')
+        assert self._filtered('The 10 most rewarding day trips from Budapest',
+                              'https://qz.com/most-rewarding-day-trips-budapest')
+
+    def test_ordinary_article_passes(self):
+        assert not self._filtered('Red Rock inspection station rebuild begins',
+                                  'https://www.mycariboonow.com/316385/news/transport/red-rock')
+
+
 class TestExclusionReasons:
     def test_opinion_is_excluded_by_content_type(self):
         a = _article('DOERKSON: Natural resource sector crumbling under NDP',

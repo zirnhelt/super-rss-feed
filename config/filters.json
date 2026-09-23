@@ -169,7 +169,11 @@
     "\\bshows? like\\b",
     "\\b(check out|watch) after watching\\b",
     "\\bstream for free\\b",
-    "\\beverything we know\\b"
+    "\\beverything we know\\b",
+    "^save \\$\\d",
+    "\\breview\\s*\\(\\d{4}\\)\\s*$",
+    "^best\\b.*\\(\\d{4}\\)\\s*$",
+    "^(the\\s+)?\\d+\\s+most\\b"
   ],
   "local_signals": [
     "williams lake",
@@ -230,5 +234,8 @@
     "cross-border",
     "softwood lumber",
     "tariff on canad"
+  ],
+  "blocked_url_path_patterns": [
+    "/sports?/"
   ]
 }
