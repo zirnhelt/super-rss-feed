@@ -3,7 +3,7 @@
 corpus_alignment_report.py — Corpus-wide scoring/theme alignment audit.
 
 Joins podcast_articles_cache.json (the rolling weekly candidate pool, each
-article carrying its upstream "interest" score from scoring_interests.txt)
+article carrying its upstream "interest" score from news_interests.txt)
 against theme_scores_cache.json (per-article, per-theme fit scores for each
 of the 7 daily podcast themes) to check whether the upstream score is a good
 proxy for thematic fit — i.e. whether it's correctly gating which articles
@@ -63,7 +63,7 @@ def main() -> None:
 
     root = Path(__file__).parent
     now = datetime.now(timezone.utc)
-    output_path = Path(args.output) if args.output else root / f"CORPUS_ALIGNMENT_REPORT_{now.strftime('%Y-%m-%d')}.md"
+    output_path = Path(args.output) if args.output else root / "reports" / f"CORPUS_ALIGNMENT_REPORT_{now.strftime('%Y-%m-%d')}.md"
 
     pod_path = root / PODCAST_CACHE_FILE
     tsc_path = root / THEME_SCORE_CACHE_FILE
@@ -424,6 +424,7 @@ def main() -> None:
         f"{total} articles analysed · {ts_str}_\n"
     )
 
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(sections), encoding="utf-8")
     print(f"Report written to {output_path}")
 

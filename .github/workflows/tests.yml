@@ -1,0 +1,61 @@
+name: Tests
+
+# A test suite only earns its keep if something runs it. The feed's tests were
+# added on 2026-09-07 and nothing invoked them until 2026-09-23, so the repo that
+# decides what the podcast airs had the thinnest safety net of the two.
+on:
+  push:
+    branches: [main]
+    # Nightly and weekly bot commits touch caches, logs and reports only; the
+    # suite has nothing to say about those. Config is included on purpose: the
+    # calibration agent edits it, and config_loader validates it.
+    paths:
+      - '**.py'
+      - 'config/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/tests.yml'
+  pull_request:
+    paths:
+      - '**.py'
+      - 'config/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/tests.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      # No API keys: the tests exercise pure logic and config, and every API
+      # path is either stubbed or switched off by a missing key.
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pytest
+
+      - name: Validate config
+        run: python config_loader.py
+
+      - name: Run test suite
+        run: python -m pytest tests/ -v

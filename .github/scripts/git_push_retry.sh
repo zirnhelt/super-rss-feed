@@ -5,7 +5,7 @@
 #
 # main has several concurrent writers: this repo's workflows (generate-feed,
 # the six weekly-maintenance jobs) plus review.html, which commits
-# feedback/*.json through the GitHub API with REVIEW_PAT at whatever time the
+# feedback/*.json through the GitHub API with the reader's own token whenever the
 # user rates articles. A plain `git push` fails with "fetch first" whenever one
 # of those lands between checkout and push, and even `pull --rebase && push`
 # loses the race if a commit arrives in the gap between the two.
@@ -28,18 +28,13 @@ GENERATED_PATTERNS=(
   '*_cache.json'
   'calibration_memory/*'
   'article_review_audit_summary.json'
-  'shared_source_candidates.json'
   'weekly-state-article.json'
   'FEED_LOG.md'
   'FEED_ERRORS.md'
   'CALIBRATION_LOG.md'
   'FEED_HEALTH_LOG.md'
   'FEEDBACK_TRAINING_LOG.md'
-  'SHARED_ARTICLES_LOG.md'
-  'FEED_REVIEW_*.md'
-  'CORPUS_ALIGNMENT_REPORT_*.md'
-  'ARTICLE_REVIEW_AUDIT_*.md'
-  'weekly-report-*.html'
+  'reports/*'
   'tools/filter_priority_review.md'
 )
 

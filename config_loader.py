@@ -51,30 +51,13 @@ def load_category_rules_config() -> Dict:
     with open(CONFIG_DIR / "category_rules.json", 'r') as f:
         return json.load(f)
 
-def load_scoring_interests() -> str:
-    """Load Claude scoring interests as plain text (legacy single-file profile)."""
-    with open(CONFIG_DIR / "scoring_interests.txt", 'r') as f:
-        return f.read()
-
 def load_news_interests() -> str:
-    """Load the personal interest profile used by the news head only.
-
-    Falls back to scoring_interests.txt so the pipeline keeps working
-    until the split files are deployed everywhere.
-    """
-    path = CONFIG_DIR / "news_interests.txt"
-    if path.exists():
-        return path.read_text()
-    print("⚠️  config/news_interests.txt missing — falling back to scoring_interests.txt")
-    return load_scoring_interests()
+    """Load the personal interest profile used by the news head only."""
+    return (CONFIG_DIR / "news_interests.txt").read_text()
 
 def load_quality_charter() -> str:
     """Load the interest-independent newsworthiness rubric (quality gate + theme prompts)."""
-    path = CONFIG_DIR / "quality_charter.txt"
-    if path.exists():
-        return path.read_text()
-    print("⚠️  config/quality_charter.txt missing — falling back to scoring_interests.txt")
-    return load_scoring_interests()
+    return (CONFIG_DIR / "quality_charter.txt").read_text()
 
 def load_podcast_schedule_config() -> Dict:
     """Load podcast schedule configuration (themed feed routing/scoring)."""
@@ -149,7 +132,8 @@ def get_all_config() -> Dict:
         'filters': load_filters_config(),
         'categories': load_categories_config(),
         'feeds': load_feeds_config(),
-        'scoring_interests': load_scoring_interests(),
+        'news_interests': load_news_interests(),
+        'quality_charter': load_quality_charter(),
         'source_preferences': load_source_preferences()
     }
 
@@ -260,8 +244,7 @@ def validate_config() -> Dict[str, List[str]]:
     except Exception as e:
         errors['feeds.json'] = [f"Failed to load: {str(e)}"]
     
-    for name, loader in [('scoring_interests.txt', load_scoring_interests),
-                         ('news_interests.txt', load_news_interests),
+    for name, loader in [('news_interests.txt', load_news_interests),
                          ('quality_charter.txt', load_quality_charter)]:
         try:
             if not loader().strip():
@@ -331,8 +314,9 @@ if __name__ == "__main__":
         print(f"\n✅ Feeds config loaded:")
         print(f"   Feeds defined: {len(config['feeds']['feeds'])}")
         
-        print(f"\n✅ Scoring interests loaded:")
-        print(f"   Length: {len(config['scoring_interests'])} characters")
+        print(f"\n✅ Interest profile and quality charter loaded:")
+        print(f"   news_interests.txt: {len(config['news_interests'])} characters")
+        print(f"   quality_charter.txt: {len(config['quality_charter'])} characters")
         
         print(f"\n🔍 Running validation...")
         errors = validate_config()
@@ -343,6 +327,8 @@ if __name__ == "__main__":
                 print(f"\n  {file}:")
                 for error in error_list:
                     print(f"    - {error}")
+            # Non-zero so CI can fail on it; it printed and exited 0 until 2026-09-23.
+            raise SystemExit(1)
         else:
             print("\n✅ All configuration files valid!")
         
@@ -353,3 +339,4 @@ if __name__ == "__main__":
         print(f"\n❌ Error during testing: {e}")
         import traceback
         traceback.print_exc()
+        raise SystemExit(1)

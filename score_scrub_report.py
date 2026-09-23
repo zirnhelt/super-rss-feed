@@ -10,7 +10,7 @@ Usage:
 
 Options:
     --no-scrub          Skip the Claude API scrub pass (stat analysis only)
-    --output PATH       Write report to PATH (default: FEED_REVIEW_YYYY-MM-DD.md)
+    --output PATH       Write report to PATH (default: reports/FEED_REVIEW_YYYY-MM-DD.md)
     --json-summary PATH Write a compact JSON summary to PATH (for the weekly report)
 """
 
@@ -481,7 +481,7 @@ def main() -> None:
     root = Path(__file__).parent
 
     # Default output path
-    output_path = Path(args.output) if args.output else root / f"FEED_REVIEW_{now.strftime('%Y-%m-%d')}.md"
+    output_path = Path(args.output) if args.output else root / "reports" / f"FEED_REVIEW_{now.strftime('%Y-%m-%d')}.md"
 
     print("Loading feeds…")
     feeds = load_feeds(root)
@@ -532,6 +532,7 @@ def main() -> None:
 
     print("Generating report…")
     report = generate_report(analyses, flagged, scrub_ran, now, podcast_analyses)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(report, encoding="utf-8")
     print(f"Report written to {output_path}")
 

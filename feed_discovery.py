@@ -220,7 +220,7 @@ _FALLBACK_INTEREST_QUERY = (
 def score_articles_with_claude(articles: List[SimpleArticle], api_key: str, interests_text: str = '') -> List[SimpleArticle]:
     """Score articles for feed discovery using Cohere Rerank (when available) or Claude.
 
-    `interests_text` is the live podcast scoring profile (config/scoring_interests.txt).
+    `interests_text` is the live interest profile (config/news_interests.txt).
     Deriving the query from it — the same source the main curator tunes every week —
     means discovery scoring evolves automatically alongside the podcast's interests
     instead of drifting from a separately-maintained copy.
@@ -518,7 +518,7 @@ class FeedDiscovery:
 
         print(f"\n🤖 Evaluating {len(new_candidates)} new feed candidates...")
 
-        # Load the live podcast scoring profile once. Reusing config/scoring_interests.txt
+        # Load the live interest profile once. Reusing config/news_interests.txt
         # — instead of a separately-maintained interest list — is what lets discovery
         # absorb the podcast's evolving interests/categories without manual syncing.
         try:
