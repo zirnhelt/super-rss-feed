@@ -2776,14 +2776,17 @@ Alongside the score, flag any article whose PRIMARY subject is one of:
   focused on sport performance
 - Celebrity gossip: tabloid content, paparazzi, red carpet, award show results,
   celebrity relationships/feuds
-- Deals/promotions: promo codes, coupons, flash sales, best-deals roundups
+- Retail deals/promotions: promo codes, coupons, flash sales, best-deals
+  roundups (a company buying or selling a business is not a deal in this sense)
 {standing_preferences}- Advice columns: Dear Abby, Ask Amy, Miss Manners, relationship/dating advice
 - Fluffy AI/tech (ONLY for articles tagged ai-tech or homelab): pure
   funding/valuation announcements ('raises $X million', 'valued at $Y billion',
   'goes public'), product launch press releases with no hands-on content, AI
   benchmark releases with no practical application, conference keynote summaries
   that are pure announcement without substance, 'X is transforming Y' hype takes
-  without specific findings or implementation detail.
+  without specific findings or implementation detail. Never apply this rule to
+  any other tag: funding, valuation, merger or market news tagged [news] or
+  anything else is left to the score, not flagged.
 
 Apply the fluff rule leniently to anything you are scoring 40 or above — at that
 score only clear fluff should be flagged.

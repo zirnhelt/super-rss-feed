@@ -108,3 +108,29 @@ Only three outlets have zero positive rating of **any** kind at n>=8, where the
 rule-of-three upper bound on their true positive rate is <=37.5%: Rolling Stone (24),
 The New Yorker (9), Cottage Life (8). Those are in `filters.blocked_sources`. Two
 more (The Atlantic n=5, Live for the Outdoors n=6) are held back as too thin.
+
+## The reject rubric's scoped rules leak (2026-09-23)
+
+The gate sees each article as `[category]` plus title, and one rubric covers every
+category. The "Fluffy AI/tech" rule said *ONLY for ai-tech or homelab*, but its
+wording ("raises $X million", "valued at", "goes public") matched business headlines
+tagged `[news]`, and Haiku applied it there anyway: over two nights it flagged ~20
+mining, commodity and tech-finance items ("Capstone sells Mexican mine", "Cameco …
+Westinghouse listing", "Province invests $11M in … critical mineral processing").
+"Deals/promotions" had the same risk, since a takeover is also called a deal.
+
+The fix names the scope in both directions (the rule never applies to any other
+tag) and makes "deals" retail. The reader's ratings still reject most routine
+mining news (Northern Miner 10 good / 16 bad: financings, drill results, sponsored
+posts, foreign takeovers bad; BC and Canadian policy, industry structure good), so
+that judgment moved into `config/standing_preferences.txt` as an explicit line with
+its own KEEP clause, instead of riding on a misapplied AI rule.
+
+The same night the US-politics line (PR #308) dropped "Carney Downplays Trump's
+Threat", "Trump rejects AI regulation … in U.N. address" and a story on NIH
+funding. Its KEEP clause now names a Canadian principal actor, a US leader's
+AI-policy stance and US science agencies explicitly. The model does not generalise a
+KEEP clause's examples; list the case or expect it flagged.
+
+Verdicts are cached with the score for 48 h, the same as the lookback window, so a
+rubric edit reaches every article by the second night.
