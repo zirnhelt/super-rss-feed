@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-22 (Tuesday)
+
+#### 🔧 Manual Run (9:09 PM Pacific)
+- ⚠️ **Yellowhead Institute** failed — `503 Server Error: Service Unavailable for url: https://yellowheadinstitute.org/feed/`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1585 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-21 (Monday)
 
 #### 🔧 Manual Run (9:09 PM Pacific)
@@ -72,16 +83,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:10 PM Pacific)
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1639 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-14 (Monday)
-
-#### 🔧 Manual Run (9:10 PM Pacific)
-- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1430 articles — check charter adherence, not supply
 
 
 ---
@@ -1179,6 +1180,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-09-13–2026-09-13
 - 1 issues recorded
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1643 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-14–2026-09-14
+- 1 issues recorded
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1430 articles — check charter adherence, not supply
 
 
 ---
