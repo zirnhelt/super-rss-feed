@@ -4,7 +4,7 @@
     "Cariboo Signals Reviews"
   ],
   "excluded_content": {
-    "_comment": "Podcast-only subject/type exclusions — see CLAUDE.md gotcha 18. The general category feeds are untouched: a crime story the reader wants in feed-local.json is still the wrong material for a 22-minute two-host conversation.",
+    "_comment": "Podcast-only subject/type exclusions — see docs/decisions/podcast-pool.md (gotcha 18). The general category feeds are untouched: a crime story the reader wants in feed-local.json is still the wrong material for a 22-minute two-host conversation.",
     "enabled": true,
     "content_types": ["opinion"],
     "content_type_exempt_sources": ["Western Producer", "The Northern Miner"],
