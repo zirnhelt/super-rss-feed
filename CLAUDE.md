@@ -243,7 +243,7 @@ Also triggered manually with optional `use_search_apis` flag.
 2. Bootstrap thin feeds from podcast cache if any category feed < 20 items.
 3. Run `python super_rss_curator_json.py feeds.opml`.
 4. Log results to `FEED_LOG.md` via `log_feed_results.py`.
-5. Bake `REVIEW_PAT` token (reversed) into `review.html` → `output/review.html`.
+5. Copy `review.html` → `output/review.html` unchanged. **No credential ever goes into a page**: a GitHub token was baked into this public page from 2026-06-17 until it was revoked on 2026-09-23. The page now asks for a fine-grained token (super-rss-feed only, Contents read/write) in a password field when saving, filled from a password manager, and keeps it only while it is open — never in browser storage, which any script on `zirnhelt.github.io` could read.
 6. Commit updated cache files to `main`.
 7. Deploy `output/` to `gh-pages`, then verify the tip byte-matches this run's output.
 
@@ -259,7 +259,7 @@ it green: recalibrating a charter is a human's weekly job, not a reason to
 re-run the pipeline.
 
 **Required secrets:** `ANTHROPIC_API_KEY`
-**Optional secrets:** `COHERE_API_KEY`, `BRAVE_API_KEY`, `KAGI_API_KEY`, `REVIEW_PAT`
+**Optional secrets:** `COHERE_API_KEY`, `BRAVE_API_KEY`, `KAGI_API_KEY`
 
 ## `weekly-maintenance.yml` — Sunday 13:00 UTC
 
@@ -275,7 +275,7 @@ Six sequential jobs (each skippable via `workflow_dispatch` inputs):
 
 ## `deploy-static.yml` — On push to `main` touching `review.html`
 
-Bakes the `REVIEW_PAT` token and deploys `review.html` to `gh-pages` (keep_files: true).
+Copies `review.html` to `gh-pages` (keep_files: true), so a page change ships without waiting for the nightly run.
 
 ## `cleanup-branches.yml`
 
