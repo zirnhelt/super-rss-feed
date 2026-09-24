@@ -167,3 +167,25 @@ def test_gated_scoring_composes_with_the_scrub_and_the_allocator(monkeypatch, tm
     selected = m.apply_feed_slot_allocation(kept)
     assert len(selected) == 3, 'max_slots caps the category'
     assert selected[0].score >= selected[-1].score, 'filled best-first'
+
+
+def test_a_verdict_from_another_rubric_is_asked_again(monkeypatch, tmp_path):
+    """A rubric fix must reach cached articles, not wait out the TTL."""
+    art = _article('B.C. NDP minister will not seek re-election')
+    client = _install(monkeypatch, tmp_path, ['[{"a":1,"q":60,"x":1}]', '[{"a":1,"q":60,"x":0}]'])
+    m.score_quality_gate([art], 'test-key')
+    assert art.gate_reject is True
+
+    monkeypatch.setattr(m, 'GATE_RUBRIC_ID', 'a-newer-rubric')
+    again = _article('B.C. NDP minister will not seek re-election')
+    again.url_hash = art.url_hash
+    m.score_quality_gate([again], 'test-key')
+
+    assert len(client.calls) == 2
+    assert again.gate_reject is False
+    assert again.q_gate == 60, 'the cached score is kept; only the verdict is re-asked'
+
+
+def test_canadian_politics_is_kept_by_the_rubric():
+    assert 'KEEP Canadian politics at every level' in m.GATE_REJECT_RUBRIC
+    assert '(the United States only, never Canada)' in m.GATE_REJECT_RUBRIC
