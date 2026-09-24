@@ -134,3 +134,20 @@ KEEP clause's examples; list the case or expect it flagged.
 
 Verdicts are cached with the score for 48 h, the same as the lookback window, so a
 rubric edit reaches every article by the second night.
+
+**Follow-up, 2026-09-24.** The first run under that fix still dropped B.C. election
+coverage: "A fourth B.C. NDP cabinet minister says she won't seek re-election", "B.C.
+Greens Leader Lowan to run in Saanich North", and the night before "Key dates for the
+2026 B.C. provincial election". The US-politics line lists "elections and campaigns",
+and Haiku read that as elections anywhere. The line now opens "(the United States
+only, never Canada)", and the pipeline's own rubric carries a KEEP for Canadian
+politics at every level, which no reader line can override. These drops also reach
+the podcast pool, whose Saturday show covers the local election.
+
+The same night showed the cache hides a rubric fix: a verdict is cached with the
+score for 48 h, so a story wrongly rejected stays rejected for as long as it is
+eligible. Each verdict now carries `gate_rubric`, a hash of the rubric that made it,
+and a verdict from a different rubric is asked again (verdict-only; the cached score
+is kept). The cost is one re-verdict pass over the cache when the rubric changes,
+including when a standing-preference PR is merged: about 10 to 35 Haiku batches, a
+few cents.

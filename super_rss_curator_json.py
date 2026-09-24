@@ -2795,6 +2795,9 @@ KEEP (do not flag) articles that use sports/entertainment as context for a deepe
 story: technology in sports, the economics of a league, health research on athletes.
 KEEP local community news that is not primarily about sport — local politics,
 infrastructure, business, community events.
+KEEP Canadian politics at every level: federal, provincial (a B.C. election, its
+parties, leaders and candidates), First Nations and municipal. No subject line
+above removes it; a line about US politics never covers Canada.
 FLAG local articles whose primary subject is a sports game, score, result, draft,
 trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
 KEEP ai-tech articles with hands-on content, research findings or practical guides.
@@ -2816,6 +2819,10 @@ def build_gate_reject_rubric(standing: Optional[List[str]] = None) -> str:
 
 
 GATE_REJECT_RUBRIC = build_gate_reject_rubric()
+# Stamped on every cached verdict. A verdict made under a different rubric is
+# asked again, so a rubric fix reaches articles already in the cache instead of
+# waiting out the 48 h TTL (a wrongly rejected story would otherwise stay rejected).
+GATE_RUBRIC_ID = hashlib.sha256(GATE_REJECT_RUBRIC.encode('utf-8')).hexdigest()[:12]
 
 
 def score_quality_gate(articles: List[Article], api_key: str) -> None:
@@ -2857,7 +2864,8 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         if isinstance(entry, dict):
             if entry.get('q_gate') is not None:
                 article.q_gate = int(entry['q_gate'])
-            if entry.get('gate_reject') is not None:
+            if (entry.get('gate_reject') is not None
+                    and entry.get('gate_rubric') == GATE_RUBRIC_ID):
                 article.gate_reject = bool(entry['gate_reject'])
 
         title_l = article.title.lower()
@@ -2939,6 +2947,7 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
                 if article.source not in EDITORIAL_EXEMPT_SOURCES:
                     article.gate_reject = bool(int(item.get('x', 0)))
                     entry['gate_reject'] = article.gate_reject
+                    entry['gate_rubric'] = GATE_RUBRIC_ID
                     rejected += int(article.gate_reject)
                 entry.setdefault('timestamp', timestamp)
         except Exception as e:
