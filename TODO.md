@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-09-23 | 🔧 Manual Run | ⚠️ **Adventure Journal** failed | `503 Server Error: Service Unavailable for url: https://www.adventure-journal.com/feed/` |
 | 2026-09-22 | 🔧 Manual Run | ⚠️ **Yellowhead Institute** failed | `503 Server Error: Service Unavailable for url: https://yellowheadinstitute.org/feed/` |
 | 2026-09-21 | 🔧 Manual Run | ⚠️ **NRDC** failed | `520 Server Error: <none> for url: https://www.nrdc.org/rss.xml` |
 | 2026-09-20 | 🔧 Manual Run | ⚠️ **Canadian Forest Industries** failed | `Exceeded 30 redirects.` |
@@ -22,6 +23,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
 | 2026-09-23 | 🔧 manual | 72 | ai-tech:18(25%), wellness:10(14%), news:10(14%) |
+| 2026-09-23 | 🔧 manual | 49 | wellness:10(20%), news:10(20%), ai-tech:9(18%) |
 | 2026-09-22 | 🔧 manual | 88 | ai-tech:18(20%), climate:12(14%), local:11(12%) |
 | 2026-09-21 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), local:10(10%) |
 | 2026-09-20 | 🔧 manual | 79 | news:25(32%), ai-tech:18(23%), wellness:10(13%) |
@@ -29,9 +31,10 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-09-18 | 🔧 manual | 93 | news:25(27%), ai-tech:18(19%), homelab:10(11%) |
 | 2026-09-17 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), homelab:10(10%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-24 04:11 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-24 04:33 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

@@ -13,6 +13,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 
+
+#### 🔧 Manual Run (9:33 PM Pacific)
+- ⚠️ **Adventure Journal** failed — `503 Server Error: Service Unavailable for url: https://www.adventure-journal.com/feed/`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1492 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-22 (Tuesday)
 
 #### 🔧 Manual Run (9:09 PM Pacific)
