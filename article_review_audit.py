@@ -134,7 +134,7 @@ def rating_distribution(ratings: List[Dict]) -> Dict[str, Any]:
     }
 
 
-SHIPPED_STRATA = ('high', 'mid', 'border', 'low', 'floor_fill')
+SHIPPED_STRATA = ('high', 'mid', 'promising', 'border', 'low', 'floor_fill')
 POSITIVE = ('good', 'interesting', 'exemplar')
 
 
@@ -142,7 +142,8 @@ def stratified_estimate(ratings: List[Dict]) -> Dict[str, Any]:
     """Reweight the quota sample back to the population it was drawn from.
 
     The review feed is a stratified sample with fixed quotas — a handful from each
-    score band plus up to 10 scrub rejects — so the raw good-rate across all
+    score band (and the high-relevance 'promising' slice
+    carved out of the sub-50 bands) plus a few scrub rejects — so the raw good-rate across all
     ratings describes that quota design, not the feed. Rates *within* a stratum are
     unbiased; the overall number is only meaningful once each rating is weighted by
     how many articles it stands for.

@@ -92,6 +92,16 @@ reweighted estimate with its coverage. **Rates within a stratum are unbiased; th
 corpus-wide rate is not.** Never compare across strata without reweighting, and
 never quote the headline good-rate as a feed quality number.
 
+On 2026-09-24 the sample was re-spent toward reinforcement signal. Gate rejects had
+rated 91% bad (679 of 827), so the verdict was settled and their cap fell from 10 to
+5. The freed slots went to a new `promising` stratum: sub-50 articles with relevance
+>= 50, which rated 69% positive (111 of 162) against 45% for the sub-50 bands as a
+whole. It is carved *out of* border/low/floor_fill by `review_stratum()`, so every
+article still sits in exactly one stratum and the weights stay valid; it counts as
+shipped in `SHIPPED_STRATA`. The same change records each pick's bucket at pick time:
+the old post-hoc `high[:5]` lookup filed any pick past index 5 (after a same-source
+skip) under `mid`.
+
 The same report's `theme_routing` root-cause split is measuring a counterfactual:
 `today` is the weekday the rating was made, not a routing decision, and
 `podcast_routed` is **0** — essentially every rated article comes from a *category*

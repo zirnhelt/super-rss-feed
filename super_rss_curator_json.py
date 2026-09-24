@@ -6157,6 +6157,19 @@ def main():
     print("\n✅ Feed generation complete!")
 
 
+def _load_live_feedback() -> List[Tuple[str, List[Dict]]]:
+    """(date, ratings) for every live `feedback/YYYY-MM-DD.json`, oldest first; unreadable files skipped."""
+    days: List[Tuple[str, List[Dict]]] = []
+    for f in sorted(Path('feedback').glob('????-??-??.json')):
+        try:
+            data = json.loads(f.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        rows = [r for r in data.get('ratings', []) if isinstance(r, dict)]
+        days.append((f.stem, rows))
+    return days
+
+
 def load_reviewed_urls() -> set:
     """Every URL the user has already rated, so review feeds never re-surface one.
 
@@ -6166,37 +6179,135 @@ def load_reviewed_urls() -> set:
     files alone when the ledger does not exist yet.
     """
     reviewed_urls: set = set()
-    feedback_dir = Path('feedback')
 
-    ledger_file = feedback_dir / 'reviewed_urls.json'
+    ledger_file = Path('feedback') / 'reviewed_urls.json'
     try:
         ledger = json.loads(ledger_file.read_text(encoding='utf-8'))
         reviewed_urls.update(ledger.get('urls', {}).keys())
     except Exception:
         pass
 
-    if feedback_dir.exists():
-        for f in feedback_dir.glob('????-??-??.json'):
-            try:
-                with open(f, 'r', encoding='utf-8') as fh:
-                    data = json.load(fh)
-                for r in data.get('ratings', []):
-                    if r.get('url'):
-                        reviewed_urls.add(r['url'])
-            except Exception:
-                pass
+    for _date, rows in _load_live_feedback():
+        reviewed_urls.update(r['url'] for r in rows if r.get('url'))
 
     return reviewed_urls
+
+
+# review.html offers these as one-tap reasons on a "bad" rating. The page merges them
+# with the notes the reader has typed most often, so both routes produce the same text
+# and standing_preferences.py sees one phrasing per reason instead of five.
+REVIEW_BAD_REASON_DEFAULTS = ['Sports', 'US politics', 'No local hook', 'Listicle',
+                              'Sale / ad', 'Product review', 'Celebrity gossip', 'Opinion']
+REVIEW_BAD_REASON_LIMIT = 10
+REVIEW_STATS_WINDOW_DAYS = 30
+
+
+def _normalise_note(note: str) -> str:
+    text = re.sub(r'\s+', ' ', note or '').strip().rstrip('.')
+    return text[:1].upper() + text[1:] if text else ''
+
+
+def review_history_stats(today: str) -> Dict:
+    """Rating history for the stats panel on review.html. Stdlib only, no API call.
+
+    `by_bucket` is the positive rate *within* each stratum, which is unbiased; there is
+    deliberately no corpus-wide good-rate here, because the review feed is a quota sample
+    (see stratified_estimate() in article_review_audit.py).
+    """
+    live = _load_live_feedback()
+    try:
+        rollup = json.loads((Path('feedback') / 'feedback_rollup.json').read_text(encoding='utf-8'))
+        all_time = Counter(rollup.get('totals', {}))
+    except Exception:
+        all_time = Counter()
+
+    today_date = datetime.strptime(today, '%Y-%m-%d').date()
+    window_start = (today_date - timedelta(days=REVIEW_STATS_WINDOW_DAYS - 1)).isoformat()
+
+    recent: Counter = Counter()
+    bucket_counts: Dict[str, Counter] = defaultdict(Counter)
+    bad_notes: Counter = Counter()
+    display_note: Dict[str, str] = {}
+    reviewed_days: set = set()
+    for date, rows in live:
+        rated = [r for r in rows if r.get('rating')]
+        all_time.update(r['rating'] for r in rated)
+        if date < window_start or not rated:
+            continue
+        reviewed_days.add(date)
+        recent.update(r['rating'] for r in rated)
+        for r in rated:
+            if r.get('selection_bucket') and r['rating'] in ('good', 'interesting', 'bad'):
+                bucket_counts[r['selection_bucket']][r['rating']] += 1
+            if r['rating'] == 'bad' and r.get('note'):
+                note = _normalise_note(r['note'])
+                if note:
+                    bad_notes[note.lower()] += 1
+                    display_note.setdefault(note.lower(), note)
+
+    streak = 0
+    day = today_date if today in reviewed_days else today_date - timedelta(days=1)
+    while day.isoformat() in reviewed_days:
+        streak += 1
+        day -= timedelta(days=1)
+
+    defaults = {d.lower(): d for d in REVIEW_BAD_REASON_DEFAULTS}
+    frequent = [defaults.get(k, display_note[k]) for k, n in bad_notes.most_common() if n >= 2]
+    frequent += [d for k, d in defaults.items() if d not in frequent]
+
+    return {
+        'window_days': REVIEW_STATS_WINDOW_DAYS,
+        'all_time': dict(all_time),
+        'recent': dict(recent),
+        'days_reviewed': len(reviewed_days),
+        'streak': streak,
+        'by_bucket': {
+            b: {'n': sum(c.values()),
+                'positive_pct': round(100 * (c['good'] + c['interesting']) / sum(c.values()))}
+            for b, c in bucket_counts.items() if sum(c.values())
+        },
+        'bad_reasons': frequent[:REVIEW_BAD_REASON_LIMIT],
+    }
+
+
+# Review-feed strata, in selection order, with their daily quotas. `promising` is carved
+# out of the sub-50 bands: relevance >= PROMISING_MIN_RELEVANCE rated 69% positive there
+# (n=162, to 2026-09-24) against 45% for the bands as a whole and 9% for gate rejects, so
+# it spends review attention where a "good" verdict is likeliest to teach the scorer
+# something. It is a partition, not an overlay — an article is in exactly one stratum —
+# which is what keeps the stratum weights valid.
+PROMISING_MIN_RELEVANCE = 50
+REVIEW_QUOTAS = {'high': 5, 'mid': 6, 'promising': 6, 'border': 3, 'low': 1, 'floor_fill': 1}
+REVIEW_CURATED_TARGET = 22
+# Gate rejects rate 91% bad (679 of 827 to 2026-09-24): the verdict is settled, so five a
+# day is enough to keep the audit's false-negative rate measured.
+REVIEW_UNFILTERED_CAP = 5
+
+
+def review_stratum(article: Article) -> str:
+    if article.score >= 80:
+        return 'high'
+    if article.score >= 50:
+        return 'mid'
+    if (article.relevance or 0) >= PROMISING_MIN_RELEVANCE:
+        return 'promising'
+    if article.score >= 30:
+        return 'border'
+    if article.score >= 20:
+        return 'low'
+    # Admitted below its category floor to hold min_slots.
+    return 'floor_fill'
 
 
 def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article],
                          schedule_config: Optional[Dict],
                          haiku_rejected: Optional[List[Article]] = None):
-    """Select 20 articles for daily training feedback and write feed-review.json."""
+    """Select the daily training sample and write feed-review.json."""
     # Load already-reviewed URLs so we don't surface the same article twice.
     reviewed_urls = load_reviewed_urls()
 
-    today_name = datetime.now(ZoneInfo('America/Vancouver')).strftime('%A').lower()
+    now_local = datetime.now(ZoneInfo('America/Vancouver'))
+    today_name = now_local.strftime('%A').lower()
     today_label = ''
     day_labels: Dict[str, str] = {}
     if schedule_config and schedule_config.get('enabled'):
@@ -6233,96 +6344,62 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         all_by_hash[a.url_hash] = a
     candidates = [a for a in all_by_hash.values() if a.link not in reviewed_urls]
 
-    high   = sorted([a for a in candidates if a.score >= 80],  key=lambda a: a.score, reverse=True)
-    mid    = sorted([a for a in candidates if 50 <= a.score < 80], key=lambda a: a.score, reverse=True)
-    border = sorted([a for a in candidates if 30 <= a.score < 50], key=lambda a: a.score, reverse=True)
-    low    = sorted([a for a in candidates if 20 <= a.score < 30], key=lambda a: a.score, reverse=True)
-    # Articles the slot allocator admitted below their category floor to hold
-    # min_slots. They have no score band of their own, and before this existed
-    # bucket_label()'s fallback filed them under 'mid' — which would have put a
-    # score-5 article in the 50-79 stratum and corrupted the sampling weights the
-    # audit reweights on.
-    floor_fill = sorted([a for a in candidates if a.score < 20], key=lambda a: a.score, reverse=True)
+    pools: Dict[str, List[Article]] = {b: [] for b in REVIEW_QUOTAS}
+    for a in candidates:
+        pools[review_stratum(a)].append(a)
+    for b, pool in pools.items():
+        pool.sort(key=(lambda a: (a.relevance or 0, a.score)) if b == 'promising'
+                  else (lambda a: a.score), reverse=True)
 
     selected: List[Article] = []
-    seen_hashes: set = set()
+    # The bucket is recorded at pick time. Deriving it afterwards from each pool's first
+    # N entries mislabelled any pick that sat past N because an earlier one was skipped
+    # for a repeated source — a high-band article filed as 'mid', skewing the weights.
+    bucket_of: Dict[str, str] = {}
     seen_sources: set = set()
 
-    def pick(pool: List[Article], n: int):
-        for a in pool:
-            if len([x for x in selected if x in pool]) >= n:
-                break
-            if a.url_hash in seen_hashes or a.source in seen_sources:
-                continue
-            selected.append(a)
-            seen_hashes.add(a.url_hash)
-            seen_sources.add(a.source)
+    def take(a: Article, bucket: str) -> bool:
+        if a.url_hash in bucket_of or a.source in seen_sources:
+            return False
+        selected.append(a)
+        bucket_of[a.url_hash] = bucket
+        seen_sources.add(a.source)
+        return True
 
-    for pool, quota in [(high, 5), (mid, 8), (border, 5), (low, 2), (floor_fill, 2)]:
+    for bucket, quota in REVIEW_QUOTAS.items():
         taken = 0
-        for a in pool:
+        for a in pools[bucket]:
             if taken >= quota:
                 break
-            if a.url_hash in seen_hashes or a.source in seen_sources:
-                continue
-            selected.append(a)
-            seen_hashes.add(a.url_hash)
-            seen_sources.add(a.source)
-            taken += 1
+            taken += take(a, bucket)
 
-    # Fill any shortfall from the mid-range pool
-    if len(selected) < 20:
-        for a in mid:
-            if len(selected) >= 20:
+    # Fill any shortfall, likeliest-to-teach first.
+    for bucket in ('promising', 'mid', 'border'):
+        for a in pools[bucket]:
+            if len(selected) >= REVIEW_CURATED_TARGET:
                 break
-            if a.url_hash not in seen_hashes and a.source not in seen_sources:
-                selected.append(a)
-                seen_hashes.add(a.url_hash)
-                seen_sources.add(a.source)
+            take(a, bucket)
 
-    # Unfiltered slot: up to 10 haiku-rejected articles so over-filtering patterns
-    # are visible in the review cycle.
-    unfiltered_set: set = set()
-    if haiku_rejected:
-        for a in haiku_rejected:
-            if len(unfiltered_set) >= 10:
-                break
-            if a.link in reviewed_urls or a.url_hash in seen_hashes or a.source in seen_sources:
-                continue
-            selected.append(a)
-            seen_hashes.add(a.url_hash)
-            seen_sources.add(a.source)
-            unfiltered_set.add(a.url_hash)
-
-    # Tag each with its selection bucket
-    high_set   = {a.url_hash for a in high[:5]}
-    mid_set    = {a.url_hash for a in mid[:8]}
-    border_set = {a.url_hash for a in border[:5]}
-    low_set    = {a.url_hash for a in low[:2]}
-    floor_set  = {a.url_hash for a in floor_fill[:2]}
+    # Unfiltered slot: a few gate-rejected articles so over-filtering stays visible.
+    unfiltered_taken = 0
+    for a in haiku_rejected or []:
+        if unfiltered_taken >= REVIEW_UNFILTERED_CAP:
+            break
+        if a.link not in reviewed_urls:
+            unfiltered_taken += take(a, 'unfiltered')
 
     def bucket_label(a: Article) -> str:
-        if a.url_hash in unfiltered_set: return 'unfiltered'
-        if a.url_hash in high_set:   return 'high'
-        if a.url_hash in mid_set:    return 'mid'
-        if a.url_hash in border_set: return 'border'
-        if a.url_hash in low_set:    return 'low'
-        if a.url_hash in floor_set:  return 'floor_fill'
-        return 'mid'
+        return bucket_of[a.url_hash]
 
     # Sampling weights. The review feed is a QUOTA sample, not a proportional one:
-    # it takes a handful from each score band plus up to 10 rejects, so the raw
+    # it takes a handful from each stratum plus a few rejects, so the raw
     # good-rate across ratings describes the sample design, not the feed. Recording
     # each item's inverse sampling probability is what lets the audit reweight back
     # to the population. Without it the headline read 24% good on a feed measuring
     # ~41% once reweighted, because half of all ratings were on rejected articles.
-    _stratum_pool = {
-        'high': len(high), 'mid': len(mid), 'border': len(border), 'low': len(low),
-        'floor_fill': len(floor_fill), 'unfiltered': len(haiku_rejected or []),
-    }
-    _stratum_sampled: Dict[str, int] = defaultdict(int)
-    for _a in selected:
-        _stratum_sampled[bucket_label(_a)] += 1
+    _stratum_pool = {b: len(pool) for b, pool in pools.items()}
+    _stratum_pool['unfiltered'] = len(haiku_rejected or [])
+    _stratum_sampled: Counter = Counter(bucket_of.values())
 
     def stratum_weight(a: Article) -> float:
         """Articles this one stands for: pool size / number sampled from that pool."""
@@ -6338,16 +6415,18 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         "title": "📋 Daily Review — Article Training Feedback",
         "home_page_url": FEEDS_CONFIG['base_url'],
         "feed_url": f"{FEEDS_CONFIG['base_url']}/feed-review.json",
-        "description": "20 articles for daily training feedback",
+        "description": "Daily stratified sample for training feedback",
         "authors": [{"name": FEEDS_CONFIG['author']}],
         "language": "en",
         "_generated_at": now_iso,
         "_today": today_name,
         "_today_label": today_label,
+        "_day_labels": day_labels,
         "_strata": {
             b: {"pool": _stratum_pool.get(b, 0), "sampled": _stratum_sampled.get(b, 0)}
-            for b in ('high', 'mid', 'border', 'low', 'floor_fill', 'unfiltered')
+            for b in (*REVIEW_QUOTAS, 'unfiltered')
         },
+        "_review_stats": review_history_stats(now_local.strftime('%Y-%m-%d')),
         "_categories": {
             slug: {"name": cfg["name"], "emoji": cfg.get("emoji", "")}
             for slug, cfg in CATEGORIES.items()
@@ -6396,9 +6475,10 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     with open('feed-review.json', 'w', encoding='utf-8') as fh:
         json.dump(feed, fh, indent=2, ensure_ascii=False)
 
-    unfiltered_count = len(unfiltered_set)
     print(f"📋 Review feed: {len(feed['items'])} articles "
-          f"(20 curated + {unfiltered_count} unfiltered, "
+          f"({len(selected) - unfiltered_taken} curated incl. "
+          f"{_stratum_sampled.get('promising', 0)} promising, "
+          f"{unfiltered_taken} unfiltered, "
           f"{len(reviewed_urls)} already-reviewed excluded)")
 
 
