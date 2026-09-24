@@ -73,6 +73,7 @@
         .badge-bucket-low        { background: #fff3e0; color: #7a3e00; border: 1px solid #ffb74d; }
         .badge-bucket-floor_fill { background: #fbe9e7; color: #8d3b1f; border: 1px solid #ffab91; }
         .badge-bucket-unfiltered { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
+        .badge-bucket-promising  { background: #e0f7fa; color: #00695c; border: 1px solid #80cbc4; }
         .badge-category          { background: #e8effe; color: #667eea; }
         .badge-source            { background: #f0f0f0; color: #555; font-weight: normal; }
         .badge-date              { color: #aaa; font-size: 0.70em; font-weight: normal; }
@@ -156,6 +157,36 @@
         .btn-bad.active         { background: #ffebee; border-color: #e53935; color: #c62828; }
         .btn-skip.active        { background: #f5f5f5; border-color: #bbb;    color: #555; }
 
+        /* ── Bad-reason chips ── */
+        .card-reasons { display: flex; flex-wrap: wrap; gap: 4px; }
+        .reason-chip {
+            padding: 2px 8px; border-radius: 9px; font-size: 0.70em; font-weight: 600;
+            cursor: pointer; background: white; border: 1px solid #ef9a9a; color: #c62828;
+        }
+        .reason-chip:hover { background: #ffebee; }
+        .reason-chip.chip-selected { background: #e53935; border-color: #e53935; color: white; }
+
+        /* ── Stats panel ── */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px; margin-top: 12px;
+        }
+        .stat-tile { background: #f7f8fe; border-radius: 8px; padding: 8px 10px; }
+        .stat-value { font-size: 1.25em; font-weight: 700; color: #333; font-variant-numeric: tabular-nums; }
+        .stat-label { font-size: 0.72em; color: #888; }
+        .stat-sub   { font-size: 0.70em; color: #aaa; font-variant-numeric: tabular-nums; }
+        .strata-table { width: 100%; margin-top: 10px; font-size: 0.76em; border-collapse: collapse; }
+        .strata-table th { text-align: left; color: #999; font-weight: 600; padding: 2px 6px 4px 0; }
+        .strata-table td { padding: 3px 6px 3px 0; color: #555; font-variant-numeric: tabular-nums; }
+        .strata-table td.num { text-align: right; }
+        .strata-bar { height: 7px; border-radius: 4px; background: #eee; min-width: 60px; }
+        .strata-bar > span { display: block; height: 100%; border-radius: 4px; background: #43a047; }
+        .stats-toggle {
+            background: none; border: none; color: #667eea; font-size: 0.78em;
+            cursor: pointer; padding: 0; margin-top: 6px;
+        }
+        .stats-note { font-size: 0.70em; color: #aaa; margin-top: 6px; }
+
         /* ── Note field ── */
         .card-note textarea {
             width: 100%; padding: 5px 8px; border: 1px solid #ddd; border-radius: 5px;
@@ -178,7 +209,7 @@
         .exemplar-form button { align-self: flex-start; }
         .token-label { font-size: 0.85em; color: #667eea; font-weight: 600; }
         .visually-hidden {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            position: absolute; left: 0; top: 0; width: 1px; height: 1px; padding: 0; margin: -1px;
             overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
         }
 
@@ -221,6 +252,7 @@
         <h1>📋 Near-Miss Article Review</h1>
         <p class="subtitle">Articles that almost made the cut. Tag to a podcast day, mark as interesting, or flag as bad.</p>
         <div class="progress-counter" id="progress-counter"></div>
+        <div id="stats-panel" style="display:none"></div>
     </div>
 
     <!-- Filled from a password manager; the page keeps it only while it is open. The readonly
@@ -283,7 +315,10 @@ const SAVE_ATTEMPTS   = 3;
 // numbers described the hardest slice of the feed rather than the feed — and left
 // no way to detect a quality regression at the top, because the top was never shown.
 // Each item carries a _stratum_weight so the audit can reweight back to the population.
-const SHOW_BUCKETS          = new Set(['high', 'mid', 'border', 'low', 'floor_fill', 'unfiltered']);
+const SHOW_BUCKETS          = new Set(['high', 'mid', 'promising', 'border', 'low', 'floor_fill', 'unfiltered']);
+const BUCKET_LABEL = { high: 'top score', mid: 'mid score', promising: 'promising', border: 'near-miss',
+                       low: 'low score', floor_fill: 'below floor', unfiltered: 'filtered' };
+const BUCKET_HINT  = { promising: 'Low overall score but a strong interest match — the likeliest place for a missed good article' };
 const AUTO_SUGGEST_THRESHOLD = 45;
 const SUBMIT_THRESHOLD       = 3;
 
@@ -295,7 +330,17 @@ const todayKey   = getTodayKey();
 
 const DAY_ORDER = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 const DAY_SHORT = { monday:'Mon', tuesday:'Tue', wednesday:'Wed', thursday:'Thu', friday:'Fri', saturday:'Sat', sunday:'Sun' };
-const DAY_THEME = { monday:'Arts & Culture', tuesday:'Working Lands', wednesday:'Community Tech', thursday:'Indigenous Lands', friday:'Wild Spaces', saturday:'Cariboo Voices', sunday:'Science & Wonder' };
+// Short chip labels. The full labels come from config/podcast_schedule.json via the feed's
+// `_day_labels` and show as the chip tooltip; keep these in step when a theme is renamed.
+const DAY_THEME = { monday:'Arts & Culture', tuesday:'Working Lands', wednesday:'Repair & Practical Tech', thursday:'Indigenous Lands', friday:'Wild Spaces', saturday:'Cariboo Local Affairs', sunday:'Science & Wonder' };
+let DAY_LABELS = {};
+
+// One-tap reasons on a "bad" rating; they write into the note. The feed supplies the
+// reader's most frequent notes (review_history_stats in the curator); this is the fallback.
+let BAD_REASONS = ['Sports', 'US politics', 'No local hook', 'Listicle', 'Sale / ad',
+                   'Product review', 'Celebrity gossip', 'Opinion'];
+let REVIEW_STATS = null;
+let STRATA = null;
 
 // Fallback if an older cached feed-review.json lacks `_categories`
 const FALLBACK_CATEGORIES = {
@@ -330,12 +375,7 @@ function loadRatings() {
 // ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
     populateExemplarCategories();
-    if (localStorage.getItem('submitted_' + todayKey) === 'true') {
-        hide('loading-msg');
-        showDone();
-        return;
-    }
-    init();
+    init(localStorage.getItem('submitted_' + todayKey) === 'true');
 });
 
 function populateExemplarCategories() {
@@ -345,7 +385,7 @@ function populateExemplarCategories() {
         .join('');
 }
 
-async function init() {
+async function init(alreadySubmitted) {
     ratings = loadRatings();
     try {
         const res = await fetch(FEED_URL + '?v=' + Date.now());
@@ -355,9 +395,19 @@ async function init() {
             CATEGORIES = feed._categories;
             populateExemplarCategories();
         }
+        if (feed._day_labels) DAY_LABELS = feed._day_labels;
+        REVIEW_STATS = feed._review_stats || null;
+        STRATA = feed._strata || null;
+        if (REVIEW_STATS?.bad_reasons?.length) BAD_REASONS = REVIEW_STATS.bad_reasons;
         articles = (feed.items || []).filter(a => SHOW_BUCKETS.has(a._selection_bucket));
 
         hide('loading-msg');
+        renderStats();
+
+        if (alreadySubmitted) {
+            showDone();
+            return;
+        }
 
         if (articles.length === 0) {
             show('empty-msg');
@@ -381,6 +431,7 @@ async function init() {
         }
     } catch (e) {
         hide('loading-msg');
+        if (alreadySubmitted) { showDone(); return; }
         showError('Could not load review feed: ' + e.message);
     }
 }
@@ -448,14 +499,13 @@ function buildCardInner(idx) {
     const descText = descRaw.slice(0, 500);
     const isExpanded = expandedSet.has(idx);
 
-    const bucketLabel = { high: 'top score', mid: 'mid score', border: 'near-miss',
-                          low: 'low score', floor_fill: 'below floor', unfiltered: 'filtered' }[bucket] || bucket;
+    const bucketLabel = BUCKET_LABEL[bucket] || bucket;
 
     // Day chips
     const approvedDays = r.approved_days || [];
     const chipsHtml = DAY_ORDER.map(day => {
         if (approvedDays.includes(day)) {
-            return `<span class="day-chip chip-selected">
+            return `<span class="day-chip chip-selected" title="${escAttr(DAY_LABELS[day] || '')}">
                 <span class="chip-top-row">
                     <span class="chip-day">${escHtml(DAY_SHORT[day])}</span>
                     <button class="chip-x" onclick="handleDayClick(${idx},'${day}')" title="Remove">&times;</button>
@@ -463,7 +513,7 @@ function buildCardInner(idx) {
                 <span class="chip-theme">${escHtml(DAY_THEME[day])}</span>
             </span>`;
         }
-        return `<button class="day-chip chip-unselected" onclick="handleDayClick(${idx},'${day}')">
+        return `<button class="day-chip chip-unselected" title="${escAttr(DAY_LABELS[day] || '')}" onclick="handleDayClick(${idx},'${day}')">
             <span class="chip-day">${escHtml(DAY_SHORT[day])}</span>
             <span class="chip-theme">${escHtml(DAY_THEME[day])}</span>
         </button>`;
@@ -479,7 +529,7 @@ function buildCardInner(idx) {
 
     return `
         <div class="card-header">
-            <span class="badge badge-bucket-${bucket}">${bucketLabel}</span>
+            <span class="badge badge-bucket-${escAttr(bucket)}"${BUCKET_HINT[bucket] ? ` title="${escAttr(BUCKET_HINT[bucket])}"` : ''}>${escHtml(bucketLabel)}</span>
             ${source ? `<span class="badge badge-source">${escHtml(source)}</span>` : ''}
             ${pubDate ? `<span class="badge-date">${pubDate}</span>` : ''}
         </div>
@@ -504,6 +554,10 @@ function buildCardInner(idx) {
             <button class="btn-rate btn-bad ${ratingVal === 'bad' ? 'active' : ''}" onclick="rate(${idx},'bad')">✗ Bad</button>
             <button class="btn-rate btn-skip ${ratingVal === 'skip' ? 'active' : ''}" onclick="rate(${idx},'skip')">→ Skip</button>
         </div>
+
+        ${ratingVal === 'bad' ? `<div class="card-reasons">${BAD_REASONS.map((reason, i) =>
+            `<button class="reason-chip ${noteReasons(r.note).has(reason.toLowerCase()) ? 'chip-selected' : ''}"
+                onclick="toggleReason(${idx},${i})">${escHtml(reason)}</button>`).join('')}</div>` : ''}
 
         ${ratingVal ? `<div class="card-note">
             <textarea placeholder="Optional note…" maxlength="200"
@@ -586,12 +640,104 @@ function saveNote(idx, value) {
     // No refreshCard — don't disturb textarea focus
 }
 
+// Reasons live in the note as "; "-separated parts, so a typed note and a tapped chip
+// produce the same text and the saved rating format is unchanged.
+function noteParts(note) {
+    return (note || '').split(/\s*;\s*/).map(p => p.trim()).filter(Boolean);
+}
+function noteReasons(note) {
+    return new Set(noteParts(note).map(p => p.toLowerCase()));
+}
+function toggleReason(idx, reasonIdx) {
+    const art    = articles[idx];
+    const reason = BAD_REASONS[reasonIdx];
+    const r      = ratings[art.url] || {};
+    const parts  = noteParts(r.note);
+    const pos    = parts.findIndex(p => p.toLowerCase() === reason.toLowerCase());
+    if (pos >= 0) parts.splice(pos, 1);
+    else parts.push(reason);
+    ratings[art.url] = { ...r, note: parts.join('; ').slice(0, 200) };
+    saveRatings();
+    refreshCard(idx);
+}
+
+// ── Stats ────────────────────────────────────────────────────────────────────
+function tally(counts) {
+    const c = counts || {};
+    return { good: c.good || 0, interesting: c.interesting || 0, bad: c.bad || 0,
+             total: Object.values(c).reduce((a, b) => a + b, 0) };
+}
+function pct(part, whole) { return whole ? Math.round(100 * part / whole) : 0; }
+
+function renderStats() {
+    const panel = document.getElementById('stats-panel');
+    const today = tally(articles.reduce((acc, a) => {
+        const v = ratings[a.url]?.rating;
+        if (v) acc[v] = (acc[v] || 0) + 1;
+        return acc;
+    }, {}));
+    const s       = REVIEW_STATS;
+    const recent  = tally(s?.recent);
+    const allTime = tally(s?.all_time);
+    const tiles = [
+        { label: 'Today', value: `${today.total}/${articles.length}`,
+          sub: `${today.good} good · ${today.interesting} int · ${today.bad} bad` },
+    ];
+    if (s) tiles.push(
+        { label: `Last ${s.window_days} days`, value: recent.total,
+          sub: `${pct(recent.good + recent.interesting, recent.total)}% positive · ${s.days_reviewed} days` },
+        { label: 'Streak', value: `${s.streak} day${s.streak === 1 ? '' : 's'}`, sub: 'consecutive review days' },
+        { label: 'All time', value: allTime.total.toLocaleString(),
+          sub: `${allTime.good} good · ${allTime.interesting} int` },
+    );
+
+    // Per-stratum rates are unbiased; a corpus-wide rate across strata is not (quota sample).
+    const order = ['high', 'mid', 'promising', 'border', 'low', 'floor_fill', 'unfiltered'];
+    const rows = order.filter(b => s?.by_bucket?.[b] || STRATA?.[b]?.sampled).map(b => {
+        const hist = s?.by_bucket?.[b];
+        const pool = STRATA?.[b];
+        return `<tr>
+            <td><span class="badge badge-bucket-${b}">${escHtml(BUCKET_LABEL[b] || b)}</span></td>
+            <td class="num">${pool ? `${pool.sampled} of ${pool.pool}` : '—'}</td>
+            <td class="num">${hist ? hist.positive_pct + '%' : '—'}</td>
+            <td><div class="strata-bar" title="${hist ? `${hist.positive_pct}% of ${hist.n}` : ''}"><span style="width:${hist ? hist.positive_pct : 0}%"></span></div></td>
+            <td class="num">${hist ? hist.n : 0}</td>
+        </tr>`;
+    }).join('');
+
+    let open = false;
+    try { open = localStorage.getItem('review_stats_open') === 'true'; } catch {}
+    panel.innerHTML = `
+        <div class="stats-grid">${tiles.map(t => `
+            <div class="stat-tile">
+                <div class="stat-label">${escHtml(t.label)}</div>
+                <div class="stat-value">${escHtml(String(t.value))}</div>
+                <div class="stat-sub">${escHtml(t.sub)}</div>
+            </div>`).join('')}
+        </div>
+        ${rows ? `<button class="stats-toggle" onclick="toggleStats()">${open ? '▾' : '▸'} By sample stratum</button>
+        <div id="strata-detail" style="display:${open ? 'block' : 'none'}">
+            <table class="strata-table">
+                <thead><tr><th>Stratum</th><th>Today</th><th>Positive</th><th></th><th>Rated</th></tr></thead>
+                <tbody>${rows}</tbody>
+            </table>
+            <div class="stats-note">Positive = good or interesting, last ${s?.window_days ?? 30} days, within each stratum.
+            Strata are sampled at fixed quotas, so don't average across them.</div>
+        </div>` : ''}`;
+    show('stats-panel');
+}
+function toggleStats() {
+    try { localStorage.setItem('review_stats_open', String(localStorage.getItem('review_stats_open') !== 'true')); } catch {}
+    renderStats();
+}
+
 // ── Progress & submit visibility ─────────────────────────────────────────────
 function updateProgress() {
     const ratedCount = articles.filter(a => ratings[a.url]?.rating).length;
     const total = articles.length;
     document.getElementById('progress-counter').textContent =
         `${ratedCount} of ${total} articles reviewed`;
+    renderStats();
 
     if (ratedCount >= Math.min(SUBMIT_THRESHOLD, total)) {
         show('submit-section');
