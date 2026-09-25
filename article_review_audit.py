@@ -43,6 +43,23 @@ WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 
 SCORE_BANDS = [(80, 100), (60, 79), (40, 59), (20, 39), (0, 19)]
 SWEEP_THRESHOLDS = [13, 15, 20, 25, 30, 35, 40, 45, 50, 60]
 MIN_SOURCE_RATINGS = 5
+# A source becomes a block candidate only at this many ratings with zero positives
+# of any kind (docs/decisions/scoring.md, gotcha 17).
+SOURCE_BLOCK_MIN_RATINGS = 8
+
+# 'good' and 'interesting' are both articles the reader wants. They differ only in
+# day fit: 'good' belongs to a specific podcast theme, 'interesting' is a candidate
+# for any day with no particular one. Feed-quality metrics count both; day-fit
+# metrics (theme_routing.per_day good_pct) count 'good' alone.
+POSITIVE = ('good', 'interesting', 'exemplar')
+
+
+def _positive(counts: Counter) -> int:
+    return sum(counts[v] for v in POSITIVE)
+
+
+def _pct(part: int, whole: int) -> Optional[float]:
+    return round(100 * part / whole, 1) if whole else None
 
 
 # ---------------------------------------------------------------------------
@@ -106,28 +123,34 @@ def rating_distribution(ratings: List[Dict]) -> Dict[str, Any]:
         by_category[r.get('category') or 'unknown'][r['rating']] += 1
         by_source[r.get('source') or 'unknown'][r['rating']] += 1
 
-    def _rate(c: Counter, key: str) -> float:
+    def _cell(c: Counter) -> Dict[str, Any]:
         n = sum(c.values())
-        return round(100 * c[key] / n, 1) if n else 0.0
+        return {'n': n, 'good': c['good'], 'interesting': c['interesting'], 'bad': c['bad'],
+                'positive': _positive(c),
+                'good_pct': _pct(c['good'], n) or 0.0, 'bad_pct': _pct(c['bad'], n) or 0.0,
+                'positive_pct': _pct(_positive(c), n) or 0.0}
 
     categories = {
-        cat: {'n': sum(c.values()), 'good': c['good'], 'interesting': c['interesting'],
-              'bad': c['bad'], 'bad_pct': _rate(c, 'bad'), 'good_pct': _rate(c, 'good')}
+        cat: _cell(c)
         for cat, c in sorted(by_category.items(), key=lambda kv: -sum(kv[1].values()))
     }
     sources = {
-        src: {'n': sum(c.values()), 'good': c['good'], 'bad': c['bad'],
-              'good_pct': _rate(c, 'good'), 'bad_pct': _rate(c, 'bad')}
+        src: _cell(c)
         for src, c in by_source.items() if sum(c.values()) >= MIN_SOURCE_RATINGS
     }
-    best_sources = sorted(sources.items(), key=lambda kv: (-kv[1]['good_pct'], -kv[1]['n']))[:10]
-    worst_sources = sorted(sources.items(), key=lambda kv: (-kv[1]['bad_pct'], -kv[1]['n']))[:10]
+    for cell in sources.values():
+        cell['block_candidate'] = cell['n'] >= SOURCE_BLOCK_MIN_RATINGS and cell['positive'] == 0
+    # Ranked on positives, not good alone: a source with only 'interesting' ratings
+    # is wanted material, and a good-only ranking made it look like a free cut.
+    best_sources = sorted(sources.items(), key=lambda kv: (-kv[1]['positive_pct'], -kv[1]['n']))[:10]
+    worst_sources = sorted(sources.items(), key=lambda kv: (kv[1]['positive_pct'], -kv[1]['n']))[:10]
 
     return {
         'total': total,
         'counts': dict(counts),
         'bad_pct': round(100 * counts['bad'] / total, 1) if total else 0.0,
         'good_pct': round(100 * counts['good'] / total, 1) if total else 0.0,
+        'positive_pct': _pct(_positive(counts), total) or 0.0,
         'by_category': categories,
         'best_sources': dict(best_sources),
         'worst_sources': dict(worst_sources),
@@ -135,7 +158,6 @@ def rating_distribution(ratings: List[Dict]) -> Dict[str, Any]:
 
 
 SHIPPED_STRATA = ('high', 'mid', 'promising', 'border', 'low', 'floor_fill')
-POSITIVE = ('good', 'interesting', 'exemplar')
 
 
 def stratified_estimate(ratings: List[Dict]) -> Dict[str, Any]:
@@ -234,28 +256,36 @@ def band_precision(ratings: List[Dict]) -> List[Dict[str, Any]]:
             'band': f'{lo}-{hi}',
             'n': n,
             'good': counts['good'],
+            'interesting': counts['interesting'],
             'bad': counts['bad'],
-            'good_pct': round(100 * counts['good'] / n, 1) if n else None,
-            'bad_pct': round(100 * counts['bad'] / n, 1) if n else None,
+            'good_pct': _pct(counts['good'], n),
+            'positive_pct': _pct(_positive(counts), n),
+            'bad_pct': _pct(counts['bad'], n),
         })
     return bands
 
 
 def threshold_sweep(ratings: List[Dict]) -> List[Dict[str, Any]]:
-    """For each candidate min-score floor: how much bad is cut vs. good lost."""
+    """For each candidate min-score floor: how much bad is cut vs. wanted articles lost.
+
+    'interesting' articles carry low relevance scores, so a floor raise costs them
+    first; `positive_lost_pct` is the number to weigh against `bad_cut_pct`.
+    """
     scored = [r for r in ratings if isinstance(r.get('score'), (int, float))]
-    total_bad = sum(1 for r in scored if r['rating'] == 'bad')
-    total_good = sum(1 for r in scored if r['rating'] == 'good')
+    totals = Counter(r['rating'] for r in scored)
     sweep = []
     for t in SWEEP_THRESHOLDS:
-        cut_bad = sum(1 for r in scored if r['rating'] == 'bad' and r['score'] < t)
-        lost_good = sum(1 for r in scored if r['rating'] == 'good' and r['score'] < t)
+        below = Counter(r['rating'] for r in scored if r['score'] < t)
         sweep.append({
             'threshold': t,
-            'bad_cut': cut_bad,
-            'bad_cut_pct': round(100 * cut_bad / total_bad, 1) if total_bad else 0.0,
-            'good_lost': lost_good,
-            'good_lost_pct': round(100 * lost_good / total_good, 1) if total_good else 0.0,
+            'bad_cut': below['bad'],
+            'bad_cut_pct': _pct(below['bad'], totals['bad']) or 0.0,
+            'good_lost': below['good'],
+            'good_lost_pct': _pct(below['good'], totals['good']) or 0.0,
+            'interesting_lost': below['interesting'],
+            'interesting_lost_pct': _pct(below['interesting'], totals['interesting']) or 0.0,
+            'positive_lost': _positive(below),
+            'positive_lost_pct': _pct(_positive(below), _positive(totals)) or 0.0,
         })
     return sweep
 
@@ -327,12 +357,15 @@ def theme_routing_audit(ratings: List[Dict]) -> Dict[str, Any]:
         counts = Counter(r['rating'] for r in rows)
         labels = Counter(r.get('today_label') for r in rows if r.get('today_label'))
         n = len(rows)
+        # good_pct is day fit; positive_pct adds 'interesting' (wanted, any day).
         per_day[day] = {
             'label': labels.most_common(1)[0][0] if labels else '',
             'n': n,
             'good': counts['good'],
+            'interesting': counts['interesting'],
             'bad': counts['bad'],
             'good_pct': round(100 * counts['good'] / n, 1),
+            'positive_pct': round(100 * _positive(counts) / n, 1),
             'corrected_away': sum(1 for r in corrections if r['today'] == day),
         }
 
@@ -553,7 +586,8 @@ def build_report(audit: Dict[str, Any]) -> str:
             ['Rated **bad** — reached you (pipeline failed)', strat['bad_shipped']],
             ['Rated **bad** — correctly rejected (pipeline worked)', strat['bad_correctly_rejected']],
             ['Rated **good**', f"{dist['counts'].get('good', 0)} ({dist['good_pct']}%)"],
-            ['Rated **interesting**', dist['counts'].get('interesting', 0)],
+            ['Rated **interesting** (wanted, no specific day)', dist['counts'].get('interesting', 0)],
+            ['Rated good or interesting (raw, quota-biased)', f"{dist['positive_pct']}%"],
             ['Reweighted good-or-interesting rate of the **shipped** feed',
              (f"{strat['weighted_positive_pct']}% "
               f"(from {strat['weight_coverage_pct']}% of shipped ratings)")
@@ -592,8 +626,9 @@ def build_report(audit: Dict[str, Any]) -> str:
         '### Precision by score band',
         '',
         _md_table(
-            ['Score band', 'n', 'good', 'bad', '% good', '% bad'],
-            [[b['band'], b['n'], b['good'], b['bad'], b['good_pct'], b['bad_pct']]
+            ['Score band', 'n', 'good', 'interesting', 'bad', '% good', '% good+int', '% bad'],
+            [[b['band'], b['n'], b['good'], b['interesting'], b['bad'],
+              b['good_pct'], b['positive_pct'], b['bad_pct']]
              for b in audit['band_precision']]),
         '',
         '### Threshold sweep — what a higher quality floor would have done',
@@ -601,30 +636,37 @@ def build_report(audit: Dict[str, Any]) -> str:
         f"Current `min_claude_score` floor: **{audit['current_min_score']}** "
         "(manually lowered 20 → 13 on 2026-06-24).",
         '',
+        '`interesting` articles score low on relevance, so a higher floor costs them first. '
+        'Weigh **% of bad cut** against **% of good+int lost**.',
+        '',
         _md_table(
-            ['Floor', 'Bad cut', '% of bad', 'Good lost', '% of good'],
-            [[s['threshold'], s['bad_cut'], s['bad_cut_pct'], s['good_lost'], s['good_lost_pct']]
+            ['Floor', 'Bad cut', '% of bad', 'Good lost', '% of good',
+             'Interesting lost', '% of int', '% of good+int'],
+            [[s['threshold'], s['bad_cut'], s['bad_cut_pct'], s['good_lost'], s['good_lost_pct'],
+              s['interesting_lost'], s['interesting_lost_pct'], s['positive_lost_pct']]
              for s in audit['threshold_sweep']]),
         '',
         '### By category',
         '',
         _md_table(
-            ['Category', 'n', 'good', 'interesting', 'bad', '% bad'],
-            [[cat, c['n'], c['good'], c['interesting'], c['bad'], c['bad_pct']]
+            ['Category', 'n', 'good', 'interesting', 'bad', '% good+int', '% bad'],
+            [[cat, c['n'], c['good'], c['interesting'], c['bad'], c['positive_pct'], c['bad_pct']]
              for cat, c in dist['by_category'].items()]),
         '',
         '### Sources (≥ 5 ratings)',
         '',
-        '**Highest good-rate**',
+        '**Highest good+interesting rate**',
         '',
-        _md_table(['Source', 'n', 'good', 'bad', '% good'],
-                  [[s, c['n'], c['good'], c['bad'], c['good_pct']]
+        _md_table(['Source', 'n', 'good', 'interesting', 'bad', '% good+int'],
+                  [[s, c['n'], c['good'], c['interesting'], c['bad'], c['positive_pct']]
                    for s, c in dist['best_sources'].items()]),
         '',
-        '**Highest bad-rate**',
+        f'**Lowest good+interesting rate** — block candidate only at n ≥ {SOURCE_BLOCK_MIN_RATINGS} '
+        'with zero positives of any kind',
         '',
-        _md_table(['Source', 'n', 'good', 'bad', '% bad'],
-                  [[s, c['n'], c['good'], c['bad'], c['bad_pct']]
+        _md_table(['Source', 'n', 'good', 'interesting', 'bad', '% good+int', 'Block candidate'],
+                  [[s, c['n'], c['good'], c['interesting'], c['bad'], c['positive_pct'],
+                    'yes' if c['block_candidate'] else '']
                    for s, c in dist['worst_sources'].items()]),
         '',
         '## 2. Fluff Quantification',
@@ -658,9 +700,12 @@ def build_report(audit: Dict[str, Any]) -> str:
         '',
         '### Per theme day',
         '',
+        '`% good` is day fit. `% good+int` adds articles wanted for any day with no specific fit.',
+        '',
         _md_table(
-            ['Day', 'Theme', 'n', 'good', 'bad', '% good', 'Corrected away'],
-            [[d, p['label'], p['n'], p['good'], p['bad'], p['good_pct'], p['corrected_away']]
+            ['Day', 'Theme', 'n', 'good', 'interesting', 'bad', '% good', '% good+int', 'Corrected away'],
+            [[d, p['label'], p['n'], p['good'], p['interesting'], p['bad'],
+              p['good_pct'], p['positive_pct'], p['corrected_away']]
              for d, p in routing['per_day'].items()]),
         '',
         '### Day → day correction matrix (shown → should-have-been)',
@@ -783,6 +828,7 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
         'counts': dist['counts'],
         'bad_pct': dist['bad_pct'],
         'good_pct': dist['good_pct'],
+        'positive_pct': dist['positive_pct'],
         'score_by_rating': audit['score_by_rating'],
         'band_precision': audit['band_precision'],
         'threshold_sweep': audit['threshold_sweep'],

@@ -220,7 +220,7 @@ their interests — this is the strongest signal available, stronger than the pa
 GOOD FIT articles (user liked these and tagged them to podcast days):
 {good_lines or '(none yet)'}
 
-INTERESTING articles (user finds these relevant but not podcast-quality — boost these topics in relevance scoring):
+INTERESTING articles (user wants these as much as Good ones, but they fit no specific podcast day — boost these topics in relevance scoring; do not treat them as weaker than Good):
 {interesting_lines or '(none yet)'}
 
 BAD FIT articles (user explicitly disliked these):

@@ -685,12 +685,19 @@ def build_quality_review_html(quality_review: dict) -> str:
         counts = feedback_audit.get("counts", {})
         routing = feedback_audit.get("theme_routing", {})
         window = feedback_audit.get("window", {})
+        weighted = (feedback_audit.get("stratified") or {}).get("weighted_positive_pct")
         html += "\n<h3>User Feedback Audit</h3>\n"
         html += (
             f"<p>{feedback_audit.get('total_rated', 0)} articles rated "
             f"({_esc(window.get('first', '?'))} → {_esc(window.get('last', '?'))}): "
             f"{counts.get('good', 0)} good, {counts.get('interesting', 0)} interesting, "
-            f"{counts.get('bad', 0)} bad ({feedback_audit.get('bad_pct', 0)}% bad). "
+            f"{counts.get('bad', 0)} bad. "
+        )
+        # The raw rates describe the review quota, not the feed; only the
+        # reweighted shipped-feed rate is a quality figure.
+        if weighted is not None:
+            html += f"Shipped feed, reweighted: {_esc(weighted)}% good or interesting. "
+        html += (
             f"Theme-day corrections: {routing.get('corrections', 0)} of "
             f"{routing.get('rated_with_day', 0)} ({routing.get('correction_pct', 0)}%)."
         )
@@ -701,11 +708,15 @@ def build_quality_review_html(quality_review: dict) -> str:
         html += "</p>\n"
         bands = feedback_audit.get("band_precision") or []
         if bands:
-            html += "<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% bad</th></tr></thead><tbody>\n"
+            html += (
+                "<table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th>"
+                "<th>% good+interesting</th><th>% bad</th></tr></thead><tbody>\n"
+            )
             for band in bands:
                 html += (
                     f"<tr><td>{_esc(band.get('band'))}</td><td>{_esc(band.get('n'))}</td>"
-                    f"<td>{_esc(band.get('good_pct'))}</td><td>{_esc(band.get('bad_pct'))}</td></tr>\n"
+                    f"<td>{_esc(band.get('good_pct'))}</td><td>{_esc(band.get('positive_pct', ''))}</td>"
+                    f"<td>{_esc(band.get('bad_pct'))}</td></tr>\n"
                 )
             html += "</tbody></table>"
 
