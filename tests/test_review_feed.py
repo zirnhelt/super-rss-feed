@@ -43,9 +43,29 @@ def test_stats_merge_frequent_notes_with_defaults(tmp_path, monkeypatch):
 
     stats = m.review_history_stats('2026-09-24')
 
-    assert stats['bad_reasons'][0] == 'US politics'  # the default's casing wins
-    assert 'One-off' not in stats['bad_reasons']
-    assert sum(r.lower() == 'us politics' for r in stats['bad_reasons']) == 1
+    bad = stats['reasons']['bad']
+    assert bad[0] == 'US politics'  # the default's casing wins
+    assert 'One-off' not in bad
+    assert sum(r.lower() == 'us politics' for r in bad) == 1
+    assert stats['reasons']['good'] == m.REVIEW_REASON_DEFAULTS['good']
+    assert set(stats['reasons']) == {'good', 'interesting', 'bad'}
     assert stats['streak'] == 2
     assert stats['all_time']['good'] == 12
     assert stats['by_bucket']['mid'] == {'n': 4, 'positive_pct': 50}
+
+
+def test_tapped_reasons_count_separately(tmp_path, monkeypatch):
+    fb = tmp_path / 'feedback'
+    fb.mkdir()
+    rows = [
+        {'url': 'u1', 'rating': 'interesting', 'note': 'Beaver dams; Surprising'},
+        {'url': 'u2', 'rating': 'interesting', 'note': 'beaver dams'},
+        {'url': 'u3', 'rating': 'bad', 'note': 'Beaver dams'},
+    ]
+    (fb / '2026-09-24.json').write_text(json.dumps({'ratings': rows}))
+    monkeypatch.chdir(tmp_path)
+
+    reasons = m.review_history_stats('2026-09-24')['reasons']
+
+    assert reasons['interesting'][0] == 'Beaver dams'
+    assert 'Beaver dams' not in reasons['bad']  # counted per rating, n=1 there

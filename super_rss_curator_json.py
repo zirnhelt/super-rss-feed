@@ -6193,12 +6193,19 @@ def load_reviewed_urls() -> set:
     return reviewed_urls
 
 
-# review.html offers these as one-tap reasons on a "bad" rating. The page merges them
-# with the notes the reader has typed most often, so both routes produce the same text
-# and standing_preferences.py sees one phrasing per reason instead of five.
-REVIEW_BAD_REASON_DEFAULTS = ['Sports', 'US politics', 'No local hook', 'Listicle',
-                              'Sale / ad', 'Product review', 'Celebrity gossip', 'Opinion']
-REVIEW_BAD_REASON_LIMIT = 10
+# review.html offers these as one-tap reasons on each rating. They are merged with the
+# notes the reader has typed most often on that rating, so both routes produce the same
+# text and standing_preferences.py sees one phrasing per reason instead of five. The good
+# and interesting defaults were guessed before any notes existed; typed notes displace them.
+REVIEW_REASON_DEFAULTS = {
+    'good': ['Local angle', 'Practical / how-to', 'Original reporting', 'Deep dive',
+             'Indigenous voices', 'Land & ag', 'Podcast-worthy', 'Never filter these'],
+    'interesting': ['Surprising', 'Rabbit hole', 'Offbeat', 'Niche but fun',
+                    'Worth a follow-up', 'Future theme', 'Big idea', 'Wrong category'],
+    'bad': ['Sports', 'US politics', 'No local hook', 'Listicle',
+            'Sale / ad', 'Product review', 'Celebrity gossip', 'Opinion'],
+}
+REVIEW_REASON_LIMIT = 10
 REVIEW_STATS_WINDOW_DAYS = 30
 
 
@@ -6226,7 +6233,7 @@ def review_history_stats(today: str) -> Dict:
 
     recent: Counter = Counter()
     bucket_counts: Dict[str, Counter] = defaultdict(Counter)
-    bad_notes: Counter = Counter()
+    rating_notes: Dict[str, Counter] = defaultdict(Counter)
     display_note: Dict[str, str] = {}
     reviewed_days: set = set()
     for date, rows in live:
@@ -6239,11 +6246,13 @@ def review_history_stats(today: str) -> Dict:
         for r in rated:
             if r.get('selection_bucket') and r['rating'] in ('good', 'interesting', 'bad'):
                 bucket_counts[r['selection_bucket']][r['rating']] += 1
-            if r['rating'] == 'bad' and r.get('note'):
-                note = _normalise_note(r['note'])
-                if note:
-                    bad_notes[note.lower()] += 1
-                    display_note.setdefault(note.lower(), note)
+            if r['rating'] in REVIEW_REASON_DEFAULTS and r.get('note'):
+                # A note can carry several tapped reasons, "; "-separated.
+                for part in r['note'].split(';'):
+                    note = _normalise_note(part)
+                    if note:
+                        rating_notes[r['rating']][note.lower()] += 1
+                        display_note.setdefault(note.lower(), note)
 
     streak = 0
     day = today_date if today in reviewed_days else today_date - timedelta(days=1)
@@ -6251,9 +6260,13 @@ def review_history_stats(today: str) -> Dict:
         streak += 1
         day -= timedelta(days=1)
 
-    defaults = {d.lower(): d for d in REVIEW_BAD_REASON_DEFAULTS}
-    frequent = [defaults.get(k, display_note[k]) for k, n in bad_notes.most_common() if n >= 2]
-    frequent += [d for k, d in defaults.items() if d not in frequent]
+    reasons: Dict[str, List[str]] = {}
+    for rating, rating_defaults in REVIEW_REASON_DEFAULTS.items():
+        defaults = {d.lower(): d for d in rating_defaults}
+        frequent = [defaults.get(k, display_note[k])
+                    for k, n in rating_notes[rating].most_common() if n >= 2]
+        frequent += [d for d in rating_defaults if d not in frequent]
+        reasons[rating] = frequent[:REVIEW_REASON_LIMIT]
 
     return {
         'window_days': REVIEW_STATS_WINDOW_DAYS,
@@ -6266,7 +6279,7 @@ def review_history_stats(today: str) -> Dict:
                 'positive_pct': round(100 * (c['good'] + c['interesting']) / sum(c.values()))}
             for b, c in bucket_counts.items() if sum(c.values())
         },
-        'bad_reasons': frequent[:REVIEW_BAD_REASON_LIMIT],
+        'reasons': reasons,
     }
 
 
