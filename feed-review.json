@@ -3,41 +3,108 @@
   "title": "📋 Daily Review — Article Training Feedback",
   "home_page_url": "https://zirnhelt.github.io/super-rss-feed",
   "feed_url": "https://zirnhelt.github.io/super-rss-feed/feed-review.json",
-  "description": "20 articles for daily training feedback",
+  "description": "Daily stratified sample for training feedback",
   "authors": [
     {
       "name": "Erich's AI Curator"
     }
   ],
   "language": "en",
-  "_generated_at": "2026-09-24T04:33:31.975853+00:00",
-  "_today": "wednesday",
-  "_today_label": "Repair Culture & Practical Tech",
+  "_generated_at": "2026-09-25T04:11:09.736707+00:00",
+  "_today": "thursday",
+  "_today_label": "Indigenous Lands & Innovation",
+  "_day_labels": {
+    "monday": "Arts, Culture & Digital Storytelling",
+    "tuesday": "Working Lands & Industry",
+    "wednesday": "Repair Culture & Practical Tech",
+    "thursday": "Indigenous Lands & Innovation",
+    "friday": "Wild Spaces & Outdoor Life",
+    "saturday": "Cariboo Local Affairs",
+    "sunday": "Science, Wonder & the Natural World"
+  },
   "_strata": {
     "high": {
-      "pool": 2,
-      "sampled": 1
+      "pool": 4,
+      "sampled": 2
     },
     "mid": {
-      "pool": 175,
-      "sampled": 14
+      "pool": 289,
+      "sampled": 6
+    },
+    "promising": {
+      "pool": 22,
+      "sampled": 9
     },
     "border": {
-      "pool": 231,
+      "pool": 358,
       "sampled": 3
     },
     "low": {
-      "pool": 60,
+      "pool": 116,
       "sampled": 1
     },
     "floor_fill": {
-      "pool": 23,
+      "pool": 55,
       "sampled": 1
     },
     "unfiltered": {
-      "pool": 172,
-      "sampled": 10
+      "pool": 230,
+      "sampled": 5
     }
+  },
+  "_review_stats": {
+    "window_days": 30,
+    "all_time": {
+      "bad": 1149,
+      "good": 391,
+      "interesting": 168,
+      "exemplar": 10,
+      "skip": 1
+    },
+    "recent": {
+      "interesting": 71,
+      "good": 88,
+      "bad": 365
+    },
+    "days_reviewed": 22,
+    "streak": 3,
+    "by_bucket": {
+      "border": {
+        "n": 82,
+        "positive_pct": 44
+      },
+      "low": {
+        "n": 25,
+        "positive_pct": 20
+      },
+      "unfiltered": {
+        "n": 220,
+        "positive_pct": 14
+      },
+      "high": {
+        "n": 25,
+        "positive_pct": 80
+      },
+      "mid": {
+        "n": 156,
+        "positive_pct": 41
+      },
+      "floor_fill": {
+        "n": 16,
+        "positive_pct": 19
+      }
+    },
+    "bad_reasons": [
+      "US politics",
+      "No article",
+      "Sports",
+      "No local hook",
+      "Listicle",
+      "Sale / ad",
+      "Product review",
+      "Celebrity gossip",
+      "Opinion"
+    ]
   },
   "_categories": {
     "local": {
@@ -87,415 +154,633 @@
   },
   "items": [
     {
-      "id": "https://www.mycariboonow.com/316414/news/politics/eby-calls-early-provincial-election-on-oct-24/",
-      "url": "https://www.mycariboonow.com/316414/news/politics/eby-calls-early-provincial-election-on-oct-24/",
-      "title": "Eby calls early provincial election on Oct. 24",
-      "content_html": "<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://www.mycariboonow.com/wp-content/uploads/2026/09/IMG_1465-scaled-1-1024x576.jpeg\" width=\"696\" />Premier David Eby has called an early B.C. election, with voters set to head to the polls Oct. 24.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316414/news/politics/eby-calls-early-provincial-election-on-oct-24/\">Eby calls early provincial election on Oct. 24</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-09-22T21:37:01+00:00",
+      "id": "https://wltribune.com/2026/09/24/low-water-levels-in-williams-lake-raises-concerns/",
+      "url": "https://wltribune.com/2026/09/24/low-water-levels-in-williams-lake-raises-concerns/",
+      "title": "Low water levels in Williams Lake raise concerns",
+      "content_html": "## Low water levels in Williams Lake raise concerns Published 4:18 pm Thursday, September 24, 2026 **By Rebecca Dyok** \"There's very little water in the Willams Lake River,\" Wilber Saunders wrote on Facebook sharing several pictures showing no water running under the overpass. (WIlber Saunders/Williams Lake Stay Up To Date Facebook) | **Getting your Trinity Audio player ready...** | | -------------------------------------------------------------------------- | Scenes of little water flowing in a dry river bed is raising the concerns of some residents in Williams Lake. “It’s the lowest I’ve",
+      "date_published": "2026-09-25T04:03:12.966400+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "_score": 89,
+      "_quality": 80,
+      "_relevance": 88,
+      "_local_score": 100,
+      "_category": "local",
+      "_content_type": "feature",
+      "_selection_bucket": "high",
+      "_stratum_weight": 2.0,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 42,
+        "tuesday": 55,
+        "wednesday": 21,
+        "thursday": 47,
+        "friday": 36,
+        "saturday": 75,
+        "sunday": 59
+      },
+      "_theme_scores_raw": {
+        "monday": 11,
+        "tuesday": 4,
+        "wednesday": 1,
+        "thursday": 5,
+        "friday": 32,
+        "saturday": 48,
+        "sunday": 53
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/09/Williams20Lake20River20220-20Wilber20Saunders.jpg?w=1024",
+      "_subscriber_access": "Williams Lake Tribune"
+    },
+    {
+      "id": "https://www.mycariboonow.com/316448/news/emergency-services/fire/quesnel-fire-department-forced-to-breach-building/",
+      "url": "https://www.mycariboonow.com/316448/news/emergency-services/fire/quesnel-fire-department-forced-to-breach-building/",
+      "title": "Quesnel Fire Department forced to breach building",
+      "content_html": "<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://www.mycariboonow.com/wp-content/uploads/2023/11/quesnel-fire-hall-1024x768.jpg\" width=\"696\" />Quesnel firefighters responded to a call at around 6-30 this (September 24) morning.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316448/news/emergency-services/fire/quesnel-fire-department-forced-to-breach-building/\">Quesnel Fire Department forced to breach building </a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-09-24T18:34:50+00:00",
       "authors": [
         {
           "name": "My Cariboo Now",
           "url": "https://www.mycariboonow.com"
         }
       ],
-      "_score": 90,
-      "_quality": 77,
-      "_relevance": 92,
-      "_local_score": 95,
+      "_score": 82,
+      "_quality": 47,
+      "_relevance": 88,
+      "_local_score": 100,
       "_category": "local",
       "_content_type": "breaking",
       "_selection_bucket": "high",
       "_stratum_weight": 2.0,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 91,
-        "tuesday": 96,
+        "monday": 100,
+        "tuesday": 97,
         "wednesday": 85,
-        "thursday": 89,
-        "friday": 56,
-        "saturday": 95,
-        "sunday": 62
+        "thursday": 96,
+        "friday": 67,
+        "saturday": 94,
+        "sunday": 61
       },
       "_theme_scores_raw": {
-        "monday": 28,
-        "tuesday": 21,
+        "monday": 42,
+        "tuesday": 31,
         "wednesday": 7,
-        "thursday": 16,
-        "friday": 39,
-        "saturday": 59,
+        "thursday": 22,
+        "friday": 43,
+        "saturday": 58,
         "sunday": 54
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/09/IMG_1465-scaled-1.jpeg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2023/11/quesnel-fire-hall.jpg"
     },
     {
-      "id": "https://www.nytimes.com/2026/09/22/business/self-driving-cars-tesla-fsd.html",
-      "url": "https://www.nytimes.com/2026/09/22/business/self-driving-cars-tesla-fsd.html",
-      "title": "Self-Driving Cars Are Getting Better. The Risks Are Getting Bigger.",
-      "content_html": "Self-driving systems are getting so good that drivers may overestimate the technology and not be prepared to respond when something goes wrong.",
-      "date_published": "2026-09-23T15:18:21+00:00",
-      "authors": [
-        {
-          "name": "NYT Business",
-          "url": "https://www.nytimes.com/section/business"
-        }
-      ],
-      "_score": 67,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 78,
-        "tuesday": 82,
-        "wednesday": 82,
-        "thursday": 92,
-        "friday": 79,
-        "saturday": 86,
-        "sunday": 74
-      },
-      "_theme_scores_raw": {
-        "monday": 21,
-        "tuesday": 8,
-        "wednesday": 6,
-        "thursday": 18,
-        "friday": 47,
-        "saturday": 52,
-        "sunday": 59
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://static01.nyt.com/images/2026/09/21/multimedia/00biz-autonomous-cars-fhbk/00biz-autonomous-cars-fhbk-mediumSquareAt3X.jpg",
-      "_subscriber_access": "New York Times"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/09/23/well/fda-cancer-blood-test-galleri-grail.html",
-      "url": "https://www.nytimes.com/2026/09/23/well/fda-cancer-blood-test-galleri-grail.html",
-      "title": "F.D.A. Advisory Panel Endorses Controversial Cancer Blood Test",
-      "content_html": "The panelists expressed reservations about the evidence supporting Grail’s Galleri test, which is designed to detect cancers early.",
-      "date_published": "2026-09-23T22:45:41+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "_score": 67,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 70,
-        "tuesday": 56,
-        "wednesday": 62,
-        "thursday": 59,
-        "friday": 77,
-        "saturday": 79,
-        "sunday": 67
-      },
-      "_theme_scores_raw": {
-        "monday": 18,
-        "tuesday": 4,
-        "wednesday": 3,
-        "thursday": 7,
-        "friday": 46,
-        "saturday": 49,
-        "sunday": 56
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128",
-      "_subscriber_access": "New York Times"
-    },
-    {
-      "id": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
-      "url": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
-      "title": "Meta’s Muse AI Assistant Rolled Out With a Serious Security Flaw",
-      "content_html": "Meta says it issued a fix for the Muse zero-day vulnerability that would have let attackers do “whatever” they wanted on a victim’s Mac, highlighting the inherent dangers of AI helpers.",
-      "date_published": "2026-09-23T12:54:58+00:00",
+      "id": "https://www.wired.com/story/ovary-activity-after-menopause/",
+      "url": "https://www.wired.com/story/ovary-activity-after-menopause/",
+      "title": "The Ovary Is Surprisingly Active After Menopause. Scientists Are Trying to Figure Out Why",
+      "content_html": "A growing body of research is putting the ovary in a new light, not as an egg factory with an expiration date, but as an organ that shapes women’s health long after the fertile years have passed.",
+      "date_published": "2026-09-24T10:30:00+00:00",
       "authors": [
         {
           "name": "WIRED",
           "url": "https://www.wired.com"
         }
       ],
-      "_score": 67,
+      "_score": 75,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "wellness",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_stratum_weight": 48.1667,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 15,
+        "tuesday": 9,
+        "wednesday": 0,
+        "thursday": 6,
+        "friday": 26,
+        "saturday": 34,
+        "sunday": 30
+      },
+      "_theme_scores_raw": {
+        "monday": 5,
+        "tuesday": 1,
+        "wednesday": 0,
+        "thursday": 1,
+        "friday": 28,
+        "saturday": 34,
+        "sunday": 39
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://media.wired.com/photos/6ab2b368ca9e2384756787bb/master/pass/092226-Menopause%20Ovary.jpg",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA4elp3VlgwS21TOTdQS0NoS0lscmozVEhCU2c1RzZJRUU4UEV6Y0ppZ3hreWxqZW5jdDlsVXlRc240c3lkemVlWE8tdFE0ZktaWHcyR3B3?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA4elp3VlgwS21TOTdQS0NoS0lscmozVEhCU2c1RzZJRUU4UEV6Y0ppZ3hreWxqZW5jdDlsVXlRc240c3lkemVlWE8tdFE0ZktaWHcyR3B3?oc=5",
+      "title": "Nova Scotia Shut Down Libraries. Then Things Got Ugly",
+      "content_html": "<a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTFA4elp3VlgwS21TOTdQS0NoS0lscmozVEhCU2c1RzZJRUU4UEV6Y0ppZ3hreWxqZW5jdDlsVXlRc240c3lkemVlWE8tdFE0ZktaWHcyR3B3?oc=5\" target=\"_blank\">Nova Scotia Shut Down Libraries. Then Things Got Ugly</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Walrus</font>",
+      "date_published": "2026-09-23T10:30:27+00:00",
+      "authors": [
+        {
+          "name": "The Walrus",
+          "url": "https://news.google.com"
+        }
+      ],
+      "_score": 73,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_stratum_weight": 48.1667,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 52,
-        "tuesday": 56,
-        "wednesday": 49,
-        "thursday": 54,
-        "friday": 48,
-        "saturday": 62,
-        "sunday": 42
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
       "_theme_scores_raw": {
-        "monday": 13,
-        "tuesday": 4,
-        "wednesday": 2,
-        "thursday": 6,
-        "friday": 36,
-        "saturday": 43,
-        "sunday": 45
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://media.wired.com/photos/6ab2cd9fca426ab5b46f084b/master/pass/Security_Meta%E2%80%99s%20Muse%20AI%20Agent%20Has%20a%20Serious%20Security%20Flaw_v1.jpg",
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://lh3.googleusercontent.com/J6_coFbogxhRI9iM864NL_liGXvsQp2AupsKei7z0cNNfDvGUmWUy20nuUhkREQyrpY4bEeIBuc=s0-w300",
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://thetyee.ca/News/2026/09/22/Unions-Slam-Liberals-Federal-Labour-Code-Changes-Section-107/",
-      "url": "https://thetyee.ca/News/2026/09/22/Unions-Slam-Liberals-Federal-Labour-Code-Changes-Section-107/",
-      "title": "Unions Slam Liberals’ Federal Labour Code Changes",
-      "content_html": "The Canadian Labour Congress says the legislation would let Ottawa break strikes.",
-      "date_published": "2026-09-22T20:00:00+00:00",
+      "id": "https://www.npr.org/2026/09/24/nx-s1-5931971/trump-nih-science-funding-disruptions-charts",
+      "url": "https://www.npr.org/2026/09/24/nx-s1-5931971/trump-nih-science-funding-disruptions-charts",
+      "title": "These 6 charts show how NIH research funding has been reshaped under Trump",
+      "content_html": "Stories of science funding being cut, labs shutting down and scientists losing jobs have flooded the media under Trump's administration. These six graphics show how those changes have affected U.S. biomedical research.",
+      "date_published": "2026-09-24T09:00:00+00:00",
+      "authors": [
+        {
+          "name": "NPR Health News",
+          "url": "https://www.npr.org/sections/health-shots/"
+        }
+      ],
+      "_score": 72,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_stratum_weight": 48.1667,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 46,
+        "tuesday": 9,
+        "wednesday": 48,
+        "thursday": 19,
+        "friday": 24,
+        "saturday": 29,
+        "sunday": 50
+      },
+      "_theme_scores_raw": {
+        "monday": 12,
+        "tuesday": 1,
+        "wednesday": 2,
+        "thursday": 2,
+        "friday": 27,
+        "saturday": 32,
+        "sunday": 49
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5000x2813+0+344/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd7%2Fe0%2F342e2c3d44adb73f82e1496974de%2Fnpr-23-09-26-er-v13.jpg"
+    },
+    {
+      "id": "https://www.sciencealert.com/physicists-detect-a-300-tev-photon-that-should-never-have-reached-earth",
+      "url": "https://www.sciencealert.com/physicists-detect-a-300-tev-photon-that-should-never-have-reached-earth",
+      "title": "Physicists Detect a 300 TeV Photon That Should Never Have Reached Earth",
+      "content_html": "<figure id=\"attachment_221202\"><img alt=\"Physicists Detect a 300 TeV Photon That Should Never Have Reached Earth\" class=\"attachment-full size-full\" height=\"1440\" src=\"https://www.sciencealert.com/images/2026/09/photon-in-space.jpg\" width=\"2560\" /><figcaption>(fotograzia/Moment/Getty Images)</figcaption></figure>\n<p><img alt=\"Physicists Detect a 300 TeV Photon That Should Never Have Reached Earth\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/09/photon-in-space-1200x675.jpg\" style=\"float: left; margin: 0 15px 15px 0;\" width=\"1200\" />How did it survive the 2-billion-light-year trip?</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&#038;utm_medium=feed&#038;utm_campaign=rss_feed_promo\" rel=\"noopener\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don&#039;t miss a story, subscribe here.</a></p>",
+      "date_published": "2026-09-24T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "ScienceAlert",
+          "url": "https://www.sciencealert.com"
+        }
+      ],
+      "_score": 71,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_stratum_weight": 48.1667,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 62,
+        "tuesday": 45,
+        "wednesday": 21,
+        "thursday": 39,
+        "friday": 53,
+        "saturday": 69,
+        "sunday": 41
+      },
+      "_theme_scores_raw": {
+        "monday": 16,
+        "tuesday": 3,
+        "wednesday": 1,
+        "thursday": 4,
+        "friday": 38,
+        "saturday": 46,
+        "sunday": 45
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://www.sciencealert.com/images/2026/09/photon-in-space.jpg"
+    },
+    {
+      "id": "https://www.theatlantic.com/ideas/2026/09/fauda-israeli-tv-show-popularity/688766/?utm_source=feed",
+      "url": "https://www.theatlantic.com/ideas/2026/09/fauda-israeli-tv-show-popularity/688766/?utm_source=feed",
+      "title": "Why <em>Fauda</em> Is So Popular in the Arab World",
+      "content_html": "Viewers may find, in the fictions of a TV show, a more realistic portrayal of their world than they are usually offered.",
+      "date_published": "2026-09-24T15:00:10+00:00",
+      "authors": [
+        {
+          "name": "The Atlantic",
+          "url": "https://www.theatlantic.com"
+        }
+      ],
+      "_score": 70,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": null,
+      "_selection_bucket": "mid",
+      "_stratum_weight": 48.1667,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 59,
+        "tuesday": 55,
+        "wednesday": 48,
+        "thursday": 59,
+        "friday": 39,
+        "saturday": 63,
+        "sunday": 52
+      },
+      "_theme_scores_raw": {
+        "monday": 15,
+        "tuesday": 4,
+        "wednesday": 2,
+        "thursday": 7,
+        "friday": 33,
+        "saturday": 44,
+        "sunday": 50
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://www.google.com/s2/favicons?domain=www.theatlantic.com&sz=128",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/09/24/Local-Craft-Brewer-Alcohol-Risks/",
+      "url": "https://thetyee.ca/News/2026/09/24/Local-Craft-Brewer-Alcohol-Risks/",
+      "title": "Does Your Local Craft Brewer Want to Hide Alcohol Risks?",
+      "content_html": "Their major industry association is lobbying against new drinking guidelines and warning labels. Its members are split.",
+      "date_published": "2026-09-24T07:30:00+00:00",
       "authors": [
         {
           "name": "The Tyee",
           "url": "https://thetyee.ca"
         }
       ],
-      "_score": 67,
+      "_score": 70,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_stratum_weight": 48.1667,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 73,
-        "tuesday": 73,
-        "wednesday": 77,
-        "thursday": 74,
-        "friday": 68,
-        "saturday": 89,
-        "sunday": 82
+        "monday": 19,
+        "tuesday": 29,
+        "wednesday": 21,
+        "thursday": 30,
+        "friday": 11,
+        "saturday": 27,
+        "sunday": 26
       },
       "_theme_scores_raw": {
-        "monday": 19,
-        "tuesday": 6,
-        "wednesday": 5,
-        "thursday": 10,
-        "friday": 43,
-        "saturday": 54,
+        "monday": 6,
+        "tuesday": 2,
+        "wednesday": 1,
+        "thursday": 3,
+        "friday": 19,
+        "saturday": 31,
+        "sunday": 37
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://thetyee.ca/News/2026/09/23/HoldingPintBeer.jpg"
+    },
+    {
+      "id": "https://www.woodbusiness.ca/scanners-and-optimizers/",
+      "url": "https://www.woodbusiness.ca/scanners-and-optimizers/",
+      "title": "Product spotlight: Scanners and optimizers",
+      "content_html": "Comact scanners Powered by advanced artificial intelligence, Comact’s scanners<span class=\"ellipsis\">&#8230;</span>",
+      "date_published": "2026-09-23T04:25:11+00:00",
+      "authors": [
+        {
+          "name": "Canadian Forest Industries",
+          "url": "https://www.woodbusiness.ca"
+        }
+      ],
+      "_score": 47,
+      "_quality": 45,
+      "_relevance": 62,
+      "_local_score": 0,
+      "_category": "news",
+      "_content_type": "news",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
+      },
+      "_theme_scores_raw": {
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://www.woodbusiness.ca/wp-content/uploads/2026/09/Comact-420x315.jpg"
+    },
+    {
+      "id": "https://www.outsideonline.com/health/wellness/fireflies-light-pollution-circadian-rhythm-sleep-longevity/",
+      "url": "https://www.outsideonline.com/health/wellness/fireflies-light-pollution-circadian-rhythm-sleep-longevity/",
+      "title": "What the Decline in Firefly Populations Teaches Us About Sleep Loss and Human Lifespan, According to a Longevity Doctor",
+      "content_html": "<figure><img alt=\"What the Decline in Firefly Populations Teaches Us About Sleep Loss and Human Lifespan, According to a Longevity Doctor\" src=\"https://cdn.outsideonline.com/wp-content/uploads/2026/09/holding-fireflies.jpg?width=1200\" /></figure>\n<p>As a longevity doctor, I explore how light pollution harms fireflies and human sleep—and why resetting our clock is key to longevity.</p>\n<p>The post <a href=\"https://www.outsideonline.com/health/wellness/fireflies-light-pollution-circadian-rhythm-sleep-longevity/\">What the Decline in Firefly Populations Teaches Us About Sleep Loss and Human Lifespan, According to a Longevity Doctor</a> appeared first on <a href=\"https://www.outsideonline.com\">Outside Online</a>.</p>",
+      "date_published": "2026-09-24T21:31:51+00:00",
+      "authors": [
+        {
+          "name": "Outside Online",
+          "url": "https://www.outsideonline.com"
+        }
+      ],
+      "_score": 49,
+      "_quality": 69,
+      "_relevance": 58,
+      "_local_score": 0,
+      "_category": "wellness",
+      "_content_type": "feature",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
+      },
+      "_theme_scores_raw": {
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/09/24/business/dealbook/ai-safety-concerns-go-global.html",
+      "url": "https://www.nytimes.com/2026/09/24/business/dealbook/ai-safety-concerns-go-global.html",
+      "title": "A.I. Safety Concerns Go Global",
+      "content_html": "The Australian government is the latest victim of a hack by artificial intelligence tools, adding to growing worries about the technology.",
+      "date_published": "2026-09-24T12:04:28+00:00",
+      "authors": [
+        {
+          "name": "NYT Business",
+          "url": "https://www.nytimes.com/section/business"
+        }
+      ],
+      "_score": 48,
+      "_quality": 67,
+      "_relevance": 58,
+      "_local_score": 0,
+      "_category": "ai-tech",
+      "_content_type": "breaking",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 83,
+        "tuesday": 55,
+        "wednesday": 71,
+        "thursday": 88,
+        "friday": 94,
+        "saturday": 96,
+        "sunday": 81
+      },
+      "_theme_scores_raw": {
+        "monday": 23,
+        "tuesday": 4,
+        "wednesday": 4,
+        "thursday": 16,
+        "friday": 55,
+        "saturday": 60,
         "sunday": 63
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://thetyee.ca/News/2026/09/22/JobsMinisterPattyHajdu.jpg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://static01.nyt.com/images/2026/09/24/multimedia/24db-altman-glmw/24db-altman-glmw-mediumSquareAt3X.jpg",
+      "_subscriber_access": "New York Times"
     },
     {
-      "id": "https://www.northernminer.com/news/beaver-creek-minings-next-generation-takes-the-wheel/1003895061/",
-      "url": "https://www.northernminer.com/news/beaver-creek-minings-next-generation-takes-the-wheel/1003895061/",
-      "title": "Beaver Creek: Mining’s next generation takes the wheel",
-      "content_html": "<p>Mining is entering a generational handover as veteran founders and dealmakers begin stepping back, leaving a younger group of executives to prove they can build lasting companies through changing commodity...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/beaver-creek-minings-next-generation-takes-the-wheel/1003895061/\">Beaver Creek: Mining’s next generation takes the wheel</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "date_published": "2026-09-23T21:05:41+00:00",
+      "id": "https://www.fastcompany.com/91612570/executives-are-using-ai-to-communicate-better-theres-just-one-problem",
+      "url": "https://www.fastcompany.com/91612570/executives-are-using-ai-to-communicate-better-theres-just-one-problem",
+      "title": "Executives are using AI to communicate better. There’s just one problem",
+      "content_html": "<p class=\"wp-block-paragraph\">Artificial intelligence can help executives communicate more effectively and efficiently. But relying on it too much carries significant risks.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">One of the biggest is something Wade Foster, cofounder and chief executive of workflow automation platform Zapier, calls the “comprehension gap”—failing to adequately understand the underlying subject matter of their own <a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">AI</a>-assisted work. </p>\n\n\n\n<p class=\"wp-block-paragraph\">Leaders who overuse AI to write polished memos, emails, or talking points may find themselves unable to answer follow-up questions or back up their claims in real time. The fact that they used AI to create the original material might quickly become obvious.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“There are definitely situations [where] you don’t use AI responsibly, where you’re delegating too much,” Foster said in an <a href=\"https://hbr.org/podcast/2026/09/how-ai-is-changing-communication-weighing-efficiency-with-efficacy\" rel=\"noreferrer noopener\" target=\"_blank\">appearance</a> on <em>Harvard Business Review</em>’s <em>IdeaCast</em> earlier today.  </p>\n\n\n\n<p class=\"wp-block-paragraph\">“As you get asked questions, as you start to investigate, you realize, ‘Oh, I don’t actually know enough about this area,’” he said.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">AI overuse can also rob executives of knowledge they would have gained by producing the materials themselves, added Matt Abrahams, a lecturer in organizational behavior at Stanford Graduate School of Business. Composing an internal memo about a regulatory issue, for example, might give an executive a deeper understanding of the issue itself.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“Communication is operationalized critical thinking,” Abrahams said on the <em>IdeaCast</em> podcast. “If we outsource that critical thinking and then are put on the spot to answer questions, to give input, to give an update, people get really anxious.” </p>\n\n\n\n<p class=\"wp-block-paragraph\">The key to avoiding such a scenario is to take time studying the AI-generated material until you really comprehend it, Abrahams said. It’s about truly knowing the subject matter, even if you had some help putting the verbiage together.</p>\n\n\n\n<p class=\"wp-block-paragraph\">“It is really important not just to review the output, but to really review the thinking so that when you’re put on the spot, you have the confidence that you know what you’re speaking about,” he said. Otherwise, workers might come to believe that their leaders aren’t doing their homework.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">The business community is still figuring how to responsibly incorporate AI into communications, Foster added. “AI is a fantastic tool, and to not use it would be a mistake. [But] it could be a lot better if you use it responsibly. [That] is what everyone’s trying to figure out.” </p>\n\n\n\n<p class=\"wp-block-paragraph\">Leaders who overuse AI without understanding the underlying subject matter <a href=\"https://www.fastcompany.com/91560408/the-ai-credibility-gap-is-real\" rel=\"noreferrer noopener\" target=\"_blank\">risk their own credibility</a>—one <a href=\"https://hbr.org/2025/05/why-ceos-should-think-twice-before-using-ai-to-write-messages\" rel=\"noreferrer noopener\" target=\"_blank\">recent study</a> found that employees view executive communications as less helpful when they think they&#8217;re AI-generated (even when they aren’t)—and <a href=\"https://www.fastcompany.com/91569582/three-things-every-leader-must-do-hold-line-against-ai-decision-making\" rel=\"noreferrer noopener\" target=\"_blank\">set a bad example</a> for workers who may be eager to outsource their own work to AI.   </p>\n\n\n\n<p class=\"wp-block-paragraph\">In the end, it may be that there are no hard-and-fast rules for responsible AI use in executive communications. Leaders will have to decide on a case-by-case basis.&nbsp;</p>\n\n\n\n<p class=\"wp-block-paragraph\">“It just depends on the task,” Foster said. “There could be areas where the impact is relatively low, and you’re fine delegating the work to the AI more fully. </p>\n\n\n\n<p class=\"wp-block-paragraph\">“It just comes down to judgment.”</p>",
+      "date_published": "2026-09-24T19:30:00+00:00",
       "authors": [
         {
-          "name": "The Northern Miner",
-          "url": "https://www.northernminer.com"
+          "name": "Fast Company",
+          "url": "https://www.fastcompany.com"
         }
       ],
-      "_score": 67,
-      "_quality": 0,
-      "_relevance": 0,
+      "_score": 48,
+      "_quality": 66,
+      "_relevance": 58,
       "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_category": "ai-tech",
+      "_content_type": "analysis",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 7,
-        "tuesday": 99,
-        "wednesday": 87,
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
         "thursday": 0,
-        "friday": 6,
-        "saturday": 21,
-        "sunday": 10
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
       "_theme_scores_raw": {
-        "monday": 3,
-        "tuesday": 68,
-        "wednesday": 8,
+        "monday": 0,
+        "tuesday": 0,
+        "wednesday": 0,
         "thursday": 0,
-        "friday": 13,
-        "saturday": 28,
-        "sunday": 22
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://www.northernminer.com/wp-content/uploads/2026/09/Beaver-Creek-young-leaders-scaled-1.jpg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/09/p-91612570-executive-communication-loss-with-AI-usage.jpg",
+      "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.techradar.com/phones/xiaomi-phones/i-got-hands-on-with-the-xiaomi-18-pro-it-looks-like-an-iphone-18-pro-but-with-an-extra-screen-and-a-potentially-samsung-beating-privacy-display",
-      "url": "https://www.techradar.com/phones/xiaomi-phones/i-got-hands-on-with-the-xiaomi-18-pro-it-looks-like-an-iphone-18-pro-but-with-an-extra-screen-and-a-potentially-samsung-beating-privacy-display",
-      "title": "Xiaomi 18 Pro hands-on — an iPhone lookalike with an extra screen and a potentially Samsung-beating Privacy Display",
-      "content_html": "At Snapdragon Summit 2026, I got hands-on with the dual-screen Xiaomi 18 Pro.",
-      "date_published": "2026-09-23T22:54:07+00:00",
+      "id": "https://www.popularmechanics.com/science/a73831149/blue-light-truth/",
+      "url": "https://www.popularmechanics.com/science/a73831149/blue-light-truth/",
+      "title": "Blue Light Doesn’t Actually Fry Your Eyes. The Real Problem Is Much Stranger.",
+      "content_html": "<p class=\"rte-simple-html-paragraph\">A dark-room experiment reveals why blue blurs the world, and why darker eyes handle it better.</p>",
+      "date_published": "2026-09-24T12:00:00+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Popular Mechanics",
+          "url": "https://www.popularmechanics.com"
         }
       ],
-      "_score": 67,
-      "_quality": 0,
-      "_relevance": 0,
+      "_score": 48,
+      "_quality": 65,
+      "_relevance": 58,
       "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_category": "science",
+      "_content_type": "feature",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 39,
-        "tuesday": 10,
-        "wednesday": 22,
-        "thursday": 19,
-        "friday": 51,
-        "saturday": 19,
-        "sunday": 19
+        "monday": 3,
+        "tuesday": 9,
+        "wednesday": 0,
+        "thursday": 6,
+        "friday": 8,
+        "saturday": 12,
+        "sunday": 14
+      },
+      "_theme_scores_raw": {
+        "monday": 2,
+        "tuesday": 1,
+        "wednesday": 0,
+        "thursday": 1,
+        "friday": 16,
+        "saturday": 23,
+        "sunday": 28
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.businessinsider.com/white-house-us-review-new-ai-models-before-uk-testers-2026-9",
+      "url": "https://www.businessinsider.com/white-house-us-review-new-ai-models-before-uk-testers-2026-9",
+      "title": "White House asks OpenAI and Anthropic to hold new models from UK testers until US review, sources say.",
+      "content_html": "The White House has asked OpenAI and Anthropic not to share their new AI models with the UK's testing agency until US government review.",
+      "date_published": "2026-09-24T20:48:43+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "_score": 48,
+      "_quality": 64,
+      "_relevance": 58,
+      "_local_score": 0,
+      "_category": "ai-tech",
+      "_content_type": "breaking",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 37,
+        "tuesday": 9,
+        "wednesday": 21,
+        "thursday": 30,
+        "friday": 64,
+        "saturday": 42,
+        "sunday": 41
       },
       "_theme_scores_raw": {
         "monday": 10,
         "tuesday": 1,
         "wednesday": 1,
-        "thursday": 2,
-        "friday": 37,
-        "saturday": 27,
-        "sunday": 32
+        "thursday": 3,
+        "friday": 42,
+        "saturday": 37,
+        "sunday": 45
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://cdn.mos.cms.futurecdn.net/pNXqBrrwYSVMckeWogmsoi-1920-80.jpg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://i.insider.com/6ab58d1ad15f8a572974a584?format=jpeg"
     },
     {
-      "id": "https://www.archdaily.com/1033068/shore-house-stanley-office-of-architecture",
-      "url": "https://www.archdaily.com/1033068/shore-house-stanley-office-of-architecture",
-      "title": "Shore House / Stanley Office of Architecture",
-      "content_html": "<p><strong>Perched on a steep, forested slope</strong> at the edge of Kootenay Lake, Shore House is a family home that responds to its challenging terrain with <strong>deep foundations and cantilevered floors</strong> projecting over the landscape.</p>",
-      "date_published": "2026-09-23T12:00:00+00:00",
+      "id": "https://www.parents.com/what-is-lighthouse-parenting-12126439",
+      "url": "https://www.parents.com/what-is-lighthouse-parenting-12126439",
+      "title": "What Is Lighthouse Parenting? The Strategy That Is Sometimes Hard for Parents",
+      "content_html": "Lighthouse parenting strives to help children feel safe, comfortable, and confident. Experts weigh in on the benefits and challenges.",
+      "date_published": "2026-09-23T15:00:00+00:00",
       "authors": [
         {
-          "name": "ArchDaily",
-          "url": "https://www.archdaily.com"
+          "name": "Parents",
+          "url": "https://www.parents.com"
         }
       ],
-      "_score": 67,
-      "_quality": 65,
-      "_relevance": 72,
-      "_local_score": 55,
-      "_category": "design",
-      "_content_type": "feature",
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 7,
-        "tuesday": 10,
-        "wednesday": 0,
-        "thursday": 6,
-        "friday": 24,
-        "saturday": 14,
-        "sunday": 22
-      },
-      "_theme_scores_raw": {
-        "monday": 3,
-        "tuesday": 1,
-        "wednesday": 0,
-        "thursday": 1,
-        "friday": 27,
-        "saturday": 24,
-        "sunday": 34
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://images.adsttc.com/media/images/689c/88f2/65bf/e15a/7e16/3560/large_jpg/shore-house-stanley-office-of-architecture_1.jpg?1755089156"
-    },
-    {
-      "id": "https://www.zdnet.com/tech/most-dangerous-tech-cables-dongles-explained/",
-      "url": "https://www.zdnet.com/tech/most-dangerous-tech-cables-dongles-explained/",
-      "title": "Five USB cables and dongles that can fry your hardware, steal your data, or worse",
-      "content_html": "I’ve set cables on fire, destroyed hardware with electrical bolts, and accidentally stolen a friend’s login passwords so you don’t have to.",
-      "date_published": "2026-09-23T14:00:00+00:00",
-      "authors": [
-        {
-          "name": "ZDNet",
-          "url": "https://www.zdnet.com"
-        }
-      ],
-      "_score": 65,
+      "_score": 48,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 73,
-        "tuesday": 45,
-        "wednesday": 49,
-        "thursday": 48,
-        "friday": 81,
-        "saturday": 49,
-        "sunday": 53
-      },
-      "_theme_scores_raw": {
-        "monday": 19,
-        "tuesday": 3,
-        "wednesday": 2,
-        "thursday": 5,
-        "friday": 48,
-        "saturday": 39,
-        "sunday": 50
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/IMG_6018.jpg"
-    },
-    {
-      "id": "https://passivehouseplus.co.uk/magazine/feature/glasgow-scheme-creates-affordable-rents-fit-for-the-future",
-      "url": "https://passivehouseplus.co.uk/magazine/feature/glasgow-scheme-creates-affordable-rents-fit-for-the-future",
-      "title": "Glasgow scheme creates affordable rents fit for the future",
-      "content_html": "<div class=\"K2FeedImage\"><img alt=\"Glasgow scheme creates affordable rents fit for the future\" src=\"https://passivehouseplus.co.uk/media/k2/items/cache/7989577e7de081a1a214e318c33e2a73_S.jpg\" /></div><div class=\"K2FeedIntroText\"><p>If attempting to tackle a housing crisis is hard, how about doing so while taking on the climate crisis, energy crisis, cost-of-living crisis and pandemic all at once, with a sprinkle of Brexit? One pioneering Scottish project shows that with a little resolve, adversity can lead to triumph.</p></div>",
-      "date_published": "2026-09-23T13:25:15+00:00",
-      "authors": [
-        {
-          "name": "Articles - passivehouseplus.co.uk",
-          "url": "https://passivehouseplus.co.uk/"
-        }
-      ],
-      "_score": 49,
-      "_quality": 72,
-      "_relevance": 58,
-      "_local_score": 0,
-      "_category": "design",
-      "_content_type": "feature",
       "_selection_bucket": "border",
-      "_stratum_weight": 77.0,
+      "_stratum_weight": 119.3333,
       "_shipped": true,
       "_theme_scores": {
         "monday": 0,
@@ -515,16 +800,17 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://passivehouseplus.co.uk/media/k2/items/cache/7989577e7de081a1a214e318c33e2a73_S.jpg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://www.parents.com/thmb/5fxdLfa8djZoMGxyDL5ROnT2nIY=/filters:no_upscale():max_bytes(150000):strip_icc():format(jpeg)/PARENTS-lighthouse-parenting-b584bde105314e34bae308741d30d253.jpg",
+      "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.aljazeera.com/video/newsfeed/2026/9/24/venezuelas-rodriguez-pledges-elections-path-forward-in-unga-speech?traffic_source=rss",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/24/venezuelas-rodriguez-pledges-elections-path-forward-in-unga-speech?traffic_source=rss",
-      "title": "Venezuela’s Rodriguez pledges elections, path forward in UNGA speech",
-      "content_html": "Venezuela’s Interim President Delcy Rodriguez says her country must abandon the ‘extremism’ of the past.",
-      "date_published": "2026-09-24T02:23:06+00:00",
+      "id": "https://www.aljazeera.com/news/2026/9/24/trump-xi-summit-four-key-takeaways-from-the-washington-dc-meeting?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/9/24/trump-xi-summit-four-key-takeaways-from-the-washington-dc-meeting?traffic_source=rss",
+      "title": "Trump-Xi summit: Four key takeaways from the Washington, DC, meeting",
+      "content_html": "Trump, Xi seek stable US-China ties at the White House, but differences over Iran, Taiwan and trade remain unresolved.",
+      "date_published": "2026-09-24T23:51:56+00:00",
       "authors": [
         {
           "name": "Al Jazeera English",
@@ -538,121 +824,35 @@
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "border",
-      "_stratum_weight": 77.0,
+      "_stratum_weight": 119.3333,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 39,
-        "tuesday": 30,
-        "wednesday": 22,
-        "thursday": 31,
-        "friday": 71,
-        "saturday": 70,
-        "sunday": 59
-      },
-      "_theme_scores_raw": {
-        "monday": 10,
-        "tuesday": 2,
-        "wednesday": 1,
-        "thursday": 3,
-        "friday": 44,
-        "saturday": 46,
-        "sunday": 53
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech"
-    },
-    {
-      "id": "https://www.businessinsider.com/youtube-is-leaning-into-the-micro-drama-craze-2026-9",
-      "url": "https://www.businessinsider.com/youtube-is-leaning-into-the-micro-drama-craze-2026-9",
-      "title": "YouTube is jumping into micro dramas and helping them move from phones to TV screens",
-      "content_html": "YouTube rolled out a few features to promote micro-drama watching and shared data showing their consumption is soaring on the platform.",
-      "date_published": "2026-09-23T21:09:50+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "_score": 48,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "border",
-      "_stratum_weight": 77.0,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 93,
-        "tuesday": 56,
-        "wednesday": 49,
-        "thursday": 59,
-        "friday": 53,
-        "saturday": 70,
-        "sunday": 70
-      },
-      "_theme_scores_raw": {
-        "monday": 30,
-        "tuesday": 4,
-        "wednesday": 2,
-        "thursday": 7,
-        "friday": 38,
-        "saturday": 46,
-        "sunday": 57
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://i.insider.com/6ab43fdbeb72254112679d96?format=jpeg"
-    },
-    {
-      "id": "https://www.cnet.com/tech/new-microsoft-patent-rewrites-games-with-ai/",
-      "url": "https://www.cnet.com/tech/new-microsoft-patent-rewrites-games-with-ai/",
-      "title": "A Patent Filed by Microsoft Would Let Games Use AI to Rewrite Themselves",
-      "content_html": "The new technology would consider how players explore the game and then rewrite the game to fit these interests.",
-      "date_published": "2026-09-23T23:55:50+00:00",
-      "authors": [
-        {
-          "name": "CNET",
-          "url": "https://www.cnet.com"
-        }
-      ],
-      "_score": 48,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 52,
-        "tuesday": 10,
+        "monday": 0,
+        "tuesday": 0,
         "wednesday": 0,
-        "thursday": 6,
-        "friday": 59,
-        "saturday": 62,
-        "sunday": 24
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
       "_theme_scores_raw": {
-        "monday": 13,
-        "tuesday": 1,
+        "monday": 0,
+        "tuesday": 0,
         "wednesday": 0,
-        "thursday": 1,
-        "friday": 40,
-        "saturday": 43,
-        "sunday": 35
+        "thursday": 0,
+        "friday": 0,
+        "saturday": 0,
+        "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://www.cnet.com/wp-content/uploads/sites/2/Fallout-Pipboy-Xbox-Controller.jpg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation"
     },
     {
-      "id": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNbm52bnFUeTMxcFFuLWtVUm1MVkc2c1ByM3FMOWVRdWh4eFN4cURsOUZjSm1iVHJvM0lYb2JCREQ0ZWllTE1QRlBEWEQ1a21IVDFfc3N0VWRiWXdua2hzZDBBb3h0d3lZY1lEbE1lZXlhbF9BcDFMV01kM1AzTE41b0xDTmNITzNqWWNsaW52Q2xOY0U?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNbm52bnFUeTMxcFFuLWtVUm1MVkc2c1ByM3FMOWVRdWh4eFN4cURsOUZjSm1iVHJvM0lYb2JCREQ0ZWllTE1QRlBEWEQ1a21IVDFfc3N0VWRiWXdua2hzZDBBb3h0d3lZY1lEbE1lZXlhbF9BcDFMV01kM1AzTE41b0xDTmNITzNqWWNsaW52Q2xOY0U?oc=5",
-      "title": "YouTube Will Now Let You Customize Your Algorithm Using AI",
-      "content_html": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxNbm52bnFUeTMxcFFuLWtVUm1MVkc2c1ByM3FMOWVRdWh4eFN4cURsOUZjSm1iVHJvM0lYb2JCREQ0ZWllTE1QRlBEWEQ1a21IVDFfc3N0VWRiWXdua2hzZDBBb3h0d3lZY1lEbE1lZXlhbF9BcDFMV01kM1AzTE41b0xDTmNITzNqWWNsaW52Q2xOY0U?oc=5\" target=\"_blank\">YouTube Will Now Let You Customize Your Algorithm Using AI</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Gizmodo</font>",
-      "date_published": "2026-09-23T20:10:03+00:00",
+      "id": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNVHNmdUVrTC1BdWhJZEYwTmQ3NDlOMDNFZ0lEb1NEanowblJrTW1wOHZIdTk1dkd1Z1J3VU4xdDB5ZFFiaV9ub2x5U0k1cWRGUzhfOGFuMHgxUWlwaHdIYkJaV29CRXlmOGFJdUF0LU5lZ1M5Y3ZES1A1TndkYWU5TFJJUkhPRF95MFk4QTh6aVFHRV81VGRxbi1rU2wtX0E?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNVHNmdUVrTC1BdWhJZEYwTmQ3NDlOMDNFZ0lEb1NEanowblJrTW1wOHZIdTk1dkd1Z1J3VU4xdDB5ZFFiaV9ub2x5U0k1cWRGUzhfOGFuMHgxUWlwaHdIYkJaV29CRXlmOGFJdUF0LU5lZ1M5Y3ZES1A1TndkYWU5TFJJUkhPRF95MFk4QTh6aVFHRV81VGRxbi1rU2wtX0E?oc=5",
+      "title": "Starship Is About to Attempt Something It’s Never Done in 13 Flights",
+      "content_html": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxNVHNmdUVrTC1BdWhJZEYwTmQ3NDlOMDNFZ0lEb1NEanowblJrTW1wOHZIdTk1dkd1Z1J3VU4xdDB5ZFFiaV9ub2x5U0k1cWRGUzhfOGFuMHgxUWlwaHdIYkJaV29CRXlmOGFJdUF0LU5lZ1M5Y3ZES1A1TndkYWU5TFJJUkhPRF95MFk4QTh6aVFHRV81VGRxbi1rU2wtX0E?oc=5\" target=\"_blank\">Starship Is About to Attempt Something It’s Never Done in 13 Flights</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Gizmodo</font>",
+      "date_published": "2026-09-24T15:50:13+00:00",
       "authors": [
         {
           "name": "Gizmodo",
@@ -665,8 +865,8 @@
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_selection_bucket": "border",
+      "_stratum_weight": 119.3333,
       "_shipped": true,
       "_theme_scores": {
         "monday": 0,
@@ -686,19 +886,19 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation"
     },
     {
-      "id": "https://www.gamesradar.com/toys-collectibles/how-does-he-keep-doing-it-fan-makes-incredible-lego-pokemon-out-of-the-most-unlikely-sets/",
-      "url": "https://www.gamesradar.com/toys-collectibles/how-does-he-keep-doing-it-fan-makes-incredible-lego-pokemon-out-of-the-most-unlikely-sets/",
-      "title": "\"How does he keep doing it\": Fan makes incredible Lego Pokemon out of the most unlikely sets",
-      "content_html": "Fan makes Lego Pokemon out of the weirdest sets, from pumpkins to Toy Story kits",
-      "date_published": "2026-09-23T11:24:28+00:00",
+      "id": "https://www.theatlantic.com/books/2026/09/six-books-worth-tracking-down/688752/?utm_source=feed",
+      "url": "https://www.theatlantic.com/books/2026/09/six-books-worth-tracking-down/688752/?utm_source=feed",
+      "title": "Six Hard-to-Find Books Worth Reading",
+      "content_html": "These titles are no longer fashionable, if they ever were—but should you manage to read one, you might love it.",
+      "date_published": "2026-09-23T18:30:00+00:00",
       "authors": [
         {
-          "name": "Edge (GamesRadar)",
-          "url": "https://www.gamesradar.com"
+          "name": "The Atlantic Culture",
+          "url": "https://www.theatlantic.com/culture/"
         }
       ],
       "_score": 29,
@@ -708,7 +908,7 @@
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "low",
-      "_stratum_weight": 60.0,
+      "_stratum_weight": 116.0,
       "_shipped": true,
       "_theme_scores": {
         "monday": 0,
@@ -728,64 +928,20 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://cdn.mos.cms.futurecdn.net/nKgNKMUVUMrq9Vgi3JkbKA-1920-80.jpg",
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.menshealth.com/fitness/a73858147/grip-strength-exercises-forearms/",
-      "url": "https://www.menshealth.com/fitness/a73858147/grip-strength-exercises-forearms/",
-      "title": "4 Training Tips to Level Up Your Grip Strength",
-      "content_html": "<p>Use these strategies to inject your workouts with even more forearm-building factors. </p>",
-      "date_published": "2026-09-23T20:25:22+00:00",
+      "id": "https://boingboing.net/2026/09/23/tom-the-dancing-bug-elon-musk-and-his-doge-pals-vs-giant-a-i-robots.html",
+      "url": "https://boingboing.net/2026/09/23/tom-the-dancing-bug-elon-musk-and-his-doge-pals-vs-giant-a-i-robots.html",
+      "title": "Tom the Dancing Bug: Elon Musk and His DOGE Pals vs. Giant A.I. Robots!",
+      "content_html": "<a href=\"https://boingboing.net/2026/09/23/tom-the-dancing-bug-elon-musk-and-his-doge-pals-vs-giant-a-i-robots.html\" rel=\"nofollow\" title=\"Tom the Dancing Bug: Elon Musk and His DOGE Pals vs. Giant A.I. Robots!\"><img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"675\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/09/1803-TEASER1200-elon-and-doge-pals-4-rogue-won.jpg?fit=1200%2C675&amp;quality=60&amp;ssl=1\" style=\"display: block; margin: auto; margin-bottom: 5px;\" width=\"1200\" /></a><figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-1120805\" height=\"1219\" src=\"https://i0.wp.com/boingboing.net/wp-content/uploads/2026/09/BB-elon-and-doge-pals-rogue-won.jpg?resize=930%2C1219&#038;quality=60&#038;ssl=1\" width=\"930\" /></figure>\n<p class=\"wp-block-paragraph\"><strong>Tom the Dancing Bug, IN WHICH Elon Musk and his DOGE Pals are up against giant A.I. robots!</strong></p>\n<p class=\"wp-block-paragraph\">-&#62; ANNOUNCING The Tom the Dancing Bug Community Saves America Drive! For every Tom the Dancing Bug book(s) order through the end of September, $20 will be donated to Spread the Vote to help voters VOTE. &#8212; <a class=\"read-more\" href=\"https://boingboing.net/2026/09/23/tom-the-dancing-bug-elon-musk-and-his-doge-pals-vs-giant-a-i-robots.html\">Read the rest </a></p>\n<p>The post <a href=\"https://boingboing.net/2026/09/23/tom-the-dancing-bug-elon-musk-and-his-doge-pals-vs-giant-a-i-robots.html\">Tom the Dancing Bug: Elon Musk and His DOGE Pals vs. Giant A.I. Robots!</a> appeared first on <a href=\"https://boingboing.net\">Boing Boing</a>.</p>",
+      "date_published": "2026-09-23T17:04:31+00:00",
       "authors": [
         {
-          "name": "Men's Health",
-          "url": "https://www.menshealth.com"
-        }
-      ],
-      "_score": 28,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
-      "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.popularmechanics.com/culture/a73836529/adidas-pokemon-collection-september-2026/",
-      "url": "https://www.popularmechanics.com/culture/a73836529/adidas-pokemon-collection-september-2026/",
-      "title": "Pokémon's Latest Collab is With Adidas, And Its Shoes Are Flying Off the Shelves",
-      "content_html": "<p class=\"rte-simple-html-paragraph\">The scalpers are wreaking havoc once again. </p>",
-      "date_published": "2026-09-22T18:57:28+00:00",
-      "authors": [
-        {
-          "name": "Popular Mechanics",
-          "url": "https://www.popularmechanics.com"
+          "name": "Boing Boing",
+          "url": "https://boingboing.net/"
         }
       ],
       "_score": 18,
@@ -795,7 +951,7 @@
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "floor_fill",
-      "_stratum_weight": 23.0,
+      "_stratum_weight": 55.0,
       "_shipped": true,
       "_theme_scores": {
         "monday": 0,
@@ -815,30 +971,73 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "_subscriber_access": "Apple News+"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://i0.wp.com/boingboing.net/wp-content/uploads/2026/09/1803-TEASER1200-elon-and-doge-pals-4-rogue-won.jpg?fit=1200%2C675&quality=60&ssl=1"
     },
     {
-      "id": "https://kottke.org/26/09/0049667-the-museum-of-time-based-",
-      "url": "https://kottke.org/26/09/0049667-the-museum-of-time-based-",
-      "title": "The Museum of Time-Based Art. “My idea for this site is...",
-      "content_html": "<p><a href=\"http://motba.art\">The Museum of Time-Based Art</a>. &#8220;My idea for this site is to build an exhaustive, authoritative compendium of every art project that uses time as part of the work.&#8221;\n</p>",
-      "date_published": "2026-09-23T22:36:00+00:00",
+      "id": "https://www.zdnet.com/innovation/okta-blueprint-alliance-ai-agents-oauth-kill-switch/",
+      "url": "https://www.zdnet.com/innovation/okta-blueprint-alliance-ai-agents-oauth-kill-switch/",
+      "title": "AI agent kill switch urged by Okta-led alliance – how businesses could make it work",
+      "content_html": "In response to the emerging threat of rogue and shadow AI agents, here’s how the newly formed Blueprint Alliance seeks to help businesses secure their systems against anomalous AI activity.",
+      "date_published": "2026-09-24T16:01:19+00:00",
       "authors": [
         {
-          "name": "Kottke.org",
-          "url": "https://kottke.org/"
+          "name": "ZDNet",
+          "url": "https://www.zdnet.com"
         }
       ],
-      "_score": 18,
-      "_quality": 0,
-      "_relevance": 0,
+      "_score": 47,
+      "_quality": 62,
+      "_relevance": 58,
       "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_category": "ai-tech",
+      "_content_type": "analysis",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
+      "_shipped": true,
+      "_theme_scores": {
+        "monday": 33,
+        "tuesday": 29,
+        "wednesday": 21,
+        "thursday": 30,
+        "friday": 24,
+        "saturday": 27,
+        "sunday": 21
+      },
+      "_theme_scores_raw": {
+        "monday": 9,
+        "tuesday": 2,
+        "wednesday": 1,
+        "thursday": 3,
+        "friday": 27,
+        "saturday": 31,
+        "sunday": 34
+      },
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/stopswitch-GettyImages-851328230.jpg"
+    },
+    {
+      "id": "https://www.hobbyfarms.com/plant-dormancy-how-plants-prepare-for-winter/",
+      "url": "https://www.hobbyfarms.com/plant-dormancy-how-plants-prepare-for-winter/",
+      "title": "Plant Dormancy: How Plants Prepare for Winter",
+      "content_html": "<p>Plant dormancy is an important survival strategy for many plants, shrubs, trees and other perennial plants. As fall approaches, they don&#8217;t simply shut down for winter. They actively prepare by recycling nutrients from their leaves, storing energy in roots and bulbs, and producing hormones that help prevent new growth during cold weather. But why do [&#8230;]</p>\n<p>The post <a href=\"https://www.hobbyfarms.com/plant-dormancy-how-plants-prepare-for-winter/\">Plant Dormancy: How Plants Prepare for Winter</a> appeared first on <a href=\"https://www.hobbyfarms.com\">Hobby Farms</a>.</p>",
+      "date_published": "2026-09-24T20:52:50+00:00",
+      "authors": [
+        {
+          "name": "Hobby Farms",
+          "url": "https://www.hobbyfarms.com"
+        }
+      ],
+      "_score": 45,
+      "_quality": 52,
+      "_relevance": 58,
+      "_local_score": 0,
+      "_category": "homestead",
+      "_content_type": "feature",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
       "_shipped": true,
       "_theme_scores": {
         "monday": 0,
@@ -858,159 +1057,117 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://img.hobbyfarms.com/plant-dormancy-AdobeStock_534936928-scaled.jpeg"
     },
     {
-      "id": "https://www.howtogeek.com/pi-hole-wont-stop-your-smart-tv-from-spying-heres-what-actually-works/",
-      "url": "https://www.howtogeek.com/pi-hole-wont-stop-your-smart-tv-from-spying-heres-what-actually-works/",
-      "title": "Pi-hole won't stop your smart TV from spying, here's what actually works",
-      "content_html": "Pi-hole isn't enough to stop your smart TV from spying.",
-      "date_published": "2026-09-23T22:00:13+00:00",
+      "id": "https://www.techradar.com/pro/security/massive-chinese-hack-uses-ai-agents-to-steal-over-600-000-credit-cards-and-hit-hundreds-of-sites-with-malware",
+      "url": "https://www.techradar.com/pro/security/massive-chinese-hack-uses-ai-agents-to-steal-over-600-000-credit-cards-and-hit-hundreds-of-sites-with-malware",
+      "title": "Massive Chinese hack uses AI agents to steal over 600,000 credit cards and hit hundreds of sites with malware",
+      "content_html": "Three AI frameworks operated almost entirely on their own.",
+      "date_published": "2026-09-24T13:00:00+00:00",
       "authors": [
         {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "_score": 65,
-      "_quality": 0,
-      "_relevance": 0,
+      "_score": 46,
+      "_quality": 63,
+      "_relevance": 55,
       "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
+      "_category": "ai-tech",
+      "_content_type": "breaking",
+      "_selection_bucket": "promising",
+      "_stratum_weight": 2.4444,
       "_shipped": true,
       "_theme_scores": {
-        "monday": 87,
-        "tuesday": 73,
-        "wednesday": 70,
-        "thursday": 89,
-        "friday": 95,
-        "saturday": 94,
+        "monday": 80,
+        "tuesday": 81,
+        "wednesday": 62,
+        "thursday": 85,
+        "friday": 74,
+        "saturday": 86,
         "sunday": 85
       },
       "_theme_scores_raw": {
-        "monday": 26,
-        "tuesday": 6,
-        "wednesday": 4,
-        "thursday": 16,
-        "friday": 56,
-        "saturday": 58,
+        "monday": 22,
+        "tuesday": 8,
+        "wednesday": 3,
+        "thursday": 14,
+        "friday": 45,
+        "saturday": 53,
         "sunday": 65
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/09/pi-hole-dashboard-query-log-advanced-filtering-no-data-available.jpg"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://cdn.mos.cms.futurecdn.net/AvZcjmUMtehpuha5oJLcTB-1920-80.jpg"
     },
     {
-      "id": "https://www.nytimes.com/2026/09/23/world/canada/mark-carney-canada-us-trump-tariffs.html",
-      "url": "https://www.nytimes.com/2026/09/23/world/canada/mark-carney-canada-us-trump-tariffs.html",
-      "title": "Mark Carney Interview: Canada’s Leader Lays Out Vision for Breaking Reliance on U.S.",
-      "content_html": "In a wide-ranging interview, the Canadian leader laid out a detailed vision for breaking his country’s dependency on the United States.",
-      "date_published": "2026-09-24T01:18:24+00:00",
+      "id": "https://www.nytimes.com/2026/09/24/us/politics/trump-xi-press-pool-boycott-media.html",
+      "url": "https://www.nytimes.com/2026/09/24/us/politics/trump-xi-press-pool-boycott-media.html",
+      "title": "In Trump’s White House, China’s Dictator Is Welcome. American Media, Less So.",
+      "content_html": "The showdown over President Trump’s partial media ban played out as he welcomed President Xi Jinping, whose government is ranked among the most repressive in the world.",
+      "date_published": "2026-09-25T00:38:46+00:00",
       "authors": [
         {
           "name": "NYT Top Stories",
           "url": "https://nytimes.com"
         }
       ],
-      "_score": 63,
+      "_score": 57,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
-      "_selection_bucket": "mid",
-      "_stratum_weight": 12.5,
-      "_shipped": true,
+      "_selection_bucket": "unfiltered",
+      "_stratum_weight": 46.0,
+      "_shipped": false,
       "_theme_scores": {
-        "monday": 7,
-        "tuesday": 10,
-        "wednesday": 0,
-        "thursday": 6,
-        "friday": 27,
-        "saturday": 32,
-        "sunday": 51
+        "monday": 56,
+        "tuesday": 45,
+        "wednesday": 48,
+        "thursday": 47,
+        "friday": 64,
+        "saturday": 78,
+        "sunday": 72
       },
       "_theme_scores_raw": {
-        "monday": 3,
-        "tuesday": 1,
-        "wednesday": 0,
-        "thursday": 1,
-        "friday": 28,
-        "saturday": 33,
-        "sunday": 49
+        "monday": 14,
+        "tuesday": 3,
+        "wednesday": 2,
+        "thursday": 5,
+        "friday": 42,
+        "saturday": 49,
+        "sunday": 58
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://static01.nyt.com/images/2026/09/23/multimedia/23int-canada-carney-interview/xxint-canada-carney-interview-alt-2-mediumSquareAt3X.jpg",
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://static01.nyt.com/images/2026/09/24/multimedia/24dc-memo-cbzj/24dc-memo-cbzj-mediumSquareAt3X.jpg",
       "_subscriber_access": "New York Times"
     },
     {
-      "id": "https://wltribune.com/2026/09/23/2nd-annual-bulls-baby-buckers-in-williams-lake-a-rodeo-fan-favourite/",
-      "url": "https://wltribune.com/2026/09/23/2nd-annual-bulls-baby-buckers-in-williams-lake-a-rodeo-fan-favourite/",
-      "title": "2nd annual Bulls & Baby Buckers in Williams Lake a rodeo fan favourite",
-      "content_html": "## 2nd annual Bulls & Baby Buckers in Williams Lake a rodeo fan favourite Published 11:20 am Wednesday, September 23, 2026 **By Rebecca Dyok** 1/3 The 2nd annual Bulls & Baby Buckers in recognition of Every Child Matters was held at the Williams Lake Stampede Grounds on Saturday, Sept. 12\\. (Rebecca Dyok/Williams Lake Tribune) | **Getting your Trinity Audio player ready...** | | -------------------------------------------------------------------------- | Organizers of the second annual Bull & Baby Buckers at the Williams Lake Stampede Grounds are thrilled with how the one day rodeo in",
-      "date_published": "2026-09-24T04:30:03.654990+00:00",
+      "id": "https://www.nytimes.com/2026/09/23/arts/television/hayden-panettiere-death-cause-fentanyl-overdose.html",
+      "url": "https://www.nytimes.com/2026/09/23/arts/television/hayden-panettiere-death-cause-fentanyl-overdose.html",
+      "title": "Hayden Panettiere Was Found Surrounded by Drugs, Report Details",
+      "content_html": "The actress had completed a stint in rehab before she died last month from an overdose, the coroner’s office said. Her death was ruled an accident.",
+      "date_published": "2026-09-24T06:57:15+00:00",
       "authors": [
         {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
+          "name": "NYT Well",
+          "url": "https://well.blogs.nytimes.com"
         }
       ],
-      "_score": 87,
-      "_quality": 82,
-      "_relevance": 85,
-      "_local_score": 100,
-      "_category": "local",
-      "_content_type": "feature",
-      "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
-      "_shipped": false,
-      "_theme_scores": {
-        "monday": 66,
-        "tuesday": 82,
-        "wednesday": 22,
-        "thursday": 65,
-        "friday": 86,
-        "saturday": 55,
-        "sunday": 82
-      },
-      "_theme_scores_raw": {
-        "monday": 17,
-        "tuesday": 8,
-        "wednesday": 1,
-        "thursday": 8,
-        "friday": 50,
-        "saturday": 41,
-        "sunday": 63
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://www.countryliving.com/uk/homes-interiors/a73851113/lydia-millen-fairfax-favor-bags/",
-      "url": "https://www.countryliving.com/uk/homes-interiors/a73851113/lydia-millen-fairfax-favor-bags/",
-      "title": "Lydia Millen's latest Fairfax & Favor bags are made for autumn – and the new evergreen colourway is a standout",
-      "content_html": "<p>The launch coincides with the autumn equinox </p>",
-      "date_published": "2026-09-23T15:49:00+00:00",
-      "authors": [
-        {
-          "name": "Country Living UK",
-          "url": "https://www.countryliving.com/uk"
-        }
-      ],
-      "_score": 13,
+      "_score": 27,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
+      "_stratum_weight": 46.0,
       "_shipped": false,
       "_theme_scores": {
         "monday": 0,
@@ -1030,30 +1187,30 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "_subscriber_access": "Apple News+"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "_subscriber_access": "New York Times"
     },
     {
-      "id": "https://www.idealhome.co.uk/all-rooms/kitchen/dunelm-francis-kitchen-island",
-      "url": "https://www.idealhome.co.uk/all-rooms/kitchen/dunelm-francis-kitchen-island",
-      "title": "Dunelm has the perfect kitchen island for a country kitchen for just £250",
-      "content_html": "It looks so much more expensive than it is",
-      "date_published": "2026-09-23T13:00:00+00:00",
+      "id": "https://www.motherjones.com/politics/2026/09/israel-gaza-protest-netanyahu-new-york-united-nations-speech/",
+      "url": "https://www.motherjones.com/politics/2026/09/israel-gaza-protest-netanyahu-new-york-united-nations-speech/",
+      "title": "New Yorkers Lined the Streets Against Benjamin Netanyahu’s Visit",
+      "content_html": "In the early months of Israel&#8217;s genocide in Gaza, the streets of New York were filled with protests. Hundreds of people were arrested, bridges and tunnels were blocked; the Statue of Liberty was at one point taken over. In the ensuing years, with Trump&#8217;s repression of the movement for Palestine—deporting, jailing, and otherwise silencing many [&#8230;]",
+      "date_published": "2026-09-25T00:06:29+00:00",
       "authors": [
         {
-          "name": "Ideal Home (Country Homes & Interiors)",
-          "url": "https://www.idealhome.co.uk"
+          "name": "Mother Jones",
+          "url": "https://www.motherjones.com"
         }
       ],
-      "_score": 17,
+      "_score": 50,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
+      "_stratum_weight": 46.0,
       "_shipped": false,
       "_theme_scores": {
         "monday": 0,
@@ -1073,65 +1230,20 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://cdn.mos.cms.futurecdn.net/GDvycQpFzzWeGZGJB4Wb43-1920-80.jpg",
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.livefortheoutdoors.com/camping/sleep/best-sleeping-bag-liners/",
-      "url": "https://www.livefortheoutdoors.com/camping/sleep/best-sleeping-bag-liners/",
-      "title": "Best sleeping bag liners for 2026: The only sleeping bag accessory you really need",
-      "content_html": "A sleeping bag liner will help you get a restful night’s sleep, while adding years to the life of your sleeping bag. Here are some of the best around...",
-      "date_published": "2026-09-23T13:51:47+00:00",
+      "id": "https://www.gamesradar.com/games/roguelike/even-after-palworld-1-0-pocketpair-lead-says-2026s-best-indie-could-be-this-overwhelmingly-positive-steam-roguelike-citybuilder-i-havent-played-a-game-more-addictive-since-balatro/",
+      "url": "https://www.gamesradar.com/games/roguelike/even-after-palworld-1-0-pocketpair-lead-says-2026s-best-indie-could-be-this-overwhelmingly-positive-steam-roguelike-citybuilder-i-havent-played-a-game-more-addictive-since-balatro/",
+      "title": "Palworld dev says 2026's best indie could be this Overwhelmingly Positive Steam citybuilder",
+      "content_html": "John Buckley says Combolands is \"perhaps the best indie of the year\"",
+      "date_published": "2026-09-24T23:43:27+00:00",
       "authors": [
         {
-          "name": "Live for the Outdoors (Country Walking)",
-          "url": "https://www.livefortheoutdoors.com"
-        }
-      ],
-      "_score": 47,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "wellness",
-      "_content_type": null,
-      "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
-      "_shipped": false,
-      "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://images.bauerhosting.com/celebrity/sites/31/2025/03/best-sleeping-bag-liners-tried-and-tested.jpg?q=80",
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRXoyVUZGdV9uWlgtZ01zUHJNZDFuMzVhRElHRVE0ZWFYYjlxc2xjN19MUktjUEpMY3ZoSTZsOFVPZ3g4NTkxZUQtdXJmZHItUWJhMURqbVlPdkMyZ0EtMlJyZnJsZDZSWHA3U3NMbFk5X2tLWTRlbUZ0a0d1SWktSmRjeXpxV2lJakdsU2V4REVIRFQ5VUNPMw?oc=5",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRXoyVUZGdV9uWlgtZ01zUHJNZDFuMzVhRElHRVE0ZWFYYjlxc2xjN19MUktjUEpMY3ZoSTZsOFVPZ3g4NTkxZUQtdXJmZHItUWJhMURqbVlPdkMyZ0EtMlJyZnJsZDZSWHA3U3NMbFk5X2tLWTRlbUZ0a0d1SWktSmRjeXpxV2lJakdsU2V4REVIRFQ5VUNPMw?oc=5",
-      "title": "Prairie Wheat Weekly: Western Canadian bids mostly decline",
-      "content_html": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxQRXoyVUZGdV9uWlgtZ01zUHJNZDFuMzVhRElHRVE0ZWFYYjlxc2xjN19MUktjUEpMY3ZoSTZsOFVPZ3g4NTkxZUQtdXJmZHItUWJhMURqbVlPdkMyZ0EtMlJyZnJsZDZSWHA3U3NMbFk5X2tLWTRlbUZ0a0d1SWktSmRjeXpxV2lJakdsU2V4REVIRFQ5VUNPMw?oc=5\" target=\"_blank\">Prairie Wheat Weekly: Western Canadian bids mostly decline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Country Guide</font>",
-      "date_published": "2026-09-23T17:49:12+00:00",
-      "authors": [
-        {
-          "name": "Country Guide",
-          "url": "https://news.google.com"
+          "name": "Edge (GamesRadar)",
+          "url": "https://www.gamesradar.com"
         }
       ],
       "_score": 33,
@@ -1141,7 +1253,7 @@
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
+      "_stratum_weight": 46.0,
       "_shipped": false,
       "_theme_scores": {
         "monday": 0,
@@ -1161,29 +1273,31 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://cdn.mos.cms.futurecdn.net/5NhMU3B5yWMZ6pU6GRtJsG-1920-80.jpg",
+      "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.tomsguide.com/entertainment/movies/ive-seen-every-nightmare-on-elm-street-movie-and-ranked-them-for-halloween-2026",
-      "url": "https://www.tomsguide.com/entertainment/movies/ive-seen-every-nightmare-on-elm-street-movie-and-ranked-them-for-halloween-2026",
-      "title": "I’ve seen every “Nightmare on Elm Street” movie and ranked them for Halloween 2026",
-      "content_html": "I've watched every \"A Nightmare on Elm Street\" movie, even the awful ones, and ranked them from best to worst ahead of Halloween season.",
-      "date_published": "2026-09-24T04:00:00+00:00",
+      "id": "https://www.idealhome.co.uk/all-rooms/kitchen/dunelm-posie-lamp",
+      "url": "https://www.idealhome.co.uk/all-rooms/kitchen/dunelm-posie-lamp",
+      "title": "This £35 Dunelm lamp is perfect for colourful country kitchens – and it looks just like a more expensive style",
+      "content_html": "Dark kitchen corners will be no more with this chic, colourful lamp",
+      "date_published": "2026-09-24T13:40:00+00:00",
       "authors": [
         {
-          "name": "Toms Guide",
-          "url": "https://www.tomsguide.com"
+          "name": "Ideal Home (Country Homes & Interiors)",
+          "url": "https://www.idealhome.co.uk"
         }
       ],
-      "_score": 15,
+      "_score": 20,
       "_quality": 0,
       "_relevance": 0,
       "_local_score": 0,
       "_category": "news",
       "_content_type": null,
       "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
+      "_stratum_weight": 46.0,
       "_shipped": false,
       "_theme_scores": {
         "monday": 0,
@@ -1203,179 +1317,10 @@
         "saturday": 0,
         "sunday": 0
       },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://cdn.mos.cms.futurecdn.net/oP22ViFjXUHCzj7A6DoSdc-1920-80.jpg"
-    },
-    {
-      "id": "https://www.macrumors.com/2026/09/23/openai-siri-chatgpt-underperforming/",
-      "url": "https://www.macrumors.com/2026/09/23/openai-siri-chatgpt-underperforming/",
-      "title": "ChatGPT in Siri 'Persistently Underperforming,' Says OpenAI",
-      "content_html": "OpenAI saw disappointing results working with Apple to integrate ChatGPT in <a href=\"https://www.macrumors.com/guide/siri/\">Siri</a>, according to court documents filed [<a href=\"https://storage.courtlistener.com/recap/gov.uscourts.txnd.408471/gov.uscourts.txnd.408471.403.0.pdf\">PDF</a>] in its ongoing legal fight with Elon Musk's company SpaceXAI (xAI at the time the lawsuit was filed).\n<br />\n\n<br />\n<img alt=\"\" class=\"aligncenter size-full wp-image-998332\" height=\"1125\" src=\"https://images.macrumors.com/article-new/2025/04/chatgpt-logo.jpg\" width=\"2000\" />\n<br />\nApple added ChatGPT to &zwnj;Siri&zwnj; in December 2024, but users had to go through a multistep opt-in process, which added a layer of friction. By January 2025, OpenAI said the integration was \"off to a slow start\" and the company cut its forecast for the number of incremental logged-in weekly active users that it expected to get from the partnership.\n<br />\n\n<br />\nMuch of the filing is redacted, but OpenAI said that by the time Musk's companies filed an antitrust lawsuit against Apple and OpenAI, \"it was clear that Apple's integration of ChatGPT was dramatically underperforming.\" In a later section of the filing, OpenAI said again that the Apple integration was \"persistently underperforming,\" leading to a March 2026 conversation between Apple and OpenAI that is redacted.\n<br />\n\n<br />\nOpenAI asked Apple for a two-year exclusivity period, but Apple refused. The agreement between the two companies explicitly said the deal was non-exclusive and Apple had the right to \"integrate products or services that provide the same or similar functionality as [ChatGPT].\" Apple told OpenAI that it planned to integrate one provider and then add more, and it made similar statements publicly when announcing the feature. Apple also signed a deal with Google, and Apple's newest models are based on Gemini.\n<br />\n\n<br />\nOpenAI's filing disputes many of the claims in the xAI lawsuit. Musk alleged OpenAI and Apple had an exclusive deal and that the agreement harmed xAI's growth and customer acquisition. OpenAI says the contract proves there was no exclusive deal, and even if there were, xAI can't prove harm because the ChatGPT &zwnj;Siri&zwnj; integration just didn't draw many new ChatGPT users.\n<br />\n<blockquote>Even if the Court assumes that Apple users who elect to use ChatGPT through Apple Intelligence are foreclosed from OpenAI's rivals (which they are not), the amount of foreclosure caused by the Agreement is indisputably de minimis. While Plaintiffs' experts declined to calculate foreclosure shares, OpenAI's expert, Dr. Catherine Tucker, calculated the share of GenAI consumers who accessed ChatGPT through Apple Intelligence across multiple metrics using the same data and market definition relied upon by Plaintiffs' experts. On these assumptions, Dr. Tucker found foreclosure shares of [REDACTED] across all metrics, consistent with OpenAI's internal view that Apple Intelligence saw minimal usage.</blockquote>\n<br />\nMusk's companies <a href=\"https://www.macrumors.com/2026/09/14/spacexai-drops-apple-lawsuit/\">dropped their claims</a> against Apple earlier this month, leaving OpenAI as the sole defendant in the lawsuit. OpenAI's filing asks the court to toss out xAI's claims prior to the trial planned for January 2027.<div class=\"linkback\">Tags: <a href=\"https://www.macrumors.com/guide/chatgpt/\">ChatGPT</a>, <a href=\"https://www.macrumors.com/guide/openai/\">OpenAI</a>, <a href=\"https://www.macrumors.com/guide/siri/\">Siri</a></div><br />This article, &quot;<a href=\"https://www.macrumors.com/2026/09/23/openai-siri-chatgpt-underperforming/\">ChatGPT in Siri &#039;Persistently Underperforming,&#039; Says OpenAI</a>&quot; first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br /><br /><a href=\"https://forums.macrumors.com/threads/chatgpt-in-siri-persistently-underperforming-says-openai.2490348/\">Discuss this article</a> in our forums<br /><br />",
-      "date_published": "2026-09-24T00:15:17+00:00",
-      "authors": [
-        {
-          "name": "MacRumors",
-          "url": "https://www.macrumors.com"
-        }
-      ],
-      "_score": 31,
-      "_quality": 52,
-      "_relevance": 35,
-      "_local_score": 0,
-      "_category": "ai-tech",
-      "_content_type": "breaking",
-      "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
-      "_shipped": false,
-      "_theme_scores": {
-        "monday": 20,
-        "tuesday": 10,
-        "wednesday": 22,
-        "thursday": 19,
-        "friday": 20,
-        "saturday": 21,
-        "sunday": 26
-      },
-      "_theme_scores_raw": {
-        "monday": 6,
-        "tuesday": 1,
-        "wednesday": 1,
-        "thursday": 2,
-        "friday": 25,
-        "saturday": 28,
-        "sunday": 36
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech"
-    },
-    {
-      "id": "https://www.androidpolice.com/samsung-galaxy-tab-s12-leaks-in-full-specs-price-hikes-and-launch-date/",
-      "url": "https://www.androidpolice.com/samsung-galaxy-tab-s12-leaks-in-full-specs-price-hikes-and-launch-date/",
-      "title": "Samsung Galaxy Tab S12 leaks in full: Specs, price hikes, and launch date",
-      "content_html": "Two weeks to go until the reveal",
-      "date_published": "2026-09-23T19:38:45+00:00",
-      "authors": [
-        {
-          "name": "Android Police",
-          "url": "https://www.androidpolice.com"
-        }
-      ],
-      "_score": 28,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
-      "_shipped": false,
-      "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/wm/2026/09/samsung-galaxy-tab-s12-ultra-screen.JPG"
-    },
-    {
-      "id": "https://www.neowin.net/reviews/ugreen-magflow-2-in-1-review-pocket-sized-qi2-25w-wireless-charging-pad/?utm_source=rss",
-      "url": "https://www.neowin.net/reviews/ugreen-magflow-2-in-1-review-pocket-sized-qi2-25w-wireless-charging-pad/?utm_source=rss",
-      "title": "UGREEN MagFlow 2-in-1 review: Pocket sized Qi2 25W wireless charging pad",
-      "content_html": "<div style=\"float: left; margin-right: 10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/09/1790159205_img_20260923_122037_medium.webp\" /></div>UGREEN showed off the tiny dual MagFlow at IFA in Berlin earlier this month, and now I have one to test out and share my results with you. <a href=\"https://www.neowin.net/reviews/ugreen-magflow-2-in-1-review-pocket-sized-qi2-25w-wireless-charging-pad/\">Read more...</a>",
-      "date_published": "2026-09-23T18:30:01+00:00",
-      "authors": [
-        {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
-        }
-      ],
-      "_score": 42,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
-      "_shipped": false,
-      "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech",
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/09/1790159205_img_20260923_122037_story.webp"
-    },
-    {
-      "id": "https://flowingdata.com/2026/09/23/biggest-political-donors-so-far/",
-      "url": "https://flowingdata.com/2026/09/23/biggest-political-donors-so-far/",
-      "title": "Biggest political donors so far",
-      "content_html": "<p><a href=\"https://flowingdata.com/2026/09/23/biggest-political-donors-so-far/\"><img src=\"https://flowingdata.com/wp-content/uploads/2026/09/political-donors-750x919.png\" style=\"height: auto;\" /></a></p>Using data from the Federal Election Commission, the Washington Post called out the&#8230;<p><strong>Tags:</strong> <a href=\"https://flowingdata.com/tag/donors/\" rel=\"tag\">donors</a>, <a href=\"https://flowingdata.com/tag/election/\" rel=\"tag\">election</a>, <a href=\"https://flowingdata.com/tag/politics/\" rel=\"tag\">politics</a>, <a href=\"https://flowingdata.com/tag/washington-post/\" rel=\"tag\">Washington Post</a></p>",
-      "date_published": "2026-09-23T09:57:19+00:00",
-      "authors": [
-        {
-          "name": "FlowingData",
-          "url": "https://flowingdata.com"
-        }
-      ],
-      "_score": 18,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_category": "news",
-      "_content_type": null,
-      "_selection_bucket": "unfiltered",
-      "_stratum_weight": 17.2,
-      "_shipped": false,
-      "_theme_scores": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_theme_scores_raw": {
-        "monday": 0,
-        "tuesday": 0,
-        "wednesday": 0,
-        "thursday": 0,
-        "friday": 0,
-        "saturday": 0,
-        "sunday": 0
-      },
-      "_today": "wednesday",
-      "_today_label": "Repair Culture & Practical Tech"
+      "_today": "thursday",
+      "_today_label": "Indigenous Lands & Innovation",
+      "image": "https://cdn.mos.cms.futurecdn.net/yKZ2zWpcLbL3ySggDAEkCP-1920-80.jpg",
+      "_subscriber_access": "Apple News+"
     }
   ]
 }
