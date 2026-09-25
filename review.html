@@ -157,7 +157,7 @@
         .btn-bad.active         { background: #ffebee; border-color: #e53935; color: #c62828; }
         .btn-skip.active        { background: #f5f5f5; border-color: #bbb;    color: #555; }
 
-        /* ── Bad-reason chips ── */
+        /* ── Reason chips (one set per rating) ── */
         .card-reasons { display: flex; flex-wrap: wrap; gap: 4px; }
         .reason-chip {
             padding: 2px 8px; border-radius: 9px; font-size: 0.70em; font-weight: 600;
@@ -165,6 +165,12 @@
         }
         .reason-chip:hover { background: #ffebee; }
         .reason-chip.chip-selected { background: #e53935; border-color: #e53935; color: white; }
+        .reason-good { border-color: #a5d6a7; color: #2e7d32; }
+        .reason-good:hover { background: #e8f5e9; }
+        .reason-good.chip-selected { background: #43a047; border-color: #43a047; color: white; }
+        .reason-interesting { border-color: #90caf9; color: #1565c0; }
+        .reason-interesting:hover { background: #e3f2fd; }
+        .reason-interesting.chip-selected { background: #2196f3; border-color: #2196f3; color: white; }
 
         /* ── Stats panel ── */
         .stats-grid {
@@ -207,6 +213,11 @@
         }
         .exemplar-form textarea { resize: vertical; min-height: 44px; }
         .exemplar-form button { align-self: flex-start; }
+        .token-form { display: flex; flex-direction: column; gap: 6px; }
+        .token-form input[type=password] {
+            width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
+            font-size: 0.88em; font-family: inherit; color: #333;
+        }
         .token-label { font-size: 0.85em; color: #667eea; font-weight: 600; }
         .visually-hidden {
             position: absolute; left: 0; top: 0; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -255,16 +266,6 @@
         <div id="stats-panel" style="display:none"></div>
     </div>
 
-    <!-- Filled from a password manager; the page keeps it only while it is open. The readonly
-         username gives 1Password a login to save and match against. -->
-    <form class="exemplar-box" id="token-box" autocomplete="on" onsubmit="return false">
-        <div class="exemplar-form">
-            <label for="gh-token" class="token-label">GitHub token (needed to save)</label>
-            <input type="text" name="username" autocomplete="username" value="super-rss-feed review" readonly class="visually-hidden" tabindex="-1" aria-hidden="true" />
-            <input type="password" id="gh-token" name="password" autocomplete="current-password" placeholder="Fill from 1Password" spellcheck="false" autocapitalize="off" />
-        </div>
-    </form>
-
     <div class="exemplar-box" id="exemplar-box">
         <h2>⭐ Add a Great Example</h2>
         <p class="subtitle">Found an article elsewhere that's a perfect example of what you want more of? Add it here — it feeds the weekly trainer as your strongest signal.</p>
@@ -284,8 +285,17 @@
 
     <div class="article-grid" id="article-grid"></div>
 
-    <div id="submit-section" style="display:none; margin-bottom:14px;">
-        <div class="submit-box">
+    <!-- The token sits with the save button. It stays visible after the day's ratings are saved
+         (only the button hides) because "Add a Great Example" saves with it too. -->
+    <div class="submit-box" style="margin-bottom:14px;">
+        <!-- Filled from a password manager; the page keeps it only while it is open. The readonly
+             username gives 1Password a login to save and match against. -->
+        <form id="token-box" class="token-form" autocomplete="on" onsubmit="return false">
+            <label for="gh-token" class="token-label">GitHub token (needed to save)</label>
+            <input type="text" name="username" autocomplete="username" value="super-rss-feed review" readonly class="visually-hidden" tabindex="-1" aria-hidden="true" />
+            <input type="password" id="gh-token" name="password" autocomplete="current-password" placeholder="Fill from 1Password" spellcheck="false" autocapitalize="off" />
+        </form>
+        <div id="submit-section" style="display:none; margin-top:12px;">
             <button class="btn btn-primary submit-btn" onclick="submitFeedback()">💾 Save Ratings to GitHub</button>
             <div class="status-msg" id="submit-status"></div>
         </div>
@@ -304,7 +314,7 @@
 // ── Config ──────────────────────────────────────────────────────────────────
 const FEED_URL    = 'feed-review.json';
 // Saving writes straight to the GitHub Contents API with a token filled from a password
-// manager into the field at the top of the page. The page never stores it: a token baked
+// manager into the field at the bottom of the page. The page never stores it: a token baked
 // into this page's source was public from 2026-06-17 until it was revoked on 2026-09-23, and
 // one kept in browser storage would be readable by any script that ever ran on this origin.
 const GITHUB_CONTENTS = 'https://api.github.com/repos/zirnhelt/super-rss-feed/contents/';
@@ -335,10 +345,17 @@ const DAY_SHORT = { monday:'Mon', tuesday:'Tue', wednesday:'Wed', thursday:'Thu'
 const DAY_THEME = { monday:'Arts & Culture', tuesday:'Working Lands', wednesday:'Repair & Practical Tech', thursday:'Indigenous Lands', friday:'Wild Spaces', saturday:'Cariboo Local Affairs', sunday:'Science & Wonder' };
 let DAY_LABELS = {};
 
-// One-tap reasons on a "bad" rating; they write into the note. The feed supplies the
-// reader's most frequent notes (review_history_stats in the curator); this is the fallback.
-let BAD_REASONS = ['Sports', 'US politics', 'No local hook', 'Listicle', 'Sale / ad',
-                   'Product review', 'Celebrity gossip', 'Opinion'];
+// One-tap reasons per rating; they write into the note. The feed supplies the reader's most
+// frequent notes per rating (review_history_stats in the curator); these are the fallback.
+// Keep them in step with REVIEW_REASON_DEFAULTS there.
+let REASONS = {
+    good:        ['Local angle', 'Practical / how-to', 'Original reporting', 'Deep dive',
+                  'Indigenous voices', 'Land & ag', 'Podcast-worthy', 'Never filter these'],
+    interesting: ['Surprising', 'Rabbit hole', 'Offbeat', 'Niche but fun',
+                  'Worth a follow-up', 'Future theme', 'Big idea', 'Wrong category'],
+    bad:         ['Sports', 'US politics', 'No local hook', 'Listicle', 'Sale / ad',
+                  'Product review', 'Celebrity gossip', 'Opinion'],
+};
 let REVIEW_STATS = null;
 let STRATA = null;
 
@@ -398,7 +415,11 @@ async function init(alreadySubmitted) {
         if (feed._day_labels) DAY_LABELS = feed._day_labels;
         REVIEW_STATS = feed._review_stats || null;
         STRATA = feed._strata || null;
-        if (REVIEW_STATS?.bad_reasons?.length) BAD_REASONS = REVIEW_STATS.bad_reasons;
+        for (const [rating, list] of Object.entries(REVIEW_STATS?.reasons || {})) {
+            if (REASONS[rating] && list?.length) REASONS[rating] = list;
+        }
+        // Feeds written before per-rating reasons carried only the bad list.
+        if (!REVIEW_STATS?.reasons && REVIEW_STATS?.bad_reasons?.length) REASONS.bad = REVIEW_STATS.bad_reasons;
         articles = (feed.items || []).filter(a => SHOW_BUCKETS.has(a._selection_bucket));
 
         hide('loading-msg');
@@ -555,8 +576,8 @@ function buildCardInner(idx) {
             <button class="btn-rate btn-skip ${ratingVal === 'skip' ? 'active' : ''}" onclick="rate(${idx},'skip')">→ Skip</button>
         </div>
 
-        ${ratingVal === 'bad' ? `<div class="card-reasons">${BAD_REASONS.map((reason, i) =>
-            `<button class="reason-chip ${noteReasons(r.note).has(reason.toLowerCase()) ? 'chip-selected' : ''}"
+        ${REASONS[ratingVal] ? `<div class="card-reasons">${REASONS[ratingVal].map((reason, i) =>
+            `<button class="reason-chip reason-${ratingVal} ${noteReasons(r.note).has(reason.toLowerCase()) ? 'chip-selected' : ''}"
                 onclick="toggleReason(${idx},${i})">${escHtml(reason)}</button>`).join('')}</div>` : ''}
 
         ${ratingVal ? `<div class="card-note">
@@ -590,6 +611,12 @@ function rate(idx, ratingValue) {
     const art = articles[idx];
     const r   = ratings[art.url] || {};
     const updated = { ...r, rating: ratingValue };
+    // Drop the previous rating's tapped reasons: a "Local angle" left on a bad rating would
+    // read as a reject rule to standing_preferences.py. Typed text stays.
+    if (r.rating && r.rating !== ratingValue && REASONS[r.rating]) {
+        const stale = new Set(REASONS[r.rating].map(x => x.toLowerCase()));
+        updated.note = noteParts(r.note).filter(p => !stale.has(p.toLowerCase())).join('; ');
+    }
 
     if (ratingValue === 'good') {
         if (!updated.approved_days || updated.approved_days.length === 0) {
@@ -650,8 +677,9 @@ function noteReasons(note) {
 }
 function toggleReason(idx, reasonIdx) {
     const art    = articles[idx];
-    const reason = BAD_REASONS[reasonIdx];
     const r      = ratings[art.url] || {};
+    const reason = REASONS[r.rating]?.[reasonIdx];
+    if (!reason) return;
     const parts  = noteParts(r.note);
     const pos    = parts.findIndex(p => p.toLowerCase() === reason.toLowerCase());
     if (pos >= 0) parts.splice(pos, 1);
@@ -752,7 +780,7 @@ function readToken() {
     const token = (field?.value || '').trim();
     if (!token) {
         field?.focus();
-        throw new Error('fill the GitHub token field at the top of the page, then save again');
+        throw new Error('fill the GitHub token field at the bottom of the page, then save again');
     }
     return token;
 }
