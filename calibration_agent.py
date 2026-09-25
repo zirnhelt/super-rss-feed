@@ -266,12 +266,24 @@ def gather_feedback_audit() -> Dict:
         return {}
 
     routing = summary.get('theme_routing', {})
+    strat = summary.get('stratified') or {}
     return {
         'generated_at': summary.get('generated_at'),
         'window': summary.get('window'),
         'total_rated': summary.get('total_rated'),
         'counts': summary.get('counts'),
         'bad_pct': summary.get('bad_pct'),
+        'positive_pct': summary.get('positive_pct'),
+        # The only corpus-wide quality figure that survives the quota sampling.
+        'stratified': {
+            'weighted_positive_pct': strat.get('weighted_positive_pct'),
+            'weight_coverage_pct': strat.get('weight_coverage_pct'),
+            'bad_shipped': strat.get('bad_shipped'),
+            'bad_correctly_rejected': strat.get('bad_correctly_rejected'),
+            'reject_false_negative_pct': strat.get('reject_false_negative_pct'),
+            'per_stratum_positive_pct': {
+                b: c.get('positive_pct') for b, c in (strat.get('per_stratum') or {}).items()},
+        },
         'score_by_rating': summary.get('score_by_rating'),
         'band_precision': summary.get('band_precision'),
         'threshold_sweep': summary.get('threshold_sweep'),
@@ -382,12 +394,18 @@ Guidelines:
   dimensional modifier changes only if the histogram evidence is clear.
 - The audit data may include a "User feedback audit" section derived from the maintainer's explicit
   good/interesting/bad ratings and theme-day corrections in the review UI. That section is ground
-  truth: when it conflicts with pipeline-side histograms, the user's verdicts win. Use it to justify
-  changes — e.g. the threshold_sweep table shows exactly how many user-rated bad articles each
-  candidate min_score floor would cut vs. good articles lost, band_precision shows whether the
-  composite score separates good from bad at all, worst_sources are candidates for
-  human_recommendations (source blocking is not auto-tunable), and theme_routing.root_cause splits
-  day corrections into selection bugs vs. theme-scoring misses.
+  truth: when it conflicts with pipeline-side histograms, the user's verdicts win. 'good' and
+  'interesting' are both wanted articles: 'good' fits a specific podcast day, 'interesting' is a
+  candidate for any day with no specific fit. Judge feed quality on positives (good+interesting,
+  the *_positive_pct / positive_lost_pct fields); judge day fit on good alone
+  (theme_routing.per_day good_pct). Quote stratified.weighted_positive_pct as feed quality, never
+  the raw positive_pct (the corpus is a quota sample). Use it to justify changes — e.g. the
+  threshold_sweep table shows how many user-rated bad articles each candidate min_score floor would
+  cut vs. positives lost (interesting articles score low on relevance and are lost first),
+  band_precision shows whether the composite score separates positives from bad at all,
+  worst_sources with block_candidate=true are candidates for human_recommendations (source
+  blocking is not auto-tunable; never recommend blocking a source with any positive rating), and
+  theme_routing.root_cause splits day corrections into selection bugs vs. theme-scoring misses.
 - Noise-to-signal ratio = (total articles fetched − sum of final feed sizes) / final_total.
   Lower = more efficient pipeline. The audit data includes per-run series and window mean/min/max;
   the benchmark history shows week-over-week trend. Use this to evaluate whether recent changes

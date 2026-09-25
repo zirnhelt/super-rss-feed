@@ -119,6 +119,29 @@ rule-of-three upper bound on their true positive rate is <=37.5%: Rolling Stone 
 The New Yorker (9), Cottage Life (8). Those are in `filters.blocked_sources`. Two
 more (The Atlantic n=5, Live for the Outdoors n=6) are held back as too thin.
 
+### The whole audit, not just sources (2026-09-25)
+
+The rule above lived in the docs, but `article_review_audit.py` only applied it in the
+stratified estimate — the one table calibration never received. `band_precision`,
+`threshold_sweep` and `worst_sources` counted `good` alone, and those are exactly what
+the calibration agent is told to tune from. `worst_sources` still listed Edge as "0 good
+/ 34 bad" as a blocking candidate.
+
+The cost was hidden where it matters most. `interesting` articles score low on
+relevance (mean R ~23 vs ~42 for good), so a floor raise loses them first: at
+`min_score` 25 the sweep reported 9.8% of good lost while 15.3% of interesting went
+with it. And the 40-59 band is 45% positive against 43% for 60-79 — the composite
+does not separate the middle, which good-only precision hid.
+
+The reader's definition: **`interesting` is a good candidate for every day with no
+specific day fit.** So every feed-quality metric counts good+interesting
+(`POSITIVE`), and the only good-only number is `theme_routing.per_day.good_pct`,
+which measures whether a day's theme pulls articles that belong to it; `positive_pct`
+sits beside it. `worst_sources` ranks on positive rate and flags `block_candidate`
+only at n >= 8 with zero positives. Calibration now also receives
+`stratified.weighted_positive_pct`, the only corpus-wide figure the quota sample
+supports.
+
 ## The reject rubric's scoped rules leak (2026-09-23)
 
 The gate sees each article as `[category]` plus title, and one rubric covers every

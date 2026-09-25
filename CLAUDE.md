@@ -224,7 +224,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
 - **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
 - **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`.
-- **Source verdicts count `interesting` as positive.** Block a source only at n ≥ 8 with zero positives of any kind.
+- **`interesting` is positive everywhere except day fit.** It means "wanted, no specific podcast day". Feed, band, sweep and source metrics count good+interesting; only `theme_routing.per_day.good_pct` is good-only. Block a source only at n ≥ 8 with zero positives of any kind.
 
 ## The podcast pool — see [docs/decisions/podcast-pool.md](docs/decisions/podcast-pool.md)
 
