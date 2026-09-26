@@ -13,7 +13,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-09-21 | 🔧 Manual Run | ⚠️ **NRDC** failed | `520 Server Error: <none> for url: https://www.nrdc.org/rss.xml` |
 | 2026-09-20 | 🔧 Manual Run | ⚠️ **Canadian Forest Industries** failed | `Exceeded 30 redirects.` |
 | 2026-09-19 | 🔧 Manual Run | ⚠️ **Trip Reports** failed | `HTTPSConnectionPool(host='backcountrypost.com', port=443): Read timed out. (read timeout=10)` |
-| 2026-09-18 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -21,6 +20,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-25 | 🔧 manual | 80 | ai-tech:18(22%), wellness:10(12%), news:10(12%) |
 | 2026-09-24 | 🔧 manual | 77 | ai-tech:18(23%), wellness:10(13%), news:10(13%) |
 | 2026-09-23 | 🔧 manual | 72 | ai-tech:18(25%), wellness:10(14%), news:10(14%) |
 | 2026-09-23 | 🔧 manual | 49 | wellness:10(20%), news:10(20%), ai-tech:9(18%) |
@@ -28,11 +28,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-09-21 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), local:10(10%) |
 | 2026-09-20 | 🔧 manual | 79 | news:25(32%), ai-tech:18(23%), wellness:10(13%) |
 | 2026-09-19 | 🔧 manual | 85 | news:25(29%), ai-tech:18(21%), wellness:10(12%) |
-| 2026-09-18 | 🔧 manual | 93 | news:25(27%), ai-tech:18(19%), homelab:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-25 04:11 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-26 04:11 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
