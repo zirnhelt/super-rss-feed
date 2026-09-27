@@ -1,3 +1,133 @@
+## Feedback Training Run — 2026-09-27 17:46 UTC
+
+**Files processed:** 2026-08-31.json, 2026-09-01.json, 2026-09-02.json, 2026-09-03.json, 2026-09-04.json, 2026-09-05.json, 2026-09-06.json, 2026-09-08.json, 2026-09-09.json, 2026-09-11.json, 2026-09-12.json, 2026-09-13.json, 2026-09-14.json, 2026-09-15.json, 2026-09-16.json, 2026-09-17.json, 2026-09-18.json, 2026-09-22.json, 2026-09-23.json, 2026-09-24.json, 2026-09-25.json, 2026-09-26.json, 2026-09-27.json
+**Ratings:** 0 Exemplars, 113 Good, 87 Interesting, 374 Bad, 109 reassigned to day(s), 66 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (9), My Cariboo Now (8), The Tyee (7), Scientific American (7), ScienceDaily (5)
+**Top disliked sources:** Edge (GamesRadar) (22), Ideal Home (Country Homes & Interiors) (15), NYT Top Stories (15), TechRadar (14), The Atlantic (13)
+**Categories liked:** local (25), news (17), wellness (15), science (15), ai-tech (14), climate (13), homelab (7), outdoors (4), homestead (2), design (1)
+**Categories disliked:** news (306), ai-tech (27), local (14), wellness (12), design (5), homelab (3), climate (3), scifi (2), outdoors (1), science (1)
+
+**Day reassignment summary:**
+- monday → sunday: 9 articles
+- monday → tuesday: 6 articles
+- monday → wednesday: 6 articles
+- monday → saturday: 6 articles
+- monday → friday: 5 articles
+- monday → thursday: 4 articles
+- monday → monday: 3 articles
+- friday → sunday: 9 articles
+- friday → tuesday: 8 articles
+- friday → friday: 7 articles
+- friday → saturday: 6 articles
+- friday → wednesday: 5 articles
+- friday → thursday: 5 articles
+- friday → monday: 3 articles
+- saturday → sunday: 9 articles
+- saturday → saturday: 5 articles
+- saturday → friday: 4 articles
+- saturday → wednesday: 3 articles
+- saturday → thursday: 3 articles
+- saturday → monday: 2 articles
+- saturday → tuesday: 2 articles
+- wednesday → wednesday: 11 articles
+- wednesday → sunday: 11 articles
+- wednesday → saturday: 10 articles
+- wednesday → friday: 10 articles
+- wednesday → thursday: 10 articles
+- wednesday → tuesday: 9 articles
+- wednesday → monday: 4 articles
+- thursday → sunday: 13 articles
+- thursday → tuesday: 7 articles
+- thursday → saturday: 7 articles
+- thursday → friday: 4 articles
+- thursday → wednesday: 4 articles
+- thursday → thursday: 4 articles
+- thursday → monday: 2 articles
+- sunday → sunday: 5 articles
+- sunday → tuesday: 2 articles
+- sunday → wednesday: 2 articles
+- sunday → friday: 2 articles
+- sunday → thursday: 1 articles
+- sunday → saturday: 1 articles
+- sunday → monday: 1 articles
+- tuesday → tuesday: 7 articles
+- tuesday → sunday: 6 articles
+- tuesday → wednesday: 5 articles
+- tuesday → thursday: 4 articles
+- tuesday → saturday: 4 articles
+- tuesday → monday: 3 articles
+- tuesday → friday: 3 articles
+
+**Category retag summary:**
+- science → wellness: 2 articles
+- science → news: 1 articles
+- news → ai-tech: 17 articles
+- news → homelab: 9 articles
+- news → science: 8 articles
+- news → outdoors: 6 articles
+- news → scifi: 4 articles
+- news → climate: 3 articles
+- news → local: 3 articles
+- news → wellness: 2 articles
+- news → design: 1 articles
+- news → homestead: 1 articles
+- local → news: 1 articles
+- local → climate: 1 articles
+- local → wellness: 1 articles
+- local → ai-tech: 1 articles
+- wellness → climate: 1 articles
+- wellness → ai-tech: 1 articles
+- wellness → news: 1 articles
+- wellness → science: 1 articles
+- ai-tech → scifi: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# SCORING PROMPT FOR CURATOR'S FEED
+
+**TOPIC & FRAMING PRIORITIES**
+
+- **Indigenous, local governance & community**: Strongly elevate Cariboo/BC regional stories—municipal elections, reconciliation, First Nations advocacy, land stewardship, community safety. Williams Lake Tribune, My Cariboo Now, BC Gov News are trusted sources; treat local governance as equal to national news.
+
+- **Climate & environmental action**: Favor solution-focused, scientific, or regional impact framing (wildfire response, species protection, sustainable tech, water/drought concerns). De-prioritize crisis/disaster-alone narratives and lifestyle trends. Data center water use, fish ecology, agrivoltaic innovation are strong signals.
+
+- **AI: nuance over hype**: Boost critical analysis (job displacement, workplace restructuring, deployment speed, trust, legal accountability, shadow IT risk). Reject product launches, VC narratives, startup drama, stock/hiring news, and extinction/savior speculation. AI skills demand, deepfake risks, and agentic work efficiency are valid.
+
+- **Science & discovery**: Favor unusual phenomena, animal behavior, astronomy, materials science, and medical breakthroughs (brain-behavior links, sleep, disease detection). Reject symptom-focused medical advice and pseudoscience wellness.
+
+- **Practical tech guides & privacy**: Elevate user-empowering how-tos (security, tracking prevention, accessibility, cross-device solutions). Reject product reviews, shopping deals, gear optimization, and lifestyle gadget aspiration.
+
+- **Homelab/maker content**: Strong appetite—3D printing, electronics projects, accessible tools, creative maker fairs. Often miscategorized as "news"; retag to homelab/design when appropriate.
+
+**CONTENT TYPE & SOURCE SIGNALS**
+
+- Avoid entirely: gear reviews, shopping deals, home décor, fitness optimization, entertainment rankings, celebrity news, violent incidents, election/partisan coverage, and "try this" lifestyle content.
+
+- Trusted sources: Williams Lake Tribune, My Cariboo Now, BC Gov News, Scientific American, The Tyee, Hackaday, Adafruit, ZDNet (tech accountability). CBC Arts, Al Jazeera English, Lifehacker, Tom's Hardware routinely score poorly.
+
+- Institutional accountability & journalism merit**: Press freedom, government transparency, labor safety—valued standalone, even if not local.
+
+**DAY REASSIGNMENT PATTERNS**
+
+- Environmental & climate articles cluster across Mon–Sun; spread widely if regional impact is strong.  
+- AI/tech accountability spreads across all weekdays; rarely weekend-only.  
+- Local governance & Cariboo stories appear across full week; no day bias.
+
+---
+## Feedback Archive Run — 2026-09-27 17:46 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 7 (2026-06-23.json … 2026-06-29.json)
+**Ratings folded into rollup:** 195 (rollup now holds 381)
+**Topic/framing lessons:** ✅ consolidated to 247 words
+**Raw bytes freed:** 193.1 KB
+**Live files remaining:** 80
+**URL ledger:** 1785 URLs (+169 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-09-20 16:57 UTC
 
 **Files processed:** 2026-08-22.json, 2026-08-24.json, 2026-08-25.json, 2026-08-26.json, 2026-08-28.json, 2026-08-31.json, 2026-09-01.json, 2026-09-02.json, 2026-09-03.json, 2026-09-04.json, 2026-09-05.json, 2026-09-06.json, 2026-09-08.json, 2026-09-09.json, 2026-09-11.json, 2026-09-12.json, 2026-09-13.json, 2026-09-14.json, 2026-09-15.json, 2026-09-16.json, 2026-09-17.json, 2026-09-18.json
