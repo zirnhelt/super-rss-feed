@@ -34,3 +34,11 @@ No feed met the failure floor — nothing to heal.
 |---|---|---|---|
 | 🔁 Substituted | BC Gov News | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:news.gov.bc.ca&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (network, via feed_http_cache.json) |
 | 🗑 Retired | Trip Reports | unrecoverable (timeout) | 3 failures over 3d (timeout, via feed_http_cache.json+FEED_ERRORS.md) |
+
+
+## 2026-09-27
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| 🔁 Substituted | EEVblog | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:eevblog.com&hl=en&gl=CA&ceid=CA:en` | 3 failures over 3d (http_403, via feed_http_cache.json) |
+| ✅ Restored | Trip Reports | retired source is reachable again | retired unknown |
