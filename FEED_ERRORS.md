@@ -3,6 +3,18 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-26 (Saturday)
+
+#### 🔧 Manual Run (9:08 PM Pacific)
+- ⚠️ **FolkloreThursday** failed — `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/`
+- ⚠️ **alpennia.com** failed — `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1497 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-25 (Friday)
 
 #### 🔧 Manual Run (9:11 PM Pacific)
@@ -81,17 +93,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (9:07 PM Pacific)
 - ⚠️ **Trip Reports** failed — `HTTPSConnectionPool(host='backcountrypost.com', port=443): Read timed out. (read timeout=10)`
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1600 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-18 (Friday)
-
-#### 🔧 Manual Run (9:12 PM Pacific)
-- ⚠️ **FolkloreThursday** failed — `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/`
-- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1613 articles — check charter adherence, not supply
 
 
 ---
@@ -1226,6 +1227,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ EEVblog failed — 502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1425 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-18–2026-09-18
+- 2 issues recorded
+- ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
+- ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1613 articles — check charter adherence, not supply
 
 
 ---
