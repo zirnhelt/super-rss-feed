@@ -1,311 +1,390 @@
 {
-  "generated_at": "2026-09-20 16:58 UTC",
+  "generated_at": "2026-09-27 17:46 UTC",
   "window": {
     "first": "2026-06-17",
-    "last": "2026-09-18"
+    "last": "2026-09-27"
   },
-  "total_rated": 1606,
+  "total_rated": 1775,
   "counts": {
-    "good": 376,
-    "bad": 1081,
-    "interesting": 148,
+    "good": 416,
+    "bad": 1169,
+    "interesting": 189,
     "skip": 1
   },
-  "bad_pct": 67.3,
+  "bad_pct": 65.9,
   "good_pct": 23.4,
+  "positive_pct": 34.1,
   "score_by_rating": {
     "good": {
-      "n": 376,
-      "mean_score": 51.9,
+      "n": 416,
+      "mean_score": 52.8,
       "median_score": 49.0,
-      "mean_quality": 42.2,
-      "mean_relevance": 42.0
+      "mean_quality": 41.3,
+      "mean_relevance": 41.1
     },
     "interesting": {
-      "n": 148,
-      "mean_score": 40.2,
-      "median_score": 47.0,
-      "mean_quality": 27.0,
-      "mean_relevance": 23.1
+      "n": 189,
+      "mean_score": 43.1,
+      "median_score": 48,
+      "mean_quality": 28.4,
+      "mean_relevance": 25.1
     },
     "bad": {
-      "n": 1081,
-      "mean_score": 35.5,
+      "n": 1169,
+      "mean_score": 36.2,
       "median_score": 29,
-      "mean_quality": 21.7,
-      "mean_relevance": 18.9
+      "mean_quality": 21.0,
+      "mean_relevance": 18.2
     }
   },
   "band_precision": [
     {
       "band": "80-100",
-      "n": 78,
-      "good": 48,
-      "bad": 28,
-      "good_pct": 61.5,
-      "bad_pct": 35.9
+      "n": 92,
+      "good": 56,
+      "interesting": 6,
+      "bad": 30,
+      "good_pct": 60.9,
+      "positive_pct": 67.4,
+      "bad_pct": 32.6
     },
     {
       "band": "60-79",
-      "n": 225,
-      "good": 81,
-      "bad": 132,
-      "good_pct": 36.0,
-      "bad_pct": 58.7
+      "n": 272,
+      "good": 96,
+      "interesting": 24,
+      "bad": 152,
+      "good_pct": 35.3,
+      "positive_pct": 44.1,
+      "bad_pct": 55.9
     },
     {
       "band": "40-59",
-      "n": 491,
-      "good": 155,
-      "bad": 269,
-      "good_pct": 31.6,
-      "bad_pct": 54.8
+      "n": 552,
+      "good": 167,
+      "interesting": 86,
+      "bad": 299,
+      "good_pct": 30.3,
+      "positive_pct": 45.8,
+      "bad_pct": 54.2
     },
     {
       "band": "20-39",
-      "n": 462,
-      "good": 63,
-      "bad": 348,
+      "n": 493,
+      "good": 67,
+      "interesting": 54,
+      "bad": 372,
       "good_pct": 13.6,
-      "bad_pct": 75.3
+      "positive_pct": 24.5,
+      "bad_pct": 75.5
     },
     {
       "band": "0-19",
-      "n": 350,
-      "good": 29,
-      "bad": 304,
-      "good_pct": 8.3,
-      "bad_pct": 86.9
+      "n": 366,
+      "good": 30,
+      "interesting": 19,
+      "bad": 316,
+      "good_pct": 8.2,
+      "positive_pct": 13.4,
+      "bad_pct": 86.3
     }
   ],
   "threshold_sweep": [
     {
       "threshold": 13,
       "bad_cut": 68,
-      "bad_cut_pct": 6.3,
+      "bad_cut_pct": 5.8,
       "good_lost": 7,
-      "good_lost_pct": 1.9
+      "good_lost_pct": 1.7,
+      "interesting_lost": 2,
+      "interesting_lost_pct": 1.1,
+      "positive_lost": 9,
+      "positive_lost_pct": 1.5
     },
     {
       "threshold": 15,
-      "bad_cut": 174,
-      "bad_cut_pct": 16.1,
+      "bad_cut": 178,
+      "bad_cut_pct": 15.2,
       "good_lost": 19,
-      "good_lost_pct": 5.1
+      "good_lost_pct": 4.6,
+      "interesting_lost": 9,
+      "interesting_lost_pct": 4.8,
+      "positive_lost": 28,
+      "positive_lost_pct": 4.6
     },
     {
       "threshold": 20,
-      "bad_cut": 304,
-      "bad_cut_pct": 28.1,
-      "good_lost": 29,
-      "good_lost_pct": 7.7
+      "bad_cut": 316,
+      "bad_cut_pct": 27.0,
+      "good_lost": 30,
+      "good_lost_pct": 7.2,
+      "interesting_lost": 19,
+      "interesting_lost_pct": 10.1,
+      "positive_lost": 49,
+      "positive_lost_pct": 8.1
     },
     {
       "threshold": 25,
-      "bad_cut": 394,
-      "bad_cut_pct": 36.4,
-      "good_lost": 38,
-      "good_lost_pct": 10.1
+      "bad_cut": 409,
+      "bad_cut_pct": 35.0,
+      "good_lost": 39,
+      "good_lost_pct": 9.4,
+      "interesting_lost": 29,
+      "interesting_lost_pct": 15.3,
+      "positive_lost": 68,
+      "positive_lost_pct": 11.2
     },
     {
       "threshold": 30,
-      "bad_cut": 563,
-      "bad_cut_pct": 52.1,
-      "good_lost": 73,
-      "good_lost_pct": 19.4
+      "bad_cut": 594,
+      "bad_cut_pct": 50.8,
+      "good_lost": 76,
+      "good_lost_pct": 18.3,
+      "interesting_lost": 54,
+      "interesting_lost_pct": 28.6,
+      "positive_lost": 130,
+      "positive_lost_pct": 21.5
     },
     {
       "threshold": 35,
-      "bad_cut": 618,
-      "bad_cut_pct": 57.2,
-      "good_lost": 82,
-      "good_lost_pct": 21.8
+      "bad_cut": 653,
+      "bad_cut_pct": 55.9,
+      "good_lost": 87,
+      "good_lost_pct": 20.9,
+      "interesting_lost": 68,
+      "interesting_lost_pct": 36.0,
+      "positive_lost": 155,
+      "positive_lost_pct": 25.6
     },
     {
       "threshold": 40,
-      "bad_cut": 652,
-      "bad_cut_pct": 60.3,
-      "good_lost": 92,
-      "good_lost_pct": 24.5
+      "bad_cut": 688,
+      "bad_cut_pct": 58.9,
+      "good_lost": 97,
+      "good_lost_pct": 23.3,
+      "interesting_lost": 73,
+      "interesting_lost_pct": 38.6,
+      "positive_lost": 170,
+      "positive_lost_pct": 28.1
     },
     {
       "threshold": 45,
-      "bad_cut": 708,
-      "bad_cut_pct": 65.5,
-      "good_lost": 111,
-      "good_lost_pct": 29.5
+      "bad_cut": 750,
+      "bad_cut_pct": 64.2,
+      "good_lost": 119,
+      "good_lost_pct": 28.6,
+      "interesting_lost": 81,
+      "interesting_lost_pct": 42.9,
+      "positive_lost": 200,
+      "positive_lost_pct": 33.1
     },
     {
       "threshold": 50,
-      "bad_cut": 874,
-      "bad_cut_pct": 80.9,
-      "good_lost": 229,
-      "good_lost_pct": 60.9
+      "bad_cut": 934,
+      "bad_cut_pct": 79.9,
+      "good_lost": 246,
+      "good_lost_pct": 59.1,
+      "interesting_lost": 153,
+      "interesting_lost_pct": 81.0,
+      "positive_lost": 399,
+      "positive_lost_pct": 66.0
     },
     {
       "threshold": 60,
-      "bad_cut": 921,
-      "bad_cut_pct": 85.2,
-      "good_lost": 247,
-      "good_lost_pct": 65.7
+      "bad_cut": 987,
+      "bad_cut_pct": 84.4,
+      "good_lost": 264,
+      "good_lost_pct": 63.5,
+      "interesting_lost": 159,
+      "interesting_lost_pct": 84.1,
+      "positive_lost": 423,
+      "positive_lost_pct": 69.9
     }
   ],
   "current_min_score": 25,
   "by_category": {
     "news": {
-      "n": 1157,
-      "good": 187,
-      "interesting": 54,
-      "bad": 916,
-      "bad_pct": 79.2,
-      "good_pct": 16.2
+      "n": 1240,
+      "good": 193,
+      "interesting": 62,
+      "bad": 985,
+      "positive": 255,
+      "good_pct": 15.6,
+      "bad_pct": 79.4,
+      "positive_pct": 20.6
     },
     "ai-tech": {
-      "n": 135,
-      "good": 45,
-      "interesting": 37,
-      "bad": 53,
-      "bad_pct": 39.3,
-      "good_pct": 33.3
+      "n": 160,
+      "good": 49,
+      "interesting": 53,
+      "bad": 58,
+      "positive": 102,
+      "good_pct": 30.6,
+      "bad_pct": 36.2,
+      "positive_pct": 63.8
     },
     "wellness": {
-      "n": 103,
-      "good": 30,
-      "interesting": 20,
-      "bad": 52,
-      "bad_pct": 50.5,
-      "good_pct": 29.1
+      "n": 116,
+      "good": 36,
+      "interesting": 21,
+      "bad": 58,
+      "positive": 57,
+      "good_pct": 31.0,
+      "bad_pct": 50.0,
+      "positive_pct": 49.1
     },
     "local": {
-      "n": 67,
-      "good": 45,
-      "interesting": 2,
-      "bad": 20,
-      "bad_pct": 29.9,
-      "good_pct": 67.2
+      "n": 85,
+      "good": 55,
+      "interesting": 6,
+      "bad": 24,
+      "positive": 61,
+      "good_pct": 64.7,
+      "bad_pct": 28.2,
+      "positive_pct": 71.8
     },
     "climate": {
-      "n": 36,
-      "good": 24,
-      "interesting": 4,
-      "bad": 8,
-      "bad_pct": 22.2,
-      "good_pct": 66.7
+      "n": 40,
+      "good": 26,
+      "interesting": 5,
+      "bad": 9,
+      "positive": 31,
+      "good_pct": 65.0,
+      "bad_pct": 22.5,
+      "positive_pct": 77.5
     },
     "science": {
-      "n": 29,
-      "good": 23,
-      "interesting": 3,
+      "n": 38,
+      "good": 30,
+      "interesting": 5,
       "bad": 3,
-      "bad_pct": 10.3,
-      "good_pct": 79.3
+      "positive": 35,
+      "good_pct": 78.9,
+      "bad_pct": 7.9,
+      "positive_pct": 92.1
     },
     "homelab": {
-      "n": 26,
-      "good": 8,
+      "n": 29,
+      "good": 10,
       "interesting": 11,
-      "bad": 7,
-      "bad_pct": 26.9,
-      "good_pct": 30.8
+      "bad": 8,
+      "positive": 21,
+      "good_pct": 34.5,
+      "bad_pct": 27.6,
+      "positive_pct": 72.4
     },
     "design": {
-      "n": 17,
+      "n": 22,
       "good": 2,
-      "interesting": 7,
-      "bad": 8,
-      "bad_pct": 47.1,
-      "good_pct": 11.8
+      "interesting": 11,
+      "bad": 9,
+      "positive": 13,
+      "good_pct": 9.1,
+      "bad_pct": 40.9,
+      "positive_pct": 59.1
     },
     "scifi": {
-      "n": 14,
+      "n": 19,
       "good": 1,
-      "interesting": 4,
-      "bad": 9,
-      "bad_pct": 64.3,
-      "good_pct": 7.1
+      "interesting": 8,
+      "bad": 10,
+      "positive": 9,
+      "good_pct": 5.3,
+      "bad_pct": 52.6,
+      "positive_pct": 47.4
     },
     "outdoors": {
-      "n": 10,
-      "good": 4,
-      "interesting": 4,
+      "n": 12,
+      "good": 5,
+      "interesting": 5,
       "bad": 2,
-      "bad_pct": 20.0,
-      "good_pct": 40.0
+      "positive": 10,
+      "good_pct": 41.7,
+      "bad_pct": 16.7,
+      "positive_pct": 83.3
     },
     "homestead": {
-      "n": 5,
-      "good": 3,
+      "n": 7,
+      "good": 5,
       "interesting": 2,
       "bad": 0,
+      "positive": 7,
+      "good_pct": 71.4,
       "bad_pct": 0.0,
-      "good_pct": 60.0
+      "positive_pct": 100.0
     },
     "shared": {
       "n": 4,
       "good": 4,
       "interesting": 0,
       "bad": 0,
+      "positive": 4,
+      "good_pct": 100.0,
       "bad_pct": 0.0,
-      "good_pct": 100.0
+      "positive_pct": 100.0
     },
     "podcast-sunday": {
       "n": 2,
       "good": 0,
       "interesting": 0,
       "bad": 2,
+      "positive": 0,
+      "good_pct": 0.0,
       "bad_pct": 100.0,
-      "good_pct": 0.0
+      "positive_pct": 0.0
     },
     "podcast-friday": {
       "n": 1,
       "good": 0,
       "interesting": 0,
       "bad": 1,
+      "positive": 0,
+      "good_pct": 0.0,
       "bad_pct": 100.0,
-      "good_pct": 0.0
+      "positive_pct": 0.0
     }
   },
   "stratified": {
     "per_stratum": {
       "border": {
-        "n": 317,
-        "good": 121,
-        "interesting": 54,
-        "bad": 142,
-        "weight_sum": 3443.9999000000003,
-        "weighted": 38,
-        "good_pct": 38.2,
-        "positive_pct": 55.2
+        "n": 337,
+        "good": 122,
+        "interesting": 60,
+        "bad": 155,
+        "weight_sum": 5318.999600000003,
+        "weighted": 58,
+        "good_pct": 36.2,
+        "positive_pct": 54.0
       },
       "low": {
-        "n": 112,
-        "good": 21,
+        "n": 118,
+        "good": 22,
         "interesting": 8,
-        "bad": 83,
-        "weight_sum": 885.0,
-        "weighted": 11,
-        "good_pct": 18.8,
-        "positive_pct": 25.9
+        "bad": 88,
+        "weight_sum": 1486.0,
+        "weighted": 17,
+        "good_pct": 18.6,
+        "positive_pct": 25.4
       },
       "high": {
-        "n": 64,
-        "good": 42,
-        "interesting": 2,
-        "bad": 20,
-        "weight_sum": 47.0,
-        "weighted": 20,
-        "good_pct": 65.6,
-        "positive_pct": 68.8
+        "n": 77,
+        "good": 50,
+        "interesting": 6,
+        "bad": 21,
+        "weight_sum": 75.00010000000002,
+        "weighted": 33,
+        "good_pct": 64.9,
+        "positive_pct": 72.7
       },
       "mid": {
-        "n": 307,
-        "good": 115,
-        "interesting": 14,
-        "bad": 178,
-        "weight_sum": 3054.0020999999992,
-        "weighted": 120,
-        "good_pct": 37.5,
-        "positive_pct": 42.0
+        "n": 362,
+        "good": 132,
+        "interesting": 29,
+        "bad": 201,
+        "weight_sum": 4626.2757,
+        "weighted": 175,
+        "good_pct": 36.5,
+        "positive_pct": 44.5
       },
       "unknown": {
         "n": 7,
@@ -318,138 +397,188 @@
         "positive_pct": 57.1
       },
       "unfiltered": {
-        "n": 787,
-        "good": 73,
-        "interesting": 68,
-        "bad": 645,
-        "weight_sum": 1077.0000000000002,
-        "weighted": 100,
-        "good_pct": 9.3,
-        "positive_pct": 17.9
+        "n": 832,
+        "good": 75,
+        "interesting": 72,
+        "bad": 684,
+        "weight_sum": 2284.0000000000027,
+        "weighted": 145,
+        "good_pct": 9.0,
+        "positive_pct": 17.7
       },
       "floor_fill": {
-        "n": 12,
-        "good": 0,
-        "interesting": 2,
-        "bad": 10,
-        "weight_sum": 393.0,
-        "weighted": 12,
-        "good_pct": 0.0,
-        "positive_pct": 16.7
+        "n": 19,
+        "good": 1,
+        "interesting": 4,
+        "bad": 14,
+        "weight_sum": 608.0,
+        "weighted": 19,
+        "good_pct": 5.3,
+        "positive_pct": 26.3
+      },
+      "promising": {
+        "n": 23,
+        "good": 10,
+        "interesting": 10,
+        "bad": 3,
+        "weight_sum": 41.55540000000002,
+        "weighted": 23,
+        "good_pct": 43.5,
+        "positive_pct": 87.0
       }
     },
-    "weighted_positive_pct": 41.2,
-    "weight_coverage_pct": 24.8,
-    "weighted_rows": 201,
-    "shipped_rows": 812,
-    "bad_shipped": 433,
-    "bad_correctly_rejected": 645,
-    "rejects_n": 787,
-    "reject_false_negative_pct": 17.9
+    "weighted_positive_pct": 41.9,
+    "weight_coverage_pct": 34.7,
+    "weighted_rows": 325,
+    "shipped_rows": 936,
+    "bad_shipped": 482,
+    "bad_correctly_rejected": 684,
+    "rejects_n": 832,
+    "reject_false_negative_pct": 17.7
   },
   "worst_sources": {
     "Rolling Stone": {
       "n": 24,
       "good": 0,
+      "interesting": 0,
       "bad": 24,
+      "positive": 0,
       "good_pct": 0.0,
-      "bad_pct": 100.0
-    },
-    "The Atlantic": {
-      "n": 13,
-      "good": 0,
-      "bad": 13,
-      "good_pct": 0.0,
-      "bad_pct": 100.0
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": true
     },
     "Mother Jones": {
-      "n": 10,
+      "n": 15,
       "good": 0,
-      "bad": 10,
+      "interesting": 0,
+      "bad": 15,
+      "positive": 0,
       "good_pct": 0.0,
-      "bad_pct": 100.0
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": true
     },
     "The New Yorker": {
       "n": 9,
       "good": 0,
+      "interesting": 0,
       "bad": 9,
+      "positive": 0,
       "good_pct": 0.0,
-      "bad_pct": 100.0
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": true
     },
     "Cottage Life": {
       "n": 8,
       "good": 0,
+      "interesting": 0,
       "bad": 8,
+      "positive": 0,
       "good_pct": 0.0,
-      "bad_pct": 100.0
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": true
     },
     "Live for the Outdoors (Country Walking)": {
-      "n": 6,
+      "n": 7,
       "good": 0,
-      "bad": 6,
+      "interesting": 0,
+      "bad": 7,
+      "positive": 0,
       "good_pct": 0.0,
-      "bad_pct": 100.0
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": false
+    },
+    "FlowingData": {
+      "n": 5,
+      "good": 0,
+      "interesting": 0,
+      "bad": 5,
+      "positive": 0,
+      "good_pct": 0.0,
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": false
+    },
+    "Country Guide": {
+      "n": 5,
+      "good": 0,
+      "interesting": 0,
+      "bad": 5,
+      "positive": 0,
+      "good_pct": 0.0,
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": false
     },
     "Edge (GamesRadar)": {
-      "n": 32,
+      "n": 38,
       "good": 0,
-      "bad": 30,
+      "interesting": 2,
+      "bad": 36,
+      "positive": 2,
       "good_pct": 0.0,
-      "bad_pct": 93.8
+      "bad_pct": 94.7,
+      "positive_pct": 5.3,
+      "block_candidate": false
+    },
+    "Ideal Home (Country Homes & Interiors)": {
+      "n": 31,
+      "good": 0,
+      "interesting": 3,
+      "bad": 28,
+      "positive": 3,
+      "good_pct": 0.0,
+      "bad_pct": 90.3,
+      "positive_pct": 9.7,
+      "block_candidate": false
     },
     "Lifehacker": {
       "n": 27,
       "good": 3,
+      "interesting": 0,
       "bad": 24,
+      "positive": 3,
       "good_pct": 11.1,
-      "bad_pct": 88.9
-    },
-    "Ideal Home (Country Homes & Interiors)": {
-      "n": 27,
-      "good": 0,
-      "bad": 24,
-      "good_pct": 0.0,
-      "bad_pct": 88.9
-    },
-    "Neowin": {
-      "n": 17,
-      "good": 2,
-      "bad": 15,
-      "good_pct": 11.8,
-      "bad_pct": 88.2
+      "bad_pct": 88.9,
+      "positive_pct": 11.1,
+      "block_candidate": false
     }
   },
   "content_type_by_rating": {
     "unlabeled": {
-      "good": 262,
-      "bad": 900,
-      "interesting": 90,
+      "good": 280,
+      "bad": 972,
+      "interesting": 109,
       "skip": 1
     },
     "breaking": {
-      "good": 43,
-      "bad": 72,
-      "interesting": 20
+      "good": 49,
+      "bad": 76,
+      "interesting": 26
     },
     "analysis": {
-      "good": 37,
-      "bad": 35,
-      "interesting": 20
+      "good": 42,
+      "bad": 38,
+      "interesting": 28
     },
     "feature": {
-      "good": 21,
-      "bad": 36,
-      "interesting": 9
+      "good": 26,
+      "bad": 44,
+      "interesting": 15
     },
     "news": {
-      "bad": 14,
-      "good": 7,
-      "interesting": 5
+      "bad": 15,
+      "good": 10,
+      "interesting": 6
     },
     "opinion": {
       "bad": 17,
-      "interesting": 3,
-      "good": 3
+      "interesting": 4,
+      "good": 4
     },
     "recap": {
       "good": 1,
@@ -459,78 +588,93 @@
       "bad": 2,
       "good": 2
     },
+    "fluff": {
+      "bad": 1,
+      "good": 2
+    },
     "investigation": {
       "interesting": 1,
-      "bad": 1
-    },
-    "fluff": {
       "bad": 1
     }
   },
   "theme_routing": {
-    "rated_with_day": 1599,
-    "corrections": 310,
-    "correction_pct": 19.4,
+    "rated_with_day": 1768,
+    "corrections": 344,
+    "correction_pct": 19.5,
     "root_cause": {
-      "routing_bug": 123,
-      "theme_scoring_miss": 187,
+      "routing_bug": 143,
+      "theme_scoring_miss": 201,
       "missing_scores": 0
     },
     "per_day": {
       "monday": {
         "label": "Arts, Culture & Digital Storytelling",
-        "n": 255,
-        "good": 51,
-        "bad": 171,
-        "good_pct": 20.0,
-        "corrected_away": 48
+        "n": 284,
+        "good": 52,
+        "interesting": 42,
+        "bad": 190,
+        "good_pct": 18.3,
+        "positive_pct": 33.1,
+        "corrected_away": 49
       },
       "tuesday": {
         "label": "Working Lands & Industry",
-        "n": 225,
-        "good": 38,
-        "bad": 171,
-        "good_pct": 16.9,
-        "corrected_away": 28
+        "n": 255,
+        "good": 47,
+        "interesting": 21,
+        "bad": 187,
+        "good_pct": 18.4,
+        "positive_pct": 26.7,
+        "corrected_away": 35
       },
       "wednesday": {
         "label": "Repair Culture & Practical Tech",
-        "n": 284,
-        "good": 84,
-        "bad": 181,
-        "good_pct": 29.6,
-        "corrected_away": 58
+        "n": 314,
+        "good": 88,
+        "interesting": 25,
+        "bad": 201,
+        "good_pct": 28.0,
+        "positive_pct": 36.0,
+        "corrected_away": 61
       },
       "thursday": {
         "label": "Indigenous Lands & Innovation",
-        "n": 217,
-        "good": 41,
-        "bad": 146,
-        "good_pct": 18.9,
-        "corrected_away": 39
+        "n": 243,
+        "good": 48,
+        "interesting": 38,
+        "bad": 157,
+        "good_pct": 19.8,
+        "positive_pct": 35.4,
+        "corrected_away": 46
       },
       "friday": {
         "label": "Wild Spaces & Outdoor Life",
-        "n": 265,
-        "good": 58,
-        "bad": 179,
-        "good_pct": 21.9,
-        "corrected_away": 52
+        "n": 292,
+        "good": 68,
+        "interesting": 33,
+        "bad": 190,
+        "good_pct": 23.3,
+        "positive_pct": 34.6,
+        "corrected_away": 62
       },
       "saturday": {
         "label": "Cariboo Local Affairs",
-        "n": 191,
-        "good": 56,
-        "bad": 127,
-        "good_pct": 29.3,
-        "corrected_away": 52
+        "n": 218,
+        "good": 65,
+        "interesting": 15,
+        "bad": 138,
+        "good_pct": 29.8,
+        "positive_pct": 36.7,
+        "corrected_away": 58
       },
       "sunday": {
         "label": "Science, Wonder & the Natural World",
         "n": 162,
         "good": 44,
+        "interesting": 15,
         "bad": 103,
         "good_pct": 27.2,
+        "positive_pct": 36.4,
         "corrected_away": 33
       }
     },
@@ -539,48 +683,48 @@
         "wednesday": 9,
         "saturday": 7,
         "sunday": 13,
-        "tuesday": 12,
+        "tuesday": 13,
         "friday": 6,
         "thursday": 1
       },
       "tuesday": {
-        "sunday": 6,
+        "sunday": 8,
         "saturday": 3,
-        "monday": 7,
+        "monday": 10,
         "thursday": 2,
-        "wednesday": 5,
-        "friday": 5
+        "wednesday": 6,
+        "friday": 6
       },
       "wednesday": {
         "friday": 15,
         "monday": 8,
         "saturday": 11,
-        "sunday": 13,
-        "tuesday": 8,
+        "sunday": 14,
+        "tuesday": 10,
         "thursday": 3
       },
       "thursday": {
         "friday": 7,
         "wednesday": 7,
-        "sunday": 14,
-        "tuesday": 6,
+        "sunday": 19,
+        "tuesday": 7,
         "monday": 3,
-        "saturday": 2
+        "saturday": 3
       },
       "friday": {
         "thursday": 5,
-        "monday": 6,
-        "saturday": 7,
-        "wednesday": 10,
-        "sunday": 14,
-        "tuesday": 10
+        "monday": 7,
+        "saturday": 8,
+        "wednesday": 12,
+        "sunday": 17,
+        "tuesday": 13
       },
       "saturday": {
-        "sunday": 20,
-        "thursday": 5,
+        "sunday": 23,
+        "thursday": 6,
         "wednesday": 12,
-        "tuesday": 4,
-        "friday": 9,
+        "tuesday": 5,
+        "friday": 10,
         "monday": 2
       },
       "sunday": {
@@ -594,25 +738,25 @@
     }
   },
   "category_retag": {
-    "rated_with_category": 877,
-    "corrections": 84,
-    "correction_pct": 9.6,
+    "rated_with_category": 1046,
+    "corrections": 112,
+    "correction_pct": 10.7,
     "confusion": {
       "news": {
         "climate": 5,
-        "science": 3,
+        "science": 9,
         "wellness": 8,
-        "ai-tech": 24,
-        "homelab": 11,
-        "local": 3,
-        "scifi": 3,
-        "outdoors": 6,
+        "ai-tech": 32,
+        "homelab": 12,
+        "local": 5,
+        "scifi": 6,
+        "outdoors": 8,
         "design": 6,
-        "homestead": 5
+        "homestead": 6
       },
       "science": {
         "climate": 1,
-        "wellness": 1,
+        "wellness": 3,
         "news": 1
       },
       "design": {
@@ -621,22 +765,21 @@
       "local": {
         "news": 1,
         "climate": 1,
-        "wellness": 1
+        "wellness": 1,
+        "ai-tech": 1
       },
       "wellness": {
         "climate": 1,
         "ai-tech": 1,
-        "news": 1
+        "news": 1,
+        "science": 1
+      },
+      "ai-tech": {
+        "scifi": 1
       }
     }
   },
   "volume_trend_recent": [
-    {
-      "week": "2026-W31",
-      "runs": 7,
-      "avg_fetched": 1065,
-      "avg_quality": 63
-    },
     {
       "week": "2026-W32",
       "runs": 7,
@@ -675,16 +818,22 @@
     },
     {
       "week": "2026-W38",
-      "runs": 6,
-      "avg_fetched": 1714,
-      "avg_quality": 98
+      "runs": 7,
+      "avg_fetched": 1635,
+      "avg_quality": 95
+    },
+    {
+      "week": "2026-W39",
+      "runs": 7,
+      "avg_fetched": 1448,
+      "avg_quality": 76
     }
   ],
   "process_health": {
-    "calibration_log_entries": 22,
+    "calibration_log_entries": 23,
     "calibration_no_change_entries": 9,
-    "calibration_stats_runs": 14,
-    "calibration_stats_range": "2026-09-07 → 2026-09-20",
+    "calibration_stats_runs": 15,
+    "calibration_stats_range": "2026-09-14 → 2026-09-27",
     "theme_holdover_cache_present": true
   }
 }
