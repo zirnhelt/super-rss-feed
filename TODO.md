@@ -13,7 +13,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-09-23 | 🔧 Manual Run | ⚠️ **Adventure Journal** failed | `503 Server Error: Service Unavailable for url: https://www.adventure-journal.com/feed/` |
 | 2026-09-22 | 🔧 Manual Run | ⚠️ **Yellowhead Institute** failed | `503 Server Error: Service Unavailable for url: https://yellowheadinstitute.org/feed/` |
 | 2026-09-21 | 🔧 Manual Run | ⚠️ **NRDC** failed | `520 Server Error: <none> for url: https://www.nrdc.org/rss.xml` |
-| 2026-09-20 | 🔧 Manual Run | ⚠️ **Canadian Forest Industries** failed | `Exceeded 30 redirects.` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -21,6 +20,7 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-27 | 🔧 manual | 63 | ai-tech:13(21%), wellness:10(16%), news:10(16%) |
 | 2026-09-26 | 🔧 manual | 67 | ai-tech:17(25%), wellness:10(15%), news:10(15%) |
 | 2026-09-25 | 🔧 manual | 80 | ai-tech:18(22%), wellness:10(12%), news:10(12%) |
 | 2026-09-24 | 🔧 manual | 77 | ai-tech:18(23%), wellness:10(13%), news:10(13%) |
@@ -28,11 +28,11 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 | 2026-09-23 | 🔧 manual | 49 | wellness:10(20%), news:10(20%), ai-tech:9(18%) |
 | 2026-09-22 | 🔧 manual | 88 | ai-tech:18(20%), climate:12(14%), local:11(12%) |
 | 2026-09-21 | 🔧 manual | 96 | news:25(26%), ai-tech:18(19%), local:10(10%) |
-| 2026-09-20 | 🔧 manual | 79 | news:25(32%), ai-tech:18(23%), wellness:10(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-27 04:08 UTC_
+_Last updated by log\_feed\_results.py · 2026-09-28 04:07 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
