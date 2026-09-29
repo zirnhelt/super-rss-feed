@@ -105,7 +105,7 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 | `quality_charter.txt` | Interest-independent newsworthiness rubric: the quality gate (`q_gate`) and background for theme prompts. Never mention personal interests here. |
 | `feeds.json` | Output feed metadata (JSON Feed 1.1); `"rss": true` adds an RSS 2.0 mirror. |
 | `source_preferences.json` | Source type map (`print`/`broadcast`), per-type score adjustments, `max_per_source` caps. |
-| `feed_slots.json` | Per-category `min_slots` (filled regardless of floor) and `max_slots`. |
+| `feed_slots.json` | Per-category `min_slots` (filled regardless of floor) and `max_slots`; `news.world_slots` is the world lane. |
 | `podcast_schedule.json` | The 7 themed podcast feeds: charters, `min_score`, `holdover_threshold`, `rescore_sources`, `targeted_rescore`, `excluded_content`. **Tunable by calibration agent.** |
 | `calibration_bounds.json` | Whitelist of auto-tunable knobs and their bounds; `forbidden` lists what the agent may never touch. |
 | `scoring_weights.json` | Composite weights, **fitted against ratings** — see Scoring below. |
@@ -193,7 +193,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 6. **Deduplicate** — URL hash → fuzzy title → term-set containment (source priority local > print > broadcast), plus Cohere similarity when enabled.
 7. **Cross-run dedup** against `shown_terms_cache`.
 8. **Score (gated)** — the only scoring mode:
-   a. **Quality gate** (`score_quality_gate()`): one Haiku pass returns `q_gate` (0-100, against `quality_charter.txt`) **and** a `gate_reject` verdict against `GATE_REJECT_RUBRIC`, both cached. Local articles bypass the score but not the rejection. API failure fails open.
+   a. **Quality gate** (`score_quality_gate()`): one Haiku pass returns `q_gate` (0-100, against `quality_charter.txt`) **and** a `gate_reject` verdict against `GATE_REJECT_RUBRIC` **and** a `gate_world` flag against `GATE_WORLD_RUBRIC`, all cached. Local articles bypass the score but not the rejection. API failure fails open.
    b. **News head**: gate survivors are ordered by Cohere Rerank against `news_interests.txt` (ordering only), then the display-bound slice gets full Q/R/L Haiku scoring with `feedback_examples.txt`; the rest keep `q_gate`.
 9. **Local priority** — `local_signals` matches get score ≥ 80 and the `local` feed.
 10. **Source preferences** — per-type adjustments.
@@ -221,6 +221,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 ## Scoring — see [docs/decisions/scoring.md](docs/decisions/scoring.md)
 
 - **Feed selection is ranked, not floored.** Pass 1 fills `min_slots` regardless of the floor; pass 2 fills to `max_slots` above it. The floor bounds quality, not volume.
+- **News has a world lane.** `world_slots` (4) go to gate-flagged major world events ranked by `q_gate`, on top of `max_slots`. The ratings starved world news once; keep the lane out of `calibration_bounds.json` knobs.
 - **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
 - **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
 - **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`.

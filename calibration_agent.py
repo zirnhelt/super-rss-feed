@@ -153,15 +153,20 @@ def gather_audit_data(window_days: int = 14) -> Dict:
     # Quality gate pass/drop totals by category
     passed: Dict[str, int] = defaultdict(int)
     dropped: Dict[str, int] = defaultdict(int)
+    world_lane = 0
     for r in in_window:
         qg = r.get('quality_gate', {})
         for cat, n in qg.get('passed_by_category', {}).items():
             passed[cat] += n
         for cat, n in qg.get('dropped_below_floor_by_category', {}).items():
             dropped[cat] += n
+        world_lane += qg.get('world_lane_count', 0)
     summary['quality_gate_totals_by_category'] = {
         'passed': dict(passed),
         'dropped_below_floor': dict(dropped),
+        # Counted inside passed['news'] and on top of its max_slots by design
+        # (feed_slots.news.world_slots, a forbidden knob).
+        'news_world_lane': world_lane,
     }
 
     # Theme scoring trend per day (time series of mean/scored/histogram)

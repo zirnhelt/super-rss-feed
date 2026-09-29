@@ -184,3 +184,46 @@ and a verdict from a different rubric is asked again (verdict-only; the cached s
 is kept). The cost is one re-verdict pass over the cache when the rubric changes,
 including when a standing-preference PR is merged: about 10 to 35 Haiku batches, a
 few cents.
+
+## News gets a world lane (2026-09-29)
+
+The reader asked for the big international events back after the news feed went
+light on them. Four things had stacked up, none of them a "bad news" filter:
+
+- **The composite ranks on the personal profile.** News is `0.15Q + 0.65R + 0.20L`,
+  and `news_interests.txt` has no line for world affairs, docks non-Cariboo stories
+  10-15 for the listener hook and wire copy another 10. Deep-scored world stories
+  landed at R 8-32: "What Israel Knew Before October 7" (Atlantic, Q73) composite 23,
+  "The Hidden State Russia Is Building Inside Ukraine" (Q84) 33, a Guardian Gaza
+  feature (Q77) 17. The news floor is 20.
+- **The ratings agreed.** 39 of 44 rated world-news items were "bad" (notes: "US
+  politics", "Warfare"), which fed `feedback_examples.txt` and the 25 → 10 news slot
+  cut on 2026-09-23.
+- **Ten slots against ~700 candidates a night**, 160-236 of them gate-rejected.
+- **The world news that did ship came in by accident.** An article outside the
+  deep-scoring slice keeps `q_gate` as its score, and q_gate (55-73) outranks a
+  deep-scored composite. So the top-q_gate world stories were deep-scored *down* and
+  the second tier shipped, alongside gadget posts that took the same side door.
+
+Tuning the profile would put world news back into the personal ranking the reader's
+ratings keep voting down, so the fix is a separate lane. The gate, which already
+reads every article against the interest-free charter, returns a third answer, `w`
+(`GATE_WORLD_RUBRIC`), for a major event outside Canada: a war's major turn, a
+summit or sanctions move, an election or coup, an international-body decision, a
+national-scale disaster. Battle logs, military-tech features, opinion and routine
+domestic politics are `w` 0. `feed_slots.news.world_slots` (4) are filled first
+from flagged news articles by `q_gate`, above `gate_floor`, **on top of**
+`max_slots`, so nothing the reader already gets is displaced. It costs about five
+output tokens an article in the call the gate already makes, plus one re-verdict
+pass when the rubric id changes.
+
+The lane respects the reader's reject lines: a standing preference that covers an
+article still drops it. It is in `calibration_bounds.json` → `forbidden`, because
+ratings are what starved it; change `world_slots` by hand. `run_stats` records
+`quality_gate.world_lane_count`, and the lane's articles are counted inside
+`passed_by_category.news`, so news can read 14 against `max_slots` 10.
+
+**Leave the q_gate side door open.** A raw `q_gate` still competes with composites
+in one `news` ranking, and that is how Hackaday, Adafruit and TechRadar gadget posts
+reach the feed. It looks like a bug, but the reader called those posts "a great
+addition" (2026-09-29). Ask before closing it.

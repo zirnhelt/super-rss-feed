@@ -71,3 +71,68 @@ def test_empty_slot_config_is_a_passthrough(monkeypatch):
     monkeypatch.setattr(m, 'FEED_SLOTS', {})
     arts = [_a('news', 50)]
     assert m.apply_feed_slot_allocation(arts) == arts
+
+
+def _w(cat, score, q_gate, world=True):
+    o = _a(cat, score)
+    o.q_gate = q_gate
+    o.gate_world = world
+    return o
+
+
+def _world_config(monkeypatch, world_slots=2, max_slots=3):
+    monkeypatch.setattr(m, 'FEED_SLOTS', {
+        'news': {'min_slots': 1, 'max_slots': max_slots, 'world_slots': world_slots},
+        'default': {'min_slots': 1, 'max_slots': 5}})
+    monkeypatch.setattr(m, 'LIMITS', dict(m.LIMITS, min_claude_score=25,
+                                          min_score_by_category={'news': 20},
+                                          quality_gate={'gate_floor': 25}))
+
+
+def test_world_lane_ships_on_top_of_max_slots(monkeypatch):
+    """A war's turning point scores 8-30 on the personal composite; the lane
+    must not make it compete with the day's best interest matches for a slot."""
+    _world_config(monkeypatch)
+    personal = [_a('news', s) for s in (90, 80, 70, 60)]
+    world = [_w('news', 15, 70), _w('news', 23, 65)]
+
+    out = m.apply_feed_slot_allocation(personal + world)
+
+    assert len(out) == 5, 'max_slots (3) for the composite, plus 2 world slots'
+    assert all(a in out for a in world)
+    assert [a.score for a in out if not getattr(a, 'world_lane', False)] == [90, 80, 70]
+
+
+def test_world_lane_ranks_by_q_gate_not_composite(monkeypatch):
+    _world_config(monkeypatch, world_slots=1)
+    thin_but_big = _w('news', 12, 72)
+    well_liked = _w('news', 60, 40)
+
+    out = m.apply_feed_slot_allocation([well_liked, thin_but_big])
+
+    assert thin_but_big.world_lane is True
+    assert not getattr(well_liked, 'world_lane', False), \
+        'the runner-up competes for an ordinary slot on its composite instead'
+    assert well_liked in out
+
+
+def test_world_lane_needs_the_flag_and_the_gate_floor(monkeypatch):
+    _world_config(monkeypatch, world_slots=3, max_slots=0)
+    unflagged = _w('news', 50, 80, world=False)
+    below_gate = _w('news', 50, 20)
+    unjudged = _w('news', 50, 80, world=None)
+    flagged = _w('news', 50, 30)
+
+    out = m.apply_feed_slot_allocation([unflagged, below_gate, unjudged, flagged])
+
+    assert [a for a in out if getattr(a, 'world_lane', False)] == [flagged]
+
+
+def test_world_lane_is_per_category(monkeypatch):
+    """Only a category that configures world_slots reserves them."""
+    _world_config(monkeypatch)
+    climate_summit = _w('climate', 15, 75)
+
+    m.apply_feed_slot_allocation([climate_summit])
+
+    assert not getattr(climate_summit, 'world_lane', False)
