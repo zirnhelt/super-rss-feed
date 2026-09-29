@@ -223,5 +223,7 @@ ratings are what starved it; change `world_slots` by hand. `run_stats` records
 `quality_gate.world_lane_count`, and the lane's articles are counted inside
 `passed_by_category.news`, so news can read 14 against `max_slots` 10.
 
-Not fixed here: the q_gate side door itself (a raw q_gate competing with composites
-in one ranking) still lets un-deep-scored gadget posts into `news`.
+**Leave the q_gate side door open.** A raw `q_gate` still competes with composites
+in one `news` ranking, and that is how Hackaday, Adafruit and TechRadar gadget posts
+reach the feed. It looks like a bug, but the reader called those posts "a great
+addition" (2026-09-29). Ask before closing it.
