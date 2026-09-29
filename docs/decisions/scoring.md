@@ -142,6 +142,59 @@ only at n >= 8 with zero positives. Calibration now also receives
 `stratified.weighted_positive_pct`, the only corpus-wide figure the quota sample
 supports.
 
+### Feed and podcast are separate verdicts (2026-09-29)
+
+The old review card had one row of verdicts plus day chips, and tapping a day set the
+rating to `good`. So "I want this on the show but not in my feed" could only be recorded
+as `good`, which the trainer then fed to the relevance scorer as a feed positive. The
+pipeline never nested the two: the podcast pool is captured before the feed's scrub, and
+33 of the reader's `good` ratings since 2026-09-01 were on articles that were not in the
+pool at all.
+
+The card now asks both questions separately and stores one verdict:
+
+| | podcast day(s) | no day |
+|---|---|---|
+| in my feed | `good` | `interesting` |
+| not in my feed | `podcast_only` | `bad` |
+
+`good`, `interesting` and `bad` mean what they always meant, so the history is
+unchanged. `podcast_only` is not a feed positive and not a dislike: it counts toward day
+fit, protects a source from `block_candidate` (a blocked source leaves the podcast pool
+too), goes to the trainer as its own "do not boost" block, and never reaches
+`standing_preferences.py`, which reads `bad` notes only. The page strips tapped reasons
+whenever a card crosses the `bad` line, so a "Local civic" left on a show-only card
+cannot become a reject rule when its last day is untapped. Unknown verdicts fail safe:
+every consumer that has not learned `podcast_only` drops it.
+
+Expect the feed positive rate to dip slightly from here: show-only picks that used to be
+filed as `good` now count against it. That is a measurement correction, not a regression.
+
+Suggested days are dashed hints, no longer pre-selected. Percentile theme scores put a
+pooled article over 45 on five to seven days at once, and the seeded set survived
+untouched on 12 of 117 `good` ratings; the reader was clearing it, not accepting it. The
+hint is the top two days above 45 (the argmax is among the reader's picks 58% of the time,
+the top two 73%).
+
+### The review batch: offered once, sorted by likely verdict (2026-09-29)
+
+The batch never accumulated (it is a fixed quota), but a missed day leaked: consecutive
+batches after the 2026-09-19..21 gap shared 2-3 of 30 articles, because anything still
+inside the 48 h fetch lookback was eligible again. `review_offered_ledger()` now keeps
+every earlier batch's URLs out; a same-day rerun keeps its own batch. The page also keyed
+its "saved" flag on the Pacific calendar date, so a batch landing at 21:00 Pacific on a
+day already reviewed showed "All done" until midnight; it keys on `_batch` now.
+
+The order comes from `fit_reader_model()`: per-field log-odds (stratum, source, category,
+content type, relevance band), each shrunk toward the base rate, summed. On a time split
+(fit before 2026-09-15, rank each of the 11 later days) it scored within-day AUC 0.81 and
+72% positives in the top ten, against 0.75 and 63% for the old stratum-then-score order.
+A logistic fit on the same fields did no better. Only the order uses it: the sample and
+its stratum weights are drawn before sorting. Two costs to watch: stopping early would
+bias within-stratum rates toward positives (the reader rates the whole batch, so this is
+theoretical today), and seeing keepers first may anchor later verdicts. Each saved rating
+records `likely`, so the model's live accuracy can be checked from the ratings alone.
+
 ## The reject rubric's scoped rules leak (2026-09-23)
 
 The gate sees each article as `[category]` plus title, and one rubric covers every

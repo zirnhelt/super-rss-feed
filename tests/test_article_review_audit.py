@@ -54,3 +54,62 @@ def test_per_day_good_pct_is_day_fit_and_positive_pct_adds_interesting():
     day = audit.theme_routing_audit(ratings)['per_day']['monday']
     assert day['good_pct'] == 25.0
     assert day['positive_pct'] == 50.0
+
+
+# ── podcast_only: wanted on the show, not in the feed ──────────────────────────
+
+def test_podcast_only_is_day_fit_but_not_feed_fit():
+    ratings = [_r('podcast_only', today='saturday'), _r('interesting', today='saturday'),
+               _r('bad', today='saturday'), _r('bad', today='saturday')]
+    day = audit.theme_routing_audit(ratings)['per_day']['saturday']
+    assert day['good_pct'] == 25.0        # day fit: good + podcast_only
+    assert day['positive_pct'] == 25.0    # feed fit: good + interesting
+    assert day['podcast_only'] == 1
+
+
+def test_show_only_material_protects_a_source_from_blocking():
+    # Blocking a source drops it from the podcast pool as well as the feed.
+    ratings = [_r('bad', source='Tribune') for _ in range(8)] + [_r('podcast_only', source='Tribune')]
+    cell = audit.rating_distribution(ratings)['worst_sources']['Tribune']
+    assert cell['positive'] == 0
+    assert cell['block_candidate'] is False
+
+
+def test_podcast_only_is_loaded_and_counts_against_the_feed_rate(tmp_path):
+    import json
+    (tmp_path / '2026-09-30.json').write_text(json.dumps({'ratings': [
+        {'url': 'a', 'rating': 'podcast_only', 'score': 45},
+        {'url': 'b', 'rating': 'good', 'score': 45},
+    ]}))
+    ratings = audit.load_ratings(tmp_path)
+    assert {r['rating'] for r in ratings} == {'podcast_only', 'good'}
+    band = next(b for b in audit.band_precision(ratings) if b['band'] == '40-59')
+    assert band['positive_pct'] == 50.0
+
+
+# ── The reader model orders the review batch ──────────────────────────────────
+
+def _row(rating: str, source: str, bucket: str = 'mid') -> Dict:
+    return {'rating': rating, 'source': source, 'selection_bucket': bucket,
+            'original_category': 'news', 'content_type': None, 'relevance': 40}
+
+
+def test_reader_model_ranks_a_liked_source_above_a_disliked_one():
+    history = ([_row('good', 'Liked') for _ in range(6)] + [_row('bad', 'Liked')]
+               + [_row('bad', 'Disliked') for _ in range(6)] + [_row('interesting', 'Disliked')])
+    predict = audit.fit_reader_model(history)
+    liked, disliked, unseen = (predict(_row('bad', s)) for s in ('Liked', 'Disliked', 'New'))
+    assert liked > unseen > disliked
+    assert 0 < disliked < liked < 1
+
+
+def test_reader_model_counts_podcast_only_as_wanted_and_ignores_skip():
+    history = ([_row('podcast_only', 'Show') for _ in range(5)]
+               + [_row('bad', 'Other') for _ in range(5)] + [_row('skip', 'Other') for _ in range(20)])
+    predict = audit.fit_reader_model(history)
+    assert predict(_row('bad', 'Show')) > 0.5 > predict(_row('bad', 'Other'))
+
+
+def test_reader_model_needs_both_outcomes():
+    assert audit.fit_reader_model([_row('good', 'A'), _row('interesting', 'B')]) is None
+    assert audit.fit_reader_model([]) is None

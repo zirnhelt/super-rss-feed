@@ -6204,6 +6204,8 @@ REVIEW_REASON_DEFAULTS = {
                     'Worth a follow-up', 'Future theme', 'Big idea', 'Wrong category'],
     'bad': ['Sports', 'US politics', 'No local hook', 'Listicle',
             'Sale / ad', 'Product review', 'Celebrity gossip', 'Opinion'],
+    'podcast_only': ['Local civic', 'Election', 'Community event', 'Good talking point',
+                     'Listeners would care', 'Not my reading'],
 }
 REVIEW_REASON_LIMIT = 10
 REVIEW_STATS_WINDOW_DAYS = 30
@@ -6244,7 +6246,8 @@ def review_history_stats(today: str) -> Dict:
         reviewed_days.add(date)
         recent.update(r['rating'] for r in rated)
         for r in rated:
-            if r.get('selection_bucket') and r['rating'] in ('good', 'interesting', 'bad'):
+            # positive_pct is feed fit, so podcast_only counts in n but not as positive.
+            if r.get('selection_bucket') and r['rating'] in ('good', 'interesting', 'podcast_only', 'bad'):
                 bucket_counts[r['selection_bucket']][r['rating']] += 1
             if r['rating'] in REVIEW_REASON_DEFAULTS and r.get('note'):
                 # A note can carry several tapped reasons, "; "-separated.
@@ -6312,12 +6315,57 @@ def review_stratum(article: Article) -> str:
     return 'floor_fill'
 
 
+def review_offered_ledger(previous: Optional[Dict], batch: str, keep_days: int) -> Dict[str, str]:
+    """{url: batch} for every URL offered in a batch before `batch`, within `keep_days`.
+
+    Each batch is offered once. An article the reader never got to (a missed day, a batch
+    left half-rated) is not offered again the next night, so a missed day costs that
+    day's batch instead of piling onto the next one. The ledger rides in feed-review.json
+    itself and only has to span the fetch lookback, the window in which a URL can return.
+    A same-day rerun keeps its own batch eligible, so it cannot swap one out mid-review.
+    """
+    if not isinstance(previous, dict):
+        return {}
+    ledger = {url: b for url, b in (previous.get('_offered') or {}).items() if isinstance(b, str)}
+    # Feeds written before `_batch` existed carry only the generation timestamp (UTC).
+    prev_batch = previous.get('_batch') or str(previous.get('_generated_at') or '')[:10]
+    if prev_batch:
+        for item in previous.get('items') or []:
+            if isinstance(item, dict) and item.get('url'):
+                ledger[item['url']] = prev_batch
+    try:
+        cutoff = (datetime.strptime(batch, '%Y-%m-%d') - timedelta(days=keep_days)).strftime('%Y-%m-%d')
+    except ValueError:
+        return {}
+    return {url: b for url, b in ledger.items() if cutoff <= b < batch}
+
+
+def _reader_model():
+    """The fitted reader model from article_review_audit, or None to keep selection order."""
+    try:
+        import article_review_audit
+        return article_review_audit.fit_reader_model(
+            article_review_audit.load_ratings(Path('feedback')))
+    except Exception as e:
+        print(f"⚠️  Reader model unavailable, review batch keeps selection order: {e}")
+        return None
+
+
 def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article],
                          schedule_config: Optional[Dict],
                          haiku_rejected: Optional[List[Article]] = None):
     """Select the daily training sample and write feed-review.json."""
     # Load already-reviewed URLs so we don't surface the same article twice.
     reviewed_urls = load_reviewed_urls()
+
+    # The batch is named for the UTC date of the run: the 04:00, 07:00 and 10:00 UTC runs
+    # all build the same morning's batch, where a Pacific date would split them at midnight.
+    batch = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    try:
+        previous_feed = json.loads(Path('feed-review.json').read_text(encoding='utf-8'))
+    except Exception:
+        previous_feed = None
+    offered = review_offered_ledger(previous_feed, batch, SYSTEM['lookback_hours'] // 24 + 1)
 
     now_local = datetime.now(ZoneInfo('America/Vancouver'))
     today_name = now_local.strftime('%A').lower()
@@ -6334,10 +6382,11 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     # the day picker in review.html — and the routing_bug/scoring_miss split
     # article_review_audit.py derives from these ratings — reflect what actually
     # drove routing rather than the incomparable raw charter output.
+    pool_links = {a['link'] for a in load_podcast_cache()}
     theme_pct = normalize_theme_scores(
         theme_cache,
         (schedule_config or {}).get('schedule', {}),
-        {a['link'] for a in load_podcast_cache()},
+        pool_links,
     )
 
     def theme_scores(article: Article) -> Dict[str, int]:
@@ -6355,7 +6404,8 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     all_by_hash: Dict[str, Article] = {a.url_hash: a for a in scrubbed}
     for a in quality_articles:
         all_by_hash[a.url_hash] = a
-    candidates = [a for a in all_by_hash.values() if a.link not in reviewed_urls]
+    candidates = [a for a in all_by_hash.values()
+                  if a.link not in reviewed_urls and a.link not in offered]
 
     pools: Dict[str, List[Article]] = {b: [] for b in REVIEW_QUOTAS}
     for a in candidates:
@@ -6398,7 +6448,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     for a in haiku_rejected or []:
         if unfiltered_taken >= REVIEW_UNFILTERED_CAP:
             break
-        if a.link not in reviewed_urls:
+        if a.link not in reviewed_urls and a.link not in offered:
             unfiltered_taken += take(a, 'unfiltered')
 
     def bucket_label(a: Article) -> str:
@@ -6432,6 +6482,10 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         "authors": [{"name": FEEDS_CONFIG['author']}],
         "language": "en",
         "_generated_at": now_iso,
+        # review.html keys its drafts and its "saved" flag on this, never on the
+        # reader's calendar date: a batch that lands at 21:00 Pacific is a new batch.
+        "_batch": batch,
+        "_offered": offered,
         "_today": today_name,
         "_today_label": today_label,
         "_day_labels": day_labels,
@@ -6464,6 +6518,9 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
             "_selection_bucket": bucket_label(article),
             "_stratum_weight": stratum_weight(article),
             "_shipped": bucket_label(article) != 'unfiltered',
+            # The pool is captured before the feed's scrub, so this is independent of
+            # _shipped: the show and the feed are separate verdicts, not nested ones.
+            "_in_podcast_pool": article.link in pool_links,
             "_theme_scores": theme_scores(article),
             "_theme_scores_raw": theme_scores_raw(article),
             "_today": today_name,
@@ -6485,14 +6542,30 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
 
         feed['items'].append(item)
 
+    # Likeliest-wanted first. Only the order changes: which articles were sampled, and
+    # their stratum weights, are settled above.
+    predict = _reader_model()
+    if predict:
+        for article, item in zip(selected, feed['items']):
+            item['_likely'] = round(100 * predict({
+                'selection_bucket': item['_selection_bucket'],
+                'source': article.source,
+                'original_category': item['_category'],
+                'content_type': article.content_type,
+                'relevance': article.relevance,
+            }))
+        feed['items'].sort(key=lambda i: -i['_likely'])
+        feed['_sorted_by'] = 'likely'
+
     with open('feed-review.json', 'w', encoding='utf-8') as fh:
         json.dump(feed, fh, indent=2, ensure_ascii=False)
 
-    print(f"📋 Review feed: {len(feed['items'])} articles "
+    print(f"📋 Review feed {batch}: {len(feed['items'])} articles "
           f"({len(selected) - unfiltered_taken} curated incl. "
           f"{_stratum_sampled.get('promising', 0)} promising, "
           f"{unfiltered_taken} unfiltered, "
-          f"{len(reviewed_urls)} already-reviewed excluded)")
+          f"{len(reviewed_urls)} already-reviewed and {len(offered)} offered-earlier excluded"
+          f"{', sorted by likely verdict' if predict else ''})")
 
 
 def bootstrap_feeds_from_podcast_cache(api_key: str = ''):

@@ -55,10 +55,27 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             transition: border-left-color 0.2s ease;
         }
-        .article-card.rating-good        { border-left-color: #43a047; }
-        .article-card.rating-interesting { border-left-color: #2196f3; }
-        .article-card.rating-bad         { border-left-color: #e53935; }
-        .article-card.rating-skip        { border-left-color: #bbb; }
+        .article-card.rating-good         { border-left-color: #43a047; }
+        .article-card.rating-interesting  { border-left-color: #2196f3; }
+        .article-card.rating-podcast_only { border-left-color: #8e24aa; }
+        .article-card.rating-bad          { border-left-color: #e53935; }
+        .article-card.rating-skip         { border-left-color: #bbb; }
+
+        /* ── Verdict blocks: one question each, answered independently ── */
+        .verdict-block { border-radius: 8px; padding: 7px 8px; display: flex; flex-direction: column; gap: 6px; }
+        .verdict-feed    { background: #f5f8ff; }
+        .verdict-podcast { background: #faf5fc; }
+        .verdict-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+        .verdict-label { font-size: 0.76em; font-weight: 700; color: #444; }
+        .verdict-hint, .pool-note { font-size: 0.68em; color: #999; }
+        .pool-note.in-pool { color: #8e24aa; }
+        .cat-toggle {
+            background: white; border: 1px solid #d6dcf5; color: #667eea; border-radius: 9px;
+            font-size: 0.70em; font-weight: 600; padding: 2px 8px; cursor: pointer; white-space: nowrap;
+        }
+        .verdict-summary { font-size: 0.74em; color: #666; flex: 1; }
+        .verdict-summary.pending { color: #b26a00; font-weight: 600; }
+        .card-footer { display: flex; align-items: center; gap: 8px; }
 
         /* ── Card header ── */
         .card-header { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
@@ -125,6 +142,10 @@
         .chip-selected {
             background: #667eea; border: 1px solid #667eea; color: white;
         }
+        .verdict-podcast .chip-selected { background: #8e24aa; border-color: #8e24aa; }
+        .verdict-podcast .chip-unselected:hover { border-color: #8e24aa; color: #8e24aa; }
+        /* The pipeline's best-fit days: a hint, never a pre-selection. */
+        .chip-suggested { border: 1px dashed #8e24aa; color: #8e24aa; }
         .chip-top-row { display: flex; align-items: center; justify-content: center; gap: 2px; width: 100%; }
         .chip-day   { font-weight: 700; }
         .chip-theme { font-size: 0.82em; opacity: 0.82; display: block; }
@@ -152,10 +173,10 @@
             transition: all 0.12s ease;
         }
         .btn-rate:hover { opacity: 0.85; }
-        .btn-good.active        { background: #e8f5e9; border-color: #43a047; color: #2e7d32; }
-        .btn-interesting.active { background: #e3f2fd; border-color: #2196f3; color: #1565c0; }
-        .btn-bad.active         { background: #ffebee; border-color: #e53935; color: #c62828; }
-        .btn-skip.active        { background: #f5f5f5; border-color: #bbb;    color: #555; }
+        .btn-yes.active  { background: #e8f5e9; border-color: #43a047; color: #2e7d32; }
+        .btn-no.active   { background: #ffebee; border-color: #e53935; color: #c62828; }
+        .btn-skip        { flex: 0 0 auto; min-width: 0; padding: 4px 10px; background: none; color: #999; }
+        .btn-skip.active { background: #f5f5f5; border-color: #bbb; color: #555; }
 
         /* ── Reason chips (one set per rating) ── */
         .card-reasons { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -171,6 +192,9 @@
         .reason-interesting { border-color: #90caf9; color: #1565c0; }
         .reason-interesting:hover { background: #e3f2fd; }
         .reason-interesting.chip-selected { background: #2196f3; border-color: #2196f3; color: white; }
+        .reason-podcast_only { border-color: #ce93d8; color: #6a1b9a; }
+        .reason-podcast_only:hover { background: #f3e5f5; }
+        .reason-podcast_only.chip-selected { background: #8e24aa; border-color: #8e24aa; color: white; }
 
         /* ── Stats panel ── */
         .stats-grid {
@@ -261,8 +285,9 @@
     <div class="page-header">
         <a href="index.html" class="back-link">← Back to feeds</a>
         <h1>📋 Near-Miss Article Review</h1>
-        <p class="subtitle">Articles that almost made the cut. Tag to a podcast day, mark as interesting, or flag as bad.</p>
+        <p class="subtitle">Two separate calls per article: 📰 does it belong in <em>your</em> feed, and 🎙️ which podcast days (if any) should it air on? A story can be either, both or neither.</p>
         <div class="progress-counter" id="progress-counter"></div>
+        <div class="progress-counter" id="sort-note"></div>
         <div id="stats-panel" style="display:none"></div>
     </div>
 
@@ -330,13 +355,19 @@ const BUCKET_LABEL = { high: 'top score', mid: 'mid score', promising: 'promisin
                        low: 'low score', floor_fill: 'below floor', unfiltered: 'filtered' };
 const BUCKET_HINT  = { promising: 'Low overall score but a strong interest match — the likeliest place for a missed good article' };
 const AUTO_SUGGEST_THRESHOLD = 45;
+// Suggested days are a hint, never pre-selected: percentile scores put pooled articles
+// over 45 on five to seven days at once, and that seed survived untouched on 12 of 117
+// good ratings (Sep 2026) — the reader was clearing it, not accepting it.
+const SUGGEST_MAX_DAYS       = 2;
 const SUBMIT_THRESHOLD       = 3;
 
 // ── State ────────────────────────────────────────────────────────────────────
 let articles     = [];
 let ratings      = {};
 const expandedSet = new Set();  // tracks which card indices have desc expanded
-const todayKey   = getTodayKey();
+const catOpenSet  = new Set();  // cards with the category picker open
+const todayKey   = getTodayKey();   // names the feedback file
+let batchKey     = todayKey;        // the feed's `_batch`: keys drafts and the saved flag
 
 const DAY_ORDER = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 const DAY_SHORT = { monday:'Mon', tuesday:'Tue', wednesday:'Wed', thursday:'Thu', friday:'Fri', saturday:'Sat', sunday:'Sun' };
@@ -355,6 +386,8 @@ let REASONS = {
                   'Worth a follow-up', 'Future theme', 'Big idea', 'Wrong category'],
     bad:         ['Sports', 'US politics', 'No local hook', 'Listicle', 'Sale / ad',
                   'Product review', 'Celebrity gossip', 'Opinion'],
+    podcast_only: ['Local civic', 'Election', 'Community event', 'Good talking point',
+                   'Listeners would care', 'Not my reading'],
 };
 let REVIEW_STATS = null;
 let STRATA = null;
@@ -380,19 +413,51 @@ function getTodayKey() {
     return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Vancouver' });
 }
 
+// ── Verdict ──────────────────────────────────────────────────────────────────
+// Two independent answers, stored as one verdict so the saved format stays readable
+// by the audit and trainer (article_review_audit.py has the same table):
+//                  podcast day(s)   no day
+//   in my feed     good             interesting
+//   not my feed    podcast_only     bad
+// A card with days but no feed answer yet is unrated, not a guess.
+function verdictOf(r) {
+    if (!r) return null;
+    if (r.feed === 'skip') return 'skip';
+    const hasDays = (r.approved_days || []).length > 0;
+    if (r.feed === 'yes') return hasDays ? 'good' : 'interesting';
+    if (r.feed === 'no')  return hasDays ? 'podcast_only' : 'bad';
+    return null;
+}
+
 // ── localStorage ─────────────────────────────────────────────────────────────
+// Everything is keyed on the batch, not the calendar: a batch is offered once, and a
+// missed day's batch is dropped, not queued (the curator never offers its articles again).
 function saveRatings() {
-    localStorage.setItem('review_ratings_' + todayKey, JSON.stringify(ratings));
+    try { localStorage.setItem('review_ratings_' + batchKey, JSON.stringify(ratings)); } catch {}
 }
 function loadRatings() {
-    try { return JSON.parse(localStorage.getItem('review_ratings_' + todayKey) || '{}'); }
+    try { return JSON.parse(localStorage.getItem('review_ratings_' + batchKey) || '{}'); }
     catch { return {}; }
+}
+function isSaved() {
+    try { return localStorage.getItem('submitted_' + batchKey) === 'true'; } catch { return false; }
+}
+// Drafts and saved flags from other batches would otherwise pile up in this browser forever.
+function purgeOtherBatches() {
+    try {
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+            const key = localStorage.key(i);
+            if (/^(review_ratings_|submitted_)/.test(key) && !key.endsWith('_' + batchKey)) {
+                localStorage.removeItem(key);
+            }
+        }
+    } catch {}
 }
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
     populateExemplarCategories();
-    init(localStorage.getItem('submitted_' + todayKey) === 'true');
+    init();
 });
 
 function populateExemplarCategories() {
@@ -402,12 +467,19 @@ function populateExemplarCategories() {
         .join('');
 }
 
-async function init(alreadySubmitted) {
-    ratings = loadRatings();
+async function init() {
     try {
         const res = await fetch(FEED_URL + '?v=' + Date.now());
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const feed = await res.json();
+        batchKey = feed._batch || todayKey;
+        purgeOtherBatches();
+        ratings = loadRatings();
+        const alreadySubmitted = isSaved();
+        if (feed._sorted_by === 'likely') {
+            document.getElementById('sort-note').textContent =
+                'Sorted likeliest-keeper first, from your past ratings.';
+        }
         if (feed._categories && Object.keys(feed._categories).length) {
             CATEGORIES = feed._categories;
             populateExemplarCategories();
@@ -421,6 +493,7 @@ async function init(alreadySubmitted) {
         // Feeds written before per-rating reasons carried only the bad list.
         if (!REVIEW_STATS?.reasons && REVIEW_STATS?.bad_reasons?.length) REASONS.bad = REVIEW_STATS.bad_reasons;
         articles = (feed.items || []).filter(a => SHOW_BUCKETS.has(a._selection_bucket));
+        for (const art of articles) seedRating(art);
 
         hide('loading-msg');
         renderStats();
@@ -434,9 +507,6 @@ async function init(alreadySubmitted) {
             show('empty-msg');
             return;
         }
-
-        // Seed initial approved_days and migrate legacy better_theme
-        for (const art of articles) seedRating(art);
 
         renderGrid();
         updateProgress();
@@ -452,36 +522,32 @@ async function init(alreadySubmitted) {
         }
     } catch (e) {
         hide('loading-msg');
-        if (alreadySubmitted) { showDone(); return; }
         showError('Could not load review feed: ' + e.message);
     }
 }
 
-// Seed approved_days for a new article or migrate legacy better_theme format
 function seedRating(art) {
-    const url = art.url;
-    let r = ratings[url];
-    if (!r) {
-        ratings[url] = { rating: null, approved_days: getInitialDays(art), category: art._category || 'news', note: '' };
-        return;
+    const r = ratings[art.url] || {};
+    // Drafts written before the feed/podcast split carry `rating` alone, and unrated ones
+    // carry auto-seeded days that were never the reader's choice.
+    if (r.feed === undefined) {
+        r.feed = { good: 'yes', interesting: 'yes', bad: 'no', skip: 'skip' }[r.rating] || null;
+        if (!r.feed || r.feed === 'skip') r.approved_days = [];
+        delete r.rating;
     }
-    if (r.better_theme && !r.approved_days) {
-        ratings[url] = { ...r, approved_days: [r.better_theme] };
-    } else if (!r.approved_days) {
-        ratings[url] = { ...r, approved_days: getInitialDays(art) };
-    }
-    if (!ratings[url].category) {
-        ratings[url] = { ...ratings[url], category: art._category || 'news' };
-    }
+    r.approved_days = r.approved_days || [];
+    r.category = r.category || art._category || 'news';
+    r.note = r.note || '';
+    ratings[art.url] = r;
 }
 
-function getInitialDays(art) {
+// The pipeline's best-fit days, shown as dashed chips: the top SUGGEST_MAX_DAYS above the bar.
+function suggestedDays(art) {
     const scores = art._theme_scores || {};
-    const suggested = DAY_ORDER.filter(d => (scores[d] || 0) >= AUTO_SUGGEST_THRESHOLD);
-    if (suggested.length) return suggested;
-    // Fall back to the single highest-scoring day if any score > 0
-    const best = DAY_ORDER.slice().sort((a, b) => (scores[b] || 0) - (scores[a] || 0))[0];
-    return (scores[best] || 0) > 0 ? [best] : [];
+    return DAY_ORDER
+        .filter(d => (scores[d] || 0) >= AUTO_SUGGEST_THRESHOLD)
+        .sort((a, b) => scores[b] - scores[a])
+        .slice(0, SUGGEST_MAX_DAYS);
 }
 
 // ── Rendering ────────────────────────────────────────────────────────────────
@@ -510,7 +576,7 @@ function buildCardInner(idx) {
     const quality   = art._quality || 0;
     const relevance = art._relevance || 0;
     const local     = art._local_score || 0;
-    const ratingVal = r.rating || '';
+    const verdict   = verdictOf(r) || '';
 
     const pubDate = art.date_published
         ? new Date(art.date_published).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
@@ -522,31 +588,42 @@ function buildCardInner(idx) {
 
     const bucketLabel = BUCKET_LABEL[bucket] || bucket;
 
-    // Day chips
+    // Day chips: the podcast answer. The pipeline's best-fit days are dashed, never pre-selected.
     const approvedDays = r.approved_days || [];
+    const suggested    = suggestedDays(art);
     const chipsHtml = DAY_ORDER.map(day => {
         if (approvedDays.includes(day)) {
             return `<span class="day-chip chip-selected" title="${escAttr(DAY_LABELS[day] || '')}">
                 <span class="chip-top-row">
                     <span class="chip-day">${escHtml(DAY_SHORT[day])}</span>
-                    <button class="chip-x" onclick="handleDayClick(${idx},'${day}')" title="Remove">&times;</button>
+                    <button class="chip-x" onclick="toggleDay(${idx},'${day}')" title="Remove">&times;</button>
                 </span>
                 <span class="chip-theme">${escHtml(DAY_THEME[day])}</span>
             </span>`;
         }
-        return `<button class="day-chip chip-unselected" title="${escAttr(DAY_LABELS[day] || '')}" onclick="handleDayClick(${idx},'${day}')">
+        const hint = suggested.includes(day);
+        return `<button class="day-chip chip-unselected${hint ? ' chip-suggested' : ''}"
+            title="${escAttr((DAY_LABELS[day] || '') + (hint ? ' (suggested: best theme fit)' : ''))}"
+            onclick="toggleDay(${idx},'${day}')">
             <span class="chip-day">${escHtml(DAY_SHORT[day])}</span>
             <span class="chip-theme">${escHtml(DAY_THEME[day])}</span>
         </button>`;
     }).join('');
 
-    // Category chips (confirm or retag the article's overarching topic)
-    const categoryChipsHtml = Object.keys(CATEGORIES).map(slug => {
+    // Category belongs to the feed answer; collapsed to one chip, since ~1 card in 8 needs a retag.
+    const catMeta = CATEGORIES[category] || { name: category };
+    const catOpen = catOpenSet.has(idx);
+    const categoryChipsHtml = catOpen ? Object.keys(CATEGORIES).map(slug => {
         const meta = CATEGORIES[slug];
         const selected = slug === category;
         return `<button class="category-chip ${selected ? 'chip-selected' : 'chip-unselected'}"
             onclick="setCategory(${idx},'${slug}')">${escHtml(meta.emoji || '')} ${escHtml(meta.name || slug)}</button>`;
-    }).join('');
+    }).join('') : '';
+
+    const poolNote = art._in_podcast_pool === true  ? `<span class="pool-note in-pool">in the show's pool</span>`
+                   : art._in_podcast_pool === false ? `<span class="pool-note">not in the show's pool</span>` : '';
+    const summary  = verdictSummary(r);
+    const pending  = !verdict && approvedDays.length > 0;
 
     return `
         <div class="card-header">
@@ -565,32 +642,57 @@ function buildCardInner(idx) {
 
         ${descText ? `<div class="card-desc" id="desc-${idx}" style="display:${isExpanded ? 'block' : 'none'}">${escHtml(descText)}${descRaw.length > 500 ? '…' : ''}</div>` : ''}
 
-        <div class="card-categories">${categoryChipsHtml}</div>
-
-        <div class="card-days">${chipsHtml}</div>
-
-        <div class="card-rating-row">
-            <button class="btn-rate btn-good ${ratingVal === 'good' ? 'active' : ''}" onclick="rate(${idx},'good')">✓ Good</button>
-            <button class="btn-rate btn-interesting ${ratingVal === 'interesting' ? 'active' : ''}" onclick="rate(${idx},'interesting')">★ Interesting</button>
-            <button class="btn-rate btn-bad ${ratingVal === 'bad' ? 'active' : ''}" onclick="rate(${idx},'bad')">✗ Bad</button>
-            <button class="btn-rate btn-skip ${ratingVal === 'skip' ? 'active' : ''}" onclick="rate(${idx},'skip')">→ Skip</button>
+        <div class="verdict-block verdict-feed">
+            <div class="verdict-head">
+                <span class="verdict-label">📰 Your feed</span>
+                <button class="cat-toggle" onclick="toggleCategories(${idx})" title="Change the feed category">${escHtml(catMeta.emoji || '')} ${escHtml(catMeta.name || category)} ${catOpen ? '▴' : '✎'}</button>
+            </div>
+            ${catOpen ? `<div class="card-categories">${categoryChipsHtml}</div>` : ''}
+            <div class="card-rating-row">
+                <button class="btn-rate btn-yes ${r.feed === 'yes' ? 'active' : ''}" onclick="setFeed(${idx},'yes')">👍 Want it</button>
+                <button class="btn-rate btn-no ${r.feed === 'no' ? 'active' : ''}" onclick="setFeed(${idx},'no')">👎 Not for me</button>
+            </div>
         </div>
 
-        ${REASONS[ratingVal] ? `<div class="card-reasons">${REASONS[ratingVal].map((reason, i) =>
-            `<button class="reason-chip reason-${ratingVal} ${noteReasons(r.note).has(reason.toLowerCase()) ? 'chip-selected' : ''}"
+        <div class="verdict-block verdict-podcast">
+            <div class="verdict-head">
+                <span class="verdict-label">🎙️ Podcast days <span class="verdict-hint">(none = not for the show)</span></span>
+                ${poolNote}
+            </div>
+            <div class="card-days">${chipsHtml}</div>
+        </div>
+
+        <div class="card-footer">
+            <span class="verdict-summary${pending ? ' pending' : ''}">${escHtml(summary)}</span>
+            <button class="btn-rate btn-skip ${r.feed === 'skip' ? 'active' : ''}" onclick="setFeed(${idx},'skip')" title="No opinion on either">→ Skip</button>
+        </div>
+
+        ${REASONS[verdict] ? `<div class="card-reasons">${REASONS[verdict].map((reason, i) =>
+            `<button class="reason-chip reason-${verdict} ${noteReasons(r.note).has(reason.toLowerCase()) ? 'chip-selected' : ''}"
                 onclick="toggleReason(${idx},${i})">${escHtml(reason)}</button>`).join('')}</div>` : ''}
 
-        ${ratingVal ? `<div class="card-note">
+        ${verdict ? `<div class="card-note">
             <textarea placeholder="Optional note…" maxlength="200"
                 oninput="saveNote(${idx}, this.value)">${escHtml(r.note || '')}</textarea>
         </div>` : ''}
     `;
 }
 
+function verdictSummary(r) {
+    const days = (r.approved_days || []).map(d => DAY_SHORT[d]).join(', ');
+    switch (verdictOf(r)) {
+        case 'good':         return `📰 Your feed · 🎙️ ${days}`;
+        case 'interesting':  return '📰 Your feed · not for the show';
+        case 'podcast_only': return `🎙️ ${days} only · not your feed`;
+        case 'bad':          return 'Neither your feed nor the show';
+        case 'skip':         return 'Skipped';
+    }
+    return days ? '📰 Your feed too? Pick 👍 or 👎 to finish' : '';
+}
+
 function applyCardBorder(card, idx) {
-    const art = articles[idx];
-    const r   = ratings[art.url] || {};
-    card.className = 'article-card' + (r.rating ? ' rating-' + r.rating : '');
+    const v = verdictOf(ratings[articles[idx].url]);
+    card.className = 'article-card' + (v ? ' rating-' + v : '');
 }
 
 function refreshCard(idx) {
@@ -607,61 +709,61 @@ function toggleDesc(idx) {
     refreshCard(idx);
 }
 
-function rate(idx, ratingValue) {
-    const art = articles[idx];
-    const r   = ratings[art.url] || {};
-    const updated = { ...r, rating: ratingValue };
-    // Drop the previous rating's tapped reasons: a "Local angle" left on a bad rating would
-    // read as a reject rule to standing_preferences.py. Typed text stays.
-    if (r.rating && r.rating !== ratingValue && REASONS[r.rating]) {
-        const stale = new Set(REASONS[r.rating].map(x => x.toLowerCase()));
-        updated.note = noteParts(r.note).filter(p => !stale.has(p.toLowerCase())).join('; ');
+function updateRating(idx, patch) {
+    const art    = articles[idx];
+    const before = ratings[art.url] || {};
+    const after  = { ...before, ...patch };
+    const was = verdictOf(before), now = verdictOf(after);
+    // Tapped reasons never cross the 'bad' line. Notes on 'bad' become reject rules
+    // (standing_preferences.py), so "Local civic" must not ride onto one when the last
+    // podcast day is removed, and "Sports" must not ride onto a keeper. Typed text stays.
+    if (was !== now && (was === 'bad' || now === 'bad')) {
+        const keep  = new Set((REASONS[now] || []).map(x => x.toLowerCase()));
+        const sets  = now === 'bad' ? ['good', 'interesting', 'podcast_only'] : ['bad'];
+        const stale = new Set(sets.flatMap(s => REASONS[s] || []).map(x => x.toLowerCase())
+                                  .filter(x => !keep.has(x)));
+        after.note = noteParts(before.note).filter(p => !stale.has(p.toLowerCase())).join('; ');
     }
-
-    if (ratingValue === 'good') {
-        if (!updated.approved_days || updated.approved_days.length === 0) {
-            updated.approved_days = getInitialDays(art);
-        }
-    } else {
-        // interesting, bad, skip all clear day assignments
-        updated.approved_days = [];
-    }
-
-    ratings[art.url] = updated;
+    ratings[art.url] = after;
     saveRatings();
     refreshCard(idx);
     updateProgress();
 }
 
-function handleDayClick(idx, day) {
-    const art  = articles[idx];
-    const r    = ratings[art.url] || {};
-    const days = [...(r.approved_days || [])];
-    const pos  = days.indexOf(day);
+// Tapping the active answer again clears it.
+function setFeed(idx, value) {
+    const r = ratings[articles[idx].url] || {};
+    if (value === 'skip') updateRating(idx, { feed: r.feed === 'skip' ? null : 'skip', approved_days: [] });
+    else updateRating(idx, { feed: r.feed === value ? null : value });
+}
 
-    if (pos >= 0) days.splice(pos, 1);
-    else days.push(day);
+// A day never implies the feed answer: the two are independent.
+function toggleDay(idx, day) {
+    const r    = ratings[articles[idx].url] || {};
+    const days = r.approved_days || [];
+    updateRating(idx, {
+        approved_days: days.includes(day) ? days.filter(d => d !== day) : [...days, day],
+        ...(r.feed === 'skip' ? { feed: null } : {}),   // a day is an opinion, so it un-skips
+    });
+}
 
-    // Day assignment always implies "good"
-    ratings[art.url] = { ...r, rating: 'good', approved_days: days };
-    saveRatings();
+function toggleCategories(idx) {
+    if (catOpenSet.has(idx)) catOpenSet.delete(idx);
+    else catOpenSet.add(idx);
     refreshCard(idx);
-    updateProgress();
 }
 
 function setCategory(idx, slug) {
     const art = articles[idx];
-    const r   = ratings[art.url] || {};
-    if (r.category === slug) return;
-
-    ratings[art.url] = { ...r, category: slug };
+    catOpenSet.delete(idx);
+    ratings[art.url] = { ...(ratings[art.url] || {}), category: slug };
     saveRatings();
     refreshCard(idx);
 }
 
 function saveNote(idx, value) {
     const art = articles[idx];
-    if (!ratings[art.url]) ratings[art.url] = { rating: null, approved_days: [], note: '' };
+    if (!ratings[art.url]) ratings[art.url] = { feed: null, approved_days: [], note: '' };
     ratings[art.url].note = value;
     saveRatings();
     // No refreshCard — don't disturb textarea focus
@@ -678,7 +780,7 @@ function noteReasons(note) {
 function toggleReason(idx, reasonIdx) {
     const art    = articles[idx];
     const r      = ratings[art.url] || {};
-    const reason = REASONS[r.rating]?.[reasonIdx];
+    const reason = REASONS[verdictOf(r)]?.[reasonIdx];
     if (!reason) return;
     const parts  = noteParts(r.note);
     const pos    = parts.findIndex(p => p.toLowerCase() === reason.toLowerCase());
@@ -690,17 +792,18 @@ function toggleReason(idx, reasonIdx) {
 }
 
 // ── Stats ────────────────────────────────────────────────────────────────────
+// The two answers, counted separately: feed = good + interesting, show = good + podcast_only.
 function tally(counts) {
     const c = counts || {};
-    return { good: c.good || 0, interesting: c.interesting || 0, bad: c.bad || 0,
-             total: Object.values(c).reduce((a, b) => a + b, 0) };
+    return { feed: (c.good || 0) + (c.interesting || 0), show: (c.good || 0) + (c.podcast_only || 0),
+             bad: c.bad || 0, total: Object.values(c).reduce((a, b) => a + b, 0) };
 }
 function pct(part, whole) { return whole ? Math.round(100 * part / whole) : 0; }
 
 function renderStats() {
     const panel = document.getElementById('stats-panel');
     const today = tally(articles.reduce((acc, a) => {
-        const v = ratings[a.url]?.rating;
+        const v = verdictOf(ratings[a.url]);
         if (v) acc[v] = (acc[v] || 0) + 1;
         return acc;
     }, {}));
@@ -709,14 +812,14 @@ function renderStats() {
     const allTime = tally(s?.all_time);
     const tiles = [
         { label: 'Today', value: `${today.total}/${articles.length}`,
-          sub: `${today.good} good · ${today.interesting} int · ${today.bad} bad` },
+          sub: `${today.feed} feed · ${today.show} show · ${today.bad} neither` },
     ];
     if (s) tiles.push(
         { label: `Last ${s.window_days} days`, value: recent.total,
-          sub: `${pct(recent.good + recent.interesting, recent.total)}% positive · ${s.days_reviewed} days` },
+          sub: `${pct(recent.feed, recent.total)}% feed · ${pct(recent.show, recent.total)}% show · ${s.days_reviewed} days` },
         { label: 'Streak', value: `${s.streak} day${s.streak === 1 ? '' : 's'}`, sub: 'consecutive review days' },
         { label: 'All time', value: allTime.total.toLocaleString(),
-          sub: `${allTime.good} good · ${allTime.interesting} int` },
+          sub: `${allTime.feed} feed · ${allTime.show} show` },
     );
 
     // Per-stratum rates are unbiased; a corpus-wide rate across strata is not (quota sample).
@@ -746,10 +849,10 @@ function renderStats() {
         ${rows ? `<button class="stats-toggle" onclick="toggleStats()">${open ? '▾' : '▸'} By sample stratum</button>
         <div id="strata-detail" style="display:${open ? 'block' : 'none'}">
             <table class="strata-table">
-                <thead><tr><th>Stratum</th><th>Today</th><th>Positive</th><th></th><th>Rated</th></tr></thead>
+                <thead><tr><th>Stratum</th><th>Today</th><th>Feed 👍</th><th></th><th>Rated</th></tr></thead>
                 <tbody>${rows}</tbody>
             </table>
-            <div class="stats-note">Positive = good or interesting, last ${s?.window_days ?? 30} days, within each stratum.
+            <div class="stats-note">Feed 👍 = wanted in your feed (with or without a podcast day), last ${s?.window_days ?? 30} days, within each stratum.
             Strata are sampled at fixed quotas, so don't average across them.</div>
         </div>` : ''}`;
     show('stats-panel');
@@ -761,10 +864,12 @@ function toggleStats() {
 
 // ── Progress & submit visibility ─────────────────────────────────────────────
 function updateProgress() {
-    const ratedCount = articles.filter(a => ratings[a.url]?.rating).length;
+    const ratedCount = articles.filter(a => verdictOf(ratings[a.url])).length;
+    const pending    = articles.filter(a => !verdictOf(ratings[a.url]) && ratings[a.url]?.approved_days?.length).length;
     const total = articles.length;
     document.getElementById('progress-counter').textContent =
-        `${ratedCount} of ${total} articles reviewed`;
+        `${ratedCount} of ${total} articles reviewed` +
+        (pending ? ` · ${pending} still need a feed answer` : '');
     renderStats();
 
     if (ratedCount >= Math.min(SUBMIT_THRESHOLD, total)) {
@@ -860,7 +965,7 @@ async function submitFeedback() {
     statusEl.textContent = 'Saving to GitHub…';
 
     const ratingsList = articles
-        .filter(a => ratings[a.url]?.rating)
+        .filter(a => verdictOf(ratings[a.url]))
         .map(a => ({
             url:              a.url,
             title:            a.title,
@@ -875,13 +980,15 @@ async function submitFeedback() {
             selection_bucket: a._selection_bucket || null,
             stratum_weight:   a._stratum_weight ?? null,
             shipped:          a._shipped ?? null,
+            in_podcast_pool:  a._in_podcast_pool ?? null,
+            likely:           a._likely ?? null,
             theme_scores:     a._theme_scores || {},
             today:            a._today || '',
             today_label:      a._today_label || '',
             description:      (a.content_html || '').replace(/<[^>]+>/g, '').trim().slice(0, 300),
-            rating:           ratings[a.url].rating,
+            rating:           verdictOf(ratings[a.url]),
             approved_days:    ratings[a.url].approved_days || [],
-            better_theme:     (ratings[a.url].approved_days || [])[0] || ratings[a.url].better_theme || null,
+            better_theme:     (ratings[a.url].approved_days || [])[0] || null,
             note:             ratings[a.url].note || null,
             rated_at:         new Date().toISOString(),
         }));
@@ -896,8 +1003,10 @@ async function submitFeedback() {
         await saveFeedbackEntries(ratingsList);
         statusEl.className = 'status-msg success';
         statusEl.textContent = `✅ Saved ${ratingsList.length} ratings to GitHub!`;
-        localStorage.setItem('submitted_' + todayKey, 'true');
-        localStorage.removeItem('review_ratings_' + todayKey);
+        try {
+            localStorage.setItem('submitted_' + batchKey, 'true');
+            localStorage.removeItem('review_ratings_' + batchKey);
+        } catch {}
         setTimeout(() => showDone(), 1500);
     } catch (e) {
         statusEl.className = 'status-msg error';
