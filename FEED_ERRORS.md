@@ -3,6 +3,28 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-09-28 (Monday)
+
+#### 🔧 Manual Run (9:10 PM Pacific)
+- ⚠️ **GN Gizmodo** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:gizmodo.com&hl=en&gl=CA&ceid=CA`
+- ⚠️ **GN BC Gov News** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:news.gov.bc.ca&hl=en&gl=CA&ceid`
+- ⚠️ **GN Western Producer** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:producer.com&hl=en&gl=CA&ceid=C`
+- ⚠️ **GN AgWeb** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:e`
+- ⚠️ **GN Mother Earth News** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:motherearthnews.com&hl=en&gl=CA`
+- ⚠️ **GN Maclean's** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:macleans.ca&hl=en&gl=CA&ceid=CA`
+- ⚠️ **GN The Walrus** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=C`
+- ⚠️ **GN Consumer Reports** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA`
+- ⚠️ **GN farmonaut.com** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:farmonaut.com&hl=en&gl=CA&ceid=`
+- ⚠️ **GN Grainews** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:grainews.ca&hl=en&gl=CA&ceid=CA`
+- ⚠️ **GN Country Guide** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:country-guide.ca&hl=en&gl=CA&ce`
+- ⚠️ **GN EEVblog** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:eevblog.com&hl=en&gl=CA&ceid=CA`
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1508 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-27 (Sunday)
 
 #### 🔧 Manual Run (9:07 PM Pacific)
@@ -80,17 +102,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:09 PM Pacific)
 - ⚠️ **NRDC** failed — `520 Server Error: <none> for url: https://www.nrdc.org/rss.xml`
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1635 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-20 (Sunday)
-
-#### 🔧 Manual Run (9:06 PM Pacific)
-- ⚠️ **Canadian Forest Industries** failed — `Exceeded 30 redirects.`
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1635 articles — check charter adherence, not supply
 
 
@@ -1246,6 +1257,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Trip Reports failed — HTTPSConnectionPool(host='backcountrypost.com', port=443): Read timed out. (read timeout=10)
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 1600 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-20–2026-09-20
+- 2 issues recorded
+- ⚠️ Canadian Forest Industries failed — Exceeded 30 redirects.
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1635 articles — check charter adherence, not supply
 
 
 ---
