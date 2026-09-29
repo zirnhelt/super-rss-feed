@@ -189,3 +189,27 @@ def test_a_verdict_from_another_rubric_is_asked_again(monkeypatch, tmp_path):
 def test_canadian_politics_is_kept_by_the_rubric():
     assert 'KEEP Canadian politics at every level' in m.GATE_REJECT_RUBRIC
     assert '(the United States only, never Canada)' in m.GATE_REJECT_RUBRIC
+
+
+def test_gate_returns_the_world_flag_in_the_same_call(monkeypatch, tmp_path):
+    arts = [_article('Ceasefire takes hold as Russia and Ukraine sign truce'),
+            _article('A real story about forestry policy')]
+    client = _install(monkeypatch, tmp_path,
+                      ['[{"a":1,"q":64,"x":0,"w":1},{"a":2,"q":62,"x":0,"w":0}]'])
+
+    m.score_quality_gate(arts, 'test-key')
+
+    assert len(client.calls) == 1, 'the world flag rides on the existing gate call'
+    assert arts[0].gate_world is True and arts[1].gate_world is False
+
+    again = _article('Ceasefire takes hold as Russia and Ukraine sign truce')
+    again.url_hash = arts[0].url_hash
+    m.score_quality_gate([again], 'test-key')
+    assert len(client.calls) == 1 and again.gate_world is True, 'cached with the verdict'
+
+
+def test_world_rubric_is_in_the_gate_prompt_and_its_id():
+    assert '--- WORLD EVENTS ---' in m.GATE_WORLD_RUBRIC
+    assert m.GATE_RUBRIC_ID != m.hashlib.sha256(
+        m.GATE_REJECT_RUBRIC.encode('utf-8')).hexdigest()[:12], \
+        'a world-rubric edit must re-ask cached verdicts too'

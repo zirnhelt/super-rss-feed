@@ -835,6 +835,10 @@ class Article:
         # PRIMARY subject is unwanted (sports, celebrity, deals, advice, AI hype).
         # None means never judged — treated as "keep" downstream (fail-open).
         self.gate_reject: Optional[bool] = None
+        # Same call again: True when the article reports a major event outside
+        # Canada (GATE_WORLD_RUBRIC). Feeds the news world lane; None = unjudged.
+        self.gate_world: Optional[bool] = None
+        self.world_lane = False  # True when selected by the world lane, not by score
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -2819,10 +2823,29 @@ def build_gate_reject_rubric(standing: Optional[List[str]] = None) -> str:
 
 
 GATE_REJECT_RUBRIC = build_gate_reject_rubric()
+
+# The world-event flag the gate returns as "w", read only by the news world lane
+# (apply_feed_slot_allocation). It is a separate question from the score: the
+# biggest international stories are often thin breaking reports, and the news
+# composite ranks them on a personal interest profile that has no line for them.
+GATE_WORLD_RUBRIC = """
+
+--- WORLD EVENTS ---
+Separately, mark "w" 1 when the article reports a major event outside Canada that a
+well-informed Canadian would expect to know about today: a war's major turn
+(offensive, ceasefire, mass-casualty strike, peace deal), a summit, treaty, sanctions
+or trade move between governments, an election, coup or change of government, a UN
+or other international-body decision, or a disaster or crisis of national scale.
+Reported explainers of such an event count. Mark "w" 0 for incremental battle logs,
+weapons and military-tech features, opinion columns, human-interest side stories,
+routine domestic politics, and anything set in Canada.
+"""
+
 # Stamped on every cached verdict. A verdict made under a different rubric is
 # asked again, so a rubric fix reaches articles already in the cache instead of
 # waiting out the 48 h TTL (a wrongly rejected story would otherwise stay rejected).
-GATE_RUBRIC_ID = hashlib.sha256(GATE_REJECT_RUBRIC.encode('utf-8')).hexdigest()[:12]
+GATE_RUBRIC_ID = hashlib.sha256(
+    (GATE_REJECT_RUBRIC + GATE_WORLD_RUBRIC).encode('utf-8')).hexdigest()[:12]
 
 
 def score_quality_gate(articles: List[Article], api_key: str) -> None:
@@ -2867,6 +2890,7 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
             if (entry.get('gate_reject') is not None
                     and entry.get('gate_rubric') == GATE_RUBRIC_ID):
                 article.gate_reject = bool(entry['gate_reject'])
+                article.gate_world = bool(entry.get('gate_world', False))
 
         title_l = article.title.lower()
         is_local = article.category == 'local' or any(s in title_l for s in local_signals)
@@ -2890,13 +2914,14 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
     client = anthropic.Anthropic(api_key=api_key)
     system_blocks = [{
         "type": "text",
-        "text": charter + GATE_REJECT_RUBRIC,
+        "text": charter + GATE_REJECT_RUBRIC + GATE_WORLD_RUBRIC,
         "cache_control": {"type": "ephemeral", "ttl": "1h"}
     }]
 
     timestamp = datetime.now(timezone.utc).timestamp()
     scored = 0
     rejected = 0
+    world = 0
     for i in range(0, len(to_score), batch_size):
         batch = to_score[i:i + batch_size]
         lines = []
@@ -2913,10 +2938,11 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         articles_text = "\n\n".join(lines)
         prompt = (
             "For each article return its absolute newsworthiness/quality per the charter "
-            '(0-100) as "q", and "x": 1 if its primary subject is unwanted per the '
-            'UNWANTED SUBJECTS rubric, else 0. '
+            '(0-100) as "q", "x": 1 if its primary subject is unwanted per the '
+            'UNWANTED SUBJECTS rubric, else 0, and "w": 1 if it is a major world event '
+            'per WORLD EVENTS, else 0. '
             "Respond with ONLY a JSON array, no other text:\n"
-            '[{"a": 1, "q": 55, "x": 0}, {"a": 2, "q": 12, "x": 1}]\n\n'
+            '[{"a": 1, "q": 55, "x": 0, "w": 0}, {"a": 2, "q": 12, "x": 1, "w": 0}]\n\n'
             f"Articles:\n{articles_text}"
         )
         try:
@@ -2949,6 +2975,9 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
                     entry['gate_reject'] = article.gate_reject
                     entry['gate_rubric'] = GATE_RUBRIC_ID
                     rejected += int(article.gate_reject)
+                    article.gate_world = bool(int(item.get('w', 0)))
+                    entry['gate_world'] = article.gate_world
+                    world += int(article.gate_world)
                 entry.setdefault('timestamp', timestamp)
         except Exception as e:
             print(f"  ⚠️ Quality gate batch failed (fail-open): {e}")
@@ -2959,7 +2988,8 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         _n = len(gated_scores)
         print(f"   Gate scored {scored} articles: "
               f"p25={gated_scores[_n // 4]} p50={gated_scores[_n // 2]} p75={gated_scores[3 * _n // 4]}")
-    print(f"   Gate flagged {rejected} article(s) as unwanted subjects")
+    print(f"   Gate flagged {rejected} article(s) as unwanted subjects, "
+          f"{world} as major world events")
 
 
 # Share of the news deep-scoring queue reserved for interest rank rather than
@@ -3577,18 +3607,39 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
       spend a category's capacity on articles nobody would want.
 
     The floor therefore still bounds *quality*; it no longer determines *volume*.
+
+    A category with `world_slots` first reserves that many places, on top of
+    `max_slots`, for articles the gate flagged as major world events (`gate_world`),
+    ranked by `q_gate`. The composite cannot pick these: its relevance dimension is
+    the personal interest profile, which scores a war's turning point 8-30.
     """
     if not FEED_SLOTS:
         return articles
 
     default_cfg = FEED_SLOTS.get('default', {'min_slots': 1, 'max_slots': 5})
+    gate_floor = LIMITS.get('quality_gate', {}).get('gate_floor', 25)
+
+    # Pass 0: the world lane, filled before the composite gets a say.
+    result: List[Article] = []
+    world_counts: Dict[str, int] = defaultdict(int)
+    for a in sorted(articles, key=lambda x: getattr(x, 'q_gate', None) or 0, reverse=True):
+        cat = a.category or 'news'
+        world_slots = FEED_SLOTS.get(cat, default_cfg).get('world_slots', 0)
+        if (not getattr(a, 'gate_world', None)
+                or (getattr(a, 'q_gate', None) or 0) < gate_floor
+                or world_counts[cat] >= world_slots):
+            continue
+        a.world_lane = True
+        result.append(a)
+        world_counts[cat] += 1
+    lane_ids = {id(a) for a in result}
 
     # Group by category, best composite score first within each group
     by_cat: Dict[str, List[Article]] = defaultdict(list)
     for a in sorted(articles, key=lambda x: x.score, reverse=True):
-        by_cat[a.category or 'news'].append(a)
+        if id(a) not in lane_ids:
+            by_cat[a.category or 'news'].append(a)
 
-    result: List[Article] = []
     cat_counts: Dict[str, int] = defaultdict(int)
     below_floor_admitted = 0
 
@@ -3623,6 +3674,9 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
 
     slot_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(cat_counts.items()))
     print(f"📊 Feed slot allocation: {len(articles)} → {len(result)} articles [{slot_summary}]")
+    if world_counts:
+        world_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(world_counts.items()))
+        print(f"   🌍 World lane: {world_summary} on top of max_slots")
     if below_floor_admitted:
         print(f"   🌱 {below_floor_admitted} below-floor article(s) admitted to hold min_slots")
     return result
@@ -5842,6 +5896,8 @@ def main():
     run_stats['quality_gate'] = {
         'passed_count': len(quality_articles),
         'passed_by_category': dict(passed_by_cat),
+        # Included in passed_by_category, and on top of max_slots by design.
+        'world_lane_count': sum(1 for a in quality_articles if getattr(a, 'world_lane', False)),
         'dropped_below_floor_by_category': {
             cat: max(0, scrubbed_by_cat.get(cat, 0) - passed_by_cat.get(cat, 0))
             for cat in scrubbed_by_cat
