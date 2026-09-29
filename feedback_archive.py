@@ -63,7 +63,7 @@ DISTIL_MAX_TITLES = 600  # hard ceiling on batch size so one call can never blow
 # Mirrors article_review_audit.SCORE_BANDS so rolled-up histograms stay comparable
 # with the ones the audit computes from live files.
 SCORE_BANDS: List[Tuple[int, int]] = [(80, 100), (60, 79), (40, 59), (20, 39), (0, 19)]
-VERDICTS = ('exemplar', 'good', 'interesting', 'bad', 'skip')
+VERDICTS = ('exemplar', 'good', 'interesting', 'podcast_only', 'bad', 'skip')
 
 
 # ---------------------------------------------------------------------------
@@ -246,7 +246,8 @@ which their topical signal survives.
 EXISTING LESSONS (carry forward what still holds; revise what this batch contradicts):
 {prior}
 
-NEWLY ARCHIVED RATINGS (verdicts the user gave; 'bad' means they disliked it):
+NEWLY ARCHIVED RATINGS (verdicts the user gave; 'bad' means they disliked it; 'podcast_only'
+means wanted for their podcast but not their own reading, so it is not a dislike):
 {chr(10).join(lines)}
 
 Task: rewrite the lessons as a single consolidated list of 8-12 bullet points capturing

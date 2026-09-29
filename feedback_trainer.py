@@ -110,7 +110,10 @@ def aggregate_stats(ratings: list) -> dict:
     good        = [r for r in ratings if r.get('rating') == 'good']
     interesting = [r for r in ratings if r.get('rating') == 'interesting']
     bad         = [r for r in ratings if r.get('rating') == 'bad']
-    reassigned  = [r for r in good if r.get('approved_days') or r.get('better_theme')]
+    # Wanted for the podcast, not the reader's own feed: never a Good example for the
+    # relevance scorer, and never a dislike either.
+    show_only   = [r for r in ratings if r.get('rating') == 'podcast_only']
+    reassigned  = [r for r in good + show_only if r.get('approved_days') or r.get('better_theme')]
 
     recategorized = [
         r for r in ratings
@@ -144,6 +147,7 @@ def aggregate_stats(ratings: list) -> dict:
         'good': good,
         'interesting': interesting,
         'bad': bad,
+        'show_only': show_only,
         'reassigned': reassigned,
         'recategorized': recategorized,
         'source_good': dict(source_good),
@@ -188,6 +192,12 @@ def build_claude_prompt(stats: dict, archived_summary: str = '') -> str:
     good_lines         = '\n'.join(fmt(r) for r in good[:40])
     interesting_lines  = '\n'.join(fmt(r) for r in interesting[:30])
     bad_lines          = '\n'.join(fmt(r) for r in bad[:40])
+    show_only_lines    = '\n'.join(fmt(r) for r in stats.get('show_only', [])[:15])
+    show_only_block = (
+        "\nPODCAST-ONLY articles (wanted for the user's podcast, NOT for their own feed — do not "
+        "raise relevance for these topics, and do not treat them as dislikes):\n"
+        + show_only_lines + '\n'
+    ) if show_only_lines else ''
 
     reassign_lines = ''
     if stats['reassigned']:
@@ -217,7 +227,7 @@ USER-CURATED EXEMPLARS (manually flagged by the user, from anywhere on the web, 
 their interests — this is the strongest signal available, stronger than the passive ratings below):
 {exemplar_lines or '(none yet)'}
 
-GOOD FIT articles (user liked these and tagged them to podcast days):
+GOOD FIT articles (user wants these in their feed and tagged them to podcast days):
 {good_lines or '(none yet)'}
 
 INTERESTING articles (user wants these as much as Good ones, but they fit no specific podcast day — boost these topics in relevance scoring; do not treat them as weaker than Good):
@@ -225,7 +235,7 @@ INTERESTING articles (user wants these as much as Good ones, but they fit no spe
 
 BAD FIT articles (user explicitly disliked these):
 {bad_lines or '(none yet)'}
-{reassign_lines}{recat_lines}
+{show_only_block}{reassign_lines}{recat_lines}
 Task: Write 6-12 bullet points that a news-scoring AI should use to calibrate RELEVANCE scores.
 Focus on:
 (a) Topic and framing signals from the exemplars first, then Good/Interesting vs Bad articles
@@ -254,6 +264,7 @@ def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> 
     good_count        = len(stats['good'])
     interesting_count = len(stats.get('interesting', []))
     bad_count         = len(stats['bad'])
+    show_only_count   = len(stats.get('show_only', []))
     reassign_count    = len(stats['reassigned'])
     recat_count       = len(stats.get('recategorized', []))
 
@@ -281,7 +292,7 @@ def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> 
     return f"""## Feedback Training Run — {now}
 
 **Files processed:** {', '.join(files) if files else 'none'}
-**Ratings:** {exemplar_count} Exemplars, {good_count} Good, {interesting_count} Interesting, {bad_count} Bad, {reassign_count} reassigned to day(s), {recat_count} recategorized
+**Ratings:** {exemplar_count} Exemplars, {good_count} Good, {interesting_count} Interesting, {show_only_count} Podcast-only, {bad_count} Bad, {reassign_count} reassigned to day(s), {recat_count} recategorized
 **Status:** {status}
 
 **Top liked sources:** {', '.join(f'{s} ({n})' for s, n in top_good_sources) or 'n/a'}

@@ -691,7 +691,7 @@ def build_quality_review_html(quality_review: dict) -> str:
             f"<p>{feedback_audit.get('total_rated', 0)} articles rated "
             f"({_esc(window.get('first', '?'))} → {_esc(window.get('last', '?'))}): "
             f"{counts.get('good', 0)} good, {counts.get('interesting', 0)} interesting, "
-            f"{counts.get('bad', 0)} bad. "
+            f"{counts.get('podcast_only', 0)} podcast only, {counts.get('bad', 0)} bad. "
         )
         # The raw rates describe the review quota, not the feed; only the
         # reweighted shipped-feed rate is a quality figure.

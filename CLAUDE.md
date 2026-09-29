@@ -80,7 +80,7 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 | `feed_discovery.py` | Weekly feed discovery — searches Brave/Kagi, scores candidates, writes `feed_discovery_report.json`. |
 | `integrate_discoveries.py` | Reconciles `feeds.opml` with reality: `--auto-add-threshold` adds discovery candidates; `--heal` is the feed health agent. Writes `FEED_HEALTH_LOG.md`. |
 | `corpus_alignment_report.py` | Weekly audit of upstream interest scores against per-theme fit. Writes `reports/CORPUS_ALIGNMENT_REPORT_<date>.md`. |
-| `article_review_audit.py` | Weekly, stdlib-only. Joins ratings against pipeline scores. Writes `reports/ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (read by calibration and the weekly report). |
+| `article_review_audit.py` | Weekly, stdlib-only. Joins ratings against pipeline scores. Writes `reports/ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (read by calibration and the weekly report). Also holds `fit_reader_model()`, which the curator uses nightly to order the review batch. |
 | `score_scrub_report.py` | Spot-checks live feeds. Writes `reports/FEED_REVIEW_<date>.md`. |
 | `generate_weekly_report.py` | Produces `reports/weekly-report-YYYY-WNN.html` (deployed to gh-pages at the root). |
 | `log_feed_results.py` | Parses curator stdout into `FEED_LOG.md` (newest first; older days compressed to weekly summaries). |
@@ -124,6 +124,8 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 | Cold | `feedback/archive/YYYY-MM.jsonl.gz` | permanent, lossless |
 
 `feedback/reviewed_urls.json` answers "already reviewed?" for the curator; `load_reviewed_urls()` unions it with live files. `article_review_audit.py` reads live and archived shards; `feedback_trainer.py` reads 30 days raw plus the rollup.
+
+**A review batch is offered once.** `review_offered_ledger()` keeps an earlier batch's articles out of the next (the ledger rides in `feed-review.json` as `_offered`), so a missed day is dropped, not queued; `review.html` keys drafts and its saved flag on `_batch`, never the calendar date. The batch is sorted by `fit_reader_model()`; that changes the order only, never the stratified sample.
 
 **`review.html` never holds a credential.** It asks for a fine-grained token (super-rss-feed only, Contents read/write) in a password field when saving, filled from a password manager, and keeps it only while open — never in browser storage. A token was baked into this public page from 2026-06-17 until it was revoked on 2026-09-23.
 
@@ -225,7 +227,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
 - **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
 - **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`.
-- **`interesting` is positive everywhere except day fit.** It means "wanted, no specific podcast day". Feed, band, sweep and source metrics count good+interesting; only `theme_routing.per_day.good_pct` is good-only. Block a source only at n ≥ 8 with zero positives of any kind.
+- **A verdict is feed × podcast:** `good` (both), `interesting` (feed only), `podcast_only` (show only), `bad` (neither). Feed, band, sweep and source metrics count good+interesting; day fit (`theme_routing.per_day.good_pct`) counts good+podcast_only. Block a source only at n ≥ 8 with zero positives of any kind, `podcast_only` included.
 
 ## The podcast pool — see [docs/decisions/podcast-pool.md](docs/decisions/podcast-pool.md)
 

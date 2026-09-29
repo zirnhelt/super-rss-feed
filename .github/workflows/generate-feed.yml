@@ -187,6 +187,9 @@ jobs:
           for day in monday tuesday wednesday thursday friday saturday sunday; do
             download_json "${BASE}/feed-podcast-${day}.json" "feed-podcast-${day}.json"
           done
+          # The last review batch: its articles are never offered again, so a missed
+          # day is dropped rather than carried into the next one (review_offered_ledger).
+          download_json "${BASE}/feed-review.json" "feed-review.json"
           # Download caches (non-critical — failures are fine)
           download_json "${BASE}/podcast_articles_cache.json"  "podcast_articles_cache.json"
           download_json "${BASE}/theme_scores_cache.json"      "theme_scores_cache.json"

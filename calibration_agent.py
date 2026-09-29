@@ -401,9 +401,9 @@ Guidelines:
   good/interesting/bad ratings and theme-day corrections in the review UI. That section is ground
   truth: when it conflicts with pipeline-side histograms, the user's verdicts win. 'good' and
   'interesting' are both wanted articles: 'good' fits a specific podcast day, 'interesting' is a
-  candidate for any day with no specific fit. Judge feed quality on positives (good+interesting,
-  the *_positive_pct / positive_lost_pct fields); judge day fit on good alone
-  (theme_routing.per_day good_pct). Quote stratified.weighted_positive_pct as feed quality, never
+  candidate for any day with no specific fit. 'podcast_only' is wanted on a podcast day but not
+  in the feed. Judge feed quality on positives (good+interesting, the *_positive_pct /
+  positive_lost_pct fields); judge day fit on theme_routing.per_day good_pct (good+podcast_only). Quote stratified.weighted_positive_pct as feed quality, never
   the raw positive_pct (the corpus is a quota sample). Use it to justify changes — e.g. the
   threshold_sweep table shows how many user-rated bad articles each candidate min_score floor would
   cut vs. positives lost (interesting articles score low on relevance and are lost first),

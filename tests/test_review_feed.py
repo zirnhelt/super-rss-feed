@@ -1,4 +1,5 @@
-"""The review feed's strata partition the pool, and its stats read the ledger locally."""
+"""The review feed's strata partition the pool, its stats read the ledger locally, and
+a batch is offered once."""
 import json
 import sys
 import types
@@ -48,7 +49,7 @@ def test_stats_merge_frequent_notes_with_defaults(tmp_path, monkeypatch):
     assert 'One-off' not in bad
     assert sum(r.lower() == 'us politics' for r in bad) == 1
     assert stats['reasons']['good'] == m.REVIEW_REASON_DEFAULTS['good']
-    assert set(stats['reasons']) == {'good', 'interesting', 'bad'}
+    assert set(stats['reasons']) == {'good', 'interesting', 'bad', 'podcast_only'}
     assert stats['streak'] == 2
     assert stats['all_time']['good'] == 12
     assert stats['by_bucket']['mid'] == {'n': 4, 'positive_pct': 50}
@@ -69,3 +70,60 @@ def test_tapped_reasons_count_separately(tmp_path, monkeypatch):
 
     assert reasons['interesting'][0] == 'Beaver dams'
     assert 'Beaver dams' not in reasons['bad']  # counted per rating, n=1 there
+
+
+def test_podcast_only_counts_in_a_bucket_but_not_as_feed_positive(tmp_path, monkeypatch):
+    fb = tmp_path / 'feedback'
+    fb.mkdir()
+    rows = [{'url': 'u1', 'rating': 'podcast_only', 'selection_bucket': 'mid'},
+            {'url': 'u2', 'rating': 'good', 'selection_bucket': 'mid'}]
+    (fb / '2026-09-30.json').write_text(json.dumps({'ratings': rows}))
+    monkeypatch.chdir(tmp_path)
+
+    stats = m.review_history_stats('2026-09-30')
+
+    assert stats['by_bucket']['mid'] == {'n': 2, 'positive_pct': 50}
+    assert stats['recent']['podcast_only'] == 1
+
+
+# ── A batch is offered once ────────────────────────────────────────────────────
+
+def _feed(batch, urls, offered=None, legacy=False):
+    feed = {'items': [{'url': u} for u in urls], '_offered': offered or {}}
+    if legacy:
+        feed['_generated_at'] = f'{batch}T04:10:41+00:00'
+    else:
+        feed['_batch'] = batch
+    return feed
+
+
+def test_yesterdays_batch_is_not_offered_again():
+    ledger = m.review_offered_ledger(_feed('2026-09-28', ['a', 'b']), '2026-09-29', 3)
+    assert ledger == {'a': '2026-09-28', 'b': '2026-09-28'}
+
+
+def test_a_missed_day_is_dropped_not_carried():
+    # Day 1 never opened; day 2 still excludes it, and day 3 excludes both.
+    day2 = m.review_offered_ledger(_feed('2026-09-27', ['missed']), '2026-09-28', 3)
+    day3 = m.review_offered_ledger(_feed('2026-09-28', ['seen'], offered=day2), '2026-09-29', 3)
+    assert day3 == {'missed': '2026-09-27', 'seen': '2026-09-28'}
+
+
+def test_a_same_day_rerun_keeps_its_own_batch_eligible():
+    previous = _feed('2026-09-29', ['mine'], offered={'older': '2026-09-28'})
+    assert m.review_offered_ledger(previous, '2026-09-29', 3) == {'older': '2026-09-28'}
+
+
+def test_the_ledger_only_spans_the_lookback():
+    previous = _feed('2026-09-28', ['recent'], offered={'stale': '2026-09-20'})
+    assert m.review_offered_ledger(previous, '2026-09-29', 3) == {'recent': '2026-09-28'}
+
+
+def test_a_feed_from_before_the_ledger_still_counts():
+    previous = _feed('2026-09-28', ['a'], legacy=True)
+    assert m.review_offered_ledger(previous, '2026-09-29', 3) == {'a': '2026-09-28'}
+
+
+def test_no_previous_feed_excludes_nothing():
+    assert m.review_offered_ledger(None, '2026-09-29', 3) == {}
+    assert m.review_offered_ledger({'items': 'garbage'}, '2026-09-29', 3) == {}
