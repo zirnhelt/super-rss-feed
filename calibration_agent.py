@@ -44,7 +44,10 @@ NOTES_FILE = MEMORY_DIR / 'notes.md'
 BENCHMARKS_FILE = MEMORY_DIR / 'benchmarks.json'
 FEEDBACK_AUDIT_FILE = BASE_DIR / 'article_review_audit_summary.json'
 
-MODEL = "claude-sonnet-4-5"
+# Sonnet 5 costs a third less than Sonnet 4.5 ($2/$10 vs $3/$15). It thinks when
+# `thinking` is omitted and thinking shares max_tokens, so the call disables it:
+# Sonnet 4.5 never thought here, and the answer is one JSON object.
+MODEL = "claude-sonnet-5"
 MAX_TOKENS = 8000
 FEEDBACK_AUDIT_MAX_AGE_DAYS = 14
 
@@ -520,6 +523,8 @@ def call_claude_with_memory(
             response = client.messages.create(
                 model=MODEL,
                 max_tokens=max_tokens,
+                # anthropic==0.40.0 predates the `thinking` kwarg; send it raw.
+                extra_body={"thinking": {"type": "disabled"}},
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}],
             )

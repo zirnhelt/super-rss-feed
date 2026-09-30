@@ -59,6 +59,18 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 - **Brave Search is shared with the podcast.** One Search key serves both repos, and its monthly cap is also the podcast's research budget. Read Brave's per-key usage export before trusting any estimate; `api_usage` prices Brave at $0.005 a call.
 - When in doubt, ask: "Can I do this with fewer tokens or a cheaper model?"
 
+**Anthropic prices** (USD per million tokens, first-party API, checked 2026-09-30; refresh from the pricing page before any cost decision):
+
+| Model | Input | Output | Cache read |
+|-------|-------|--------|------------|
+| Haiku 4.5 | $1 | $5 | $0.10 |
+| Sonnet 5 / 5.5 | $2 | $10 | $0.20 |
+| Sonnet 4.5 | $3 | $15 | $0.30 |
+| Opus 5.5 | $4 | $20 | $0.20 |
+| Opus 5 | $5 | $25 | $0.50 |
+
+Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API halves every line, cache included. A cancelled batch still bills the requests that finished before the cancel. Baseline for September 2026 was $31.21 billed (list price, no discounts) across both keys: `cariboosignals` $21.0 (Sonnet 5 script and polish about 3/4 of it), `superfeed` $10.2 (Haiku scoring $9.2).
+
 ---
 
 # Codebase Structure
@@ -73,7 +85,7 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 | `api_usage.py` | Thread-safe tracker for Claude token counts + Cohere/Brave/Kagi call counts + cost estimate. |
 | `cohere_integration.py` | Cohere Rerank + Embed. Auto-activates when `COHERE_API_KEY` is set; every public function is a no-op when disabled. |
 | `fetch_images.py` | Open Graph images (favicon fallback); also harvests `apple.news` IDs from the same page fetch. |
-| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses `claude-sonnet-4-5`. |
+| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses `claude-sonnet-5` with thinking disabled. |
 | `feedback_trainer.py` | Weekly. Reads `feedback/` ratings (30 days raw + the rollup) and updates `config/feedback_examples.txt`. |
 | `feedback_archive.py` | Weekly. Distils old ratings into `feedback/feedback_rollup.json`, compresses raw files to `feedback/archive/`, maintains `feedback/reviewed_urls.json`. Idempotent; `--dry-run`, `--no-distil`. |
 | `standing_preferences.py` | Weekly. Turns notes on "bad" ratings into proposed lines for `config/standing_preferences.txt` and opens a PR (one Haiku call, only when there are new notes). Merge adopts, close declines for good (`feedback/standing_proposals.json`). |
@@ -252,6 +264,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 4. **`shown_articles_cache` bloat** — cleanup runs in `load_shown_cache()` past ~300K.
 5. **`THEME_SCORE_CACHE_VERSION`** — bump it whenever the theme score formula changes.
 6. **Bootstrap** — `python super_rss_curator_json.py --bootstrap-feeds` refills thin feeds from the podcast cache; CI runs it when any feed has < 20 items.
+7. **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer request fields through `extra_body`, as `calibration_agent.py` does.
 
 ---
 

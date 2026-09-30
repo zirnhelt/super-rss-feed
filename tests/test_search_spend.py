@@ -36,3 +36,46 @@ def test_feed_log_says_disabled_rather_than_nothing():
 
 def test_brave_calls_are_priced():
     assert api_usage.FLAT_COST_PER_CALL['brave'] > 0
+
+
+def test_cache_writes_are_priced_at_the_one_hour_rate():
+    """Every cache_control in the curator sets ttl=1h, which bills 2x input."""
+    from types import SimpleNamespace
+    api_usage.reset()
+    api_usage.record_claude_usage(SimpleNamespace(
+        input_tokens=0, output_tokens=0,
+        cache_creation_input_tokens=1_000_000, cache_read_input_tokens=0))
+    assert abs(api_usage.estimate_cost() - 2.00) < 1e-9
+    api_usage.reset()
+
+
+def test_calibration_call_disables_thinking(monkeypatch):
+    """Sonnet 5 thinks when `thinking` is omitted, and the pinned SDK has no
+    `thinking` kwarg, so it must reach the wire through extra_body."""
+    import json
+
+    import anthropic
+    import httpx
+
+    import calibration_agent
+
+    sent = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        sent.update(json.loads(request.content))
+        return httpx.Response(200, json={
+            "id": "msg_1", "type": "message", "role": "assistant",
+            "model": sent["model"], "stop_reason": "end_turn", "stop_sequence": None,
+            "content": [{"type": "text", "text": '{"changes": []}'}],
+            "usage": {"input_tokens": 10, "output_tokens": 5},
+        })
+
+    real_client = anthropic.Anthropic
+    monkeypatch.setattr(calibration_agent.anthropic, "Anthropic", lambda api_key: real_client(
+        api_key=api_key, http_client=httpx.Client(transport=httpx.MockTransport(handler))))
+
+    result, error = calibration_agent.call_claude_with_memory("system", "user", "test-key")
+
+    assert error is None and result == {"changes": []}
+    assert sent["model"] == "claude-sonnet-5"
+    assert sent["thinking"] == {"type": "disabled"}
