@@ -85,7 +85,7 @@ Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API ha
 | `api_usage.py` | Thread-safe tracker for Claude token counts + Cohere/Brave/Kagi call counts + cost estimate. |
 | `cohere_integration.py` | Cohere Rerank + Embed. Auto-activates when `COHERE_API_KEY` is set; every public function is a no-op when disabled. |
 | `fetch_images.py` | Open Graph images (favicon fallback); also harvests `apple.news` IDs from the same page fetch. |
-| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses `claude-sonnet-4-5`. |
+| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses `claude-sonnet-5` with thinking disabled. |
 | `feedback_trainer.py` | Weekly. Reads `feedback/` ratings (30 days raw + the rollup) and updates `config/feedback_examples.txt`. |
 | `feedback_archive.py` | Weekly. Distils old ratings into `feedback/feedback_rollup.json`, compresses raw files to `feedback/archive/`, maintains `feedback/reviewed_urls.json`. Idempotent; `--dry-run`, `--no-distil`. |
 | `standing_preferences.py` | Weekly. Turns notes on "bad" ratings into proposed lines for `config/standing_preferences.txt` and opens a PR (one Haiku call, only when there are new notes). Merge adopts, close declines for good (`feedback/standing_proposals.json`). |
@@ -264,6 +264,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 4. **`shown_articles_cache` bloat** — cleanup runs in `load_shown_cache()` past ~300K.
 5. **`THEME_SCORE_CACHE_VERSION`** — bump it whenever the theme score formula changes.
 6. **Bootstrap** — `python super_rss_curator_json.py --bootstrap-feeds` refills thin feeds from the podcast cache; CI runs it when any feed has < 20 items.
+7. **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer request fields through `extra_body`, as `calibration_agent.py` does.
 
 ---
 

@@ -18,7 +18,9 @@ _calls = defaultdict(int)
 _claude_tokens = defaultdict(int)        # synchronous Messages API calls
 _claude_batch_tokens = defaultdict(int)  # Message Batches API calls (50% discount)
 
-HAIKU_PRICING = {'input': 1.00, 'output': 5.00, 'cache_write': 1.25, 'cache_read': 0.10}
+# cache_write is the 1-hour TTL rate (2x input): every cache_control in the
+# curator sets ttl=1h. The 5-minute rate (1.25x) undercounted it by ~40%.
+HAIKU_PRICING = {'input': 1.00, 'output': 5.00, 'cache_write': 2.00, 'cache_read': 0.10}
 BATCH_DISCOUNT = 0.5
 
 # Flat per-call estimates for vendors without token-based pricing tracked here.
