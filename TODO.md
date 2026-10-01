@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-09-30 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-09-29 | 🔧 Manual Run | ⚠️ **Canadian Forest Industries** failed | `429 Client Error: Too Many Requests for url: https://www.woodbusiness.ca/feed/` |
 | 2026-09-28 | 🔧 Manual Run | ⚠️ **GN Gizmodo** failed | `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:gizmodo.com&hl=en&gl=CA&ceid=CA` |
 | 2026-09-28 | 🔧 Manual Run | ⚠️ **GN BC Gov News** failed | `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:news.gov.bc.ca&hl=en&gl=CA&ceid` |
@@ -23,7 +24,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-09-28 | 🔧 Manual Run | ⚠️ **GN EEVblog** failed | `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:eevblog.com&hl=en&gl=CA&ceid=CA` |
 | 2026-09-26 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/` |
 | 2026-09-26 | 🔧 Manual Run | ⚠️ **alpennia.com** failed | `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/` |
-| 2026-09-23 | 🔧 Manual Run | ⚠️ **Adventure Journal** failed | `503 Server Error: Service Unavailable for url: https://www.adventure-journal.com/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -31,18 +31,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-09-30 | 🔧 manual | 89 | ai-tech:18(20%), news:14(16%), climate:11(12%) |
 | 2026-09-29 | 🔧 manual | 84 | ai-tech:18(21%), news:14(17%), climate:11(13%) |
 | 2026-09-28 | 🔧 manual | 84 | ai-tech:18(21%), homelab:10(12%), wellness:10(12%) |
 | 2026-09-27 | 🔧 manual | 63 | ai-tech:13(21%), wellness:10(16%), news:10(16%) |
 | 2026-09-26 | 🔧 manual | 67 | ai-tech:17(25%), wellness:10(15%), news:10(15%) |
 | 2026-09-25 | 🔧 manual | 80 | ai-tech:18(22%), wellness:10(12%), news:10(12%) |
 | 2026-09-24 | 🔧 manual | 77 | ai-tech:18(23%), wellness:10(13%), news:10(13%) |
-| 2026-09-23 | 🔧 manual | 72 | ai-tech:18(25%), wellness:10(14%), news:10(14%) |
-| 2026-09-23 | 🔧 manual | 49 | wellness:10(20%), news:10(20%), ai-tech:9(18%) |
 
-_Last updated by log\_feed\_results.py · 2026-09-30 04:11 UTC_
+_Last updated by log\_feed\_results.py · 2026-10-01 04:12 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
