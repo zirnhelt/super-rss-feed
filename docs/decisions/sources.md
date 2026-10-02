@@ -68,3 +68,9 @@ the Blogger path respectively: WordPress serves a *per-post* comment feed at
 ## `applenews://search?term=` is not a real URL (gotcha 8)
 
 It was tried and reverted; the scheme launches the News app but has no search path, and feed readers drop non-`http(s)` links entirely. Only `https://apple.news/…` works, and its ID must be **discovered, never constructed** — Apple assigns them opaquely and a fabricated ID is a dead link. `resolve_apple_news_url()` tiers a harvested per-article `A…` ID over a per-publication `T…` channel ID over the publisher URL; only the article tier is promoted to `url` by default. See `FEEDS_MAINTENANCE.md` § "the tiered Apple News resolver".
+
+## Editorial-exempt sources skip story-overlap dedup
+
+`editorial_exempt_sources` (`source_preferences.json`) first exempted a source only from the two subjective content gates. Dedup still compared its titles, and the Cariboo Signals episode review has a templated title ("Episode Review — Cariboo Signals, September 29, 2026"). The day number is under `_term_set`'s three-character floor, so every review in a month had the identical term set `{episode, review, cariboo, signals, september, 2026}`. The Sept 26 review reached `feed-local.json`, and the cross-run check counted every later one as a repeat of it. Nothing appeared from Sept 27 on, and the feed looked alive because the retained Sept 26 item stayed.
+
+`_story_dedup_exempt()` now takes these sources out of every story-overlap check: in-run (`deduplicate_articles`), cross-run (`_is_cross_run_story_dupe`), and the retained-item merge. Their term sets are no longer banked in `shown_terms_cache`, so a review can't suppress a news story either. URL-hash dedup still applies. The podcast also puts the day's theme in the review title, but this repo no longer depends on that.
