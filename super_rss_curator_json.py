@@ -51,9 +51,22 @@ APPLE_NEWS_PRIMARY_CHANNEL_LINK = SOURCE_PREFS.get('apple_news_channels', {}).ge
 # feeds.opml deliberately has already answered that question, and a machine-written
 # operational report is a category error for the rubric: the Cariboo Signals episode
 # review scored 'analysis'/84 one day and 'fluff'/56 the next, and was dropped on the
-# second. Exempt sources still pass through scoring, dedup, the quality floor and
-# slot allocation like anything else.
+# second. Exempt sources still pass through scoring, URL dedup, the quality floor
+# and slot allocation like anything else; story-overlap dedup skips them (below).
 EDITORIAL_EXEMPT_SOURCES = frozenset(SOURCE_PREFS.get('editorial_exempt_sources', []))
+
+
+def _story_dedup_exempt(source: str) -> bool:
+    """Editorial-exempt sources skip story-overlap dedup; URL-hash dedup still applies.
+
+    Their titles are templated ("Episode Review — Cariboo Signals, September 29,
+    2026"), so every issue shares its term set with the last one: the cross-run
+    check suppressed every review after the first for a fortnight. They are not
+    news stories that can duplicate another outlet's, in either direction.
+    """
+    return source in EDITORIAL_EXEMPT_SOURCES
+
+
 # Sources that must never enter the podcast pool. A source reporting *on* the
 # podcast would otherwise be routed into an episode, and the show would discuss
 # its own review of itself. Enforced in save_podcast_cache() and both cache
@@ -2516,6 +2529,26 @@ def _token_sort_ratio(a: str, b: str) -> int:
     return _fuzz_ratio(' '.join(sorted(a.split())), ' '.join(sorted(b.split())))
 
 
+def _is_cross_run_story_dupe(article: Article, stored_term_sets: List[frozenset]) -> bool:
+    """True if ≥3 significant terms overlap a recently-shown article at ≥50% containment.
+
+    Both sides must carry ≥3 terms and share ≥3 of them, matching the guards
+    deduplicate_articles() applies in-run. Containment is |A∩B| / min(|A|,|B|),
+    so without a shared-term floor a two-term stored headline suppresses anything
+    sharing a single common word: {'eggzellant', 'review'} scores 0.50 against
+    any headline containing "review".
+    """
+    terms = article.title_terms
+    if _story_dedup_exempt(article.source) or len(terms) < 3:
+        return False
+    return any(
+        len(stored) >= 3
+        and len(terms & stored) >= 3
+        and _story_overlap(terms, stored) >= 0.50
+        for stored in stored_term_sets
+    )
+
+
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
     """Remove duplicate articles based on URL and title similarity.
 
@@ -2542,6 +2575,10 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
 
     for article in sorted_articles:
         if article.url_hash in seen_urls:
+            continue
+        if _story_dedup_exempt(article.source):
+            seen_urls.add(article.url_hash)
+            unique.append(article)
             continue
 
         is_duplicate = False
@@ -5717,22 +5754,7 @@ def main():
     for a in unique_articles:
         if a.url_hash in shown_cache:
             continue
-        # Cross-run story dedup: skip if ≥3 significant terms overlap with a
-        # recently-shown article at ≥50% containment similarity.
-        #
-        # Both sides must carry ≥3 terms and share ≥3 of them, matching the
-        # guards deduplicate_articles() already applies in-run. Containment is
-        # |A∩B| / min(|A|,|B|), so without a shared-term floor a two-term stored
-        # headline suppresses anything sharing a single common word: {'eggzellant',
-        # 'review'} scores 0.50 against any headline containing "review".
-        if (a.title_terms
-                and len(a.title_terms) >= 3
-                and any(
-                    len(stored) >= 3
-                    and len(a.title_terms & stored) >= 3
-                    and _story_overlap(a.title_terms, stored) >= 0.50
-                    for stored in stored_term_sets
-                )):
+        if _is_cross_run_story_dupe(a, stored_term_sets):
             story_dupes += 1
             continue
         new_articles.append(a)
@@ -6128,12 +6150,14 @@ def main():
         merge_overlap = LIMITS.get('feed_merge_overlap_threshold', 0.50)
         merge_min_terms = LIMITS.get('feed_merge_min_terms', 2)
         new_urls = {a.link for a in diverse_new}
-        new_term_sets = [(a.title_terms) for a in diverse_new]
+        new_term_sets = [a.title_terms for a in diverse_new if not _story_dedup_exempt(a.source)]
 
         def _retained_is_fresh(item: dict) -> bool:
             item_url = item_source_link(item)
             if item_url in new_urls:
                 return False
+            if _story_dedup_exempt((item.get('authors') or [{}])[0].get('name', '')):
+                return True
             if '/weekly-report-' in item_url:
                 # Weekly "State of the Feed" meta-article. Its title is short and
                 # generic ("State of the Feed — Week of <Month> <year>"), so the
@@ -6186,6 +6210,8 @@ def main():
     now_ts = datetime.now(timezone.utc).timestamp()
     for article in quality_articles:
         shown_cache[article.url_hash] = now_ts
+        if _story_dedup_exempt(article.source):
+            continue
         shown_terms_cache[article.url_hash] = {
             'ts': now_ts,
             'terms': list(article.title_terms),
