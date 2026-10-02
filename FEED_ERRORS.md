@@ -3,6 +3,18 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-01 (Thursday)
+
+#### 🔧 Manual Run (9:13 PM Pacific)
+- ⚠️ **CleanTechnica** failed — `504 Server Error: Gateway Timeout for url: https://cleantechnica.com/feed/`
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1389 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-09-30 (Wednesday)
 
 #### 🔧 Manual Run (9:12 PM Pacific)
@@ -99,26 +111,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (9:11 PM Pacific)
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1684 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-23 (Wednesday)
-
-#### 🔧 Manual Run (9:11 PM Pacific)
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1558 articles — check charter adherence, not supply
-
-
----
-
-
-
-
-#### 🔧 Manual Run (9:33 PM Pacific)
-- ⚠️ **Adventure Journal** failed — `503 Server Error: Service Unavailable for url: https://www.adventure-journal.com/feed/`
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1492 articles — check charter adherence, not supply
 
 
 ---
@@ -1303,6 +1295,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Yellowhead Institute failed — 503 Server Error: Service Unavailable for url: https://yellowheadinstitute.org/feed/
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1585 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-23–2026-09-23
+- 3 issues recorded
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1558 articles — check charter adherence, not supply
+- ⚠️ Adventure Journal failed — 503 Server Error: Service Unavailable for url: https://www.adventure-journal.com/feed/
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1492 articles — check charter adherence, not supply
 
 
 ---
