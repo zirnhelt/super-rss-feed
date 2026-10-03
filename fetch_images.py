@@ -12,6 +12,9 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+from cache import atomic_write_json
+from sanitize import is_public_http_url
+
 CONFIG_DIR = Path(__file__).parent / 'config'
 CACHE_FILE = Path(__file__).parent / 'image_cache.json'
 CACHE_EXPIRY_DAYS = 30
@@ -53,7 +56,8 @@ def load_image_cache():
         
         # Clean expired entries
         cutoff = datetime.now(timezone.utc).timestamp() - (CACHE_EXPIRY_DAYS * 24 * 3600)
-        valid_cache = {k: v for k, v in cache.items() if v.get('timestamp', 0) > cutoff}
+        valid_cache = {k: v for k, v in cache.items()
+                       if isinstance(v, dict) and v.get('timestamp', 0) > cutoff}
         
         if len(valid_cache) != len(cache):
             print(f"🧹 Cleaned image cache: {len(cache)} → {len(valid_cache)} entries")
@@ -67,8 +71,7 @@ def load_image_cache():
 def save_image_cache(cache):
     """Save image URL cache"""
     try:
-        with open(CACHE_FILE, 'w') as f:
-            json.dump(cache, f, indent=2)
+        atomic_write_json(CACHE_FILE, cache, indent=2)
     except Exception as e:
         print(f"⚠️ Failed to save image cache: {e}")
 
@@ -87,8 +90,12 @@ def fetch_page_metadata(url, timeout=3) -> Dict:
             'Accept': 'text/html,application/xhtml+xml'
         }
 
+        if not is_public_http_url(url):
+            return result
         response = requests.get(url, headers=headers, timeout=timeout, allow_redirects=True)
         response.raise_for_status()
+        if not is_public_http_url(response.url):
+            return result
 
         result['apple_article'], result['apple_channel'] = extract_apple_news_ids(response.text)
 
@@ -125,8 +132,12 @@ def fetch_page_title(url, timeout=3):
             'Accept': 'text/html,application/xhtml+xml'
         }
 
+        if not is_public_http_url(url):
+            return None
         response = requests.get(url, headers=headers, timeout=timeout, allow_redirects=True)
         response.raise_for_status()
+        if not is_public_http_url(response.url):
+            return None
 
         soup = BeautifulSoup(response.text, 'html.parser')
 

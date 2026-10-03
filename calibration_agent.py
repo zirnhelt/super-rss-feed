@@ -32,6 +32,7 @@ import anthropic
 
 import api_usage
 import config_loader
+from cache import atomic_write_text
 
 BASE_DIR = Path(__file__).parent
 MEMORY_DIR = BASE_DIR / 'calibration_memory'
@@ -832,9 +833,7 @@ def apply_bounded_adjustments(accepted: List[Dict], dry_run: bool) -> List[Dict]
 
         if not dry_run:
             try:
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    json.dump(config, f, indent=2, ensure_ascii=False)
-                    f.write('\n')
+                atomic_write_text(file_path, json.dumps(config, indent=2, ensure_ascii=False) + '\n')
             except Exception as e:
                 for change in changes:
                     print(f"  ⚠️ Failed to write {file_rel}: {e}")
@@ -932,9 +931,7 @@ def write_changelog(
         })
         benchmarks['weeks'] = sorted(benchmarks['weeks'], key=lambda w: w['week_date'])[-52:]
         MEMORY_DIR.mkdir(exist_ok=True)
-        with open(BENCHMARKS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(benchmarks, f, indent=2, ensure_ascii=False)
-            f.write('\n')
+        atomic_write_text(BENCHMARKS_FILE, json.dumps(benchmarks, indent=2, ensure_ascii=False) + '\n')
 
     if result is None:
         return
@@ -954,9 +951,7 @@ def write_changelog(
             'dry_run': dry_run,
         })
     MEMORY_DIR.mkdir(exist_ok=True)
-    with open(CHANGE_HISTORY_FILE, 'w', encoding='utf-8') as f:
-        json.dump(history, f, indent=2, ensure_ascii=False)
-        f.write('\n')
+    atomic_write_text(CHANGE_HISTORY_FILE, json.dumps(history, indent=2, ensure_ascii=False) + '\n')
 
     # Update recurring_issues.json
     issues_data = json.loads(RECURRING_ISSUES_FILE.read_text(encoding='utf-8')) if RECURRING_ISSUES_FILE.exists() else {'issues': []}
@@ -988,9 +983,7 @@ def write_changelog(
             }
             issues_data.setdefault('issues', []).append(new_issue)
             issues_by_id[issue_id] = new_issue
-    with open(RECURRING_ISSUES_FILE, 'w', encoding='utf-8') as f:
-        json.dump(issues_data, f, indent=2, ensure_ascii=False)
-        f.write('\n')
+    atomic_write_text(RECURRING_ISSUES_FILE, json.dumps(issues_data, indent=2, ensure_ascii=False) + '\n')
 
     # Append to notes.md
     with open(NOTES_FILE, 'a', encoding='utf-8') as f:

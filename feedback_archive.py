@@ -42,6 +42,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+from cache import atomic_write_json
 from config_loader import load_limits_config
 
 FEEDBACK_DIR = Path('feedback')
@@ -129,7 +130,7 @@ def save_ledger(urls: Dict[str, str]) -> bool:
         'count': len(urls),
         'urls': dict(sorted(urls.items())),
     }
-    LEDGER_FILE.write_text(json.dumps(payload, separators=(',', ':')), encoding='utf-8')
+    atomic_write_json(LEDGER_FILE, payload, separators=(',', ':'))
     return True
 
 
@@ -142,7 +143,7 @@ def save_rollup(rollup: Dict[str, Any]) -> bool:
             return False
     ROLLUP_FILE.parent.mkdir(parents=True, exist_ok=True)
     rollup['updated_at'] = datetime.now(timezone.utc).isoformat(timespec='seconds')
-    ROLLUP_FILE.write_text(json.dumps(rollup, indent=2, sort_keys=True), encoding='utf-8')
+    atomic_write_json(ROLLUP_FILE, rollup, indent=2, sort_keys=True)
     return True
 
 

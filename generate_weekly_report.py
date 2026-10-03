@@ -24,6 +24,9 @@ from pathlib import Path
 import anthropic
 import requests
 
+from cache import atomic_write_json
+from sanitize import sanitize_feed
+
 BASE_URL = "https://zirnhelt.github.io/super-rss-feed"
 GITHUB_REPO_URL = "https://github.com/zirnhelt/super-rss-feed"
 FEED_NEWS_URL = f"{BASE_URL}/feed-news.json"
@@ -951,9 +954,7 @@ def main():
     }
 
     # Persist article to repo root (committed to main; referenced by generate-feed deploys)
-    Path("weekly-state-article.json").write_text(
-        json.dumps(article, indent=2, ensure_ascii=False), "utf-8"
-    )
+    atomic_write_json("weekly-state-article.json", article, indent=2, ensure_ascii=False)
 
     # HTML permalink — written to both reports/ (for generate-feed.yml to copy) and output/
     html_page = build_html_page(title, content_html, week_label, pub_date_human)
@@ -989,7 +990,9 @@ def main():
     feed_news["items"] = [article] + items
 
     feed_news_out = OUTPUT_DIR / "feed-news.json"
-    feed_news_out.write_text(json.dumps(feed_news, indent=2, ensure_ascii=False), "utf-8")
+    # The downloaded items are third-party content like any other feed's.
+    sanitize_feed(feed_news, "feed-news.json")
+    atomic_write_json(feed_news_out, feed_news, indent=2, ensure_ascii=False)
     html_out = OUTPUT_DIR / html_filename
     html_out.write_text(html_page, "utf-8")
 

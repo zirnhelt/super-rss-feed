@@ -37,3 +37,6 @@ feed-*.json
 *.env
 .env.*
 standing_preferences_pr.md
+
+# Atomic-write temp files (cache.atomic_write_text); only left behind if a job is killed mid-write
+.*.tmp

@@ -1,7 +1,73 @@
+import contextlib
 import json
+import os
+import tempfile
 import time
 from email.utils import parsedate_to_datetime
-from typing import Optional
+from typing import Any, Optional
+
+
+def atomic_write_text(path: str, text: str, encoding: str = 'utf-8') -> None:
+    """Replace ``path`` with ``text`` so a reader sees the old file or the new one.
+
+    CI commits these files after the run, so a write cut short by a crash, a
+    full disk or a cancelled job used to commit a truncated file — which the
+    loaders then read as empty, silently dropping the whole history. Writing
+    to a temp file in the same directory, fsyncing it and then ``os.replace``
+    makes the swap all-or-nothing. On any failure the temp file is removed and
+    the exception propagates with the original file untouched.
+    """
+    directory = os.path.dirname(os.path.abspath(path))
+    fd, tmp_path = tempfile.mkstemp(
+        dir=directory, prefix=f'.{os.path.basename(path)}.', suffix='.tmp'
+    )
+    try:
+        with os.fdopen(fd, 'w', encoding=encoding) as f:
+            f.write(text)
+            f.flush()
+            os.fsync(f.fileno())
+        # mkstemp creates 0600; keep the mode the file already had.
+        try:
+            os.chmod(tmp_path, os.stat(path).st_mode & 0o777)
+        except FileNotFoundError:
+            os.chmod(tmp_path, 0o644)
+        os.replace(tmp_path, path)
+    except BaseException:
+        with contextlib.suppress(OSError):
+            os.unlink(tmp_path)
+        raise
+    # The rename itself is only durable once the directory entry is flushed.
+    with contextlib.suppress(OSError, AttributeError):
+        dir_fd = os.open(directory, os.O_RDONLY)
+        try:
+            os.fsync(dir_fd)
+        finally:
+            os.close(dir_fd)
+
+
+def atomic_write_json(path: str, data: Any, **dump_kwargs: Any) -> None:
+    """Serialize first, then write atomically: a bad value never touches disk."""
+    atomic_write_text(path, json.dumps(data, **dump_kwargs))
+
+
+def _read_json_dict(path: str) -> dict:
+    """Load a JSON object, treating a missing, unreadable or non-object file as {}.
+
+    A corrupt file is reported, not raised: one bad cache must not stop the
+    nightly run, and the next save replaces it.
+    """
+    try:
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        return {}
+    except (OSError, ValueError) as e:  # JSONDecodeError and UnicodeDecodeError are ValueErrors
+        print(f"⚠️ {path} is unreadable ({type(e).__name__}); starting empty")
+        return {}
+    if not isinstance(data, dict):
+        print(f"⚠️ {path} holds a {type(data).__name__}, not an object; starting empty")
+        return {}
+    return data
 
 
 class Cache:
@@ -17,25 +83,24 @@ class Cache:
         self.ts_field = ts_field
 
     def load(self) -> dict:
-        try:
-            with open(self.path) as f:
-                data = json.load(f)
-            if self.ttl_sec is not None:
-                cutoff = time.time() - self.ttl_sec
-                data = {
-                    k: v for k, v in data.items()
-                    if (v.get(self.ts_field, 0) if isinstance(v, dict) else v) > cutoff
-                }
-            return data
-        except (FileNotFoundError, json.JSONDecodeError):
-            return {}
+        data = _read_json_dict(self.path)
+        if self.ttl_sec is not None:
+            cutoff = time.time() - self.ttl_sec
+            data = {k: v for k, v in data.items() if self._timestamp(v) > cutoff}
+        return data
+
+    def _timestamp(self, value: Any) -> float:
+        """An entry's age stamp; 0 (expired) for one that has degraded to junk."""
+        ts = value.get(self.ts_field, 0) if isinstance(value, dict) else value
+        if isinstance(ts, bool) or not isinstance(ts, (int, float)):
+            return 0
+        return ts
 
     def save(self, data: dict) -> None:
         try:
-            with open(self.path, 'w') as f:
-                json.dump(data, f, indent=2)
+            atomic_write_json(self.path, data, indent=2)
         except Exception as e:
-            print(f"⚠️ Failed to save {self.path}: {e}")
+            print(f"⚠️ Failed to save {self.path} (previous copy kept): {e}")
 
 
 class FeedHTTPCache:
@@ -50,18 +115,14 @@ class FeedHTTPCache:
         self._data: dict = {}
 
     def load(self) -> None:
-        try:
-            with open(self.path) as f:
-                self._data = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            self._data = {}
+        # Every accessor assumes a dict per feed; drop anything else.
+        self._data = {k: v for k, v in _read_json_dict(self.path).items() if isinstance(v, dict)}
 
     def save(self) -> None:
         try:
-            with open(self.path, 'w') as f:
-                json.dump(self._data, f, indent=2)
+            atomic_write_json(self.path, self._data, indent=2)
         except Exception as e:
-            print(f"⚠️ Failed to save {self.path}: {e}")
+            print(f"⚠️ Failed to save {self.path} (previous copy kept): {e}")
 
     def should_skip(self, url: str) -> bool:
         """True if Cache-Control max-age or Retry-After says it's too early to poll."""

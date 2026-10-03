@@ -1,6 +1,12 @@
+# Exact pins: every workflow installs from this file, so an unpinned line meant
+# each nightly run could pick up a new release unannounced. These are the
+# versions production was already running (tests.yml run of 2026-10-02).
+# cohere stays a range inside the major production runs (7.x); a new major can
+# change the ClientV2 surface cohere_integration.py calls. Bump deliberately,
+# with a green test run.
 feedparser==6.0.10
 anthropic==0.40.0
-requests
-beautifulsoup4
-cohere>=5.0.0
-tzdata
+requests==2.34.2
+beautifulsoup4==4.15.0
+cohere>=7.2.0,<8.0.0
+tzdata==2026.4

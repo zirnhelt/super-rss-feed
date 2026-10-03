@@ -74,3 +74,39 @@ It was tried and reverted; the scheme launches the News app but has no search pa
 `editorial_exempt_sources` (`source_preferences.json`) first exempted a source only from the two subjective content gates. Dedup still compared its titles, and the Cariboo Signals episode review has a templated title ("Episode Review — Cariboo Signals, September 29, 2026"). The day number is under `_term_set`'s three-character floor, so every review in a month had the identical term set `{episode, review, cariboo, signals, september, 2026}`. The Sept 26 review reached `feed-local.json`, and the cross-run check counted every later one as a repeat of it. Nothing appeared from Sept 27 on, and the feed looked alive because the retained Sept 26 item stayed.
 
 `_story_dedup_exempt()` now takes these sources out of every story-overlap check: in-run (`deduplicate_articles`), cross-run (`_is_cross_run_story_dupe`), and the retained-item merge. Their term sets are no longer banked in `shown_terms_cache`, so a review can't suppress a news story either. URL-hash dedup still applies. The podcast also puts the day's theme in the review title, but this repo no longer depends on that.
+
+## Published content is made inert at one exit (2026-10-03)
+
+Every item carries text, markup and URLs from someone else's feed, search result or page, and
+its consumers do not all escape: Inoreader and other readers render `content_html`, `index.html`
+assigns `url` to a link's `href`, `review.html` does the same while it holds a token with write
+access to this repo, and the podcast pastes titles and URLs into the HTML of its public episode
+notes. So `write_feed()` sanitizes every published feed (`sanitize.sanitize_feed`) before an
+atomic write. Decisions worth knowing:
+
+- **Text fields are stripped, not escaped.** JSON Feed `title`, `summary` and `_excerpt` are text;
+  entity-escaping them would show `&amp;` in every reader and in the show's prompts. Escaping
+  belongs at each HTML or XML render (`_xml_text`, `escHtml`).
+- **Inline styles are filtered per declaration, not dropped.** The day badge, the lead image,
+  third-party image floats and the weekly report's tables all depend on them. Nothing that
+  positions (`position`, `z-index`) or loads (`url()`, `image-set()`) survives.
+- **Relative `src`/`href` resolve against the item's own URL**, as readers do. Dropping them lost
+  real images (a Home Assistant post with root-relative paths, 2026-10-02).
+- **An item whose own link is unsafe or a private address is dropped; optional URL fields are
+  removed; nothing else is.** The podcast contract keys survive, and `authors[0]['url']` is emptied rather than
+  removed because the retained-item rebuild indexes it.
+- Measured on the 1,040 live items of 2026-10-03: nothing dropped, no text field changed,
+  idempotent, about 2 seconds for all 19 feeds.
+
+**Retained items used to stack a lead image every night.** The nightly rebuilds retained items
+from their published `content_html`, and `generate_json_feed()` prepended the lead image and
+badge again, so a week-old local story carried five copies of its photo. `_strip_generated_prefix()`
+recovers the article text first; already-stacked items heal on their next run.
+
+**The pipeline's own fetches of third-party URLs check `is_public_http_url()`**, before the
+request and again on the final URL after redirects: `_fetch_article_excerpt` (the excerpt is
+published), `_fetch_url_bytes` (rediscovery follows hrefs read off pages) and the image and title
+scrapes in `fetch_images.py`. It rejects loopback, private, link-local (cloud metadata),
+`localhost` and `.internal`/`.local` hosts, including `inet_aton` spellings such as `127.1`. It
+reads the literal host only. A public name that resolves to a private address, or a redirect
+hop's side effects, would need resolve-and-pin fetching, which is not built.

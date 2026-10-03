@@ -33,6 +33,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
+from cache import atomic_write_text
+
 BASE_DIR = Path(__file__).parent
 FEEDBACK_DIR = BASE_DIR / 'feedback'
 FEED_LOG_FILE = BASE_DIR / 'FEED_LOG.md'
@@ -948,9 +950,7 @@ def main() -> None:
           f"{audit['category_retag']['corrections']} category retags)")
 
     if args.json_summary:
-        with open(args.json_summary, 'w', encoding='utf-8') as f:
-            json.dump(build_summary(audit), f, indent=2, ensure_ascii=False)
-            f.write('\n')
+        atomic_write_text(args.json_summary, json.dumps(build_summary(audit), indent=2, ensure_ascii=False) + '\n')
         print(f"✅ JSON summary written to {args.json_summary}")
 
 
