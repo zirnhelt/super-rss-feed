@@ -633,8 +633,8 @@ function buildCardInner(idx) {
         </div>
 
         <div class="card-title${isExpanded ? ' expanded' : ''}">
-            <a href="${escAttr(art.url)}" target="_blank" rel="noopener">${escHtml(art.title || '')}</a>
-            ${art._apple_news_url ? `<a href="${escAttr(art._apple_news_url)}" class="apple-news-link" target="_blank" rel="noopener" title="Open in Apple News">📰</a>` : ''}
+            <a href="${escAttr(safeHref(art.url))}" target="_blank" rel="noopener">${escHtml(art.title || '')}</a>
+            ${art._apple_news_url ? `<a href="${escAttr(safeHref(art._apple_news_url))}" class="apple-news-link" target="_blank" rel="noopener" title="Open in Apple News">📰</a>` : ''}
             ${descText.length > 80 ? `<button class="expand-btn" onclick="toggleDesc(${idx})">${isExpanded ? '↑ less' : '↓ more'}</button>` : ''}
         </div>
 
@@ -1085,6 +1085,8 @@ function escHtml(s) {
     return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function escAttr(s) { return escHtml(s); }
+// Article links come from third-party feeds: only http(s) may become a link.
+function safeHref(u) { return /^https?:\/\//i.test(String(u ?? '').trim()) ? u : '#'; }
 </script>
 </body>
 </html>
