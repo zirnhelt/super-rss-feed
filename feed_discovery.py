@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 import config_loader
 import cohere_integration
+from cache import atomic_write_json
 from integrate_discoveries import is_comment_feed
 
 
@@ -345,8 +346,7 @@ class FeedDiscovery:
     
     def _save_cache(self):
         """Save discovery cache"""
-        with open(DISCOVERY_CACHE_FILE, 'w') as f:
-            json.dump(self.cache, f, indent=2)
+        atomic_write_json(DISCOVERY_CACHE_FILE, self.cache, indent=2)
     
     def _fetch_opml_sources(self) -> List[FeedCandidate]:
         """Fetch and parse OPML files from discovery sources"""
@@ -668,8 +668,7 @@ class FeedDiscovery:
     
     def save_report(self, report: Dict):
         """Save discovery report to file"""
-        with open(DISCOVERY_OUTPUT_FILE, 'w') as f:
-            json.dump(report, f, indent=2)
+        atomic_write_json(DISCOVERY_OUTPUT_FILE, report, indent=2)
         
         print(f"\n📊 Report saved to {DISCOVERY_OUTPUT_FILE}")
     

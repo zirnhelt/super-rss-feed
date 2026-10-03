@@ -28,7 +28,8 @@ from fetch_images import batch_fetch_images
 import cohere_integration
 import api_usage
 import config_loader
-from cache import Cache, FeedHTTPCache
+from cache import Cache, FeedHTTPCache, atomic_write_json, atomic_write_text
+from sanitize import is_public_http_url, safe_url, sanitize_feed
 
 # Configuration paths (kept for direct file access e.g. scoring_mode.json)
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -974,8 +975,7 @@ def load_apple_news_cache() -> Dict:
 def save_apple_news_cache(cache: Dict) -> None:
     """Persist harvested apple.news IDs."""
     try:
-        with open(APPLE_NEWS_CACHE_FILE, 'w', encoding='utf-8') as f:
-            json.dump(cache, f, indent=2, ensure_ascii=False)
+        atomic_write_json(APPLE_NEWS_CACHE_FILE, cache, indent=2, ensure_ascii=False)
     except Exception as e:
         print(f"⚠️ Failed to save Apple News cache: {e}")
 
@@ -1162,8 +1162,7 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
 
         existing.sort(key=lambda x: x['pub_date'], reverse=True)
 
-        with open(PODCAST_CACHE_FILE, 'w', encoding='utf-8') as f:
-            json.dump(existing, f, indent=2, ensure_ascii=False)
+        atomic_write_json(PODCAST_CACHE_FILE, existing, indent=2, ensure_ascii=False)
 
         label = 'main-feed' if main_feed_quality else 'podcast-candidate'
         print(f"💾 Podcast cache updated: {len(existing)} articles ({label}, 7-day window)")
@@ -1226,8 +1225,7 @@ def save_theme_holdover_cache(holdover: Dict):
             available = available[:THEME_HOLDOVER_MAX_AVAILABLE_PER_DAY]
         bounded[day] = used + available
     try:
-        with open(THEME_HOLDOVER_FILE, 'w', encoding='utf-8') as f:
-            json.dump(bounded, f, indent=2, ensure_ascii=False)
+        atomic_write_json(THEME_HOLDOVER_FILE, bounded, indent=2, ensure_ascii=False)
     except Exception as e:
         print(f"⚠️ Failed to save theme holdover cache: {e}")
 
@@ -1313,8 +1311,7 @@ def load_podcast_shown_cache() -> Dict:
 def save_podcast_shown_cache(cache: Dict):
     """Persist the podcast shown cache to disk."""
     try:
-        with open(PODCAST_SHOWN_FILE, 'w', encoding='utf-8') as f:
-            json.dump(cache, f, indent=2, ensure_ascii=False)
+        atomic_write_json(PODCAST_SHOWN_FILE, cache, indent=2, ensure_ascii=False)
     except Exception as e:
         print(f"⚠️ Failed to save podcast shown cache: {e}")
 
@@ -1346,8 +1343,7 @@ def save_theme_score_cache(cache: Dict):
               if isinstance(v, dict) and v.get('cached_at', '') >= cutoff}
     pruned['__version__'] = THEME_SCORE_CACHE_VERSION
     try:
-        with open(THEME_SCORE_CACHE_FILE, 'w', encoding='utf-8') as f:
-            json.dump(pruned, f)
+        atomic_write_json(THEME_SCORE_CACHE_FILE, pruned)
     except Exception as e:
         print(f"⚠️ Failed to save theme score cache: {e}")
 
@@ -1436,8 +1432,7 @@ def load_calibration_stats_cache() -> List[Dict]:
 
 def save_calibration_stats_cache(records: List[Dict]):
     try:
-        with open(CALIBRATION_STATS_CACHE_FILE, 'w', encoding='utf-8') as f:
-            json.dump(records, f, indent=2, ensure_ascii=False)
+        atomic_write_json(CALIBRATION_STATS_CACHE_FILE, records, indent=2, ensure_ascii=False)
     except Exception as e:
         print(f"⚠️ Failed to save calibration stats cache: {e}")
 
@@ -1519,8 +1514,7 @@ def load_pending_theme_batch() -> Optional[Dict]:
 
 def save_pending_theme_batch(data: Dict):
     try:
-        with open(PENDING_THEME_BATCH_FILE, 'w') as f:
-            json.dump(data, f)
+        atomic_write_json(PENDING_THEME_BATCH_FILE, data)
     except Exception as e:
         print(f"⚠️ Failed to save pending theme batch metadata: {e}")
 
@@ -1647,7 +1641,11 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
     Used as a fallback when the RSS description is missing or too short — most
     commonly for local BC news sources that omit descriptions from their feeds.
     Returns '' on any failure so callers can treat it as optional.
+    The URL comes from a third-party feed and the excerpt is published, so a
+    private address is never fetched, nor a redirect into one read.
     """
+    if not is_public_http_url(url):
+        return ''
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
@@ -1655,6 +1653,8 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
         }
         resp = requests.get(url, headers=headers, timeout=8)
         resp.raise_for_status()
+        if not is_public_http_url(resp.url):
+            return ''
         soup = BeautifulSoup(resp.text, 'html.parser')
 
         # Try common article-body selectors in order of specificity
@@ -2190,7 +2190,13 @@ def _looks_like_feed(content: bytes) -> bool:
 
 
 def _fetch_url_bytes(url: str, user_agent: str = _BROWSER_UA) -> Optional[bytes]:
-    """GET a URL, returning its body or None on any failure. Never raises."""
+    """GET a URL, returning its body or None on any failure. Never raises.
+
+    Feed rediscovery passes it hrefs read off third-party pages, so it only
+    fetches public http(s) addresses.
+    """
+    if not is_public_http_url(url):
+        return None
     try:
         response = requests.get(
             url,
@@ -2198,6 +2204,8 @@ def _fetch_url_bytes(url: str, user_agent: str = _BROWSER_UA) -> Optional[bytes]
             timeout=10,
         )
         response.raise_for_status()
+        if not is_public_http_url(response.url):
+            return None
         return response.content
     except Exception:
         return None
@@ -3935,6 +3943,46 @@ def _make_score_badge(
     return f'<p style="{_BADGE_STYLE}">{emojis} {fix_link}</p>\n'
 
 
+_LEAD_IMAGE_STYLE = "width:100%;max-height:300px;object-fit:cover;"
+
+
+def _lead_image_html(image_url: Optional[str]) -> str:
+    """The <img> the pipeline puts above an item's text; '' for an unsafe URL."""
+    url = safe_url(image_url)
+    if not url:
+        return ''
+    return f'<img src="{html_escape(url)}" style="{_LEAD_IMAGE_STYLE}" />\n'
+
+
+# What _lead_image_html and _make_score_badge put in front of the article text,
+# in either the raw or the sanitized serialization.
+_GENERATED_PREFIX_RE = re.compile(
+    r'\A(?:\s*<img [^>]*style="' + re.escape(_LEAD_IMAGE_STYLE) + r'"[^>]*>'
+    r'|\s*<p style="' + re.escape(_BADGE_STYLE) + r'">.*?</p>)+\s*',
+    re.DOTALL,
+)
+
+
+def _strip_generated_prefix(content_html: str) -> str:
+    """Recover a retained item's article text from its published content_html.
+
+    Retained items are rebuilt from the feed they were published in, and
+    generate_json_feed() prepends the lead image and badge again; without this
+    every nightly run stacked another copy (five of one photo on a live item).
+    """
+    return _GENERATED_PREFIX_RE.sub('', content_html or '', count=1)
+
+
+def write_feed(feed: Dict, output_path: str) -> None:
+    """The one exit for a published JSON feed: sanitize, then write atomically.
+
+    Sanitizing mutates ``feed`` in place, so an RSS mirror rendered from the
+    same dict afterwards carries the same safe content.
+    """
+    sanitize_feed(feed, os.path.basename(output_path))
+    atomic_write_json(output_path, feed, indent=2, ensure_ascii=False)
+
+
 # RSS 2.0 mirror ---------------------------------------------------------
 # Readers that speak JSON Feed (NetNewsWire, Reeder, Feedbin, Miniflux) get the
 # .json file; everything else gets a .xml mirror of it. Which categories get a
@@ -4039,8 +4087,7 @@ def generate_rss_feed(feed: Dict, output_path: str) -> None:
 
     lines += ['</channel>', '</rss>', '']
 
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines))
+    atomic_write_text(output_path, '\n'.join(lines))
 
     item_count = min(len(feed['items']), RSS_MAX_ITEMS)
     print(f"✅ Generated RSS mirror: {output_path} ({item_count} articles)")
@@ -4102,8 +4149,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         # image → badge → description
         content_html = badge + clean_desc
         if hasattr(article, 'image') and article.image:
-            img_html = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n'
-            content_html = img_html + content_html
+            content_html = _lead_image_html(article.image) + content_html
 
         item = {
             "id": article.link,
@@ -4140,8 +4186,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
 
         feed["items"].append(item)
 
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(feed, f, indent=2, ensure_ascii=False)
+    write_feed(feed, output_path)
 
     print(f"✅ Generated {category} feed: {len(feed['items'])} articles")
 
@@ -5508,8 +5553,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         # image → badge → description
         content_html = badge + clean_desc
         if hasattr(article, 'image') and article.image:
-            img_html = f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n'
-            content_html = img_html + content_html
+            content_html = _lead_image_html(article.image) + content_html
 
         item = {
             "id": article.link,
@@ -5588,8 +5632,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     feed["items"] = [item for _, item in items_with_score]
 
-    with open(feed_filename, 'w', encoding='utf-8') as f:
-        json.dump(feed, f, indent=2, ensure_ascii=False)
+    write_feed(feed, feed_filename)
 
     avg_theme_score = sum(ts for _, _, ts in theme_articles) / len(theme_articles) if theme_articles else 0
     avg_final_score = sum(cp for _, cp, _ in all_entries) / len(all_entries) if all_entries else 0
@@ -6185,7 +6228,7 @@ def main():
             type('Article', (), {
                 'link': item_source_link(item),
                 'title': re.sub(r'^(?:🔓\s*)+', '', item['title']),
-                'description': item['content_html'],
+                'description': _strip_generated_prefix(item['content_html']),
                 'pub_date': datetime.fromisoformat(item['date_published'].replace('Z', '+00:00')),
                 'source': item['authors'][0]['name'],
                 'source_url': item['authors'][0]['url'],
@@ -6639,8 +6682,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
         feed['items'].sort(key=lambda i: -i['_likely'])
         feed['_sorted_by'] = 'likely'
 
-    with open('feed-review.json', 'w', encoding='utf-8') as fh:
-        json.dump(feed, fh, indent=2, ensure_ascii=False)
+    write_feed(feed, 'feed-review.json')
 
     print(f"📋 Review feed {batch}: {len(feed['items'])} articles "
           f"({len(selected) - unfiltered_taken} curated incl. "
@@ -6869,8 +6911,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
             if getattr(article, 'image', None):
                 feed_item['image'] = article.image
                 feed_item['content_html'] = (
-                    f'<img src="{html_escape(article.image)}" style="width:100%;max-height:300px;object-fit:cover;" />\n'
-                    + (article.description or '')
+                    _lead_image_html(article.image) + (article.description or '')
                 )
             if cat_key == 'local':
                 feed_item['_local'] = True
@@ -6889,8 +6930,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
         feed['items'].sort(key=lambda x: x.get('date_published', ''), reverse=True)
         feed['items'] = feed['items'][:LIMITS['max_feed_size']]
 
-        with open(feed_file, 'w', encoding='utf-8') as f:
-            json.dump(feed, f, indent=2, ensure_ascii=False)
+        write_feed(feed, feed_file)
 
         # Keep the RSS mirror in step, so a standalone bootstrap run does not
         # leave subscribers on a stale .xml.

@@ -28,6 +28,7 @@ except ImportError:
     print("❌ anthropic package not installed")
     sys.exit(1)
 
+from cache import atomic_write_json, atomic_write_text
 from fetch_images import fetch_page_title
 
 FEEDBACK_DIR     = Path('feedback')
@@ -99,7 +100,7 @@ def backfill_exemplar_titles(lookback_days: int = LOOKBACK_DAYS) -> int:
                     backfilled += 1
 
         if dirty and not DRY_RUN:
-            f.write_text(json.dumps(data, indent=2), encoding='utf-8')
+            atomic_write_json(f, data, indent=2)
 
     return backfilled
 
@@ -354,7 +355,7 @@ def main():
         print(synthesis)
     else:
         EXAMPLES_FILE.parent.mkdir(exist_ok=True)
-        EXAMPLES_FILE.write_text(synthesis, encoding='utf-8')
+        atomic_write_text(EXAMPLES_FILE, synthesis)
         print(f'✅ Written to {EXAMPLES_FILE}')
 
     append_log(log_entry)

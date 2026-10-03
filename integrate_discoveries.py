@@ -25,10 +25,13 @@ import os
 import re
 import sys
 import argparse
+import io
 from typing import List, Dict, Optional
 from urllib.parse import urlparse, quote_plus
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+
+from cache import atomic_write_text
 
 def load_discovery_report() -> Dict:
     """Load the latest discovery report"""
@@ -49,6 +52,13 @@ def load_opml(path: str = 'feeds.opml') -> ET.ElementTree:
     except Exception as e:
         print(f"❌ Error loading OPML file: {e}")
         sys.exit(1)
+
+def write_opml(tree: ET.ElementTree, path: str) -> None:
+    """Write the OPML atomically: a truncated feeds.opml would be committed as the feed list."""
+    buffer = io.BytesIO()
+    tree.write(buffer, encoding='utf-8', xml_declaration=True)
+    atomic_write_text(path, buffer.getvalue().decode('utf-8'))
+
 
 def get_existing_feeds(tree: ET.ElementTree) -> set:
     """Get set of feed URLs already present in the OPML, retired ones included.
@@ -609,9 +619,7 @@ def write_health_actions_file(path: str, actions: List[Dict]) -> None:
     Always written, empty list included, so the report can tell "healed
     nothing" apart from "never ran".
     """
-    with open(path, 'w') as f:
-        json.dump(actions, f, indent=2)
-        f.write('\n')
+    atomic_write_text(path, json.dumps(actions, indent=2) + '\n')
     print(f"📝 Health actions written to {path}")
 
 
@@ -671,7 +679,7 @@ def run_heal(args) -> int:
             if date_modified is None:
                 date_modified = ET.SubElement(head, 'dateModified')
             date_modified.text = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S GMT')
-        tree.write(args.opml_path, encoding='utf-8', xml_declaration=True)
+        write_opml(tree, args.opml_path)
         print(f"\n✅ Applied {len(applied)} feed health fix(es) to {args.opml_path}")
     elif applied:
         print(f"\n🔍 DRY RUN — {len(applied)} fix(es) would have been applied")
@@ -778,9 +786,7 @@ def write_actions_file(path: str, feeds_added: List[Dict]):
         }
         for feed in feeds_added
     ]
-    with open(path, 'w') as f:
-        json.dump(actions, f, indent=2)
-        f.write('\n')
+    atomic_write_text(path, json.dumps(actions, indent=2) + '\n')
     print(f"📝 Actions file written to {path}")
 
 
@@ -924,7 +930,7 @@ def main():
         date_modified.text = datetime.now().strftime('%a, %d %b %Y %H:%M:%S GMT')
     
     # Save updated OPML
-    opml_tree.write(args.opml_path, encoding='utf-8', xml_declaration=True)
+    write_opml(opml_tree, args.opml_path)
     
     print(f"\n✅ Successfully added {added_count} feeds to {args.opml_path}")
     print(f"📂 Added under category: '{args.category_name}'")

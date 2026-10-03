@@ -37,6 +37,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
+from cache import atomic_write_text
+
 BASE_DIR = Path(__file__).parent
 FEEDBACK_DIR = BASE_DIR / "feedback"
 PREFERENCES_FILE = BASE_DIR / "config" / "standing_preferences.txt"
@@ -233,7 +235,7 @@ def main() -> int:
     today = now.date().isoformat()
     ledger["last_fingerprint"] = fingerprint
     ledger.setdefault("proposed", []).extend({"rule": p["rule"], "date": today} for p in proposals)
-    LEDGER_FILE.write_text(json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    atomic_write_text(LEDGER_FILE, json.dumps(ledger, indent=2, ensure_ascii=False) + "\n")
     if proposals:
         write_proposals(proposals, today, len(notes))
     return 0

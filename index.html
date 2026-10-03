@@ -450,7 +450,7 @@
                     const li = document.createElement('li');
 
                     const link = document.createElement('a');
-                    link.href = article.url;
+                    link.href = safeHref(article.url);
                     link.target = '_blank';
                     link.rel = 'noopener';
                     link.textContent = article.title || article.url;
@@ -460,7 +460,7 @@
                     // are https, so no special target handling is needed.
                     if (article._apple_news_url && article._apple_news_url !== article.url) {
                         const appleLink = document.createElement('a');
-                        appleLink.href = article._apple_news_url;
+                        appleLink.href = safeHref(article._apple_news_url);
                         appleLink.target = '_blank';
                         appleLink.rel = 'noopener';
                         appleLink.className = 'feed-article-apple-news';
@@ -552,6 +552,11 @@
                     feedsContainer.appendChild(feedItem);
                 }
             }
+        }
+
+        // Article links come from third-party feeds: only http(s) may become a link.
+        function safeHref(u) {
+            return /^https?:\/\//i.test(String(u ?? '').trim()) ? u : '#';
         }
 
         function copyToClipboard(text) {
