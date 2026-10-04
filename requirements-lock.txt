@@ -1,0 +1,40 @@
+# Exact pinned versions for CI — generated from: pip freeze
+# Update by running: pip install -r requirements.txt && pip freeze > requirements-lock.txt
+# (filter out system packages; keep only project deps and their transitive closure)
+# Python 3.11. Every workflow installs from this file; requirements.txt stays the
+# human-edited source. These are the versions generate-feed.yml installed on 2026-10-04.
+annotated-types==0.8.0
+anthropic==0.40.0
+anyio==4.15.1
+beautifulsoup4==4.15.0
+certifi==2026.7.22
+charset-normalizer==3.5.2
+click==8.5.0
+cohere==7.2.0
+distro==1.9.0
+fastavro==1.12.2
+feedparser==6.0.10
+filelock==4.0.10
+fsspec==2026.9.0
+h11==0.16.0
+hf-xet==1.6.0
+httpcore==1.0.9
+httpx==0.28.1
+huggingface_hub==1.33.0
+idna==3.20
+jiter==0.17.0
+packaging==26.3
+pydantic==2.13.5
+pydantic_core==2.46.5
+PyYAML==6.0.3
+requests==2.34.2
+sgmllib3k==1.0.0
+sniffio==1.3.1
+soupsieve==2.10
+tokenizers==0.23.2
+tqdm==4.70.1
+types-requests==2.33.0.20260906
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+tzdata==2026.4
+urllib3==2.8.0

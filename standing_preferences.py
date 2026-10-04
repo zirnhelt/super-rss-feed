@@ -184,8 +184,8 @@ def call_haiku(prompt: str) -> Optional[str]:
 def write_proposals(proposals: List[Dict], today: str, note_count: int) -> None:
     lines = [f"\n# Proposed {today} from {note_count} rating notes — merge to adopt, close to decline."]
     lines += [p["rule"] for p in proposals]
-    with PREFERENCES_FILE.open("a", encoding="utf-8") as f:
-        f.write("\n".join(lines) + "\n")
+    existing = PREFERENCES_FILE.read_text(encoding="utf-8") if PREFERENCES_FILE.exists() else ""
+    atomic_write_text(PREFERENCES_FILE, existing + "\n".join(lines) + "\n")
     body = [f"Proposed from the notes on your \"bad\" ratings over the last {NOTE_WINDOW_DAYS} days.",
             "",
             "**Merge** to adopt: the quality gate applies these from the next run.",

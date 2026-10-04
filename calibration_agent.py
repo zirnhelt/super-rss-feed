@@ -909,10 +909,8 @@ def write_changelog(
 
     section = "\n".join(lines) + "\n"
 
-    if not CALIBRATION_LOG_FILE.exists():
-        CALIBRATION_LOG_FILE.write_text("# Calibration Log\n", encoding='utf-8')
-    with open(CALIBRATION_LOG_FILE, 'a', encoding='utf-8') as f:
-        f.write(section)
+    existing = CALIBRATION_LOG_FILE.read_text(encoding='utf-8') if CALIBRATION_LOG_FILE.exists() else "# Calibration Log\n"
+    atomic_write_text(CALIBRATION_LOG_FILE, existing + section)
 
     # Persist noise-to-signal benchmark snapshot (one entry per run date, rolling 52
     # weeks). Runs regardless of whether the Claude analysis succeeded — it only
@@ -986,8 +984,8 @@ def write_changelog(
     atomic_write_text(RECURRING_ISSUES_FILE, json.dumps(issues_data, indent=2, ensure_ascii=False) + '\n')
 
     # Append to notes.md
-    with open(NOTES_FILE, 'a', encoding='utf-8') as f:
-        f.write(f"\n## {run_date}{' (dry run)' if dry_run else ''}\n\n{result.get('analysis', '').strip()}\n")
+    notes = NOTES_FILE.read_text(encoding='utf-8') if NOTES_FILE.exists() else ''
+    atomic_write_text(NOTES_FILE, notes + f"\n## {run_date}{' (dry run)' if dry_run else ''}\n\n{result.get('analysis', '').strip()}\n")
 
 # ---------------------------------------------------------------------------
 # Main

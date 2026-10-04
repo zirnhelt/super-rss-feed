@@ -942,8 +942,7 @@ def main() -> None:
 
     report = build_report(audit)
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
-    with open(args.output, 'w', encoding='utf-8') as f:
-        f.write(report)
+    atomic_write_text(args.output, report)
     print(f"✅ Audit report written to {args.output} "
           f"({audit['distribution']['total']} ratings, "
           f"{audit['theme_routing']['corrections']} theme corrections, "

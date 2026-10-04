@@ -42,7 +42,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from cache import atomic_write_json
+from cache import atomic_write_json, atomic_write_text
 from config_loader import load_limits_config
 
 FEEDBACK_DIR = Path('feedback')
@@ -543,7 +543,7 @@ def build_log_entry(result: Dict[str, Any], retention_days: int, dry_run: bool) 
 
 def append_log(entry: str) -> None:
     existing = LOG_FILE.read_text(encoding='utf-8') if LOG_FILE.exists() else ''
-    LOG_FILE.write_text(entry + existing, encoding='utf-8')
+    atomic_write_text(LOG_FILE, entry + existing)
 
 
 def main() -> None:

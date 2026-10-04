@@ -98,6 +98,18 @@ atomic write. Decisions worth knowing:
 - Measured on the 1,040 live items of 2026-10-03: nothing dropped, no text field changed,
   idempotent, about 2 seconds for all 19 feeds.
 
+**Markdown logs and reports are written atomically too (2026-10-04).** `FEED_LOG.md`, `TODO.md`
+(its Notes section is hand-written), `FEED_HEALTH_LOG.md`, `CALIBRATION_LOG.md`,
+`calibration_memory/notes.md`, `FEEDBACK_TRAINING_LOG.md` and `config/standing_preferences.txt`
+grow by append or prepend, and CI commits them; an append cut short committed a torn file, and the
+prepend writers' `write_text` truncated first, so a crash mid-write committed the history as empty.
+Each is now read and rewritten whole through `atomic_write_text`. The dated `reports/` writers and
+the weekly report's HTML were switched too (one line each): only a same-day re-run regenerates a dated report, so
+a torn one would stay torn. Left as plain writes, because a torn copy costs nothing durable: the
+`*_summary.json` artifacts handed between weekly jobs (their reader warns and carries on),
+`discovery_summary.md` and `standing_preferences_pr.md` (PR bodies used in the same job),
+`tools/filter_priority_review.md` (rewritten whole every week) and the job summary.
+
 **Retained items used to stack a lead image every night.** The nightly rebuilds retained items
 from their published `content_html`, and `generate_json_feed()` prepended the lead image and
 badge again, so a week-old local story carried five copies of its photo. `_strip_generated_prefix()`
@@ -108,5 +120,21 @@ request and again on the final URL after redirects: `_fetch_article_excerpt` (th
 published), `_fetch_url_bytes` (rediscovery follows hrefs read off pages) and the image and title
 scrapes in `fetch_images.py`. It rejects loopback, private, link-local (cloud metadata),
 `localhost` and `.internal`/`.local` hosts, including `inet_aton` spellings such as `127.1`. It
-reads the literal host only. A public name that resolves to a private address, or a redirect
-hop's side effects, would need resolve-and-pin fetching, which is not built.
+reads the literal host only.
+
+**Since 2026-10-04 those fetches go through `get_public()`**, which adds the two checks the literal
+guard could not make: each hop's hostname is resolved and refused unless every address is global
+(an unresolvable name is refused too), and redirects are followed by hand, at most five, cookies
+carried, so a hop into a private address is never requested at all instead of being requested and
+then not read. `is_public_http_url` itself is unchanged, so the sanitizer drops exactly what it did.
+
+Was it worth it on GitHub-hosted runners? Barely, today: nothing listens on the runner's private
+addresses, and Azure's metadata service answers only requests carrying a `Metadata: true` header,
+which these fetches never send. It was built anyway because what these fetches read is published,
+the cost was about 30 lines and no dependency, and the day this pipeline moves to a self-hosted
+runner on a home network the gap becomes a way to publish a router's admin page. The trade-offs
+kept: it resolves and checks but does not pin, so `requests` resolves again and a DNS answer that
+changes between the two lookups (a rebinding server with a zero TTL) still gets through; one extra
+lookup per hop; and behind an HTTP proxy that does its own DNS, a name the runner cannot resolve
+locally is refused. The Azure WireServer address (168.63.129.16) is a global address and passes
+both checks; it needs headers these fetches do not send.

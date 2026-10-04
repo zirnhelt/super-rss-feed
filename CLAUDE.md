@@ -82,7 +82,7 @@ Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API ha
 | `super_rss_curator_json.py` | **Main pipeline** — the only curator script that runs. Fetch → filter → dedup → score → categorize → merge → output. |
 | `config_loader.py` | Loads and validates all `config/` files. Use its functions rather than opening JSON directly. `python config_loader.py` validates and exits non-zero on errors. |
 | `cache.py` | `Cache` (TTL JSON dict), `FeedHTTPCache` (ETag/Last-Modified/skip_until per feed URL), and `atomic_write_json` / `atomic_write_text`. |
-| `sanitize.py` | Makes third-party content inert before publishing: `safe_url`, `plain_text`, `sanitize_html`, `sanitize_feed`, and `is_public_http_url` for the pipeline's own fetches. |
+| `sanitize.py` | Makes third-party content inert before publishing: `safe_url`, `plain_text`, `sanitize_html`, `sanitize_feed`; `is_public_http_url` and `get_public` for the pipeline's own fetches. |
 | `api_usage.py` | Thread-safe tracker for Claude token counts + Cohere/Brave/Kagi call counts + cost estimate. |
 | `cohere_integration.py` | Cohere Rerank + Embed. Auto-activates when `COHERE_API_KEY` is set; every public function is a no-op when disabled. |
 | `fetch_images.py` | Open Graph images (favicon fallback); also harvests `apple.news` IDs from the same page fetch. |
@@ -188,6 +188,8 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 
 `git_push_retry.sh` auto-resolves rebase conflicts only in generated files (`GENERATED_PATTERNS`, which includes `reports/*`); a conflict in anything hand-editable fails the step.
 
+**Every workflow installs `requirements-lock.txt`** (`pip freeze`, Python 3.11). Edit `requirements.txt`, then regenerate the lock; `tests/test_requirements_lock.py` fails until you do.
+
 ## Other workflows
 
 - `tests.yml` — config validation + pytest on changes to code, config, tests or requirements.
@@ -225,9 +227,9 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 
 - **URLs:** everything passes through `canonicalize_url()` before hashing.
 - **Caches:** `Cache('file.json', ttl_hours=48)` → `load()` returns `{}` on missing/corrupt; `save(data)`. `FeedHTTPCache`: `load()` once at startup, `save()` once at shutdown.
-- **Every JSON cache, state, config or OPML write goes through `cache.atomic_write_json` / `atomic_write_text`**, never `open(path, 'w')`: CI commits whatever is on disk, and a truncated cache loads as `{}`.
+- **Every JSON cache, state, config, OPML, markdown log or `reports/` write goes through `cache.atomic_write_json` / `atomic_write_text`**, never `open(path, 'w')` or `'a'`: CI commits whatever is on disk, and a truncated cache loads as `{}`. An appending log is read and rewritten whole.
 - **Every published feed goes out through `write_feed()`** (sanitize, then atomic write). Never `json.dump` a feed directly. Text fields are stripped, not escaped — see [sources.md](docs/decisions/sources.md).
-- **A fetch of a URL taken from feed content checks `is_public_http_url()`**, before the request and on `response.url`.
+- **A fetch of a URL taken from feed content goes through `sanitize.get_public()`**, never a bare `requests.get`: every hop is checked by name and by resolved address, and redirects are followed hop by hop.
 - **API usage:** after every Claude call, `api_usage.record_claude_usage(response.usage)` (`batch=True` for batch results); `api_usage.record_call('cohere' | 'brave' | 'kagi')` for the others; print `api_usage.format_summary()` at the end.
 - **Cohere:** check `cohere_integration.is_enabled()`; public functions return falsy when disabled, so always fall back.
 
@@ -296,7 +298,7 @@ python super_rss_curator_json.py feeds.opml
 python super_rss_curator_json.py --bootstrap-feeds
 ```
 
-**Dependencies** (`requirements.txt`): `feedparser`, `anthropic`, `requests`, `beautifulsoup4`, `cohere`, `tzdata`
+**Dependencies** (`requirements.txt`, locked in `requirements-lock.txt`): `feedparser`, `anthropic`, `requests`, `beautifulsoup4`, `cohere`, `tzdata`
 
 # Decision records
 

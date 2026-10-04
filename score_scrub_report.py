@@ -24,6 +24,8 @@ from pathlib import Path
 
 import anthropic
 
+from cache import atomic_write_text
+
 # ── Configuration ────────────────────────────────────────────────────────────
 
 FEED_GLOB = "feed-*.json"
@@ -533,7 +535,7 @@ def main() -> None:
     print("Generating report…")
     report = generate_report(analyses, flagged, scrub_ran, now, podcast_analyses)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(report, encoding="utf-8")
+    atomic_write_text(str(output_path), report)
     print(f"Report written to {output_path}")
 
     if args.json_summary:

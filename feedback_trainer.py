@@ -313,7 +313,7 @@ def append_log(entry: str):
     existing = ''
     if LOG_FILE.exists():
         existing = LOG_FILE.read_text(encoding='utf-8')
-    LOG_FILE.write_text(entry + existing, encoding='utf-8')
+    atomic_write_text(LOG_FILE, entry + existing)
 
 
 def main():

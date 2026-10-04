@@ -17,6 +17,8 @@ import argparse
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from collections import defaultdict
+
+from cache import atomic_write_text
 try:
     from zoneinfo import ZoneInfo
     _PACIFIC = ZoneInfo("America/Los_Angeles")
@@ -498,7 +500,7 @@ def update_log_file(log_file: Path, header: str, section_text: str | None,
             if compressed and compressed['key'] not in existing_week_keys:
                 keep.append(compressed)
 
-    log_file.write_text(reassemble_log(keep), 'utf-8')
+    atomic_write_text(log_file, reassemble_log(keep))
 
 
 def update_feed_log(slot: str, metrics: dict, run_time: datetime):
@@ -651,7 +653,7 @@ def update_todo(entries: list, error_entries: list):
             '_Add observations and action items here._\n'
         )
 
-    TODO_FILE.write_text(content, 'utf-8')
+    atomic_write_text(TODO_FILE, content)
 
 
 # ---------------------------------------------------------------------------
@@ -687,7 +689,7 @@ def main():
     slot = args.slot or detect_slot()
 
     if not LOG_FILE.exists():
-        LOG_FILE.write_text(LOG_HEADER, 'utf-8')
+        atomic_write_text(LOG_FILE, LOG_HEADER)
 
     metrics = parse_output(text)
     update_feed_log(slot, metrics, run_time)

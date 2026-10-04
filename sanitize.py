@@ -17,7 +17,8 @@ super_rss_curator_json.py):
   and inline styles keep only layout and typography declarations.
 
 ``is_public_http_url`` is the separate guard for the pipeline's own outbound
-fetches of article pages, whose bodies are republished as excerpts and images.
+fetches of article pages, whose bodies are republished as excerpts and images;
+``get_public`` applies it, plus a DNS check, to every hop of such a fetch.
 """
 import ipaddress
 import re
@@ -25,6 +26,7 @@ import socket
 from typing import Any, Dict, Iterable, Optional, Union
 from urllib.parse import urljoin, urlsplit
 
+import requests
 from bs4 import BeautifulSoup
 from bs4.element import PreformattedString
 
@@ -164,6 +166,43 @@ def is_public_http_url(url: Any) -> bool:
         return False
     address = _ip_literal(host)
     return address is None or address.is_global
+
+
+MAX_REDIRECTS = 5
+
+
+def _resolves_public(host: str) -> bool:
+    """True if every address ``host`` resolves to is global. Fails closed."""
+    try:
+        infos = socket.getaddrinfo(host, None, proto=socket.IPPROTO_TCP)
+        addresses = {ipaddress.ip_address(info[4][0].split('%')[0]) for info in infos}
+    except (OSError, UnicodeError, ValueError):
+        return False
+    return bool(addresses) and all(a.is_global for a in addresses)
+
+
+def get_public(url: str, **kwargs: Any) -> Optional[requests.Response]:
+    """``requests.get`` for a third-party URL, or None if any hop is not public.
+
+    Each hop must pass ``is_public_http_url`` and resolve only to global
+    addresses before it is requested, so neither a public name pointing at a
+    private address nor a redirect through one is fetched. Redirects are
+    followed here (cookies carried, at most ``MAX_REDIRECTS``) so each hop is
+    checked.
+    """
+    # ponytail: resolve-and-check, not resolve-and-pin. requests resolves again, so a
+    # DNS answer that changes between the two lookups still gets through (sources.md).
+    cookies = requests.cookies.RequestsCookieJar()
+    for _ in range(MAX_REDIRECTS + 1):
+        if not is_public_http_url(url) or not _resolves_public(urlsplit(url).hostname):
+            return None
+        response = requests.get(url, allow_redirects=False, cookies=cookies, **kwargs)
+        if not getattr(response, 'is_redirect', False):
+            return response if is_public_http_url(getattr(response, 'url', url)) else None
+        cookies.update(response.cookies)
+        url = urljoin(url, response.headers['location'])
+        response.close()
+    return None
 
 
 def plain_text(value: Any) -> str:

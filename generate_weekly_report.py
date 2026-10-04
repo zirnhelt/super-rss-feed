@@ -24,7 +24,7 @@ from pathlib import Path
 import anthropic
 import requests
 
-from cache import atomic_write_json
+from cache import atomic_write_json, atomic_write_text
 from sanitize import sanitize_feed
 
 BASE_URL = "https://zirnhelt.github.io/super-rss-feed"
@@ -960,7 +960,7 @@ def main():
     html_page = build_html_page(title, content_html, week_label, pub_date_human)
     html_filename = f"{article_slug}.html"
     Path("reports").mkdir(exist_ok=True)
-    (Path("reports") / html_filename).write_text(html_page, "utf-8")
+    atomic_write_text(str(Path("reports") / html_filename), html_page)
 
     # Fetch current feed-news.json from GitHub Pages and prepend the article
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -994,7 +994,7 @@ def main():
     sanitize_feed(feed_news, "feed-news.json")
     atomic_write_json(feed_news_out, feed_news, indent=2, ensure_ascii=False)
     html_out = OUTPUT_DIR / html_filename
-    html_out.write_text(html_page, "utf-8")
+    atomic_write_text(str(html_out), html_page)
 
     print(f"  ✓ output/feed-news.json ({len(feed_news['items'])} items)")
     print(f"  ✓ output/{html_filename}")
