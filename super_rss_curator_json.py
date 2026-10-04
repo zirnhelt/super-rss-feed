@@ -808,6 +808,27 @@ _LOCAL_BC_DOMAINS = frozenset({
 })
 
 
+# Listings, not publishers: every entry's link points at some other site. Their
+# articles are attributed to that site (see _origin_of), while `listing_source`
+# keeps the feed title for the prescore gate and cap, which are keyed on it.
+AGGREGATOR_SOURCES = frozenset(SOURCE_PREFS.get('aggregator_sources', []))
+
+
+def _origin_of(entry, link: str) -> Optional[Tuple[str, str]]:
+    """Return (name, site URL) of the site an aggregator entry really comes from.
+
+    Name preference: the entry's own <source> title, then its author, then the
+    link's bare hostname. None when the link has no usable host.
+    """
+    parsed = urlparse(link)
+    host = (parsed.hostname or '').removeprefix('www.')
+    if not host or parsed.scheme not in ('http', 'https'):
+        return None
+    origin_source = entry.get('source') or {}
+    name = (origin_source.get('title') or entry.get('author') or host).strip()
+    return name, f"{parsed.scheme}://{parsed.netloc}"
+
+
 class Article:
     """Represents a single article"""
     def __init__(self, entry, source_title: str, source_url: str, feed_url: str = ''):
@@ -836,6 +857,11 @@ class Article:
         # (e.g. "TechCrunch") rather than the generic feed title ("GN AI ML Infrastructure")
         self.source = extracted_outlet if (is_google_news and extracted_outlet) else source_title
         self.source_url = source_url
+        self.listing_source = source_title
+        if source_title in AGGREGATOR_SOURCES:
+            origin = _origin_of(entry, self.link)
+            if origin:
+                self.source, self.source_url = origin
         self.feed_url = feed_url
         self.score = 0
         self.quality = 0       # Q: journalistic depth, sourcing, originality (0-100)
@@ -3598,7 +3624,8 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
     candidates_by_source = defaultdict(list)
     dropped = 0
     for article in articles:
-        if article.source not in gated_sources:
+        listing = getattr(article, 'listing_source', article.source)
+        if listing not in gated_sources:
             kept.append(article)
             continue
         text = f"{article.title} {article.description}".lower()
@@ -3612,7 +3639,7 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
             continue
         article._prescore_hits = hits
         article._prescore_is_local = is_local
-        candidates_by_source[article.source].append(article)
+        candidates_by_source[listing].append(article)
 
     for source, candidates in candidates_by_source.items():
         # Sort local articles first, then by keyword-hit density, so local content
