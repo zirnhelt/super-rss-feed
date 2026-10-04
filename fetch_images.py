@@ -6,14 +6,13 @@ Image fetching module with OpenGraph scraping and fallbacks
 import json
 import hashlib
 import re
-import requests
 from typing import Dict, Optional, Tuple
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from cache import atomic_write_json
-from sanitize import is_public_http_url
+from sanitize import get_public
 
 CONFIG_DIR = Path(__file__).parent / 'config'
 CACHE_FILE = Path(__file__).parent / 'image_cache.json'
@@ -90,12 +89,10 @@ def fetch_page_metadata(url, timeout=3) -> Dict:
             'Accept': 'text/html,application/xhtml+xml'
         }
 
-        if not is_public_http_url(url):
+        response = get_public(url, headers=headers, timeout=timeout)
+        if response is None:
             return result
-        response = requests.get(url, headers=headers, timeout=timeout, allow_redirects=True)
         response.raise_for_status()
-        if not is_public_http_url(response.url):
-            return result
 
         result['apple_article'], result['apple_channel'] = extract_apple_news_ids(response.text)
 
@@ -132,12 +129,10 @@ def fetch_page_title(url, timeout=3):
             'Accept': 'text/html,application/xhtml+xml'
         }
 
-        if not is_public_http_url(url):
+        response = get_public(url, headers=headers, timeout=timeout)
+        if response is None:
             return None
-        response = requests.get(url, headers=headers, timeout=timeout, allow_redirects=True)
         response.raise_for_status()
-        if not is_public_http_url(response.url):
-            return None
 
         soup = BeautifulSoup(response.text, 'html.parser')
 

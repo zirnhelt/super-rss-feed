@@ -29,7 +29,7 @@ import cohere_integration
 import api_usage
 import config_loader
 from cache import Cache, FeedHTTPCache, atomic_write_json, atomic_write_text
-from sanitize import is_public_http_url, safe_url, sanitize_feed
+from sanitize import get_public, safe_url, sanitize_feed
 
 # Configuration paths (kept for direct file access e.g. scoring_mode.json)
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -1642,19 +1642,17 @@ def _fetch_article_excerpt(url: str, max_chars: int = 600) -> str:
     commonly for local BC news sources that omit descriptions from their feeds.
     Returns '' on any failure so callers can treat it as optional.
     The URL comes from a third-party feed and the excerpt is published, so a
-    private address is never fetched, nor a redirect into one read.
+    private address is never fetched, by name, by address or through a redirect.
     """
-    if not is_public_http_url(url):
-        return ''
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,*/*',
         }
-        resp = requests.get(url, headers=headers, timeout=8)
-        resp.raise_for_status()
-        if not is_public_http_url(resp.url):
+        resp = get_public(url, headers=headers, timeout=8)
+        if resp is None:
             return ''
+        resp.raise_for_status()
         soup = BeautifulSoup(resp.text, 'html.parser')
 
         # Try common article-body selectors in order of specificity
@@ -2195,17 +2193,15 @@ def _fetch_url_bytes(url: str, user_agent: str = _BROWSER_UA) -> Optional[bytes]
     Feed rediscovery passes it hrefs read off third-party pages, so it only
     fetches public http(s) addresses.
     """
-    if not is_public_http_url(url):
-        return None
     try:
-        response = requests.get(
+        response = get_public(
             url,
             headers={'User-Agent': user_agent, 'Accept': _FEED_ACCEPT},
             timeout=10,
         )
-        response.raise_for_status()
-        if not is_public_http_url(response.url):
+        if response is None:
             return None
+        response.raise_for_status()
         return response.content
     except Exception:
         return None

@@ -630,9 +630,7 @@ def append_health_log(actions: List[Dict], dry_run: bool, path: str = HEALTH_LOG
         '_Appended by `integrate_discoveries.py --heal` during weekly maintenance._\n'
         '_Every entry was verified against the live network before it was applied._\n'
     )
-    if not os.path.exists(path):
-        with open(path, 'w') as f:
-            f.write(header)
+    existing = open(path, encoding='utf-8').read() if os.path.exists(path) else header
 
     lines = [f"\n\n## {_stamp()}{' (dry run)' if dry_run else ''}\n"]
     if not actions:
@@ -645,8 +643,7 @@ def append_health_log(actions: List[Dict], dry_run: bool, path: str = HEALTH_LOG
             detail = f"{a['reason']} → `{a['new_url']}`" if a['new_url'] else a['reason']
             lines.append(f"| {label} | {a['title']} | {detail} | {a['evidence']} |\n")
 
-    with open(path, 'a') as f:
-        f.writelines(lines)
+    atomic_write_text(path, existing + ''.join(lines))
     print(f"📝 Health log appended to {path}")
 
 

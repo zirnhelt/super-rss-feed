@@ -59,5 +59,16 @@ curator, and the gh-pages byte-match verifier). Keep it out of `build`, and keep
 it green: recalibrating a charter is a human's weekly job, not a reason to
 re-run the pipeline.
 
+## Dependencies are installed from a lock (2026-10-04)
+
+`requirements.txt` pinned only the six top-level packages, so each run still resolved the ~30
+transitive ones fresh: a new `httpx`, `pydantic` or `urllib3` reached the nightly run unannounced.
+Every workflow now installs `requirements-lock.txt`, the `pip freeze` of a clean Python 3.11 venv
+built from `requirements.txt`, in the same format as the podcast repo's lock (no hashes; the podcast
+has none either). The first lock is exactly what `generate-feed.yml` installed on 2026-10-04, so
+nothing was upgraded. `requirements.txt` stays the human-edited source;
+`tests/test_requirements_lock.py` fails when a pin there and the lock disagree, so a bump in one
+file alone cannot reach CI silently.
+
 **Required secrets:** `ANTHROPIC_API_KEY`
 **Optional secrets:** `COHERE_API_KEY`, `BRAVE_API_KEY`, `KAGI_API_KEY`

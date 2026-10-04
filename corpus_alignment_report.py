@@ -38,6 +38,7 @@ from pathlib import Path
 
 # Single source of truth for the ranking semantics — this report must agree
 # with what the curator actually selected on.
+from cache import atomic_write_text
 from super_rss_curator_json import normalize_theme_scores
 
 PODCAST_CACHE_FILE = "podcast_articles_cache.json"
@@ -425,7 +426,7 @@ def main() -> None:
     )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text("\n".join(sections), encoding="utf-8")
+    atomic_write_text(str(output_path), "\n".join(sections))
     print(f"Report written to {output_path}")
 
     if args.json_summary:

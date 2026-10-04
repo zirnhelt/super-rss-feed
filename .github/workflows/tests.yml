@@ -14,6 +14,7 @@ on:
       - 'config/**'
       - 'tests/**'
       - 'requirements.txt'
+      - 'requirements-lock.txt'
       - '.github/workflows/tests.yml'
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - 'config/**'
       - 'tests/**'
       - 'requirements.txt'
+      - 'requirements-lock.txt'
       - '.github/workflows/tests.yml'
   workflow_dispatch:
 
@@ -45,14 +47,14 @@ jobs:
         with:
           python-version: '3.11'
           cache: pip
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: requirements-lock.txt
 
       # No API keys: the tests exercise pure logic and config, and every API
       # path is either stubbed or switched off by a missing key.
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt pytest
+          pip install -r requirements-lock.txt pytest
 
       - name: Validate config
         run: python config_loader.py

@@ -281,48 +281,96 @@ def test_strip_prefix_heals_already_stacked_items_and_leaves_article_text_alone(
 # --- The fetchers -------------------------------------------------------------
 
 class _Resp:
-    def __init__(self, url):
+    def __init__(self, url, status=200, location=None, cookies=None):
         self.url = url
+        self.status_code = status
+        self.headers = {'location': location} if location else {}
+        self.is_redirect = location is not None
+        self.cookies = cookies or {}
         self.text = '<html><head><meta property="og:image" content="https://img.test/a.jpg"></head>' \
                     '<body><article>' + 'Internal secret text. ' * 10 + '</article></body></html>'
         self.content = self.text.encode()
-        self.status_code = 200
 
     def raise_for_status(self):
         pass
 
+    def close(self):
+        pass
 
-@pytest.mark.parametrize('target', ['http://169.254.169.254/latest/meta-data/', 'http://localhost/admin'])
-def test_private_targets_are_never_fetched(monkeypatch, target):
+
+# What each test hostname resolves to; anything else does not resolve.
+_DNS = {'news.test': '93.184.216.34', 'img.test': '93.184.216.35', 'cdn.test': '93.184.216.36',
+        'rebind.test': '169.254.169.254', 'lan.test': '192.168.1.10', 'mixed.test': ['93.184.216.34', '10.0.0.5'],
+        'v6.test': '::1'}
+
+
+class _Calls(list):
+    """URLs requested, plus ``routes``: URL -> canned response factory."""
+    def __init__(self):
+        super().__init__()
+        self.routes = {}
+
+
+@pytest.fixture
+def web(monkeypatch):
+    """Stub DNS and the network; returns the list of URLs actually requested."""
+    import requests
+
+    def getaddrinfo(host, *a, **k):
+        if host not in _DNS:
+            raise s.socket.gaierror('no such host')
+        ips = _DNS[host] if isinstance(_DNS[host], list) else [_DNS[host]]
+        return [(None, None, None, '', (ip, 0)) for ip in ips]
+    monkeypatch.setattr(s.socket, 'getaddrinfo', getaddrinfo)
+
+    calls = _Calls()
+
+    def get(url, **kwargs):
+        assert kwargs.get('allow_redirects') is False, 'redirects must be followed hop by hop'
+        calls.append(url)
+        return calls.routes.get(url, lambda: _Resp(url))()
+    monkeypatch.setattr(requests, 'get', get)
+    return calls
+
+
+@pytest.mark.parametrize('target', ['http://169.254.169.254/latest/meta-data/', 'http://localhost/admin',
+                                    'http://rebind.test/latest/meta-data/', 'https://lan.test/admin',
+                                    'https://mixed.test/a', 'https://v6.test/', 'https://nxdomain.test/'])
+def test_private_targets_are_never_fetched(web, target):
     import fetch_images
-
-    def no_network(*args, **kwargs):
-        raise AssertionError(f'fetched {args[0]}')
-    monkeypatch.setattr(m.requests, 'get', no_network)
-    monkeypatch.setattr(fetch_images.requests, 'get', no_network)
-
     assert m._fetch_article_excerpt(target) == ''
     assert m._fetch_url_bytes(target) is None
     assert fetch_images.fetch_page_metadata(target)['image'] is None
     assert fetch_images.fetch_page_title(target) is None
+    assert web == []
 
 
-def test_a_redirect_into_a_private_address_is_not_read(monkeypatch):
+@pytest.mark.parametrize('hop', ['http://169.254.169.254/latest/meta-data/', 'http://rebind.test/x',
+                                 'https://lan.test/router', 'file:///etc/passwd'])
+def test_a_redirect_hop_into_a_private_address_is_never_requested(web, hop):
     import fetch_images
-    redirected = lambda *a, **k: _Resp('http://169.254.169.254/latest/meta-data/')
-    monkeypatch.setattr(m.requests, 'get', redirected)
-    monkeypatch.setattr(fetch_images.requests, 'get', redirected)
-
+    web.routes['https://news.test/a'] = lambda: _Resp('https://news.test/a', 302, location=hop)
     assert m._fetch_article_excerpt('https://news.test/a') == ''
-    assert m._fetch_url_bytes('https://news.test/feed') is None
     assert fetch_images.fetch_page_metadata('https://news.test/a')['image'] is None
+    assert set(web) == {'https://news.test/a'}
 
 
-def test_a_public_page_is_still_read(monkeypatch):
+def test_a_public_redirect_chain_is_followed(web):
     import fetch_images
-    public = lambda url, *a, **k: _Resp(url)
-    monkeypatch.setattr(m.requests, 'get', public)
-    monkeypatch.setattr(fetch_images.requests, 'get', public)
+    web.routes['https://news.test/a'] = lambda: _Resp('https://news.test/a', 301, location='/b')
+    web.routes['https://news.test/b'] = lambda: _Resp('https://news.test/b', 302, location='https://cdn.test/a')
+    assert fetch_images.fetch_page_metadata('https://news.test/a')['image'] == 'https://img.test/a.jpg'
+    assert web == ['https://news.test/a', 'https://news.test/b', 'https://cdn.test/a']
 
+
+def test_a_redirect_loop_gives_up(web):
+    web.routes['https://news.test/a'] = lambda: _Resp('https://news.test/a', 302, location='https://news.test/a')
+    assert s.get_public('https://news.test/a') is None
+    assert len(web) == s.MAX_REDIRECTS + 1
+
+
+def test_a_public_page_is_still_read(web):
+    import fetch_images
     assert m._fetch_article_excerpt('https://news.test/a').startswith('Internal secret text.')
     assert fetch_images.fetch_page_metadata('https://news.test/a')['image'] == 'https://img.test/a.jpg'
+    assert m._fetch_url_bytes('https://news.test/feed')
