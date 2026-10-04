@@ -5,9 +5,9 @@
       "id": "weekday-theme-score-collapse-2026-07-26",
       "theme": "monday,tuesday,wednesday,thursday",
       "first_observed": "2026-07-26",
-      "last_observed": "2026-09-27",
+      "last_observed": "2026-10-04",
       "status": "resolved",
-      "description": "RESOLVED: The catastrophic weekday theme score collapse that persisted from July 26 through August 10 (16 consecutive runs) was fixed by the August 11 rearchitecture introducing dimensional scoring (quality/relevance/local) and relative scaling for podcast theme scores. Post-August 11 runs show healthy mean_theme_score_raw values across all themes: Monday 13.8–14.6 (vs collapsed 3.2–8.2 pre-fix), Tuesday 5.3–5.9 (vs dead 3.1), Wednesday 4.8–5.9 (vs weak 9.1), Thursday 6.9–7.1 (vs dead 4.7). Podcast feeds consistently hit target 100 articles with robust holdover banks (2631–2933 per theme). The composite histograms post-August 11 show normal distributions rather than 0-19 concentration. The relative_scaled flag confirms new scoring is active. No regression observed across 37+ consecutive healthy runs (August 11–September 27). Issue definitively resolved.",
+      "description": "Previously resolved collapse continues to hold; in fact weekday theme raw scores improved further starting ~Oct 1 (Monday raw mean roughly doubled, Tuesday/Wednesday/Thursday raw means rose 3-6x), closing most of the gap with weekend themes. No regression observed.",
       "evidence_runs": [
         "2026-07-13T07:28:29.183589+00:00",
         "2026-07-14T06:17:35.491468+00:00",
@@ -65,9 +65,45 @@
         {
           "run_date": "2026-09-27",
           "action": "None this run—the fix came from the August 11 human intervention on scoring_prompt and dimensional infrastructure (forbidden territory). Calibration agent monitoring confirms sustained recovery across 37+ runs. No auto-tunable knob changes were needed. Closing issue as permanently resolved."
+        },
+        {
+          "run_date": "2026-10-04",
+          "action": "None this run — continuing to monitor. The Oct 1 jump in weekday theme scores appears to be a further positive refinement of the August 11 dimensional-scoring work, not a calibration-agent change. No knob adjustment proposed; will watch next 2-3 runs to confirm the new higher baseline is stable before considering it fully settled."
         }
       ],
       "recommendation_pending": false
+    },
+    {
+      "id": "news-category-quality-crisis",
+      "theme": "news",
+      "first_observed": "2026-10-04",
+      "last_observed": "2026-10-04",
+      "status": "monitoring",
+      "description": "News remains the single worst-performing category on user-rated positive_pct (20.6% per-category in feedback, 79.4% bad), despite the Sep 23 max_slots.news cap to 10 and min_claude_score at ceiling-adjacent 25. Pipeline-side quality gate is dropping the vast majority of news candidates (8934 dropped vs 200 passed in this window), confirming the floor is working — the residual bad rate is a relevance/local scoring-prompt issue (news relevance histogram shows 12356/12729 articles in the 0-19 band) rather than a threshold problem.",
+      "evidence_runs": [
+        "2026-09-21T04:00:37.666981+00:00",
+        "2026-09-22T04:00:45.058198+00:00",
+        "2026-09-23T04:00:36.238364+00:00",
+        "2026-09-24T04:01:46.118750+00:00",
+        "2026-09-24T04:28:37.248975+00:00",
+        "2026-09-25T04:01:06.669897+00:00",
+        "2026-09-26T04:00:58.760213+00:00",
+        "2026-09-27T04:00:59.519081+00:00",
+        "2026-09-28T04:01:26.045743+00:00",
+        "2026-09-29T04:00:55.720608+00:00",
+        "2026-09-30T04:01:13.201271+00:00",
+        "2026-10-01T04:01:33.771128+00:00",
+        "2026-10-02T04:01:10.254540+00:00",
+        "2026-10-03T04:01:16.901145+00:00",
+        "2026-10-04T04:01:10.284230+00:00"
+      ],
+      "actions_taken": [
+        {
+          "run_date": "2026-10-04",
+          "action": "None this run — the Sep 23 max_slots.news=10 cap needs more time to show its full effect in user feedback (which lags pipeline changes by 1-2 weeks). Avoiding further threshold tightening this run since threshold_sweep shows diminishing returns (25→30 costs 21.5% positive lost for 50.8% bad cut, disproportionately hitting 'interesting' articles)."
+        }
+      ],
+      "recommendation_pending": true
     }
   ]
 }
