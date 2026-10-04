@@ -1,3 +1,134 @@
+## Feedback Training Run — 2026-10-04 17:29 UTC
+
+**Files processed:** 2026-09-05.json, 2026-09-06.json, 2026-09-08.json, 2026-09-09.json, 2026-09-11.json, 2026-09-12.json, 2026-09-13.json, 2026-09-14.json, 2026-09-15.json, 2026-09-16.json, 2026-09-17.json, 2026-09-18.json, 2026-09-22.json, 2026-09-23.json, 2026-09-24.json, 2026-09-25.json, 2026-09-26.json, 2026-09-27.json, 2026-09-28.json, 2026-09-29.json, 2026-09-30.json, 2026-10-01.json, 2026-10-02.json, 2026-10-03.json, 2026-10-04.json
+**Ratings:** 0 Exemplars, 165 Good, 132 Interesting, 0 Podcast-only, 391 Bad, 159 reassigned to day(s), 71 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (14), My Cariboo Now (11), The Tyee (9), ScienceDaily (8), Scientific American (7)
+**Top disliked sources:** Edge (GamesRadar) (21), NYT Top Stories (20), Mother Jones (17), The Atlantic (17), TechRadar (15)
+**Categories liked:** local (41), news (28), wellness (21), science (21), ai-tech (18), climate (16), homelab (10), homestead (5), outdoors (4), design (1)
+**Categories disliked:** news (301), ai-tech (31), wellness (20), local (16), design (8), climate (5), outdoors (3), scifi (3), homelab (3), science (1)
+
+**Day reassignment summary:**
+- friday → sunday: 12 articles
+- friday → friday: 10 articles
+- friday → tuesday: 9 articles
+- friday → saturday: 9 articles
+- friday → wednesday: 7 articles
+- friday → thursday: 7 articles
+- friday → monday: 3 articles
+- saturday → sunday: 11 articles
+- saturday → saturday: 7 articles
+- saturday → friday: 4 articles
+- saturday → thursday: 4 articles
+- saturday → wednesday: 3 articles
+- saturday → tuesday: 3 articles
+- saturday → monday: 2 articles
+- monday → sunday: 15 articles
+- monday → wednesday: 11 articles
+- monday → tuesday: 10 articles
+- monday → friday: 10 articles
+- monday → saturday: 10 articles
+- monday → thursday: 8 articles
+- monday → monday: 8 articles
+- wednesday → saturday: 14 articles
+- wednesday → tuesday: 14 articles
+- wednesday → thursday: 14 articles
+- wednesday → sunday: 13 articles
+- wednesday → friday: 12 articles
+- wednesday → wednesday: 12 articles
+- wednesday → monday: 5 articles
+- thursday → sunday: 14 articles
+- thursday → tuesday: 11 articles
+- thursday → saturday: 8 articles
+- thursday → thursday: 7 articles
+- thursday → friday: 6 articles
+- thursday → wednesday: 5 articles
+- thursday → monday: 2 articles
+- sunday → sunday: 5 articles
+- sunday → wednesday: 3 articles
+- sunday → friday: 3 articles
+- sunday → tuesday: 2 articles
+- sunday → thursday: 2 articles
+- sunday → saturday: 1 articles
+- sunday → monday: 1 articles
+- tuesday → sunday: 12 articles
+- tuesday → tuesday: 10 articles
+- tuesday → wednesday: 8 articles
+- tuesday → saturday: 7 articles
+- tuesday → thursday: 6 articles
+- tuesday → friday: 5 articles
+- tuesday → monday: 4 articles
+
+**Category retag summary:**
+- news → ai-tech: 19 articles
+- news → homelab: 10 articles
+- news → science: 9 articles
+- news → outdoors: 5 articles
+- news → climate: 4 articles
+- news → scifi: 4 articles
+- news → local: 3 articles
+- news → homestead: 3 articles
+- news → wellness: 2 articles
+- news → design: 1 articles
+- local → news: 1 articles
+- local → climate: 1 articles
+- local → wellness: 1 articles
+- local → ai-tech: 1 articles
+- wellness → climate: 1 articles
+- wellness → ai-tech: 1 articles
+- wellness → news: 1 articles
+- wellness → science: 1 articles
+- ai-tech → scifi: 1 articles
+- science → wellness: 2 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+# Scoring Calibration Guidance
+
+**TOPIC & FRAMING PRIORITIES**
+
+- **Local governance & infrastructure** (municipal elections, public consultation, infrastructure safety): Exceptionally high value. Williams Lake Tribune stories about elections, civic engagement, and regional policy consistently score 88–95. Prioritize over generic "news."
+
+- **BC/Cariboo regional environmental reporting**: Climate stories with explicit regional impact (drought preparedness, wildfire recovery, summer weather analysis) score 70–88. Frame solutions and scientific findings over crisis narratives.
+
+- **AI critical analysis over product/business coverage**: Accept nuanced concerns (job impact, governance gaps, deepfake risks, shadow AI risks, cost of training). Reject VC narratives, startup drama, stock moves, and tool comparisons—even from historically liked sources.
+
+- **Science & nature discovery** (unusual phenomena, animal behavior, brain/health mechanisms): Valued at 49–72. Prioritize mechanism-focused medical discoveries over symptom advice or wellness lifestyle content.
+
+- **Practical tech how-tos & privacy empowerment**: User-facing guides (security, tracking, free features, device diagnostics) score 68–70. Reject gear reviews, shopping deals, optimization lists, and lifestyle framing.
+
+**CATEGORY ACCURACY**
+
+- **Reclassify design/DIY/maker content away from "news"**: User consistently retagged 3D printing, maker fairs, and smart home guides into `homelab`, `design`, or `outdoors`. Stop defaulting maker/DIY to news.
+
+- **Environmental data stories belong in "climate" not "news"**: Water usage, drought impacts, and wildfire science are climate-first. Separate from generic news scoring.
+
+- **Local sports & entertainment do not count as "local"**: User rejected 100 Mile Wranglers hockey and reclassified Grand Forks muralist as news (not local interest). True local = governance, community safety, civic engagement, regional policy.
+
+**SOURCE & CONTENT PATTERNS**
+
+- **Distrusted sources in weak categories**: Al Jazeera (94% bad), Lifehacker (92%), Tom's Hardware (90%), Neowin (88%), Toms Guide (87%) consistently score low. Reduce prominence unless topic is exceptional.
+
+- **Trusted regional sources deserve higher baseline**: Williams Lake Tribune (81%), My Cariboo Now (73%), BC Gov News (78%) are reliable for local, climate, and Indigenous content. Weight positively.
+
+**DAY REASSIGNMENT SIGNAL**
+
+- **Friday articles rarely stay on Friday**: User reassigns nearly all Friday submissions to mid-week (Wednesday, Thursday) or weekend (Sunday).
+
+---
+## Feedback Archive Run — 2026-10-04 17:29 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 7 (2026-06-30.json … 2026-07-06.json)
+**Ratings folded into rollup:** 109 (rollup now holds 490)
+**Topic/framing lessons:** ✅ consolidated to 230 words
+**Raw bytes freed:** 108.4 KB
+**Live files remaining:** 80
+**URL ledger:** 1974 URLs (+189 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-09-27 17:46 UTC
 
 **Files processed:** 2026-08-31.json, 2026-09-01.json, 2026-09-02.json, 2026-09-03.json, 2026-09-04.json, 2026-09-05.json, 2026-09-06.json, 2026-09-08.json, 2026-09-09.json, 2026-09-11.json, 2026-09-12.json, 2026-09-13.json, 2026-09-14.json, 2026-09-15.json, 2026-09-16.json, 2026-09-17.json, 2026-09-18.json, 2026-09-22.json, 2026-09-23.json, 2026-09-24.json, 2026-09-25.json, 2026-09-26.json, 2026-09-27.json

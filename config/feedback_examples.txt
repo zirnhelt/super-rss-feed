@@ -1,29 +1,31 @@
-# SCORING PROMPT FOR CURATOR'S FEED
+# Scoring Calibration Guidance
 
 **TOPIC & FRAMING PRIORITIES**
 
-- **Indigenous, local governance & community**: Strongly elevate Cariboo/BC regional stories—municipal elections, reconciliation, First Nations advocacy, land stewardship, community safety. Williams Lake Tribune, My Cariboo Now, BC Gov News are trusted sources; treat local governance as equal to national news.
+- **Local governance & infrastructure** (municipal elections, public consultation, infrastructure safety): Exceptionally high value. Williams Lake Tribune stories about elections, civic engagement, and regional policy consistently score 88–95. Prioritize over generic "news."
 
-- **Climate & environmental action**: Favor solution-focused, scientific, or regional impact framing (wildfire response, species protection, sustainable tech, water/drought concerns). De-prioritize crisis/disaster-alone narratives and lifestyle trends. Data center water use, fish ecology, agrivoltaic innovation are strong signals.
+- **BC/Cariboo regional environmental reporting**: Climate stories with explicit regional impact (drought preparedness, wildfire recovery, summer weather analysis) score 70–88. Frame solutions and scientific findings over crisis narratives.
 
-- **AI: nuance over hype**: Boost critical analysis (job displacement, workplace restructuring, deployment speed, trust, legal accountability, shadow IT risk). Reject product launches, VC narratives, startup drama, stock/hiring news, and extinction/savior speculation. AI skills demand, deepfake risks, and agentic work efficiency are valid.
+- **AI critical analysis over product/business coverage**: Accept nuanced concerns (job impact, governance gaps, deepfake risks, shadow AI risks, cost of training). Reject VC narratives, startup drama, stock moves, and tool comparisons—even from historically liked sources.
 
-- **Science & discovery**: Favor unusual phenomena, animal behavior, astronomy, materials science, and medical breakthroughs (brain-behavior links, sleep, disease detection). Reject symptom-focused medical advice and pseudoscience wellness.
+- **Science & nature discovery** (unusual phenomena, animal behavior, brain/health mechanisms): Valued at 49–72. Prioritize mechanism-focused medical discoveries over symptom advice or wellness lifestyle content.
 
-- **Practical tech guides & privacy**: Elevate user-empowering how-tos (security, tracking prevention, accessibility, cross-device solutions). Reject product reviews, shopping deals, gear optimization, and lifestyle gadget aspiration.
+- **Practical tech how-tos & privacy empowerment**: User-facing guides (security, tracking, free features, device diagnostics) score 68–70. Reject gear reviews, shopping deals, optimization lists, and lifestyle framing.
 
-- **Homelab/maker content**: Strong appetite—3D printing, electronics projects, accessible tools, creative maker fairs. Often miscategorized as "news"; retag to homelab/design when appropriate.
+**CATEGORY ACCURACY**
 
-**CONTENT TYPE & SOURCE SIGNALS**
+- **Reclassify design/DIY/maker content away from "news"**: User consistently retagged 3D printing, maker fairs, and smart home guides into `homelab`, `design`, or `outdoors`. Stop defaulting maker/DIY to news.
 
-- Avoid entirely: gear reviews, shopping deals, home décor, fitness optimization, entertainment rankings, celebrity news, violent incidents, election/partisan coverage, and "try this" lifestyle content.
+- **Environmental data stories belong in "climate" not "news"**: Water usage, drought impacts, and wildfire science are climate-first. Separate from generic news scoring.
 
-- Trusted sources: Williams Lake Tribune, My Cariboo Now, BC Gov News, Scientific American, The Tyee, Hackaday, Adafruit, ZDNet (tech accountability). CBC Arts, Al Jazeera English, Lifehacker, Tom's Hardware routinely score poorly.
+- **Local sports & entertainment do not count as "local"**: User rejected 100 Mile Wranglers hockey and reclassified Grand Forks muralist as news (not local interest). True local = governance, community safety, civic engagement, regional policy.
 
-- Institutional accountability & journalism merit**: Press freedom, government transparency, labor safety—valued standalone, even if not local.
+**SOURCE & CONTENT PATTERNS**
 
-**DAY REASSIGNMENT PATTERNS**
+- **Distrusted sources in weak categories**: Al Jazeera (94% bad), Lifehacker (92%), Tom's Hardware (90%), Neowin (88%), Toms Guide (87%) consistently score low. Reduce prominence unless topic is exceptional.
 
-- Environmental & climate articles cluster across Mon–Sun; spread widely if regional impact is strong.  
-- AI/tech accountability spreads across all weekdays; rarely weekend-only.  
-- Local governance & Cariboo stories appear across full week; no day bias.
+- **Trusted regional sources deserve higher baseline**: Williams Lake Tribune (81%), My Cariboo Now (73%), BC Gov News (78%) are reliable for local, climate, and Indigenous content. Weight positively.
+
+**DAY REASSIGNMENT SIGNAL**
+
+- **Friday articles rarely stay on Friday**: User reassigns nearly all Friday submissions to mid-week (Wednesday, Thursday) or weekend (Sunday).

@@ -12,25 +12,35 @@
     "2026-06-26.json",
     "2026-06-27.json",
     "2026-06-28.json",
-    "2026-06-29.json"
+    "2026-06-29.json",
+    "2026-06-30.json",
+    "2026-07-01.json",
+    "2026-07-02.json",
+    "2026-07-03.json",
+    "2026-07-04.json",
+    "2026-07-05.json",
+    "2026-07-06.json"
   ],
   "by_category": {
     "ai-tech": {
       "bad": 11,
-      "good": 9,
+      "good": 11,
       "interesting": 1
     },
     "climate": {
       "good": 3
     },
+    "homelab": {
+      "bad": 1
+    },
     "local": {
-      "bad": 4,
+      "bad": 5,
       "good": 23
     },
     "news": {
-      "bad": 183,
-      "good": 118,
-      "interesting": 2
+      "bad": 262,
+      "good": 131,
+      "interesting": 8
     },
     "podcast-friday": {
       "bad": 1
@@ -39,11 +49,14 @@
       "bad": 2
     },
     "scifi": {
-      "bad": 2
+      "bad": 3
+    },
+    "shared": {
+      "good": 4
     },
     "wellness": {
-      "bad": 13,
-      "good": 9
+      "bad": 14,
+      "good": 10
     }
   },
   "by_source": {
@@ -55,11 +68,11 @@
       "good": 4
     },
     "Al Jazeera English": {
-      "bad": 16,
+      "bad": 17,
       "good": 1
     },
     "Android Authority": {
-      "bad": 8,
+      "bad": 13,
       "good": 4
     },
     "Android Police": {
@@ -67,36 +80,42 @@
       "good": 1
     },
     "Atlas Obscura": {
-      "bad": 4,
+      "bad": 5,
       "good": 1
     },
     "BC Gov News": {
-      "bad": 1,
+      "bad": 2,
       "good": 7
     },
     "Boing Boing": {
-      "bad": 8,
-      "good": 5
+      "bad": 10,
+      "good": 6
     },
     "Business Insider": {
-      "bad": 11,
+      "bad": 14,
       "good": 4
     },
     "CBC Arts": {
-      "bad": 5
+      "bad": 6,
+      "good": 1
     },
     "CFJC Today Kamloops": {
       "bad": 3,
       "good": 3
     },
     "CNET": {
-      "bad": 4,
-      "good": 4
+      "bad": 10,
+      "good": 4,
+      "interesting": 1
     },
     "Civil Eats": {
       "good": 1
     },
     "Cool Tools": {
+      "bad": 1,
+      "good": 2
+    },
+    "Daniele Messi. \u2014 Writing": {
       "bad": 1
     },
     "Eagle Feather News": {
@@ -106,19 +125,19 @@
       "good": 2
     },
     "Engadget": {
-      "bad": 5,
+      "bad": 9,
       "good": 6
     },
     "FlowingData": {
-      "bad": 2
+      "bad": 3
     },
     "Gizmodo": {
-      "bad": 2,
+      "bad": 7,
       "good": 4
     },
     "Global News": {
-      "bad": 7,
-      "good": 6,
+      "bad": 8,
+      "good": 7,
       "interesting": 1
     },
     "Hackaday": {
@@ -137,92 +156,103 @@
       "good": 1
     },
     "Kottke.org": {
-      "bad": 2
+      "bad": 4,
+      "good": 1
     },
     "Krebs on Security": {
       "bad": 1
     },
     "Lifehacker": {
-      "bad": 6,
+      "bad": 11,
       "good": 1
     },
     "MacRumors": {
-      "interesting": 1
+      "interesting": 2
     },
     "Make Magazine": {
       "good": 1
     },
     "MakeUseOf": {
-      "bad": 1,
+      "bad": 2,
       "good": 3
     },
     "My Cariboo Now": {
-      "bad": 2,
+      "bad": 3,
       "good": 8
     },
     "My East Kootenay Now": {
-      "bad": 4
+      "bad": 6
     },
     "NPR Health News": {
-      "bad": 4,
+      "bad": 6,
       "good": 1
     },
     "NYT Business": {
-      "bad": 6,
+      "bad": 8,
       "good": 2
     },
     "NYT Top Stories": {
       "bad": 11,
-      "good": 3
+      "good": 3,
+      "interesting": 1
     },
     "NYT Well": {
       "bad": 3,
-      "good": 1
+      "good": 1,
+      "interesting": 1
     },
     "Nautilus": {
       "bad": 1,
-      "good": 2
+      "good": 3
     },
     "Neowin": {
-      "bad": 4,
+      "bad": 7,
       "good": 1
     },
     "New Atlas": {
       "bad": 3,
-      "good": 6
+      "good": 8
+    },
+    "Noahpinion": {
+      "interesting": 1
     },
     "Open Culture": {
+      "bad": 1,
       "good": 1
     },
     "OpenMedia": {
+      "bad": 3,
       "interesting": 1
     },
     "Outside Online": {
-      "bad": 4,
-      "good": 4
+      "bad": 6,
+      "good": 5
     },
     "Pique Newsmagazine": {
-      "bad": 9,
+      "bad": 11,
       "good": 3
     },
     "Quartz": {
-      "bad": 5,
+      "bad": 6,
       "good": 3
     },
     "Quesnel Cariboo Observer": {
       "bad": 2,
-      "good": 2
+      "good": 3
     },
     "Reactor Magazine": {
-      "bad": 4,
+      "bad": 5,
       "good": 1
     },
     "Resilience.org": {
       "good": 1
     },
     "STAT News": {
-      "bad": 7,
+      "bad": 8,
       "good": 2
+    },
+    "ScienceAlert": {
+      "good": 1
     },
     "ScienceDaily": {
       "good": 3
@@ -231,15 +261,15 @@
       "bad": 1
     },
     "TechCrunch": {
-      "bad": 7,
+      "bad": 9,
       "good": 3
     },
     "TechRadar": {
-      "bad": 6,
-      "good": 8
+      "bad": 7,
+      "good": 9
     },
     "The Atlantic Culture": {
-      "bad": 2,
+      "bad": 4,
       "good": 1
     },
     "The Guardian Global Development": {
@@ -249,34 +279,36 @@
       "good": 1
     },
     "The Marginalian": {
-      "bad": 1,
-      "good": 1
+      "bad": 3,
+      "good": 2,
+      "interesting": 1
     },
     "The Narwhal": {
       "bad": 1,
       "good": 3
     },
     "The Northern Miner": {
-      "bad": 2,
-      "good": 2
+      "bad": 3,
+      "good": 3
     },
     "The Tyee": {
       "bad": 2,
       "good": 1
     },
     "The Verge": {
+      "bad": 2,
       "good": 2
     },
     "Tom's Hardware": {
-      "bad": 6,
+      "bad": 9,
       "good": 1
     },
     "Toms Guide": {
-      "bad": 8,
+      "bad": 13,
       "good": 2
     },
     "WIRED": {
-      "bad": 5,
+      "bad": 6,
       "good": 3
     },
     "Western Producer": {
@@ -290,17 +322,29 @@
       "good": 2
     },
     "ZDNet": {
-      "bad": 2,
-      "good": 3
+      "bad": 5,
+      "good": 4
+    },
+    "cheknews.ca": {
+      "good": 1
     },
     "ricochet.media": {
+      "good": 1
+    },
+    "www.ctvnews.ca": {
+      "good": 1
+    },
+    "www.pv-magazine.com": {
+      "good": 1
+    },
+    "www.theatlantic.com": {
       "good": 1
     }
   },
   "category_retags": {},
   "day_reassignments": {
     "friday": {
-      "friday": 1,
+      "friday": 3,
       "monday": 1,
       "saturday": 4,
       "sunday": 7,
@@ -309,12 +353,12 @@
       "wednesday": 8
     },
     "monday": {
-      "friday": 2,
+      "friday": 3,
       "saturday": 2,
-      "sunday": 3,
+      "sunday": 4,
       "thursday": 2,
       "tuesday": 4,
-      "wednesday": 2
+      "wednesday": 3
     },
     "saturday": {
       "friday": 1,
@@ -325,19 +369,22 @@
       "wednesday": 6
     },
     "sunday": {
-      "friday": 2,
-      "saturday": 2,
+      "friday": 3,
+      "saturday": 3,
       "sunday": 4,
       "tuesday": 4,
       "wednesday": 5
     },
     "thursday": {
       "friday": 4,
-      "sunday": 2,
-      "wednesday": 4
+      "sunday": 4,
+      "thursday": 1,
+      "tuesday": 1,
+      "wednesday": 5
     },
     "tuesday": {
-      "monday": 3,
+      "friday": 1,
+      "monday": 4,
       "saturday": 2,
       "sunday": 2,
       "thursday": 2,
@@ -345,72 +392,72 @@
     },
     "wednesday": {
       "friday": 11,
-      "monday": 2,
+      "monday": 4,
       "saturday": 8,
       "sunday": 7,
       "thursday": 2,
       "tuesday": 4,
-      "wednesday": 2
+      "wednesday": 3
     }
   },
   "first_rated_at": "2026-06-17T03:56:12.980Z",
-  "last_rated_at": "2026-06-29T13:41:59.098Z",
-  "lessons": "# SCORING LESSONS\n\n- **Indigenous & local community coverage**: Strongly favored\u2014celebrations, governance, reconciliation, education, and Cariboo/BC regional stories. Includes First Nations advocacy, land stewardship, and healing initiatives.\n\n- **Environmental & climate action**: Liked when framed as solutions, scientific discovery, or protection (wildfire response, species preservation, sustainable farming, heat wave science). Rejected when emphasizing crisis/disaster alone or as lifestyle trend.\n\n- **Science & nature discovery**: Favored\u2014unusual phenomena, animal behavior, astronomy, materials science, medical breakthroughs (brain changes, sleep impact, disease detection). Rejects symptom-focused medical advice and wellness pseudoscience.\n\n- **AI: critical analysis over hype**: Accepts nuanced concerns (job impact, deployment speed, trust issues, efficiency problems, legal accountability). Rejects promotional product launches, VC narratives, startup drama, stock/hiring coverage, and speculative fiction treating AI as inevitable savior/threat.\n\n- **Practical tech guides & privacy**: Strong preference for user-empowering how-tos (security, tracking, free features, cross-device solutions, accessible device features). Rejects product reviews, shopping deals, gear optimization, and lifestyle aspirations.\n\n- **Journalism & institutional accountability**: Valued as standalone merit\u2014press freedom, First Nations advocacy, government transparency. Rejects sensationalism, celebrity crime, violent incidents, human-interest tragedy (crashes, deaths), and election/partisan coverage.\n\n- **Geopolitical & conflict reporting**: Consistently rejected\u2014military focus, violence, ceasefire updates, international unrest, protest arrests. Includes UN crises and regional instability.\n\n- **Consumer/lifestyle exclusion zone**: Rejects gear reviews, shopping features, entertainment rankings, fitness optimization, food trends, home d\u00e9cor, relationship advice, and \"try this\" wellness content\u2014even if technically sound.\n\n- **Local governance & civic engagement**: Favored\u2014municipal elections, public consultation, infrastructure projects, community safety responses, regional policy review.",
-  "lessons_batches": 2,
-  "lessons_updated_at": "2026-09-27T17:46:03+00:00",
+  "last_rated_at": "2026-07-12T14:38:30.228363+00:00",
+  "lessons": "# SCORING LESSONS\n\n- **Indigenous & local community coverage**: Strongly favored\u2014celebrations, governance, reconciliation, education, and Cariboo/BC regional stories. Includes First Nations advocacy, land stewardship, and healing initiatives.\n\n- **Environmental & climate action**: Liked when framed as solutions, scientific discovery, or protection (wildfire response, species preservation, sustainable farming, heat wave science). Rejected when emphasizing crisis/disaster alone or as lifestyle trend.\n\n- **Science & nature discovery**: Favored\u2014unusual phenomena, animal behavior, astronomy, materials science, medical breakthroughs (brain changes, sleep impact, disease detection). Rejects symptom-focused medical advice and wellness pseudoscience.\n\n- **AI: critical analysis over hype**: Accepts nuanced concerns (job impact, deployment speed, trust issues, efficiency problems, legal accountability) and practical implementation guides. Rejects promotional product launches, VC narratives, startup drama, stock/hiring coverage, speculative fiction, and tool comparisons.\n\n- **Practical tech guides & privacy**: Strong preference for user-empowering how-tos (security, tracking, free features, cross-device solutions, accessible device features). Rejects product reviews, shopping deals, gear optimization, and lifestyle aspirations.\n\n- **Journalism & institutional accountability**: Valued as standalone merit\u2014press freedom, First Nations advocacy, government transparency. Rejects sensationalism, celebrity crime, violent incidents, human-interest tragedy (crashes, deaths), and election/partisan coverage.\n\n- **Local governance & civic engagement**: Favored\u2014municipal elections, public consultation, infrastructure projects, community safety responses, regional policy review.\n\n- **Consumer/lifestyle exclusion zone**: Rejects gear reviews, shopping features, deals, product launches, entertainment rankings, fitness optimization, food trends, home d\u00e9cor, relationship advice, and \"try this\" wellness content\u2014even if technically sound.",
+  "lessons_batches": 3,
+  "lessons_updated_at": "2026-10-04T17:29:32+00:00",
   "score_bands": {
     "0-19": {
-      "bad": 30,
-      "good": 8,
-      "interesting": 1
+      "bad": 63,
+      "good": 10,
+      "interesting": 3
     },
     "20-39": {
-      "bad": 32,
-      "good": 31
+      "bad": 51,
+      "good": 33
     },
     "40-59": {
-      "bad": 62,
-      "good": 43,
-      "interesting": 2
+      "bad": 92,
+      "good": 57,
+      "interesting": 6
     },
     "60-79": {
       "bad": 71,
-      "good": 52
+      "good": 53
     },
     "80-100": {
-      "bad": 21,
-      "good": 28
+      "bad": 22,
+      "good": 29
     }
   },
   "score_sums": {
     "bad": {
       "local": 0.0,
-      "n": 216,
-      "quality": 10718.0,
-      "relevance": 10718.0,
-      "score": 11071.0
+      "n": 299,
+      "quality": 13111.0,
+      "relevance": 13111.0,
+      "score": 13571.0
     },
     "good": {
       "local": 0.0,
-      "n": 162,
-      "quality": 7974.0,
-      "relevance": 7974.0,
-      "score": 9183.0
+      "n": 182,
+      "quality": 8613.0,
+      "relevance": 8866.0,
+      "score": 10090.0
     },
     "interesting": {
       "local": 0.0,
-      "n": 3,
-      "quality": 113.0,
-      "relevance": 113.0,
-      "score": 108.0
+      "n": 9,
+      "quality": 324.0,
+      "relevance": 324.0,
+      "score": 324.0
     }
   },
-  "total_ratings": 381,
+  "total_ratings": 490,
   "totals": {
-    "bad": 216,
-    "good": 162,
-    "interesting": 3
+    "bad": 299,
+    "good": 182,
+    "interesting": 9
   },
-  "updated_at": "2026-09-27T17:46:03+00:00",
+  "updated_at": "2026-10-04T17:29:32+00:00",
   "version": 1
 }
