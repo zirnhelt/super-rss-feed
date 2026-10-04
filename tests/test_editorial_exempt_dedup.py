@@ -50,3 +50,14 @@ def test_review_does_not_knock_out_a_news_story() -> None:
     news = _article('Episode review of Cariboo Signals podcast, September 2026', 'Tribune', 'https://a.example/3')
     kept = m.deduplicate_articles([_review(29), news])
     assert {a.source for a in kept} == {REVIEWS, 'Tribune'}
+
+
+def test_aggregator_entries_are_attributed_to_their_origin_site() -> None:
+    """Kagi Small Web is a listing: the byline is the linked site, not Kagi."""
+    listed = _article('A post', 'Kagi Small Web', 'https://www.blog.example/posts/1')
+    assert listed.source == 'blog.example'
+    assert listed.source_url == 'https://www.blog.example'
+    # The prescore gate and per-source cap stay keyed on the feed title.
+    assert listed.listing_source == 'Kagi Small Web'
+    direct = _article('A post', 'Vox', 'https://www.vox.com/a')
+    assert direct.source == 'Vox'
