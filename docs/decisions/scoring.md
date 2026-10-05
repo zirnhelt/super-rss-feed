@@ -280,3 +280,57 @@ ratings are what starved it; change `world_slots` by hand. `run_stats` records
 in one `news` ranking, and that is how Hackaday, Adafruit and TechRadar gadget posts
 reach the feed. It looks like a bug, but the reader called those posts "a great
 addition" (2026-09-29). Ask before closing it.
+
+## What one week's audit cannot see (2026-10-05)
+
+By October the audit had four months of ratings, and each week's
+`article_review_audit_summary.json` overwrote the last, so every trend had to be
+rebuilt by hand from the raw ratings. Rebuilt, they showed findings the weekly
+snapshot reported and nobody acted on, and some it never reported at all:
+
+- **Mother Jones** sat at 19 of 19 bad, a block candidate since at least 09-27,
+  unblocked. Rolling Stone, The New Yorker and Cottage Life were blocked on 09-24 and
+  still headed the worst-sources list (old ratings never age out), and the calibration
+  notes kept recommending those blocks.
+- **A logged change is not proof it landed**: the Kagi result limit was "raised"
+  10 → 12 on both 09-13 and 09-20, because the workflow committed only two config files.
+- **`podcast_only` was used 0 times** in the ~215 ratings after it shipped (09-29).
+- **Thursday (Indigenous Lands & Innovation) won 0 argmax** in all 15 runs from 09-22
+  to 10-05, while Sunday took 65-76% of the pool. Monday sat at 0 until 10-01.
+  `run_stats['theme_argmax']` is the documented guard, and nothing weekly read it.
+- **News was 61-78% of the ratings in every 28-day window** since late July, so
+  scifi, homestead and outdoors went a season with under 20 ratings each. Their rates
+  were noise, not "fine".
+- **The gate threw away 13-24% of the rejects the reader wanted** in every 28-day
+  window since late July: NYT Well, MacRumors, Outside Online. The gate ignores interests by design
+  and runs before the interest ranking, so these never reach `news_interests.txt`.
+
+So the audit now keeps a history and checks across weeks. All of it is stdlib, with no
+API call:
+
+- **`reports/weekly_metrics.jsonl`**, one line per ISO week (`--metrics-history`, CI
+  only): rating counts for the 7 days, rates over 28 days (one week is too few to read a
+  rate from), the scorecard, cost by stage, theme wins and the week's finding ids. The
+  first run rebuilds the rating-derived half from the archive, marked `backfilled`.
+- **Needs Attention** (`blind_spots()`): unmeasured categories, the gate's miss rate
+  and its most-missed sources, unused verdicts, themes that never win, local places
+  (`filters.json` → `local_signals`) with high appetite and thin pool supply,
+  unblocked block candidates, calibration changes not in config, a stale price table.
+  Each carries **weeks**, the consecutive audits that reported it; at 3 it is
+  escalated. Blocked sources leave `worst_sources`.
+- **What each score buys** (`signal_scorecard()`): AUC of every rated score against
+  the verdicts over the last 4 weeks, with the reader model refit each week on earlier
+  ratings only. On 2026-10-05 (684 ratings, 421 news): on news, Q, R and L were 0.51-0.52,
+  a coin flip, against 0.71 for the final score, 0.71 for that day's theme fit and 0.77
+  for the reader model. `api_usage` now records each Claude call's `stage`, so the
+  stage costs (`claude_by_stage` in `calibration_stats_cache.json`) sit beside the
+  scores they pay for. That is the evidence a paid stage has to beat before anyone
+  spends on a shadow test of an alternative, and before the deep pass is cut.
+- **Did calibration changes land?** (`calibration_followthrough()`): the latest change
+  per knob checked against config, with the reweighted shipped wanted rate 14 days
+  either side. That is a correlation, since everything else changed too.
+
+The weekly report renders the findings and the scorecard. Its cost table now prices
+vendors from `api_usage.FLAT_COST_PER_CALL`: its own copy said Brave was free for weeks
+after `api_usage` began charging $0.005 a call, and Claude now shows a figure instead
+of "token-based —".

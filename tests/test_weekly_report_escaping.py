@@ -52,3 +52,25 @@ def test_plain_text_is_unchanged():
     html = _render(narrative='Feeds held steady.', new_feeds=[{'title': 'Williams Lake Tribune'}])
     assert '<p>Feeds held steady.</p>' in html
     assert '<li>Williams Lake Tribune</li>' in html
+
+
+def test_cost_table_prices_every_vendor_from_api_usage():
+    # Brave read "free" here for weeks after api_usage priced it at $0.005 a call.
+    from generate_weekly_report import build_api_cost_html
+    html = build_api_cost_html({'vendor_totals': {'claude': 10, 'brave': 100, 'kagi': 4},
+                                'run_count': 2, 'total_cost': 1.53, 'avg_cost_per_run': 0.765,
+                                'total_tokens': 1000})
+    assert 'free' not in html
+    assert '$0.5000' in html          # brave: 100 x $0.005
+    assert '$1.0000' in html          # claude: total less the flat-priced vendors
+
+
+def test_audit_findings_are_escaped():
+    from generate_weekly_report import build_audit_findings_html
+    html = build_audit_findings_html({
+        'blind_spots': [{'title': HOSTILE, 'detail': f'source {HOSTILE}', 'weeks': 3, 'escalate': True}],
+        'scorecard': {'weeks': 4, 'n': 10, 'signals': {'score': {'name': HOSTILE, 'stage': 'gate',
+                                                                 'auc': 0.7, 'auc_news': None}}},
+        'stage_costs': {'by_stage': {'gate': {'calls': 3, 'est_cost_usd': 0.25}}},
+    })
+    assert '<script>' not in html and '3 weeks running' in html and 'too few' in html

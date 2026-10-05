@@ -24,6 +24,7 @@ from pathlib import Path
 import anthropic
 import requests
 
+from api_usage import FLAT_COST_PER_CALL
 from cache import atomic_write_json, atomic_write_text
 from sanitize import sanitize_feed
 
@@ -709,6 +710,7 @@ def build_quality_review_html(quality_review: dict) -> str:
             report_url = f"{GITHUB_REPO_URL}/blob/main/reports/ARTICLE_REVIEW_AUDIT_{report_date}.md"
             html += f' <a href="{report_url}">Full audit</a>.'
         html += "</p>\n"
+        html += build_audit_findings_html(feedback_audit)
         bands = feedback_audit.get("band_precision") or []
         if bands:
             html += (
@@ -723,6 +725,45 @@ def build_quality_review_html(quality_review: dict) -> str:
                 )
             html += "</tbody></table>"
 
+    return html
+
+
+def build_audit_findings_html(feedback_audit: dict) -> str:
+    """The audit's multi-week findings and what each paid score buys, from its summary."""
+    html = ""
+    findings = feedback_audit.get("blind_spots") or []
+    if findings:
+        html += "<h4>Needs attention</h4>\n<ul>\n"
+        for f in findings:
+            weeks = f.get("weeks", 1)
+            repeat = f" <strong>({_esc(weeks)} weeks running)</strong>" if f.get("escalate") else ""
+            html += f"  <li><strong>{_esc(f.get('title'))}</strong>{repeat}: {_esc(f.get('detail'))}</li>\n"
+        html += "</ul>\n"
+
+    card = feedback_audit.get("scorecard") or {}
+    signals = card.get("signals") or {}
+    if signals:
+        def cell(value) -> str:
+            return _esc(value) if value is not None else "too few"
+        html += (
+            f"<h4>What each score buys</h4>\n<p>Last {_esc(card.get('weeks'))} weeks, "
+            f"{_esc(card.get('n'))} ratings. AUC: 0.5 is a coin flip, 1.0 perfect.</p>\n"
+            "<table><thead><tr><th>Signal</th><th>Paid by</th><th>AUC</th><th>AUC, news</th>"
+            "</tr></thead><tbody>\n"
+        )
+        for sig in signals.values():
+            html += (f"<tr><td>{_esc(sig.get('name'))}</td><td>{_esc(sig.get('stage'))}</td>"
+                     f"<td>{cell(sig.get('auc'))}</td><td>{cell(sig.get('auc_news'))}</td></tr>\n")
+        html += "</tbody></table>"
+
+    stages = (feedback_audit.get("stage_costs") or {}).get("by_stage") or {}
+    if stages:
+        html += ("\n<h4>Claude cost by stage (7 days)</h4>\n<table><thead><tr><th>Stage</th>"
+                 "<th>Calls</th><th>Est. cost</th></tr></thead><tbody>\n")
+        for stage, c in stages.items():
+            html += (f"<tr><td>{_esc(stage)}</td><td>{_esc(c.get('calls'))}</td>"
+                     f"<td>${float(c.get('est_cost_usd') or 0):.4f}</td></tr>\n")
+        html += "</tbody></table>"
     return html
 
 
@@ -746,10 +787,12 @@ def build_api_cost_html(api_cost: dict) -> str:
         return ""
 
     VENDOR_ORDER = ["claude", "cohere", "brave", "kagi"]
-    FLAT_RATES = {"cohere": 0.002, "brave": 0.0, "kagi": 0.0075}
 
     vendor_totals = api_cost.get("vendor_totals", {})
     run_count = api_cost.get("run_count", 1)
+    # The per-call rates are api_usage's, the ones the run estimates were made with.
+    # A copy here said Brave was free for weeks after api_usage started pricing it.
+    flat_cost = sum(n * FLAT_COST_PER_CALL.get(v, 0.0) for v, n in vendor_totals.items() if v != "claude")
 
     html = "\n<h3>API Cost Review</h3>\n"
     html += (
@@ -767,9 +810,9 @@ def build_api_cost_html(api_cost: dict) -> str:
         avg = round(calls / run_count, 1)
         if vendor == "claude":
             rate_str = "token-based"
-            cost_str = "—"
+            cost_str = f"${max(api_cost['total_cost'] - flat_cost, 0.0):.4f}"
         else:
-            rate = FLAT_RATES.get(vendor, 0.0)
+            rate = FLAT_COST_PER_CALL.get(vendor, 0.0)
             rate_str = f"${rate:.4f}/call" if rate else "free"
             cost_str = f"${calls * rate:.4f}" if rate else "$0"
         html += (

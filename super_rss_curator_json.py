@@ -1594,7 +1594,7 @@ def process_pending_theme_batch(api_key: str):
                         theme_cache[key] = {'score': 50, 'cached_at': now_iso}
             continue
 
-        api_usage.record_claude_usage(result.result.message.usage, batch=True)
+        api_usage.record_claude_usage(result.result.message.usage, batch=True, stage='theme_batch')
         response_text = result.result.message.content[0].text.strip()
         if response_text.startswith('```'):
             lines = response_text.splitlines()
@@ -3019,7 +3019,7 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
                 system=system_blocks,
                 messages=[{"role": "user", "content": prompt}]
             )
-            api_usage.record_claude_usage(response.usage)
+            api_usage.record_claude_usage(response.usage, stage='gate')
             response_text = response.content[0].text.strip()
             _start, _end = response_text.find('['), response_text.rfind(']') + 1
             if _start != -1 and _end > _start:
@@ -3399,7 +3399,7 @@ Articles to evaluate:
                     messages=[{"role": "user", "content": prompt}]
                 )
 
-                api_usage.record_claude_usage(response.usage)
+                api_usage.record_claude_usage(response.usage, stage='deep_score')
 
                 # Log cache token usage to verify prompt caching is working
                 usage = response.usage
@@ -4374,7 +4374,7 @@ Articles to evaluate:
                 ],
                 messages=[{"role": "user", "content": prompt}]
             )
-            api_usage.record_claude_usage(response.usage)
+            api_usage.record_claude_usage(response.usage, stage='theme')
 
             response_text = response.content[0].text.strip()
             # Strip markdown code fences if model wraps the JSON
@@ -4566,7 +4566,7 @@ Articles to evaluate:
                              "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
                     messages=[{"role": "user", "content": prompt}]
                 )
-                api_usage.record_claude_usage(response.usage)
+                api_usage.record_claude_usage(response.usage, stage='theme_ingest')
                 response_text = response.content[0].text.strip()
                 if response_text.startswith('```'):
                     lines = response_text.splitlines()
