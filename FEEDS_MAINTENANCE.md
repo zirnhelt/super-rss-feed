@@ -81,7 +81,7 @@ So what still needs you:
 
 - **Timeout / RemoteDisconnected** — usually transient, and the backoff ladder
   does not apply (they can resolve on their own). A feed that times out for
-  3+ consecutive days will clear the heal floor and be retired on Sunday.
+  3+ consecutive days will clear the heal floor and be retired on Saturday.
 
 - **A week where nothing was healed and the log says `🛑 None of N known-good
   feeds is reachable`** — that is the network sanity guard: the runner itself

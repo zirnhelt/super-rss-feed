@@ -37,6 +37,26 @@ Workers Free allows only 5 Cron Triggers per account, all five are spent on the
 two ladders where a late trigger costs the day, and a weekly report arriving an
 hour late costs nothing.
 
+**The weekly run moved from Sunday 13:00 UTC to Saturday 13:23 UTC on
+2026-10-05**, so the podcast's Sunday Meta Moment can draw on it. On Sunday it
+landed five hours after the Meta Moment was written, so the show could only
+ever hear about the week before last, and the weekly agents' own commits
+("Weekly calibration agent run") name a job, not a change, so the podcast
+skips them. The report job now writes the week's applied changes to
+`weekly-state-article.json` → `_changes`: one plain line per feed added,
+healed, retired or restored and per calibration knob moved, built from the
+agents' records (`discovery_actions.json`, `feed_health_actions.json`,
+`change_history.json`), never from the model-written narrative: the Meta
+Moment's guard treats every input line as fact, and a narrative is a model's
+reading of the facts. The podcast reads the file from `main` and uses it only while
+`date_published` is under 7 days old, so a Saturday run that slips past Sunday
+08:05 UTC airs the following Sunday, never twice. GitHub cron has been seen
+running up to six hours late, and Saturday 13:23 leaves about nineteen.
+
+`discovery_actions.json` is committed by the discovery PR as well as uploaded as
+an artifact, so a week whose discovery job failed used to report last week's
+additions as new. The report job now deletes it when discovery did not succeed.
+
 Also triggered manually with optional `use_search_apis` flag.
 
 **Steps:**

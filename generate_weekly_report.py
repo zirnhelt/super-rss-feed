@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Generate a weekly "State of the Feed" article and inject it into feed-news.json.
 
-Runs every Sunday at 13:15 UTC (after discover-feeds @ 10:00 UTC and
-generate-feed @ 12:30 UTC have both completed).
+Runs as the last job of weekly-maintenance.yml, Saturdays, after every agent
+that can change the pipeline has run.
 
 Outputs:
   output/feed-news.json              — feed-news with the new article prepended
   output/weekly-report-YYYY-Www.html — standalone HTML permalink
   reports/weekly-report-YYYY-Www.html — committed to main so generate-feed persists it
-  weekly-state-article.json          — committed to main for reference
+  weekly-state-article.json          — committed to main; its `_changes` feed the
+                                       podcast's Sunday Meta Moment
 """
 
 import json
@@ -25,7 +26,7 @@ import anthropic
 import requests
 
 from cache import atomic_write_json, atomic_write_text
-from sanitize import sanitize_feed
+from sanitize import plain_text, sanitize_feed
 
 BASE_URL = "https://zirnhelt.github.io/super-rss-feed"
 GITHUB_REPO_URL = "https://github.com/zirnhelt/super-rss-feed"
@@ -284,6 +285,39 @@ def get_calibration_changes(today: str) -> list:
     except Exception as exc:
         print(f"  ⚠️  Could not read change_history.json: {exc}")
         return []
+
+
+# ---------------------------------------------------------------------------
+# What changed this week, for the podcast's Sunday Meta Moment
+# ---------------------------------------------------------------------------
+
+# 'recovered' never gets here: get_feed_health_actions drops it.
+_HEAL_VERBS = {
+    "relocated": "Repaired the feed address of the source",
+    "substituted": "Replaced an unreachable feed with a Google News search for the source",
+    "retired": "Retired the source",
+    "restored": "Restored the retired source",
+}
+CHANGE_LINE_MAX = 160
+
+
+def get_week_changes(discovery_actions: list, health_actions: list,
+                     calibration_changes: list) -> list[str]:
+    """The week's applied changes as one-line subjects, built without a model.
+
+    curated-podcast-generator reads these from `weekly-state-article.json` →
+    `_changes`, and the Sunday Meta Moment may cite them, so they are the
+    agents' own records, never the narrative (a model's reading of them).
+    Source titles are chosen by the feeds' publishers and end up in a prompt,
+    so every line is stripped to plain text and capped.
+    """
+    lines = [f"Added a new source: {feed.get('title', '?')} ({feed.get('category', 'general')})"
+             for feed in discovery_actions]
+    lines += [f"{_HEAL_VERBS.get(fix.get('action'), str(fix.get('action', '?')).title())} "
+              f"{fix.get('title', '?')}" for fix in health_actions]
+    lines += [f"Tuned {c.get('knob', '?')} from {c.get('old_value')} to {c.get('new_value')}"
+              for c in calibration_changes]
+    return [" ".join(plain_text(line).split())[:CHANGE_LINE_MAX] for line in lines]
 
 
 # ---------------------------------------------------------------------------
@@ -951,7 +985,9 @@ def main():
         "date_published": pub_date_iso,
         "authors": [{"name": "AI Feed Curator", "url": BASE_URL}],
         "_score": 99,
+        "_changes": get_week_changes(discovery_actions, health_actions, calibration_changes),
     }
+    print(f"     {len(article['_changes'])} change line(s) for the podcast's Meta Moment")
 
     # Persist article to repo root (committed to main; referenced by generate-feed deploys)
     atomic_write_json("weekly-state-article.json", article, indent=2, ensure_ascii=False)
@@ -987,7 +1023,8 @@ def main():
         i for i in feed_news.get("items", [])
         if not i.get("id", "").endswith(f"weekly-report-{iso_year}-W{iso_week:02d}.html")
     ]
-    feed_news["items"] = [article] + items
+    # `_changes` is for the podcast, which reads the committed file, not feed readers.
+    feed_news["items"] = [{k: v for k, v in article.items() if k != "_changes"}] + items
 
     feed_news_out = OUTPUT_DIR / "feed-news.json"
     # The downloaded items are third-party content like any other feed's.
