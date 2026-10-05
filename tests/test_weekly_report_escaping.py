@@ -36,24 +36,6 @@ def _render(**overrides):
     return build_content_html(**args)
 
 
-def test_no_third_party_text_survives_as_markup():
-    html = _render()
-    assert '<script>' not in html
-    assert '&lt;script&gt;' in html
-
-
-def test_report_structure_is_still_markup():
-    html = _render()
-    assert '<ul>' in html and '<table>' in html
-    assert '<a href="https://github.com/' in html
-
-
-def test_plain_text_is_unchanged():
-    html = _render(narrative='Feeds held steady.', new_feeds=[{'title': 'Williams Lake Tribune'}])
-    assert '<p>Feeds held steady.</p>' in html
-    assert '<li>Williams Lake Tribune</li>' in html
-
-
 def test_cost_table_prices_every_vendor_from_api_usage():
     # Brave read "free" here for weeks after api_usage priced it at $0.005 a call.
     from generate_weekly_report import build_api_cost_html
@@ -74,3 +56,21 @@ def test_audit_findings_are_escaped():
         'stage_costs': {'by_stage': {'gate': {'calls': 3, 'est_cost_usd': 0.25}}},
     })
     assert '<script>' not in html and '3 weeks running' in html and 'too few' in html
+
+
+def test_no_third_party_text_survives_as_markup():
+    html = _render()
+    assert '<script>' not in html
+    assert '&lt;script&gt;' in html
+
+
+def test_report_structure_is_still_markup():
+    html = _render()
+    assert '<ul>' in html and '<table>' in html
+    assert '<a href="https://github.com/' in html
+
+
+def test_plain_text_is_unchanged():
+    html = _render(narrative='Feeds held steady.', new_feeds=[{'title': 'Williams Lake Tribune'}])
+    assert '<p>Feeds held steady.</p>' in html
+    assert '<li>Williams Lake Tribune</li>' in html
