@@ -302,6 +302,9 @@ jobs:
           # open. One was baked in here from 2026-06-17 until it was revoked on
           # 2026-09-23 — never write a secret into a page.
           cp review.html output/
+          # Web app shell (manifest, review-sw.js, icons/): the service worker must sit
+          # beside review.html, and a deploy that drops it uninstalls the app's offline mode.
+          cp -r webapp/. output/
           cp index.html output/
           cp curated-feeds.opml output/
 
