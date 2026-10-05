@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Near-Miss Article Review</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Review">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,8 +20,16 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px 14px 48px;
+            padding: max(20px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right))
+                     max(48px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: contain;
         }
+        .offline-banner {
+            background: #fff3cd; color: #7a5b00; border-radius: 12px; padding: 8px 14px;
+            margin-bottom: 14px; font-size: 0.85em; display: none;
+        }
+        body.offline .offline-banner { display: block; }
 
         .page-shell { max-width: 1100px; margin: 0 auto; }
 
@@ -282,6 +297,7 @@
 <body>
 <div class="page-shell">
 
+    <div class="offline-banner">Offline: ratings are kept on this device. Saving to GitHub needs a connection.</div>
     <div class="page-header">
         <a href="index.html" class="back-link">← Back to feeds</a>
         <h1>📋 Near-Miss Article Review</h1>
@@ -454,8 +470,19 @@ function purgeOtherBatches() {
     } catch {}
 }
 
+// ── Web app shell ────────────────────────────────────────────────────────────
+function syncOnline() { document.body.classList.toggle('offline', !navigator.onLine); }
+window.addEventListener('online', syncOnline);
+window.addEventListener('offline', syncOnline);
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('review-sw.js', { scope: './' }).catch(() => {});
+    });
+}
+
 // ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
+    syncOnline();
     populateExemplarCategories();
     init();
 });
