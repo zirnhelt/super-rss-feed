@@ -182,9 +182,11 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 - **`validate` is a separate job that never fails.** A permanently red check buries the signals that matter. Keep it out of `build`.
 - Secrets: `ANTHROPIC_API_KEY` (required); `COHERE_API_KEY`, `BRAVE_API_KEY`, `KAGI_API_KEY` (optional).
 
-## `weekly-maintenance.yml` — Sunday 13:00 UTC
+## `weekly-maintenance.yml` — Saturday 13:23 UTC
 
 Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** (auto-merged PR at threshold 65) → **feed-health** (`--heal`; after discovery because both rewrite `feeds.opml`) → **calibration** (commits all of `config/`) → **feedback-training** (archive, then train) → **standing-preferences** (a proposal PR, never auto-merged; skipped while one is open) → **quality-review** (the three reports into `reports/`) → **filter-review** → **report** (weekly HTML to gh-pages).
+
+**It runs Saturday so the podcast's Sunday Meta Moment can cite it.** The report job writes the week's applied changes (feeds added, healed, retired; calibration knobs) to `weekly-state-article.json` → `_changes`, built from the agents' records, never the narrative. The podcast reads `_changes` and `date_published` from `main` (`get_upstream_week_changes`) and ignores a file over 7 days old; renaming either key silently empties that half of the segment. Don't move the run back past Sunday 08:05 UTC.
 
 `git_push_retry.sh` auto-resolves rebase conflicts only in generated files (`GENERATED_PATTERNS`, which includes `reports/*`); a conflict in anything hand-editable fails the step.
 

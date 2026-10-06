@@ -8,7 +8,7 @@
 # Write a line as "<Subject>: <what it covers>. KEEP <the exception>." A line with no
 # KEEP clause is applied broadly.
 #
-# Every Sunday, standing_preferences.py reads the notes on your "bad" ratings and, when
+# Every Saturday, standing_preferences.py reads the notes on your "bad" ratings and, when
 # at least two share a subject nothing here covers, opens a pull request proposing a
 # line. Merging it adopts the line. Closing it declines it, and it will not be proposed
 # again. Edit or delete any line by hand at any time.

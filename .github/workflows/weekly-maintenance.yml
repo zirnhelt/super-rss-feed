@@ -2,8 +2,11 @@ name: Weekly Quality & Reporting
 
 on:
   schedule:
-    # Sundays at 1:00 PM UTC
-    - cron: '0 13 * * 0'
+    # Saturdays at 13:23 UTC (6:23 AM Pacific). Saturday, not Sunday: the report
+    # job's `_changes` feed the podcast's Sunday Meta Moment, whose script runs at
+    # 08:05 UTC Sunday — this leaves ~19 h for GitHub's cron to be late in. Off
+    # the hour because top-of-hour schedules are the ones GitHub delays.
+    - cron: '23 13 * * 6'
   workflow_dispatch:
     inputs:
       run_discovery:
@@ -507,6 +510,13 @@ jobs:
         with:
           name: feed-health-actions
         continue-on-error: true
+
+      # discovery_actions.json is also committed, by the discovery PR. Without
+      # this run's artifact the committed copy is last week's list, and the
+      # report and the podcast's Meta Moment would announce those feeds again.
+      - name: Drop last week's discovery actions
+        if: needs.discovery.result != 'success'
+        run: rm -f discovery_actions.json
 
       - name: Download filter review artifact
         if: needs.filter-review.result != 'skipped'

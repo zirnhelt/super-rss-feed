@@ -52,3 +52,27 @@ def test_plain_text_is_unchanged():
     html = _render(narrative='Feeds held steady.', new_feeds=[{'title': 'Williams Lake Tribune'}])
     assert '<p>Feeds held steady.</p>' in html
     assert '<li>Williams Lake Tribune</li>' in html
+
+
+# The `_changes` lines go to the podcast, which hands them to a Meta Moment
+# prompt as citable facts, so they are plain text and bounded like any other
+# publisher-chosen string.
+from generate_weekly_report import CHANGE_LINE_MAX, get_week_changes
+
+
+def test_week_changes_are_plain_bounded_lines():
+    lines = get_week_changes(
+        discovery_actions=[{'title': f'One Earth {HOSTILE}', 'category': 'climate', 'score': 79.1}],
+        health_actions=[{'action': 'retired', 'title': 'X' * 400},
+                         {'action': 'substituted', 'title': 'CleanTechnica'}],
+        calibration_changes=[{'knob': 'feed_slots.max_slots.news', 'old_value': 25, 'new_value': 22}],
+    )
+    assert lines[0] == 'Added a new source: One Earth (climate)'
+    assert lines[1].startswith('Retired the source XXX') and len(lines[1]) == CHANGE_LINE_MAX
+    assert lines[2].endswith('Google News search for the source CleanTechnica')
+    assert lines[3] == 'Tuned feed_slots.max_slots.news from 25 to 22'
+    assert all('\n' not in line and '<' not in line for line in lines)
+
+
+def test_quiet_week_has_no_changes():
+    assert get_week_changes([], [], []) == []
