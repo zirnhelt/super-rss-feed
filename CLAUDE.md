@@ -93,7 +93,7 @@ Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API ha
 | `feed_discovery.py` | Weekly feed discovery — searches Brave/Kagi, scores candidates, writes `feed_discovery_report.json`. |
 | `integrate_discoveries.py` | Reconciles `feeds.opml` with reality: `--auto-add-threshold` adds discovery candidates; `--heal` is the feed health agent. Writes `FEED_HEALTH_LOG.md`. |
 | `corpus_alignment_report.py` | Weekly audit of upstream interest scores against per-theme fit. Writes `reports/CORPUS_ALIGNMENT_REPORT_<date>.md`. |
-| `article_review_audit.py` | Weekly, stdlib-only. Joins ratings against pipeline scores. Writes `reports/ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (read by calibration and the weekly report). Also holds `fit_reader_model()`, which the curator uses nightly to order the review batch. |
+| `article_review_audit.py` | Weekly, stdlib-only. Joins ratings against pipeline scores. Writes `reports/ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (read by calibration and the weekly report) and a line per week in `reports/weekly_metrics.jsonl`. Also holds `fit_reader_model()`, which the curator uses nightly to order the review batch. |
 | `score_scrub_report.py` | Spot-checks live feeds. Writes `reports/FEED_REVIEW_<date>.md`. |
 | `generate_weekly_report.py` | Produces `reports/weekly-report-YYYY-WNN.html` (deployed to gh-pages at the root). |
 | `log_feed_results.py` | Parses curator stdout into `FEED_LOG.md` (newest first; older days compressed to weekly summaries). |
@@ -232,7 +232,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **Every JSON cache, state, config, OPML, markdown log or `reports/` write goes through `cache.atomic_write_json` / `atomic_write_text`**, never `open(path, 'w')` or `'a'`: CI commits whatever is on disk, and a truncated cache loads as `{}`. An appending log is read and rewritten whole.
 - **Every published feed goes out through `write_feed()`** (sanitize, then atomic write). Never `json.dump` a feed directly. Text fields are stripped, not escaped — see [sources.md](docs/decisions/sources.md).
 - **A fetch of a URL taken from feed content goes through `sanitize.get_public()`**, never a bare `requests.get`: every hop is checked by name and by resolved address, and redirects are followed hop by hop.
-- **API usage:** after every Claude call, `api_usage.record_claude_usage(response.usage)` (`batch=True` for batch results); `api_usage.record_call('cohere' | 'brave' | 'kagi')` for the others; print `api_usage.format_summary()` at the end.
+- **API usage:** after every Claude call, `api_usage.record_claude_usage(response.usage, stage='<step>')` (`batch=True` for batch results; the stage names the paying step, e.g. `gate`, `deep_score`, `theme_ingest`); `api_usage.record_call('cohere' | 'brave' | 'kagi')` for the others; print `api_usage.format_summary()` at the end.
 - **Cohere:** check `cohere_integration.is_enabled()`; public functions return falsy when disabled, so always fall back.
 
 ## Safety rules for the automated agents
@@ -247,6 +247,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
 - **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
 - **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`.
+- **The audit reads across weeks.** Its **Needs Attention** findings carry how many weekly audits in a row reported them (from `reports/weekly_metrics.jsonl`); at 3 they escalate. Before paying for a stage, or for a test of an alternative, read **What each score buys**: its out-of-time AUC beside its cost by stage.
 - **A verdict is feed × podcast:** `good` (both), `interesting` (feed only), `podcast_only` (show only), `bad` (neither). Feed, band, sweep and source metrics count good+interesting; day fit (`theme_routing.per_day.good_pct`) counts good+podcast_only. Block a source only at n ≥ 8 with zero positives of any kind, `podcast_only` included.
 
 ## The podcast pool — see [docs/decisions/podcast-pool.md](docs/decisions/podcast-pool.md)

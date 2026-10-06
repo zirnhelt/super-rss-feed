@@ -79,3 +79,19 @@ def test_calibration_call_disables_thinking(monkeypatch):
     assert error is None and result == {"changes": []}
     assert sent["model"] == "claude-sonnet-5"
     assert sent["thinking"] == {"type": "disabled"}
+
+
+def test_claude_cost_is_kept_by_stage_with_the_batch_discount():
+    # The weekly audit sets each stage's cost beside how well its scores predict ratings.
+    from types import SimpleNamespace
+    api_usage.reset()
+    api_usage.record_claude_usage(SimpleNamespace(input_tokens=1_000_000, output_tokens=0), stage='gate')
+    api_usage.record_claude_usage(SimpleNamespace(input_tokens=1_000_000, output_tokens=0),
+                                  batch=True, stage='theme_batch')
+    api_usage.record_claude_usage(SimpleNamespace(input_tokens=0, output_tokens=0))
+    by_stage = api_usage.get_summary_dict()['claude_by_stage']
+    assert by_stage == {'gate': {'calls': 1, 'est_cost_usd': 1.0},
+                        'other': {'calls': 1, 'est_cost_usd': 0.0},
+                        'theme_batch': {'calls': 1, 'est_cost_usd': 0.5}}
+    api_usage.reset()
+    assert api_usage.get_summary_dict()['claude_by_stage'] == {}

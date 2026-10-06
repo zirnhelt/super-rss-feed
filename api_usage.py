@@ -1,9 +1,11 @@
 """Tracks external API call counts and a rough cost estimate for one curator run.
 
 Call sites should call record_call(vendor) for simple per-request vendors
-(Cohere, Brave, Kagi) and record_claude_usage(usage) for Anthropic responses,
-which also carry token counts. main() prints format_summary() once at the end
-of a run; log_feed_results.py parses that line into FEED_LOG.md.
+(Cohere, Brave, Kagi) and record_claude_usage(usage, stage=...) for Anthropic
+responses, which also carry token counts. main() prints format_summary() once at
+the end of a run; log_feed_results.py parses that line into FEED_LOG.md, and
+get_summary_dict() goes into calibration_stats_cache.json, where the weekly audit
+sets each stage's cost beside how well its scores predict the reader's ratings.
 
 Pricing below is list price in USD per million tokens (Claude Haiku 4.5) and
 flat per-call estimates for the other vendors. These are deliberately rough —
@@ -17,6 +19,8 @@ _lock = threading.Lock()
 _calls = defaultdict(int)
 _claude_tokens = defaultdict(int)        # synchronous Messages API calls
 _claude_batch_tokens = defaultdict(int)  # Message Batches API calls (50% discount)
+_claude_stage_calls = defaultdict(int)
+_claude_stage_cost = defaultdict(float)  # USD, batch discount applied
 
 # cache_write is the 1-hour TTL rate (2x input): every cache_control in the
 # curator sets ttl=1h. The 5-minute rate (1.25x) undercounted it by ~40%.
@@ -37,19 +41,26 @@ def record_call(vendor: str, n: int = 1) -> None:
         _calls[vendor] += n
 
 
-def record_claude_usage(usage, batch: bool = False) -> None:
+def record_claude_usage(usage, batch: bool = False, stage: str = 'other') -> None:
     """Record one Claude API call plus its token usage.
 
     `usage` is an Anthropic response.usage (or batch result message.usage) object.
-    `batch` selects the discounted Message Batches API pricing.
+    `batch` selects the discounted Message Batches API pricing. `stage` names the
+    pipeline step that paid for it ('gate', 'deep_score', 'theme', ...).
     """
+    tokens = {
+        'input': getattr(usage, 'input_tokens', 0) or 0,
+        'output': getattr(usage, 'output_tokens', 0) or 0,
+        'cache_write': getattr(usage, 'cache_creation_input_tokens', 0) or 0,
+        'cache_read': getattr(usage, 'cache_read_input_tokens', 0) or 0,
+    }
     with _lock:
         _calls['claude'] += 1
         bucket = _claude_batch_tokens if batch else _claude_tokens
-        bucket['input'] += getattr(usage, 'input_tokens', 0) or 0
-        bucket['output'] += getattr(usage, 'output_tokens', 0) or 0
-        bucket['cache_write'] += getattr(usage, 'cache_creation_input_tokens', 0) or 0
-        bucket['cache_read'] += getattr(usage, 'cache_read_input_tokens', 0) or 0
+        for kind, n in tokens.items():
+            bucket[kind] += n
+        _claude_stage_calls[stage] += 1
+        _claude_stage_cost[stage] += _claude_cost(tokens, BATCH_DISCOUNT if batch else 1.0)
 
 
 def _claude_cost(tokens: dict, discount: float = 1.0) -> float:
@@ -77,9 +88,12 @@ def get_summary_dict() -> dict:
     with _lock:
         calls = dict(_calls)
         total_tokens = sum(_claude_tokens.values()) + sum(_claude_batch_tokens.values())
+        by_stage = {stage: {'calls': n, 'est_cost_usd': round(_claude_stage_cost[stage], 4)}
+                    for stage, n in sorted(_claude_stage_calls.items())}
     return {
         'calls': calls,
         'claude_tokens': total_tokens,
+        'claude_by_stage': by_stage,
         'est_cost_usd': round(estimate_cost(), 4),
     }
 
@@ -115,3 +129,5 @@ def reset() -> None:
         _calls.clear()
         _claude_tokens.clear()
         _claude_batch_tokens.clear()
+        _claude_stage_calls.clear()
+        _claude_stage_cost.clear()

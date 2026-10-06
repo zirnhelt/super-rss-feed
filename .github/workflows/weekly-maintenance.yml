@@ -399,8 +399,12 @@ jobs:
       - name: Run corpus alignment review
         run: python corpus_alignment_report.py --json-summary corpus_alignment_summary.json
 
+      # --metrics-history adds this week to reports/weekly_metrics.jsonl (committed below
+      # with reports/), which is what lets the audit say a finding is weeks old.
       - name: Run article review audit
-        run: python article_review_audit.py --json-summary article_review_audit_summary.json
+        run: |
+          python article_review_audit.py --json-summary article_review_audit_summary.json \
+            --metrics-history reports/weekly_metrics.jsonl
 
       - name: Upload reports as artifacts
         uses: actions/upload-artifact@v4

@@ -10,12 +10,15 @@ the long-run volume trend in `FEED_LOG.md`, and the committed
 
 Answers: how well did scoring/prioritization match the user's verdicts per
 category and per daily theme bucket, how much fluff got through, and is the
-feed actually running lighter?
+feed actually running lighter? Since 2026-10 also what one week cannot show:
+findings that repeat week after week, how well each paid score predicts the
+ratings against what its stage costs, and whether calibration changes landed.
+Each run's headline numbers go into `reports/weekly_metrics.jsonl`.
 
 Entirely offline — stdlib only, no API calls. Follows the same dual-output
 convention as `corpus_alignment_report.py`:
 
-    python article_review_audit.py [--output PATH] [--json-summary PATH]
+    python article_review_audit.py [--output PATH] [--json-summary PATH] [--metrics-history PATH]
 
 Defaults: `ARTICLE_REVIEW_AUDIT_<YYYY-MM-DD>.md` and (when requested)
 `article_review_audit_summary.json`, which `calibration_agent.py` and
@@ -23,16 +26,18 @@ Defaults: `ARTICLE_REVIEW_AUDIT_<YYYY-MM-DD>.md` and (when requested)
 """
 
 import argparse
+import bisect
 import glob
 import json
 import math
 import re
 import statistics
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
+import config_loader
 from cache import atomic_write_text
 
 BASE_DIR = Path(__file__).parent
@@ -41,6 +46,10 @@ FEED_LOG_FILE = BASE_DIR / 'FEED_LOG.md'
 CALIBRATION_STATS_FILE = BASE_DIR / 'calibration_stats_cache.json'
 CALIBRATION_LOG_FILE = BASE_DIR / 'CALIBRATION_LOG.md'
 THEME_HOLDOVER_FILE = BASE_DIR / 'theme_holdover_cache.json'
+METRICS_HISTORY_FILE = BASE_DIR / 'reports' / 'weekly_metrics.jsonl'
+CHANGE_HISTORY_FILE = BASE_DIR / 'calibration_memory' / 'change_history.json'
+POOL_CACHE_FILE = BASE_DIR / 'podcast_articles_cache.json'
+CLAUDE_MD_FILE = BASE_DIR / 'CLAUDE.md'
 
 WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 SCORE_BANDS = [(80, 100), (60, 79), (40, 59), (20, 39), (0, 19)]
@@ -63,6 +72,7 @@ SOURCE_BLOCK_MIN_RATINGS = 8
 POSITIVE = ('good', 'interesting', 'exemplar')
 DAY_FIT = ('good', 'podcast_only')
 VERDICTS = ('good', 'interesting', 'podcast_only', 'bad', 'skip')
+RATED = ('good', 'interesting', 'podcast_only', 'bad')  # every verdict but skip
 
 
 def _positive(counts: Counter) -> int:
@@ -125,7 +135,18 @@ def load_calibration_runs() -> List[Dict]:
 # Section 1 — scoring precision vs. verdicts
 # ---------------------------------------------------------------------------
 
-def rating_distribution(ratings: List[Dict]) -> Dict[str, Any]:
+def _is_blocked(source: str, blocked: List[str]) -> bool:
+    """The curator's own rule: a blocked entry anywhere in the lowercased source name."""
+    source_lower = (source or '').lower()
+    return any(entry in source_lower for entry in blocked)
+
+
+def rating_distribution(ratings: List[Dict], blocked: Optional[List[str]] = None) -> Dict[str, Any]:
+    if blocked is None:
+        try:
+            blocked = [b.lower() for b in config_loader.get_blocked_sources()]
+        except Exception:
+            blocked = []
     counts = Counter(r['rating'] for r in ratings)
     total = len(ratings)
     by_category: Dict[str, Counter] = defaultdict(Counter)
@@ -149,14 +170,19 @@ def rating_distribution(ratings: List[Dict]) -> Dict[str, Any]:
         src: _cell(c)
         for src, c in by_source.items() if sum(c.values()) >= MIN_SOURCE_RATINGS
     }
-    for cell in sources.values():
+    for src, cell in sources.items():
         # A blocked source leaves the podcast pool too, so show-only material protects it.
         cell['block_candidate'] = (cell['n'] >= SOURCE_BLOCK_MIN_RATINGS
                                    and cell['positive'] == 0 and cell['podcast_only'] == 0)
+        cell['blocked'] = _is_blocked(src, blocked)
     # Ranked on positives, not good alone: a source with only 'interesting' ratings
     # is wanted material, and a good-only ranking made it look like a free cut.
     best_sources = sorted(sources.items(), key=lambda kv: (-kv[1]['positive_pct'], -kv[1]['n']))[:10]
-    worst_sources = sorted(sources.items(), key=lambda kv: (kv[1]['positive_pct'], -kv[1]['n']))[:10]
+    # Blocked sources keep their old ratings forever. Rolling Stone, The New Yorker
+    # and Cottage Life were blocked on 2026-09-24 and still headed this list in the
+    # next two audits, and the calibration notes kept recommending those blocks.
+    worst_sources = sorted(((s, c) for s, c in sources.items() if not c['blocked']),
+                           key=lambda kv: (kv[1]['positive_pct'], -kv[1]['n']))[:10]
 
     return {
         'total': total,
@@ -631,6 +657,474 @@ def fit_reader_model(ratings: List[Dict]) -> Optional[Callable[[Dict], float]]:
 
 
 # ---------------------------------------------------------------------------
+# Section 6 — what one week's snapshot cannot see
+# ---------------------------------------------------------------------------
+
+TREND_WINDOW_DAYS = 28          # a rate needs more than one week of ratings to read
+COVERAGE_MIN_RATINGS = 20       # under this in TREND_WINDOW_DAYS a category is unmeasured
+VERDICT_WINDOW_DAYS = 14
+VERDICT_MIN_RATINGS = 50        # a verdict unused across this many ratings is a dead channel
+GATE_MISS_FLAG_PCT = 10.0       # wanted share of rated rejects that makes the gate a finding
+GATE_MISS_MIN_REJECTS = 20
+GATE_MISS_MIN_WANTED = 3        # wanted rejects a source needs before it is named
+PLACE_MIN_RATINGS = 5
+PLACE_APPETITE_MARGIN = 15.0    # points above the corpus wanted rate
+PLACE_STARVED_POOL_PCT = 1.0    # share of the podcast pool mentioning the place
+SCORECARD_TEST_WEEKS = 4
+AUC_MIN_CLASS = 10
+REPEAT_ESCALATE_WEEKS = 3
+BEFORE_AFTER_DAYS = 14
+PRICE_TABLE_MAX_AGE_DAYS = 30
+TREND_REPORT_WEEKS = 12
+
+# The scores a rating snapshots, and the pipeline stage that pays for each
+# (`api_usage` stage names). 'quality' is q_gate outside the news head.
+SCORECARD_SIGNALS = (
+    ('score', 'final score', 'gate + deep_score'),
+    ('quality', 'quality (Q)', 'deep_score; q_gate elsewhere'),
+    ('relevance', 'relevance (R)', 'deep_score'),
+    ('local', 'local (L)', 'deep_score'),
+    ('theme_today', "theme fit for that day's theme", 'theme_ingest / theme / theme_batch'),
+    ('reader_model', 'reader model', 'free: your earlier ratings'),
+)
+
+
+def _rated_on(rating: Dict) -> Optional[date]:
+    try:
+        return date.fromisoformat(str(rating.get('rated_at') or '')[:10])
+    except ValueError:
+        return None
+
+
+def _rated_between(ratings: List[Dict], start: date, end: date) -> List[Dict]:
+    """Verdicts (no skips) rated on days start <= day < end."""
+    return [r for r in ratings
+            if r['rating'] in RATED and (day := _rated_on(r)) is not None and start <= day < end]
+
+
+def _rated_within(ratings: List[Dict], today: date, days: int) -> List[Dict]:
+    """Verdicts rated in the `days` days ending with `today`."""
+    return _rated_between(ratings, today - timedelta(days=days - 1), today + timedelta(days=1))
+
+
+def _shown_category(rating: Dict) -> str:
+    """The category the pipeline showed, before any retag."""
+    return rating.get('original_category') or rating.get('category') or 'unknown'
+
+
+def _text(item: Dict) -> str:
+    return f"{item.get('title') or ''} {item.get('description') or ''}".lower()
+
+
+def _wanted_pct(rows: List[Dict]) -> Optional[float]:
+    return _pct(sum(1 for r in rows if r['rating'] != 'bad'), len(rows))
+
+
+def _load_json(path: Path, default: Any) -> Any:
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return default
+
+
+def auc(pairs: List[Tuple[Any, bool]]) -> Optional[float]:
+    """P(a wanted article outscores an unwanted one), ties counted half; None when thin.
+
+    0.5 is a coin flip. It ignores the score's scale, so a 0-100 score, a percentile
+    and a probability are graded alike.
+    """
+    scored = [(s, wanted) for s, wanted in pairs if isinstance(s, (int, float))]
+    wanted_scores = [s for s, wanted in scored if wanted]
+    unwanted = sorted(s for s, wanted in scored if not wanted)
+    if len(wanted_scores) < AUC_MIN_CLASS or len(unwanted) < AUC_MIN_CLASS:
+        return None
+    wins = 0.0
+    for s in wanted_scores:
+        below = bisect.bisect_left(unwanted, s)
+        wins += below + 0.5 * (bisect.bisect_right(unwanted, s) - below)
+    return round(wins / (len(wanted_scores) * len(unwanted)), 3)
+
+
+def signal_scorecard(ratings: List[Dict], today: date) -> Dict[str, Any]:
+    """How well each score separates what you wanted from what you didn't, out of time.
+
+    Graded on the last SCORECARD_TEST_WEEKS weeks of ratings. The reader model is refit
+    for each week on the ratings made before it, so it is never graded on a rating it
+    saw; the paid scores are graded on the same rows. Theme fit is graded on day fit
+    (good / podcast_only), every other signal on wanted (any verdict but bad).
+    """
+    rows: List[Dict] = []
+    predictions: List[float] = []
+    for weeks_back in range(SCORECARD_TEST_WEEKS, 0, -1):
+        start = today - timedelta(days=7 * weeks_back - 1)
+        test = _rated_between(ratings, start, start + timedelta(days=7))
+        model = fit_reader_model([r for r in ratings
+                                  if (day := _rated_on(r)) is not None and day < start])
+        if test and model is not None:
+            rows += test
+            predictions += [model(r) for r in test]
+
+    def value(row: Dict, prediction: float, key: str) -> Any:
+        if key == 'reader_model':
+            return prediction
+        if key == 'theme_today':
+            return (row.get('theme_scores') or {}).get(row.get('today'))
+        return row.get(key)
+
+    def wanted(row: Dict, key: str) -> bool:
+        return row['rating'] in DAY_FIT if key == 'theme_today' else row['rating'] != 'bad'
+
+    signals = {}
+    for key, name, stage in SCORECARD_SIGNALS:
+        graded = [(value(r, p, key), wanted(r, key), _shown_category(r) == 'news')
+                  for r, p in zip(rows, predictions)]
+        signals[key] = {
+            'name': name, 'stage': stage,
+            'auc': auc([(v, w) for v, w, _ in graded]),
+            'auc_news': auc([(v, w) for v, w, news in graded if news]),
+        }
+    return {
+        'weeks': SCORECARD_TEST_WEEKS,
+        'n': len(rows),
+        'n_news': sum(1 for r in rows if _shown_category(r) == 'news'),
+        'signals': signals,
+    }
+
+
+def stage_costs(runs: List[Dict], today: date, days: int = 7) -> Dict[str, Any]:
+    """Claude spend by pipeline stage over the last `days` days of nightly runs."""
+    by_stage: Dict[str, Dict[str, Any]] = defaultdict(lambda: {'calls': 0, 'est_cost_usd': 0.0})
+    in_window = with_stages = 0
+    total = 0.0
+    for run in runs:
+        try:
+            day = date.fromisoformat(str(run.get('timestamp') or '')[:10])
+        except ValueError:
+            continue
+        if day <= today - timedelta(days=days) or day > today:
+            continue
+        in_window += 1
+        usage = run.get('api_usage') or {}
+        total += usage.get('est_cost_usd') or 0.0
+        stages = usage.get('claude_by_stage') or {}
+        with_stages += bool(stages)
+        for stage, cell in stages.items():
+            by_stage[stage]['calls'] += cell.get('calls', 0)
+            by_stage[stage]['est_cost_usd'] += cell.get('est_cost_usd', 0.0)
+    return {
+        'days': days,
+        'runs': in_window,
+        'runs_with_stages': with_stages,
+        'est_cost_usd': round(total, 4),
+        'by_stage': {stage: {'calls': c['calls'], 'est_cost_usd': round(c['est_cost_usd'], 4)}
+                     for stage, c in sorted(by_stage.items(), key=lambda kv: -kv[1]['est_cost_usd'])},
+    }
+
+
+def place_supply(ratings: List[Dict], pool: List[Dict],
+                 places: Optional[List[str]] = None) -> Dict[str, Any]:
+    """Each local place: how often you want it (appetite) against how often the pool has it.
+
+    Places are `filters.json` → `local_signals`, the pipeline's own definition of local.
+    Supply is the share of the 7-day podcast pool mentioning the place.
+    """
+    if places is None:
+        try:
+            places = config_loader.load_filters_config().get('local_signals') or []
+        except Exception:
+            places = []
+    rated = [r for r in ratings if r['rating'] in RATED]
+    baseline = _wanted_pct(rated)
+    rows = []
+    for place in places:
+        needle = place.lower()
+        mentions = [r for r in rated if needle in _text(r)]
+        in_pool = sum(1 for item in pool if needle in _text(item))
+        rows.append({
+            'place': place,
+            'rated': len(mentions),
+            'wanted_pct': _wanted_pct(mentions),
+            'in_pool': in_pool,
+            'pool_pct': _pct(in_pool, len(pool)),
+        })
+    return {'baseline_wanted_pct': baseline, 'pool_size': len(pool), 'places': rows}
+
+
+_KNOB_LOADERS = {
+    'config/limits.json': config_loader.load_limits_config,
+    'config/podcast_schedule.json': config_loader.load_podcast_schedule_config,
+    'config/scoring_modifiers.json': config_loader.load_scoring_modifiers,
+    'config/source_preferences.json': config_loader.load_source_preferences,
+    'config/feed_slots.json': config_loader.load_feed_slots_config,
+}
+
+
+def _config_value(spec: Dict) -> Tuple[bool, Any]:
+    """(found, value) of a calibration knob in the config on disk now."""
+    loader = _KNOB_LOADERS.get(spec.get('file', ''))
+    if loader is None:
+        return False, None
+    node: Any = loader()
+    for key in spec.get('path') or []:
+        if not isinstance(node, dict) or key not in node:
+            return False, None
+        node = node[key]
+    return True, node
+
+
+def calibration_followthrough(ratings: List[Dict]) -> List[Dict[str, Any]]:
+    """Every applied calibration change: is it in config now, and what moved around it?
+
+    A change logged as applied is not proof it landed: 2026-09-13 and 09-20 both
+    "raised" source_preferences.kagi_search_result_limit 10 → 12 because the workflow
+    committed only two config files. Only the latest change per knob can be checked
+    against config. Before/after is the reweighted wanted rate of the shipped feed
+    over BEFORE_AFTER_DAYS either side: a correlation, not an effect size.
+    """
+    changes = [c for c in _load_json(CHANGE_HISTORY_FILE, {}).get('changes', [])
+               if isinstance(c, dict) and not c.get('dry_run') and c.get('knob')]
+    try:
+        knobs = config_loader.load_calibration_bounds().get('knobs', {})
+    except Exception:
+        knobs = {}
+    latest = {c['knob']: i for i, c in enumerate(changes)}
+    rows = []
+    for i, change in enumerate(changes):
+        status, current = '', None
+        if latest[change['knob']] == i and change['knob'] in knobs:
+            found, current = _config_value(knobs[change['knob']])
+            if not found:
+                status = 'not found'
+            elif current == change.get('new_value'):
+                status = 'in config'
+            elif current == change.get('old_value'):
+                status = 'not in config'
+            else:
+                status = 'changed since'
+        row = {'run_date': change.get('run_date'), 'knob': change['knob'],
+               'old_value': change.get('old_value'), 'new_value': change.get('new_value'),
+               'status': status, 'current': current}
+        try:
+            day = date.fromisoformat(str(change.get('run_date')))
+        except ValueError:
+            rows.append(row)
+            continue
+        span = timedelta(days=BEFORE_AFTER_DAYS)
+        before = stratified_estimate(_rated_between(ratings, day - span, day))
+        after = stratified_estimate(_rated_between(ratings, day, day + span))
+        row.update({'before_pct': before['weighted_positive_pct'], 'before_n': before['weighted_rows'],
+                    'after_pct': after['weighted_positive_pct'], 'after_n': after['weighted_rows']})
+        rows.append(row)
+    return rows
+
+
+def price_table_age(today: date) -> Optional[int]:
+    """Days since CLAUDE.md's Anthropic price table was last checked; None if unreadable."""
+    try:
+        m = re.search(r'Anthropic prices\*\*.*?checked (\d{4}-\d{2}-\d{2})',
+                      CLAUDE_MD_FILE.read_text(encoding='utf-8'))
+        return (today - date.fromisoformat(m.group(1))).days if m else None
+    except (OSError, ValueError):
+        return None
+
+
+def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
+                distribution: Dict[str, Any], places: Dict[str, Any],
+                followthrough: List[Dict[str, Any]],
+                history: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Findings no single week's numbers raise: each with how many weekly audits in a row
+    have reported it. At REPEAT_ESCALATE_WEEKS it has been seen and not acted on."""
+    findings: List[Dict[str, Any]] = []
+
+    def add(finding_id: str, title: str, detail: str) -> None:
+        findings.append({'id': finding_id, 'title': title, 'detail': detail})
+
+    recent = _rated_within(ratings, today, TREND_WINDOW_DAYS)
+
+    # Review effort follows the score-band quotas, not the categories, so a small
+    # category can go a season without enough ratings to say anything about it.
+    try:
+        categories = config_loader.get_all_categories()
+    except Exception:
+        categories = []
+    shown = Counter(_shown_category(r) for r in recent)
+    thin = [f'{c} ({shown.get(c, 0)})' for c in categories if shown.get(c, 0) < COVERAGE_MIN_RATINGS]
+    if thin:
+        add('unmeasured-categories', f'{len(thin)} categories are unmeasured',
+            f'Under {COVERAGE_MIN_RATINGS} ratings in {TREND_WINDOW_DAYS} days: {", ".join(thin)}. '
+            f'Their rates are noise, not "fine"; news took {_pct(shown.get("news", 0), len(recent))}% '
+            'of the ratings.')
+
+    # The gate is interest-blind by design and runs before the interest ranking, so
+    # what it throws away never reaches news_interests.txt; the rated rejects are the
+    # only window onto it.
+    rejects = [r for r in recent if r.get('selection_bucket') == 'unfiltered']
+    wanted_rejects = [r for r in rejects if r['rating'] != 'bad']
+    miss_pct = _pct(len(wanted_rejects), len(rejects))
+    if len(rejects) >= GATE_MISS_MIN_REJECTS and (miss_pct or 0) >= GATE_MISS_FLAG_PCT:
+        by_source = Counter(r.get('source') for r in ratings
+                            if r.get('selection_bucket') == 'unfiltered' and r['rating'] in RATED
+                            and r['rating'] != 'bad')
+        named = [f'{s} ({n})' for s, n in by_source.most_common() if n >= GATE_MISS_MIN_WANTED][:6]
+        add('gate-misses', f'The gate threw away {miss_pct}% of the rejects you wanted',
+            f'{len(wanted_rejects)} of {len(rejects)} rated rejects in {TREND_WINDOW_DAYS} days. '
+            + (f'Most often, all time: {", ".join(named)}.' if named else ''))
+
+    last = _rated_within(ratings, today, VERDICT_WINDOW_DAYS)
+    if len(last) >= VERDICT_MIN_RATINGS:
+        used = Counter(r['rating'] for r in last)
+        for verdict in RATED:
+            if not used[verdict]:
+                add(f'unused-verdict:{verdict}', f'Nobody has used "{verdict}"',
+                    f'0 of {len(last)} ratings in {VERDICT_WINDOW_DAYS} days. If it is never the '
+                    'answer, every metric that counts it is reading one channel.')
+
+    # The standing guard for a starved theme (docs/decisions/podcast-pool.md).
+    window_runs = [run for run in runs
+                   if (run.get('theme_argmax') or {}).get('wins')
+                   and str(run.get('timestamp') or '')[:10] > (today - timedelta(days=7)).isoformat()]
+    if window_runs:
+        try:
+            schedule = config_loader.load_podcast_schedule_config()
+        except Exception:
+            schedule = {}
+        rescored = set((schedule.get('targeted_rescore') or {}).get('days') or [])
+        latest = window_runs[-1]['theme_argmax']
+        top_day, top_wins = max(latest['wins'].items(), key=lambda kv: kv[1])
+        top_pct = _pct(top_wins, sum(latest['wins'].values()))
+        for day in WEEKDAYS:
+            if any(run['theme_argmax']['wins'].get(day, 0) for run in window_runs):
+                continue
+            label = ((schedule.get('schedule') or {}).get(day) or {}).get('label', '')
+            add(f'starved-theme:{day}', f'{day.title()} ({label}) never wins the pool',
+                f'0 argmax wins in all {len(window_runs)} runs this week; {top_day} won {top_pct}% '
+                f'of the latest. {"In" if day in rescored else "Not in"} targeted_rescore.days. '
+                'Check scoring before sourcing: more feeds cannot fix a theme nothing can win.')
+
+    baseline = places.get('baseline_wanted_pct') or 0.0
+    starved = [p for p in places.get('places', [])
+               if p['rated'] >= PLACE_MIN_RATINGS
+               and (p['wanted_pct'] or 0) >= baseline + PLACE_APPETITE_MARGIN
+               and p['pool_pct'] is not None and p['pool_pct'] < PLACE_STARVED_POOL_PCT]
+    if starved:
+        add('starved-places', 'Places you want that the pool barely carries',
+            ', '.join(f"{p['place']}: {p['wanted_pct']}% wanted, {p['in_pool']} in the pool "
+                      f"({p['pool_pct']}%)" for p in starved)
+            + f'. Baseline {baseline}% wanted.')
+    unrated = [p['place'] for p in places.get('places', []) if p['rated'] < PLACE_MIN_RATINGS]
+    if unrated:
+        add('unmeasured-places', 'Local places with almost no ratings',
+            f'Under {PLACE_MIN_RATINGS} ratings ever: {", ".join(unrated)}.')
+
+    candidates = [s for s, c in distribution.get('worst_sources', {}).items() if c.get('block_candidate')]
+    if candidates:
+        add('unblocked-candidates', 'Block candidates still unblocked',
+            f'{", ".join(candidates)}: n ≥ {SOURCE_BLOCK_MIN_RATINGS} with nothing wanted. '
+            'Block them in filters.json or rate why not.')
+
+    for row in followthrough:
+        if row['status'] == 'not in config':
+            add(f'not-landed:{row["knob"]}', f'Calibration change never landed: {row["knob"]}',
+                f'Logged {row["run_date"]} as {row["old_value"]} → {row["new_value"]}; '
+                f'config still says {row["current"]}.')
+
+    age = price_table_age(today)
+    if age is not None and age > PRICE_TABLE_MAX_AGE_DAYS:
+        add('stale-prices', 'The Anthropic price table is stale',
+            f'CLAUDE.md prices were checked {age} days ago. Refresh them before a cost decision.')
+
+    for finding in findings:
+        finding['weeks'] = 1 + _consecutive_weeks(finding['id'], history, today)
+        finding['escalate'] = finding['weeks'] >= REPEAT_ESCALATE_WEEKS
+    return sorted(findings, key=lambda f: -f['weeks'])
+
+
+def _consecutive_weeks(finding_id: str, history: List[Dict[str, Any]], today: date) -> int:
+    """Earlier weekly audits in a row, newest first, that reported `finding_id`."""
+    this_week = _iso_week(today)
+    count = 0
+    for record in reversed(history):
+        if record.get('week') == this_week:
+            continue
+        if finding_id not in (record.get('findings') or []):
+            break
+        count += 1
+    return count
+
+
+def _iso_week(day: date) -> str:
+    iso = day.isocalendar()
+    return f'{iso.year}-W{iso.week:02d}'
+
+
+def week_record(ratings: List[Dict], today: date) -> Dict[str, Any]:
+    """The rating-derived metrics for the week ending `today`, rebuildable from the archive.
+
+    Counts cover the 7 days; rates cover TREND_WINDOW_DAYS, because a week of ratings is
+    too few to read a rate from.
+    """
+    last7 = _rated_within(ratings, today, 7)
+    last28 = _rated_within(ratings, today, TREND_WINDOW_DAYS)
+    verdicts = Counter(r['rating'] for r in last7)
+    strat = stratified_estimate(last28)
+    shown = Counter(_shown_category(r) for r in last28)
+    return {
+        'week': _iso_week(today),
+        'through': today.isoformat(),
+        'rated': len(last7),
+        'verdicts': {v: verdicts[v] for v in RATED},
+        'notes': sum(1 for r in last7 if r.get('note')),
+        'shipped_wanted_pct_28d': strat['weighted_positive_pct'],
+        'gate_miss_pct_28d': _pct(sum(1 for r in last28 if r.get('selection_bucket') == 'unfiltered'
+                                      and r['rating'] != 'bad'),
+                                  sum(1 for r in last28 if r.get('selection_bucket') == 'unfiltered')),
+        'news_share_pct_28d': _pct(shown.get('news', 0), len(last28)),
+        'rated_by_category_28d': dict(shown.most_common()),
+    }
+
+
+def read_metrics_history(path: Path = METRICS_HISTORY_FILE) -> List[Dict[str, Any]]:
+    records = []
+    try:
+        for line in path.read_text(encoding='utf-8').splitlines():
+            if line.strip():
+                records.append(json.loads(line))
+    except (OSError, ValueError):
+        return []
+    return records
+
+
+def merge_metrics_history(history: List[Dict[str, Any]], record: Dict[str, Any],
+                          ratings: List[Dict]) -> List[Dict[str, Any]]:
+    """`history` with `record` replacing its week, oldest first.
+
+    An empty history is rebuilt from the ratings archive first, one record per week
+    back to the first rating, marked `backfilled`: those have the rating-derived half
+    only, since costs, scores and findings were never recorded for them.
+    """
+    records = list(history)
+    if not records:
+        days = [d for r in ratings if (d := _rated_on(r)) is not None]
+        through = date.fromisoformat(record['through'])
+        weeks_back = 1
+        while days and through - timedelta(days=7 * weeks_back) >= min(days):
+            past = week_record(ratings, through - timedelta(days=7 * weeks_back))
+            past['backfilled'] = True
+            records.append(past)
+            weeks_back += 1
+    by_week = {r['week']: r for r in records}
+    by_week[record['week']] = record
+    return [by_week[w] for w in sorted(by_week)]
+
+
+def write_metrics_history(records: List[Dict[str, Any]], path: Path = METRICS_HISTORY_FILE) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    atomic_write_text(str(path), ''.join(
+        json.dumps(r, ensure_ascii=False, sort_keys=True) + '\n' for r in records))
+
+
+# ---------------------------------------------------------------------------
 # Report rendering
 # ---------------------------------------------------------------------------
 
@@ -675,6 +1169,16 @@ def build_report(audit: Dict[str, Any]) -> str:
             ['…of those, actually routed by podcast selection', routing['podcast_routed']],
             ['Category retags', f"{category_retag['corrections']} ({category_retag['correction_pct']}% of categorized ratings)"],
         ]),
+        '',
+        '## Needs Attention',
+        '',
+        '_Checks one week of numbers cannot make on its own. **Weeks** counts the weekly audits in a '
+        f'row that reported it; at {REPEAT_ESCALATE_WEEKS}+ it has been seen and not acted on._',
+        '',
+        (_md_table(['Finding', 'Detail', 'Weeks'],
+                   [[('⚠️ ' if f['escalate'] else '') + f['title'], f['detail'], f['weeks']]
+                    for f in audit['blind_spots']])
+         if audit['blind_spots'] else '_Nothing flagged._'),
         '',
         '### Sampling strata',
         '',
@@ -854,7 +1358,100 @@ def build_report(audit: Dict[str, Any]) -> str:
         'Claude path has effectively never run.',
         '',
     ]
+    lines += _trend_lines(audit) + _scorecard_lines(audit) + _followthrough_lines(audit)
     return '\n'.join(lines) + '\n'
+
+
+def _trend_lines(audit: Dict[str, Any]) -> List[str]:
+    trend = audit['trend'][-TREND_REPORT_WEEKS:]
+    return [
+        '## 6. Week over Week',
+        '',
+        f'_Counts are the 7 days to each date; rates cover {TREND_WINDOW_DAYS} days. Weeks marked * '
+        'were rebuilt from the ratings archive and carry no cost or scorecard data._',
+        '',
+        _md_table(
+            ['Week', 'Through', 'Rated', 'good', 'interesting', 'podcast only', 'bad', 'Notes',
+             'Shipped wanted % (reweighted)', 'Gate miss %', 'News share of ratings %'],
+            [[w['week'] + ('*' if w.get('backfilled') else ''), w['through'], w['rated'],
+              w['verdicts'].get('good', 0), w['verdicts'].get('interesting', 0),
+              w['verdicts'].get('podcast_only', 0), w['verdicts'].get('bad', 0), w['notes'],
+              w['shipped_wanted_pct_28d'], w['gate_miss_pct_28d'], w['news_share_pct_28d']]
+             for w in trend]),
+        '',
+    ]
+
+
+def _scorecard_lines(audit: Dict[str, Any]) -> List[str]:
+    card = audit['scorecard']
+    costs = audit['stage_costs']
+    places = audit['places']
+    lines = [
+        '## 7. What Each Score Buys',
+        '',
+        f"Graded on the last {card['weeks']} weeks of ratings ({card['n']} rated, {card['n_news']} news). "
+        'AUC is the chance a wanted article outscores an unwanted one: 0.5 is a coin flip. The reader '
+        'model is refit each week on earlier ratings only; it uses the relevance band, so it is not '
+        'wholly free of the paid pass.',
+        '',
+        _md_table(['Signal', 'Paid by', 'AUC', 'AUC, news only'],
+                  [[c['name'], c['stage'], c['auc'] if c['auc'] is not None else 'too few',
+                    c['auc_news'] if c['auc_news'] is not None else 'too few']
+                   for c in card['signals'].values()]),
+        '',
+        f"### Claude cost by stage (last {costs['days']} days)",
+        '',
+    ]
+    if costs['by_stage']:
+        lines += [
+            f"{costs['runs_with_stages']} of {costs['runs']} runs recorded stages; all vendors "
+            f"together est. ${costs['est_cost_usd']:.4f}.",
+            '',
+            _md_table(['Stage', 'Calls', 'Est. cost'],
+                      [[stage, c['calls'], f"${c['est_cost_usd']:.4f}"]
+                       for stage, c in costs['by_stage'].items()]),
+        ]
+    else:
+        lines.append(f"_No run in the window recorded stages yet ({costs['runs']} runs, "
+                     f"est. ${costs['est_cost_usd']:.4f} all vendors)._")
+    lines += [
+        '',
+        '### Local places: appetite vs. supply',
+        '',
+        f"Wanted % among rated articles mentioning the place (baseline {places['baseline_wanted_pct']}%), "
+        f"against its share of the {places['pool_size']}-article podcast pool.",
+        '',
+        _md_table(['Place', 'Rated', 'Wanted %', 'In pool', 'Pool %'],
+                  [[p['place'], p['rated'], p['wanted_pct'], p['in_pool'], p['pool_pct']]
+                   for p in places['places']]),
+        '',
+    ]
+    return lines
+
+
+def _rate_cell(pct: Optional[float], n: Optional[int]) -> str:
+    return f'{pct}% ({n})' if pct is not None else '—'
+
+
+def _followthrough_lines(audit: Dict[str, Any]) -> List[str]:
+    rows = audit['followthrough']
+    return [
+        '## 8. Did Calibration Changes Land?',
+        '',
+        f'_Status is checked for the latest change to each knob. Before/after is the reweighted wanted '
+        f'rate of the shipped feed over {BEFORE_AFTER_DAYS} days either side (weighted ratings in '
+        'brackets): everything else changed too, so read it as a correlation._',
+        '',
+        (_md_table(['Date', 'Knob', 'Change', 'In config now?', 'Before', 'After'],
+                   [[r['run_date'], r['knob'], f"{r['old_value']} → {r['new_value']}",
+                     (f"{r['status']} ({r['current']})" if r['status'] == 'changed since'
+                      else r['status'] or 'superseded'),
+                     _rate_cell(r.get('before_pct'), r.get('before_n')),
+                     _rate_cell(r.get('after_pct'), r.get('after_n'))]
+                    for r in rows])
+         if rows else '_No applied calibration changes on record._'),
+        '',
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -869,14 +1466,34 @@ def load_current_min_score() -> Optional[int]:
         return None
 
 
-def run_audit() -> Dict[str, Any]:
+def run_audit(today: Optional[date] = None,
+              history_path: Path = METRICS_HISTORY_FILE) -> Dict[str, Any]:
+    today = today or datetime.now(timezone.utc).date()
     ratings = load_ratings()
     runs = load_calibration_runs()
     dates = [r.get('rated_at', '')[:10] for r in ratings if r.get('rated_at')]
+    distribution = rating_distribution(ratings)
+    pool = _load_json(POOL_CACHE_FILE, [])
+    places = place_supply(ratings, pool if isinstance(pool, list) else [])
+    followthrough = calibration_followthrough(ratings)
+    history = read_metrics_history(history_path)
+    findings = blind_spots(ratings, runs, today, distribution, places, followthrough, history)
+    scorecard = signal_scorecard(ratings, today)
+    costs = stage_costs(runs, today)
+    latest_wins = next((run['theme_argmax']['wins'] for run in reversed(runs)
+                        if (run.get('theme_argmax') or {}).get('wins')), {})
+    record = {
+        **week_record(ratings, today),
+        'scorecard': {k: c['auc'] for k, c in scorecard['signals'].items()},
+        'est_cost_usd_7d': costs['est_cost_usd'],
+        'claude_by_stage_7d': costs['by_stage'],
+        'theme_wins': latest_wins,
+        'findings': [f['id'] for f in findings],
+    }
     return {
         'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
         'window': {'first': min(dates) if dates else '?', 'last': max(dates) if dates else '?'},
-        'distribution': rating_distribution(ratings),
+        'distribution': distribution,
         'score_by_rating': score_stats_by_rating(ratings),
         'band_precision': band_precision(ratings),
         'threshold_sweep': threshold_sweep(ratings),
@@ -891,6 +1508,12 @@ def run_audit() -> Dict[str, Any]:
         'funnel': current_funnel(runs),
         'feed_counts': feed_item_counts(),
         'process_health': process_health(runs),
+        'blind_spots': findings,
+        'scorecard': scorecard,
+        'stage_costs': costs,
+        'places': places,
+        'followthrough': followthrough,
+        'trend': merge_metrics_history(history, record, ratings),
     }
 
 
@@ -925,6 +1548,12 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
         'category_retag': audit['category_retag'],
         'volume_trend_recent': audit['volume_trend'][-8:],
         'process_health': audit['process_health'],
+        'blind_spots': audit['blind_spots'],
+        'scorecard': audit['scorecard'],
+        'stage_costs': audit['stage_costs'],
+        'places': audit['places'],
+        'calibration_followthrough': audit['followthrough'],
+        'trend_recent': audit['trend'][-8:],
     }
 
 
@@ -933,9 +1562,13 @@ def main() -> None:
     default_output = f"reports/ARTICLE_REVIEW_AUDIT_{datetime.now(timezone.utc).strftime('%Y-%m-%d')}.md"
     parser.add_argument('--output', default=default_output, help='Markdown report path')
     parser.add_argument('--json-summary', default=None, help='Optional compact JSON summary path')
+    parser.add_argument('--metrics-history', default=None,
+                        help='Write this week into the JSONL metrics history at PATH '
+                             '(reports/weekly_metrics.jsonl in CI); read-only without it')
     args = parser.parse_args()
 
-    audit = run_audit()
+    history_path = Path(args.metrics_history) if args.metrics_history else METRICS_HISTORY_FILE
+    audit = run_audit(history_path=history_path)
     if not audit['distribution']['total']:
         print('⚠️ No feedback ratings found — nothing to audit.')
         return
@@ -951,6 +1584,13 @@ def main() -> None:
     if args.json_summary:
         atomic_write_text(args.json_summary, json.dumps(build_summary(audit), indent=2, ensure_ascii=False) + '\n')
         print(f"✅ JSON summary written to {args.json_summary}")
+
+    if args.metrics_history:
+        write_metrics_history(audit['trend'], history_path)
+        print(f"✅ Metrics history: {len(audit['trend'])} week(s) in {history_path}")
+    flagged = [f for f in audit['blind_spots'] if f['escalate']]
+    print(f"🔎 {len(audit['blind_spots'])} finding(s), {len(flagged)} repeated "
+          f"{REPEAT_ESCALATE_WEEKS}+ weeks")
 
 
 if __name__ == '__main__':
