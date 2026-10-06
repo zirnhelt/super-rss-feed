@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-05 (Monday)
+
+#### 🔧 Manual Run (9:09 PM Pacific)
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1588 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-10-04 (Sunday)
 
 #### 🔧 Manual Run (9:07 PM Pacific)
@@ -102,16 +113,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **GN Country Guide** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:country-guide.ca&hl=en&gl=CA&ce`
 - ⚠️ **GN EEVblog** failed — `503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:eevblog.com&hl=en&gl=CA&ceid=CA`
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1508 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-09-27 (Sunday)
-
-#### 🔧 Manual Run (9:07 PM Pacific)
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1497 articles — check charter adherence, not supply
 
 
 ---
@@ -1335,6 +1336,15 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 3 issues recorded
 - ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
 - ⚠️ alpennia.com failed — 415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1497 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-27–2026-09-27
+- 1 issues recorded
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1497 articles — check charter adherence, not supply
 
 
