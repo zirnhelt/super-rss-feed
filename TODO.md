@@ -8,6 +8,8 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-10-06 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
+| 2026-10-06 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
 | 2026-10-05 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-04 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-03 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
@@ -15,7 +17,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-10-01 | 🔧 Manual Run | ⚠️ **CleanTechnica** failed | `504 Server Error: Gateway Timeout for url: https://cleantechnica.com/feed/` |
 | 2026-10-01 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-09-30 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
-| 2026-09-29 | 🔧 Manual Run | ⚠️ **Canadian Forest Industries** failed | `429 Client Error: Too Many Requests for url: https://www.woodbusiness.ca/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -23,17 +24,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-10-06 | 🔧 manual | 88 | ai-tech:18(20%), news:14(16%), local:10(11%) |
 | 2026-10-05 | 🔧 manual | 87 | ai-tech:18(21%), news:14(16%), homelab:10(11%) |
 | 2026-10-04 | 🔧 manual | 73 | ai-tech:18(25%), news:14(19%), homelab:10(14%) |
 | 2026-10-03 | 🔧 manual | 70 | ai-tech:18(26%), news:14(20%), wellness:10(14%) |
 | 2026-10-02 | 🔧 manual | 83 | ai-tech:18(22%), news:14(17%), wellness:10(12%) |
 | 2026-10-01 | 🔧 manual | 83 | ai-tech:18(22%), news:14(17%), wellness:10(12%) |
 | 2026-09-30 | 🔧 manual | 89 | ai-tech:18(20%), news:14(16%), climate:11(12%) |
-| 2026-09-29 | 🔧 manual | 84 | ai-tech:18(21%), news:14(17%), climate:11(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-10-06 04:09 UTC_
+_Last updated by log\_feed\_results.py · 2026-10-07 04:12 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
