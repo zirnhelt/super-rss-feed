@@ -24,6 +24,7 @@ from pathlib import Path
 
 import anthropic
 
+import api_usage
 from cache import atomic_write_text
 
 # ── Configuration ────────────────────────────────────────────────────────────
@@ -222,13 +223,15 @@ def run_scrub_pass(
     prompt = SCRUB_USER_TMPL.format(items="\n".join(lines))
 
     response = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=2048,
+        model=api_usage.HAIKU_MODEL,
+        extra_body=api_usage.HAIKU_EXTRA_BODY,
+        max_tokens=2800,
         system=SCRUB_SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
 
-    raw = response.content[0].text.strip()
+    api_usage.record_claude_usage(response.usage)
+    raw = api_usage.response_text(response).strip()
     start = raw.find("[")
     end = raw.rfind("]") + 1
     if start < 0 or end <= start:

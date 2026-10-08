@@ -15,7 +15,7 @@ import super_rss_curator_json as m
 
 class _FakeResponse:
     def __init__(self, text):
-        self.content = [types.SimpleNamespace(text=text)]
+        self.content = [types.SimpleNamespace(type='text', text=text)]
         self.usage = types.SimpleNamespace(
             input_tokens=10, output_tokens=10,
             cache_creation_input_tokens=0, cache_read_input_tokens=0)

@@ -324,7 +324,7 @@ PODCAST_SHOWN_FILE = 'podcast_shown_cache.json'      # Tracks URLs used in each 
 PODCAST_SHOWN_TTL_DAYS = 7                           # Exclude articles shown in the last 7 days
 THEME_SCORE_CACHE_FILE = 'theme_scores_cache.json'  # Cache for per-article theme scores
 THEME_SCORE_CACHE_TTL_DAYS = 7
-THEME_SCORE_CACHE_VERSION = 'v5'  # v5: weekday theme charters recalibrated; selection now percentile-normalized
+THEME_SCORE_CACHE_VERSION = 'v6'  # v6: Haiku 5.5 rescores (v5: charters recalibrated, percentile selection)
 PENDING_THEME_BATCH_FILE = 'pending_theme_batch.json'  # Tracks in-flight async theme batch
 SHOWN_TERMS_CACHE_FILE = 'shown_terms_cache.json'   # Term sets for cross-run story dedup
 THEME_HOLDOVER_FILE = 'theme_holdover_cache.json'   # Cross-week pool of theme-relevant articles
@@ -1626,7 +1626,7 @@ def process_pending_theme_batch(api_key: str):
             continue
 
         api_usage.record_claude_usage(result.result.message.usage, batch=True, stage='theme_batch')
-        response_text = result.result.message.content[0].text.strip()
+        response_text = api_usage.response_text(result.result.message).strip()
         if response_text.startswith('```'):
             lines = response_text.splitlines()
             inner = lines[1:]
@@ -3050,13 +3050,14 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         )
         try:
             response = client.messages.create(
-                model="claude-haiku-4-5",
-                max_tokens=1200,
+                model=api_usage.HAIKU_MODEL,
+                extra_body=api_usage.HAIKU_EXTRA_BODY,
+                max_tokens=1600,
                 system=system_blocks,
                 messages=[{"role": "user", "content": prompt}]
             )
             api_usage.record_claude_usage(response.usage, stage='gate')
-            response_text = response.content[0].text.strip()
+            response_text = api_usage.response_text(response).strip()
             _start, _end = response_text.find('['), response_text.rfind(']') + 1
             if _start != -1 and _end > _start:
                 response_text = response_text[_start:_end]
@@ -3229,15 +3230,20 @@ def score_articles_gated(articles: List[Article], api_key: str) -> List[Article]
         other_survivors.sort(key=lambda a: a.q_gate or 0, reverse=True)
     survivors = other_survivors + news_survivors
 
-    # Display-bound slice: per provisional category, up to 2x the category's
-    # max feed slots get full Q/R/L dimensional scoring. Everything else keeps
-    # its absolute gate score.
+    # Display-bound slice: per provisional category, up to `deep_slice_multiplier`
+    # x the category's max feed slots get full Q/R/L dimensional scoring.
+    # Everything else keeps its absolute gate score. The multiplier was 2 while
+    # deep scoring ran on Haiku 4.5; Haiku 5.5 costs a tenth as much, so it went
+    # to 6 (2026-10-08). Cohere and Haiku split the work: Cohere's rank still
+    # decides who is in the slice when a category has more survivors than slots,
+    # and Haiku judges everything that gets in.
     default_cfg = FEED_SLOTS.get('default', {'min_slots': 1, 'max_slots': 5})
+    multiplier = gate_cfg.get('deep_slice_multiplier', 2)
     deep: List[Article] = []
     slice_counts: Dict[str, int] = defaultdict(int)
     for a in survivors:
         cat = provisional_cat[a.url_hash]
-        cap = 2 * FEED_SLOTS.get(cat, default_cfg).get('max_slots', default_cfg.get('max_slots', 5))
+        cap = multiplier * FEED_SLOTS.get(cat, default_cfg).get('max_slots', default_cfg.get('max_slots', 5))
         if slice_counts[cat] < cap:
             deep.append(a)
             slice_counts[cat] += 1
@@ -3314,9 +3320,9 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
     # full category guide so they are only billed on cache miss, not on every batch.
     #
     # The category guide (with include/exclude signals from CATEGORY_RULES) replaces
-    # the bare category-keys list. It adds ~570 tokens of genuinely useful context
-    # AND pushes the prefix past the 4096-token minimum required for Haiku 4.5
-    # prompt caching — without it, cache_control is silently ignored.
+    # the bare category-keys list. It adds ~570 tokens of genuinely useful context.
+    # (It also once pushed the prefix past Haiku 4.5's 4096-token caching minimum;
+    # Haiku 5.5's minimum is 512, so caching no longer depends on it.)
     category_lines = []
     for key, cat_data in CATEGORIES.items():
         rules = CATEGORY_RULES.get(key, {})
@@ -3423,8 +3429,9 @@ Articles to evaluate:
 
             try:
                 response = client.messages.create(
-                    model="claude-haiku-4-5",
-                    max_tokens=1500,
+                    model=api_usage.HAIKU_MODEL,
+                    extra_body=api_usage.HAIKU_EXTRA_BODY,
+                    max_tokens=2000,
                     system=[
                         {
                             "type": "text",
@@ -3444,7 +3451,7 @@ Articles to evaluate:
                 if cache_write or cache_read:
                     print(f"   💾 Cache: {cache_write} written, {cache_read} read, {usage.input_tokens} uncached")
 
-                response_text = response.content[0].text.strip()
+                response_text = api_usage.response_text(response).strip()
                 # Strip markdown code fences if model wraps the JSON
                 if response_text.startswith('```'):
                     lines = response_text.splitlines()
@@ -4348,9 +4355,8 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
     # personal interest profile — embedding scoring_interests.txt here skewed
     # every theme score toward the news feed's interests. The quality charter
     # provides interest-independent background on what good journalism looks
-    # like; the category guide supplies the content taxonomy. (This fallback
-    # path's system prompt sits below Haiku's 4096-token caching minimum, but
-    # it only runs for articles missed by ingest-time batch scoring.)
+    # like; the category guide supplies the content taxonomy. (Haiku 5.5 caches
+    # prefixes from 512 tokens, so this path's system prompt now caches too.)
     quality_charter = config_loader.load_quality_charter().strip()
 
     category_lines = []
@@ -4399,8 +4405,9 @@ Articles to evaluate:
 {articles_text}"""
 
             response = client.messages.create(
-                model="claude-haiku-4-5",
-                max_tokens=750,
+                model=api_usage.HAIKU_MODEL,
+                extra_body=api_usage.HAIKU_EXTRA_BODY,
+                max_tokens=1000,
                 system=[
                     {
                         "type": "text",
@@ -4412,7 +4419,7 @@ Articles to evaluate:
             )
             api_usage.record_claude_usage(response.usage, stage='theme')
 
-            response_text = response.content[0].text.strip()
+            response_text = api_usage.response_text(response).strip()
             # Strip markdown code fences if model wraps the JSON
             if response_text.startswith('```'):
                 lines = response_text.splitlines()
@@ -4510,7 +4517,7 @@ def score_all_themes_at_ingest(articles: List[Article], schedule_config: Dict, a
     # interest profile must NOT appear here (it skewed every theme score toward
     # the news feed's interests). The quality charter replaces it as background:
     # interest-independent, and together with the 7 theme prompts (~3.7k tokens)
-    # it keeps the combined system prompt past Haiku's 4096-token cache minimum.
+    # forms one stable, cacheable system prompt.
     quality_charter = config_loader.load_quality_charter().strip()
 
     theme_descriptions = "\n\n".join(
@@ -4553,8 +4560,9 @@ Articles to evaluate:
         batch_requests.append({
             "custom_id": custom_id,
             "params": {
-                "model": "claude-haiku-4-5",
-                "max_tokens": 2500,
+                "model": api_usage.HAIKU_MODEL,
+                **api_usage.HAIKU_EXTRA_BODY,
+                "max_tokens": 3500,
                 "system": [{"type": "text", "text": combined_system,
                             "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
                 "messages": [{"role": "user", "content": prompt}]
@@ -4596,14 +4604,15 @@ Articles to evaluate:
 {articles_text}"""
             try:
                 response = client.messages.create(
-                    model="claude-haiku-4-5",
-                    max_tokens=2500,
+                    model=api_usage.HAIKU_MODEL,
+                    extra_body=api_usage.HAIKU_EXTRA_BODY,
+                    max_tokens=3500,
                     system=[{"type": "text", "text": combined_system,
                              "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
                     messages=[{"role": "user", "content": prompt}]
                 )
                 api_usage.record_claude_usage(response.usage, stage='theme_ingest')
-                response_text = response.content[0].text.strip()
+                response_text = api_usage.response_text(response).strip()
                 if response_text.startswith('```'):
                     lines = response_text.splitlines()
                     inner = lines[1:]
@@ -4680,10 +4689,11 @@ Articles to evaluate:
 #
 # Already-strong scores are left alone (`score_ceiling`), each article is paid
 # for once (the `rescored` stamp), and `max_articles_per_run` bounds a runaway
-# day. At the configured defaults that is at most 4 extra Haiku calls per run
-# (40 articles per theme against `score_articles_for_theme`'s batch size of 30,
-# for two days) while the existing pool's backlog clears, and 1-2 in steady
-# state, when only that day's new articles are eligible.
+# day. It ran on Tuesday and Wednesday only until 2026-10-08, when Haiku 5.5
+# made a Haiku call cost a tenth as much. Now it covers all seven days at 120
+# articles each: Cohere's joint rerank does recall across the pool, and Haiku
+# judges the shortlist one charter at a time. That is at most 28 calls
+# (120 / 30 per batch x 7) while the backlog clears, about a cent at list price.
 def rescore_underserved_themes(cached_articles: List[Dict], schedule_config: Dict, api_key: str) -> Dict:
     """Re-score selected articles against one theme's charter alone.
 

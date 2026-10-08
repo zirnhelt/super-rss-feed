@@ -28,6 +28,7 @@ except ImportError:
     print("❌ anthropic package not installed")
     sys.exit(1)
 
+import api_usage
 from cache import atomic_write_json, atomic_write_text
 from fetch_images import fetch_page_title
 
@@ -252,11 +253,13 @@ Keep the total under 400 words."""
 def synthesize_with_claude(prompt: str, api_key: str) -> str:
     client = anthropic.Anthropic(api_key=api_key)
     response = client.messages.create(
-        model='claude-haiku-4-5',
-        max_tokens=600,
+        model=api_usage.HAIKU_MODEL,
+        extra_body=api_usage.HAIKU_EXTRA_BODY,
+        max_tokens=800,
         messages=[{'role': 'user', 'content': prompt}],
     )
-    return response.content[0].text.strip()
+    api_usage.record_claude_usage(response.usage)
+    return api_usage.response_text(response).strip()
 
 
 def build_log_entry(files: list, stats: dict, synthesis: str, dry_run: bool) -> str:
@@ -347,6 +350,11 @@ def main():
     print('🤖 Synthesizing feedback signals with Claude...')
     synthesis = synthesize_with_claude(prompt, api_key)
     print(f'   Got {len(synthesis.split())} words of signals')
+    if not synthesis:
+        # A Haiku 5.5 refusal comes back as no text; an empty file would wipe
+        # last week's signals from the scoring prompt.
+        print('⚠️  Empty synthesis — keeping the existing feedback examples')
+        return
 
     log_entry = build_log_entry(qualifying, stats, synthesis, DRY_RUN)
 

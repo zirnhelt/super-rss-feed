@@ -93,10 +93,10 @@
   },
   "targeted_rescore": {
     "enabled": true,
-    "days": ["tuesday", "wednesday"],
+    "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
     "min_keyword_hits": 2,
     "score_ceiling": 55,
-    "max_articles_per_run": 40
+    "max_articles_per_run": 120
   },
   "max_articles": 100,
   "min_score": 50,
