@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-07 (Wednesday)
+
+#### 🔧 Manual Run (9:11 PM Pacific)
+- ⚠️ **CleanTechnica** failed — `403 Client Error: Forbidden for url: https://cleantechnica.com/feed/`
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+- ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1572 articles — check charter adherence, not supply
+
+
+---
+
+
+
 ## 2026-10-06 (Tuesday)
 
 #### 🔧 Manual Run (9:12 PM Pacific)
@@ -92,17 +105,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Cohere theme Rerank error [Wild Spaces & Outdoor Life]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'a737b66d2b4bd0cdf0cdff4dd2192538', 'date': 'Thu, 01 Oct 2026 04:12:48 GMT', 'x-envoy-upstream-service-time': '11', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '62ee2319-48a6-4d38-9583-2f0dbb8ebc3f', 'message': 'Please add or update your payment method at https://dashboard.cohere.com/billing?tab=payment to continue'}
 - ⚠️ Cohere theme Rerank error [Cariboo Local Affairs]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'c948bd2abf099017bdd76efd92c27b3f', 'date': 'Thu, 01 Oct 2026 04:12:50 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '4fb7049c-d795-4c63-927b-2a14f8b1ce53', 'message': 'Please add or update your payment method at https://dashboard.cohere.com/billing?tab=payment to continue'}
 - ⚠️ Cohere theme Rerank error [Science, Wonder & the Natural World]: headers: {'access-control-expose-headers': 'X-Debug-Trace-ID', 'cache-control': 'no-cache, no-store, no-transform, must-revalidate, private, max-age=0', 'content-encoding': 'gzip', 'content-type': 'application/json', 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT', 'pragma': 'no-cache', 'vary': 'Origin,Accept-Encoding', 'x-accel-expires': '0', 'x-debug-trace-id': 'a6022a8e72f459e731c0bbe83b457d60', 'date': 'Thu, 01 Oct 2026 04:12:52 GMT', 'x-envoy-upstream-service-time': '2', 'server': 'envoy', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=2592000', 'transfer-encoding': 'chunked'}, status_code: 402, body: {'id': '2c1a87ca-c0fc-4303-9906-b36943378eda', 'message': 'Please add or update your payment method at https://dashboard.cohere.com/billing?tab=payment to continue'}
-
-
----
-
-
-
-## 2026-09-29 (Tuesday)
-
-#### 🔧 Manual Run (9:11 PM Pacific)
-- ⚠️ **Canadian Forest Industries** failed — `429 Client Error: Too Many Requests for url: https://www.woodbusiness.ca/feed/`
-- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1505 articles — check charter adherence, not supply
 
 
 ---
@@ -1357,6 +1359,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ GN Country Guide failed — 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:co
 - ⚠️ GN EEVblog failed — 503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:eevblog.
 - ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1508 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-09-29–2026-09-29
+- 2 issues recorded
+- ⚠️ Canadian Forest Industries failed — 429 Client Error: Too Many Requests for url: https://www.woodbusiness.ca/feed/
+- ⚠️ Theme scoring: monday, thursday is the best-fit theme for 0 of 1505 articles — check charter adherence, not supply
 
 
 ---
