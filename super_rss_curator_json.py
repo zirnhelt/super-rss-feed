@@ -798,6 +798,37 @@ def _strip_markdown_links(text: str) -> str:
     return text
 
 
+# Markdown lines that are page chrome, not article prose: list items (nav menus),
+# headings, quotes, table rows, images (site logos), horizontal rules.
+_MD_CHROME_LINE_RE = re.compile(r'^(?:[-*+]\s|\d+[.)]\s|#{1,6}\s|>|\||!\[|[-*_]{3,}$)')
+_SENTENCE_END_RE = re.compile(r'[.!?][\"”’)]?(?:\s|$)')
+
+
+def _markdown_body_text(markdown: str, min_line_chars: int = 60) -> str:
+    """Return the prose paragraphs of a Kagi Extract page, dropping site chrome.
+
+    Extract returns the whole page, so a Black Press site comes back as two logo
+    images and a nav menu ahead of the story — which flattened into
+    "Site Logo Site Logo - News - Regional News - ..." as the article summary.
+    Prose is a long line of plain text that ends a sentence; chrome is not.
+    """
+    if not markdown:
+        return ''
+    kept = []
+    for raw_line in markdown.splitlines():
+        line = raw_line.strip()
+        if not line or _MD_CHROME_LINE_RE.match(line):
+            continue
+        line = _strip_markdown_links(line).strip()
+        if len(line) >= min_line_chars and _SENTENCE_END_RE.search(line):
+            kept.append(line)
+    return ' '.join(kept)
+
+
+# Read-time badges ("1 MIN READ") that Black Press listing cards put where a dek goes.
+_READ_TIME_RE = re.compile(r'^\s*\d+\s*min(?:ute)?s?\s+read\s*$', re.IGNORECASE)
+
+
 # Local BC news domains whose RSS descriptions are often empty/stub due to paywalls.
 # When an article from one of these domains has a very short description (<100 chars),
 # the feed will attempt a lightweight body fetch to capture text before the paywall closes.
@@ -1784,9 +1815,9 @@ def _kagi_enrich_articles(
             resp.raise_for_status()
             data = resp.json().get('data') or []
             page = data[0] if data else {}
-            text = (page.get('markdown') or '').strip()
-            if len(text) >= 80:
-                text = _strip_markdown_links(text)
+            text = _markdown_body_text(page.get('markdown') or '')
+            # Never trade a real description for a shorter one.
+            if len(text) >= 80 and len(text) > len(_clean_text(article.description)):
                 article.description = _clean_text(text, max_chars=600)
                 article.summary = _clean_text(text, max_chars=300)
                 article.excerpt = _clean_text(text, max_chars=600)
@@ -1843,8 +1874,11 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
                 continue
 
             url_hash = hashlib.md5(full_url.encode()).hexdigest()
-            if url_hash in cache:
-                articles.append(cache[url_hash])
+            cached = cache.get(url_hash)
+            if isinstance(cached, dict):
+                if _READ_TIME_RE.match(cached.get('description', '')):
+                    cached.update(description='', summary='', excerpt='')
+                articles.append(cached)
                 continue
 
             title_elem = article_div.select_one(title_sel) if title_sel else None
@@ -1852,6 +1886,8 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
 
             desc_elem = article_div.select_one(desc_sel) if desc_sel else None
             description = desc_elem.get_text(strip=True) if desc_elem else ''
+            if _READ_TIME_RE.match(description):
+                description = ''
 
             img_elem = article_div.select_one(img_sel) if img_sel else None
             image_url = None
