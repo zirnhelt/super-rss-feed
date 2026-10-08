@@ -276,7 +276,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 4. **`shown_articles_cache` bloat** — cleanup runs in `load_shown_cache()` past ~300K.
 5. **`THEME_SCORE_CACHE_VERSION`** — bump it whenever the theme score formula changes.
 6. **Bootstrap** — `python super_rss_curator_json.py --bootstrap-feeds` refills thin feeds from the podcast cache; CI runs it when any feed has < 20 items.
-7. **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer request fields through `extra_body`, as `calibration_agent.py` does.
+7. **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer request fields through `extra_body`, as `calibration_agent.py` does. Message Batches live under `client.beta.messages.batches` there; `client.messages.batches` does not exist.
 8. **Haiku 5.5 thinks unless told not to**, and thinking shares `max_tokens`. Every Haiku call passes `extra_body=api_usage.HAIKU_EXTRA_BODY` (thinking off; batch params take the key directly) and reads the reply with `api_usage.response_text()`, never `content[0]`: a refusal is a 200 with no text. Its tokenizer counts the same text as ~30% more tokens.
 
 ---
