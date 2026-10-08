@@ -45,10 +45,12 @@ NOTES_FILE = MEMORY_DIR / 'notes.md'
 BENCHMARKS_FILE = MEMORY_DIR / 'benchmarks.json'
 FEEDBACK_AUDIT_FILE = BASE_DIR / 'article_review_audit_summary.json'
 
-# Sonnet 5 costs a third less than Sonnet 4.5 ($2/$10 vs $3/$15). It thinks when
-# `thinking` is omitted and thinking shares max_tokens, so the call disables it:
-# Sonnet 4.5 never thought here, and the answer is one JSON object.
-MODEL = "claude-sonnet-5"
+# Haiku 5.5 since 2026-10-08, at a twentieth of Sonnet 5's price. Thinking stays
+# off (the answer is one JSON object, and thinking would share max_tokens with
+# it); effort `high` buys the stricter instruction following this agent needs
+# to stay inside calibration_bounds.json. `disabled` is accepted up to `high`.
+MODEL = api_usage.HAIKU_MODEL
+EFFORT = "high"
 MAX_TOKENS = 8000
 FEEDBACK_AUDIT_MAX_AGE_DAYS = 14
 
@@ -524,8 +526,9 @@ def call_claude_with_memory(
             response = client.messages.create(
                 model=MODEL,
                 max_tokens=max_tokens,
-                # anthropic==0.40.0 predates the `thinking` kwarg; send it raw.
-                extra_body={"thinking": {"type": "disabled"}},
+                # anthropic==0.40.0 predates these kwargs; send them raw.
+                extra_body={**api_usage.HAIKU_EXTRA_BODY,
+                            "output_config": {"effort": EFFORT}},
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}],
             )
@@ -536,7 +539,7 @@ def call_claude_with_memory(
                 print(f"  ⚠️ Calibration response truncated at {max_tokens} tokens; retrying larger")
                 continue
 
-            text = next((b.text for b in response.content if b.type == 'text'), '')
+            text = api_usage.response_text(response)
             return _parse_json_response(text), None
         except (ValueError, json.JSONDecodeError) as e:
             last_error = f'response parse failed: {e}'

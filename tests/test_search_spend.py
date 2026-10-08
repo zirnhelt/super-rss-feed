@@ -4,6 +4,7 @@ The feed's Brave Search key is shared with the podcast. On 2026-09-23 the 45 top
 queries were ~47 Brave calls a night for 1 of 467 category-feed items, and the cost
 tracker priced every one of those calls at $0.
 """
+import pytest
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -44,8 +45,8 @@ def test_cache_writes_are_priced_at_the_one_hour_rate():
     api_usage.reset()
     api_usage.record_claude_usage(SimpleNamespace(
         input_tokens=0, output_tokens=0,
-        cache_creation_input_tokens=1_000_000, cache_read_input_tokens=0))
-    assert abs(api_usage.estimate_cost() - 2.00) < 1e-9
+        cache_creation_input_tokens=100_000, cache_read_input_tokens=0))
+    assert abs(api_usage.estimate_cost() - 0.02) < 1e-9
     api_usage.reset()
 
 
@@ -77,21 +78,45 @@ def test_calibration_call_disables_thinking(monkeypatch):
     result, error = calibration_agent.call_claude_with_memory("system", "user", "test-key")
 
     assert error is None and result == {"changes": []}
-    assert sent["model"] == "claude-sonnet-5"
+    assert sent["model"] == "claude-haiku-5-5"
     assert sent["thinking"] == {"type": "disabled"}
+    assert sent["output_config"] == {"effort": "high"}
 
 
 def test_claude_cost_is_kept_by_stage_with_the_batch_discount():
     # The weekly audit sets each stage's cost beside how well its scores predict ratings.
     from types import SimpleNamespace
     api_usage.reset()
-    api_usage.record_claude_usage(SimpleNamespace(input_tokens=1_000_000, output_tokens=0), stage='gate')
-    api_usage.record_claude_usage(SimpleNamespace(input_tokens=1_000_000, output_tokens=0),
+    api_usage.record_claude_usage(SimpleNamespace(input_tokens=100_000, output_tokens=0), stage='gate')
+    api_usage.record_claude_usage(SimpleNamespace(input_tokens=100_000, output_tokens=0),
                                   batch=True, stage='theme_batch')
     api_usage.record_claude_usage(SimpleNamespace(input_tokens=0, output_tokens=0))
     by_stage = api_usage.get_summary_dict()['claude_by_stage']
-    assert by_stage == {'gate': {'calls': 1, 'est_cost_usd': 1.0},
+    assert by_stage == {'gate': {'calls': 1, 'est_cost_usd': 0.01},
                         'other': {'calls': 1, 'est_cost_usd': 0.0},
-                        'theme_batch': {'calls': 1, 'est_cost_usd': 0.5}}
+                        'theme_batch': {'calls': 1, 'est_cost_usd': 0.005}}
     api_usage.reset()
     assert api_usage.get_summary_dict()['claude_by_stage'] == {}
+
+
+def test_a_prompt_over_100k_tokens_is_priced_on_the_long_rate_card():
+    # Haiku 5.5 bills a whole call at 5x once its prompt (fresh + cached) passes 100K.
+    from types import SimpleNamespace
+    api_usage.reset()
+    api_usage.record_claude_usage(SimpleNamespace(
+        input_tokens=60_000, cache_read_input_tokens=60_000, output_tokens=1_000), stage='deep_score')
+    expected = 5 * (60_000 * 0.10 + 60_000 * 0.01 + 1_000 * 0.50) / 1_000_000
+    assert api_usage.estimate_cost() == pytest.approx(expected)
+    assert api_usage.get_summary_dict()['claude_by_stage']['deep_score']['est_cost_usd'] == round(expected, 4)
+    api_usage.reset()
+    assert api_usage.estimate_cost() == 0.0
+
+
+def test_response_text_skips_non_text_blocks_and_returns_empty_on_a_refusal():
+    from types import SimpleNamespace
+    thinking = SimpleNamespace(type='thinking', thinking='', signature='x')
+    text = SimpleNamespace(type='text', text='[{"a": 1}]')
+    assert api_usage.response_text(SimpleNamespace(content=[thinking, text], stop_reason='end_turn')) == '[{"a": 1}]'
+    refusal = SimpleNamespace(content=[], stop_reason='refusal',
+                              stop_details=SimpleNamespace(category='general_harms'))
+    assert api_usage.response_text(refusal) == ''

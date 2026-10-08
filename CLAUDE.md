@@ -50,7 +50,7 @@ Reference implementation: https://github.com/DietrichGebert/ponytail
 
 Keep API costs as low as possible at all times. This is a hard constraint.
 
-- **Prefer small models** (e.g. `claude-haiku-4-5-20251001`) for simple tasks like classification, extraction, summarization, and short-form generation. Only use larger models when the task genuinely requires it.
+- **Prefer small models** (`api_usage.HAIKU_MODEL`, Haiku 5.5) for simple tasks like classification, extraction, summarization, and short-form generation. Only use larger models when the task genuinely requires it.
 - **Use prompt caching** wherever possible. Structure prompts so that long, stable context (system prompts, documents, tool definitions) comes first and can be cached.
 - **Minimize tokens**: write concise system prompts, strip unnecessary whitespace, avoid redundant instructions.
 - **Batch requests** rather than issuing one call per item when the API supports it.
@@ -59,10 +59,12 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 - **Brave Search is shared with the podcast.** One Search key serves both repos, and its monthly cap is also the podcast's research budget. Read Brave's per-key usage export before trusting any estimate; `api_usage` prices Brave at $0.005 a call.
 - When in doubt, ask: "Can I do this with fewer tokens or a cheaper model?"
 
-**Anthropic prices** (USD per million tokens, first-party API, checked 2026-09-30; refresh from the pricing page before any cost decision):
+**Anthropic prices** (USD per million tokens, first-party API, checked 2026-10-08; refresh from the pricing page before any cost decision):
 
 | Model | Input | Output | Cache read |
 |-------|-------|--------|------------|
+| Haiku 5.5 (prompt ≤ 100K tokens) | $0.10 | $0.50 | $0.01 |
+| Haiku 5.5 (prompt > 100K) | $0.50 | $2.50 | $0.05 |
 | Haiku 4.5 | $1 | $5 | $0.10 |
 | Sonnet 5 / 5.5 | $2 | $10 | $0.20 |
 | Sonnet 4.5 | $3 | $15 | $0.30 |
@@ -86,7 +88,7 @@ Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API ha
 | `api_usage.py` | Thread-safe tracker for Claude token counts + Cohere/Brave/Kagi call counts + cost estimate. |
 | `cohere_integration.py` | Cohere Rerank + Embed. Auto-activates when `COHERE_API_KEY` is set; every public function is a no-op when disabled. |
 | `fetch_images.py` | Open Graph images (favicon fallback); also harvests `apple.news` IDs from the same page fetch. |
-| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses `claude-sonnet-5` with thinking disabled. |
+| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses Haiku 5.5 with thinking disabled at effort `high`. |
 | `feedback_trainer.py` | Weekly. Reads `feedback/` ratings (30 days raw + the rollup) and updates `config/feedback_examples.txt`. |
 | `feedback_archive.py` | Weekly. Distils old ratings into `feedback/feedback_rollup.json`, compresses raw files to `feedback/archive/`, maintains `feedback/reviewed_urls.json`. Idempotent; `--dry-run`, `--no-distil`. |
 | `standing_preferences.py` | Weekly. Turns notes on "bad" ratings into proposed lines for `config/standing_preferences.txt` and opens a PR (one Haiku call, only when there are new notes). Merge adopts, close declines for good (`feedback/standing_proposals.json`). |
@@ -213,14 +215,14 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 7. **Cross-run dedup** against `shown_terms_cache`.
 8. **Score (gated)** — the only scoring mode:
    a. **Quality gate** (`score_quality_gate()`): one Haiku pass returns `q_gate` (0-100, against `quality_charter.txt`) **and** a `gate_reject` verdict against `GATE_REJECT_RUBRIC` **and** a `gate_world` flag against `GATE_WORLD_RUBRIC`, all cached. Local articles bypass the score but not the rejection. API failure fails open.
-   b. **News head**: gate survivors are ordered by Cohere Rerank against `news_interests.txt` (ordering only), then the display-bound slice gets full Q/R/L Haiku scoring with `feedback_examples.txt`; the rest keep `q_gate`.
+   b. **News head**: gate survivors are ordered by Cohere Rerank against `news_interests.txt` (ordering only), then the display-bound slice (`quality_gate.deep_slice_multiplier` × `max_slots` per category, 6 since Haiku 5.5) gets full Q/R/L Haiku scoring with `feedback_examples.txt`; the rest keep `q_gate`.
 9. **Local priority** — `local_signals` matches get score ≥ 80 and the `local` feed.
 10. **Source preferences** — per-type adjustments.
 11. **Scrub** — `scrub_feed_with_haiku()` applies step 8a's verdicts. **It makes no API call**; name and `(kept, scrub_stats)` contract kept for the calibration agent.
 12. **Slot allocation** — `apply_feed_slot_allocation()`, ranked (see Scoring).
 13. **Images** — up to 50 articles.
 14. **Categorize** — keyword rules + Claude category assignment.
-15. **Podcast cache** — entry gated by `q_gate >= quality_gate.podcast_floor` (or `local >= 25`); theme scores computed once at ingest against the charters + quality charter (never the interest profile); `targeted_rescore` days get a single-charter second pass.
+15. **Podcast cache** — entry gated by `q_gate >= quality_gate.podcast_floor` (or `local >= 25`); theme scores computed once at ingest against the charters + quality charter (never the interest profile); `targeted_rescore` days (all seven since Haiku 5.5) get a single-charter second pass.
 16. **Podcast feeds** — all 7 regenerated every run from the pool (pure cache reads for the other 6 days).
 17. **Diversify** — per-source caps.
 18. **Merge & output** — JSON Feed files + `curated-feeds.opml`.
@@ -275,6 +277,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 5. **`THEME_SCORE_CACHE_VERSION`** — bump it whenever the theme score formula changes.
 6. **Bootstrap** — `python super_rss_curator_json.py --bootstrap-feeds` refills thin feeds from the podcast cache; CI runs it when any feed has < 20 items.
 7. **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer request fields through `extra_body`, as `calibration_agent.py` does.
+8. **Haiku 5.5 thinks unless told not to**, and thinking shares `max_tokens`. Every Haiku call passes `extra_body=api_usage.HAIKU_EXTRA_BODY` (thinking off; batch params take the key directly) and reads the reply with `api_usage.response_text()`, never `content[0]`: a refusal is a 200 with no text. Its tokenizer counts the same text as ~30% more tokens.
 
 ---
 

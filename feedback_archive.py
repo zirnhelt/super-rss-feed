@@ -42,6 +42,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+import api_usage
 from cache import atomic_write_json, atomic_write_text
 from config_loader import load_limits_config
 
@@ -57,7 +58,7 @@ LEDGER_VERSION = 1
 DEFAULT_RETENTION_DAYS = 90
 DEFAULT_LEDGER_DAYS = 180
 
-DISTIL_MODEL = 'claude-haiku-4-5'
+DISTIL_MODEL = api_usage.HAIKU_MODEL
 DISTIL_MAX_TOKENS = 600
 DISTIL_MAX_TITLES = 600  # hard ceiling on batch size so one call can never blow up
 
@@ -280,11 +281,12 @@ def distil_lessons(rollup: Dict[str, Any], ratings: List[Dict], api_key: str) ->
         client = anthropic.Anthropic(api_key=api_key)
         response = client.messages.create(
             model=DISTIL_MODEL,
+            extra_body=api_usage.HAIKU_EXTRA_BODY,
             max_tokens=DISTIL_MAX_TOKENS,
             messages=[{'role': 'user',
                        'content': build_distil_prompt(lines, rollup.get('lessons', ''))}],
         )
-        text = response.content[0].text.strip()
+        text = api_usage.response_text(response).strip()
     except Exception as e:
         print(f'⚠️  Lesson distillation failed ({e}) — keeping previous lessons')
         return False
@@ -293,7 +295,6 @@ def distil_lessons(rollup: Dict[str, Any], ratings: List[Dict], api_key: str) ->
         return False
 
     try:
-        import api_usage
         api_usage.record_claude_usage(response.usage)
     except Exception:
         pass

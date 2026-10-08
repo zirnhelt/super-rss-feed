@@ -19,6 +19,7 @@ import feedparser
 import anthropic
 from dataclasses import dataclass
 from bs4 import BeautifulSoup
+import api_usage
 import config_loader
 import cohere_integration
 from cache import atomic_write_json
@@ -277,13 +278,15 @@ No explanations, just the numbers."""
 
         try:
             response = client.messages.create(
-                model="claude-haiku-4-5",
-                max_tokens=100,
+                model=api_usage.HAIKU_MODEL,
+                extra_body=api_usage.HAIKU_EXTRA_BODY,
+                max_tokens=200,
                 messages=[{"role": "user", "content": prompt}]
             )
 
             # Parse scores
-            scores_text = response.content[0].text.strip()
+            api_usage.record_claude_usage(response.usage)
+            scores_text = api_usage.response_text(response).strip()
             scores = [float(s.strip()) for s in scores_text.split(',')]
 
             # Assign scores to articles

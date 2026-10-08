@@ -334,3 +334,27 @@ The weekly report renders the findings and the scorecard. Its cost table now pri
 vendors from `api_usage.FLAT_COST_PER_CALL`: its own copy said Brave was free for weeks
 after `api_usage` began charging $0.005 a call, and Claude now shows a figure instead
 of "token-based —".
+
+## Haiku 5.5 (2026-10-08)
+
+Every Haiku call moved from Haiku 4.5 to Haiku 5.5, which costs a tenth as much
+($0.10 / $0.50 per million tokens for prompts up to 100K). The weekly calibration
+agent moved off Sonnet 5 to it too. Nothing was trialled first: the feed is not
+business-critical, and a few odd days were accepted as the cost of learning the
+new model. Expect the score distributions to move, since the floors and weights were
+fitted to 4.5. Read the next weekly audit before retuning anything by hand.
+
+The savings went to Haiku doing more work, with Cohere kept for what it is good at:
+
+- **Cohere ranks, Haiku judges.** The deep-scoring slice went from 2x to 6x each
+  category's `max_slots` (`quality_gate.deep_slice_multiplier`). Cohere's interest rank
+  still decides who gets in when a category has more survivors than slots.
+- **Cohere recalls, Haiku rescores.** `targeted_rescore` runs on all seven days at 120
+  articles each, up from Tuesday and Wednesday at 40. Cohere's joint rerank still scores
+  the whole pool at ingest, and its scores still pick and order the rescore candidates.
+- `THEME_SCORE_CACHE_VERSION` went to v6 so 4.5 and 5.5 rescores are not mixed.
+
+The 2026-10-05 scorecard put Q, R and L at AUC 0.51-0.52 on news. A wider slice gives
+those dimensions more articles; it does not make them better predictors. If the
+scorecard has not moved after four weeks, the extra deep scoring has bought nothing
+and the multiplier can come back down.

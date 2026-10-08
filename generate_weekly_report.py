@@ -25,6 +25,7 @@ from pathlib import Path
 import anthropic
 import requests
 
+import api_usage
 from api_usage import FLAT_COST_PER_CALL
 from cache import atomic_write_json, atomic_write_text
 from sanitize import plain_text, sanitize_feed
@@ -569,11 +570,16 @@ def generate_narrative(
     for attempt in range(2):
         try:
             response = client.messages.create(
-                model="claude-haiku-4-5",
-                max_tokens=500,
+                model=api_usage.HAIKU_MODEL,
+                extra_body=api_usage.HAIKU_EXTRA_BODY,
+                max_tokens=700,
                 messages=[{"role": "user", "content": prompt}],
             )
-            return response.content[0].text.strip()
+            api_usage.record_claude_usage(response.usage)
+            text = api_usage.response_text(response).strip()
+            if not text:
+                raise ValueError('empty response')
+            return text
         except Exception as exc:
             last_exc = exc
             if attempt == 0:

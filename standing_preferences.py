@@ -37,6 +37,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
+import api_usage
 from cache import atomic_write_text
 
 BASE_DIR = Path(__file__).parent
@@ -45,7 +46,7 @@ PREFERENCES_FILE = BASE_DIR / "config" / "standing_preferences.txt"
 LEDGER_FILE = FEEDBACK_DIR / "standing_proposals.json"
 PR_BODY_FILE = BASE_DIR / "standing_preferences_pr.md"
 
-MODEL = "claude-haiku-4-5"
+MODEL = api_usage.HAIKU_MODEL
 NOTE_WINDOW_DAYS = 30
 MIN_SUPPORTING_NOTES = 2
 MAX_PROPOSALS = 3
@@ -169,16 +170,16 @@ def call_haiku(prompt: str) -> Optional[str]:
         print("ANTHROPIC_API_KEY not set — skipping")
         return None
     import anthropic
-    import api_usage
     client = anthropic.Anthropic(api_key=api_key)
     response = client.messages.create(
         model=MODEL,
-        max_tokens=800,
+        extra_body=api_usage.HAIKU_EXTRA_BODY,
+        max_tokens=1000,
         messages=[{"role": "user", "content": prompt}],
     )
     api_usage.record_claude_usage(response.usage)
     print(api_usage.format_summary())
-    return response.content[0].text
+    return api_usage.response_text(response)
 
 
 def write_proposals(proposals: List[Dict], today: str, note_count: int) -> None:
