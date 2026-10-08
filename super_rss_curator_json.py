@@ -1595,7 +1595,7 @@ def process_pending_theme_batch(api_key: str):
 
     client = anthropic.Anthropic(api_key=api_key)
     try:
-        batch_job = client.messages.batches.retrieve(batch_id)
+        batch_job = client.beta.messages.batches.retrieve(batch_id)
     except Exception as e:
         print(f"  ⚠️ Failed to retrieve batch: {e}")
         return
@@ -1613,7 +1613,7 @@ def process_pending_theme_batch(api_key: str):
     schedule_labels = pending['schedule_labels']
 
     results_processed = 0
-    for result in client.messages.batches.results(batch_id):
+    for result in client.beta.messages.batches.results(batch_id):
         custom_id = result.custom_id
         batch_articles = article_batches.get(custom_id, [])
 
@@ -4574,7 +4574,11 @@ Articles to evaluate:
         })
 
     try:
-        batch_job = client.messages.batches.create(requests=batch_requests)
+        # anthropic==0.40.0 has Message Batches only under `beta`; the GA
+        # `client.messages.batches` arrived later. Until 2026-10-08 this called
+        # the missing attribute, so every submission fell through to the
+        # synchronous path below at full price and no batch was ever polled.
+        batch_job = client.beta.messages.batches.create(requests=batch_requests)
         save_pending_theme_batch({
             "batch_id": batch_job.id,
             "submitted_at": now_iso,
