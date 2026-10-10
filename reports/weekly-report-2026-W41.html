@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State of the Feed — Week of October 5–11, 2026</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { margin-top: 1.5rem; font-size: 1.1rem; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+    th, td { border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }
+    th { background: #f5f5f5; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    a { color: #0066cc; }
+    ul { padding-left: 1.4rem; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <h1>State of the Feed — Week of October 5–11, 2026</h1>
+  <p class="meta">Published October 10, 2026 &middot; <a href="https://zirnhelt.github.io/super-rss-feed">Back to feed</a></p>
+  <p>The Week of October 5–11, 2026 saw 7 pipeline runs, each fetching an average of 1,354 articles and delivering an average of 83 quality-scored articles. Category volume was led by ai-tech (126 articles), followed by news (98), wellness (70), homelab (58), science (56), local (50), climate (42), design (42), outdoors (13), homestead (12), and scifi (11). Scoring used the dimensional Q/R/L composite (quality, relevance, local) with weights of 0.25, 0.55, and 0.20 respectively.</p>
+<p>Pipeline efficiency averaged a noise-to-signal ratio of 2.37 articles fetched per article delivered over 14 runs, with a range of 0.87 to 3.34. The ratio sat within its historical band this week and did not indicate an unusual degree of filtering overhead or unusually clean source material. New feeds added this period were GN CleanTechnica, Meshtastic Blog, My Cariboo Now, Cariboo News, Events, Weather and Local Radio, and Tsleil-Waututh Nation.</p>
+<p>Feed health shows three sources with errors: CleanTechnica, Hacker News, and EEVblog. Top discovery candidates by score were One Earth (79.1), astroblogger.blogspot.com (72.6), and Machine Learning (64.7).</p>
+<h3>New Feeds This Week</h3>
+<ul>
+  <li>GN CleanTechnica</li>
+  <li>Meshtastic Blog</li>
+  <li>My Cariboo Now</li>
+  <li>Cariboo News, Events, Weather and Local Radio.</li>
+  <li>Tsleil-Waututh Nation</li>
+</ul>
+<h3>Weekly Article Distribution</h3>
+<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>
+<tr><td>local</td><td>50</td></tr>
+<tr><td>ai-tech</td><td>126</td></tr>
+<tr><td>climate</td><td>42</td></tr>
+<tr><td>homelab</td><td>58</td></tr>
+<tr><td>homestead</td><td>12</td></tr>
+<tr><td>wellness</td><td>70</td></tr>
+<tr><td>science</td><td>56</td></tr>
+<tr><td>scifi</td><td>11</td></tr>
+<tr><td>design</td><td>42</td></tr>
+<tr><td>outdoors</td><td>13</td></tr>
+<tr><td>news</td><td>98</td></tr>
+</tbody></table>
+<h3>Feed Issues</h3>
+<ul>
+  <li><strong>CleanTechnica</strong>: 403 Client Error: Forbidden for url: https://cleantechnica.com/feed/</li>
+  <li><strong>Hacker News</strong>: 419 Client Error:  for url: https://news.ycombinator.com/rss</li>
+  <li><strong>EEVblog</strong>: 502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/</li>
+</ul>
+<h3>Discovery Highlights</h3>
+<ul>
+  <li>One Earth (score: 79.1)</li>
+  <li>astroblogger.blogspot.com (score: 72.6)</li>
+  <li>Machine Learning (score: 64.7)</li>
+</ul>
+<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>
+<p>Noise-to-signal = (articles fetched &minus; articles in final feeds) &divide; final total. Lower is more efficient.</p>
+<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>
+<tr><td>2026-08-24</td><td>1.91</td><td>0.56</td><td>2.86</td><td>19</td></tr>
+<tr><td>2026-08-30</td><td>1.77</td><td>0.56</td><td>3.67</td><td>23</td></tr>
+<tr><td>2026-09-06</td><td>1.48</td><td>0.07</td><td>3.67</td><td>21</td></tr>
+<tr><td>2026-09-13</td><td>1.6</td><td>0.07</td><td>3.76</td><td>17</td></tr>
+<tr><td>2026-09-20</td><td>2.39</td><td>1.35</td><td>3.76</td><td>14</td></tr>
+<tr><td>2026-09-27</td><td>2.28</td><td>1.35</td><td>2.99</td><td>15</td></tr>
+<tr><td>2026-10-04</td><td>2.31</td><td>0.87</td><td>3.34</td><td>15</td></tr>
+<tr><td>2026-10-10</td><td>2.37</td><td>0.87</td><td>3.34</td><td>14</td></tr>
+</tbody></table>
+<h3>Quality Review</h3>
+<p>438 articles across 11 feeds. Scrub pass flagged 2 article(s), 1 recommended for removal.</p>
+<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>
+<tr><td>🤖 AI/ML &amp; Tech</td><td>84</td><td>47.8</td><td>56</td><td>TechCrunch (8.3%)</td></tr>
+<tr><td>🌍 Climate &amp; Energy</td><td>36</td><td>42.1</td><td>26</td><td>InsideEVs (8.3%)</td></tr>
+<tr><td>🏛️ Architecture &amp; Design</td><td>29</td><td>49.9</td><td>24</td><td>ArchDaily (24.1%)</td></tr>
+<tr><td>🏠 Homelab &amp; DIY</td><td>44</td><td>42.1</td><td>40</td><td>Adafruit Blog (20.5%)</td></tr>
+<tr><td>🌾 Homestead &amp; Hobby Farm</td><td>11</td><td>36.2</td><td>9</td><td>Hobby Farms (27.3%)</td></tr>
+<tr><td>🏔️ Williams Lake Local</td><td>44</td><td>78.5</td><td>31</td><td>My Cariboo Now (40.9%)</td></tr>
+<tr><td>📰 General News</td><td>70</td><td>59.2</td><td>53</td><td>Hackaday (7.1%)</td></tr>
+<tr><td>🥾 Outdoors &amp; Recreation</td><td>12</td><td>30.7</td><td>10</td><td>Outside Online (33.3%)</td></tr>
+<tr><td>🔬 Science</td><td>41</td><td>51.4</td><td>34</td><td>ScienceDaily (31.7%)</td></tr>
+<tr><td>🚀 Sci-Fi &amp; Culture</td><td>9</td><td>26.9</td><td>5</td><td>Open Culture (22.2%)</td></tr>
+<tr><td>🌿 Health &amp; Wellness</td><td>58</td><td>51.5</td><td>48</td><td>STAT News (13.8%)</td></tr>
+</tbody></table><p>Corpus alignment: 467 articles analysed — 432 direct-qualify, 11 rescue-dependent, 7 stranded, 40 filler (8.6%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/reports/CORPUS_ALIGNMENT_REPORT_2026-10-10.md">Full report</a>.</p>
+<p>Content type breakdown: null: 920, analysis: 180, feature: 141, breaking: 120, news: 28, opinion: 23, fluff: 7, recap: 6, wire: 5, how-to: 1.</p>
+
+<h3>User Feedback Audit</h3>
+<p>2114 articles rated (2026-06-17 → 2026-10-10): 516 good, 263 interesting, 0 podcast only, 1333 bad. Shipped feed, reweighted: 42.3% good or interesting. Theme-day corrections: 425 of 2107 (20.2%). <a href="https://github.com/zirnhelt/super-rss-feed/blob/main/reports/ARTICLE_REVIEW_AUDIT_2026-10-10.md">Full audit</a>.</p>
+<h4>Needs attention</h4>
+<ul>
+  <li><strong>6 categories are unmeasured</strong>: Under 20 ratings in 28 days: homelab (12), homestead (6), climate (16), scifi (4), design (17), outdoors (5). Their rates are noise, not &quot;fine&quot;; news took 58.3% of the ratings.</li>
+  <li><strong>The gate threw away 11.8% of the rejects you wanted</strong>: 20 of 169 rated rejects in 28 days. Most often, all time: NYT Well (13), MacRumors (8), Outside Online (8), The Northern Miner (5), The Marginalian (5), Cool Tools (5).</li>
+  <li><strong>Nobody has used &quot;podcast_only&quot;</strong>: 0 of 365 ratings in 14 days. If it is never the answer, every metric that counts it is reading one channel.</li>
+  <li><strong>Places you want that the pool barely carries</strong>: williams lake: 84.1% wanted, 11 in the pool (0.8%), quesnel: 56.2% wanted, 10 in the pool (0.7%), 100 mile house: 70.0% wanted, 2 in the pool (0.1%). Baseline 36.9% wanted.</li>
+  <li><strong>Local places with almost no ratings</strong>: Under 5 ratings ever: horsefly, lac la hache.</li>
+  <li><strong>Block candidates still unblocked</strong>: Mother Jones: n ≥ 8 with nothing wanted. Block them in filters.json or rate why not.</li>
+  <li><strong>Calibration change never landed: source_preferences.kagi_search_result_limit</strong>: Logged 2026-09-20 as 10 → 12; config still says 10.</li>
+</ul>
+<h4>What each score buys</h4>
+<p>Last 4 weeks, 688 ratings. AUC: 0.5 is a coin flip, 1.0 perfect.</p>
+<table><thead><tr><th>Signal</th><th>Paid by</th><th>AUC</th><th>AUC, news</th></tr></thead><tbody>
+<tr><td>final score</td><td>gate + deep_score</td><td>0.714</td><td>0.724</td></tr>
+<tr><td>quality (Q)</td><td>deep_score; q_gate elsewhere</td><td>0.689</td><td>0.535</td></tr>
+<tr><td>relevance (R)</td><td>deep_score</td><td>0.701</td><td>0.539</td></tr>
+<tr><td>local (L)</td><td>deep_score</td><td>0.591</td><td>0.531</td></tr>
+<tr><td>theme fit for that day&#x27;s theme</td><td>theme_ingest / theme / theme_batch</td><td>0.662</td><td>0.672</td></tr>
+<tr><td>reader model</td><td>free: your earlier ratings</td><td>0.821</td><td>0.805</td></tr>
+</tbody></table>
+<h4>Claude cost by stage (7 days)</h4>
+<table><thead><tr><th>Stage</th><th>Calls</th><th>Est. cost</th></tr></thead><tbody>
+<tr><td>gate</td><td>151</td><td>$0.8167</td></tr>
+<tr><td>deep_score</td><td>51</td><td>$0.2950</td></tr>
+<tr><td>theme</td><td>20</td><td>$0.0541</td></tr>
+</tbody></table><table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% good+interesting</th><th>% bad</th></tr></thead><tbody>
+<tr><td>80-100</td><td>128</td><td>61.7</td><td>74.2</td><td>25.0</td></tr>
+<tr><td>60-79</td><td>360</td><td>34.7</td><td>47.2</td><td>52.8</td></tr>
+<tr><td>40-59</td><td>700</td><td>30.4</td><td>48.3</td><td>51.7</td></tr>
+<tr><td>20-39</td><td>534</td><td>12.7</td><td>23.0</td><td>77.0</td></tr>
+<tr><td>0-19</td><td>392</td><td>7.9</td><td>13.5</td><td>86.2</td></tr>
+</tbody></table>
+<h3>API Cost Review</h3>
+<p>7 run(s) this week &middot; total est. cost <strong>$2.3677</strong> &middot; avg <strong>$0.3382</strong>/run &middot; 2,287,502 Claude tokens</p>
+<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>
+<tr><td>Claude</td><td>268</td><td>38.3</td><td>token-based</td><td>$1.5657</td></tr>
+<tr><td>Cohere</td><td>106</td><td>15.1</td><td>$0.0020/call</td><td>$0.2120</td></tr>
+<tr><td>Brave</td><td>10</td><td>1.4</td><td>$0.0050/call</td><td>$0.0500</td></tr>
+<tr><td>Kagi</td><td>72</td><td>10.3</td><td>$0.0075/call</td><td>$0.5400</td></tr>
+<tr><td>Kite</td><td>42</td><td>6.0</td><td>free</td><td>$0</td></tr>
+</tbody></table>
+<h3>Calibration</h3>
+<p>No config changes applied this run.</p>
+
+<h3>Actions Taken This Week</h3>
+<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>
+<tr><td>Discovery</td><td>Added feed “One Earth” (climate, score 79.1)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/b51b6cc"><code>b51b6cc</code></a> (<code>git revert b51b6cc</code> to undo)</td></tr>
+<tr><td>Discovery</td><td>Added feed “astroblogger.blogspot.com” (general, score 72.6)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/b51b6cc"><code>b51b6cc</code></a> (<code>git revert b51b6cc</code> to undo)</td></tr>
+<tr><td>Feed health</td><td>Substituted “CleanTechnica” → https://news.google.com/rss/search?q=site:cleantechnica.com&amp;hl=en&amp;gl=CA&amp;ceid=CA:en (outlet unreachable but still publishing; 5 failures over 5d (http_403, via feed_http_cache.json+FEED_ERRORS.md))</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/b51b6cc"><code>b51b6cc</code></a> (<code>git revert b51b6cc</code> to undo)</td></tr>
+<tr><td>Feed health</td><td>Restored “Civil Eats” (retired source is reachable again; retired unknown)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/b51b6cc"><code>b51b6cc</code></a> (<code>git revert b51b6cc</code> to undo)</td></tr>
+<tr><td>Feed health</td><td>Restored “BC Gov News” (retired source is reachable again; retired unknown)</td><td><a href="https://github.com/zirnhelt/super-rss-feed/commit/b51b6cc"><code>b51b6cc</code></a> (<code>git revert b51b6cc</code> to undo)</td></tr>
+</tbody></table>
+</body>
+</html>
