@@ -144,3 +144,24 @@ def test_refresh_never_places_a_source_the_nightly_has_not(tmp_path, monkeypatch
     _setup(tmp_path, monkeypatch, {'local': [_item('https://wltribune.example/a', 'Williams Lake Tribune', 'x')]},
            _rss(10))
     assert m.refresh_editorial_feeds(output_dir='output') == []
+
+
+def _profile(name: str, role: str = 'City councillor candidate') -> m.Article:
+    slug = name.lower().replace(' ', '-')
+    return _article(f'MEET THE CANDIDATES: {role} {name}', 'Williams Lake Tribune',
+                    f'https://wltribune.com/2026/10/07/meet-the-candidates-{slug}/')
+
+
+def test_candidate_profiles_survive_both_dedups() -> None:
+    """2026-10-07..09: seven council profiles lost to the mayoral one the day before."""
+    stored = [_profile('Surinderpal Rathor', 'Mayoral candidate').title_terms]
+    assert not m._is_cross_run_story_dupe(_profile('Ruth Lloyd'), stored)
+    kept = m.deduplicate_articles([_profile('Ruth Lloyd'), _profile('Greg Jeannotte')])
+    assert len(kept) == 2
+    assert len(m.dedup_by_term_cluster(
+        [_profile('Ruth Lloyd'), _profile('Greg Jeannotte'), _profile('Jason Ryll')], 0.5, 1)) == 3
+
+
+def test_series_match_is_anchored_to_the_kicker() -> None:
+    a = _article('Voters meet the candidates at a Williams Lake forum', 'Tribune', 'https://a.example/4')
+    assert not m._story_dedup_exempt(a.source, a.title)
