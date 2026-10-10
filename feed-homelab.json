@@ -13,6 +13,85 @@
   "language": "en",
   "items": [
     {
+      "id": "https://hackaday.com/2026/10/09/embedded-3d-printing-with-liquids-on-a-bricked-prusa-fdm-printer/",
+      "url": "https://hackaday.com/2026/10/09/embedded-3d-printing-with-liquids-on-a-bricked-prusa-fdm-printer/",
+      "title": "[Hackaday] Embedded 3D Printing with Liquids on a Bricked Prusa FDM Printer",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/embedded_3d_printing_prusa_silicone_hair_gel_featured_rileys_lab_youtube.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F09%2Fembedded-3d-printing-with-liquids-on-a-bricked-prusa-fdm-printer%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"466\" src=\"https://hackaday.com/wp-content/uploads/2026/10/embedded_3d_printing_prusa_silicone_hair_gel_featured_rileys_lab_youtube.jpg?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>Recently [Riley] got his paws on an old Prusa i3 FDM printer that had clearly seen better days, with a hot-end that had suffered an explosive blow-out. For the project <a class=\"read-more\" href=\"https://hackaday.com/2026/10/09/embedded-3d-printing-with-liquids-on-a-bricked-prusa-fdm-printer/\">…read more</a>",
+      "date_published": "2026-10-09T23:00:03+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "image": "https://hackaday.com/wp-content/uploads/2026/10/embedded_3d_printing_prusa_silicone_hair_gel_featured_rileys_lab_youtube.jpg",
+      "_score": 58,
+      "_quality": 65,
+      "_relevance": 75,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.macrumors.com/2026/10/09/leak-details-iphone-features-for-home-accessories/",
+      "url": "https://www.macrumors.com/2026/10/09/leak-details-iphone-features-for-home-accessories/",
+      "title": "[MacRumors] Leak Details iPhone Features for Apple's LG Home Accessories",
+      "content_html": "<img src=\"https://images.macrumors.com/t/Y5LosWiiqev53GeuCdn3HHvaHJw=/2500x/article-new/2026/02/iOS-26-Home-Feature.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nSmart home accessories that Apple reportedly helped LG develop could offer iPhone proximity controls and a way to begin setup before the devices have power, according to findings shared by the leaker known as \"<a href=\"https://x.com/itspdfu/status/2108555274357199138\">pdfu</a>.\"\n<br/>\n<br/>\n<img alt=\"\" class=\"aligncenter size-full wp-image-1034994\" height=\"1406\" src=\"https://images.macrumors.com/article-new/2026/02/iOS-26-Home-Feature.jpg\" width=\"2500\"/>\n<br/>\nThe findings concern the upcoming LG-branded accessory range that <em>Bloomberg</em> <a href=\"https://www.macrumors.com/2026/10/06/lg-apple-smart-home-products/\">revealed earlier this week</a>. The lineup reportedly includes a thermostat, temperature sensor, deadbolt lock, wired video doorbell, and several security cameras. Apple apparently co-developed the accessories.\n<br/>\n<br/>\nOne of the features, called \"Proximity Control,\" will surface a shortcut when an iPhone is tapped against or brought close to an accessory. Pdfu says the <a href=\"https://www.macrumors.com/guide/dynamic-island/\">Dynamic Island</a> will present an \"Open Controls\" option for products such as thermostats. Cameras and doorbells will instead display a camera viewer.\n<br/>\n<br/>\nThe interaction will also apparently work on iPads and iPhones without a ‌Dynamic Island‌, using a notification that remains visible for 30 seconds. A setting in the Home app will let users switch proximity controls off after configuring the accessory.\n<br/>\n<br/>\n<em>MacRumors</em> contributor Aaron Perris <a href=\"https://x.com/aaronp613/status/2107307464341233805\">identified the Dynamic Island references</a> earlier this week. Pdfu says the underlying feature has appeared in code since iOS 27.0, with its settings changing during development. Earlier versions included an option to open controls automatically, but the enabled setting in iOS 27.2 currently asks users to open them through a prompt.\n<br/>\n<br/>\nAccording to the leaker, the accessories will use an identifier stored on an NFC tag alongside a Bluetooth Low Energy broadcast to support recognition and proximity interactions. Tapping a device for the first time will also produce ‌Dynamic Island‌ feedback as setup begins.\n<br/>\n<br/>\n<div class=\"center-wrap\"><blockquote class=\"twitter-tweet\"><p dir=\"ltr\" lang=\"en\">Apple's \"second-party\" LG accessories will debut another Home feature: Proximity Control.<br/><br/>As with HomePod, tapping or bringing iPhone near the accessory shows a hint in the Dynamic Island. An \"Open Controls\" button opens the accessory's controls. Cameras and doorbells show a camera viewer.<br/><br/>An iPhone without a Dynamic Island or an iPad will show a 30-second notification instead. You can disable this behavior in the Home app after setup.<br/><br/>You'll also see feedback in the Dynamic Island as iPhone launches setup when you first tap the accessory to pair it.<br/><br/>Behind the scenes, the accessory writes an \"apple-deviceid\" in the Matter payload stored on its NFC tag that helps iOS identify it when tapped. It also broadcasts a Bluetooth Low Energy advert for Apple Proximity Control.<br/><br/>The feature appears in code since iOS 27.0. In earlier versions, Apple showed three presentation options instead of the on/off toggle in iOS 27.2:<br/>•  Never: Suppresses proximity controls.​<br/>•  Ask to Launch: ​Shows Dynamic Island hint or notification, which deep links the control card.<br/>•  Launch Automatically: Shows control card.​<br/><br/>In the current implementation, the enabled state is equivalent to Ask to Launch. Home's helper text reads: \"Show controls when you bring your iPhone near your [accessory].\" The feature is still in active development across beta releases, so the final behavior may change.<br/><br/>The Dynamic Island proximity control code in iOS 27.2 was first reported by @aaronp613 and @MacRumors.</p>— pdfu (@itspdfu) <a href=\"https://x.com/itspdfu/status/2108555274357199138?ref_src=twsrc%5Etfw\">October 9, 2026</a></blockquote>\n<br/>\n</div>\n<br/>\n<br/>\nThe second feature, described in <a href=\"https://x.com/itspdfu/status/2108215078575092189\">a separate post</a>, will allow pairing to start while an accessory is unpowered. An iPhone will transfer its pairing identity and network credentials into the accessory's secure element using near-field communication (NFC). When the device receives power, it will connect to Wi-Fi or Thread, allowing a home hub to finish Matter setup.\n<br/>\n<br/>\nPdfu says that this setup method will be exclusive to <a href=\"https://www.macrumors.com/guide/homekit/\">HomeKit</a>. LG replaces the secure element's Matter NFC applet with a ‌HomeKit‌ applet, even though <a href=\"https://www.macrumors.com/roundup/ios-27/\">iOS 27</a> also supports standard Matter NFC. Conventional Matter pairing will remain available once the accessories are powered on.\n<br/>\n<br/>\n<div class=\"center-wrap\"><blockquote class=\"twitter-tweet\"><p dir=\"ltr\" lang=\"en\">LG home accessories are set to debut with HomeKit-exclusive \"tap to set up without power\" feature, according to iOS 27 code and device firmware.<br/><br/>When you tap your iPhone on the accessory, HomeKit pairing happens over NFC. Your iPhone's pairing identity and network credentials are stored in the accessory's NFC secure element.<br/><br/>Once powered on, the accessory joins your Wi‑Fi or Thread network, and your home hub completes the Matter setup.<br/><br/>•  Apple's HomeKit-over-NFC implementation is separate from Matter NFC Commissioning.<br/>•  Firmware for the LG lock and thermostat identifies an NXP SE051H Secure Element.<br/>•  While iOS 27 supports standard Matter NFC commissioning, LG's firmware replaces NXP's Matter NFC applet in the secure element with a HomeKit applet. This suggests that NFC provisioning will be a HomeKit exclusive. You can still pair the accessories over Matter once they're powered on.<br/><br/>(Shown here: Setup instruction asset for the LG lock)</p>— pdfu (@itspdfu) <a href=\"https://x.com/itspdfu/status/2108215078575092189?ref_src=twsrc%5Etfw\">October 8, 2026</a></blockquote>\n<br/>\n</div>\n<br/>\n<br/>\nProximity Control is still being revised across beta releases, according to pdfu, so its behavior could change before shipping.\n<br/>\n<br/>\nApple yesterday announced its \"<a href=\"https://www.macrumors.com/2026/10/08/apple-product-launch-october-13/\">Welcome home</a>\" event for Tuesday, October 13, with a home hub, updated <a href=\"https://www.macrumors.com/roundup/apple-tv/\">Apple TV</a> 4K, and refreshed <a href=\"https://www.macrumors.com/roundup/homepod-mini/\">HomePod mini</a> expected to be announced. Apple could provide a preview of LG's accessories, although <em>Bloomberg</em> says their release remains at least a <a href=\"https://www.macrumors.com/2026/10/06/lg-apple-smart-home-products/\">few months away</a>.<div class=\"linkback\">Tags: <a href=\"https://www.macrumors.com/guide/apple-home/\">Apple Home</a>, <a href=\"https://www.macrumors.com/guide/homekit/\">HomeKit</a>, <a href=\"https://www.macrumors.com/guide/lg/\">LG</a>, <a href=\"https://www.macrumors.com/guide/pdfu/\">pdfu</a></div><br/>This article, \"<a href=\"https://www.macrumors.com/2026/10/09/leak-details-iphone-features-for-home-accessories/\">Leak Details iPhone Features for Apple's LG Home Accessories</a>\" first appeared on <a href=\"https://www.macrumors.com\">MacRumors.com</a><br/><br/><a href=\"https://forums.macrumors.com/threads/leak-details-iphone-features-for-apples-lg-home-accessories.2491382/\">Discuss this article</a> in our forums<br/><br/>",
+      "date_published": "2026-10-09T14:50:57+00:00",
+      "authors": [
+        {
+          "name": "MacRumors",
+          "url": "https://www.macrumors.com"
+        }
+      ],
+      "image": "https://images.macrumors.com/t/Y5LosWiiqev53GeuCdn3HHvaHJw=/2500x/article-new/2026/02/iOS-26-Home-Feature.jpg",
+      "_score": 22,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
+      "id": "https://www.popularwoodworking.com/editors-blog/lint-happens/",
+      "url": "https://www.popularwoodworking.com/editors-blog/lint-happens/",
+      "title": "🔓 [Popular Woodworking] Lint Happens",
+      "content_html": "<img src=\"https://media.popularwoodworking.com/app/uploads/2026/10/09104627/ajblog-1270-image-copy.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"745\" src=\"https://media.popularwoodworking.com/app/uploads/2026/10/09104627/ajblog-1270-image-copy-1024x745.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1024\"/>Evidently, even the washing machine isn’t the final stop on woodworking debris’ migratory journey. No, that’s the dryer lint trap, a woodworking household’s final-stage dust collector. There are plenty of ways...\n<p><a href=\"https://www.popularwoodworking.com/editors-blog/lint-happens/\" rel=\"nofollow\">Source</a></p>",
+      "date_published": "2026-10-09T14:46:56+00:00",
+      "authors": [
+        {
+          "name": "Popular Woodworking",
+          "url": "https://www.popularwoodworking.com"
+        }
+      ],
+      "image": "https://media.popularwoodworking.com/app/uploads/2026/10/09104627/ajblog-1270-image-copy.jpg",
+      "_score": 33,
+      "_quality": 45,
+      "_relevance": 40,
+      "_local_score": 0,
+      "_content_type": "feature",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.hackster.io/news/raspberry-pi-dogfoods-its-boards-connected-to-home-assistant-as-it-plans-a-path-to-net-zero-4158820bc6c1",
+      "url": "https://www.hackster.io/news/raspberry-pi-dogfoods-its-boards-connected-to-home-assistant-as-it-plans-a-path-to-net-zero-4158820bc6c1",
+      "title": "[Hackster News] Raspberry Pi Dogfoods Its Boards, Connected to Home Assistant, As It Plans a Path to \"Net Zero\"",
+      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2009306/_atVyvBk1wN.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nEnergy efficiency at the single-board computer maker's headquarters is getting a big boost from its own SBCs, linked to Home Assistant.",
+      "date_published": "2026-10-09T10:44:39+00:00",
+      "authors": [
+        {
+          "name": "Hackster News",
+          "url": "https://www.hackster.io"
+        }
+      ],
+      "image": "https://hackster.imgix.net/uploads/attachments/2009306/_atVyvBk1wN.blob?auto=compress%2Cformat&w=400&h=300&fit=min",
+      "_score": 46,
+      "_quality": 50,
+      "_relevance": 60,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
       "id": "https://www.popularwoodworking.com/arts-mysteries/work_begun/",
       "url": "https://www.popularwoodworking.com/arts-mysteries/work_begun/",
       "title": "🔓 [Popular Woodworking] Work Begun",
@@ -52,6 +131,24 @@
       "_relevance": 62,
       "_local_score": 0,
       "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.atlasobscura.com/places/museo-torre-del-vino",
+      "url": "https://www.atlasobscura.com/places/museo-torre-del-vino",
+      "title": "[Atlas Obscura] Museo Torre del Vino in Socuéllamos, Spain",
+      "content_html": "<img src=\"https://img.atlasobscura.com/If0mOHYG6yGGFZuRT0_wyJtTY3xbejFLOl_Ht3SlyX4/rt:fit/w:600/c:2989:1992:nowe:35:1567/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85YzY5/ZTcyZC00N2MzLTRi/YzYtOGQ5Yy00NjBl/ZGE2OTg0ZWY5MzRm/MTNjODBiYThhNzg3/YmVfSU1HXzExMTgu/anBlZw.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p><img alt=\"\" height=\"200\" src=\"https://img.atlasobscura.com/5uGOAws-ws2x5s7O-ucDDgUxmssyYRuYFRZ9DzuqTmU/rs:fill:300:200:1/g:ce/c:2989:1992:nowe:35:1567/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85YzY5/ZTcyZC00N2MzLTRi/YzYtOGQ5Yy00NjBl/ZGE2OTg0ZWY5MzRm/MTNjODBiYThhNzg3/YmVfSU1HXzExMTgu/anBlZw.jpg\" width=\"300\"/></p> <p class=\"isSelectedEnd\">In Socuéllamos, you can climb a tower without ever leaving the world of wine. The Museo Torre del Vino occupies the town’s former railway station, but its most eye-catching feature is the improbable tower rising above it—a vertical tribute to the grape in the heart of La Mancha.</p>\n<p class=\"isSelectedEnd\">Opened in 2014, the museum explores Socuéllamos’s long relationship with viticulture, from grape cultivation and traditional winemaking to the science and rituals of tasting. Interactive displays and exhibitions make the subject considerably more entertaining than it sounds, while workshops involving aromas, wine painting, and, naturally, wine itself add a suitably convivial touch.</p>\n<p class=\"isSelectedEnd\">The best part comes at the top. A panoramic elevator carries visitors up the tower to a lookout offering sweeping views across the surrounding vineyards. From here, the famously flat Manchegan landscape suddenly makes perfect sense: this is a place where the horizon is enormous and the wine supply seemingly endless.</p>",
+      "date_published": "2026-10-08T14:00:00+00:00",
+      "authors": [
+        {
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com"
+        }
+      ],
+      "image": "https://img.atlasobscura.com/If0mOHYG6yGGFZuRT0_wyJtTY3xbejFLOl_Ht3SlyX4/rt:fit/w:600/c:2989:1992:nowe:35:1567/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy85YzY5/ZTcyZC00N2MzLTRi/YzYtOGQ5Yy00NjBl/ZGE2OTg0ZWY5MzRm/MTNjODBiYThhNzg3/YmVfSU1HXzExMTgu/anBlZw.jpg",
+      "_score": 20,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
     },
     {
       "id": "https://blog.adafruit.com/2026/10/08/fixers-are-warming-up-for-repair-day-across-the-globe/",
@@ -112,6 +209,24 @@
       "_relevance": 35,
       "_local_score": 0,
       "_content_type": "breaking"
+    },
+    {
+      "id": "https://www.archdaily.com/1034289/belgiums-architecture-offices-through-the-lens-of-marc-goodwin",
+      "url": "https://www.archdaily.com/1034289/belgiums-architecture-offices-through-the-lens-of-marc-goodwin",
+      "title": "[ArchDaily] Belgium’s Architecture Offices Through the Lens of Marc Goodwin",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.archdaily.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p><a href=\"https://www.archdaily.com/tag/photographer/page/1\">Photographer</a> <a href=\"https://www.archdaily.com/photographer/marc-goodwin\">Marc Goodwin</a> has extended his<a href=\"https://www.archdaily.com/978173/explore-architecture-studios-from-around-the-world-through-the-lens-of-marc-goodwin\"> Atlas of Architectural Atmospheres</a> to <a href=\"https://www.archdaily.com/country/belgium/page/1\">Belgium</a>, capturing the workspaces of <a href=\"https://www.archdaily.com/tag/architecture\">architecture</a> studios in <a href=\"https://www.archdaily.com/tag/antwerp/page/1\">Antwerp</a>, <a href=\"https://www.archdaily.com/tag/brussels/page/1\">Brussels</a>, and <a href=\"https://www.archdaily.com/tag/ghent/page/1\">Ghent</a>. The series includes large offices such as<a href=\"https://www.archdaily.com/office/b-architecten/page/1\"> B-architecten</a>, <a href=\"https://www.archdaily.com/office/polo/page/1\">POLO</a>, and <a href=\"https://www.archdaily.com/office/binst-architects?ad_name=project-specs&amp;ad_medium=single\">Binst Architects</a>, alongside smaller-scale practices like <a href=\"https://www.archdaily.com/office/studio-okami-architects?ad_name=project-specs&amp;ad_medium=single\">Studio Okami</a>, Stand Van Zaken, and Bruno Spaas Architectuur. Many of them occupy buildings with layered pasts from former <a href=\"https://www.archdaily.com/tag/workshops\">workshops</a>, to <a href=\"https://www.archdaily.com/tag/cinema\">cinemas</a>, and from storage facilities, to <a href=\"https://www.archdaily.com/tag/waterfront\">waterfront</a> structures.</p>",
+      "date_published": "2026-10-08T06:30:00+00:00",
+      "authors": [
+        {
+          "name": "ArchDaily",
+          "url": "https://www.archdaily.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=www.archdaily.com&sz=128",
+      "_score": 20,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
     },
     {
       "id": "https://hackaday.com/2026/10/07/keep-that-old-radio-alive-with-an-esp32/",
@@ -325,7 +440,7 @@
       "id": "https://blog.adafruit.com/2026/10/07/windows-95-running-on-an-esp32-p4-a-tiny386-port/",
       "url": "https://blog.adafruit.com/2026/10/07/windows-95-running-on-an-esp32-p4-a-tiny386-port/",
       "title": "[Adafruit Blog] Windows 95 running on an ESP32-P4, a tiny386 port",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F07%2Fwindows-95-running-on-an-esp32-p4-a-tiny386-port%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nwinitboonkliang has published a port of tiny386, Chunhui He’s x86 PC emulator, to the Guition JC8012P4A1C, a 10.1″ ESP32-P4 board with a 1280×800 MIPI-DSI panel. It boots Windows 95 OSR2 from a microSD card, with USB keyboard and mouse, and gives the guest 16 MB of RAM so Windows does not page to the card. […]",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 🔧 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F07%2Fwindows-95-running-on-an-esp32-p4-a-tiny386-port%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nwinitboonkliang has published a port of tiny386, Chunhui He’s x86 PC emulator, to the Guition JC8012P4A1C, a 10.1″ ESP32-P4 board with a 1280×800 MIPI-DSI panel. It boots Windows 95 OSR2 from a microSD card, with USB keyboard and mouse, and gives the guest 16 MB of RAM so Windows does not page to the card. […]",
       "date_published": "2026-10-07T15:09:14+00:00",
       "authors": [
         {
@@ -344,7 +459,7 @@
       "id": "https://www.popularwoodworking.com/techniques/rehabilitating-a-classic-rescuing-a-stanley-no-220-block-plane-part-1/",
       "url": "https://www.popularwoodworking.com/techniques/rehabilitating-a-classic-rescuing-a-stanley-no-220-block-plane-part-1/",
       "title": "🔓 [Popular Woodworking] Rehabilitating a Classic: Rescuing a Stanley No. 220 Block Plane (Part 1)",
-      "content_html": "<img src=\"https://media.popularwoodworking.com/app/uploads/2026/10/06083202/p1140230.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.popularwoodworking.com%2Ftechniques%2Frehabilitating-a-classic-rescuing-a-stanley-no-220-block-plane-part-1%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"683\" src=\"https://media.popularwoodworking.com/app/uploads/2026/10/06083202/p1140230-1024x683.jpeg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1024\"/>Long before premium makers like Lie-Nielsen and Lee Valley entered the scene, Stanley essentially governed the block plane market. For decades, the standard was set by a classic triad of...\n<p><a href=\"https://www.popularwoodworking.com/techniques/rehabilitating-a-classic-rescuing-a-stanley-no-220-block-plane-part-1/\" rel=\"nofollow\">Source</a></p>",
+      "content_html": "<img src=\"https://media.popularwoodworking.com/app/uploads/2026/10/06083202/p1140230.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.popularwoodworking.com%2Ftechniques%2Frehabilitating-a-classic-rescuing-a-stanley-no-220-block-plane-part-1%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"683\" src=\"https://media.popularwoodworking.com/app/uploads/2026/10/06083202/p1140230-1024x683.jpeg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1024\"/>Long before premium makers like Lie-Nielsen and Lee Valley entered the scene, Stanley essentially governed the block plane market. For decades, the standard was set by a classic triad of...\n<p><a href=\"https://www.popularwoodworking.com/techniques/rehabilitating-a-classic-rescuing-a-stanley-no-220-block-plane-part-1/\" rel=\"nofollow\">Source</a></p>",
       "date_published": "2026-10-07T14:25:56+00:00",
       "authors": [
         {
@@ -744,213 +859,6 @@
       "_score": 56,
       "_quality": 77,
       "_relevance": 68,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://hub.lorameshdevices.com/docs",
-      "url": "https://hub.lorameshdevices.com/docs",
-      "title": "[LoRaMeshDevices] LoRA, LoRaWAN, Meshtastic, MeshCore, mesh networking ...",
-      "content_html": "<img src=\"https://hub.lorameshdevices.com/images/hub-lora-2.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nFind the best LoRA, LoRaWAN, Meshtastic, MeshCore, Mesh Networking, LoRa Tutorials, IoT Downloadable Documents now.",
-      "date_published": "2026-10-05T04:02:24.467231+00:00",
-      "authors": [
-        {
-          "name": "LoRaMeshDevices",
-          "url": "https://www.lorameshdevices.com/blog/"
-        }
-      ],
-      "image": "https://hub.lorameshdevices.com/images/hub-lora-2.png",
-      "_score": 18,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0
-    },
-    {
-      "id": "https://hub.lorameshdevices.com/",
-      "url": "https://hub.lorameshdevices.com/",
-      "title": "[LoRaMeshDevices] LoraMeshDevices Hub: LoRa And Meshtastic Professional ...",
-      "content_html": "<img src=\"https://hub.lorameshdevices.com/images/hub-lora-2.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nLoRa Mesh Hub is where makers, preppers, and community organizers come together to build off-grid communication networks that work when nothing else does.",
-      "date_published": "2026-10-05T04:02:24.466296+00:00",
-      "authors": [
-        {
-          "name": "LoRaMeshDevices",
-          "url": "https://www.lorameshdevices.com/blog/"
-        }
-      ],
-      "image": "https://hub.lorameshdevices.com/images/hub-lora-2.png",
-      "_score": 43,
-      "_quality": 42,
-      "_relevance": 58,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://hackaday.com/2026/10/04/upgrading-a-benchtop-laser-for-megawatt-power/",
-      "url": "https://hackaday.com/2026/10/04/upgrading-a-benchtop-laser-for-megawatt-power/",
-      "title": "[Hackaday] Upgrading a Benchtop Laser for Megawatt Power",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/q-switch_laser_spark.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F04%2Fupgrading-a-benchtop-laser-for-megawatt-power%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"A dark optical bench is shown, with a lens in the right-hand part of the image. In front of the image, a bright blue spark appears in the air, with no equipment near it.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/10/q-switch_laser_spark.png?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>One fascinating thing about a pulsed laser is that, though the average power may be measured in watts or milliwatts, the peak power can easily reach millions of times that. <a class=\"read-more\" href=\"https://hackaday.com/2026/10/04/upgrading-a-benchtop-laser-for-megawatt-power/\">…read more</a>",
-      "date_published": "2026-10-05T02:00:01+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/q-switch_laser_spark.png",
-      "_score": 42,
-      "_quality": 67,
-      "_relevance": 48,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://jaredknowles.com/takes/2026-10-04-205018/",
-      "url": "https://jaredknowles.com/takes/2026-10-04-205018/",
-      "title": "[jaredknowles.com] Spent more time than I want to admit…",
-      "content_html": "<img src=\"https://jaredknowles.com/og/default.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🔧 🪶 🌲 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fjaredknowles.com%2Ftakes%2F2026-10-04-205018%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSpent more time than I want to admit cleaning out dust and dead bugs from my server enclosure today. I’ve had some high temp alerts lately and I’m concerned about one drive in my ZFS pool so I’m hoping adding some airflow will keep things running until HDD prices come back down.",
-      "date_published": "2026-10-05T00:50:18+00:00",
-      "authors": [
-        {
-          "name": "jaredknowles.com",
-          "url": "https://jaredknowles.com"
-        }
-      ],
-      "image": "https://jaredknowles.com/og/default.png",
-      "_score": 58,
-      "_quality": 68,
-      "_relevance": 74,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://daniele-messi.com/en/blog/proxmox-micro-segmentation-advanced-network-security-for-vms-lxcs/",
-      "url": "https://daniele-messi.com/en/blog/proxmox-micro-segmentation-advanced-network-security-for-vms-lxcs/",
-      "title": "[Daniele Messi. — Writing] Proxmox Micro-Segmentation: Advanced Network Security for VMs & LXCs",
-      "content_html": "<img src=\"https://daniele-messi.com/og/en/proxmox-micro-segmentation-advanced-network-security-for-vms-lxcs.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nMaster Proxmox micro-segmentation for solid VM/LXC network security in 2026. Learn advanced firewall rules and network isolation techniques.",
-      "date_published": "2026-10-05T00:00:00+00:00",
-      "authors": [
-        {
-          "name": "Daniele Messi. — Writing",
-          "url": "https://daniele-messi.com/en/blog/proxmox-home-lab-guide-self-hosting-2026/"
-        }
-      ],
-      "image": "https://daniele-messi.com/og/en/proxmox-micro-segmentation-advanced-network-security-for-vms-lxcs.png",
-      "_score": 57,
-      "_quality": 68,
-      "_relevance": 72,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.xda-developers.com/jellyfin-is-almost-perfect-but-plex-does-one-thing-that-keeps-me-paying/",
-      "url": "https://www.xda-developers.com/jellyfin-is-almost-perfect-but-plex-does-one-thing-that-keeps-me-paying/",
-      "title": "[XDA Developers] Jellyfin is free and beautiful, but Plex does one thing that keeps me paying",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/the-plex-app-on-google-tv.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nMy friends shouldn't need to understand my network",
-      "date_published": "2026-10-04T22:00:18+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/the-plex-app-on-google-tv.png",
-      "_score": 54,
-      "_quality": 55,
-      "_relevance": 72,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://www.xda-developers.com/self-hosted-own-email-for-a-year-and-its-one-project-ill-never-try-again/",
-      "url": "https://www.xda-developers.com/self-hosted-own-email-for-a-year-and-its-one-project-ill-never-try-again/",
-      "title": "[XDA Developers] I self-hosted my own email for a year, and it's the one project I'll never try again",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/stalwart-admin-dashboard-hero.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nControl, with a monthly invoice.",
-      "date_published": "2026-10-04T21:00:17+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/stalwart-admin-dashboard-hero.jpeg",
-      "_score": 57,
-      "_quality": 68,
-      "_relevance": 72,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://www.xda-developers.com/kodi-ancient-streaming-standards-still-does-things-modern-app-figured-out/",
-      "url": "https://www.xda-developers.com/kodi-ancient-streaming-standards-still-does-things-modern-app-figured-out/",
-      "title": "[XDA Developers] Kodi is ancient by streaming standards, and it still does 4 things no modern app has figured out",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/kodi-arctic-skin.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThe old-school self-hosting platform is still worth using.",
-      "date_published": "2026-10-04T19:01:17+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/kodi-arctic-skin.jpg",
-      "_score": 53,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0
-    },
-    {
-      "id": "https://hackaday.com/2026/10/04/avr-laptop-pushes-the-limits-of-8-bit/",
-      "url": "https://hackaday.com/2026/10/04/avr-laptop-pushes-the-limits-of-8-bit/",
-      "title": "[Hackaday] AVR Laptop Pushes the Limits of 8-Bit",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/AVRlaptop-thumb.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F04%2Favr-laptop-pushes-the-limits-of-8-bit%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/10/AVRlaptop-thumb.jpg?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>If you saw a device that had a laptop form factor playing sound and video, alt-tabbing over to play a game or take some notes, then back to the video <a class=\"read-more\" href=\"https://hackaday.com/2026/10/04/avr-laptop-pushes-the-limits-of-8-bit/\">…read more</a>",
-      "date_published": "2026-10-04T17:00:31+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/AVRlaptop-thumb.jpg",
-      "_score": 45,
-      "_quality": 70,
-      "_relevance": 52,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://hackaday.com/2026/10/04/motion-control-via-belt/",
-      "url": "https://hackaday.com/2026/10/04/motion-control-via-belt/",
-      "title": "[Hackaday] Motion Control via Belt",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/move.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F04%2Fmotion-control-via-belt%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/10/move.png?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>[Tolko] wanted to encourage kids to have some physical activity, but noted that they only wanted to play games. That led to BlobJump, a Raspberry Pi-based game sort of like <a class=\"read-more\" href=\"https://hackaday.com/2026/10/04/motion-control-via-belt/\">…read more</a>",
-      "date_published": "2026-10-04T14:00:45+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/move.png",
-      "_score": 46,
-      "_quality": 67,
-      "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://hackaday.com/2026/10/04/ai-on-your-gaming-pc/",
-      "url": "https://hackaday.com/2026/10/04/ai-on-your-gaming-pc/",
-      "title": "[Hackaday] AI on Your Gaming PC",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/strat.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F04%2Fai-on-your-gaming-pc%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"617\" src=\"https://hackaday.com/wp-content/uploads/2026/10/strat.png?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>If you want to experiment with LLMs, you typically have a choice of sending your requests to someone else’s computer or fielding a very large GPU and CPU setup to <a class=\"read-more\" href=\"https://hackaday.com/2026/10/04/ai-on-your-gaming-pc/\">…read more</a>",
-      "date_published": "2026-10-04T11:00:40+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/strat.png",
-      "_score": 44,
-      "_quality": 63,
-      "_relevance": 52,
       "_local_score": 0,
       "_content_type": "analysis"
     }
