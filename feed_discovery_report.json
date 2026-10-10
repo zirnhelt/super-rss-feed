@@ -1,51 +1,78 @@
 {
-  "generated_at": "2026-10-04T17:26:53.242720+00:00",
-  "total_candidates_evaluated": 288,
+  "generated_at": "2026-10-10T18:00:57.645950+00:00",
+  "total_candidates_evaluated": 286,
   "recommended_feeds": 18,
   "min_score_threshold": 60,
   "categories": {
-    "climate": {
-      "count": 2,
+    "homelab": {
+      "count": 3,
       "feeds": [
         {
-          "title": "One Earth",
-          "url": "https://oneearth.org/rss.xml",
-          "html_url": "https://www.oneearth.org/regenerative-agriculture-and-food-systems/",
+          "title": "Meshtastic Blog",
+          "url": "https://meshtastic.org/blog/rss.xml",
+          "html_url": "https://meshtastic.org/",
           "source": "brave_search",
-          "average_score": 79.1,
-          "sample_articles": 3,
-          "reason": "Strong alignment with your interests"
+          "average_score": 85.9,
+          "sample_articles": 1,
+          "reason": "Excellent match for your interests"
         },
         {
-          "title": "An Off Grid Life",
-          "url": "https://www.anoffgridlife.com/feed/",
-          "html_url": "https://www.anoffgridlife.com/",
+          "title": "Meshtastic Blog",
+          "url": "https://meshtastic.org/blog/atom.xml",
+          "html_url": "https://meshtastic.org/",
           "source": "brave_search",
-          "average_score": 62.5,
-          "sample_articles": 1,
+          "average_score": 64.8,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Thu\u1eadn L\u01b0\u01a1ng",
+          "url": "https://luonghongthuan.com/en/feed/",
+          "html_url": "https://luonghongthuan.com/en/blog/proxmox-selfhost-homelab-guide/",
+          "source": "brave_search",
+          "average_score": 63.6,
+          "sample_articles": 3,
           "reason": "Good potential addition"
         }
       ]
     },
-    "general": {
-      "count": 2,
+    "local": {
+      "count": 4,
       "feeds": [
         {
-          "title": "astroblogger.blogspot.com",
-          "url": "http://astroblogger.blogspot.com/atom.xml",
-          "html_url": "http://astroblogger.blogspot.com",
-          "source": "Kagi Small Web",
-          "average_score": 72.6,
+          "title": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com/feed/",
+          "html_url": "https://www.mycariboonow.com/",
+          "source": "brave_search",
+          "average_score": 72.3,
           "sample_articles": 3,
           "reason": "Good potential addition"
         },
         {
-          "title": "atank.interlogy.com",
-          "url": "http://atank.interlogy.com/feed/",
-          "html_url": "http://atank.interlogy.com",
-          "source": "Kagi Small Web",
-          "average_score": 62.1,
+          "title": "Cariboo News, Events, Weather and Local Radio.",
+          "url": "https://www.mycariboonow.com/news/feed/",
+          "html_url": "https://www.mycariboonow.com/news/",
+          "source": "brave_search",
+          "average_score": 72.3,
           "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Tsleil-Waututh Nation",
+          "url": "https://twnation.ca/feed/",
+          "html_url": "https://twnation.ca/",
+          "source": "brave_search",
+          "average_score": 71.3,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "CyberSEO",
+          "url": "https://www.cyberseo.net/feed",
+          "html_url": "https://www.cyberseo.net/public-rss-feed-catalogue/Canadian+News/",
+          "source": "brave_search",
+          "average_score": 64.0,
+          "sample_articles": 1,
           "reason": "Good potential addition"
         }
       ]
@@ -127,6 +154,20 @@
         }
       ]
     },
+    "general": {
+      "count": 1,
+      "feeds": [
+        {
+          "title": "atank.interlogy.com",
+          "url": "http://atank.interlogy.com/feed/",
+          "html_url": "http://atank.interlogy.com",
+          "source": "Kagi Small Web",
+          "average_score": 64.3,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
     "outdoors": {
       "count": 1,
       "feeds": [
@@ -141,57 +182,16 @@
         }
       ]
     },
-    "local": {
-      "count": 4,
-      "feeds": [
-        {
-          "title": "CyberSEO",
-          "url": "https://www.cyberseo.net/feed",
-          "html_url": "https://www.cyberseo.net/public-rss-feed-catalogue/Canadian+News/",
-          "source": "brave_search",
-          "average_score": 64.0,
-          "sample_articles": 1,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Community Archives : My Cariboo Now",
-          "url": "https://www.mycariboonow.com/news/communty/feed/",
-          "html_url": "https://www.mycariboonow.com/news/communty/",
-          "source": "brave_search",
-          "average_score": 60.3,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com/feed/",
-          "html_url": "https://www.mycariboonow.com/",
-          "source": "brave_search",
-          "average_score": 60.1,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Cariboo News, Events, Weather and Local Radio.",
-          "url": "https://www.mycariboonow.com/news/feed/",
-          "html_url": "https://www.mycariboonow.com/news/",
-          "source": "brave_search",
-          "average_score": 60.1,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
-    },
-    "science": {
+    "climate": {
       "count": 1,
       "feeds": [
         {
-          "title": "Super, Natural BC",
-          "url": "https://www.supernaturalbc.com/feed",
-          "html_url": "https://www.supernaturalbc.com/experiences/natural-wonders/",
+          "title": "An Off Grid Life",
+          "url": "https://www.anoffgridlife.com/feed/",
+          "html_url": "https://www.anoffgridlife.com/",
           "source": "brave_search",
-          "average_score": 60.4,
-          "sample_articles": 3,
+          "average_score": 62.5,
+          "sample_articles": 1,
           "reason": "Good potential addition"
         }
       ]
@@ -199,25 +199,43 @@
   },
   "summary": {
     "by_category": {
-      "climate": 2,
-      "general": 2,
-      "tech": 8,
-      "outdoors": 1,
+      "homelab": 3,
       "local": 4,
-      "science": 1
+      "tech": 8,
+      "general": 1,
+      "outdoors": 1,
+      "climate": 1
     },
     "top_recommendations": [
       {
-        "title": "One Earth",
-        "category": "climate",
-        "score": 79.1,
-        "url": "https://oneearth.org/rss.xml"
+        "title": "Meshtastic Blog",
+        "category": "homelab",
+        "score": 85.9,
+        "url": "https://meshtastic.org/blog/rss.xml"
       },
       {
-        "title": "astroblogger.blogspot.com",
-        "category": "general",
-        "score": 72.6,
-        "url": "http://astroblogger.blogspot.com/atom.xml"
+        "title": "My Cariboo Now",
+        "category": "local",
+        "score": 72.3,
+        "url": "https://www.mycariboonow.com/feed/"
+      },
+      {
+        "title": "Cariboo News, Events, Weather and Local Radio.",
+        "category": "local",
+        "score": 72.3,
+        "url": "https://www.mycariboonow.com/news/feed/"
+      },
+      {
+        "title": "Tsleil-Waututh Nation",
+        "category": "local",
+        "score": 71.3,
+        "url": "https://twnation.ca/feed/"
+      },
+      {
+        "title": "Meshtastic Blog",
+        "category": "homelab",
+        "score": 64.8,
+        "url": "https://meshtastic.org/blog/atom.xml"
       },
       {
         "title": "Machine Learning",
@@ -232,10 +250,10 @@
         "url": "https://medium.com/feed/airbnb-engineering"
       },
       {
-        "title": "Hike Bike Travel",
-        "category": "outdoors",
-        "score": 64.0,
-        "url": "https://hikebiketravel.com/feed/"
+        "title": "atank.interlogy.com",
+        "category": "general",
+        "score": 64.3,
+        "url": "http://atank.interlogy.com/feed/"
       },
       {
         "title": "CyberSEO",
@@ -244,28 +262,10 @@
         "url": "https://www.cyberseo.net/feed"
       },
       {
-        "title": "Dan Abramov's Overreacted Blog RSS Feed",
-        "category": "tech",
-        "score": 63.9,
-        "url": "https://overreacted.io/rss.xml"
-      },
-      {
-        "title": "Essays - Benedict Evans",
-        "category": "tech",
-        "score": 63.4,
-        "url": "http://ben-evans.com/benedictevans?format=rss"
-      },
-      {
-        "title": "An Off Grid Life",
-        "category": "climate",
-        "score": 62.5,
-        "url": "https://www.anoffgridlife.com/feed/"
-      },
-      {
-        "title": "Psychology Blog",
-        "category": "tech",
-        "score": 62.2,
-        "url": "http://www.all-about-psychology.com/psychology.xml"
+        "title": "Hike Bike Travel",
+        "category": "outdoors",
+        "score": 64.0,
+        "url": "https://hikebiketravel.com/feed/"
       }
     ]
   }
