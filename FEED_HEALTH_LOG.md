@@ -51,3 +51,15 @@ No feed met the failure floor — nothing to heal.
 | ✓ Recovered on its own | Hacker News | fetches normally again | 4 failures over 4d (http_419, via feed_http_cache.json+FEED_ERRORS.md) |
 | ✅ Restored | farmonaut.com | retired source is reachable again | retired unknown |
 | ✅ Restored | EEVblog | retired source is reachable again | retired unknown |
+
+
+## 2026-10-10
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| ✓ Recovered on its own | Hacker News | fetches normally again | 10 failures over 10d (http_419, via feed_http_cache.json+FEED_ERRORS.md) |
+| 🔁 Substituted | CleanTechnica | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:cleantechnica.com&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (http_403, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | EEVblog | fetches normally again | 4 failures over 4d (http_502, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Two Minute Papers | fetches normally again | 3 failures over 3d (http_500, via feed_http_cache.json) |
+| ✅ Restored | Civil Eats | retired source is reachable again | retired unknown |
+| ✅ Restored | BC Gov News | retired source is reachable again | retired unknown |
