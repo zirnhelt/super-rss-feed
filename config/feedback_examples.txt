@@ -1,31 +1,9 @@
-# Scoring Calibration Guidance
-
-**TOPIC & FRAMING PRIORITIES**
-
-- **Local governance & infrastructure** (municipal elections, public consultation, infrastructure safety): Exceptionally high value. Williams Lake Tribune stories about elections, civic engagement, and regional policy consistently score 88–95. Prioritize over generic "news."
-
-- **BC/Cariboo regional environmental reporting**: Climate stories with explicit regional impact (drought preparedness, wildfire recovery, summer weather analysis) score 70–88. Frame solutions and scientific findings over crisis narratives.
-
-- **AI critical analysis over product/business coverage**: Accept nuanced concerns (job impact, governance gaps, deepfake risks, shadow AI risks, cost of training). Reject VC narratives, startup drama, stock moves, and tool comparisons—even from historically liked sources.
-
-- **Science & nature discovery** (unusual phenomena, animal behavior, brain/health mechanisms): Valued at 49–72. Prioritize mechanism-focused medical discoveries over symptom advice or wellness lifestyle content.
-
-- **Practical tech how-tos & privacy empowerment**: User-facing guides (security, tracking, free features, device diagnostics) score 68–70. Reject gear reviews, shopping deals, optimization lists, and lifestyle framing.
-
-**CATEGORY ACCURACY**
-
-- **Reclassify design/DIY/maker content away from "news"**: User consistently retagged 3D printing, maker fairs, and smart home guides into `homelab`, `design`, or `outdoors`. Stop defaulting maker/DIY to news.
-
-- **Environmental data stories belong in "climate" not "news"**: Water usage, drought impacts, and wildfire science are climate-first. Separate from generic news scoring.
-
-- **Local sports & entertainment do not count as "local"**: User rejected 100 Mile Wranglers hockey and reclassified Grand Forks muralist as news (not local interest). True local = governance, community safety, civic engagement, regional policy.
-
-**SOURCE & CONTENT PATTERNS**
-
-- **Distrusted sources in weak categories**: Al Jazeera (94% bad), Lifehacker (92%), Tom's Hardware (90%), Neowin (88%), Toms Guide (87%) consistently score low. Reduce prominence unless topic is exceptional.
-
-- **Trusted regional sources deserve higher baseline**: Williams Lake Tribune (81%), My Cariboo Now (73%), BC Gov News (78%) are reliable for local, climate, and Indigenous content. Weight positively.
-
-**DAY REASSIGNMENT SIGNAL**
-
-- **Friday articles rarely stay on Friday**: User reassigns nearly all Friday submissions to mid-week (Wednesday, Thursday) or weekend (Sunday).
+- Prioritize Indigenous, First Nations, and reconciliation stories (e.g., Anishinabek Nation, Lhoosk'uz Dene, Kanaka Bar, IndigiNews, APTN), which the user consistently rewards; treat these as near-top relevance.
+- Weight Cariboo/Williams Lake/100 Mile/Quesnel local civic news highly when it covers elections, candidates, municipal governance, infrastructure, rail, water, or community life; penalize local crime and police-incident stories (RCMP arrests, ramming incidents) even when local.
+- Favor climate and environment articles framed around solutions, wildfire resilience, restoration, or policy stakes; reject pure disaster, crisis, or EV/lifestyle-trend framing.
+- Boost science and nature discovery (surprising biology, marine life, astronomy, evolutionary anthropology, geoscience, brain-interface breakthroughs) while penalizing symptom-focused health advice, supplement/diet hype, and "wellness" framings.
+- For AI/tech, accept security vulnerabilities, infrastructure significance, labor/accountability and trust angles; score down launches, feature rollouts, stock moves, product comparisons, hardware hacks, and speculative AGI hype.
+- Give extra relevance to Eagle Feather News, Williams Lake Tribune, Nautilus, The Narwhal, BC Gov News, New Atlas, My Cariboo Now, and APTN; apply a penalty to Al Jazeera English, Lifehacker, CBC Arts, Tom's Guide, Neowin, NPR Health, and My East Kootenay Now.
+- Under-represented topics to boost: First Nations land and governance, BC provincial policy (tax, rural healthcare, doctor recruitment), press freedom and government transparency, privacy/scam-defense how-tos, and space/astronomy.
+- Day patterns: wildfire, Indigenous, and local civic stories are often moved to weekend or Tuesday/Thursday slots; treat Friday-tagged content as flexible rather than a hard match.
+- Category retags to respect: outdoors/cycling gear pieces belong in outdoors, not news; AI/Apple/Anthropic product updates belong in ai-tech; brain-implant and Parkinson's research belong in science or wellness, not news.
