@@ -5,9 +5,9 @@
       "id": "weekday-theme-score-collapse-2026-07-26",
       "theme": "monday,tuesday,wednesday,thursday",
       "first_observed": "2026-07-26",
-      "last_observed": "2026-10-04",
+      "last_observed": "2026-10-10",
       "status": "resolved",
-      "description": "Previously resolved collapse continues to hold; in fact weekday theme raw scores improved further starting ~Oct 1 (Monday raw mean roughly doubled, Tuesday/Wednesday/Thursday raw means rose 3-6x), closing most of the gap with weekend themes. No regression observed.",
+      "description": "Weekday theme collapse remains resolved through Oct 10; weekday raw means have recovered and closed much of the gap with weekend themes. No regression observed.",
       "evidence_runs": [
         "2026-07-13T07:28:29.183589+00:00",
         "2026-07-14T06:17:35.491468+00:00",
@@ -69,6 +69,10 @@
         {
           "run_date": "2026-10-04",
           "action": "None this run — continuing to monitor. The Oct 1 jump in weekday theme scores appears to be a further positive refinement of the August 11 dimensional-scoring work, not a calibration-agent change. No knob adjustment proposed; will watch next 2-3 runs to confirm the new higher baseline is stable before considering it fully settled."
+        },
+        {
+          "run_date": "2026-10-10",
+          "action": "none — continuing to monitor; no knob change warranted"
         }
       ],
       "recommendation_pending": false
@@ -77,9 +81,9 @@
       "id": "news-category-quality-crisis",
       "theme": "news",
       "first_observed": "2026-10-04",
-      "last_observed": "2026-10-04",
+      "last_observed": "2026-10-10",
       "status": "monitoring",
-      "description": "News remains the single worst-performing category on user-rated positive_pct (20.6% per-category in feedback, 79.4% bad), despite the Sep 23 max_slots.news cap to 10 and min_claude_score at ceiling-adjacent 25. Pipeline-side quality gate is dropping the vast majority of news candidates (8934 dropped vs 200 passed in this window), confirming the floor is working — the residual bad rate is a relevance/local scoring-prompt issue (news relevance histogram shows 12356/12729 articles in the 0-19 band) rather than a threshold problem.",
+      "description": "News remains the worst category on user feedback (~79% bad, ~21.6% positive) despite the Sep 23 max_slots.news=10 cap. Pipeline quality gate is dropping the vast majority of news candidates, so the residual bad rate is a relevance/local scoring-prompt problem rather than a threshold problem. The Sep 23 cap is still too recent to judge given the 1–2 week feedback lag.",
       "evidence_runs": [
         "2026-09-21T04:00:37.666981+00:00",
         "2026-09-22T04:00:45.058198+00:00",
@@ -101,6 +105,10 @@
         {
           "run_date": "2026-10-04",
           "action": "None this run — the Sep 23 max_slots.news=10 cap needs more time to show its full effect in user feedback (which lags pipeline changes by 1-2 weeks). Avoiding further threshold tightening this run since threshold_sweep shows diminishing returns (25→30 costs 21.5% positive lost for 50.8% bad cut, disproportionately hitting 'interesting' articles)."
+        },
+        {
+          "run_date": "2026-10-10",
+          "action": "none this run — holding quality floors (further raises have steep positive-lost costs per threshold_sweep) and letting the Sep 23 news cap mature"
         }
       ],
       "recommendation_pending": true

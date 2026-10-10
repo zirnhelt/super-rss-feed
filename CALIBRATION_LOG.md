@@ -445,3 +445,27 @@ No changes applied this run.
 - News category relevance scoring is structurally broken for non-local news: 12356/12729 scored news articles fall in the 0-19 relevance band even after the quality gate. This looks like a scoring_prompt issue (relevance dimension not discriminating meaningfully for the news category) rather than something fixable via min_score_by_category or max_slots. Recommend a targeted review of the news-category relevance prompt/rubric.
 - Theme routing correction rate remains ~19-20% for the fourth consecutive audit window, split roughly 40% routing bugs / 60% theme-scoring misses (143/201 this window). Per-day good_pct is still weak across the board (Monday 'Arts, Culture & Digital Storytelling' theme_routing shows only 18.3% in the last full feedback snapshot). This is a scoring-prompt-level issue across multiple theme days, not something min_score/holdover tuning can fix — recommend a focused review of theme scoring prompts for Monday and Tuesday specifically, which have the lowest good_pct.
 - Consider re-examining whether kagi_search_result_limit should be raised again — it appears in change history as raised from 10→12 on both 2026-09-13 and 2026-09-20, but current config shows it back at 10. If that reversion was intentional, noise-to-signal's renewed climb (window mean 2.31, worse than the 1.48 seen in early September before the tightening sequence) suggests the reversion should be reconsidered with fresh data, though this agent is holding off this run per the flip-flop guard given two recent attempts at this exact lever.
+
+## 2026-10-10
+
+Audit window: 14 runs (2026-09-27T04:00:59.519081+00:00 to 2026-10-10T04:01:02.767424+00:00).
+
+
+**Analysis**
+
+The 14-run window (Sep 27–Oct 10) shows a pipeline that is stable on infrastructure but still too permissive on quality. Weekday theme scores are now healthy: Monday/Tuesday/Wednesday/Thursday raw means sit at roughly 20/20/12/15 for the latest runs, well clear of the July–August collapse, and the Oct 1 jump appears to be continued maturation of the dimensional-scoring rollout rather than something this agent changed. No recurring-issue regression is observed, so the weekday-theme issue stays resolved and I will not touch those levers.
+
+User feedback (ground truth, through Oct 4) still shows a quality problem: 63.6% bad overall, stratified weighted_positive_pct 43.9%, and band_precision has weak separation in the 20-59 composite range. The threshold_sweep shows the current min_score floor of 25 cuts 33.8% of bad at 10.1% positive lost; the next step to 30 would cut 49.7% of bad but cost 18.8% of positives, disproportionately hitting 'interesting' articles. Raising further is now expensive relative to prior gains, so I hold on quality floors this run. News remains the dominant problem (79.4% bad in feedback, 21.6% positive), but the Sep 23 cap at max_slots.news=10 is only ~2 weeks old and feedback lags pipeline changes by 1–2 weeks, so it should be given more time before further tightening.
+
+Noise-to-signal has been elevated (window mean 2.37, range 0.87–3.34) since late September. Per playbook, the upstream lever is kagi_search_result_limit, but it was already proposed upward twice in change_history without durably moving the value (config still reads 10), so I will not re-propose it without a clearer reason. Theme-routing correction rate is ~19.7% (160 routing bugs vs 225 scoring misses); the scoring-miss share points to prompt review, which is forbidden auto-edit territory. Worst sources (Rolling Stone, Mother Jones, The New Yorker, Cottage Life) remain 100% bad with sufficient sample sizes and are surfaced as human block recommendations.
+
+
+No changes applied this run.
+
+
+**Human recommendations**
+
+- Block candidates with 0% positive across meaningful sample sizes (source blocking is not auto-tunable): Rolling Stone (24/24 bad), Mother Jones (15/15 bad), The New Yorker (9/9 bad), Cottage Life (8/8 bad). None have any positive rating.
+- Review the scoring_prompt for news and the composite weighting. The local dimension is a binary cliff (nearly all non-Cariboo articles score ~0 on L), and relevance is also collapsed for news (the bulk of news articles score 0–19 on relevance). This is the structural cause of poor band precision (even the 80–100 band is only ~60% good) and cannot be fixed by thresholds.
+- Review theme scoring prompts for Tuesday and Wednesday. Theme-scoring misses (≈225 of 385 day corrections) outnumber routing bugs (≈160), indicating the per-theme scoring prompts are a larger source of mis-routed podcast content than the selection logic. Thursday and Monday show the same pattern to a lesser degree.
+- Consider whether kagi_search_result_limit should be raised again only after confirming the config value actually persists (prior proposals to raise it from 10 to 12 do not appear to have stuck). Noise-to-signal remains elevated (window mean ~2.4) after upstream tightening, so upstream volume/quality of search results is the lever to examine, not further quality-floor raises.
