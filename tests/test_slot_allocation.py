@@ -7,10 +7,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import super_rss_curator_json as m
 
 
-def _a(cat, score):
+def _a(cat, score, source='Some Outlet'):
     o = types.SimpleNamespace()
     o.category = cat
     o.score = score
+    o.source = source
     return o
 
 
@@ -136,3 +137,18 @@ def test_world_lane_is_per_category(monkeypatch):
     m.apply_feed_slot_allocation([climate_summit])
 
     assert not getattr(climate_summit, 'world_lane', False)
+
+
+def test_editorial_exempt_sources_are_never_ranked_out(monkeypatch):
+    """The episode review scores 22-29 against a local floor of 25; on a busy
+    local day ranking cut it and that day's review never reached the feed."""
+    monkeypatch.setattr(m, 'FEED_SLOTS', {'local': {'min_slots': 3, 'max_slots': 4},
+                                          'default': {'min_slots': 1, 'max_slots': 5}})
+    monkeypatch.setattr(m, 'LIMITS', dict(m.LIMITS, min_claude_score=25, min_score_by_category={}))
+    review = _a('local', 22, source='Cariboo Signals Reviews')
+    arts = [_a('local', s) for s in (90, 80, 70, 60, 50)] + [review]
+
+    out = m.apply_feed_slot_allocation(arts)
+
+    assert review in out
+    assert len([x for x in out if x is not review]) == 4, 'and it takes no one else\'s slot'

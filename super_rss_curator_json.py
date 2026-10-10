@@ -1117,6 +1117,29 @@ def item_source_link(item: Dict) -> str:
     return item.get('external_url') or item.get('url', '')
 
 
+def _article_from_feed_item(item: Dict):
+    """Rebuild an article-like object from an item of a feed this pipeline wrote.
+
+    Retained items go back through generate_json_feed() beside the run's new
+    articles, which needs only these attributes; the lead image and badge are
+    stripped so they are not stacked twice.
+    """
+    return type('Article', (), {
+        'link': item_source_link(item),
+        'title': re.sub(r'^(?:🔓\s*)+', '', item['title']),
+        'description': _strip_generated_prefix(item['content_html']),
+        'pub_date': datetime.fromisoformat(item['date_published'].replace('Z', '+00:00')),
+        'source': item['authors'][0]['name'],
+        'source_url': item['authors'][0]['url'],
+        'score': item.get('_score', 0),
+        'quality': item.get('_quality', 0),
+        'relevance': item.get('_relevance', 0),
+        'local': item.get('_local_score', 0),
+        'content_type': item.get('_content_type'),
+        'image': item.get('image')
+    })()
+
+
 def load_podcast_cache():
     """Load weekly podcast articles cache (7 days retention)"""
     if not os.path.exists(PODCAST_CACHE_FILE):
@@ -3730,10 +3753,17 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
     default_cfg = FEED_SLOTS.get('default', {'min_slots': 1, 'max_slots': 5})
     gate_floor = LIMITS.get('quality_gate', {}).get('gate_floor', 25)
 
+    # Editorial-exempt sources (the episode review) ride on top of the slots: the
+    # composite measures news value, and the review hovered either side of the
+    # local floor, so a busy local day ranked it out and that day's never shipped.
+    result: List[Article] = [a for a in articles if a.source in EDITORIAL_EXEMPT_SOURCES]
+    editorial_ids = {id(a) for a in result}
+
     # Pass 0: the world lane, filled before the composite gets a say.
-    result: List[Article] = []
     world_counts: Dict[str, int] = defaultdict(int)
     for a in sorted(articles, key=lambda x: getattr(x, 'q_gate', None) or 0, reverse=True):
+        if id(a) in editorial_ids:
+            continue
         cat = a.category or 'news'
         world_slots = FEED_SLOTS.get(cat, default_cfg).get('world_slots', 0)
         if (not getattr(a, 'gate_world', None)
@@ -3785,6 +3815,8 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
 
     slot_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(cat_counts.items()))
     print(f"📊 Feed slot allocation: {len(articles)} → {len(result)} articles [{slot_summary}]")
+    if editorial_ids:
+        print(f"   🗞️  {len(editorial_ids)} editorial-exempt article(s) on top of max_slots")
     if world_counts:
         world_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(world_counts.items()))
         print(f"   🌍 World lane: {world_summary} on top of max_slots")
@@ -6297,22 +6329,7 @@ def main():
         if len(fresh_existing) < len(existing_articles):
             print(f"🗂️  Feed merge dedup ({cat_key}): {len(existing_articles)} → {len(fresh_existing)} retained articles")
 
-        all_items = diverse_new + [
-            type('Article', (), {
-                'link': item_source_link(item),
-                'title': re.sub(r'^(?:🔓\s*)+', '', item['title']),
-                'description': _strip_generated_prefix(item['content_html']),
-                'pub_date': datetime.fromisoformat(item['date_published'].replace('Z', '+00:00')),
-                'source': item['authors'][0]['name'],
-                'source_url': item['authors'][0]['url'],
-                'score': item.get('_score', 0),
-                'quality': item.get('_quality', 0),
-                'relevance': item.get('_relevance', 0),
-                'local': item.get('_local_score', 0),
-                'content_type': item.get('_content_type'),
-                'image': item.get('image')
-            })() for item in fresh_existing
-        ]
+        all_items = diverse_new + [_article_from_feed_item(item) for item in fresh_existing]
         
         all_items.sort(key=lambda a: a.pub_date, reverse=True)
         all_items = all_items[:LIMITS['max_feed_size']]
@@ -7019,8 +7036,68 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     print(f"\n🎉 Bootstrap complete: {total_written} articles written across {len(CATEGORIES)} feeds")
 
 
+def refresh_editorial_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output') -> List[str]:
+    """Splice new items from editorial-exempt sources into the feeds already carrying them.
+
+    The nightly run is at 04:00 UTC and the podcast publishes its episode review
+    at about 10:05 UTC, so the review reached feed-local a day late. The podcast's
+    review job dispatches this pass once the review is live. It makes no API call,
+    writes no cache and makes no category decision: a source's new items go only
+    into feeds that already carry that source, so a source the nightly has never
+    placed is left to the nightly. The next nightly sees the same URL as new and
+    replaces this copy through the ordinary retention merge.
+
+    Writes each changed feed, and its RSS mirror, into ``output_dir`` and returns
+    the paths written. Feeds are read from the working directory.
+    """
+    global _apple_news_cache
+    _apple_news_cache = load_apple_news_cache()  # retained subscriber links must not change
+
+    sources = [f for f in parse_opml(opml_path) if f['title'] in EDITORIAL_EXEMPT_SOURCES]
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=SYSTEM['lookback_hours'])
+    fresh: List[Article] = []
+    for feed in sources:
+        # A plain GET, not fetch_feed_articles(): the conditional-GET state and the
+        # paid fallbacks belong to the nightly, which must still see this as new.
+        try:
+            response = requests.get(feed['url'], timeout=10,
+                                    headers={'User-Agent': _BROWSER_UA, 'Accept': _FEED_ACCEPT})
+            response.raise_for_status()
+        except requests.RequestException as e:
+            print(f"  ⚠️ {feed['title']}: {e}")
+            continue
+        fresh += _articles_from_feed_bytes(response.content, feed, cutoff, feed['url'])
+
+    written: List[str] = []
+    for cat_key in CATEGORIES:
+        feed_file = f"feed-{cat_key}.json"
+        if not fresh or not os.path.exists(feed_file):
+            continue
+        with open(feed_file, 'r', encoding='utf-8') as f:
+            items = json.load(f).get('items', [])
+        carried = {(item.get('authors') or [{}])[0].get('name') for item in items}
+        known = {canonicalize_url(item_source_link(item)) for item in items}
+        new = [a for a in fresh if a.source in carried and canonicalize_url(a.link) not in known]
+        if not new:
+            continue
+        all_items = new + [_article_from_feed_item(item) for item in items]
+        all_items.sort(key=lambda a: a.pub_date, reverse=True)
+        out_path = os.path.join(output_dir, feed_file)
+        os.makedirs(output_dir, exist_ok=True)
+        generate_json_feed(all_items, cat_key, out_path)
+        written.append(out_path)
+        if FEEDS_CONFIG['feeds'][cat_key].get('rss'):
+            written.append(f"{os.path.splitext(out_path)[0]}.xml")
+        print(f"  ➕ {cat_key}: {', '.join(a.title for a in new)}")
+
+    print(f"🗞️  Editorial refresh: {len(written)} file(s) written")
+    return written
+
+
 if __name__ == '__main__':
     if '--bootstrap-feeds' in sys.argv:
         bootstrap_feeds_from_podcast_cache(api_key=os.getenv('ANTHROPIC_API_KEY', ''))
+    elif '--refresh-editorial' in sys.argv:
+        refresh_editorial_feeds()
     else:
         main()
