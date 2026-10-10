@@ -1,0 +1,65 @@
+name: Refresh Editorial Items
+
+# The podcast publishes its episode review at about 10:05 UTC, six hours after
+# the nightly feed run, so the review reached feed-local a day late. The
+# podcast's review job dispatches this once the review is live on its Pages
+# site; it splices new editorial-exempt items into the feeds that already carry
+# them. No API keys, no cache writes, no commit to main: see
+# refresh_editorial_feeds(). A run that finds nothing new deploys nothing.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Same group as generate-feed: both rewrite feed-local.json on gh-pages, and
+# this one rewrites the copy it read, so the two must never overlap.
+concurrency:
+  group: generate-feed
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements-lock.txt
+
+      # The gh-pages tip rather than the Pages CDN, because this rewrites what
+      # it reads: a stale CDN copy would deploy back over the nightly's feed.
+      - name: Read the published feeds from gh-pages
+        run: |
+          set -euo pipefail
+          git fetch --quiet --depth=1 origin gh-pages
+          for f in $(git ls-tree --name-only FETCH_HEAD \
+                     | grep -E '^(feed-[a-z-]+|podcast_shown_cache|apple_news_cache)\.json$'); do
+            git show "FETCH_HEAD:$f" > "$f"
+          done
+
+      - name: Splice in new editorial items
+        id: splice
+        run: |
+          set -euo pipefail
+          python super_rss_curator_json.py --refresh-editorial
+          if ls output/feed-*.json >/dev/null 2>&1; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # keep_files: true — only the feeds that changed are in output/.
+      - name: Deploy changed feeds
+        if: steps.splice.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: true
+          commit_message: 'Refresh editorial items'

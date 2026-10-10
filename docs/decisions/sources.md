@@ -75,6 +75,12 @@ It was tried and reverted; the scheme launches the News app but has no search pa
 
 `_story_dedup_exempt()` now takes these sources out of every story-overlap check: in-run (`deduplicate_articles`), cross-run (`_is_cross_run_story_dupe`), and the retained-item merge. Their term sets are no longer banked in `shown_terms_cache`, so a review can't suppress a news story either. URL-hash dedup still applies. The podcast also puts the day's theme in the review title, but this repo no longer depends on that.
 
+## The episode review reaches the feed the morning it is written (2026-10-10)
+
+The podcast writes its review at about 10:05 UTC (rung 3, so it can describe all three triggers), six hours after this repo's 04:00 UTC run. Every review therefore reached `feed-local.json` with the *next* night's run, beside the next day's episode. Some never arrived: the review scores 22-29 against the local floor of 25, so `apply_feed_slot_allocation()` ranked it out whenever local had three better items (Oct 6 never shipped).
+
+Two changes. Editorial-exempt sources now ride on top of the slots, like the world lane: the composite measures news value, which is the wrong test for the pipeline reporting on itself. And `refresh_editorial_feeds()` (`--refresh-editorial`, `refresh-editorial.yml`) splices new editorial items in once the podcast's review job sees its review live on Pages and dispatches it. The refresh makes no API call and writes no cache; it reads the feeds from the gh-pages tip, not the CDN, because it deploys back what it read. It shares the `generate-feed` concurrency group for the same reason. It places a source only in feeds that already carry it, so the category stays the nightly's decision. The nightly later sees the same URL as new and replaces the copy through the retention merge, and the retained-item path keeps an editorial item even when the nightly's own pass does not pick it.
+
 ## Published content is made inert at one exit (2026-10-03)
 
 Every item carries text, markup and URLs from someone else's feed, search result or page, and
