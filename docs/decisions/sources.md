@@ -85,6 +85,10 @@ The podcast writes its review at about 10:05 UTC (rung 3, so it can describe all
 
 Two changes. Editorial-exempt sources now ride on top of the slots, like the world lane: the composite measures news value, which is the wrong test for the pipeline reporting on itself. And `refresh_editorial_feeds()` (`--refresh-editorial`, `refresh-editorial.yml`) splices new editorial items in once the podcast's review job sees its review live on Pages and dispatches it. The refresh makes no API call and writes no cache; it reads the feeds from the gh-pages tip, not the CDN, because it deploys back what it read. It shares the `generate-feed` concurrency group for the same reason. It places a source only in feeds that already carry it, so the category stays the nightly's decision. The nightly later sees the same URL as new and replaces the copy through the retention merge, and the retained-item path keeps an editorial item even when the nightly's own pass does not pick it.
 
+## Quesnel and 100 Mile are scraped like the Tribune (2026-10-11)
+
+The three Black Press papers' RSS feeds carry the chain's provincial syndication beside the local stories ("Disgraced Vernon lawyer…", "B.C. Greens release…" arrived through the Quesnel feed). From 10-03 to 10-11, `feed-local.json` carried 36 Tribune stories, which are scraped from the homepage, against 11 from 100 Mile and 7 from Quesnel, which came through RSS alone. The weekly audit flagged both towns as wanted well above baseline with under 1% of the pool. `scrape_local_news()` now runs the Tribune's scraper over every paper in `system.json` → `local_scrapes`. They share the CMS and the selector list, and they share `wlt_cache.json` (keyed by URL hash, so CI's cache round-trip is unchanged). A paper that fails to load is logged and skipped; the others still run. Scraped stories are pre-scored local, as the Tribune's always were, so an occasional syndicated card on a homepage lands in `local` too: the Tribune's cache held 2 of 17 that way.
+
 ## Published content is made inert at one exit (2026-10-03)
 
 Every item carries text, markup and URLs from someone else's feed, search result or page, and

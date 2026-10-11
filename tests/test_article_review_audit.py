@@ -224,13 +224,24 @@ def test_starved_place_needs_appetite_ratings_and_thin_supply(monkeypatch):
     ratings = ([_on('good', 5, title='Quesnel council') for _ in range(6)]
                + [_on('bad', 5, title='Elsewhere') for _ in range(30)]
                + [_on('good', 5, title='Horsefly salmon')])
-    pool = [{'title': 'Quesnel bridge'}] + [{'title': 'other'}] * 199
-    places = audit.place_supply(ratings, pool, ['quesnel', 'horsefly'])
+    pool = ([{'title': 'Quesnel bridge'}, {'title': 'Salmon count', 'excerpt': 'Horsefly River'}]
+            + [{'title': 'other'}] * 198)
+    places = audit.place_supply(ratings, pool, ['quesnel', 'horsefly', 'lac la hache'])
     assert places['places'][0] == {'place': 'quesnel', 'rated': 6, 'wanted_pct': 100.0,
                                    'in_pool': 1, 'pool_pct': 0.5}
     found = _spots(places=places)
     assert 'quesnel' in found['starved-places']['detail']
+    # Lac la Hache never reached the pool: a supply gap, not a ratings gap.
     assert found['unmeasured-places']['detail'].endswith('horsefly.')
+
+
+def test_a_place_counts_when_only_the_source_or_excerpt_names_it():
+    ratings = [_on('good', 5, title='Council votes', source='Williams Lake Tribune')]
+    pool = [{'title': 'Council votes', 'source': 'Williams Lake Tribune'},
+            {'title': 'Fire hall', 'excerpt': 'WILLIAMS LAKE, B.C. — The city'},
+            {'title': 'other'}]
+    row = audit.place_supply(ratings, pool, ['williams lake'])['places'][0]
+    assert (row['rated'], row['in_pool']) == (1, 2)
 
 
 def test_followthrough_checks_the_latest_change_against_config(tmp_path, monkeypatch):

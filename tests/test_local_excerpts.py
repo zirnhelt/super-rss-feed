@@ -91,3 +91,50 @@ def test_read_time_badge_is_not_a_description() -> None:
     for badge in ('1 MIN READ', '4 min read', '2 minutes read'):
         assert m._READ_TIME_RE.match(badge)
     assert not m._READ_TIME_RE.match('Read 1 min about the election')
+
+
+def _card(href: str, title: str) -> str:
+    return (f'<div class="article-card"><a class="article-card__link" href="{href}">'
+            f'<h3 class="article-card__headline">{title}</h3></a>'
+            f'<div class="article-card__details">{"A local story. " * 10}</div></div>')
+
+
+def test_every_configured_paper_is_scraped_under_its_own_name(tmp_path, monkeypatch):
+    pages = {
+        'https://wltribune.com/': _card('/2026/10/10/council/', 'Council meets'),
+        'https://quesnelobserver.com/': (_card('https://quesnelobserver.com/2026/10/10/bridge/', 'Bridge reopens')
+                                         + _card('https://ads.example/x', 'Sponsored')),
+        'https://100milefreepress.net/': _card('https://www.100milefreepress.net/2026/10/10/fair/', 'Job fair'),
+    }
+
+    def fake_get(url, **kwargs):
+        resp = mock.Mock(text=pages[url])
+        resp.raise_for_status = mock.Mock()
+        return resp
+
+    monkeypatch.setattr(m, 'LOCAL_SCRAPES', m.SYSTEM['local_scrapes'])
+    monkeypatch.setattr(m, '_wlt_cache', m.Cache(str(tmp_path / 'wlt_cache.json'), ttl_hours=48))
+    monkeypatch.setattr(m.requests, 'get', fake_get)
+
+    scraped = {a['link']: a['source'] for a in m.scrape_local_news()}
+
+    assert scraped == {
+        'https://wltribune.com/2026/10/10/council/': 'Williams Lake Tribune',
+        'https://quesnelobserver.com/2026/10/10/bridge/': 'Quesnel Cariboo Observer',
+        'https://www.100milefreepress.net/2026/10/10/fair/': '100 Mile Free Press',
+    }
+
+
+def test_one_paper_down_does_not_stop_the_others(tmp_path, monkeypatch):
+    def fake_get(url, **kwargs):
+        if 'quesnel' in url:
+            raise m.requests.exceptions.ConnectionError('down')
+        resp = mock.Mock(text=_card('/2026/10/10/a/', 'Story'))
+        resp.raise_for_status = mock.Mock()
+        return resp
+
+    monkeypatch.setattr(m, 'LOCAL_SCRAPES', m.SYSTEM['local_scrapes'])
+    monkeypatch.setattr(m, '_wlt_cache', m.Cache(str(tmp_path / 'wlt_cache.json'), ttl_hours=48))
+    monkeypatch.setattr(m.requests, 'get', fake_get)
+
+    assert {a['source'] for a in m.scrape_local_news()} == {'Williams Lake Tribune', '100 Mile Free Press'}

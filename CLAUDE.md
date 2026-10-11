@@ -110,7 +110,7 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 
 | File | Purpose |
 |------|---------|
-| `system.json` | Cache paths and TTLs, base URLs, `lookback_hours` (48), and the `kagi_news` / `topic_queries` on-off switches. |
+| `system.json` | Cache paths and TTLs, base URLs, `local_scrapes` (the papers scraped beside their RSS), `lookback_hours` (48), and the `kagi_news` / `topic_queries` on-off switches. |
 | `limits.json` | Feed sizes, retention, per-source caps, thresholds, dedup parameters, batch sizes. **Tunable by calibration agent.** |
 | `filters.json` | `blocked_sources`, `blocked_keywords`, `blocked_keywords_unless_local`, `local_signals`, `blocked_title_patterns`, `blocked_url_path_patterns`. |
 | `standing_preferences.txt` | **The reader's** reject rules, one per line, placed in the quality gate's subject list (same call, no extra cost). Edited by hand or by merging a weekly proposal PR. The pipeline owns the built-in subjects in `GATE_REJECT_RUBRIC`; the reader owns this file. |
@@ -159,7 +159,7 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 | `scored_articles_cache.json` | Scores by URL hash; avoids re-scoring. | 48 h |
 | `shown_articles_cache.json` | Articles already surfaced. | 14 days |
 | `shown_terms_cache.json` | Term sets for cross-run story dedup. | 14 days |
-| `wlt_cache.json` | Williams Lake Tribune scrape. | 48 h |
+| `wlt_cache.json` | Local paper scrapes (all of `local_scrapes`, keyed by URL hash). | 48 h |
 | `podcast_articles_cache.json` | Rolling pool for podcast theme scoring. | 7 days |
 | `theme_scores_cache.json` | Per-article, per-theme fit. Version key `THEME_SCORE_CACHE_VERSION`. | 7 days |
 | `podcast_shown_cache.json` | URLs used per day's episode. | 7 days |
@@ -208,8 +208,8 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 ## Pipeline Architecture (`super_rss_curator_json.py`)
 
 1. **Fetch** — `feedparser`, last 48 h, conditional GET via `FeedHTTPCache`. Free recovery before paid: 403 → feed-reader UA retry; 404/410 → `_discover_feed_url()` (cached as `resolved_url`). Then Brave → Kagi → Google News RSS. ≥3 consecutive failures skip Brave/Kagi; unrecoverable failures back off 6 h / 24 h / 72 h.
-2. **WLT scrape** — BeautifulSoup scrapes Williams Lake Tribune directly.
-3. **Topic news** — Brave News + Kagi from `topic_queries.json`, only when `USE_SEARCH_APIS=true` **and** `system.json` → `topic_queries.enabled`. **Off since 2026-09-23 as a two-week trial; review 2026-10-07** (~47 Brave calls a night for 1 of 467 category items). The run log prints `Topic queries: disabled`.
+2. **Local scrapes** — `scrape_local_news()` scrapes the homepages in `system.json` → `local_scrapes` (Tribune, Quesnel Observer, 100 Mile Free Press): their RSS is mostly provincial syndication. See [sources.md](docs/decisions/sources.md).
+3. **Topic news** — Brave News + Kagi from `topic_queries.json`, only when `USE_SEARCH_APIS=true` **and** `system.json` → `topic_queries.enabled`. **Off since 2026-09-23, kept off after the trial (reviewed 2026-10-11)**: ~47 Brave calls a night for 1 of 467 category items. The run log prints `Topic queries: disabled`.
 4. **Filter** — `filters.json`: blocked sources, keywords (`blocked_keywords_unless_local` allows a local override), title patterns, URL path patterns, and bare homepages.
 5. **Prescore gate** — high-volume aggregators must match a `PRESCORE_KEYWORDS` term before paid scoring.
 6. **Deduplicate** — URL hash → fuzzy title → term-set containment (source priority local > print > broadcast), plus Cohere similarity when enabled.
@@ -249,7 +249,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **News has a world lane.** `world_slots` (4) go to gate-flagged major world events ranked by `q_gate`, on top of `max_slots`. The ratings starved world news once; keep the lane out of `calibration_bounds.json` knobs.
 - **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
 - **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
-- **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`.
+- **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`. Categories rotate within each stratum (`rotate_review_categories()`) so small categories get rated.
 - **The audit reads across weeks.** Its **Needs Attention** findings carry how many weekly audits in a row reported them (from `reports/weekly_metrics.jsonl`); at 3 they escalate. Before paying for a stage, or for a test of an alternative, read **What each score buys**: its out-of-time AUC beside its cost by stage.
 - **A verdict is feed × podcast:** `good` (both), `interesting` (feed only), `podcast_only` (show only), `bad` (neither). Feed, band, sweep and source metrics count good+interesting; day fit (`theme_routing.per_day.good_pct`) counts good+podcast_only. Block a source only at n ≥ 8 with zero positives of any kind, `podcast_only` included.
 

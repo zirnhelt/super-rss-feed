@@ -345,9 +345,8 @@ FEED_HTTP_CACHE_FILE = 'feed_http_cache.json'        # Per-feed ETag/Last-Modifi
 APPLE_NEWS_CACHE_FILE = 'apple_news_cache.json'      # Harvested apple.news article + channel IDs
 APPLE_NEWS_ARTICLE_TTL_DAYS = 14                     # Matches the longest category-feed retention
 
-# URLs
-WLT_BASE_URL = SYSTEM['urls']['wlt_base']
-WLT_NEWS_URL = SYSTEM['urls']['wlt_news']
+# Local papers whose homepages are scraped alongside their RSS (system.json → local_scrapes).
+LOCAL_SCRAPES: List[Dict[str, str]] = SYSTEM.get('local_scrapes', [])
 
 # Cache instances (simple dict caches with TTL)
 _scored_cache = Cache(SCORED_CACHE_FILE, ttl_hours=SYSTEM['cache_expiry']['scored_hours'])
@@ -1871,12 +1870,14 @@ def _kagi_enrich_articles(
             print(f"     HTTP {status} body: {body}")
 
 
-def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache):
-    """Attempt to extract articles using a specific set of CSS selectors.
+def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache,
+                      base_url: str = 'https://wltribune.com'):
+    """Attempt to extract one paper's articles using a specific set of CSS selectors.
 
     Returns a list of article dicts and the updated cache, or an empty list if
     no containers matched.
     """
+    domain = urlparse(base_url).netloc.removeprefix('www.')
     containers = soup.select(container_sel)
     if not containers:
         return []
@@ -1895,10 +1896,10 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
             if href.startswith('http'):
                 full_url = href
             else:
-                full_url = f"{WLT_BASE_URL}{href}"
+                full_url = f"{base_url}{href}"
 
-            # Skip non-wltribune links (ads, external)
-            if 'wltribune.com' not in full_url:
+            # Skip links off the paper's own site (ads, external)
+            if domain not in full_url:
                 continue
 
             url_hash = hashlib.md5(full_url.encode()).hexdigest()
@@ -1922,10 +1923,10 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
             if img_elem:
                 image_url = img_elem.get('src') or img_elem.get('data-src', '')
                 if image_url and image_url.startswith('/'):
-                    image_url = f"{WLT_BASE_URL}{image_url}"
+                    image_url = f"{base_url}{image_url}"
 
             if title and full_url:
-                # WLT listing pages often have stub descriptions.  Fetch the
+                # Black Press listing pages often have stub descriptions.  Fetch the
                 # article body so the podcast generator has real source text.
                 if len(description) < 100:
                     body = _fetch_article_excerpt(full_url, max_chars=600)
@@ -1945,19 +1946,24 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
                 cache[url_hash] = article_data
 
         except Exception as e:
-            print(f"  ⚠️ Error parsing WLT article: {e}")
+            print(f"  ⚠️ Error parsing {domain} article: {e}")
             continue
 
     return articles
 
 
-def scrape_wlt_news() -> List[Dict]:
-    """Scrape Williams Lake Tribune news page.
+def scrape_local_news() -> List[Dict]:
+    """Scrape each local paper's homepage (system.json → local_scrapes).
 
-    Tries multiple CSS selector patterns in order so the scraper degrades
-    gracefully when the site layout changes.  When all patterns fail it logs
-    a snippet of visible text to aid debugging.
+    The Black Press papers' RSS carries the chain's provincial syndication next to
+    the local stories, so only about one local Quesnel or 100 Mile story a day made
+    it through, against five for the scraped Tribune. All three run on the same CMS,
+    so one selector list serves them. Tries the patterns in order so the scraper
+    degrades gracefully when the layout changes; when all fail it logs a snippet of
+    visible text. Each returned dict carries its paper's `source` and `base_url`.
     """
+    # One cache for every scraped paper, keyed by URL hash; the file keeps its
+    # historical name (wlt_cache.json) so CI's cache round-trip is unchanged.
     cache = _wlt_cache.load()
 
     # Ordered list of (container, link, title, desc, img) selector tuples.
@@ -1978,38 +1984,39 @@ def scrape_wlt_news() -> List[Dict]:
         # Very generic fallback: any <article> tag with a headline link
         ('article', 'a', 'h2', 'p', 'img'),
     ]
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-CA,en;q=0.9',
+    }
 
-    try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Language': 'en-CA,en;q=0.9',
-        }
+    scraped: List[Dict] = []
+    for paper in LOCAL_SCRAPES:
+        source, base_url = paper['source'], paper['base_url']
+        try:
+            response = requests.get(paper['news_url'], headers=headers, timeout=10)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
 
-        response = requests.get(WLT_NEWS_URL, headers=headers, timeout=10)
-        response.raise_for_status()
+            articles: List[Dict] = []
+            for container_sel, link_sel, title_sel, desc_sel, img_sel in SELECTOR_PATTERNS:
+                articles = _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel,
+                                             img_sel, cache, base_url)
+                if articles:
+                    print(f"📰 {source}: {len(articles)} articles (selector: {container_sel!r})")
+                    break
 
-        soup = BeautifulSoup(response.text, 'html.parser')
-        articles = []
+            if not articles:
+                # Log a snippet of the page to aid selector debugging
+                body_text = ' '.join(soup.get_text(' ', strip=True).split())[:300]
+                print(f"⚠️ {source}: 0 articles scraped — all selector patterns failed")
+                print(f"   Page text preview: {body_text!r}")
+            scraped.extend({**a, 'source': source, 'base_url': base_url} for a in articles)
+        except Exception as e:
+            print(f"⚠️ Failed to scrape {source}: {e}")
 
-        for container_sel, link_sel, title_sel, desc_sel, img_sel in SELECTOR_PATTERNS:
-            articles = _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache)
-            if articles:
-                print(f"📰 Williams Lake Tribune: {len(articles)} articles (selector: {container_sel!r})")
-                break
-
-        if not articles:
-            # Log a snippet of the page to aid selector debugging
-            body_text = ' '.join(soup.get_text(' ', strip=True).split())[:300]
-            print(f"⚠️ Williams Lake Tribune: 0 articles scraped — all selector patterns failed")
-            print(f"   Page text preview: {body_text!r}")
-
-        _wlt_cache.save(cache)
-        return articles
-
-    except Exception as e:
-        print(f"⚠️ Failed to scrape Williams Lake Tribune: {e}")
-        return []
+    _wlt_cache.save(cache)
+    return scraped
 
 
 class _AttrDict:
@@ -5864,19 +5871,18 @@ def main():
 
     all_articles = apply_prescore_filter(all_articles)
 
-    wlt_articles = scrape_wlt_news()
-    for wlt_entry in wlt_articles:
-        class WLTEntry:
+    for local_entry in scrape_local_news():
+        class ScrapedEntry:
             def get(self, key, default=''):
-                return wlt_entry.get(key, default)
-        
-        article = Article(WLTEntry(), 'Williams Lake Tribune', WLT_BASE_URL)
-        article.title = wlt_entry['title']
-        article.link = wlt_entry['link']
-        article.description = wlt_entry['description']
-        article.summary = wlt_entry.get('summary', '') or _clean_text(wlt_entry['description'], max_chars=300)
-        article.excerpt = wlt_entry.get('excerpt', '') or _clean_text(wlt_entry['description'], max_chars=600)
-        article.image = wlt_entry.get('image')
+                return local_entry.get(key, default)
+
+        article = Article(ScrapedEntry(), local_entry['source'], local_entry['base_url'])
+        article.title = local_entry['title']
+        article.link = local_entry['link']
+        article.description = local_entry['description']
+        article.summary = local_entry.get('summary', '') or _clean_text(local_entry['description'], max_chars=300)
+        article.excerpt = local_entry.get('excerpt', '') or _clean_text(local_entry['description'], max_chars=600)
+        article.image = local_entry.get('image')
         article.score = LIMITS['local_priority_score']
         article.category = 'local'
         all_articles.append(article)
@@ -6537,6 +6543,26 @@ def review_stratum(article: Article) -> str:
     return 'floor_fill'
 
 
+def rotate_review_categories(articles: List[Article]) -> List[Article]:
+    """Round-robin across categories, each keeping its own order.
+
+    Taking a stratum's top scores gave news, the largest category, 58% of the ratings
+    in the 28 days to 2026-10-10, and left six categories under 20 ratings each: rates
+    too noisy to read. Round r takes every category's r-th article, categories in the
+    order of their best one, so a stratum's lead article is unchanged. The quotas and
+    pool sizes are untouched, so the stratum weights stay valid.
+    """
+    rank_in_category: Counter = Counter()
+    category_order: Dict[str, int] = {}
+    keyed = []
+    for article in articles:
+        category = article.category or 'news'
+        category_order.setdefault(category, len(category_order))
+        keyed.append((rank_in_category[category], category_order[category], article))
+        rank_in_category[category] += 1
+    return [article for _, _, article in sorted(keyed, key=lambda t: t[:2])]
+
+
 def review_offered_ledger(previous: Optional[Dict], batch: str, keep_days: int) -> Dict[str, str]:
     """{url: batch} for every URL offered in a batch before `batch`, within `keep_days`.
 
@@ -6635,6 +6661,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     for b, pool in pools.items():
         pool.sort(key=(lambda a: (a.relevance or 0, a.score)) if b == 'promising'
                   else (lambda a: a.score), reverse=True)
+        pools[b] = rotate_review_categories(pool)
 
     selected: List[Article] = []
     # The bucket is recorded at pick time. Deriving it afterwards from each pool's first
@@ -6667,7 +6694,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
 
     # Unfiltered slot: a few gate-rejected articles so over-filtering stays visible.
     unfiltered_taken = 0
-    for a in haiku_rejected or []:
+    for a in rotate_review_categories(haiku_rejected or []):
         if unfiltered_taken >= REVIEW_UNFILTERED_CAP:
             break
         if a.link not in reviewed_urls and a.link not in offered:
