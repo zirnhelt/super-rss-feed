@@ -6,13 +6,39 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sun, 11 Oct 2026 04:08:22 +0000</lastBuildDate>
+<lastBuildDate>Sun, 11 Oct 2026 10:27:09 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 11, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-11.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-11.html</guid>
+<pubDate>Sun, 11 Oct 2026 10:06:08 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p&gt;&lt;em&gt;What the pipeline did, what broke, and what it chose when something broke. Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/38127132745&quot;&gt;38127132745&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;The primary run failed at 1:30 AM Pacific&lt;/h3&gt;
+&lt;p&gt;The primary run, triggered at 1:05 AM Pacific by the Cloudflare scheduler, ran to completion and returned a failure conclusion. It started on time, with zero minutes of lateness, and finished at 1:30 AM Pacific. The facts record the outcome and the timestamps but do not record which step failed or why, so this review cannot name the cause. The run&#x27;s log at the URL below is where that detail lives: &lt;code&gt;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/38123593506&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;The first fallback produced the day&#x27;s episode&lt;/h3&gt;
+&lt;p&gt;Fallback 1 fired at 2:05 AM Pacific, also through the Cloudflare scheduler, and succeeded. It was created and finished at 2:05 AM Pacific, so the run took no measurable time at the resolution the facts provide, and it started with zero minutes of lateness. The primary&#x27;s failure at 1:30 AM is what made this the episode&#x27;s path. Had the fallback not existed or also failed, the facts show no other output for the day.&lt;/p&gt;
+&lt;h3&gt;The second fallback is this review&#x27;s own run&lt;/h3&gt;
+&lt;p&gt;Fallback 2 was scheduled for 3:05 AM Pacific and is the run producing this document. It was created on time, with zero minutes late, and has no finish time or conclusion yet. The facts record its status as running this review, so the review cannot report on its outcome. Its URL is &lt;code&gt;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/38130708411&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Three runs, one scheduler, a fixed ladder&lt;/h3&gt;
+&lt;p&gt;The schedule is a primary at 1:05 AM followed by fallbacks at two-hour-minus-a-few-minutes intervals, 2:05 AM and 3:05 AM Pacific. Each rung fired exactly on time. The pipeline does not appear to have been held up by scheduling; the sequence reached the success state through the second rung. The facts say nothing about why the primary failed, so the schedule&#x27;s correctness is established only for timing, not for the reason the first attempt did not produce output.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;failure&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] Cliffhanger: B.C. firefighters offer helping hoof to stranded goat</title>
 <link>https://wltribune.com/2026/10/06/cliffhanger-b-c-firefighters-offer-helping-hoof-to-stranded-goat/</link>
