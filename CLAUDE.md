@@ -267,6 +267,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **Apple News IDs are discovered, never constructed.** `resolve_apple_news_url()` tiers article ID > channel ID > publisher URL.
 - **A rediscovered feed URL lives in `feed_http_cache.json`** until the weekly heal writes it into `feeds.opml`.
 - **Editorial-exempt sources skip story-overlap dedup** (`_story_dedup_exempt()`; URL dedup still applies): templated titles like the episode review's read as repeats of yesterday's.
+- **So do headline series** (`source_preferences.json` → `series_title_patterns`, anchored on the kicker, e.g. "MEET THE CANDIDATES:"): each instalment is a different story under the same words. Add a series there, never loosen the overlap thresholds.
 - **Editorial-exempt sources ride on top of the slots**, and the podcast's review job dispatches `refresh-editorial.yml` once its review is live, so the review lands the morning it is written. The refresh spends nothing, writes no cache, and only places a source in feeds that already carry it.
 - **Comment feeds are not article feeds.** `integrate_discoveries.is_comment_feed()` is the single predicate, applied at the top of `evaluate_candidates()` and in `_probe_page_for_feeds()`. Never add one by hand.
 

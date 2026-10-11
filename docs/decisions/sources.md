@@ -75,6 +75,10 @@ It was tried and reverted; the scheme launches the News app but has no search pa
 
 `_story_dedup_exempt()` now takes these sources out of every story-overlap check: in-run (`deduplicate_articles`), cross-run (`_is_cross_run_story_dupe`), and the retained-item merge. Their term sets are no longer banked in `shown_terms_cache`, so a review can't suppress a news story either. URL-hash dedup still applies. The podcast also puts the day's theme in the review title, but this repo no longer depends on that.
 
+## Headline series skip story-overlap dedup too (2026-10-10)
+
+The Williams Lake Tribune ran "MEET THE CANDIDATES: City councillor candidate <name>" for the council field from Oct 7 to 9, after "MEET THE CANDIDATES: Mayoral candidate Surinderpal Rathor" on Oct 6. The mayoral profile went out; every councillor profile after it shared `{meet, candidates, candidate}` with it at 0.5 containment, and the cross-run check dropped all seven (the in-run check would have kept one a night). The podcast's Saturday election deep dive then researched those candidates from directory sites. `series_title_patterns` exempts a headline whose kicker names a series, the way `editorial_exempt_sources` exempts a source. The pattern is anchored at the start of the title, so a story that only mentions meeting the candidates is still deduplicated like any other.
+
 ## The episode review reaches the feed the morning it is written (2026-10-10)
 
 The podcast writes its review at about 10:05 UTC (rung 3, so it can describe all three triggers), six hours after this repo's 04:00 UTC run. Every review therefore reached `feed-local.json` with the *next* night's run, beside the next day's episode. Some never arrived: the review scores 22-29 against the local floor of 25, so `apply_feed_slot_allocation()` ranked it out whenever local had three better items (Oct 6 never shipped).

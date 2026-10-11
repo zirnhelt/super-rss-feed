@@ -55,17 +55,22 @@ APPLE_NEWS_PRIMARY_CHANNEL_LINK = SOURCE_PREFS.get('apple_news_channels', {}).ge
 # second. Exempt sources still pass through scoring, URL dedup, the quality floor
 # and slot allocation like anything else; story-overlap dedup skips them (below).
 EDITORIAL_EXEMPT_SOURCES = frozenset(SOURCE_PREFS.get('editorial_exempt_sources', []))
+# Headline series whose every instalment is a different story under the same kicker.
+SERIES_TITLE_RE = re.compile(
+    '|'.join(SOURCE_PREFS.get('series_title_patterns', [])) or r'(?!)', re.I)
 
 
-def _story_dedup_exempt(source: str) -> bool:
-    """Editorial-exempt sources skip story-overlap dedup; URL-hash dedup still applies.
+def _story_dedup_exempt(source: str, title: str = '') -> bool:
+    """Editorial-exempt sources and series headlines skip story-overlap dedup;
+    URL-hash dedup still applies.
 
     Their titles are templated ("Episode Review — Cariboo Signals, September 29,
     2026"), so every issue shares its term set with the last one: the cross-run
-    check suppressed every review after the first for a fortnight. They are not
-    news stories that can duplicate another outlet's, in either direction.
+    check suppressed every review after the first for a fortnight. The Tribune's
+    "MEET THE CANDIDATES: City councillor candidate <name>" series lost all seven
+    council profiles of 2026-10-07..09 the same way, to the mayoral one the day before.
     """
-    return source in EDITORIAL_EXEMPT_SOURCES
+    return source in EDITORIAL_EXEMPT_SOURCES or bool(SERIES_TITLE_RE.search(title or ''))
 
 
 # Sources that must never enter the podcast pool. A source reporting *on* the
@@ -2628,7 +2633,7 @@ def _is_cross_run_story_dupe(article: Article, stored_term_sets: List[frozenset]
     any headline containing "review".
     """
     terms = article.title_terms
-    if _story_dedup_exempt(article.source) or len(terms) < 3:
+    if _story_dedup_exempt(article.source, article.title) or len(terms) < 3:
         return False
     return any(
         len(stored) >= 3
@@ -2665,7 +2670,7 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
     for article in sorted_articles:
         if article.url_hash in seen_urls:
             continue
-        if _story_dedup_exempt(article.source):
+        if _story_dedup_exempt(article.source, article.title):
             seen_urls.add(article.url_hash)
             unique.append(article)
             continue
@@ -2828,7 +2833,8 @@ def dedup_by_term_cluster(
     dropped = 0
 
     for candidate in sorted_arts:
-        if not candidate.title_terms or len(candidate.title_terms) < 3:
+        if (not candidate.title_terms or len(candidate.title_terms) < 3
+                or _story_dedup_exempt(candidate.source, candidate.title)):
             selected.append(candidate)
             continue
         cluster_matches = sum(
@@ -6298,13 +6304,14 @@ def main():
         merge_overlap = LIMITS.get('feed_merge_overlap_threshold', 0.50)
         merge_min_terms = LIMITS.get('feed_merge_min_terms', 2)
         new_urls = {a.link for a in diverse_new}
-        new_term_sets = [a.title_terms for a in diverse_new if not _story_dedup_exempt(a.source)]
+        new_term_sets = [a.title_terms for a in diverse_new if not _story_dedup_exempt(a.source, a.title)]
 
         def _retained_is_fresh(item: dict) -> bool:
             item_url = item_source_link(item)
             if item_url in new_urls:
                 return False
-            if _story_dedup_exempt((item.get('authors') or [{}])[0].get('name', '')):
+            if _story_dedup_exempt((item.get('authors') or [{}])[0].get('name', ''),
+                                   item.get('title', '')):
                 return True
             if '/weekly-report-' in item_url:
                 # Weekly "State of the Feed" meta-article. Its title is short and
@@ -6343,7 +6350,7 @@ def main():
     now_ts = datetime.now(timezone.utc).timestamp()
     for article in quality_articles:
         shown_cache[article.url_hash] = now_ts
-        if _story_dedup_exempt(article.source):
+        if _story_dedup_exempt(article.source, article.title):
             continue
         shown_terms_cache[article.url_hash] = {
             'ts': now_ts,
