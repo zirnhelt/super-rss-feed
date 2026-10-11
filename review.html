@@ -988,6 +988,26 @@ async function saveFeedbackEntries(entries) {
 
 async function submitFeedback() {
     const statusEl = document.getElementById('submit-status');
+
+    // Days picked with no feed answer used to be dropped here and the draft wiped after
+    // the save, which lost every podcast-only verdict from 2026-10-01 to 10-10. Picking
+    // days and leaving the feed blank reads as "show, not my feed", so ask once, never guess.
+    const pending = articles.map((a, i) => i)
+        .filter(i => !verdictOf(ratings[articles[i].url]) && ratings[articles[i].url]?.approved_days?.length);
+    if (pending.length) {
+        const n = pending.length;
+        if (!confirm(`${n} card${n > 1 ? 's have' : ' has'} podcast days but no 📰 feed answer.\n\n`
+                   + `OK: save ${n > 1 ? 'them' : 'it'} as 🎙️ podcast only (not your feed).\n`
+                   + 'Cancel: go back and answer them.')) {
+            statusEl.className = 'status-msg error';
+            statusEl.textContent = `${n} card${n > 1 ? 's' : ''} still need${n > 1 ? '' : 's'} a feed answer. Nothing saved.`;
+            document.querySelector(`.article-card[data-idx="${pending[0]}"]`)
+                ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+        for (const i of pending) updateRating(i, { feed: 'no' });
+    }
+
     statusEl.className = 'status-msg';
     statusEl.textContent = 'Saving to GitHub…';
 

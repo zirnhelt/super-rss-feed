@@ -170,6 +170,13 @@ every consumer that has not learned `podcast_only` drops it.
 Expect the feed positive rate to dip slightly from here: show-only picks that used to be
 filed as `good` now count against it. That is a measurement correction, not a regression.
 
+**The zero `podcast_only` count from 10-01 to 10-10 was the page, not the reader.** Picking
+days and leaving the feed blank reads as "the show, not my feed", but the page held such a
+card as unrated, saved only the finished cards, and then wiped the draft: the 10-10 batch
+saved 18 of 27 cards, and the show-only picks among the other 9 left no trace. Save now asks once (OK files them as
+`podcast_only`, Cancel saves nothing) and never drops a card that has days. Read day fit and
+`block_candidate` for that window knowing the show-only answers are missing.
+
 Suggested days are dashed hints, no longer pre-selected. Percentile theme scores put a
 pooled article over 45 on five to seven days at once, and the seeded set survived
 untouched on 12 of 117 `good` ratings; the reader was clearing it, not accepting it. The
