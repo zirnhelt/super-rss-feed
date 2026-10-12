@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-11 (Sunday)
+
+#### 🔧 Manual Run (9:06 PM Pacific)
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+
+
+---
+
+
+
 ## 2026-10-10 (Saturday)
 
 #### 🔧 Manual Run (9:08 PM Pacific)
@@ -80,17 +91,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (9:07 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
 - ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1593 articles — check charter adherence, not supply
-
-
----
-
-
-
-## 2026-10-03 (Saturday)
-
-#### 🔧 Manual Run (9:07 PM Pacific)
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1555 articles — check charter adherence, not supply
 
 
 ---
@@ -1395,6 +1395,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
 - ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1379 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-10-03–2026-10-03
+- 2 issues recorded
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ Theme scoring: thursday is the best-fit theme for 0 of 1555 articles — check charter adherence, not supply
 
 
 ---
