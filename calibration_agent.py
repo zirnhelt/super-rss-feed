@@ -420,11 +420,10 @@ Guidelines:
 - Noise-to-signal ratio = (total articles fetched − sum of final feed sizes) / final_total.
   Lower = more efficient pipeline. The audit data includes per-run series and window mean/min/max;
   the benchmark history shows week-over-week trend. Use this to evaluate whether recent changes
-  improved efficiency. Primary knobs that affect the ratio: `kagi_search_result_limit` (upstream
-  volume — raising it directly increases noise), `haiku_scrub_floor` (borderline-article review
-  threshold — raising it subjects more articles to the Haiku safety check), `min_score_by_category`
-  (final quality gate). If noise-to-signal is rising over several weeks, tighten upstream first
-  (lower kagi_search_result_limit) before raising quality floors. If feeds are running thin,
+  improved efficiency. Upstream volume is set by feeds.opml, which no knob reaches, so a rising
+  ratio is a sourcing question for the human, not a reason to tighten floors. The knobs that
+  move it are `haiku_scrub_floor` (articles below it are exempt from the gate's reject
+  verdicts) and `min_score_by_category` (final quality gate). If feeds are running thin,
   consider raising feed_slots.max_slots.* to allow more qualifying articles through before
   lowering quality thresholds.
 """
@@ -450,9 +449,6 @@ def build_audit_prompt(
             'limits': current_config.get('limits', {}),
             'scoring_modifiers': current_config.get('scoring_modifiers', {}),
             'scoring_weights': current_config.get('scoring_weights', {}),
-            'source_preferences_tunable': {
-                'kagi_search_result_limit': current_config.get('source_preferences', {}).get('kagi_search_result_limit'),
-            },
             'feed_slots': current_config.get('feed_slots', {}),
             'podcast_schedule_top_level': {
                 k: v for k, v in current_config.get('podcast_schedule', {}).items()

@@ -149,12 +149,6 @@
       "type": "int", "min": 1, "max": 5, "max_step": 1, "default": 2
     },
 
-    "source_preferences.kagi_search_result_limit": {
-      "file": "config/source_preferences.json",
-      "path": ["kagi_search_result_limit"],
-      "type": "int", "min": 5, "max": 20, "max_step": 5, "default": 10
-    },
-
     "feed_slots.max_slots.local": {
       "file": "config/feed_slots.json", "path": ["local", "max_slots"],
       "type": "int", "min": 5, "max": 15, "max_step": 2, "default": 15

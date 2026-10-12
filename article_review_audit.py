@@ -716,6 +716,14 @@ def _text(item: Dict) -> str:
     return f"{item.get('title') or ''} {item.get('description') or ''}".lower()
 
 
+def _place_text(item: Dict) -> str:
+    """Where a place can be named: a Tribune story rarely says "Williams Lake" in its
+    title, but its source does, and the pool's excerpt often does. Title and
+    description alone counted 12 Williams Lake items in a pool that carried 39."""
+    return ' '.join(str(item.get(k) or '') for k in
+                    ('title', 'description', 'summary', 'excerpt', 'source')).lower()
+
+
 def _wanted_pct(rows: List[Dict]) -> Optional[float]:
     return _pct(sum(1 for r in rows if r['rating'] != 'bad'), len(rows))
 
@@ -827,7 +835,7 @@ def place_supply(ratings: List[Dict], pool: List[Dict],
     """Each local place: how often you want it (appetite) against how often the pool has it.
 
     Places are `filters.json` → `local_signals`, the pipeline's own definition of local.
-    Supply is the share of the 7-day podcast pool mentioning the place.
+    Supply is the share of the 7-day podcast pool naming the place in its text or source.
     """
     if places is None:
         try:
@@ -839,8 +847,8 @@ def place_supply(ratings: List[Dict], pool: List[Dict],
     rows = []
     for place in places:
         needle = place.lower()
-        mentions = [r for r in rated if needle in _text(r)]
-        in_pool = sum(1 for item in pool if needle in _text(item))
+        mentions = [r for r in rated if needle in _place_text(r)]
+        in_pool = sum(1 for item in pool if needle in _place_text(item))
         rows.append({
             'place': place,
             'rated': len(mentions),
@@ -1012,7 +1020,10 @@ def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
             ', '.join(f"{p['place']}: {p['wanted_pct']}% wanted, {p['in_pool']} in the pool "
                       f"({p['pool_pct']}%)" for p in starved)
             + f'. Baseline {baseline}% wanted.')
-    unrated = [p['place'] for p in places.get('places', []) if p['rated'] < PLACE_MIN_RATINGS]
+    # A place the pool never carries has nothing to rate: that is supply, and the
+    # places table in the full report shows it. Flag only what reached the pool unrated.
+    unrated = [p['place'] for p in places.get('places', [])
+               if p['rated'] < PLACE_MIN_RATINGS and p['in_pool']]
     if unrated:
         add('unmeasured-places', 'Local places with almost no ratings',
             f'Under {PLACE_MIN_RATINGS} ratings ever: {", ".join(unrated)}.')

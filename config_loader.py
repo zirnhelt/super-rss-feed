@@ -169,6 +169,11 @@ def validate_config() -> Dict[str, List[str]]:
         for url_key, url_value in system.get('urls', {}).items():
             if not isinstance(url_value, str):
                 errors.setdefault('system.json', []).append(f"URL {url_key} must be string")
+        for i, paper in enumerate(system.get('local_scrapes', [])):
+            if not all(isinstance(paper.get(k), str) and paper.get(k)
+                       for k in ('source', 'base_url', 'news_url')):
+                errors.setdefault('system.json', []).append(
+                    f"local_scrapes[{i}] needs source, base_url and news_url strings")
                 
     except Exception as e:
         errors['system.json'] = [f"Failed to load: {str(e)}"]

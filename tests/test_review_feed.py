@@ -127,3 +127,27 @@ def test_a_feed_from_before_the_ledger_still_counts():
 def test_no_previous_feed_excludes_nothing():
     assert m.review_offered_ledger(None, '2026-09-29', 3) == {}
     assert m.review_offered_ledger({'items': 'garbage'}, '2026-09-29', 3) == {}
+
+
+def _c(category: str, score: int) -> types.SimpleNamespace:
+    return types.SimpleNamespace(category=category, score=score)
+
+
+def test_categories_rotate_within_a_stratum_and_the_lead_is_kept():
+    pool = [_c('news', 90), _c('news', 88), _c('news', 85), _c('scifi', 70),
+            _c('news', 60), _c('homestead', 55), _c('scifi', 50)]
+
+    rotated = m.rotate_review_categories(pool)
+
+    assert [(a.category, a.score) for a in rotated] == [
+        ('news', 90), ('scifi', 70), ('homestead', 55),
+        ('news', 88), ('scifi', 50),
+        ('news', 85), ('news', 60)]
+
+
+def test_rotation_keeps_every_article_and_defaults_a_missing_category_to_news():
+    pool = [_c(None, 40), _c('news', 39), _c('design', 38)]
+    rotated = m.rotate_review_categories(pool)
+    assert sorted(a.score for a in rotated) == [38, 39, 40]
+    assert [a.score for a in rotated] == [40, 38, 39]
+    assert m.rotate_review_categories([]) == []

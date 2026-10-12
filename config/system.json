@@ -11,14 +11,17 @@
     "shown_days": 14
   },
   "urls": {
-    "wlt_base": "https://wltribune.com",
-    "wlt_news": "https://wltribune.com/",
     "super_rss_base": "https://zirnhelt.github.io/super-rss-feed"
   },
+  "local_scrapes": [
+    {"source": "Williams Lake Tribune", "base_url": "https://wltribune.com", "news_url": "https://wltribune.com/"},
+    {"source": "Quesnel Cariboo Observer", "base_url": "https://quesnelobserver.com", "news_url": "https://quesnelobserver.com/"},
+    {"source": "100 Mile Free Press", "base_url": "https://100milefreepress.net", "news_url": "https://100milefreepress.net/"}
+  ],
   "lookback_hours": 48,
   "topic_queries": {
     "enabled": false,
-    "_note": "Off from 2026-09-23 as a two-week trial; review on 2026-10-07. The 45 queries in topic_queries.json cost ~47 Brave calls a night on a Search key the podcast shares, and on 2026-09-23 had supplied 1 of 467 category-feed items and 15 of 569 podcast-feed items. Set true to restore. Feed-recovery searches for failing feeds are unaffected."
+    "_note": "Off since 2026-09-23; kept off after the trial, reviewed 2026-10-11. The 45 queries in topic_queries.json cost ~47 Brave calls a night on a Search key the podcast shares, and on 2026-09-23 had supplied 1 of 467 category-feed items and 15 of 569 podcast-feed items. Across the trial, weekly noise-to-signal held at 2.28-2.39 and Brave fell to ~10 calls a week. Set true to restore. Feed-recovery searches for failing feeds are unaffected."
   },
   "kagi_news": {
     "enabled": true,

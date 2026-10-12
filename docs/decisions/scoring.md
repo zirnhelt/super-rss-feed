@@ -102,6 +102,15 @@ shipped in `SHIPPED_STRATA`. The same change records each pick's bucket at pick 
 the old post-hoc `high[:5]` lookup filed any pick past index 5 (after a same-source
 skip) under `mid`.
 
+On 2026-10-11 categories started rotating within each stratum
+(`rotate_review_categories()`). Taking a stratum's top scores gave news 58% of the
+ratings over 28 days and left homelab, homestead, climate, scifi, design and outdoors
+under 20 each, which is too few to read a rate. Round r now takes every category's
+r-th article, so the stratum's lead article stays first, and the gate-reject slot
+rotates the same way. Quotas and pool sizes are unchanged, so the weights hold. The
+pick inside a stratum was never random (it took the top scores); it is now spread
+across categories instead of concentrated on one.
+
 The same report's `theme_routing` root-cause split is measuring a counterfactual:
 `today` is the weekday the rating was made, not a routing decision, and
 `podcast_routed` is **0** — essentially every rated article comes from a *category*
@@ -169,6 +178,13 @@ every consumer that has not learned `podcast_only` drops it.
 
 Expect the feed positive rate to dip slightly from here: show-only picks that used to be
 filed as `good` now count against it. That is a measurement correction, not a regression.
+
+**The zero `podcast_only` count from 10-01 to 10-10 was the page, not the reader.** Picking
+days and leaving the feed blank reads as "the show, not my feed", but the page held such a
+card as unrated, saved only the finished cards, and then wiped the draft: the 10-10 batch
+saved 18 of 27 cards, and the show-only picks among the other 9 left no trace. Save now asks once (OK files them as
+`podcast_only`, Cancel saves nothing) and never drops a card that has days. Read day fit and
+`block_candidate` for that window knowing the show-only answers are missing.
 
 Suggested days are dashed hints, no longer pre-selected. Percentile theme scores put a
 pooled article over 45 on five to seven days at once, and the seeded set survived
@@ -314,8 +330,11 @@ API call:
   first run rebuilds the rating-derived half from the archive, marked `backfilled`.
 - **Needs Attention** (`blind_spots()`): unmeasured categories, the gate's miss rate
   and its most-missed sources, unused verdicts, themes that never win, local places
-  (`filters.json` → `local_signals`) with high appetite and thin pool supply,
-  unblocked block candidates, calibration changes not in config, a stale price table.
+  (`filters.json` → `local_signals`) with high appetite and thin pool supply (a place
+  counts when the title, description, excerpt or source names it; until 2026-10-11
+  only title and description were read, which showed Williams Lake at 12 pool items
+  of 39), unrated places the pool carries (one it never carries is a supply gap, not a
+  rating gap), unblocked block candidates, calibration changes not in config, a stale price table.
   Each carries **weeks**, the consecutive audits that reported it; at 3 it is
   escalated. Blocked sources leave `worst_sources`.
 - **What each score buys** (`signal_scorecard()`): AUC of every rated score against
