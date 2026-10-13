@@ -96,7 +96,37 @@ BLOCKED_SOURCES_EXACT = frozenset(
 # Titles dropped as gate_reject that this run has already printed (see
 # generate_podcast_feed): seven theme feeds see the same pool.
 _GATE_REJECT_LOGGED: set = set()
-GATE_REJECT_LOG_CAP = 15
+GATE_REJECT_LOG_CAP = 40
+_GATE_REJECT_CAPPED = False
+
+
+_GATE_ENTRY_KEYS = ('gate_reject', 'gate_rubric', 'gate_world')
+
+
+def _gate_fields(entry) -> Dict:
+    """The gate's verdict fields of a scored-cache entry, to carry across a rewrite."""
+    if not isinstance(entry, dict):
+        return {}
+    return {k: entry[k] for k in _GATE_ENTRY_KEYS if k in entry}
+
+
+def _log_gate_reject(article) -> None:
+    """Name a story the verdict removed, once per run, up to GATE_REJECT_LOG_CAP.
+
+    A rejected civic or election story is the one loss worth seeing by name. The
+    count of everything removed is always printed (the "Podcast content filter"
+    line), so the cap needs saying once rather than hiding half the list.
+    """
+    global _GATE_REJECT_CAPPED
+    if article.link in _GATE_REJECT_LOGGED:
+        return
+    if len(_GATE_REJECT_LOGGED) < GATE_REJECT_LOG_CAP:
+        _GATE_REJECT_LOGGED.add(article.link)
+        print(f"  \U0001f6ab gate_reject: [{article.source}] {article.title[:80]}")
+    elif not _GATE_REJECT_CAPPED:
+        _GATE_REJECT_CAPPED = True
+        print(f"  \U0001f6ab gate_reject: more than {GATE_REJECT_LOG_CAP} titles; "
+              f"the rest are counted, not listed (PODCAST_POOL_DEBUG=1 lists every one)")
 
 
 def _source_blocked(source) -> bool:
@@ -208,6 +238,17 @@ def _is_general_crime_story(title: str, description: str, category: str = None) 
     return False
 
 
+def _gate_reject_honoured() -> bool:
+    """Whether the gate's reject verdict removes an article from the show.
+
+    One answer for the choke point, the bank and the review page's pool label, so
+    `enabled: false` (which turns every exclusion off) cannot leave one of them still
+    treating a reject as gone.
+    """
+    return bool(PODCAST_EXCLUDED_CONTENT.get('enabled', False)
+                and PODCAST_EXCLUDED_CONTENT.get('gate_reject', False))
+
+
 def podcast_content_exclusion(article) -> Optional[str]:
     """Reason this article must not enter a podcast episode, or None.
 
@@ -221,7 +262,7 @@ def podcast_content_exclusion(article) -> Optional[str]:
 
     # The gate's verdict. None means it never ruled (an API failure, or an entry
     # cached before the verdict was stored) and is kept: fail open, as the gate does.
-    if PODCAST_EXCLUDED_CONTENT.get('gate_reject', False) and getattr(article, 'gate_reject', None):
+    if _gate_reject_honoured() and getattr(article, 'gate_reject', None):
         return 'gate_reject'
 
     source = getattr(article, 'source', '') or ''
@@ -1385,6 +1426,10 @@ def update_theme_holdover(theme_name: str, theme_label: str,
                 'quality': getattr(article, 'quality', 0),
                 'local': getattr(article, 'local', 0),
                 'q_gate': getattr(article, 'q_gate', None),
+                # Same fields as bank_articles_for_all_themes: a row without them can
+                # never be judged at the exclusion choke point.
+                'content_type': getattr(article, 'content_type', None),
+                'gate_reject': getattr(article, 'gate_reject', None),
                 'category': article.category,
                 'image': getattr(article, 'image', None),
                 'theme_score': theme_score,
@@ -3565,6 +3610,10 @@ Articles to evaluate:
                         )))
 
                         cache[article.url_hash] = {
+                            # The entry is replaced whole: without these the gate's verdict
+                            # was dropped from every display-bound article and asked again
+                            # the next night.
+                            **_gate_fields(cache.get(article.url_hash)),
                             'score': article.score,
                             'quality': article.quality,
                             'relevance': article.relevance,
@@ -5010,6 +5059,30 @@ def route_articles_to_best_themes(
     }
 
 
+def _in_show_pool(article, pool_links) -> bool:
+    """Whether the show can still draw on this article: cached in the pool and not
+    dropped at the exclusion choke point as a gate reject."""
+    return (article.link in pool_links
+            and not (_gate_reject_honoured() and getattr(article, 'gate_reject', None)))
+
+
+def _refresh_bank_row(row: Dict, item: Dict) -> bool:
+    """Bring a banked row's gate verdict and content type up to the pool's.
+
+    A fresh ruling (True or False) replaces the stored one; a missing one never erases
+    it. Returns True when the row changed.
+    """
+    changed = False
+    verdict = item.get('gate_reject')
+    if verdict is not None and row.get('gate_reject') != verdict:
+        row['gate_reject'] = verdict
+        changed = True
+    if row.get('content_type') is None and item.get('content_type'):
+        row['content_type'] = item['content_type']
+        changed = True
+    return changed
+
+
 def bank_articles_for_all_themes(
     cached_articles: List[Dict],
     schedule_config: Dict,
@@ -5033,23 +5106,34 @@ def bank_articles_for_all_themes(
     normalized = normalize_theme_scores(theme_cache, schedule, pool_links)
     now_iso = datetime.now(timezone.utc).isoformat()
     newly_banked: Dict[str, int] = defaultdict(int)
+    honour_reject = _gate_reject_honoured()
+    # A row keeps the ruling it was banked with: none at all for the ~19,000 that
+    # predate it, and a stale one whenever the rubric moves on. The pool holds the
+    # latest ruling, so a banked copy takes it from there; otherwise a story rejected
+    # after it was banked comes back out of the bank when its pool entry ages out.
+    banked_rows = {(day, a['link']): a for day in schedule for a in holdover.get(day, [])}
+    refreshed = 0
 
     for item in cached_articles:
         url = item['link']
+        verdict = item.get('gate_reject')
+        for day in schedule:
+            row = banked_rows.get((day, url))
+            if row is not None and _refresh_bank_row(row, item):
+                refreshed += 1
         # A gate reject never airs (podcast_content_exclusion), so banking it would
         # only spend one of a day's bounded bank slots on a story that is dropped on
         # its way out.
-        if item.get('gate_reject'):
+        if honour_reject and verdict:
             continue
         for day, cfg in schedule.items():
             threshold = cfg.get('holdover_threshold', global_threshold)
             pct = normalized.get(f"{url}:::{day}")
             if pct is None or pct < threshold:
                 continue
-            existing_urls = {a['link'] for a in holdover.get(day, [])}
-            if url in existing_urls:
+            if (day, url) in banked_rows:
                 continue
-            holdover.setdefault(day, []).append({
+            banked_rows[(day, url)] = row = {
                 'link': url,
                 'title': item['title'],
                 'description': item['description'],
@@ -5074,11 +5158,14 @@ def bank_articles_for_all_themes(
                 # drift stays auditable after normalization hides it.
                 'theme_score_raw': (theme_cache.get(f"{url}:::{cfg['label']}") or {}).get('score'),
                 'banked_at': now_iso,
-            })
+            }
+            holdover.setdefault(day, []).append(row)
             newly_banked[day] += 1
 
-    if any(newly_banked.values()):
+    if any(newly_banked.values()) or refreshed:
         save_theme_holdover_cache(holdover)
+    if refreshed:
+        print(f"  📦 Refreshed the gate verdict or content type on {refreshed} banked row(s)")
 
     total = sum(newly_banked.values())
     if total:
@@ -5296,12 +5383,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                 _excl_reasons[_reason] += 1
                 if _pool_debug:
                     print(f"  \U0001f6ab [{theme_name}] {_reason}: {_a.title[:70]}")
-                elif _reason == 'gate_reject' and _a.link not in _GATE_REJECT_LOGGED \
-                        and len(_GATE_REJECT_LOGGED) < GATE_REJECT_LOG_CAP:
-                    # Which stories the verdict removed, once each per run: a rejected
-                    # civic or election story is the one loss worth seeing by name.
-                    _GATE_REJECT_LOGGED.add(_a.link)
-                    print(f"  \U0001f6ab gate_reject: [{_a.source}] {_a.title[:80]}")
+                elif _reason == 'gate_reject':
+                    _log_gate_reject(_a)
             else:
                 _kept_pool.append(_a)
         theme_pool = _kept_pool
@@ -6825,7 +6908,9 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
             "_shipped": bucket_label(article) != 'unfiltered',
             # The pool is captured before the feed's scrub, so this is independent of
             # _shipped: the show and the feed are separate verdicts, not nested ones.
-            "_in_podcast_pool": article.link in pool_links,
+            # A gate reject is cached but dropped at the exclusion choke point, so it
+            # is not in the show's pool.
+            "_in_podcast_pool": _in_show_pool(article, pool_links),
             "_theme_scores": theme_scores(article),
             "_theme_scores_raw": theme_scores_raw(article),
             "_today": today_name,

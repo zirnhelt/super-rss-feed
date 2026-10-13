@@ -103,16 +103,25 @@ What changed:
   (new entries, and updated when an article is re-judged), the holdover bank copies it,
   and `CachedArticle` reads it. `None` means the gate never ruled, and is kept.
 - **One choke point.** `podcast_content_exclusion()` returns `'gate_reject'`, before the
-  opinion and crime checks, behind `excluded_content.gate_reject` (config switch). Not at
-  intake, for the reason above: a later rubric line must catch articles already cached.
-  The run prints each dropped title once (cap `GATE_REJECT_LOG_CAP`), because a rejected
-  civic or election story is the loss worth seeing by name.
+  opinion and crime checks, behind `excluded_content.gate_reject`. `enabled: false` turns
+  every exclusion off, this one included (`_gate_reject_honoured()` answers for the
+  choke point, the bank and the review page's pool label alike). Not at intake, so the
+  rule can be widened without re-fetching. The run prints each dropped title once, up to
+  `GATE_REJECT_LOG_CAP` (40, then one line saying the rest are only counted), because a
+  rejected civic or election story is the loss worth seeing by name.
 - **Blocked sources leave the cache.** `blocked_sources` was only checked at fetch time,
   so 29 Mother Jones items stayed in the pool and 51 in the bank. Both loaders now evict
   by **exact** source name; the fetch-time substring match would also evict CleanTechnica
   ('hn' is inside 'technica').
-- **The bank carries `content_type`.** None of its entries did, so a banked op-ed
-  bypassed the opinion filter.
+- **The bank carries `content_type`, and takes the pool's latest ruling.** None of its
+  entries did, so a banked op-ed bypassed the opinion filter. A row banked before an
+  article was rejected (or before the rubric moved) kept its old verdict, and the story
+  came back out of the bank when its pool entry aged out; `bank_articles_for_all_themes`
+  now refreshes existing rows from the pool (`_refresh_bank_row`: a ruling replaces a
+  ruling, a missing one never erases one). `update_theme_holdover` writes the same fields.
+- **Deep scoring keeps the verdict.** It replaced the scored-cache entry whole and dropped
+  `gate_reject`/`gate_rubric`/`gate_world` from every display-bound article, which were
+  then judged again the next night (`_gate_fields` carries them across).
 - **The pool and the feed are no longer independent for a gate reject.** The gate's
   false negatives were already measured (a floor of about 2.5% of "unfiltered" items had
   show days; `podcast_only` verdicts could not be saved from 2026-10-01 to 2026-10-10, so
@@ -128,5 +137,16 @@ aired Quesnel story, and no false positives. A vehicle collision is not a crime 
 the rule is not widened for it; the standing line "Police blotter and crashes" covers
 it, and clears those stories from `feed-local.json` too (the reader's choice).
 
-Entries cached before this change carry no verdict and are kept until they age out
-(7 days in the pool, 28 in the bank).
+**The verdict is a snapshot, so a new rubric line arrives gradually.** The gate judges
+only articles new to its 48-hour cache, and a rubric change re-asks only those. A pool entry
+or bank row older than that takes the new ruling only when the article is judged again, so
+the 7-day pool and 28-day bank (about 19,000 rows with no verdict at all on 2026-10-13) run
+down over those windows rather than at once. The first nightly run after a rubric change
+re-asks every article in the gate window (about 42 calls against 19-28, roughly a cent).
+
+Crime exemptions, same day (review): `candidate(s)`, `election(s)`, four B.C. natural-resource
+Acts (a regulatory prosecution is Working Lands material), `search and rescue` and `SAR` clear
+an article ahead of the incident rules. The 2026-10-13 refit was measured on the cached
+corpus only, and the two shapes it missed (a candidate who "faces multiple charges", a company
+charged under the Fisheries Act) are the argument for widening the exemption list rather
+than the rule.

@@ -159,7 +159,8 @@ as `good`, which the trainer then fed to the relevance scorer as a feed positive
 pipeline never nested the two: the podcast pool is captured before the feed's scrub, and
 33 of the reader's `good` ratings since 2026-09-01 were on articles that were not in the
 pool at all. (Since 2026-10-13 the pool is still captured
-before the scrub but honours the gate's verdict at the exclusion point; see podcast-pool.md.)
+before the scrub but honours the gate's verdict at the exclusion point, so a story the gate
+rejects can no longer air and `podcast_only` cannot rescue one; see podcast-pool.md.)
 
 The card now asks both questions separately and stores one verdict:
 
