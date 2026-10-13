@@ -269,6 +269,9 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **Editorial-exempt sources skip story-overlap dedup** (`_story_dedup_exempt()`; URL dedup still applies): templated titles like the episode review's read as repeats of yesterday's.
 - **So do headline series** (`source_preferences.json` → `series_title_patterns`, anchored on the kicker, e.g. "MEET THE CANDIDATES:"): each instalment is a different story under the same words. Add a series there, never loosen the overlap thresholds.
 - **Editorial-exempt sources ride on top of the slots**, and the podcast's review job dispatches `refresh-editorial.yml` once its review is live, so the review lands the morning it is written. The refresh spends nothing, writes no cache, and only places a source in feeds that already carry it.
+- **`blocked_sources` is checked wherever stored articles are reused**, not only at fetch: use `is_blocked_source()` / `_pool_source_excluded()`. A substring entry matches inside other names (`"hn"` once blocked every "…Technica" feed); keep entries whole words or domains.
+- **`local` means the Cariboo-Chilcotin.** `apply_dimension_adjustments()` demotes a `local` article with no Cariboo anchor (`_has_cariboo_anchor()`); scraped network cards are dropped by `_drop_network_cards()`. See [sources.md](docs/decisions/sources.md).
+- **Deep scoring merges into the scored cache** (`update`, never replace), or the gate's verdict is lost and asked again.
 - **Comment feeds are not article feeds.** `integrate_discoveries.is_comment_feed()` is the single predicate, applied at the top of `evaluate_candidates()` and in `_probe_page_for_feeds()`. Never add one by hand.
 
 ## Known Gotchas

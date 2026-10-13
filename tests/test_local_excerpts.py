@@ -96,7 +96,7 @@ def test_read_time_badge_is_not_a_description() -> None:
 def _card(href: str, title: str) -> str:
     return (f'<div class="article-card"><a class="article-card__link" href="{href}">'
             f'<h3 class="article-card__headline">{title}</h3></a>'
-            f'<div class="article-card__details">{"A local story. " * 10}</div></div>')
+            f'<div class="article-card__details">{"A Williams Lake story. " * 10}</div></div>')
 
 
 def test_every_configured_paper_is_scraped_under_its_own_name(tmp_path, monkeypatch):
@@ -138,3 +138,45 @@ def test_one_paper_down_does_not_stop_the_others(tmp_path, monkeypatch):
     monkeypatch.setattr(m.requests, 'get', fake_get)
 
     assert {a['source'] for a in m.scrape_local_news()} == {'Williams Lake Tribune', '100 Mile Free Press'}
+
+
+_NOW = m.datetime(2026, 10, 13, 4, 3, tzinfo=m.timezone.utc)
+
+
+def _scraped(source: str, host: str, path: str, title: str, description: str = '') -> dict:
+    return {'source': source, 'link': f'https://{host}{path}', 'title': title, 'description': description}
+
+
+def test_network_card_on_two_homepages_is_dropped() -> None:
+    goat = '/2026/10/12/cliffhanger-b-c-firefighters-offer-helping-hoof-to-stranded-goat/'
+    cards = [
+        _scraped('Quesnel Cariboo Observer', 'quesnelobserver.com', goat, 'Cliffhanger: B.C. firefighters offer helping hoof'),
+        _scraped('100 Mile Free Press', '100milefreepress.net', goat, 'Cliffhanger: B.C. firefighters offer helping hoof'),
+        _scraped('100 Mile Free Press', '100milefreepress.net', '/2026/10/10/curling/',
+                 '100 Mile House Curling Club grows'),
+    ]
+    assert [c['title'] for c in m._drop_network_cards(cards, now=_NOW)] == ['100 Mile House Curling Club grows']
+
+
+def test_shared_card_that_names_a_cariboo_place_is_kept() -> None:
+    path = '/2026/10/12/free-transit-on-election-day/'
+    cards = [
+        _scraped('Williams Lake Tribune', 'wltribune.com', path, 'Free transit on election day',
+                 'Residents in Quesnel and Williams Lake ride free'),
+        _scraped('Quesnel Cariboo Observer', 'quesnelobserver.com', path, 'Free transit on election day',
+                 'Residents in Quesnel and Williams Lake ride free'),
+    ]
+    assert len(m._drop_network_cards(cards, now=_NOW)) == 2
+
+
+def test_stale_card_on_one_homepage_is_dropped_unless_local() -> None:
+    cards = [
+        _scraped('Williams Lake Tribune', 'wltribune.com', '/2026/09/17/boaters-rescue-bear-cub/',
+                 'Boaters rescue bear cub from middle of Okanagan Lake'),
+        _scraped('Williams Lake Tribune', 'wltribune.com', '/2026/09/17/horsefly-river-salmon/',
+                 'Horsefly River salmon count'),
+        _scraped('Williams Lake Tribune', 'wltribune.com', '/2026/10/12/mp-endorses-candidate/',
+                 'MP Todd Doherty endorses Lorne Doerkson for Premier'),
+    ]
+    kept = [c['title'] for c in m._drop_network_cards(cards, now=_NOW)]
+    assert kept == ['Horsefly River salmon count', 'MP Todd Doherty endorses Lorne Doerkson for Premier']
