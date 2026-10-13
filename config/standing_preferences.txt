@@ -3,7 +3,9 @@
 # Each line that does not start with '#' is a subject you never want to see. The
 # quality gate adds these lines to its reject rubric (the same Haiku call it already
 # makes, so they cost nothing extra). A matching article is dropped from every
-# category feed and from the podcast pool.
+# category feed. It is NOT dropped from the podcast pool: the pool is captured before
+# the gate's rejects are applied, so the show can still draw on it (24 of 57 rejected
+# articles entered the pool on 2026-10-13). A line here shapes your feeds, not the show.
 #
 # Write a line as "<Subject>: <what it covers>. KEEP <the exception>." A line with no
 # KEEP clause is applied broadly.
@@ -16,7 +18,7 @@
 Product reviews and buying guides: a review of one consumer product (phone, headphones, TV, car, charger), "best X" guides, ranked lists of products or destinations, price-drop posts. KEEP hands-on technical depth: teardowns, repairs, builds, measured testing.
 US domestic politics (the United States only, never Canada): partisan politics, US elections and campaigns, Congress and White House fights, US political figures, immigration enforcement, and US health-policy or culture-war battles (vaccine politics, Medicare/Medicaid administration). KEEP a US story whose primary subject applies beyond the US (how AI or platforms can be regulated at all, including a US leader's stance on it; US science agencies and research funding such as NIH, NASA or NOAA; a scientific finding), that has a direct Canadian effect (tariffs, softwood lumber, the border, shared water), or in which a Canadian government or leader is a principal actor.
 Routine mining and commodity-market items: junior-miner financings and private placements, drill-hole results, sponsored posts, sales and takeovers of mines outside Canada, and daily price or market-close updates. KEEP mining and farming stories about policy, permits, land use, First Nations agreements or public investment in Canada, any project in BC, and industry-wide shifts (supply chains, new technology, market structure).
-Local races and civic business outside the Cariboo: municipal council, mayoral, school-board and regional-district races, candidate profiles, all-candidates forums and routine council business for communities outside the Cariboo-Chilcotin, and riding-level campaign coverage for provincial or federal ridings outside it. KEEP province-wide and national election coverage (party platforms, leaders, results), and Cariboo-Chilcotin communities (Williams Lake, Quesnel, 100 Mile House, the Cariboo Regional District, Horsefly, Lac la Hache, Wells, the Chilcotin).
+Local races and civic business outside the Cariboo: municipal council, mayoral, school-board and regional-district races, candidate profiles, all-candidates forums and routine council business for communities outside the Cariboo-Chilcotin, and riding-level coverage for provincial or federal ridings outside it. Never apply this to an article tagged [LOCAL] or one that names a Cariboo-Chilcotin place (Williams Lake, Quesnel, 100 Mile House, the Cariboo Regional District, Horsefly, Lac la Hache, Wells, the Chilcotin). KEEP province-wide and national election coverage (party platforms, leaders, results).
 
 # Proposed 2026-09-27 from 37 rating notes — merge to adopt, close to decline.
 Listicles and ranked lists (non-product): generic 'best of' or numbered lists of books, towns, articles, or cultural works without substantial reporting or analysis. KEEP lists with reporting, interviews, or original research; KEEP ranked lists of products (already covered under product reviews).

@@ -84,6 +84,22 @@ try:
         config_loader.load_podcast_schedule_config().get('excluded_sources', []))
 except Exception:
     PODCAST_EXCLUDED_SOURCES = frozenset()
+
+
+def is_blocked_source(source: Optional[str]) -> bool:
+    """Whether `source` matches a `filters.json` blocked_sources entry (substring, any case).
+
+    The one definition, so intake and every path that reuses stored articles agree.
+    Intake alone left Mother Jones in the feeds (retention), the podcast pool and the
+    holdover bank for a week after the block.
+    """
+    source_lower = (source or '').lower()
+    return any(blocked in source_lower for blocked in FILTERS['blocked_sources'])
+
+
+def _pool_source_excluded(source: Optional[str]) -> bool:
+    """A source the podcast pool refuses: the show's own, or one the reader blocked."""
+    return source in PODCAST_EXCLUDED_SOURCES or is_blocked_source(source)
 # --- Podcast-only content exclusions -----------------------------------------
 # Two subjects the show does not do: an opinion column and a crime incident.
 # Deliberately scoped to the podcast pool and nowhere else — the reader still
@@ -965,8 +981,7 @@ class Article:
         """Check if article should be filtered out"""
         text = f"{self.title} {self.description}".lower()
 
-        source_lower = self.source.lower()
-        if any(blocked in source_lower for blocked in FILTERS['blocked_sources']):
+        if is_blocked_source(self.source):
             return True
 
         # blocked_keywords always applies — sports leagues, sports terms, advice columns,
@@ -1162,7 +1177,7 @@ def load_podcast_cache():
             pub_date = datetime.fromisoformat(item['pub_date'])
             if (pub_date > cutoff
                     and not _is_aggregator_url(item.get('link', ''))
-                    and item.get('source') not in PODCAST_EXCLUDED_SOURCES):
+                    and not _pool_source_excluded(item.get('source'))):
                 valid_articles.append(item)
 
         if len(valid_articles) != len(cache_data):
@@ -1212,7 +1227,7 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
         for article in articles:
             if _is_aggregator_url(article.link):
                 continue
-            if article.source in PODCAST_EXCLUDED_SOURCES:
+            if _pool_source_excluded(article.source):
                 continue
             if article.link not in existing_by_link:
                 entry = {
@@ -1272,7 +1287,7 @@ def load_theme_holdover_cache() -> Dict:
         for day, articles in data.items():
             valid = [a for a in articles
                      if datetime.fromisoformat(a['banked_at']) > cutoff
-                     and a.get('source') not in PODCAST_EXCLUDED_SOURCES]
+                     and not _pool_source_excluded(a.get('source'))]
             if valid:
                 pruned[day] = valid
         return pruned
@@ -1952,6 +1967,57 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
     return articles
 
 
+# Black Press permalinks are /YYYY/MM/DD/slug/. A local story is first scraped
+# within 2 days of that date; a card older than this is the homepage's evergreen
+# network slot (an Okanagan bear cub ran on the Tribune's homepage for 18 days).
+_SCRAPE_STALE_DAYS = 4
+_PERMALINK_RE = re.compile(r'^/(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$')
+
+
+def _drop_network_cards(scraped: List[Dict],
+                        now: Optional[datetime] = None) -> List[Dict]:
+    """Drop chain-syndicated cards from the homepage scrape.
+
+    Black Press runs a network story at the same slug on every paper's site, and
+    each homepage carries a shared module of them. Scraped cards are forced to
+    local priority, so a card that names no `local_signals` place is dropped when
+    its slug is on two or more scraped homepages, or its permalink date is older
+    than _SCRAPE_STALE_DAYS. A card that names a place is always kept. The paper's
+    RSS copy, if any, still goes through ordinary gate scoring.
+    """
+    now = now or datetime.now(timezone.utc)
+    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
+    permalink = {c['link']: _PERMALINK_RE.match(urlparse(c['link']).path) for c in scraped}
+    papers_by_slug: Dict[str, Set[str]] = defaultdict(set)
+    for card in scraped:
+        if permalink[card['link']]:
+            papers_by_slug[permalink[card['link']].group(4)].add(card['source'])
+
+    kept: List[Dict] = []
+    dropped: List[str] = []
+    for card in scraped:
+        text = f"{card.get('title', '')} {card.get('description', '')}".lower()
+        match = permalink[card['link']]
+        if match is None or any(signal in text for signal in local_signals):
+            kept.append(card)
+            continue
+        year, month, day, slug = match.groups()
+        try:
+            age_days = (now - datetime(int(year), int(month), int(day), tzinfo=timezone.utc)).days
+        except ValueError:
+            age_days = 0
+        if len(papers_by_slug[slug]) >= 2 or age_days > _SCRAPE_STALE_DAYS:
+            dropped.append(f"{card['source']}: {card.get('title', '')[:60]}")
+        else:
+            kept.append(card)
+
+    if dropped:
+        print(f"🔁 Local scrape: dropped {len(dropped)} network card(s) (shared or stale, no local place)")
+        for line in dropped:
+            print(f"   - {line}")
+    return kept
+
+
 def scrape_local_news() -> List[Dict]:
     """Scrape each local paper's homepage (system.json → local_scrapes).
 
@@ -2016,7 +2082,7 @@ def scrape_local_news() -> List[Dict]:
             print(f"⚠️ Failed to scrape {source}: {e}")
 
     _wlt_cache.save(cache)
-    return scraped
+    return _drop_network_cards(scraped)
 
 
 class _AttrDict:
@@ -2936,11 +3002,12 @@ score only clear fluff should be flagged.
 
 KEEP (do not flag) articles that use sports/entertainment as context for a deeper
 story: technology in sports, the economics of a league, health research on athletes.
-KEEP local community news that is not primarily about sport — local politics,
-infrastructure, business, community events.
+KEEP [LOCAL]-tagged community news that is not primarily about sport — local
+politics, infrastructure, business, community events.
 KEEP Canadian politics at every level: federal, provincial (a B.C. election, its
 parties, leaders and candidates), First Nations and municipal. No subject line
-above removes it; a line about US politics never covers Canada.
+above removes it, except a line that limits civic or election coverage to places
+outside the Cariboo; a line about US politics never covers Canada.
 FLAG local articles whose primary subject is a sports game, score, result, draft,
 trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
 KEEP ai-tech articles with hands-on content, research findings or practical guides.
@@ -3394,7 +3461,7 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
         f"Assign each article to exactly ONE category using the descriptions, signals, and exclusions below:\n\n"
         f"{category_guide}\n\n"
         f"CATEGORY PRIORITY (when an article qualifies for multiple categories, use this order):\n"
-        f"1. local     — ANY Williams Lake, Cariboo, Quesnel, CRD, or BC Interior community content\n"
+        f"1. local     — ANY Williams Lake, Cariboo, Quesnel, CRD, or Cariboo-Chilcotin community content (other BC towns are news)\n"
         f"2. homelab   — self-hosting, 3D printing, home automation, home servers, woodworking and shop craft, hands-on home repair\n"
         f"3. homestead — small/hobby farming, market gardens, small livestock, food preservation, woodlots, rural self-sufficiency (NOT commodity agriculture, NOT homelab electronics)\n"
         f"4. climate   — renewable energy, EVs, climate science, carbon, wildfire ecology\n"
@@ -3525,7 +3592,10 @@ Articles to evaluate:
                             _w_q * article.quality + _w_r * article.relevance + _w_l * article.local
                         )))
 
-                        cache[article.url_hash] = {
+                        # Merge, never replace: the gate wrote gate_reject, gate_rubric and
+                        # gate_world into this entry, and replacing it made the next run
+                        # re-ask the gate for a second verdict on ~200 articles a night.
+                        cache.setdefault(article.url_hash, {}).update({
                             'score': article.score,
                             'quality': article.quality,
                             'relevance': article.relevance,
@@ -3535,7 +3605,7 @@ Articles to evaluate:
                             'story_group': article.story_group,
                             'q_gate': getattr(article, 'q_gate', None),
                             'timestamp': timestamp
-                        }
+                        })
 
                         scored_articles.append(article)
                 
@@ -3848,6 +3918,26 @@ def compute_composite_score(article: 'Article', weights: dict = None) -> int:
     return min(100, max(0, round(w_q * article.quality + w_r * article.relevance + w_l * article.local)))
 
 
+_LOCAL_SCRAPE_SOURCES = frozenset(paper['source'] for paper in LOCAL_SCRAPES)
+# The deep-score prompt's own band for "Williams Lake/Cariboo focus".
+CARIBOO_FOCUS_MIN_LOCAL = 80
+
+
+def _has_cariboo_anchor(article: Article, local_signals: List[str]) -> bool:
+    """Whether a `local` article is anchored in the Cariboo-Chilcotin.
+
+    `local` is the Cariboo feed (category_rules.json), but the deep-score prompt also
+    files "BC Interior" community news under it, so a Canal Flats mayoral profile and
+    a Vancouver-based Tyee piece on municipal taxes landed in feed-local on 2026-10-13.
+    An anchor is a scraped Cariboo paper, a local score in the prompt's Cariboo-focus
+    band, or a `local_signals` place in the title, description or source name.
+    """
+    if article.source in _LOCAL_SCRAPE_SOURCES or article.local >= CARIBOO_FOCUS_MIN_LOCAL:
+        return True
+    text = f"{article.title} {article.description or ''} {article.source}".lower()
+    return any(signal in text for signal in local_signals)
+
+
 def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
     """Apply dimension-level score adjustments and recompute composite scores.
 
@@ -3884,6 +3974,8 @@ def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
                 article.score = max(article.score, local_thin_day_floor)
             article.category = 'local'
             local_boosted += 1
+        elif article.category == 'local' and not _has_cariboo_anchor(article, local_signals):
+            article.category = 'news'
 
         # Source type → Q dimension (or fallback composite adjustment)
         source_type = source_map.get(article.source)
@@ -5955,7 +6047,7 @@ def main():
         def _pool_eligible(a: Article) -> bool:
             # Excluded sources are rejected by save_podcast_cache() too; skipping
             # them here as well avoids paying for their theme scores at ingest.
-            if a.source in PODCAST_EXCLUDED_SOURCES:
+            if _pool_source_excluded(a.source):
                 return False
             if getattr(a, 'content_type', None) == 'sponsored' or _is_aggregator_url(a.link):
                 return False
@@ -6276,6 +6368,7 @@ def main():
 
     final_feed_sizes: Dict[str, int] = {}
 
+    evicted_blocked = 0
     for cat_key in CATEGORIES.keys():
         feed_file = f"feed-{cat_key}.json"
         existing_articles = []
@@ -6287,10 +6380,16 @@ def main():
                     for item in existing_feed.get('items', []):
                         pub_date = datetime.fromisoformat(item['date_published'].replace('Z', '+00:00'))
                         if pub_date > retention_cutoff:
+                            if is_blocked_source(((item.get('authors') or [{}])[0]).get('name')):
+                                evicted_blocked += 1
+                                continue
                             existing_articles.append(item)
             except Exception as e:
                 print(f"⚠️ Error loading existing {cat_key} feed: {e}")
-        
+        if evicted_blocked:
+            print(f"🚫 {cat_key}: dropped {evicted_blocked} retained item(s) from blocked sources")
+            evicted_blocked = 0
+
         new_items = categorized[cat_key]
         diverse_new = apply_diversity_limits(new_items, cat_key)
         diverse_new = dedup_by_story_group(diverse_new)
@@ -6865,7 +6964,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
         except Exception:
             skipped += 1
             continue
-        if pub_date <= retention_cutoff:
+        if pub_date <= retention_cutoff or is_blocked_source(item.get('source')):
             skipped += 1
             continue
         entry = _AttrDict({
@@ -6939,7 +7038,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
                     # Re-derive category from keywords so it matches the regular pipeline
                     article.category = (categorize_article(article.title, article.description)
                                          or article.category or 'news')
-                    scored_cache[article.url_hash] = {
+                    scored_cache.setdefault(article.url_hash, {}).update({
                         'score': score,
                         'quality': score,
                         'relevance': score,
@@ -6947,7 +7046,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
                         'category': article.category,
                         'story_group': None,
                         'timestamp': timestamp,
-                    }
+                    })
                 _scored_cache.save(scored_cache)
                 print(f"   ✅ Scored and cached {len(uncached_bootstrap)} new articles")
 
