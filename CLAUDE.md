@@ -260,6 +260,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - **`_theme_score` is a percentile and cannot show charter collapse**; read `_theme_score_raw`. `RAW_FIT_FLOORS` are per weekday; refit all seven off a measured month.
 - **A theme is only meaningful if something can win it.** Joint 7-theme scoring collapses narrow themes; `targeted_rescore` re-asks one charter at a time, and its `rescore_sources` list is the load-bearing half. The standing guard is `run_stats['theme_argmax']`. **Sourcing cannot fix a starved theme — check the argmax before touching `feeds.opml`.**
 - **`podcast_content_exclusion()`** drops op-eds and crime incidents from the podcast pool only (`podcast_schedule.json` → `excluded_content`). The crime classifier is fitted: category-gated, title-anchored, ambiguous terms need justice context. **Widen the exemption list, never the rule; refit against the live pool, never against appetite.** Applied at one choke point after the pools merge.
+- **The pool honours the gate's reject verdict** (`gate_reject`, stored with each pool and bank entry and refreshed on banked rows from the pool, dropped at that same choke point; `enabled: false` turns it off with the other exclusions; a blocked source is evicted from both caches by `_pool_source_excluded()`). The verdict is a snapshot: a new standing-preference line reaches cached entries only as they are judged again. Review ratings are training data and never a runtime input to the pool.
 
 ## Sources — see [docs/decisions/sources.md](docs/decisions/sources.md)
 
