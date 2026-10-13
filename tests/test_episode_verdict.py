@@ -126,6 +126,37 @@ class TestThePageContract:
         assert 'Date.UTC(y, m - 1, d - back)' in body
         assert 'Date.now()' not in body
 
+    def test_dates_are_read_at_use_time_not_at_load(self):
+        """The installed app is resumed, not reloaded: dates fixed at load kept offering the
+        previous day's episodes, with that day's "yesterday" preselected, after midnight."""
+        body = _between('function episodeDates()', 'function episodeDateLabel')
+        code = re.sub(r'//[^\n]*', '', body)          # the comment explains the old way by name
+        assert 'getTodayKey()' in code and 'todayKey' not in code.replace('getTodayKey', '')
+
+    def test_a_page_resumed_on_a_new_day_deals_the_dates_again(self):
+        handler = _between('function refreshEpisodeDates()', "document.addEventListener('visibilitychange'")
+        assert 'episodeDates()[0]' in handler and 'episodePick.reasons.clear()' in handler
+        assert "document.addEventListener('visibilitychange', refreshEpisodeDates)" in PAGE
+        assert "window.addEventListener('pageshow', refreshEpisodeDates)" in PAGE
+        # Re-rendering must not bind the click handler a second time.
+        assert "box.dataset.wired" in _between('function renderEpisodeCard', 'function refreshEpisodeDates')
+
+    def test_tapping_the_selected_date_again_keeps_the_answer(self):
+        body = _between('function onEpisodeClick', 'function syncEpisodeCard')
+        assert 'if (btn.dataset.date === episodePick.date) return;' in body
+        assert body.index('=== episodePick.date) return') < body.index('episodePick.verdict = null')
+
+    def test_every_github_call_on_the_save_path_can_time_out(self):
+        """A request that never answered left the Save button disabled until a reload."""
+        save = _between('async function saveFeedbackEntries', 'async function submitFeedback')
+        assert 'await fetch(' not in save
+        assert save.count('await githubFetch(') == 2
+        helper = _between('async function githubFetch', '// What a saved row is merged on.')
+        assert 'AbortSignal.timeout(SAVE_TIMEOUT_MS)' in helper
+        # Older browsers have no AbortSignal.timeout: the call must still work, only unlimited.
+        assert "typeof AbortSignal.timeout === 'function'" in helper
+        assert "e?.name === 'TimeoutError'" in helper
+
     def test_rows_without_a_url_are_merged_by_date(self):
         """Every url-less row used to collapse onto the key `undefined`, so a second verdict
         saved the same day replaced the first."""

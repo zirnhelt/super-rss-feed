@@ -396,6 +396,7 @@ const FEED_URL    = 'feed-review.json';
 // one kept in browser storage would be readable by any script that ever ran on this origin.
 const GITHUB_CONTENTS = 'https://api.github.com/repos/zirnhelt/super-rss-feed/contents/';
 const SAVE_ATTEMPTS   = 3;
+const SAVE_TIMEOUT_MS = 20000;
 
 // Every stratum, deliberately. Dropping 'high' and 'mid' on 2026-08-25 made the
 // review corpus a sample of near-misses and rejects only, so the audit's precision
@@ -967,6 +968,21 @@ function decodeUtf8Base64(b64) {
     return new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(binary, c => c.charCodeAt(0)));
 }
 
+// A request that never answers would leave a Save button disabled until the page is reloaded.
+// AbortSignal.timeout is missing on older browsers; without it the call simply has no limit.
+async function githubFetch(url, options) {
+    const limit = typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function'
+        ? { signal: AbortSignal.timeout(SAVE_TIMEOUT_MS) } : {};
+    try {
+        return await fetch(url, { ...options, ...limit });
+    } catch (e) {
+        if (e?.name === 'TimeoutError') {
+            throw new Error(`GitHub did not answer in ${SAVE_TIMEOUT_MS / 1000} seconds; check the connection and save again`);
+        }
+        throw e;
+    }
+}
+
 // What a saved row is merged on. Articles carry a url; an episode verdict has none and is keyed by
 // its date, so re-rating an episode replaces the earlier answer and never another date's. Any other
 // row without a url is kept as it is.
@@ -990,7 +1006,7 @@ async function saveFeedbackEntries(entries) {
 
     for (let attempt = 1; attempt <= SAVE_ATTEMPTS; attempt++) {
         // no-store: the API sends max-age=60, and a cached read hands back a stale sha.
-        const current = await fetch(fileUrl, { headers, cache: 'no-store' });
+        const current = await githubFetch(fileUrl, { headers, cache: 'no-store' });
         if (current.status === 401 || current.status === 403) throw new Error(TOKEN_REJECTED);
 
         let sha = null;
@@ -1014,7 +1030,7 @@ async function saveFeedbackEntries(entries) {
         entries.forEach((r, i) => merged.set(feedbackKey(r, `new${i}`), r));
         const payload = { date: todayKey, submitted_at: new Date().toISOString(), ratings: [...merged.values()] };
 
-        const put = await fetch(fileUrl, {
+        const put = await githubFetch(fileUrl, {
             method:  'PUT',
             headers: { ...headers, 'Content-Type': 'application/json' },
             body:    JSON.stringify({
@@ -1124,7 +1140,10 @@ const episodePick = { date: null, verdict: null, reasons: new Set(), saving: fal
 // Calendar arithmetic on the Pacific date string, never on timestamps: 24 hours before a time just
 // after midnight lands on the wrong date on the two days a year the clocks change.
 function episodeDates() {
-    const [y, m, d] = todayKey.split('-').map(Number);
+    // Today's date at the moment of the call, not the load-time `todayKey`: the installed app is
+    // resumed rather than reloaded, so a page opened the evening before would keep offering the
+    // old dates with the old "yesterday" preselected.
+    const [y, m, d] = getTodayKey().split('-').map(Number);
     return Array.from({ length: EPISODE_DAYS }, (_, back) =>
         new Date(Date.UTC(y, m - 1, d - back)).toISOString().slice(0, 10));
 }
@@ -1150,13 +1169,31 @@ function renderEpisodeCard() {
     document.getElementById('episode-reasons').innerHTML = EPISODE_REASONS.map(reason =>
         `<button type="button" class="episode-opt episode-reason" data-reason="${escAttr(reason)}"
                  aria-pressed="false">${escHtml(reason)}</button>`).join('');
-    box.addEventListener('click', onEpisodeClick);
+    if (!box.dataset.wired) {            // once: the card is re-rendered when the day rolls over
+        box.addEventListener('click', onEpisodeClick);
+        box.dataset.wired = '1';
+    }
 }
+
+// Back in view on a new Pacific day: deal the dates again, with a blank answer (an answer given
+// for one episode must not carry to another).
+function refreshEpisodeDates() {
+    if (document.hidden) return;
+    const shown = document.querySelector('#episode-dates button')?.dataset.date;
+    if (!shown || shown === episodeDates()[0] || episodePick.saving) return;
+    episodePick.verdict = null;
+    episodePick.reasons.clear();
+    renderEpisodeCard();
+    syncEpisodeCard();
+}
+document.addEventListener('visibilitychange', refreshEpisodeDates);
+window.addEventListener('pageshow', refreshEpisodeDates);
 
 function onEpisodeClick(event) {
     const btn = event.target.closest('button[data-date], button[data-verdict], button[data-reason]');
     if (!btn || episodePick.saving) return;
     if (btn.dataset.date) {
+        if (btn.dataset.date === episodePick.date) return;   // already selected: keep the answer
         // A different episode starts from a blank answer: carrying one across would grade the wrong show.
         episodePick.date = btn.dataset.date;
         episodePick.verdict = null;

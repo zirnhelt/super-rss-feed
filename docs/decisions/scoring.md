@@ -226,6 +226,11 @@ chips (Stories, Writing, Wrong fact, Too long, Repetitive, Hosts). Whether "Writ
   failed article batch cannot hide it.
 - **Dates are calendar arithmetic on the Pacific date string**, never 24-hour steps from a
   timestamp, which land on the wrong date just after midnight on the two days a year the clocks change.
+  They are read when used, not when the page loaded, and dealt again (with a blank answer) when
+  a page left open comes back into view on a new Pacific day: the installed app is resumed, not
+  reloaded, so load-time dates kept offering the old "yesterday" and the reader graded the wrong
+  episode. Every save on the page now gives up after 20 seconds with a message, instead of
+  leaving the button disabled until a reload.
 - The podcast's weekly review reads these rows from `main` and groups them by the episode's polish
   model and outcome (`episode.models` in its citations JSON). With about 14 episodes per arm only
   a large gap shows (6 keeps against 12 is about p=0.05; 7 against 11 is not): read anything
