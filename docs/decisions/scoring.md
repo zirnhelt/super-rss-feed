@@ -202,6 +202,35 @@ untouched on 12 of 117 `good` ratings; the reader was clearing it, not accepting
 hint is the top two days above 45 (the argmax is among the reader's picks 58% of the time,
 the top two 73%).
 
+### The episode verdict (2026-10-14)
+
+Article ratings grade story choice. The polish never changes which stories are chosen, so a
+polish-model trial could not be graded by them; only a verdict on the whole episode can grade
+the writing. `review.html` has a card above "Add a Great Example": the last three episode dates
+(today, yesterday, the day before; **yesterday is preselected**, because it is the episode the
+reader has usually heard when the page is open), **Keep / Meh / Skip**, and optional reason
+chips (Stories, Writing, Wrong fact, Too long, Repetitive, Hosts). Whether "Writing" or
+"Stories" is ticked is what separates a polish effect from story choice.
+
+- **Row shape**, saved into the same `feedback/YYYY-MM-DD.json` as the article ratings:
+  `{rating: 'episode', episode_date, episode_verdict: 'keep'|'meh'|'skip', episode_reasons: [...], rated_at}`.
+  The answer is in `episode_verdict`, **never in `rating`**: `skip` is already an article
+  verdict. The row has **no `url`**, so the page merges it by date (`feedbackKey`); a second verdict
+  the same day, or a changed mind about a date, replaces rather than collides.
+- **It must not count as an article rating.** `article_review_audit.py`, `feedback_archive.py`,
+  `standing_preferences.py`, `load_reviewed_urls()` and the page's own stats already skip a value
+  they do not know. Two places counted every row and now filter it: `review_history_stats()` (totals,
+  recent counts, `days_reviewed` and the streak) and the trainer's per-file minimum
+  (`MIN_RATINGS_PER`). A new reader of these files must do the same.
+- **The card renders on its own.** It is static markup rendered before `init()`, so an empty or
+  failed article batch cannot hide it.
+- **Dates are calendar arithmetic on the Pacific date string**, never 24-hour steps from a
+  timestamp, which land on the wrong date just after midnight on the two days a year the clocks change.
+- The podcast's weekly review reads these rows from `main` and groups them by the episode's polish
+  model and outcome (`episode.models` in its citations JSON). With about 14 episodes per arm only
+  a large gap shows (6 keeps against 12 is about p=0.05; 7 against 11 is not): read anything
+  smaller as no detectable difference.
+
 ### The review batch: offered once, sorted by likely verdict (2026-09-29)
 
 The batch never accumulated (it is a fixed quota), but a missed day leaked: consecutive

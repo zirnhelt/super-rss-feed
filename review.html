@@ -252,6 +252,29 @@
         }
         .exemplar-form textarea { resize: vertical; min-height: 44px; }
         .exemplar-form button { align-self: flex-start; }
+        /* ── Episode verdict ── */
+        .episode-box {
+            background: white; border-radius: 16px; padding: 18px 24px;
+            margin-bottom: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .episode-box h2 { font-size: 1.1em; color: #8e24aa; margin-bottom: 2px; }
+        .episode-box .subtitle { margin-bottom: 12px; }
+        .episode-form { display: flex; flex-direction: column; gap: 10px; }
+        .episode-row { display: flex; flex-wrap: wrap; gap: 6px; }
+        .episode-opt {
+            flex: 1 1 0; min-width: 80px; min-height: 44px; padding: 8px 6px; border-radius: 9px; font-size: 0.86em;
+            font-weight: 600; line-height: 1.25; cursor: pointer; background: white;
+            border: 1px solid #ddd; color: #555; font-family: inherit;
+        }
+        .episode-opt:hover { border-color: #8e24aa; color: #8e24aa; }
+        .episode-opt[aria-checked=true], .episode-opt[aria-pressed=true] {
+            background: #8e24aa; border-color: #8e24aa; color: white;
+        }
+        .episode-opt small { display: block; font-weight: 400; opacity: 0.85; font-size: 0.82em; }
+        .episode-reason { flex: 0 1 auto; min-width: 0; min-height: 36px; padding: 4px 12px; font-size: 0.80em; border-radius: 18px; }
+        .episode-form button:disabled { opacity: 0.6; cursor: default; }
+        .episode-form button { align-self: flex-start; }
+        .episode-form .episode-opt { align-self: auto; }
         .token-form { display: flex; flex-direction: column; gap: 6px; }
         .token-form input[type=password] {
             width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
@@ -305,6 +328,19 @@
         <div class="progress-counter" id="progress-counter"></div>
         <div class="progress-counter" id="sort-note"></div>
         <div id="stats-panel" style="display:none"></div>
+    </div>
+
+    <!-- Static markup and its own save path: it works when the article batch is empty or failed to load. -->
+    <div class="episode-box" id="episode-box">
+        <h2>🎙️ How was the episode?</h2>
+        <p class="subtitle">One tap on the episode you heard. It grades the writing and the story choice together, which the article cards cannot.</p>
+        <div class="episode-form">
+            <div class="episode-row" id="episode-dates" role="radiogroup" aria-label="Which episode"></div>
+            <div class="episode-row" id="episode-verdicts" role="radiogroup" aria-label="Your verdict"></div>
+            <div class="episode-row" id="episode-reasons" role="group" aria-label="What drove it (optional)"></div>
+            <button type="button" class="btn btn-primary" id="episode-save" onclick="submitEpisodeVerdict()">🎙️ Save verdict</button>
+            <div class="status-msg" id="episode-status" role="status" aria-live="polite"></div>
+        </div>
     </div>
 
     <div class="exemplar-box" id="exemplar-box">
@@ -484,6 +520,7 @@ if ('serviceWorker' in navigator) {
 window.addEventListener('DOMContentLoaded', () => {
     syncOnline();
     populateExemplarCategories();
+    try { renderEpisodeCard(); } catch (e) { console.error('episode card:', e); }
     init();
 });
 
@@ -930,7 +967,16 @@ function decodeUtf8Base64(b64) {
     return new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(binary, c => c.charCodeAt(0)));
 }
 
-// Merges `entries` into feedback/<today>.json by url. A file that exists but cannot be read is
+// What a saved row is merged on. Articles carry a url; an episode verdict has none and is keyed by
+// its date, so re-rating an episode replaces the earlier answer and never another date's. Any other
+// row without a url is kept as it is.
+function feedbackKey(r, fallback) {
+    if (typeof r?.url === 'string') return r.url;
+    if (r?.rating === 'episode' && typeof r.episode_date === 'string') return `episode:${r.episode_date}`;
+    return `\u0000${fallback}`;
+}
+
+// Merges `entries` into feedback/<today>.json by url (episode verdicts by date). A file that exists but cannot be read is
 // refused, never overwritten: the old writer fell back to an empty list and replaced the day's
 // earlier ratings with the new ones.
 async function saveFeedbackEntries(entries) {
@@ -964,8 +1010,8 @@ async function saveFeedbackEntries(entries) {
             throw new Error(`GitHub read failed (HTTP ${current.status})`);
         }
 
-        const merged = new Map(prior.map((r, i) => [typeof r?.url === 'string' ? r.url : `\u0000${i}`, r]));
-        for (const r of entries) merged.set(r.url, r);
+        const merged = new Map(prior.map((r, i) => [feedbackKey(r, `prior${i}`), r]));
+        entries.forEach((r, i) => merged.set(feedbackKey(r, `new${i}`), r));
         const payload = { date: todayKey, submitted_at: new Date().toISOString(), ratings: [...merged.values()] };
 
         const put = await fetch(fileUrl, {
@@ -1058,6 +1104,115 @@ async function submitFeedback() {
     } catch (e) {
         statusEl.className = 'status-msg error';
         statusEl.textContent = '❌ Save failed: ' + e.message;
+    }
+}
+
+// ── Episode verdict ──────────────────────────────────────────────────────────
+// A verdict on the whole episode. Article ratings grade story choice; polish never changes which
+// stories were chosen, so only a per-episode answer can grade the writing. Saved into the same
+// feedback file as rating 'episode' with the answer in episode_verdict: not in `rating`, because
+// 'skip' is already an article verdict. The analytic consumers ignore the value and the review
+// stats and the trainer's file count filter it explicitly. The default is yesterday's episode,
+// which is the one the reader has usually heard when the page is open.
+const EPISODE_DAYS     = 3;
+const EPISODE_DEFAULT  = 1;
+const EPISODE_VERDICTS = [['keep', '👍 Keep', 'worth the time'], ['meh', '😐 Meh', 'fine, forgettable'],
+                          ['skip', '👎 Skip', 'I would skip it']];
+const EPISODE_REASONS  = ['Stories', 'Writing', 'Wrong fact', 'Too long', 'Repetitive', 'Hosts'];
+const episodePick = { date: null, verdict: null, reasons: new Set(), saving: false };
+
+// Calendar arithmetic on the Pacific date string, never on timestamps: 24 hours before a time just
+// after midnight lands on the wrong date on the two days a year the clocks change.
+function episodeDates() {
+    const [y, m, d] = todayKey.split('-').map(Number);
+    return Array.from({ length: EPISODE_DAYS }, (_, back) =>
+        new Date(Date.UTC(y, m - 1, d - back)).toISOString().slice(0, 10));
+}
+
+function episodeDateLabel(date, back) {
+    const [y, m, d] = date.split('-').map(Number);
+    const day = new Date(Date.UTC(y, m - 1, d))
+        .toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
+    const word = back === 0 ? 'Today' : back === 1 ? 'Yesterday' : '';
+    return word ? `<span>${escHtml(word)}</span><small>${escHtml(day)}</small>` : `<span>${escHtml(day)}</span>`;
+}
+
+function renderEpisodeCard() {
+    const dates = episodeDates();
+    episodePick.date = dates[EPISODE_DEFAULT];
+    const box = document.getElementById('episode-box');
+    document.getElementById('episode-dates').innerHTML = dates.map((date, back) =>
+        `<button type="button" class="episode-opt" role="radio" data-date="${escAttr(date)}"
+                 aria-checked="${date === episodePick.date}">${episodeDateLabel(date, back)}</button>`).join('');
+    document.getElementById('episode-verdicts').innerHTML = EPISODE_VERDICTS.map(([key, label, hint]) =>
+        `<button type="button" class="episode-opt" role="radio" data-verdict="${escAttr(key)}"
+                 aria-checked="false">${escHtml(label)}<small>${escHtml(hint)}</small></button>`).join('');
+    document.getElementById('episode-reasons').innerHTML = EPISODE_REASONS.map(reason =>
+        `<button type="button" class="episode-opt episode-reason" data-reason="${escAttr(reason)}"
+                 aria-pressed="false">${escHtml(reason)}</button>`).join('');
+    box.addEventListener('click', onEpisodeClick);
+}
+
+function onEpisodeClick(event) {
+    const btn = event.target.closest('button[data-date], button[data-verdict], button[data-reason]');
+    if (!btn || episodePick.saving) return;
+    if (btn.dataset.date) {
+        // A different episode starts from a blank answer: carrying one across would grade the wrong show.
+        episodePick.date = btn.dataset.date;
+        episodePick.verdict = null;
+        episodePick.reasons.clear();
+    } else if (btn.dataset.verdict) {
+        episodePick.verdict = btn.dataset.verdict;
+    } else {
+        const reason = btn.dataset.reason;
+        if (!episodePick.reasons.delete(reason)) episodePick.reasons.add(reason);
+    }
+    syncEpisodeCard();
+}
+
+function syncEpisodeCard() {
+    for (const btn of document.querySelectorAll('#episode-box [data-date]'))
+        btn.setAttribute('aria-checked', String(btn.dataset.date === episodePick.date));
+    for (const btn of document.querySelectorAll('#episode-box [data-verdict]'))
+        btn.setAttribute('aria-checked', String(btn.dataset.verdict === episodePick.verdict));
+    for (const btn of document.querySelectorAll('#episode-box [data-reason]'))
+        btn.setAttribute('aria-pressed', String(episodePick.reasons.has(btn.dataset.reason)));
+    const statusEl = document.getElementById('episode-status');
+    statusEl.className = 'status-msg';
+    statusEl.textContent = '';
+}
+
+async function submitEpisodeVerdict() {
+    const statusEl = document.getElementById('episode-status');
+    const saveBtn  = document.getElementById('episode-save');
+    if (episodePick.saving) return;
+    if (!episodePick.verdict) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = 'Pick Keep, Meh or Skip first.';
+        return;
+    }
+
+    const entry = {
+        rating:          'episode',
+        episode_date:    episodePick.date,
+        episode_verdict: episodePick.verdict,
+        episode_reasons: EPISODE_REASONS.filter(r => episodePick.reasons.has(r)),
+        rated_at:        new Date().toISOString(),
+    };
+    episodePick.saving = true;
+    saveBtn.disabled = true;
+    statusEl.className = 'status-msg';
+    statusEl.textContent = 'Saving…';
+    try {
+        await saveFeedbackEntries([entry]);
+        statusEl.className = 'status-msg success';
+        statusEl.textContent = `✅ Saved ${entry.episode_verdict} for ${entry.episode_date}.`;
+    } catch (e) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = '❌ Save failed: ' + e.message;
+    } finally {
+        episodePick.saving = false;
+        saveBtn.disabled = false;
     }
 }
 

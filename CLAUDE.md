@@ -142,6 +142,8 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 
 **A review batch is offered once.** `review_offered_ledger()` keeps an earlier batch's articles out of the next (the ledger rides in `feed-review.json` as `_offered`), so a missed day is dropped, not queued; `review.html` keys drafts and its saved flag on `_batch`, never the calendar date. The batch is sorted by `fit_reader_model()`; that changes the order only, never the stratified sample.
 
+**Episode verdicts** (`rating: 'episode'`, answer in `episode_verdict`, no `url`) share these files. They are not article ratings: anything that counts rows by `rating` must skip them (`review_history_stats`, the trainer's file minimum do); the page merges them by date. See [scoring.md](docs/decisions/scoring.md).
+
 **`review.html` never holds a credential.** It asks for a fine-grained token (super-rss-feed only, Contents read/write) in a password field when saving, filled from a password manager, and keeps it only while open — never in browser storage. A token was baked into this public page from 2026-06-17 until it was revoked on 2026-09-23.
 
 ## Output Feeds

@@ -63,7 +63,8 @@ def load_feedback(lookback_days: int = LOOKBACK_DAYS):
         except Exception as e:
             print(f"⚠️  Skipping {f}: {e}")
             continue
-        file_ratings = data.get('ratings', [])
+        # Episode verdicts (rating 'episode') share the file but grade the show, not an article.
+        file_ratings = [r for r in data.get('ratings', []) if r.get('rating') != 'episode']
         if len(file_ratings) >= MIN_RATINGS_PER:
             files.append(f.name)
         ratings.extend(file_ratings)
