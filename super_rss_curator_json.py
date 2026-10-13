@@ -6677,7 +6677,9 @@ def review_history_stats(today: str) -> Dict:
     display_note: Dict[str, str] = {}
     reviewed_days: set = set()
     for date, rows in live:
-        rated = [r for r in rows if r.get('rating')]
+        # review.html's "How was the episode?" saves rating 'episode' rows into the same file;
+        # they are not article ratings, so they must not count toward the totals or the streak.
+        rated = [r for r in rows if r.get('rating') and r['rating'] != 'episode']
         all_time.update(r['rating'] for r in rated)
         if date < window_start or not rated:
             continue
