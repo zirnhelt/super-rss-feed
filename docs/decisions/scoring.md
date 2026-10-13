@@ -117,6 +117,14 @@ The same report's `theme_routing` root-cause split is measuring a counterfactual
 feed, so "the theme scorer already preferred your day" is not evidence of a bug in
 `generate_podcast_feed()`. The theme-scorer disagreement half is still real signal.
 
+## A standing preference that names a place fights the rubric (2026-10-13)
+
+Line 19 of `standing_preferences.txt` (civic races outside the Cariboo) went in on 10-12. The first night scrubbed "Meet the Candidates: Mike Cave… City of Quesnel", a Cariboo race the line's own KEEP clause names, and kept a Canal Flats mayoral profile. Two causes. The built-in rubric ended "KEEP Canadian politics at every level… No subject line above removes it", which told Haiku the opposite, and "KEEP local community news" had no tag to hang on. The rubric now keeps `[LOCAL]`-tagged community news, carves out a line that limits civic coverage to places outside the Cariboo, and the line says never to apply it to a `[LOCAL]` article or one naming a Cariboo-Chilcotin place. Canal Flats itself was not the gate's miss: the deep scorer re-filed it as `local` (see sources.md).
+
+The same night showed that the gate's reject verdicts do not reach the podcast pool. The pool is captured before the scrub on purpose, so 24 of 57 rejected articles entered it. `standing_preferences.txt` used to say a match was dropped "from the podcast pool"; it now says it is not. A reject rule shapes the reader's feeds, not the show. To change that, store `gate_reject` on pool rows and drop them at the choke point in `generate_podcast_feed`; that reverses the pre-scrub capture and is a decision about the show, not this file.
+
+Do not read the B.C.-wide election scrubs of 10-13 ("Eby slams U.S.-style health care", the DRIPA analysis) as this line's doing. The old rubric already rejected about 1 in 6 B.C.-wide election stories (5 distinct in 10-09 to 10-11), a same-series story was kept the same night, and 9 of 16 old rejects flipped to keep when re-asked under any changed rubric. Per-article Haiku verdicts on this subject are noisy.
+
 ## Source-level verdicts must count `interesting`, not just `good` (gotcha 17)
 
 Filtering the

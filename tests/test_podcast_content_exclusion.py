@@ -394,30 +394,6 @@ class TestThePoolCarriesTheVerdict:
         m.save_podcast_cache([_pool_article('https://x.test/a', gate_reject=None)], True)
         assert m.load_podcast_cache()[0]['gate_reject'] is True
 
-    def test_blocked_sources_are_evicted_by_exact_name(self):
-        """Mother Jones was blocked 2026-10-11 and 29 of its items stayed cached.
-        CleanTechnica must survive: 'hn' (Hacker News) is a substring of 'technica'."""
-        m.save_podcast_cache([
-            _pool_article('https://x.test/1', source='Mother Jones'),
-            _pool_article('https://x.test/2', source='  the new yorker '),
-            _pool_article('https://x.test/3', source='CleanTechnica'),
-            _pool_article('https://x.test/4', source='Williams Lake Tribune'),
-        ], False)
-        sources = {e['source'] for e in m.load_podcast_cache()}
-        assert sources == {'CleanTechnica', 'Williams Lake Tribune'}
-
-    def test_the_bank_evicts_blocked_sources_too(self, tmp_path):
-        import json
-        from datetime import datetime, timezone
-        now = datetime.now(timezone.utc).isoformat()
-
-        def entry(link, source):
-            return {'link': link, 'source': source, 'banked_at': now, 'title': 't'}
-        (tmp_path / 'bank.json').write_text(json.dumps({'monday': [
-            entry('https://x.test/1', 'Mother Jones'), entry('https://x.test/2', 'CleanTechnica')]}))
-        kept = m.load_theme_holdover_cache()
-        assert [e['source'] for e in kept['monday']] == ['CleanTechnica']
-
     def _bank(self, monkeypatch, items):
         url_days = {f"{i['link']}:::monday": 99 for i in items}
         saved = {}
@@ -546,19 +522,79 @@ class TestGateRejectLog:
         assert 'Story 3' not in out
 
 
-class TestScoredCacheKeepsTheVerdict:
-    def test_gate_fields_are_carried_and_nothing_else(self):
-        entry = {'score': 70, 'q_gate': 55, 'gate_reject': True, 'gate_rubric': 'abc',
-                 'gate_world': False, 'timestamp': 1}
-        assert m._gate_fields(entry) == {'gate_reject': True, 'gate_rubric': 'abc',
-                                         'gate_world': False}
+class TestBlockedSourcesLeaveReusedArticles:
+    """`blocked_sources` was only checked at fetch, so Mother Jones stayed in the pool,
+    the holdover bank and the retained feed items for a week after the block."""
 
-    @pytest.mark.parametrize('entry', [None, {}, 'bare string', {'score': 5}])
-    def test_a_missing_or_malformed_entry_carries_nothing(self, entry):
-        assert m._gate_fields(entry) == {}
+    def test_predicate_is_substring_and_case_insensitive(self):
+        assert m.is_blocked_source('Mother Jones')
+        assert m.is_blocked_source('motherjones.com')
+        assert not m.is_blocked_source('Williams Lake Tribune')
+        assert not m.is_blocked_source(None)
 
-    def test_deep_scoring_rewrites_the_entry_through_it(self):
-        """The deep-scoring loop is too large to drive here; pin that its whole-entry
-        rewrite starts from the gate's fields."""
-        src = Path(m.__file__).read_text(encoding='utf-8')
-        assert "**_gate_fields(cache.get(article.url_hash))," in src
+    def test_hn_no_longer_blocks_technica_or_technology_feeds(self):
+        for source in ('Ars Technica Technology Lab', 'GN CleanTechnica',
+                       'MIT Technology Review', 'MIT News STS'):
+            assert not m.is_blocked_source(source), source
+        assert m.is_blocked_source('Hacker News')
+
+    def test_pool_refuses_blocked_and_show_excluded_sources(self):
+        assert m._pool_source_excluded('Mother Jones')
+        assert not m._pool_source_excluded('The Tyee')
+
+    def test_pool_loader_evicts_a_blocked_source(self, tmp_path, monkeypatch):
+        import json
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc).isoformat()
+        rows = [{'link': 'https://motherjones.com/a', 'source': 'Mother Jones', 'pub_date': now},
+                {'link': 'https://thetyee.ca/b', 'source': 'The Tyee', 'pub_date': now}]
+        (tmp_path / 'podcast_articles_cache.json').write_text(json.dumps(rows))
+        monkeypatch.chdir(tmp_path)
+        assert [r['source'] for r in m.load_podcast_cache()] == ['The Tyee']
+
+    def test_holdover_loader_evicts_a_blocked_source(self, tmp_path, monkeypatch):
+        import json
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc).isoformat()
+        bank = {'monday': [{'source': 'Mother Jones', 'banked_at': now},
+                           {'source': 'The Tyee', 'banked_at': now}]}
+        (tmp_path / 'theme_holdover_cache.json').write_text(json.dumps(bank))
+        monkeypatch.chdir(tmp_path)
+        assert [a['source'] for a in m.load_theme_holdover_cache()['monday']] == ['The Tyee']
+
+
+class TestLocalNeedsACaribooAnchor:
+    """The deep-score prompt filed "BC Interior" community news under local, so a Canal
+    Flats mayoral profile shipped in feed-local. `local` is the Cariboo feed."""
+
+    @staticmethod
+    def _local(title, source, local_score=45, description=''):
+        a = _article(title, description=description, category='local', source=source)
+        a.quality, a.relevance, a.local = 40, 55, local_score
+        a.score = 50
+        return a
+
+    def _adjusted(self, article):
+        return m.apply_dimension_adjustments([article])[0].category
+
+    def test_out_of_region_story_is_refiled_as_news(self):
+        article = self._local('Canal Flats mayoral candidate prioritizes infrastructure',
+                              'My East Kootenay Now')
+        assert self._adjusted(article) == 'news'
+
+    def test_high_local_score_keeps_local(self):
+        assert self._adjusted(self._local('Council votes on arena', 'Tribune Wire', 85)) == 'local'
+
+    def test_scraped_cariboo_paper_keeps_local(self):
+        assert self._adjusted(self._local('MP endorses candidate', 'Williams Lake Tribune', 20)) == 'local'
+
+    def test_place_in_description_or_source_keeps_local(self):
+        assert self._adjusted(self._local('Fire hall opens', 'Example',
+                                          description='HORSEFLY — the new hall')) == 'local'
+        assert self._adjusted(self._local('Weekly roundup', 'My Cariboo Now')) == 'local'
+
+    def test_non_local_category_is_untouched(self):
+        article = self._local('Canal Flats mayoral candidate', 'My East Kootenay Now')
+        article.category = 'news'
+        assert self._adjusted(article) == 'news'
+

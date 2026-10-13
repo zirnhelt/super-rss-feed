@@ -110,9 +110,10 @@ What changed:
   `GATE_REJECT_LOG_CAP` (40, then one line saying the rest are only counted), because a
   rejected civic or election story is the loss worth seeing by name.
 - **Blocked sources leave the cache.** `blocked_sources` was only checked at fetch time,
-  so 29 Mother Jones items stayed in the pool and 51 in the bank. Both loaders now evict
-  by **exact** source name; the fetch-time substring match would also evict CleanTechnica
-  ('hn' is inside 'technica').
+  so 29 Mother Jones items stayed in the pool and 51 in the bank. Both loaders now drop
+  them through `_pool_source_excluded()`; see "`blocked_sources` applies to everything
+  reused" in sources.md, which also removed the `hn` entry that blocked every
+  "...Technica" feed.
 - **The bank carries `content_type`, and takes the pool's latest ruling.** None of its
   entries did, so a banked op-ed bypassed the opinion filter. A row banked before an
   article was rejected (or before the rubric moved) kept its old verdict, and the story
@@ -121,7 +122,8 @@ What changed:
   ruling, a missing one never erases one). `update_theme_holdover` writes the same fields.
 - **Deep scoring keeps the verdict.** It replaced the scored-cache entry whole and dropped
   `gate_reject`/`gate_rubric`/`gate_world` from every display-bound article, which were
-  then judged again the next night (`_gate_fields` carries them across).
+  then judged again the next night. It now updates the entry in place (the same fix landed
+  independently on main as part of the first-scrape-night fixes).
 - **The pool and the feed are no longer independent for a gate reject.** The gate's
   false negatives were already measured (a floor of about 2.5% of "unfiltered" items had
   show days; `podcast_only` verdicts could not be saved from 2026-10-01 to 2026-10-10, so
