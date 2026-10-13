@@ -16,6 +16,8 @@ import sys
 import types
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import super_rss_curator_json as m
@@ -229,3 +231,171 @@ class TestWordBoundaries:
         'star' is inside 'starting'. Same discipline here."""
         assert m._crime_hit_count('charleston chowder', ['charge']) == 0
         assert m._crime_hit_count('he was charged', ['charged']) == 1
+
+
+class TestCrimeRefit20261013:
+    """Two Quesnel stories the reader rated bad that aired in September. Against
+    the 4,706 unique live pool and bank items the five added keywords add one hit,
+    the RCMP story below, and no false positives."""
+
+    def test_faces_multiple_charges(self):
+        a = _article('Man faces multiple charges after allegedly ramming police cars in Quesnel',
+                     'RCMP say the suspect was arrested.', category='local')
+        assert m.podcast_content_exclusion(a) == 'crime_incident'
+
+    def test_loaded_firearms_and_drugs(self):
+        a = _article('RCMP recover loaded firearms and drugs in separate Quesnel incidents',
+                     'Quesnel RCMP seized the items.', category='local')
+        assert m.podcast_content_exclusion(a) == 'crime_incident'
+
+    def test_the_firearms_phrases_still_need_justice_context(self):
+        """'faces/facing/multiple charges' carry their own context ('charges' is a
+        justice-context term, as with the existing 'charges laid'). The two firearms
+        phrases do not: loaded firearms in a hunting-safety story are not a blotter item."""
+        a = _article('Hunting course warns about loaded firearms in trucks',
+                     'A safety course for new hunters in the Cariboo.', category='local')
+        assert m.podcast_content_exclusion(a) is None
+        b = _article('Hunting course warns about loaded firearms in trucks',
+                     'RCMP will attend the safety course.', category='local')
+        assert m.podcast_content_exclusion(b) == 'crime_incident'
+
+
+class TestGateRejectReachesTheShow:
+    """2026-10-12: a Mother Jones piece the gate had rejected was a deep-dive source,
+    the day after Mother Jones was blocked. The pool is captured before the scrub, and
+    nothing in the pool step read gate_reject."""
+
+    def test_a_reject_is_dropped_with_its_own_reason(self):
+        a = _article('Stop the Steal Never Stopped', category='news', source='Mother Jones')
+        a.gate_reject = True
+        assert m.podcast_content_exclusion(a) == 'gate_reject'
+
+    def test_no_verdict_and_a_pass_are_kept(self):
+        """None is "the gate never ruled" (an API failure, or an entry cached before
+        the verdict was stored). Fail open, as the gate does."""
+        a = _article('Cariboo Regional District approves new library hours', category='local')
+        assert m.podcast_content_exclusion(a) is None
+        a.gate_reject = None
+        assert m.podcast_content_exclusion(a) is None
+        a.gate_reject = False
+        assert m.podcast_content_exclusion(a) is None
+
+    def test_a_reject_is_reported_ahead_of_other_reasons(self):
+        a = _article('DOERKSON: Natural resource sector crumbling', category='local',
+                     content_type='opinion')
+        a.gate_reject = True
+        assert m.podcast_content_exclusion(a) == 'gate_reject'
+
+    def test_the_config_switch_turns_it_off(self, monkeypatch):
+        monkeypatch.setattr(m, 'PODCAST_EXCLUDED_CONTENT',
+                            {**m.PODCAST_EXCLUDED_CONTENT, 'gate_reject': False})
+        a = _article('Cariboo Regional District approves new library hours', category='local')
+        a.gate_reject = True
+        assert m.podcast_content_exclusion(a) is None
+
+    def test_the_shipped_config_has_it_on(self):
+        assert m.PODCAST_EXCLUDED_CONTENT.get('gate_reject') is True
+
+    def test_cached_articles_read_the_verdict_back(self):
+        """generate_podcast_feed() builds its articles from cache entries through an
+        inner CachedArticle; a missing assignment there silently turns the rule off."""
+        import ast
+        tree = ast.parse(Path(m.__file__).read_text(encoding='utf-8'))
+        func = next(n for n in tree.body
+                    if isinstance(n, ast.FunctionDef) and n.name == 'generate_podcast_feed')
+        cls = next(n for n in ast.walk(func)
+                   if isinstance(n, ast.ClassDef) and n.name == 'CachedArticle')
+        assigned = {t.attr for n in ast.walk(cls) if isinstance(n, ast.Assign)
+                    for t in n.targets if isinstance(t, ast.Attribute)}
+        assert {'gate_reject', 'content_type'} <= assigned
+
+
+def _pool_article(link, gate_reject=None, source='Example', title='A story'):
+    from datetime import datetime, timezone
+    return types.SimpleNamespace(
+        link=link, title=title, description='d', summary='s', excerpt='e',
+        pub_date=datetime.now(timezone.utc), source=source, source_url='https://example.test',
+        score=50, quality=50, relevance=50, local=0, q_gate=50, content_type='news',
+        category='news', image=None, gate_reject=gate_reject)
+
+
+class TestThePoolCarriesTheVerdict:
+    @pytest.fixture(autouse=True)
+    def _tmp_caches(self, tmp_path, monkeypatch):
+        # The live caches are committed production data: never write them from a test.
+        monkeypatch.setattr(m, 'PODCAST_CACHE_FILE', str(tmp_path / 'pool.json'))
+        monkeypatch.setattr(m, 'THEME_HOLDOVER_FILE', str(tmp_path / 'bank.json'))
+
+    def test_a_new_entry_stores_the_verdict(self):
+        m.save_podcast_cache([_pool_article('https://x.test/a', gate_reject=True),
+                              _pool_article('https://x.test/b', gate_reject=False),
+                              _pool_article('https://x.test/c', gate_reject=None)],
+                             main_feed_quality=False)
+        by_link = {e['link']: e for e in m.load_podcast_cache()}
+        assert by_link['https://x.test/a']['gate_reject'] is True
+        assert by_link['https://x.test/b']['gate_reject'] is False
+        assert by_link['https://x.test/c']['gate_reject'] is None
+
+    def test_a_rejudged_article_updates_its_verdict(self):
+        m.save_podcast_cache([_pool_article('https://x.test/a', gate_reject=True)], False)
+        m.save_podcast_cache([_pool_article('https://x.test/a', gate_reject=False)], False)
+        assert m.load_podcast_cache()[0]['gate_reject'] is False
+
+    def test_a_missing_verdict_never_erases_one(self):
+        m.save_podcast_cache([_pool_article('https://x.test/a', gate_reject=True)], False)
+        m.save_podcast_cache([_pool_article('https://x.test/a', gate_reject=None)], True)
+        assert m.load_podcast_cache()[0]['gate_reject'] is True
+
+    def test_blocked_sources_are_evicted_by_exact_name(self):
+        """Mother Jones was blocked 2026-10-11 and 29 of its items stayed cached.
+        CleanTechnica must survive: 'hn' (Hacker News) is a substring of 'technica'."""
+        m.save_podcast_cache([
+            _pool_article('https://x.test/1', source='Mother Jones'),
+            _pool_article('https://x.test/2', source='  the new yorker '),
+            _pool_article('https://x.test/3', source='CleanTechnica'),
+            _pool_article('https://x.test/4', source='Williams Lake Tribune'),
+        ], False)
+        sources = {e['source'] for e in m.load_podcast_cache()}
+        assert sources == {'CleanTechnica', 'Williams Lake Tribune'}
+
+    def test_the_bank_evicts_blocked_sources_too(self, tmp_path):
+        import json
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc).isoformat()
+
+        def entry(link, source):
+            return {'link': link, 'source': source, 'banked_at': now, 'title': 't'}
+        (tmp_path / 'bank.json').write_text(json.dumps({'monday': [
+            entry('https://x.test/1', 'Mother Jones'), entry('https://x.test/2', 'CleanTechnica')]}))
+        kept = m.load_theme_holdover_cache()
+        assert [e['source'] for e in kept['monday']] == ['CleanTechnica']
+
+    def _bank(self, monkeypatch, items):
+        url_days = {f"{i['link']}:::monday": 99 for i in items}
+        saved = {}
+        monkeypatch.setattr(m, 'load_theme_score_cache', lambda: {})
+        monkeypatch.setattr(m, 'normalize_theme_scores', lambda *a, **k: url_days)
+        monkeypatch.setattr(m, 'load_theme_holdover_cache', lambda: {})
+        monkeypatch.setattr(m, 'save_theme_holdover_cache', lambda h: saved.update(h))
+        m.bank_articles_for_all_themes(
+            items, {'schedule': {'monday': {'label': 'Arts', 'holdover_threshold': 10}},
+                    'holdover_threshold': 30})
+        return saved.get('monday', [])
+
+    def test_the_bank_carries_content_type_and_the_verdict(self, monkeypatch):
+        """None of the bank's 19,250 entries carried content_type, so a banked op-ed
+        passed the opinion filter."""
+        base = dict(title='t', description='d', pub_date='2026-10-12T00:00:00+00:00',
+                    source='Example', source_url='u', score=50, category='news')
+        banked = self._bank(monkeypatch, [
+            dict(base, link='https://x.test/op', content_type='opinion', gate_reject=False)])
+        assert banked[0]['content_type'] == 'opinion'
+        assert banked[0]['gate_reject'] is False
+
+    def test_a_gate_reject_is_not_banked(self, monkeypatch):
+        base = dict(title='t', description='d', pub_date='2026-10-12T00:00:00+00:00',
+                    source='Example', source_url='u', score=50, category='news')
+        banked = self._bank(monkeypatch, [
+            dict(base, link='https://x.test/no', gate_reject=True),
+            dict(base, link='https://x.test/yes', gate_reject=None)])
+        assert [b['link'] for b in banked] == ['https://x.test/yes']

@@ -84,6 +84,24 @@ try:
         config_loader.load_podcast_schedule_config().get('excluded_sources', []))
 except Exception:
     PODCAST_EXCLUDED_SOURCES = frozenset()
+
+# filters.json -> blocked_sources, whole names only. Article.should_filter() matches
+# them as substrings at fetch time, which is how a short entry like "hn" works there;
+# applied to cached source names the same way it would evict CleanTechnica. A source
+# blocked after its articles were cached is evicted by the loaders below.
+BLOCKED_SOURCES_EXACT = frozenset(
+    str(b).strip().lower() for b in FILTERS.get('blocked_sources', []))
+
+
+# Titles dropped as gate_reject that this run has already printed (see
+# generate_podcast_feed): seven theme feeds see the same pool.
+_GATE_REJECT_LOGGED: set = set()
+GATE_REJECT_LOG_CAP = 15
+
+
+def _source_blocked(source) -> bool:
+    """True when a cached article's source is, exactly, a blocked source."""
+    return str(source or '').strip().lower() in BLOCKED_SOURCES_EXACT
 # --- Podcast-only content exclusions -----------------------------------------
 # Two subjects the show does not do: an opinion column and a crime incident.
 # Deliberately scoped to the podcast pool and nowhere else — the reader still
@@ -99,6 +117,13 @@ except Exception:
 # rescued and holdover pools are merged — so a change to these lists takes
 # effect on the next run rather than only on newly-cached articles, and an
 # article banked before the rule existed is caught on its way out of the bank.
+#
+# The quality gate's reject verdict is honoured here too. The pool is captured
+# before the scrub applies that verdict (see the candidate branch in main()),
+# so until 2026-10-13 nothing the reader had rejected — the built-in subjects
+# or a line in config/standing_preferences.txt — ever reached the show: Mother
+# Jones aired as a deep-dive source the day after it was blocked. The pool and
+# the feed are now deliberately NOT independent for a gate reject.
 try:
     PODCAST_EXCLUDED_CONTENT = (
         config_loader.load_podcast_schedule_config().get('excluded_content', {}))
@@ -193,6 +218,11 @@ def podcast_content_exclusion(article) -> Optional[str]:
     """
     if not PODCAST_EXCLUDED_CONTENT.get('enabled', False):
         return None
+
+    # The gate's verdict. None means it never ruled (an API failure, or an entry
+    # cached before the verdict was stored) and is kept: fail open, as the gate does.
+    if PODCAST_EXCLUDED_CONTENT.get('gate_reject', False) and getattr(article, 'gate_reject', None):
+        return 'gate_reject'
 
     source = getattr(article, 'source', '') or ''
     title = getattr(article, 'title', '') or ''
@@ -1162,7 +1192,8 @@ def load_podcast_cache():
             pub_date = datetime.fromisoformat(item['pub_date'])
             if (pub_date > cutoff
                     and not _is_aggregator_url(item.get('link', ''))
-                    and item.get('source') not in PODCAST_EXCLUDED_SOURCES):
+                    and item.get('source') not in PODCAST_EXCLUDED_SOURCES
+                    and not _source_blocked(item.get('source'))):
                 valid_articles.append(item)
 
         if len(valid_articles) != len(cache_data):
@@ -1231,6 +1262,9 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     'local': getattr(article, 'local', 0),
                     'q_gate': getattr(article, 'q_gate', None),
                     'content_type': getattr(article, 'content_type', None),
+                    # The gate's verdict (None = it never ruled), read by
+                    # podcast_content_exclusion().
+                    'gate_reject': getattr(article, 'gate_reject', None),
                     'category': article.category,
                     'image': getattr(article, 'image', None),
                     'main_feed_quality': main_feed_quality,
@@ -1243,6 +1277,10 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     entry['main_feed_quality'] = True
                 if article.category and not entry.get('category'):
                     entry['category'] = article.category
+                # A re-judged article (a changed rubric) updates its verdict.
+                verdict = getattr(article, 'gate_reject', None)
+                if verdict is not None:
+                    entry['gate_reject'] = bool(verdict)
 
         existing.sort(key=lambda x: x['pub_date'], reverse=True)
 
@@ -1272,7 +1310,8 @@ def load_theme_holdover_cache() -> Dict:
         for day, articles in data.items():
             valid = [a for a in articles
                      if datetime.fromisoformat(a['banked_at']) > cutoff
-                     and a.get('source') not in PODCAST_EXCLUDED_SOURCES]
+                     and a.get('source') not in PODCAST_EXCLUDED_SOURCES
+                     and not _source_blocked(a.get('source'))]
             if valid:
                 pruned[day] = valid
         return pruned
@@ -4997,6 +5036,11 @@ def bank_articles_for_all_themes(
 
     for item in cached_articles:
         url = item['link']
+        # A gate reject never airs (podcast_content_exclusion), so banking it would
+        # only spend one of a day's bounded bank slots on a story that is dropped on
+        # its way out.
+        if item.get('gate_reject'):
+            continue
         for day, cfg in schedule.items():
             threshold = cfg.get('holdover_threshold', global_threshold)
             pct = normalized.get(f"{url}:::{day}")
@@ -5018,6 +5062,11 @@ def bank_articles_for_all_themes(
                 'quality': item.get('quality', 0),
                 'local': item.get('local', 0),
                 'q_gate': item.get('q_gate'),
+                # Carried so the exclusion choke point can judge a banked article:
+                # without them a banked op-ed passed the opinion filter and a gate
+                # reject came back out of the bank after four weeks.
+                'content_type': item.get('content_type'),
+                'gate_reject': item.get('gate_reject'),
                 'category': item['category'],
                 'image': item.get('image'),
                 'theme_score': pct,
@@ -5124,6 +5173,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.local = data.get('local', 0)
             self.q_gate = data.get('q_gate')
             self.content_type = data.get('content_type')
+            self.gate_reject = data.get('gate_reject')
             self.category = data['category']
             self.image = data.get('image')
 
@@ -5246,6 +5296,12 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                 _excl_reasons[_reason] += 1
                 if _pool_debug:
                     print(f"  \U0001f6ab [{theme_name}] {_reason}: {_a.title[:70]}")
+                elif _reason == 'gate_reject' and _a.link not in _GATE_REJECT_LOGGED \
+                        and len(_GATE_REJECT_LOGGED) < GATE_REJECT_LOG_CAP:
+                    # Which stories the verdict removed, once each per run: a rejected
+                    # civic or election story is the one loss worth seeing by name.
+                    _GATE_REJECT_LOGGED.add(_a.link)
+                    print(f"  \U0001f6ab gate_reject: [{_a.source}] {_a.title[:80]}")
             else:
                 _kept_pool.append(_a)
         theme_pool = _kept_pool

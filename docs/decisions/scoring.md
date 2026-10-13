@@ -158,7 +158,8 @@ rating to `good`. So "I want this on the show but not in my feed" could only be 
 as `good`, which the trainer then fed to the relevance scorer as a feed positive. The
 pipeline never nested the two: the podcast pool is captured before the feed's scrub, and
 33 of the reader's `good` ratings since 2026-09-01 were on articles that were not in the
-pool at all.
+pool at all. (Since 2026-10-13 the pool is still captured
+before the scrub but honours the gate's verdict at the exclusion point; see podcast-pool.md.)
 
 The card now asks both questions separately and stores one verdict:
 

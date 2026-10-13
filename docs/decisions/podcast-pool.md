@@ -83,3 +83,50 @@ so widening a keyword list would leave every already-banked article uncaught.
 The sibling repo's `article_holding.json` is the one gap: articles held there
 before this shipped were admitted under the old rule and age out on its 14-day
 window.
+
+## The pool honours the gate's reject verdict (2026-10-13)
+
+The candidate branch captures the pool **before** the scrub applies the quality
+gate's `gate_reject`, on purpose: an article the main feed drops may still score 90 on
+a theme. But nothing in the pool step ever read the verdict, so the rubric — the
+built-in subjects and every line in `config/standing_preferences.txt` — never reached
+the show, although that file's header said it did. On 2026-10-12 a Mother Jones piece
+the gate had rejected was a deep-dive source, the day after Mother Jones went into
+`blocked_sources`. A join of the pool to the gate's cached verdicts found 36 rejects
+among 340 entries with a verdict, 17 of them in that week's feeds. Seven of the 42
+aired stories the reader rated bad (since 2026-07-13) had come from the review's
+"unfiltered" stratum, which is the gate's reject pile.
+
+What changed:
+
+- **The verdict rides with the entry.** `save_podcast_cache` stores `gate_reject`
+  (new entries, and updated when an article is re-judged), the holdover bank copies it,
+  and `CachedArticle` reads it. `None` means the gate never ruled, and is kept.
+- **One choke point.** `podcast_content_exclusion()` returns `'gate_reject'`, before the
+  opinion and crime checks, behind `excluded_content.gate_reject` (config switch). Not at
+  intake, for the reason above: a later rubric line must catch articles already cached.
+  The run prints each dropped title once (cap `GATE_REJECT_LOG_CAP`), because a rejected
+  civic or election story is the loss worth seeing by name.
+- **Blocked sources leave the cache.** `blocked_sources` was only checked at fetch time,
+  so 29 Mother Jones items stayed in the pool and 51 in the bank. Both loaders now evict
+  by **exact** source name; the fetch-time substring match would also evict CleanTechnica
+  ('hn' is inside 'technica').
+- **The bank carries `content_type`.** None of its entries did, so a banked op-ed
+  bypassed the opinion filter.
+- **The pool and the feed are no longer independent for a gate reject.** The gate's
+  false negatives were already measured (a floor of about 2.5% of "unfiltered" items had
+  show days; `podcast_only` verdicts could not be saved from 2026-10-01 to 2026-10-10, so
+  it is a floor). Accepted by the reader on 2026-10-13. **No rating-derived exemptions:**
+  the reader's review ratings are training data, not runtime pipeline input.
+
+Crime refit, same day: `faces charges`, `facing charges`, `multiple charges`, `loaded
+firearms`, `firearms and drugs` joined the **ambiguous** tier. The three `charges`
+phrases satisfy the justice-context test by themselves (`charges` is a context term, as
+it already was for `charges laid`); the two firearms phrases still need a police, court
+or Crown term. Against the 4,706 unique live pool and bank items they add one hit, an
+aired Quesnel story, and no false positives. A vehicle collision is not a crime incident and
+the rule is not widened for it; the standing line "Police blotter and crashes" covers
+it, and clears those stories from `feed-local.json` too (the reader's choice).
+
+Entries cached before this change carry no verdict and are kept until they age out
+(7 days in the pool, 28 in the bank).
