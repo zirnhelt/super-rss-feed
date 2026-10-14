@@ -111,6 +111,17 @@ rotates the same way. Quotas and pool sizes are unchanged, so the weights hold. 
 pick inside a stratum was never random (it took the top scores); it is now spread
 across categories instead of concentrated on one.
 
+On 2026-10-14 the batch went from 27 to 12 because rating it had become a chore, and
+was re-spent at the margin. The score bands (high … floor_fill) retired as daily strata;
+the night's pool is now partitioned by outcome: `near_miss` (8: passed the gate, lost
+its slot, ranked by `review_near_misses()` on the gap to the lowest composite that
+shipped in its own category), `in_feed` (2: the top of what shipped, the canary the
+2026-08-25 incident says must stay) and `unfiltered` (2: gate rejects, highest score
+first). The retired buckets stay in `SHIPPED_STRATA` so old ratings keep counting. Two
+costs: `near_miss` is the top of a much larger cut pool, so its rate describes the
+margin, not everything cut, and the weighted estimate leans on it; and with two a day
+the top-of-feed rate needs about a month to read.
+
 The same report's `theme_routing` root-cause split is measuring a counterfactual:
 `today` is the weekday the rating was made, not a routing decision, and
 `podcast_routed` is **0** — essentially every rated article comes from a *category*

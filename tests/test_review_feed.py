@@ -9,23 +9,33 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import super_rss_curator_json as m
 
 
-def _a(score: int, relevance: int) -> types.SimpleNamespace:
-    return types.SimpleNamespace(score=score, relevance=relevance)
+def _n(category: str, score: int, **kw) -> types.SimpleNamespace:
+    return types.SimpleNamespace(category=category, score=score, source=kw.pop('source', 's'),
+                                 world_lane=kw.pop('world_lane', False), **kw)
 
 
-def test_promising_is_carved_out_of_the_sub_50_bands_only():
-    assert m.review_stratum(_a(85, 90)) == 'high'
-    assert m.review_stratum(_a(60, 90)) == 'mid'
-    assert m.review_stratum(_a(40, 50)) == 'promising'
-    assert m.review_stratum(_a(10, 70)) == 'promising'
-    assert m.review_stratum(_a(40, 49)) == 'border'
-    assert m.review_stratum(_a(25, 0)) == 'low'
-    assert m.review_stratum(_a(5, 0)) == 'floor_fill'
+def test_near_misses_rank_by_distance_to_their_own_categorys_line():
+    shipped = [_n('news', 70), _n('news', 60), _n('scifi', 30),
+               _n('news', 10, world_lane=True)]          # the lane does not set the line
+    cut = [_n('news', 40), _n('scifi', 28), _n('news', 58)]
+
+    order = [(a.category, a.score) for a in m.review_near_misses(cut, shipped)]
+
+    # news line 60, scifi line 30: gaps -2, -2, -20 (stable sort keeps input order on a tie)
+    assert order == [('scifi', 28), ('news', 58), ('news', 40)]
 
 
-def test_every_stratum_has_a_quota_and_the_audit_counts_promising_as_shipped():
+def test_a_category_that_shipped_nothing_measures_from_its_floor(monkeypatch):
+    monkeypatch.setattr(m, 'min_score_for_category', lambda cat: 50)
+    order = [a.score for a in m.review_near_misses([_n('design', 20), _n('design', 45)], [])]
+    assert order == [45, 20]
+
+
+def test_the_batch_is_twelve_and_every_stratum_is_one_the_audit_counts():
     import article_review_audit
-    assert set(m.REVIEW_QUOTAS) == set(article_review_audit.SHIPPED_STRATA)
+    assert sum(m.REVIEW_QUOTAS.values()) == m.REVIEW_CURATED_TARGET
+    assert m.REVIEW_CURATED_TARGET + m.REVIEW_UNFILTERED_CAP == 12
+    assert set(m.REVIEW_QUOTAS) <= set(article_review_audit.SHIPPED_STRATA)
 
 
 def test_stats_merge_frequent_notes_with_defaults(tmp_path, monkeypatch):

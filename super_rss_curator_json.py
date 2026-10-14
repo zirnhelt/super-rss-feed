@@ -6728,33 +6728,42 @@ def review_history_stats(today: str) -> Dict:
     }
 
 
-# Review-feed strata, in selection order, with their daily quotas. `promising` is carved
-# out of the sub-50 bands: relevance >= PROMISING_MIN_RELEVANCE rated 69% positive there
-# (n=162, to 2026-09-24) against 45% for the bands as a whole and 9% for gate rejects, so
-# it spends review attention where a "good" verdict is likeliest to teach the scorer
-# something. It is a partition, not an overlay — an article is in exactly one stratum —
-# which is what keeps the stratum weights valid.
-PROMISING_MIN_RELEVANCE = 50
-REVIEW_QUOTAS = {'high': 5, 'mid': 6, 'promising': 6, 'border': 3, 'low': 1, 'floor_fill': 1}
-REVIEW_CURATED_TARGET = 22
-# Gate rejects rate 91% bad (679 of 827 to 2026-09-24): the verdict is settled, so five a
-# day is enough to keep the audit's false-negative rate measured.
-REVIEW_UNFILTERED_CAP = 5
+# The daily review batch: 12 articles, spent at the margin. A rating on an article the
+# pipeline was sure about (a top score, a 10) teaches the scorer little; one on an article
+# that missed a feed by a few points says which side of the line it belonged on.
+# - near_miss: passed the gate but lost its slot, ranked by how close it came
+#   (`review_near_misses`).
+# - in_feed: the top of what shipped. Two a day is the regression canary: on 2026-08-25
+#   the batch dropped the top bands and nothing could see the top of the feed go bad.
+# - unfiltered: gate rejects, highest score first (the ones the verdict alone kept out).
+# The three partition the night's pool, so `pool / sampled` stays a valid stratum weight.
+REVIEW_QUOTAS = {'near_miss': 8, 'in_feed': 2}
+REVIEW_CURATED_TARGET = 10
+# Gate rejects rate 91% bad (679 of 827 to 2026-09-24): the verdict is settled, so two a
+# day keep the audit's false-negative rate measured.
+REVIEW_UNFILTERED_CAP = 2
 
 
-def review_stratum(article: Article) -> str:
-    if article.score >= 80:
-        return 'high'
-    if article.score >= 50:
-        return 'mid'
-    if (article.relevance or 0) >= PROMISING_MIN_RELEVANCE:
-        return 'promising'
-    if article.score >= 30:
-        return 'border'
-    if article.score >= 20:
-        return 'low'
-    # Admitted below its category floor to hold min_slots.
-    return 'floor_fill'
+def review_near_misses(cut: List[Article], shipped: List[Article]) -> List[Article]:
+    """`cut` ordered by how narrowly each missed its category, closest first.
+
+    The line is the lowest composite that shipped in the article's category (the world
+    lane and editorial sources are placed on other terms and are left out); a category
+    that shipped nothing uses its floor. The gap is score minus that line, so 0 is a tie
+    with the last article in.
+    """
+    line: Dict[str, int] = {}
+    for a in shipped:
+        if getattr(a, 'world_lane', False) or a.source in EDITORIAL_EXEMPT_SOURCES:
+            continue
+        cat = a.category or 'news'
+        line[cat] = min(line.get(cat, a.score), a.score)
+
+    def gap(a: Article) -> int:
+        cat = a.category or 'news'
+        return a.score - line.get(cat, min_score_for_category(cat))
+
+    return sorted(cut, key=gap, reverse=True)
 
 
 def rotate_review_categories(articles: List[Article]) -> List[Article]:
@@ -6869,13 +6878,14 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     candidates = [a for a in all_by_hash.values()
                   if a.link not in reviewed_urls and a.link not in offered]
 
-    pools: Dict[str, List[Article]] = {b: [] for b in REVIEW_QUOTAS}
-    for a in candidates:
-        pools[review_stratum(a)].append(a)
-    for b, pool in pools.items():
-        pool.sort(key=(lambda a: (a.relevance or 0, a.score)) if b == 'promising'
-                  else (lambda a: a.score), reverse=True)
-        pools[b] = rotate_review_categories(pool)
+    shipped_hashes = {a.url_hash for a in quality_articles}
+    pools: Dict[str, List[Article]] = {
+        'near_miss': rotate_review_categories(review_near_misses(
+            [a for a in candidates if a.url_hash not in shipped_hashes], quality_articles)),
+        'in_feed': rotate_review_categories(sorted(
+            (a for a in candidates if a.url_hash in shipped_hashes),
+            key=lambda a: a.score, reverse=True)),
+    }
 
     selected: List[Article] = []
     # The bucket is recorded at pick time. Deriving it afterwards from each pool's first
@@ -6899,16 +6909,17 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
                 break
             taken += take(a, bucket)
 
-    # Fill any shortfall, likeliest-to-teach first.
-    for bucket in ('promising', 'mid', 'border'):
+    # Fill any shortfall from the margin first.
+    for bucket in ('near_miss', 'in_feed'):
         for a in pools[bucket]:
             if len(selected) >= REVIEW_CURATED_TARGET:
                 break
             take(a, bucket)
 
-    # Unfiltered slot: a few gate-rejected articles so over-filtering stays visible.
+    # Unfiltered slot: the rejects that would have shipped on score alone, so
+    # over-filtering stays visible where it costs most.
     unfiltered_taken = 0
-    for a in rotate_review_categories(haiku_rejected or []):
+    for a in rotate_review_categories(sorted(haiku_rejected or [], key=lambda a: a.score, reverse=True)):
         if unfiltered_taken >= REVIEW_UNFILTERED_CAP:
             break
         if a.link not in reviewed_urls and a.link not in offered:
@@ -7025,8 +7036,8 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     write_feed(feed, 'feed-review.json')
 
     print(f"📋 Review feed {batch}: {len(feed['items'])} articles "
-          f"({len(selected) - unfiltered_taken} curated incl. "
-          f"{_stratum_sampled.get('promising', 0)} promising, "
+          f"({_stratum_sampled.get('near_miss', 0)} near-miss, "
+          f"{_stratum_sampled.get('in_feed', 0)} in-feed, "
           f"{unfiltered_taken} unfiltered, "
           f"{len(reviewed_urls)} already-reviewed and {len(offered)} offered-earlier excluded"
           f"{', sorted by likely verdict' if predict else ''})")
