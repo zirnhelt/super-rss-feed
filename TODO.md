@@ -8,6 +8,7 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-10-13 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-12 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-11 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-11 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
@@ -22,8 +23,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-10-07 | 🔧 Manual Run | ⚠️ **CleanTechnica** failed | `403 Client Error: Forbidden for url: https://cleantechnica.com/feed/` |
 | 2026-10-07 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-07 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
-| 2026-10-06 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
-| 2026-10-06 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -31,17 +30,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-10-13 | 🔧 manual | 81 | ai-tech:18(22%), news:14(17%), wellness:10(12%) |
 | 2026-10-12 | 🔧 manual | 86 | ai-tech:18(21%), news:14(16%), climate:10(12%) |
 | 2026-10-11 | 🔧 manual | 76 | ai-tech:18(24%), news:14(18%), wellness:10(13%) |
 | 2026-10-10 | 🔧 manual | 80 | ai-tech:18(22%), news:14(18%), wellness:10(12%) |
 | 2026-10-09 | 🔧 manual | 81 | ai-tech:18(22%), news:14(17%), wellness:10(12%) |
 | 2026-10-08 | 🔧 manual | 92 | ai-tech:18(20%), news:14(15%), local:11(12%) |
 | 2026-10-07 | 🔧 manual | 87 | ai-tech:18(21%), news:14(16%), homelab:10(11%) |
-| 2026-10-06 | 🔧 manual | 88 | ai-tech:18(20%), news:14(16%), local:10(11%) |
 
-_Last updated by log\_feed\_results.py · 2026-10-13 04:08 UTC_
+_Last updated by log\_feed\_results.py · 2026-10-14 04:11 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
