@@ -196,7 +196,10 @@ def rating_distribution(ratings: List[Dict], blocked: Optional[List[str]] = None
     }
 
 
-SHIPPED_STRATA = ('high', 'mid', 'promising', 'border', 'low', 'floor_fill')
+# Every gate-passed stratum, current and retired: old ratings keep their bucket. The score
+# bands (high … floor_fill) were the daily sample until 2026-10-14, when it moved to the
+# margin (near_miss) plus a top-of-feed canary (in_feed).
+SHIPPED_STRATA = ('high', 'mid', 'promising', 'border', 'low', 'floor_fill', 'near_miss', 'in_feed')
 
 
 def stratified_estimate(ratings: List[Dict]) -> Dict[str, Any]:
