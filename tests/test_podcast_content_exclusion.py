@@ -598,3 +598,39 @@ class TestLocalNeedsACaribooAnchor:
         article.category = 'news'
         assert self._adjusted(article) == 'news'
 
+
+
+class TestCivicRacesOutsideTheCariboo:
+    """A standing-preference line for this was tried on 2026-10-12 and rejected Cariboo
+    "Meet the Candidates" profiles two nights running. The model cannot hold a place
+    rule reliably; a keyword with a local override can."""
+
+    @staticmethod
+    def _filtered(title, source, summary='A profile.'):
+        entry = {'title': title, 'link': 'https://example.com/2026/10/13/a-story/',
+                 'summary': summary, 'description': summary}
+        return m.Article(entry, source, 'https://example.com').should_filter()
+
+    def test_out_of_region_races_are_filtered(self):
+        for title, source in [
+                ('Canal Flats mayoral candidate Mark Doherty prioritizes infrastructure',
+                 'My East Kootenay Now'),
+                ('Sparwood mayoral candidate Hadden Kelloway promises to reconnect community',
+                 'My East Kootenay Now'),
+                ('Winnipeg mayoral candidates using AI in campaign', 'Global News')]:
+            assert self._filtered(title, source), title
+
+    def test_cariboo_profiles_survive_by_place_in_text(self):
+        assert not self._filtered(
+            'Meet the Candidates: Mike Cave seeks council seat for City of Quesnel', 'Example')
+
+    def test_cariboo_profiles_survive_by_outlet_name(self):
+        assert not self._filtered(
+            'MEET THE CANDIDATE: City council candidate Sheila Boehm', 'Williams Lake Tribune')
+        assert not self._filtered('Councillor candidate Joe Smith on housing', 'My Cariboo Now')
+
+    def test_province_wide_election_coverage_is_untouched(self):
+        for title in ('B.C. Conservatives drop Victoria-Beacon Hill candidate over racist posts',
+                      'B.C. election: Eby vows to fast-track int’l medical grads',
+                      'Dene Nation establishes water council as leaders warn of tailings risk'):
+            assert not self._filtered(title, 'The Tyee'), title

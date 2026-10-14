@@ -1030,6 +1030,7 @@ class Article:
         """Check if article should be filtered out"""
         text = f"{self.title} {self.description}".lower()
 
+        source_lower = self.source.lower()
         if is_blocked_source(self.source):
             return True
 
@@ -1058,7 +1059,9 @@ class Article:
 
         # Arts/entertainment keywords are skipped when article mentions local places
         # (e.g. an arena hosts a concert, or a local tournament isn't sports).
-        is_local = any(signal in text for signal in FILTERS.get('local_signals', []))
+        # A Cariboo outlet's own name counts: a "Meet the Candidates" profile from the
+        # Tribune need not repeat "Williams Lake" in its headline or dek.
+        is_local = any(signal in f"{text} {source_lower}" for signal in FILTERS.get('local_signals', []))
         nonlocal_keywords = FILTERS.get('blocked_keywords_unless_local', [])
         if nonlocal_keywords and not is_local:
             if any(keyword in text for keyword in nonlocal_keywords):
@@ -3062,12 +3065,11 @@ score only clear fluff should be flagged.
 
 KEEP (do not flag) articles that use sports/entertainment as context for a deeper
 story: technology in sports, the economics of a league, health research on athletes.
-KEEP [LOCAL]-tagged community news that is not primarily about sport — local
-politics, infrastructure, business, community events.
+KEEP local community news that is not primarily about sport — local politics,
+infrastructure, business, community events.
 KEEP Canadian politics at every level: federal, provincial (a B.C. election, its
 parties, leaders and candidates), First Nations and municipal. No subject line
-above removes it, except a line that limits civic or election coverage to places
-outside the Cariboo; a line about US politics never covers Canada.
+above removes it; a line about US politics never covers Canada.
 FLAG local articles whose primary subject is a sports game, score, result, draft,
 trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
 KEEP ai-tech articles with hands-on content, research findings or practical guides.
