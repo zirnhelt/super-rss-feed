@@ -106,6 +106,8 @@
         .badge-bucket-floor_fill { background: #fbe9e7; color: #8d3b1f; border: 1px solid #ffab91; }
         .badge-bucket-unfiltered { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
         .badge-bucket-promising  { background: #e0f7fa; color: #00695c; border: 1px solid #80cbc4; }
+        .badge-bucket-near_miss  { background: #fff9e6; color: #8a6a00; border: 1px solid #ffd54f; }
+        .badge-bucket-in_feed    { background: #e8f5e9; color: #2e7d32; border: 1px solid #81c784; }
         .badge-category          { background: #e8effe; color: #667eea; }
         .badge-source            { background: #f0f0f0; color: #555; font-weight: normal; }
         .badge-date              { color: #aaa; font-size: 0.70em; font-weight: normal; }
@@ -275,6 +277,16 @@
         .episode-form button:disabled { opacity: 0.6; cursor: default; }
         .episode-form button { align-self: flex-start; }
         .episode-form .episode-opt { align-self: auto; }
+        .episode-segments { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; align-items: center; }
+        .episode-segments .seg-name { font-size: 0.86em; color: #444; }
+        .episode-segments .seg-name small { display: block; color: #888; font-size: 0.85em; }
+        .episode-segments .seg-btns { display: flex; gap: 6px; }
+        .episode-segments .episode-opt { flex: 0 0 auto; min-width: 52px; }
+        .episode-form label { font-size: 0.82em; color: #666; }
+        .episode-form textarea {
+            width: 100%; min-height: 72px; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
+            font-size: 0.88em; font-family: inherit; color: #333; resize: vertical;
+        }
         .token-form { display: flex; flex-direction: column; gap: 6px; }
         .token-form input[type=password] {
             width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
@@ -333,11 +345,14 @@
     <!-- Static markup and its own save path: it works when the article batch is empty or failed to load. -->
     <div class="episode-box" id="episode-box">
         <h2>🎙️ How was the episode?</h2>
-        <p class="subtitle">One tap on the episode you heard. It grades the writing and the story choice together, which the article cards cannot.</p>
+        <p class="subtitle">The overall call, then as much as you like: a thumb per segment and a note. The weekly script review reads all of it beside the scripts.</p>
         <div class="episode-form">
             <div class="episode-row" id="episode-dates" role="radiogroup" aria-label="Which episode"></div>
             <div class="episode-row" id="episode-verdicts" role="radiogroup" aria-label="Your verdict"></div>
+            <div class="episode-segments" id="episode-segments" role="group" aria-label="Each segment (optional)"></div>
             <div class="episode-row" id="episode-reasons" role="group" aria-label="What drove it (optional)"></div>
+            <label for="episode-note">What stood out? (optional: a line that landed, a fact that was off, what you'd change)</label>
+            <textarea id="episode-note" maxlength="1500" placeholder="e.g. The deep dive on the mill closure asked the right question but never answered it."></textarea>
             <button type="button" class="btn btn-primary" id="episode-save" onclick="submitEpisodeVerdict()">🎙️ Save verdict</button>
             <div class="status-msg" id="episode-status" role="status" aria-live="polite"></div>
         </div>
@@ -398,15 +413,19 @@ const GITHUB_CONTENTS = 'https://api.github.com/repos/zirnhelt/super-rss-feed/co
 const SAVE_ATTEMPTS   = 3;
 const SAVE_TIMEOUT_MS = 20000;
 
-// Every stratum, deliberately. Dropping 'high' and 'mid' on 2026-08-25 made the
-// review corpus a sample of near-misses and rejects only, so the audit's precision
-// numbers described the hardest slice of the feed rather than the feed — and left
-// no way to detect a quality regression at the top, because the top was never shown.
+// Since 2026-10-14 the batch is the margin (near_miss) plus two from the top of the feed
+// (in_feed): dropping the top on 2026-08-25 left no way to see a quality regression there.
+// The retired score bands stay listed so their history still shows in the strata table.
 // Each item carries a _stratum_weight so the audit can reweight back to the population.
-const SHOW_BUCKETS          = new Set(['high', 'mid', 'promising', 'border', 'low', 'floor_fill', 'unfiltered']);
-const BUCKET_LABEL = { high: 'top score', mid: 'mid score', promising: 'promising', border: 'near-miss',
-                       low: 'low score', floor_fill: 'below floor', unfiltered: 'filtered' };
-const BUCKET_HINT  = { promising: 'Low overall score but a strong interest match — the likeliest place for a missed good article' };
+const SHOW_BUCKETS          = new Set(['near_miss', 'in_feed', 'unfiltered',
+                                       'high', 'mid', 'promising', 'border', 'low', 'floor_fill']);
+const BUCKET_LABEL = { near_miss: 'just missed', in_feed: 'in the feed', unfiltered: 'filtered',
+                       high: 'top score', mid: 'mid score', promising: 'promising', border: 'near-miss',
+                       low: 'low score', floor_fill: 'below floor' };
+const BUCKET_HINT  = { near_miss: 'Passed the quality gate but lost its feed slot by a few points: should it have made it?',
+                       in_feed: 'From the top of today\'s feed: a check that what ships is still good',
+                       unfiltered: 'Rejected by the quality gate despite a high score: was the rejection right?',
+                       promising: 'Low overall score but a strong interest match — the likeliest place for a missed good article' };
 const AUTO_SUGGEST_THRESHOLD = 45;
 // Suggested days are a hint, never pre-selected: percentile scores put pooled articles
 // over 45 on five to seven days at once, and that seed survived untouched on 12 of 117
@@ -888,7 +907,7 @@ function renderStats() {
     );
 
     // Per-stratum rates are unbiased; a corpus-wide rate across strata is not (quota sample).
-    const order = ['high', 'mid', 'promising', 'border', 'low', 'floor_fill', 'unfiltered'];
+    const order = ['near_miss', 'in_feed', 'unfiltered', 'high', 'mid', 'promising', 'border', 'low', 'floor_fill'];
     const rows = order.filter(b => s?.by_bucket?.[b] || STRATA?.[b]?.sampled).map(b => {
         const hist = s?.by_bucket?.[b];
         const pool = STRATA?.[b];
@@ -1135,7 +1154,13 @@ const EPISODE_DEFAULT  = 1;
 const EPISODE_VERDICTS = [['keep', '👍 Keep', 'worth the time'], ['meh', '😐 Meh', 'fine, forgettable'],
                           ['skip', '👎 Skip', 'I would skip it']];
 const EPISODE_REASONS  = ['Stories', 'Writing', 'Wrong fact', 'Too long', 'Repetitive', 'Hosts'];
-const episodePick = { date: null, verdict: null, reasons: new Set(), saving: false };
+// A thumb per segment, each optional and cleared by a second tap. The keys are the podcast's
+// own segment names; it groups them in the weekly review.
+const EPISODE_SEGMENTS = [['cold_open', 'Cold open', 'the hook before the music'],
+                          ['roundup', 'News roundup', 'the run of short stories'],
+                          ['deep_dive', 'Deep dive', 'the one long conversation']];
+const EPISODE_NOTE_MAX = 1500;
+const episodePick = { date: null, verdict: null, reasons: new Set(), segments: {}, saving: false };
 
 // Calendar arithmetic on the Pacific date string, never on timestamps: 24 hours before a time just
 // after midnight lands on the wrong date on the two days a year the clocks change.
@@ -1166,6 +1191,12 @@ function renderEpisodeCard() {
     document.getElementById('episode-verdicts').innerHTML = EPISODE_VERDICTS.map(([key, label, hint]) =>
         `<button type="button" class="episode-opt" role="radio" data-verdict="${escAttr(key)}"
                  aria-checked="false">${escHtml(label)}<small>${escHtml(hint)}</small></button>`).join('');
+    document.getElementById('episode-segments').innerHTML = EPISODE_SEGMENTS.map(([key, name, hint]) =>
+        `<div class="seg-name">${escHtml(name)}<small>${escHtml(hint)}</small></div>
+         <div class="seg-btns">${[['up', '👍'], ['down', '👎']].map(([v, icon]) =>
+            `<button type="button" class="episode-opt" data-segment="${escAttr(key)}" data-thumb="${v}"
+                     aria-pressed="false" aria-label="${escAttr(`${name}: ${v === 'up' ? 'good' : 'weak'}`)}">${icon}</button>`).join('')}
+         </div>`).join('');
     document.getElementById('episode-reasons').innerHTML = EPISODE_REASONS.map(reason =>
         `<button type="button" class="episode-opt episode-reason" data-reason="${escAttr(reason)}"
                  aria-pressed="false">${escHtml(reason)}</button>`).join('');
@@ -1181,8 +1212,11 @@ function refreshEpisodeDates() {
     if (document.hidden) return;
     const shown = document.querySelector('#episode-dates button')?.dataset.date;
     if (!shown || shown === episodeDates()[0] || episodePick.saving) return;
+    // A note half-written last night is the reader's text: keep the card as it was rather than wipe it.
+    if (document.getElementById('episode-note').value.trim()) return;
     episodePick.verdict = null;
     episodePick.reasons.clear();
+    episodePick.segments = {};
     renderEpisodeCard();
     syncEpisodeCard();
 }
@@ -1190,16 +1224,22 @@ document.addEventListener('visibilitychange', refreshEpisodeDates);
 window.addEventListener('pageshow', refreshEpisodeDates);
 
 function onEpisodeClick(event) {
-    const btn = event.target.closest('button[data-date], button[data-verdict], button[data-reason]');
+    const btn = event.target.closest('button[data-date], button[data-verdict], button[data-reason], button[data-segment]');
     if (!btn || episodePick.saving) return;
     if (btn.dataset.date) {
         if (btn.dataset.date === episodePick.date) return;   // already selected: keep the answer
         // A different episode starts from a blank answer: carrying one across would grade the wrong show.
+        // The note stays: switching date is usually correcting which episode it was about.
         episodePick.date = btn.dataset.date;
         episodePick.verdict = null;
         episodePick.reasons.clear();
+        episodePick.segments = {};
     } else if (btn.dataset.verdict) {
         episodePick.verdict = btn.dataset.verdict;
+    } else if (btn.dataset.segment) {
+        const { segment, thumb } = btn.dataset;
+        if (episodePick.segments[segment] === thumb) delete episodePick.segments[segment];
+        else episodePick.segments[segment] = thumb;
     } else {
         const reason = btn.dataset.reason;
         if (!episodePick.reasons.delete(reason)) episodePick.reasons.add(reason);
@@ -1214,6 +1254,8 @@ function syncEpisodeCard() {
         btn.setAttribute('aria-checked', String(btn.dataset.verdict === episodePick.verdict));
     for (const btn of document.querySelectorAll('#episode-box [data-reason]'))
         btn.setAttribute('aria-pressed', String(episodePick.reasons.has(btn.dataset.reason)));
+    for (const btn of document.querySelectorAll('#episode-box [data-segment]'))
+        btn.setAttribute('aria-pressed', String(episodePick.segments[btn.dataset.segment] === btn.dataset.thumb));
     const statusEl = document.getElementById('episode-status');
     statusEl.className = 'status-msg';
     statusEl.textContent = '';
@@ -1234,6 +1276,8 @@ async function submitEpisodeVerdict() {
         episode_date:    episodePick.date,
         episode_verdict: episodePick.verdict,
         episode_reasons: EPISODE_REASONS.filter(r => episodePick.reasons.has(r)),
+        episode_segments: { ...episodePick.segments },
+        episode_note:    document.getElementById('episode-note').value.trim().slice(0, EPISODE_NOTE_MAX) || null,
         rated_at:        new Date().toISOString(),
     };
     episodePick.saving = true;
