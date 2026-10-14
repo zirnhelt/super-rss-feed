@@ -117,7 +117,17 @@ The same report's `theme_routing` root-cause split is measuring a counterfactual
 feed, so "the theme scorer already preferred your day" is not evidence of a bug in
 `generate_podcast_feed()`. The theme-scorer disagreement half is still real signal.
 
-## A standing preference that names a place fights the rubric (2026-10-13)
+## A place rule does not belong in the gate (2026-10-14)
+
+Line 19 of `standing_preferences.txt` ("Local races and civic business outside the Cariboo") went in on 10-12 and was reworded around the `[LOCAL]` tag on 10-13. It did not hold. Both Cariboo "Meet the Candidates" profiles the gate judged under it were rejected (Mike Cave on 10-13 and 10-14, Sheila Boehm on 10-14), along with two Quesnel items that are not civic races (a footbridge fire, a foundation gala). Before the line, the four runs from 10-09 to 10-12 rejected no Cariboo civic story at all. Since the show began honouring gate rejects (10-13), each misfire also costs the podcast the story.
+
+The gate returns a yes or no with no reason, and a place rule needs the model to hold "outside X" against a subject it is told to reject, which it does not do reliably. The line is gone and the rubric wording is back to the original. The same intent now lives in `filters.json` → `blocked_keywords_unless_local` ("mayoral", "council candidate", "council seat", "mayor's seat", "trustee candidate"…), which is deterministic and free: a place in the title, description or **source name** overrides it. Replayed on the 7-day pool it blocks exactly the 4 out-of-region items (three Kootenay, one Vancouver) and none of the 5 Cariboo profiles. Scraped Cariboo papers bypass `should_filter()` by construction. A story from an outlet that names no Cariboo place anywhere (a 100 Mile Free Press RSS copy: "100 mile" is not a `local_signals` entry) can still be filtered; its scraped copy survives while it is on the homepage.
+
+Rule of thumb: a place or geography test goes in code or config, never in a standing preference. Keep the lines for subjects.
+
+### Earlier note, same incident (2026-10-13)
+
+Line 19 originally contradicted the built-in rubric ("KEEP Canadian politics at every level… No subject line above removes it").
 
 Line 19 of `standing_preferences.txt` (civic races outside the Cariboo) went in on 10-12. The first night scrubbed "Meet the Candidates: Mike Cave… City of Quesnel", a Cariboo race the line's own KEEP clause names, and kept a Canal Flats mayoral profile. Two causes. The built-in rubric ended "KEEP Canadian politics at every level… No subject line above removes it", which told Haiku the opposite, and "KEEP local community news" had no tag to hang on. The rubric now keeps `[LOCAL]`-tagged community news, carves out a line that limits civic coverage to places outside the Cariboo, and the line says never to apply it to a `[LOCAL]` article or one naming a Cariboo-Chilcotin place. Canal Flats itself was not the gate's miss: the deep scorer re-filed it as `local` (see sources.md).
 
