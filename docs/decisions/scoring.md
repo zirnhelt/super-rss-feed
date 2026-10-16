@@ -227,7 +227,8 @@ the top two 73%).
 
 Article ratings grade story choice. The polish never changes which stories are chosen, so a
 polish-model trial could not be graded by them; only a verdict on the whole episode can grade
-the writing. `review.html` has a card above "Add a Great Example": the last three episode dates
+the writing. `review.html` has an **Episode** tab (beside Articles and Example, each with its
+own save button; one token box below serves all three): the last three episode dates
 (today, yesterday, the day before; **yesterday is preselected**, because it is the episode the
 reader has usually heard when the page is open), **Keep / Meh / Skip**, and optional reason
 chips (Stories, Writing, Wrong fact, Too long, Repetitive, Hosts). Whether "Writing" or
