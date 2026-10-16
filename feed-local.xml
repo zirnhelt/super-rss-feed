@@ -6,13 +6,59 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Fri, 16 Oct 2026 04:12:10 +0000</lastBuildDate>
+<lastBuildDate>Fri, 16 Oct 2026 10:28:52 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 16, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-16.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-16.html</guid>
+<pubDate>Fri, 16 Oct 2026 10:06:09 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p&gt;&lt;em&gt;What the pipeline did, what broke, and what it chose when something broke. Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/38871365504&quot;&gt;38871365504&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;The script came in short and was padded, not the other way round&lt;/h3&gt;
+&lt;p&gt;The first draft of the script ran 3,129 words against a target of 3,400. The pipeline sent it back for up to two expand passes. What shipped was 3,412 words, which clears the target by 12. The padding was done by the same machinery that wrote the first draft, so the number that reached the listener is not evidence that the first draft was complete.&lt;/p&gt;
+&lt;p&gt;Two things in the quality block are worth reading against that. The AI-tell pattern check found 0 hits in the shipped script. The voice ratio of Casey to Riley came in at 0.84. Neither number says anything about whether the expand passes added substance or only length.&lt;/p&gt;
+&lt;h3&gt;Six stories aired out of order after two repair passes failed to fix it&lt;/h3&gt;
+&lt;p&gt;The roundup order degraded. Six stories still aired after a later block, even after 2 repair passes. The pipeline did not drop them or re-cut the segment. It let them run in the wrong place and logged the degradation. A listener hears a story from the wrong part of the day&#x27;s sequence, and nothing in the audio signals that.&lt;/p&gt;
+&lt;p&gt;The same segment is where the citation numbers are weakest for the deep dives. Roundup citations matched 16 of 17. Deep dive citations matched 1 of 4. The roundup count is a strong match. The deep-dive count means three of the four deep dives have a citation the pipeline could not align to its source, which is a larger gap than anything the roundup shows.&lt;/p&gt;
+&lt;h3&gt;The roundup pool is much bigger than the airtime&lt;/h3&gt;
+&lt;p&gt;The pipeline dropped 59 stories from the roundup pool to fit the airtime budget set by NEWS_ROUNDUP_COUNT. That is the design: the pool is meant to exceed what one segment can carry, and a cut story can come back on a day where it fits better. The 59 are not failures. They are the cost of a fixed airtime, and the pipeline will not show which of them a listener would have wanted.&lt;/p&gt;
+&lt;p&gt;The four deep dives drew on different sources: Global News, Fast Company, Wildfire Today and NYT Business. They covered a parole decision in British Columbia, heat exposure, Los Angeles fire danger, and California&#x27;s Proposition 45. The debate question the episode was built around asks who bears the cost of protecting people from wildfire and extreme heat, and whether faster housing review and public ownership of warnings and wildlife data make communities safer or mostly favor developers. Only one of the four deep-dive citations matched, so the sourcing behind that question is the thinnest part of the episode.&lt;/p&gt;
+&lt;h3&gt;Three runs, all on time, one still running&lt;/h3&gt;
+&lt;p&gt;The primary run started at 1:05 AM Pacific and finished at 1:30 AM Pacific. It completed with success and was 0 minutes late. Fallback 1 started and finished at 2:05 AM Pacific, also successful, also 0 minutes late. Fallback 2, at 3:05 AM Pacific, is the run writing this review and has not finished. The fallbacks did not fire because the primary failed. They were scheduled, and the primary succeeded.&lt;/p&gt;
+&lt;p&gt;The slowest step was script generation at 534 seconds, followed by GitHub Pages deployment at 350 seconds and audio rendering at 266 seconds. Checkout took 75 seconds, publishing 90 seconds, and the video render and YouTube upload 132 seconds. Every step concluded successfully.&lt;/p&gt;
+&lt;h3&gt;The output is 20.7 minutes of audio and 71.7 MB of video&lt;/h3&gt;
+&lt;p&gt;The audio runs 20.7 minutes and is 18.9 MB. The video is 71.7 MB and also runs 20.7 minutes. The RSS feed now lists 261 episodes. The script consumed 62,718 Anthropic input tokens across 11 Claude calls. The service breakdown shows 12 Brave search calls and 4 Brave answers calls. The input-token figure is a count of tokens and says nothing about cost.&lt;/p&gt;
+&lt;p&gt;The 3,412-word script at 20.7 minutes is the number to hold against the 3,400-word target and the 3,129-word first draft. The audio length is what the listener gets. The gap between the first draft and the shipped script is what the pipeline had to do to reach it.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.84, 3412 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;20.7 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.9 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;16/17 roundup, 1/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;261 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic spend&lt;/td&gt;&lt;td&gt;62,718 input tokens, calls ***&#x27;brave-search&#x27;: 12, &#x27;claude&#x27;: 11, &#x27;brave-answers&#x27;: 4***&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] FORSTER: Ladies of the Cariboo Lakes donating Care Bags to Canadian Mental Health Association</title>
 <link>https://100milefreepress.net/2026/10/15/forster-ladies-of-the-cariboo-lakes-donating-care-bags-to-canadian-mental-health-association/</link>
