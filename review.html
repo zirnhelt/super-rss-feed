@@ -287,6 +287,22 @@
             width: 100%; min-height: 72px; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
             font-size: 0.88em; font-family: inherit; color: #333; resize: vertical;
         }
+        /* ── Tabs: one submission per panel ── */
+        .tab-bar {
+            display: flex; gap: 6px; margin-bottom: 14px; background: rgba(255,255,255,0.18);
+            border-radius: 14px; padding: 5px;
+        }
+        .tab-btn {
+            flex: 1 1 0; min-height: 44px; padding: 8px 6px; border: none; border-radius: 10px;
+            background: transparent; color: white; font-family: inherit; font-size: 0.9em;
+            font-weight: 600; cursor: pointer; line-height: 1.2;
+        }
+        .tab-btn[aria-selected=true] { background: white; color: #667eea; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+        .tab-btn[aria-selected=true][data-tab=episode] { color: #8e24aa; }
+        .tab-btn:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+        .tab-badge { display: block; font-size: 0.75em; font-weight: 400; opacity: 0.85; }
+        .tab-btn:empty .tab-badge, .tab-badge:empty { display: none; }
+        .tab-panel[hidden] { display: none; }
         .token-form { display: flex; flex-direction: column; gap: 6px; }
         .token-form input[type=password] {
             width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
@@ -335,14 +351,19 @@
     <div class="offline-banner">Offline: ratings are kept on this device. Saving to GitHub needs a connection.</div>
     <div class="page-header">
         <a href="index.html" class="back-link">← Back to feeds</a>
-        <h1>📋 Near-Miss Article Review</h1>
-        <p class="subtitle">Two separate calls per article: 📰 does it belong in <em>your</em> feed, and 🎙️ which podcast days (if any) should it air on? A story can be either, both or neither.</p>
-        <div class="progress-counter" id="progress-counter"></div>
-        <div class="progress-counter" id="sort-note"></div>
-        <div id="stats-panel" style="display:none"></div>
+        <h1>📋 Review</h1>
+        <p class="subtitle" style="margin-bottom:0">Three separate submissions, each saved on its own: today's articles, the episode, and a great example from elsewhere.</p>
+    </div>
+
+    <!-- Each panel has its own save button; the token box below the panels serves all three. -->
+    <div class="tab-bar" role="tablist" aria-label="What to review">
+        <button type="button" class="tab-btn" role="tab" id="tab-articles" data-tab="articles" aria-controls="panel-articles">📰 Articles<span class="tab-badge" id="tab-badge-articles"></span></button>
+        <button type="button" class="tab-btn" role="tab" id="tab-episode" data-tab="episode" aria-controls="panel-episode">🎙️ Episode<span class="tab-badge" id="tab-badge-episode"></span></button>
+        <button type="button" class="tab-btn" role="tab" id="tab-exemplar" data-tab="exemplar" aria-controls="panel-exemplar">⭐ Example</button>
     </div>
 
     <!-- Static markup and its own save path: it works when the article batch is empty or failed to load. -->
+    <div class="tab-panel" role="tabpanel" id="panel-episode" aria-labelledby="tab-episode" hidden>
     <div class="episode-box" id="episode-box">
         <h2>🎙️ How was the episode?</h2>
         <p class="subtitle">The overall call, then as much as you like: a thumb per segment and a note. The weekly script review reads all of it beside the scripts.</p>
@@ -357,7 +378,9 @@
             <div class="status-msg" id="episode-status" role="status" aria-live="polite"></div>
         </div>
     </div>
+    </div>
 
+    <div class="tab-panel" role="tabpanel" id="panel-exemplar" aria-labelledby="tab-exemplar" hidden>
     <div class="exemplar-box" id="exemplar-box">
         <h2>⭐ Add a Great Example</h2>
         <p class="subtitle">Found an article elsewhere that's a perfect example of what you want more of? Add it here — it feeds the weekly trainer as your strongest signal.</p>
@@ -370,6 +393,16 @@
             <div class="status-msg" id="exemplar-status"></div>
         </div>
     </div>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="panel-articles" aria-labelledby="tab-articles" hidden>
+    <div class="page-header">
+        <h2 style="font-size:1.1em; color:#667eea; margin-bottom:2px">📰 Near-miss articles</h2>
+        <p class="subtitle">Two separate calls per article: 📰 does it belong in <em>your</em> feed, and 🎙️ which podcast days (if any) should it air on? A story can be either, both or neither.</p>
+        <div class="progress-counter" id="progress-counter"></div>
+        <div class="progress-counter" id="sort-note"></div>
+        <div id="stats-panel" style="display:none"></div>
+    </div>
 
     <div id="loading-msg" class="loading">Fetching articles…</div>
     <div id="empty-msg"   class="empty-box" style="display:none">Nothing to review today. Check back after the next pipeline run.</div>
@@ -377,20 +410,9 @@
 
     <div class="article-grid" id="article-grid"></div>
 
-    <!-- The token sits with the save button. It stays visible after the day's ratings are saved
-         (only the button hides) because "Add a Great Example" saves with it too. -->
-    <div class="submit-box" style="margin-bottom:14px;">
-        <!-- Filled from a password manager; the page keeps it only while it is open. The readonly
-             username gives 1Password a login to save and match against. -->
-        <form id="token-box" class="token-form" autocomplete="on" onsubmit="return false">
-            <label for="gh-token" class="token-label">GitHub token (needed to save)</label>
-            <input type="text" name="username" autocomplete="username" value="super-rss-feed review" readonly class="visually-hidden" tabindex="-1" aria-hidden="true" />
-            <input type="password" id="gh-token" name="password" autocomplete="current-password" placeholder="Fill from 1Password" spellcheck="false" autocapitalize="off" />
-        </form>
-        <div id="submit-section" style="display:none; margin-top:12px;">
-            <button class="btn btn-primary submit-btn" onclick="submitFeedback()">💾 Save Ratings to GitHub</button>
-            <div class="status-msg" id="submit-status"></div>
-        </div>
+    <div id="submit-section" class="submit-box" style="display:none; margin-bottom:14px;">
+        <button class="btn btn-primary submit-btn" onclick="submitFeedback()">💾 Save Ratings to GitHub</button>
+        <div class="status-msg" id="submit-status"></div>
     </div>
 
     <div id="done-section" style="display:none; margin-bottom:14px;">
@@ -399,6 +421,19 @@
             <p>Come back tomorrow for a fresh batch.</p>
             <a href="index.html" class="btn btn-primary" style="text-decoration:none; display:inline-block; margin-top:12px;">View Feeds</a>
         </div>
+    </div>
+    </div>
+
+    <!-- Outside the panels: all three tabs save with the same token, and it stays visible
+         after the day's ratings are saved. -->
+    <div class="submit-box" style="margin-bottom:14px;">
+        <!-- Filled from a password manager; the page keeps it only while it is open. The readonly
+             username gives 1Password a login to save and match against. -->
+        <form id="token-box" class="token-form" autocomplete="on" onsubmit="return false">
+            <label for="gh-token" class="token-label">GitHub token (needed to save)</label>
+            <input type="text" name="username" autocomplete="username" value="super-rss-feed review" readonly class="visually-hidden" tabindex="-1" aria-hidden="true" />
+            <input type="password" id="gh-token" name="password" autocomplete="current-password" placeholder="Fill from 1Password" spellcheck="false" autocapitalize="off" />
+        </form>
     </div>
 
 </div>
@@ -536,9 +571,67 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+// ── Tabs ─────────────────────────────────────────────────────────────────────
+// The open tab follows the URL hash (#episode, #exemplar) so a bookmark or home-screen
+// shortcut can land on one; otherwise the last tab used on this device; otherwise Articles.
+const TABS = ['articles', 'episode', 'exemplar'];
+const TAB_KEY = 'review_tab';
+
+function initialTab() {
+    const fromHash = location.hash.slice(1);
+    if (TABS.includes(fromHash)) return fromHash;
+    if (new URLSearchParams(location.search).has('url')) return 'articles';
+    try {
+        const saved = localStorage.getItem(TAB_KEY);
+        if (TABS.includes(saved)) return saved;
+    } catch {}
+    return 'articles';
+}
+
+function selectTab(name, focus = false) {
+    for (const tab of TABS) {
+        const on = tab === name;
+        const btn = document.getElementById('tab-' + tab);
+        btn.setAttribute('aria-selected', String(on));
+        btn.tabIndex = on ? 0 : -1;
+        document.getElementById('panel-' + tab).hidden = !on;
+        if (on && focus) btn.focus();
+    }
+    try { localStorage.setItem(TAB_KEY, name); } catch {}
+    if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
+}
+
+function wireTabs() {
+    const bar = document.querySelector('.tab-bar');
+    bar.addEventListener('click', e => {
+        const btn = e.target.closest('.tab-btn');
+        if (btn) selectTab(btn.dataset.tab);
+    });
+    // Arrow keys move between tabs (WAI-ARIA tabs pattern).
+    bar.addEventListener('keydown', e => {
+        const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (!step) return;
+        const current = TABS.indexOf(document.activeElement?.dataset?.tab);
+        if (current < 0) return;
+        e.preventDefault();
+        selectTab(TABS[(current + step + TABS.length) % TABS.length], true);
+    });
+    window.addEventListener('hashchange', () => {
+        const name = location.hash.slice(1);
+        if (TABS.includes(name)) selectTab(name);
+    });
+    selectTab(initialTab());
+}
+
+function setTabBadge(tab, text) {
+    const el = document.getElementById('tab-badge-' + tab);
+    if (el) el.textContent = text;
+}
+
 // ── Boot ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
     syncOnline();
+    wireTabs();
     populateExemplarCategories();
     try { renderEpisodeCard(); } catch (e) { console.error('episode card:', e); }
     init();
@@ -951,6 +1044,7 @@ function updateProgress() {
     const ratedCount = articles.filter(a => verdictOf(ratings[a.url])).length;
     const pending    = articles.filter(a => !verdictOf(ratings[a.url]) && ratings[a.url]?.approved_days?.length).length;
     const total = articles.length;
+    setTabBadge('articles', `${ratedCount}/${total}`);
     document.getElementById('progress-counter').textContent =
         `${ratedCount} of ${total} articles reviewed` +
         (pending ? ` · ${pending} still need a feed answer` : '');
@@ -1276,6 +1370,7 @@ async function submitEpisodeVerdict() {
         await saveFeedbackEntries([entry]);
         statusEl.className = 'status-msg success';
         statusEl.textContent = `✅ Saved ${entry.episode_verdict} for ${entry.episode_date}.`;
+        setTabBadge('episode', 'saved ✓');
     } catch (e) {
         statusEl.className = 'status-msg error';
         statusEl.textContent = '❌ Save failed: ' + e.message;
@@ -1339,6 +1434,7 @@ async function submitExemplar() {
 
 // ── UI helpers ────────────────────────────────────────────────────────────────
 function showDone() {
+    setTabBadge('articles', 'saved ✓');
     hide('article-grid');
     hide('submit-section');
     show('done-section');
