@@ -198,6 +198,8 @@ jobs:
           download_json "${BASE}/image_cache.json"             "image_cache.json"
           download_json "${BASE}/shown_terms_cache.json"      "shown_terms_cache.json"
           download_json "${BASE}/apple_news_cache.json"       "apple_news_cache.json"
+          # Kagi Extract results (48 h). Without it every run pays for the same pages again.
+          download_json "${BASE}/extract_cache.json"          "extract_cache.json"
           # Per-feed failure memory. Without this the recovery ladder in
           # fetch_feed_articles() resets every run: consecutive-failure counts
           # never reach the paid-fallback cutoff, backoff never takes effect,
@@ -322,6 +324,7 @@ jobs:
           cp image_cache.json output/ 2>/dev/null || true
           cp shown_terms_cache.json output/ 2>/dev/null || true
           cp apple_news_cache.json output/ 2>/dev/null || true
+          cp extract_cache.json output/ 2>/dev/null || true
           cp feed_http_cache.json output/ 2>/dev/null || true
           echo "Files in output directory:"
           ls -la output/

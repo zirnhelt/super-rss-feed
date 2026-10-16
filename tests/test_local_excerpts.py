@@ -180,3 +180,52 @@ def test_stale_card_on_one_homepage_is_dropped_unless_local() -> None:
     ]
     kept = [c['title'] for c in m._drop_network_cards(cards, now=_NOW)]
     assert kept == ['Horsefly River salmon count', 'MP Todd Doherty endorses Lorne Doerkson for Premier']
+
+
+STORY = ('The rescue took place on Sunday, Oct. 4 and it involved Prince George, '
+         'Central Cariboo and Quesnel SARs. ') * 30
+
+
+def _extract(articles, data, cache=None):
+    """Run the enrichment against one canned Extract reply; return (post mock, saved cache)."""
+    response = mock.Mock()
+    response.json.return_value = {'data': data}
+    cache = {} if cache is None else cache
+    with mock.patch.object(m.requests, 'post', return_value=response) as post, \
+            mock.patch.object(m._extract_cache, 'load', return_value=cache), \
+            mock.patch.object(m._extract_cache, 'save') as save:
+        m._kagi_enrich_articles(articles, 'key')
+    return post, (save.call_args[0][0] if save.called else None)
+
+
+def _thin(n: int, scheme: str = 'https') -> m.Article:
+    return m.Article({'title': f'Story {n}', 'link': f'{scheme}://wltribune.com/{n}/',
+                      'description': ''}, 'Williams Lake Tribune', 'https://wltribune.com')
+
+
+def test_extract_batches_pages_and_matches_by_url() -> None:
+    articles = [_thin(1), _thin(2), _thin(3, scheme='http')]
+    data = [{'url': 'https://wltribune.com/3/', 'markdown': STORY},
+            {'url': 'https://wltribune.com/1/', 'error': 'No data returned from crawlers!'},
+            {'url': 'https://wltribune.com/2/', 'markdown': STORY}]
+    post, saved = _extract(articles, data)
+    assert post.call_count == 1
+    sent = [p['url'] for p in post.call_args.kwargs['json']['pages']]
+    assert sent == ['https://wltribune.com/1/', 'https://wltribune.com/2/', 'https://wltribune.com/3/']
+    assert articles[0].excerpt == ''
+    assert articles[1].excerpt.startswith('The rescue') and articles[2].excerpt.startswith('The rescue')
+    # A per-page error is retried next run, not cached as empty.
+    assert articles[0].url_hash not in saved and articles[1].url_hash in saved
+
+
+def test_local_article_with_a_description_is_not_sent() -> None:
+    article = _wlt_article('A real dek from the scraper. ' * 10)
+    post, _ = _extract([article], [])
+    post.assert_not_called()
+
+
+def test_cached_extract_is_reapplied_without_a_call() -> None:
+    article = _thin(1)
+    post, _ = _extract([article], [], cache={article.url_hash: {'text': STORY, 'timestamp': 9e9}})
+    post.assert_not_called()
+    assert article.summary.startswith('The rescue')

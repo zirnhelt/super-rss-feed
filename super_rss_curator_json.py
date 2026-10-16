@@ -1866,6 +1866,20 @@ def _enrich_thin_local_articles(articles: List['Article']) -> int:
     return fetched
 
 
+# Kagi Extract takes up to 10 pages a request and only https:// URLs.
+KAGI_EXTRACT_BATCH = 10
+
+
+def _apply_extracted_text(article: 'Article', text: str) -> bool:
+    """Put Extract prose on the article; never trade a real description for a shorter one."""
+    if len(text) < 80 or len(text) <= len(_clean_text(article.description)):
+        return False
+    article.description = _clean_text(text, max_chars=600)
+    article.summary = _clean_text(text, max_chars=300)
+    article.excerpt = _clean_text(text, max_chars=600)
+    return True
+
+
 def _kagi_enrich_articles(
     articles: List['Article'],
     kagi_key: str,
@@ -1874,76 +1888,87 @@ def _kagi_enrich_articles(
 ) -> None:
     """Enrich thin-description articles using Kagi's Extract API before Claude scoring.
 
-    Calls POST https://kagi.com/api/v1/extract with {"pages": [{"url": <url>}]} for:
-    - All articles from _LOCAL_BC_DOMAINS (often paywalled, descriptions unreliable)
-    - Articles whose description is < 150 chars AND whose title matches at least one
-      prescore_keyword (skips off-topic thin stubs that would fail scoring anyway)
+    Candidates are articles whose description is < 150 chars: local ones
+    (_LOCAL_BC_DOMAINS) first, then others whose title matches a prescore_keyword
+    (off-topic thin stubs would fail scoring anyway). A local article with a real
+    description is not sent: the scraper already gave it one.
 
-    Results are cached 48 h by url_hash so repeated runs don't re-fetch.
-    Updates article.description / .summary / .excerpt in-place.
+    Up to max_calls pages go out in requests of KAGI_EXTRACT_BATCH. Results are
+    cached 48 h by url_hash (extract_cache.json, persisted via gh-pages), and a
+    cached text is re-applied, so an article seen on two runs is paid for once.
+    A per-page error is not cached, so it is tried again next run.
     """
     cache = _extract_cache.load()
-    candidates = []
-    skipped_gate = 0
+    local, other = [], []
+    skipped_gate = reused = 0
     for a in articles:
-        if a.url_hash in cache:
+        if len(a.description.strip()) >= 150:
             continue
-        is_local = any(d in a.link for d in _LOCAL_BC_DOMAINS)
-        is_thin = len(a.description.strip()) < 150
-        if is_local:
-            candidates.append(a)
-        elif is_thin:
-            if prescore_keywords is None or any(kw in a.title.lower() for kw in prescore_keywords):
-                candidates.append(a)
-            else:
-                skipped_gate += 1
+        if a.url_hash in cache:
+            reused += _apply_extracted_text(a, cache[a.url_hash].get('text', ''))
+            continue
+        if any(d in a.link for d in _LOCAL_BC_DOMAINS):
+            local.append(a)
+        elif prescore_keywords is None or any(kw in a.title.lower() for kw in prescore_keywords):
+            other.append(a)
+        else:
+            skipped_gate += 1
+    if reused:
+        print(f"  🔁 Kagi Extract: {reused} thin articles filled from cache")
     if skipped_gate:
         print(f"  🔎 Kagi gate: skipped {skipped_gate} thin articles (title mismatch)")
-    if not candidates:
+    to_fetch = (local + other)[:max_calls]
+    if not to_fetch:
         return
 
-    to_fetch = candidates[:max_calls]
-    enriched = 0
+    enriched = page_errors = 0
     error_statuses: dict = {}
     error_bodies: dict = {}
     now_ts = datetime.now(timezone.utc).timestamp()
 
-    for article in to_fetch:
+    for i in range(0, len(to_fetch), KAGI_EXTRACT_BATCH):
+        batch = to_fetch[i:i + KAGI_EXTRACT_BATCH]
+        urls = [re.sub(r'^http://', 'https://', a.link) for a in batch]
         try:
-            api_usage.record_call('kagi')
+            api_usage.record_call('kagi', len(batch))
             resp = requests.post(
                 'https://kagi.com/api/v1/extract',
                 headers={'Authorization': f'Bearer {kagi_key}', 'Content-Type': 'application/json'},
-                json={'pages': [{'url': article.link}]},
-                timeout=12,
+                json={'pages': [{'url': u} for u in urls]},
+                timeout=30,
             )
             resp.raise_for_status()
             data = resp.json().get('data') or []
-            page = data[0] if data else {}
-            text = _markdown_body_text(page.get('markdown') or '')
-            # Never trade a real description for a shorter one.
-            if len(text) >= 80 and len(text) > len(_clean_text(article.description)):
-                article.description = _clean_text(text, max_chars=600)
-                article.summary = _clean_text(text, max_chars=300)
-                article.excerpt = _clean_text(text, max_chars=600)
-                cache[article.url_hash] = {'text': article.description, 'timestamp': now_ts}
-                enriched += 1
-            else:
-                cache[article.url_hash] = {'text': '', 'timestamp': now_ts}
         except requests.exceptions.HTTPError as e:
             status = e.response.status_code if e.response is not None else '?'
             error_statuses[status] = error_statuses.get(status, 0) + 1
             if status not in error_bodies and e.response is not None:
                 error_bodies[status] = e.response.text.strip()[:1000]
+            continue
         except Exception:
-            pass
+            continue
+
+        # Each page comes back as {url, markdown} or {url, error}; match on url,
+        # falling back to request order when the reply omits it.
+        by_url = {p.get('url'): p for p in data if isinstance(p, dict) and p.get('url')}
+        for j, (article, url) in enumerate(zip(batch, urls)):
+            page = by_url.get(url) or (data[j] if not by_url and j < len(data) else None)
+            if not isinstance(page, dict) or page.get('error') or 'markdown' not in page:
+                page_errors += 1
+                continue
+            text = _markdown_body_text(page.get('markdown') or '')
+            if _apply_extracted_text(article, text):
+                enriched += 1
+                cache[article.url_hash] = {'text': article.excerpt, 'timestamp': now_ts}
+            else:
+                cache[article.url_hash] = {'text': '', 'timestamp': now_ts}
 
     _extract_cache.save(cache)
-    if enriched:
-        print(f"  🔍 Kagi Summarizer: enriched {enriched}/{len(to_fetch)} thin articles")
+    print(f"  🔍 Kagi Extract: enriched {enriched}/{len(to_fetch)} thin articles"
+          + (f" ({page_errors} page errors)" if page_errors else ""))
     if error_statuses:
         summary = ', '.join(f"HTTP {status} x{count}" for status, count in error_statuses.items())
-        print(f"  ✗ Kagi Summarizer: {summary}")
+        print(f"  ✗ Kagi Extract: {summary}")
         for status, body in error_bodies.items():
             print(f"     HTTP {status} body: {body}")
 
