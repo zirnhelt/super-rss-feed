@@ -1868,6 +1868,9 @@ def _enrich_thin_local_articles(articles: List['Article']) -> int:
 
 # Kagi Extract takes up to 10 pages a request and only https:// URLs.
 KAGI_EXTRACT_BATCH = 10
+# The extracted page is the whole story; the podcast reads `_excerpt` as its body,
+# so an extracted article carries this much instead of the usual 600 chars.
+KAGI_EXCERPT_CHARS = 2000
 
 
 def _apply_extracted_text(article: 'Article', text: str) -> bool:
@@ -1876,7 +1879,7 @@ def _apply_extracted_text(article: 'Article', text: str) -> bool:
         return False
     article.description = _clean_text(text, max_chars=600)
     article.summary = _clean_text(text, max_chars=300)
-    article.excerpt = _clean_text(text, max_chars=600)
+    article.excerpt = _clean_text(text, max_chars=KAGI_EXCERPT_CHARS)
     return True
 
 

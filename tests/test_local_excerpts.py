@@ -214,6 +214,8 @@ def test_extract_batches_pages_and_matches_by_url() -> None:
     assert sent == ['https://wltribune.com/1/', 'https://wltribune.com/2/', 'https://wltribune.com/3/']
     assert articles[0].excerpt == ''
     assert articles[1].excerpt.startswith('The rescue') and articles[2].excerpt.startswith('The rescue')
+    # The podcast reads `_excerpt` as its body: keep the long text, not 600 chars.
+    assert len(articles[1].excerpt) > 600 and len(articles[1].description) <= 600
     # A per-page error is retried next run, not cached as empty.
     assert articles[0].url_hash not in saved and articles[1].url_hash in saved
 
