@@ -13,6 +13,62 @@
   "language": "en",
   "items": [
     {
+      "id": "https://www.lorameshdevices.com/blog/meshtastic/meshtastic-offline-gps-tracking-save-your-route-without-a-phone.html",
+      "url": "https://www.lorameshdevices.com/blog/meshtastic/meshtastic-offline-gps-tracking-save-your-route-without-a-phone.html",
+      "title": "[LoRaMeshDevices] Meshtastic Offline GPS Tracking: Save Your Route Without a Phone",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.lorameshdevices.com%2Fblog%2Fmeshtastic%2Fmeshtastic-offline-gps-tracking-save-your-route-without-a-phone.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA Meshtastic device can send its GPS position over the air, but that is not the same as keeping a track on the device itself. In the standard setup I was using, disconnecting the phone meant the node continued broadcasting its location without saving a local history for later. \n\nI wanted something simple: take a node out for a walk, leave the phone disconnected, and download the route when I got home. So I modified the Meshtastic firmware to add on-device GPS location caching. \n\nI have this running on a SenseCAP T1000E and a Heltec T096. Both remain Meshtastic nodes, with their normal communication functions, but now they can also record a route independently of the phone. \n\n \n\n\nKey Takeaways\n\nThe custom firmware records GPS points on the node without a connected phone.\nA 500-point cache provides roughly eight hours of recording at one point per minute.\nReconnect to Meshtastic to load saved positions, then export them as GPX.\nClearing app history does not clear the tracker cache; use the device controls to remove saved points.\n\nTable of ContentsWhat the Custom Tracker Firmware AddsUsing the Tracker Screen on the Heltec T096Button Controls on the SenseCAP T1000ESyncing Saved Tracks to the Meshtastic AppExporting Your Route as a GPX FileClearing the Tracker CacheInstalling the Firmware and Exploring the CodeWhat the Custom Tracker Firmware Adds\n\nMeshtastic is open source, and its module system gives you a useful way to add your own functionality without creating an entirely separate application. My modification adds a local cache for GPS points, controls for starting and stopping recording, and a way to replay those saved positions into the Meshtastic app. \n\nThe basic workflow is: \n\n\nStart tracking on the device.\nGo walking or travelling without a connected phone.\nReconnect to the Meshtastic app afterward.\nLet the saved positions populate the map.\nExport the track to GPX if you want to use it elsewhere.\n\n\nThe device still sends position updates over the air as normal. Local recording is an additional function, not a replacement for Meshtastic communication. You can still receive messages and hear the usual notification sounds while recording your route. \n\n\n500 points, recorded once per minute\n\n\nIn this build, I set the cache capacity to 500 location points. With automatic recording every minute, that gives you roughly eight hours of tracking capacity, provided the device has a GPS location to save. \n\nThat figure describes the number of points the cache can hold, not a battery-life measurement. You can also build up a collection of points across separate outings. One of my test devices had 205 points collected during experiments over about a month, while the other contained routes from several days of walking. \n\nUsing the Tracker Screen on the Heltec T096\n\nThe T096 still has the familiar Meshtastic screens. I added one extra page for the tracker, showing whether recording is on or off and how many points are cached. \n\nFor example, the display can show tracking switched off with 205 of 500 points cached. Stopping recording does not remove those points. They remain available to download later. \n\n\n\nTo start recording: \n\n\nNavigate to the tracker screen.\nLong-press the button to open its menu.\nSelect Start Tracking.\nCheck that the tracker screen changes to Tracking On.\n\n\nWith tracking enabled, the firmware saves a location every minute when a GPS position is available. The cached-point counter increases as points are recorded. A count of 205, for instance, becomes 206 after the next successful recording. \n\nTo stop, open the menu again and select Stop Tracking. This stops the extra local recording function. The node continues doing its normal Meshtastic work, including sending positions according to its configuration. \n\nThe same menu also includes Clear Cache, but save that until you have downloaded or exported anything you want to keep. \n\nButton Controls on the SenseCAP T1000E\n\nThe T1000E does not have a screen, so I implemented the tracker controls through its button. The idea is to make it useful on its own, without needing to pull out a phone just to start a walk. \n\n\n\n\nButton action\nTracker function\n\n\n\n\nOne press\nSave the current location to the cache.\n\n\nTwo presses\nStart or stop automatic recording every minute.\n\n\nThree presses\nClear the cached locations.\n\n\n\n\nA double press starts recording with an audible beep. While recording, the device beeps every minute as it records. Double-press again to stop. \n\nThe single-press action is handy when you just want to record where you are right now, rather than run continuous tracking. It writes that current location into the same cache. \n\nThese shortcuts belong to this custom firmware. They are not instructions for the standard T1000E firmware. \n\nSyncing Saved Tracks to the Meshtastic App\n\nOnce you return, connect to the device through the Meshtastic app as usual. There is no separate tracker app required for this part. \n\n\nScan for nearby devices in the app's connection screen.\nSelect the node you used for recording.\nOpen that node's details and its Position history.\nAllow the connection to finish and the cached positions to arrive.\n\n\nThe position history may initially look empty. In my demonstration, the connection indicator was orange while connecting, then turned green. Once connected, the saved positions started arriving and the route filled in on the map. \n\n\n  \n  The saved points populate the map after the node reconnects.\n\n\nOn my T096, the downloaded history included driving routes as well as the walking route I use regularly. Connecting to the T1000E brought in its own saved points from several days of walking. Apparently, I do quite a lot of walking! \n\n\nDeleting app history does not clear the device\n\n\nThis is an important distinction: the app's position history and the device's cache are separate. \n\nI deleted the position history in the app, disconnected, and connected again. The device replayed the saved positions, and the route appeared again. The points were still on the node. \n\nSo, if a route returns after you delete it from the phone, that is expected. To remove the source of that replay, you need to clear the cache on the tracker itself. \n\nExporting Your Route as a GPX File\n\nOnce the positions are in the Meshtastic app, you can export them as a GPX file and open the result in another mapping application. \n\nI exported a test track, gave it a name, then opened it through the file browser in GPX Viewer. The same route appeared there, this time drawn over its map. \n\n\n\nThe process is straightforward: \n\n\nWait for the cached positions to finish loading into Meshtastic.\nUse the position-history export option to save a GPX file.\nGive the file a name.\nOpen it in GPX Viewer or another application that supports GPX.\n\n\nI also included a Windows batch tool called tracker.bat. It provides another way to export a GPX file without using the Meshtastic app. The repository documentation explains that option. \n\nClearing the Tracker Cache\n\nAfter saving your route, you can clear the device's cached positions so they no longer replay into the app. \n\n\nT1000E: Press the button three times.\nT096: Long-press to open the tracker menu, select Clear Cache, and confirm that you want to clear it.\n\n\nOn the T096, the counter returns to 0 of 500. After I cleared the cache and reconnected, the old saved route no longer arrived. A current location could still appear, but that was a fresh position rather than the previous cached history. \n\nIf you want to remove the route from both places, clear the app's history as well as the device's cache. Export anything important first. \n\nInstalling the Firmware and Exploring the Code\n\nI put the firmware, source changes, and instructions in the tracker-firmware GitHub repository. It includes builds for the T096 and T1000E, device-control documentation, installation notes, and the Windows export tool. \n\nBefore flashing, back up your Meshtastic configuration and export your keys. Do that first, before changing the firmware. \n\nFor the demonstrated devices, installation uses the familiar flashing-mode and drag-and-drop process: \n\n\nBack up your existing configuration and keys.\nDownload the firmware file that matches your device.\nPut the device into flashing mode.\nDrag and drop the matching firmware file onto the device's flashing drive.\n\n\nThe flashing instructions shown for the T096 use two presses of Reset to make the drive appear. For the T1000E, hold the button while connecting the charging cable. Follow the repository's device-specific instructions rather than assuming that every Meshtastic board flashes the same way. \n\n\nHow the modification fits into Meshtastic\n\n\nI used Meshtastic 2.8.1 for the demonstrated build. The tracker changes can also be incorporated into another firmware version and compiled, rather than being tied only to that build. \n\nThe source changes are concentrated in four files. Part of the work changes the button-handling thread, because the tracker needs those additional button actions. The rest uses Meshtastic's optional add-on modules, which provide a place for custom functionality to run inside the firmware. \n\nI also compiled an ESP32-S3 version, mentioning Heltec V3 and V4 hardware as additional targets. That is separate from the hands-on T096 and T1000E examples here, so check the available files and instructions for your particular board. \n\n\nThe LoRaWAN edition is a separate project\n\n\nI have a similar tracker project for the T1000E LoRaWAN edition, with comparable single-press and double-press controls. That project is aimed at LoRaWAN rather than Meshtastic. \n\nDo not confuse the LoRaWAN-edition firmware with the Meshtastic tracker build. There are supporting write-ups and architecture diagrams on the resource hub, but the firmware must match the device edition and the system you intend to use. \n\nWhat I like about this modification is how little it changes the everyday experience. It is still a Meshtastic node. It simply remembers where it has been, so you can take it out on its own and bring the route back afterward. \n\n\n      \n        \n          \n            \n              \n                \n                  \n      \n        \n    \n      \n        \n          \n        \n          \nTry the Offline GPS Tracker Firmware\n\n        \n      \n    \n    \n      \n        \n          Get the T096 and T1000E firmware builds, source changes, installation instructions, and Windows GPX export tool. \n        \n      \n    \n    \n      \n        \n          Get the Firmware on GitHub\n        \n      \n        \n      \n    \n  \n      \n    \n                \n              \n            \n          \n        \n      \n    \n\n\n\n\n\n\n\n\nFrequently Asked Questions\n\n\nDoes offline tracking stop the device from working as a Meshtastic node?\n\nNo. The modification adds local location caching while retaining normal Meshtastic communication, including position broadcasts and message reception. \n\n\nDoes the tracker save a point every minute without a GPS location?\n\nThe automatic recording interval is one minute, but the device needs a GPS position available to save a location point. \n\n\nWhy do deleted tracks return when I reconnect?\n\nDeleting position history in the app does not remove the points cached on the device. Reconnecting allows the node to replay them. Clear the device cache if you no longer want those saved positions to return. \n\n\nCan I export tracks without the Meshtastic phone app?\n\nYes. The repository includes a Windows batch tool called tracker.bat that can export a GPX file without using the Meshtastic app.",
+      "date_published": "2026-10-15T18:47:17+00:00",
+      "authors": [
+        {
+          "name": "LoRaMeshDevices",
+          "url": "https://www.lorameshdevices.com/blog/"
+        }
+      ],
+      "_score": 60,
+      "_quality": 60,
+      "_relevance": 80,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://hackaday.com/2026/10/15/c64-hardware-simulator-isnt-just-for-playing-around/",
+      "url": "https://hackaday.com/2026/10/15/c64-hardware-simulator-isnt-just-for-playing-around/",
+      "title": "[Hackaday] C64 Hardware Simulator Isn’t (Just) For Playing Around",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/char-rom.gif\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F15%2Fc64-hardware-simulator-isnt-just-for-playing-around%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"350\" src=\"https://hackaday.com/wp-content/uploads/2026/10/char-rom.gif?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>If you want to play old Commodore games, there are C-64 emulators available for just about any platform– but most of them are so high level, they’re really meant for <a class=\"read-more\" href=\"https://hackaday.com/2026/10/15/c64-hardware-simulator-isnt-just-for-playing-around/\">…read more</a>",
+      "date_published": "2026-10-15T18:00:50+00:00",
+      "authors": [
+        {
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
+        }
+      ],
+      "image": "https://hackaday.com/wp-content/uploads/2026/10/char-rom.gif",
+      "_score": 40,
+      "_quality": 67,
+      "_relevance": 45,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://blog.adafruit.com/2026/10/15/an-interactive-commodore-64-hardware-simulator-on-your-screen/",
+      "url": "https://blog.adafruit.com/2026/10/15/an-interactive-commodore-64-hardware-simulator-on-your-screen/",
+      "title": "[Adafruit Blog] An interactive Commodore 64 hardware simulator on your screen",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F15%2Fan-interactive-commodore-64-hardware-simulator-on-your-screen%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSalvatore Sanfilippo (antirez) has published c64-hw-sim on GitHub, a simulator of the Commodore 64 motherboard, ASSY 250407, down to the individual pins. The program knows the board netlist and how each chip behaves at its pins. It knows nothing about what a broken C64 looks like, so when the screen fills with garbage after a […]",
+      "date_published": "2026-10-15T12:55:00+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=blog.adafruit.com&sz=128",
+      "_score": 36,
+      "_quality": 60,
+      "_relevance": 40,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
       "id": "https://hackaday.com/2026/10/14/ai-controls-iphone-via-esp32/",
       "url": "https://hackaday.com/2026/10/14/ai-controls-iphone-via-esp32/",
       "title": "[Hackaday] AI Controls iPhone Via ESP32",
@@ -472,61 +528,6 @@
       "_relevance": 45,
       "_local_score": 0,
       "_content_type": "analysis"
-    },
-    {
-      "id": "https://blog.adafruit.com/2026/10/10/a-mountain-of-ai-math-a-few-precious-bytes/",
-      "url": "https://blog.adafruit.com/2026/10/10/a-mountain-of-ai-math-a-few-precious-bytes/",
-      "title": "[Adafruit Blog] A mountain of AI math, a few precious bytes",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F10%2Fa-mountain-of-ai-math-a-few-precious-bytes%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCo-authored by Phillip Torrone and Mikey Sklar. Making CircuitPython fit is a recurring job. Firmware grows, a board gets close to its flash limit or goes over, and maintainers find room through compression, code sharing and other tricks. One Trinket M0 build was eight bytes over. That’s one example of a cycle the team has […]",
-      "date_published": "2026-10-10T21:52:37+00:00",
-      "authors": [
-        {
-          "name": "Adafruit Blog",
-          "url": "https://blog.adafruit.com"
-        }
-      ],
-      "image": "https://www.google.com/s2/favicons?domain=blog.adafruit.com&sz=128",
-      "_score": 42,
-      "_quality": 60,
-      "_relevance": 50,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.xda-developers.com/self-hosted-apps-use-for-work-home-lab-finally-started-paying-for-itself/",
-      "url": "https://www.xda-developers.com/self-hosted-apps-use-for-work-home-lab-finally-started-paying-for-itself/",
-      "title": "[XDA Developers] I self-hosted the apps I use for work and my home lab finally started paying for itself",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/use-these-containers-to-replace-expensive-subscriptions.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fself-hosted-apps-use-for-work-home-lab-finally-started-paying-for-itself%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMy home lab finally earned its keep.",
-      "date_published": "2026-10-10T20:30:18+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/use-these-containers-to-replace-expensive-subscriptions.jpg",
-      "_score": 41,
-      "_quality": 40,
-      "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://www.sciencealert.com/archaeologists-uncover-unprecedented-evidence-of-neanderthal-woodworking-skills",
-      "url": "https://www.sciencealert.com/archaeologists-uncover-unprecedented-evidence-of-neanderthal-woodworking-skills",
-      "title": "[ScienceAlert] Archaeologists Uncover Unprecedented Evidence of Neanderthal Woodworking Skills",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencealert.com%2Farchaeologists-uncover-unprecedented-evidence-of-neanderthal-woodworking-skills\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<figure><img alt=\"Archaeologists Uncover Unprecedented Evidence of Neanderthal Woodworking Skills\" class=\"attachment-full size-full\" height=\"1440\" src=\"https://www.sciencealert.com/images/2026/10/neanderthal.jpg\" width=\"2560\"/><figcaption>(Paul Hudson/Flickr/CC BY-NC-ND 2.0)</figcaption></figure>\n<p><img alt=\"Archaeologists Uncover Unprecedented Evidence of Neanderthal Woodworking Skills\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/10/neanderthal-1200x675.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1200\"/>Including an actual wooden club.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&amp;utm_medium=feed&amp;utm_campaign=rss_feed_promo\" rel=\"noopener noreferrer\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.</a></p>",
-      "date_published": "2026-10-10T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "_score": 34,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0
     }
   ]
 }
