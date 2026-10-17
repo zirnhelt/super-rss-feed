@@ -469,3 +469,28 @@ No changes applied this run.
 - Review the scoring_prompt for news and the composite weighting. The local dimension is a binary cliff (nearly all non-Cariboo articles score ~0 on L), and relevance is also collapsed for news (the bulk of news articles score 0–19 on relevance). This is the structural cause of poor band precision (even the 80–100 band is only ~60% good) and cannot be fixed by thresholds.
 - Review theme scoring prompts for Tuesday and Wednesday. Theme-scoring misses (≈225 of 385 day corrections) outnumber routing bugs (≈160), indicating the per-theme scoring prompts are a larger source of mis-routed podcast content than the selection logic. Thursday and Monday show the same pattern to a lesser degree.
 - Consider whether kagi_search_result_limit should be raised again only after confirming the config value actually persists (prior proposals to raise it from 10 to 12 do not appear to have stuck). Noise-to-signal remains elevated (window mean ~2.4) after upstream tightening, so upstream volume/quality of search results is the lever to examine, not further quality-floor raises.
+
+## 2026-10-17
+
+Audit window: 14 runs (2026-10-04T04:01:10.284230+00:00 to 2026-10-17T04:01:54.851437+00:00).
+
+
+**Analysis**
+
+The 14-run window (Oct 4–17) shows a pipeline that is stable on infrastructure. Weekday theme scores are healthy (Monday ~14–15 raw mean, Tuesday ~6, Wednesday ~4.5, Thursday ~8; weekend themes 36–48), so the July–August weekday collapse remains resolved and I am not touching those levers. Podcast feeds are consistently near 100 articles per theme with robust holdover banks, and the relative_scaled flag confirms the dimensional scoring is active.
+
+The quality problem persists. User feedback (ground truth through Oct 10) shows 63.1% bad overall and a stratified weighted_positive_pct of 42.3%. Band precision is weak across the 20–59 composite range, and the threshold sweep shows the current min_score floor of 25 cuts ~33% of bad articles at ~10% positive loss. Raising the floor to 30 would cut ~48% of bad but cost ~17% of positives, disproportionately removing 'interesting' articles. Given the 1–2 week feedback lag and the cost curve, I am holding quality floors rather than stepping further this run. News remains the outlier (79% bad, ~22% positive), and the Sep 23 max_slots.news=10 cap is still maturing in feedback, so I am leaving it in place.
+
+Noise-to-signal is elevated and volatile (window mean 2.36, range 0.96–3.28). The upstream lever (kagi_search_result_limit) has been proposed upward twice in change history without durably moving the config value, so I am not re-proposing it without a clearer reason. Theme routing shows a 20.2% correction rate, split 180 routing bugs vs 245 theme-scoring misses; the scoring-miss share points to prompt review, which is forbidden auto-edit territory. Worst sources (Rolling Stone, Mother Jones, The New Yorker, Cottage Life) remain 100% bad with adequate sample sizes and are surfaced as human block recommendations.
+
+
+No changes applied this run.
+
+
+**Human recommendations**
+
+- Block candidates with zero positive ratings and sufficient sample sizes: Rolling Stone (24/24 bad), Mother Jones (15/15 bad), The New Yorker (9/9 bad), Cottage Life (8/8 bad). Source blocking is outside auto-tunable scope.
+- Theme-routing correction rate is ~20% (180 routing bugs, 245 theme-scoring misses). The scoring-miss share indicates the per-theme scoring_prompt / theme_description fields need human review, particularly Tuesday (Working Lands) and Thursday (Indigenous Lands), which have the lowest per-day good rates.
+- The composite weighting (0.25Q + 0.55R + 0.20L) collapses scores for non-Cariboo content because the local dimension is a near-binary cliff (almost all articles score 0–19 on L) and relevance is similarly compressed for news. Consider a prompt/weighting review so composite scores separate positives from bad in the 20–59 range, where band precision is currently near coin-flip.
+- News category needs a human review of its scoring_prompt and category definition: it contributes the largest share of feed volume at ~79% bad. The Sep 23 max_slots cap is a stopgap; a relevance-focused prompt change is the durable fix.
+- Revisit kagi_search_result_limit only after confirming the current config value; prior proposed increases in change history did not durably take effect.

@@ -81,9 +81,9 @@
       "id": "news-category-quality-crisis",
       "theme": "news",
       "first_observed": "2026-10-04",
-      "last_observed": "2026-10-10",
+      "last_observed": "2026-10-17",
       "status": "monitoring",
-      "description": "News remains the worst category on user feedback (~79% bad, ~21.6% positive) despite the Sep 23 max_slots.news=10 cap. Pipeline quality gate is dropping the vast majority of news candidates, so the residual bad rate is a relevance/local scoring-prompt problem rather than a threshold problem. The Sep 23 cap is still too recent to judge given the 1–2 week feedback lag.",
+      "description": "News remains the worst category on user feedback (~79% bad, ~21.6% positive) despite the Sep 23 max_slots.news=10 cap. Pipeline quality gate drops the large majority of news candidates, so the residual bad rate points to relevance/local scoring-prompt problems rather than thresholds. The Sep 23 cap is still too recent to judge given the 1–2 week feedback lag.",
       "evidence_runs": [
         "2026-09-21T04:00:37.666981+00:00",
         "2026-09-22T04:00:45.058198+00:00",
@@ -108,6 +108,10 @@
         },
         {
           "run_date": "2026-10-10",
+          "action": "none this run — holding quality floors (further raises have steep positive-lost costs per threshold_sweep) and letting the Sep 23 news cap mature"
+        },
+        {
+          "run_date": "2026-10-17",
           "action": "none this run — holding quality floors (further raises have steep positive-lost costs per threshold_sweep) and letting the Sep 23 news cap mature"
         }
       ],
