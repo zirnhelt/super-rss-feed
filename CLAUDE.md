@@ -172,6 +172,7 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 | `calibration_stats_cache.json` | Per-run stats for the calibration agent. | 14 days |
 | `theme_holdover_cache.json` | Cross-week bank of future-theme articles. | 28 days |
 | `apple_news_cache.json` | Harvested `apple.news` IDs. | articles 14 days |
+| `extract_cache.json` | Kagi Extract text by URL hash (gh-pages only, not committed). Thin articles only; 10 pages a request. An extracted article's `_excerpt` carries 2000 chars: the podcast reads it as the story body. | 48 h |
 
 `calibration_memory/` holds the calibration agent's `recurring_issues.json`, `change_history.json` and `notes.md`.
 
