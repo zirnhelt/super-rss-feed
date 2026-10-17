@@ -6,13 +6,59 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sat, 17 Oct 2026 04:11:54 +0000</lastBuildDate>
+<lastBuildDate>Sat, 17 Oct 2026 10:27:59 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 17, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-17.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-17.html</guid>
+<pubDate>Sat, 17 Oct 2026 10:06:30 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p&gt;&lt;em&gt;What the pipeline did, what broke, and what it chose when something broke. Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/39016086060&quot;&gt;39016086060&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;The script shipped 11% over target after a short first draft&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 2,687 words against a target of 3,400. The pipeline sent it back for up to two expand passes. What shipped was 3,721 words, which is 321 words over the target. The short draft was fixed by expansion, and the expansion overshot.&lt;/p&gt;
+&lt;p&gt;The script&#x27;s voice balance held. The Casey-to-Riley ratio is 0.94, and there were zero AI-tell pattern hits.&lt;/p&gt;
+&lt;h3&gt;Ten of 24 ballot candidates have no research record&lt;/h3&gt;
+&lt;p&gt;The election research step found no record for 10 of the 24 candidates on the ballot: Nicole Berreth, Laura Zimmerman, Greg Jeannotte, Charlene Hays, Whitney Spearing, Nathan Wiebe, Rafiullah Sahibzada, Michael Franklin, Kayla Zaruk, and Ruth Lloyd. The pipeline did not fill those gaps with invented material. It wrote the episode around them.&lt;/p&gt;
+&lt;p&gt;This matters for the episode&#x27;s central question. The debate asks whose account of a candidate&#x27;s record voters should weight, and what an endorsement or acclamation proves. For ten candidates the pipeline had no record to weigh at all. The five deep dives cover candidates the research did find, so the coverage is uneven by construction.&lt;/p&gt;
+&lt;h3&gt;Citations matched less often in the deep dives than in the roundup&lt;/h3&gt;
+&lt;p&gt;Eleven of 17 roundup citations matched their sources. Only 1 of 5 deep-dive citations matched. The deep-dive sources were all local election coverage, several of them &quot;Meet the Candidates&quot; profiles, so the failure is concentrated in the segment with the most specific claims.&lt;/p&gt;
+&lt;p&gt;The roundup pool was far larger than the airtime. Sixty-six stories were cut by the airtime budget (NEWS_ROUNDUP_COUNT). That is by design. A cut story can come back on a day when it fits better. The pool had more material than the episode could carry, and the budget decided which stories aired.&lt;/p&gt;
+&lt;h3&gt;Four short TTS takes, three still short after retry&lt;/h3&gt;
+&lt;p&gt;Four TTS takes came back shorter than their word count predicts. Each was retried once. Three of the retries were still short. In those cases the longer of the two takes was kept, so no content was dropped from the episode. The count of still-short retries does not mean that three segments are missing from the audio. The pipeline kept the longer take each time.&lt;/p&gt;
+&lt;h3&gt;The run finished on time, and the review is running inside its own fallback&lt;/h3&gt;
+&lt;p&gt;The primary run started at 1:05 AM Pacific and finished at 1:32 AM Pacific. It completed successfully with zero minutes late. Fallback 1 was created at 2:05 AM Pacific and finished at 2:06 AM Pacific, also successful. This review is running as Fallback 2, created at 3:05 AM Pacific, and has not finished.&lt;/p&gt;
+&lt;p&gt;The primary run needed the full pipeline. The script step took 619 seconds and rendering the audio took 312 seconds. Deploying to GitHub Pages took 326 seconds, longer than the publish step at 109 seconds. The deploy was the second-slowest step after the script.&lt;/p&gt;
+&lt;p&gt;The episode is 22.5 minutes of audio, 20.6 MB. The video is 22.5 minutes and 79.4 MB. The RSS feed now lists 262 episodes. The run used 62,663 Anthropic input tokens across 11 Claude calls, 48 Brave Search calls, and 4 Brave Answers calls.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;5 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.94, 3721 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;22.5 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;20.6 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;11/17 roundup, 1/5 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;262 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic spend&lt;/td&gt;&lt;td&gt;62,663 input tokens, calls ***&#x27;brave-search&#x27;: 48, &#x27;claude&#x27;: 11, &#x27;brave-answers&#x27;: 4***&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] District of 100 Mile House holds final meeting for 2022-2026 council</title>
 <link>https://100milefreepress.net/2026/10/16/district-of-100-mile-house-holds-final-meeting-for-2022-2026-council/</link>
