@@ -63,3 +63,12 @@ No feed met the failure floor — nothing to heal.
 | ✓ Recovered on its own | Two Minute Papers | fetches normally again | 3 failures over 3d (http_500, via feed_http_cache.json) |
 | ✅ Restored | Civil Eats | retired source is reachable again | retired unknown |
 | ✅ Restored | BC Gov News | retired source is reachable again | retired unknown |
+
+
+## 2026-10-17
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| ✓ Recovered on its own | Hacker News | fetches normally again | 17 failures over 17d (http_419, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | EEVblog | fetches normally again | 4 failures over 5d (http_502, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✅ Restored | CleanTechnica | retired source is reachable again | retired unknown |
