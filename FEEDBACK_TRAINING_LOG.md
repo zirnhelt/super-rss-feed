@@ -1,3 +1,104 @@
+## Feedback Training Run — 2026-10-17 16:39 UTC
+
+**Files processed:** 2026-09-18.json, 2026-09-22.json, 2026-09-23.json, 2026-09-24.json, 2026-09-25.json, 2026-09-26.json, 2026-09-27.json, 2026-09-28.json, 2026-09-29.json, 2026-09-30.json, 2026-10-01.json, 2026-10-02.json, 2026-10-03.json, 2026-10-04.json, 2026-10-05.json, 2026-10-06.json, 2026-10-07.json, 2026-10-08.json, 2026-10-09.json, 2026-10-10.json, 2026-10-11.json, 2026-10-12.json, 2026-10-13.json, 2026-10-14.json, 2026-10-15.json, 2026-10-16.json, 2026-10-17.json
+**Ratings:** 5 Exemplars, 180 Good, 156 Interesting, 14 Podcast-only, 321 Bad, 189 reassigned to day(s), 42 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (17), My Cariboo Now (13), The Tyee (10), ScienceAlert (8), ScienceDaily (8)
+**Top disliked sources:** NYT Top Stories (23), Edge (GamesRadar) (18), Mother Jones (17), NYT Business (16), The Atlantic (15)
+**Categories liked:** local (47), news (40), science (23), wellness (21), ai-tech (19), climate (10), homelab (10), homestead (7), design (2), outdoors (1)
+**Categories disliked:** news (218), wellness (28), ai-tech (20), design (13), local (12), climate (8), outdoors (8), homelab (5), scifi (4), science (4), homestead (1)
+
+**Day reassignment summary:**
+- thursday → sunday: 17 articles
+- thursday → tuesday: 10 articles
+- thursday → thursday: 9 articles
+- thursday → saturday: 9 articles
+- thursday → wednesday: 6 articles
+- thursday → friday: 5 articles
+- thursday → monday: 4 articles
+- monday → sunday: 12 articles
+- monday → wednesday: 11 articles
+- monday → tuesday: 10 articles
+- monday → thursday: 8 articles
+- monday → monday: 8 articles
+- monday → saturday: 7 articles
+- monday → friday: 6 articles
+- tuesday → sunday: 19 articles
+- tuesday → tuesday: 13 articles
+- tuesday → saturday: 13 articles
+- tuesday → wednesday: 11 articles
+- tuesday → thursday: 9 articles
+- tuesday → friday: 7 articles
+- tuesday → monday: 5 articles
+- wednesday → sunday: 12 articles
+- wednesday → saturday: 11 articles
+- wednesday → tuesday: 10 articles
+- wednesday → thursday: 7 articles
+- wednesday → wednesday: 6 articles
+- wednesday → friday: 3 articles
+- wednesday → monday: 2 articles
+- friday → sunday: 13 articles
+- friday → saturday: 8 articles
+- friday → tuesday: 7 articles
+- friday → friday: 7 articles
+- friday → thursday: 7 articles
+- friday → wednesday: 4 articles
+- friday → monday: 1 articles
+- saturday → saturday: 9 articles
+- saturday → sunday: 7 articles
+- saturday → thursday: 5 articles
+- saturday → friday: 5 articles
+- saturday → tuesday: 4 articles
+- saturday → wednesday: 1 articles
+- sunday → sunday: 6 articles
+- sunday → wednesday: 4 articles
+- sunday → friday: 3 articles
+- sunday → saturday: 3 articles
+- sunday → thursday: 2 articles
+- sunday → monday: 1 articles
+- sunday → tuesday: 1 articles
+
+**Category retag summary:**
+- news → ai-tech: 15 articles
+- news → science: 7 articles
+- news → scifi: 3 articles
+- news → homestead: 3 articles
+- news → local: 2 articles
+- news → outdoors: 2 articles
+- news → homelab: 2 articles
+- news → climate: 2 articles
+- wellness → news: 1 articles
+- wellness → science: 1 articles
+- local → ai-tech: 1 articles
+- ai-tech → scifi: 1 articles
+- science → wellness: 2 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+- **Prioritize exemplar themes**: Strongly boost Indigenous/First Nations stories, Cariboo and BC/Saskatchewan local civic news (elections, community life, land and dead-wood salvage policy), and Canadian tech-sovereignty or government-accountability angles.
+- **Favor critical or substantive AI/tech**: Score up security vulnerabilities, attacks on AI systems, societal-risk warnings, AI regulation debates, and developer-community stories (e.g., AI-assisted Linux kernel work). Score down launches, hype, funding/valuation news, product comparisons, and speculative fiction.
+- **Science and nature discovery is a core interest**: Boost surprising natural phenomena, astronomy, evolutionary/animal biology, geoscience, and novel-tech science. Score down wellness pseudoscience and symptom-focused health advice.
+- **Environment only when solutions or policy stakes**: Reward conservation, climate policy, and sustainable farming; penalize disaster tolls, smoke/heat reporting, EV market-share stories, and lifestyle framing.
+- **Privacy/security how-tos are valued; shopping is not**: Boost practical guidance for protecting accounts and spotting scams. Penalize deals, product roundups, subscription price tips, and gadget optimization.
+- **Penalize sensational and entertainment news**: Crime, celebrity, tragedy-driven, and gaming/entertainment stories consistently score as bad fits.
+- **Source adjustments**: Raise Eagle Feather News, Williams Lake Tribune, The Narwhal, BC Gov News, New Atlas, APTN, My Cariboo Now. Lower My East Kootenay Now, Lifehacker, Tom's Guide, Neowin, Reactor, Al Jazeera English, Atlas Obscura, NPR Health.
+- **Day-reassignment pattern**: Local and civic items and AI-regulation/labour-policy pieces are often moved from their default day to Sunday, Tuesday, or Wednesday; weight these toward the most frequently reassigned days rather than the default.
+- **Category-retag pattern**: Curator frequently mislabels AI-product and self-driving/AI-tech stories as "news," and science-adjacent space or physics stories as "news" or "scifi"; retag AI/tech and science items accordingly before scoring, and
+
+---
+## Feedback Archive Run — 2026-10-17 16:39 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 7 (2026-07-13.json … 2026-07-19.json)
+**Ratings folded into rollup:** 97 (rollup now holds 681)
+**Topic/framing lessons:** ✅ consolidated to 217 words
+**Raw bytes freed:** 98.0 KB
+**Live files remaining:** 80
+**URL ledger:** 2263 URLs (+135 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-10-10 18:02 UTC
 
 **Files processed:** 2026-09-11.json, 2026-09-12.json, 2026-09-13.json, 2026-09-14.json, 2026-09-15.json, 2026-09-16.json, 2026-09-17.json, 2026-09-18.json, 2026-09-22.json, 2026-09-23.json, 2026-09-24.json, 2026-09-25.json, 2026-09-26.json, 2026-09-27.json, 2026-09-28.json, 2026-09-29.json, 2026-09-30.json, 2026-10-01.json, 2026-10-02.json, 2026-10-03.json, 2026-10-04.json, 2026-10-05.json, 2026-10-06.json, 2026-10-07.json, 2026-10-08.json, 2026-10-09.json, 2026-10-10.json
