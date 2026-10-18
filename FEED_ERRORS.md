@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-17 (Saturday)
+
+#### 🔧 Manual Run (9:09 PM Pacific)
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ **Singularity Hub** failed — `503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/`
+
+
+---
+
+
+
 ## 2026-10-16 (Friday)
 
 #### 🔧 Manual Run (9:11 PM Pacific)
@@ -73,18 +84,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (9:08 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
 - ⚠️ **NRDC** failed — `520 Server Error: <none> for url: https://www.nrdc.org/rss.xml`
-
-
----
-
-
-
-## 2026-10-09 (Friday)
-
-#### 🔧 Manual Run (9:09 PM Pacific)
-- ⚠️ **CleanTechnica** failed — `403 Client Error: Forbidden for url: https://cleantechnica.com/feed/`
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
 
 
 ---
@@ -1454,6 +1453,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
 - ⚠️ EEVblog failed — 502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/
 - ⚠️ Theme scoring: monday is the best-fit theme for 0 of 250 articles — check charter adherence, not supply
+
+
+---
+
+
+
+## Week of 2026-10-09–2026-10-09
+- 3 issues recorded
+- ⚠️ CleanTechnica failed — 403 Client Error: Forbidden for url: https://cleantechnica.com/feed/
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ EEVblog failed — 502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/
 
 
 ---
