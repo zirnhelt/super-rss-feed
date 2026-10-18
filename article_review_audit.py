@@ -556,12 +556,17 @@ def feed_item_counts() -> Dict[str, int]:
 
 
 # ---------------------------------------------------------------------------
-# Section 2b — filler trend from committed alignment reports
+# Section 2b — filler trend, kept in the metrics history
 # ---------------------------------------------------------------------------
 
-def filler_trend() -> List[Dict[str, Any]]:
-    trend = []
-    for path in sorted((BASE_DIR / 'reports').glob('CORPUS_ALIGNMENT_REPORT_*.md')):
+def filler_by_week(reports_dir: Path = BASE_DIR / 'reports') -> Dict[str, Dict[str, int]]:
+    """Filler share per ISO week from the committed alignment reports, latest report wins.
+
+    The reports are pruned after REPORT_KEEP_DAYS, so each week's figure is copied into
+    weekly_metrics.jsonl (`backfill_filler`) and the audit reads it from there.
+    """
+    weeks: Dict[str, Dict[str, int]] = {}
+    for path in sorted(reports_dir.glob('CORPUS_ALIGNMENT_REPORT_*.md')):
         m_date = re.search(r'(\d{4}-\d{2}-\d{2})', path.name)
         try:
             text = path.read_text(encoding='utf-8')
@@ -570,13 +575,19 @@ def filler_trend() -> List[Dict[str, Any]]:
         m_total = re.search(r'Articles analysed \| (\d+)', text)
         m_filler = re.search(r'\| Filler [^|]*\| (\d+) \((\d+)%', text)
         if m_date and m_total and m_filler:
-            trend.append({
-                'date': m_date.group(1),
-                'analysed': int(m_total.group(1)),
+            weeks[_iso_week(date.fromisoformat(m_date.group(1)))] = {
+                'filler_analysed': int(m_total.group(1)),
                 'filler': int(m_filler.group(1)),
                 'filler_pct': int(m_filler.group(2)),
-            })
-    return trend
+            }
+    return weeks
+
+
+def backfill_filler(records: List[Dict[str, Any]], filler: Dict[str, Dict[str, int]]) -> None:
+    """Copy each week's filler figures into its metrics record, in place."""
+    for record in records:
+        if record.get('week') in filler:
+            record.update(filler[record['week']])
 
 
 # ---------------------------------------------------------------------------
@@ -587,7 +598,8 @@ def process_health(runs: List[Dict]) -> Dict[str, Any]:
     calibration_entries = failed_entries = 0
     try:
         log_text = CALIBRATION_LOG_FILE.read_text(encoding='utf-8')
-        calibration_entries = len(re.findall(r'^## \d{4}-\d{2}-\d{2}', log_text, re.MULTILINE))
+        # Entries past 8 weeks are cut to '- **date** …' lines by the calibration agent.
+        calibration_entries = len(re.findall(r'^(?:## |- \*\*)\d{4}-\d{2}-\d{2}', log_text, re.MULTILINE))
         failed_entries = log_text.count('No changes:')
     except Exception:
         pass
@@ -678,7 +690,10 @@ AUC_MIN_CLASS = 10
 REPEAT_ESCALATE_WEEKS = 3
 BEFORE_AFTER_DAYS = 14
 PRICE_TABLE_MAX_AGE_DAYS = 30
-TREND_REPORT_WEEKS = 12
+REPORT_WINDOW_DAYS = 90         # the corpus tables; matches limits.feedback_retention_days
+REPORT_RECENT_WEEKS = 8         # trend tables show this many weeks, then one row per quarter
+REPORT_KEEP_DAYS = 91           # dated .md reports older than 13 weeks are pruned
+REPORT_PREFIXES = ('ARTICLE_REVIEW_AUDIT_', 'CORPUS_ALIGNMENT_REPORT_', 'FEED_REVIEW_')
 
 # The scores a rating snapshots, and the pipeline stage that pays for each
 # (`api_usage` stage names). 'quality' is q_gate outside the news head.
@@ -1138,6 +1153,114 @@ def write_metrics_history(records: List[Dict[str, Any]], path: Path = METRICS_HI
         json.dumps(r, ensure_ascii=False, sort_keys=True) + '\n' for r in records))
 
 
+def _quarter(week: str) -> str:
+    """'2026-W27' → '2026-Q3', by the week's Monday."""
+    year, number = week.split('-W')
+    monday = date.fromisocalendar(int(year), int(number), 1)
+    return f'{monday.year}-Q{(monday.month - 1) // 3 + 1}'
+
+
+def recent_and_quarters(rows: List[Dict[str, Any]], recent: int = REPORT_RECENT_WEEKS,
+                        week_key: str = 'week') -> Tuple[List[Tuple[str, List[Dict]]], List[Dict]]:
+    """Weekly `rows` (oldest first) as (older rows grouped by quarter, the last `recent`).
+
+    A rate needs four weeks to read and a trend eight; anything older is context, so it
+    collapses to one row a quarter instead of growing the report every week.
+    """
+    older, latest = rows[:max(len(rows) - recent, 0)], rows[-recent:]
+    groups: Dict[str, List[Dict]] = {}
+    for row in older:
+        groups.setdefault(_quarter(row[week_key]), []).append(row)
+    return list(groups.items()), latest
+
+
+def _mean(values: List[Optional[float]]) -> Optional[float]:
+    present = [v for v in values if v is not None]
+    return round(sum(present) / len(present), 1) if present else None
+
+
+def _previous_record(history: List[Dict[str, Any]], today: date) -> Optional[Dict[str, Any]]:
+    this_week = _iso_week(today)
+    return next((r for r in reversed(history) if r.get('week') != this_week), None)
+
+
+def closed_findings(findings: List[Dict[str, Any]], history: List[Dict[str, Any]],
+                    today: date) -> List[Dict[str, Any]]:
+    """Findings last week's audit reported that this week's does not.
+
+    Each carries how long it ran and the calibration changes applied while it was open,
+    so the ledger records what cleared it, not just that it went away. A finding that
+    clears after one week sat on a threshold and may come back.
+    """
+    previous = _previous_record(history, today)
+    if not previous:
+        return []
+    open_now = {f['id'] for f in findings}
+    titles = previous.get('finding_titles') or {}
+    earlier = [r for r in history if r.get('week') != _iso_week(today)]
+    changes = _load_json(CHANGE_HISTORY_FILE, {}).get('changes', [])
+    closed = []
+    for finding_id in previous.get('findings') or []:
+        if finding_id in open_now:
+            continue
+        weeks = 0
+        for record in reversed(earlier):
+            if finding_id not in (record.get('findings') or []):
+                break
+            weeks += 1
+        opened = earlier[-weeks]['through']
+        landed = [f"{c['knob']} {c['old_value']} → {c['new_value']}" for c in changes
+                  if not c.get('dry_run') and opened <= str(c.get('run_date', '')) <= today.isoformat()]
+        closed.append({'id': finding_id, 'title': titles.get(finding_id, finding_id),
+                       'opened': earlier[-weeks]['week'], 'weeks': weeks,
+                       'calibration_changes': landed})
+    return closed
+
+
+def prune_reports(history: List[Dict[str, Any]], today: date,
+                  reports_dir: Path = BASE_DIR / 'reports',
+                  keep_days: int = REPORT_KEEP_DAYS) -> List[Path]:
+    """Delete dated .md reports older than `keep_days`; return what went.
+
+    Git history keeps every deleted report. An alignment report stays until its week's
+    filler figure is in the metrics history, since the audit's filler trend reads it from
+    there; one older than the history's first week has nowhere to go. The weekly HTML reports stay: gh-pages deploys with keep_files: false from
+    reports/weekly-report-*.html, so pruning one here would take it off the site.
+    """
+    cutoff = today - timedelta(days=keep_days)
+    has_filler = {r['week'] for r in history if r.get('filler_pct') is not None}
+    first_week = min((r['week'] for r in history), default='')
+    removed = []
+    for prefix in REPORT_PREFIXES:
+        for path in sorted(reports_dir.glob(f'{prefix}*.md')):
+            m_date = re.fullmatch(rf'{prefix}(\d{{4}}-\d{{2}}-\d{{2}})\.md', path.name)
+            if not m_date:
+                continue
+            day = date.fromisoformat(m_date.group(1))
+            if day >= cutoff:
+                continue
+            week = _iso_week(day)
+            if prefix == 'CORPUS_ALIGNMENT_REPORT_' and week >= first_week and week not in has_filler:
+                continue
+            path.unlink()
+            removed.append(path)
+    return removed
+
+
+def section_unchanged(pct: Optional[float], n: int, previous_pct: Optional[float],
+                      today: date) -> bool:
+    """True when a rate sits within its 95% noise band of last week's.
+
+    A collapsed section prints one line instead of its tables. The first audit of each
+    month prints in full regardless, so the detail never goes unread for long.
+    """
+    if today.day <= 7 or pct is None or previous_pct is None or n <= 0:
+        return False
+    p = pct / 100
+    band = 196 * math.sqrt(max(p * (1 - p), 0.0025) / n)
+    return abs(pct - previous_pct) < band
+
+
 # ---------------------------------------------------------------------------
 # Report rendering
 # ---------------------------------------------------------------------------
@@ -1158,7 +1281,8 @@ def build_report(audit: Dict[str, Any]) -> str:
     lines = [
         '# Article Review Audit',
         '',
-        f"_Generated: {audit['generated_at']} — ratings window {window['first']} → {window['last']}_",
+        f"_Generated: {audit['generated_at']} — ratings window {window['first']} → {window['last']} "
+        f"(rolling {window['days']} days; {window['all_time']} rated all time)_",
         '',
         '## Executive Summary',
         '',
@@ -1278,15 +1402,92 @@ def build_report(audit: Dict[str, Any]) -> str:
             [[b, c.get('good', 0), c.get('interesting', 0), c.get('bad', 0)]
              for b, c in audit['bucket_by_rating'].items()]),
         '',
-        '### Filler trend (from corpus alignment reports)',
+        '### Filler trend (from the corpus alignment reports, kept in weekly_metrics.jsonl)',
         '',
-        _md_table(
-            ['Report date', 'Articles analysed', 'Filler', 'Filler %'],
-            [[t['date'], t['analysed'], t['filler'], t['filler_pct']]
-             for t in audit['filler_trend']]) if audit['filler_trend'] else '_No committed alignment reports found._',
+        _filler_table(audit['trend']),
         '',
-        '## 3. Theme-Bucket Routing Accuracy',
+    ]
+    lines += _routing_lines(audit) + _retag_lines(audit)
+    lines += [
+        '## 4. Volume Trend — Is the Feed Lighter?',
         '',
+        '_Average per-run articles fetched and passing the quality gate, by ISO week '
+        '(from FEED_LOG.md). The quality floor was manually dropped 20 → 13 in week 2026-W26._',
+        '',
+        _volume_table(audit['volume_trend']),
+        '',
+        '### Current funnel (calibration stats window)',
+        '',
+        (_md_table(
+            ['Run', 'Fetched', 'New', 'Quality passed', 'Dropped below floor', 'Scrub removed'],
+            [[f['run_id'], f['fetched'], f['new'], f['quality_passed'], f['quality_dropped'], f['scrub_removed']]
+             for f in audit['funnel'].get('runs', [])])
+         if audit['funnel'] else '_No calibration stats available._'),
+        '',
+        '### Current category feed sizes',
+        '',
+        _md_table(['Feed', 'Items'], sorted(audit['feed_counts'].items(), key=lambda kv: -kv[1])),
+        '',
+        '## 5. Process Health',
+        '',
+        _md_table(['Check', 'State'], [
+            ['Calibration log entries / "No changes" entries',
+             f"{audit['process_health']['calibration_log_entries']} / "
+             f"{audit['process_health']['calibration_no_change_entries']}"],
+            ['Calibration stats runs available', audit['process_health']['calibration_stats_runs']],
+            ['Calibration stats range', audit['process_health']['calibration_stats_range']],
+            ['theme_holdover_cache.json present', audit['process_health']['theme_holdover_cache_present']],
+        ]),
+        '',
+    ]
+    lines += (_trend_lines(audit) + _scorecard_lines(audit) + _followthrough_lines(audit)
+              + _closed_lines(audit))
+    return '\n'.join(lines) + '\n'
+
+
+def _quarter_label(quarter: str, rows: List[Dict]) -> str:
+    return f'{quarter} ({len(rows)} wk)'
+
+
+def _volume_table(trend: List[Dict[str, Any]]) -> str:
+    quarters, latest = recent_and_quarters(trend)
+    rows = []
+    for quarter, weeks in quarters:
+        runs = sum(w['runs'] for w in weeks)
+        rows.append([_quarter_label(quarter, weeks), runs,
+                     round(sum(w['avg_fetched'] * w['runs'] for w in weeks) / runs),
+                     round(sum(w['avg_quality'] * w['runs'] for w in weeks) / runs)])
+    rows += [[w['week'], w['runs'], w['avg_fetched'], w['avg_quality']] for w in latest]
+    return _md_table(['Week', 'Runs', 'Avg fetched/run', 'Avg quality/run'], rows)
+
+
+def _filler_table(trend: List[Dict[str, Any]]) -> str:
+    weeks = [w for w in trend if w.get('filler_pct') is not None]
+    if not weeks:
+        return '_No filler figures recorded yet._'
+    quarters, latest = recent_and_quarters(weeks)
+    rows = []
+    for quarter, group in quarters:
+        analysed = sum(w['filler_analysed'] for w in group)
+        filler = sum(w['filler'] for w in group)
+        rows.append([_quarter_label(quarter, group), analysed, filler,
+                     round(100 * filler / analysed) if analysed else 0])
+    rows += [[w['week'], w['filler_analysed'], w['filler'], w['filler_pct']] for w in latest]
+    return _md_table(['Week', 'Articles analysed', 'Filler', 'Filler %'], rows)
+
+
+def _unchanged_line(label: str, pct: float, n: int, previous_week: Optional[str]) -> List[str]:
+    return [f'_{label} {pct}% of {n} — within noise of {previous_week}, so the tables are left out. '
+            'They print in full in the first audit of each month._', '']
+
+
+def _routing_lines(audit: Dict[str, Any]) -> List[str]:
+    routing = audit['theme_routing']
+    lines = ['## 3. Theme-Bucket Routing Accuracy', '']
+    if audit.get('routing_unchanged'):
+        return lines + _unchanged_line('Day corrections:', routing['correction_pct'],
+                                       routing['rated_with_day'], audit.get('previous_week'))
+    return lines + [
         f"Of **{routing['rated_with_day']}** ratings tied to an aired day, you corrected the day on "
         f"**{routing['corrections']}** ({routing['correction_pct']}%). "
         f"Additionally {routing['reassigned_via_approved_days']} articles were approved for other days.",
@@ -1318,8 +1519,16 @@ def build_report(audit: Dict[str, Any]) -> str:
             ['Theme scores missing on the rating', routing['root_cause']['missing_scores']],
         ]),
         '',
-        '## 3b. Category Retag Accuracy',
-        '',
+    ]
+
+
+def _retag_lines(audit: Dict[str, Any]) -> List[str]:
+    category_retag = audit['category_retag']
+    lines = ['## 3b. Category Retag Accuracy', '']
+    if audit.get('retag_unchanged'):
+        return lines + _unchanged_line('Category retags:', category_retag['correction_pct'],
+                                       category_retag['rated_with_category'], audit.get('previous_week'))
+    return lines + [
         (f"Of **{category_retag['rated_with_category']}** ratings carrying a confirmed/retagged category, you retagged "
          f"**{category_retag['corrections']}** ({category_retag['correction_pct']}%) to a different category."
          if category_retag['rated_with_category'] else
@@ -1334,66 +1543,65 @@ def build_report(audit: Dict[str, Any]) -> str:
              for target, count in sorted(targets.items(), key=lambda kv: -kv[1])])
          if category_retag['confusion'] else '_No category retags recorded._'),
         '',
-        '## 4. Volume Trend — Is the Feed Lighter?',
-        '',
-        '_Average per-run articles fetched and passing the quality gate, by ISO week '
-        '(from FEED_LOG.md). The quality floor was manually dropped 20 → 13 in week 2026-W26._',
-        '',
-        _md_table(
-            ['Week', 'Runs', 'Avg fetched/run', 'Avg quality/run'],
-            [[w['week'], w['runs'], w['avg_fetched'], w['avg_quality']] for w in audit['volume_trend']]),
-        '',
-        '### Current funnel (calibration stats window)',
-        '',
-        (_md_table(
-            ['Run', 'Fetched', 'New', 'Quality passed', 'Dropped below floor', 'Scrub removed'],
-            [[f['run_id'], f['fetched'], f['new'], f['quality_passed'], f['quality_dropped'], f['scrub_removed']]
-             for f in audit['funnel'].get('runs', [])])
-         if audit['funnel'] else '_No calibration stats available._'),
-        '',
-        '### Current category feed sizes',
-        '',
-        _md_table(['Feed', 'Items'], sorted(audit['feed_counts'].items(), key=lambda kv: -kv[1])),
-        '',
-        '## 5. Process Health',
-        '',
-        _md_table(['Check', 'State'], [
-            ['Calibration log entries / "No changes" entries',
-             f"{audit['process_health']['calibration_log_entries']} / "
-             f"{audit['process_health']['calibration_no_change_entries']}"],
-            ['Calibration stats runs available', audit['process_health']['calibration_stats_runs']],
-            ['Calibration stats range', audit['process_health']['calibration_stats_range']],
-            ['theme_holdover_cache.json present', audit['process_health']['theme_holdover_cache_present']],
-        ]),
-        '',
-        '**Context:** `calibration_stats_cache.json` was first committed on 2026-07-07, so every weekly '
-        'calibration run before that found no stats and skipped — the log\'s repeated "Claude call or '
-        'response parsing failed" lines were misleading boilerplate, not API failures. The agent\'s '
-        'Claude path has effectively never run.',
-        '',
     ]
-    lines += _trend_lines(audit) + _scorecard_lines(audit) + _followthrough_lines(audit)
-    return '\n'.join(lines) + '\n'
 
 
 def _trend_lines(audit: Dict[str, Any]) -> List[str]:
-    trend = audit['trend'][-TREND_REPORT_WEEKS:]
+    quarters, latest = recent_and_quarters(audit['trend'])
+    rows = []
+    for quarter, weeks in quarters:
+        verdicts = Counter()
+        for w in weeks:
+            verdicts.update(w['verdicts'])
+        rows.append([_quarter_label(quarter, weeks), '', sum(w['rated'] for w in weeks),
+                     verdicts['good'], verdicts['interesting'], verdicts['podcast_only'],
+                     verdicts['bad'], sum(w['notes'] for w in weeks),
+                     _mean([w['shipped_wanted_pct_28d'] for w in weeks]),
+                     _mean([w['gate_miss_pct_28d'] for w in weeks]),
+                     _mean([w['news_share_pct_28d'] for w in weeks])])
+    rows += [[w['week'] + ('*' if w.get('backfilled') else ''), w['through'], w['rated'],
+              w['verdicts'].get('good', 0), w['verdicts'].get('interesting', 0),
+              w['verdicts'].get('podcast_only', 0), w['verdicts'].get('bad', 0), w['notes'],
+              w['shipped_wanted_pct_28d'], w['gate_miss_pct_28d'], w['news_share_pct_28d']]
+             for w in latest]
     return [
         '## 6. Week over Week',
         '',
-        f'_Counts are the 7 days to each date; rates cover {TREND_WINDOW_DAYS} days. Weeks marked * '
-        'were rebuilt from the ratings archive and carry no cost or scorecard data._',
+        f'_Counts are the 7 days to each date; rates cover {TREND_WINDOW_DAYS} days. Weeks older '
+        f'than the last {REPORT_RECENT_WEEKS} fold into one row a quarter (counts summed, rates '
+        'averaged). Weeks marked * were rebuilt from the ratings archive and carry no cost or '
+        'scorecard data._',
         '',
         _md_table(
             ['Week', 'Through', 'Rated', 'good', 'interesting', 'podcast only', 'bad', 'Notes',
              'Shipped wanted % (reweighted)', 'Gate miss %', 'News share of ratings %'],
-            [[w['week'] + ('*' if w.get('backfilled') else ''), w['through'], w['rated'],
-              w['verdicts'].get('good', 0), w['verdicts'].get('interesting', 0),
-              w['verdicts'].get('podcast_only', 0), w['verdicts'].get('bad', 0), w['notes'],
-              w['shipped_wanted_pct_28d'], w['gate_miss_pct_28d'], w['news_share_pct_28d']]
-             for w in trend]),
+            rows),
         '',
     ]
+
+
+def _closed_lines(audit: Dict[str, Any]) -> List[str]:
+    closed = [(record['week'], c) for record in audit['trend'] for c in record.get('closed') or []]
+    lines = [
+        '## 9. Closed Findings',
+        '',
+        '_A Needs Attention finding that stopped firing, with how long it ran and the calibration '
+        'changes applied while it was open. "None logged" means a hand fix or drift: check git log '
+        'for that span. One week open usually means it sat on a threshold._',
+        '',
+    ]
+    if not closed:
+        return lines + ['_None closed yet._', '']
+    recent_weeks = {r['week'] for r in audit['trend'][-REPORT_RECENT_WEEKS:]}
+    older = Counter(_quarter(week) for week, _ in closed if week not in recent_weeks)
+    rows = [[week, c['title'], c['opened'], c['weeks'],
+             '; '.join(c['calibration_changes']) or 'none logged']
+            for week, c in reversed(closed) if week in recent_weeks]
+    lines.append(_md_table(['Closed', 'Finding', 'Opened', 'Weeks open', 'Calibration changes while open'],
+                           rows) if rows else f'_None closed in the last {REPORT_RECENT_WEEKS} weeks._')
+    if older:
+        lines += ['', 'Earlier: ' + ', '.join(f'{q}: {n} closed' for q, n in sorted(older.items())) + '.']
+    return lines + ['']
 
 
 def _scorecard_lines(audit: Dict[str, Any]) -> List[str]:
@@ -1480,13 +1688,24 @@ def load_current_min_score() -> Optional[int]:
         return None
 
 
+def report_slice(ratings: List[Dict], today: date, days: int = REPORT_WINDOW_DAYS) -> List[Dict]:
+    """Ratings from the last `days` days, skips included.
+
+    The corpus tables read this, not all time: an all-time window grows every week, so
+    its numbers stop moving and the report repeats itself.
+    """
+    start = today - timedelta(days=days - 1)
+    return [r for r in ratings if (day := _rated_on(r)) is not None and start <= day <= today]
+
+
 def run_audit(today: Optional[date] = None,
               history_path: Path = METRICS_HISTORY_FILE) -> Dict[str, Any]:
     today = today or datetime.now(timezone.utc).date()
     ratings = load_ratings()
+    recent = report_slice(ratings, today)
     runs = load_calibration_runs()
-    dates = [r.get('rated_at', '')[:10] for r in ratings if r.get('rated_at')]
-    distribution = rating_distribution(ratings)
+    dates = [r.get('rated_at', '')[:10] for r in recent if r.get('rated_at')]
+    distribution = rating_distribution(recent)
     pool = _load_json(POOL_CACHE_FILE, [])
     places = place_supply(ratings, pool if isinstance(pool, list) else [])
     followthrough = calibration_followthrough(ratings)
@@ -1494,6 +1713,8 @@ def run_audit(today: Optional[date] = None,
     findings = blind_spots(ratings, runs, today, distribution, places, followthrough, history)
     scorecard = signal_scorecard(ratings, today)
     costs = stage_costs(runs, today)
+    routing = theme_routing_audit(recent)
+    category_retag = category_retag_audit(recent)
     latest_wins = next((run['theme_argmax']['wins'] for run in reversed(runs)
                         if (run.get('theme_argmax') or {}).get('wins')), {})
     record = {
@@ -1503,21 +1724,36 @@ def run_audit(today: Optional[date] = None,
         'claude_by_stage_7d': costs['by_stage'],
         'theme_wins': latest_wins,
         'findings': [f['id'] for f in findings],
+        'finding_titles': {f['id']: f['title'] for f in findings},
+        'closed': closed_findings(findings, history, today),
+        'routing_correction_pct': routing['correction_pct'],
+        'retag_pct': category_retag['correction_pct'],
     }
+    trend = merge_metrics_history(history, record, ratings)
+    backfill_filler(trend, filler_by_week())
+    previous = _previous_record(history, today) or {}
     return {
         'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
-        'window': {'first': min(dates) if dates else '?', 'last': max(dates) if dates else '?'},
+        'today': today,
+        'window': {'first': min(dates) if dates else '?', 'last': max(dates) if dates else '?',
+                   'days': REPORT_WINDOW_DAYS, 'all_time': len(ratings)},
         'distribution': distribution,
-        'score_by_rating': score_stats_by_rating(ratings),
-        'band_precision': band_precision(ratings),
-        'threshold_sweep': threshold_sweep(ratings),
+        'score_by_rating': score_stats_by_rating(recent),
+        'band_precision': band_precision(recent),
+        'threshold_sweep': threshold_sweep(recent),
         'current_min_score': load_current_min_score(),
-        'content_type_by_rating': content_type_by_rating(ratings),
-        'bucket_by_rating': bucket_by_rating(ratings),
-        'stratified': stratified_estimate(ratings),
-        'filler_trend': filler_trend(),
-        'theme_routing': theme_routing_audit(ratings),
-        'category_retag': category_retag_audit(ratings),
+        'content_type_by_rating': content_type_by_rating(recent),
+        'bucket_by_rating': bucket_by_rating(recent),
+        'stratified': stratified_estimate(recent),
+        'theme_routing': routing,
+        'category_retag': category_retag,
+        'routing_unchanged': section_unchanged(
+            routing['correction_pct'], routing['rated_with_day'],
+            previous.get('routing_correction_pct'), today),
+        'retag_unchanged': section_unchanged(
+            category_retag['correction_pct'], category_retag['rated_with_category'],
+            previous.get('retag_pct'), today),
+        'previous_week': previous.get('week'),
         'volume_trend': parse_feed_log(),
         'funnel': current_funnel(runs),
         'feed_counts': feed_item_counts(),
@@ -1527,7 +1763,7 @@ def run_audit(today: Optional[date] = None,
         'stage_costs': costs,
         'places': places,
         'followthrough': followthrough,
-        'trend': merge_metrics_history(history, record, ratings),
+        'trend': trend,
     }
 
 
@@ -1560,14 +1796,15 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
             'confusion': routing['confusion'],
         },
         'category_retag': audit['category_retag'],
-        'volume_trend_recent': audit['volume_trend'][-8:],
+        'volume_trend_recent': audit['volume_trend'][-REPORT_RECENT_WEEKS:],
         'process_health': audit['process_health'],
         'blind_spots': audit['blind_spots'],
         'scorecard': audit['scorecard'],
         'stage_costs': audit['stage_costs'],
         'places': audit['places'],
         'calibration_followthrough': audit['followthrough'],
-        'trend_recent': audit['trend'][-8:],
+        'trend_recent': audit['trend'][-REPORT_RECENT_WEEKS:],
+        'closed_findings': audit['trend'][-1].get('closed', []) if audit['trend'] else [],
     }
 
 
@@ -1579,6 +1816,9 @@ def main() -> None:
     parser.add_argument('--metrics-history', default=None,
                         help='Write this week into the JSONL metrics history at PATH '
                              '(reports/weekly_metrics.jsonl in CI); read-only without it')
+    parser.add_argument('--prune-reports', action='store_true',
+                        help=f'Delete dated .md reports in reports/ older than {REPORT_KEEP_DAYS} days '
+                             '(needs --metrics-history, which keeps their filler figures)')
     args = parser.parse_args()
 
     history_path = Path(args.metrics_history) if args.metrics_history else METRICS_HISTORY_FILE
@@ -1602,6 +1842,9 @@ def main() -> None:
     if args.metrics_history:
         write_metrics_history(audit['trend'], history_path)
         print(f"✅ Metrics history: {len(audit['trend'])} week(s) in {history_path}")
+        if args.prune_reports:
+            removed = prune_reports(audit['trend'], audit['today'])
+            print(f"🧹 Pruned {len(removed)} report(s) older than {REPORT_KEEP_DAYS} days")
     flagged = [f for f in audit['blind_spots'] if f['escalate']]
     print(f"🔎 {len(audit['blind_spots'])} finding(s), {len(flagged)} repeated "
           f"{REPEAT_ESCALATE_WEEKS}+ weeks")

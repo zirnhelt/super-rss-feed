@@ -401,10 +401,12 @@ jobs:
 
       # --metrics-history adds this week to reports/weekly_metrics.jsonl (committed below
       # with reports/), which is what lets the audit say a finding is weeks old.
+      # --prune-reports then deletes dated .md reports past 13 weeks (git keeps them);
+      # `git add reports/` below stages the deletions.
       - name: Run article review audit
         run: |
           python article_review_audit.py --json-summary article_review_audit_summary.json \
-            --metrics-history reports/weekly_metrics.jsonl
+            --metrics-history reports/weekly_metrics.jsonl --prune-reports
 
       - name: Upload reports as artifacts
         uses: actions/upload-artifact@v4

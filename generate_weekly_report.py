@@ -780,6 +780,15 @@ def build_audit_findings_html(feedback_audit: dict) -> str:
             html += f"  <li><strong>{_esc(f.get('title'))}</strong>{repeat}: {_esc(f.get('detail'))}</li>\n"
         html += "</ul>\n"
 
+    closed = feedback_audit.get("closed_findings") or []
+    if closed:
+        html += "<h4>Closed this week</h4>\n<ul>\n"
+        for c in closed:
+            changes = "; ".join(c.get("calibration_changes") or []) or "no calibration change logged"
+            html += (f"  <li><strong>{_esc(c.get('title'))}</strong>: open {_esc(c.get('weeks'))} "
+                     f"week(s) from {_esc(c.get('opened'))}; {_esc(changes)}</li>\n")
+        html += "</ul>\n"
+
     card = feedback_audit.get("scorecard") or {}
     signals = card.get("signals") or {}
     if signals:

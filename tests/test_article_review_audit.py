@@ -292,3 +292,85 @@ def test_price_table_age_reads_claude_md(tmp_path, monkeypatch):
     assert audit.price_table_age(TODAY) == 39
     monkeypatch.setattr(audit, 'CLAUDE_MD_FILE', tmp_path / 'missing.md')
     assert audit.price_table_age(TODAY) is None
+
+
+def _week(n: int, **fields) -> Dict:
+    return {'week': f'2026-W{n:02d}', **fields}
+
+
+def test_recent_and_quarters_keeps_eight_weeks_and_folds_the_rest_by_quarter():
+    rows = [_week(n) for n in range(20, 43)]
+    quarters, latest = audit.recent_and_quarters(rows)
+    assert [r['week'] for r in latest] == [f'2026-W{n}' for n in range(35, 43)]
+    # W27 opens Monday 2026-06-29, so it is Q2's last week.
+    assert [(q, len(g)) for q, g in quarters] == [('2026-Q2', 8), ('2026-Q3', 7)]
+    assert audit.recent_and_quarters(rows[:3]) == ([], rows[:3])
+
+
+def test_filler_moves_into_the_metrics_history_and_survives_the_report(tmp_path):
+    (tmp_path / 'CORPUS_ALIGNMENT_REPORT_2026-10-03.md').write_text(
+        '| Articles analysed | 400 |\n| Filler (upstream ≥ 40) | 40 (10% of corpus) |\n')
+    (tmp_path / 'CORPUS_ALIGNMENT_REPORT_2026-10-04.md').write_text(
+        '| Articles analysed | 500 |\n| Filler (upstream ≥ 40) | 25 (5% of corpus) |\n')
+    filler = audit.filler_by_week(tmp_path)
+    assert filler == {'2026-W40': {'filler_analysed': 500, 'filler': 25, 'filler_pct': 5}}
+    records = [_week(40), _week(41)]
+    audit.backfill_filler(records, filler)
+    assert records[0]['filler_pct'] == 5 and 'filler_pct' not in records[1]
+    audit.backfill_filler(records, {})
+    assert records[0]['filler_pct'] == 5
+
+
+def test_prune_reports_keeps_recent_html_and_unrecorded_alignment(tmp_path):
+    names = ['ARTICLE_REVIEW_AUDIT_2026-06-01.md', 'FEED_REVIEW_2026-06-01.md',
+             'CORPUS_ALIGNMENT_REPORT_2026-06-01.md', 'CORPUS_ALIGNMENT_REPORT_2026-06-08.md',
+             'ARTICLE_REVIEW_AUDIT_2026-10-03.md', 'weekly-report-2026-W22.html',
+             'weekly_metrics.jsonl']
+    for name in names:
+        (tmp_path / name).write_text('x')
+    (tmp_path / 'CORPUS_ALIGNMENT_REPORT_2026-05-25.md').write_text('x')  # W22: before the history
+    # 2026-06-01 is W23 (recorded); 06-08 is W24, in the history without a filler figure.
+    history = [{'week': '2026-W23', 'filler_pct': 9}, {'week': '2026-W24'}]
+    removed = audit.prune_reports(history, TODAY, tmp_path)
+    assert sorted(p.name for p in removed) == ['ARTICLE_REVIEW_AUDIT_2026-06-01.md',
+                                              'CORPUS_ALIGNMENT_REPORT_2026-05-25.md',
+                                              'CORPUS_ALIGNMENT_REPORT_2026-06-01.md',
+                                              'FEED_REVIEW_2026-06-01.md']
+    assert sorted(p.name for p in tmp_path.iterdir()) == [
+        'ARTICLE_REVIEW_AUDIT_2026-10-03.md', 'CORPUS_ALIGNMENT_REPORT_2026-06-08.md',
+        'weekly-report-2026-W22.html', 'weekly_metrics.jsonl']
+    assert audit.prune_reports(history, TODAY, tmp_path) == []
+
+
+def test_closed_findings_records_span_and_calibration_changes(tmp_path, monkeypatch):
+    import json
+    changes = tmp_path / 'change_history.json'
+    changes.write_text(json.dumps({'changes': [
+        {'run_date': '2026-09-27', 'knob': 'limits.floor', 'old_value': 20, 'new_value': 25},
+        {'run_date': '2026-09-27', 'knob': 'limits.dry', 'old_value': 1, 'new_value': 2, 'dry_run': True},
+        {'run_date': '2026-08-01', 'knob': 'limits.old', 'old_value': 1, 'new_value': 2}]}))
+    monkeypatch.setattr(audit, 'CHANGE_HISTORY_FILE', changes)
+    history = [
+        {'week': '2026-W38', 'through': '2026-09-19', 'findings': []},
+        {'week': '2026-W39', 'through': '2026-09-26', 'findings': ['a', 'b']},
+        {'week': '2026-W40', 'through': '2026-10-03', 'findings': ['a', 'b'],
+         'finding_titles': {'a': 'Gate misses'}},
+        {'week': '2026-W41', 'through': '2026-10-10', 'findings': ['x']},  # this week: ignored
+    ]
+    closed = audit.closed_findings([{'id': 'b'}], history, TODAY)
+    assert closed == [{'id': 'a', 'title': 'Gate misses', 'opened': '2026-W39', 'weeks': 2,
+                       'calibration_changes': ['limits.floor 20 → 25']}]
+    assert audit.closed_findings([], [], TODAY) == []
+
+
+def test_section_unchanged_collapses_only_inside_noise_and_never_in_week_one():
+    mid_month = date(2026, 10, 17)
+    assert audit.section_unchanged(20.0, 1000, 20.8, mid_month)
+    assert not audit.section_unchanged(20.0, 1000, 24.0, mid_month)
+    assert not audit.section_unchanged(20.0, 1000, None, mid_month)
+    assert not audit.section_unchanged(20.0, 1000, 20.0, date(2026, 10, 3))
+
+
+def test_report_slice_is_the_rolling_window_skips_included():
+    ratings = [_on('good', 0), _on('skip', 10), _on('bad', 89), _on('bad', 90)]
+    assert [r['rating'] for r in audit.report_slice(ratings, TODAY)] == ['good', 'skip', 'bad']
