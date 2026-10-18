@@ -420,6 +420,54 @@ vendors from `api_usage.FLAT_COST_PER_CALL`: its own copy said Brave was free fo
 after `api_usage` began charging $0.005 a call, and Claude now shows a figure instead
 of "token-based —".
 
+## The weekly review stops growing (2026-10-18)
+
+By W42 the audit had picked up length without saying more. The volume trend went back
+34 weeks to W09, the filler trend had 21 rows (with duplicate dates), and Week over Week
+gained a row every week. The executive summary, strata, sources and routing tables all
+covered every rating since 06-17, so their numbers barely moved and read the same each
+week. `calibration_memory/notes.md` (43 KB) went into the calibration prompt whole,
+and it was the only place the 10-10 and 10-17 runs could have got "block Rolling
+Stone, Mother Jones, The New Yorker, Cottage Life". All four had been blocked since
+09-24, and none of them appears in the audit summary.
+
+How much history a question needs, given about 130-190 ratings a week across ten strata:
+
+| Question | Runway |
+|---|---|
+| Read a rate | 4 weeks: about 300 ratings, ±5-6 points (`TREND_WINDOW_DAYS`) |
+| Call a change in a rate | 8 weeks, 4 either side: a 10-point move at ~45% needs ~400 a side |
+| Did a calibration change land | 3-4 weeks after it, as a correlation |
+| Structural or seasonal shifts | 13 weeks: outdoors and homestead are seasonal here |
+
+So:
+
+- **The corpus tables read a rolling 90 days** (`REPORT_WINDOW_DAYS`, matching
+  `feedback_retention_days`); the header still gives the all-time count. Block candidates
+  are judged on that window too. A source has to keep failing to stay on the list.
+- **Trend tables show 8 weeks, then one row a quarter** (`recent_and_quarters()`).
+  `weekly_metrics.jsonl` keeps every week. The filler figure moved into it
+  (`backfill_filler()`) because the table used to be read back out of the alignment reports.
+- **Routing and retag collapse to one line** when their rate sits inside its 95% noise
+  band of last week's (`section_unchanged()`). The first audit of each month prints them
+  in full.
+- **Closed Findings** (`closed_findings()`, section 9): a finding that stops firing is
+  recorded in that week's metrics line, with its span and the calibration changes
+  applied while it was open. The question it answers: did acting on a finding clear it?
+- **Dated `.md` reports are pruned at 13 weeks** (`--prune-reports`; git keeps them). An
+  alignment report waits until its filler figure is in the metrics history. The weekly
+  HTML reports stay: gh-pages deploys `reports/weekly-report-*.html` with
+  `keep_files: false`, so pruning one would take it off the site. Links from old weekly
+  HTML to pruned `.md` reports on `blob/main` 404 after that.
+- **`CALIBRATION_LOG.md` keeps 8 weeks of full entries**; older ones become one line
+  each under "Earlier runs" (`compact_calibration_log()`). Rationale stays in
+  `change_history.json`.
+- **`notes.md` keeps its last 6 entries raw.** Older ones fold into "Standing lessons"
+  (`compact_notes()`): one Haiku call, made only when there is something to fold. The
+  lessons are rewritten each time, not appended, and the call is told which sources are
+  already blocked. The calibration prompt now carries the blocked list as well, because
+  the six raw entries still repeat the old recommendation.
+
 ## Haiku 5.5 (2026-10-08)
 
 Every Haiku call moved from Haiku 4.5 to Haiku 5.5, which costs a tenth as much

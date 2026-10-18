@@ -20,6 +20,7 @@ so it never fails the workflow.
 
 import json
 import os
+import re
 import sys
 import traceback
 from collections import defaultdict
@@ -53,6 +54,11 @@ MODEL = api_usage.HAIKU_MODEL
 EFFORT = "high"
 MAX_TOKENS = 8000
 FEEDBACK_AUDIT_MAX_AGE_DAYS = 14
+LOG_KEEP_DAYS = 56            # CALIBRATION_LOG.md keeps 8 weeks of full entries
+NOTES_KEEP_ENTRIES = 6        # notes.md keeps this many dated entries raw
+NOTES_LESSONS_MAX_TOKENS = 1200
+EARLIER_RUNS_HEADER = '## Earlier runs (one line each)'
+LESSONS_HEADER = '## Standing lessons'
 
 
 # ---------------------------------------------------------------------------
@@ -335,12 +341,142 @@ def load_memory_context() -> Dict:
         except Exception:
             notes = ''
 
+    try:
+        blocked = config_loader.get_blocked_sources()
+    except Exception:
+        blocked = []
+
     return {
         'recurring_issues': recurring,
         'change_history': history,
         'benchmarks': benchmarks,
         'notes': notes,
+        'blocked_sources': blocked,
     }
+
+
+def _split_sections(text: str) -> Tuple[str, List[Tuple[str, str]]]:
+    """(text before the first '## ' heading, [(heading line, body up to the next heading)])."""
+    parts = re.split(r'^(## .*)$', text, flags=re.MULTILINE)
+    return parts[0], list(zip(parts[1::2], parts[2::2]))
+
+
+def _dated(heading: str) -> Optional[Tuple[str, str]]:
+    m = re.match(r'## (\d{4}-\d{2}-\d{2})(.*)$', heading)
+    return (m.group(1), m.group(2).strip()) if m else None
+
+
+def _log_line(day: str, suffix: str, body: str) -> str:
+    """One line for an old CALIBRATION_LOG.md entry: what it applied, or why it did not."""
+    label = f'- **{day}**' + (f' {suffix}' if suffix else '')
+    applied = re.search(r'\*\*Changes applied[^\n]*\*\*\n(.*?)(?=\n\*\*|\Z)', body, re.DOTALL)
+    if applied:
+        items = re.findall(r'^- (`[^`]+`: .*?)(?: — .*)?$', applied.group(1), re.MULTILINE)
+        return f'{label} — applied {"; ".join(items)}'
+    failed = re.search(r'^No changes:.*$', body, re.MULTILINE)
+    if failed:
+        return f'{label} — {failed.group(0).strip()}'
+    if 'Audit window:' in body:
+        recs = re.search(r'\*\*Human recommendations\*\*\n(.*?)(?=\n\*\*|\Z)', body, re.DOTALL)
+        n_recs = len(re.findall(r'^- ', recs.group(1), re.MULTILINE)) if recs else 0
+        return f'{label} — no changes' + (f', {n_recs} human recommendations' if n_recs else '')
+    first = ' '.join(body.strip().split('\n\n')[0].split())
+    return f'{label} — {first[:200]}' + ('…' if len(first) > 200 else '')
+
+
+def compact_calibration_log(text: str, today: datetime, keep_days: int = LOG_KEEP_DAYS) -> str:
+    """Cut entries older than `keep_days` to one line each, under EARLIER_RUNS_HEADER.
+
+    Idempotent. The full rationale for every applied change stays in change_history.json,
+    and git keeps the original text.
+    """
+    head, sections = _split_sections(text)
+    cutoff = (today - timedelta(days=keep_days)).strftime('%Y-%m-%d')
+    earlier: List[str] = []
+    kept: List[str] = []
+    folded = False
+    for heading, body in sections:
+        if heading == EARLIER_RUNS_HEADER:
+            earlier += [line for line in body.splitlines() if line.startswith('- ')]
+            continue
+        dated = _dated(heading)
+        if dated and dated[0] < cutoff:
+            earlier.append(_log_line(dated[0], dated[1], body))
+            folded = True
+        else:
+            kept.append(heading + body)
+    if not folded:
+        return text
+    earlier.sort(key=lambda line: line[4:14])
+    return (head.rstrip('\n') + '\n\n' + EARLIER_RUNS_HEADER + '\n\n'
+            '_Older entries cut to one line. Every applied change, with its rationale, is in '
+            '`calibration_memory/change_history.json`._\n\n'
+            + '\n'.join(earlier) + '\n\n' + ''.join(kept))
+
+
+def build_lessons_prompt(previous: str, entries: List[str], blocked: List[str]) -> str:
+    prior = previous.strip() or '(none yet)'
+    return f"""You keep the standing lessons for a weekly calibration agent that tunes a personal RSS
+curator's config knobs. The journal entries below are being folded away; this text is the only
+form in which they survive, and the agent reads it every week.
+
+EXISTING LESSONS (keep what still holds; revise what the entries contradict):
+{prior}
+
+ENTRIES BEING FOLDED (oldest first):
+{chr(10).join(entries)}
+
+ALREADY DONE (drop any lesson or recommendation about these):
+- Blocked sources: {', '.join(blocked) or 'none'}
+
+Write 8-12 plain bullets (- ...), under 350 words: which knob changes moved what, what did not
+work, standing human directives, open questions. Drop week-specific numbers unless one is a
+reference baseline. Merge rather than append: this replaces the existing lessons entirely and
+must not grow over time."""
+
+
+def compact_notes(api_key: str, keep_entries: int = NOTES_KEEP_ENTRIES) -> bool:
+    """Fold notes.md entries older than the last `keep_entries` into LESSONS_HEADER.
+
+    One Haiku call, only when there is something to fold. Never raises: on any failure
+    the notes stay as they were, so the run loses nothing. Returns True when it folded.
+    """
+    if not NOTES_FILE.exists():
+        return False
+    head, sections = _split_sections(NOTES_FILE.read_text(encoding='utf-8'))
+    lessons = ''.join(body for heading, body in sections if heading == LESSONS_HEADER)
+    lessons = re.sub(r'^_Folded from .*_$', '', lessons, flags=re.MULTILINE).strip()
+    entries = [heading + body for heading, body in sections if _dated(heading)]
+    if len(entries) <= keep_entries:
+        return False
+    fold, keep = entries[:-keep_entries], entries[-keep_entries:]
+    try:
+        blocked = config_loader.get_blocked_sources()
+    except Exception:
+        blocked = []
+    try:
+        response = anthropic.Anthropic(api_key=api_key).messages.create(
+            model=MODEL,
+            max_tokens=NOTES_LESSONS_MAX_TOKENS,
+            extra_body=api_usage.HAIKU_EXTRA_BODY,
+            messages=[{'role': 'user',
+                       'content': build_lessons_prompt(lessons, [e.strip() for e in fold], blocked)}],
+        )
+        api_usage.record_claude_usage(response.usage, stage='calibration_notes')
+        text = api_usage.response_text(response).strip()
+    except Exception as e:
+        print(f"  ⚠️ Notes compaction failed ({type(e).__name__}: {e}); keeping notes as they are")
+        return False
+    if not text or response.stop_reason == 'max_tokens':
+        print("  ⚠️ Notes compaction returned no usable text; keeping notes as they are")
+        return False
+    through = _dated(fold[-1].split('\n', 1)[0])[0]
+    atomic_write_text(NOTES_FILE, (
+        head.rstrip('\n') + '\n\n' + LESSONS_HEADER + '\n\n'
+        f'_Folded from journal entries through {through}; rewritten each fold, not appended._\n\n'
+        + text + '\n\n' + ''.join(keep)))
+    print(f"  🗜️ Folded {len(fold)} old notes entries into standing lessons")
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -481,6 +617,8 @@ def build_audit_prompt(
         json.dumps(memory.get('benchmarks', {}), indent=2),
         "\n\n## Memory: free-text notes\n",
         memory.get('notes', '') or '(empty)',
+        "\n\n## Already blocked sources (never recommend blocking these)\n",
+        ', '.join(memory.get('blocked_sources') or []) or '(none)',
         "\n\nReview the above and produce your JSON response per the schema in the system prompt.",
     ]
     return system_prompt, "\n".join(user_parts)
@@ -909,7 +1047,7 @@ def write_changelog(
     section = "\n".join(lines) + "\n"
 
     existing = CALIBRATION_LOG_FILE.read_text(encoding='utf-8') if CALIBRATION_LOG_FILE.exists() else "# Calibration Log\n"
-    atomic_write_text(CALIBRATION_LOG_FILE, existing + section)
+    atomic_write_text(CALIBRATION_LOG_FILE, compact_calibration_log(existing + section, now))
 
     # Persist noise-to-signal benchmark snapshot (one entry per run date, rolling 52
     # weeks). Runs regardless of whether the Claude analysis succeeded — it only
@@ -1005,6 +1143,7 @@ def _run() -> None:
         write_changelog(None, [], [], [], audit_data, dry_run, reason='no_stats')
         return
 
+    compact_notes(api_key)
     memory = load_memory_context()
     current_config = {
         'limits': config_loader.load_limits_config(),
