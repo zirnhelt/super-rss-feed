@@ -1,7 +1,8 @@
 name: Hot Refresh
 
-# The nightly fetches at 04:00 UTC (9 PM Pacific), so evening news waited a day:
+# The nightly fetched at 04:00 UTC (9 PM Pacific), so evening news waited a day:
 # the 2026-10-17 municipal election results were out by 9 PM and missed the run.
+# The nightly now starts at 06:00 UTC (11 PM); news after that still waits.
 # Every two hours this splices clearly newsworthy new articles into the hot
 # categories (system.json → hot_refresh) using the quality gate alone. It commits
 # nothing to main and writes no cache, so the next nightly still sees every
@@ -11,8 +12,8 @@ on:
   schedule:
     # GitHub cron, not the Cloudflare Worker: its five Cron Triggers are spent on
     # the nightly ladders, and a refresh that lands late costs nothing. :41 keeps
-    # clear of the 04:00 / 07:00 / 10:00 rungs; 04:41 is the one that catches the
-    # evening's news.
+    # clear of the 06:00 / 07:00 / 10:00 rungs; 04:41 lands the evening's news
+    # before the nightly, and 06:41 / 08:41 pick up what breaks after 11 PM.
     - cron: '41 */2 * * *'
   workflow_dispatch:
 

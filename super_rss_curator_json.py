@@ -6892,7 +6892,7 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     # Load already-reviewed URLs so we don't surface the same article twice.
     reviewed_urls = load_reviewed_urls()
 
-    # The batch is named for the UTC date of the run: the 04:00, 07:00 and 10:00 UTC runs
+    # The batch is named for the UTC date of the run: the 06:00, 07:00 and 10:00 UTC runs
     # all build the same morning's batch, where a Pacific date would split them at midnight.
     batch = datetime.now(timezone.utc).strftime('%Y-%m-%d')
     try:
@@ -7403,7 +7403,7 @@ def _write_spliced_feed(cat_key: str, items: List[Dict], new: List[Article], out
 def refresh_editorial_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output') -> List[str]:
     """Splice new items from editorial-exempt sources into the feeds already carrying them.
 
-    The nightly run is at 04:00 UTC and the podcast publishes its episode review
+    The nightly run is at 06:00 UTC and the podcast publishes its episode review
     at about 10:05 UTC, so the review reached feed-local a day late. The podcast's
     review job dispatches this pass once the review is live. It makes no API call,
     writes no cache and makes no category decision: a source's new items go only
@@ -7475,8 +7475,9 @@ def _hot_admits(article: Article, min_score: int, gate_floor: int) -> bool:
 def refresh_hot_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output') -> List[str]:
     """Between nightlies, splice clearly newsworthy new articles into the hot categories.
 
-    The nightly fetches at 04:00 UTC (9 PM Pacific), so a story that breaks in the
-    evening (2026-10-17's municipal election results) waited a whole day. This pass
+    The nightly fetched at 04:00 UTC (9 PM Pacific), so a story that breaks in the
+    evening (2026-10-17's municipal election results) waited a whole day. It now
+    starts at 06:00 UTC (11 PM); later news still waits. This pass
     runs every couple of hours on the same feeds and reuses the nightly's own
     stages, but only on the delta and only the cheap ones:
 
