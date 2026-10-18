@@ -182,7 +182,7 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 
 ## `generate-feed.yml` — nightly pipeline
 
-- The 04:00 UTC run and its 07:00 UTC backup arrive as `workflow_dispatch` from a **Cloudflare Worker** in the sibling repo (`curated-podcast-generator/cloudflare/scheduler/`) with a `run_slot` input. The podcast reads the pool at 08:05 UTC.
+- The 06:00 UTC run (11 PM Pacific, so the evening's news makes it) and its 07:00 UTC backup arrive as `workflow_dispatch` from a **Cloudflare Worker** in the sibling repo (`curated-podcast-generator/cloudflare/scheduler/`) with a `run_slot` input. The podcast reads the pool at 08:05 UTC.
 - **One GitHub cron remains, `0 10 * * *`**, as the backstop for the Worker being down. Don't remove it; don't add the ladder ticks back.
 - **Gate on `inputs.run_slot`, never `github.event.schedule`.** A source channel switched off by a missed gate reads exactly like a quiet week — the `USE_SEARCH_APIS` bug.
 - Steps: download feeds and caches from gh-pages → bootstrap thin feeds → run the curator → log to `FEED_LOG.md` → copy `review.html` unchanged → commit caches → deploy `output/` and verify the gh-pages tip byte-matches.

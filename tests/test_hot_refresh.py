@@ -1,9 +1,9 @@
 """refresh_hot_feeds(): between nightlies, splice clear winners into the hot categories.
 
-The nightly fetches at 04:00 UTC (9 PM Pacific), so the 2026-10-17 municipal
-election results, out by 9 PM, waited a day. The refresh judges only the delta
-since the nightly, with the quality gate alone, and commits nothing: the next
-nightly supersedes whatever it placed.
+The nightly fetched at 04:00 UTC (9 PM Pacific), so the 2026-10-17 municipal
+election results, out by 9 PM, waited a day; it now starts at 06:00 UTC. The
+refresh judges only the delta since the nightly, with the quality gate alone, and
+commits nothing: the next nightly supersedes whatever it placed.
 """
 import json
 import sys

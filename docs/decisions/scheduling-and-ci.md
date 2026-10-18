@@ -4,13 +4,19 @@
 
 # `generate-feed.yml` — Daily pipeline
 
-**Schedule:** the 04:00 UTC run (8 PM Pacific the previous day) and its 07:00 UTC
+**Schedule:** the 06:00 UTC run (11 PM Pacific the previous day) and its 07:00 UTC
 backup rung both arrive as `workflow_dispatch` from a **Cloudflare Worker**, which
 lives in the sibling repo at `curated-podcast-generator/cloudflare/scheduler/` and
 sends a `run_slot` input. GitHub's cron is best-effort — it delays scheduled
 workflows under load and drops the tick outright once the delay passes the next
 window — and this feed has a hard downstream deadline: the podcast reads the
 scored pool at 08:05 UTC.
+
+The first rung was 04:00 UTC (9 PM) until 2026-10-18, when it moved to 06:00 because
+evening news missed the run (the 2026-10-17 municipal election results; see Hot
+refresh below). A run takes about ten minutes, so the 07:00 backup still has an hour
+of slack behind it and finishes well before 08:05. B.C. is on permanent UTC-7, so
+06:00 is 11 PM all year.
 
 **One GitHub cron remains**, `0 10 * * *`, purely as the backstop for the *Worker*
 being down, timed to pair with the podcast's own GitHub backstop at 11:05 UTC. On
@@ -92,7 +98,7 @@ file alone cannot reach CI silently.
 
 ## Hot refresh between nightlies (2026-10-18)
 
-The nightly fetches at 04:00 UTC, 9 PM Pacific. On 2026-10-17 the B.C. municipal
+The nightly fetched at 04:00 UTC, 9 PM Pacific. On 2026-10-17 the B.C. municipal
 election results were mostly out by 9 PM and none made the run, so the feed carried
 them a day late. Rerunning the nightly every couple of hours would multiply the
 spend and fight the podcast caches; `refresh-hot.yml` instead runs

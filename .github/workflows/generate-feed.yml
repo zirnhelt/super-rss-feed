@@ -2,7 +2,7 @@ name: Generate Super RSS Feed
 
 on:
   schedule:
-    # The 04:00 and 07:00 UTC ticks now arrive as workflow_dispatch from the
+    # The 06:00 and 07:00 UTC ticks now arrive as workflow_dispatch from the
     # Cloudflare Worker in curated-podcast-generator's cloudflare/scheduler —
     # GitHub's cron is best-effort and this feed has a hard downstream deadline:
     # the podcast reads the scored pool at 08:05 UTC.
@@ -36,7 +36,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Exactly one trigger a day may run unconditionally — here the 04:00 primary
+  # Exactly one trigger a day may run unconditionally — here the 06:00 primary
   # (run_slot=1), plus any manual run. Every later one must not double the daily
   # API spend, so it asks whether anything has already covered today and stands
   # down if so: the 07:00 backup rung (run_slot=2) and the 10:00 UTC GitHub
