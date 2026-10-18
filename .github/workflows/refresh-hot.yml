@@ -1,0 +1,113 @@
+name: Hot Refresh
+
+# The nightly fetches at 04:00 UTC (9 PM Pacific), so evening news waited a day:
+# the 2026-10-17 municipal election results were out by 9 PM and missed the run.
+# Every two hours this splices clearly newsworthy new articles into the hot
+# categories (system.json → hot_refresh) using the quality gate alone. It commits
+# nothing to main and writes no cache, so the next nightly still sees every
+# article as new and judges it with the full pipeline: see refresh_hot_feeds().
+# A run that admits nothing deploys nothing.
+on:
+  schedule:
+    # GitHub cron, not the Cloudflare Worker: its five Cron Triggers are spent on
+    # the nightly ladders, and a refresh that lands late costs nothing. :41 keeps
+    # clear of the 04:00 / 07:00 / 10:00 rungs; 04:41 is the one that catches the
+    # evening's news.
+    - cron: '41 */2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read   # preflight lists generate-feed's runs
+
+jobs:
+  # Outside the generate-feed concurrency group on purpose. GitHub keeps one
+  # pending run per group and cancels the older one, so a refresh that queued
+  # while a nightly was waiting its turn would cancel the nightly. Standing down
+  # whenever the nightly is queued or running keeps the refresh from ever being
+  # that newer run.
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: Stand down while the nightly is queued or running
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          busy=$(curl -sS \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/actions/workflows/generate-feed.yml/runs?per_page=10" \
+            | jq '[.workflow_runs[] | select(.status != "completed")] | length' 2>/dev/null || echo '')
+          # Fails open: a skipped refresh costs a two-hour delay, nothing more,
+          # but an unreadable answer is no reason to skip one either.
+          if [ "${busy:-0}" != "0" ] && [ -n "$busy" ]; then
+            echo "generate-feed has $busy run(s) queued or running — standing down."
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  refresh:
+    needs: preflight
+    if: needs.preflight.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    # Same group as generate-feed and refresh-editorial: all three rewrite the
+    # feeds on gh-pages from the copy they read, so they must never overlap.
+    concurrency:
+      group: generate-feed
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements-lock.txt
+
+      # The gh-pages tip rather than the Pages CDN, because this rewrites what it
+      # reads. scored_articles_cache.json and the shown caches come from main,
+      # where the nightly commits them: they are how this pass knows what the
+      # nightly has already judged.
+      - name: Read the published feeds from gh-pages
+        run: |
+          set -euo pipefail
+          git fetch --quiet --depth=1 origin gh-pages
+          for f in $(git ls-tree --name-only FETCH_HEAD \
+                     | grep -E '^(feed-[a-z-]+|podcast_shown_cache|apple_news_cache)\.json$'); do
+            git show "FETCH_HEAD:$f" > "$f"
+          done
+
+      - name: Splice in new hot articles
+        id: splice
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -euo pipefail
+          python super_rss_curator_json.py --refresh-hot 2>&1 | tee /tmp/refresh.txt
+          if ls output/feed-*.json >/dev/null 2>&1; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          {
+            echo "### Hot refresh"
+            grep -E '^(🔥|  ➕)' /tmp/refresh.txt || echo "Nothing new."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # keep_files: true — only the feeds that changed are in output/.
+      - name: Deploy changed feeds
+        if: steps.splice.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          keep_files: true
+          commit_message: 'Hot refresh'

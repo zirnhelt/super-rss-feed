@@ -979,6 +979,7 @@ class Article:
         # Canada (GATE_WORLD_RUBRIC). Feeds the news world lane; None = unjudged.
         self.gate_world: Optional[bool] = None
         self.world_lane = False  # True when selected by the world lane, not by score
+        self.hot_refresh = False  # True when placed by refresh_hot_feeds(), not a nightly
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -1188,14 +1189,18 @@ def item_source_link(item: Dict) -> str:
     return item.get('external_url') or item.get('url', '')
 
 
-def _article_from_feed_item(item: Dict):
+def _article_from_feed_item(item: Dict, keep_hot_mark: bool = False):
     """Rebuild an article-like object from an item of a feed this pipeline wrote.
 
     Retained items go back through generate_json_feed() beside the run's new
     articles, which needs only these attributes; the lead image and badge are
     stripped so they are not stacked twice.
+
+    ``keep_hot_mark`` carries an item's ``_hot_refresh`` mark through a rewrite.
+    Only the hot refresh keeps it: once a nightly has run, the item is its call.
     """
     return type('Article', (), {
+        'hot_refresh': keep_hot_mark and bool(item.get('_hot_refresh')),
         'link': item_source_link(item),
         'title': re.sub(r'^(?:🔓\s*)+', '', item['title']),
         'description': _strip_generated_prefix(item['content_html']),
@@ -4466,6 +4471,9 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         if category == 'local':
             item["_local"] = True
 
+        if getattr(article, 'hot_refresh', False):
+            item["_hot_refresh"] = True
+
         if _us_scope:
             item["_us_policy"] = True
             item["_us_policy_scope"] = _us_scope
@@ -6065,6 +6073,61 @@ def generate_opml():
     print("✅ Generated OPML file: curated-feeds.opml")
 
 
+def _feed_item_terms(item: Dict) -> frozenset:
+    """Title term set of a written feed item, without the 🔓 and [Source] prefixes."""
+    raw_title = re.sub(r'^(?:🔓\s*)+', '', item.get('title', ''))
+    return _term_set(re.sub(r'^\[.*?\]\s*', '', raw_title).lower())
+
+
+def _overlaps_story(terms: frozenset, others: List[frozenset]) -> bool:
+    """Whether ``terms`` tells the same story as any of ``others`` (feed-merge thresholds)."""
+    min_terms = LIMITS.get('feed_merge_min_terms', 2)
+    threshold = LIMITS.get('feed_merge_overlap_threshold', 0.50)
+    if len(terms) < min_terms:
+        return False
+    return any(
+        len(other) >= min_terms
+        and _story_overlap(terms, other) >= threshold
+        and len(terms & other) >= min_terms
+        for other in others
+    )
+
+
+def _retained_is_fresh(item: Dict, new_urls: Set[str], new_term_sets: List[frozenset]) -> bool:
+    """Whether a retained feed item survives beside this run's new articles.
+
+    It does not when a new article has its URL, or tells the same story under
+    the feed-merge thresholds — that keeps one story from accumulating across
+    runs within the retention window.
+    """
+    item_url = item_source_link(item)
+    if item_url in new_urls:
+        return False
+    if _story_dedup_exempt((item.get('authors') or [{}])[0].get('name', ''), item.get('title', '')):
+        return True
+    if '/weekly-report-' in item_url:
+        # Weekly "State of the Feed" meta-article. Its title is short and
+        # generic ("State of the Feed — Week of <Month> <year>"), so the
+        # containment-similarity check false-positives against any ordinary
+        # headline sharing two of those terms (e.g. a month/year date). It isn't
+        # a news story that can duplicate one, so it's exempt from story-overlap
+        # dedup entirely.
+        return True
+    return not _overlaps_story(_feed_item_terms(item), new_term_sets)
+
+
+def _article_from_scrape(local_entry: Dict) -> 'Article':
+    """Build a `local` Article from one scrape_local_news() entry."""
+    article = Article(_AttrDict(local_entry), local_entry['source'], local_entry['base_url'])
+    article.description = local_entry['description']  # kept even when it reads as a tagline
+    article.summary = local_entry.get('summary', '') or _clean_text(local_entry['description'], max_chars=300)
+    article.excerpt = local_entry.get('excerpt', '') or _clean_text(local_entry['description'], max_chars=600)
+    article.image = local_entry.get('image')
+    article.score = LIMITS['local_priority_score']
+    article.category = 'local'
+    return article
+
+
 def main():
     api_key = os.getenv('ANTHROPIC_API_KEY')
     if not api_key:
@@ -6104,21 +6167,7 @@ def main():
 
     all_articles = apply_prescore_filter(all_articles)
 
-    for local_entry in scrape_local_news():
-        class ScrapedEntry:
-            def get(self, key, default=''):
-                return local_entry.get(key, default)
-
-        article = Article(ScrapedEntry(), local_entry['source'], local_entry['base_url'])
-        article.title = local_entry['title']
-        article.link = local_entry['link']
-        article.description = local_entry['description']
-        article.summary = local_entry.get('summary', '') or _clean_text(local_entry['description'], max_chars=300)
-        article.excerpt = local_entry.get('excerpt', '') or _clean_text(local_entry['description'], max_chars=600)
-        article.image = local_entry.get('image')
-        article.score = LIMITS['local_priority_score']
-        article.category = 'local'
-        all_articles.append(article)
+    all_articles.extend(_article_from_scrape(entry) for entry in scrape_local_news())
 
     topic_articles = fetch_topic_news(cutoff_date)
     all_articles.extend(topic_articles)
@@ -6509,6 +6558,30 @@ def main():
 
     final_feed_sizes: Dict[str, int] = {}
 
+    new_by_cat: Dict[str, List[Article]] = {}
+    for cat_key in CATEGORIES.keys():
+        diverse_new = apply_diversity_limits(categorized[cat_key], cat_key)
+        diverse_new = dedup_by_story_group(diverse_new)
+        diverse_new = dedup_by_term_cluster(
+            diverse_new,
+            overlap_threshold=LIMITS.get('story_cluster_overlap_threshold', 0.60),
+            max_per_cluster=LIMITS.get('max_per_story_cluster', 2),
+        )
+
+        cat_cap = LIMITS.get('max_new_per_category', {}).get(cat_key)
+        if cat_cap and len(diverse_new) > cat_cap:
+            print(f"🔢 Category cap ({cat_key}): {len(diverse_new)} → {cat_cap} articles")
+            diverse_new = diverse_new[:cat_cap]
+        new_by_cat[cat_key] = diverse_new
+
+    # A hot-refresh item was placed between nightlies on the gate score and a
+    # keyword category. Tonight's pick of the same article or story in *any*
+    # category supersedes it, so it cannot sit in news while the nightly files
+    # the same story under local.
+    all_new = [a for arts in new_by_cat.values() for a in arts]
+    all_new_urls = {a.link for a in all_new}
+    all_new_term_sets = [a.title_terms for a in all_new if not _story_dedup_exempt(a.source, a.title)]
+
     evicted_blocked = 0
     for cat_key in CATEGORIES.keys():
         feed_file = f"feed-{cat_key}.json"
@@ -6531,54 +6604,16 @@ def main():
             print(f"🚫 {cat_key}: dropped {evicted_blocked} retained item(s) from blocked sources")
             evicted_blocked = 0
 
-        new_items = categorized[cat_key]
-        diverse_new = apply_diversity_limits(new_items, cat_key)
-        diverse_new = dedup_by_story_group(diverse_new)
-        diverse_new = dedup_by_term_cluster(
-            diverse_new,
-            overlap_threshold=LIMITS.get('story_cluster_overlap_threshold', 0.60),
-            max_per_cluster=LIMITS.get('max_per_story_cluster', 2),
-        )
-
-        cat_cap = LIMITS.get('max_new_per_category', {}).get(cat_key)
-        if cat_cap and len(diverse_new) > cat_cap:
-            print(f"🔢 Category cap ({cat_key}): {len(diverse_new)} → {cat_cap} articles")
-            diverse_new = diverse_new[:cat_cap]
-
         # Filter retained articles: drop any whose URL or story terms overlap with a new article.
         # Prevents the same story from accumulating across runs within the 7-day window.
-        merge_overlap = LIMITS.get('feed_merge_overlap_threshold', 0.50)
-        merge_min_terms = LIMITS.get('feed_merge_min_terms', 2)
+        diverse_new = new_by_cat[cat_key]
         new_urls = {a.link for a in diverse_new}
         new_term_sets = [a.title_terms for a in diverse_new if not _story_dedup_exempt(a.source, a.title)]
-
-        def _retained_is_fresh(item: dict) -> bool:
-            item_url = item_source_link(item)
-            if item_url in new_urls:
-                return False
-            if _story_dedup_exempt((item.get('authors') or [{}])[0].get('name', ''),
-                                   item.get('title', '')):
-                return True
-            if '/weekly-report-' in item_url:
-                # Weekly "State of the Feed" meta-article. Its title is short and
-                # generic ("State of the Feed — Week of <Month> <year>"), so the
-                # containment-similarity check below false-positives against any
-                # ordinary headline sharing two of those terms (e.g. a month/year
-                # date). It isn't a news story that can duplicate one, so it's
-                # exempt from story-overlap dedup entirely.
-                return True
-            _raw_title = re.sub(r'^(?:🔓\s*)+', '', item.get('title', ''))
-            r_terms = _term_set(re.sub(r'^\[.*?\]\s*', '', _raw_title).lower())
-            if len(r_terms) < merge_min_terms:
-                return True
-            for nt in new_term_sets:
-                if len(nt) >= merge_min_terms:
-                    ov = _story_overlap(r_terms, nt)
-                    if ov >= merge_overlap and len(r_terms & nt) >= merge_min_terms:
-                        return False
-            return True
-
-        fresh_existing = [item for item in existing_articles if _retained_is_fresh(item)]
+        fresh_existing = [
+            item for item in existing_articles
+            if (_retained_is_fresh(item, all_new_urls, all_new_term_sets) if item.get('_hot_refresh')
+                else _retained_is_fresh(item, new_urls, new_term_sets))
+        ]
         if len(fresh_existing) < len(existing_articles):
             print(f"🗂️  Feed merge dedup ({cat_key}): {len(existing_articles)} → {len(fresh_existing)} retained articles")
 
@@ -7325,6 +7360,46 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     print(f"\n🎉 Bootstrap complete: {total_written} articles written across {len(CATEGORIES)} feeds")
 
 
+def _fetch_feed_plain(feed: Dict, cutoff: datetime) -> List[Article]:
+    """One unconditional GET of a feed, parsed and filtered; [] on any failure.
+
+    Not fetch_feed_articles(): the conditional-GET state, the failure counts and
+    the paid fallbacks belong to the nightly, which must still see these items
+    as new and must not have its backoff ladder moved by a between-runs pass.
+    """
+    try:
+        response = requests.get(feed['url'], timeout=10,
+                                headers={'User-Agent': _BROWSER_UA, 'Accept': _FEED_ACCEPT})
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"  ⚠️ {feed['title']}: {e}")
+        return []
+    return _articles_from_feed_bytes(response.content, feed, cutoff, feed['url'])
+
+
+def _load_feed_items(cat_key: str) -> Optional[List[Dict]]:
+    """Items of the published ``feed-<cat>.json`` in the working directory, or None if absent."""
+    feed_file = f"feed-{cat_key}.json"
+    if not os.path.exists(feed_file):
+        return None
+    with open(feed_file, 'r', encoding='utf-8') as f:
+        return json.load(f).get('items', [])
+
+
+def _write_spliced_feed(cat_key: str, items: List[Dict], new: List[Article], output_dir: str) -> List[str]:
+    """Write ``new`` on top of a feed's existing items into ``output_dir``; return the paths written."""
+    all_items = new + [_article_from_feed_item(item, keep_hot_mark=True) for item in items]
+    all_items.sort(key=lambda a: a.pub_date, reverse=True)
+    out_path = os.path.join(output_dir, f"feed-{cat_key}.json")
+    os.makedirs(output_dir, exist_ok=True)
+    generate_json_feed(all_items, cat_key, out_path)
+    written = [out_path]
+    if FEEDS_CONFIG['feeds'][cat_key].get('rss'):
+        written.append(f"{os.path.splitext(out_path)[0]}.xml")
+    print(f"  ➕ {cat_key}: {', '.join(a.title for a in new)}")
+    return written
+
+
 def refresh_editorial_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output') -> List[str]:
     """Splice new items from editorial-exempt sources into the feeds already carrying them.
 
@@ -7346,40 +7421,172 @@ def refresh_editorial_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'ou
     cutoff = datetime.now(timezone.utc) - timedelta(hours=SYSTEM['lookback_hours'])
     fresh: List[Article] = []
     for feed in sources:
-        # A plain GET, not fetch_feed_articles(): the conditional-GET state and the
-        # paid fallbacks belong to the nightly, which must still see this as new.
-        try:
-            response = requests.get(feed['url'], timeout=10,
-                                    headers={'User-Agent': _BROWSER_UA, 'Accept': _FEED_ACCEPT})
-            response.raise_for_status()
-        except requests.RequestException as e:
-            print(f"  ⚠️ {feed['title']}: {e}")
-            continue
-        fresh += _articles_from_feed_bytes(response.content, feed, cutoff, feed['url'])
+        fresh += _fetch_feed_plain(feed, cutoff)
 
     written: List[str] = []
     for cat_key in CATEGORIES:
-        feed_file = f"feed-{cat_key}.json"
-        if not fresh or not os.path.exists(feed_file):
+        items = _load_feed_items(cat_key) if fresh else None
+        if items is None:
             continue
-        with open(feed_file, 'r', encoding='utf-8') as f:
-            items = json.load(f).get('items', [])
         carried = {(item.get('authors') or [{}])[0].get('name') for item in items}
         known = {canonicalize_url(item_source_link(item)) for item in items}
         new = [a for a in fresh if a.source in carried and canonicalize_url(a.link) not in known]
-        if not new:
-            continue
-        all_items = new + [_article_from_feed_item(item) for item in items]
-        all_items.sort(key=lambda a: a.pub_date, reverse=True)
-        out_path = os.path.join(output_dir, feed_file)
-        os.makedirs(output_dir, exist_ok=True)
-        generate_json_feed(all_items, cat_key, out_path)
-        written.append(out_path)
-        if FEEDS_CONFIG['feeds'][cat_key].get('rss'):
-            written.append(f"{os.path.splitext(out_path)[0]}.xml")
-        print(f"  ➕ {cat_key}: {', '.join(a.title for a in new)}")
+        if new:
+            written += _write_spliced_feed(cat_key, items, new, output_dir)
 
     print(f"🗞️  Editorial refresh: {len(written)} file(s) written")
+    return written
+
+
+def _hot_provisional_category(article: Article, local_signals: List[str]) -> str:
+    """The category a hot-refresh candidate would land in, without a Claude call.
+
+    Mirrors what the nightly does before deep scoring: a scraped paper is
+    `local`, a `local_signals` place in the title makes it `local`
+    (apply_dimension_adjustments), and anything else takes its keyword category.
+    """
+    if article.category:
+        return article.category
+    if any(signal in article.title.lower() for signal in local_signals):
+        return 'local'
+    return categorize_article(article.title, article.description) or 'news'
+
+
+def _hot_admits(article: Article, min_score: int, gate_floor: int) -> bool:
+    """Whether a gated candidate clears the hot-refresh bar.
+
+    Higher than the nightly's: this pass has no relevance score and no slot
+    competition, so it admits only what the nightly would plainly ship. Cariboo
+    news is admitted on its anchor; anything else needs a major world event (the
+    world lane's flag, at the gate floor) or a top-band score — the gate score
+    after the source-type adjustment, as the nightly ranks gate-scored articles.
+    An unjudged article (gate outage) is held for the nightly: this pass fails
+    closed, because the nightly is its safety net.
+    """
+    if article.gate_reject is not False:
+        return False
+    if article.category == 'local':
+        return True
+    if article.q_gate is None:
+        return False
+    return article.score >= min_score or (bool(article.gate_world) and article.q_gate >= gate_floor)
+
+
+def refresh_hot_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output') -> List[str]:
+    """Between nightlies, splice clearly newsworthy new articles into the hot categories.
+
+    The nightly fetches at 04:00 UTC (9 PM Pacific), so a story that breaks in the
+    evening (2026-10-17's municipal election results) waited a whole day. This pass
+    runs every couple of hours on the same feeds and reuses the nightly's own
+    stages, but only on the delta and only the cheap ones:
+
+    - **Fetch** every OPML feed and the local scrapes with plain GETs. No
+      conditional-GET state, no paid fallbacks, no Kite or topic queries.
+    - **Delta**: an article the nightly already gated is in the scored cache;
+      the shown caches and the published feeds hold everything already placed.
+      What is left was published since the nightly looked.
+    - **Score** with the quality gate only: one Haiku call per 30 articles, no
+      Cohere, no deep scoring. Only candidates headed for a hot category are
+      gated at all.
+    - **Admit** above a higher bar than the nightly's (_hot_admits), capped per
+      category per run.
+
+    It writes no cache and commits nothing: the next nightly sees every article
+    placed here as new, judges it with the full pipeline, and supersedes this
+    copy if it files the story differently (``_hot_refresh`` in the merge).
+
+    Writes each changed feed into ``output_dir`` and returns the paths written.
+    """
+    cfg = SYSTEM.get('hot_refresh', {})
+    if not cfg.get('enabled', False):
+        print("🔥 Hot refresh: disabled (config/system.json)")
+        return []
+    api_key = os.getenv('ANTHROPIC_API_KEY', '')
+    if not api_key:
+        print("🔥 Hot refresh: ANTHROPIC_API_KEY not set — nothing to gate with")
+        return []
+
+    categories: List[str] = [c for c in cfg.get('categories', ['local', 'news']) if c in CATEGORIES]
+    max_new: Dict[str, int] = cfg.get('max_new_per_run', {})
+    min_score = int(cfg.get('min_score', 65))
+    gate_floor = LIMITS.get('quality_gate', {}).get('gate_floor', 25)
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=cfg.get('lookback_hours', 6))
+    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
+
+    global _apple_news_cache
+    _apple_news_cache = load_apple_news_cache()  # retained subscriber links must not change
+
+    # Read before the gate writes to it: an entry here means the nightly judged it.
+    seen_by_nightly = set(_scored_cache.load())
+    shown = _shown_cache.load()
+    shown_terms = [frozenset(v['terms']) for v in _shown_terms_cache.load().values()
+                   if isinstance(v, dict) and v.get('terms')]
+
+    feeds = [f for f in parse_opml(opml_path) if f['title'] not in EDITORIAL_EXEMPT_SOURCES]
+    fetched: List[Article] = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+        for articles in pool.map(lambda f: _fetch_feed_plain(f, cutoff), feeds):
+            fetched.extend(articles)
+    if 'local' in categories:
+        fetched.extend(_article_from_scrape(entry) for entry in scrape_local_news())
+
+    unique = deduplicate_articles(apply_prescore_filter(fetched))
+    fresh = [
+        a for a in unique
+        if a.url_hash not in seen_by_nightly and a.url_hash not in shown
+        and a.source not in EDITORIAL_EXEMPT_SOURCES
+        and not _is_cross_run_story_dupe(a, shown_terms)
+    ]
+
+    # Short-circuit before paying: only articles headed for a hot category are gated.
+    candidates = []
+    for a in fresh:
+        a.category = _hot_provisional_category(a, local_signals)
+        if a.category in categories:
+            candidates.append(a)
+    print(f"\n🔥 Hot refresh: fetched {len(fetched)} → unique {len(unique)} → "
+          f"unseen {len(fresh)} → {len(candidates)} headed for {', '.join(categories)}")
+    if not candidates:
+        return []
+
+    score_quality_gate(candidates, api_key)
+    for a in candidates:
+        if a.category != 'local':
+            a.score = int(a.q_gate or 0)
+            a.gate_scored = True
+    apply_dimension_adjustments(candidates)  # local-signal floor; un-anchored local → news
+
+    written: List[str] = []
+    for cat_key in categories:
+        items = _load_feed_items(cat_key)
+        if items is None:
+            continue  # the nightly has not built this feed yet
+        known = {canonicalize_url(item_source_link(item)) for item in items}
+        item_terms = [_feed_item_terms(item) for item in items]
+        ranked = sorted((a for a in candidates if a.category == cat_key),
+                        key=lambda a: (a.score, a.pub_date), reverse=True)
+        new: List[Article] = []
+        for a in ranked:
+            if len(new) >= int(max_new.get(cat_key, 3)):
+                break
+            if not _hot_admits(a, min_score, gate_floor):
+                continue
+            if canonicalize_url(a.link) in known or _overlaps_story(a.title_terms, item_terms):
+                continue
+            if cat_key == 'local':
+                a.score = max(a.score, LIMITS['local_priority_score'])
+            a.hot_refresh = True
+            new.append(a)
+            item_terms.append(a.title_terms)
+        if not new:
+            continue
+        new = batch_fetch_images(new, max_fetch=len(new), apple_news_cache=_apple_news_cache)
+        written += _write_spliced_feed(cat_key, items, new, output_dir)
+
+    print(f"🔥 Hot refresh: {len(written)} file(s) written")
+    api_summary = api_usage.format_summary()
+    if api_summary:
+        print(api_summary)
     return written
 
 
@@ -7388,5 +7595,7 @@ if __name__ == '__main__':
         bootstrap_feeds_from_podcast_cache(api_key=os.getenv('ANTHROPIC_API_KEY', ''))
     elif '--refresh-editorial' in sys.argv:
         refresh_editorial_feeds()
+    elif '--refresh-hot' in sys.argv:
+        refresh_hot_feeds()
     else:
         main()

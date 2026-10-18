@@ -90,5 +90,39 @@ nothing was upgraded. `requirements.txt` stays the human-edited source;
 `tests/test_requirements_lock.py` fails when a pin there and the lock disagree, so a bump in one
 file alone cannot reach CI silently.
 
+## Hot refresh between nightlies (2026-10-18)
+
+The nightly fetches at 04:00 UTC, 9 PM Pacific. On 2026-10-17 the B.C. municipal
+election results were mostly out by 9 PM and none made the run, so the feed carried
+them a day late. Rerunning the nightly every couple of hours would multiply the
+spend and fight the podcast caches; `refresh-hot.yml` instead runs
+`--refresh-hot` (`refresh_hot_feeds()`) every two hours on GitHub cron:
+
+- **Fetch** every OPML feed and the local scrapes with plain GETs (`_fetch_feed_plain()`,
+  shared with the editorial refresh). No conditional GET, no paid fallbacks, no Kite:
+  the HTTP state and the backoff ladder belong to the nightly.
+- **Delta**: an article whose hash is in `scored_articles_cache.json` (from `main`) was
+  judged by the nightly; the shown caches and the published feeds hold what was placed.
+  Only the remainder published in the last `lookback_hours` (6) is considered.
+- **Score** with the quality gate only, and only candidates headed for a `hot_refresh`
+  category. No Cohere, no deep scoring. A typical two hours is a few dozen articles,
+  one or two Haiku calls: well under a cent a run.
+- **Admit** above a higher bar than the nightly's, which also fills `min_slots`
+  regardless of the floor: a Cariboo-anchored local story, a gate world flag, or a
+  score at `min_score` (65, the gate's top band, ~5% of a night). Capped per category
+  per run. A gate outage admits nothing: the nightly is the safety net, so this pass
+  fails closed where the nightly fails open.
+
+It writes no cache and commits nothing to `main`. The next nightly sees each placed
+article as new and judges it with the full pipeline; the item's `_hot_refresh` mark
+makes the merge drop it when the nightly picks the same URL or story in any category,
+not only its own, since the refresh's category is a keyword guess. A nightly rewrite
+clears the mark. The podcast pool is untouched: a story placed overnight reaches the
+show through the next nightly.
+
+It stands down while `generate-feed` is queued or running. GitHub keeps one pending
+run per concurrency group and cancels the older, so a refresh that queued behind a
+waiting nightly would cancel it.
+
 **Required secrets:** `ANTHROPIC_API_KEY`
 **Optional secrets:** `COHERE_API_KEY`, `BRAVE_API_KEY`, `KAGI_API_KEY`

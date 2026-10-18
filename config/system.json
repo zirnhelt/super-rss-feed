@@ -23,6 +23,14 @@
     "enabled": false,
     "_note": "Off since 2026-09-23; kept off after the trial, reviewed 2026-10-11. The 45 queries in topic_queries.json cost ~47 Brave calls a night on a Search key the podcast shares, and on 2026-09-23 had supplied 1 of 467 category-feed items and 15 of 569 podcast-feed items. Across the trial, weekly noise-to-signal held at 2.28-2.39 and Brave fell to ~10 calls a week. Set true to restore. Feed-recovery searches for failing feeds are unaffected."
   },
+  "hot_refresh": {
+    "enabled": true,
+    "categories": ["local", "news"],
+    "lookback_hours": 6,
+    "min_score": 65,
+    "max_new_per_run": {"local": 5, "news": 3},
+    "_note": "refresh-hot.yml, every 2 h between nightlies: plain GETs, quality gate only, no cache commits. min_score sits in the gate's top band (60-79 held ~5% of a night's articles in October 2026). Off: set enabled false."
+  },
   "kagi_news": {
     "enabled": true,
     "base_url": "https://kite.kagi.com",

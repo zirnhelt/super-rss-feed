@@ -174,6 +174,17 @@ def validate_config() -> Dict[str, List[str]]:
                        for k in ('source', 'base_url', 'news_url')):
                 errors.setdefault('system.json', []).append(
                     f"local_scrapes[{i}] needs source, base_url and news_url strings")
+        hot = system.get('hot_refresh', {})
+        if not (isinstance(hot.get('categories', []), list)
+                and all(isinstance(c, str) for c in hot.get('categories', []))):
+            errors.setdefault('system.json', []).append("hot_refresh.categories must be a list of strings")
+        for key in ('lookback_hours', 'min_score'):
+            if not isinstance(hot.get(key, 0), (int, float)) or hot.get(key, 0) < 0:
+                errors.setdefault('system.json', []).append(f"hot_refresh.{key} must be a non-negative number")
+        caps = hot.get('max_new_per_run', {})
+        if not (isinstance(caps, dict) and all(isinstance(v, int) and v >= 0 for v in caps.values())):
+            errors.setdefault('system.json', []).append(
+                "hot_refresh.max_new_per_run must map categories to non-negative integers")
                 
     except Exception as e:
         errors['system.json'] = [f"Failed to load: {str(e)}"]

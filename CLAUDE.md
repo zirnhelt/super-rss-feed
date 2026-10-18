@@ -110,7 +110,7 @@ All config is loaded via `config_loader.py`. Never open config files directly in
 
 | File | Purpose |
 |------|---------|
-| `system.json` | Cache paths and TTLs, base URLs, `local_scrapes` (the papers scraped beside their RSS), `lookback_hours` (48), and the `kagi_news` / `topic_queries` on-off switches. |
+| `system.json` | Cache paths and TTLs, base URLs, `local_scrapes` (the papers scraped beside their RSS), `lookback_hours` (48), `hot_refresh` (the between-nightlies pass), and the `kagi_news` / `topic_queries` on-off switches. |
 | `limits.json` | Feed sizes, retention, per-source caps, thresholds, dedup parameters, batch sizes. **Tunable by calibration agent.** |
 | `filters.json` | `blocked_sources`, `blocked_keywords`, `blocked_keywords_unless_local`, `local_signals`, `blocked_title_patterns`, `blocked_url_path_patterns`. |
 | `standing_preferences.txt` | **The reader's** reject rules, one per line, placed in the quality gate's subject list (same call, no extra cost). Edited by hand or by merging a weekly proposal PR. The pipeline owns the built-in subjects in `GATE_REJECT_RUBRIC`; the reader owns this file. |
@@ -204,6 +204,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 - `tests.yml` — config validation + pytest on changes to code, config, tests or requirements.
 - `deploy-static.yml` — copies `review.html` to gh-pages on push.
 - `refresh-editorial.yml` — dispatched by the podcast's review job (scheduler PAT); splices new editorial items into gh-pages feeds. Shares the `generate-feed` concurrency group.
+- `refresh-hot.yml` — GitHub cron every 2 h at :41. `--refresh-hot` splices clear winners into `local`/`news` between nightlies (`system.json` → `hot_refresh`): plain GETs, the quality gate only, admits above a higher bar (Cariboo anchor, world flag, or score ≥ `min_score`), commits nothing. Its items carry `_hot_refresh`; the nightly merge drops one when it files the same URL or story in **any** category. Stands down while `generate-feed` is queued or running, since a newer pending run in the shared group cancels the older. See [scheduling-and-ci.md](docs/decisions/scheduling-and-ci.md).
 - `cleanup-branches.yml` — stale branch cleanup.
 
 ---
