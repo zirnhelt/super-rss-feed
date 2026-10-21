@@ -6,13 +6,63 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Wed, 21 Oct 2026 06:10:59 +0000</lastBuildDate>
+<lastBuildDate>Wed, 21 Oct 2026 10:29:00 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 21, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-21.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-21.html</guid>
+<pubDate>Wed, 21 Oct 2026 10:06:00 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/39566768401&quot;&gt;39566768401&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;2 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/kagi-extract&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/kagi-extract&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Kagi Extract returned no page for 4 thin roundup stories&lt;/span&gt; &lt;span class=&quot;recur&quot;&gt;Recurring: pending for the roadmap, seen 1 night.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/roundup-order&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/roundup-order&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: 1 story(ies) still aired after a later block after 2 repair passes&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One host carried the episode. Check the turn split in the script.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;Casey/Riley voice ratio 0.76&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The first draft came in 745 words under target and was expanded twice&lt;/h3&gt;
+&lt;p&gt;The first script draft ran 2545 words against a target of 3400. The pipeline sent it back for up to two expand passes, and the script that shipped is 3400 words, which matches the target. Length was recovered by rework rather than accepted as drafted, so the expand passes are doing real work on this kind of night.&lt;/p&gt;
+&lt;p&gt;The same shortfall came from the roundup side of the pipeline. 48 stories were cut from the roundup pool by the airtime budget (NEWS_ROUNDUP_COUNT). That cut is designed: the pool is larger than one segment can air, and cut stories can resurface on a better-matched day. The first draft&#x27;s thin length is the thing to watch if the expand passes start failing, since they are now the only thing standing between a short draft and a short episode.&lt;/p&gt;
+&lt;h3&gt;Four roundup stories had no page to extract and one aired after a failed reorder&lt;/h3&gt;
+&lt;p&gt;Kagi Extract returned no page for 4 thin roundup stories. Those stories had to be handled without their source text. The script step also reported that 1 story still aired after a later block, despite 2 repair passes on the roundup order. The pipeline shipped the episode with that story out of its intended position rather than dropping it or failing the run.&lt;/p&gt;
+&lt;p&gt;Citation alignment shows the cost: 13 of 17 roundup citations matched, and 3 of 4 deep-dive citations matched. Four citations in the roundup and one in the deep dives did not align with the sources that were available. The roundup count is the weaker of the two, and the four thin stories are the likely cause. Check whether Kagi Extract&#x27;s failure rate on thin pages is recurring before changing any retry logic.&lt;/p&gt;
+&lt;h3&gt;One TTS take came back short and was retried once&lt;/h3&gt;
+&lt;p&gt;The text-to-speech step produced 1 take with fewer words than its script length predicts. That take was retried once under the standard rule. The facts do not say whether the retry was accepted, so this is a single short take flagged for inspection, not evidence of a missing passage.&lt;/p&gt;
+&lt;h3&gt;Debate question: home and ranch technology trust&lt;/h3&gt;
+&lt;p&gt;The episode&#x27;s debate question was: Is trust in home and ranch technology built through open, locally maintained systems that people can repair and read, or inherited from commercial brands and their vendor-controlled platforms? The Casey-to-Riley voice ratio was 0.76, and the script carried no AI-tell pattern hits.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:06 AM Pacific&lt;/td&gt;&lt;td&gt;+1 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.76, 3400 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;20.3 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.6 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;13/17 roundup, 3/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;266 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;64,627&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;28 total: claude 11 · brave-search 9 · kagi-extract 4 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] 100 Mile mayor-elect excited to get to work</title>
 <link>https://100milefreepress.net/2026/10/20/100-mile-mayor-elect-excited-to-get-to-work/</link>
