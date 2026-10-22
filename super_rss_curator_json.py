@@ -648,70 +648,120 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
     return all_articles
 
 
-def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
-    """Fetch broad, pre-clustered headlines from Kagi's Kite News API.
+# Kagi News cites each claim inline as "[domain#n]": the n-th article from that
+# domain in the cluster's `articles` list. Runs of them ("[a#1][b#2]") are one group.
+_KITE_CITATION_RE = re.compile(r'\s*((?:\[[\w.-]+#\d+\])+)')
+_KITE_CITE_RE = re.compile(r'\[([\w.-]+)#(\d+)\]')
 
-    Unlike the curated OPML feeds and topic queries (all individually chosen
-    for personal relevance), this pulls Kite's own category batches — each
-    story is already a multi-source cluster, giving a general "front page"
-    survey independent of the personal interest profile. Keyless per the
-    published spec, but sends KAGI_API_KEY when set in case it raises
-    anonymous rate limits. Fails open: any error just yields no articles.
+
+def _kite_text(text: str, attribute: bool) -> str:
+    """Kite prose with its citation markers stripped, or turned into "(domain, ...)".
+
+    The feeds show stripped prose; the podcast's body keeps the outlets so the
+    hosts can attribute each claim to who reported it.
+    """
+    def _group(match: re.Match) -> str:
+        if not attribute:
+            return ''
+        domains = list(dict.fromkeys(d for d, _ in _KITE_CITE_RE.findall(match.group(1))))
+        return f" ({', '.join(domains)})"
+    return _KITE_CITATION_RE.sub(_group, text or '').strip()
+
+
+def _kite_primary_article(story: dict) -> dict:
+    """The cluster article the summary cites first; `articles[0]` is often not it.
+
+    Kite orders `articles` by fetch, not by relevance: the first is regularly a
+    foreign-language page on a neighbouring story. The summary's first citation
+    names the article the headline was written from. A cited article Kite only
+    has as a Google News redirect is passed over: the podcast pool refuses those.
+    """
+    articles = [a for a in (story.get('articles') or [])
+                if isinstance(a, dict) and not _is_aggregator_url(a.get('link') or '')]
+    for domain, n in _KITE_CITE_RE.findall(story.get('short_summary') or ''):
+        from_domain = [a for a in articles if (a.get('domain') or '').lower() == domain.lower()]
+        if from_domain:
+            return from_domain[min(int(n), len(from_domain)) - 1]
+    return articles[0] if articles else {}
+
+
+def _kite_excerpt(story: dict) -> str:
+    """The podcast's story body: summary, then talking points, outlets kept inline."""
+    parts = [_kite_text(story.get('short_summary', ''), attribute=True)]
+    parts += [_kite_text(p, attribute=True) for p in (story.get('talking_points') or [])
+              if isinstance(p, str)]
+    return _clean_text(' '.join(p for p in parts if p), max_chars=KAGI_EXCERPT_CHARS)
+
+
+def _make_kite_article(story: dict, category: Optional[str],
+                       cutoff_date: datetime) -> Optional['Article']:
+    """One Kite cluster as an Article, linked to the outlet its summary cites first."""
+    primary = _kite_primary_article(story)
+    url = (primary.get('link') or '').strip()
+    title = (story.get('title') or '').strip()
+    parsed_url = urlparse(url)
+    if not title or parsed_url.scheme not in ('http', 'https') or not parsed_url.netloc:
+        return None
+    domain = parsed_url.netloc.lower().removeprefix('www.')
+    article = Article(
+        _AttrDict({
+            'title': title,
+            'link': url,
+            'description': _kite_text(story.get('short_summary', ''), attribute=False),
+        }),
+        domain, f"{parsed_url.scheme}://{parsed_url.netloc}",
+    )
+    article.excerpt = _kite_excerpt(story)
+    article.kite_sources = int(story.get('unique_domains') or 0) or len(
+        {a.get('domain') for a in story.get('articles') or [] if isinstance(a, dict)})
+    # A provisional category from Kite's own label; deep scoring may still move it.
+    article.category = category
+    image = (story.get('primary_image') or {}).get('url')
+    if image:
+        article.image = image
+    pub_str = primary.get('date', '')
+    try:
+        article.pub_date = (datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
+                            if pub_str else datetime.now(timezone.utc))
+    except ValueError:
+        article.pub_date = datetime.now(timezone.utc)
+    if article.pub_date < cutoff_date:
+        return None
+    return article
+
+
+def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
+    """Fetch pre-clustered, summarised stories from Kagi News (Kite).
+
+    Unlike the curated OPML feeds (each chosen for personal relevance), this
+    pulls Kite's own category batches. Each story is already a multi-outlet
+    cluster with a written summary, so it enters the pipeline as the finished
+    version of its story: it wins same-story dedup over any single outlet but a
+    local one (`_source_priority`), never needs Kagi Extract (its description
+    is already past the thin cutoff), and hands the podcast a researched body
+    (`excerpt`, `kite_sources`). Its relevance is still scored like any article.
+
+    Keyless per the published spec, but sends KAGI_API_KEY when set in case it
+    raises anonymous rate limits. Fails open: any error just yields no articles.
+    Kite's content is CC BY-NC with credit to Kagi News; the podcast credits it
+    when a Kite body reaches the script.
     """
     news_cfg = SYSTEM.get('kagi_news', {})
     if not news_cfg.get('enabled', False):
         return []
 
-    base_url = news_cfg.get('base_url', 'https://kite.kagi.com')
+    base_url = news_cfg.get('base_url', 'https://news.kagi.com')
+    category_map = {k.lower(): v for k, v in (news_cfg.get('category_map') or {}).items()}
     wanted_categories = {c.lower() for c in news_cfg.get('categories', [])}
     max_per_category = news_cfg.get('max_stories_per_category', 8)
 
     kagi_key = os.environ.get('KAGI_API_KEY', '')
     headers = {'Authorization': f'Bearer {kagi_key}'} if kagi_key else {}
 
-    def _make_kite_article(story: dict) -> Optional['Article']:
-        primary = (story.get('articles') or [{}])[0]
-        url = primary.get('link', '')
-        parsed_url = urlparse(url)
-        if not (parsed_url.scheme and parsed_url.netloc):
-            return None
-        domain = parsed_url.netloc.lower()
-        if domain.startswith('www.'):
-            domain = domain[4:]
-        source_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
-
-        class _SyntheticEntry:
-            def get(self, key, default=''):
-                return default
-
-        article = Article(_SyntheticEntry(), domain, source_url, feed_url='')
-        article.title = (story.get('title') or '').strip()
-        if not article.title:
-            return None
-        article.link = url
-        article.url_hash = hashlib.md5(canonicalize_url(url).encode()).hexdigest()
-        description = story.get('short_summary', '') or ''
-        article.description = description
-        article.summary = _clean_text(description, max_chars=300)
-        article.excerpt = _clean_text(description, max_chars=600)
-        image = (story.get('primary_image') or {}).get('url')
-        if image:
-            article.image = image
-
-        pub_str = primary.get('date', '')
-        try:
-            article.pub_date = (datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
-                                 if pub_str else datetime.now(timezone.utc))
-        except Exception:
-            article.pub_date = datetime.now(timezone.utc)
-        if article.pub_date < cutoff_date:
-            return None
-        return article
-
     try:
         api_usage.record_call('kite')
         resp = requests.get(f"{base_url}/api/batches/latest/categories",
-                             headers=headers, params={'lang': 'en'}, timeout=15)
+                            headers=headers, params={'lang': 'en'}, timeout=15)
         resp.raise_for_status()
         categories = resp.json().get('categories') or []
     except Exception as e:
@@ -721,6 +771,12 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
     matched = [c for c in categories
                if c.get('categoryId', '').lower() in wanted_categories
                or c.get('categoryName', '').lower() in wanted_categories]
+    found = {c.get('categoryName', '').lower() for c in matched} | {
+        c.get('categoryId', '').lower() for c in matched}
+    missing = sorted(wanted_categories - found)
+    if missing:
+        # Kite only lists a category in a batch that has stories for it.
+        print(f"  ⚠️  Kite News: not in this batch: {', '.join(missing)}")
 
     all_articles: List['Article'] = []
     for cat in matched:
@@ -728,6 +784,7 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
         label = cat.get('categoryName', category_id)
         if not category_id:
             continue
+        our_category = category_map.get(label.lower())
         try:
             api_usage.record_call('kite')
             resp = requests.get(
@@ -739,8 +796,8 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
             resp.raise_for_status()
             stories = resp.json().get('stories') or []
             count = 0
-            for story in stories:
-                article = _make_kite_article(story)
+            for story in stories[:max_per_category]:
+                article = _make_kite_article(story, our_category, cutoff_date)
                 if article:
                     all_articles.append(article)
                     count += 1
@@ -748,7 +805,7 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
         except Exception as e:
             print(f"  ✗ Kite News/{label}: {e}")
 
-    print(f"  📰 Kite News: {len(all_articles)} broad headlines from {len(matched)} categories")
+    print(f"  📰 Kite News: {len(all_articles)} clustered stories from {len(matched)} categories")
     return all_articles
 
 
@@ -980,6 +1037,8 @@ class Article:
         self.gate_world: Optional[bool] = None
         self.world_lane = False  # True when selected by the world lane, not by score
         self.hot_refresh = False  # True when placed by refresh_hot_feeds(), not a nightly
+        # Outlets in the Kagi News cluster this article stands for (0 = one outlet).
+        self.kite_sources = 0
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -1308,6 +1367,7 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     'gate_reject': getattr(article, 'gate_reject', None),
                     'category': article.category,
                     'image': getattr(article, 'image', None),
+                    'kite_sources': getattr(article, 'kite_sources', 0),
                     'main_feed_quality': main_feed_quality,
                 }
                 existing.append(entry)
@@ -1431,6 +1491,7 @@ def update_theme_holdover(theme_name: str, theme_label: str,
                 'gate_reject': getattr(article, 'gate_reject', None),
                 'category': article.category,
                 'image': getattr(article, 'image', None),
+                'kite_sources': getattr(article, 'kite_sources', 0),
                 'theme_score': theme_score,
                 'banked_at': now_iso,
             })
@@ -2781,6 +2842,10 @@ def _source_priority(article: Article) -> Tuple[int, int]:
     # Other explicitly local-priority articles, whatever their source type
     if article.category == 'local' or article.score == LIMITS.get('local_priority_score', 100):
         return (2, sub_rank)
+    # A Kagi News cluster is already the deduped, summarised version of its story:
+    # it beats any single outlet, but loses to every local article above.
+    if getattr(article, 'kite_sources', 0):
+        return (2, _NO_SUBSCRIBER_RANK + 1)
     return (_SOURCE_TYPE_DEDUP_RANK.get(source_type, _UNCLASSIFIED_DEDUP_RANK), sub_rank)
 
 
@@ -5131,6 +5196,7 @@ def route_articles_to_best_themes(
                         'q_gate': item.get('q_gate'),
                         'category': item['category'],
                         'image': item.get('image'),
+                        'kite_sources': item.get('kite_sources', 0),
                         'theme_score': theme_score,
                         'banked_at': now_iso,
                     })
@@ -5255,6 +5321,7 @@ def bank_articles_for_all_themes(
                 'gate_reject': item.get('gate_reject'),
                 'category': item['category'],
                 'image': item.get('image'),
+                'kite_sources': item.get('kite_sources', 0),
                 'theme_score': pct,
                 # Raw charter output kept alongside the percentile so scale
                 # drift stays auditable after normalization hides it.
@@ -5286,7 +5353,8 @@ def bank_articles_for_all_themes(
 # notice: without `_is_bonus` every article reads as on-theme.
 PODCAST_FEED_CONTRACT = {
     "items": ("id", "url", "title", "summary", "date_published", "authors", "ai_score",
-              "_excerpt", "_is_bonus", "_keyword_matches", "_theme_score", "_theme_score_raw"),
+              "_excerpt", "_is_bonus", "_keyword_matches", "_theme_score", "_theme_score_raw",
+              "_kite_sources"),
     "_podcast": ("theme", "theme_description"),
 }
 
@@ -5365,6 +5433,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.gate_reject = data.get('gate_reject')
             self.category = data['category']
             self.image = data.get('image')
+            self.kite_sources = data.get('kite_sources', 0)
 
     all_cached = [CachedArticle(item) for item in cached_articles]
     all_cached_urls = {a.link for a in all_cached}
@@ -5934,6 +6003,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             # reports on this field against a per-theme floor (the scales are
             # not comparable across themes — see its RAW_FIT_FLOORS).
             "_theme_score_raw": theme_raw.get(article.link),
+            # Outlets behind a Kagi News cluster (0 = one outlet): its `_excerpt` is
+            # a researched multi-source body the show uses as-is.
+            "_kite_sources": getattr(article, 'kite_sources', 0),
             "_composite_podcast": composite_podcast,
             "_keyword_matches": kw_matches,
             "_category": article.category,

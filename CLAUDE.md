@@ -216,6 +216,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 1. **Fetch** — `feedparser`, last 48 h, conditional GET via `FeedHTTPCache`. Free recovery before paid: 403 → feed-reader UA retry; 404/410 → `_discover_feed_url()` (cached as `resolved_url`). Then Brave → Kagi → Google News RSS. ≥3 consecutive failures skip Brave/Kagi; unrecoverable failures back off 6 h / 24 h / 72 h.
 2. **Local scrapes** — `scrape_local_news()` scrapes the homepages in `system.json` → `local_scrapes` (Tribune, Quesnel Observer, 100 Mile Free Press): their RSS is mostly provincial syndication. See [sources.md](docs/decisions/sources.md).
 3. **Topic news** — Brave News + Kagi from `topic_queries.json`, only when `USE_SEARCH_APIS=true` **and** `system.json` → `topic_queries.enabled`. **Off since 2026-09-23, kept off after the trial (reviewed 2026-10-11)**: ~47 Brave calls a night for 1 of 467 category items. The run log prints `Topic queries: disabled`.
+   **Kagi News** (`fetch_kite_news`, `system.json` → `kagi_news`, free): 11 Kite categories, each story a cluster already merged across outlets and summarised. It enters as the finished version of its story: wins same-story dedup over any non-local outlet, links the outlet its summary cites first (never `articles[0]`), and carries its summary + talking points as `_excerpt` with `_kite_sources` so the podcast uses the body as-is. See [sources.md](docs/decisions/sources.md).
 4. **Filter** — `filters.json`: blocked sources, keywords (`blocked_keywords_unless_local` allows a local override), title patterns, URL path patterns, and bare homepages.
 5. **Prescore gate** — high-volume aggregators must match a `PRESCORE_KEYWORDS` term before paid scoring.
 6. **Deduplicate** — URL hash → fuzzy title → term-set containment (source priority local > print > broadcast), plus Cohere similarity when enabled.
@@ -271,6 +272,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 
 ## Sources — see [docs/decisions/sources.md](docs/decisions/sources.md)
 
+- **A Kagi News cluster is a source, not a duplicate.** It outranks every single-outlet version in dedup (`_source_priority`), but is still gated and scored like any article. Its content is CC BY-NC with credit to Kagi News; the podcast credits it.
 - **Feed item `url` is not identity.** Code reading a written feed back must use `item_source_link(item)`, never `item['url']`.
 - **Apple News IDs are discovered, never constructed.** `resolve_apple_news_url()` tiers article ID > channel ID > publisher URL.
 - **A rediscovered feed URL lives in `feed_http_cache.json`** until the weekly heal writes it into `feeds.opml`.
