@@ -161,3 +161,21 @@ changes between the two lookups (a rebinding server with a zero TTL) still gets 
 lookup per hop; and behind an HTTP proxy that does its own DNS, a name the runner cannot resolve
 locally is refused. The Azure WireServer address (168.63.129.16) is a global address and passes
 both checks; it needs headers these fetches do not send.
+
+## Kagi News clusters enter as the finished story (2026-10-22)
+
+Kite (`fetch_kite_news`) has run since September on six categories; on 2026-10-22 it went to eleven (adding AI, Agriculture, Cloud Computing, Cybersecurity, Climate Change). A Kite story is not an article: it is one event already merged across 3-15 outlets with a written summary, talking points and inline `[domain#n]` citations. Three things were wrong with how it entered:
+
+- It was built from an empty synthetic entry, then had its title set afterwards, so `title_normalized` and `title_terms` stayed empty. Fuzzy and term-set dedup never matched it, and the same story ran twice (Kite and an OPML outlet).
+- It linked `articles[0]`. Kite orders that list by fetch, not relevance: on 2026-10-22 the Agriculture cluster on Uganda's tractor plan linked an Italian page on machinery trends. The summary's first citation names the article the headline was written from; Google News redirects among them are skipped because the podcast pool refuses them.
+- The raw citation markers went into the published summaries.
+
+How a cluster differs from an article now:
+
+- **Dedup:** it outranks any single outlet (`_source_priority` → `(2, _NO_SUBSCRIBER_RANK + 1)`), and loses to every local article.
+- **Enrichment:** none. Its description is past the 150-char thin cutoff, so Kagi Extract never sees it.
+- **Body:** `excerpt` is the summary plus talking points with citations as "(domain, ...)", up to `KAGI_EXCERPT_CHARS`. `_kite_sources` (outlet count, 0 for an ordinary article) rides to the podcast feed, which takes the body as researched and spends no fetch, Extract or Brave call on it.
+- **Category:** `kagi_news.category_map` sets a provisional category; deep scoring can still move it. Agriculture is unmapped: `homestead` is hobby-scale, and commodity markets belong to the podcast's Working Lands day.
+- **Not different:** it still goes through the quality gate (reject and world verdicts) and relevance scoring. Kite's selection is general newsworthiness, not this reader's interests.
+
+Kite's content is CC BY-NC with credit to Kagi News, the same licence as the show; the podcast credits it on any day a Kite body reaches the script.

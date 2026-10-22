@@ -33,8 +33,15 @@
   },
   "kagi_news": {
     "enabled": true,
-    "base_url": "https://kite.kagi.com",
-    "categories": ["World", "Canada", "Canada | British Columbia", "Business", "Technology", "Science"],
-    "max_stories_per_category": 8
+    "base_url": "https://news.kagi.com",
+    "categories": ["World", "Canada", "Canada | British Columbia", "Business", "Technology", "Science",
+                   "AI", "Agriculture", "Cloud Computing", "Cybersecurity", "Climate Change"],
+    "category_map": {
+      "World": "news", "Canada": "news", "Canada | British Columbia": "news", "Business": "news",
+      "Technology": "ai-tech", "AI": "ai-tech", "Cloud Computing": "ai-tech", "Cybersecurity": "ai-tech",
+      "Science": "science", "Climate Change": "climate"
+    },
+    "max_stories_per_category": 8,
+    "_note": "Kagi News clusters: one story per event, already merged across outlets and summarised, so each enters as the finished version of its story (wins same-story dedup over any non-local outlet; never sent to Kagi Extract; its summary + talking points become the podcast's story body). Free. category_map sets a provisional feed category from Kite's label; deep scoring can still move it. Agriculture is unmapped on purpose: homestead is hobby-scale, and commodity-market stories belong to the podcast's Working Lands day, not a feed. Content is CC BY-NC, credit Kagi News."
   }
 }
