@@ -9,6 +9,7 @@ markers into the feeds.
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -94,3 +95,61 @@ def test_kite_cluster_wins_same_story_dedup() -> None:
 
 def test_podcast_feed_contract_carries_kite_sources() -> None:
     assert '_kite_sources' in m.PODCAST_FEED_CONTRACT['items']
+
+
+def test_a_future_date_is_clamped_to_now() -> None:
+    future = (datetime.now(timezone.utc) + timedelta(hours=20)).isoformat()
+    story = dict(STORY, articles=[dict(a, date=future) for a in STORY['articles']])
+    assert m._make_kite_article(story, None, CUTOFF).pub_date <= datetime.now(timezone.utc)
+
+
+def _outlet(title: str, published: datetime) -> 'm.Article':
+    article = m.Article(m._AttrDict({'title': title, 'link': f'https://ex.com/{published.hour}'}),
+                        'Unlisted Outlet', 'https://ex.com')
+    article.pub_date = published
+    return article
+
+
+def test_an_outlet_published_after_the_batch_beats_the_cluster() -> None:
+    """Kite cuts its batch at 12:00 UTC; a story that moved since is told by the newer page."""
+    batch_at = datetime.now(timezone.utc) - timedelta(hours=18)
+    kite = m._make_kite_article(STORY, None, CUTOFF, batch_at)
+    newer = _outlet(STORY['title'], batch_at + timedelta(hours=8))
+    assert m.deduplicate_articles([kite, newer]) == [newer]
+
+
+def test_an_outlet_published_before_the_batch_still_loses() -> None:
+    batch_at = datetime.now(timezone.utc) - timedelta(hours=2)
+    kite = m._make_kite_article(STORY, None, CUTOFF, batch_at)
+    older = _outlet(STORY['title'], batch_at - timedelta(hours=4))
+    assert m.deduplicate_articles([older, kite]) == [kite]
+
+
+def _categories_reply(created_at: datetime):
+    reply = mock.Mock()
+    reply.raise_for_status.return_value = None
+    reply.json.return_value = {'createdAt': created_at.isoformat().replace('+00:00', 'Z'),
+                               'categories': [{'id': 'c1', 'categoryId': 'world',
+                                               'categoryName': 'World'}]}
+    stories = mock.Mock()
+    stories.raise_for_status.return_value = None
+    stories.json.return_value = {'stories': [STORY]}
+    return [reply, stories]
+
+
+def test_hot_refresh_reads_a_fresh_batch_and_stamps_it(monkeypatch) -> None:
+    created = datetime.now(timezone.utc) - timedelta(minutes=41)
+    monkeypatch.setitem(m.SYSTEM, 'kagi_news', {'enabled': True, 'categories': ['World'],
+                                                'category_map': {'World': 'news'}})
+    with mock.patch.object(m.requests, 'get', side_effect=_categories_reply(created)):
+        got = m.fetch_kite_news(CUTOFF, max_batch_age_hours=2)
+    assert len(got) == 1 and got[0].category == 'news'
+    assert abs((got[0].kite_batch_at - created).total_seconds()) < 1
+
+
+def test_hot_refresh_skips_a_batch_the_nightly_already_read(monkeypatch) -> None:
+    created = datetime.now(timezone.utc) - timedelta(hours=18)
+    monkeypatch.setitem(m.SYSTEM, 'kagi_news', {'enabled': True, 'categories': ['World']})
+    with mock.patch.object(m.requests, 'get', side_effect=_categories_reply(created)) as get:
+        assert m.fetch_kite_news(CUTOFF, max_batch_age_hours=2) == []
+    assert get.call_count == 1  # the categories call only, no stories fetched

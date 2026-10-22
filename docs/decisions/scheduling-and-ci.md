@@ -105,8 +105,10 @@ spend and fight the podcast caches; `refresh-hot.yml` instead runs
 `--refresh-hot` (`refresh_hot_feeds()`) every two hours on GitHub cron:
 
 - **Fetch** every OPML feed and the local scrapes with plain GETs (`_fetch_feed_plain()`,
-  shared with the editorial refresh). No conditional GET, no paid fallbacks, no Kite:
-  the HTTP state and the backoff ladder belong to the nightly.
+  shared with the editorial refresh). No conditional GET, no paid fallbacks:
+  the HTTP state and the backoff ladder belong to the nightly. Kagi News (free) is read
+  only by the first run after its 12:00 UTC batch (`kite_batch_max_age_hours`), with
+  the nightly's 48 h article cutoff; see [sources.md](sources.md).
 - **Delta**: an article whose hash is in `scored_articles_cache.json` (from `main`) was
   judged by the nightly; the shown caches and the published feeds hold what was placed.
   Only the remainder published in the last `lookback_hours` (6) is considered.

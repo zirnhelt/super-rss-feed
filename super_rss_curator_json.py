@@ -693,8 +693,8 @@ def _kite_excerpt(story: dict) -> str:
     return _clean_text(' '.join(p for p in parts if p), max_chars=KAGI_EXCERPT_CHARS)
 
 
-def _make_kite_article(story: dict, category: Optional[str],
-                       cutoff_date: datetime) -> Optional['Article']:
+def _make_kite_article(story: dict, category: Optional[str], cutoff_date: datetime,
+                       batch_at: Optional[datetime] = None) -> Optional['Article']:
     """One Kite cluster as an Article, linked to the outlet its summary cites first."""
     primary = _kite_primary_article(story)
     url = (primary.get('link') or '').strip()
@@ -716,21 +716,26 @@ def _make_kite_article(story: dict, category: Optional[str],
         {a.get('domain') for a in story.get('articles') or [] if isinstance(a, dict)})
     # A provisional category from Kite's own label; deep scoring may still move it.
     article.category = category
+    article.kite_batch_at = batch_at
     image = (story.get('primary_image') or {}).get('url')
     if image:
         article.image = image
     pub_str = primary.get('date', '')
+    now = datetime.now(timezone.utc)
     try:
-        article.pub_date = (datetime.fromisoformat(pub_str.replace('Z', '+00:00'))
-                            if pub_str else datetime.now(timezone.utc))
+        article.pub_date = datetime.fromisoformat(pub_str.replace('Z', '+00:00')) if pub_str else now
     except ValueError:
-        article.pub_date = datetime.now(timezone.utc)
+        article.pub_date = now
+    # Kite passes through publishers' dates, future ones included (a story dated
+    # the next morning on 2026-10-22); one would slip under every age cutoff.
+    article.pub_date = min(article.pub_date, now)
     if article.pub_date < cutoff_date:
         return None
     return article
 
 
-def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
+def fetch_kite_news(cutoff_date: datetime,
+                    max_batch_age_hours: Optional[float] = None) -> List['Article']:
     """Fetch pre-clustered, summarised stories from Kagi News (Kite).
 
     Unlike the curated OPML feeds (each chosen for personal relevance), this
@@ -740,6 +745,12 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
     local one (`_source_priority`), never needs Kagi Extract (its description
     is already past the thin cutoff), and hands the podcast a researched body
     (`excerpt`, `kite_sources`). Its relevance is still scored like any article.
+
+    Kite cuts one batch a day at 12:00 UTC (18 h before the nightly reads it), so
+    a cluster yields to any outlet article published after its batch
+    (`_dedup_wins`). With `max_batch_age_hours` the fetch returns nothing unless
+    the batch is that fresh: the hot refresh reads each batch once, the run after
+    it lands.
 
     Keyless per the published spec, but sends KAGI_API_KEY when set in case it
     raises anonymous rate limits. Fails open: any error just yields no articles.
@@ -763,10 +774,23 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
         resp = requests.get(f"{base_url}/api/batches/latest/categories",
                             headers=headers, params={'lang': 'en'}, timeout=15)
         resp.raise_for_status()
-        categories = resp.json().get('categories') or []
+        batch = resp.json()
+        categories = batch.get('categories') or []
     except Exception as e:
         print(f"  ✗ Kite News categories: {e}")
         return []
+    try:
+        batch_at: Optional[datetime] = datetime.fromisoformat(
+            (batch.get('createdAt') or '').replace('Z', '+00:00'))
+    except ValueError:
+        batch_at = None
+    if max_batch_age_hours is not None:
+        age_h = ((datetime.now(timezone.utc) - batch_at).total_seconds() / 3600
+                 if batch_at else None)
+        if age_h is None or age_h > max_batch_age_hours:
+            print(f"  📰 Kite News: batch is {f'{age_h:.1f} h' if age_h is not None else 'undated'} "
+                  f"old (max {max_batch_age_hours} h) — skipped")
+            return []
 
     matched = [c for c in categories
                if c.get('categoryId', '').lower() in wanted_categories
@@ -797,7 +821,7 @@ def fetch_kite_news(cutoff_date: datetime) -> List['Article']:
             stories = resp.json().get('stories') or []
             count = 0
             for story in stories[:max_per_category]:
-                article = _make_kite_article(story, our_category, cutoff_date)
+                article = _make_kite_article(story, our_category, cutoff_date, batch_at)
                 if article:
                     all_articles.append(article)
                     count += 1
@@ -1037,8 +1061,10 @@ class Article:
         self.gate_world: Optional[bool] = None
         self.world_lane = False  # True when selected by the world lane, not by score
         self.hot_refresh = False  # True when placed by refresh_hot_feeds(), not a nightly
-        # Outlets in the Kagi News cluster this article stands for (0 = one outlet).
+        # Outlets in the Kagi News cluster this article stands for (0 = one outlet),
+        # and when Kagi cut the batch that summarised it (None = not a cluster).
         self.kite_sources = 0
+        self.kite_batch_at: Optional[datetime] = None
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -2877,6 +2903,20 @@ def _is_cross_run_story_dupe(article: Article, stored_term_sets: List[frozenset]
     )
 
 
+def _dedup_wins(article: Article, incumbent: Article) -> bool:
+    """True when `article` should replace `incumbent` as its story's one version.
+
+    Source priority decides, except that a Kagi News cluster yields to an outlet
+    article published after Kite cut its batch: Kite publishes once a day at
+    12:00 UTC, and a story that moved since then is better told by the newer page.
+    """
+    for newer, cluster in ((article, incumbent), (incumbent, article)):
+        batch_at = getattr(cluster, 'kite_batch_at', None)
+        if batch_at and not getattr(newer, 'kite_sources', 0) and newer.pub_date > batch_at:
+            return newer is article
+    return _source_priority(article) < _source_priority(incumbent)
+
+
 def deduplicate_articles(articles: List[Article]) -> List[Article]:
     """Remove duplicate articles based on URL and title similarity.
 
@@ -2934,7 +2974,7 @@ def deduplicate_articles(articles: List[Article]) -> List[Article]:
 
             if is_story_match:
                 # Keep the higher-priority source; swap if current article wins.
-                if _source_priority(article) < _source_priority(seen_article):
+                if _dedup_wins(article, seen_article):
                     swap_idx = idx
                 else:
                     is_duplicate = True
@@ -7554,7 +7594,10 @@ def refresh_hot_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output')
     stages, but only on the delta and only the cheap ones:
 
     - **Fetch** every OPML feed and the local scrapes with plain GETs. No
-      conditional-GET state, no paid fallbacks, no Kite or topic queries.
+      conditional-GET state, no paid fallbacks, no topic queries. Kagi News
+      (free) is read once a day, by the first run after its 12:00 UTC batch
+      (`kite_batch_max_age_hours`), so World and Canada clusters reach `news`
+      that afternoon rather than with the next nightly.
     - **Delta**: an article the nightly already gated is in the scored cache;
       the shown caches and the published feeds hold everything already placed.
       What is left was published since the nightly looked.
@@ -7602,8 +7645,16 @@ def refresh_hot_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output')
             fetched.extend(articles)
     if 'local' in categories:
         fetched.extend(_article_from_scrape(entry) for entry in scrape_local_news())
+    fetched = apply_prescore_filter(fetched)
+    kite_age = cfg.get('kite_batch_max_age_hours')
+    if kite_age is not None:
+        # A cluster's own articles are hours older than this pass's window; the
+        # delta below is what keeps the nightly's copies out.
+        fetched.extend(fetch_kite_news(
+            datetime.now(timezone.utc) - timedelta(hours=SYSTEM['lookback_hours']),
+            max_batch_age_hours=kite_age))
 
-    unique = deduplicate_articles(apply_prescore_filter(fetched))
+    unique = deduplicate_articles(fetched)
     fresh = [
         a for a in unique
         if a.url_hash not in seen_by_nightly and a.url_hash not in shown
