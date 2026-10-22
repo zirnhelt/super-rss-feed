@@ -29,7 +29,8 @@
     "lookback_hours": 6,
     "min_score": 65,
     "max_new_per_run": {"local": 5, "news": 3},
-    "_note": "refresh-hot.yml, every 2 h between nightlies: plain GETs, quality gate only, no cache commits. min_score sits in the gate's top band (60-79 held ~5% of a night's articles in October 2026). Off: set enabled false."
+    "kite_batch_max_age_hours": 2,
+    "_note": "refresh-hot.yml, every 2 h between nightlies: plain GETs, quality gate only, no cache commits. min_score sits in the gate's top band (60-79 held ~5% of a night's articles in October 2026). Off: set enabled false. kite_batch_max_age_hours: Kagi News cuts one batch a day at 12:00 UTC; only a run within this many hours of it reads the batch (the 12:41 run, once), so its news clusters land that afternoon instead of 18 h later with the nightly. Remove the key to stop."
   },
   "kagi_news": {
     "enabled": true,

@@ -179,3 +179,11 @@ How a cluster differs from an article now:
 - **Not different:** it still goes through the quality gate (reject and world verdicts) and relevance scoring. Kite's selection is general newsworthiness, not this reader's interests.
 
 Kite's content is CC BY-NC with credit to Kagi News, the same licence as the show; the podcast credits it on any day a Kite body reaches the script.
+
+### Kite publishes once a day, so a cluster yields to newer coverage (2026-10-22)
+
+Kite's batch API shows one batch a day at 12:00 UTC (31 of 32 days to 2026-10-22; 2026-10-15 landed at 16:46). The nightly reads it at 06:00 UTC, 18 h later, and the median article inside a batch is about 16 h older than the cut, so a cluster's coverage is ~34 h old when the nightly ranks it. Letting it win dedup outright swapped a fresh outlet update for a stale summary on any story that moved after noon.
+
+- `_dedup_wins`: a cluster yields to any single-outlet article published after `kite_batch_at`; otherwise source priority decides.
+- The hot refresh reads the batch once, on the first run after it lands (`hot_refresh.kite_batch_max_age_hours`: 2, so the 12:41 run). Only clusters headed for `news` or `local` are gated, under the hot bar and caps. Tech and science clusters still wait for the nightly. The podcast gains nothing: it writes at 08:05 UTC and the 12:00 batch is already the newest it can read.
+- Kite passes through publishers' dates, future ones included; `pub_date` is clamped to now.
