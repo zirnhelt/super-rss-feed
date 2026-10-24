@@ -92,7 +92,7 @@ Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API ha
 | `feedback_trainer.py` | Weekly. Reads `feedback/` ratings (30 days raw + the rollup) and updates `config/feedback_examples.txt`. |
 | `feedback_archive.py` | Weekly. Distils old ratings into `feedback/feedback_rollup.json`, compresses raw files to `feedback/archive/`, maintains `feedback/reviewed_urls.json`. Idempotent; `--dry-run`, `--no-distil`. |
 | `standing_preferences.py` | Weekly. Turns notes on "bad" ratings into proposed lines for `config/standing_preferences.txt` and opens a PR (one Haiku call, only when there are new notes). Merge adopts, close declines for good (`feedback/standing_proposals.json`). |
-| `feed_discovery.py` | Weekly feed discovery — searches Brave/Kagi, scores candidates, writes `feed_discovery_report.json`. |
+| `feed_discovery.py` | Weekly feed discovery — curated OPML lists, Kagi News's `kite_feeds.json` (new hosts only) and Brave search; scores candidates, writes `feed_discovery_report.json`. |
 | `integrate_discoveries.py` | Reconciles `feeds.opml` with reality: `--auto-add-threshold` adds discovery candidates; `--heal` is the feed health agent. Writes `FEED_HEALTH_LOG.md`. |
 | `corpus_alignment_report.py` | Weekly audit of upstream interest scores against per-theme fit. Writes `reports/CORPUS_ALIGNMENT_REPORT_<date>.md`. |
 | `article_review_audit.py` | Weekly, stdlib-only. Joins ratings against pipeline scores. Writes `reports/ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (read by calibration and the weekly report) and a line per week in `reports/weekly_metrics.jsonl`. Also holds `fit_reader_model()`, which the curator uses nightly to order the review batch. |
@@ -272,7 +272,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 
 ## Sources — see [docs/decisions/sources.md](docs/decisions/sources.md)
 
-- **A Kagi News cluster is a source, not a duplicate.** It outranks every single-outlet version in dedup (`_source_priority`), but is still gated and scored like any article. Its content is CC BY-NC with credit to Kagi News; the podcast credits it.
+- **A Kagi News cluster is a source, not a duplicate.** It outranks every single-outlet version in dedup (`_source_priority`), but is still gated and scored like any article. Its content is CC BY-NC with credit to Kagi News; the podcast credits it. Its perspectives, quote, timeline and background ride beside `_excerpt` as `_kite_context` (`KITE_CONTEXT_CHARS`), because summary + talking points already fill the excerpt.
 - **Feed item `url` is not identity.** Code reading a written feed back must use `item_source_link(item)`, never `item['url']`.
 - **Apple News IDs are discovered, never constructed.** `resolve_apple_news_url()` tiers article ID > channel ID > publisher URL.
 - **A rediscovered feed URL lives in `feed_http_cache.json`** until the weekly heal writes it into `feeds.opml`.
