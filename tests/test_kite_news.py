@@ -97,6 +97,54 @@ def test_podcast_feed_contract_carries_kite_sources() -> None:
     assert '_kite_sources' in m.PODCAST_FEED_CONTRACT['items']
 
 
+RICH_STORY = dict(
+    STORY,
+    location='Kampala, Uganda',
+    perspectives=[
+        {'text': 'Frank Tumwebaze, Agriculture Minister: says the plan cuts hand-hoe farming '
+                 '[agrifocusafrica.com#1].',
+         'sources': [{'name': 'AgriFocus Africa', 'url': 'https://agrifocusafrica.com/x'},
+                     {'name': 'AgriFocus Africa', 'url': 'https://agrifocusafrica.com/y'}]},
+        {'text': 'Smallholder unions: doubt hire schemes reach remote districts.', 'sources': []},
+    ],
+    quote='Mechanization is the only way out of subsistence.',
+    quote_author='Frank Tumwebaze',
+    quote_attribution='Daily Monitor',
+    timeline=[{'date': f'{d} October 2026', 'content': f'Step {d} [agdaily.com#1]'}
+              for d in (1, 2, 3, 4, 5, 6)],
+    historical_background='Uganda has bought 1,080 tractors since 2018.',
+    did_you_know=None,
+)
+
+
+def test_kite_context_carries_the_research_the_summary_leaves_out() -> None:
+    context = _kite(RICH_STORY).kite_context
+    lines = context.split('\n')
+    assert lines[0] == 'Where: Kampala, Uganda'
+    assert ('Perspective: Frank Tumwebaze, Agriculture Minister: says the plan cuts hand-hoe '
+            'farming (agrifocusafrica.com). (AgriFocus Africa)') in lines
+    assert 'Perspective: Smallholder unions: doubt hire schemes reach remote districts.' in lines
+    assert 'Quote: "Mechanization is the only way out of subsistence." (Frank Tumwebaze, Daily Monitor)' in lines
+    # The latest steps, oldest first, citations as outlets.
+    assert [ln for ln in lines if ln.startswith('Timeline:')] == [
+        f'Timeline: {d} October 2026: Step {d} (agdaily.com)' for d in (3, 4, 5, 6)]
+    assert lines[-1] == 'Background: Uganda has bought 1,080 tractors since 2018.'
+    assert '[' not in context
+
+
+def test_kite_context_stays_inside_its_budget_with_whole_lines() -> None:
+    long_views = [{'text': f'Speaker {i}: ' + 'word ' * 80, 'sources': []} for i in range(3)]
+    context = m._kite_context(dict(RICH_STORY, perspectives=long_views))
+    assert len(context) <= m.KITE_CONTEXT_CHARS
+    assert all(len(line) <= m.KITE_CONTEXT_ITEM_CHARS + 40 for line in context.split('\n'))
+    assert 'Background: Uganda' in context  # a short line after an overrun still fits
+
+
+def test_a_plain_cluster_has_no_context_and_an_article_defaults_empty() -> None:
+    assert _kite().kite_context == ''
+    assert '_kite_context' in m.PODCAST_FEED_CONTRACT['items']
+
+
 def test_a_future_date_is_clamped_to_now() -> None:
     future = (datetime.now(timezone.utc) + timedelta(hours=20)).isoformat()
     story = dict(STORY, articles=[dict(a, date=future) for a in STORY['articles']])

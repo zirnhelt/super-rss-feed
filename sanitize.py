@@ -98,7 +98,7 @@ _CSS_UNSAFE = re.compile(
 )
 
 # Text fields of a JSON Feed item, plus the podcast contract's excerpt.
-_ITEM_TEXT_FIELDS = ('title', 'summary', 'content_text', '_excerpt')
+_ITEM_TEXT_FIELDS = ('title', 'summary', 'content_text', '_excerpt', '_kite_context')
 # Optional URL fields: removed when unsafe.
 _ITEM_OPTIONAL_URLS = ('image', 'banner_image', '_apple_news_url')
 

@@ -694,6 +694,60 @@ def _kite_excerpt(story: dict) -> str:
     return _clean_text(' '.join(p for p in parts if p), max_chars=KAGI_EXCERPT_CHARS)
 
 
+# Summary + talking points already fill KAGI_EXCERPT_CHARS (median 1923 chars on
+# 2026-10-23), so the cluster's research rides beside `_excerpt`, not inside it.
+KITE_CONTEXT_CHARS = 1500
+KITE_CONTEXT_MAX_PERSPECTIVES = 3
+KITE_CONTEXT_MAX_TIMELINE = 4
+KITE_CONTEXT_ITEM_CHARS = 260
+
+
+def _kite_context(story: dict) -> str:
+    """The cluster's research the summary leaves out, as labelled lines for the show.
+
+    Where it happened, who says what (with the outlet), the best quote, the latest
+    timeline steps, and background, in that priority. Each line is kept whole: one
+    that would overrun KITE_CONTEXT_CHARS is skipped for a shorter one after it.
+    """
+    def _clip(text: str) -> str:
+        return _clean_text(_kite_text(text, attribute=True), max_chars=KITE_CONTEXT_ITEM_CHARS)
+
+    lines: List[str] = []
+    location = story.get('location')
+    if isinstance(location, str) and location.strip():
+        lines.append(f"Where: {_clean_text(location, max_chars=80)}")
+    for view in (story.get('perspectives') or [])[:KITE_CONTEXT_MAX_PERSPECTIVES]:
+        if not isinstance(view, dict) or not isinstance(view.get('text'), str):
+            continue
+        outlets = list(dict.fromkeys(
+            s.get('name') for s in view.get('sources') or [] if isinstance(s, dict) and s.get('name')))
+        cited = f" ({', '.join(outlets)})" if outlets else ''
+        lines.append(f"Perspective: {_clip(view['text'])}{cited}")
+    quote = story.get('quote')
+    if isinstance(quote, str) and quote.strip():
+        who = ', '.join(p for p in (story.get('quote_author'), story.get('quote_attribution'))
+                        if isinstance(p, str) and p.strip())
+        lines.append(f"Quote: \"{_clip(quote)}\"" + (f" ({_clean_text(who, max_chars=120)})" if who else ''))
+    timeline = [t for t in story.get('timeline') or []
+                if isinstance(t, dict) and isinstance(t.get('content'), str)]
+    for step in timeline[-KITE_CONTEXT_MAX_TIMELINE:]:
+        lines.append(f"Timeline: {_clean_text(str(step.get('date') or ''), max_chars=40)}: "
+                     f"{_clip(step['content'])}")
+    for label, key in (('Background', 'historical_background'), ('Did you know', 'did_you_know')):
+        value = story.get(key)
+        if isinstance(value, str) and value.strip():
+            lines.append(f"{label}: {_clip(value)}")
+
+    kept: List[str] = []
+    used = 0
+    for line in lines:
+        if used + len(line) + 1 > KITE_CONTEXT_CHARS:
+            continue
+        kept.append(line)
+        used += len(line) + 1
+    return '\n'.join(kept)
+
+
 def _make_kite_article(story: dict, category: Optional[str], cutoff_date: datetime,
                        batch_at: Optional[datetime] = None) -> Optional['Article']:
     """One Kite cluster as an Article, linked to the outlet its summary cites first."""
@@ -713,6 +767,7 @@ def _make_kite_article(story: dict, category: Optional[str], cutoff_date: dateti
         domain, f"{parsed_url.scheme}://{parsed_url.netloc}",
     )
     article.excerpt = _kite_excerpt(story)
+    article.kite_context = _kite_context(story)
     article.kite_sources = int(story.get('unique_domains') or 0) or len(
         {a.get('domain') for a in story.get('articles') or [] if isinstance(a, dict)})
     # A provisional category from Kite's own label; deep scoring may still move it.
@@ -1065,6 +1120,7 @@ class Article:
         # Outlets in the Kagi News cluster this article stands for (0 = one outlet),
         # and when Kagi cut the batch that summarised it (None = not a cluster).
         self.kite_sources = 0
+        self.kite_context = ''
         self.kite_batch_at: Optional[datetime] = None
         self.category = None
         self.image = self._extract_image(entry)
@@ -1395,6 +1451,7 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     'category': article.category,
                     'image': getattr(article, 'image', None),
                     'kite_sources': getattr(article, 'kite_sources', 0),
+                    'kite_context': getattr(article, 'kite_context', ''),
                     'main_feed_quality': main_feed_quality,
                 }
                 existing.append(entry)
@@ -1405,6 +1462,8 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     entry['main_feed_quality'] = True
                 if article.category and not entry.get('category'):
                     entry['category'] = article.category
+                if getattr(article, 'kite_context', '') and not entry.get('kite_context'):
+                    entry['kite_context'] = article.kite_context
                 # A re-judged article (a changed rubric) updates its verdict.
                 verdict = getattr(article, 'gate_reject', None)
                 if verdict is not None:
@@ -1519,6 +1578,7 @@ def update_theme_holdover(theme_name: str, theme_label: str,
                 'category': article.category,
                 'image': getattr(article, 'image', None),
                 'kite_sources': getattr(article, 'kite_sources', 0),
+                'kite_context': getattr(article, 'kite_context', ''),
                 'theme_score': theme_score,
                 'banked_at': now_iso,
             })
@@ -5253,6 +5313,7 @@ def route_articles_to_best_themes(
                         'category': item['category'],
                         'image': item.get('image'),
                         'kite_sources': item.get('kite_sources', 0),
+                        'kite_context': item.get('kite_context', ''),
                         'theme_score': theme_score,
                         'banked_at': now_iso,
                     })
@@ -5378,6 +5439,7 @@ def bank_articles_for_all_themes(
                 'category': item['category'],
                 'image': item.get('image'),
                 'kite_sources': item.get('kite_sources', 0),
+                'kite_context': item.get('kite_context', ''),
                 'theme_score': pct,
                 # Raw charter output kept alongside the percentile so scale
                 # drift stays auditable after normalization hides it.
@@ -5410,7 +5472,7 @@ def bank_articles_for_all_themes(
 PODCAST_FEED_CONTRACT = {
     "items": ("id", "url", "title", "summary", "date_published", "authors", "ai_score",
               "_excerpt", "_is_bonus", "_keyword_matches", "_theme_score", "_theme_score_raw",
-              "_kite_sources"),
+              "_kite_sources", "_kite_context"),
     "_podcast": ("theme", "theme_description"),
 }
 
@@ -5490,6 +5552,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             self.category = data['category']
             self.image = data.get('image')
             self.kite_sources = data.get('kite_sources', 0)
+            self.kite_context = data.get('kite_context', '')
 
     all_cached = [CachedArticle(item) for item in cached_articles]
     all_cached_urls = {a.link for a in all_cached}
@@ -6062,6 +6125,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             # Outlets behind a Kagi News cluster (0 = one outlet): its `_excerpt` is
             # a researched multi-source body the show uses as-is.
             "_kite_sources": getattr(article, 'kite_sources', 0),
+            # The cluster's research beyond the body ("Where:", "Perspective:",
+            # "Quote:", "Timeline:", "Background:" lines; '' for an ordinary article).
+            "_kite_context": getattr(article, 'kite_context', ''),
             "_composite_podcast": composite_podcast,
             "_keyword_matches": kw_matches,
             "_category": article.category,

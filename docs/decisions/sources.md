@@ -180,6 +180,14 @@ How a cluster differs from an article now:
 
 Kite's content is CC BY-NC with credit to Kagi News, the same licence as the show; the podcast credits it on any day a Kite body reaches the script.
 
+### The cluster's research rides as `_kite_context` (2026-10-24)
+
+A Kite story carries more than its summary: `perspectives` (who says what, with the outlet; 27 of 32 stories on 2026-10-23), `timeline` (25), `quote` (23), `historical_background` (20), `location` (14). Summary + talking points alone had a median of 1923 chars against `KAGI_EXCERPT_CHARS` (2000), so appending to `_excerpt` would have been truncated away. `_kite_context()` writes them as labelled lines ("Where:", "Perspective:", "Quote:", "Timeline:", "Background:", "Did you know:") in that priority, up to 3 perspectives and the last 4 timeline steps, each clipped to `KITE_CONTEXT_ITEM_CHARS`, and keeps whole lines inside `KITE_CONTEXT_CHARS` (1500; median 1316 on the live batch). It is stored with every pool and bank row and written to podcast items as `_kite_context` ('' for an ordinary article), which is in `PODCAST_FEED_CONTRACT`. The show ignores it until its matching list reads it.
+
+### Kite's feed lists seed discovery (2026-10-24)
+
+`kite_feeds.json` (kagisearch/kite-public) is a community-vetted feed list per category. `feed_discovery.py` reads the mapped categories (`KITE_DISCOVERY_CATEGORIES`) as the source "Kagi News Feeds". A host already in `feeds.opml` is skipped, not only the exact URL, because Kite lists many section feeds of outlets we already read. Kite needs 25+ feeds before it surfaces a category, so the lists favour breadth. The source is gated like Kagi Small Web (`discovery_prescore_filter`: 25 uncached candidates a run, a keyword prefilter before any Haiku call), and its categories are interleaved so each week samples all of them. On 2026-10-24 it yielded 988 candidates: about 40 weeks to drain at the default cap; `DISCOVERY_MAX_NEW_CANDIDATES_PER_RUN` runs a catch-up.
+
 ### Kite publishes once a day, so a cluster yields to newer coverage (2026-10-22)
 
 Kite's batch API shows one batch a day at 12:00 UTC (31 of 32 days to 2026-10-22; 2026-10-15 landed at 16:46). The nightly reads it at 06:00 UTC, 18 h later, and the median article inside a batch is about 16 h older than the cut, so a cluster's coverage is ~34 h old when the nightly ranks it. Letting it win dedup outright swapped a fresh outlet update for a stale summary on any story that moved after noon.
