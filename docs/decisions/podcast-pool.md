@@ -176,4 +176,40 @@ lost its last keyword hit was read, and the real stories lost were a handful of 
 The theme score on the poll (raw 56) was Cohere Rerank, not the Haiku charter: Rerank reads
 only the first 400 characters of the `scoring_prompt`, and Friday's "general political news →
 0–20" clause starts at character 775. Targeted rescore skipped it twice over (56 is above
-`score_ceiling` 55; one keyword hit is under `min_keyword_hits` 2). That is unchanged here.
+`score_ceiling` 55; one keyword hit is under `min_keyword_hits` 2). See the next two entries.
+
+Follow-up (2026-10-24): bare `environment` had the same flaw (testing, Linux, sandbox and
+business environments). It became `environmental`, `Environment Canada`, `Environment
+Programme`, `Ministry of Environment` and `groundwater`; about a third of its 79 pool hits survive, and the two UN Environment Programme climate reports are kept.
+
+## Only the episode's own feed counts as shown (2026-10-24)
+
+Every nightly regenerates all seven podcast feeds, and every run marked all seven feeds'
+selections in `podcast_shown_cache.json` (and their holdover entries `USED`). The next night
+excludes them, so each day's feed was entirely new every night (0 of 30 overlap night to
+night), and by a day's own episode its best material had been spent in six feeds nobody
+aired. The 2026-10-23 Wild Spaces episode lost 377 pool articles that way, 184 of them above
+the feed's median raw score, including two Williams Lake prescribed burns.
+
+Now only `episode_day` is marked: the run's UTC weekday, because the podcast reads
+`feed-podcast-{weekday}` at 08:05 UTC, inside the UTC day of every nightly slot, and the
+same-day refresh already keys on the UTC date. Measured offline by running
+`generate_podcast_feed` on each episode morning's gh-pages caches for the week to 2026-10-24,
+with the shown cache as it was and as this rule would have left it, the top 30's mean raw
+theme score rose on every day: Tuesday 19.2 → 46.4, Wednesday 18.9 → 34.6, Saturday
+52.5 → 68.5, Friday 52.5 → 61.0. Feeds come out smaller (48–71 items, from 77–89) because
+the 3-per-outlet cap bites harder once the best outlets are back; the show uses about 25.
+
+## High theme scores are confirmed against the charter (2026-10-24)
+
+With Cohere on, a pool theme score is Rerank similarity, and Rerank reads only the first 400
+characters of a charter, never its exclusions: West Bank settler violence scored 70 for Wild
+Spaces. Targeted rescore only lifts low scores, so a false high was never re-asked.
+`confirm_theme_contenders` runs inside `generate_podcast_feed`, right after the day's pool is
+scored: the top `targeted_rescore.contender_band` (150) unconfirmed scores in that day's own
+pool are re-asked against the day's charter alone, stamped `rescored`, and replace the Rerank
+score. Ranked across the whole cache, a feed's top 30 sat as deep as rank 560; ranked within
+the day's pool of 300, the band of 150 held 29–30 of every day's top 30. Haiku's single-charter
+scores were already sound where they existed (off-theme 2–12, on-theme 60–88). The first night
+clears a backlog of up to 1,050 judgments (about 35 calls, roughly $0.02); after that only
+newcomers to each band are paid for. A failed call keeps the old score.
