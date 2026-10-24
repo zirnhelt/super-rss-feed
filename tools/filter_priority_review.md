@@ -1,360 +1,233 @@
 # Filter & Priority Logic Review
 
-**Date:** 2026-10-17  
+**Date:** 2026-10-24  
 **Model:** north-mini-code-1-0  
 
 ---
 
-### Filter Logic
+**Filter Logic**
 
-**Finding 1** – *Missing keyword/source/title‑pattern blocking in Article creation* (latent)  
-- **Location**: Article.__init__ (lines 520‑545, comment references “keyword/source/title‑pattern blocking”) – the code builds an Article but never applies any keyword, source or title‑pattern block; it only checks for empty title and a cutoff date.  
-- **Problem**: The comment promises a filter that does not exist, so the pipeline can admit articles that should be filtered out (e.g., “politics”, blocked domains, title patterns like “Advertisement”).  
-- **Fix**: Add a common filter step using the same config surface as the rest of the pipeline (e.g., `FILTERS.get('blocked_keywords', [])`, `FILTERS.get('blocked_sources', [])`, `FILTERS.get('blocked_title_patterns', [])`).  
+1. **Hard‑coded stale‑day threshold** – `_SCRAPE_STALE_DAYS = 4` (line ≈2220) is a deployment‑specific value that should be configurable.  
+   - **Location:** Global constant in `scrub_feed_with_haiku.py`.  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent – can be changed per environment without code change.  
+   - **Fix:** Load from `FILTERS` (or a dedicated `CONFIG` dict).  
+     ```diff
+     -_SCRAPE_STALE_DAYS = 4
+     +_SCRAPE_STALE_DAYS = FILTERS.get('scrape_stale_days', 4)
+     ```
 
-```python
-# After building the article but before the date check
-blocked_keywords = FILTERS.get('blocked_keywords', [])
-blocked_sources  = FILTERS.get('blocked_sources', [])
-blocked_title_patterns = FILTERS.get('blocked_title_patterns', [])
+2. **Hard‑coded permalink regex** – `_PERMALINK_RE = re.compile(r'^/(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$')` (line ≈2222) should be a configurable pattern.  
+   - **Location:** Same file, same region.  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent.  
+   - **Fix:**  
+     ```diff
+     -_PERMALINK_RE = re.compile(r'^/(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$')
+     +_PERMALINK_RE = re.compile(FILTERS.get('permalink_pattern',
+     +                                 r'^/(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$'))
+     ```
 
-# Description/keyword filter
-if any(kw.lower() in article.description.lower() for kw in blocked_keywords):
-    return None
+3. **Drop decisions made before enrichment** – `_drop_network_cards` (lines 2240‑2290) discards network cards that are shared or stale **before** any thin‑description enrichment (`_enrich_thin_local_articles` / `_kagi_enrich_articles`). This sequencing means a card that could be rescued by a later enrichment is permanently dropped.  
+   - **Location:** `_drop_network_cards` called from `scrape_local_news` (line ≈2330).  
+   - **Type:** Sequencing issue – premature drop.  
+   - **Severity:** **Blocking** – low‑quality but salvageable articles are lost.  
+   - **Fix:** Move enrichment before the drop for scraped cards. The simplest fix is to let `_enrich_thin_local_articles` run on the scraped list **before** `_drop_network_cards`. Example rewrite of `scrape_local_news`:  
+     ```diff
+     def scrape_local_news() -> List[Dict]:
+         # ... (scraping code unchanged)
+         scraped: List[Dict] = []
+         for paper in LOCAL_SCRAPES:
+             # ... (scraping logic unchanged)
+             scraped.extend({**a, 'source': source, 'base_url': base_url} for a in articles)
 
-# Source filter (domain matches blocked source list)
-if article.domain in blocked_sources:
-    return None
+         # ---- NEW: enrich thin scraped articles before dropping network cards ----
+         # Convert dicts to Article objects (reuse the Article constructor used elsewhere)
+         enriched_articles: List[Article] = []
+         for entry in scraped:
+             # Build a minimal _AttrDict that matches Article.__init__ expectations
+             from _AttrDict import _AttrDict
+             attr_entry = _AttrDict({
+                 'title': entry.get('title', ''),
+                 'link': entry.get('link', ''),
+                 'description': entry.get('description', ''),
+                 'summary': entry.get('description', ''),
+                 'published': entry.get('published', ''),
+                 'published_parsed': None,
+                 'updated_parsed': None,
+                 'media_thumbnail': [],
+                 'media_content': [],
+                 'enclosures': [],
+                 'tags': [],
+             })
+             art = Article(attr_entry, entry.get('source', ''), entry.get('base_url', ''), '')
+             # Run the same thin‑article enrichment used for RSS/search results
+             if len(art.summary) < FILTERS.get('enrich_summary_threshold', 100):
+                 # (re‑use the existing _enrich_thin_local_articles logic – simplified)
+                 body = _fetch_article_excerpt(art.link, max_chars=600)
+                 if body and not _is_tagline_boilerplate(body):
+                     art.description = body
+                     art.summary = _clean_text(body, max_chars=300)
+                     art.excerpt = _clean_text(body, max_chars=600)
+             enriched_articles.append(art)
 
-# Title pattern filter (simple fnmatch support)
-import fnmatch
-title_lower = article.title.lower()
-if any(fnmatch.fnmatch(title_lower, pat.lower()) for pat in blocked_title_patterns):
-    return None
-```
+         # Convert back to dicts for the existing drop logic
+         kept_dicts: List[Dict] = []
+         for art in enriched_articles:
+             kept_dicts.append({
+                 'title': art.title,
+                 'link': art.link,
+                 'description': art.description,
+                 'summary': art.summary,
+                 'source': art.source,   # Article stores source in .source
+                 'base_url': art.html_url,  # Article stores html_url
+             })
 
-**Finding 2** – *Contradictory filter application – fallback fetch bypasses keyword/source/title blocking* (blocking)  
-- **Location**: `_fetch_via_brave_fallback` and `_fetch_via_kagi_fallback` inside `scrub_feed_with_haiku()` (lines 2208‑2339). They build `Article` objects from search results but never run the same keyword/source/title block that the regular feed path uses.  
-- **Problem**: An article that would be rejected by the feed path can slip in via a fallback, breaking the consistency of the filter stage.  
-- **Fix**: Re‑use the same blocking logic (or a shared helper) for fallback articles. The simplest is to move the block into a small helper and call it for every Article before returning it.
+         kept_dicts = _drop_network_cards(kept_dicts)
+         return kept_dicts
+     ```
 
-```python
-def _apply_content_block_filter(article):
-    """Return True if the article should be kept, False if it must be dropped."""
-    blocked_keywords = FILTERS.get('blocked_keywords', [])
-    blocked_sources  = FILTERS.get('blocked_sources', [])
-    blocked_title_patterns = FILTERS.get('blocked_title_patterns', [])
+     *Explanation*: The rewrite (shown in compact form) ensures that any scraped article with a thin description gets the same enrichment path as RSS/search results before the network‑card drop runs. Adjust attribute names to match the actual `Article` class if they differ.
 
-    # description/keyword
-    if any(kw.lower() in article.description.lower() for kw in blocked_keywords):
-        return False
-    # source
-    if article.domain in blocked_sources:
-        return False
-    # title pattern
-    import fnmatch
-    if any(fnmatch.fnmatch(article.title.lower(), pat.lower()) for pat in blocked_title_patterns):
-        return False
-    return True
+4. **Hard‑coded read‑time regex** – `_READ_TIME_RE` (used in `_try_wlt_selector` and `_kagi_enrich_articles`) is a module‑level regex that strips “X min read” boilerplate. It belongs in `FILTERS`.  
+   - **Location:** `_try_wlt_selector` (line ≈2420).  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent.  
+   - **Fix:** Define regex from config.  
+     ```diff
+     -_READ_TIME_RE = re.compile(r'\d+\s*min\s*read', re.IGNORECASE)
+     +_READ_TIME_RE = re.compile(FILTERS.get('read_time_pattern',
+     +                               r'\d+\s*min\s*read', re.IGNORECASE))
+     ```
 
-# Inside _fetch_via_brave_fallback (after Article is created)
-if not _apply_content_block_filter(article):
-    continue   # drop this article, do not add to the list
-articles.append(article)
-```
-
-Apply the same helper in `_fetch_via_kagi_fallback` and any other place that creates Articles from external sources (e.g., `apply_prescore_filter`).
-
-**Finding 3** – *Early unconditional drop in `apply_prescore_filter` before scoring adjustments* (blocking)  
-- **Location**: `apply_prescore_filter()` (lines 2343‑2383). The snippet shows an indented `return []` at the top of the function – effectively discarding all articles before any per‑article scoring or dimension work.  
-- **Problem**: The prescore gate is meant to gate *aggregator* sources, not to throw away every article. If the condition evaluates true (e.g., feed is an aggregator with no explicit allow‑list), the pipeline ends prematurely, eroding any later score‑floor or penalty logic.  
-- **Fix**: Replace the blanket early return with a per‑article filter that respects the aggregator gating while still letting other articles through.
-
-```python
-def apply_prescore_filter(feed: dict, results: list, cutoff_date: datetime) -> List[Article]:
-    """Aggregator source gating – keep only articles that satisfy the prescore rule."""
-    allowed_sources = feed.get('allowed_sources', [])
-    aggregator_flag = feed.get('aggregator', False)
-
-    filtered = []
-    for r in results:
-        # Build the Article (same as existing code)
-        entry = _AttrDict({
-            'title': (r.get('title') or '').strip(),
-            'link': r.get('url', ''),
-            'description': (r.get('snippet') or '')[:500],
-            'summary': (r.get('snippet') or '')[:500],
-            'published': r.get('published') or '',
-            # ... other fields ...
-        })
-        if not entry.get('title') or not entry.get('link'):
-            continue
-        article = Article(entry, feed['title'], feed.get('html_url', ''), feed['url'])
-        # Date cut‑off – keep existing behaviour
-        pub_date = None
-        if article.pub_date and article.pub_date < cutoff_date:
-            continue
-
-        # Aggregator source gating – only drop if the feed is an aggregator *and* the article’s source isn’t allowed
-        if aggregator_flag and allowed_sources and article.domain not in allowed_sources:
-            continue
-
-        # Apply the shared content block filter so the fallback path isn’t bypassed
-        if not _apply_content_block_filter(article):
-            continue
-
-        filtered.append(article)
-
-    return filtered
-```
-
-**Finding 4** – *Network‑card drop before any scoring adjustments* (latent)  
-- **Location**: `_drop_network_cards()` (inside `score_articles_with_claude`, lines ~1970‑2205). Cards are removed based on duplicate slug, age or local‑signal presence **before** the dimension adjustments and composite scoring run.  
-- **Problem**: A network card that is old or syndicated elsewhere is discarded even though later adjustments (e.g., L‑bonus for local relevance) could have rescued it, and the prescore gate may have already accepted it. This creates a sequencing conflict.  
-- **Fix**: Move the drop logic into a **post‑scoring** stage (e.g., after `apply_dimension_adjustments` and `compute_composite_score`). If the card still fails the drop criteria after scoring, then discard it; otherwise keep it for final ranking.
-
-```python
-# Re‑factor _drop_network_cards into a post‑scoring filter
-def _drop_network_cards_post_score(scored_articles: List[Article], now: datetime = None) -> List[Article]:
-    now = now or datetime.now(timezone.utc)
-    local_signals = [s.lower() for s in FILTERS.get('local_signals', [])]
-    # Keep only articles that either have a local signal in title/description or are young/unique
-    kept = []
-    for art in scored_articles:
-        text = f"{art.title} {art.description}".lower()
-        # Local signal wins – keep regardless of age/duplication
-        if any(sig in text for sig in local_signals):
-            kept.append(art)
-            continue
-
-        # Extract permalink date if present (network cards have a /YYYY/MM/DD/slug/ shape)
-        parsed = urlparse(art.link)
-        m = _PERMALINK_RE.match(parsed.path)
-        if not m:
-            # No permalink – assume it’s a network card and drop it
-            continue
-        year, month, day, slug = map(int, (m.group(1), m.group(2), m.group(3), m.group(4)))
-        try:
-            age_days = (now - datetime(year, month, day, tzinfo=timezone.utc)).days
-        except ValueError:
-            age_days = 0
-        # Shared slug detection – we need a global map; keep a simple in‑function version for illustration
-        # In production this map is built once per run from the scraped list.
-        if _SHARED_SLUGS.get(slug, 0) >= 2 or age_days > _SCRAPE_STALE_DAYS:
-            # drop
-            continue
-        kept.append(art)
-    return kept
-
-# Usage: after scoring, call _drop_network_cards_post_score(scored_articles)
-```
-
-**Finding 5** – *`compute_composite_score` is mis‑implemented – it validates a feed, not scores articles* (blocking)  
-- **Location**: The function that currently parses a feed body and returns a boolean (lines 2435‑2442). No attribute `composite_score` is ever added to Article objects.  
-- **Problem**: Because the real composite scorer is missing, the final sort uses whatever default ordering exists (or none), breaking the configured Q/R/L weight matrix.  
-- **Fix**: Rewrite the function to actually compute a weighted composite score using the configured weights (e.g., `SCORING_WEIGHTS.get('composite', {...})`). Assume Article objects already have `quality_score`, `relevance_score`, `local_score`, `theme_score` fields (or compute them if missing). Add a `composite_score` attribute and return the articles sorted by it.
-
-```python
-def compute_composite_score(articles: List[Article]) -> List[Article]:
-    """Calculate the weighted composite score for each article.
-    Expects the following optional attributes on Article:
-      quality_score   – numeric (0‑1)
-      relevance_score – numeric (0‑1)
-      local_score     – numeric (0‑1)
-      theme_score     – numeric (0‑1)
-    Falls back to 0 when an attribute is missing.
-    """
-    # Load weight configuration – fall back to sensible defaults if missing
-    w = SCORING_WEIGHTS.get('composite', {
-        'quality': 0.4,
-        'relevance': 0.4,
-        'local': 0.1,
-        'theme': 0.1,
-    })
-
-    for art in articles:
-        q = getattr(art, 'quality_score', 0) or 0
-        r = getattr(art, 'relevance_score', 0) or 0
-        l = getattr(art, 'local_score', 0) or 0
-        t = getattr(art, 'theme_score', 0) or 0
-
-        art.composite_score = (
-            q * w['quality'] +
-            r * w['relevance'] +
-            l * w['local'] +
-            t * w['theme']
-        )
-    # Sort descending – higher composite wins
-    articles.sort(key=lambda a: a.composite_score, reverse=True)
-    return articles
-```
-
-**Finding 6** – *`apply_dimension_adjustments` is actually feed‑rediscovery code, not scoring adjustments* (blocking)  
-- **Location**: The block that defines `_fetch_url_bytes`, `_autodiscovery_links`, `_discover_feed_url` (lines 2445‑2502) is misnamed; no L‑bonus, Q‑adjustments or wire‑penalty are applied.  
-- **Problem**: Because the real dimensional tuning never runs, later stages (e.g., `_podcast_composite`) operate on raw Article objects, so the configured bonuses/penalties never affect the final ranking.  
-- **Fix**: Provide a proper `apply_dimension_adjustments` that modifies the Article’s dimensional scores based on config.
-
-```python
-def apply_dimension_adjustments(articles: List[Article]) -> List[Article]:
-    """Apply L‑bonus, Q‑adjustments and a wire‑penalty.
-    All tuning constants are taken from the SCORING_WEIGHTS dict so they can be
-    overridden without touching code.
-    """
-    cfg = SCORING_WEIGHTS.get('dimension', {})
-    # Local‑signal bonus (L‑bonus)
-    local_signals = {s.lower() for s in FILTERS.get('local_signals', [])}
-    for art in articles:
-        text = f"{art.title} {art.description}".lower()
-        if any(sig in text for sig in local_signals):
-            art.local_score = (getattr(art, 'local_score', 0) or 0) + cfg.get('local_bonus', 0.15)
-
-        # Quality adjustments – richer description → higher quality
-        desc_len = len(art.description or '')
-        if desc_len > 500:
-            art.quality_score = (getattr(art, 'quality_score', 0) or 0) + cfg.get('quality_bonus_long', 0.1)
-        elif desc_len < 100:
-            art.quality_score = (getattr(art, 'quality_score', 0) or 0) - cfg.get('quality_penalty_short', 0.05)
-
-        # Wire‑penalty – penalise feeds that are extremely high‑volume (e.g., >10k subs)
-        if art.feed_volume > cfg.get('high_volume_threshold', 10000):
-            art.quality_score = (getattr(art, 'quality_score', 0) or 0) - cfg.get('wire_penalty', 0.2)
-
-    return articles
-```
-
-**Finding 7** – *Hard‑coded constants that belong in config* (hard‑code)  
-- **Location**: `_SCRAPE_STALE_DAYS = 4`, `_MAX_DISCOVERY_PROBES = 6`, `SELECTOR_PATTERNS` inside `scrape_local_news`. These values are baked into the source and cannot be overridden without a code change.  
-- **Problem**: Different deployments may want different stale‑day thresholds, probe limits, or CSS selectors; hard‑coding makes the pipeline inflexible.  
-- **Fix**: Move them to a central configuration dict (e.g., `PIPELINE_CONFIG`). Example:
-
-```python
-# In the module header or a dedicated config_loader
-PIPELINE_CONFIG = {
-    'scrape': {
-        'stale_days': 4,
-        'max_discovery_probes': 6,
-        'selector_patterns': [
-            ('div.article-card', 'a.article-card__link', 'h3.article-card__headline',
-             'div.article-card__details', 'img.article-card__image'),
-            # … rest of patterns …
-        ],
-    },
-    # other sections …
-}
-
-# Replace uses
-_SCRAPE_STALE_DAYS = PIPELINE_CONFIG['scrape']['stale_days']
-_MAX_DISCOVERY_PROBES = PIPELINE_CONFIG['scrape']['max_discovery_probes']
-SELECTOR_PATTERNS = PIPELINE_CONFIG['scrape']['selector_patterns']
-```
-
-All other references to the constants are updated accordingly.
-
-**Finding 8** – *Thin‑day auto‑inflation is not configurable* (latent)  
-- **Location**: Inside `score_articles_with_claude` there is logic that fetches an excerpt when `len(description) < 100` and later `_enrich_thin_local_articles`. This is the “thin‑day” behavior that inflates low‑scoring items.  
-- **Problem**: The inflation runs unconditionally; there is no flag to turn it off, and it does not respect the same scoring‑floor logic that would otherwise protect low‑scorers.  
-- **Fix**: Guard the enrichment behind a config flag and make the threshold configurable.
-
-```python
-# At the top of the module (or load via config_loader)
-THIN_DAY_CFG = {
-    'enabled': True,
-    'desc_threshold': 100,
-    'max_excerpt_chars': 600,
-    'local_enrich_enabled': True,
-}
-
-# Inside the article loop (e.g., after building `description`)
-if THIN_DAY_CFG['enabled'] and len(description) < THIN_DAY_CFG['desc_threshold']:
-    body = _fetch_article_excerpt(full_url, max_chars=THIN_DAY_CFG['max_excerpt_chars'])
-    if body:
-        description = body
-
-# Later, after all articles are collected
-if THIN_DAY_CFG['local_enrich_enabled']:
-    _enrich_thin_local_articles(articles)
-```
-
-**Finding 9** – *Unclear precedence when a local source also matches a high‑volume prescore gate* (latent)  
-- **Location**: The pipeline has a prescore gate (`apply_prescore_filter`) that may admit high‑volume aggregator feeds, and a local‑signal detection (`_drop_network_cards` / `FILTERS['local_signals']`). No explicit rule decides which wins when an article belongs to a local paper **and** also satisfies the prescore gate.  
-- **Problem**: The final ranking could be dominated by volume‑based scoring, drowning out local relevance, or vice‑versa, depending on arbitrary ordering.  
-- **Fix**: Introduce a deterministic “local‑wins” rule after the composite score is calculated. If an article’s local relevance (e.g., `local_score` > 0 or a local signal is present) **and** its composite score is within a small epsilon of the best score, bump it above non‑local entries.
-
-```python
-def apply_local_precedence(scored_articles: List[Article]) -> List[Article]:
-    """Give priority to local articles when scores are close."""
-    if not scored_articles:
-        return []
-
-    # Determine a tolerance – e.g., 1 % of the max composite score
-    max_score = max(a.composite_score for a in scored_articles)
-    tolerance = max_score * 0.01
-
-    # Separate local vs non‑local
-    local = []
-    other = []
-    for a in scored_articles:
-        has_local = any(sig.lower() in f"{a.title} {a.description}".lower()
-                        for sig in FILTERS.get('local_signals', []))
-        if has_local:
-            local.append(a)
-        else:
-            other.append(a)
-
-    # Keep non‑local list unchanged
-    result = other
-
-    # Insert local articles, bumping them ahead of any non‑local article whose score
-    # is within tolerance.
-    for loc in local:
-        insert_pos = len(result)
-        for i, oth in enumerate(result):
-            if abs(oth.composite_score - loc.composite_score) <= tolerance:
-                insert_pos = i
-                break
-        result.insert(insert_pos, loc)
-
-    return result
-```
-
-Then call `apply_local_precedence(compute_composite_score(articles))` before the final output stage.
+5. **Hard‑coded local BC domains list** – `_LOCAL_BC_DOMAINS` (used in `_enrich_thin_local_articles` and `_kagi_enrich_articles`) is a list of domain strings that should be sourced from `FILTERS`.  
+   - **Location:** Top‑of‑file definition (line ≈2100).  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent.  
+   - **Fix:**  
+     ```diff
+     -_LOCAL_BC_DOMAINS = ['vancouversun.com', 'vancouversun.com', 'theprovince.com', ...]
+     +_LOCAL_BC_DOMAINS = FILTERS.get('local_bc_domains', [])
+     ```
 
 ---
 
-### Scoring & Priority
+**Scoring & Priority**
 
-**Finding 1** – *`compute_composite_score` is mis‑implemented* (blocking) – *see Fix 5 above*.
+1. **Hard‑coded enrichment thresholds** – `len(article.summary) < 100` (`_enrich_thin_local_articles`) and `len(a.description.strip()) >= 150` (`_kagi_enrich_articles`) are deployment‑specific cut‑offs.  
+   - **Location:** `_enrich_thin_local_articles` (line ≈2180) and `_kagi_enrich_articles` (line ≈2240).  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent – changing thresholds requires code change.  
+   - **Fix:** Use config values.  
+     ```diff
+     # At module top:
+     -ENRICH_SUMMARY_THRESHOLD = 100
+     -ENRICH_DESCRIPTION_THRESHOLD = 150
+     +ENRICH_SUMMARY_THRESHOLD = FILTERS.get('enrich_summary_threshold', 100)
+     +ENRICH_DESCRIPTION_THRESHOLD = FILTERS.get('enrich_description_threshold', 150)
 
-**Finding 2** – *`apply_dimension_adjustments` is mis‑implemented* (blocking) – *see Fix 6 above*.
+     # In _enrich_thin_local_articles:
+     -if (len(article.summary) < 100
+     +if (len(article.summary) < ENRICH_SUMMARY_THRESHOLD
 
-**Finding 3** – *Quality and relevance appear collapsed* (latent) – the current implementation does not keep Q and R separate after `apply_dimension_adjustments`. If downstream steps need separate scores, they are lost. The fix above preserves them as independent attributes (`quality_score`, `relevance_score`).
+     # In _kagi_enrich_articles:
+     -if len(a.description.strip()) >= 150:
+     +if len(a.description.strip()) >= ENRICH_DESCRIPTION_THRESHOLD:
+     ```
 
-**Finding 4** – *Final sort formula does not match configured weights* (latent) – because the real composite scorer was missing, the pipeline sorted on whatever default ordering existed (often by date or URL hash). The new `compute_composite_score` now reads `SCORING_WEIGHTS['composite']` and respects the configured weights, restoring the intended ranking.
+2. **Hard‑coded Kagi batch & excerpt sizes** – `KAGI_EXTRACT_BATCH = 10`, `KAGI_EXCERPT_CHARS = 2000`, and `max_calls = 40` are all constant limits that should be configurable.  
+   - **Location:** Definitions near line ≈2150 (global) and `_kagi_enrich_articles` signature.  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent.  
+   - **Fix:** Load from `FILTERS`.  
+     ```diff
+     -KAGI_EXTRACT_BATCH = 10
+     -KAGI_EXCERPT_CHARS = 2000
+     -def _kagi_enrich_articles(..., max_calls: int = 40, ...):
+     +KAGI_EXTRACT_BATCH = FILTERS.get('kagi_extract_batch', 10)
+     +KAGI_EXCERPT_CHARS = FILTERS.get('kagi_excerpt_chars', 2000)
+     +def _kagi_enrich_articles(..., max_calls: int = FILTERS.get('kagi_max_calls', 40), ...):
+     ```
+
+3. **Hard‑coded user‑agent strings** – `_BROWSER_UA` and `_FEED_READER_UA` are deployment‑specific HTTP headers.  
+   - **Location:** In `apply_prescore_filter` region (line ≈2300).  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent.  
+   - **Fix:** Pull from config.  
+     ```diff
+     -_BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+     -                  '(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36')
+     -_FEED_READER_UA = ('SuperRSSCurator/1.0 (+https://zirnhelt.github.io/super-rss-feed/) '
+     -                    'RSS/Atom feed reader')
+     +_BROWSER_UA = FILTERS.get('browser_ua',
+     +                         ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+     +                          '(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'))
+     +_FEED_READER_UA = FILTERS.get('feed_reader_ua',
+     +                             ('SuperRSSCurator/1.0 (+https://zirnhelt.github.io/super-rss-feed/) '
+     +                              'RSS/Atom feed reader'))
+     ```
+
+4. **Hard‑coded feed‑discovery constants** – `_COMMON_FEED_PATHS` and `_MAX_DISCOVERY_PROBES` control how aggressively the pipeline looks for alternate RSS locations.  
+   - **Location:** Near `_fetch_via_brave_fallback` (line ≈2330).  
+   - **Type:** Hard‑code / Missing config surface.  
+   - **Severity:** Latent.  
+   - **Fix:**  
+     ```diff
+     -_COMMON_FEED_PATHS = ('/feed/', '/rss/', '/rss.xml', '/feed.xml', '/atom.xml',
+     -                       '/index.xml', '/blog/feed/', '/news/feed/',
+     -                       '/feeds/posts/default')
+     -_MAX_DISCOVERY_PROBES = 6
+     +_COMMON_FEED_PATHS = FILTERS.get('common_feed_paths',
+     +                               ('/feed/', '/rss/', '/rss.xml', '/feed.xml', '/atom.xml',
+     +                                '/index.xml', '/blog/feed/', '/news/feed/',
+     +                                '/feeds/posts/default'))
+     +_MAX_DISCOVERY_PROBES = FILTERS.get('max_discovery_probes', 6)
+     ```
+
+5. **Potential score‑floor erosion** – The `compute_composite_score` → `apply_dimension_adjustments` chain is not visible in the supplied snippets, so we cannot verify whether a later penalty can drop a score below a configured floor.  
+   - **Location:** Functions `compute_composite_score`, `apply_dimension_adjustments` (lines 2435‑2502).  
+   - **Type:** Missing verification.  
+   - **Severity:** Latent (could be blocking if a floor is breached).  
+   - **Action Required:** Provide the full bodies of `compute_composite_score` and `apply_dimension_adjustments` (and any floor constants) for definitive review.
 
 ---
 
-### Edge Cases
+**Edge Cases**
 
-**Finding 1** – *Hard‑coded constants* (`_SCRAPE_STALE_DAYS`, `_MAX_DISCOVERY_PROBES`, `SELECTOR_PATTERNS`) (hard‑code) – *see Fix 7 above*.
+1. **Thin‑day auto‑inflation** – `_enrich_thin_local_articles` and `_kagi_enrich_articles` automatically fetch full article text when `summary`/`description` are short. This is intended “thin‑day” behaviour, but the decision to inflate rests on hard‑coded thresholds (see Scoring findings). Moving those thresholds to config gives control over how aggressively low‑scoring items are rescued.  
 
-**Finding 2** – *Thin‑day auto‑inflation* (latent) – *see Fix 8 above*.
+2. **Local source vs high‑volume prescore gate** – `apply_prescore_filter` (aggregator source gating) is not visible, but `_drop_network_cards` **always keeps** cards that contain any `local_signals` even if they are stale/shared. If a local source also matches a high‑volume prescore gate (e.g., a bulk RSS feed that would normally be throttled), the current logic means the prescore gate is bypassed for those cards. This can be a conflict:  
+   - **Location:** `_drop_network_cards` (line 2260) and presumed `apply_prescore_filter`.  
+   - **Type:** Logic conflict / sequencing.  
+   - **Severity:** **Blocking** – a local article that should be limited by volume may slip through.  
+   - **Fix:** Apply the prescore gate **before** the local‑signal keep‑logic, or combine the checks. Example modification of `_drop_network_cards` (or the surrounding `scrape_local_news` flow) to respect prescore limits:  
+     ```diff
+     # In scrape_local_news, after enrichment but before _drop_network_cards:
+     # Assume apply_prescore_filter returns a set of sources that are gated out:
+     gated_sources = apply_prescore_filter(kept_dicts)  # returns list of source names to drop
+     kept_dicts = [c for c in kept_dicts if c.get('source') not in gated_sources]
+     kept_dicts = _drop_network_cards(kept_dicts)
+     ```  
+     *Note*: The exact signature of `apply_prescore_filter` must be checked; the snippet above shows a plausible integration.  
 
-**Finding 3** – *Local source vs high‑volume prescore gate precedence* (latent) – *see Fix 9 above*.
+3. **Hard‑coded `_READ_TIME_RE` and `_LOCAL_BC_DOMAINS`** – already listed under Filter Logic for completeness.
 
-**Finding 4** – *Fallback fetch bypasses content block filter* (blocking) – *see Fix 2 above*.
-
-**Finding 5** – *Early unconditional drop in `apply_prescore_filter`* (blocking) – *see Fix 3 above*.
-
-**Finding 6** – *Network cards dropped before scoring* (latent) – *see Fix 4 above*.
+4. **Missing verification of final sort formula** – `_podcast_composite` (lines 3386‑3392) and surrounding scoring logic are not visible, so we cannot confirm that the final sort respects the configured weights.  
+   - **Location:** `_podcast_composite` and any weight constants (`QUALITY_WEIGHT`, `RELEVANCE_WEIGHT`, etc.).  
+   - **Type:** Missing verification.  
+   - **Severity:** Latent.  
+   - **Action Required:** Provide the full bodies of `_podcast_composite` and any weight definitions.
 
 ---
 
-**Summary of Blocking Changes (apply immediately):**
+**Summary of Required Additional Code**
 
-1. Add shared `_apply_content_block_filter` and call it in Article creation (Article.__init__) and all fallback paths.  
-2. Replace early `return []` in `apply_prescore_filter` with per‑article aggregator gating.  
-3. Rewrite `compute_composite_score` to calculate weighted composite scores.  
-4. Rewrite `apply_dimension_adjustments` to apply L‑bonus, Q‑adjustments, and wire‑penalty using config.  
-5. Move `_SCRAPE_STALE_DAYS`, `_MAX_DISCOVERY_PROBES`, `SELECTOR_PATTERNS` to `PIPELINE_CONFIG`.  
+To complete a full blocking‑grade review, the following functions need their complete implementations supplied:
 
-These changes eliminate contradictory filters, protect score floors from premature drops, align scoring with configuration, and make the pipeline more configurable and maintainable.
+- `apply_prescore_filter` (aggregator source gating) – to verify gating logic and its interaction with local‑signal handling.  
+- `compute_composite_score` – to confirm Q/R/L weighting, floors, and that later penalties cannot erode a protected minimum.  
+- `apply_dimension_adjustments` – to ensure L‑bonuses, Q‑adjustments, and wire‑penalties are applied in the correct order and do not unintentionally zero‑out scores.  
+- `filter_by_content_type` – to verify hard‑drop rules (fluff/sponsored/recap) are not contradictory with other filters.  
+- `_podcast_composite` – to verify the final sort formula matches any configured weight constants.  
+
+**Next Step:** Please provide the missing full bodies (or the relevant sections) for the five functions above so that the review can be finished and any remaining blocking issues can be fixed.
