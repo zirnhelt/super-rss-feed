@@ -113,9 +113,9 @@
     "description": "Free pre-scoring gate: articles from these high-volume sources must match a CATEGORY_RULES interest keyword and are capped per source before reaching Claude/Cohere scoring. Only sources whose worthwhile output is well covered by PRESCORE_KEYWORDS belong here — the keyword set is tuned for news/tech/science/climate/health, so gating lifestyle titles (Country Living UK, Popular Woodworking, Domino, AFAR, Bicycling, ...) would drop nearly all of their articles. Culture-led magazines are excluded for the same reason: PRESCORE_KEYWORDS carries no music, film, or arts vocabulary, and the 'news' category is the default catch-all with no include list of its own, so a gated culture title (Rolling Stone) loses even its long-form political reporting before scoring. Those rely on the quality gate and Haiku scrub instead."
   },
   "discovery_prescore_filter": {
-    "sources": ["Kagi Small Web"],
+    "sources": ["Kagi Small Web", "Kagi News Feeds"],
     "max_new_candidates_per_run": 25,
-    "description": "Feed discovery gate for high-volume OPML sources: per run, only this many not-yet-cached candidate feeds are evaluated (remaining candidates trickle in on later runs), and a candidate is skipped without an LLM call if none of its sampled articles match a CATEGORY_RULES interest keyword."
+    "description": "Feed discovery gate for high-volume candidate sources: per run and per source, only this many not-yet-cached candidate feeds are evaluated (remaining candidates trickle in on later runs), and a candidate is skipped without an LLM call if none of its sampled articles match a CATEGORY_RULES interest keyword."
   },
   "kagi_search_result_limit": 10,
   "apple_news_channels": {

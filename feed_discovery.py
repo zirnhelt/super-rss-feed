@@ -12,6 +12,7 @@ import socket
 import requests
 from datetime import datetime, timezone
 from collections import defaultdict
+from itertools import zip_longest
 from typing import List, Dict, Set, Tuple
 import xml.etree.ElementTree as ET
 from urllib.parse import urlparse, urljoin
@@ -128,6 +129,35 @@ DISCOVERY_SOURCES = [
         'category': 'general'
     }
 ]
+
+# Kagi News's community-curated category feeds (kagisearch/kite-public), as a
+# free candidate list. Each category needs 25+ vetted feeds before Kite surfaces
+# it, so the lists favour breadth: they ride the same gate as Kagi Small Web
+# (source_preferences.json -> discovery_prescore_filter). Values are the report
+# label only; nothing downstream routes on them.
+KITE_FEEDS_SOURCE = 'Kagi News Feeds'
+KITE_FEEDS_URL = 'https://raw.githubusercontent.com/kagisearch/kite-public/main/kite_feeds.json'
+KITE_DISCOVERY_CATEGORIES = {
+    'Canada': 'news',
+    'AI': 'ai-tech',
+    'Privacy': 'ai-tech',
+    'Smart Home': 'homelab',
+    'Networking': 'homelab',
+    'Linux & OSS': 'homelab',
+    '3D Printing': 'homelab',
+    'Climate Change': 'climate',
+    'Energy': 'climate',
+    'Agriculture': 'homestead',
+    'Space': 'science',
+}
+# Kite's own validator bans these hosts; Google News topic feeds are aggregators
+# the pipeline already reaches as a fallback.
+KITE_SKIP_HOSTS = frozenset({'rsshub.app', 'nitter.net', 'news.google.com'})
+
+
+def _feed_host(url: str) -> str:
+    return urlparse(url).netloc.lower().removeprefix('www.')
+
 
 def _brave_search(query: str, api_key: str, count: int = 10) -> List[str]:
     """Search Brave for page URLs matching query. Returns [] on error."""
@@ -392,11 +422,66 @@ class FeedDiscovery:
         print(f"\n🎯 Total candidates: {len(candidates)}")
         return candidates
     
+    def _fetch_kite_candidates(self) -> List[FeedCandidate]:
+        """Candidates from Kagi News's category feed lists, new hosts only.
+
+        A host already in feeds.opml is skipped, not just the exact URL: Kite
+        lists many section feeds of outlets we read (CBC, Globe), and a second
+        section of a known outlet is rarely what discovery is for. Categories are
+        interleaved so the per-run cap samples all of them each week instead of
+        draining one list at a time.
+        """
+        print(f"\n🪁 Fetching {KITE_FEEDS_SOURCE}...")
+        try:
+            response = requests.get(KITE_FEEDS_URL, timeout=30)
+            response.raise_for_status()
+            kite_categories = response.json()
+        except Exception as e:
+            print(f"  ❌ Error: {e}")
+            return []
+
+        known_hosts = {_feed_host(url) for url in self.existing_feeds}
+        by_category: List[List[FeedCandidate]] = []
+        seen: Set[str] = set()
+        for kite_category, our_category in KITE_DISCOVERY_CATEGORIES.items():
+            entry = kite_categories.get(kite_category)
+            if not isinstance(entry, dict):
+                print(f"  ⚠️  {kite_category}: not in kite_feeds.json")
+                continue
+            category_candidates: List[FeedCandidate] = []
+            for feed_url in entry.get('feeds') or []:
+                if not isinstance(feed_url, str) or not feed_url.startswith(('http://', 'https://')):
+                    continue
+                feed_url = feed_url.strip()
+                norm = feed_url.lower()
+                host = _feed_host(feed_url)
+                if (norm in seen or norm in self.existing_feeds
+                        or host in known_hosts or host in KITE_SKIP_HOSTS):
+                    continue
+                seen.add(norm)
+                category_candidates.append(FeedCandidate(
+                    title=host,
+                    url=feed_url,
+                    html_url=f"https://{host}",
+                    source=KITE_FEEDS_SOURCE,
+                    category=our_category,
+                ))
+            by_category.append(category_candidates)
+        candidates = [c for group in zip_longest(*by_category) for c in group if c]
+        print(f"  ✅ Found {len(candidates)} new candidates")
+        return candidates
+
     def _sample_feed_articles(self, candidate: FeedCandidate) -> List[SimpleArticle]:
         """Sample recent articles from a feed candidate"""
         try:
             parsed = feedparser.parse(candidate.url)
             articles = []
+            # Kite lists bare URLs; name the candidate from the feed itself.
+            if candidate.title == _feed_host(candidate.url):
+                candidate.title = parsed.feed.get('title') or candidate.title
+            # Kite lists bare URLs; name the candidate from the feed itself.
+            if candidate.title == _feed_host(candidate.url):
+                candidate.title = parsed.feed.get('title') or candidate.title
             
             # Convert to SimpleArticle objects (limit to MAX_ARTICLES_PER_FEED)
             for entry in parsed.entries[:MAX_ARTICLES_PER_FEED]:
@@ -706,10 +791,11 @@ def main():
     print("🔍 FEED DISCOVERY SYSTEM")
     print("=" * 50)
     
-    # Fetch candidates from OPML sources and Brave Search
+    # Fetch candidates from OPML sources, Kagi News's feed lists and Brave Search
     opml_candidates = discovery._fetch_opml_sources()
+    kite_candidates = discovery._fetch_kite_candidates()
     brave_candidates = discovery._fetch_brave_candidates()
-    candidates = opml_candidates + brave_candidates
+    candidates = opml_candidates + kite_candidates + brave_candidates
 
     if not candidates:
         print("❌ No new feed candidates found")
