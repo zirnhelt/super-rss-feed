@@ -5074,6 +5074,54 @@ Articles to evaluate:
 
 
 
+def confirm_theme_contenders(scored: List[tuple], theme_name: str, theme_prompt: str,
+                             theme_label: str, api_key: str, schedule_config: Dict) -> Tuple[List[tuple], int]:
+    """Re-judge the day's highest unconfirmed theme scores against its charter alone.
+
+    With Cohere on, a pool article's theme score is Rerank similarity to the first
+    400 characters of the charter, which never reach its exclusions: on 2026-10-23
+    a B.C. election poll scored 56 for Wild Spaces and led the feed, and West Bank
+    settler violence scored 70. `rescore_underserved_themes` only lifts low scores,
+    so a false high was never re-asked, and a false high is the one that airs.
+
+    The band is the top `targeted_rescore.contender_band` of this day's own scored
+    pool, not of the whole cache: category, quality and local scores decide the
+    feed too, and the feed's top 30 sat anywhere down to rank 560 cache-wide. In
+    the day's pool of 300, a band of 150 held 29-30 of every feed's top 30 over the
+    week to 2026-10-24. Each article is paid for once (the `rescored` stamp), and a
+    failed call keeps the old score.
+
+    Returns the scores with confirmed ones replaced, and how many were confirmed.
+    """
+    cfg = schedule_config.get('targeted_rescore') or {}
+    band = int(cfg.get('contender_band', 0))
+    if not scored or band <= 0 or not cfg.get('enabled', False) or theme_name not in (cfg.get('days') or []):
+        return scored, 0
+
+    def _confirmed(cache: Dict, link: str) -> bool:
+        entry = cache.get(f"{link}:::{theme_label}")
+        return isinstance(entry, dict) and bool(entry.get('rescored'))
+
+    cache = load_theme_score_cache()
+    unconfirmed = sorted((t for t in scored if not _confirmed(cache, t[0].link)),
+                         key=lambda t: t[1], reverse=True)
+    contenders = [a for a, _ in unconfirmed[:band]]
+    if not contenders:
+        return scored, 0
+
+    print(f"  🔎 Confirming {len(contenders)} contenders against the {theme_label} charter")
+    results = dict((a.link, ts) for a, ts in score_articles_for_theme(
+        contenders, theme_prompt, theme_label, api_key, force=True))
+    cache = load_theme_score_cache()
+    confirmed = {link: ts for link, ts in results.items() if _confirmed(cache, link)}
+    if confirmed:
+        pairs = [(ts, confirmed[a.link]) for a, ts in scored if a.link in confirmed]
+        print(f"   📊 contenders mean {sum(b for b, _ in pairs) / len(pairs):.1f} → "
+              f"{sum(n for _, n in pairs) / len(pairs):.1f}, "
+              f"{sum(1 for b, n in pairs if n < b - 20)} fell by more than 20")
+    return [(a, confirmed.get(a.link, ts)) for a, ts in scored], len(confirmed)
+
+
 # ---------------------------------------------------------------------------
 # Targeted single-theme rescore
 # ---------------------------------------------------------------------------
@@ -5107,7 +5155,8 @@ Articles to evaluate:
 #     `_build_strict_theme_keywords` exists in the sibling repo: a single
 #     generic word ("tool", "build", "resource") is not evidence.
 #
-# Already-strong scores are left alone (`score_ceiling`), each article is paid
+# High scores are confirmed per day, inside feed generation, by
+# `confirm_theme_contenders`. Here, already-strong scores are left alone (`score_ceiling`), each article is paid
 # for once (the `rescored` stamp), and `max_articles_per_run` bounds a runaway
 # day. It ran on Tuesday and Wednesday only until 2026-10-08, when Haiku 5.5
 # made a Haiku call cost a tenth as much. Now it covers all seven days at 120
@@ -5796,6 +5845,8 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     # Score articles for thematic fit using Claude
     theme_scored = score_articles_for_theme(theme_pool, theme_scoring_prompt, theme_label, api_key)
+    theme_scored, contenders_confirmed = confirm_theme_contenders(
+        theme_scored, theme_name, theme_scoring_prompt, theme_label, api_key, schedule_config)
 
     # Fallback: if scoring returned nothing despite having a pool, use quality scores directly
     if not theme_scored and theme_pool:
@@ -6202,6 +6253,7 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
         'mean_final_score': round(avg_final_score, 1),
         'mean_theme_score': round(avg_theme_score, 1),
         'mean_theme_score_raw': round(avg_theme_raw, 1),
+        'contenders_confirmed': contenders_confirmed,
         'relative_scaled': True,
         'banked_count': banked_count,
     }
@@ -6685,6 +6737,13 @@ def main():
         podcast_feed_stats: Dict[str, Dict] = {}
         now_iso = datetime.now(timezone.utc).isoformat()
         today_date_str = now_iso[:10]
+        # Only the feed the next episode reads counts as shown. The podcast reads
+        # feed-podcast-{weekday} at 08:05 UTC, inside the UTC day of every nightly
+        # slot, and the same-day refresh in generate_podcast_feed keys on the UTC
+        # date too. Marking all seven feeds burned each day's best material in feeds
+        # nobody aired: by Friday 2026-10-23, 377 pool articles were excluded from
+        # the Wild Spaces episode, two Williams Lake prescribed burns among them.
+        episode_day = datetime.now(timezone.utc).strftime('%A').lower()
         for day in day_order:
             if day not in schedule_config['schedule']:
                 continue
@@ -6696,7 +6755,7 @@ def main():
                 podcast_feed_stats[day] = feed_stats
 
             # Mark this day's holdover entries as USED or SKIPPED for auditing.
-            if selected_urls is not None:
+            if selected_urls is not None and day == episode_day:
                 _hov = load_theme_holdover_cache()
                 day_staged = _hov.get(day, [])
                 used_count = skipped_count = 0
@@ -6712,7 +6771,7 @@ def main():
                     save_theme_holdover_cache(_hov)
                     print(f"  ♻️  [{label}] Holdover status: {used_count} USED, {skipped_count} SKIPPED")
 
-            if selected_urls:
+            if selected_urls and day == episode_day:
                 newly_marked = 0
                 compound_key = lambda u: f"{u}:::{day}"
                 for url in selected_urls:

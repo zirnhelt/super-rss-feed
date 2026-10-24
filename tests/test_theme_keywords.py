@@ -62,6 +62,12 @@ class TestWildSpacesKeywords:
                 "about amusement park regulations, state inspections, and federal oversight.")
         assert _hits(text, _day_keywords('friday')) == 0
 
+    def test_a_software_environment_is_not_the_environment(self):
+        keywords = _day_keywords('friday')
+        assert _hits("my proxmox server now runs a full dev environment for ai agents", keywords) == 0
+        assert _hits("a proper environmental assessment of the mine", keywords) >= 1
+        assert _hits("the united nations environment programme report", keywords) >= 1
+
     def test_outdoor_parks_and_trails_still_hit(self):
         keywords = _day_keywords('friday')
         assert _hits("tsútswecw provincial park ahead of the salute to the sockeye", keywords) >= 1
