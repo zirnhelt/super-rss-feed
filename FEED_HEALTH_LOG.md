@@ -72,3 +72,11 @@ No feed met the failure floor — nothing to heal.
 | ✓ Recovered on its own | Hacker News | fetches normally again | 17 failures over 17d (http_419, via feed_http_cache.json+FEED_ERRORS.md) |
 | ✓ Recovered on its own | EEVblog | fetches normally again | 4 failures over 5d (http_502, via feed_http_cache.json+FEED_ERRORS.md) |
 | ✅ Restored | CleanTechnica | retired source is reachable again | retired unknown |
+
+
+## 2026-10-24
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| ✓ Recovered on its own | Hacker News | fetches normally again | 24 failures over 24d (http_419, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Two Minute Papers | fetches normally again | 6 failures over 5d (http_404, via feed_http_cache.json) |
