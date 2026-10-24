@@ -200,6 +200,7 @@
     "podcast.schedule.<day>.keywords": {
       "file": "config/podcast_schedule.json",
       "path_template": ["schedule", "{day}", "keywords"],
+      "_note": "Keywords match whole words (a plural s/es is allowed); a trailing '*' matches word endings ('flood*' hits flooding). Add a phrase, never a bare word with a common second sense: bare 'park' and 'trail' were removed 2026-10-24 for matching 'amusement park' and 'campaign trail'.",
       "mode": "additions_only",
       "max_additions_per_run": 5,
       "max_removals_per_run": 0,

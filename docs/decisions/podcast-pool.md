@@ -152,3 +152,28 @@ an article ahead of the incident rules. The 2026-10-13 refit was measured on the
 corpus only, and the two shapes it missed (a candidate who "faces multiple charges", a company
 charged under the Fisheries Act) are the argument for widening the exemption list rather
 than the rule.
+
+## Theme keywords match whole words (2026-10-24)
+
+`_keyword_matches` picks the bucket an article fills first in its day's feed (keyword-matched
+before bonus), so a false hit outranks on-theme material. The 2026-10-23 Friday (Wild Spaces)
+feed carried a B.C. election poll and a Six Flags roller-coaster death as keyword matches,
+from bare `trail` ("campaign trail") and `park` ("amusement park"), and the show built its deep
+dive from them. The matcher was a substring test, so the same week's pool also had `nation`
+hitting "international", `mill` hitting "million", `zine` "magazine", `bat` "battery",
+`science` the `sciencealert.com` URL and `Likely` (the town) the adverb.
+
+`_keyword_pattern` now matches whole words with an optional plural; a trailing `*` opts a
+keyword into word endings (`flood*`, `research*`), still anchored at the start of a word so
+`evolution*` never hits "revolution". Bare words with a common second sense became phrases:
+`park` → `national park`, `provincial park`, `BC Parks`…; `trail` → `trail running`,
+`trailhead`, `hiking`…; Thursday's `guardian` → `guardian program`, `Indigenous guardian`…;
+Saturday's `Likely` → `Likely, B.C.`; Sunday gained `scientist` for the hits the URL used to
+supply. Measured on the 4,466-article pool and the week's seven feeds: every article that
+lost its last keyword hit was read, and the real stories lost were a handful of marginal ones
+(an e-bike "trail to town" review, a Vancouver Island park closure over ancestral graves).
+
+The theme score on the poll (raw 56) was Cohere Rerank, not the Haiku charter: Rerank reads
+only the first 400 characters of the `scoring_prompt`, and Friday's "general political news →
+0–20" clause starts at character 775. Targeted rescore skipped it twice over (56 is above
+`score_ceiling` 55; one keyword hit is under `min_keyword_hits` 2). That is unchanged here.
