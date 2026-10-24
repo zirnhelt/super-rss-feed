@@ -6,13 +6,61 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sat, 24 Oct 2026 06:11:44 +0000</lastBuildDate>
+<lastBuildDate>Sat, 24 Oct 2026 10:28:18 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 24, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html</guid>
+<pubDate>Sat, 24 Oct 2026 10:06:00 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40076675820&quot;&gt;40076675820&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;3 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Open the day&#x27;s citations JSON and check which deep-dive sources the script failed to use.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;2/5 deep-dive citations matched the script&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Open the day&#x27;s citations JSON and find the roundup stories the script paraphrased past matching, or never aired.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;8/18 roundup citations matched the script&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/research&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/research&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Election research found no record for 12 of 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O&#x27;Connor, Rafiul&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The script ran short, then was expanded to 3575 words&lt;/h3&gt;
+&lt;p&gt;The first script draft came in at 2585 words against a 3400-word target, so it was sent back for up to two expand passes. The shipped script is 3575 words. Expansion closed the gap but the first draft was not usable as written, and the expand passes are the reason the script cost what it did. The first draft missed its target by a wide margin; the review&#x27;s job is to say that plainly rather than let the shipped number hide it.&lt;/p&gt;
+&lt;p&gt;The roundup pool is larger than one segment can air by design: 61 stories were cut by the airtime budget. Citation alignment is the weaker signal here. Only 8 of 18 roundup citations matched, and 2 of 5 deep-dive citations matched. Those ratios should be checked against the sources before the next run is trusted on attribution.&lt;/p&gt;
+&lt;h3&gt;Twelve of 24 candidates had no research record&lt;/h3&gt;
+&lt;p&gt;Election research found nothing for 12 of the 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O&#x27;Connor, Rafiullah Sahibzada, Billie Sheridan, Whitney Spearing, Nathan Wiebe, Kayla Zaruk, Ruth Lloyd and Michael Franklin. The debate question asks whether re-election reflects a record in office or an inherited name, and half the field has no record the script could draw on. Any segment that discusses those candidates is working from the name alone.&lt;/p&gt;
+&lt;p&gt;Change the candidate research step to flag unresolved names for a second search pass before the script is written, not after.&lt;/p&gt;
+&lt;h3&gt;One short TTS take, and the longer take was kept&lt;/h3&gt;
+&lt;p&gt;One TTS take came back shorter than its word count predicted, and the retry was also short. The longer of the two takes was kept, so the episode itself is complete; the short retry is the only evidence of the problem.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;5 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 0.92, 3575 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;21.7 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;19.9 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;8/18 roundup, 2/5 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;269 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;61,420&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;68 total: brave-search 48 · claude 12 · kagi-extract 4 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] Williams Lake woman calling for action after family dog killed in baited snare</title>
 <link>https://wltribune.com/2026/10/23/williams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare/</link>

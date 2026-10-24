@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 24, 2026",
+      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40076675820\">40076675820</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>3 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and check which deep-dive sources the script failed to use.</strong><br/><span class=\"evidence\">2/5 deep-dive citations matched the script</span></li>\n<li><strong>Open the day's citations JSON and find the roundup stories the script paraphrased past matching, or never aired.</strong><br/><span class=\"evidence\">8/18 roundup citations matched the script</span></li>\n<li><strong><code>script/research</code> fell back. Search the run log for <code>Degraded 'script/research'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: Election research found no record for 12 of 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O'Connor, Rafiul</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The script ran short, then was expanded to 3575 words</h3>\n<p>The first script draft came in at 2585 words against a 3400-word target, so it was sent back for up to two expand passes. The shipped script is 3575 words. Expansion closed the gap but the first draft was not usable as written, and the expand passes are the reason the script cost what it did. The first draft missed its target by a wide margin; the review's job is to say that plainly rather than let the shipped number hide it.</p>\n<p>The roundup pool is larger than one segment can air by design: 61 stories were cut by the airtime budget. Citation alignment is the weaker signal here. Only 8 of 18 roundup citations matched, and 2 of 5 deep-dive citations matched. Those ratios should be checked against the sources before the next run is trusted on attribution.</p>\n<h3>Twelve of 24 candidates had no research record</h3>\n<p>Election research found nothing for 12 of the 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O'Connor, Rafiullah Sahibzada, Billie Sheridan, Whitney Spearing, Nathan Wiebe, Kayla Zaruk, Ruth Lloyd and Michael Franklin. The debate question asks whether re-election reflects a record in office or an inherited name, and half the field has no record the script could draw on. Any segment that discusses those candidates is working from the name alone.</p>\n<p>Change the candidate research step to flag unresolved names for a second search pass before the script is written, not after.</p>\n<h3>One short TTS take, and the longer take was kept</h3>\n<p>One TTS take came back shorter than its word count predicted, and the retry was also short. The longer of the two takes was kept, so the episode itself is complete; the short retry is the only evidence of the problem.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.92, 3575 words</td></tr>\n<tr><td>Audio</td><td>21.7 min</td></tr>\n<tr><td>Audio size</td><td>19.9 MB</td></tr>\n<tr><td>Citations matched</td><td>8/18 roundup, 2/5 deep dive</td></tr>\n<tr><td>Feed</td><td>269 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>61,420</td></tr>\n<tr><td>API calls</td><td>68 total: brave-search 48 · claude 12 · kagi-extract 4 · brave-answers 4</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-10-24T10:06:00+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://wltribune.com/2026/10/23/williams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare/",
       "url": "https://wltribune.com/2026/10/23/williams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare/",
       "title": "🔓 [Williams Lake Tribune] Williams Lake woman calling for action after family dog killed in baited snare",
