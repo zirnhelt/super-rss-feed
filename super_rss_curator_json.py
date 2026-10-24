@@ -22,6 +22,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from difflib import SequenceMatcher
+from functools import lru_cache
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, quote, urljoin
 import anthropic
 from fetch_images import batch_fetch_images
@@ -320,7 +321,7 @@ def _build_all_podcast_keywords(schedule_config: Dict) -> frozenset:
 
 def _article_matches_podcast_keywords(article: 'Article', keywords: frozenset) -> bool:
     text = f"{article.title} {article.description or ''}".lower()
-    return any(kw in text for kw in keywords)
+    return any(_keyword_pattern(kw).search(text) for kw in keywords)
 
 def _podcast_quality(article) -> Optional[int]:
     """Best interest-independent quality signal for podcast gating.
@@ -4669,10 +4670,25 @@ def load_podcast_schedule():
         return None
 
 
+@lru_cache(maxsize=None)
+def _keyword_pattern(keyword: str) -> 're.Pattern[str]':
+    """Whole words, plural allowed; a trailing '*' matches any word ending.
+
+    A bare substring test let "nation" hit "international", "mill" hit
+    "million", "zine" hit "magazine" and "park" hit "spark". A keyword whose
+    inflections matter says so with '*' ("flood*" for flooding); the stem
+    still has to start a word, so "evolution*" never matches "revolution".
+    """
+    kw = keyword.lower()
+    if kw.endswith('*'):
+        return re.compile(r'(?<!\w)' + re.escape(kw[:-1]))
+    return re.compile(r'(?<!\w)' + re.escape(kw) + r'(?:s|es)?(?!\w)')
+
+
 def _keyword_match_count(text: str, keywords: List[str]) -> int:
     """Count how many keywords appear in the text (case-insensitive)."""
     text_lower = text.lower()
-    return sum(1 for kw in keywords if kw.lower() in text_lower)
+    return sum(1 for kw in keywords if _keyword_pattern(kw).search(text_lower))
 
 
 def _net_keyword_match_count(text: str, keywords: List[str], anti_keywords: List[str]) -> int:
