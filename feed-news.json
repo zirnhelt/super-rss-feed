@@ -15,7 +15,7 @@
     {
       "id": "https://zirnhelt.github.io/super-rss-feed/weekly-report-2026-W43.html",
       "url": "https://zirnhelt.github.io/super-rss-feed/weekly-report-2026-W43.html",
-      "title": "State of the Feed — Week of October 19–25, 2026",
+      "title": "[AI Feed Curator] State of the Feed — Week of October 19–25, 2026",
       "content_html": "<p>This week the aggregator completed 7 runs, fetching an average of 1,418 articles per run and delivering an average of 85 quality-filtered articles per run. Across the week, ai-tech contributed the largest share of delivered articles at 126, followed by news (98), wellness (70), climate (60), science (56), local (51), homelab (44), design (40), homestead (20), outdoors (19), and scifi (10). Scoring uses a dimensional composite of quality, relevance, and locality weighted 0.25, 0.55, and 0.20 respectively, with relevance carrying the greatest weight in final selection.</p>\n<p>Pipeline efficiency over the trailing 14 runs shows a mean noise-to-signal ratio of 2.31 articles fetched per article delivered, with a range of 0.96 to 3.28. The ratio sits near the middle of its observed range, and the upper end of the range indicates runs where a substantially larger share of fetched content was filtered out.</p>\n<p>Feed changes this week include the addition of ABC News (listed twice in the intake log), AI as Normal Technology, 404 Media, and news releases. Two feeds reported errors during the period: Hacker News and Singularity Hub. Feed discovery surfaced three top candidates: blog.hmvh.net (score 73.2), Meshtastic Blog (score 64.8), and Machine Learning (score 64.7).</p>\n<h3>New Feeds This Week</h3>\n<ul>\n<li>ABC News</li>\n<li>ABC News</li>\n<li>AI as Normal Technology</li>\n<li>404 Media</li>\n<li>news releases</li>\n</ul>\n<h3>Weekly Article Distribution</h3>\n<table><thead><tr><th>Category</th><th>Articles</th></tr></thead><tbody>\n<tr><td>local</td><td>51</td></tr>\n<tr><td>ai-tech</td><td>126</td></tr>\n<tr><td>climate</td><td>60</td></tr>\n<tr><td>homelab</td><td>44</td></tr>\n<tr><td>homestead</td><td>20</td></tr>\n<tr><td>wellness</td><td>70</td></tr>\n<tr><td>science</td><td>56</td></tr>\n<tr><td>scifi</td><td>10</td></tr>\n<tr><td>design</td><td>40</td></tr>\n<tr><td>outdoors</td><td>19</td></tr>\n<tr><td>news</td><td>98</td></tr>\n</tbody></table>\n<h3>Feed Issues</h3>\n<ul>\n<li><strong>Hacker News</strong>: 419 Client Error:  for url: https://news.ycombinator.com/rss</li>\n<li><strong>Singularity Hub</strong>: 503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/</li>\n</ul>\n<h3>Discovery Highlights</h3>\n<ul>\n<li>blog.hmvh.net (score: 73.2)</li>\n<li>Meshtastic Blog (score: 64.8)</li>\n<li>Machine Learning (score: 64.7)</li>\n</ul>\n<h3>Pipeline Efficiency: Noise-to-Signal Ratio</h3>\n<p>Noise-to-signal = (articles fetched − articles in final feeds) ÷ final total. Lower is more efficient.</p>\n<table><thead><tr><th>Week</th><th>Mean N:S</th><th>Min</th><th>Max</th><th>Runs</th></tr></thead><tbody>\n<tr><td>2026-09-06</td><td>1.48</td><td>0.07</td><td>3.67</td><td>21</td></tr>\n<tr><td>2026-09-13</td><td>1.6</td><td>0.07</td><td>3.76</td><td>17</td></tr>\n<tr><td>2026-09-20</td><td>2.39</td><td>1.35</td><td>3.76</td><td>14</td></tr>\n<tr><td>2026-09-27</td><td>2.28</td><td>1.35</td><td>2.99</td><td>15</td></tr>\n<tr><td>2026-10-04</td><td>2.31</td><td>0.87</td><td>3.34</td><td>15</td></tr>\n<tr><td>2026-10-10</td><td>2.37</td><td>0.87</td><td>3.34</td><td>14</td></tr>\n<tr><td>2026-10-17</td><td>2.36</td><td>0.96</td><td>3.28</td><td>14</td></tr>\n<tr><td>2026-10-24</td><td>2.31</td><td>0.96</td><td>3.28</td><td>14</td></tr>\n</tbody></table>\n<h3>Quality Review</h3>\n<p>513 articles across 11 feeds. Scrub pass flagged 1 article(s), 0 recommended for removal.</p>\n<table><thead><tr><th>Feed</th><th>Articles</th><th>Avg composite</th><th>Stale</th><th>Top source</th></tr></thead><tbody>\n<tr><td>🤖 AI/ML &amp; Tech</td><td>90</td><td>52.5</td><td>71</td><td>Business Insider (8.9%)</td></tr>\n<tr><td>🌍 Climate &amp; Energy</td><td>48</td><td>43.8</td><td>38</td><td>CleanTechnica (16.7%)</td></tr>\n<tr><td>🏛️ Architecture &amp; Design</td><td>29</td><td>46.6</td><td>22</td><td>ArchDaily (51.7%)</td></tr>\n<tr><td>🏠 Homelab &amp; DIY</td><td>32</td><td>41.2</td><td>22</td><td>Popular Woodworking (31.2%)</td></tr>\n<tr><td>🌾 Homestead &amp; Hobby Farm</td><td>19</td><td>39.7</td><td>14</td><td>Hobby Farms (21.1%)</td></tr>\n<tr><td>🏔️ Williams Lake Local</td><td>48</td><td>70.9</td><td>32</td><td>Williams Lake Tribune (45.8%)</td></tr>\n<tr><td>📰 General News</td><td>121</td><td>62.0</td><td>83</td><td>NYT Top Stories (18.2%)</td></tr>\n<tr><td>🥾 Outdoors &amp; Recreation</td><td>19</td><td>32.5</td><td>13</td><td>Outside Online (36.8%)</td></tr>\n<tr><td>🔬 Science</td><td>43</td><td>51.4</td><td>34</td><td>ScienceDaily (27.9%)</td></tr>\n<tr><td>🚀 Sci-Fi &amp; Culture</td><td>9</td><td>22.8</td><td>5</td><td>Kottke.org (22.2%)</td></tr>\n<tr><td>🌿 Health &amp; Wellness</td><td>55</td><td>41.4</td><td>39</td><td>STAT News (9.1%)</td></tr>\n</tbody></table><p>Corpus alignment: 1318 articles analysed — 1204 direct-qualify, 33 rescue-dependent, 30 stranded, 81 filler (6.1%). <a href=\"https://github.com/zirnhelt/super-rss-feed/blob/main/reports/CORPUS_ALIGNMENT_REPORT_2026-10-24.md\">Full report</a>.</p>\n<p>Content type breakdown: null: 720, analysis: 350, feature: 152, breaking: 150, opinion: 36, recap: 26, wire: 11, news: 8, fluff: 4.</p>\n<h3>User Feedback Audit</h3>\n<p>1591 articles rated (2026-07-27 → 2026-10-24): 310 good, 294 interesting, 37 podcast only, 948 bad. Shipped feed, reweighted: 43.0% good or interesting. Theme-day corrections: 286 of 1591 (18.0%). <a href=\"https://github.com/zirnhelt/super-rss-feed/blob/main/reports/ARTICLE_REVIEW_AUDIT_2026-10-24.md\">Full audit</a>.</p>\n<h4>Needs attention</h4>\n<ul>\n<li><strong>4 categories are unmeasured</strong> <strong>(3 weeks running)</strong>: Under 20 ratings in 28 days: homelab (17), homestead (8), scifi (8), outdoors (10). Their rates are noise, not \"fine\"; news took 42.9% of the ratings.</li>\n<li><strong>The gate threw away 16.5% of the rejects you wanted</strong> <strong>(3 weeks running)</strong>: 18 of 109 rated rejects in 28 days. Most often, all time: NYT Well (14), MacRumors (9), Outside Online (8), Fast Company (6), The Northern Miner (5), The Marginalian (5).</li>\n<li><strong>Places you want that the pool barely carries</strong> <strong>(3 weeks running)</strong>: quesnel: 57.8% wanted, 12 in the pool (0.8%), 100 mile house: 68.2% wanted, 2 in the pool (0.1%). Baseline 39.3% wanted.</li>\n<li><strong>Block candidates still unblocked</strong> <strong>(3 weeks running)</strong>: Live for the Outdoors (Country Walking): n ≥ 8 with nothing wanted. Block them in filters.json or rate why not.</li>\n<li><strong>Local places with almost no ratings</strong>: Under 5 ratings ever: horsefly, lac la hache.</li>\n</ul>\n<h4>What each score buys</h4>\n<p>Last 4 weeks, 583 ratings. AUC: 0.5 is a coin flip, 1.0 perfect.</p>\n<table><thead><tr><th>Signal</th><th>Paid by</th><th>AUC</th><th>AUC, news</th></tr></thead><tbody>\n<tr><td>final score</td><td>gate + deep_score</td><td>0.675</td><td>0.724</td></tr>\n<tr><td>quality (Q)</td><td>deep_score; q_gate elsewhere</td><td>0.708</td><td>0.571</td></tr>\n<tr><td>relevance (R)</td><td>deep_score</td><td>0.726</td><td>0.579</td></tr>\n<tr><td>local (L)</td><td>deep_score</td><td>0.601</td><td>0.577</td></tr>\n<tr><td>theme fit for that day's theme</td><td>theme_ingest / theme / theme_batch</td><td>0.66</td><td>0.664</td></tr>\n<tr><td>reader model</td><td>free: your earlier ratings</td><td>0.808</td><td>0.81</td></tr>\n</tbody></table>\n<h4>Claude cost by stage (7 days)</h4>\n<table><thead><tr><th>Stage</th><th>Calls</th><th>Est. cost</th></tr></thead><tbody>\n<tr><td>gate</td><td>198</td><td>$0.1497</td></tr>\n<tr><td>deep_score</td><td>84</td><td>$0.0957</td></tr>\n<tr><td>theme</td><td>44</td><td>$0.0522</td></tr>\n</tbody></table><table><thead><tr><th>Score band</th><th>Rated</th><th>% good</th><th>% good+interesting</th><th>% bad</th></tr></thead><tbody>\n<tr><td>80-100</td><td>89</td><td>65.2</td><td>86.5</td><td>11.2</td></tr>\n<tr><td>60-79</td><td>273</td><td>30.0</td><td>49.5</td><td>48.0</td></tr>\n<tr><td>40-59</td><td>564</td><td>23.0</td><td>46.6</td><td>49.8</td></tr>\n<tr><td>20-39</td><td>446</td><td>7.2</td><td>22.2</td><td>75.8</td></tr>\n<tr><td>0-19</td><td>219</td><td>3.7</td><td>13.7</td><td>85.8</td></tr>\n</tbody></table>\n<h3>API Cost Review</h3>\n<p>7 run(s) this week · total est. cost <strong>$1.1691</strong> · avg <strong>$0.1670</strong>/run · 3,533,088 Claude tokens</p>\n<table><thead><tr><th>Vendor</th><th>Calls (week)</th><th>Avg/run</th><th>Rate</th><th>Est. weekly cost</th></tr></thead><tbody>\n<tr><td>Claude</td><td>326</td><td>46.6</td><td>token-based</td><td>$0.2976</td></tr>\n<tr><td>Cohere</td><td>112</td><td>16.0</td><td>$0.0020/call</td><td>$0.2240</td></tr>\n<tr><td>Brave</td><td>14</td><td>2.0</td><td>$0.0050/call</td><td>$0.0700</td></tr>\n<tr><td>Kagi</td><td>77</td><td>11.0</td><td>$0.0075/call</td><td>$0.5775</td></tr>\n<tr><td>Kite</td><td>52</td><td>7.4</td><td>free</td><td>$0</td></tr>\n</tbody></table>\n<h3>Calibration</h3>\n<p>No config changes applied this run.</p>\n<h3>Actions Taken This Week</h3>\n<table><thead><tr><th>Component</th><th>Action</th><th>Commit</th></tr></thead><tbody>\n<tr><td>Discovery</td><td>Added feed “blog.hmvh.net” (general, score 73.2)</td><td><a href=\"https://github.com/zirnhelt/super-rss-feed/commit/a0bb1ae\"><code>a0bb1ae</code></a> (<code>git revert a0bb1ae</code> to undo)</td></tr>\n</tbody></table>",
       "date_published": "2026-10-24T16:53:42+00:00",
       "authors": [
@@ -24,7 +24,67 @@
           "url": "https://zirnhelt.github.io/super-rss-feed"
         }
       ],
-      "_score": 99
+      "_score": 99,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
+      "id": "https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/",
+      "url": "https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/",
+      "title": "[TechCrunch] PHP-ocalypse: How two critical web bugs almost broke the internet",
+      "content_html": "<img src=\"https://techcrunch.com/wp-content/uploads/2026/10/php-web-bug-padlock-2300746159.jpg?resize=1200,800\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nTwo critical bugs in the PHP web programming language, used by the majority of the internet, threatened to upend the internet — and it's unlikely to be the last major software scare.",
+      "date_published": "2026-10-24T15:30:00+00:00",
+      "authors": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com"
+        }
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/php-web-bug-padlock-2300746159.jpg?resize=1200,800",
+      "_score": 72,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_hot_refresh": true
+    },
+    {
+      "id": "https://www.businessinsider.com/black-october-php-vulnerability-cybersecurity-ai-threat-2026-10",
+      "url": "https://www.businessinsider.com/black-october-php-vulnerability-cybersecurity-ai-threat-2026-10",
+      "title": "[Business Insider] Inside the cyber flaw scramble that brought the AI threat to life",
+      "content_html": "<img src=\"https://i.insider.com/6adbc6e88e95884e1ca82d44?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThe man who set off the chain reaction that put 70% of the web at risk explains why he did it.",
+      "date_published": "2026-10-24T13:01:22+00:00",
+      "authors": [
+        {
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
+        }
+      ],
+      "image": "https://i.insider.com/6adbc6e88e95884e1ca82d44?format=jpeg",
+      "_score": 72,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_hot_refresh": true
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/10/261023023738.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261023023738.htm",
+      "title": "[ScienceDaily] A hidden bias in human language challenges 70 years of science",
+      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/woman-speaks-letters.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nA groundbreaking study challenges 70 years of assumptions about how human language works. By analyzing billions of word uses, scientists discovered that meaning is organized around power, danger, and order rather than emotion alone. Even more surprisingly, human language shows a powerful hidden preference for safety, suggesting that our words may reflect ancient survival instincts.",
+      "date_published": "2026-10-24T13:01:22+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "image": "https://www.sciencedaily.com/images/1920/woman-speaks-letters.webp",
+      "_score": 68,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_hot_refresh": true
     },
     {
       "id": "https://www.nytimes.com/2026/10/24/climate/trump-epa-chemical-air-pollution.html",
