@@ -1,36 +1,82 @@
 {
-  "generated_at": "2026-10-17T16:38:04.745067+00:00",
-  "total_candidates_evaluated": 286,
-  "recommended_feeds": 17,
+  "generated_at": "2026-10-24T16:49:04.885583+00:00",
+  "total_candidates_evaluated": 310,
+  "recommended_feeds": 21,
   "min_score_threshold": 60,
   "categories": {
-    "general": {
-      "count": 3,
+    "climate": {
+      "count": 4,
       "feeds": [
         {
-          "title": "blog.hmvh.net",
-          "url": "http://blog.hmvh.net/feed/",
-          "html_url": "http://blog.hmvh.net",
-          "source": "Kagi Small Web",
-          "average_score": 73.2,
+          "title": "ABC News",
+          "url": "https://www.abc.net.au/news/feed/102909144/rss.xml",
+          "html_url": "https://abc.net.au",
+          "source": "Kagi News Feeds",
+          "average_score": 82.3,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
+        },
+        {
+          "title": "ABC News",
+          "url": "https://www.abc.net.au/news/feed/1450/rss.xml",
+          "html_url": "https://abc.net.au",
+          "source": "Kagi News Feeds",
+          "average_score": 76.4,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
+        },
+        {
+          "title": "CyberSEO",
+          "url": "https://www.cyberseo.net/feed",
+          "html_url": "https://www.cyberseo.net/public-rss-feed-catalogue/Agriculture/",
+          "source": "brave_search",
+          "average_score": 64.0,
           "sample_articles": 1,
           "reason": "Good potential addition"
         },
         {
-          "title": "atank.interlogy.com",
-          "url": "http://atank.interlogy.com/feed/",
-          "html_url": "http://atank.interlogy.com",
-          "source": "Kagi Small Web",
-          "average_score": 64.3,
-          "sample_articles": 3,
+          "title": "An Off Grid Life",
+          "url": "https://www.anoffgridlife.com/feed/",
+          "html_url": "https://www.anoffgridlife.com/",
+          "source": "brave_search",
+          "average_score": 62.5,
+          "sample_articles": 1,
           "reason": "Good potential addition"
+        }
+      ]
+    },
+    "ai-tech": {
+      "count": 2,
+      "feeds": [
+        {
+          "title": "AI as Normal Technology",
+          "url": "https://www.aisnakeoil.com/feed.xml",
+          "html_url": "https://aisnakeoil.com",
+          "source": "Kagi News Feeds",
+          "average_score": 76.7,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
         },
         {
-          "title": "blog.henrikcarlsson.se",
-          "url": "http://blog.henrikcarlsson.se/feed/",
-          "html_url": "http://blog.henrikcarlsson.se",
-          "source": "Kagi Small Web",
-          "average_score": 60.0,
+          "title": "404 Media",
+          "url": "https://www.404media.co/rss",
+          "html_url": "https://404media.co",
+          "source": "Kagi News Feeds",
+          "average_score": 65.1,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "news": {
+      "count": 1,
+      "feeds": [
+        {
+          "title": "news releases",
+          "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?type=newsreleases&sort=publishedDate&orderBy=desc&pick=100&format=atom&atomtitle=news%20releases",
+          "html_url": "https://api.io.canada.ca",
+          "source": "Kagi News Feeds",
+          "average_score": 67.0,
           "sample_articles": 3,
           "reason": "Good potential addition"
         }
@@ -42,7 +88,7 @@
         {
           "title": "Meshtastic Blog",
           "url": "https://meshtastic.org/blog/atom.xml",
-          "html_url": "https://meshtastic.org/docs/introduction/",
+          "html_url": "https://meshtastic.org/",
           "source": "brave_search",
           "average_score": 64.8,
           "sample_articles": 3,
@@ -159,25 +205,25 @@
         }
       ]
     },
-    "climate": {
+    "general": {
       "count": 2,
       "feeds": [
         {
-          "title": "CyberSEO",
-          "url": "https://www.cyberseo.net/feed",
-          "html_url": "https://www.cyberseo.net/public-rss-feed-catalogue/Agriculture/",
-          "source": "brave_search",
-          "average_score": 64.0,
-          "sample_articles": 1,
+          "title": "atank.interlogy.com",
+          "url": "http://atank.interlogy.com/feed/",
+          "html_url": "http://atank.interlogy.com",
+          "source": "Kagi Small Web",
+          "average_score": 64.3,
+          "sample_articles": 3,
           "reason": "Good potential addition"
         },
         {
-          "title": "An Off Grid Life",
-          "url": "https://www.anoffgridlife.com/feed/",
-          "html_url": "https://www.anoffgridlife.com/",
-          "source": "brave_search",
-          "average_score": 62.5,
-          "sample_articles": 1,
+          "title": "blog.henrikcarlsson.se",
+          "url": "http://blog.henrikcarlsson.se/feed/",
+          "html_url": "http://blog.henrikcarlsson.se",
+          "source": "Kagi Small Web",
+          "average_score": 60.0,
+          "sample_articles": 3,
           "reason": "Good potential addition"
         }
       ]
@@ -185,18 +231,44 @@
   },
   "summary": {
     "by_category": {
-      "general": 3,
+      "climate": 4,
+      "ai-tech": 2,
+      "news": 1,
       "homelab": 2,
       "tech": 8,
       "homestead": 2,
-      "climate": 2
+      "general": 2
     },
     "top_recommendations": [
       {
-        "title": "blog.hmvh.net",
-        "category": "general",
-        "score": 73.2,
-        "url": "http://blog.hmvh.net/feed/"
+        "title": "ABC News",
+        "category": "climate",
+        "score": 82.3,
+        "url": "https://www.abc.net.au/news/feed/102909144/rss.xml"
+      },
+      {
+        "title": "AI as Normal Technology",
+        "category": "ai-tech",
+        "score": 76.7,
+        "url": "https://www.aisnakeoil.com/feed.xml"
+      },
+      {
+        "title": "ABC News",
+        "category": "climate",
+        "score": 76.4,
+        "url": "https://www.abc.net.au/news/feed/1450/rss.xml"
+      },
+      {
+        "title": "news releases",
+        "category": "news",
+        "score": 67.0,
+        "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?type=newsreleases&sort=publishedDate&orderBy=desc&pick=100&format=atom&atomtitle=news%20releases"
+      },
+      {
+        "title": "404 Media",
+        "category": "ai-tech",
+        "score": 65.1,
+        "url": "https://www.404media.co/rss"
       },
       {
         "title": "Meshtastic Blog",
@@ -227,30 +299,6 @@
         "category": "general",
         "score": 64.3,
         "url": "http://atank.interlogy.com/feed/"
-      },
-      {
-        "title": "Entropy Survival - News & Views",
-        "category": "homestead",
-        "score": 64.2,
-        "url": "https://entropysurvival.com/blogs/news-views.atom"
-      },
-      {
-        "title": "CyberSEO",
-        "category": "climate",
-        "score": 64.0,
-        "url": "https://www.cyberseo.net/feed"
-      },
-      {
-        "title": "Dan Abramov's Overreacted Blog RSS Feed",
-        "category": "tech",
-        "score": 63.9,
-        "url": "https://overreacted.io/rss.xml"
-      },
-      {
-        "title": "Thu\u1eadn L\u01b0\u01a1ng",
-        "category": "homelab",
-        "score": 63.6,
-        "url": "https://luonghongthuan.com/en/feed/"
       }
     ]
   }
