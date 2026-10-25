@@ -16,7 +16,7 @@
       "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html",
       "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html",
       "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 24, 2026",
-      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40076675820\">40076675820</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>3 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and check which deep-dive sources the script failed to use.</strong><br/><span class=\"evidence\">2/5 deep-dive citations matched the script</span></li>\n<li><strong>Open the day's citations JSON and find the roundup stories the script paraphrased past matching, or never aired.</strong><br/><span class=\"evidence\">8/18 roundup citations matched the script</span></li>\n<li><strong><code>script/research</code> fell back. Search the run log for <code>Degraded 'script/research'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: Election research found no record for 12 of 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O'Connor, Rafiul</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The script ran short, then was expanded to 3575 words</h3>\n<p>The first script draft came in at 2585 words against a 3400-word target, so it was sent back for up to two expand passes. The shipped script is 3575 words. Expansion closed the gap but the first draft was not usable as written, and the expand passes are the reason the script cost what it did. The first draft missed its target by a wide margin; the review's job is to say that plainly rather than let the shipped number hide it.</p>\n<p>The roundup pool is larger than one segment can air by design: 61 stories were cut by the airtime budget. Citation alignment is the weaker signal here. Only 8 of 18 roundup citations matched, and 2 of 5 deep-dive citations matched. Those ratios should be checked against the sources before the next run is trusted on attribution.</p>\n<h3>Twelve of 24 candidates had no research record</h3>\n<p>Election research found nothing for 12 of the 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O'Connor, Rafiullah Sahibzada, Billie Sheridan, Whitney Spearing, Nathan Wiebe, Kayla Zaruk, Ruth Lloyd and Michael Franklin. The debate question asks whether re-election reflects a record in office or an inherited name, and half the field has no record the script could draw on. Any segment that discusses those candidates is working from the name alone.</p>\n<p>Change the candidate research step to flag unresolved names for a second search pass before the script is written, not after.</p>\n<h3>One short TTS take, and the longer take was kept</h3>\n<p>One TTS take came back shorter than its word count predicted, and the retry was also short. The longer of the two takes was kept, so the episode itself is complete; the short retry is the only evidence of the problem.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.92, 3575 words</td></tr>\n<tr><td>Audio</td><td>21.7 min</td></tr>\n<tr><td>Audio size</td><td>19.9 MB</td></tr>\n<tr><td>Citations matched</td><td>8/18 roundup, 2/5 deep dive</td></tr>\n<tr><td>Feed</td><td>269 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>61,420</td></tr>\n<tr><td>API calls</td><td>68 total: brave-search 48 · claude 12 · kagi-extract 4 · brave-answers 4</td></tr>\n</tbody>\n</table>",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40076675820\">40076675820</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>3 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and check which deep-dive sources the script failed to use.</strong><br/><span class=\"evidence\">2/5 deep-dive citations matched the script</span></li>\n<li><strong>Open the day's citations JSON and find the roundup stories the script paraphrased past matching, or never aired.</strong><br/><span class=\"evidence\">8/18 roundup citations matched the script</span></li>\n<li><strong><code>script/research</code> fell back. Search the run log for <code>Degraded 'script/research'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: Election research found no record for 12 of 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O'Connor, Rafiul</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The script ran short, then was expanded to 3575 words</h3>\n<p>The first script draft came in at 2585 words against a 3400-word target, so it was sent back for up to two expand passes. The shipped script is 3575 words. Expansion closed the gap but the first draft was not usable as written, and the expand passes are the reason the script cost what it did. The first draft missed its target by a wide margin; the review's job is to say that plainly rather than let the shipped number hide it.</p>\n<p>The roundup pool is larger than one segment can air by design: 61 stories were cut by the airtime budget. Citation alignment is the weaker signal here. Only 8 of 18 roundup citations matched, and 2 of 5 deep-dive citations matched. Those ratios should be checked against the sources before the next run is trusted on attribution.</p>\n<h3>Twelve of 24 candidates had no research record</h3>\n<p>Election research found nothing for 12 of the 24 candidates on the ballot: Laura Zimmerman, Nicole Berreth, Greg Jeannotte, Charlene Hays, Cianna O'Connor, Rafiullah Sahibzada, Billie Sheridan, Whitney Spearing, Nathan Wiebe, Kayla Zaruk, Ruth Lloyd and Michael Franklin. The debate question asks whether re-election reflects a record in office or an inherited name, and half the field has no record the script could draw on. Any segment that discusses those candidates is working from the name alone.</p>\n<p>Change the candidate research step to flag unresolved names for a second search pass before the script is written, not after.</p>\n<h3>One short TTS take, and the longer take was kept</h3>\n<p>One TTS take came back shorter than its word count predicted, and the retry was also short. The longer of the two takes was kept, so the episode itself is complete; the short retry is the only evidence of the problem.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.92, 3575 words</td></tr>\n<tr><td>Audio</td><td>21.7 min</td></tr>\n<tr><td>Audio size</td><td>19.9 MB</td></tr>\n<tr><td>Citations matched</td><td>8/18 roundup, 2/5 deep dive</td></tr>\n<tr><td>Feed</td><td>269 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>61,420</td></tr>\n<tr><td>API calls</td><td>68 total: brave-search 48 · claude 12 · kagi-extract 4 · brave-answers 4</td></tr>\n</tbody>\n</table>",
       "date_published": "2026-10-24T10:06:00+00:00",
       "authors": [
         {
@@ -24,10 +24,12 @@
           "url": "https://zirnhelt.github.io/curated-podcast-generator"
         }
       ],
-      "_score": 0,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
+      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
+      "_score": 19,
+      "_quality": 25,
+      "_relevance": 15,
+      "_local_score": 25,
+      "_content_type": "fluff",
       "_local": true,
       "tags": [
         "local-priority"
@@ -513,7 +515,7 @@
       "id": "https://quesnelobserver.com/2026/10/21/west-fraser-forest-operations-map-3505-invitation-to-comment/",
       "url": "https://quesnelobserver.com/2026/10/21/west-fraser-forest-operations-map-3505-invitation-to-comment/",
       "title": "[Quesnel Cariboo Observer] West Fraser – Forest Operations Map #3505, Invitation to Comment",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/43058326_web1_240117-LDN-PublicNotice-PublicReview-WEstFraserMills_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 🪶 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fquesnelobserver.com%2F2026%2F10%2F21%2Fwest-fraser-forest-operations-map-3505-invitation-to-comment%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>The public is invited to review and comment on <strong>West Fraser’s Forest Operations Map (FOM) #3505</strong>. The FOM shows proposed road construction and cut block development under West Fraser’s Forest Stewardship Plan (FSP) within Forest Development Units in the Quesnel Natural Resource District (DQU) and Tree Farm Licence 52 (TFL52). This FOM will be valid for a period of 3 years beginning <strong>November 28, 2026</strong>. During the validity period, West Fraser may apply for Cutting Permits containing cutblocks and Road Permits to construct roads shown on the FOM.</p>",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/43058326_web1_240117-LDN-PublicNotice-PublicReview-WEstFraserMills_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 🪶 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fquesnelobserver.com%2F2026%2F10%2F21%2Fwest-fraser-forest-operations-map-3505-invitation-to-comment%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>The public is invited to review and comment on <strong>West Fraser’s Forest Operations Map (FOM) #3505</strong>. The FOM shows proposed road construction and cut block development under West Fraser’s Forest Stewardship Plan (FSP) within Forest Development Units in the Quesnel Natural Resource District (DQU) and Tree Farm Licence 52 (TFL52). This FOM will be valid for a period of 3 years beginning <strong>November 28, 2026</strong>. During the validity period, West Fraser may apply for Cutting Permits containing cutblocks and Road Permits to construct roads shown on the FOM.</p>",
       "date_published": "2026-10-21T20:40:00+00:00",
       "authors": [
         {
@@ -953,196 +955,6 @@
       "_relevance": 15,
       "_local_score": 25,
       "_content_type": "fluff",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/10/19/three-school-district-28-trustee-incumbents-hold-on-to-their-seats/",
-      "url": "https://quesnelobserver.com/2026/10/19/three-school-district-28-trustee-incumbents-hold-on-to-their-seats/",
-      "title": "[Quesnel Cariboo Observer] Three School District 28 trustee incumbents hold on to their seats",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/School20District202820office.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fquesnelobserver.com%2F2026%2F10%2F19%2Fthree-school-district-28-trustee-incumbents-hold-on-to-their-seats%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThree of the four School District 28 trustees retained their seats in the 2026 municipal elections. Incumbent trustees Lisa Boudreau, Tony Goulet and Julie-Anne Runge…",
-      "date_published": "2026-10-20T06:03:21.831846+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/School20District202820office.jpg?w=1024",
-      "_score": 79,
-      "_quality": 67,
-      "_relevance": 80,
-      "_local_score": 90,
-      "_content_type": "breaking",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://wltribune.com/2026/10/19/williams-lake-and-area-social-planning-council-committed-to-poverty-reduction-work/",
-      "url": "https://wltribune.com/2026/10/19/williams-lake-and-area-social-planning-council-committed-to-poverty-reduction-work/",
-      "title": "🔓 [Williams Lake Tribune] Williams Lake and Area Social Planning Council committed to poverty reduction work",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Williams20Lake20-20Oct2017.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F19%2Fwilliams-lake-and-area-social-planning-council-committed-to-poverty-reduction-work%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA view from downtown Williams Lake late Saturday afternoon Oct. 17. The Social Planning Council continues to work on making a difference in Williams Lake and area through its poverty reduction strategy. At the latest regular city council meeting this month, Angelika Sellick presented an update on the Thrive Poverty Reduction Strategy and the work of the Poverty Reduction Working Group. The working group was formed in 2018 with the strategy that was endorsed by city council published in 2021 following extensive community consultation. “We all know the social planning council is in no way the",
-      "date_published": "2026-10-20T06:03:21.831777+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/Williams20Lake20-20Oct2017.jpg?w=1024",
-      "_score": 80,
-      "_quality": 68,
-      "_relevance": 78,
-      "_local_score": 100,
-      "_content_type": "analysis",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/19/former-south-cariboo-forestry-workers-learn-new-career-skills-thanks-to-tru/",
-      "url": "https://wltribune.com/2026/10/19/former-south-cariboo-forestry-workers-learn-new-career-skills-thanks-to-tru/",
-      "title": "🔓 [Williams Lake Tribune] Former South Cariboo forestry workers learn new career skills thanks to TRU",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/IMG_4288.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F19%2Fformer-south-cariboo-forestry-workers-learn-new-career-skills-thanks-to-tru%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe instructors and students who took part in Thompson Rivers University's free Heavy Equipment Operator program pose for a photo with their machines on Thursday, Oct. 15. The instructors and students who took part in Thompson Rivers University's free Heavy Equipment Operator program pose for a photo with their machines on Thursday, Oct. 15. The instructors and students who took part in Thompson Rivers University's free Heavy Equipment Operator program pose for a photo with their machines on Thursday, Oct. 15. The instructors and students who took part in Thompson Rivers University's free",
-      "date_published": "2026-10-20T06:03:21.831603+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/IMG_4288.jpg?w=1024",
-      "_score": 89,
-      "_quality": 82,
-      "_relevance": 88,
-      "_local_score": 100,
-      "_content_type": "feature",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/19/williams-lake-rcmp-seek-missing-81-year-old-woman/",
-      "url": "https://wltribune.com/2026/10/19/williams-lake-rcmp-seek-missing-81-year-old-woman/",
-      "title": "🔓 [Williams Lake Tribune] Williams Lake RCMP seek missing 81-year-old woman",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/svisdahl.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F19%2Fwilliams-lake-rcmp-seek-missing-81-year-old-woman%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFrances Svisdahl is pictured in a kitchen wearing a brown sweater. Frances Svisdahl stands on a bridge wearing a red windbreaker, black pants and hiking boots, alongside an unidentified person. An 81-year-old woman has been missing in Williams Lake since Oct. 18. Williams Lake RCMP is seeking public’s help to find Frances Svisdahl and report to the local police immediately. She was seen at her home on the 900-block of Highway 20 at around 2:30 p.m. on Oct. 18. She has not been seen or heard from since, according to the RCMP’s media release. Jennifer Cooper, BC RCMP spokesperson for Northern",
-      "date_published": "2026-10-20T06:03:21.831445+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/svisdahl.jpg?w=1024",
-      "_score": 78,
-      "_quality": 65,
-      "_relevance": 75,
-      "_local_score": 100,
-      "_content_type": "breaking",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://www.mycariboonow.com/316859/news/communty/lac-la-hache-arena-to-be-closed-for-season/",
-      "url": "https://www.mycariboonow.com/316859/news/communty/lac-la-hache-arena-to-be-closed-for-season/",
-      "title": "[My Cariboo Now] Lac La Hache Arena to be closed for season",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/10/Rolf-Zeis-Memorial-Arena-RZMA-Facebook-Page-e1792450489434.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316859%2Fnews%2Fcommunty%2Flac-la-hache-arena-to-be-closed-for-season%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/10/Rolf-Zeis-Memorial-Arena-RZMA-Facebook-Page-e1792450489434.jpg?fit=696%2C392&amp;quality=89&amp;ssl=1\" width=\"696\"/>A community meeting has been called to discuss the potential future of the Rolf Zeis Memorial Arena in Lac La Hache, which has had to be closed this season because of structural damage.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316859/news/communty/lac-la-hache-arena-to-be-closed-for-season/\">Lac La Hache Arena to be closed for season</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-10-19T23:45:16+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/10/Rolf-Zeis-Memorial-Arena-RZMA-Facebook-Page-e1792450489434.jpg",
-      "_score": 81,
-      "_quality": 60,
-      "_relevance": 82,
-      "_local_score": 100,
-      "_content_type": "breaking",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://wltribune.com/2026/10/19/b-c-conservatives-costed-platform-relies-on-economic-growth-that-beats-all-forecasts/",
-      "url": "https://wltribune.com/2026/10/19/b-c-conservatives-costed-platform-relies-on-economic-growth-that-beats-all-forecasts/",
-      "title": "🔓 [Williams Lake Tribune] B.C. Conservatives costed platform relies on economic growth that beats all forecasts",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F19%2Fb-c-conservatives-costed-platform-relies-on-economic-growth-that-beats-all-forecasts%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nB.C. Conservatives costed platform relies on economic growth that beats all forecasts | Williams Lake Tribune B.C. Conservatives costed platform relies on economic growth that beats all forecasts The B.C. Conservative Party released a fully costed platform on Sunday afternoon, projecting that under a Tory government, the deficit will fall from $13.7 billion this year to $10.8 billion by 2029, aided by the party’s forecast of spectacular 3.2 per cent economic growth. This assumes 2.5 per cent growth this year, 2.8 per cent next year, and 3.2 per cent in 2029 — growth levels far beyond most",
-      "date_published": "2026-10-19T22:26:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://www.mycariboonow.com/316849/news/business/quesnel-businesses-recognized-for-excellence/",
-      "url": "https://www.mycariboonow.com/316849/news/business/quesnel-businesses-recognized-for-excellence/",
-      "title": "[My Cariboo Now] Quesnel businesses recognized for excellence !",
-      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/10/business-excellence-awards.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 🏔️ 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316849%2Fnews%2Fbusiness%2Fquesnel-businesses-recognized-for-excellence%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"438\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/10/business-excellence-awards.jpg?fit=696%2C438&amp;quality=89&amp;ssl=1\" width=\"696\"/>A Quesnel business owner won a BC Chamber of Commerce award.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316849/news/business/quesnel-businesses-recognized-for-excellence/\">Quesnel businesses recognized for excellence !</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "date_published": "2026-10-19T19:02:50+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/10/business-excellence-awards.jpg",
-      "_score": 57,
-      "_quality": 40,
-      "_relevance": 55,
-      "_local_score": 80,
-      "_content_type": "recap",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-19.html",
-      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-19.html",
-      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 19, 2026",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p><em>What the pipeline did, what broke, and what it chose when something broke. Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/39220293431\">39220293431</a>.</em></p>\n<h3>The short draft and the expand passes</h3>\n<p>The first script draft came in at 2850 words against a target of 3400. The pipeline sent it back for up to two expand passes. What shipped was 3673 words, so the expansion overshot the target by 273 words. The episode is longer than the spec asked for, and the audio reflects it: 21.9 minutes of audio, 20.1 MB.</p>\n<p>The degradation log lists one failure, in the script step. Kagi Extract returned no page for 4 thin roundup stories. Those stories were still in the script without their source text.</p>\n<h3>Citations that did not match</h3>\n<p>Citation alignment was uneven. Of 17 roundup citations, 13 matched. Of 4 deep-dive citations, 1 matched. The deep-dive figure is the weaker one: three of the four long segments went to air with citations that did not check out against their sources.</p>\n<p>The four failed Kagi Extract pages are the likely cause for the roundup side, since thin stories give the matcher less to match against. The facts do not establish that link, so treat it as a suspicion until someone checks which citations were the unmatched ones.</p>\n<h3>Cut stories</h3>\n<p>The roundup pool had 40 stories cut by the airtime budget. This is by design. The pool is larger than one segment can air, and a cut story can come back on a day when it fits better. The 40 cuts are not 40 missing items from this episode. They are the pool doing what it was built to do.</p>\n<p>The tension is that 4 of those roundup stories were thin enough that Kagi returned nothing for them, yet they still made the script. The budget cut 40 stories, and the thinnest sources were the ones that got through.</p>\n<h3>Quality and tone</h3>\n<p>The voice split between the two hosts was 0.93 Casey over Riley. The script tripped the AI-tell pattern check once. Both figures are within what the pipeline is meant to accept, and neither needs action today.</p>\n<h3>The schedule held, with fallbacks</h3>\n<p>The primary run started at 1:05 AM Pacific and finished at 1:31 AM Pacific. It completed successfully with no lateness. Two fallback runs were scheduled behind it. Fallback 1 started at 2:05 AM Pacific and finished at 2:05 AM Pacific, also successful. Fallback 2, at 3:05 AM Pacific, is the run producing this review and has not finished.</p>\n<p>The slowest steps were the script generation at 502 seconds and the Pages deploy at 371 seconds. Audio rendering took 283 seconds. The video render and YouTube upload took 131 seconds.</p>\n<h3>Spend and output</h3>\n<p>The run used 61,831 Anthropic input tokens. API calls split across four services: 11 to Claude, 9 to Brave Search, 4 to Kagi Extract, and 4 to Brave Answers. The video is 75.3 MB at a runtime of 21.9 minutes. The RSS feed now carries 264 episodes.</p>\n<h3>The day's debate</h3>\n<p>The episode's question was whether credibility and authenticity in arts and culture come from the artists and audiences themselves, or whether sponsors, founders, and institutions can inherit and spend them. The four deep dives covered a music genre turned into a brand asset, a state crackdown on critics, an architecture archive, and an off-grid refrigerator built from fire and salt. Three of the four deep-dive citations failed to match, so the argument rests more on the scripted framing than on the verified sources behind it.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.93, 3673 words</td></tr>\n<tr><td>Audio</td><td>21.9 min</td></tr>\n<tr><td>Audio size</td><td>20.1 MB</td></tr>\n<tr><td>Citations matched</td><td>13/17 roundup, 1/4 deep dive</td></tr>\n<tr><td>Feed</td><td>264 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>61,831</td></tr>\n<tr><td>API calls</td><td>***'claude': 11, 'brave-search': 9, 'kagi-extract': 4, 'brave-answers': 4***</td></tr>\n</tbody>\n</table>",
-      "date_published": "2026-10-19T10:06:06+00:00",
-      "authors": [
-        {
-          "name": "Cariboo Signals Reviews",
-          "url": "https://zirnhelt.github.io/curated-podcast-generator"
-        }
-      ],
-      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
-      "_score": 16,
-      "_quality": 25,
-      "_relevance": 10,
-      "_local_score": 25,
-      "_content_type": "sponsored",
       "_local": true,
       "tags": [
         "local-priority"
