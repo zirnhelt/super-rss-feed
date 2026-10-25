@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-25.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-25.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 25, 2026",
+      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40175259192\">40175259192</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>3 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and find the roundup stories the script paraphrased past matching, or never aired.</strong><br/><span class=\"evidence\">8/18 roundup citations matched the script</span></li>\n<li><strong><code>script/meta-moment/retry</code> fell back. Search the run log for <code>Degraded 'script/meta-moment/retry'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: first draft failed (the dialogue named Meta, Moment, absent from the week's commits); the retry with upstream changes aired</span></li>\n<li><strong>Read the expand passes in the script stage log. Target and floor are <code>TARGET_SCRIPT_WORDS</code> / <code>MIN_SCRIPT_WORDS</code> in <code>podcast_generator.py</code>.</strong><br/><span class=\"evidence\">shipped 3371 words against a 3400-word target (first draft 2692)</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The short script was expanded to 3371 words, against a 3400 target</h3>\n<p>The first draft came in at 2692 words, below the 3400 target, and was sent back for up to two expand passes. The episode that shipped has 3371 words. The gap to target is the number to watch, not the expansion itself: the pipeline accepted a script that still falls short of what it asked for.</p>\n<p>Only 2 of 4 deep-dive citations matched, and 8 of 18 roundup citations matched. The rest did not align to the source material the script was built from. Check the citation-matching step before trusting the expanded passes to have added grounded material rather than filler.</p>\n<h3>The Meta/Moment dialogue failed and the retry aired with upstream changes</h3>\n<p>The first script draft named Meta and Moment, neither of which appears in the week's commits, so the draft failed. The retry aired with upstream changes in place of the failed draft. The listener hears a script that was regenerated, and the only record of the discarded version is this degradation entry.</p>\n<p>The source of the hallucinated names is not in the facts. Look at what the script step receives as its commit context before the next run.</p>\n<h3>Three TTS takes came back short and one retry stayed short</h3>\n<p>Three audio segments returned shorter than their word counts predicted. Each was retried once. One retry was still short, and the longer of the two takes was kept, so no audio was dropped from the episode.</p>\n<p>The remaining two were recovered by the retry. Only the one that stayed short is still a risk, and it is the take that was kept, so listen to that segment before assuming the episode is clean.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 1.0, 3371 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 49% of the words</td></tr>\n<tr><td>Audio</td><td>22.4 min</td></tr>\n<tr><td>Audio size</td><td>20.5 MB</td></tr>\n<tr><td>Citations matched</td><td>8/18 roundup, 2/4 deep dive</td></tr>\n<tr><td>Feed</td><td>270 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>62,181</td></tr>\n<tr><td>API calls</td><td>39 total: brave-search 16 · claude 16 · brave-answers 4 · kagi-extract 3</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-10-25T10:06:01+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html",
       "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-24.html",
       "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 24, 2026",
