@@ -1598,7 +1598,11 @@ def load_podcast_shown_cache() -> Dict:
     (once per theme) within the 7-day TTL window, enabling cross-theme reuse.
 
     Migrates legacy entries keyed by plain URL on first load.
-    Entries older than PODCAST_SHOWN_TTL_DAYS are discarded.
+    Entries older than PODCAST_SHOWN_TTL_DAYS are discarded, and so are entries
+    not stamped on their own day's UTC weekday: only the episode's own feed is
+    marked (`episode_day` in main), so any other entry is a mark from before
+    2026-10-24, when every run marked all seven feeds and locked each day's best
+    articles out of its episode for a week.
     """
     if not os.path.exists(PODCAST_SHOWN_FILE):
         return {}
@@ -1614,7 +1618,9 @@ def load_podcast_shown_cache() -> Dict:
                 new_key = f"{key}:::{day}"
             else:
                 new_key = key
-            if datetime.fromisoformat(entry['shown_at']) > cutoff:
+            shown_at = datetime.fromisoformat(entry['shown_at'])
+            marked_day = shown_at.astimezone(timezone.utc).strftime('%A').lower()
+            if shown_at > cutoff and new_key.rsplit(':::', 1)[1] == marked_day:
                 migrated[new_key] = entry
         if len(migrated) != len(raw):
             print(f"🧹 Podcast shown cache: {len(raw)} → {len(migrated)} entries (cleaned/migrated)")
