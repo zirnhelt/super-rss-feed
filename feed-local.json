@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-26.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-26.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 26, 2026",
+      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40290051982\">40290051982</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>1 thing to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Read the expand passes in the script stage log. Target and floor are <code>TARGET_SCRIPT_WORDS</code> / <code>MIN_SCRIPT_WORDS</code> in <code>podcast_generator.py</code>.</strong><br/><span class=\"evidence\">shipped 3272 words against a 3400-word target (first draft 2879)</span> <span class=\"recur\">Recurring: on the roadmap, seen 10 nights.</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The script shipped 3272 words against a 3400 target after two expand passes</h3>\n<p>The first draft came in at 2879 words, under the 3400-word target, and was sent back for up to two expand passes. The shipped script is 3272 words, still short of target. The expansion recovered most of the gap but not all of it, and the episode runs at 19.8 minutes of audio.</p>\n<p>Lower the target word count or the expand threshold in the script stage if a 3400-word target is meant to be met on most nights. Otherwise leave it, since the gap is small.</p>\n<h3>Four stories were cut from the roundup pool by the airtime budget</h3>\n<p>The roundup pool is larger than one segment can air, so 24 stories were dropped by NEWS_ROUNDUP_COUNT. This is by design: a cut story can resurface on a better-matched day.</p>\n<p>Two sources disagree on citations. Of the 18 roundup citations, 14 matched; of the 4 deep-dive citations, 3 matched. Check the unmatched citations before trusting the roundup attributions on this episode.</p>\n<h3>One AI-tell pattern hit reached the shipped script</h3>\n<p>The quality check recorded one AI-tell pattern hit in the final script. Casey's share of the voice ratio against Riley is 0.92, and Casey carries 48% of the deep-dive word count.</p>\n<p>If the AI-tell hit recurs on consecutive nights, add the matched phrase to the banned list in the script prompt.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:07 AM Pacific</td><td>+2 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.92, 3272 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 48% of the words</td></tr>\n<tr><td>Audio</td><td>19.8 min</td></tr>\n<tr><td>Audio size</td><td>18.1 MB</td></tr>\n<tr><td>Citations matched</td><td>14/18 roundup, 3/4 deep dive</td></tr>\n<tr><td>Feed</td><td>271 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>54,555</td></tr>\n<tr><td>API calls</td><td>21 total: claude 11 · kagi-extract 4 · brave-answers 4 · brave-search 2</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-10-26T10:05:58+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://wltribune.com/2026/10/25/williams-lake-residents-gather-to-celebrate-b-c-conservative-win-on-election-night/",
       "url": "https://wltribune.com/2026/10/25/williams-lake-residents-gather-to-celebrate-b-c-conservative-win-on-election-night/",
       "title": "🔓 [Williams Lake Tribune] Williams Lake residents gather to celebrate B.C. Conservative win on election night",

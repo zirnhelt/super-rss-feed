@@ -6,13 +6,61 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Mon, 26 Oct 2026 06:09:08 +0000</lastBuildDate>
+<lastBuildDate>Mon, 26 Oct 2026 10:29:08 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 26, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-26.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-26.html</guid>
+<pubDate>Mon, 26 Oct 2026 10:05:58 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40290051982&quot;&gt;40290051982&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;1 thing to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Read the expand passes in the script stage log. Target and floor are &lt;code&gt;TARGET_SCRIPT_WORDS&lt;/code&gt; / &lt;code&gt;MIN_SCRIPT_WORDS&lt;/code&gt; in &lt;code&gt;podcast_generator.py&lt;/code&gt;.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;shipped 3272 words against a 3400-word target (first draft 2879)&lt;/span&gt; &lt;span class=&quot;recur&quot;&gt;Recurring: on the roadmap, seen 10 nights.&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The script shipped 3272 words against a 3400 target after two expand passes&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 2879 words, under the 3400-word target, and was sent back for up to two expand passes. The shipped script is 3272 words, still short of target. The expansion recovered most of the gap but not all of it, and the episode runs at 19.8 minutes of audio.&lt;/p&gt;
+&lt;p&gt;Lower the target word count or the expand threshold in the script stage if a 3400-word target is meant to be met on most nights. Otherwise leave it, since the gap is small.&lt;/p&gt;
+&lt;h3&gt;Four stories were cut from the roundup pool by the airtime budget&lt;/h3&gt;
+&lt;p&gt;The roundup pool is larger than one segment can air, so 24 stories were dropped by NEWS_ROUNDUP_COUNT. This is by design: a cut story can resurface on a better-matched day.&lt;/p&gt;
+&lt;p&gt;Two sources disagree on citations. Of the 18 roundup citations, 14 matched; of the 4 deep-dive citations, 3 matched. Check the unmatched citations before trusting the roundup attributions on this episode.&lt;/p&gt;
+&lt;h3&gt;One AI-tell pattern hit reached the shipped script&lt;/h3&gt;
+&lt;p&gt;The quality check recorded one AI-tell pattern hit in the final script. Casey&#x27;s share of the voice ratio against Riley is 0.92, and Casey carries 48% of the deep-dive word count.&lt;/p&gt;
+&lt;p&gt;If the AI-tell hit recurs on consecutive nights, add the matched phrase to the banned list in the script prompt.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:07 AM Pacific&lt;/td&gt;&lt;td&gt;+2 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 0.92, 3272 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 48% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;19.8 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.1 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;14/18 roundup, 3/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;271 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;54,555&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;21 total: claude 11 · kagi-extract 4 · brave-answers 4 · brave-search 2&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] Williams Lake residents gather to celebrate B.C. Conservative win on election night</title>
 <link>https://wltribune.com/2026/10/25/williams-lake-residents-gather-to-celebrate-b-c-conservative-win-on-election-night/</link>
