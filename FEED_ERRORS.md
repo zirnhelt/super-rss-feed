@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-25 (Sunday)
+
+#### 🔧 Manual Run (11:09 PM Pacific)
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ Kite News: not in this batch: canada | british columbia, climate change, cloud computing
+
+
+---
+
+
+
 ## 2026-10-24 (Saturday)
 
 #### 🔧 Manual Run (11:10 PM Pacific)
@@ -69,17 +80,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## 2026-10-18 (Sunday)
 
 #### 🔧 Manual Run (11:06 PM Pacific)
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ **Singularity Hub** failed — `503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/`
-
-
----
-
-
-
-## 2026-10-17 (Saturday)
-
-#### 🔧 Manual Run (9:09 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
 - ⚠️ **Singularity Hub** failed — `503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/`
 
@@ -1531,6 +1531,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
 - ⚠️ EEVblog failed — 502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/
+
+
+---
+
+
+
+## Week of 2026-10-17–2026-10-17
+- 2 issues recorded
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ Singularity Hub failed — 503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/
 
 
 ---
