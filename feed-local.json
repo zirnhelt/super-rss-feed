@@ -30,7 +30,6 @@
       "_relevance": 0,
       "_local_score": 0,
       "_local": true,
-      "_hot_refresh": true,
       "tags": [
         "local-priority",
         "subscriber-access"
@@ -55,7 +54,6 @@
       "_relevance": 0,
       "_local_score": 0,
       "_local": true,
-      "_hot_refresh": true,
       "tags": [
         "local-priority"
       ]
@@ -64,7 +62,7 @@
       "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-25.html",
       "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-25.html",
       "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 25, 2026",
-      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40175259192\">40175259192</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>3 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and find the roundup stories the script paraphrased past matching, or never aired.</strong><br/><span class=\"evidence\">8/18 roundup citations matched the script</span></li>\n<li><strong><code>script/meta-moment/retry</code> fell back. Search the run log for <code>Degraded 'script/meta-moment/retry'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: first draft failed (the dialogue named Meta, Moment, absent from the week's commits); the retry with upstream changes aired</span></li>\n<li><strong>Read the expand passes in the script stage log. Target and floor are <code>TARGET_SCRIPT_WORDS</code> / <code>MIN_SCRIPT_WORDS</code> in <code>podcast_generator.py</code>.</strong><br/><span class=\"evidence\">shipped 3371 words against a 3400-word target (first draft 2692)</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The short script was expanded to 3371 words, against a 3400 target</h3>\n<p>The first draft came in at 2692 words, below the 3400 target, and was sent back for up to two expand passes. The episode that shipped has 3371 words. The gap to target is the number to watch, not the expansion itself: the pipeline accepted a script that still falls short of what it asked for.</p>\n<p>Only 2 of 4 deep-dive citations matched, and 8 of 18 roundup citations matched. The rest did not align to the source material the script was built from. Check the citation-matching step before trusting the expanded passes to have added grounded material rather than filler.</p>\n<h3>The Meta/Moment dialogue failed and the retry aired with upstream changes</h3>\n<p>The first script draft named Meta and Moment, neither of which appears in the week's commits, so the draft failed. The retry aired with upstream changes in place of the failed draft. The listener hears a script that was regenerated, and the only record of the discarded version is this degradation entry.</p>\n<p>The source of the hallucinated names is not in the facts. Look at what the script step receives as its commit context before the next run.</p>\n<h3>Three TTS takes came back short and one retry stayed short</h3>\n<p>Three audio segments returned shorter than their word counts predicted. Each was retried once. One retry was still short, and the longer of the two takes was kept, so no audio was dropped from the episode.</p>\n<p>The remaining two were recovered by the retry. Only the one that stayed short is still a risk, and it is the take that was kept, so listen to that segment before assuming the episode is clean.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 1.0, 3371 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 49% of the words</td></tr>\n<tr><td>Audio</td><td>22.4 min</td></tr>\n<tr><td>Audio size</td><td>20.5 MB</td></tr>\n<tr><td>Citations matched</td><td>8/18 roundup, 2/4 deep dive</td></tr>\n<tr><td>Feed</td><td>270 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>62,181</td></tr>\n<tr><td>API calls</td><td>39 total: brave-search 16 · claude 16 · brave-answers 4 · kagi-extract 3</td></tr>\n</tbody>\n</table>",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40175259192\">40175259192</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>3 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and find the roundup stories the script paraphrased past matching, or never aired.</strong><br/><span class=\"evidence\">8/18 roundup citations matched the script</span></li>\n<li><strong><code>script/meta-moment/retry</code> fell back. Search the run log for <code>Degraded 'script/meta-moment/retry'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: first draft failed (the dialogue named Meta, Moment, absent from the week's commits); the retry with upstream changes aired</span></li>\n<li><strong>Read the expand passes in the script stage log. Target and floor are <code>TARGET_SCRIPT_WORDS</code> / <code>MIN_SCRIPT_WORDS</code> in <code>podcast_generator.py</code>.</strong><br/><span class=\"evidence\">shipped 3371 words against a 3400-word target (first draft 2692)</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The short script was expanded to 3371 words, against a 3400 target</h3>\n<p>The first draft came in at 2692 words, below the 3400 target, and was sent back for up to two expand passes. The episode that shipped has 3371 words. The gap to target is the number to watch, not the expansion itself: the pipeline accepted a script that still falls short of what it asked for.</p>\n<p>Only 2 of 4 deep-dive citations matched, and 8 of 18 roundup citations matched. The rest did not align to the source material the script was built from. Check the citation-matching step before trusting the expanded passes to have added grounded material rather than filler.</p>\n<h3>The Meta/Moment dialogue failed and the retry aired with upstream changes</h3>\n<p>The first script draft named Meta and Moment, neither of which appears in the week's commits, so the draft failed. The retry aired with upstream changes in place of the failed draft. The listener hears a script that was regenerated, and the only record of the discarded version is this degradation entry.</p>\n<p>The source of the hallucinated names is not in the facts. Look at what the script step receives as its commit context before the next run.</p>\n<h3>Three TTS takes came back short and one retry stayed short</h3>\n<p>Three audio segments returned shorter than their word counts predicted. Each was retried once. One retry was still short, and the longer of the two takes was kept, so no audio was dropped from the episode.</p>\n<p>The remaining two were recovered by the retry. Only the one that stayed short is still a risk, and it is the take that was kept, so listen to that segment before assuming the episode is clean.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 1.0, 3371 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 49% of the words</td></tr>\n<tr><td>Audio</td><td>22.4 min</td></tr>\n<tr><td>Audio size</td><td>20.5 MB</td></tr>\n<tr><td>Citations matched</td><td>8/18 roundup, 2/4 deep dive</td></tr>\n<tr><td>Feed</td><td>270 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>62,181</td></tr>\n<tr><td>API calls</td><td>39 total: brave-search 16 · claude 16 · brave-answers 4 · kagi-extract 3</td></tr>\n</tbody>\n</table>",
       "date_published": "2026-10-25T10:06:01+00:00",
       "authors": [
         {
@@ -72,34 +70,59 @@
           "url": "https://zirnhelt.github.io/curated-podcast-generator"
         }
       ],
-      "_score": 0,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
+      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
+      "_score": 15,
+      "_quality": 20,
+      "_relevance": 10,
+      "_local_score": 25,
+      "_content_type": "fluff",
       "_local": true,
       "tags": [
         "local-priority"
       ]
     },
     {
-      "id": "https://www.piquenewsmagazine.com/national-news/meet-lorne-doerkson-guy-from-williams-lake-and-bcs-next-premier-12935510",
-      "url": "https://www.piquenewsmagazine.com/national-news/meet-lorne-doerkson-guy-from-williams-lake-and-bcs-next-premier-12935510",
-      "title": "[Pique Newsmagazine] Meet Lorne Doerkson, 'guy from Williams Lake' and B.C.'s next premier",
-      "content_html": "<img src=\"https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/10/73e5ef6d7de57e33b216ca2538183cc3c3c72ec334f97e2bae695908e6f4c17e.jpg;w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nVANCOUVER — British Columbians got their best look so far at Lorne Doerkson on Saturday night, their premier-designate, and self-described \"guy from Williams Lake.\" \n The interim B.C.",
-      "date_published": "2026-10-25T07:11:50+00:00",
+      "id": "https://www.mycariboonow.com/316958/news/elections/2026-bc-election/lorne-doerkson-becomes-cariboo-chilcotin-mla-and-will-b-cs-next-premier/",
+      "url": "https://www.mycariboonow.com/316958/news/elections/2026-bc-election/lorne-doerkson-becomes-cariboo-chilcotin-mla-and-will-b-cs-next-premier/",
+      "title": "[My Cariboo Now] Lorne Doerkson becomes Cariboo-Chilcotin MLA and will B.C’s next premier",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2026/07/Vista-Radio-2.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316958%2Fnews%2Felections%2F2026-bc-election%2Florne-doerkson-becomes-cariboo-chilcotin-mla-and-will-b-cs-next-premier%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/07/Vista-Radio-2.jpg?fit=696%2C392&amp;quality=89&amp;ssl=1\" width=\"696\"/>Lorne Doerkson has won two landslide victories, winning more than 70 per cent of the vote in the Cariboo-Chilcotin riding, and leading the BC Conservative Party to form a majority government.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316958/news/elections/2026-bc-election/lorne-doerkson-becomes-cariboo-chilcotin-mla-and-will-b-cs-next-premier/\">Lorne Doerkson becomes Cariboo-Chilcotin MLA and will B.C’s next premier</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-10-25T06:00:29+00:00",
       "authors": [
         {
-          "name": "Pique Newsmagazine",
-          "url": "https://www.piquenewsmagazine.com"
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
         }
       ],
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/10/73e5ef6d7de57e33b216ca2538183cc3c3c72ec334f97e2bae695908e6f4c17e.jpg;w=960",
-      "_score": 100,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2026/07/Vista-Radio-2.jpg",
+      "_score": 90,
+      "_quality": 75,
+      "_relevance": 92,
+      "_local_score": 100,
+      "_content_type": "breaking",
       "_local": true,
-      "_hot_refresh": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
+      "id": "https://www.mycariboonow.com/316917/news/elections/2026-bc-election/live-blog-b-c-election-results-and-reaction-from-across-the-province/",
+      "url": "https://www.mycariboonow.com/316917/news/elections/2026-bc-election/live-blog-b-c-election-results-and-reaction-from-across-the-province/",
+      "title": "[My Cariboo Now] REPLAY: B.C. election results and reaction from across the province",
+      "content_html": "<img src=\"https://www.mycariboonow.com/wp-content/uploads/2025/05/BCLegislature.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316917%2Fnews%2Felections%2F2026-bc-election%2Flive-blog-b-c-election-results-and-reaction-from-across-the-province%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"The BC legislature grounds on May 8, 2025. | Emily Joveski, Vista Radio photo\" class=\"attachment-large size-large wp-post-image\" height=\"394\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2025/05/BCLegislature.jpg?fit=696%2C394&amp;quality=89&amp;ssl=1\" width=\"696\"/>Follow our live blog coverage of B.C.’s provincial election Saturday night as votes are counted and the next government takes shape.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316917/news/elections/2026-bc-election/live-blog-b-c-election-results-and-reaction-from-across-the-province/\">REPLAY: B.C. election results and reaction from across the province</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "date_published": "2026-10-24T23:00:51+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "image": "https://www.mycariboonow.com/wp-content/uploads/2025/05/BCLegislature.jpg",
+      "_score": 84,
+      "_quality": 75,
+      "_relevance": 85,
+      "_local_score": 90,
+      "_content_type": "breaking",
+      "_local": true,
       "tags": [
         "local-priority"
       ]
@@ -131,7 +154,7 @@
       "id": "https://wltribune.com/2026/10/23/williams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare/",
       "url": "https://wltribune.com/2026/10/23/williams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare/",
       "title": "🔓 [Williams Lake Tribune] Williams Lake woman calling for action after family dog killed in baited snare",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Berta20-20Victoria20Savile20-20Submitted.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F23%2Fwilliams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBerta, a five-year-old Maremma livestock guardian dog, was discovered dead in a baited snare near her home west of Williams Lake. “If I would have known the dangers in my backyard, maybe she would have been able to be saved,” is the thought that keeps coming back to Victoria Savile of Williams Lake as she calls for change after her family’s beloved dog, Berta, was killed in a baited snare not far from their home. Savile has recently joined The Fur-Bearers, a Canadian wildlife protection charity dedicated to protecting fur-bearing animals through conservation, advocacy, research and education.",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Berta20-20Victoria20Savile20-20Submitted.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F23%2Fwilliams-lake-woman-calling-for-action-after-family-dog-killed-in-baited-snare%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBerta, a five-year-old Maremma livestock guardian dog, was discovered dead in a baited snare near her home west of Williams Lake. “If I would have known the dangers in my backyard, maybe she would have been able to be saved,” is the thought that keeps coming back to Victoria Savile of Williams Lake as she calls for change after her family’s beloved dog, Berta, was killed in a baited snare not far from their home. Savile has recently joined The Fur-Bearers, a Canadian wildlife protection charity dedicated to protecting fur-bearing animals through conservation, advocacy, research and education.",
       "date_published": "2026-10-24T06:03:15.615924+00:00",
       "authors": [
         {
@@ -156,7 +179,7 @@
       "id": "https://wltribune.com/2026/10/23/eby-explains-b-c-election-call-makes-his-last-pitch-to-voters-in-sit-down-interview/",
       "url": "https://wltribune.com/2026/10/23/eby-explains-b-c-election-call-makes-his-last-pitch-to-voters-in-sit-down-interview/",
       "title": "🔓 [Williams Lake Tribune] Eby explains B.C. election call, makes his last pitch to voters in sit-down interview",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/IMG_1220.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F23%2Feby-explains-b-c-election-call-makes-his-last-pitch-to-voters-in-sit-down-interview%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEby explains B.C. election call, makes his last pitch to voters in sit-down interview | Williams Lake Tribune Eby explains B.C. election call, makes his last pitch to voters in sit-down interview NDP Leader David Eby stepping off his campaign bus on Friday, Oct. 23, 2026. On the eve of election day, B.C. NDP Leader David Eby is still explaining why he dissolved the legislature and called the snap vote when his party still had two years left on its mandate. “People are very surprised and frustrated by the election call,” he told reporters in Surrey on Friday. “I should have done a better job",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/IMG_1220.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F23%2Feby-explains-b-c-election-call-makes-his-last-pitch-to-voters-in-sit-down-interview%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEby explains B.C. election call, makes his last pitch to voters in sit-down interview | Williams Lake Tribune Eby explains B.C. election call, makes his last pitch to voters in sit-down interview NDP Leader David Eby stepping off his campaign bus on Friday, Oct. 23, 2026. On the eve of election day, B.C. NDP Leader David Eby is still explaining why he dissolved the legislature and called the snap vote when his party still had two years left on its mandate. “People are very surprised and frustrated by the election call,” he told reporters in Surrey on Friday. “I should have done a better job",
       "date_published": "2026-10-24T00:30:00+00:00",
       "authors": [
         {
@@ -228,7 +251,7 @@
       "id": "https://100milefreepress.net/2026/10/23/rolf-zeis-memorial-arena-closed-due-to-severe-structural-damage/",
       "url": "https://100milefreepress.net/2026/10/23/rolf-zeis-memorial-arena-closed-due-to-severe-structural-damage/",
       "title": "[100 Mile Free Press] Rolf Zeis Memorial Arena closed due to severe structural damage",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/IMG_6500.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F10%2F23%2Frolf-zeis-memorial-arena-closed-due-to-severe-structural-damage%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe arena has been in Lac La Hache for close to 30 years",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/IMG_6500.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F10%2F23%2Frolf-zeis-memorial-arena-closed-due-to-severe-structural-damage%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe arena has been in Lac La Hache for close to 30 years",
       "date_published": "2026-10-23T13:48:23.621172+00:00",
       "authors": [
         {
@@ -273,7 +296,7 @@
       "id": "https://quesnelobserver.com/2026/10/22/creativity-takes-wing-at-quesnels-mural/",
       "url": "https://quesnelobserver.com/2026/10/22/creativity-takes-wing-at-quesnels-mural/",
       "title": "[Quesnel Cariboo Observer] Creativity takes wing at Quesnel’s mural",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/IMG_9290.jpeg?w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fquesnelobserver.com%2F2026%2F10%2F22%2Fcreativity-takes-wing-at-quesnels-mural%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA towering eagle now spreads its wings across a grey wall at Eagle Home Building in Quesnel, adding colour and a new artistic feature to the community. Local artist Keith […]",
+      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/IMG_9290.jpeg?w=960\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fquesnelobserver.com%2F2026%2F10%2F22%2Fcreativity-takes-wing-at-quesnels-mural%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA towering eagle now spreads its wings across a grey wall at Eagle Home Building in Quesnel, adding colour and a new artistic feature to the community. Local artist Keith […]",
       "date_published": "2026-10-23T06:03:11.956124+00:00",
       "authors": [
         {
@@ -296,7 +319,7 @@
       "id": "https://wltribune.com/2026/10/22/author-with-dwarfism-debuts-childrens-book-inspired-by-childhood-race-in-horselfy/",
       "url": "https://wltribune.com/2026/10/22/author-with-dwarfism-debuts-childrens-book-inspired-by-childhood-race-in-horselfy/",
       "title": "🔓 [Williams Lake Tribune] Author with dwarfism debuts children’s book inspired by childhood race in Horsefly",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Riley20Windeler20-20Tommys20Race20-20Photo20submitted.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fauthor-with-dwarfism-debuts-childrens-book-inspired-by-childhood-race-in-horselfy%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nRiley Windeler holds a copy of his recently published children's book Tommy’s Race at Riverside Park in Kamloops. It has been ten years in the making for Riley Windeler who has finally released his first children’s book that he hopes empowers kids in the Cariboo and beyond. The debut author who was born and raised in Horsefly but currently resides in Kamloops has a form of short-limbed dwarfism called Hypochondroplasia. Despite his small stature of four feet and six inches Windeler hasn’t let that stand in the way, serving as inspiration for *Tommy’s Race.* He received a copy of his long",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Riley20Windeler20-20Tommys20Race20-20Photo20submitted.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fauthor-with-dwarfism-debuts-childrens-book-inspired-by-childhood-race-in-horselfy%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nRiley Windeler holds a copy of his recently published children's book Tommy’s Race at Riverside Park in Kamloops. It has been ten years in the making for Riley Windeler who has finally released his first children’s book that he hopes empowers kids in the Cariboo and beyond. The debut author who was born and raised in Horsefly but currently resides in Kamloops has a form of short-limbed dwarfism called Hypochondroplasia. Despite his small stature of four feet and six inches Windeler hasn’t let that stand in the way, serving as inspiration for *Tommy’s Race.* He received a copy of his long",
       "date_published": "2026-10-23T06:03:11.955857+00:00",
       "authors": [
         {
@@ -321,7 +344,7 @@
       "id": "https://wltribune.com/2026/10/22/new-williams-lake-first-nation-tru-agreement-to-support-texelcemc-students/",
       "url": "https://wltribune.com/2026/10/22/new-williams-lake-first-nation-tru-agreement-to-support-texelcemc-students/",
       "title": "🔓 [Williams Lake Tribune] New Williams Lake First Nation, TRU agreement to support T’exelcemc students",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/photo20of20signing.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fnew-williams-lake-first-nation-tru-agreement-to-support-texelcemc-students%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWilliams Lake First Nation and Thompson Rivers University signed Yerí7 me7 sucwentwécw-kt, an agreement on Tuesday, Oct. 20 to expand academic opportunities for T’exelcemc students. Williams Lake First Nation (WLFN) and Thompson Rivers University (TRU) signed an Yerí7 me7 sucwentwécw-kt, an agreement aimed at improving educational outcomes for T’exelcemc students. The new agreement was signed on Tuesday, Oct. 20, and outlines how the two parties will work together on academic programs, research and shared decisions, while acknowledging T’exelc’s inherent rights, jurisdiction, and cultural",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/photo20of20signing.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fnew-williams-lake-first-nation-tru-agreement-to-support-texelcemc-students%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWilliams Lake First Nation and Thompson Rivers University signed Yerí7 me7 sucwentwécw-kt, an agreement on Tuesday, Oct. 20 to expand academic opportunities for T’exelcemc students. Williams Lake First Nation (WLFN) and Thompson Rivers University (TRU) signed an Yerí7 me7 sucwentwécw-kt, an agreement aimed at improving educational outcomes for T’exelcemc students. The new agreement was signed on Tuesday, Oct. 20, and outlines how the two parties will work together on academic programs, research and shared decisions, while acknowledging T’exelc’s inherent rights, jurisdiction, and cultural",
       "date_published": "2026-10-23T06:03:11.955827+00:00",
       "authors": [
         {
@@ -346,7 +369,7 @@
       "id": "https://wltribune.com/2026/10/22/symbol-of-hope-respect-and-peace-for-generations-to-come-unveiled-in-williams-lake/",
       "url": "https://wltribune.com/2026/10/22/symbol-of-hope-respect-and-peace-for-generations-to-come-unveiled-in-williams-lake/",
       "title": "🔓 [Williams Lake Tribune] Symbol of hope, respect and peace for generations to come unveiled in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Peace20Pole20-20May20Peace20Prevail.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fsymbol-of-hope-respect-and-peace-for-generations-to-come-unveiled-in-williams-lake%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA Rotary Peace Pole featuring six different languages including Tsilhqot’in, Carrier, Metis, Secwepemc, English and French has been installed in Williams Lake. A dedication ceremony was held for a peace pole located in front of Williams Lake City Hall on Wednesday, Oct 21. Williams Lake is now home to a beacon of hope the Rotary Club of Williams Lake hopes will inspire people to come together and work towards a more peaceful world. A Rotary Peace Pole was recently installed in front of Williams Lake City Hall with a gathering and dedication ceremony held Wednesday, Oct. 21. The eight foot",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Peace20Pole20-20May20Peace20Prevail.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fsymbol-of-hope-respect-and-peace-for-generations-to-come-unveiled-in-williams-lake%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA Rotary Peace Pole featuring six different languages including Tsilhqot’in, Carrier, Metis, Secwepemc, English and French has been installed in Williams Lake. A dedication ceremony was held for a peace pole located in front of Williams Lake City Hall on Wednesday, Oct 21. Williams Lake is now home to a beacon of hope the Rotary Club of Williams Lake hopes will inspire people to come together and work towards a more peaceful world. A Rotary Peace Pole was recently installed in front of Williams Lake City Hall with a gathering and dedication ceremony held Wednesday, Oct. 21. The eight foot",
       "date_published": "2026-10-23T06:03:11.955657+00:00",
       "authors": [
         {
@@ -440,7 +463,7 @@
       "id": "https://wltribune.com/2026/10/22/quesnel-rcmp-officer-unable-to-wear-duty-belt-denied-disability-benefits/",
       "url": "https://wltribune.com/2026/10/22/quesnel-rcmp-officer-unable-to-wear-duty-belt-denied-disability-benefits/",
       "title": "🔓 [Williams Lake Tribune] Quesnel RCMP officer unable to wear duty belt denied disability benefits",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/RCMP20cruiser2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fquesnel-rcmp-officer-unable-to-wear-duty-belt-denied-disability-benefits%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Veterans Review and Appeal Board upheld a 2019 Veterans Affairs decision to deny disability benefits to a 50-year-old RCMP officer after a severe abdominal injury required surgery. The officer, who is not named, had been on the force since 2008. While working in 2016 as a general duty officer for the Quesnel RCMP, the officer suffered severe abdominal pain and distention to the point that he could not put his duty belt back on. He began to feel a fever, chills and severe pain. His family doctor referred him to a surgeon. A CT scan showed a perforation in the large intestine and he",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/RCMP20cruiser2.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F22%2Fquesnel-rcmp-officer-unable-to-wear-duty-belt-denied-disability-benefits%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Veterans Review and Appeal Board upheld a 2019 Veterans Affairs decision to deny disability benefits to a 50-year-old RCMP officer after a severe abdominal injury required surgery. The officer, who is not named, had been on the force since 2008. While working in 2016 as a general duty officer for the Quesnel RCMP, the officer suffered severe abdominal pain and distention to the point that he could not put his duty belt back on. He began to feel a fever, chills and severe pain. His family doctor referred him to a surgeon. A CT scan showed a perforation in the large intestine and he",
       "date_published": "2026-10-22T20:52:09+00:00",
       "authors": [
         {
@@ -465,7 +488,7 @@
       "id": "https://www.mycariboonow.com/316913/news/politics/more-than-15000-cariboo-residents-vote-early-in-the-provincial-election/",
       "url": "https://www.mycariboonow.com/316913/news/politics/more-than-15000-cariboo-residents-vote-early-in-the-provincial-election/",
       "title": "[My Cariboo Now] More than 15,000 Cariboo residents vote early in the provincial election",
-      "content_html": "<img src=\"https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2024/10/IVoted-1024x768-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316913%2Fnews%2Fpolitics%2Fmore-than-15000-cariboo-residents-vote-early-in-the-provincial-election%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2024/10/IVoted-1024x768-1.jpg?fit=696%2C522&amp;quality=89&amp;ssl=1\" width=\"696\"/>Early voting is now done for the upcoming provincial election.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316913/news/politics/more-than-15000-cariboo-residents-vote-early-in-the-provincial-election/\">More than 15,000 Cariboo residents vote early in the provincial election</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "content_html": "<img src=\"https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2024/10/IVoted-1024x768-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316913%2Fnews%2Fpolitics%2Fmore-than-15000-cariboo-residents-vote-early-in-the-provincial-election%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"522\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2024/10/IVoted-1024x768-1.jpg?fit=696%2C522&amp;quality=89&amp;ssl=1\" width=\"696\"/>Early voting is now done for the upcoming provincial election.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316913/news/politics/more-than-15000-cariboo-residents-vote-early-in-the-provincial-election/\">More than 15,000 Cariboo residents vote early in the provincial election</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
       "date_published": "2026-10-22T20:46:30+00:00",
       "authors": [
         {
@@ -488,7 +511,7 @@
       "id": "https://100milefreepress.net/2026/10/21/2026-starry-nights-fundraiser-sets-million-dollar-multi-year-goal/",
       "url": "https://100milefreepress.net/2026/10/21/2026-starry-nights-fundraiser-sets-million-dollar-multi-year-goal/",
       "title": "[100 Mile Free Press] 2026 Starry Nights fundraiser sets million dollar, multi-year goal",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/IMG_5057.jpg?w=944\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F10%2F21%2F2026-starry-nights-fundraiser-sets-million-dollar-multi-year-goal%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe South Cariboo Health Foundation is looking to renovate the hospital's laboratory",
+      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/IMG_5057.jpg?w=944\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F10%2F21%2F2026-starry-nights-fundraiser-sets-million-dollar-multi-year-goal%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe South Cariboo Health Foundation is looking to renovate the hospital's laboratory",
       "date_published": "2026-10-22T06:02:37.571298+00:00",
       "authors": [
         {
@@ -534,7 +557,7 @@
       "id": "https://wltribune.com/2026/10/21/annual-williams-lake-first-nation-pumpkin-patch-biggest-one-yet/",
       "url": "https://wltribune.com/2026/10/21/annual-williams-lake-first-nation-pumpkin-patch-biggest-one-yet/",
       "title": "🔓 [Williams Lake Tribune] 5th annual Williams Lake First Nation pumpkin patch biggest one yet",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Pumpkin20Patch202.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F21%2Fannual-williams-lake-first-nation-pumpkin-patch-biggest-one-yet%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEnjoying the Williams Lake First Nation fifth annual pumpkin patch were siblings Sofie and Shane Berkelaar who were joined with their mom Tanya. Picking out pumpkin to take home from the Williams Lake First Nation pumpkin patch held Friday, Oct. 16 was 8-year-old Shane Berkelaar. Down at Byron Louie Memorial Park for Williams Lake First Nation's pumpkin patch on Friday, Oct. 16 were Crystal Wells with her daughter Harper. The fifth annual pumpkin patch by Williams Lake First Nation (WLFN) was the biggest one yet drawing hundreds of families to celebrate the fall season with games, hotdogs and",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Pumpkin20Patch202.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F21%2Fannual-williams-lake-first-nation-pumpkin-patch-biggest-one-yet%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEnjoying the Williams Lake First Nation fifth annual pumpkin patch were siblings Sofie and Shane Berkelaar who were joined with their mom Tanya. Picking out pumpkin to take home from the Williams Lake First Nation pumpkin patch held Friday, Oct. 16 was 8-year-old Shane Berkelaar. Down at Byron Louie Memorial Park for Williams Lake First Nation's pumpkin patch on Friday, Oct. 16 were Crystal Wells with her daughter Harper. The fifth annual pumpkin patch by Williams Lake First Nation (WLFN) was the biggest one yet drawing hundreds of families to celebrate the fall season with games, hotdogs and",
       "date_published": "2026-10-22T06:02:37.570648+00:00",
       "authors": [
         {
@@ -559,7 +582,7 @@
       "id": "https://wltribune.com/2026/10/21/jobs-growth-workforce-challenges-of-cariboos-mining-sector-discussed-in-williams-lake/",
       "url": "https://wltribune.com/2026/10/21/jobs-growth-workforce-challenges-of-cariboos-mining-sector-discussed-in-williams-lake/",
       "title": "🔓 [Williams Lake Tribune] Jobs, growth, workforce challenges of Cariboo’s mining sector discussed in Williams Lake",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/DSC_0675.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F21%2Fjobs-growth-workforce-challenges-of-cariboos-mining-sector-discussed-in-williams-lake%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Mining Association BC hosted a luncheon in collaboration with BC Chambers of Commerce at Chances Signal Point Gaming in Williams Lake on Oct. 14. Michael Goehring, MABC president and CEO shared the achievements, impacts and challenges in the mining industry during the luncheon on Oct. 14. Ainsley Wooding, Trekors Metal’s director of corporate affairs outlined the company’s growth during the luncheon on Oct. 14. Jason Mcleery of SMS Equipment, Tamara Garreau, Executive director, Williams Lake &amp; District Chamber of Commerce, Michael Goehring, MABC president and CEO, Vanessa Riplinger,",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/DSC_0675.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F21%2Fjobs-growth-workforce-challenges-of-cariboos-mining-sector-discussed-in-williams-lake%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Mining Association BC hosted a luncheon in collaboration with BC Chambers of Commerce at Chances Signal Point Gaming in Williams Lake on Oct. 14. Michael Goehring, MABC president and CEO shared the achievements, impacts and challenges in the mining industry during the luncheon on Oct. 14. Ainsley Wooding, Trekors Metal’s director of corporate affairs outlined the company’s growth during the luncheon on Oct. 14. Jason Mcleery of SMS Equipment, Tamara Garreau, Executive director, Williams Lake &amp; District Chamber of Commerce, Michael Goehring, MABC president and CEO, Vanessa Riplinger,",
       "date_published": "2026-10-22T06:02:37.570458+00:00",
       "authors": [
         {
@@ -584,7 +607,7 @@
       "id": "https://www.mycariboonow.com/316896/news/politics/advance-polls-for-the-provincial-election-busy-throughout-the-cariboo/",
       "url": "https://www.mycariboonow.com/316896/news/politics/advance-polls-for-the-provincial-election-busy-throughout-the-cariboo/",
       "title": "[My Cariboo Now] Advance polls for the provincial election busy throughout the Cariboo",
-      "content_html": "<img src=\"https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2019/09/vote-election.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316896%2Fnews%2Fpolitics%2Fadvance-polls-for-the-provincial-election-busy-throughout-the-cariboo%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"320\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2019/09/vote-election.png?fit=318%2C320&amp;quality=80&amp;ssl=1\" width=\"318\"/>More than 12,000 people in the two Cariboo ridings voted early for the upcoming provincial election through Tuesday. (October 20)</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316896/news/politics/advance-polls-for-the-provincial-election-busy-throughout-the-cariboo/\">Advance polls for the provincial election busy throughout the Cariboo</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "content_html": "<img src=\"https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2019/09/vote-election.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316896%2Fnews%2Fpolitics%2Fadvance-polls-for-the-provincial-election-busy-throughout-the-cariboo%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"320\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2019/09/vote-election.png?fit=318%2C320&amp;quality=80&amp;ssl=1\" width=\"318\"/>More than 12,000 people in the two Cariboo ridings voted early for the upcoming provincial election through Tuesday. (October 20)</p>\n<p>The post <a href=\"https://www.mycariboonow.com/316896/news/politics/advance-polls-for-the-provincial-election-busy-throughout-the-cariboo/\">Advance polls for the provincial election busy throughout the Cariboo</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
       "date_published": "2026-10-21T23:10:37+00:00",
       "authors": [
         {
@@ -630,7 +653,7 @@
       "id": "https://www.mycariboonow.com/316891/news/indigenous/williams-lake-to-lose-a-valuable-service-at-the-end-of-the-year/",
       "url": "https://www.mycariboonow.com/316891/news/indigenous/williams-lake-to-lose-a-valuable-service-at-the-end-of-the-year/",
       "title": "[My Cariboo Now] Williams Lake to lose a valuable service at the end of the year",
-      "content_html": "<img src=\"https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2025/11/Nenqayni-Wellness-Centre-Society-f.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316891%2Fnews%2Findigenous%2Fwilliams-lake-to-lose-a-valuable-service-at-the-end-of-the-year%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"464\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2025/11/Nenqayni-Wellness-Centre-Society-f.jpg?fit=696%2C464&amp;quality=89&amp;ssl=1\" width=\"696\"/>The Nenqayni Wellness Centre Soceity announced its permenant closure in December. </p>\n<p>The post <a href=\"https://www.mycariboonow.com/316891/news/indigenous/williams-lake-to-lose-a-valuable-service-at-the-end-of-the-year/\">Williams Lake to lose a valuable service at the end of the year</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "content_html": "<img src=\"https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2025/11/Nenqayni-Wellness-Centre-Society-f.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F316891%2Fnews%2Findigenous%2Fwilliams-lake-to-lose-a-valuable-service-at-the-end-of-the-year%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"464\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2025/11/Nenqayni-Wellness-Centre-Society-f.jpg?fit=696%2C464&amp;quality=89&amp;ssl=1\" width=\"696\"/>The Nenqayni Wellness Centre Soceity announced its permenant closure in December. </p>\n<p>The post <a href=\"https://www.mycariboonow.com/316891/news/indigenous/williams-lake-to-lose-a-valuable-service-at-the-end-of-the-year/\">Williams Lake to lose a valuable service at the end of the year</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
       "date_published": "2026-10-21T19:11:55+00:00",
       "authors": [
         {
@@ -698,7 +721,7 @@
       "id": "https://www.woodbusiness.ca/cultural-shrub-planting-supports-community-access-and-land-rehabilitation-in-the-cariboo-chilcotin/",
       "url": "https://www.woodbusiness.ca/cultural-shrub-planting-supports-community-access-and-land-rehabilitation-in-the-cariboo-chilcotin/",
       "title": "[Canadian Forest Industries] Cultural shrub planting supports community access and land rehabilitation in the Cariboo Chilcotin",
-      "content_html": "<img src=\"https://www.woodbusiness.ca/wp-content/uploads/2026/10/1829f72d-bc6d-dee7-3bd5-c0d249910407-420x315.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.woodbusiness.ca%2Fcultural-shrub-planting-supports-community-access-and-land-rehabilitation-in-the-cariboo-chilcotin%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCentral Chilcotin Rehabilitation Ltd. (CCR) completed a cultural shrub<span class=\"ellipsis\">…</span>",
+      "content_html": "<img src=\"https://www.woodbusiness.ca/wp-content/uploads/2026/10/1829f72d-bc6d-dee7-3bd5-c0d249910407-420x315.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.woodbusiness.ca%2Fcultural-shrub-planting-supports-community-access-and-land-rehabilitation-in-the-cariboo-chilcotin%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCentral Chilcotin Rehabilitation Ltd. (CCR) completed a cultural shrub<span class=\"ellipsis\">…</span>",
       "date_published": "2026-10-21T16:18:37+00:00",
       "authors": [
         {
@@ -758,295 +781,6 @@
       "_relevance": 15,
       "_local_score": 25,
       "_content_type": "recap",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://100milefreepress.net/2026/10/20/100-mile-mayor-elect-excited-to-get-to-work/",
-      "url": "https://100milefreepress.net/2026/10/20/100-mile-mayor-elect-excited-to-get-to-work/",
-      "title": "[100 Mile Free Press] 100 Mile mayor-elect excited to get to work",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/IMG_5065.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n",
-      "date_published": "2026-10-21T06:03:06.495153+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://100milefreepress.net"
-        }
-      ],
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/IMG_5065.jpg?w=1024",
-      "_score": 49,
-      "_quality": 35,
-      "_relevance": 40,
-      "_local_score": 90,
-      "_content_type": "feature",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://100milefreepress.net/2026/10/20/alexander-pumpkin-painting-workshop-a-lot-of-creative-fun/",
-      "url": "https://100milefreepress.net/2026/10/20/alexander-pumpkin-painting-workshop-a-lot-of-creative-fun/",
-      "title": "[100 Mile Free Press] ALEXANDER: Pumpkin Painting Workshop a lot of creative fun",
-      "content_html": "<img src=\"https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/pumpkin20workshop.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThe Pumpkin Painting Workshop at the Green Lake Community Centre was spooky, creative and successful on Oct. 16. The workshop, convened by Kris Alexander and Diane Sullivan, attracted seven Green […]",
-      "date_published": "2026-10-21T06:03:06.495052+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://100milefreepress.net"
-        }
-      ],
-      "image": "https://100milefreepress.net/wp-content/uploads/sites/15/2026/10/pumpkin20workshop.jpg?w=1024",
-      "_score": 48,
-      "_quality": 35,
-      "_relevance": 40,
-      "_local_score": 85,
-      "_content_type": "recap",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://quesnelobserver.com/2026/10/20/quesnel-resident-claims-46-million-lottery-prize-from-december-draw/",
-      "url": "https://quesnelobserver.com/2026/10/20/quesnel-resident-claims-46-million-lottery-prize-from-december-draw/",
-      "title": "[Quesnel Cariboo Observer] Quesnel resident claims $46 million lottery prize from December draw",
-      "content_html": "<img src=\"https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/Winner_Richard20Z_960x540.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n",
-      "date_published": "2026-10-21T06:03:06.494780+00:00",
-      "authors": [
-        {
-          "name": "Quesnel Cariboo Observer",
-          "url": "https://quesnelobserver.com"
-        }
-      ],
-      "image": "https://quesnelobserver.com/wp-content/uploads/sites/18/2026/10/Winner_Richard20Z_960x540.jpg?w=1024",
-      "_score": 48,
-      "_quality": 35,
-      "_relevance": 35,
-      "_local_score": 100,
-      "_content_type": "breaking",
-      "_local": true,
-      "tags": [
-        "local-priority"
-      ]
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/cariboo-gold-dance-band-hosting-juno-award-winning-saxophonist-nov-14/",
-      "url": "https://wltribune.com/2026/10/20/cariboo-gold-dance-band-hosting-juno-award-winning-saxophonist-nov-14/",
-      "title": "🔓 [Williams Lake Tribune] Cariboo Gold Dance Band hosting Juno award winning saxophonist Nov. 14",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Campbell20Ryga.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n**By Cariboo Gold Dance Band hosting Juno award winning saxophonist Nov. 14** The Cariboo Gold Dance Band asks you to join them on Nov. 14 for \"Swing n' Sax\" with internationally known and Juno award winning saxophonist Campbell Ryga. A big band in the Williams Lake might seem a bit unusual but the Cariboo Gold Dance Band (CGDB) has been playing together for over 42 years. This 14-piece band, comprised of skilled and dedicated local musicians, played its first dance in the spring of 1984 and has performed for a wide variety of occasions in the Cariboo and beyond ever since. Each year the band",
-      "date_published": "2026-10-21T06:03:06.494355+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/Campbell20Ryga.jpg?w=1024",
-      "_score": 47,
-      "_quality": 45,
-      "_relevance": 30,
-      "_local_score": 100,
-      "_content_type": "recap",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/just-the-happiest-kid-clinical-trial-brightens-future-for-b-c-boy/",
-      "url": "https://wltribune.com/2026/10/20/just-the-happiest-kid-clinical-trial-brightens-future-for-b-c-boy/",
-      "title": "🔓 [Williams Lake Tribune] ‘Just the happiest kid’: Clinical trial brightens future for B.C. boy",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/beckett-crop.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n‘Just the happiest kid’: Clinical trial brightens future for B.C. boy | Williams Lake Tribune ‘Just the happiest kid’: Clinical trial brightens future for B.C. boy White Rock youngster, Beckett, has been participating in a 'groundbreaking' clinical trial since his diagnosis with infant leukemia. The Tessarolo family – mom and dad Melanie and Geoff, with children (from left) Weston, Bowen, Beckett and Addison. White Rock youngster Beckett has been part of a 'groundbreaking' clinical trial since his diagnosis with infant leukemia at the age of nine months. White Rock youngster Beckett started",
-      "date_published": "2026-10-21T00:30:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/beckett-crop.jpg?w=1024",
-      "_score": 86,
-      "_quality": 82,
-      "_relevance": 88,
-      "_local_score": 85,
-      "_content_type": "feature",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/opinion-community-forests-offer-a-practical-path-forward-for-b-c/",
-      "url": "https://wltribune.com/2026/10/20/opinion-community-forests-offer-a-practical-path-forward-for-b-c/",
-      "title": "🔓 [Williams Lake Tribune] OPINION: Community forests offer a practical path forward for B.C.",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/Field20tour20participants20review20an20area20affected20by20a20202220wildfire2C20shown20in20pink20on20the20map2C20on20a20tour20with20the20Kaslo20and20District20Community20Forest.jpeg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nOPINION: Community forests offer a practical path forward for B.C. | Williams Lake Tribune OPINION: Community forests offer a practical path forward for B.C. Field tour participants review an area affected by a 2022 wildfire, shown in pink on the map, on a tour with the Kaslo and District Community Forest. British Columbia’s (B.C.) forest sector is at a turning point. Communities are feeling the effects of sawmill and pulp mill closures, catastrophic wildfires, changing markets, and general uncertainty about the future. British Columbians are also asking how forests can support healthy",
-      "date_published": "2026-10-20T23:46:04+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/Field20tour20participants20review20an20area20affected20by20a20202220wildfire2C20shown20in20pink20on20the20map2C20on20a20tour20with20the20Kaslo20and20District20Community20Forest.jpeg?w=1024",
-      "_score": 85,
-      "_quality": 70,
-      "_relevance": 90,
-      "_local_score": 85,
-      "_content_type": "opinion",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/where-the-parties-stand-on-the-major-issues-heading-into-the-b-c-election/",
-      "url": "https://wltribune.com/2026/10/20/where-the-parties-stand-on-the-major-issues-heading-into-the-b-c-election/",
-      "title": "🔓 [Williams Lake Tribune] Where the parties stand on the major issues heading into the B.C. election",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/261020-BPD-PROV-party-leaders_140e4b.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F20%2Fwhere-the-parties-stand-on-the-major-issues-heading-into-the-b-c-election%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWhere the parties stand on the major issues heading into the B.C. election | Williams Lake Tribune Where the parties stand on the major issues heading into the B.C. election B.C. provincial party leaders from left: B.C. Greens Leader Emily Lowan, CentreBC Leader Elenore Sturko, B.C. Conservatives Leader Lorne Doerkson, B.C. NDP Leader David Eby and OneBC Leader Dallas Brodie. Amid the avalanche of policy announcements, platform promises and attack ads, it can be hard to know where party leaders really stand on the issues. Mario Canseco of Research Co. regularly polls British Columbian voters",
-      "date_published": "2026-10-20T23:00:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/261020-BPD-PROV-party-leaders_140e4b.jpg?w=1024",
-      "_score": 81,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local_score": 85,
-      "_content_type": "analysis",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/sam-roberts-band-owen-riegling-to-headline-when-the-cpkc-holiday-train-crosses-b-c/",
-      "url": "https://wltribune.com/2026/10/20/sam-roberts-band-owen-riegling-to-headline-when-the-cpkc-holiday-train-crosses-b-c/",
-      "title": "🔓 [Williams Lake Tribune] Sam Roberts Band, Owen Riegling to headline when the CPKC Holiday Train crosses B.C.",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=wltribune.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nSam Roberts Band, Owen Riegling to headline when the CPKC Holiday Train crosses B.C. | Williams Lake Tribune Sam Roberts Band, Owen Riegling to headline when the CPKC Holiday Train crosses B.C. Owen Riegling will be performing on the CPKC Holiday Train when it makes stops across the province. Sam Roberts Band will be performing on the CPKC Holiday Train when it makes stops across the province. Sam Roberts Band and Owen Riegling are this year’s performers on the CPKC Holiday Train as it makes its way across Alberta and British Columbia this December. This is the 28th year for the holiday event",
-      "date_published": "2026-10-20T22:15:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://www.google.com/s2/favicons?domain=wltribune.com&sz=128",
-      "_score": 28,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/five-crd-incumbents-keep-williams-lake-area-seats/",
-      "url": "https://wltribune.com/2026/10/20/five-crd-incumbents-keep-williams-lake-area-seats/",
-      "title": "🔓 [Williams Lake Tribune] Five CRD incumbents keep Williams Lake area seats",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/crd.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n",
-      "date_published": "2026-10-20T21:51:55.416344+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/crd.jpg?w=1024",
-      "_score": 100,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/ndp-conservatives-pitch-dozens-of-urgent-primary-care-centres-as-healthcare-solution/",
-      "url": "https://wltribune.com/2026/10/20/ndp-conservatives-pitch-dozens-of-urgent-primary-care-centres-as-healthcare-solution/",
-      "title": "🔓 [Williams Lake Tribune] NDP, Conservatives pitch dozens of Urgent Primary Care Centres as healthcare solution",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/BSP_97565B15D.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F20%2Fndp-conservatives-pitch-dozens-of-urgent-primary-care-centres-as-healthcare-solution%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBoth parties claim the UPCC model would reduce pressure on emergency rooms",
-      "date_published": "2026-10-20T20:52:32+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/BSP_97565B15D.jpg?w=1024",
-      "_score": 75,
-      "_quality": 75,
-      "_relevance": 72,
-      "_local_score": 85,
-      "_content_type": "analysis",
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/20/tolko-industries-ltd-forest-operations-map-fsp-780/",
-      "url": "https://wltribune.com/2026/10/20/tolko-industries-ltd-forest-operations-map-fsp-780/",
-      "title": "🔓 [Williams Lake Tribune] Tolko Industries Ltd. – Forest Operations Map FSP #780",
-      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/10/43053783_web1_230815-WLT-PublicNotice-RoadClosure-Tolko_1.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p>Tolko’s Forest Operations Map (FOM) shows proposed road and cut block developments and are available for public review and comment. Comments may be provided in person or at the email address below.<ul><li>Licensee: <em>Tolko Industries Ltd – Cariboo Woodlands</em></li><li>Review &amp; Comment Period: <em>October 22, 2026 – November 22, 2026</em></li><li>FOM Validity Period: <em>3 years – Expires October 22, 2029</em></li><li>FSP: <em>780</em></li><li>Forest Development Unit: <em>Cariboo Chilcotin Natural Resource District</em></li><li>Geographic Locations: <em>Blackdome, Squawk Lake, Anvil Mountain, South Bosk</em></li><li>Access to FOM.: <strong>Online:</strong> <a href=\"https://fom.nrs.gov.bc.ca/public/projects\" rel=\"noopener noreferrer\" target=\"_blank\">https://fom.nrs.gov.bc.ca/public/projects</a>, <strong>In-Person:</strong> <em>180 Hodgson Rd, Williams Lake BC Monday to Friday 8:00am – 5:00pm</em></li><li>Contact: Email: <a href=\"mailto:Cariboowoodlandsfom@tolko.com\" rel=\"noopener noreferrer\" target=\"_blank\">Cariboowoodlandsfom@tolko.com</a><a href=\"mailto:Cariboowoodlandsfom@tolko.com\" rel=\"noopener noreferrer\" target=\"_blank\"></a></li></ul></p>",
-      "date_published": "2026-10-20T17:10:00+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/10/43053783_web1_230815-WLT-PublicNotice-RoadClosure-Tolko_1.jpg?w=1024",
-      "_score": 100,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0,
-      "_local": true,
-      "tags": [
-        "local-priority",
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-20.html",
-      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-20.html",
-      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 20, 2026",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=zirnhelt.github.io&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p><em>What the pipeline did, what broke, and what it chose when something broke. Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/39390907505\">39390907505</a>.</em></p>\n<h3>The script shipped 554 words over target, after two expand passes</h3>\n<p>The first draft came in at 2809 words against a 3400-word target. The pipeline sent it back for up to two expand passes. The script that shipped is 3554 words, which is 154 words over target. The first draft was 591 words short. The expand passes closed that gap and then overshot it.</p>\n<p>The overshoot matters because the target is the only length control the pipeline has. Whatever the expand passes added is the part nobody chose, and the review cannot say from these facts where those extra words sit.</p>\n<h3>Thirteen of eighteen roundup citations matched</h3>\n<p>The roundup pool had 18 citations, and 13 of them matched. The five that did not match are the gap to watch. The facts do not say whether those five were dropped, paraphrased past recognition, or attached to claims the source does not support. They also do not say which stories they belonged to.</p>\n<p>All four deep-dive citations matched. The contrast is the finding. The deep dives are the part of the episode with the most sourcing, and they were the part that held. The roundup stories were the part under pressure, and that is where the unmatched citations sit.</p>\n<h3>Forty-five roundup stories were cut for airtime</h3>\n<p>The pool is larger than one segment can air. Forty-five stories were dropped by the airtime budget (NEWS_ROUNDUP_COUNT), and the pipeline treats that as the design working. A cut story can come back on a day when it fits better.</p>\n<p>The cut count and the citation gap are separate facts. Forty-five stories were removed before they reached the script. Five citations failed to match among the stories that did reach it. The review does not connect the two, because the facts do not connect them.</p>\n<h3>The ratio of Casey to Riley lines came out at 1.24</h3>\n<p>The voice ratio, Casey over Riley, is 1.24. Casey has more lines than Riley, but not by a wide margin. The pipeline recorded one AI-tell pattern hit in the script. The facts do not name the pattern, so the review cannot say whether it was caught and fixed or passed through.</p>\n<h3>Every scheduled run finished on time, but the first run did most of the work</h3>\n<p>Three runs were scheduled for this date. The primary run started at 1:05 AM Pacific and finished at 1:38 AM Pacific with a success conclusion. Fallback 1 started at 2:05 AM Pacific and also finished successfully at 2:05 AM Pacific. Fallback 2, started at 3:05 AM Pacific, is the run writing this review and has no finish time yet.</p>\n<p>Both completed runs were zero minutes late. The primary run took the full script generation and rendering path. The facts do not say what Fallback 1 did in its 2:05 AM Pacific slot, or why it finished the moment it began. The review does not guess.</p>\n<p>In the primary run, script generation took 894 seconds, the longest step. Audio rendering took 286 seconds. Deploying to GitHub Pages took 379 seconds, longer than publishing the episode at 113 seconds. The deploy step is the slowest part of the pipeline after script generation, and nothing in the facts explains why.</p>\n<h3>The episode runs 21.7 minutes and the video is 75.0 MB</h3>\n<p>The audio is 21.7 minutes long and 19.9 MB. The video is 21.7 minutes long and 75.0 MB. The two runtimes match, which confirms the video and audio carry the same episode. The file sizes differ by a factor of about four because the video carries the picture track. The feed now holds 265 episodes.</p>\n<h3>The debate question and the forest-products numbers</h3>\n<p>The episode's question is whether a forest-products sector shifting toward high-value markets, with a 45 million cubic metre harvest target, serves Cariboo communities, and whose numbers residents should trust during that shift. The four deep dives cover mass timber demand, a Conservative harvest promise, retraining for former South Cariboo forestry workers, and a federal and Ontario investment of up to $50 million. All four deep-dive citations matched, so the question rests on sourcing that checked out.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 1.24, 3554 words</td></tr>\n<tr><td>Audio</td><td>21.7 min</td></tr>\n<tr><td>Audio size</td><td>19.9 MB</td></tr>\n<tr><td>Citations matched</td><td>13/18 roundup, 4/4 deep dive</td></tr>\n<tr><td>Feed</td><td>265 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>66,646</td></tr>\n<tr><td>API calls</td><td>***'kagi-extract': 8, 'brave-search': 6, 'claude': 11, 'brave-answers': 4***</td></tr>\n</tbody>\n</table>",
-      "date_published": "2026-10-20T10:06:02+00:00",
-      "authors": [
-        {
-          "name": "Cariboo Signals Reviews",
-          "url": "https://zirnhelt.github.io/curated-podcast-generator"
-        }
-      ],
-      "image": "https://www.google.com/s2/favicons?domain=zirnhelt.github.io&sz=128",
-      "_score": 19,
-      "_quality": 25,
-      "_relevance": 15,
-      "_local_score": 25,
-      "_content_type": "fluff",
       "_local": true,
       "tags": [
         "local-priority"
