@@ -27,6 +27,10 @@ This file holds the **standing rules**. The incidents and reasoning behind them 
 changing the code it describes. When you add a rule, keep it here as one or two lines and
 put the story in the decision file.
 
+The values behind both curators live in the podcast repo's
+[`docs/MANIFESTO.md`](https://github.com/zirnhelt/curated-podcast-generator/blob/main/docs/MANIFESTO.md):
+read it before changing scoring, the gate, or what a feed admits.
+
 # Project Context
 
 ## What This Is
