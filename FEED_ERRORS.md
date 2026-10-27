@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-26 (Monday)
+
+#### 🔧 Manual Run (11:09 PM Pacific)
+- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
+- ⚠️ Kite News: not in this batch: canada | british columbia, climate change
+
+
+---
+
+
+
 ## 2026-10-25 (Sunday)
 
 #### 🔧 Manual Run (11:09 PM Pacific)
@@ -71,17 +82,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (11:09 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-
-
----
-
-
-
-## 2026-10-18 (Sunday)
-
-#### 🔧 Manual Run (11:06 PM Pacific)
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ **Singularity Hub** failed — `503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/`
 
 
 ---
@@ -1538,6 +1538,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## Week of 2026-10-17–2026-10-17
+- 2 issues recorded
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ Singularity Hub failed — 503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/
+
+
+---
+
+
+
+## Week of 2026-10-18–2026-10-18
 - 2 issues recorded
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
 - ⚠️ Singularity Hub failed — 503 Server Error: Service Unavailable for url: https://singularityhub.com/feed/
