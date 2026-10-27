@@ -165,8 +165,11 @@ def test_gated_scoring_composes_with_the_scrub_and_the_allocator(monkeypatch, tm
     for a in kept:
         a.category = 'news'
     selected = m.apply_feed_slot_allocation(kept)
-    assert len(selected) == 3, 'max_slots caps the category'
-    assert selected[0].score >= selected[-1].score, 'filled best-first'
+    slotted = [a for a in selected if not getattr(a, 'wildcard', False)]
+    assert len(slotted) == 3, 'max_slots caps the category'
+    assert slotted[0].score >= slotted[-1].score, 'filled best-first'
+    # The fourth story (q 55, never deep-scored) is the day's wildcard, on top.
+    assert [a.title for a in selected if getattr(a, 'wildcard', False)] == ['Serious story number 3']
 
 
 def test_a_verdict_from_another_rubric_is_asked_again(monkeypatch, tmp_path):

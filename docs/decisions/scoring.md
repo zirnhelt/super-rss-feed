@@ -491,3 +491,18 @@ The 2026-10-05 scorecard put Q, R and L at AUC 0.51-0.52 on news. A wider slice 
 those dimensions more articles; it does not make them better predictors. If the
 scorecard has not moved after four weeks, the extra deep scoring has bought nothing
 and the multiplier can come back down.
+
+## Thinner minimums and a daily wildcard (2026-10-27)
+
+The curator manifesto (`curated-podcast-generator/docs/MANIFESTO.md`) says short and
+strong beats full and thin, but the producer chose to soften padding, not end it.
+`min_slots` was halved and rounded up (ai-tech 5→3, local, homelab and science 3→2,
+climate, wellness, scifi, homestead and news 2→1), so every category still ships
+something but fewer below-floor articles get in.
+
+It also asks for one deliberate surprise a day. Pass 3 of `apply_feed_slot_allocation()`
+adds one article on top of the slots: the highest `q_gate` at or above
+`WILDCARD_MIN_Q_GATE` (55, p90 of the scored cache) among articles the interest profile
+missed: relevance under `WILDCARD_MAX_RELEVANCE` (40), or never deep-scored because
+Cohere ranked it out of the slice. Gate rejects never qualify. Like the world lane, it is
+left out of the near-miss line. `run_stats['quality_gate']['wildcard_count']` records it.
