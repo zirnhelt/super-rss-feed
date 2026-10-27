@@ -1116,6 +1116,7 @@ class Article:
         # Canada (GATE_WORLD_RUBRIC). Feeds the news world lane; None = unjudged.
         self.gate_world: Optional[bool] = None
         self.world_lane = False  # True when selected by the world lane, not by score
+        self.wildcard = False  # True when picked as the day's serendipity slot
         self.hot_refresh = False  # True when placed by refresh_hot_feeds(), not a nightly
         # Outlets in the Kagi News cluster this article stands for (0 = one outlet),
         # and when Kagi cut the batch that summarised it (None = not a cluster).
@@ -3471,6 +3472,13 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
 # exists for the same reason: one ranked list cannot answer two questions.
 NEWS_INTEREST_RESERVE_SHARE = 0.4
 
+# The day's wildcard (docs/MANIFESTO.md, "leave room to be surprised"): one article
+# on top of the slots, the most newsworthy one the interest profile would not pick.
+# 55 was p90 of q_gate in the scored cache on 2026-10-27; under 40 relevance is an
+# interest miss in the deep-score prompt's own bands.
+WILDCARD_MIN_Q_GATE = 55
+WILDCARD_MAX_RELEVANCE = 40
+
 
 def _interleave_reserved(primary: List[Article], reserved: List[Article],
                          reserve_share: float) -> List[Article]:
@@ -4163,6 +4171,20 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
         result.append(a)
         cat_counts[cat] += 1
 
+    # Pass 3: the wildcard. A gate-only article has no relevance score: Cohere ranked
+    # it out of the interest reserve, which is the miss this slot is for.
+    included_ids = {id(a) for a in result}
+    wildcard = next((a for a in sorted(articles, key=lambda x: getattr(x, 'q_gate', None) or 0,
+                                       reverse=True)
+                     if id(a) not in included_ids
+                     and not getattr(a, 'gate_reject', None)
+                     and (getattr(a, 'q_gate', None) or 0) >= WILDCARD_MIN_Q_GATE
+                     and (getattr(a, 'gate_scored', False)
+                          or getattr(a, 'relevance', 0) < WILDCARD_MAX_RELEVANCE)), None)
+    if wildcard:
+        wildcard.wildcard = True
+        result.append(wildcard)
+
     slot_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(cat_counts.items()))
     print(f"📊 Feed slot allocation: {len(articles)} → {len(result)} articles [{slot_summary}]")
     if editorial_ids:
@@ -4170,6 +4192,9 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
     if world_counts:
         world_summary = ', '.join(f"{cat}:{n}" for cat, n in sorted(world_counts.items()))
         print(f"   🌍 World lane: {world_summary} on top of max_slots")
+    if wildcard:
+        print(f"   🎲 Wildcard ({wildcard.category or 'news'}, q_gate {wildcard.q_gate}): "
+              f"{getattr(wildcard, 'title', '')[:60]}")
     if below_floor_admitted:
         print(f"   🌱 {below_floor_admitted} below-floor article(s) admitted to hold min_slots")
     return result
@@ -6614,6 +6639,7 @@ def main():
         'passed_by_category': dict(passed_by_cat),
         # Included in passed_by_category, and on top of max_slots by design.
         'world_lane_count': sum(1 for a in quality_articles if getattr(a, 'world_lane', False)),
+        'wildcard_count': sum(1 for a in quality_articles if getattr(a, 'wildcard', False)),
         'dropped_below_floor_by_category': {
             cat: max(0, scrubbed_by_cat.get(cat, 0) - passed_by_cat.get(cat, 0))
             for cat in scrubbed_by_cat
@@ -7076,7 +7102,8 @@ def review_near_misses(cut: List[Article], shipped: List[Article]) -> List[Artic
     """
     line: Dict[str, int] = {}
     for a in shipped:
-        if getattr(a, 'world_lane', False) or a.source in EDITORIAL_EXEMPT_SOURCES:
+        if (getattr(a, 'world_lane', False) or getattr(a, 'wildcard', False)
+                or a.source in EDITORIAL_EXEMPT_SOURCES):
             continue
         cat = a.category or 'news'
         line[cat] = min(line.get(cat, a.score), a.score)

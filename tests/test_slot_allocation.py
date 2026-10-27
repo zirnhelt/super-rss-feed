@@ -152,3 +152,40 @@ def test_editorial_exempt_sources_are_never_ranked_out(monkeypatch):
 
     assert review in out
     assert len([x for x in out if x is not review]) == 4, 'and it takes no one else\'s slot'
+
+
+def _wc(cat, score, q_gate, relevance=0, gate_scored=False, gate_reject=False):
+    o = _a(cat, score)
+    o.q_gate, o.relevance, o.gate_scored, o.gate_reject = q_gate, relevance, gate_scored, gate_reject
+    return o
+
+
+def test_wildcard_adds_the_best_interest_miss_on_top_of_the_slots(monkeypatch):
+    """docs/MANIFESTO.md: one deliberate surprise a day, the most newsworthy article
+    the interest profile would not have picked."""
+    monkeypatch.setattr(m, 'FEED_SLOTS', {'news': {'min_slots': 1, 'max_slots': 1},
+                                          'default': {'min_slots': 1, 'max_slots': 5}})
+    monkeypatch.setattr(m, 'LIMITS', dict(m.LIMITS, min_claude_score=10,
+                                          min_score_by_category={}))
+    in_feed = _wc('news', 90, 60, relevance=90)
+    on_brief = _wc('news', 50, 80, relevance=70)       # cut, but the profile wanted it
+    rejected = _wc('news', 40, 75, gate_scored=True, gate_reject=True)
+    surprise = _wc('news', 30, 70, relevance=20)
+    unscored = _wc('news', 20, 65, gate_scored=True)
+
+    out = m.apply_feed_slot_allocation([in_feed, on_brief, rejected, surprise, unscored])
+
+    assert out == [in_feed, surprise]
+    assert surprise.wildcard
+
+
+def test_no_wildcard_when_nothing_clears_the_quality_bar(monkeypatch):
+    monkeypatch.setattr(m, 'FEED_SLOTS', {'news': {'min_slots': 1, 'max_slots': 1},
+                                          'default': {'min_slots': 1, 'max_slots': 5}})
+    monkeypatch.setattr(m, 'LIMITS', dict(m.LIMITS, min_claude_score=10,
+                                          min_score_by_category={}))
+    weak = _wc('news', 30, m.WILDCARD_MIN_Q_GATE - 1, gate_scored=True)
+
+    out = m.apply_feed_slot_allocation([_wc('news', 90, 60, relevance=90), weak])
+
+    assert weak not in out
