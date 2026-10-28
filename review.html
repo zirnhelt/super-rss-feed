@@ -108,6 +108,7 @@
         .badge-bucket-promising  { background: #e0f7fa; color: #00695c; border: 1px solid #80cbc4; }
         .badge-bucket-near_miss  { background: #fff9e6; color: #8a6a00; border: 1px solid #ffd54f; }
         .badge-bucket-in_feed    { background: #e8f5e9; color: #2e7d32; border: 1px solid #81c784; }
+        .badge-bucket-wildcard   { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ba68c8; }
         .badge-category          { background: #e8effe; color: #667eea; }
         .badge-source            { background: #f0f0f0; color: #555; font-weight: normal; }
         .badge-date              { color: #aaa; font-size: 0.70em; font-weight: normal; }
@@ -452,12 +453,13 @@ const SAVE_TIMEOUT_MS = 20000;
 // (in_feed): dropping the top on 2026-08-25 left no way to see a quality regression there.
 // The retired score bands stay listed so their history still shows in the strata table.
 // Each item carries a _stratum_weight so the audit can reweight back to the population.
-const SHOW_BUCKETS          = new Set(['near_miss', 'in_feed', 'unfiltered',
+const SHOW_BUCKETS          = new Set(['wildcard', 'near_miss', 'in_feed', 'unfiltered',
                                        'high', 'mid', 'promising', 'border', 'low', 'floor_fill']);
-const BUCKET_LABEL = { near_miss: 'just missed', in_feed: 'in the feed', unfiltered: 'filtered',
+const BUCKET_LABEL = { wildcard: 'wildcard', near_miss: 'just missed', in_feed: 'in the feed', unfiltered: 'filtered',
                        high: 'top score', mid: 'mid score', promising: 'promising', border: 'near-miss',
                        low: 'low score', floor_fill: 'below floor' };
-const BUCKET_HINT  = { near_miss: 'Passed the quality gate but lost its feed slot by a few points: should it have made it?',
+const BUCKET_HINT  = { wildcard: 'Today\'s deliberate surprise: newsworthy, but outside your stated interests. Glad it was there?',
+                       near_miss: 'Passed the quality gate but lost its feed slot by a few points: should it have made it?',
                        in_feed: 'From the top of today\'s feed: a check that what ships is still good',
                        unfiltered: 'Rejected by the quality gate despite a high score: was the rejection right?',
                        promising: 'Low overall score but a strong interest match — the likeliest place for a missed good article' };
@@ -1000,7 +1002,7 @@ function renderStats() {
     );
 
     // Per-stratum rates are unbiased; a corpus-wide rate across strata is not (quota sample).
-    const order = ['near_miss', 'in_feed', 'unfiltered', 'high', 'mid', 'promising', 'border', 'low', 'floor_fill'];
+    const order = ['wildcard', 'near_miss', 'in_feed', 'unfiltered', 'high', 'mid', 'promising', 'border', 'low', 'floor_fill'];
     const rows = order.filter(b => s?.by_bucket?.[b] || STRATA?.[b]?.sampled).map(b => {
         const hist = s?.by_bucket?.[b];
         const pool = STRATA?.[b];
