@@ -161,3 +161,19 @@ def test_rotation_keeps_every_article_and_defaults_a_missing_category_to_news():
     assert sorted(a.score for a in rotated) == [38, 39, 40]
     assert [a.score for a in rotated] == [40, 38, 39]
     assert m.rotate_review_categories([]) == []
+
+
+def test_the_wildcard_is_its_own_stratum_and_never_also_in_feed(monkeypatch):
+    """docs/MANIFESTO.md: the wildcard ships at the bottom of a category, so in_feed
+    (top of the feed) would almost never sample it. A partition keeps the weights valid."""
+    monkeypatch.setattr(m, 'min_score_for_category', lambda cat: 50)
+    top = _n('news', 90, url_hash='a')
+    wild = _n('science', 20, url_hash='w', wildcard=True)
+    cut = _n('news', 48, url_hash='c')
+
+    pools = m.review_pools([top, wild, cut], shipped=[top, wild])
+
+    assert pools['wildcard'] == [wild]
+    assert pools['in_feed'] == [top]
+    assert pools['near_miss'] == [cut]
+    assert list(m.REVIEW_QUOTAS)[0] == 'wildcard', 'taken first, before a shared source blocks it'
