@@ -213,3 +213,26 @@ the day's pool of 300, the band of 150 held 29–30 of every day's top 30. Haiku
 scores were already sound where they existed (off-theme 2–12, on-theme 60–88). The first night
 clears a backlog of up to 1,050 judgments (about 35 calls, roughly $0.02); after that only
 newcomers to each band are paid for. A failed call keeps the old score.
+
+## Every daily feed carries a local lane (2026-10-28)
+
+The show leads its news roundup with local news whatever the day's theme. The theme-fit
+floor exists to keep "local civic news boosted by the Williams Lake bonus" out of a topical
+day's selection, so on a tech day the only local stories that reached the feed were the ones
+that happened to fit. On 2026-10-28 the Wednesday feed held five local stories, every one
+aired earlier that week (Rogers outage and the Tribune mining piece on 10-22, the ghost-net
+cleanup on 10-23, the prescribed burn on 10-27), while feed-local carried eight fresh
+Cariboo stories (council farewells, the mock election, the Declaration Act repeal, Clinton
+wildfire recovery, Tolko's forest operations map). The episode opened with no local news.
+
+`select_local_lane` adds up to `local_lane_slots` (4, `podcast_schedule.json`) on top of the
+theme selection: current-week candidates that passed the content and gate exclusions, taken
+before the pool cap and the theme-fit floor, anchored by `_has_cariboo_anchor` with a local score
+of at least 25, published in the last 72 hours, ranked by `q_gate`, at most 2 per outlet. The
+local floor matters because an outlet name is an anchor: without it the Tribune's provincial
+syndication (Penticton, BC Ferries) qualified. Ranked newest-first, the lane picked a snowfall
+bulletin over the councillors' farewells; on the 10-28 caches it now picks the Chilcotin mural,
+the mock local election, Clinton wildfire recovery and the council farewells. A story shown in *any* day's recent episode is skipped, because the show
+drops everything it cited in the last 7 days. Lane items carry the day's cached theme
+percentile and are `_is_bonus` like any off-keyword pick; no contract key changed. The knob is
+forbidden to calibration: it is an editorial commitment, like the news world lane.
