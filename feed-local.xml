@@ -6,13 +6,60 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Wed, 28 Oct 2026 06:13:32 +0000</lastBuildDate>
+<lastBuildDate>Wed, 28 Oct 2026 10:29:38 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 28, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-28.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-28.html</guid>
+<pubDate>Wed, 28 Oct 2026 10:06:02 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40654323854&quot;&gt;40654323854&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-good&quot;&gt;&lt;span class=&quot;icon&quot;&gt;✓&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped clean&lt;/strong&gt;Nothing broke and nothing fell back.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;p&gt;Nothing. The run needs no follow-up.&lt;/p&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Two of three runs did not need a fallback, and the third is this review&lt;/h3&gt;
+&lt;p&gt;The primary run started at 1:05 AM Pacific, on time, and completed successfully, finishing at 1:34 AM Pacific. Fallback 1 at 2:05 AM Pacific also completed successfully with no delay. Fallback 2 at 3:05 AM Pacific is the run producing this review and is still in progress. The scheduler chain fired as designed, but the primary run was the only one whose output was needed.&lt;/p&gt;
+&lt;h3&gt;The script shipped 1,000 words over target after one expand pass&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 2,536 words against a target of 3,400, so it was sent back for one expand pass. The shipped script is 3,529 words, which is above target, not under it. The expand pass overshot the target by 129 words, so the length control is loose in the upward direction as well as the downward one. The editorial review does not treat this as a failure, but the one-pass rule is what let it land above target.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Change: consider a second length check after the expand pass in the script generator, so the output lands closer to the 3,400-word target.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Ten of eighteen roundup citations matched, and the deep dives matched three of four&lt;/h3&gt;
+&lt;p&gt;Ten of the 18 roundup citations were matched to their source, and three of the four deep-dive citations were matched. The unmatched citations were not caught by the pipeline and carry no verified attribution in tonight&#x27;s script. Of the 23 stories cut from the roundup pool by the airtime budget, that cut is by design, and the stories remain in the pool for a later day.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Change: inspect the eight unmatched roundup citations and the one unmatched deep-dive citation to see whether the matcher or the source attribution is the cause.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Casey carried 57 percent of the deep-dive words, and the AI-tell check flagged three hits&lt;/h3&gt;
+&lt;p&gt;Casey&#x27;s share of the deep-dive words was 57 percent, and the voice ratio of Casey to Riley was 1.4. The ratio is the one the show&#x27;s voice settings aim for, but the deep-dive word share sits well above half. The AI-tell pattern check flagged three hits in the script. Both results are within the pipeline&#x27;s acceptance thresholds and are listed here so the maintainer can see the balance of the two voices tonight.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;3 pattern hit(s), voice ratio 1.4, 3529 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 57% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;21.0 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;19.2 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;10/18 roundup, 3/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;273 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;73,761&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;20 total: claude 10 · brave-search 4 · brave-answers 4 · kagi-extract 2&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[Quesnel Cariboo Observer] Snow to fall in parts of the Cariboo: Environment Canada</title>
 <link>https://quesnelobserver.com/2026/10/27/snow-to-fall-in-parts-of-the-cariboo-environment-canada/</link>
