@@ -144,7 +144,7 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive
 
 `feedback/reviewed_urls.json` answers "already reviewed?" for the curator; `load_reviewed_urls()` unions it with live files. `article_review_audit.py` reads live and archived shards; `feedback_trainer.py` reads 30 days raw plus the rollup.
 
-**The review batch is 12, spent at the margin:** 8 `near_miss` (lost a slot by the fewest points in their category, `review_near_misses()`), 2 `in_feed` (top-of-feed canary; never drop it) and 2 `unfiltered` (highest-scoring gate rejects). The episode card saves `episode_segments` and `episode_note` beside the verdict; the podcast's weekly script review reads them.
+**The review batch is 12, spent at the margin:** 1 `wildcard` (the day's wildcard, its own stratum so the audit can judge the slot), 7 `near_miss` (lost a slot by the fewest points in their category, `review_near_misses()`), 2 `in_feed` (top-of-feed canary; never drop it) and 2 `unfiltered` (highest-scoring gate rejects). `review_pools()` keeps them a partition. The episode card saves `episode_segments` and `episode_note` beside the verdict; the podcast's weekly script review reads them.
 
 **A review batch is offered once.** `review_offered_ledger()` keeps an earlier batch's articles out of the next (the ledger rides in `feed-review.json` as `_offered`), so a missed day is dropped, not queued; `review.html` keys drafts and its saved flag on `_batch`, never the calendar date. The batch is sorted by `fit_reader_model()`; that changes the order only, never the stratified sample.
 

@@ -506,3 +506,9 @@ adds one article on top of the slots: the highest `q_gate` at or above
 missed: relevance under `WILDCARD_MAX_RELEVANCE` (40), or never deep-scored because
 Cohere ranked it out of the slice. Gate rejects never qualify. Like the world lane, it is
 left out of the near-miss line. `run_stats['quality_gate']['wildcard_count']` records it.
+
+The wildcard gets its own review stratum (2026-10-28). It ships at the bottom of a category,
+so the two `in_feed` picks (top of the feed) would almost never sample it, and the reader
+could not judge the slot. `REVIEW_QUOTAS` takes 1 `wildcard` from the near-miss quota (8→7,
+batch still 12); `review_pools()` keeps it out of `in_feed` so the strata stay a partition
+and their weights valid. The weekly audit reports its positive rate with the other strata.
