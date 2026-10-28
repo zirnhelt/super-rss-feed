@@ -8,13 +8,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-10-27 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-26 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-25 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-24 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-23 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-22 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 | 2026-10-21 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
-| 2026-10-20 | 🔧 Manual Run | ⚠️ **Hacker News** failed | `419 Client Error:  for url: https://news.ycombinator.com/rss` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -22,17 +22,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-10-27 | 🔧 manual | 89 | ai-tech:18(20%), news:15(17%), climate:12(13%) |
 | 2026-10-26 | 🔧 manual | 84 | ai-tech:18(21%), news:14(17%), climate:11(13%) |
 | 2026-10-25 | 🔧 manual | 75 | ai-tech:18(24%), news:14(19%), wellness:10(13%) |
 | 2026-10-24 | 🔧 manual | 71 | ai-tech:18(25%), news:14(20%), wellness:10(14%) |
 | 2026-10-23 | 🔧 manual | 87 | ai-tech:18(21%), news:14(16%), climate:11(13%) |
 | 2026-10-22 | 🔧 manual | 93 | ai-tech:18(19%), news:14(15%), climate:12(13%) |
 | 2026-10-21 | 🔧 manual | 93 | ai-tech:18(19%), news:14(15%), climate:12(13%) |
-| 2026-10-20 | 🔧 manual | 85 | ai-tech:18(21%), news:14(16%), local:10(12%) |
 
-_Last updated by log\_feed\_results.py · 2026-10-27 06:09 UTC_
+_Last updated by log\_feed\_results.py · 2026-10-28 06:13 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
