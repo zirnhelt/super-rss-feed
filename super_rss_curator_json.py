@@ -5557,6 +5557,49 @@ PODCAST_FEED_CONTRACT = {
 }
 
 
+# Fresh Cariboo stories every daily feed carries on top of its theme selection, and
+# the most any one outlet may take of them. The show leads its roundup with local
+# news whatever the day's theme; the theme-fit floor below drops local civic news on
+# a topical day by design, so without this lane a tech day's feed held only the
+# local stories that had already aired (2026-10-28: five, all aired that week).
+LOCAL_LANE_DEFAULT_SLOTS = 4
+LOCAL_LANE_PER_SOURCE = 2
+LOCAL_LANE_MAX_AGE_HOURS = 72
+# The pool's own local bar (`_pool_quality_ok`). An outlet name is an anchor, so
+# without it the Tribune's provincial syndication (a Penticton encampment, the BC
+# Ferries CEO, local 0-15) qualified as Cariboo news.
+LOCAL_LANE_MIN_LOCAL = 25
+
+
+def select_local_lane(candidates: List, taken_links: set, podcast_shown_cache: Dict,
+                      slots: int, local_signals: List[str]) -> List:
+    """The most newsworthy recent Cariboo stories not yet aired.
+
+    `candidates` have already passed the content and gate exclusions. A story aired
+    in *any* recent episode is skipped, not only today's theme's: the show drops
+    anything cited in the last 7 days, so a repeat here fills a lane slot with
+    nothing. Ranked on `q_gate`, not recency: newest-first picked a snowfall
+    bulletin over the councillors' farewells on 2026-10-28.
+    """
+    aired = {key.split(':::', 1)[0] for key in podcast_shown_cache}
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=LOCAL_LANE_MAX_AGE_HOURS)
+    pool = [a for a in candidates
+            if a.link not in taken_links and a.link not in aired
+            and (a.pub_date if a.pub_date.tzinfo else a.pub_date.replace(tzinfo=timezone.utc)) >= cutoff
+            and getattr(a, 'local', 0) >= LOCAL_LANE_MIN_LOCAL
+            and _has_cariboo_anchor(a, local_signals)]
+    pool.sort(key=lambda a: (_podcast_quality(a) or 0, getattr(a, 'local', 0)), reverse=True)
+    lane, per_source = [], defaultdict(int)
+    for article in pool:
+        if len(lane) >= slots:
+            break
+        if per_source[article.source] >= LOCAL_LANE_PER_SOURCE:
+            continue
+        lane.append(article)
+        per_source[article.source] += 1
+    return lane
+
+
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
                           reserved_urls: set = None) -> Tuple[set, Optional[Dict]]:
     """Generate a themed podcast feed from weekly cached articles.
@@ -5796,6 +5839,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
     if agg_excluded:
         print(f"  🚫 Excluded {agg_excluded} aggregator-URL articles (e.g. Google News)")
     _dbg('after aggregator filter', theme_pool)
+    # Local lane candidates: current-week only, taken before the pool cap and the
+    # theme-fit floor can drop them.
+    local_lane_candidates = [a for a in theme_pool if a.link in all_cached_urls]
 
     # Articles banked for other days via theme routing are NOT excluded here.
     # Cross-theme reuse is intentional — the same article may appear in multiple
@@ -6089,6 +6135,16 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
                     break
 
     all_entries = theme_articles + bonus_entries
+
+    local_lane = select_local_lane(
+        local_lane_candidates, {a.link for a, _, _ in all_entries}, podcast_shown_cache,
+        schedule_config.get('local_lane_slots', LOCAL_LANE_DEFAULT_SLOTS),
+        [s.lower() for s in FILTERS.get('local_signals', [])],
+    )
+    if local_lane:
+        print(f"  📍 Local lane: +{len(local_lane)} fresh Cariboo stories")
+        all_entries += [(a, _podcast_composite(a, _theme_pct(a.link)), _theme_pct(a.link))
+                        for a in local_lane]
     _dbg('FINAL (incl. bonus)', all_entries)
 
     if not all_entries:
