@@ -6,13 +6,61 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Thu, 29 Oct 2026 06:14:19 +0000</lastBuildDate>
+<lastBuildDate>Thu, 29 Oct 2026 10:30:21 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 29, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-29.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-29.html</guid>
+<pubDate>Thu, 29 Oct 2026 10:06:06 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/40839664666&quot;&gt;40839664666&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;1 thing to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/persist-host-memory&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/persist-host-memory&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: personality clue extraction skipped: Unterminated string starting at: line 1 column 548 (char 547)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Script shipped 335 words under target after a single expand pass&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 3015 words against a target of 3400. It was sent back once for an expand pass, and what shipped was 3735 words, which is over target. The gap was closed, but only one pass was allowed, so the final figure is the result of that one retry rather than a second check against the target.&lt;/p&gt;
+&lt;p&gt;The 3735 figure is the number that matters for the length threshold. A thin day shipping under target is intended behaviour; if this night&#x27;s length is a problem, it would show against SHORT_EPISODE_WORDS, and no such finding appears here. Nothing needs changing on this count.&lt;/p&gt;
+&lt;h3&gt;Roundup dropped 22 stories to fit the airtime budget&lt;/h3&gt;
+&lt;p&gt;The roundup pool was larger than one segment could air, so 22 stories were cut by the airtime budget set at NEWS_ROUNDUP_COUNT. The pool is designed to run larger than the airtime, and a cut story can come back on a day where it matches better. These stories are not lost to the archive.&lt;/p&gt;
+&lt;p&gt;Of the 18 roundup citations in the script, 13 matched their source. The five unmatched citations are the only citation gap in the run. The four deep-dive citations all matched. If the unmatched roundup citations need checking, that is the place to look.&lt;/p&gt;
+&lt;h3&gt;Personality clue extraction failed on the host-memory step&lt;/h3&gt;
+&lt;p&gt;The persist-host-memory step failed with an unterminated string at line 1, column 548. The personality clue extraction was skipped, so the hosts&#x27; memory of this episode was not updated from the script. The episode itself shipped and the listener heard it as normal.&lt;/p&gt;
+&lt;p&gt;The effect shows up later, when the hosts are expected to recall clues from this episode and cannot. Fix the JSON emitted by the host-memory step, because the extractor only fails when its input is malformed.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;2 pattern hit(s), voice ratio 0.71, 3735 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 40% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;23.4 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;21.4 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;13/18 roundup, 4/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;274 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;79,254&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;24 total: claude 12 · brave-search 5 · brave-answers 4 · kagi-extract 3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] Outgoing Williams Lake city councillors say goodbye</title>
 <link>https://wltribune.com/2026/10/28/outgoing-williams-lake-city-councillors-say-goodbye/</link>
