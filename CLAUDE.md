@@ -251,7 +251,7 @@ Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** 
 
 ## Safety rules for the automated agents
 
-- **Feed health agent** (`--heal`) — see [docs/decisions/sources.md](docs/decisions/sources.md). Evidence makes a candidate; a **fresh live probe** decides. Nothing is deleted: retirement flips `type="retired"` and `recheck_retired()` restores. If none of 3 healthy control feeds answers, the fault is local and the pass changes nothing. `--heal-max-feeds` caps the blast radius. A Google News stand-in needs an article from the last 30 days.
+- **Feed health agent** (`--heal`) — see [docs/decisions/sources.md](docs/decisions/sources.md). Evidence makes a candidate; a **fresh live probe** decides. Nothing is deleted: retirement flips `type="retired"` and `recheck_retired()` restores. If none of 3 healthy control feeds answers, the fault is local and the pass changes nothing. `--heal-max-feeds` caps the blast radius. A probe pass does not clear a feed the nightly has failed for 14+ days (`HEAL_PROBE_OVERRIDE_DAYS`); it is retired `nightlyBlocked` and restored by a 28-day cool-off, not by the probe. `retiredBy="hand"` is never restored. A Google News stand-in needs an article from the last 30 days.
 - **Calibration agent** — only whitelisted knobs in `calibration_bounds.json`, clamped to bounds and `global_caps`, with a flip-flop guard. **The workflow commits all of `config/`.** Changes go to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. A fresh `article_review_audit_summary.json` is treated as ground truth. Skip reasons are logged verbatim.
 
 ## Scoring — see [docs/decisions/scoring.md](docs/decisions/scoring.md)
