@@ -28,6 +28,20 @@ Google News substitution additionally requires the search feed to carry an artic
 30 days — the index still answers for a dead outlet, with years-old results, and adopting that
 would quietly resurrect a source that stopped publishing.
 
+**The probe can be answered by a feed the nightly cannot read.** Hacker News returned
+`http_419` to every nightly from 2026-10-01 (29 runs in a row), while the Saturday 13:23 UTC
+probe got a real feed each time, so the pass logged it "✓ Recovered on its own" four weeks running
+with the streak climbing 4 → 10 → 17 → 24. A block keyed on time of day or burst rate answers one
+request and refuses the 06:00 run beside ~150 others. So a passing probe only counts while the
+streak is under `HEAL_PROBE_OVERRIDE_DAYS` (14). Past that the feed skips relocation (the URL
+answers; any "new home" is the same feed behind the same block) and goes to the Google News
+stand-in or retirement, marked `nightlyBlocked="1"`. Such a feed always answers the probe, so
+`recheck_retired()` restores it after `HEAL_NIGHTLY_BLOCK_COOLOFF_DAYS` (28) instead, and once it
+is back only the nights since `restoredAt` count against it — no instant re-retirement on the old
+streak. A human retirement (`retiredBy="hand"`) is a decision, not a diagnosis, and no probe
+undoes it. HN itself was retired by hand on 2026-10-30: one item reached any feed in its two working
+months (Aug 2 – Sep 30 gh-pages snapshots).
+
 ## A rediscovered feed URL lives in the cache until the weekly heal promotes it (gotcha 11)
 
 When `_discover_feed_url()` finds a moved feed mid-run it writes `resolved_url` into `feed_http_cache.json` rather than rewriting `feeds.opml`, because the OPML is user-curated and a curation run is the wrong place to edit it. The feed works again immediately but the fix is only as durable as the cache, so `--heal` re-verifies the resolved URL each Sunday and writes it into the OPML for real (recording `relocatedFrom`). If the resolved URL later fails it is cleared, so the next run rediscovers from the OPML URL rather than compounding one bad guess.

@@ -152,6 +152,18 @@ HEAL_MIN_FAILURE_DAYS = 2.0
 # and a mass retirement.
 HEAL_MAX_FEEDS = 25
 
+# A passing probe does not clear a feed the nightly has failed this long. The
+# probe runs once, on Saturday afternoon; the nightly runs at 06:00 UTC beside
+# ~150 other fetches. A block keyed on time or burst rate (Hacker News, 419
+# every night from 2026-10-01) answers one and refuses the other, and the
+# probe alone logged it "recovered" four weeks running.
+HEAL_PROBE_OVERRIDE_DAYS = 14.0
+
+# A feed retired on that override answers the probe by definition, so the
+# recheck cannot use the probe to restore it. It comes back after this long
+# instead, and re-qualifies for retirement if the nightly still cannot read it.
+HEAL_NIGHTLY_BLOCK_COOLOFF_DAYS = 28
+
 # A Google News site-search feed is the documented replacement for an outlet
 # behind a hostile WAF (FEEDS_MAINTENANCE.md §1). It is only accepted if it
 # carries a genuinely recent article: for a dead outlet the search index still
@@ -362,6 +374,15 @@ def _stamp() -> str:
     return datetime.now(timezone.utc).strftime('%Y-%m-%d')
 
 
+def _days_since(stamp: Optional[str]) -> float:
+    """Days since a _stamp() date; 0.0 when missing or unreadable, which only delays."""
+    try:
+        then = datetime.strptime(stamp or '', '%Y-%m-%d').replace(tzinfo=timezone.utc)
+    except ValueError:
+        return 0.0
+    return (datetime.now(timezone.utc) - then).total_seconds() / 86400
+
+
 def retire_outline(outline: ET.Element, reason: str) -> None:
     """Take a feed out of rotation without losing it.
 
@@ -377,7 +398,7 @@ def retire_outline(outline: ET.Element, reason: str) -> None:
 def restore_outline(outline: ET.Element) -> None:
     """Put a retired feed back into rotation after it started working again."""
     outline.set('type', 'rss')
-    for attr in ('retiredReason', 'retiredAt'):
+    for attr in ('retiredReason', 'retiredAt', 'nightlyBlocked'):
         outline.attrib.pop(attr, None)
     outline.set('restoredAt', _stamp())
 
@@ -505,32 +526,47 @@ def heal_feeds(tree: ET.ElementTree, http_cache, *, min_failures: int, min_days:
             continue
 
         # 1. Is it actually still broken? Evidence is up to a week old, and a
-        #    transient outage that has since cleared must not cost a feed.
+        #    transient outage that has since cleared must not cost a feed —
+        #    unless the nightly has gone on failing long after the probe first
+        #    said so (HEAL_PROBE_OVERRIDE_DAYS).
+        nightly_blocked = False
         if _probe_feed(item['url'], helpers):
-            print(f"   ✓ {title}: recovered on its own — leaving alone")
-            log('recovered', 'fetches normally again')
-            continue
+            # A restored feed's cache streak predates its retirement; only the
+            # nights since it came back count against it.
+            streak_days = item['span_days']
+            if outline.get('restoredAt'):
+                streak_days = min(streak_days, _days_since(outline.get('restoredAt')))
+            if streak_days < HEAL_PROBE_OVERRIDE_DAYS:
+                print(f"   ✓ {title}: recovered on its own — leaving alone")
+                log('recovered', 'fetches normally again')
+                continue
+            nightly_blocked = True
+            print(f"   ⚠ {title}: answers the probe, but the nightly has failed it "
+                  f"for {streak_days:.0f}d")
 
         # 2. Did it move? The cache may already know where; otherwise look.
-        resolved = http_cache.resolved_url(item['url'])
-        if resolved and _probe_feed(resolved, helpers):
-            print(f"   ↩ {title}: relocated → {resolved}")
-            if not dry_run:
-                relocate_outline(outline, resolved)
-            log('relocated', 'rediscovered URL confirmed live', resolved)
-            continue
+        #    Not for a nightly block: the URL answers, so any "new home" found
+        #    is the same feed behind the same block.
+        if not nightly_blocked:
+            resolved = http_cache.resolved_url(item['url'])
+            if resolved and _probe_feed(resolved, helpers):
+                print(f"   ↩ {title}: relocated → {resolved}")
+                if not dry_run:
+                    relocate_outline(outline, resolved)
+                log('relocated', 'rediscovered URL confirmed live', resolved)
+                continue
 
-        discovered = discover_feed_url({
-            'url': item['url'],
-            'title': title,
-            'html_url': outline.get('htmlUrl', ''),
-        })
-        if discovered:
-            print(f"   ↩ {title}: relocated → {discovered}")
-            if not dry_run:
-                relocate_outline(outline, discovered)
-            log('relocated', 'feed rediscovered on the outlet site', discovered)
-            continue
+            discovered = discover_feed_url({
+                'url': item['url'],
+                'title': title,
+                'html_url': outline.get('htmlUrl', ''),
+            })
+            if discovered:
+                print(f"   ↩ {title}: relocated → {discovered}")
+                if not dry_run:
+                    relocate_outline(outline, discovered)
+                log('relocated', 'feed rediscovered on the outlet site', discovered)
+                continue
 
         # 3. Unreachable but still publishing? That is a WAF, not a closure —
         #    read it through Google News instead of losing the outlet.
@@ -540,10 +576,21 @@ def heal_feeds(tree: ET.ElementTree, http_cache, *, min_failures: int, min_days:
                 print(f"   🔁 {title}: unreachable but still publishing — Google News stand-in")
                 if not dry_run:
                     retire_outline(outline, 'unreachable — replaced by a Google News search feed')
+                    if nightly_blocked:
+                        outline.set('nightlyBlocked', '1')
                 log('substituted', 'outlet unreachable but still publishing', gn_url)
                 continue
 
         # 4. Nothing answers. Retire it rather than pay for it every run.
+        if nightly_blocked:
+            print(f"   🗑  {title}: answers the probe, never the nightly — retiring")
+            if not dry_run:
+                retire_outline(outline, f"nightly fetch blocked for {streak_days:.0f}d "
+                                        f"({item['kind']}) though the weekly probe answers")
+                outline.set('nightlyBlocked', '1')
+            log('retired', f"nightly blocked ({item['kind']}); probe answers")
+            continue
+
         print(f"   🗑  {title}: unrecoverable — retiring")
         if not dry_run:
             retire_outline(outline, f"unrecoverable after {item['failures']} failures ({item['kind']})")
@@ -582,7 +629,14 @@ def recheck_retired(tree: ET.ElementTree, *, max_feeds: int, dry_run: bool) -> L
         title = outline.get('title') or outline.get('text') or url
         if is_comment_feed(url, title):
             continue
-        if not _probe_feed(url, helpers):
+        # A hand retirement is a decision, not a diagnosis: no probe undoes it.
+        if outline.get('retiredBy') == 'hand':
+            continue
+        # A nightly-blocked feed always answers the probe; only time restores it.
+        if outline.get('nightlyBlocked'):
+            if _days_since(outline.get('retiredAt')) < HEAL_NIGHTLY_BLOCK_COOLOFF_DAYS:
+                continue
+        elif not _probe_feed(url, helpers):
             continue
 
         print(f"   ✅ {title}: working again — restoring")
