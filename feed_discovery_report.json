@@ -1,29 +1,156 @@
 {
-  "generated_at": "2026-10-24T16:49:04.885583+00:00",
-  "total_candidates_evaluated": 310,
-  "recommended_feeds": 21,
+  "generated_at": "2026-10-31T17:58:49.928232+00:00",
+  "total_candidates_evaluated": 340,
+  "recommended_feeds": 33,
   "min_score_threshold": 60,
   "categories": {
-    "climate": {
-      "count": 4,
+    "general": {
+      "count": 5,
       "feeds": [
         {
-          "title": "ABC News",
-          "url": "https://www.abc.net.au/news/feed/102909144/rss.xml",
-          "html_url": "https://abc.net.au",
-          "source": "Kagi News Feeds",
-          "average_score": 82.3,
+          "title": "BOOKSTEVE'S LIBRARY",
+          "url": "http://booksteveslibrary.blogspot.com/feeds/posts/default?alt=rss",
+          "html_url": "http://booksteveslibrary.blogspot.com",
+          "source": "Kagi Small Web",
+          "average_score": 81.4,
           "sample_articles": 3,
           "reason": "Strong alignment with your interests"
         },
         {
-          "title": "ABC News",
-          "url": "https://www.abc.net.au/news/feed/1450/rss.xml",
-          "html_url": "https://abc.net.au",
-          "source": "Kagi News Feeds",
-          "average_score": 76.4,
+          "title": "atank.interlogy.com",
+          "url": "http://atank.interlogy.com/feed/",
+          "html_url": "http://atank.interlogy.com",
+          "source": "Kagi Small Web",
+          "average_score": 64.3,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "ACME Updates",
+          "url": "http://acme.com/updates/updates_rss2.xml",
+          "html_url": "http://acme.com",
+          "source": "Kagi Small Web",
+          "average_score": 60.9,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Ayman Nadeem",
+          "url": "http://aymannadeem.github.io/feed.xml",
+          "html_url": "http://aymannadeem.github.io",
+          "source": "Kagi Small Web",
+          "average_score": 60.4,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "blog.henrikcarlsson.se",
+          "url": "http://blog.henrikcarlsson.se/feed/",
+          "html_url": "http://blog.henrikcarlsson.se",
+          "source": "Kagi Small Web",
+          "average_score": 60.0,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "tech": {
+      "count": 8,
+      "feeds": [
+        {
+          "title": "Guy Kawasaki",
+          "url": "http://guykawasaki.com/feed/",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 75.8,
           "sample_articles": 3,
           "reason": "Strong alignment with your interests"
+        },
+        {
+          "title": "PsyBlog",
+          "url": "http://feeds.feedburner.com/PsychologyBlog",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 65.2,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Psychology Headlines Around the World",
+          "url": "http://www.socialpsychology.org/headlines.rss",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 65.2,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Hacker News",
+          "url": "http://news.ycombinator.com/rss",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 65.0,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "MIT News - Artificial intelligence",
+          "url": "http://news.mit.edu/rss/topic/artificial-intelligence2",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 65.0,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Martin Kleppmann's blog",
+          "url": "https://feeds.feedburner.com/martinkl?format=xml",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 63.7,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Product Hunt \u2014 The best new products, every day",
+          "url": "http://www.producthunt.com/feed",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 63.3,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Engadget",
+          "url": "http://www.engadget.com/rss-full.xml",
+          "html_url": "",
+          "source": "Tech & Startups",
+          "average_score": 62.7,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "climate": {
+      "count": 5,
+      "feeds": [
+        {
+          "title": "Climate Crisis \u2013 Brave New Europe",
+          "url": "https://braveneweurope.com/category/sustainability/climate-change/feed",
+          "html_url": "https://braveneweurope.com",
+          "source": "Kagi News Feeds",
+          "average_score": 74.3,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "The Province",
+          "url": "https://theprovince.com/feed/atom",
+          "html_url": "https://theprovince.com/news/bc-wildfires-new-evacuation-orders-issued-south-chilcotin/wcm/8bdecf65-3600-41a4-b255-38004d09b19d",
+          "source": "brave_search",
+          "average_score": 66.8,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
         },
         {
           "title": "CyberSEO",
@@ -32,6 +159,15 @@
           "source": "brave_search",
           "average_score": 64.0,
           "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "resourceworks.com",
+          "url": "https://resourceworks.com/feed",
+          "html_url": "https://resourceworks.com/all-the-good-news-that-didnt-make-the-news/",
+          "source": "brave_search",
+          "average_score": 62.8,
+          "sample_articles": 3,
           "reason": "Good potential addition"
         },
         {
@@ -45,50 +181,81 @@
         }
       ]
     },
-    "ai-tech": {
-      "count": 2,
-      "feeds": [
-        {
-          "title": "AI as Normal Technology",
-          "url": "https://www.aisnakeoil.com/feed.xml",
-          "html_url": "https://aisnakeoil.com",
-          "source": "Kagi News Feeds",
-          "average_score": 76.7,
-          "sample_articles": 3,
-          "reason": "Strong alignment with your interests"
-        },
-        {
-          "title": "404 Media",
-          "url": "https://www.404media.co/rss",
-          "html_url": "https://404media.co",
-          "source": "Kagi News Feeds",
-          "average_score": 65.1,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
-    },
-    "news": {
+    "local": {
       "count": 1,
       "feeds": [
         {
-          "title": "news releases",
-          "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?type=newsreleases&sort=publishedDate&orderBy=desc&pick=100&format=atom&atomtitle=news%20releases",
-          "html_url": "https://api.io.canada.ca",
-          "source": "Kagi News Feeds",
-          "average_score": 67.0,
-          "sample_articles": 3,
+          "title": "T\u015dilhqot\u2019in National Government",
+          "url": "https://tsilhqotin.ca/feed",
+          "html_url": "https://tsilhqotin.ca/wp-content/uploads/2024/05/TNG_Nen-Historical-Timeline_Poster_April-30-2024.pdf",
+          "source": "brave_search",
+          "average_score": 73.0,
+          "sample_articles": 1,
           "reason": "Good potential addition"
         }
       ]
     },
     "homelab": {
-      "count": 2,
+      "count": 9,
       "feeds": [
+        {
+          "title": "Bambu Lab Community Forum - Latest posts",
+          "url": "https://forum.bambulab.com/posts.rss",
+          "html_url": "https://forum.bambulab.com/latest",
+          "source": "brave_search",
+          "average_score": 70.3,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "3D Printing Industry",
+          "url": "https://3dprintingindustry.com/feed/",
+          "html_url": "https://3dprintingindustry.com",
+          "source": "Kagi News Feeds",
+          "average_score": 68.2,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Dreaming3D Inc - News",
+          "url": "https://dreaming3d.net/blogs/news.atom",
+          "html_url": "https://dreaming3d.net/blogs/news/how-to-fix-your-bambu-lab-ams",
+          "source": "brave_search",
+          "average_score": 67.5,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Radio Circuits Blog",
+          "url": "https://radio-circuits.blogspot.com/feeds/posts/default",
+          "html_url": "https://radio-circuits.blogspot.com/2026/04/meshtastic-ham-radio-guide-lora-mesh_12.html",
+          "source": "brave_search",
+          "average_score": 65.3,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Radio Circuits Blog",
+          "url": "https://radio-circuits.blogspot.com/feeds/posts/default?alt=rss",
+          "html_url": "https://radio-circuits.blogspot.com/2026/04/meshtastic-ham-radio-guide-lora-mesh_12.html",
+          "source": "brave_search",
+          "average_score": 65.3,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Noted",
+          "url": "https://noted.lol/rss/",
+          "html_url": "https://noted.lol/self-hosting-organization/",
+          "source": "brave_search",
+          "average_score": 64.9,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
         {
           "title": "Meshtastic Blog",
           "url": "https://meshtastic.org/blog/atom.xml",
-          "html_url": "https://meshtastic.org/",
+          "html_url": "https://meshtastic.org/blog/",
           "source": "brave_search",
           "average_score": 64.8,
           "sample_articles": 3,
@@ -102,88 +269,20 @@
           "average_score": 63.6,
           "sample_articles": 3,
           "reason": "Good potential addition"
-        }
-      ]
-    },
-    "tech": {
-      "count": 8,
-      "feeds": [
+        },
         {
-          "title": "Machine Learning",
-          "url": "http://www.reddit.com/r/MachineLearning/.rss",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 64.7,
+          "title": "blackMORE Ops",
+          "url": "https://www.blackmoreops.com/feed/",
+          "html_url": "https://blackmoreops.com",
+          "source": "Kagi News Feeds",
+          "average_score": 60.2,
           "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "The Airbnb Tech Blog - Medium",
-          "url": "https://medium.com/feed/airbnb-engineering",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 64.4,
-          "sample_articles": 2,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Dan Abramov's Overreacted Blog RSS Feed",
-          "url": "https://overreacted.io/rss.xml",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 63.9,
-          "sample_articles": 1,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Essays - Benedict Evans",
-          "url": "http://ben-evans.com/benedictevans?format=rss",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 63.4,
-          "sample_articles": 1,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Psychology Blog",
-          "url": "http://www.all-about-psychology.com/psychology.xml",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 62.2,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Stripe Blog",
-          "url": "https://stripe.com/blog/feed.rss",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 62.1,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Lesics",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqZQJ4600a9wIfMPbYc60OQ",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 61.9,
-          "sample_articles": 1,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "The Airtable Engineering Blog",
-          "url": "https://medium.com/feed/airtable-eng",
-          "html_url": "",
-          "source": "Tech & Startups",
-          "average_score": 60.9,
-          "sample_articles": 1,
           "reason": "Good potential addition"
         }
       ]
     },
     "homestead": {
-      "count": 2,
+      "count": 3,
       "feeds": [
         {
           "title": "Homesteading Family",
@@ -202,27 +301,41 @@
           "average_score": 64.2,
           "sample_articles": 3,
           "reason": "Good potential addition"
+        },
+        {
+          "title": "Current Homesteading",
+          "url": "https://currenthomesteading.com/feed/",
+          "html_url": "https://currenthomesteading.com/category/food-preservation/",
+          "source": "brave_search",
+          "average_score": 63.1,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
         }
       ]
     },
-    "general": {
-      "count": 2,
+    "science": {
+      "count": 1,
       "feeds": [
         {
-          "title": "atank.interlogy.com",
-          "url": "http://atank.interlogy.com/feed/",
-          "html_url": "http://atank.interlogy.com",
-          "source": "Kagi Small Web",
-          "average_score": 64.3,
+          "title": "Astronotes",
+          "url": "https://armaghplanet.com/feed",
+          "html_url": "https://armaghplanet.com",
+          "source": "Kagi News Feeds",
+          "average_score": 63.8,
           "sample_articles": 3,
           "reason": "Good potential addition"
-        },
+        }
+      ]
+    },
+    "design": {
+      "count": 1,
+      "feeds": [
         {
-          "title": "blog.henrikcarlsson.se",
-          "url": "http://blog.henrikcarlsson.se/feed/",
-          "html_url": "http://blog.henrikcarlsson.se",
-          "source": "Kagi Small Web",
-          "average_score": 60.0,
+          "title": "Skeptical Science",
+          "url": "https://skepticalscience.com/feed.xml",
+          "html_url": "https://skepticalscience.com/passive-house-promise.html",
+          "source": "brave_search",
+          "average_score": 62.4,
           "sample_articles": 3,
           "reason": "Good potential addition"
         }
@@ -231,74 +344,75 @@
   },
   "summary": {
     "by_category": {
-      "climate": 4,
-      "ai-tech": 2,
-      "news": 1,
-      "homelab": 2,
+      "general": 5,
       "tech": 8,
-      "homestead": 2,
-      "general": 2
+      "climate": 5,
+      "local": 1,
+      "homelab": 9,
+      "homestead": 3,
+      "science": 1,
+      "design": 1
     },
     "top_recommendations": [
       {
-        "title": "ABC News",
-        "category": "climate",
-        "score": 82.3,
-        "url": "https://www.abc.net.au/news/feed/102909144/rss.xml"
-      },
-      {
-        "title": "AI as Normal Technology",
-        "category": "ai-tech",
-        "score": 76.7,
-        "url": "https://www.aisnakeoil.com/feed.xml"
-      },
-      {
-        "title": "ABC News",
-        "category": "climate",
-        "score": 76.4,
-        "url": "https://www.abc.net.au/news/feed/1450/rss.xml"
-      },
-      {
-        "title": "news releases",
-        "category": "news",
-        "score": 67.0,
-        "url": "https://api.io.canada.ca/io-server/gc/news/en/v2?type=newsreleases&sort=publishedDate&orderBy=desc&pick=100&format=atom&atomtitle=news%20releases"
-      },
-      {
-        "title": "404 Media",
-        "category": "ai-tech",
-        "score": 65.1,
-        "url": "https://www.404media.co/rss"
-      },
-      {
-        "title": "Meshtastic Blog",
-        "category": "homelab",
-        "score": 64.8,
-        "url": "https://meshtastic.org/blog/atom.xml"
-      },
-      {
-        "title": "Machine Learning",
-        "category": "tech",
-        "score": 64.7,
-        "url": "http://www.reddit.com/r/MachineLearning/.rss"
-      },
-      {
-        "title": "Homesteading Family",
-        "category": "homestead",
-        "score": 64.6,
-        "url": "https://homesteadingfamily.com/feed/"
-      },
-      {
-        "title": "The Airbnb Tech Blog - Medium",
-        "category": "tech",
-        "score": 64.4,
-        "url": "https://medium.com/feed/airbnb-engineering"
-      },
-      {
-        "title": "atank.interlogy.com",
+        "title": "BOOKSTEVE'S LIBRARY",
         "category": "general",
-        "score": 64.3,
-        "url": "http://atank.interlogy.com/feed/"
+        "score": 81.4,
+        "url": "http://booksteveslibrary.blogspot.com/feeds/posts/default?alt=rss"
+      },
+      {
+        "title": "Guy Kawasaki",
+        "category": "tech",
+        "score": 75.8,
+        "url": "http://guykawasaki.com/feed/"
+      },
+      {
+        "title": "Climate Crisis \u2013 Brave New Europe",
+        "category": "climate",
+        "score": 74.3,
+        "url": "https://braveneweurope.com/category/sustainability/climate-change/feed"
+      },
+      {
+        "title": "T\u015dilhqot\u2019in National Government",
+        "category": "local",
+        "score": 73.0,
+        "url": "https://tsilhqotin.ca/feed"
+      },
+      {
+        "title": "Bambu Lab Community Forum - Latest posts",
+        "category": "homelab",
+        "score": 70.3,
+        "url": "https://forum.bambulab.com/posts.rss"
+      },
+      {
+        "title": "3D Printing Industry",
+        "category": "homelab",
+        "score": 68.2,
+        "url": "https://3dprintingindustry.com/feed/"
+      },
+      {
+        "title": "Dreaming3D Inc - News",
+        "category": "homelab",
+        "score": 67.5,
+        "url": "https://dreaming3d.net/blogs/news.atom"
+      },
+      {
+        "title": "The Province",
+        "category": "climate",
+        "score": 66.8,
+        "url": "https://theprovince.com/feed/atom"
+      },
+      {
+        "title": "Radio Circuits Blog",
+        "category": "homelab",
+        "score": 65.3,
+        "url": "https://radio-circuits.blogspot.com/feeds/posts/default"
+      },
+      {
+        "title": "Radio Circuits Blog",
+        "category": "homelab",
+        "score": 65.3,
+        "url": "https://radio-circuits.blogspot.com/feeds/posts/default?alt=rss"
       }
     ]
   }
