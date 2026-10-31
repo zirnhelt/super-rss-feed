@@ -13,6 +13,118 @@
   "language": "en",
   "items": [
     {
+      "id": "https://foo.zone/gemfeed/2026-11-01-f3s-kubernetes-with-freebsd-part-11.html",
+      "url": "https://foo.zone/gemfeed/2026-11-01-f3s-kubernetes-with-freebsd-part-11.html",
+      "title": "[Paul Buetow aka snonux] f3s: Kubernetes with FreeBSD - Part 11: Remote control with f3sctl and RESTForge",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=foo.zone&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThis is the 11th post in the f3s series about my self-hosting home lab. f3s? The 'f' stands for FreeBSD, and the '3s' stands for k3s, the Kubernetes distribution I use on FreeBSD-based physical machines.",
+      "date_published": "2026-10-31T22:00:00+00:00",
+      "authors": [
+        {
+          "name": "Paul Buetow aka snonux",
+          "url": "https://foo.zone"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=foo.zone&sz=128",
+      "_score": 51,
+      "_quality": 60,
+      "_relevance": 65,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.lorameshdevices.com/blog/meshtastic/this-tiny-meshtastic-node-is-solar-ready-base-uno-first-look.html",
+      "url": "https://www.lorameshdevices.com/blog/meshtastic/this-tiny-meshtastic-node-is-solar-ready-base-uno-first-look.html",
+      "title": "[LoRaMeshDevices] This Tiny Meshtastic Node Is Solar Ready: Base Uno First Look",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.lorameshdevices.com%2Fblog%2Fmeshtastic%2Fthis-tiny-meshtastic-node-is-solar-ready-base-uno-first-look.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Muzi Works Base Uno caught my attention because it packs quite a few useful features into a very small Meshtastic board. It comes pre-flashed, includes a 1,500 mAh battery, and has dedicated connections for a solar panel. That is a pretty interesting starting point for a little off-grid node. \n\nI bought the kit to find out how easily it would get going and whether the solar input actually worked. By the end of my first round of testing, it had connected over Bluetooth, discovered nearby nodes, completed a traceroute, and charged its battery to around 96% using a small solar panel. So far, this little board is looking good. \n\n \n\n\nKey Takeaways\n\n\n\tThe Base Uno kit includes a pre-flashed Meshtastic board, antenna, and 1,500 mAh three-wire LiPo battery.\n\tBluetooth pairing worked with PIN 123456, and I retained Long Fast to match my existing mesh.\n\tA small solar panel connected to PV+ and ground raised the reported battery level to about 96%.\n\tThe app eventually showed 33 online nodes, and a traceroute to a node roughly a mile away succeeded.\n\n\n\nTable of Contents\n\n\n\tWhat Comes in the Base Uno Kit?\n\tThe Three-Wire Battery Is an Interesting Detail\n\tHardware Connections for Expansion and Solar\n\tFirst Power-Up and Bluetooth Pairing\n\tConfiguring LoRa to Match the Local Mesh\n\tNode Discovery Took a Little Patience\n\tConnecting a Small Solar Panel\n\tMore Nodes and a Successful Traceroute\n\tA Mobile Node or a Permanent Solar Node?\n\n\nWhat Comes in the Base Uno Kit?\n\nThe kit includes the essentials for getting the board powered up and connected: \n\n\n\tThe Base Uno board, carrying Elecrow and Muzi Works branding.\n\tA small screw-on antenna.\n\tA USB cable.\n\tA 1,500 mAh rechargeable LiPo battery.\n\tA small Allen key and screws.\n\n\nThe board itself is quite compact. There is a reset button and a user button, but no display. Configuration and status checks happen through the Meshtastic app rather than on a screen attached to the node. \n\n \n\nIts nRF processor is one reason I was interested in it. This is the sort of hardware I would expect to be light on battery use, which makes it appealing for both a portable device and a solar-powered installation. I have not measured its power consumption or battery runtime yet, though, so those remain things to test rather than results from this first look. \n\nThe Three-Wire Battery Is an Interesting Detail\n\nThe included battery stood out more than I expected. It is a 1,500 mAh LiPo with three wires, rather than just the usual positive and negative leads. \n\nThe third wire is a sensing connection. My understanding is that it provides battery temperature information that the charging circuitry can use to manage charging, including stopping it when conditions are unsuitable. That is particularly interesting on a board intended for solar use. \n\n \n\nI like seeing that extra sensing connection, but I did not test the temperature cutoff or establish its operating thresholds. The important distinction here is that the battery offers more than a simple two-wire power connection. Confirming exactly how the board responds to that sensing input will need further testing. \n\nHardware Connections for Expansion and Solar\n\nThere is quite a bit available around the edges of this little board: \n\n\n\tQWIIC port: An expansion connection I plan to try in a separate test.\n\tSDA and SCL pins: The labeled I2C connections.\n\tTX and RX pins: Serial connections for additional projects.\n\tOLED-related connections: Useful options if a display becomes part of the build.\n\tPV+ and ground: The dedicated solar-panel connections.\n\tBattery connector: Located on the back of the board, separate from the QWIIC port.\n\n\nThat last distinction is worth paying attention to during assembly. The battery does not plug into the QWIIC port. I checked the connector location and orientation before seating it in the battery socket on the back. \n\nThe PV+ and ground connections are what make this especially tempting as a solar-node project. Rather than starting with a separate charging arrangement, there is already a place on the board to bring in the panel. \n\nFirst Power-Up and Bluetooth Pairing\n\nConnect the antenna before powering up the node. I screwed on the supplied antenna first, then connected the battery. An LED came on straight away, which was a good start. \n\nThe package identified the board as pre-flashed with Meshtastic, so there was no initial firmware installation to work through. My setup sequence was straightforward: \n\n\n\tAttach the antenna.\n\tPlug the battery into the correct battery connector.\n\tOpen the Meshtastic app and look for the node over Bluetooth.\n\tSelect the discovered Meshtastic device.\n\tEnter the Bluetooth pairing PIN.\n\tAllow the app to load the node information.\n\n\nBecause there is no display, I tried the default PIN, 123456, and it connected successfully. The Bluetooth settings later confirmed that this was the configured PIN. It can be changed there rather than left at the default. \n\nMy unit arrived running Meshtastic 2.7.15. The app initially reported the battery at 45%, while a later device-metrics reading showed 67%. Those were the reported values during setup, not a controlled battery-capacity measurement. \n\n\nChanging the Node Name\n\n\nI went into the user settings and gave the node a recognizable name using my vervesoft.live naming scheme with a Muzi identifier. Saving the change caused the node to reboot. \n\nThe Bluetooth connection dropped while it restarted, and the status LED changed colors before the node returned. The same behavior occurred when saving the LoRa settings. A brief disconnect after saving was part of the restart, not a failed setup. \n\nConfiguring LoRa to Match the Local Mesh\n\nThe board initially had the Long Fast modem preset selected. My other nodes were still using Long Fast, so I kept this board on the same settings for the first test. \n\nSelecting the US region in the app changed the preset to Long Turbo during this setup. I changed it back to Long Fast so the Base Uno would match my existing nodes. \n\nThese were the US-region combinations shown during the test: \n\n\n\tLong Fast: Frequency slot 20, operating at 906.875 MHz.\n\tLong Turbo: Frequency slot 14, operating at 908.75 MHz.\n\n\nLong Turbo was the newer default I encountered at the time, but compatibility with the mesh I already had running was the immediate priority. There was no point leaving this one node on a different preset while the rest were still waiting to be migrated. \n\nChoose the correct region for your location and check that the radio settings match the nodes you intend to use. The US settings above describe this particular setup, not a configuration to copy regardless of country. \n\n\nOther Settings I Checked\n\n\nWith the radio configured, I worked through the remaining settings: \n\n\n\tChannels: A Long Fast channel was already present.\n\tPosition sharing: The installed firmware allowed it on that channel, with an approximately 1.8-mile position-precision radius shown.\n\tDevice role: The board was set to Client.\n\tTime zone: I used the computer’s time zone.\n\tBuzzer: The configuration listed pin 22, although I did not add or test a buzzer.\n\tDisplay: Display settings were turned off.\n\tBluetooth: The fixed PIN was set to 123456.\n\n\nThere was no GPS installed on this setup, so the position-sharing option did not mean the board was producing its own GPS location. It also had no environmental readings available. \n\nNode Discovery Took a Little Patience\n\nAt first, the node list stayed empty apart from the Base Uno itself. I enabled the option to include unknown nodes, but there was still nothing else immediately. \n\nI expected it to find somebody fairly quickly. Instead of changing everything at once, I left it running and checked a few diagnostics. \n\nThe signal-quality page did not provide a noise-floor reading with the installed firmware. It did show transmit and receive counters, including one TX and one RX at that stage. Battery telemetry was available, but there was no environmental or position data. \n\nThen another node appeared, identified as 49D4. That was the first useful confirmation that the Base Uno was receiving another mesh node. More entries followed as it continued running. \n\nThe practical lesson from this first startup was simple: an empty node list in the first few minutes did not turn out to mean the board was faulty. In this case, it needed a little time. \n\nI also checked the firmware version against the releases available at the time. The unit had 2.7.15, while 2.7.26 was listed as the latest stable release then. I left the firmware alone for this test so I could establish how the kit behaved as supplied. \n\nConnecting a Small Solar Panel\n\nOnce the basic setup was working, I tried the feature that interested me most: solar charging. \n\nI took a small panel described as roughly 200 mA and soldered its leads to the PV+ and ground connections on the back of the board. The LiPo battery remained connected, and I placed the assembly outside for a short test. \n\n\nThe first solar test used a small panel connected directly to the board’s dedicated solar input.\n\n\nThis was a bare-board experiment, not a finished outdoor installation. I still need to find a suitable case before turning it into a permanent node. \n\n\nSolar Charging Results\n\n\nThere was a useful amount of sun, followed by some cloud, so the panel did not have uninterrupted sunshine throughout the test. \n\nEven so, the reported battery level rose from readings in the 60% to 70% range earlier in the session to approximately 95% to 96%. The device-metrics graph showed the upward charging trend after the assembly had been outside. \n\nThat is the encouraging result: the solar input worked, and the reported battery charge increased while the node was operating. This was not a measured charging-efficiency test, and it does not yet establish whether this particular panel can sustain the node through nights and poor weather. It does show that the basic solar-charging arrangement is functional. \n\nMore Nodes and a Successful Traceroute\n\nAfter the board had been running outside for a while, the app showed 33 online nodes with unknown entries filtered out. That was quite a change from the nearly empty list during the first few minutes. \n\nI then requested a traceroute to another node, and it returned successfully. The other node was roughly a mile down the road, which was a pleasing result with the little supplied stubby antenna still attached. \n\nI would not turn that into a maximum-range claim. This was an initial connectivity check, not a controlled range test. Still, the board was doing the things I wanted to establish first: receiving mesh traffic and completing a traceroute. \n\nA Mobile Node or a Permanent Solar Node?\n\nThat is now the interesting decision. The Base Uno is small enough to make a neat portable build, but the dedicated solar input makes a permanent solar node very tempting. \n\nFor a mobile build, the compact board and included 1,500 mAh battery are appealing. For a solar build, the working panel input and three-wire battery sensing are the details that stand out. \n\nMy next steps are to find a case, update the firmware, and test the QWIIC port. I also want more time with the power system before making any claims about long-term autonomy. \n\nFor now, this is a very positive first impression. It booted, paired, accepted configuration changes, discovered nearby nodes, and charged from a small solar panel. That is a pretty good start for a tiny Meshtastic board. \n\nAffiliate disclosure: I may earn from qualifying purchases through the product link below. \n\n\n\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\nExplore the Base Uno Kit\n\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tFind the compact, pre-flashed Meshtastic kit used in this first setup and solar-charging test. \n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tView the Kit",
+      "date_published": "2026-10-30T19:41:51+00:00",
+      "authors": [
+        {
+          "name": "LoRaMeshDevices",
+          "url": "https://www.lorameshdevices.com/blog/"
+        }
+      ],
+      "_score": 60,
+      "_quality": 58,
+      "_relevance": 80,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.thisiscolossal.com/2026/10/aspen-golann-woodworking-embroidery-vessels-sculpture/",
+      "url": "https://www.thisiscolossal.com/2026/10/aspen-golann-woodworking-embroidery-vessels-sculpture/",
+      "title": "[Colossal] 17th-Century Embroidery Meets Hand-Carved Wooden Vessels by Aspen Golann",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=www.thisiscolossal.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p><img alt=\"17th-Century Embroidery Meets Hand-Carved Wooden Vessels by Aspen Golann\" src=\"https://www.thisiscolossal.com/wp-content/uploads/2026/10/golann-6.jpg\"/>Golann creates uniquely sculptural, contemporary iterations of furniture and vessels in a nod to early American craft traditions.</p>\n<p>Do stories and artists like this matter to you? Become a <a href=\"https://www.thisiscolossal.com/members\">Colossal Member</a> today and support independent arts publishing for as little as $7 per month. The article <a href=\"https://www.thisiscolossal.com/2026/10/aspen-golann-woodworking-embroidery-vessels-sculpture/\">17th-Century Embroidery Meets Hand-Carved Wooden Vessels by Aspen Golann</a> appeared first on <a href=\"https://www.thisiscolossal.com\">Colossal</a>.</p>",
+      "date_published": "2026-10-30T15:09:43+00:00",
+      "authors": [
+        {
+          "name": "Colossal",
+          "url": "https://www.thisiscolossal.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=www.thisiscolossal.com&sz=128",
+      "_score": 20,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
+      "id": "https://blog.adafruit.com/2026/10/30/a-magnetic-lock-opens-by-magic/",
+      "url": "https://blog.adafruit.com/2026/10/30/a-magnetic-lock-opens-by-magic/",
+      "title": "[Adafruit Blog] A magnetic lock opens by magic",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nStephen Cass built a lockbox that opens only when the right gesture is traced with a magnet, and wrote it up for IEEE Spectrum. The sensor is SparkFun’s $100 magnetic imaging tile, a small-run board based on work by Peter Jansen. It carries an 8-by-8 grid of Hall-effect sensors that read both magnitude and polarity, […]",
+      "date_published": "2026-10-30T14:55:36+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=blog.adafruit.com&sz=128",
+      "_score": 51,
+      "_quality": 60,
+      "_relevance": 65,
+      "_local_score": 0,
+      "_content_type": "feature"
+    },
+    {
+      "id": "https://blog.adafruit.com/2026/10/30/doomformer-neural-networks-computed-inside-doom-maps/",
+      "url": "https://blog.adafruit.com/2026/10/30/doomformer-neural-networks-computed-inside-doom-maps/",
+      "title": "[Adafruit Blog] doomformer: neural networks computed inside DOOM maps",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\ndoomformer is a project from alp (@mottopanikeiku) that compiles an integer neural network into a DOOM map. Voodoo dolls do the arithmetic. Light levels and plane heights hold the values. Every value the map exposes is read back and compared against NumPy. One map puts 1,355 voodoo dolls to work on an MNIST network. The […]",
+      "date_published": "2026-10-30T14:47:49+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=blog.adafruit.com&sz=128",
+      "_score": 47,
+      "_quality": 60,
+      "_relevance": 58,
+      "_local_score": 0,
+      "_content_type": "feature"
+    },
+    {
+      "id": "https://blog.adafruit.com/2026/10/30/tiny-world-model-generates-games-and-stream-ac-plays-them-all-on-pico-2w-piday/",
+      "url": "https://blog.adafruit.com/2026/10/30/tiny-world-model-generates-games-and-stream-ac-plays-them-all-on-pico-2w-piday/",
+      "title": "[Adafruit Blog] Tiny world model generates games and stream ac plays them all on Pico 2W #PiDay",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nSebastian-Ion Nae has put two small neural networks on a Raspberry Pi Pico 2 W, and published the project on GitHub. One network is a world model: given the current frame and an action, it predicts the next frame and the reward. The other is an actor that looks at the dreamed frame and picks […]",
+      "date_published": "2026-10-30T14:16:09+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=blog.adafruit.com&sz=128",
+      "_score": 53,
+      "_quality": 70,
+      "_relevance": 65,
+      "_local_score": 0,
+      "_content_type": "feature"
+    },
+    {
       "id": "https://www.lorameshdevices.com/lilygo-t-beam-meshtastic-lora32-915mhz-esp32-ttgo-development-board-wifi-ble-ch9102f-chip-soldered-oled-module-meshtstic-version",
       "url": "https://www.lorameshdevices.com/lilygo-t-beam-meshtastic-lora32-915mhz-esp32-ttgo-development-board-wifi-ble-ch9102f-chip-soldered-oled-module-meshtstic-version",
       "title": "[LoRaMeshDevices] Experience Seamless Connectivity and Long-Range Communication with LILYGO T-Beam Meshtastic LORA32 915MHz ESP32",
@@ -227,7 +339,7 @@
       "id": "https://blog.adafruit.com/2026/10/28/a-new-lightweight-hybrid-routing-mesh-protocol-for-packet-radios/",
       "url": "https://blog.adafruit.com/2026/10/28/a-new-lightweight-hybrid-routing-mesh-protocol-for-packet-radios/",
       "title": "[Adafruit Blog] A new lightweight, hybrid routing mesh protocol for packet radios",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F28%2Fa-new-lightweight-hybrid-routing-mesh-protocol-for-packet-radios%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSeeed Studio has posted MeshCore on GitHub, a lightweight C++ library that handles multi-hop packet routing for embedded projects using LoRa and other packet radios. Nodes relay messages through each other, so devices can reach far past the range of a single radio link without any internet connection. MeshCore sits between Meshtastic and Reticulum. Meshtastic […]",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌲 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F28%2Fa-new-lightweight-hybrid-routing-mesh-protocol-for-packet-radios%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSeeed Studio has posted MeshCore on GitHub, a lightweight C++ library that handles multi-hop packet routing for embedded projects using LoRa and other packet radios. Nodes relay messages through each other, so devices can reach far past the range of a single radio link without any internet connection. MeshCore sits between Meshtastic and Reticulum. Meshtastic […]",
       "date_published": "2026-10-28T15:07:08+00:00",
       "authors": [
         {
@@ -386,6 +498,24 @@
       "_local_score": 0
     },
     {
+      "id": "https://www.dezeen.com/2026/10/27/buro-ziyu-zhuang-zi-museum-cluster-xianning/",
+      "url": "https://www.dezeen.com/2026/10/27/buro-ziyu-zhuang-zi-museum-cluster-xianning/",
+      "title": "[Dezeen] Büro Ziyu Zhuang designs Chinese museum cluster to \"blend seamlessly\" into meadow",
+      "content_html": "<img src=\"https://static-2026.dezeen.com/uploads/2026/10/zi-museum-Buro-Ziyu-Zhuang_dezeen_2364_col_sq5-1024x1024.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p>Chinese architecture studio Büro Ziyu Zhuang embedded four cultural buildings, including a viewing tower and a rammed-earth workshop, into parkland in Xianning, China, to create the Zi Museum.</p>\n<p>The post <a href=\"https://www.dezeen.com/2026/10/27/buro-ziyu-zhuang-zi-museum-cluster-xianning/\">Büro Ziyu Zhuang designs Chinese museum cluster to \"blend seamlessly\" into meadow</a> appeared first on <a href=\"https://www.dezeen.com\">Dezeen</a>.</p>",
+      "date_published": "2026-10-27T11:30:00+00:00",
+      "authors": [
+        {
+          "name": "Dezeen",
+          "url": "https://www.dezeen.com"
+        }
+      ],
+      "image": "https://static-2026.dezeen.com/uploads/2026/10/zi-museum-Buro-Ziyu-Zhuang_dezeen_2364_col_sq5-1024x1024.jpg",
+      "_score": 41,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
       "id": "https://hackaday.com/2026/10/27/simd-accelerated-machine-vision-on-an-esp32-s3/",
       "url": "https://hackaday.com/2026/10/27/simd-accelerated-machine-vision-on-an-esp32-s3/",
       "title": "[Hackaday] SIMD-accelerated Machine Vision on an ESP32-S3",
@@ -484,7 +614,7 @@
       "id": "https://blog.adafruit.com/2026/10/26/coffee-edition-a-newspaper-my-printer-prints-while-i-sleep/",
       "url": "https://blog.adafruit.com/2026/10/26/coffee-edition-a-newspaper-my-printer-prints-while-i-sleep/",
       "title": "[Adafruit Blog] Coffee Edition: a newspaper my printer prints while I sleep",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F26%2Fcoffee-edition-a-newspaper-my-printer-prints-while-i-sleep%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nErol Sen built a system that prints a two-page newspaper on his home printer every morning, and he wrote it up on erolsen.dev. A Claude routine writes the issue in the cloud at 05:15. GitHub Actions lays it out and checks it. A Raspberry Pi Pico 2 W on the WiFi sends it to the […]",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 🏔️ <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F26%2Fcoffee-edition-a-newspaper-my-printer-prints-while-i-sleep%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nErol Sen built a system that prints a two-page newspaper on his home printer every morning, and he wrote it up on erolsen.dev. A Claude routine writes the issue in the cloud at 05:15. GitHub Actions lays it out and checks it. A Raspberry Pi Pico 2 W on the WiFi sends it to the […]",
       "date_published": "2026-10-26T15:00:21+00:00",
       "authors": [
         {
@@ -498,63 +628,6 @@
       "_relevance": 75,
       "_local_score": 0,
       "_content_type": "feature"
-    },
-    {
-      "id": "https://hackaday.com/2026/10/25/building-a-swashplate-less-helicoper-rotor/",
-      "url": "https://hackaday.com/2026/10/25/building-a-swashplate-less-helicoper-rotor/",
-      "title": "[Hackaday] Building a Swashplate-less Helicoper Rotor",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/helicopter_propeller.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F25%2Fbuilding-a-swashplate-less-helicoper-rotor%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"A 3D-printed propeller is shown mounted on a motor on a triangular test stand. Each corner has a load cell, and wires run from it to the right.\" class=\"attachment-large size-large wp-post-image\" height=\"449\" src=\"https://hackaday.com/wp-content/uploads/2026/10/helicopter_propeller.png?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>A helicopter blade uses a swash plate and a set of linkages to change the angle of the blades. Not only does it vary the collective pitch to increase or <a class=\"read-more\" href=\"https://hackaday.com/2026/10/25/building-a-swashplate-less-helicoper-rotor/\">…read more</a>",
-      "date_published": "2026-10-26T05:00:22+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/helicopter_propeller.png",
-      "_score": 45,
-      "_quality": 75,
-      "_relevance": 50,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://www.techradar.com/pro/this-crowdfunded-usd109-hub-wants-to-pool-the-ram-in-your-old-pcs-macs-and-phones-to-run-bigger-ai-models-but-the-engine-underneath-is-software-you-can-already-get-for-free",
-      "url": "https://www.techradar.com/pro/this-crowdfunded-usd109-hub-wants-to-pool-the-ram-in-your-old-pcs-macs-and-phones-to-run-bigger-ai-models-but-the-engine-underneath-is-software-you-can-already-get-for-free",
-      "title": "[TechRadar] This crowdfunded $109 hub wants to pool the RAM in your old PCs, Macs, and phones to run bigger AI models — but the engine underneath is software you can already get for free",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/sTBjr37ftwL8aDtGAbAG78-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nCan't stomach DDR5 at five times last year's price? RAMDeck wants to borrow your other devices' memory instead, and it admits that won't be fast.",
-      "date_published": "2026-10-25T19:30:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "image": "https://cdn.mos.cms.futurecdn.net/sTBjr37ftwL8aDtGAbAG78-1920-80.jpg",
-      "_score": 43,
-      "_quality": 50,
-      "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "breaking"
-    },
-    {
-      "id": "https://hackaday.com/2026/10/25/meshtastic-pet-tracking/",
-      "url": "https://hackaday.com/2026/10/25/meshtastic-pet-tracking/",
-      "title": "[Hackaday] Meshtastic Pet Tracking",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/LIA-Open-Source-Meshtastic-LoRa-Pet-Tracker.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F25%2Fmeshtastic-pet-tracking%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt='Four black plastic devices, two with a black, stubby antenna, sit on a blue cutting mat with white guidelines. There is also a PCB and a couple grey-ish clips in the assortment. One of the devices is open, showing another PCB with various components including a GPS antenna and LoRa radio. A silhouette of a dog is screen printed next to the text \"LIA\" on the PCBs, and the same text and image is present in the shell of the device in the top center.' class=\"attachment-large size-large wp-post-image\" height=\"600\" src=\"https://hackaday.com/wp-content/uploads/2026/10/LIA-Open-Source-Meshtastic-LoRa-Pet-Tracker.webp?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>Most commercial pet trackers require a subscription or network connection to function. [Jon G Aguado] wanted a better way and designed LIA, a Meshtastic collar tracker. LIA uses a custom <a class=\"read-more\" href=\"https://hackaday.com/2026/10/25/meshtastic-pet-tracking/\">…read more</a>",
-      "date_published": "2026-10-25T11:00:07+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/LIA-Open-Source-Meshtastic-LoRa-Pet-Tracker.webp",
-      "_score": 46,
-      "_quality": 67,
-      "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "analysis"
     }
   ]
 }
