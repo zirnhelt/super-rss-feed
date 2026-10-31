@@ -3,6 +3,16 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-10-30 (Friday)
+
+#### 🔧 Manual Run (11:09 PM Pacific)
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-10-29 (Thursday)
 
 #### 🔧 Manual Run (11:14 PM Pacific)
@@ -72,17 +82,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## 2026-10-23 (Friday)
 
 #### 🔧 Manual Run (11:11 PM Pacific)
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-10-22 (Thursday)
-
-#### 🔧 Manual Run (11:13 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
@@ -1581,6 +1580,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-10-21–2026-10-21
 - 1 issues recorded
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+
+
+---
+
+
+
+## Week of 2026-10-22–2026-10-22
+- 2 issues recorded
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ Kite News: not in this batch: canada | british columbia
 
 
 ---
