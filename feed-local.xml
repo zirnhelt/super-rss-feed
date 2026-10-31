@@ -6,13 +6,60 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sat, 31 Oct 2026 06:09:11 +0000</lastBuildDate>
+<lastBuildDate>Sat, 31 Oct 2026 10:28:18 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 31, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-31.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-31.html</guid>
+<pubDate>Sat, 31 Oct 2026 10:06:01 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/41183160068&quot;&gt;41183160068&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;1 thing to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/storyboard&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/storyboard&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: storyboard truncated at max_tokens; script ran unplanned&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Two runs were interrupted, and the scheduler&#x27;s fallbacks did their job&lt;/h3&gt;
+&lt;p&gt;The primary run started at 1:05 AM Pacific with no delay. The full set of runs shows the Fallback 1 run at 2:05 AM Pacific also completing with a success conclusion, and this review is itself running as Fallback 2 from 3:05 AM Pacific. The facts do not record why the primary path needed fallbacks, so the cause is not stated here. What is established is that the schedule held: no run was late.&lt;/p&gt;
+&lt;h3&gt;The script was written without a storyboard, and the first draft fell short&lt;/h3&gt;
+&lt;p&gt;The storyboard step truncated at max_tokens, and the pipeline fell back to writing the script with no storyboard at all. The script therefore ran unplanned. The first draft came in at 3088 words against a target of 3400, and was sent back for one expand pass. The shipped script is 3662 words, above target, so the expand pass overshot. The unplanned script still matched citations well: 12 of 18 roundup citations and 4 of 5 deep-dive citations. Where the storyboard is truncating, the fix belongs in the storyboard step&#x27;s max_tokens setting, since that is the step that failed.&lt;/p&gt;
+&lt;h3&gt;Six TTS takes came back short, and four stayed short after retry&lt;/h3&gt;
+&lt;p&gt;Six TTS takes returned shorter than their word counts predicted, and each was retried once. Four of the retries were still short. The longer take of each pair was kept, so the audio carries the full script. The four still-short takes mean the synthesis returned less audio than the text required, even on retry, and this is worth watching if the count rises on future nights.&lt;/p&gt;
+&lt;h3&gt;The roundup cut 11 stories, as designed, while the deep dives held at five&lt;/h3&gt;
+&lt;p&gt;The airtime budget dropped 11 stories from the roundup pool, which the pipeline is built to do. The deep-dive count was 5. This is the normal split between the two segments, and no change is indicated.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;5 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 0.9, 3662 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 48% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;22.2 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;20.4 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;12/18 roundup, 4/5 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;276 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;76,271&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;24 total: claude 10 · brave-search 5 · kagi-extract 5 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] 2026 Coats For All looking for fresh donations of winter wear</title>
 <link>https://100milefreepress.net/2026/10/30/2026-coats-for-all-looking-for-fresh-donations-of-winter-wear/</link>

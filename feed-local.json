@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-31.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-10-31.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, October 31, 2026",
+      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/41183160068\">41183160068</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>1 thing to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong><code>script/storyboard</code> fell back. Search the run log for <code>Degraded 'script/storyboard'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: storyboard truncated at max_tokens; script ran unplanned</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>Two runs were interrupted, and the scheduler's fallbacks did their job</h3>\n<p>The primary run started at 1:05 AM Pacific with no delay. The full set of runs shows the Fallback 1 run at 2:05 AM Pacific also completing with a success conclusion, and this review is itself running as Fallback 2 from 3:05 AM Pacific. The facts do not record why the primary path needed fallbacks, so the cause is not stated here. What is established is that the schedule held: no run was late.</p>\n<h3>The script was written without a storyboard, and the first draft fell short</h3>\n<p>The storyboard step truncated at max_tokens, and the pipeline fell back to writing the script with no storyboard at all. The script therefore ran unplanned. The first draft came in at 3088 words against a target of 3400, and was sent back for one expand pass. The shipped script is 3662 words, above target, so the expand pass overshot. The unplanned script still matched citations well: 12 of 18 roundup citations and 4 of 5 deep-dive citations. Where the storyboard is truncating, the fix belongs in the storyboard step's max_tokens setting, since that is the step that failed.</p>\n<h3>Six TTS takes came back short, and four stayed short after retry</h3>\n<p>Six TTS takes returned shorter than their word counts predicted, and each was retried once. Four of the retries were still short. The longer take of each pair was kept, so the audio carries the full script. The four still-short takes mean the synthesis returned less audio than the text required, even on retry, and this is worth watching if the count rises on future nights.</p>\n<h3>The roundup cut 11 stories, as designed, while the deep dives held at five</h3>\n<p>The airtime budget dropped 11 stories from the roundup pool, which the pipeline is built to do. The deep-dive count was 5. This is the normal split between the two segments, and no change is indicated.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>5 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.9, 3662 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 48% of the words</td></tr>\n<tr><td>Audio</td><td>22.2 min</td></tr>\n<tr><td>Audio size</td><td>20.4 MB</td></tr>\n<tr><td>Citations matched</td><td>12/18 roundup, 4/5 deep dive</td></tr>\n<tr><td>Feed</td><td>276 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>76,271</td></tr>\n<tr><td>API calls</td><td>24 total: claude 10 · brave-search 5 · kagi-extract 5 · brave-answers 4</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-10-31T10:06:01+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://100milefreepress.net/2026/10/30/2026-coats-for-all-looking-for-fresh-donations-of-winter-wear/",
       "url": "https://100milefreepress.net/2026/10/30/2026-coats-for-all-looking-for-fresh-donations-of-winter-wear/",
       "title": "[100 Mile Free Press] 2026 Coats For All looking for fresh donations of winter wear",
