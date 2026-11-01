@@ -6,13 +6,57 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sun, 01 Nov 2026 06:08:54 +0000</lastBuildDate>
+<lastBuildDate>Sun, 01 Nov 2026 10:28:17 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 1, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-01.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-01.html</guid>
+<pubDate>Sun, 01 Nov 2026 10:05:59 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/41287361948&quot;&gt;41287361948&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;1 thing to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/storyboard&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/storyboard&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: no storyboard; the script was written unplanned&lt;/span&gt; &lt;span class=&quot;recur&quot;&gt;Recurring: pending for the roadmap, seen 1 night.&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The first draft came in 694 words short and was sent back once&lt;/h3&gt;
+&lt;p&gt;The first script draft came in at &lt;code&gt;first_draft_words&lt;/code&gt; 3090 against a &lt;code&gt;target_words&lt;/code&gt; of 3400. It was sent back for one expand pass, and what shipped was 3784 words. The short draft is not a failure: a thin day shipping under target is intended, and this one landed above target after the expand pass. The expand pass had no storyboard to work from, so the script was written unplanned. Listeners get a full-length episode, but the structure was not planned in advance the way a storyboarded script would have been.&lt;/p&gt;
+&lt;h3&gt;Six short TTS takes were retried, and six stayed short&lt;/h3&gt;
+&lt;p&gt;The voice renderer returned &lt;code&gt;tts_short_segments&lt;/code&gt; 6 takes that came back shorter than their word count predicts. Each was retried once. Of those retries, &lt;code&gt;tts_retry_failed&lt;/code&gt; 6 were still short. For each affected take, the longer of the two was kept, so nothing is dropped from the episode. The remaining risk is that a kept take may run short against its script line, which could show up as clipped delivery. Check the rendered audio at those points before assuming the retry logic is sufficient.&lt;/p&gt;
+&lt;h3&gt;The roundup dropped 64 stories, and the debate question favoured Casey&lt;/h3&gt;
+&lt;p&gt;The airtime budget cut &lt;code&gt;roundup_dropped&lt;/code&gt; 64 stories from the roundup pool. This is by design: the pool is larger than one segment can air, and a cut story can resurface on a better-matched day. Separately, the debate question was &quot;Does long-term, documented field observation of a place earn its keepers a meaningful say in decisions about that place, or does decision authority belong to the people who live beside it?&quot; Casey carried 55 percent of the deep dive word count, and the voice ratio of Casey to Riley came in at 1.11. The debate is weighted toward the Casey side in airtime. If balance on this question matters to the show, adjust the voice assignment or the deep dive allocation in the episode configuration.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 1.11, 3784 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 55% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;24.2 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;22.2 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;16/18 roundup, 5/5 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;277 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;60,081&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;27 total: claude 11 · brave-search 10 · brave-answers 4 · kagi-extract 2&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] Traditional salmon fishing documented in Ckultenellcw Cultural Centre photo exhibit</title>
 <link>https://100milefreepress.net/2026/10/31/traditional-salmon-fishing-documented-in-ckultenellcw-cultural-centre-photo-exhibit/</link>
