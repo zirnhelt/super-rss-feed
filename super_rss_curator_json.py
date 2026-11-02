@@ -10,6 +10,7 @@ import json
 import hashlib
 import re
 import concurrent.futures
+import threading
 from html import escape as html_escape
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
@@ -384,6 +385,27 @@ def min_score_for_category(category: str) -> int:
 
 _brave_call_count = 0
 _brave_quota_exceeded = False
+_brave_lock = threading.Lock()
+# The Brave Search key is shared with curated-podcast-generator, whose research
+# budget is the same monthly cap; a night of mass 403s must not spend it.
+BRAVE_MAX_CALLS_PER_RUN: int = int(SYSTEM.get('brave', {}).get('max_calls_per_run', 25))
+
+
+def _take_brave_call() -> bool:
+    """Reserve one Brave call against this run's budget; False means don't call.
+
+    Every Brave request in the curator goes through here, so the run count, the
+    cost tracker and the cap can't disagree.
+    """
+    global _brave_call_count
+    with _brave_lock:
+        if _brave_quota_exceeded or _brave_call_count >= BRAVE_MAX_CALLS_PER_RUN:
+            return False
+        _brave_call_count += 1
+    api_usage.record_call('brave')
+    if _brave_call_count == BRAVE_MAX_CALLS_PER_RUN:
+        print(f"  ⚠️  Brave: reached max_calls_per_run ({BRAVE_MAX_CALLS_PER_RUN}); no more Brave calls this run")
+    return True
 
 # Cache files
 SCORED_CACHE_FILE = SYSTEM['cache_files']['scored_articles']
@@ -544,14 +566,11 @@ def fetch_topic_news(cutoff_date: datetime) -> List['Article']:
 
     def _fetch_brave(query_config: dict) -> List['Article']:
         global _brave_quota_exceeded
-        if _brave_quota_exceeded:
-            return []
         label = query_config.get('label', 'Brave News')
         query = query_config.get('query', '')
-        if not query:
+        if not query or not _take_brave_call():
             return []
         try:
-            api_usage.record_call('brave')
             resp = requests.get(
                 'https://api.search.brave.com/res/v1/news/search',
                 headers={'X-Subscription-Token': brave_key, 'Accept': 'application/json'},
@@ -2404,11 +2423,9 @@ def _fetch_via_brave_fallback(feed: Dict, cutoff_date: datetime) -> List[Article
     params = {'q': f'site:{domain}', 'count': 10, 'freshness': 'pw'}
     headers = {'X-Subscription-Token': brave_key, 'Accept': 'application/json'}
 
-    global _brave_call_count, _brave_quota_exceeded
-    if _brave_quota_exceeded:
+    global _brave_quota_exceeded
+    if not _take_brave_call():
         return []
-    _brave_call_count += 1
-    api_usage.record_call('brave')
     try:
         resp = requests.get(
             'https://api.search.brave.com/res/v1/web/search',
