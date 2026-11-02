@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-01 (Sunday)
+
+#### 🔧 Manual Run (10:07 PM Pacific)
+- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
+- ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
+- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
+- ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing
+
+
+---
+
+
+
 ## 2026-10-31 (Saturday)
 
 #### 🔧 Manual Run (11:08 PM Pacific)
@@ -75,17 +88,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (11:09 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
 - ⚠️ Kite News: not in this batch: canada | british columbia, climate change, cloud computing
-
-
----
-
-
-
-## 2026-10-24 (Saturday)
-
-#### 🔧 Manual Run (11:10 PM Pacific)
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ Kite News: not in this batch: canada | british columbia
 
 
 ---
@@ -1599,6 +1601,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## Week of 2026-10-23–2026-10-23
+- 2 issues recorded
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-10-24–2026-10-24
 - 2 issues recorded
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
 - ⚠️ Kite News: not in this batch: canada | british columbia
