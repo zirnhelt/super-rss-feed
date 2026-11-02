@@ -163,6 +163,9 @@ def _brave_search(query: str, api_key: str, count: int = 10) -> List[str]:
     """Search Brave for page URLs matching query. Returns [] on error."""
     headers = {'X-Subscription-Token': api_key, 'Accept': 'application/json'}
     params = {'q': query, 'count': count}
+    # Counted before the request: Brave bills a call that errors, and this key's
+    # monthly cap is shared with curated-podcast-generator.
+    api_usage.record_call('brave')
     try:
         resp = requests.get(BRAVE_API_URL, headers=headers, params=params, timeout=15)
         resp.raise_for_status()
@@ -315,7 +318,7 @@ No explanations, just the numbers."""
             )
 
             # Parse scores
-            api_usage.record_claude_usage(response.usage)
+            api_usage.record_claude_usage(response.usage, stage='discovery')
             scores_text = api_usage.response_text(response).strip()
             scores = [float(s.strip()) for s in scores_text.split(',')]
 
@@ -799,6 +802,7 @@ def main():
 
     if not candidates:
         print("❌ No new feed candidates found")
+        print(api_usage.format_summary())
         sys.exit(1)
 
     # Evaluate candidates
@@ -812,6 +816,7 @@ def main():
     discovery.print_summary(report)
     
     print(f"\n✅ Discovery complete! Check {DISCOVERY_OUTPUT_FILE} for full details.")
+    print(api_usage.format_summary())
 
 if __name__ == "__main__":
     main()

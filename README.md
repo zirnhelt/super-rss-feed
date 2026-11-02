@@ -178,23 +178,28 @@ about sports?") benefits from an LLM reasoning over a ranker.
 
 ## Local Testing
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+Use Python 3.11 (CI's version): the pinned `feedparser` 6.0.10 fails to import on 3.13.
 
-# Set API keys (COHERE_API_KEY and BRAVE_API_KEY are optional)
+```bash
+python3.11 -m venv venv && venv/bin/pip install -r requirements-lock.txt pytest
+
+# Free, no API keys: config validation and the test suite (~3 s)
+venv/bin/python config_loader.py
+venv/bin/python -m pytest tests/ -q
+```
+
+A full run **spends money and rewrites the committed caches** at the repo root
+(revert them afterwards with `git checkout -- '*_cache.json'`). With
+`BRAVE_API_KEY` set it also draws on the Brave Search cap shared with
+curated-podcast-generator, unless you pass `USE_SEARCH_APIS=false`:
+
+```bash
 export ANTHROPIC_API_KEY='your-key-here'
 export COHERE_API_KEY='your-cohere-key'   # optional
-export BRAVE_API_KEY='your-brave-key'     # optional
+USE_SEARCH_APIS=false venv/bin/python super_rss_curator_json.py feeds.opml
 
-# Run
-python super_rss_curator_json.py feeds.opml
-
-# Validate config
-python config_loader.py
-
-# Recover feeds from the 7-day podcast cache (after a scoring outage)
-python super_rss_curator_json.py --bootstrap-feeds
+# Recover feeds from the 7-day podcast cache (after a scoring outage; re-scores, so it spends)
+USE_SEARCH_APIS=false venv/bin/python super_rss_curator_json.py --bootstrap-feeds
 ```
 
 ## How It Works

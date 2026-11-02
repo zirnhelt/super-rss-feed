@@ -1,67 +1,61 @@
-# Role and Style
-You are an expert software engineer and product manager. Your persona is direct, technical, and efficient. 
+# Super RSS Feed Curator
 
-- **Communication:** No fluff. No apologies. No "I can certainly help with that." Get straight to the technical solution.
-- **Code Style:** Prioritize clean, readable, modular Python code. Adhere to PEP 8 standards. Focus on maintainability and robustness.
-- **Problem Solving:** Always explain the "why" behind significant architectural decisions briefly before writing code.
-- **Context:** Remember that this is a personal project intended for local automation and curation. Keep dependencies minimal.
+An AI-powered RSS aggregator: ~150 feeds → fetch, filter, dedup, score, categorize → 11 category JSON feeds plus 7 themed daily podcast feeds on GitHub Pages, nightly on GitHub Actions. The audience is one reader in Williams Lake, BC (Cariboo); the podcast feeds are read by the sibling repo `curated-podcast-generator`, whose show is public. Live site `https://zirnhelt.github.io/super-rss-feed/`.
 
-# Project Constraints
-- Prioritize Python best practices for automation scripts.
-- Use clear, descriptive variable and function names.
-- Always include type hints.
-- When generating scripts, ensure they are idempotent where possible.
-- If an existing function or class can be refactored to be cleaner, do so. Do not create new files if the existing structure can handle the logic.
+The values behind both curators are in the podcast repo's [`docs/MANIFESTO.md`](https://github.com/zirnhelt/curated-podcast-generator/blob/main/docs/MANIFESTO.md): read it before changing scoring, the gate, or what a feed admits.
 
-# Workflow
-1. Analyze the request.
-2. If the request is unclear, ask for clarification immediately.
-3. Propose the technical solution (short).
-4. Implement the solution.
-5. Provide a summary of changes, specifically highlighting any new dependencies or breaking changes.
+**Style:** direct and technical, no fluff. Clean PEP 8 Python with type hints and descriptive names; minimal dependencies; idempotent scripts. Explain the "why" of an architectural decision briefly before the code. Refactor an existing function rather than adding a file. End with a summary that names new dependencies, breaking changes and cost impact. Ask when a request is unclear.
 
-PR descriptions auto-populate from `.github/pull_request_template.md`. For local commits, `git config commit.template .gitmessage` loads a matching commit-message template.
+**Detail lives in `.claude/rules/`** (loaded when you touch the files they cover) and the incidents behind each rule in [`docs/decisions/`](docs/decisions/). Read the linked decision file before changing the code it describes. A new rule goes in the matching rule file as a line or two; its story goes in the decision file.
 
-This file holds the **standing rules**. The incidents and reasoning behind them live in
-[`docs/decisions/`](docs/decisions/), linked from each section. Read the linked file before
-changing the code it describes. When you add a rule, keep it here as one or two lines and
-put the story in the decision file.
+PR descriptions auto-populate from `.github/pull_request_template.md`; `git config commit.template .gitmessage` loads the matching commit template.
 
-The values behind both curators live in the podcast repo's
-[`docs/MANIFESTO.md`](https://github.com/zirnhelt/curated-podcast-generator/blob/main/docs/MANIFESTO.md):
-read it before changing scoring, the gate, or what a feed admits.
+## NEVER
 
-# Project Context
+- Run a paid or state-writing script to "try" a change (table below). Stub the API in a test instead. The `spend` hook asks first; say why the task needs a live run.
+- Merge a PR before its `pytest` check has finished green on the current head. The `merge` hook denies it. Eight PRs here merged before CI finished; bot-opened PRs have no check at all.
+- Commit regenerated caches, logs, `reports/` or `feedback/` from a session unless the task is about them. The Stop hook points them out; restore with `git checkout -- <file>`.
+- Edit `feedback/*.json` (the reader's ratings; denied in settings) or `config/standing_preferences.txt` (the reader's rules; asks first).
+- Rename or drop a key in `PODCAST_FEED_CONTRACT`, the `generate-feed.yml` / `refresh-editorial.yml` file names, the `run_slot` input, or `_changes` / `date_published` in `weekly-state-article.json` without the matching change in `curated-podcast-generator` (see Cross-repo contracts).
+- Remove the `0 10 * * *` backstop cron, gate on `github.event.schedule`, or add a `paths:` filter to `tests.yml`'s `pull_request` trigger (see the CI rule).
+- Put scoring weights, the world lane or the podcast local lane into `calibration_bounds.json`; zero `w_local`.
+- Skip, disable or loosen a test to get green.
 
-## What This Is
+## Running and testing
 
-**Super RSS Feed Curator** — an AI-powered RSS aggregator that pulls from ~150 feeds, deduplicates, scores, and publishes 11 categorized JSON feeds plus 7 themed daily podcast feeds via GitHub Pages. Runs nightly on GitHub Actions. The audience is a single user in Williams Lake, BC (Cariboo region); the podcast feeds are read by the sibling repo `curated-podcast-generator`, whose show is public.
+Cloud sessions: the SessionStart hook builds `venv/` (Python 3.11, from `requirements-lock.txt`, plus pytest) and puts it on `PATH`. **Use 3.11**: the container's default 3.13 can't import the pinned `feedparser` 6.0.10 (it needs `cgi`), and CI runs 3.11. The hook also exports `USE_SEARCH_APIS=false`; the code defaults it to `true`.
 
-Live site: `https://zirnhelt.github.io/super-rss-feed/`
-Repo: `github.com/zirnhelt/super-rss-feed`
+```bash
+python config_loader.py          # validate config/ (exits non-zero on errors)
+python -m pytest tests/ -q       # ~450 tests, ~3 s, no API keys needed
+```
 
-## Terminology
+Locally: `python3.11 -m venv venv && venv/bin/pip install -r requirements-lock.txt pytest`.
 
-### "ponytail"
-When the user says "ponytail", they are referring to the concept described at:
-https://abhishek-shankar.com/posts/best-agent-upgrade-wasnt-a-mode
+**What each entry point costs.** Everything below spends money or rewrites committed state, so none of it is a test:
 
-Ponytail is a portable AI agent skill distribution pattern. The core idea: define agent skills/behaviors once in reusable skill files (a `skills/` directory), then deploy them via lightweight platform-specific adapters across multiple AI coding environments (Claude Code, Codex, GitHub Copilot, Cursor, Windsurf, etc.). A single source of truth for agent behavior, no duplication across platforms.
+| Command | Spends | Writes |
+|---|---|---|
+| `super_rss_curator_json.py feeds.opml` | Haiku, Cohere; Brave/Kagi when `USE_SEARCH_APIS` isn't `false` | Every root cache, `output/` |
+| `super_rss_curator_json.py --bootstrap-feeds` | Re-scores the pool (Haiku/Cohere) | Feed files |
+| `--refresh-hot` / `--refresh-editorial` | Gate only / nothing | Feed files |
+| `feed_discovery.py` | 23 Brave queries + Haiku | Discovery report and cache |
+| `integrate_discoveries.py --heal` / `--auto-add-threshold` | — | `feeds.opml` (`--dry-run` doesn't) |
+| `calibration_agent.py` | A Claude call | `config/` only if `CALIBRATION_DRY_RUN=false` (default `true`); always its logs |
+| `feedback_archive.py` | Haiku distil (`--no-distil` skips) | `feedback/` (`--dry-run` doesn't) |
+| `feedback_trainer.py`, `standing_preferences.py`, `generate_weekly_report.py`, `score_scrub_report.py` | A Claude call each | Config, ledger, `weekly-state-article.json`, reports |
+| `tools/review_filter_priority.py` | Cohere | Its review file |
 
-Reference implementation: https://github.com/DietrichGebert/ponytail
-
-## API Cost Management
+## API cost management
 
 Keep API costs as low as possible at all times. This is a hard constraint.
 
-- **Prefer small models** (`api_usage.HAIKU_MODEL`, Haiku 5.5) for simple tasks like classification, extraction, summarization, and short-form generation. Only use larger models when the task genuinely requires it.
-- **Use prompt caching** wherever possible. Structure prompts so that long, stable context (system prompts, documents, tool definitions) comes first and can be cached.
-- **Minimize tokens**: write concise system prompts, strip unnecessary whitespace, avoid redundant instructions.
-- **Batch requests** rather than issuing one call per item when the API supports it.
-- **Short-circuit early**: if a cheap check (keyword filter, regex, small model) can rule out most cases, do it before calling a larger/more expensive model.
-- **Never call the API speculatively** or "just in case" — every call must serve a clear purpose.
-- **Brave Search is shared with the podcast.** One Search key serves both repos, and its monthly cap is also the podcast's research budget. Read Brave's per-key usage export before trusting any estimate; `api_usage` prices Brave at $0.005 a call.
-- When in doubt, ask: "Can I do this with fewer tokens or a cheaper model?"
+- **Prefer small models** (`api_usage.HAIKU_MODEL`, Haiku 5.5) for classification, extraction, summarization and short-form generation; a larger model only when the task needs it.
+- **Use prompt caching**: long, stable context (system prompts, documents, tool definitions) first.
+- **Minimize tokens**: concise prompts, no redundant instructions. **Batch** where the API supports it.
+- **Short-circuit early**: a keyword filter, regex or small model before a larger one.
+- **Never call the API speculatively.** Ask: "Can I do this with fewer tokens or a cheaper model?"
+- **Brave Search is shared with the podcast.** One Search key serves both repos, and its monthly cap is also the podcast's research budget. Read Brave's per-key usage export before trusting any estimate; `api_usage` prices Brave at $0.005 a call. The curator stops at `system.json` → `brave.max_calls_per_run` (25; late-October nights used 0-3), and every Brave call in this repo is counted in `api_usage`.
 
 **Anthropic prices** (USD per million tokens, first-party API, checked 2026-10-08; refresh from the pricing page before any cost decision):
 
@@ -77,266 +71,71 @@ Keep API costs as low as possible at all times. This is a hard constraint.
 
 Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API halves every line, cache included. A cancelled batch still bills the requests that finished before the cancel. Baseline for September 2026 was $31.21 billed (list price, no discounts) across both keys: `cariboosignals` $21.0 (Sonnet 5 script and polish about 3/4 of it), `superfeed` $10.2 (Haiku scoring $9.2).
 
----
-
-# Codebase Structure
-
-## Active Source Files
+## Codebase
 
 | File | Purpose |
 |------|---------|
-| `super_rss_curator_json.py` | **Main pipeline** — the only curator script that runs. Fetch → filter → dedup → score → categorize → merge → output. |
-| `config_loader.py` | Loads and validates all `config/` files. Use its functions rather than opening JSON directly. `python config_loader.py` validates and exits non-zero on errors. |
-| `cache.py` | `Cache` (TTL JSON dict), `FeedHTTPCache` (ETag/Last-Modified/skip_until per feed URL), and `atomic_write_json` / `atomic_write_text`. |
-| `sanitize.py` | Makes third-party content inert before publishing: `safe_url`, `plain_text`, `sanitize_html`, `sanitize_feed`; `is_public_http_url` and `get_public` for the pipeline's own fetches. |
-| `api_usage.py` | Thread-safe tracker for Claude token counts + Cohere/Brave/Kagi call counts + cost estimate. |
-| `cohere_integration.py` | Cohere Rerank + Embed. Auto-activates when `COHERE_API_KEY` is set; every public function is a no-op when disabled. |
-| `fetch_images.py` | Open Graph images (favicon fallback); also harvests `apple.news` IDs from the same page fetch. |
-| `calibration_agent.py` | Weekly. Reads `calibration_stats_cache.json` and proposes bounded adjustments to the whitelisted config knobs. Uses Haiku 5.5 with thinking disabled at effort `high`. |
-| `feedback_trainer.py` | Weekly. Reads `feedback/` ratings (30 days raw + the rollup) and updates `config/feedback_examples.txt`. |
-| `feedback_archive.py` | Weekly. Distils old ratings into `feedback/feedback_rollup.json`, compresses raw files to `feedback/archive/`, maintains `feedback/reviewed_urls.json`. Idempotent; `--dry-run`, `--no-distil`. |
-| `standing_preferences.py` | Weekly. Turns notes on "bad" ratings into proposed lines for `config/standing_preferences.txt` and opens a PR (one Haiku call, only when there are new notes). Merge adopts, close declines for good (`feedback/standing_proposals.json`). |
-| `feed_discovery.py` | Weekly feed discovery — curated OPML lists, Kagi News's `kite_feeds.json` (new hosts only) and Brave search; scores candidates, writes `feed_discovery_report.json`. |
-| `integrate_discoveries.py` | Reconciles `feeds.opml` with reality: `--auto-add-threshold` adds discovery candidates; `--heal` is the feed health agent. Writes `FEED_HEALTH_LOG.md`. |
-| `corpus_alignment_report.py` | Weekly audit of upstream interest scores against per-theme fit. Writes `reports/CORPUS_ALIGNMENT_REPORT_<date>.md`. |
-| `article_review_audit.py` | Weekly, stdlib-only. Joins ratings against pipeline scores. Writes `reports/ARTICLE_REVIEW_AUDIT_<date>.md` + `article_review_audit_summary.json` (read by calibration and the weekly report) and a line per week in `reports/weekly_metrics.jsonl`. Also holds `fit_reader_model()`, which the curator uses nightly to order the review batch. |
-| `score_scrub_report.py` | Spot-checks live feeds. Writes `reports/FEED_REVIEW_<date>.md`. |
-| `generate_weekly_report.py` | Produces `reports/weekly-report-YYYY-WNN.html` (deployed to gh-pages at the root). |
-| `log_feed_results.py` | Parses curator stdout into `FEED_LOG.md` (newest first; older days compressed to weekly summaries). |
-| `validate_podcast_feeds.py` | Quality **report** on the 7 podcast feeds, in its own job after the deploy. Never exits non-zero on a finding. |
-| `tools/review_filter_priority.py` | Cohere-powered review of filter/priority logic; writes `tools/filter_priority_review.md`. |
+| `super_rss_curator_json.py` | **Main pipeline**, ~8k lines (~95k tokens: read it by function, never whole). Fetch → filter → dedup → score → categorize → merge → output. See the pipeline rule. |
+| `config_loader.py` | Loads and validates `config/`. Use its functions, never open config JSON directly. |
+| `cache.py` | `Cache` (TTL JSON dict), `FeedHTTPCache`, `atomic_write_json` / `atomic_write_text`. |
+| `sanitize.py` | Makes third-party content inert: `safe_url`, `plain_text`, `sanitize_html`, `sanitize_feed`; `is_public_http_url` and `get_public` for the pipeline's own fetches. |
+| `api_usage.py` | Thread-safe tracker: Claude tokens by stage, Cohere/Brave/Kagi calls, cost estimate. |
+| `cohere_integration.py` | Rerank + Embed; active when `COHERE_API_KEY` is set, every public function a no-op otherwise. |
+| `fetch_images.py` | Open Graph images (favicon fallback); harvests `apple.news` IDs from the same fetch. |
+| `calibration_agent.py` | Weekly. Bounded adjustments to whitelisted config knobs (Haiku 5.5, thinking off, effort `high`). |
+| `feedback_trainer.py` / `feedback_archive.py` | Weekly. Ratings → `config/feedback_examples.txt`; distil, compress and ledger old ratings (`--dry-run`, `--no-distil`). |
+| `standing_preferences.py` | Weekly. Notes on "bad" ratings → a proposal PR for `config/standing_preferences.txt`. Merge adopts, close declines (`feedback/standing_proposals.json`). |
+| `feed_discovery.py` / `integrate_discoveries.py` | Weekly. Find and score candidate feeds; reconcile `feeds.opml` (`--auto-add-threshold`, `--heal`), writing `FEED_HEALTH_LOG.md`. |
+| `article_review_audit.py` | Weekly, stdlib-only. Ratings vs pipeline scores → `reports/ARTICLE_REVIEW_AUDIT_<date>.md`, `article_review_audit_summary.json`, `reports/weekly_metrics.jsonl`. Holds `fit_reader_model()` (nightly review-batch order). Reads this file's price-table date. |
+| `corpus_alignment_report.py`, `score_scrub_report.py`, `generate_weekly_report.py` | Weekly reports into `reports/`; the last also writes `weekly-state-article.json`. |
+| `log_feed_results.py` | Curator stdout → `FEED_LOG.md` (newest first; older days folded weekly). |
+| `validate_podcast_feeds.py` | Quality **report** on the podcast feeds, its own job after deploy; never exits non-zero. |
+| `tools/review_filter_priority.py` | Cohere review of filter/priority logic → `tools/filter_priority_review.md`. |
+
+**Config (`config/`)**, all via `config_loader.py`: `system.json` (cache paths/TTLs, URLs, `local_scrapes`, `lookback_hours`, `brave`, `hot_refresh`, `kagi_news`, `topic_queries`), `limits.json` and `podcast_schedule.json` (**tunable by calibration**), `filters.json`, `standing_preferences.txt` (the reader's), `categories.json`, `category_rules.json`, `news_interests.txt` (news head only; the biggest news-tuning lever), `quality_charter.txt` (interest-independent; never mention personal interests), `feeds.json` (`"rss": true` adds an RSS mirror), `source_preferences.json`, `feed_slots.json`, `calibration_bounds.json` (whitelist + `forbidden`), `scoring_weights.json` (fitted against ratings), `scoring_modifiers.json`, `topic_queries.json`, `feedback_examples.txt` (generated).
 
 Dated reports live in `reports/`; the root holds code, config, caches and running logs.
-
-## Configuration (`config/`)
-
-All config is loaded via `config_loader.py`. Never open config files directly in application code.
-
-| File | Purpose |
-|------|---------|
-| `system.json` | Cache paths and TTLs, base URLs, `local_scrapes` (the papers scraped beside their RSS), `lookback_hours` (48), `hot_refresh` (the between-nightlies pass), and the `kagi_news` / `topic_queries` on-off switches. |
-| `limits.json` | Feed sizes, retention, per-source caps, thresholds, dedup parameters, batch sizes. **Tunable by calibration agent.** |
-| `filters.json` | `blocked_sources`, `blocked_keywords`, `blocked_keywords_unless_local`, `local_signals`, `blocked_title_patterns`, `blocked_url_path_patterns`. |
-| `standing_preferences.txt` | **The reader's** reject rules, one per line, placed in the quality gate's subject list (same call, no extra cost). Edited by hand or by merging a weekly proposal PR. The pipeline owns the built-in subjects in `GATE_REJECT_RUBRIC`; the reader owns this file. |
-| `categories.json` | Category definitions: name, emoji, description. |
-| `category_rules.json` | Per-category include/exclude keyword rules. |
-| `news_interests.txt` | The personal interest profile, used by the **news head only** (relevance dimension + Cohere interest ranking). The most impactful news-feed tuning lever. |
-| `quality_charter.txt` | Interest-independent newsworthiness rubric: the quality gate (`q_gate`) and background for theme prompts. Never mention personal interests here. |
-| `feeds.json` | Output feed metadata (JSON Feed 1.1); `"rss": true` adds an RSS 2.0 mirror. |
-| `source_preferences.json` | Source type map (`print`/`broadcast`), per-type score adjustments, `max_per_source` caps. |
-| `feed_slots.json` | Per-category `min_slots` (filled regardless of floor) and `max_slots`; `news.world_slots` is the world lane. |
-| `podcast_schedule.json` | The 7 themed podcast feeds: charters, `min_score`, `holdover_threshold`, `rescore_sources`, `targeted_rescore`, `excluded_content`. **Tunable by calibration agent.** |
-| `calibration_bounds.json` | Whitelist of auto-tunable knobs and their bounds; `forbidden` lists what the agent may never touch. |
-| `scoring_weights.json` | Composite weights, **fitted against ratings** — see Scoring below. |
-| `scoring_modifiers.json` | `local_keyword_bonus`, `wire_quality_penalty`, `source_type_quality_adjustments`. |
-| `topic_queries.json` | Brave/Kagi topic queries (switched off by `system.json` since 2026-09-23). |
-| `feedback_examples.txt` | Generated by `feedback_trainer.py`; injected into the scoring prompt. |
-
-## Feedback History (`feedback/`)
-
-Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. `feedback_archive.py` keeps the directory bounded in three layers — **always distil before deleting**:
-
-| Layer | File | Lifetime |
-|-------|------|----------|
-| Raw | `feedback/YYYY-MM-DD.json` | `limits.feedback_retention_days` (90) |
-| Distilled | `feedback/feedback_rollup.json` | permanent — statistics plus a ~300-word prose `lessons` block (one Haiku call per archived batch) |
-| Cold | `feedback/archive/YYYY-MM.jsonl.gz` | permanent, lossless |
-
-`feedback/reviewed_urls.json` answers "already reviewed?" for the curator; `load_reviewed_urls()` unions it with live files. `article_review_audit.py` reads live and archived shards; `feedback_trainer.py` reads 30 days raw plus the rollup.
-
-**The review batch is 12, spent at the margin:** 1 `wildcard` (the day's wildcard, its own stratum so the audit can judge the slot), 7 `near_miss` (lost a slot by the fewest points in their category, `review_near_misses()`), 2 `in_feed` (top-of-feed canary; never drop it) and 2 `unfiltered` (highest-scoring gate rejects). `review_pools()` keeps them a partition. The episode card saves `episode_segments` and `episode_note` beside the verdict; the podcast's weekly script review reads them.
-
-**A review batch is offered once.** `review_offered_ledger()` keeps an earlier batch's articles out of the next (the ledger rides in `feed-review.json` as `_offered`), so a missed day is dropped, not queued; `review.html` keys drafts and its saved flag on `_batch`, never the calendar date. The batch is sorted by `fit_reader_model()`; that changes the order only, never the stratified sample.
-
-**Episode verdicts** (`rating: 'episode'`, answer in `episode_verdict`, no `url`) share these files. They are not article ratings: anything that counts rows by `rating` must skip them (`review_history_stats`, the trainer's file minimum do); the page merges them by date. See [scoring.md](docs/decisions/scoring.md).
-
-**`review.html` never holds a credential.** It asks for a fine-grained token (super-rss-feed only, Contents read/write) in a password field when saving, filled from a password manager, and keeps it only while open — never in browser storage. A token was baked into this public page from 2026-06-17 until it was revoked on 2026-09-23.
-
-## Output Feeds
-
-11 category feeds (`feed-local.json`, `feed-ai-tech.json`, `feed-climate.json`, `feed-homelab.json`, `feed-wellness.json`, `feed-news.json`, `feed-science.json`, `feed-scifi.json`, `feed-homestead.json`, `feed-design.json`, `feed-outdoors.json`) and 7 podcast feeds (`feed-podcast-{monday..sunday}.json`), all JSON Feed 1.1.
-
-**RSS 2.0 mirrors:** a feed with `"rss": true` in `config/feeds.json` (currently `local`) also gets `feed-<category>.xml`, rendered by `generate_rss_feed()` from the finished JSON Feed dict so the two can't drift, capped at `RSS_MAX_ITEMS` (100). `<guid>` is `id` (always the publisher URL).
-
-**The podcast feeds are a contract.** `curated-podcast-generator` reads the keys in `PODCAST_FEED_CONTRACT` and defaults any that are missing, so renaming or dropping one changes the show without an error. `tests/test_podcast_feed_contract.py` pins the list against `generate_podcast_feed()`; the podcast keeps a matching list and degrades its run on a breach. Change both lists together.
-
-## Runtime Cache Files (root, committed by CI, mirrored to gh-pages)
-
-| File | Purpose | TTL |
-|------|---------|-----|
-| `scored_articles_cache.json` | Scores by URL hash; avoids re-scoring. | 48 h |
-| `shown_articles_cache.json` | Articles already surfaced. | 14 days |
-| `shown_terms_cache.json` | Term sets for cross-run story dedup. | 14 days |
-| `wlt_cache.json` | Local paper scrapes (all of `local_scrapes`, keyed by URL hash). | 48 h |
-| `podcast_articles_cache.json` | Rolling pool for podcast theme scoring. | 7 days |
-| `theme_scores_cache.json` | Per-article, per-theme fit. Version key `THEME_SCORE_CACHE_VERSION`. | 7 days |
-| `podcast_shown_cache.json` | URLs used per day's episode. | 7 days |
-| `image_cache.json` | Open Graph image URLs. | — |
-| `feed_http_cache.json` | Conditional-GET state, failure counts/kind, `resolved_url`. **Must be persisted** or the backoff and paid-fallback cutoff never fire. | — |
-| `calibration_stats_cache.json` | Per-run stats for the calibration agent. | 14 days |
-| `theme_holdover_cache.json` | Cross-week bank of future-theme articles. | 28 days |
-| `apple_news_cache.json` | Harvested `apple.news` IDs. | articles 14 days |
-| `extract_cache.json` | Kagi Extract text by URL hash (gh-pages only, not committed). Thin articles only; 10 pages a request. An extracted article's `_excerpt` carries 2000 chars: the podcast reads it as the story body. | 48 h |
-
-`calibration_memory/` holds the calibration agent's `recurring_issues.json`, `change_history.json` and `notes.md`.
-
----
-
-# CI/CD Workflows — see [docs/decisions/scheduling-and-ci.md](docs/decisions/scheduling-and-ci.md)
-
-## `generate-feed.yml` — nightly pipeline
-
-- The 06:00 UTC run (11 PM Pacific, so the evening's news makes it) and its 07:00 UTC backup arrive as `workflow_dispatch` from a **Cloudflare Worker** in the sibling repo (`curated-podcast-generator/cloudflare/scheduler/`) with a `run_slot` input. The podcast reads the pool at 08:05 UTC.
-- **One GitHub cron remains, `0 10 * * *`**, as the backstop for the Worker being down. Don't remove it; don't add the ladder ticks back.
-- **Gate on `inputs.run_slot`, never `github.event.schedule`.** A source channel switched off by a missed gate reads exactly like a quiet week — the `USE_SEARCH_APIS` bug.
-- Steps: download feeds and caches from gh-pages → bootstrap thin feeds → run the curator → log to `FEED_LOG.md` → copy `review.html` unchanged → commit caches → deploy `output/` and verify the gh-pages tip byte-matches.
-- **`validate` is a separate job that never fails.** A permanently red check buries the signals that matter. Keep it out of `build`.
-- Secrets: `ANTHROPIC_API_KEY` (required); `COHERE_API_KEY`, `BRAVE_API_KEY`, `KAGI_API_KEY` (optional).
-
-## `weekly-maintenance.yml` — Saturday 13:23 UTC
-
-Eight jobs in order, each skippable by `workflow_dispatch` input: **discovery** (auto-merged PR at threshold 65) → **feed-health** (`--heal`; after discovery because both rewrite `feeds.opml`) → **calibration** (commits all of `config/`) → **feedback-training** (archive, then train) → **standing-preferences** (a proposal PR, never auto-merged; skipped while one is open) → **quality-review** (the three reports into `reports/`) → **filter-review** → **report** (weekly HTML to gh-pages).
-
-**It runs Saturday so the podcast's Sunday Meta Moment can cite it.** The report job writes the week's applied changes (feeds added, healed, retired; calibration knobs) to `weekly-state-article.json` → `_changes`, built from the agents' records, never the narrative. The podcast reads `_changes` and `date_published` from `main` (`get_upstream_week_changes`) and ignores a file over 7 days old; renaming either key silently empties that half of the segment. Don't move the run back past Sunday 08:05 UTC.
-
-`git_push_retry.sh` auto-resolves rebase conflicts only in generated files (`GENERATED_PATTERNS`, which includes `reports/*`); a conflict in anything hand-editable fails the step.
-
-**Every workflow installs `requirements-lock.txt`** (`pip freeze`, Python 3.11). Edit `requirements.txt`, then regenerate the lock; `tests/test_requirements_lock.py` fails until you do.
-
-## Other workflows
-
-- `tests.yml` — config validation + pytest on changes to code, config, tests or requirements.
-- `deploy-static.yml` — copies `review.html` to gh-pages on push.
-- `refresh-editorial.yml` — dispatched by the podcast's review job (scheduler PAT); splices new editorial items into gh-pages feeds. Shares the `generate-feed` concurrency group.
-- `refresh-hot.yml` — GitHub cron every 2 h at :41. `--refresh-hot` splices clear winners into `local`/`news` between nightlies (`system.json` → `hot_refresh`): plain GETs, the quality gate only, admits above a higher bar (Cariboo anchor, world flag, or score ≥ `min_score`), commits nothing. The first run after Kagi News's 12:00 UTC batch (`kite_batch_max_age_hours`) also reads it, so its news clusters land that afternoon. Its items carry `_hot_refresh`; the nightly merge drops one when it files the same URL or story in **any** category. Stands down while `generate-feed` is queued or running, since a newer pending run in the shared group cancels the older. See [scheduling-and-ci.md](docs/decisions/scheduling-and-ci.md).
-- `cleanup-branches.yml` — stale branch cleanup.
-
----
-
-# Key Conventions
-
-## Pipeline Architecture (`super_rss_curator_json.py`)
-
-1. **Fetch** — `feedparser`, last 48 h, conditional GET via `FeedHTTPCache`. Free recovery before paid: 403 → feed-reader UA retry; 404/410 → `_discover_feed_url()` (cached as `resolved_url`). Then Brave → Kagi → Google News RSS. ≥3 consecutive failures skip Brave/Kagi; unrecoverable failures back off 6 h / 24 h / 72 h.
-2. **Local scrapes** — `scrape_local_news()` scrapes the homepages in `system.json` → `local_scrapes` (Tribune, Quesnel Observer, 100 Mile Free Press): their RSS is mostly provincial syndication. See [sources.md](docs/decisions/sources.md).
-3. **Topic news** — Brave News + Kagi from `topic_queries.json`, only when `USE_SEARCH_APIS=true` **and** `system.json` → `topic_queries.enabled`. **Off since 2026-09-23, kept off after the trial (reviewed 2026-10-11)**: ~47 Brave calls a night for 1 of 467 category items. The run log prints `Topic queries: disabled`.
-   **Kagi News** (`fetch_kite_news`, `system.json` → `kagi_news`, free): 11 Kite categories, each story a cluster already merged across outlets and summarised. It enters as the finished version of its story: wins same-story dedup over any non-local outlet, yields to any outlet article published after its batch (Kite cuts one a day at 12:00 UTC, 18 h before the nightly; `_dedup_wins`), links the outlet its summary cites first (never `articles[0]`), and carries its summary + talking points as `_excerpt` with `_kite_sources` so the podcast uses the body as-is. See [sources.md](docs/decisions/sources.md).
-4. **Filter** — `filters.json`: blocked sources, keywords (`blocked_keywords_unless_local` allows a local override), title patterns, URL path patterns, and bare homepages.
-5. **Prescore gate** — high-volume aggregators must match a `PRESCORE_KEYWORDS` term before paid scoring.
-6. **Deduplicate** — URL hash → fuzzy title → term-set containment (source priority local > print > broadcast), plus Cohere similarity when enabled.
-7. **Cross-run dedup** against `shown_terms_cache`.
-8. **Score (gated)** — the only scoring mode:
-   a. **Quality gate** (`score_quality_gate()`): one Haiku pass returns `q_gate` (0-100, against `quality_charter.txt`) **and** a `gate_reject` verdict against `GATE_REJECT_RUBRIC` **and** a `gate_world` flag against `GATE_WORLD_RUBRIC`, all cached. Local articles bypass the score but not the rejection. API failure fails open.
-   b. **News head**: gate survivors are ordered by Cohere Rerank against `news_interests.txt` (ordering only), then the display-bound slice (`quality_gate.deep_slice_multiplier` × `max_slots` per category, 6 since Haiku 5.5) gets full Q/R/L Haiku scoring with `feedback_examples.txt`; the rest keep `q_gate`.
-9. **Local priority** — `local_signals` matches get score ≥ 80 and the `local` feed.
-10. **Source preferences** — per-type adjustments.
-11. **Scrub** — `scrub_feed_with_haiku()` applies step 8a's verdicts. **It makes no API call**; name and `(kept, scrub_stats)` contract kept for the calibration agent.
-12. **Slot allocation** — `apply_feed_slot_allocation()`, ranked (see Scoring).
-13. **Images** — up to 50 articles.
-14. **Categorize** — keyword rules + Claude category assignment.
-15. **Podcast cache** — entry gated by `q_gate >= quality_gate.podcast_floor` (or `local >= 25`); theme scores computed once at ingest against the charters + quality charter (never the interest profile); `targeted_rescore` days (all seven since Haiku 5.5) get a single-charter second pass.
-16. **Podcast feeds** — all 7 regenerated every run from the pool (pure cache reads for the other 6 days).
-17. **Diversify** — per-source caps.
-18. **Merge & output** — JSON Feed files + `curated-feeds.opml`.
 
 ## Conventions
 
 - **URLs:** everything passes through `canonicalize_url()` before hashing.
 - **Caches:** `Cache('file.json', ttl_hours=48)` → `load()` returns `{}` on missing/corrupt; `save(data)`. `FeedHTTPCache`: `load()` once at startup, `save()` once at shutdown.
 - **Every JSON cache, state, config, OPML, markdown log or `reports/` write goes through `cache.atomic_write_json` / `atomic_write_text`**, never `open(path, 'w')` or `'a'`: CI commits whatever is on disk, and a truncated cache loads as `{}`. An appending log is read and rewritten whole.
-- **Every published feed goes out through `write_feed()`** (sanitize, then atomic write). Never `json.dump` a feed directly. Text fields are stripped, not escaped — see [sources.md](docs/decisions/sources.md).
-- **A fetch of a URL taken from feed content goes through `sanitize.get_public()`**, never a bare `requests.get`: every hop is checked by name and by resolved address, and redirects are followed hop by hop.
-- **API usage:** after every Claude call, `api_usage.record_claude_usage(response.usage, stage='<step>')` (`batch=True` for batch results; the stage names the paying step, e.g. `gate`, `deep_score`, `theme_ingest`); `api_usage.record_call('cohere' | 'brave' | 'kagi')` for the others; print `api_usage.format_summary()` at the end.
+- **Every published feed goes out through `write_feed()`** (sanitize, then atomic write). Never `json.dump` a feed. Text fields are stripped, not escaped.
+- **A fetch of a URL taken from feed content goes through `sanitize.get_public()`**, never a bare `requests.get`.
+- **API usage:** after every Claude call, `api_usage.record_claude_usage(response.usage, stage='<step>')` (`batch=True` for batch results); `api_usage.record_call('cohere' | 'brave' | 'kagi')` for the others; print `api_usage.format_summary()` at the end. A Brave call in the curator goes through `_take_brave_call()`.
 - **Cohere:** check `cohere_integration.is_enabled()`; public functions return falsy when disabled, so always fall back.
+- **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer fields through `extra_body`, as `calibration_agent.py` does. Message Batches live under `client.beta.messages.batches`.
+- **Haiku 5.5 thinks unless told not to**, and thinking shares `max_tokens`. Every Haiku call passes `extra_body=api_usage.HAIKU_EXTRA_BODY` (batch params take the key directly) and reads the reply with `api_usage.response_text()`, never `content[0]`: a refusal is a 200 with no text. Its tokenizer counts the same text as ~30% more tokens.
+- **Cache merge conflicts:** Actions commits caches to `main`; on a local pull conflict, keep the remote version.
+- **History comes from the GitHub API, not `git log`:** checkouts are shallow, and `git log --since` answers short with no error. Merged means `merged_at` is set.
 
-## Safety rules for the automated agents
+## Cross-repo contracts (the highest-risk changes)
 
-- **Feed health agent** (`--heal`) — see [docs/decisions/sources.md](docs/decisions/sources.md). Evidence makes a candidate; a **fresh live probe** decides. Nothing is deleted: retirement flips `type="retired"` and `recheck_retired()` restores. If none of 3 healthy control feeds answers, the fault is local and the pass changes nothing. `--heal-max-feeds` caps the blast radius. A probe pass does not clear a feed the nightly has failed for 14+ days (`HEAL_PROBE_OVERRIDE_DAYS`); it is retired `nightlyBlocked` and restored by a 28-day cool-off, not by the probe. `retiredBy="hand"` is never restored. A Google News stand-in needs an article from the last 30 days.
-- **Calibration agent** — only whitelisted knobs in `calibration_bounds.json`, clamped to bounds and `global_caps`, with a flip-flop guard. **The workflow commits all of `config/`.** Changes go to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. A fresh `article_review_audit_summary.json` is treated as ground truth. Skip reasons are logged verbatim.
+`curated-podcast-generator` breaks silently, not loudly, when one of these moves. Change both repos together; the first four are pinned in `tests/test_podcast_feed_contract.py`.
 
-## Scoring — see [docs/decisions/scoring.md](docs/decisions/scoring.md)
+| This repo provides | Read by | Breaks how |
+|---|---|---|
+| `feed-podcast-{day}.json` on gh-pages, keys in `PODCAST_FEED_CONTRACT` | The podcast script at 08:05 UTC | Missing keys default; the episode changes and the run degrades |
+| `generate-feed.yml` + its `run_slot` input | The Cloudflare Worker (`cloudflare/scheduler/src/index.ts`) and `deploy-scheduler.yml` | The nightly never starts; the 10:00 backstop lands after the 08:05 read |
+| `refresh-editorial.yml` | The podcast's review job (scheduler PAT) | The episode review stops landing in `feed-local` |
+| `_changes`, `date_published` in `weekly-state-article.json` on main | The Sunday Meta Moment (`get_upstream_week_changes`) | That half of the segment goes empty |
+| `feed-local.json` | The podcast's `daily-podcast.yml` | — |
+| The Brave Search key | Both repos' monthly cap | The podcast's research budget runs out |
 
-- **Feed selection is ranked, not floored.** Pass 1 fills `min_slots` regardless of the floor; pass 2 fills to `max_slots` above it. The floor bounds quality, not volume.
-- **News has a world lane.** `world_slots` (4) go to gate-flagged major world events ranked by `q_gate`, on top of `max_slots`. The ratings starved world news once; keep the lane out of `calibration_bounds.json` knobs.
-- **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
-- **One wildcard a day rides on top of the slots** (pass 3): the best `q_gate` (≥ `WILDCARD_MIN_Q_GATE`) the interest profile missed. Not a rescue for a thin category.
-- **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
-- **The review corpus is a quota sample.** Rates within a stratum are unbiased; the corpus-wide rate is not. Never quote the headline good-rate as feed quality; use `stratified_estimate()`. Categories rotate within each stratum (`rotate_review_categories()`) so small categories get rated.
-- **The audit reads across weeks.** Its **Needs Attention** findings carry how many weekly audits in a row reported them (from `reports/weekly_metrics.jsonl`); at 3 they escalate. Before paying for a stage, or for a test of an alternative, read **What each score buys**: its out-of-time AUC beside its cost by stage.
-- **The weekly review stays bounded.** Corpus tables read a rolling 90 days; trend tables show 8 weeks then one row a quarter (`weekly_metrics.jsonl` keeps every week); dated `.md` reports are pruned at 13 weeks, never the weekly HTML (gh-pages deploys it with `keep_files: false`). `CALIBRATION_LOG.md` keeps 8 weeks in full, `notes.md` its last 6 entries plus Haiku-folded standing lessons. A finding that stops firing goes to **Closed Findings**.
-- **A verdict is feed × podcast:** `good` (both), `interesting` (feed only), `podcast_only` (show only), `bad` (neither). Feed, band, sweep and source metrics count good+interesting; day fit (`theme_routing.per_day.good_pct`) counts good+podcast_only. Block a source only at n ≥ 8 with zero positives of any kind, `podcast_only` included.
+## Automation, and who fixes what
 
-## The podcast pool — see [docs/decisions/podcast-pool.md](docs/decisions/podcast-pool.md)
+- **Bots:** `generate-feed` commits caches to `main` and deploys gh-pages; `refresh-hot` and `refresh-editorial` write gh-pages only; `weekly-maintenance` commits `config/`, logs, `feeds.opml` and `reports/` to `main`, auto-merges the discovery PR and opens the standing-preferences PR. Bot pushes and bot PRs (`GITHUB_TOKEN`) trigger no workflows, so the weekly jobs run the tests themselves before committing.
+- **Scheduled Claude tasks that touch this repo** (from the podcast side): the daily **roadmap fixer** may open and merge `claude/roadmap-*` PRs here when the root cause is upstream; the weekly **roadmap triage** only reads. One-shot check-ins after a merge use `/check-nightly <PR>`, which reports and never opens a PR.
+- **Before fixing a feed or podcast-pool symptom**, list open PRs and non-main branches on both repos: a fix may already be in flight from the roadmap fixer or another session.
 
-- **Holdover never fills the pool:** `FRESH_POOL_SHARE` (0.5) reserves half of `POOL_CAP` for the current week; the bank is trimmed worst-first. `PODCAST_POOL_DEBUG=1` traces pool composition.
-- **The pool cap is theme-aware:** `THEME_RESERVE_SHARE` (0.4) of direct-qualify slots go to candidates at or above p80 of the day's theme.
-- **`_theme_score` is a percentile and cannot show charter collapse**; read `_theme_score_raw`. `RAW_FIT_FLOORS` are per weekday; refit all seven off a measured month.
-- **A theme is only meaningful if something can win it.** Joint 7-theme scoring collapses narrow themes; `targeted_rescore` re-asks one charter at a time, and its `rescore_sources` list is the load-bearing half. The standing guard is `run_stats['theme_argmax']`. **Sourcing cannot fix a starved theme — check the argmax before touching `feeds.opml`.**
-- **Theme keywords match whole words** (`_keyword_pattern`: plural allowed, a trailing `*` for word endings). A keyword is a phrase, never a bare word with a common second sense (`park` matched "amusement park"); measure a new one against the live pool first.
-- **Every daily feed carries a local lane** (`select_local_lane`, `local_lane_slots`): fresh Cariboo-anchored stories no recent episode aired, on top of the theme selection and exempt from the theme-fit floor. The show leads with local news every day. Keep it out of calibration.
-- **Only the episode's own feed counts as shown** (`episode_day`, the run's UTC weekday). Marking all seven feeds burned each day's best articles in feeds nobody aired.
-- **High theme scores are confirmed against the charter** (`confirm_theme_contenders`, `targeted_rescore.contender_band`): Rerank never reads a charter's exclusions, and a false high is the score that airs.
-- **`podcast_content_exclusion()`** drops op-eds and crime incidents from the podcast pool only (`podcast_schedule.json` → `excluded_content`). The crime classifier is fitted: category-gated, title-anchored, ambiguous terms need justice context. **Widen the exemption list, never the rule; refit against the live pool, never against appetite.** Applied at one choke point after the pools merge.
-- **The pool honours the gate's reject verdict** (`gate_reject`, stored with each pool and bank entry and refreshed on banked rows from the pool, dropped at that same choke point; `enabled: false` turns it off with the other exclusions; a blocked source is evicted from both caches by `_pool_source_excluded()`). The verdict is a snapshot: a new standing-preference line reaches cached entries only as they are judged again. Review ratings are training data and never a runtime input to the pool.
-
-## Sources — see [docs/decisions/sources.md](docs/decisions/sources.md)
-
-- **A Kagi News cluster is a source, not a duplicate.** It outranks every single-outlet version in dedup (`_source_priority`), but is still gated and scored like any article. Its content is CC BY-NC with credit to Kagi News; the podcast credits it. Its perspectives, quote, timeline and background ride beside `_excerpt` as `_kite_context` (`KITE_CONTEXT_CHARS`), because summary + talking points already fill the excerpt.
-- **Feed item `url` is not identity.** Code reading a written feed back must use `item_source_link(item)`, never `item['url']`.
-- **Apple News IDs are discovered, never constructed.** `resolve_apple_news_url()` tiers article ID > channel ID > publisher URL.
-- **A rediscovered feed URL lives in `feed_http_cache.json`** until the weekly heal writes it into `feeds.opml`.
-- **Editorial-exempt sources skip story-overlap dedup** (`_story_dedup_exempt()`; URL dedup still applies): templated titles like the episode review's read as repeats of yesterday's.
-- **So do headline series** (`source_preferences.json` → `series_title_patterns`, anchored on the kicker, e.g. "MEET THE CANDIDATES:"): each instalment is a different story under the same words. Add a series there, never loosen the overlap thresholds.
-- **Editorial-exempt sources ride on top of the slots**, and the podcast's review job dispatches `refresh-editorial.yml` once its review is live, so the review lands the morning it is written. The refresh spends nothing, writes no cache, and only places a source in feeds that already carry it.
-- **`blocked_sources` is checked wherever stored articles are reused**, not only at fetch: use `is_blocked_source()` / `_pool_source_excluded()`. A substring entry matches inside other names (`"hn"` once blocked every "…Technica" feed); keep entries whole words or domains.
-- **`local` means the Cariboo-Chilcotin.** `apply_dimension_adjustments()` demotes a `local` article with no Cariboo anchor (`_has_cariboo_anchor()`); scraped network cards are dropped by `_drop_network_cards()`. See [sources.md](docs/decisions/sources.md).
-- **A place rule goes in code or config, never in `standing_preferences.txt`.** The gate cannot hold "outside the Cariboo" reliably (it rejected Cariboo candidate profiles two nights running); out-of-region civic races are `blocked_keywords_unless_local`, where a place or the outlet name overrides.
-- **Deep scoring merges into the scored cache** (`update`, never replace), or the gate's verdict is lost and asked again.
-- **Comment feeds are not article feeds.** `integrate_discoveries.is_comment_feed()` is the single predicate, applied at the top of `evaluate_candidates()` and in `_probe_page_for_feeds()`. Never add one by hand.
-
-## Known Gotchas
-
-1. **WLT cache corruption** — `wlt_cache.json` entries can degrade to bare strings. Always guard with `isinstance(v, dict)` before accessing fields.
-2. **Cache merge conflicts** — Actions commits caches to `main`; local `git pull` can conflict. Keep the remote version.
-3. **Feed HTTP blocking** — some sites reject the default User-Agent. Both `fetch_images.py` and feed fetching send custom UA headers.
-4. **`shown_articles_cache` bloat** — cleanup runs in `load_shown_cache()` past ~300K.
-5. **`THEME_SCORE_CACHE_VERSION`** — bump it whenever the theme score formula changes.
-6. **Bootstrap** — `python super_rss_curator_json.py --bootstrap-feeds` refills thin feeds from the podcast cache; CI runs it when any feed has < 20 items.
-7. **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer request fields through `extra_body`, as `calibration_agent.py` does. Message Batches live under `client.beta.messages.batches` there; `client.messages.batches` does not exist.
-8. **Haiku 5.5 thinks unless told not to**, and thinking shares `max_tokens`. Every Haiku call passes `extra_body=api_usage.HAIKU_EXTRA_BODY` (thinking off; batch params take the key directly) and reads the reply with `api_usage.response_text()`, never `content[0]`: a refusal is a 200 with no text. Its tokenizer counts the same text as ~30% more tokens.
-
----
-
-# Local Development
-
-```bash
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-
-export ANTHROPIC_API_KEY='...'
-export COHERE_API_KEY='...'   # optional
-export BRAVE_API_KEY='...'    # optional
-
-# Validate config (exits non-zero on errors)
-python config_loader.py
-
-# Tests
-pip install pytest && python -m pytest tests/ -q
-
-# Full run
-python super_rss_curator_json.py feeds.opml
-
-# Recover thin feeds
-python super_rss_curator_json.py --bootstrap-feeds
-```
-
-**Dependencies** (`requirements.txt`, locked in `requirements-lock.txt`): `feedparser`, `anthropic`, `requests`, `beautifulsoup4`, `cohere`, `tzdata`
-
-# Decision records
+## Decision records
 
 | File | Covers |
 |------|--------|
-| [scheduling-and-ci.md](docs/decisions/scheduling-and-ci.md) | The nightly workflow: the Worker ladder, the backstop cron, `USE_SEARCH_APIS`, the `validate` job |
+| [scheduling-and-ci.md](docs/decisions/scheduling-and-ci.md) | The Worker ladder, the backstop cron, `USE_SEARCH_APIS`, the `validate` job |
 | [scoring.md](docs/decisions/scoring.md) | Ranked slot fill, fitted weights, the deep-scoring reserve, the review corpus, source verdicts |
 | [podcast-pool.md](docs/decisions/podcast-pool.md) | Holdover, the theme reserve, raw theme scores, targeted rescore, content exclusion |
 | [sources.md](docs/decisions/sources.md) | The feed health agent, rediscovered URLs, comment feeds, item identity, Apple News |
+
+Rules in `.claude/rules/`: `pipeline.md` (the 18 steps, caches, output feeds), `scoring.md` (scoring, ratings, review batch, calibration), `podcast-pool.md`, `sources.md` (sources, feed health, discovery), `ci.md` (workflows).

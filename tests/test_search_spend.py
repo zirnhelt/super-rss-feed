@@ -18,6 +18,9 @@ import super_rss_curator_json as m
 def test_disabled_topic_queries_make_no_request(monkeypatch, capsys):
     monkeypatch.setitem(m.SYSTEM, 'topic_queries', {'enabled': False})
     monkeypatch.setenv('BRAVE_API_KEY', 'test-key')
+    # The config switch alone must stop it, with search APIs on (cloud sessions
+    # export USE_SEARCH_APIS=false, which would short-circuit before the check).
+    monkeypatch.setenv('USE_SEARCH_APIS', 'true')
 
     def _no_request(*a, **k):
         raise AssertionError('topic query sent while disabled')
@@ -120,3 +123,56 @@ def test_response_text_skips_non_text_blocks_and_returns_empty_on_a_refusal():
     refusal = SimpleNamespace(content=[], stop_reason='refusal',
                               stop_details=SimpleNamespace(category='general_harms'))
     assert api_usage.response_text(refusal) == ''
+
+
+def _brave_calls() -> int:
+    return api_usage.get_summary_dict()['calls'].get('brave', 0)
+
+
+def test_brave_budget_caps_a_run_and_counts_every_call(monkeypatch):
+    """A night of mass 403s must stop at max_calls_per_run, not drain the shared cap."""
+    monkeypatch.setattr(m, 'BRAVE_MAX_CALLS_PER_RUN', 2)
+    monkeypatch.setattr(m, '_brave_call_count', 0)
+    monkeypatch.setattr(m, '_brave_quota_exceeded', False)
+    api_usage.reset()
+    assert [m._take_brave_call() for _ in range(3)] == [True, True, False]
+    assert m._brave_call_count == 2
+    assert _brave_calls() == 2
+    api_usage.reset()
+
+
+def test_brave_fallback_makes_no_request_once_the_budget_is_spent(monkeypatch):
+    monkeypatch.setenv('USE_SEARCH_APIS', 'true')
+    monkeypatch.setenv('BRAVE_API_KEY', 'test-key')
+    monkeypatch.setattr(m, 'BRAVE_MAX_CALLS_PER_RUN', 0)
+    monkeypatch.setattr(m, '_brave_call_count', 0)
+    monkeypatch.setattr(m, '_brave_quota_exceeded', False)
+
+    sent = []  # the fallback swallows exceptions, so record rather than raise
+    monkeypatch.setattr(m.requests, 'get', lambda *a, **k: sent.append(a))
+
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=48)
+    assert m._fetch_via_brave_fallback({'url': 'https://example.com/feed'}, cutoff) == []
+    assert sent == [], 'Brave request sent past the run budget'
+
+
+def test_brave_cap_is_configured():
+    assert m.SYSTEM['brave']['max_calls_per_run'] > 0
+
+
+def test_feed_discovery_brave_calls_are_counted(monkeypatch):
+    """Discovery's weekly Brave queries draw on the same cap as the nightly and the podcast."""
+    import feed_discovery
+
+    class _Resp:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {'web': {'results': [{'url': 'https://example.com/'}]}}
+
+    monkeypatch.setattr(feed_discovery.requests, 'get', lambda *a, **k: _Resp())
+    api_usage.reset()
+    assert feed_discovery._brave_search('q', 'test-key') == ['https://example.com/']
+    assert _brave_calls() == 1
+    api_usage.reset()

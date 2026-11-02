@@ -19,6 +19,10 @@
     {"source": "100 Mile Free Press", "base_url": "https://100milefreepress.net", "news_url": "https://100milefreepress.net/"}
   ],
   "lookback_hours": 48,
+  "brave": {
+    "max_calls_per_run": 25,
+    "_note": "Ceiling on Brave Search calls per curator run (403 fallbacks + topic queries). The key is shared with curated-podcast-generator, whose research budget is the same monthly cap. Late-October nights use 0-3 calls; this only stops a night of mass 403s. feed_discovery.py has its own weekly list (BRAVE_SEARCH_TOPICS)."
+  },
   "topic_queries": {
     "enabled": false,
     "_note": "Off since 2026-09-23; kept off after the trial, reviewed 2026-10-11. The 45 queries in topic_queries.json cost ~47 Brave calls a night on a Search key the podcast shares, and on 2026-09-23 had supplied 1 of 467 category-feed items and 15 of 569 podcast-feed items. Across the trial, weekly noise-to-signal held at 2.28-2.39 and Brave fell to ~10 calls a week. Set true to restore. Feed-recovery searches for failing feeds are unaffected."

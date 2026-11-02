@@ -105,6 +105,14 @@ jobs:
             --summary-file discovery_summary.md \
             --actions-file discovery_actions.json
 
+      # Bot pushes use GITHUB_TOKEN and trigger no workflows, so tests.yml never
+      # sees this change: validate here, before it reaches main.
+      - name: Validate before committing
+        run: |
+          pip install -q pytest
+          python config_loader.py
+          python -m pytest tests/ -q
+
       - name: Create Pull Request with discoveries
         id: cpr
         if: success()
@@ -170,6 +178,14 @@ jobs:
             --heal-actions-file feed_health_actions.json \
             ${{ inputs.feed_health_dry_run && '--dry-run' || '' }}
 
+      # Bot pushes use GITHUB_TOKEN and trigger no workflows, so tests.yml never
+      # sees this change: validate here, before it reaches main.
+      - name: Validate before committing
+        run: |
+          pip install -q pytest
+          python config_loader.py
+          python -m pytest tests/ -q
+
       - name: Commit feed health fixes to main branch
         run: |
           git config user.name "github-actions[bot]"
@@ -214,6 +230,14 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CALIBRATION_DRY_RUN: ${{ inputs.calibration_dry_run && 'true' || 'false' }}
         run: python calibration_agent.py
+
+      # Bot pushes use GITHUB_TOKEN and trigger no workflows, so tests.yml never
+      # sees this change: validate here, before it reaches main.
+      - name: Validate before committing
+        run: |
+          pip install -q pytest
+          python config_loader.py
+          python -m pytest tests/ -q
 
       - name: Commit calibration results to main branch
         run: |
@@ -265,6 +289,14 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FEEDBACK_DRY_RUN: ${{ inputs.feedback_dry_run && 'true' || 'false' }}
         run: python feedback_trainer.py
+
+      # Bot pushes use GITHUB_TOKEN and trigger no workflows, so tests.yml never
+      # sees this change: validate here, before it reaches main.
+      - name: Validate before committing
+        run: |
+          pip install -q pytest
+          python config_loader.py
+          python -m pytest tests/ -q
 
       - name: Commit training results
         run: |

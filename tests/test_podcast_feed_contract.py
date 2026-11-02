@@ -70,3 +70,44 @@ def test_no_contract_key_is_removed_after_it_is_written():
                 and node.func.attr == "pop" and node.args
                 and isinstance(node.args[0], ast.Constant)):
             assert node.args[0].value not in keys, f"pop of contract key {node.args[0].value}"
+
+
+# ── The rest of what curated-podcast-generator depends on ─────────────────────
+# Its Cloudflare Worker (cloudflare/scheduler/src/index.ts) dispatches
+# generate-feed.yml by file name with a `run_slot` input, its review job
+# dispatches refresh-editorial.yml, and its Sunday Meta Moment reads `_changes`
+# and `date_published` from weekly-state-article.json on main. A rename here
+# fails silently there: change both repos together.
+
+ROOT = SOURCE.parent
+WORKFLOWS = ROOT / ".github" / "workflows"
+
+
+def _dispatch_inputs(workflow: str) -> str:
+    text = (WORKFLOWS / workflow).read_text(encoding="utf-8")
+    assert "workflow_dispatch:" in text, f"{workflow} can no longer be dispatched"
+    return text
+
+
+def test_worker_dispatch_target_keeps_its_name_and_run_slot_input():
+    text = _dispatch_inputs("generate-feed.yml")
+    assert "\n      run_slot:\n" in text, "generate-feed.yml lost its `run_slot` input"
+    assert "required: false" in text.split("run_slot:", 1)[1].split("\n\n", 1)[0]
+
+
+def test_editorial_refresh_stays_dispatchable():
+    _dispatch_inputs("refresh-editorial.yml")
+
+
+def test_weekly_state_keeps_the_keys_the_meta_moment_reads():
+    import json
+
+    tree = ast.parse((ROOT / "generate_weekly_report.py").read_text(encoding="utf-8"))
+    written = set()
+    for node in ast.walk(tree):
+        if (isinstance(node, ast.Assign) and isinstance(node.value, ast.Dict)
+                and any(getattr(t, "id", None) == "article" for t in node.targets)):
+            written |= _literal_keys(node.value)
+    assert {"_changes", "date_published"} <= written, "generate_weekly_report.py stopped writing them"
+    committed = json.loads((ROOT / "weekly-state-article.json").read_text(encoding="utf-8"))
+    assert {"_changes", "date_published"} <= committed.keys()
