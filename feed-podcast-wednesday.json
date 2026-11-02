@@ -23,9 +23,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Repair Culture & Practical Tech' — the right to repair movement, gear that outlasts its manufacturer, DIY fixes, and tools built for longevity.\n\nOUT OF SCOPE — score 0-9: geopolitical conflict; natural disasters without an engineering or preparedness angle; wildlife and conservation; working-lands policy; Indigenous governance; science discoveries with no DIY or hardware relevance; financial market news.\n\nCALIBRATION — apply this ladder to everything else. Hands-on hardware journalism counts fully even without an explicit right-to-repair hook.\n- 80-100: Directly about repairability — right-to-repair legislation wins and losses, iFixit-style teardowns scoring repairability, gear designed for user serviceability, products outliving manufacturer support and how owners keep them running, permacomputing, vintage hardware still in active use, open-source hardware, Rossmann-style repair advocacy, 3D-printed replacement parts, battery replacement guides, rural and off-grid repair self-sufficiency.\n- 55-79: Hands-on maker and DIY content — builds, modifications, hardware hacks, workshop projects, practical electronics guides with real technical depth, 3D printing hardware and filament, off-grid and solar gear, home lab hardware, tools and workshop equipment, battery and power tech. Most genuine hands-on hardware journalism belongs HERE, not below.\n- 30-54: Gadget and device reviews with some technical substance; consumer electronics touching software longevity or ecosystem lock-in; hardware whose selling point is open firmware or modular design.\n- 10-29: Surface-level product announcements, gadget speculation, leaked specs, general tech news with no hardware or repair angle.\n\nANCHORS: 'Framework Laptop 16 teardown: a 9/10 repairability score' → 98. 'Oregon's right-to-repair law takes effect' → 92. 'Building a solar-powered Raspberry Pi weather station' → 68. 'Samsung teases thinner bezels on next Galaxy' → 15.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-11-01T06:08:15.138027+00:00",
-    "article_count": 102,
-    "bonus_count": 78,
+    "generated_at": "2026-11-02T06:07:03.327059+00:00",
+    "article_count": 100,
+    "bonus_count": 70,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -47,11 +47,11 @@
       "_quality": 70,
       "_relevance": 55,
       "_local": 0,
-      "_theme_score": 95,
+      "_theme_score": 93,
       "_theme_score_raw": 52,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 84,
+      "_composite_podcast": 82,
       "_keyword_matches": 0,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
@@ -75,7 +75,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 99,
+      "_theme_score": 98,
       "_theme_score_raw": 62,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -85,6 +85,39 @@
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://hackaday.com/wp-content/uploads/2026/10/echo_dot_home_assistant_mod_andys_tech_lab_youtube.jpg"
+    },
+    {
+      "id": "https://blog.adafruit.com/2026/10/28/e486-web-a-standalone-pure-javascript-intel-80486dx2-pc-web-emulator/",
+      "url": "https://blog.adafruit.com/2026/10/28/e486-web-a-standalone-pure-javascript-intel-80486dx2-pc-web-emulator/",
+      "title": "[Adafruit Blog] e486-web: a standalone pure-JavaScript Intel 80486DX2 PC web emulator",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F28%2Fe486-web-a-standalone-pure-javascript-intel-80486dx2-pc-web-emulator%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nJan de Jager has published e486-web on GitHub, an Intel 80486DX2-66 PC emulator written entirely in ES6 JavaScript. It runs in the browser with no dependencies and no build step. The emulator covers the CPU, the motherboard, and modular ISA and VLB adapter cards. It boots real unmodified firmware: SeaBIOS and a VGA BIOS, then […]",
+      "summary": "Jan de Jager has published e486-web on GitHub, an Intel 80486DX2-66 PC emulator written entirely in ES6 JavaScript. It runs in the browser with no dependencies and no build step. The emulator covers the CPU, the motherboard, and modular ISA and VLB adapter cards. It boots real unmodified firmware:",
+      "_excerpt": "Jan de Jager has published e486-web on GitHub, an Intel 80486DX2-66 PC emulator written entirely in ES6 JavaScript. It runs in the browser with no dependencies and no build step. The emulator covers the CPU, the motherboard, and modular ISA and VLB adapter cards. It boots real unmodified firmware: SeaBIOS and a VGA BIOS, then […]",
+      "date_published": "2026-10-28T17:48:12+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 92,
+      "_theme_score_raw": 50,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 80,
+      "_keyword_matches": 3,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
     },
     {
       "id": "https://hackaday.com/2026/10/28/turning-an-old-phones-motherboard-into-an-rc-plane-controller/",
@@ -104,11 +137,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 99,
+      "_theme_score": 98,
       "_theme_score_raw": 62,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 81,
+      "_composite_podcast": 80,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -138,28 +171,33 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 95,
+      "_theme_score": 93,
       "_theme_score_raw": 52,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 81,
+      "_composite_podcast": 80,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
     },
     {
-      "id": "https://blog.adafruit.com/2026/10/28/hacking-a-marine-radio-dish/",
-      "url": "https://blog.adafruit.com/2026/10/28/hacking-a-marine-radio-dish/",
-      "title": "[Adafruit Blog] Hacking a marine radio dish",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F10%2F28%2Fhacking-a-marine-radio-dish%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nmelanpan.nl picked up a used Intellian i4 marine satellite dish on Marktplaats for about €200, against a new price near €4000. The dish uses stepper motors, a quad LNB, and an indoor Antenna Control Unit with Ethernet, WiFi and RS-232. The ACU expects a boat to tell it where it is and which way it […]",
-      "summary": "melanpan.nl picked up a used Intellian i4 marine satellite dish on Marktplaats for about €200, against a new price near €4000. The dish uses stepper motors, a quad LNB, and an indoor Antenna Control Unit with Ethernet, WiFi and RS-232. The ACU expects a boat to tell it where it is and which way it",
-      "_excerpt": "melanpan.nl picked up a used Intellian i4 marine satellite dish on Marktplaats for about €200, against a new price near €4000. The dish uses stepper motors, a quad LNB, and an indoor Antenna Control Unit with Ethernet, WiFi and RS-232. The ACU expects a boat to tell it where it is and which way it […]",
-      "date_published": "2026-10-28T16:22:39+00:00",
+      "id": "https://hackaday.com/2026/10/31/upgrading-an-action-camera-with-an-external-battery/",
+      "url": "https://hackaday.com/2026/10/31/upgrading-an-action-camera-with-an-external-battery/",
+      "title": "[Hackaday] Upgrading an Action Camera with an External Battery",
+      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/action_camera_battery.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F31%2Fupgrading-an-action-camera-with-an-external-battery%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"A person's hands are shown holding a small camera. An aluminium cage runs around the outside of the camera, the viewfinder display is tilted up, and below the viewfinder a battery is mounted.\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/10/action_camera_battery.png?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>[Evan Monsma], the prolific experimenter with cameras, found himself with an issue: he had a small Sony action camera with good performance in every respect but battery life, which was <a class=\"read-more\" href=\"https://hackaday.com/2026/10/31/upgrading-an-action-camera-with-an-external-battery/\">…read more</a>",
+      "summary": "[Evan Monsma], the prolific experimenter with cameras, found himself with an issue: he had a small Sony action camera with good performance in every respect but battery life, which was …read more",
+      "_excerpt": "[Evan Monsma], the prolific experimenter with cameras, found himself with an issue: he had a small Sony action camera with good performance in every respect but battery life, which was …read more",
+      "date_published": "2026-11-01T02:00:00+00:00",
       "authors": [
         {
-          "name": "Adafruit Blog",
-          "url": "https://blog.adafruit.com"
+          "name": "Hackaday",
+          "url": "https://hackaday.com"
         }
       ],
       "ai_score": 50,
@@ -167,14 +205,15 @@
       "_relevance": 0,
       "_local": 0,
       "_theme_score": 97,
-      "_theme_score_raw": 58,
+      "_theme_score_raw": 60,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 81,
+      "_composite_podcast": 79,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true
+      "_is_bonus": true,
+      "image": "https://hackaday.com/wp-content/uploads/2026/10/action_camera_battery.png"
     },
     {
       "id": "https://www.theverge.com/policy/1019851/fcc-foreign-gadget-ban-drone-robot-roomba-storystream",
@@ -194,11 +233,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 90,
+      "_theme_score": 87,
       "_theme_score_raw": 42,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 80,
+      "_composite_podcast": 78,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -212,64 +251,6 @@
         "label": "Indigenous Lands & Innovation",
         "shown_at": "2026-10-29T06:12:40.113624+00:00"
       }
-    },
-    {
-      "id": "https://hackaday.com/2026/10/29/an-attempt-at-a-useful-desktop-os-for-microcontrollers/",
-      "url": "https://hackaday.com/2026/10/29/an-attempt-at-a-useful-desktop-os-for-microcontrollers/",
-      "title": "[Hackaday] An Attempt at a Useful Desktop OS For Microcontrollers",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/10/sylphide-os-featured.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fhackaday.com%2F2026%2F10%2F29%2Fan-attempt-at-a-useful-desktop-os-for-microcontrollers%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/10/sylphide-os-featured.jpg?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>We’re living at an interesting time here in 2026, when microcontrollers are becoming powerful enough to surpass the capabilities of “real” computers from a time when those real computers were <a class=\"read-more\" href=\"https://hackaday.com/2026/10/29/an-attempt-at-a-useful-desktop-os-for-microcontrollers/\">…read more</a>",
-      "summary": "We’re living at an interesting time here in 2026, when microcontrollers are becoming powerful enough to surpass the capabilities of “real” computers from a time when those real computers were …read more",
-      "_excerpt": "We’re living at an interesting time here in 2026, when microcontrollers are becoming powerful enough to surpass the capabilities of “real” computers from a time when those real computers were …read more",
-      "date_published": "2026-10-29T20:00:12+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "ai_score": 47,
-      "_quality": 70,
-      "_relevance": 55,
-      "_local": 0,
-      "_theme_score": 92,
-      "_theme_score_raw": 45,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 80,
-      "_keyword_matches": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "image": "https://hackaday.com/wp-content/uploads/2026/10/sylphide-os-featured.jpg"
-    },
-    {
-      "id": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
-      "url": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
-      "title": "[Neowin] Anduril and Qualcomm want to build an American laptop that doesn't depend on China",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_full.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.neowin.net%2Fnews%2Fanduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china%2F%3Futm_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div style=\"float:left;margin-right:10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_medium.webp\"/></div>Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. <a href=\"https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/\">Read more...</a>",
-      "summary": "Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. Read more...",
-      "_excerpt": "Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. Read more...",
-      "date_published": "2026-10-27T17:26:01+00:00",
-      "authors": [
-        {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 90,
-      "_theme_score_raw": 42,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 79,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_full.webp"
     },
     {
       "id": "https://www.popularwoodworking.com/tools/air-fasteners-101/",
@@ -289,7 +270,7 @@
       "_quality": 45,
       "_relevance": 55,
       "_local": 0,
-      "_theme_score": 93,
+      "_theme_score": 91,
       "_theme_score_raw": 48,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -304,25 +285,25 @@
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
-      "url": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
-      "title": "[The Verge] Anduril now says its BlueChip laptop will meet Buy American standards at launch",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpolicy%2F1021554%2Fanduril-bluechip-65-percent-domestic-buy-american\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nOn Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a single Made-in-USA laptop would be a surprise, because no […]",
-      "summary": "On Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a",
-      "_excerpt": "On Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a single Made-in-USA laptop would be a surprise, because no […]",
-      "date_published": "2026-10-29T02:22:46+00:00",
+      "id": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
+      "url": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
+      "title": "[Neowin] Anduril and Qualcomm want to build an American laptop that doesn't depend on China",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_full.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.neowin.net%2Fnews%2Fanduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china%2F%3Futm_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div style=\"float:left;margin-right:10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_medium.webp\"/></div>Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. <a href=\"https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/\">Read more...</a>",
+      "summary": "Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. Read more...",
+      "_excerpt": "Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. Read more...",
+      "date_published": "2026-10-27T17:26:01+00:00",
       "authors": [
         {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
         }
       ],
-      "ai_score": 60,
+      "ai_score": 55,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
       "_theme_score": 87,
-      "_theme_score_raw": 38,
+      "_theme_score_raw": 42,
       "_kite_sources": 0,
       "_kite_context": "",
       "_composite_podcast": 77,
@@ -330,38 +311,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News"
-    },
-    {
-      "id": "https://www.eevblog.com/2026/10/31/eevblog-1783-can-ai-reverse-engineer-the-121gw-multimeter-firmware/",
-      "url": "https://www.eevblog.com/2026/10/31/eevblog-1783-can-ai-reverse-engineer-the-121gw-multimeter-firmware/",
-      "title": "EEVblog 1783 – Can AI Reverse Engineer the 121GW Multimeter Firmware?",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.eevblog.com%2F2026%2F10%2F31%2Feevblog-1783-can-ai-reverse-engineer-the-121gw-multimeter-firmware%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCan AI Reverse Engineer the 121GW Multimeter Firmware? Using Cursor with Reverse Engineer Anything and Claude to reverse engineer the 121GW firmware from the binary and the schematic. 00:00 – Using Cursor with the Reverse Engineer Anything MCP 00:47 – Reverse engineered Rigol Oscilloscope operating systewm 03:40 – First shot at using Cursor 06:57 – …",
-      "summary": "Can AI Reverse Engineer the 121GW Multimeter Firmware? Using Cursor with Reverse Engineer Anything and Claude to reverse engineer the 121GW firmware from the binary and the schematic. 00:00 – Using Cursor with the Reverse Engineer Anything MCP 00:47 – Reverse engineered Rigol Oscilloscope operating",
-      "_excerpt": "Can AI Reverse Engineer the 121GW Multimeter Firmware? Using Cursor with Reverse Engineer Anything and Claude to reverse engineer the 121GW firmware from the binary and the schematic. 00:00 – Using Cursor with the Reverse Engineer Anything MCP 00:47 – Reverse engineered Rigol Oscilloscope operating systewm 03:40 – First shot at using Cursor 06:57 – …",
-      "date_published": "2026-10-31T03:28:40+00:00",
-      "authors": [
-        {
-          "name": "EEVblog",
-          "url": "https://www.eevblog.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 40,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 76,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false
+      "image": "https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_full.webp"
     },
     {
       "id": "https://www.lorameshdevices.com/blog/meshtastic/this-tiny-meshtastic-node-is-solar-ready-base-uno-first-look.html",
@@ -391,10 +341,126 @@
       "_source_category": "homelab",
       "_is_bonus": false,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-01T06:08:00.497046+00:00"
       }
+    },
+    {
+      "id": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
+      "url": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
+      "title": "[The Verge] Anduril now says its BlueChip laptop will meet Buy American standards at launch",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpolicy%2F1021554%2Fanduril-bluechip-65-percent-domestic-buy-american\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nOn Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a single Made-in-USA laptop would be a surprise, because no […]",
+      "summary": "On Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a",
+      "_excerpt": "On Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a single Made-in-USA laptop would be a surprise, because no […]",
+      "date_published": "2026-10-29T02:22:46+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 84,
+      "_theme_score_raw": 38,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 75,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News"
+    },
+    {
+      "id": "https://www.redmondpie.com/apple-confirms-iphone-duo-display-cracking-issue-in-memo-to-its-retail-stores/",
+      "url": "https://www.redmondpie.com/apple-confirms-iphone-duo-display-cracking-issue-in-memo-to-its-retail-stores/",
+      "title": "[redmondpie.com] Apple tells stores to inspect cracked iPhone Duo screens",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.redmondpie.com%2Fapple-confirms-iphone-duo-display-cracking-issue-in-memo-to-its-retail-stores%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nApple has told its retail stores and authorized service providers to inspect iPhone Duo foldable phones with cracked inner displays and repair or replace them under standard procedures after acknowledging a problem affecting a “small number” of units. The phone went on sale Oct. 23, and owners began reporting cracks along the hinge within days, sometimes accompanied by bright lines across the screen.\n\nApple says most units are unaffected but has not disclosed how many phones are affected or confirmed a cause. It has announced neither a recall nor a public repair program. A teardown by repair specialist iFixit suggested a hinge problem, but Apple has not confirmed that explanation. Owners experiencing the defect should contact AppleCare for a replacement. New online orders were estimated to arrive in January 2027.",
+      "summary": "Apple has told its retail stores and authorized service providers to inspect iPhone Duo foldable phones with cracked inner displays and repair or replace them under standard procedures after acknowledging a problem affecting a “small number” of units. The phone went on sale Oct. 23, and owners",
+      "_excerpt": "Apple has told its retail stores and authorized service providers to inspect iPhone Duo foldable phones with cracked inner displays and repair or replace them under standard procedures after acknowledging a problem affecting a “small number” of units (redmondpie.com, macobserver.com, iphoneincanada.ca). The phone went on sale Oct. 23, and owners began reporting cracks along the hinge within days, sometimes accompanied by bright lines across the screen (reddit.com, tech-insider.org). Apple says most units are unaffected but has not disclosed how many phones are affected or confirmed a cause. It has announced neither a recall nor a public repair program (macobserver.com, reddit.com, iphoneincanada.ca). A teardown by repair specialist iFixit suggested a hinge problem, but Apple has not confirmed that explanation (reddit.com, tech-insider.org). Owners experiencing the defect should contact AppleCare for a replacement. New online orders were estimated to arrive in January 2027 (redmondpie.com). Coverage terms: AppleCare+ coverage is not required for a replacement related to the defect, and customers who bought through carriers can contact AppleCare directly (macobserver.com). Early failures: One Australian owner said the display cracked after fewer than 20 openings and about six hours of use (reddit.com, birminghammail.co.uk). Repairability score: iFixit rated the foldable 5 out of 10 for repairability, according to Shattered.io’s summary of the teardown (shattered.io). Rival response: Samsung Malaysia and Saudi Arabia posted clips suggesting Galaxy Z Fold 8 screens had cracked before revealing the damage was fake; an Australian post showed the device opening intact (blognone.com).",
+      "date_published": "2026-10-31T17:42:48+00:00",
+      "authors": [
+        {
+          "name": "redmondpie.com",
+          "url": "https://www.redmondpie.com"
+        }
+      ],
+      "ai_score": 18,
+      "_quality": 30,
+      "_relevance": 20,
+      "_local": 0,
+      "_theme_score": 98,
+      "_theme_score_raw": 62,
+      "_kite_sources": 12,
+      "_kite_context": "Perspective: Francisco Jeronimo, IDC vice-president of data and analytics: It was too early to judge the scale of the display issue, Jeronimo said, describing defects as common when a new product reaches the market (birminghammail.co.uk). (Birmingham Live)\nPerspective: Samsung: The company used social media posts to contrast Apple’s first foldable with its own history in the category, including a Canadian post saying, “Folding is nothing new to us” (blognone.com). (Blognone)\nTimeline: 23 October 2026: iPhone Duo went on sale; owners began posting crack reports (tech-insider.org, reddit.com)\nTimeline: 26 October 2026: Apple publicly acknowledged a small number of display failures (shattered.io, tech-insider.org)\nTimeline: 31 October 2026: Reports detailed Apple's inspection and repair guidance to stores (redmondpie.com, macobserver.com)\nBackground: Samsung encountered problems with its original Galaxy Fold in 2019. IDC vice-president Francisco Jeronimo cited that precedent when discussing how a company’s response can affect confidence in the foldable-phone category (birminghammail.co.uk).",
+      "_composite_podcast": 74,
+      "_keyword_matches": 4,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false
+    },
+    {
+      "id": "https://forum.bambulab.com/t/repeated-print-profile-abuse-by-multiple-accounts/257515?page=4#post_82",
+      "url": "https://forum.bambulab.com/t/repeated-print-profile-abuse-by-multiple-accounts/257515?page=4#post_82",
+      "title": "[Bambu Lab Community Forum - Latest posts] Repeated print profile abuse by multiple accounts",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fforum.bambulab.com%2Ft%2Frepeated-print-profile-abuse-by-multiple-accounts%2F257515%3Fpage%3D4%23post_82\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Well, well; something finally happened here as all models and print profiles from a major offender are gone. I think he had almost 1000 print profiles alone.</p>\n<header class=\"source\">\n<img alt=\"\" class=\"site-icon\" height=\"400\" src=\"https://or-cloud-forum-prod.s3.us-west-2.amazonaws.com/original/3X/1/c/1c24b83c1500163989015ea75cfe140f0b31d275.png\" width=\"400\"/>\n<a href=\"https://makerworld.com/en/@user_4186545507/profile\" rel=\"noopener noreferrer\" target=\"_blank\">makerworld.com</a>\n</header>\n<article class=\"onebox-body\">\n<div class=\"aspect-image\"><img alt=\"\" class=\"thumbnail\" height=\"359\" src=\"https://cdn-forum.bambulab.com/optimized/3X/9/2/92fd0aa4de233016d9ebca9b28163847f45cb54f_2_690x359.jpeg\" width=\"690\"/></div>\n<h3><a href=\"https://makerworld.com/en/@user_4186545507/profile\" rel=\"noopener noreferrer\" target=\"_blank\">RAPUN | Published - MakerWorld</a></h3>\n<p>MakerWorld is the leading 3D printing model community for designers and makers. Download thousands of free 3D models and STL files from the No.1 destination for multicolor designs.</p>\n</article>\n<div class=\"onebox-metadata\">\n</div>\n<div style=\"clear:both;\"></div>\n",
+      "summary": "Well, well; something finally happened here as all models and print profiles from a major offender are gone. I think he had almost 1000 print profiles alone. makerworld.com RAPUN | Published - MakerWorld MakerWorld is the leading 3D printing model community for designers and makers. Download",
+      "_excerpt": "Well, well; something finally happened here as all models and print profiles from a major offender are gone. I think he had almost 1000 print profiles alone. makerworld.com RAPUN | Published - MakerWorld MakerWorld is the leading 3D printing model community for designers and makers. Download thousands of free 3D models and STL files from the No.1 destination for multicolor designs.",
+      "date_published": "2026-11-02T04:40:15+00:00",
+      "authors": [
+        {
+          "name": "Bambu Lab Community Forum - Latest posts",
+          "url": "https://forum.bambulab.com/latest"
+        }
+      ],
+      "ai_score": 31,
+      "_quality": 35,
+      "_relevance": 40,
+      "_local": 0,
+      "_theme_score": 89,
+      "_theme_score_raw": 45,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 74,
+      "_keyword_matches": 2,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": false
+    },
+    {
+      "id": "https://www.eevblog.com/2026/10/31/eevblog-1783-can-ai-reverse-engineer-the-121gw-multimeter-firmware/",
+      "url": "https://www.eevblog.com/2026/10/31/eevblog-1783-can-ai-reverse-engineer-the-121gw-multimeter-firmware/",
+      "title": "EEVblog 1783 – Can AI Reverse Engineer the 121GW Multimeter Firmware?",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.eevblog.com%2F2026%2F10%2F31%2Feevblog-1783-can-ai-reverse-engineer-the-121gw-multimeter-firmware%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCan AI Reverse Engineer the 121GW Multimeter Firmware? Using Cursor with Reverse Engineer Anything and Claude to reverse engineer the 121GW firmware from the binary and the schematic. 00:00 – Using Cursor with the Reverse Engineer Anything MCP 00:47 – Reverse engineered Rigol Oscilloscope operating systewm 03:40 – First shot at using Cursor 06:57 – …",
+      "summary": "Can AI Reverse Engineer the 121GW Multimeter Firmware? Using Cursor with Reverse Engineer Anything and Claude to reverse engineer the 121GW firmware from the binary and the schematic. 00:00 – Using Cursor with the Reverse Engineer Anything MCP 00:47 – Reverse engineered Rigol Oscilloscope operating",
+      "_excerpt": "Can AI Reverse Engineer the 121GW Multimeter Firmware? Using Cursor with Reverse Engineer Anything and Claude to reverse engineer the 121GW firmware from the binary and the schematic. 00:00 – Using Cursor with the Reverse Engineer Anything MCP 00:47 – Reverse engineered Rigol Oscilloscope operating systewm 03:40 – First shot at using Cursor 06:57 – …",
+      "date_published": "2026-10-31T03:28:40+00:00",
+      "authors": [
+        {
+          "name": "EEVblog",
+          "url": "https://www.eevblog.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 85,
+      "_theme_score_raw": 40,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 74,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false
     },
     {
       "id": "https://blog.prusa3d.com/printing-the-proof-how-prusament-and-3d-printing-shape-the-caim1-camera_139186/",
@@ -414,11 +480,11 @@
       "_quality": 50,
       "_relevance": 50,
       "_local": 0,
-      "_theme_score": 82,
+      "_theme_score": 80,
       "_theme_score_raw": 30,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 73,
+      "_composite_podcast": 72,
       "_keyword_matches": 1,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
@@ -426,64 +492,34 @@
       "image": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-blog-prod/2026/10/2946c196-nextgen_camera_blog-698x325.png"
     },
     {
-      "id": "https://www.mycariboonow.com/317082/news/business/economy/ottawa-designates-roberts-bank-terminal-2-expansion-a-project-of-national-interest/",
-      "url": "https://www.mycariboonow.com/317082/news/business/economy/ottawa-designates-roberts-bank-terminal-2-expansion-a-project-of-national-interest/",
-      "title": "[My Cariboo Now] Ottawa designates Roberts Bank Terminal 2 expansion a project of national interest",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F317082%2Fnews%2Fbusiness%2Feconomy%2Fottawa-designates-roberts-bank-terminal-2-expansion-a-project-of-national-interest%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/07/anastasiya-dalenka-jjX1-W5ePcE-unsplash-scaled-1.jpg?fit=696%2C392&amp;quality=89&amp;ssl=1\" width=\"696\"/>The federal government has listed the Roberts Bank Terminal 2 expansion at the Port of Vancouver as a project of national interest.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/317082/news/business/economy/ottawa-designates-roberts-bank-terminal-2-expansion-a-project-of-national-interest/\">Ottawa designates Roberts Bank Terminal 2 expansion a project of national interest</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "summary": "The federal government has listed the Roberts Bank Terminal 2 expansion at the Port of Vancouver as a project of national interest. The post Ottawa designates Roberts Bank Terminal 2 expansion a project of national interest appeared first on My Cariboo Now .",
-      "_excerpt": "The federal government has listed the Roberts Bank Terminal 2 expansion at the Port of Vancouver as a project of national interest. The post Ottawa designates Roberts Bank Terminal 2 expansion a project of national interest appeared first on My Cariboo Now .",
-      "date_published": "2026-10-31T00:48:20+00:00",
+      "id": "https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block",
+      "url": "https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block",
+      "title": "[Tom's Hardware] Leaked video exposes how industrial-scale Chinese factories are dismantling RTX 5090s by the thousands to fuel AI servers",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/bBGEYE8htq38xZgt4xCdTQ-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fpc-components%2Fgpus%2Fleaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWondering why RTX 5090s are so hard to find? Leaked footage shows thousands of consumer GPUs, including Founders Editions, being torn apart for AI servers.",
+      "summary": "Wondering why RTX 5090s are so hard to find? Leaked footage shows thousands of consumer GPUs, including Founders Editions, being torn apart for AI servers.",
+      "_excerpt": "Wondering why RTX 5090s are so hard to find? Leaked footage shows thousands of consumer GPUs, including Founders Editions, being torn apart for AI servers.",
+      "date_published": "2026-10-24T11:15:00+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
         }
       ],
-      "ai_score": 54,
-      "_quality": 60,
-      "_relevance": 50,
-      "_local": 60,
-      "_theme_score": 84,
-      "_theme_score_raw": null,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 73,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true
-    },
-    {
-      "id": "https://www.theverge.com/podcast/1023194/the-delightfully-messy-state-of-apple-gadgets",
-      "url": "https://www.theverge.com/podcast/1023194/the-delightfully-messy-state-of-apple-gadgets",
-      "title": "[The Verge] The delightfully messy state of Apple gadgets",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpodcast%2F1023194%2Fthe-delightfully-messy-state-of-apple-gadgets\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe iPhone has more screens! The MacBook has a touchscreen! The HomeView does CarPlay apps! For the first time in a long time, Apple is in a period of unabashed gadget experimentation, and while the final results aren't always perfect, it's fun to watch the most successful product maker try some new things again. Even […]",
-      "summary": "The iPhone has more screens! The MacBook has a touchscreen! The HomeView does CarPlay apps! For the first time in a long time, Apple is in a period of unabashed gadget experimentation, and while the final results aren't always perfect, it's fun to watch the most successful product maker try some",
-      "_excerpt": "The iPhone has more screens! The MacBook has a touchscreen! The HomeView does CarPlay apps! For the first time in a long time, Apple is in a period of unabashed gadget experimentation, and while the final results aren't always perfect, it's fun to watch the most successful product maker try some new things again. Even […]",
-      "date_published": "2026-10-30T17:25:20+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 51,
+      "ai_score": 50,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 73,
-      "_theme_score_raw": 18,
+      "_theme_score": 99,
+      "_theme_score_raw": 72,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 72,
-      "_keyword_matches": 2,
+      "_composite_podcast": 67,
+      "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News"
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/bBGEYE8htq38xZgt4xCdTQ-1920-80.jpg"
     },
     {
       "id": "https://www.popularwoodworking.com/tricks/drill-a-centered-hole-in-a-sphere/",
@@ -503,11 +539,11 @@
       "_quality": 55,
       "_relevance": 60,
       "_local": 0,
-      "_theme_score": 77,
+      "_theme_score": 75,
       "_theme_score_raw": 22,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 68,
+      "_composite_podcast": 66,
       "_keyword_matches": 0,
       "_category": "homelab",
       "_source_category": "homelab",
@@ -515,100 +551,12 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://flowingdata.com/2026/10/23/primer-for-geospatial-embeddings/",
-      "url": "https://flowingdata.com/2026/10/23/primer-for-geospatial-embeddings/",
-      "title": "[FlowingData] Primer for geospatial embeddings",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fflowingdata.com%2F2026%2F10%2F23%2Fprimer-for-geospatial-embeddings%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><a href=\"https://flowingdata.com/2026/10/23/primer-for-geospatial-embeddings/\"><img src=\"https://flowingdata.com/wp-content/uploads/2026/10/embeddings-crochet-e1792517029720-750x548.png\" style=\"height:auto;\"/></a></p>For Development Seed, Kiri Carini and Martha Morrissey explain what embeddings are and…<p><strong>Tags:</strong> <a href=\"https://flowingdata.com/tag/development-seed/\" rel=\"tag\">Development Seed</a>, <a href=\"https://flowingdata.com/tag/embeddings/\" rel=\"tag\">embeddings</a>, <a href=\"https://flowingdata.com/tag/geospatial/\" rel=\"tag\">geospatial</a>, <a href=\"https://flowingdata.com/tag/guide/\" rel=\"tag\">guide</a>, <a href=\"https://flowingdata.com/tag/training/\" rel=\"tag\">training</a></p>",
-      "summary": "For Development Seed, Kiri Carini and Martha Morrissey explain what embeddings are and… Tags: Development Seed , embeddings , geospatial , guide , training",
-      "_excerpt": "For Development Seed, Kiri Carini and Martha Morrissey explain what embeddings are and… Tags: Development Seed , embeddings , geospatial , guide , training",
-      "date_published": "2026-10-23T17:30:04+00:00",
-      "authors": [
-        {
-          "name": "FlowingData",
-          "url": "https://flowingdata.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 72,
-      "_theme_score_raw": 16,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 66,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
+      "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-10-25T06:08:52.007538+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
-    },
-    {
-      "id": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
-      "url": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
-      "title": "[Hackster News] This Wireless Sensor Board Speaks Your Language",
-      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-wireless-sensor-board-speaks-your-language-f6e85723c116\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
-      "summary": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
-      "_excerpt": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
-      "date_published": "2026-10-29T13:02:24+00:00",
-      "authors": [
-        {
-          "name": "Hackster News",
-          "url": "https://www.hackster.io"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 96,
-      "_theme_score_raw": 55,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 66,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&w=400&h=300&fit=min"
-    },
-    {
-      "id": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
-      "url": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
-      "title": "[XDA Developers] Your ESP32 has PSRAM sitting there unused, and most tutorials forget to mention it",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fyour-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThere's a lot you can do with this overlooked component",
-      "summary": "There's a lot you can do with this overlooked component",
-      "_excerpt": "There's a lot you can do with this overlooked component",
-      "date_published": "2026-10-25T19:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 42,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 97,
-      "_theme_score_raw": 58,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 66,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg"
     },
     {
       "id": "https://newatlas.com/electronics/biohybrid-mesh-harvester/",
@@ -639,6 +587,66 @@
       "_is_bonus": false
     },
     {
+      "id": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
+      "url": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
+      "title": "[XDA Developers] Your ESP32 has PSRAM sitting there unused, and most tutorials forget to mention it",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fyour-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThere's a lot you can do with this overlooked component",
+      "summary": "There's a lot you can do with this overlooked component",
+      "_excerpt": "There's a lot you can do with this overlooked component",
+      "date_published": "2026-10-25T19:30:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 95,
+      "_theme_score_raw": 58,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 65,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg"
+    },
+    {
+      "id": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
+      "url": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
+      "title": "[Hackster News] This Wireless Sensor Board Speaks Your Language",
+      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-wireless-sensor-board-speaks-your-language-f6e85723c116\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
+      "summary": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
+      "_excerpt": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
+      "date_published": "2026-10-29T13:02:24+00:00",
+      "authors": [
+        {
+          "name": "Hackster News",
+          "url": "https://www.hackster.io"
+        }
+      ],
+      "ai_score": 55,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 94,
+      "_theme_score_raw": 55,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 65,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&w=400&h=300&fit=min"
+    },
+    {
       "id": "https://www.fastcompany.com/91633244/hackers-hijacked-a-claude-code-extension-exposing-yet-another-new-ai-security-risk",
       "url": "https://www.fastcompany.com/91633244/hackers-hijacked-a-claude-code-extension-exposing-yet-another-new-ai-security-risk",
       "title": "[Fast Company] Hackers hijacked a Claude Code extension, exposing yet another new AI security risk",
@@ -656,11 +664,11 @@
       "_quality": 73,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 72,
+      "_theme_score": 71,
       "_theme_score_raw": 16,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 65,
+      "_composite_podcast": 64,
       "_keyword_matches": 1,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
@@ -689,7 +697,7 @@
       "_quality": 60,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 73,
+      "_theme_score": 72,
       "_theme_score_raw": 18,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -766,64 +774,34 @@
       "_is_bonus": true
     },
     {
-      "id": "https://www.tomshardware.com/software/windows/tech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize",
-      "url": "https://www.tomshardware.com/software/windows/tech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize",
-      "title": "[Tom's Hardware] Tech sleuth claims to have found the oldest GUI application that still works with Windows 11",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/9WfJEJAx6SPbbBbEXKuZCM-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fsoftware%2Fwindows%2Ftech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA technology enthusiast claims that the oldest GUI application that still runs on Windows 11 is CDPLAYER.EXE from November 1992.",
-      "summary": "A technology enthusiast claims that the oldest GUI application that still runs on Windows 11 is CDPLAYER.EXE from November 1992.",
-      "_excerpt": "A technology enthusiast claims that the oldest GUI application that still runs on Windows 11 is CDPLAYER.EXE from November 1992.",
-      "date_published": "2026-10-31T10:00:00+00:00",
+      "id": "https://www.techradar.com/phones/a-year-after-europes-repairability-rules-came-in-are-smartphones-and-laptops-actually-getting-easier-to-repair",
+      "url": "https://www.techradar.com/phones/a-year-after-europes-repairability-rules-came-in-are-smartphones-and-laptops-actually-getting-easier-to-repair",
+      "title": "[TechRadar] One year after new EU repairability rules came into force, are our smartphones and laptops actually getting easier to repair? Here's what I found out",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/zVUamqc9mqc7D7JNuSY3y8-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fphones%2Fa-year-after-europes-repairability-rules-came-in-are-smartphones-and-laptops-actually-getting-easier-to-repair\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMore than a year after the EU's repairability rules came in, there are some real signs of improvement – but also lingering questions about the difficulty and cost of repairs. We speak to three experts to find out what has changed.",
+      "summary": "More than a year after the EU's repairability rules came in, there are some real signs of improvement – but also lingering questions about the difficulty and cost of repairs. We speak to three experts to find out what has changed.",
+      "_excerpt": "More than a year after the EU's repairability rules came in, there are some real signs of improvement – but also lingering questions about the difficulty and cost of repairs. We speak to three experts to find out what has changed.",
+      "date_published": "2026-11-01T12:00:00+00:00",
       "authors": [
         {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
         }
       ],
-      "ai_score": 45,
+      "ai_score": 55,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 97,
-      "_theme_score_raw": 58,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/9WfJEJAx6SPbbBbEXKuZCM-1920-80.jpg"
-    },
-    {
-      "id": "https://www.androidpolice.com/amaze-file-utilities-free-storage-cleanup/",
-      "url": "https://www.androidpolice.com/amaze-file-utilities-free-storage-cleanup/",
-      "title": "[Android Police] One open source app replaced three apps and freed 12GB of storage on my phone",
-      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/10/two-android-smartphones-displaying-amaze-file-utilities-storage-analysis-and-duplicate-file-cleanup-screens.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidpolice.com%2Famaze-file-utilities-free-storage-cleanup%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI'll try anything new to free up storage space",
-      "summary": "I'll try anything new to free up storage space",
-      "_excerpt": "I'll try anything new to free up storage space",
-      "date_published": "2026-10-29T23:00:10+00:00",
-      "authors": [
-        {
-          "name": "Android Police",
-          "url": "https://www.androidpolice.com"
-        }
-      ],
-      "ai_score": 21,
-      "_quality": 30,
-      "_relevance": 25,
-      "_local": 0,
-      "_theme_score": 88,
-      "_theme_score_raw": 40,
+      "_theme_score": 100,
+      "_theme_score_raw": 92,
       "_kite_sources": 0,
       "_kite_context": "",
       "_composite_podcast": 63,
-      "_keyword_matches": 0,
+      "_keyword_matches": 2,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true,
+      "_is_bonus": false,
       "_thin_body": true,
-      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/10/two-android-smartphones-displaying-amaze-file-utilities-storage-analysis-and-duplicate-file-cleanup-screens.png"
+      "image": "https://cdn.mos.cms.futurecdn.net/zVUamqc9mqc7D7JNuSY3y8-1920-80.jpg"
     },
     {
       "id": "https://www.dw.com/en/php-developers-say-key-patches-available-after-global-scare/a-79725938",
@@ -843,16 +821,76 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 64,
-      "_theme_score_raw": 12,
+      "_theme_score": 67,
+      "_theme_score_raw": 14,
       "_kite_sources": 39,
       "_kite_context": "",
-      "_composite_podcast": 61,
+      "_composite_podcast": 63,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://kagiproxy.com/img/6wJbYfBctjqE0dKW0u5u3mSi1RIj4Y7w22W5VCqO3PuiM4qkZZG7OP8X5Lrl-u4bHNHhszNkhfAG_inj65CLQ3n7nA1MUCQCzcES7vrq3Vc5_QOoXL4BYH88ZnSpTD0gGOuZDIkjxYKUEdQwgndP8xsy-q5asEEyavAa8eoYwTIZs1NND27Qx2Jg9W_20O9W9kOI2XdUausx2ohJeCeF734Lx1fB6nkyosPM_S07azn8qumclcgJoORmBJL5ZE2ICmGYXDnHI3KYxQ5zvyHt"
+    },
+    {
+      "id": "https://www.tomshardware.com/software/windows/tech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize",
+      "url": "https://www.tomshardware.com/software/windows/tech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize",
+      "title": "[Tom's Hardware] Tech sleuth claims to have found the oldest GUI application that still works with Windows 11",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/9WfJEJAx6SPbbBbEXKuZCM-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fsoftware%2Fwindows%2Ftech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA technology enthusiast claims that the oldest GUI application that still runs on Windows 11 is CDPLAYER.EXE from November 1992.",
+      "summary": "A technology enthusiast claims that the oldest GUI application that still runs on Windows 11 is CDPLAYER.EXE from November 1992.",
+      "_excerpt": "A technology enthusiast claims that the oldest GUI application that still runs on Windows 11 is CDPLAYER.EXE from November 1992.",
+      "date_published": "2026-10-31T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 95,
+      "_theme_score_raw": 58,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://cdn.mos.cms.futurecdn.net/9WfJEJAx6SPbbBbEXKuZCM-1920-80.jpg"
+    },
+    {
+      "id": "https://www.hackster.io/news/this-diy-lockpicker-has-ai-on-its-side-7264ccf5dccf",
+      "url": "https://www.hackster.io/news/this-diy-lockpicker-has-ai-on-its-side-7264ccf5dccf",
+      "title": "[Hackster News] This DIY Lockpicker Has AI on Its Side",
+      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2016658/_GL2kPTK7Qe.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-diy-lockpicker-has-ai-on-its-side-7264ccf5dccf\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDr. Kun Dániel built a DIY lockpicking robot using an ESP32, 3D-printed parts, and Claude to autonomously open pin tumbler locks.",
+      "summary": "Dr. Kun Dániel built a DIY lockpicking robot using an ESP32, 3D-printed parts, and Claude to autonomously open pin tumbler locks.",
+      "_excerpt": "Dr. Kun Dániel built a DIY lockpicking robot using an ESP32, 3D-printed parts, and Claude to autonomously open pin tumbler locks.",
+      "date_published": "2026-11-01T21:00:00+00:00",
+      "authors": [
+        {
+          "name": "Hackster News",
+          "url": "https://www.hackster.io"
+        }
+      ],
+      "ai_score": 44,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 95,
+      "_theme_score_raw": 58,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://hackster.imgix.net/uploads/attachments/2016658/_GL2kPTK7Qe.blob?auto=compress%2Cformat&w=400&h=300&fit=min"
     },
     {
       "id": "https://kk.org/cooltools/gars-tips-tools-issue-216/",
@@ -872,7 +910,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 100,
+      "_theme_score": 99,
       "_theme_score_raw": 72,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -901,7 +939,7 @@
       "_quality": 70,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 73,
+      "_theme_score": 72,
       "_theme_score_raw": 18,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -911,44 +949,76 @@
       "_source_category": "homestead",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
-      "id": "https://www.hackster.io/news/this-tiny-flying-robot-can-take-a-beating-7c58819242d9",
-      "url": "https://www.hackster.io/news/this-tiny-flying-robot-can-take-a-beating-7c58819242d9",
-      "title": "[Hackster News] This Tiny Flying Robot Can Take a Beating",
-      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2015583/_UDhxN1Q3X7.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-tiny-flying-robot-can-take-a-beating-7c58819242d9\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThis insect-inspired flying robot can survive being swatted or crushed under 11,000 times its own weight and keep flying.",
-      "summary": "This insect-inspired flying robot can survive being swatted or crushed under 11,000 times its own weight and keep flying.",
-      "_excerpt": "This insect-inspired flying robot can survive being swatted or crushed under 11,000 times its own weight and keep flying.",
-      "date_published": "2026-10-29T18:25:38+00:00",
+      "id": "https://www.androidpolice.com/amaze-file-utilities-free-storage-cleanup/",
+      "url": "https://www.androidpolice.com/amaze-file-utilities-free-storage-cleanup/",
+      "title": "[Android Police] One open source app replaced three apps and freed 12GB of storage on my phone",
+      "content_html": "<img src=\"https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/10/two-android-smartphones-displaying-amaze-file-utilities-storage-analysis-and-duplicate-file-cleanup-screens.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.androidpolice.com%2Famaze-file-utilities-free-storage-cleanup%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nI'll try anything new to free up storage space",
+      "summary": "I'll try anything new to free up storage space",
+      "_excerpt": "I'll try anything new to free up storage space",
+      "date_published": "2026-10-29T23:00:10+00:00",
       "authors": [
         {
-          "name": "Hackster News",
-          "url": "https://www.hackster.io"
+          "name": "Android Police",
+          "url": "https://www.androidpolice.com"
         }
       ],
-      "ai_score": 45,
-      "_quality": 62,
-      "_relevance": 55,
+      "ai_score": 21,
+      "_quality": 30,
+      "_relevance": 25,
       "_local": 0,
-      "_theme_score": 86,
-      "_theme_score_raw": 35,
+      "_theme_score": 85,
+      "_theme_score_raw": 40,
       "_kite_sources": 0,
       "_kite_context": "",
       "_composite_podcast": 61,
       "_keyword_matches": 0,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
+      "_category": "news",
+      "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://hackster.imgix.net/uploads/attachments/2015583/_UDhxN1Q3X7.blob?auto=compress%2Cformat&w=400&h=300&fit=min",
+      "image": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/10/two-android-smartphones-displaying-amaze-file-utilities-storage-analysis-and-duplicate-file-cleanup-screens.png"
+    },
+    {
+      "id": "https://www.outsideonline.com/outdoor-adventure/environment/timber-thieves-podcast/",
+      "url": "https://www.outsideonline.com/outdoor-adventure/environment/timber-thieves-podcast/",
+      "title": "[Outside Online] LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.outsideonline.com%2Foutdoor-adventure%2Fenvironment%2Ftimber-thieves-podcast%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<figure><img alt=\"LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves\" src=\"https://cdn.outsideonline.com/wp-content/uploads/2026/10/Trees2.jpg?width=1200\"/></figure>\n<p>In the latest Long Read on the Outside Podcast, we read Nick Davidson’s investigative story about an investigation to bust tree poachers in the Pacific Northwest. </p>\n<p>The post <a href=\"https://www.outsideonline.com/outdoor-adventure/environment/timber-thieves-podcast/\">LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves</a> appeared first on <a href=\"https://www.outsideonline.com\">Outside Online</a>.</p>",
+      "summary": "In the latest Long Read on the Outside Podcast, we read Nick Davidson’s investigative story about an investigation to bust tree poachers in the Pacific Northwest. The post LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves appeared first on Outside Online .",
+      "_excerpt": "In the latest Long Read on the Outside Podcast, we read Nick Davidson’s investigative story about an investigation to bust tree poachers in the Pacific Northwest. The post LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves appeared first on Outside Online .",
+      "date_published": "2026-10-29T09:43:29+00:00",
+      "authors": [
+        {
+          "name": "Outside Online",
+          "url": "https://www.outsideonline.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 63,
+      "_theme_score_raw": 12,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 60,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-10-30T06:12:42.265943+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
@@ -980,6 +1050,136 @@
       "_is_bonus": true
     },
     {
+      "id": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
+      "url": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
+      "title": "[Quanta Magazine] How Do You Take a Picture of a Black Hole?",
+      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/10/JOW-S5-E11-cr.Chanelle-Nibbelink-Default-NO-LOGO.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.quantamagazine.org%2Fhow-do-you-take-a-picture-of-a-black-hole-20261029%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAstrophysicist Shep Doeleman explains how capturing the first image of a black hole required a telescope the size of the world, and why the next goal is to create a movie.            <p>The post <a href=\"https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/\" rel=\"noopener noreferrer\" target=\"_blank\">How Do You Take a Picture of a Black Hole?</a> first appeared on <a href=\"https://www.quantamagazine.org\" rel=\"noopener noreferrer\" target=\"_blank\">Quanta Magazine</a></p>",
+      "summary": "Astrophysicist Shep Doeleman explains how capturing the first image of a black hole required a telescope the size of the world, and why the next goal is to create a movie. The post How Do You Take a Picture of a Black Hole? first appeared on Quanta Magazine",
+      "_excerpt": "Astrophysicist Shep Doeleman explains how capturing the first image of a black hole required a telescope the size of the world, and why the next goal is to create a movie. The post How Do You Take a Picture of a Black Hole? first appeared on Quanta Magazine",
+      "date_published": "2026-10-29T15:11:57+00:00",
+      "authors": [
+        {
+          "name": "Quanta Magazine",
+          "url": "https://www.quantamagazine.org"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 75,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 53,
+      "_theme_score_raw": 8,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 59,
+      "_keyword_matches": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/10/JOW-S5-E11-cr.Chanelle-Nibbelink-Default-NO-LOGO.webp",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
+    },
+    {
+      "id": "https://www.hackster.io/news/this-tiny-flying-robot-can-take-a-beating-7c58819242d9",
+      "url": "https://www.hackster.io/news/this-tiny-flying-robot-can-take-a-beating-7c58819242d9",
+      "title": "[Hackster News] This Tiny Flying Robot Can Take a Beating",
+      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2015583/_UDhxN1Q3X7.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-tiny-flying-robot-can-take-a-beating-7c58819242d9\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThis insect-inspired flying robot can survive being swatted or crushed under 11,000 times its own weight and keep flying.",
+      "summary": "This insect-inspired flying robot can survive being swatted or crushed under 11,000 times its own weight and keep flying.",
+      "_excerpt": "This insect-inspired flying robot can survive being swatted or crushed under 11,000 times its own weight and keep flying.",
+      "date_published": "2026-10-29T18:25:38+00:00",
+      "authors": [
+        {
+          "name": "Hackster News",
+          "url": "https://www.hackster.io"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 62,
+      "_relevance": 55,
+      "_local": 0,
+      "_theme_score": 83,
+      "_theme_score_raw": 35,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 59,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://hackster.imgix.net/uploads/attachments/2015583/_UDhxN1Q3X7.blob?auto=compress%2Cformat&w=400&h=300&fit=min",
+      "_cross_theme": {
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-10-30T06:12:42.265943+00:00"
+      }
+    },
+    {
+      "id": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+      "title": "[blog.google] Google satellite runs Gemma AI in orbit; two-satellite test planned for 2027",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.google%2Finnovation-and-ai%2Fmodels-and-research%2Fgoogle-research%2Fproject-suncatcher-satellite-response%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nGoogle said its Project Suncatcher prototype satellite has returned its first AI-generated response from orbit. The satellite ran the Gemma 4 model on a data center-class Tensor Processing Unit (TPU) and transmitted a haiku during a ground-station pass over Svalbard, Norway. The satellite launched on Oct. 1, and Google described the response as an early milestone in research into operating AI computing hardware in space.\n\nThe experiment tests whether the hardware can function in orbit; it is not a deployed computing service. Google’s next tests will examine performance under thermal stress and radiation exposure. The company says a successful trial could lead to two interconnected satellites in 2027.",
+      "summary": "Google said its Project Suncatcher prototype satellite has returned its first AI-generated response from orbit. The satellite ran the Gemma 4 model on a data center-class Tensor Processing Unit (TPU) and transmitted a haiku during a ground-station pass over Svalbard, Norway. The satellite launched",
+      "_excerpt": "Google said its Project Suncatcher prototype satellite has returned its first AI-generated response from orbit. The satellite ran the Gemma 4 model on a data center-class Tensor Processing Unit (TPU) and transmitted a haiku during a ground-station pass over Svalbard, Norway (blog.google, pcmag.com, newspaceeconomy.ca). The satellite launched on Oct. 1, and Google described the response as an early milestone in research into operating AI computing hardware in space (ppc.land, swarajyamag.com). The experiment tests whether the hardware can function in orbit; it is not a deployed computing service. Google’s next tests will examine performance under thermal stress and radiation exposure. The company says a successful trial could lead to two interconnected satellites in 2027 (blog.google, stocktwits.com). Limited power: The spacecraft carries four TPUs and can generate up to 1 kilowatt, but power constraints allow only one processor to run for about 20 minutes at a time (slashdot.org, benchmark.pl). Further prompts: After the haiku, Google tested prompts for space-themed limericks and payload-system telemetry (blog.google, theregister.com).",
+      "date_published": "2026-11-01T01:05:58+00:00",
+      "authors": [
+        {
+          "name": "blog.google",
+          "url": "https://blog.google"
+        }
+      ],
+      "ai_score": 59,
+      "_quality": 70,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 67,
+      "_theme_score_raw": 14,
+      "_kite_sources": 12,
+      "_kite_context": "Quote: \"Our chips have officially earned their space wings — an important achievement on the long road ahead for this cosmic moonshot.\" (Travis Beals, senior director of Google’s Paradigms of Intelligence research team, Google Blog)\nTimeline: November 2025: Google unveiled Suncatcher plans for two prototype satellites and optical-link tests (ppc.land)\nTimeline: 1 October 2026: The Suncatcher prototype launched aboard SpaceX’s Transporter-18 rideshare mission (newspaceeconomy.ca, ppc.land)\nTimeline: 30 October 2026: Google announced the satellite had returned its first AI response from orbit (ppc.land, inside.com.tw)\nTimeline: 2027: Google plans to test two interconnected satellites with higher power generation (blog.google, benchmark.pl)\nBackground: Google’s 2025 research modeled an illustrative constellation of 81 satellites in low Earth orbit, arranged in a cluster with neighboring spacecraft roughly 100 to 200 meters apart. The proposed dawn-dusk orbit could provide near-continuous solar power",
+      "_composite_podcast": 59,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true
+    },
+    {
+      "id": "https://www.fastcompany.com/91629462/town-ceo-jean-denis-greze-on-why-most-people-still-dont-know-what-to-ask-ai",
+      "url": "https://www.fastcompany.com/91629462/town-ceo-jean-denis-greze-on-why-most-people-still-dont-know-what-to-ask-ai",
+      "title": "[Fast Company] Town CEO Jean-Denis Greze on why most people still don’t know what to ask AI",
+      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/10/p-1-prompt.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.fastcompany.com%2F91629462%2Ftown-ceo-jean-denis-greze-on-why-most-people-still-dont-know-what-to-ask-ai\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p class=\"wp-block-paragraph\"><a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">AI</a> agents are powerful, but most ordinary people don’t yet use them. <a href=\"https://www.town.com/\" rel=\"noopener noreferrer\" target=\"_blank\">Town</a> wants to change that. Led by CEO Jean-Denis Greze, playfully referred to as Town’s mayor, the company announced a $108 million Series B on October 19, co-led by Forerunner Ventures and Menlo Ventures, at a $1 billion valuation.  </p>\n<p class=\"wp-block-paragraph\">Greze cofounded the San Francisco startup with Tony Vincent in late 2024 after serving as CTO of Plaid, where he built up the engineering team from about 20 people to 350.</p>\n<p class=\"wp-block-paragraph\">Town’s betting it can make AI more accessible and practical for small-business owners and mid-market firms still looking for day-to-day AI benefits. </p>\n<p class=\"wp-block-paragraph\"><em>Fast Company</em> spoke with Greze about why most people still treat AI like a fancy search engine, where AI assistants can be most helpful, and why he’s working harder than he ever has before. The conversation has been edited for length and clarity.</p>\n<p class=\"wp-block-paragraph\"><strong>ChatGPT and Claude can already connect to other apps. Why do people need stand-alone AI assistants like yours?</strong></p>\n<p class=\"wp-block-paragraph\">Could Claude or ChatGPT do most of what Town does? I think the answer is, most of it, yeah, they can. But most people who use ChatGPT or Claude aren’t using those tools to do what people in tech describe as agentic work, which just means using them to actually do things for you as opposed to researching things for you. They use it more as a Google Search replacement.</p>\n<p class=\"wp-block-paragraph\">I think the biggest reason is that most people don’t really know what to put in the chat box. Putting someone in front of an empty box and asking them to write what to do, especially when the capabilities are changing all the time—that’s not onboarding.</p>\n<p class=\"wp-block-paragraph\">No one’s figured out how you take a mainstream person and get them to use these products to their full potential. That’s the market opportunity. And we may be wrong, by the way. Maybe distribution just wins, and Google, Microsoft, and OpenAI end up winning. As a startup, that’s the risk you’re taking on.</p>\n<p class=\"wp-block-paragraph\"><strong>What’s a use case that surprised you?</strong></p>\n<p class=\"wp-block-paragraph\">There’s a small travel firm at a vacation destination where people rent cars and gear, like a bike, for the day. The business is totally run over email. If something’s damaged, the employee takes pictures and sends an email to the central processing person.</p>\n<p class=\"wp-block-paragraph\">Now there’s a little workflow that at the end of the day takes all the emails with the pictures, looks at the CRM for who the people are, and drafts the emails. They were drafting 10 to 12 of these emails every day, and it wasted 25 minutes; now it takes them 5 minutes. No one’s building SaaS for that small business. </p>\n<p class=\"wp-block-paragraph\"><strong>What should we call this category of tool? An AI assistant? A chief of staff?</strong></p>\n<p class=\"wp-block-paragraph\">We call our product a Townie. If you use the word <em>assistant</em> or the phrase <em>chief of staff</em>, you have a human mental model for what an assistant does. I think what this technology does today and what it’ll do in five years will probably defy these expectations. And no one knows what a chief of staff does outside of CEOs of Fortune 500 companies.</p>\n<p class=\"wp-block-paragraph\">I actually think the right analogy for what we’re building is more like a browser or a device. When the App Store came out, suddenly a percentage of what you used to do in your web browser, you started to just do in your phone. Adding AI assistance is the same. </p>\n<p class=\"wp-block-paragraph\">The percentage of the time you interact with information in a browser or your phone will just go down now forever, and the percentage that you do by talking to an AI will go up. The future, I think, is voice for sure.</p>\n<p class=\"wp-block-paragraph\"><strong>What’s next for Town?</strong></p>\n<p class=\"wp-block-paragraph\">I’m very excited about live voice. You could imagine in the morning you’re commuting to work and you have in your ear a world-class executive assistant that’s telling you, “Hey, you got seven emails overnight. There’s two of them that are urgent. On this one, if you tell me this, I can help draft the reply. The other one is going to require you to move a meeting later today. Do you want me to come up with some options?” It’s just talking to you, and you can interrupt it.</p>\n<p class=\"wp-block-paragraph\">I’m also excited about what we call agent to agent. You could say, “Who at the company is really close with someone doing R&amp;D at this other company?” Your agent will talk to other agents at your own company, and it’ll learn that Bob plays tennis with someone there. But it won’t tell you that. It’ll just be like, “Hey, Bob appears to be closely connected to that person. Do you want me to ask them if they can do the intro?” Leveraging the network of everyone within a company in a way that’s privacy-preserving is huge.</p>\n<p class=\"wp-block-paragraph\"><strong>Should people connect their financial accounts to an AI agent?</strong></p>\n<p class=\"wp-block-paragraph\">If you’re a consumer, it is very likely that you connect everything about you, your medicals, your financials, to the agents. It’s just too beneficial. It’ll tell you that your credit card rate’s too high, that you should apply for a different one. It’s free money.</p>\n<p class=\"wp-block-paragraph\">But the privacy concern is real. I don’t think you want to use an assistant where you’re not convinced it’s making decisions that are in your best interest. These products only work in a world where you think they truly have your best interest.</p>\n<p class=\"wp-block-paragraph\"><strong>Can you trust those services?</strong></p>\n<p class=\"wp-block-paragraph\">If you’re paying for it, you can. If you’re not paying for a service, you’re not the customer. You’re being monetized in some other way.</p>\n<p class=\"wp-block-paragraph\">We made the choice very early: We like consumer use cases, and they’re subsidized by business use cases. We charge businesses, and it’s not a cheap product; it’s not $5 a month. Our main plan is $50 a month.</p>\n<p class=\"wp-block-paragraph\"><strong>What’s the hardest part of running Town?</strong></p>\n<p class=\"wp-block-paragraph\">The world’s too fast. I’ve never seen anything like it. It’s nerve-racking. Software had high gross margins because there was a really high fixed cost to copying it, and there was a real advantage to being early in market. By the time someone could copy you, you’d have built the next feature. </p>\n<p class=\"wp-block-paragraph\">With AI, competition moves so fast and good ideas are copied so quickly. Things that would take nine months to copy are copied in a month or two.</p>\n<p class=\"wp-block-paragraph\">So the pressure you feel to execute and to work a lot—I’m 47, but I’ve not worked this hard [before]. Psychologically, it’s tough, because you’re either ecstatic because you shipped something before OpenAI did, or you’re in fear that there’s a tweet from Sam Altman that puts you on your back foot. So that’s super stressful.</p>\n<p class=\"wp-block-paragraph\"><strong>How do you use Town outside of work?</strong></p>\n<p class=\"wp-block-paragraph\">I’ve told Town to research food blogs and newspapers that write about food in San Francisco. I have a date night with my wife every Sunday night. So every Monday night, it looks at the next month and gives me four tables that I can make a reservation at that are classics, and then finds four that are new that have been mentioned in food blogs. I like food. I just don’t have the time [to do the research myself].</p>\n<hr/>",
+      "summary": "AI agents are powerful, but most ordinary people don’t yet use them. Town wants to change that. Led by CEO Jean-Denis Greze, playfully referred to as Town’s mayor, the company announced a $108 million Series B on October 19, co-led by Forerunner Ventures and Menlo Ventures, at a $1 billion",
+      "_excerpt": "AI agents are powerful, but most ordinary people don’t yet use them. Town wants to change that. Led by CEO Jean-Denis Greze, playfully referred to as Town’s mayor, the company announced a $108 million Series B on October 19, co-led by Forerunner Ventures and Menlo Ventures, at a $1 billion valuation. Greze cofounded the San Francisco startup with Tony Vincent in late 2024 after serving as CTO of Plaid, where he built up the engineering team from about 20 people to 350. Town’s betting it can make AI more accessible and practical for small-business owners and mid-market firms still looking for",
+      "date_published": "2026-10-25T09:10:00+00:00",
+      "authors": [
+        {
+          "name": "Fast Company",
+          "url": "https://www.fastcompany.com"
+        }
+      ],
+      "ai_score": 35,
+      "_quality": 55,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 53,
+      "_theme_score_raw": 8,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 58,
+      "_keyword_matches": 2,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/10/p-1-prompt.jpg",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
       "id": "https://www.xda-developers.com/i-put-20-usb-hub-in-car-now-my-dash-cam-phone-android-auto-all-run-off-one-port/",
       "url": "https://www.xda-developers.com/i-put-20-usb-hub-in-car-now-my-dash-cam-phone-android-auto-all-run-off-one-port/",
       "title": "[XDA Developers] I put a $20 USB hub in my car, and now my dash cam, phone, and Android Auto all run off one port",
@@ -997,11 +1197,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 92,
+      "_theme_score": 89,
       "_theme_score_raw": 45,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 60,
+      "_composite_podcast": 58,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1027,54 +1227,17 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 85,
+      "_theme_score": 82,
       "_theme_score_raw": 34,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 60,
+      "_composite_podcast": 58,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/a3ab6fc9-db44-434c-abb1-ae279f8a90c8.jpg"
-    },
-    {
-      "id": "https://www.outsideonline.com/outdoor-adventure/environment/timber-thieves-podcast/",
-      "url": "https://www.outsideonline.com/outdoor-adventure/environment/timber-thieves-podcast/",
-      "title": "[Outside Online] LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.outsideonline.com%2Foutdoor-adventure%2Fenvironment%2Ftimber-thieves-podcast%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<figure><img alt=\"LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves\" src=\"https://cdn.outsideonline.com/wp-content/uploads/2026/10/Trees2.jpg?width=1200\"/></figure>\n<p>In the latest Long Read on the Outside Podcast, we read Nick Davidson’s investigative story about an investigation to bust tree poachers in the Pacific Northwest. </p>\n<p>The post <a href=\"https://www.outsideonline.com/outdoor-adventure/environment/timber-thieves-podcast/\">LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves</a> appeared first on <a href=\"https://www.outsideonline.com\">Outside Online</a>.</p>",
-      "summary": "In the latest Long Read on the Outside Podcast, we read Nick Davidson’s investigative story about an investigation to bust tree poachers in the Pacific Northwest. The post LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves appeared first on Outside Online .",
-      "_excerpt": "In the latest Long Read on the Outside Podcast, we read Nick Davidson’s investigative story about an investigation to bust tree poachers in the Pacific Northwest. The post LISTEN: How Detectives Used Tree DNA To Catch Timber Thieves appeared first on Outside Online .",
-      "date_published": "2026-10-29T09:43:29+00:00",
-      "authors": [
-        {
-          "name": "Outside Online",
-          "url": "https://www.outsideonline.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 64,
-      "_theme_score_raw": 12,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 60,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+",
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
-      }
     },
     {
       "id": "https://newatlas.com/architecture/dogtrot-magnetawan/",
@@ -1094,54 +1257,20 @@
       "_quality": 70,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 64,
+      "_theme_score": 63,
       "_theme_score_raw": 12,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 58,
+      "_composite_podcast": 57,
       "_keyword_matches": 1,
       "_category": "design",
       "_source_category": "design",
       "_is_bonus": false,
       "image": "https://assets.newatlas.com/dims4/default/5d1cbec/2147483647/strip/true/crop/6000x3150+0+675/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2Fc7%2Fdd%2Ff799951e4d08b6f4799dead11e3b%2F118148-full-2682-3-118148-sc-v2com.jpg&na.image_optimisation=0",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
-      }
-    },
-    {
-      "id": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
-      "url": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
-      "title": "[Quanta Magazine] How Do You Take a Picture of a Black Hole?",
-      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/10/JOW-S5-E11-cr.Chanelle-Nibbelink-Default-NO-LOGO.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.quantamagazine.org%2Fhow-do-you-take-a-picture-of-a-black-hole-20261029%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAstrophysicist Shep Doeleman explains how capturing the first image of a black hole required a telescope the size of the world, and why the next goal is to create a movie.            <p>The post <a href=\"https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/\" rel=\"noopener noreferrer\" target=\"_blank\">How Do You Take a Picture of a Black Hole?</a> first appeared on <a href=\"https://www.quantamagazine.org\" rel=\"noopener noreferrer\" target=\"_blank\">Quanta Magazine</a></p>",
-      "summary": "Astrophysicist Shep Doeleman explains how capturing the first image of a black hole required a telescope the size of the world, and why the next goal is to create a movie. The post How Do You Take a Picture of a Black Hole? first appeared on Quanta Magazine",
-      "_excerpt": "Astrophysicist Shep Doeleman explains how capturing the first image of a black hole required a telescope the size of the world, and why the next goal is to create a movie. The post How Do You Take a Picture of a Black Hole? first appeared on Quanta Magazine",
-      "date_published": "2026-10-29T15:11:57+00:00",
-      "authors": [
-        {
-          "name": "Quanta Magazine",
-          "url": "https://www.quantamagazine.org"
-        }
-      ],
-      "ai_score": 63,
-      "_quality": 75,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 52,
-      "_theme_score_raw": 8,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 58,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/10/JOW-S5-E11-cr.Chanelle-Nibbelink-Default-NO-LOGO.webp",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-10-30T06:12:42.265943+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
@@ -1162,205 +1291,17 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 90,
+      "_theme_score": 87,
       "_theme_score_raw": 42,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 58,
+      "_composite_podcast": 57,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/yPBW8iMbANKCY9bdN2g8qX-1920-80.jpg"
-    },
-    {
-      "id": "https://www.engadget.com/2292606/ev-battery-cooling-system-how-works/",
-      "url": "https://www.engadget.com/2292606/ev-battery-cooling-system-how-works/",
-      "title": "[Engadget] What kind of cooling system do EV batteries use and how does it work?",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/what-kind-of-cooling-system-do-ev-batteries-use-and-how-does-it-work/l-intro-1792571941.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2292606%2Fev-battery-cooling-system-how-works%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nElectric cars need incredibly large batteries that offer long driving ranges and charge quickly, but remain cool when under load. This is how they do so.",
-      "summary": "Electric cars need incredibly large batteries that offer long driving ranges and charge quickly, but remain cool when under load. This is how they do so.",
-      "_excerpt": "Electric cars need incredibly large batteries that offer long driving ranges and charge quickly, but remain cool when under load. This is how they do so.",
-      "date_published": "2026-10-24T22:45:00+00:00",
-      "authors": [
-        {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
-        }
-      ],
-      "ai_score": 51,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 85,
-      "_theme_score_raw": 34,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 57,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.engadget.com/img/gallery/what-kind-of-cooling-system-do-ev-batteries-use-and-how-does-it-work/l-intro-1792571941.jpg",
-      "_cross_theme": {
-        "day": "sunday",
-        "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-10-25T06:08:52.007538+00:00"
-      }
-    },
-    {
-      "id": "https://www.wired.com/story/physics-behind-tesla-flying-roadster/",
-      "url": "https://www.wired.com/story/physics-behind-tesla-flying-roadster/",
-      "title": "[WIRED] The Physics Behind Tesla’s Flying Roadster",
-      "content_html": "<img src=\"https://media.wired.com/photos/6ad667a256bcd06aa1190eb2/master/pass/Roadster_56.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.wired.com%2Fstory%2Fphysics-behind-tesla-flying-roadster%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTo understand how Elon’s new car hops, glides, and sticks upside down, we need to talk about friction and force.",
-      "summary": "To understand how Elon’s new car hops, glides, and sticks upside down, we need to talk about friction and force.",
-      "_excerpt": "To understand how Elon’s new car hops, glides, and sticks upside down, we need to talk about friction and force.",
-      "date_published": "2026-10-20T10:45:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 82,
-      "_theme_score_raw": 30,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 57,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://media.wired.com/photos/6ad667a256bcd06aa1190eb2/master/pass/Roadster_56.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.howtogeek.com/hate-smart-home-appliances-built-home-assistant-automations-instead/",
-      "url": "https://www.howtogeek.com/hate-smart-home-appliances-built-home-assistant-automations-instead/",
-      "title": "[How-To Geek] I hate smart home appliances, so I built these Home Assistant automations instead",
-      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/01/an-aeg-washing-machine-ready-to-start-a-laundry-cycle.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Fhate-smart-home-appliances-built-home-assistant-automations-instead%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nLocal, private, and genuinely useful smart features.",
-      "summary": "Local, private, and genuinely useful smart features.",
-      "_excerpt": "Local, private, and genuinely useful smart features.",
-      "date_published": "2026-10-28T00:00:15+00:00",
-      "authors": [
-        {
-          "name": "How-To Geek",
-          "url": "https://www.howtogeek.com"
-        }
-      ],
-      "ai_score": 59,
-      "_quality": 55,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 85,
-      "_theme_score_raw": 34,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 56,
-      "_keyword_matches": 0,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2026/01/an-aeg-washing-machine-ready-to-start-a-laundry-cycle.jpg"
-    },
-    {
-      "id": "https://www.techradar.com/pro/this-new-ukrainian-detector-can-see-what-a-russian-drone-can-and-its-new-fiber-optic-drones-can-also-hear-enemy-soldiers-from-30-meters-away",
-      "url": "https://www.techradar.com/pro/this-new-ukrainian-detector-can-see-what-a-russian-drone-can-and-its-new-fiber-optic-drones-can-also-hear-enemy-soldiers-from-30-meters-away",
-      "title": "[TechRadar] This new Ukrainian detector can 'see' what a Russian drone can — and its new fiber-optic drones can also 'hear' enemy soldiers from 30 meters away",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/hVJeHpFxvfw9vthYu8yW6P-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fpro%2Fthis-new-ukrainian-detector-can-see-what-a-russian-drone-can-and-its-new-fiber-optic-drones-can-also-hear-enemy-soldiers-from-30-meters-away\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA three-month-old Kyiv startup built a drone detector that lets soldiers watch what the enemy drone is watching.",
-      "summary": "A three-month-old Kyiv startup built a drone detector that lets soldiers watch what the enemy drone is watching.",
-      "_excerpt": "A three-month-old Kyiv startup built a drone detector that lets soldiers watch what the enemy drone is watching.",
-      "date_published": "2026-10-25T21:25:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 81,
-      "_theme_score_raw": 28,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 56,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/hVJeHpFxvfw9vthYu8yW6P-1920-80.jpg"
-    },
-    {
-      "id": "https://www.xda-developers.com/lets-encrypt-is-cutting-certificate-lifetimes-to-64-days-so-i-automated-my-renewals/",
-      "url": "https://www.xda-developers.com/lets-encrypt-is-cutting-certificate-lifetimes-to-64-days-so-i-automated-my-renewals/",
-      "title": "[XDA Developers] Let's Encrypt is cutting certificate lifetimes to 64 days, so I automated my renewals",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/proxmox-on-laptop-screen.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Flets-encrypt-is-cutting-certificate-lifetimes-to-64-days-so-i-automated-my-renewals%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIf you've been putting this off like I had, it's time",
-      "summary": "If you've been putting this off like I had, it's time",
-      "_excerpt": "If you've been putting this off like I had, it's time",
-      "date_published": "2026-10-25T21:01:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 82,
-      "_theme_score_raw": 30,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 56,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/proxmox-on-laptop-screen.jpg"
-    },
-    {
-      "id": "https://cybersecuritynews.com/polymarket-hacked/",
-      "url": "https://cybersecuritynews.com/polymarket-hacked/",
-      "title": "[cybersecuritynews.com] Malicious vendor script targeted Polymarket sessions to drain crypto portfolios",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=cybersecuritynews.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fcybersecuritynews.com%2Fpolymarket-hacked%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMalicious JavaScript delivered through a website-monitoring integration sought to take over logged-in Polymarket traders’ sessions and redirect their assets, cybersecurity researchers said. Polymarket confirmed that a third-party provider was compromised and referred the incident to law enforcement, but did not publicly name the vendor.\n\nResearchers said the script read account data from browser storage, searched Polymarket’s application for its live trading client and signer, then attempted transactions using that existing access. Depending on the account type, it tried either to transfer position tokens or to sell positions and move the proceeds. Hudson Rock, which analyzed the sample, did not execute it, so its findings describe intended behavior rather than establish that every attempted transfer succeeded.\n\nPolymarket’s production build metadata showed that the DebugBear monitoring script was removed at 1:59 p.m. ET on Oct. 29, shortly before the company announced the incident, BleepingComputer reported. DebugBear separately told customers using its Real User Monitoring product to remove the embedded code and said it had brought in incident-response specialists.",
-      "summary": "Malicious JavaScript delivered through a website-monitoring integration sought to take over logged-in Polymarket traders’ sessions and redirect their assets, cybersecurity researchers said. Polymarket confirmed that a third-party provider was compromised and referred the incident to law",
-      "_excerpt": "Malicious JavaScript delivered through a website-monitoring integration sought to take over logged-in Polymarket traders’ sessions and redirect their assets, cybersecurity researchers said. Polymarket confirmed that a third-party provider was compromised and referred the incident to law enforcement, but did not publicly name the vendor (cybersecuritynews.com, reuters.com, bleepingcomputer.com). Researchers said the script read account data from browser storage, searched Polymarket’s application for its live trading client and signer, then attempted transactions using that existing access. Depending on the account type, it tried either to transfer position tokens or to sell positions and move the proceeds (cybersecuritynews.com, bleepingcomputer.com). Hudson Rock, which analyzed the sample, did not execute it, so its findings describe intended behavior rather than establish that every attempted transfer succeeded (cybersecuritynews.com). Polymarket’s production build metadata showed that the DebugBear monitoring script was removed at 1:59 p.m. ET on Oct. 29, shortly before the company announced the incident, BleepingComputer reported (bleepingcomputer.com). DebugBear separately told customers using its Real User Monitoring product to remove the embedded code and said it had brought in incident-response specialists (aa.com.tr, bleepingcomputer.com). Separate integration: MetaMask said users accessing Polymarket prediction markets through its own wallet were unaffected because MetaMask does not use Polymarket’s frontend or software development kits (coingape.com). Exposure limits: Researchers said the provider’s initial compromise method and the number of affected users remained unknown (cybersecuritynews.com, decrypt.co).",
-      "date_published": "2026-10-30T03:39:27+00:00",
-      "authors": [
-        {
-          "name": "cybersecuritynews.com",
-          "url": "https://cybersecuritynews.com"
-        }
-      ],
-      "ai_score": 59,
-      "_quality": 70,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 59,
-      "_theme_score_raw": 10,
-      "_kite_sources": 20,
-      "_kite_context": "Quote: \"This is certainly a significant and new form of breach that we've seen on Polymarket.\" (Dan Zimmermann, chief intelligence officer at Betting Intelligence, CNBC)\nTimeline: 29 October 2026: Cancel-only mode began and relayer actions paused at 2:05 p.m. ET (thestreet.com)\nTimeline: 29 October 2026: Polymarket said it had fixed the issue in a 2:37 p.m. update (bleepingcomputer.com)\nTimeline: 29 October 2026: The incident was marked resolved at 3:05 p.m. ET (bleepingcomputer.com, thestreet.com)\nBackground: Polymarket disclosed a separate incident in May in which a compromised private key drained about $700,000 from an internal top-up wallet (decrypt.co). In June, a compromised third-party vendor injected malicious code into Polymarket’s frontend and stole about",
-      "_composite_podcast": 55,
-      "_keyword_matches": 1,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://www.google.com/s2/favicons?domain=cybersecuritynews.com&sz=128"
     },
     {
       "id": "https://www.mycariboonow.com/317051/news/environment/forestry-environment/temporary-shutdown-at-quesnel-river-pulp-will-continue-at-least-a-little-longer/",
@@ -1380,11 +1321,11 @@
       "_quality": 70,
       "_relevance": 80,
       "_local": 100,
-      "_theme_score": 43,
+      "_theme_score": 44,
       "_theme_score_raw": 6,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 55,
+      "_composite_podcast": 56,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
@@ -1396,24 +1337,128 @@
       }
     },
     {
-      "id": "https://www.engadget.com/2292018/google-quietly-linking-phone-number-to-android-accounts/",
-      "url": "https://www.engadget.com/2292018/google-quietly-linking-phone-number-to-android-accounts/",
-      "title": "[Engadget] Google is quietly linking your phone number to other Android accounts",
-      "content_html": "<img src=\"https://www.engadget.com/img/gallery/google-is-quietly-linking-your-phone-number-to-other-android-accounts/l-intro-1792517776.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.engadget.com%2F2292018%2Fgoogle-quietly-linking-phone-number-to-android-accounts%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAdding a new SIM to your phone links it to all Google accounts, and any new Google accounts you add all inherit your phone number.",
-      "summary": "Adding a new SIM to your phone links it to all Google accounts, and any new Google accounts you add all inherit your phone number.",
-      "_excerpt": "Adding a new SIM to your phone links it to all Google accounts, and any new Google accounts you add all inherit your phone number.",
-      "date_published": "2026-10-24T18:45:00+00:00",
+      "id": "https://www.theverge.com/tech/1022571/reddit-login-requirement-q3-2026-earnings",
+      "url": "https://www.theverge.com/tech/1022571/reddit-login-requirement-q3-2026-earnings",
+      "title": "[The Verge] Reddit will force everyone to log in",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Ftech%2F1022571%2Freddit-login-requirement-q3-2026-earnings\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nReddit is announcing a huge shift: It's going to start requiring users to log in. Right now, you can browse Reddit without having an account, and the site is generally a great resource for crowdsourced information on a whole range of topics. I know I'm not the only person who appends \"reddit\" to a lot […]",
+      "summary": "Reddit is announcing a huge shift: It's going to start requiring users to log in. Right now, you can browse Reddit without having an account, and the site is generally a great resource for crowdsourced information on a whole range of topics. I know I'm not the only person who appends \"reddit\" to a",
+      "_excerpt": "Reddit is announcing a huge shift: It's going to start requiring users to log in. Right now, you can browse Reddit without having an account, and the site is generally a great resource for crowdsourced information on a whole range of topics. I know I'm not the only person who appends \"reddit\" to a lot […]",
+      "date_published": "2026-10-29T20:07:00+00:00",
       "authors": [
         {
-          "name": "Engadget",
-          "url": "http://www.engadget.com"
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
         }
       ],
-      "ai_score": 53,
+      "ai_score": 60,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 81,
+      "_theme_score": 58,
+      "_theme_score_raw": 9,
+      "_kite_sources": 0,
+      "_kite_context": "Perspective: Steve Huffman, Reddit co-founder and CEO: Huffman said he had personally resisted restricting open access, but concluded that Reddit’s scale made personalization more important and unauthorized scraping more urgent; he said the company would monitor logged-in (Axios)\nPerspective: Jen Wong, Reddit chief operating officer: Wong said the sign-in shift continues Reddit’s longstanding aim to build a direct destination, arguing that open search traffic became part of the equation over the past decade rather than changing the company’s (Axios)\nPerspective: Luke Stillman, managing director at research firm Madison and Wall: Stillman warned that requiring sign-ins creates another barrier to engagement, particularly for casual users (reuters.com). (Reuters)\nQuote: \"The reality is, the AI mode does not drive traffic, not for us and not to anybody, as far as I know.\" (Reddit co-founder and CEO Steve Huffman, Engadget)\nTimeline: 2023: Reddit began charging third-party apps for API access (heise.de)\nTimeline: 2024: Reddit reached data-licensing agreements with Google and OpenAI (theverge.com)\nTimeline: 29 October 2026: Huffman announced sign-in tests alongside third-quarter results (reuters.com, axios.com)\nBackground: Reddit had allowed nearly all its content to be read without an account for about two decades (independent.co.uk, heise.de).",
+      "_composite_podcast": 56,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News"
+    },
+    {
+      "id": "https://www.dwell.com/article/is-frank-lloyd-wright-sturges-house-falling-apart-93eab0dd",
+      "url": "https://www.dwell.com/article/is-frank-lloyd-wright-sturges-house-falling-apart-93eab0dd",
+      "title": "[Dwell] What in the Name of Preservation Is Happening With Frank Lloyd Wright’s Sturges House?",
+      "content_html": "<img src=\"https://images.dwell.com/photos/6063391372700811264/7518807104453042176/small.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dwell.com%2Farticle%2Fis-frank-lloyd-wright-sturges-house-falling-apart-93eab0dd\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNeighbors are convinced the famous Los Angeles home is falling apart. But the owners have a very different view.",
+      "summary": "Neighbors are convinced the famous Los Angeles home is falling apart. But the owners have a very different view.",
+      "_excerpt": "Neighbors are convinced the famous Los Angeles home is falling apart. But the owners have a very different view.",
+      "date_published": "2026-10-22T15:54:06+00:00",
+      "authors": [
+        {
+          "name": "Dwell",
+          "url": "https://www.dwell.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 79,
+      "_theme_score_raw": 26,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 56,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://images.dwell.com/photos/6063391372700811264/7518807104453042176/small.jpg",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
+    },
+    {
+      "id": "https://newsletter.pragmaticengineer.com/p/when-ai-writes-almost-all-code-what",
+      "url": "https://newsletter.pragmaticengineer.com/p/when-ai-writes-almost-all-code-what",
+      "title": "[newsletter.pragmaticengineer.com] AI coding tools reshape software jobs as junior hiring and enrollment fall",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewsletter.pragmaticengineer.com%2Fp%2Fwhen-ai-writes-almost-all-code-what\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAI coding agents are shifting software development from writing code to directing models, reviewing their output and making architectural decisions, as companies use the tools to produce more of their software. U.S. undergraduate enrollment in computer science dropped more than 12% this fall, while graduate enrollment fell more than 10%. Employment among software developers aged 22 to 25 has fallen about 20% since late 2022, according to studies cited by Bloomberg and t3n.\n\nCompanies may need fewer junior developers for routine coding, but experienced engineers still make decisions about security, code quality and system design — skills often learned through early-career work. Critical Software co-founder Gonçalo Quadros said the company is reorganizing around AI while keeping people responsible for design and validation in aviation, aerospace and automotive systems. He estimated AI could let it build technology ten times faster.",
+      "summary": "AI coding agents are shifting software development from writing code to directing models, reviewing their output and making architectural decisions, as companies use the tools to produce more of their software. U.S. undergraduate enrollment in computer science dropped more than 12% this fall, while",
+      "_excerpt": "AI coding agents are shifting software development from writing code to directing models, reviewing their output and making architectural decisions, as companies use the tools to produce more of their software (pragmaticengineer.com, businessinsider.com, ai.pt). U.S. undergraduate enrollment in computer science dropped more than 12% this fall, while graduate enrollment fell more than 10%. Employment among software developers aged 22 to 25 has fallen about 20% since late 2022, according to studies cited by Bloomberg and t3n (bloomberg.com, t3n.de). Companies may need fewer junior developers for routine coding, but experienced engineers still make decisions about security, code quality and system design — skills often learned through early-career work (t3n.de). Critical Software co-founder Gonçalo Quadros said the company is reorganizing around AI while keeping people responsible for design and validation in aviation, aerospace and automotive systems. He estimated AI could let it build technology ten times faster (ai.pt). Agent adoption: A JetBrains survey of more than 15,000 professional developers, published in August 2026, found 90% used AI coding agents at least weekly (t3n.de). Company restructuring: Critical Software acknowledged letting some staff go as AI changed its work, but Quadros said it was not cutting jobs at the time (ai.pt). Productivity claims: Quadros said AI now produces code of “brutal” quality, a change from two or three years ago (ai.pt). New workflow: Pragmatic Engineer editor Gergely Orosz described using the coding tool Claude Code for Web on a phone to create pull requests and test them through GitHub Actions. He noted that the work was low risk and covered by automated tests (pragmaticengineer.com).",
+      "date_published": "2026-10-31T23:34:14+00:00",
+      "authors": [
+        {
+          "name": "newsletter.pragmaticengineer.com",
+          "url": "https://newsletter.pragmaticengineer.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 39,
+      "_theme_score_raw": 5,
+      "_kite_sources": 6,
+      "_kite_context": "Perspective: Peter Steinberger, OpenAI employee and OpenClaw creator: Steinberger said the change in engineers’ roles is difficult, but predicted the traditional software-engineer job would disappear if AI progress continued at even half its current pace over the next two (Business Insider)\nPerspective: David Heinemeier Hansson, creator of Ruby on Rails: Hansson said he had reversed his stance on AI-generated code. He previously spent more time rewriting model output than coding from scratch, but that had changed with newer models (pragmaticengineer.com). (The Pragmatic Engineer)\nQuote: \"We are refounding the company. There is a before and after artificial intelligence.\" (Gonçalo Quadros, co-founder and chairman of Critical Software, AI.pt)\nTimeline: Late 2022: Stanford study period begins for employment changes among developers aged 22 to 25 (t3n.de)\nTimeline: August 2026: JetBrains published its survey of more than 15,000 professional developers (t3n.de)\nTimeline: 29 October 2026: Preliminary U.S. college enrollment data showed computer science declines (bloomberg.com)\nTimeline: 30 October 2026: Engineers discussed Proton CTO Bart Butler’s AI-work memo online (businessinsider.com)",
+      "_composite_podcast": 55,
+      "_keyword_matches": 2,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
+    },
+    {
+      "id": "https://www.techradar.com/pro/this-new-ukrainian-detector-can-see-what-a-russian-drone-can-and-its-new-fiber-optic-drones-can-also-hear-enemy-soldiers-from-30-meters-away",
+      "url": "https://www.techradar.com/pro/this-new-ukrainian-detector-can-see-what-a-russian-drone-can-and-its-new-fiber-optic-drones-can-also-hear-enemy-soldiers-from-30-meters-away",
+      "title": "[TechRadar] This new Ukrainian detector can 'see' what a Russian drone can — and its new fiber-optic drones can also 'hear' enemy soldiers from 30 meters away",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/hVJeHpFxvfw9vthYu8yW6P-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fpro%2Fthis-new-ukrainian-detector-can-see-what-a-russian-drone-can-and-its-new-fiber-optic-drones-can-also-hear-enemy-soldiers-from-30-meters-away\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA three-month-old Kyiv startup built a drone detector that lets soldiers watch what the enemy drone is watching.",
+      "summary": "A three-month-old Kyiv startup built a drone detector that lets soldiers watch what the enemy drone is watching.",
+      "_excerpt": "A three-month-old Kyiv startup built a drone detector that lets soldiers watch what the enemy drone is watching.",
+      "date_published": "2026-10-25T21:25:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "ai_score": 60,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 79,
       "_theme_score_raw": 28,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1423,141 +1468,40 @@
       "_source_category": "news",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://www.engadget.com/img/gallery/google-is-quietly-linking-your-phone-number-to-other-android-accounts/l-intro-1792517776.jpg"
+      "image": "https://cdn.mos.cms.futurecdn.net/hVJeHpFxvfw9vthYu8yW6P-1920-80.jpg"
     },
     {
-      "id": "https://www.businessinsider.com/ai-human-slop-software-security-vulnerabilities-internet-2026-10",
-      "url": "https://www.businessinsider.com/ai-human-slop-software-security-vulnerabilities-internet-2026-10",
-      "title": "[Business Insider] The internet has a human slop problem, and AI is exposing it",
-      "content_html": "<img src=\"https://i.insider.com/6adba2778e95884e1ca82bd6?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fai-human-slop-software-security-vulnerabilities-internet-2026-10\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAI is exposing flaws in decades of human-written software. Vercel's Tom Occhino sees a chance to fix the internet's neglected foundations.",
-      "summary": "AI is exposing flaws in decades of human-written software. Vercel's Tom Occhino sees a chance to fix the internet's neglected foundations.",
-      "_excerpt": "AI is exposing flaws in decades of human-written software. Vercel's Tom Occhino sees a chance to fix the internet's neglected foundations.",
-      "date_published": "2026-10-24T09:00:01+00:00",
+      "id": "https://cybersecuritynews.com/polymarket-hacked/",
+      "url": "https://cybersecuritynews.com/polymarket-hacked/",
+      "title": "[cybersecuritynews.com] Malicious vendor script targeted Polymarket sessions to drain crypto portfolios",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=cybersecuritynews.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fcybersecuritynews.com%2Fpolymarket-hacked%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMalicious JavaScript delivered through a website-monitoring integration sought to take over logged-in Polymarket traders’ sessions and redirect their assets, cybersecurity researchers said. Polymarket confirmed that a third-party provider was compromised and referred the incident to law enforcement, but did not publicly name the vendor.\n\nResearchers said the script read account data from browser storage, searched Polymarket’s application for its live trading client and signer, then attempted transactions using that existing access. Depending on the account type, it tried either to transfer position tokens or to sell positions and move the proceeds. Hudson Rock, which analyzed the sample, did not execute it, so its findings describe intended behavior rather than establish that every attempted transfer succeeded.\n\nPolymarket’s production build metadata showed that the DebugBear monitoring script was removed at 1:59 p.m. ET on Oct. 29, shortly before the company announced the incident, BleepingComputer reported. DebugBear separately told customers using its Real User Monitoring product to remove the embedded code and said it had brought in incident-response specialists.",
+      "summary": "Malicious JavaScript delivered through a website-monitoring integration sought to take over logged-in Polymarket traders’ sessions and redirect their assets, cybersecurity researchers said. Polymarket confirmed that a third-party provider was compromised and referred the incident to law",
+      "_excerpt": "Malicious JavaScript delivered through a website-monitoring integration sought to take over logged-in Polymarket traders’ sessions and redirect their assets, cybersecurity researchers said. Polymarket confirmed that a third-party provider was compromised and referred the incident to law enforcement, but did not publicly name the vendor (cybersecuritynews.com, reuters.com, bleepingcomputer.com). Researchers said the script read account data from browser storage, searched Polymarket’s application for its live trading client and signer, then attempted transactions using that existing access. Depending on the account type, it tried either to transfer position tokens or to sell positions and move the proceeds (cybersecuritynews.com, bleepingcomputer.com). Hudson Rock, which analyzed the sample, did not execute it, so its findings describe intended behavior rather than establish that every attempted transfer succeeded (cybersecuritynews.com). Polymarket’s production build metadata showed that the DebugBear monitoring script was removed at 1:59 p.m. ET on Oct. 29, shortly before the company announced the incident, BleepingComputer reported (bleepingcomputer.com). DebugBear separately told customers using its Real User Monitoring product to remove the embedded code and said it had brought in incident-response specialists (aa.com.tr, bleepingcomputer.com). Separate integration: MetaMask said users accessing Polymarket prediction markets through its own wallet were unaffected because MetaMask does not use Polymarket’s frontend or software development kits (coingape.com). Exposure limits: Researchers said the provider’s initial compromise method and the number of affected users remained unknown (cybersecuritynews.com, decrypt.co).",
+      "date_published": "2026-10-30T03:39:27+00:00",
       "authors": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
+          "name": "cybersecuritynews.com",
+          "url": "https://cybersecuritynews.com"
         }
       ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
+      "ai_score": 59,
+      "_quality": 70,
+      "_relevance": 75,
       "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
+      "_theme_score": 58,
+      "_theme_score_raw": 10,
+      "_kite_sources": 20,
+      "_kite_context": "Quote: \"This is certainly a significant and new form of breach that we've seen on Polymarket.\" (Dan Zimmermann, chief intelligence officer at Betting Intelligence, CNBC)\nTimeline: 29 October 2026: Cancel-only mode began and relayer actions paused at 2:05 p.m. ET (thestreet.com)\nTimeline: 29 October 2026: Polymarket said it had fixed the issue in a 2:37 p.m. update (bleepingcomputer.com)\nTimeline: 29 October 2026: The incident was marked resolved at 3:05 p.m. ET (bleepingcomputer.com, thestreet.com)\nBackground: Polymarket disclosed a separate incident in May in which a compromised private key drained about $700,000 from an internal top-up wallet (decrypt.co). In June, a compromised third-party vendor injected malicious code into Polymarket’s frontend and stole about",
       "_composite_podcast": 54,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://i.insider.com/6adba2778e95884e1ca82bd6?format=jpeg",
+      "_keyword_matches": 1,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "image": "https://www.google.com/s2/favicons?domain=cybersecuritynews.com&sz=128",
       "_cross_theme": {
         "day": "sunday",
         "label": "Science, Wonder & the Natural World",
-        "shown_at": "2026-10-25T06:08:52.007538+00:00"
-      }
-    },
-    {
-      "id": "https://www.theatlantic.com/culture/2026/10/lego-adult-market/689051/?utm_source=feed",
-      "url": "https://www.theatlantic.com/culture/2026/10/lego-adult-market/689051/?utm_source=feed",
-      "title": "[The Atlantic Culture] What Lego Lost When It Grew Up",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theatlantic.com%2Fculture%2F2026%2F10%2Flego-adult-market%2F689051%2F%3Futm_source%3Dfeed\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe company’s overt outreach to an adult market has changed the nature of its products.",
-      "summary": "The company’s overt outreach to an adult market has changed the nature of its products.",
-      "_excerpt": "The company’s overt outreach to an adult market has changed the nature of its products.",
-      "date_published": "2026-10-20T11:30:00+00:00",
-      "authors": [
-        {
-          "name": "The Atlantic Culture",
-          "url": "https://www.theatlantic.com/culture/"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 54,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.tomshardware.com/pc-components/dram/samsung-and-sk-hynix-are-upgrading-chinese-factories-to-produce-advanced-ram-chips-as-ai-data-center-competition-ramps-up-big-players-move-to-fight-off-the-threat-from-cxmt-and-co",
-      "url": "https://www.tomshardware.com/pc-components/dram/samsung-and-sk-hynix-are-upgrading-chinese-factories-to-produce-advanced-ram-chips-as-ai-data-center-competition-ramps-up-big-players-move-to-fight-off-the-threat-from-cxmt-and-co",
-      "title": "[Tom's Hardware] Samsung and SK Hynix are upgrading Chinese factories to produce advanced RAM chips as AI data center competition ramps up",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/MNAdzZLPoDR82bwxMK4iCk-1920-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fpc-components%2Fdram%2Fsamsung-and-sk-hynix-are-upgrading-chinese-factories-to-produce-advanced-ram-chips-as-ai-data-center-competition-ramps-up-big-players-move-to-fight-off-the-threat-from-cxmt-and-co\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSamsung and SK Hynix are reportedly upgrading their factories to produce more advanced RAM chips designed for AI data centers in an attempt to fend off competition from Chinese companies.",
-      "summary": "Samsung and SK Hynix are reportedly upgrading their factories to produce more advanced RAM chips designed for AI data centers in an attempt to fend off competition from Chinese companies.",
-      "_excerpt": "Samsung and SK Hynix are reportedly upgrading their factories to produce more advanced RAM chips designed for AI data centers in an attempt to fend off competition from Chinese companies.",
-      "date_published": "2026-10-21T11:49:44+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 54,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/MNAdzZLPoDR82bwxMK4iCk-1920-80.png"
-    },
-    {
-      "id": "https://wltribune.com/2026/10/29/marg-bublitz-cant-sit-on-her-hands-and-williams-lake-is-grateful/",
-      "url": "https://wltribune.com/2026/10/29/marg-bublitz-cant-sit-on-her-hands-and-williams-lake-is-grateful/",
-      "title": "[Williams Lake Tribune] Marg Bublitz can’t sit on her hands, and Williams Lake is grateful",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F29%2Fmarg-bublitz-cant-sit-on-her-hands-and-williams-lake-is-grateful%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMargaret (Marg) Bublitz, 80, said receiving the Lifetime Achievement Award came as a surprise. Holding her Lifetime Achievement Award, Margaret (Marg) Bublitz reflects on more than five decades of volunteering in Williams Lake. Margaret (Marg) Bublitz celebrated her 80th birthday and received the Lifetime Achievement Award at the Williams Lake and District Chamber of Commerce's Business Excellence Awards, surrounded by family. She wrote in the Facebook post, \"Just to have so much family here to support me on Saturday night was amazing. My heart is so full.\" The Lifetime Achievement Award,",
-      "summary": "Margaret (Marg) Bublitz, 80, said receiving the Lifetime Achievement Award came as a surprise. Holding her Lifetime Achievement Award, Margaret (Marg) Bublitz reflects on more than five decades of volunteering in Williams Lake. Margaret (Marg) Bublitz celebrated her 80th birthday and received the",
-      "_excerpt": "Margaret (Marg) Bublitz, 80, said receiving the Lifetime Achievement Award came as a surprise. Holding her Lifetime Achievement Award, Margaret (Marg) Bublitz reflects on more than five decades of volunteering in Williams Lake. Margaret (Marg) Bublitz celebrated her 80th birthday and received the Lifetime Achievement Award at the Williams Lake and District Chamber of Commerce's Business Excellence Awards, surrounded by family. She wrote in the Facebook post, \"Just to have so much family here to support me on Saturday night was amazing. My heart is so full.\" The Lifetime Achievement Award, sponsored by The GOAT & Cariboo Country Radio. For longtime Williams Lake volunteerMargaret (Marg) Bublitz, her husband has some advice for her whenever she decides to head to a meeting: learn to sit on your hands. So, when someone needs a treasurer, a letter written or help keeping a community event alive, Bublitz has a familiar response. Bublitz’s family had planned to celebrate her 80th birthday. Instead, they gathered to watch her receive a Lifetime Achievement Award recognizing decades of volunteering in Williams Lake. The Life Achievement Award was presented during the annual Williams Lake & District Chamber of Commerce Business Excellence Awards on a Saturday evening Oct. 24. “If there’s something that needs doing, I’m there right?”, said Bublitz. For Bublitz, volunteering has been a way to spend time with others while helping get things done. She raised two children in Williams Lake, bringing them along while she volunteered at the Stampede and Williams Lake Harvest fair. Her commitments grew out of interest she wanted to to make make room for alongside work and family. Before learning she had won, Bublitz already felt honoured to be nominated. “I was very shocked that I was nominated. And that was enough for me,” she said. “I don’t think of myself as old,” she added while expressing how surprised she was in the terms suggested by a Lifetime Achievement Award. The Saturday",
-      "date_published": "2026-10-30T06:03:26.286396+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 91,
-      "_quality": 85,
-      "_relevance": 90,
-      "_local": 100,
-      "_theme_score": 34,
-      "_theme_score_raw": 4,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune",
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "shown_at": "2026-11-01T06:08:00.497046+00:00"
       }
     },
     {
@@ -1578,7 +1522,7 @@
       "_quality": 65,
       "_relevance": 80,
       "_local": 85,
-      "_theme_score": 43,
+      "_theme_score": 44,
       "_theme_score_raw": 6,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1586,168 +1530,49 @@
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
-      "_is_bonus": true
-    },
-    {
-      "id": "https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block",
-      "url": "https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block",
-      "title": "[Tom's Hardware] Leaked video exposes how industrial-scale Chinese factories are dismantling RTX 5090s by the thousands to fuel AI servers",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/bBGEYE8htq38xZgt4xCdTQ-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2Fpc-components%2Fgpus%2Fleaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWondering why RTX 5090s are so hard to find? Leaked footage shows thousands of consumer GPUs, including Founders Editions, being torn apart for AI servers.",
-      "summary": "Wondering why RTX 5090s are so hard to find? Leaked footage shows thousands of consumer GPUs, including Founders Editions, being torn apart for AI servers.",
-      "_excerpt": "Wondering why RTX 5090s are so hard to find? Leaked footage shows thousands of consumer GPUs, including Founders Editions, being torn apart for AI servers.",
-      "date_published": "2026-10-24T11:15:00+00:00",
-      "authors": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://www.tomshardware.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/bBGEYE8htq38xZgt4xCdTQ-1920-80.jpg"
-    },
-    {
-      "id": "https://www.wired.com/story/split-tunneling-is-your-vpns-best-feature-heres-how-to-make-the-most-of-it/",
-      "url": "https://www.wired.com/story/split-tunneling-is-your-vpns-best-feature-heres-how-to-make-the-most-of-it/",
-      "title": "[WIRED] Split Tunneling Is Your VPN’s Best Feature. Here’s How to Make the Most of It",
-      "content_html": "<img src=\"https://media.wired.com/photos/6ad8c933572fecfc421778e0/master/pass/102126-Split%20Tunneling.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.wired.com%2Fstory%2Fsplit-tunneling-is-your-vpns-best-feature-heres-how-to-make-the-most-of-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThis feature common to VPN services gives you protection and privacy specifically when and where you need it.",
-      "summary": "This feature common to VPN services gives you protection and privacy specifically when and where you need it.",
-      "_excerpt": "This feature common to VPN services gives you protection and privacy specifically when and where you need it.",
-      "date_published": "2026-10-23T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://media.wired.com/photos/6ad8c933572fecfc421778e0/master/pass/102126-Split%20Tunneling.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.sciencealert.com/16-years-after-deepwater-horizon-spill-deep-sea-life-in-the-gulf-of-mexico-shows-no-sign-of-recovery",
-      "url": "https://www.sciencealert.com/16-years-after-deepwater-horizon-spill-deep-sea-life-in-the-gulf-of-mexico-shows-no-sign-of-recovery",
-      "title": "[ScienceAlert] 16 Years After Deepwater Horizon Spill, Deep Sea Life in The Gulf of Mexico Shows No Sign of Recovery",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencealert.com%2F16-years-after-deepwater-horizon-spill-deep-sea-life-in-the-gulf-of-mexico-shows-no-sign-of-recovery\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"16 Years After Deepwater Horizon Spill, Deep Sea Life in The Gulf of Mexico Shows No Sign of Recovery\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/10/GettyImages-98736482-2560x1440-1-1200x675.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1200\"/>After 16 years, this disaster is still ongoing.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&amp;utm_medium=feed&amp;utm_campaign=rss_feed_promo\" rel=\"noopener noreferrer\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.</a></p>",
-      "summary": "After 16 years, this disaster is still ongoing. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "_excerpt": "After 16 years, this disaster is still ongoing. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "date_published": "2026-10-23T13:01:00+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 52,
-      "_theme_score_raw": 8,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-10-30T06:12:42.265943+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
-      "id": "https://www.techradar.com/pro/security/a-security-flaw-in-these-widely-used-barcode-scanners-could-open-up-warehouses-and-stores-to-cyberattack",
-      "url": "https://www.techradar.com/pro/security/a-security-flaw-in-these-widely-used-barcode-scanners-could-open-up-warehouses-and-stores-to-cyberattack",
-      "title": "[TechRadar] A security flaw in these widely used barcode scanners could open up warehouses and stores to cyberattack",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/4ZfeZkmNTqyXyHPQxVPADT-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.techradar.com%2Fpro%2Fsecurity%2Fa-security-flaw-in-these-widely-used-barcode-scanners-could-open-up-warehouses-and-stores-to-cyberattack\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA simple barcode scanner could be the gateway to a large-scale cyberattack, Kaspersky is warning.",
-      "summary": "A simple barcode scanner could be the gateway to a large-scale cyberattack, Kaspersky is warning.",
-      "_excerpt": "A simple barcode scanner could be the gateway to a large-scale cyberattack, Kaspersky is warning.",
-      "date_published": "2026-10-28T17:10:00+00:00",
+      "id": "https://wltribune.com/2026/10/29/marg-bublitz-cant-sit-on-her-hands-and-williams-lake-is-grateful/",
+      "url": "https://wltribune.com/2026/10/29/marg-bublitz-cant-sit-on-her-hands-and-williams-lake-is-grateful/",
+      "title": "[Williams Lake Tribune] Marg Bublitz can’t sit on her hands, and Williams Lake is grateful",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F29%2Fmarg-bublitz-cant-sit-on-her-hands-and-williams-lake-is-grateful%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMargaret (Marg) Bublitz, 80, said receiving the Lifetime Achievement Award came as a surprise. Holding her Lifetime Achievement Award, Margaret (Marg) Bublitz reflects on more than five decades of volunteering in Williams Lake. Margaret (Marg) Bublitz celebrated her 80th birthday and received the Lifetime Achievement Award at the Williams Lake and District Chamber of Commerce's Business Excellence Awards, surrounded by family. She wrote in the Facebook post, \"Just to have so much family here to support me on Saturday night was amazing. My heart is so full.\" The Lifetime Achievement Award,",
+      "summary": "Margaret (Marg) Bublitz, 80, said receiving the Lifetime Achievement Award came as a surprise. Holding her Lifetime Achievement Award, Margaret (Marg) Bublitz reflects on more than five decades of volunteering in Williams Lake. Margaret (Marg) Bublitz celebrated her 80th birthday and received the",
+      "_excerpt": "Margaret (Marg) Bublitz, 80, said receiving the Lifetime Achievement Award came as a surprise. Holding her Lifetime Achievement Award, Margaret (Marg) Bublitz reflects on more than five decades of volunteering in Williams Lake. Margaret (Marg) Bublitz celebrated her 80th birthday and received the Lifetime Achievement Award at the Williams Lake and District Chamber of Commerce's Business Excellence Awards, surrounded by family. She wrote in the Facebook post, \"Just to have so much family here to support me on Saturday night was amazing. My heart is so full.\" The Lifetime Achievement Award, sponsored by The GOAT & Cariboo Country Radio. For longtime Williams Lake volunteerMargaret (Marg) Bublitz, her husband has some advice for her whenever she decides to head to a meeting: learn to sit on your hands. So, when someone needs a treasurer, a letter written or help keeping a community event alive, Bublitz has a familiar response. Bublitz’s family had planned to celebrate her 80th birthday. Instead, they gathered to watch her receive a Lifetime Achievement Award recognizing decades of volunteering in Williams Lake. The Life Achievement Award was presented during the annual Williams Lake & District Chamber of Commerce Business Excellence Awards on a Saturday evening Oct. 24. “If there’s something that needs doing, I’m there right?”, said Bublitz. For Bublitz, volunteering has been a way to spend time with others while helping get things done. She raised two children in Williams Lake, bringing them along while she volunteered at the Stampede and Williams Lake Harvest fair. Her commitments grew out of interest she wanted to to make make room for alongside work and family. Before learning she had won, Bublitz already felt honoured to be nominated. “I was very shocked that I was nominated. And that was enough for me,” she said. “I don’t think of myself as old,” she added while expressing how surprised she was in the terms suggested by a Lifetime Achievement Award. The Saturday",
+      "date_published": "2026-10-30T06:03:26.286396+00:00",
       "authors": [
         {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 76,
-      "_theme_score_raw": 20,
+      "ai_score": 91,
+      "_quality": 85,
+      "_relevance": 90,
+      "_local": 100,
+      "_theme_score": 31,
+      "_theme_score_raw": 4,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 53,
+      "_composite_podcast": 51,
       "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/4ZfeZkmNTqyXyHPQxVPADT-1920-80.jpg"
-    },
-    {
-      "id": "https://www.homebuilding.co.uk/eco-homes/energy/energy-smart-appliance-regulations",
-      "url": "https://www.homebuilding.co.uk/eco-homes/energy/energy-smart-appliance-regulations",
-      "title": "[Homebuilding & Renovating] Energy Smart Appliance Regulations are on the way – here's what I know about them and you should too",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/qbbHDeSpiCfjk7KU8sukhW-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.homebuilding.co.uk%2Feco-homes%2Fenergy%2Fenergy-smart-appliance-regulations\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nEnergy expert, David Hilton, explains why the regulations are being introduced, when they come into force and why he believes they will benefit homeowners",
-      "summary": "Energy expert, David Hilton, explains why the regulations are being introduced, when they come into force and why he believes they will benefit homeowners",
-      "_excerpt": "Energy expert, David Hilton, explains why the regulations are being introduced, when they come into force and why he believes they will benefit homeowners",
-      "date_published": "2026-10-30T09:00:00+00:00",
-      "authors": [
-        {
-          "name": "Homebuilding & Renovating",
-          "url": "https://www.homebuilding.co.uk"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 53,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://cdn.mos.cms.futurecdn.net/qbbHDeSpiCfjk7KU8sukhW-1920-80.jpg",
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
     },
     {
       "id": "https://www.scotsman.com/news/opinion/columnists/how-we-must-prepare-scottish-farming-for-a-hotter-world-9306647",
@@ -1767,7 +1592,7 @@
       "_quality": 60,
       "_relevance": 0,
       "_local": 10,
-      "_theme_score": 52,
+      "_theme_score": 53,
       "_theme_score_raw": 8,
       "_kite_sources": 4,
       "_kite_context": "Perspective: Cooperativas Agro-alimentarias de España: Gabriel Trenzado described digital farm records and professional guidance as key to putting innovations into practice (efeagro.com). (EFE Agro)\nPerspective: Sociedad Española de Agricultura Ecológica y Agroecología: Coordinator Helena Cifre argued that sustainable food production requires prevention, adaptation and mitigation, called for a more ambitious Common Agricultural Policy, and said organic production and (EFE Agro)\nPerspective: Greenpeace: The environmental group urged Spain’s future government to put food production at the center of policy, recommending an 18% increase in land planted with legumes by 2050 and expanded extensive livestock farming (efeagro.com). (EFE Agro)\nQuote: \"What we’re seeing is a growing instability in daily temperature patterns\" (Jie Yang, lead author of the study, Agritech Insights)",
@@ -1778,42 +1603,10 @@
       "_is_bonus": true,
       "image": "https://kagiproxy.com/img/9MYFWxXwF_loyWc6MZu49fTPr0E5AOs1My_PvL_t3EYCmEG6uiOfZ8bGljyJNpnX9LBPbRXCFQhvU25hXGGkycdSP3g1BQAkL6fBFpY8E3hzdkYsiif3J0dQ0Sc2fW-GQDxs87fA2jQbRaU",
       "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-10-27T06:08:02.406899+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-01T06:08:00.497046+00:00"
       }
-    },
-    {
-      "id": "https://wltribune.com/2026/10/31/downtown-trick-r-treat-returns-in-williams-lake/",
-      "url": "https://wltribune.com/2026/10/31/downtown-trick-r-treat-returns-in-williams-lake/",
-      "title": "[Williams Lake Tribune] Downtown Trick r Treat returns in Williams Lake",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F10%2F31%2Fdowntown-trick-r-treat-returns-in-williams-lake%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nHalloween festivities will once again be available in downtown Williams Lake. Jazmyn Douillard with The Realm of Toys &amp; The Nerd Room is extra happy for this year’s Downtown Trick r Treat in downtown Williams Lake. With Halloween falling on a Saturday, it was initially unclear if the annual festivities would be a go as many businesses, including professional services and government agencies, are closed on weekends. As it appeared there would be less than half the number of businesses participating from last year consideration was given to cancelling. Luckily for trick-or-treaters the decision",
-      "summary": "Halloween festivities will once again be available in downtown Williams Lake. Jazmyn Douillard with The Realm of Toys & The Nerd Room is extra happy for this year’s Downtown Trick r Treat in downtown Williams Lake. With Halloween falling on a Saturday, it was initially unclear if the annual",
-      "_excerpt": "Halloween festivities will once again be available in downtown Williams Lake. Jazmyn Douillard with The Realm of Toys & The Nerd Room is extra happy for this year’s Downtown Trick r Treat in downtown Williams Lake. With Halloween falling on a Saturday, it was initially unclear if the annual festivities would be a go as many businesses, including professional services and government agencies, are closed on weekends. As it appeared there would be less than half the number of businesses participating from last year consideration was given to cancelling. Luckily for trick-or-treaters the decision was made to forge ahead with a total of 22 businesses, some only available for an hour or two, signing up to hand out candy and other treats. For years Douillard has organized the Downtown Trick r Treat annual festivities with her mother, Joan. She personally likes the 2 p.m. start time which is quiet, providing the perfect opportunity for toddlers, kids with sensory or sensitivity issues and anyone who might get overwhelmed to trick-or-treat before things pick up. She remembers the first Downtown Trick r Treat with about 15 locations signed up and running to Safeway to buy whatever she could to drop off after they ran out of candy in just 15 minutes. The biggest year for handing out candy at the Realm of Toys was before COVID with 744 kids. “After COVID we definitely saw a huge drop in numbers and it’s only slowly been increasing,” Douillard said, adding last year they hit over 500. This year they’re making sure they have enough for 650, and have spent between $600 to $800 to ensure costumed kids receive a mix of candy and even a comic or child’s book and possibly small seasonal toys, averaging about $1.25 per trick-or-treater. Rising costs are always a concern with Douillard noting she is aware of some communities forgoing similar festivities after businesses were spending over $1,000 for candy and were unable to keep up. “We haven’t quite seen that,” Douillard said, adding",
-      "date_published": "2026-11-01T06:03:17.764987+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 47,
-      "_quality": 45,
-      "_relevance": 30,
-      "_local": 100,
-      "_theme_score": 42,
-      "_theme_score_raw": null,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 49,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
     },
     {
       "id": "https://www.engadget.com/2292646/ev-battery-why-it-loses-charge-when-parked/",
@@ -1833,11 +1626,11 @@
       "_quality": 60,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 81,
+      "_theme_score": 79,
       "_theme_score_raw": 28,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 48,
+      "_composite_podcast": 47,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
@@ -1863,7 +1656,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 59,
+      "_theme_score": 58,
       "_theme_score_raw": 9,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1876,32 +1669,34 @@
       "image": "https://i.insider.com/6ad619992428f6b455813a5c?format=jpeg"
     },
     {
-      "id": "https://earthsky.org/earth/new-clues-to-how-infectious-fungus-candida-auris-resists-antifungals/",
-      "url": "https://earthsky.org/earth/new-clues-to-how-infectious-fungus-candida-auris-resists-antifungals/",
-      "title": "[EarthSky] New clues to how infectious fungus Candida auris resists antifungals",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fearthsky.org%2Fearth%2Fnew-clues-to-how-infectious-fungus-candida-auris-resists-antifungals%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Scientists have identified new resistance mechanisms used by the fungus Candida auris, paving the way for advances in antifungal treatments.</p>\n<p>The post <a href=\"https://earthsky.org/earth/new-clues-to-how-infectious-fungus-candida-auris-resists-antifungals/\">New clues to how infectious fungus Candida auris resists antifungals</a> first appeared on <a href=\"https://earthsky.org\">EarthSky</a>.</p>",
-      "summary": "Scientists have identified new resistance mechanisms used by the fungus Candida auris, paving the way for advances in antifungal treatments. The post New clues to how infectious fungus Candida auris resists antifungals first appeared on EarthSky .",
-      "_excerpt": "Scientists have identified new resistance mechanisms used by the fungus Candida auris, paving the way for advances in antifungal treatments. The post New clues to how infectious fungus Candida auris resists antifungals first appeared on EarthSky .",
-      "date_published": "2026-10-20T11:18:00+00:00",
+      "id": "https://www.smallfarmcanada.ca/could-kernza%C2%AE-give-maritime-farmers-several-harvests-from-on/",
+      "url": "https://www.smallfarmcanada.ca/could-kernza%C2%AE-give-maritime-farmers-several-harvests-from-on/",
+      "title": "[Small Farm Canada] Could Kernza® Give Maritime Farmers Several Harvests From One Planting?",
+      "content_html": "<img src=\"https://www.smallfarmcanada.ca/downloads/5363/download/AAFC-Kernza.png?cb=3c79543a656b79f7269e60f2a24020de\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.smallfarmcanada.ca%2Fcould-kernza%25C2%25AE-give-maritime-farmers-several-harvests-from-on%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCould farmers plant a grain crop once and harvest it for several years? Maritime research suggests Kernza® could provide grain, forage and valuable soil benefits.",
+      "summary": "Could farmers plant a grain crop once and harvest it for several years? Maritime research suggests Kernza® could provide grain, forage and valuable soil benefits.",
+      "_excerpt": "Could farmers plant a grain crop once and harvest it for several years? Maritime research suggests Kernza® could provide grain, forage and valuable soil benefits.",
+      "date_published": "2026-11-02T05:00:00+00:00",
       "authors": [
         {
-          "name": "EarthSky",
-          "url": "https://earthsky.org"
+          "name": "Small Farm Canada",
+          "url": "https://www.smallfarmcanada.ca"
         }
       ],
-      "ai_score": 36,
-      "_quality": 62,
-      "_relevance": 0,
+      "ai_score": 60,
+      "_quality": 68,
+      "_relevance": 78,
       "_local": 0,
-      "_theme_score": 34,
-      "_theme_score_raw": 4,
+      "_theme_score": 72,
+      "_theme_score_raw": 18,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 43,
+      "_composite_podcast": 46,
       "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true
+      "_category": "homestead",
+      "_source_category": "homestead",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.smallfarmcanada.ca/downloads/5363/download/AAFC-Kernza.png?cb=3c79543a656b79f7269e60f2a24020de"
     },
     {
       "id": "https://blog.gov.bc.ca/bcwildfire/wildfire-risk-reduction-project-planned-for-the-enterprise-forest-service-road/",
@@ -1921,11 +1716,11 @@
       "_quality": 62,
       "_relevance": 88,
       "_local": 92,
-      "_theme_score": 22,
+      "_theme_score": 20,
       "_theme_score_raw": 3,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 42,
+      "_composite_podcast": 41,
       "_keyword_matches": 1,
       "_category": "local",
       "_source_category": "local",
@@ -1937,36 +1732,38 @@
       }
     },
     {
-      "id": "https://civileats.com/2026/10/26/study-regenerative-agriculture-farms-hold-key-climate-solutions/",
-      "url": "https://civileats.com/2026/10/26/study-regenerative-agriculture-farms-hold-key-climate-solutions/",
-      "title": "[Civil Eats] Study: Regenerative Agriculture Farms Hold Key Climate Solutions",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fcivileats.com%2F2026%2F10%2F26%2Fstudy-regenerative-agriculture-farms-hold-key-climate-solutions%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div class=\"rss-custom-item\" style=\"font-family:sans-serif;line-height:1.3;\"><img alt=\"(Photo courtesy of the Ecdysis Foundation)\" src=\"https://civileats.com/wp-content/uploads/2026/10/261026-jonathan-lundgren-hero-final-700x467.jpg\" style=\"height:auto;margin-bottom:12px;display:block;\"/><span style=\"font-style:italic;color:#555555;font-size:14px;display:block;margin-bottom:4px;\">By Lisa Held • October 26, 2026</span><span style=\"font-size:16px;color:#222222;display:block;margin-bottom:8px;\">Ecologist Jonathan Lundgren launched the 1,000 Farms Initiative to compare regenerative and conventional farming. Here’s what we know now.</span><span style=\"display:block;\"><a href=\"https://civileats.com/2026/10/26/study-regenerative-agriculture-farms-hold-key-climate-solutions/\" style=\"font-weight:bold;text-decoration:underline;color:#111111;\">Read the full article →</a></span></div>",
-      "summary": "By Lisa Held • October 26, 2026 Ecologist Jonathan Lundgren launched the 1,000 Farms Initiative to compare regenerative and conventional farming. Here’s what we know now. Read the full article →",
-      "_excerpt": "By Lisa Held • October 26, 2026 Ecologist Jonathan Lundgren launched the 1,000 Farms Initiative to compare regenerative and conventional farming. Here’s what we know now. Read the full article →",
-      "date_published": "2026-10-26T08:00:07+00:00",
+      "id": "https://www.businessinsider.com/ukraine-explosive-weight-soldiers-could-put-on-drone-surprised-maker-2026-10",
+      "url": "https://www.businessinsider.com/ukraine-explosive-weight-soldiers-could-put-on-drone-surprised-maker-2026-10",
+      "title": "[Business Insider] Ukrainian soldiers surprised a major drone maker with how much explosive weight they packed onto one of its drones",
+      "content_html": "<img src=\"https://i.insider.com/6ada2391dc67b5b4d01f66b7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fukraine-explosive-weight-soldiers-could-put-on-drone-surprised-maker-2026-10\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDrones' explosive power is limited by gear, like batteries, that they must carry. But soldiers push gear to the limit, surprising even its makers.",
+      "summary": "Drones' explosive power is limited by gear, like batteries, that they must carry. But soldiers push gear to the limit, surprising even its makers.",
+      "_excerpt": "Drones' explosive power is limited by gear, like batteries, that they must carry. But soldiers push gear to the limit, surprising even its makers.",
+      "date_published": "2026-10-25T11:56:01+00:00",
       "authors": [
         {
-          "name": "Civil Eats",
-          "url": "https://civileats.com"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com"
         }
       ],
-      "ai_score": 58,
-      "_quality": 74,
-      "_relevance": 72,
+      "ai_score": 36,
+      "_quality": 60,
+      "_relevance": 0,
       "_local": 0,
-      "_theme_score": 43,
+      "_theme_score": 44,
       "_theme_score_raw": 6,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 39,
-      "_keyword_matches": 0,
-      "_category": "homestead",
-      "_source_category": "homestead",
-      "_is_bonus": true,
+      "_composite_podcast": 40,
+      "_keyword_matches": 2,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://i.insider.com/6ada2391dc67b5b4d01f66b7?format=jpeg",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "day": "tuesday",
+        "label": "Working Lands & Industry",
+        "shown_at": "2026-10-27T06:08:02.406899+00:00"
       }
     },
     {
@@ -1987,20 +1784,20 @@
       "_quality": 78,
       "_relevance": 75,
       "_local": 20,
-      "_theme_score": 22,
+      "_theme_score": 20,
       "_theme_score_raw": 3,
       "_kite_sources": 11,
       "_kite_context": "Where: Vancouver, Canada\nPerspective: Catherine Boies Parker, lawyer for the youth plaintiffs: She argued that Canada has repeatedly set insufficient emissions targets and then failed to meet them, despite decades of commitments (winnipegfreepress.com). (Winnipeg Free Press)\nPerspective: Government of Canada: Counsel BJ Wray told the court that Canada is meeting its international obligations and has reduced greenhouse gas emissions since 2005 (winnipegfreepress.com). (Winnipeg Free Press)\nPerspective: Ryan Ness, adaptation research director at the Canadian Climate Institute: Ness said federal climate action is not keeping pace with climate change and recent policy shifts have made Canada’s net-zero commitment harder to reach (insideclimatenews.org). (Inside Climate News)\nQuote: \"Canada’s evidence will show that global climate change requires a global solution\" (BJ Wray, counsel for Canada’s Department of Justice, Winnipeg Free Press)\nTimeline: 2020: A federal trial court dismissed the case before evidence was heard (grist.org).\nTimeline: 2023: The Federal Court of Appeal allowed revised Section 7 claims to proceed (grist.org).\nTimeline: 26 October 2026: The youth-led climate trial opened at the federal courthouse in Vancouver (winnipegfreepress.com, thestar.com).\nTimeline: February 2027: Closing arguments are scheduled after the evidentiary hearings (grist.org, sudouest.fr).",
-      "_composite_podcast": 33,
+      "_composite_podcast": 32,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
       "image": "https://kagiproxy.com/img/E6Cv5RLBZCWfp-wcIfwU9evEUP8SXr65v_OmaYXOhXmRCjLIy-Im9vt00VSYDY5s8df0P7cHi8a6Tz5eN8w1yWAi_XCDNW3MX6LkUQxf_jiK-PBqX8SgR3Gx3MwQ1KrDvug",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
@@ -2021,19 +1818,19 @@
       "_quality": 80,
       "_relevance": 70,
       "_local": 25,
-      "_theme_score": 22,
+      "_theme_score": 20,
       "_theme_score_raw": 3,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 32,
+      "_composite_podcast": 30,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
@@ -2064,9 +1861,9 @@
       "_source_category": "news",
       "_is_bonus": false,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
     },
     {
@@ -2087,11 +1884,11 @@
       "_quality": 67,
       "_relevance": 80,
       "_local": 20,
-      "_theme_score": 34,
+      "_theme_score": 31,
       "_theme_score_raw": 4,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 20,
+      "_composite_podcast": 18,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
@@ -2101,7 +1898,12 @@
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Apple News+"
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
     },
     {
       "id": "https://www.sciencealert.com/scientists-may-have-discovered-why-mens-prostates-enlarge-with-age",
@@ -2132,20 +1934,20 @@
       "_is_bonus": true
     },
     {
-      "id": "https://www.statnews.com/2026/10/23/bristol-myers-squibb-car-t-therapy-autoimmune-trial-death/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/10/23/bristol-myers-squibb-car-t-therapy-autoimmune-trial-death/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: Patient dies in Bristol Myers Squibb autoimmune CAR-T trial",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/10/AdobeStock_1846705681_Editorial_Use_Only-645x645.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.statnews.com%2F2026%2F10%2F23%2Fbristol-myers-squibb-car-t-therapy-autoimmune-trial-death%2F%3Futm_campaign%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWhere should the safety bar be for studies investigating CAR-T therapies for autoimmune conditions?",
-      "summary": "Where should the safety bar be for studies investigating CAR-T therapies for autoimmune conditions?",
-      "_excerpt": "Where should the safety bar be for studies investigating CAR-T therapies for autoimmune conditions?",
-      "date_published": "2026-10-23T18:55:12+00:00",
+      "id": "https://www.sciencedaily.com/releases/2026/10/261024222028.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261024222028.htm",
+      "title": "[ScienceDaily] Scientists reveal the hidden danger of missing blood pressure medication",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F10%2F261024222028.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMissing blood pressure medication could mean losing much of its protection against heart attacks and strokes, according to an analysis of more than 91,000 people. Patients who consistently took their medication experienced an 11% reduction in major cardiovascular events, while those who missed too many doses saw little or no measurable benefit.",
+      "summary": "Missing blood pressure medication could mean losing much of its protection against heart attacks and strokes, according to an analysis of more than 91,000 people. Patients who consistently took their medication experienced an 11% reduction in major cardiovascular events, while those who missed too",
+      "_excerpt": "Missing blood pressure medication could mean losing much of its protection against heart attacks and strokes, according to an analysis of more than 91,000 people. Patients who consistently took their medication experienced an 11% reduction in major cardiovascular events, while those who missed too many doses saw little or no measurable benefit.",
+      "date_published": "2026-10-25T12:34:35+00:00",
       "authors": [
         {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
         }
       ],
-      "ai_score": 41,
+      "ai_score": 50,
       "_quality": 70,
       "_relevance": 0,
       "_local": 0,
@@ -2153,13 +1955,11 @@
       "_theme_score_raw": 2,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 3,
+      "_composite_podcast": 15,
       "_keyword_matches": 0,
       "_category": "wellness",
       "_source_category": "wellness",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.statnews.com/wp-content/uploads/2026/10/AdobeStock_1846705681_Editorial_Use_Only-645x645.jpeg"
+      "_is_bonus": true
     }
   ]
 }
