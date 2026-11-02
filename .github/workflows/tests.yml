@@ -16,14 +16,10 @@ on:
       - 'requirements.txt'
       - 'requirements-lock.txt'
       - '.github/workflows/tests.yml'
+  # No paths filter on pull requests: `pytest` is the required check, and a
+  # filtered-out PR (docs, review.html, feeds.opml) would never start it and
+  # could never merge. The suite takes ~3 s.
   pull_request:
-    paths:
-      - '**.py'
-      - 'config/**'
-      - 'tests/**'
-      - 'requirements.txt'
-      - 'requirements-lock.txt'
-      - '.github/workflows/tests.yml'
   workflow_dispatch:
 
 concurrency:
