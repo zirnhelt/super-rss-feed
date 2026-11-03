@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-03.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-03.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 3, 2026",
+      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/41600703701\">41600703701</a>.</p>\n<div class=\"verdict lvl-good\"><span class=\"icon\">✓</span><div><strong>Shipped clean</strong>Nothing broke and nothing fell back.</div></div>\n<h2>What to do</h2>\n<p>Nothing. The run needs no follow-up.</p>\n<h2>What happened</h2>\n<h3>One warning from a single pass: the AI-tell check fired once</h3>\n<p>The script passed quality review on the first pass of the expand step. The AI-tell pattern check recorded 1 hit, and the Casey-to-Riley voice ratio was 1.02, so the two hosts carried nearly equal word counts. The shipped script ran 3632 words against a 3400-word target. Casey's share of deep-dive words was 50%.</p>\n<h3>The first draft came in under target and needed one expand pass</h3>\n<p>The first draft was 3118 words against a 3400-word target, so it was sent back once for expansion. The shipped script is the expanded version at 3632 words. The pipeline treats a short draft as acceptable on a thin news day, and it only fails the episode if the final length falls under SHORT_EPISODE_WORDS.</p>\n<h3>24 roundup stories were cut by the airtime budget</h3>\n<p>The roundup pool had 24 more stories than the segment could air, and the airtime budget (NEWS_ROUNDUP_COUNT) dropped all of them. This is the designed behaviour: the pool is intentionally larger than one segment, and a cut story can return on a day when it fits the topic better. Of the 18 roundup citations, 13 matched sources in the pool.</p>\n<h3>The deep dive was one story on the tanker ban, and one citation matched</h3>\n<p>The deep dive used a single source, a CBC report that the Liberals defeated a Conservative bill to repeal the B.C. tanker ban. The debate question was whether the ban should be repealed to allow expanded crude exports through a proposed Strathcona pipeline-and-tanker route, or kept to protect the coast and Indigenous economies. The one deep-dive citation matched. Because the segment rests on one source, its framing is only as wide as that story.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>1 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 1.02, 3632 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 50% of the words</td></tr>\n<tr><td>Audio</td><td>21.9 min</td></tr>\n<tr><td>Audio size</td><td>20.1 MB</td></tr>\n<tr><td>Citations matched</td><td>13/18 roundup, 1/1 deep dive</td></tr>\n<tr><td>Feed</td><td>279 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>87,961</td></tr>\n<tr><td>API calls</td><td>30 total: claude 14 · kagi-extract 8 · brave-search 4 · brave-answers 4</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-03T10:06:00+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://100milefreepress.net/2026/11/02/cmha-bringing-community-together-with-new-soup-program/",
       "url": "https://100milefreepress.net/2026/11/02/cmha-bringing-community-together-with-new-soup-program/",
       "title": "[100 Mile Free Press] CMHA bringing community together with new soup program",

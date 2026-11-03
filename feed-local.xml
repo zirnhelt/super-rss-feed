@@ -6,13 +6,58 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Tue, 03 Nov 2026 06:12:09 +0000</lastBuildDate>
+<lastBuildDate>Tue, 03 Nov 2026 10:31:09 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 3, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-03.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-03.html</guid>
+<pubDate>Tue, 03 Nov 2026 10:06:00 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/41600703701&quot;&gt;41600703701&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-good&quot;&gt;&lt;span class=&quot;icon&quot;&gt;✓&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped clean&lt;/strong&gt;Nothing broke and nothing fell back.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;p&gt;Nothing. The run needs no follow-up.&lt;/p&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;One warning from a single pass: the AI-tell check fired once&lt;/h3&gt;
+&lt;p&gt;The script passed quality review on the first pass of the expand step. The AI-tell pattern check recorded 1 hit, and the Casey-to-Riley voice ratio was 1.02, so the two hosts carried nearly equal word counts. The shipped script ran 3632 words against a 3400-word target. Casey&#x27;s share of deep-dive words was 50%.&lt;/p&gt;
+&lt;h3&gt;The first draft came in under target and needed one expand pass&lt;/h3&gt;
+&lt;p&gt;The first draft was 3118 words against a 3400-word target, so it was sent back once for expansion. The shipped script is the expanded version at 3632 words. The pipeline treats a short draft as acceptable on a thin news day, and it only fails the episode if the final length falls under SHORT_EPISODE_WORDS.&lt;/p&gt;
+&lt;h3&gt;24 roundup stories were cut by the airtime budget&lt;/h3&gt;
+&lt;p&gt;The roundup pool had 24 more stories than the segment could air, and the airtime budget (NEWS_ROUNDUP_COUNT) dropped all of them. This is the designed behaviour: the pool is intentionally larger than one segment, and a cut story can return on a day when it fits the topic better. Of the 18 roundup citations, 13 matched sources in the pool.&lt;/p&gt;
+&lt;h3&gt;The deep dive was one story on the tanker ban, and one citation matched&lt;/h3&gt;
+&lt;p&gt;The deep dive used a single source, a CBC report that the Liberals defeated a Conservative bill to repeal the B.C. tanker ban. The debate question was whether the ban should be repealed to allow expanded crude exports through a proposed Strathcona pipeline-and-tanker route, or kept to protect the coast and Indigenous economies. The one deep-dive citation matched. Because the segment rests on one source, its framing is only as wide as that story.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;1 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 1.02, 3632 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 50% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;21.9 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;20.1 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;13/18 roundup, 1/1 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;279 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;87,961&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;30 total: claude 14 · kagi-extract 8 · brave-search 4 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] CMHA bringing community together with new soup program</title>
 <link>https://100milefreepress.net/2026/11/02/cmha-bringing-community-together-with-new-soup-program/</link>
