@@ -1239,10 +1239,12 @@ const EPISODE_VERDICTS = [['keep', '👍 Keep', 'worth the time'], ['meh', '😐
                           ['skip', '👎 Skip', 'I would skip it']];
 const EPISODE_REASONS  = ['Stories', 'Writing', 'Wrong fact', 'Too long', 'Repetitive', 'Hosts'];
 // A thumb per segment, each optional and cleared by a second tap. The keys are the podcast's
-// own segment names; it groups them in the weekly review.
+// own segment names; it groups them in the weekly review. "flow" is the whole episode's: how
+// one story and one beat led to the next (the podcast checks the script against its storyboard).
 const EPISODE_SEGMENTS = [['cold_open', 'Cold open', 'the hook before the music'],
                           ['roundup', 'News roundup', 'the run of short stories'],
-                          ['deep_dive', 'Deep dive', 'the one long conversation']];
+                          ['deep_dive', 'Deep dive', 'the one long conversation'],
+                          ['flow', 'Flow', 'how one story and one point led to the next']];
 const EPISODE_NOTE_MAX = 1500;
 const episodePick = { date: null, verdict: null, reasons: new Set(), segments: {}, saving: false };
 
