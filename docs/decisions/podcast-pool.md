@@ -236,3 +236,19 @@ the mock local election, Clinton wildfire recovery and the council farewells. A 
 drops everything it cited in the last 7 days. Lane items carry the day's cached theme
 percentile and are `_is_bonus` like any off-keyword pick; no contract key changed. The knob is
 forbidden to calibration: it is an editorial commitment, like the news world lane.
+
+## Working Lands keywords become phrases (2026-11-03)
+
+Tuesday's keyword list held five bare words with common second senses: "resource", "industrial",
+"forest", "mill" and "commodity". Across the live pool (1,508 articles) they were the only keyword
+for 49 stories, almost all off-theme: Reddit's scraping load, OpenAI's chip deal, USAID, an air-gap
+RAM paper, architecture showcases, Forest Grove crime briefs, a microcontroller game engine. A keyword
+decides `_is_bonus`, so on 2026-11-03 those stories reached the podcast as core theme picks at charter
+2-4 of 100 while Glencore, Codelco, Oyu Tolgoi and an air seeder (58-74, no keyword) arrived as bonus
+and were cut.
+
+The five are replaced by phrases ("natural resource*", "resource sector", "forest sector", "forest
+licen*", "old growth", "pulp mill", "mill closure", "commodity price*", …). Measured against the same
+pool: 44 matches drop, all but two stray senses ("Global resource squeeze", a Forestnet magazine
+item), and one is gained (BC old growth). The podcast now also promotes a story on charter fit alone
+(curated-podcast-generator, `_charter_promotes`), which covers the two.

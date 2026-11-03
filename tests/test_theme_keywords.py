@@ -75,6 +75,25 @@ class TestWildSpacesKeywords:
         assert _hits("tricouni berg lake backpacking trip", keywords) >= 1
 
 
+class TestWorkingLandsKeywords:
+    """2026-11-03 (Tuesday): one bare-word hit each made these core theme picks, at
+    charter 2-4 of 100, while mining stories at 58-74 with no keyword were bonus."""
+
+    def test_stray_senses_do_not_hit(self):
+        keywords = _day_keywords('tuesday')
+        assert _hits("reddit says scraping and automated traffic strain its resources", keywords) == 0
+        assert _hits("malware leaks data from air-gapped industrial control systems", keywords) == 0
+        assert _hits("rcmp arrest man near forest grove for criminal harassment", keywords) == 0
+        assert _hits("a game engine for microcontrollers turns any commodity board into a console", keywords) == 0
+
+    def test_resource_economy_phrases_still_hit(self):
+        keywords = _day_keywords('tuesday')
+        assert _hits("ottawa fast-tracks natural resource projects in the north", keywords) >= 1
+        assert _hits("the quesnel pulp mill announces a temporary shutdown", keywords) >= 1
+        assert _hits("what happens to bc's old growth under the conservatives", keywords) >= 1
+        assert _hits("the forest sector braces for another round of duties", keywords) >= 1
+
+
 class TestSecondSenses:
     def test_the_guardian_newspaper_is_not_a_guardian_program(self):
         assert _hits("told british newspaper the guardian that", _day_keywords('thursday')) == 0
