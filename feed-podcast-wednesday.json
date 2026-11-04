@@ -23,9 +23,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Repair Culture & Practical Tech' — the right to repair movement, gear that outlasts its manufacturer, DIY fixes, and tools built for longevity.\n\nOUT OF SCOPE — score 0-9: geopolitical conflict; natural disasters without an engineering or preparedness angle; wildlife and conservation; working-lands policy; Indigenous governance; science discoveries with no DIY or hardware relevance; financial market news.\n\nCALIBRATION — apply this ladder to everything else. Hands-on hardware journalism counts fully even without an explicit right-to-repair hook.\n- 80-100: Directly about repairability — right-to-repair legislation wins and losses, iFixit-style teardowns scoring repairability, gear designed for user serviceability, products outliving manufacturer support and how owners keep them running, permacomputing, vintage hardware still in active use, open-source hardware, Rossmann-style repair advocacy, 3D-printed replacement parts, battery replacement guides, rural and off-grid repair self-sufficiency.\n- 55-79: Hands-on maker and DIY content — builds, modifications, hardware hacks, workshop projects, practical electronics guides with real technical depth, 3D printing hardware and filament, off-grid and solar gear, home lab hardware, tools and workshop equipment, battery and power tech. Most genuine hands-on hardware journalism belongs HERE, not below.\n- 30-54: Gadget and device reviews with some technical substance; consumer electronics touching software longevity or ecosystem lock-in; hardware whose selling point is open firmware or modular design.\n- 10-29: Surface-level product announcements, gadget speculation, leaked specs, general tech news with no hardware or repair angle.\n\nANCHORS: 'Framework Laptop 16 teardown: a 9/10 repairability score' → 98. 'Oregon's right-to-repair law takes effect' → 92. 'Building a solar-powered Raspberry Pi weather station' → 68. 'Samsung teases thinner bezels on next Galaxy' → 15.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "wednesday",
-    "generated_at": "2026-11-03T06:11:08.240481+00:00",
-    "article_count": 100,
-    "bonus_count": 66,
+    "generated_at": "2026-11-04T06:11:11.428514+00:00",
+    "article_count": 104,
+    "bonus_count": 70,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -59,6 +59,34 @@
       "image": "https://hackaday.com/wp-content/uploads/2026/11/solar_light_circuit_diodegonewild_youtube.jpg"
     },
     {
+      "id": "https://blog.adafruit.com/2026/11/03/pulling-on-a-thread-using-thread-on-ikea-sensors/",
+      "url": "https://blog.adafruit.com/2026/11/03/pulling-on-a-thread-using-thread-on-ikea-sensors/",
+      "title": "[Adafruit Blog] Pulling on a thread (Using Thread on Ikea Sensors)",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F11%2F03%2Fpulling-on-a-thread-using-thread-on-ikea-sensors%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBen Hardill wanted to read a pair of IKEA ALPSTUGA CO2 sensors from Node-RED, and wrote up what it took on his blog. The sensors are part of IKEA’s second generation of smart devices, so they use Thread radios instead of Zigbee. That rules out the old Trådfri Hub and Zigbee2MQTT. Thread runs an IPv6 […]",
+      "summary": "Ben Hardill wanted to read a pair of IKEA ALPSTUGA CO2 sensors from Node-RED, and wrote up what it took on his blog. The sensors are part of IKEA’s second generation of smart devices, so they use Thread radios instead of Zigbee. That rules out the old Trådfri Hub and Zigbee2MQTT. Thread runs an",
+      "_excerpt": "Ben Hardill wanted to read a pair of IKEA ALPSTUGA CO2 sensors from Node-RED, and wrote up what it took on his blog. The sensors are part of IKEA’s second generation of smart devices, so they use Thread radios instead of Zigbee. That rules out the old Trådfri Hub and Zigbee2MQTT. Thread runs an IPv6 […]",
+      "date_published": "2026-11-03T19:41:11+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "ai_score": 55,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 97,
+      "_theme_score_raw": 62,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 82,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true
+    },
+    {
       "id": "https://blog.adafruit.com/2026/10/28/inside-the-intel-8087-chip-floating-point-addition-and-subtraction/",
       "url": "https://blog.adafruit.com/2026/10/28/inside-the-intel-8087-chip-floating-point-addition-and-subtraction/",
       "title": "[Adafruit Blog] Inside the Intel 8087 chip: floating-point addition and subtraction",
@@ -76,7 +104,7 @@
       "_quality": 70,
       "_relevance": 55,
       "_local": 0,
-      "_theme_score": 91,
+      "_theme_score": 90,
       "_theme_score_raw": 52,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -84,6 +112,34 @@
       "_keyword_matches": 0,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
+      "_is_bonus": true
+    },
+    {
+      "id": "https://www.mycariboonow.com/317143/news/municipal-news/city-of-quesnel/quesnels-new-mayor-vows-to-tackle-public-safety-over-the-next-100-days/",
+      "url": "https://www.mycariboonow.com/317143/news/municipal-news/city-of-quesnel/quesnels-new-mayor-vows-to-tackle-public-safety-over-the-next-100-days/",
+      "title": "[My Cariboo Now] Quesnel’s new Mayor vows to tackle public safety over the next 100 days !",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F317143%2Fnews%2Fmunicipal-news%2Fcity-of-quesnel%2Fquesnels-new-mayor-vows-to-tackle-public-safety-over-the-next-100-days%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"464\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/11/coralee-oakes-at-inaugural-meeting.jpg?fit=696%2C464&amp;quality=89&amp;ssl=1\" width=\"696\"/>A new Council was sworn in by Judge Jonathan Hutchison in Quesnel on Tuesday (November 4) night.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/317143/news/municipal-news/city-of-quesnel/quesnels-new-mayor-vows-to-tackle-public-safety-over-the-next-100-days/\">Quesnel’s new Mayor vows to tackle public safety over the next 100 days !</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "summary": "A new Council was sworn in by Judge Jonathan Hutchison in Quesnel on Tuesday (November 4) night. The post Quesnel’s new Mayor vows to tackle public safety over the next 100 days ! appeared first on My Cariboo Now .",
+      "_excerpt": "A new Council was sworn in by Judge Jonathan Hutchison in Quesnel on Tuesday (November 4) night. The post Quesnel’s new Mayor vows to tackle public safety over the next 100 days ! appeared first on My Cariboo Now .",
+      "date_published": "2026-11-04T03:59:13+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 57,
+      "_quality": 65,
+      "_relevance": 40,
+      "_local": 100,
+      "_theme_score": 84,
+      "_theme_score_raw": null,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 81,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true
     },
     {
@@ -104,7 +160,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 89,
+      "_theme_score": 88,
       "_theme_score_raw": 50,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -118,34 +174,6 @@
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
-    },
-    {
-      "id": "https://blog.adafruit.com/2026/11/02/how-to-build-an-air-purifier-in-6-simple-steps/",
-      "url": "https://blog.adafruit.com/2026/11/02/how-to-build-an-air-purifier-in-6-simple-steps/",
-      "title": "[Adafruit Blog] How to build an air purifier in 6 simple steps",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F11%2F02%2Fhow-to-build-an-air-purifier-in-6-simple-steps%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nJohn Alexander built a DIY air purifier for Popular Science and wrote up how it went. The design is a Corsi-Rosenthal box, or CR box: four square furnace filters taped into a cube, a cardboard bottom cut from the fan’s shipping box, and a box fan on top. The fan pulls air in through the […]",
-      "summary": "John Alexander built a DIY air purifier for Popular Science and wrote up how it went. The design is a Corsi-Rosenthal box, or CR box: four square furnace filters taped into a cube, a cardboard bottom cut from the fan’s shipping box, and a box fan on top. The fan pulls air in through the […]",
-      "_excerpt": "John Alexander built a DIY air purifier for Popular Science and wrote up how it went. The design is a Corsi-Rosenthal box, or CR box: four square furnace filters taped into a cube, a cardboard bottom cut from the fan’s shipping box, and a box fan on top. The fan pulls air in through the […]",
-      "date_published": "2026-11-02T22:32:12+00:00",
-      "authors": [
-        {
-          "name": "Adafruit Blog",
-          "url": "https://blog.adafruit.com"
-        }
-      ],
-      "ai_score": 54,
-      "_quality": 55,
-      "_relevance": 72,
-      "_local": 0,
-      "_theme_score": 92,
-      "_theme_score_raw": 55,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 80,
-      "_keyword_matches": 1,
-      "_category": "homelab",
-      "_source_category": "homelab",
-      "_is_bonus": false
     },
     {
       "id": "https://hackaday.com/2026/10/31/rooting-an-amazon-echo-dot/",
@@ -211,6 +239,34 @@
       }
     },
     {
+      "id": "https://www.mycariboonow.com/317119/news/indigenous/first-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation/",
+      "url": "https://www.mycariboonow.com/317119/news/indigenous/first-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation/",
+      "title": "[My Cariboo Now] First Nations ask court to review Ottawa’s national-interest pipeline designation",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F317119%2Fnews%2Findigenous%2Ffirst-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/11/878239615_957991870363712_3605096215933040978_n.jpg?fit=696%2C392&amp;quality=89&amp;ssl=1\" width=\"696\"/>Several First Nations are asking a Federal Court to review Ottawa’s decision to list the proposed new oil pipeline to B.C.’s coast as a “project of national interest.”</p>\n<p>The post <a href=\"https://www.mycariboonow.com/317119/news/indigenous/first-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation/\">First Nations ask court to review Ottawa’s national-interest pipeline designation</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "summary": "Several First Nations are asking a Federal Court to review Ottawa’s decision to list the proposed new oil pipeline to B.C.’s coast as a “project of national interest.” The post First Nations ask court to review Ottawa’s national-interest pipeline designation appeared first on My Cariboo Now .",
+      "_excerpt": "Several First Nations are asking a Federal Court to review Ottawa’s decision to list the proposed new oil pipeline to B.C.’s coast as a “project of national interest.” The post First Nations ask court to review Ottawa’s national-interest pipeline designation appeared first on My Cariboo Now .",
+      "date_published": "2026-11-03T19:07:54+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 74,
+      "_quality": 77,
+      "_relevance": 78,
+      "_local": 60,
+      "_theme_score": 86,
+      "_theme_score_raw": 2,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 78,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true
+    },
+    {
       "id": "https://www.popularwoodworking.com/tools/air-fasteners-101/",
       "url": "https://www.popularwoodworking.com/tools/air-fasteners-101/",
       "title": "[Popular Woodworking] Air Fasteners 101",
@@ -228,7 +284,7 @@
       "_quality": 45,
       "_relevance": 55,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 87,
       "_theme_score_raw": 48,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -260,11 +316,11 @@
       "_quality": 85,
       "_relevance": 70,
       "_local": 20,
-      "_theme_score": 84,
+      "_theme_score": 83,
       "_theme_score_raw": 42,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 77,
+      "_composite_podcast": 76,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -278,43 +334,6 @@
         "day": "tuesday",
         "label": "Working Lands & Industry",
         "shown_at": "2026-11-03T06:10:37.882124+00:00"
-      }
-    },
-    {
-      "id": "https://www.theverge.com/policy/1019851/fcc-foreign-gadget-ban-drone-robot-roomba-storystream",
-      "url": "https://www.theverge.com/policy/1019851/fcc-foreign-gadget-ban-drone-robot-roomba-storystream",
-      "title": "[The Verge] Foreign gadget bans: all the news about the FCC’s clampdown on Chinese tech",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpolicy%2F1019851%2Ffcc-foreign-gadget-ban-drone-robot-roomba-storystream\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWhat do drones, routers, and Roombas have in common? The US government wants to keep Chinese ones from entering the country. They’re the first consumer gadgets that are facing de facto import bans because of the US government’s xenophobic stance — and they might not be the last. Originally, the US government was just worried […]",
-      "summary": "What do drones, routers, and Roombas have in common? The US government wants to keep Chinese ones from entering the country. They’re the first consumer gadgets that are facing de facto import bans because of the US government’s xenophobic stance — and they might not be the last. Originally, the US",
-      "_excerpt": "What do drones, routers, and Roombas have in common? The US government wants to keep Chinese ones from entering the country. They’re the first consumer gadgets that are facing de facto import bans because of the US government’s xenophobic stance — and they might not be the last. Originally, the US government was just worried […]",
-      "date_published": "2026-10-28T19:37:31+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 65,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 84,
-      "_theme_score_raw": 42,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 76,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News",
-      "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-10-29T06:12:40.113624+00:00"
       }
     },
     {
@@ -351,6 +370,43 @@
       }
     },
     {
+      "id": "https://www.theverge.com/policy/1019851/fcc-foreign-gadget-ban-drone-robot-roomba-storystream",
+      "url": "https://www.theverge.com/policy/1019851/fcc-foreign-gadget-ban-drone-robot-roomba-storystream",
+      "title": "[The Verge] Foreign gadget bans: all the news about the FCC’s clampdown on Chinese tech",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpolicy%2F1019851%2Ffcc-foreign-gadget-ban-drone-robot-roomba-storystream\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWhat do drones, routers, and Roombas have in common? The US government wants to keep Chinese ones from entering the country. They’re the first consumer gadgets that are facing de facto import bans because of the US government’s xenophobic stance — and they might not be the last. Originally, the US government was just worried […]",
+      "summary": "What do drones, routers, and Roombas have in common? The US government wants to keep Chinese ones from entering the country. They’re the first consumer gadgets that are facing de facto import bans because of the US government’s xenophobic stance — and they might not be the last. Originally, the US",
+      "_excerpt": "What do drones, routers, and Roombas have in common? The US government wants to keep Chinese ones from entering the country. They’re the first consumer gadgets that are facing de facto import bans because of the US government’s xenophobic stance — and they might not be the last. Originally, the US government was just worried […]",
+      "date_published": "2026-10-28T19:37:31+00:00",
+      "authors": [
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com"
+        }
+      ],
+      "ai_score": 65,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 83,
+      "_theme_score_raw": 42,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 75,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News",
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-10-29T06:12:40.113624+00:00"
+      }
+    },
+    {
       "id": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
       "url": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
       "title": "[Neowin] Anduril and Qualcomm want to build an American laptop that doesn't depend on China",
@@ -368,11 +424,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 84,
+      "_theme_score": 83,
       "_theme_score_raw": 42,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 75,
+      "_composite_podcast": 74,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -425,7 +481,7 @@
       "_quality": 35,
       "_relevance": 40,
       "_local": 0,
-      "_theme_score": 86,
+      "_theme_score": 85,
       "_theme_score_raw": 45,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -453,11 +509,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 80,
+      "_theme_score": 78,
       "_theme_score_raw": 38,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 72,
+      "_composite_podcast": 71,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -485,11 +541,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 81,
+      "_theme_score": 79,
       "_theme_score_raw": 40,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 71,
+      "_composite_podcast": 70,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -513,44 +569,15 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 75,
+      "_theme_score": 74,
       "_theme_score_raw": 30,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 70,
+      "_composite_podcast": 69,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false
-    },
-    {
-      "id": "https://blog.prusa3d.com/printing-the-proof-how-prusament-and-3d-printing-shape-the-caim1-camera_139186/",
-      "url": "https://blog.prusa3d.com/printing-the-proof-how-prusament-and-3d-printing-shape-the-caim1-camera_139186/",
-      "title": "[Prusa Blog] Printing the Proof: How Prusament and 3D Printing Shape the CAIM1 Camera",
-      "content_html": "<img src=\"https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-blog-prod/2026/10/2946c196-nextgen_camera_blog-698x325.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.prusa3d.com%2Fprinting-the-proof-how-prusament-and-3d-printing-shape-the-caim1-camera_139186%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIn a world increasingly dominated by generative AI and hyper-realistic deepfakes, an uncomfortable question has emerged: how can we prove that what we see online actually happened?\nEvery day, synthetic media becomes harder to tell apart from organic footage, eroding trust in...\nThe post Printing the Proof: How Prusament and 3D Printing Shape the CAIM1 Camera appeared first on Original Prusa 3D Printers.",
-      "summary": "In a world increasingly dominated by generative AI and hyper-realistic deepfakes, an uncomfortable question has emerged: how can we prove that what we see online actually happened? Every day, synthetic media becomes harder to tell apart from organic footage, eroding trust in... The post Printing",
-      "_excerpt": "In a world increasingly dominated by generative AI and hyper-realistic deepfakes, an uncomfortable question has emerged: how can we prove that what we see online actually happened? Every day, synthetic media becomes harder to tell apart from organic footage, eroding trust in... The post Printing the Proof: How Prusament and 3D Printing Shape the CAIM1 Camera appeared first on Original Prusa 3D Printers.",
-      "date_published": "2026-10-29T08:00:42+00:00",
-      "authors": [
-        {
-          "name": "Prusa Blog",
-          "url": "https://blog.prusa3d.com"
-        }
-      ],
-      "ai_score": 40,
-      "_quality": 50,
-      "_relevance": 50,
-      "_local": 0,
-      "_theme_score": 75,
-      "_theme_score_raw": 30,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 68,
-      "_keyword_matches": 1,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "image": "https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-blog-prod/2026/10/2946c196-nextgen_camera_blog-698x325.png"
     },
     {
       "id": "https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block",
@@ -605,7 +632,7 @@
       "_quality": 55,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 62,
+      "_theme_score": 63,
       "_theme_score_raw": 14,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -619,66 +646,6 @@
         "subscriber-access"
       ],
       "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
-      "url": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
-      "title": "[XDA Developers] Your ESP32 has PSRAM sitting there unused, and most tutorials forget to mention it",
-      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fyour-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThere's a lot you can do with this overlooked component",
-      "summary": "There's a lot you can do with this overlooked component",
-      "_excerpt": "There's a lot you can do with this overlooked component",
-      "date_published": "2026-10-25T19:30:20+00:00",
-      "authors": [
-        {
-          "name": "XDA Developers",
-          "url": "https://www.xda-developers.com"
-        }
-      ],
-      "ai_score": 42,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 94,
-      "_theme_score_raw": 58,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg"
-    },
-    {
-      "id": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
-      "url": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
-      "title": "[Hackster News] This Wireless Sensor Board Speaks Your Language",
-      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-wireless-sensor-board-speaks-your-language-f6e85723c116\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
-      "summary": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
-      "_excerpt": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
-      "date_published": "2026-10-29T13:02:24+00:00",
-      "authors": [
-        {
-          "name": "Hackster News",
-          "url": "https://www.hackster.io"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 92,
-      "_theme_score_raw": 55,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 64,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&w=400&h=300&fit=min"
     },
     {
       "id": "https://www.vox.com/explain-it-to-me/507002/ai-agents-muse-dots-personal-assistant",
@@ -698,7 +665,7 @@
       "_quality": 60,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 70,
+      "_theme_score": 69,
       "_theme_score_raw": 22,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -716,6 +683,34 @@
         "label": "Working Lands & Industry",
         "shown_at": "2026-11-03T06:10:37.882124+00:00"
       }
+    },
+    {
+      "id": "https://www.archdaily.com/1186758/what-is-modified-wood-how-technology-is-expanding-what-wood-can-do",
+      "url": "https://www.archdaily.com/1186758/what-is-modified-wood-how-technology-is-expanding-what-wood-can-do",
+      "title": "[ArchDaily] What is Modified Wood? How Technology Is Expanding What Wood Can Do",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.archdaily.com%2F1186758%2Fwhat-is-modified-wood-how-technology-is-expanding-what-wood-can-do\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Wood has been used in buildings for thousands of years. It is natural, renewable and versatile, but its response to moisture requires consideration in design and specification. Changing moisture conditions can cause it to swell and shrink, while prolonged moisture exposure can create conditions for fungal decay. Historically, using wood outdoors has therefore meant choosing naturally durable species, protecting the material or designing around the way wood behaves. Wood modification offers another approach: changing certain properties of the material itself.</p>",
+      "summary": "Wood has been used in buildings for thousands of years. It is natural, renewable and versatile, but its response to moisture requires consideration in design and specification. Changing moisture conditions can cause it to swell and shrink, while prolonged moisture exposure can create conditions for",
+      "_excerpt": "Wood has been used in buildings for thousands of years. It is natural, renewable and versatile, but its response to moisture requires consideration in design and specification. Changing moisture conditions can cause it to swell and shrink, while prolonged moisture exposure can create conditions for fungal decay. Historically, using wood outdoors has therefore meant choosing naturally durable species, protecting the material or designing around the way wood behaves. Wood modification offers another approach: changing certain properties of the material itself.",
+      "date_published": "2026-10-27T06:45:00+00:00",
+      "authors": [
+        {
+          "name": "ArchDaily",
+          "url": "https://www.archdaily.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 59,
+      "_theme_score_raw": 12,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 63,
+      "_keyword_matches": 2,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false
     },
     {
       "id": "https://www.techradar.com/phones/a-year-after-europes-repairability-rules-came-in-are-smartphones-and-laptops-actually-getting-easier-to-repair",
@@ -748,6 +743,132 @@
       "image": "https://cdn.mos.cms.futurecdn.net/zVUamqc9mqc7D7JNuSY3y8-1920-80.jpg"
     },
     {
+      "id": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
+      "url": "https://www.xda-developers.com/your-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it/",
+      "title": "[XDA Developers] Your ESP32 has PSRAM sitting there unused, and most tutorials forget to mention it",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.xda-developers.com%2Fyour-esp32-has-psram-sitting-there-unused-and-most-tutorials-forget-to-mention-it%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThere's a lot you can do with this overlooked component",
+      "summary": "There's a lot you can do with this overlooked component",
+      "_excerpt": "There's a lot you can do with this overlooked component",
+      "date_published": "2026-10-25T19:30:20+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "ai_score": 42,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 93,
+      "_theme_score_raw": 58,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/esp32-s3-wroom-1-foliage.jpg"
+    },
+    {
+      "id": "https://www.neowin.net/reports/new-report-slams-microsoft-for-leveraging-dark-patterns-to-force-people-to-use-edge/?utm_source=rss",
+      "url": "https://www.neowin.net/reports/new-report-slams-microsoft-for-leveraging-dark-patterns-to-force-people-to-use-edge/?utm_source=rss",
+      "title": "[Neowin] New report slams Microsoft for leveraging \"dark patterns\" to force people to use Edge",
+      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793103708_dhaka-bangladesh-aug-2024-microsoft-depositphotos_737464362_xl_full.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.neowin.net%2Freports%2Fnew-report-slams-microsoft-for-leveraging-dark-patterns-to-force-people-to-use-edge%2F%3Futm_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div style=\"float:left;margin-right:10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793103708_dhaka-bangladesh-aug-2024-microsoft-depositphotos_737464362_xl_medium.webp\"/></div>Microsoft's browser tactics are under fire again, but a new report suggests the problem goes far beyond annoying pop-ups. Here's what it found. <a href=\"https://www.neowin.net/reports/new-report-slams-microsoft-for-leveraging-dark-patterns-to-force-people-to-use-edge/\">Read more...</a>",
+      "summary": "Microsoft's browser tactics are under fire again, but a new report suggests the problem goes far beyond annoying pop-ups. Here's what it found. Read more...",
+      "_excerpt": "Microsoft's browser tactics are under fire again, but a new report suggests the problem goes far beyond annoying pop-ups. Here's what it found. Read more...",
+      "date_published": "2026-10-27T13:06:01+00:00",
+      "authors": [
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net"
+        }
+      ],
+      "ai_score": 33,
+      "_quality": 62,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 69,
+      "_theme_score_raw": 22,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": true,
+      "image": "https://cdn.neowin.com/news/images/uploaded/2026/10/1793103708_dhaka-bangladesh-aug-2024-microsoft-depositphotos_737464362_xl_full.webp"
+    },
+    {
+      "id": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
+      "url": "https://www.hackster.io/news/this-wireless-sensor-board-speaks-your-language-f6e85723c116",
+      "title": "[Hackster News] This Wireless Sensor Board Speaks Your Language",
+      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-wireless-sensor-board-speaks-your-language-f6e85723c116\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
+      "summary": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
+      "_excerpt": "NINASENSE nRF is an open source BLE and LoRa sensing board that runs for years on AAA batteries and can be programmed with natural language.",
+      "date_published": "2026-10-29T13:02:24+00:00",
+      "authors": [
+        {
+          "name": "Hackster News",
+          "url": "https://www.hackster.io"
+        }
+      ],
+      "ai_score": 55,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 91,
+      "_theme_score_raw": 55,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 63,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://hackster.imgix.net/uploads/attachments/2015446/_ZWuEkA6MYj.blob?auto=compress%2Cformat&w=400&h=300&fit=min"
+    },
+    {
+      "id": "https://www.popularwoodworking.com/tricks/drill-a-centered-hole-in-a-sphere/",
+      "url": "https://www.popularwoodworking.com/tricks/drill-a-centered-hole-in-a-sphere/",
+      "title": "[Popular Woodworking] Drill a Centered Hole in a Sphere",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.popularwoodworking.com%2Ftricks%2Fdrill-a-centered-hole-in-a-sphere%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"768\" src=\"https://media.popularwoodworking.com/app/uploads/2026/10/27111655/jan07-center-a-hole-in-sphere-copy-1024x768.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1024\"/>Drill a perfectly centered hole in a sphere by first counterboring a hole in a scrap board clamped to your table. Drill the counterbore using a Forstner or spade bit...\n<p><a href=\"https://www.popularwoodworking.com/tricks/drill-a-centered-hole-in-a-sphere/\" rel=\"nofollow\">Source</a></p>",
+      "summary": "Drill a perfectly centered hole in a sphere by first counterboring a hole in a scrap board clamped to your table. Drill the counterbore using a Forstner or spade bit... Source",
+      "_excerpt": "Drill a perfectly centered hole in a sphere by first counterboring a hole in a scrap board clamped to your table. Drill the counterbore using a Forstner or spade bit... Source",
+      "date_published": "2026-10-27T15:19:02+00:00",
+      "authors": [
+        {
+          "name": "Popular Woodworking",
+          "url": "https://www.popularwoodworking.com"
+        }
+      ],
+      "ai_score": 47,
+      "_quality": 55,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 69,
+      "_theme_score_raw": 22,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 62,
+      "_keyword_matches": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+      }
+    },
+    {
       "id": "https://www.tomshardware.com/software/windows/tech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize",
       "url": "https://www.tomshardware.com/software/windows/tech-sleuth-claims-to-have-found-the-oldest-gui-application-that-still-works-with-windows-11-cdplayer-exe-from-windows-nt-in-november-1992-wins-the-prize",
       "title": "[Tom's Hardware] Tech sleuth claims to have found the oldest GUI application that still works with Windows 11",
@@ -765,7 +886,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 94,
+      "_theme_score": 93,
       "_theme_score_raw": 58,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -776,36 +897,6 @@
       "_is_bonus": true,
       "_thin_body": true,
       "image": "https://cdn.mos.cms.futurecdn.net/9WfJEJAx6SPbbBbEXKuZCM-1920-80.jpg"
-    },
-    {
-      "id": "https://www.hackster.io/news/this-diy-lockpicker-has-ai-on-its-side-7264ccf5dccf",
-      "url": "https://www.hackster.io/news/this-diy-lockpicker-has-ai-on-its-side-7264ccf5dccf",
-      "title": "[Hackster News] This DIY Lockpicker Has AI on Its Side",
-      "content_html": "<img src=\"https://hackster.imgix.net/uploads/attachments/2016658/_GL2kPTK7Qe.blob?auto=compress%2Cformat&amp;w=400&amp;h=300&amp;fit=min\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.hackster.io%2Fnews%2Fthis-diy-lockpicker-has-ai-on-its-side-7264ccf5dccf\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDr. Kun Dániel built a DIY lockpicking robot using an ESP32, 3D-printed parts, and Claude to autonomously open pin tumbler locks.",
-      "summary": "Dr. Kun Dániel built a DIY lockpicking robot using an ESP32, 3D-printed parts, and Claude to autonomously open pin tumbler locks.",
-      "_excerpt": "Dr. Kun Dániel built a DIY lockpicking robot using an ESP32, 3D-printed parts, and Claude to autonomously open pin tumbler locks.",
-      "date_published": "2026-11-01T21:00:00+00:00",
-      "authors": [
-        {
-          "name": "Hackster News",
-          "url": "https://www.hackster.io"
-        }
-      ],
-      "ai_score": 44,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 94,
-      "_theme_score_raw": 58,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://hackster.imgix.net/uploads/attachments/2016658/_GL2kPTK7Qe.blob?auto=compress%2Cformat&w=400&h=300&fit=min"
     },
     {
       "id": "https://kk.org/cooltools/gars-tips-tools-issue-216/",
@@ -870,67 +961,6 @@
       "_subscriber_access": "Apple News+"
     },
     {
-      "id": "https://newatlas.com/energy/artificial-leaf-generates-hydrogen-removes-pollutants-seawater/",
-      "url": "https://newatlas.com/energy/artificial-leaf-generates-hydrogen-removes-pollutants-seawater/",
-      "title": "[New Atlas] Solar-powered 'leaf' generates hydrogen while purifying seawater",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Fenergy%2Fartificial-leaf-generates-hydrogen-removes-pollutants-seawater%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"The not-very-leafy-looking artificial leaf\" src=\"https://assets.newatlas.com/dims4/default/67763bf/2147483647/strip/true/crop/4924x3283+0+0/resize/1440x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F35%2F61%2F58d73db4438f8f4149d2070d13d5%2Fartificial-leaf-device.jpg\"/><p>Hydrogen production from electrolysis is typically complex and energy-intensive. So is wastewater treatment. Inspired by leaves, which harness solar power to generate oxygen and carry out other processes, researchers at Nanyang Technological University in Singapore have developed a solar-powered device that generates hydrogen from seawater while simultaneously degrading hydrazine, a highly toxic industrial wastewater pollutant.</p><p><a href=\"https://newatlas.com/energy/artificial-leaf-generates-hydrogen-removes-pollutants-seawater/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://newatlas.com/energy/\">Energy</a>, <a href=\"https://newatlas.com/engineering/\">Engineering</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/nanyang-technological-university/\" rel=\"tag\">Nanyang Technological University</a>, <a href=\"https://newatlas.com/tag/hydrogen/\" rel=\"tag\">Hydrogen</a>, <a href=\"https://newatlas.com/tag/pollution/\" rel=\"tag\">Pollution</a>, <a href=\"https://newatlas.com/tag/wastewater/\" rel=\"tag\">Wastewater</a></p></p>",
-      "summary": "Hydrogen production from electrolysis is typically complex and energy-intensive. So is wastewater treatment. Inspired by leaves, which harness solar power to generate oxygen and carry out other processes, researchers at Nanyang Technological University in Singapore have developed a solar-powered",
-      "_excerpt": "Hydrogen production from electrolysis is typically complex and energy-intensive. So is wastewater treatment. Inspired by leaves, which harness solar power to generate oxygen and carry out other processes, researchers at Nanyang Technological University in Singapore have developed a solar-powered device that generates hydrogen from seawater while simultaneously degrading hydrazine, a highly toxic industrial wastewater pollutant. Continue Reading Category: Energy , Engineering Tags: Nanyang Technological University , Hydrogen , Pollution , Wastewater",
-      "date_published": "2026-10-24T13:03:00+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality": 60,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 66,
-      "_theme_score_raw": 18,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 60,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-10-31T06:08:15.848283+00:00"
-      }
-    },
-    {
-      "id": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
-      "url": "https://pytorch.org/blog/pytorch-2-15-release-blog/",
-      "title": "PyTorch 2.15 Release Blog",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fpytorch.org%2Fblog%2Fpytorch-2-15-release-blog%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>We are excited to announce the release of PyTorch® 2.15 (release notes)! The PyTorch 2.15 release features the following changes: Rewritten NCCL backend becomes the default, with a flight recorder...</p>\n<p>The post <a href=\"https://pytorch.org/blog/pytorch-2-15-release-blog/\">PyTorch 2.15 Release Blog</a> appeared first on <a href=\"https://pytorch.org\">PyTorch</a>.</p>",
-      "summary": "We are excited to announce the release of PyTorch® 2.15 (release notes)! The PyTorch 2.15 release features the following changes: Rewritten NCCL backend becomes the default, with a flight recorder... The post PyTorch 2.15 Release Blog appeared first on PyTorch .",
-      "_excerpt": "We are excited to announce the release of PyTorch® 2.15 (release notes)! The PyTorch 2.15 release features the following changes: Rewritten NCCL backend becomes the default, with a flight recorder... The post PyTorch 2.15 Release Blog appeared first on PyTorch .",
-      "date_published": "2026-10-28T17:44:20+00:00",
-      "authors": [
-        {
-          "name": "PyTorch",
-          "url": ""
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 62,
-      "_theme_score_raw": 14,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 60,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true
-    },
-    {
       "id": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
       "url": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
       "title": "[Quanta Magazine] How Do You Take a Picture of a Black Hole?",
@@ -948,11 +978,11 @@
       "_quality": 75,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 51,
+      "_theme_score": 50,
       "_theme_score_raw": 8,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 58,
+      "_composite_podcast": 57,
       "_keyword_matches": 0,
       "_category": "science",
       "_source_category": "science",
@@ -982,47 +1012,17 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 75,
+      "_theme_score": 74,
       "_theme_score_raw": 30,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 57,
+      "_composite_podcast": 56,
       "_keyword_matches": 2,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
       "_thin_body": true,
       "image": "https://i.insider.com/6ad619992428f6b455813a5c?format=jpeg"
-    },
-    {
-      "id": "https://www.businessinsider.com/ukraine-explosive-weight-soldiers-could-put-on-drone-surprised-maker-2026-10",
-      "url": "https://www.businessinsider.com/ukraine-explosive-weight-soldiers-could-put-on-drone-surprised-maker-2026-10",
-      "title": "[Business Insider] Ukrainian soldiers surprised a major drone maker with how much explosive weight they packed onto one of its drones",
-      "content_html": "<img src=\"https://i.insider.com/6ada2391dc67b5b4d01f66b7?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.businessinsider.com%2Fukraine-explosive-weight-soldiers-could-put-on-drone-surprised-maker-2026-10\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDrones' explosive power is limited by gear, like batteries, that they must carry. But soldiers push gear to the limit, surprising even its makers.",
-      "summary": "Drones' explosive power is limited by gear, like batteries, that they must carry. But soldiers push gear to the limit, surprising even its makers.",
-      "_excerpt": "Drones' explosive power is limited by gear, like batteries, that they must carry. But soldiers push gear to the limit, surprising even its makers.",
-      "date_published": "2026-10-25T11:56:01+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "ai_score": 36,
-      "_quality": 60,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 66,
-      "_theme_score_raw": 18,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 55,
-      "_keyword_matches": 2,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "_thin_body": true,
-      "image": "https://i.insider.com/6ada2391dc67b5b4d01f66b7?format=jpeg"
     },
     {
       "id": "https://www.mycariboonow.com/317051/news/environment/forestry-environment/temporary-shutdown-at-quesnel-river-pulp-will-continue-at-least-a-little-longer/",
@@ -1075,11 +1075,11 @@
       "_quality": 75,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 38,
+      "_theme_score": 37,
       "_theme_score_raw": 5,
       "_kite_sources": 6,
       "_kite_context": "Perspective: Peter Steinberger, OpenAI employee and OpenClaw creator: Steinberger said the change in engineers’ roles is difficult, but predicted the traditional software-engineer job would disappear if AI progress continued at even half its current pace over the next two (Business Insider)\nPerspective: David Heinemeier Hansson, creator of Ruby on Rails: Hansson said he had reversed his stance on AI-generated code. He previously spent more time rewriting model output than coding from scratch, but that had changed with newer models (pragmaticengineer.com). (The Pragmatic Engineer)\nQuote: \"We are refounding the company. There is a before and after artificial intelligence.\" (Gonçalo Quadros, co-founder and chairman of Critical Software, AI.pt)\nTimeline: Late 2022: Stanford study period begins for employment changes among developers aged 22 to 25 (t3n.de)\nTimeline: August 2026: JetBrains published its survey of more than 15,000 professional developers (t3n.de)\nTimeline: 29 October 2026: Preliminary U.S. college enrollment data showed computer science declines (bloomberg.com)\nTimeline: 30 October 2026: Engineers discussed Proton CTO Bart Butler’s AI-work memo online (businessinsider.com)",
-      "_composite_podcast": 54,
+      "_composite_podcast": 53,
       "_keyword_matches": 2,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
@@ -1161,6 +1161,35 @@
       }
     },
     {
+      "id": "https://100milefreepress.net/2026/11/03/walk-for-jennifer-marks-one-year-anniversary-renews-call-for-answers/",
+      "url": "https://100milefreepress.net/2026/11/03/walk-for-jennifer-marks-one-year-anniversary-renews-call-for-answers/",
+      "title": "[100 Mile Free Press] Walk for Jennifer marks one year anniversary, renews call for answers",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F11%2F03%2Fwalk-for-jennifer-marks-one-year-anniversary-renews-call-for-answers%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n",
+      "summary": "",
+      "_excerpt": "",
+      "date_published": "2026-11-04T06:03:30.314178+00:00",
+      "authors": [
+        {
+          "name": "100 Mile Free Press",
+          "url": "https://100milefreepress.net"
+        }
+      ],
+      "ai_score": 71,
+      "_quality": 60,
+      "_relevance": 70,
+      "_local": 85,
+      "_theme_score": 42,
+      "_theme_score_raw": 2,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 51,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
+      "_thin_body": true
+    },
+    {
       "id": "https://www.fastcompany.com/91625985/31-leaders-on-whether-they-still-want-to-talk-about-ai",
       "url": "https://www.fastcompany.com/91625985/31-leaders-on-whether-they-still-want-to-talk-about-ai",
       "title": "[Fast Company] 31 leaders on whether they still want to talk about AI",
@@ -1211,11 +1240,11 @@
       "_quality": 60,
       "_relevance": 0,
       "_local": 10,
-      "_theme_score": 51,
+      "_theme_score": 50,
       "_theme_score_raw": 8,
       "_kite_sources": 4,
       "_kite_context": "Perspective: Cooperativas Agro-alimentarias de España: Gabriel Trenzado described digital farm records and professional guidance as key to putting innovations into practice (efeagro.com). (EFE Agro)\nPerspective: Sociedad Española de Agricultura Ecológica y Agroecología: Coordinator Helena Cifre argued that sustainable food production requires prevention, adaptation and mitigation, called for a more ambitious Common Agricultural Policy, and said organic production and (EFE Agro)\nPerspective: Greenpeace: The environmental group urged Spain’s future government to put food production at the center of policy, recommending an 18% increase in land planted with legumes by 2050 and expanded extensive livestock farming (efeagro.com). (EFE Agro)\nQuote: \"What we’re seeing is a growing instability in daily temperature patterns\" (Jie Yang, lead author of the study, Agritech Insights)",
-      "_composite_podcast": 48,
+      "_composite_podcast": 47,
       "_keyword_matches": 0,
       "_category": "homestead",
       "_source_category": "homestead",
@@ -1326,69 +1355,100 @@
       }
     },
     {
-      "id": "https://civileats.com/2026/10/26/study-regenerative-agriculture-farms-hold-key-climate-solutions/",
-      "url": "https://civileats.com/2026/10/26/study-regenerative-agriculture-farms-hold-key-climate-solutions/",
-      "title": "[Civil Eats] Study: Regenerative Agriculture Farms Hold Key Climate Solutions",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fcivileats.com%2F2026%2F10%2F26%2Fstudy-regenerative-agriculture-farms-hold-key-climate-solutions%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div class=\"rss-custom-item\" style=\"font-family:sans-serif;line-height:1.3;\"><img alt=\"(Photo courtesy of the Ecdysis Foundation)\" src=\"https://civileats.com/wp-content/uploads/2026/10/261026-jonathan-lundgren-hero-final-700x467.jpg\" style=\"height:auto;margin-bottom:12px;display:block;\"/><span style=\"font-style:italic;color:#555555;font-size:14px;display:block;margin-bottom:4px;\">By Lisa Held • October 26, 2026</span><span style=\"font-size:16px;color:#222222;display:block;margin-bottom:8px;\">Ecologist Jonathan Lundgren launched the 1,000 Farms Initiative to compare regenerative and conventional farming. Here’s what we know now.</span><span style=\"display:block;\"><a href=\"https://civileats.com/2026/10/26/study-regenerative-agriculture-farms-hold-key-climate-solutions/\" style=\"font-weight:bold;text-decoration:underline;color:#111111;\">Read the full article →</a></span></div>",
-      "summary": "By Lisa Held • October 26, 2026 Ecologist Jonathan Lundgren launched the 1,000 Farms Initiative to compare regenerative and conventional farming. Here’s what we know now. Read the full article →",
-      "_excerpt": "By Lisa Held • October 26, 2026 Ecologist Jonathan Lundgren launched the 1,000 Farms Initiative to compare regenerative and conventional farming. Here’s what we know now. Read the full article →",
-      "date_published": "2026-10-26T08:00:07+00:00",
+      "id": "https://wltribune.com/2026/11/03/trailblazer-chronicles-buckles-bikes-and-a-very-cariboo-october/",
+      "url": "https://wltribune.com/2026/11/03/trailblazer-chronicles-buckles-bikes-and-a-very-cariboo-october/",
+      "title": "[Williams Lake Tribune] TRAILBLAZER CHRONICLES: Buckles, bikes and a very Cariboo October",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F11%2F03%2Ftrailblazer-chronicles-buckles-bikes-and-a-very-cariboo-october%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Golden Buckle Hunt surprised me. I expected an outdoor adventure. What I had not quite expected was how many other locals would be out there or how friendly the […]",
+      "summary": "The Golden Buckle Hunt surprised me. I expected an outdoor adventure. What I had not quite expected was how many other locals would be out there or how friendly the […]",
+      "_excerpt": "The Golden Buckle Hunt surprised me. I expected an outdoor adventure. What I had not quite expected was how many other locals would be out there or how friendly the […]",
+      "date_published": "2026-11-04T06:03:30.313910+00:00",
       "authors": [
         {
-          "name": "Civil Eats",
-          "url": "https://civileats.com"
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 58,
-      "_quality": 74,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 43,
+      "ai_score": 69,
+      "_quality": 65,
+      "_relevance": 60,
+      "_local": 100,
+      "_theme_score": 19,
       "_theme_score_raw": 6,
       "_kite_sources": 0,
       "_kite_context": "",
       "_composite_podcast": 39,
       "_keyword_matches": 0,
-      "_category": "homestead",
-      "_source_category": "homestead",
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true,
-      "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-11-02T06:06:39.404767+00:00"
-      }
+      "_thin_body": true,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune"
     },
     {
-      "id": "https://www.mycariboonow.com/317027/news/environment/youth-plaintiffs-testify-as-historic-climate-trial-gets-underway-in-vancouver/",
-      "url": "https://www.mycariboonow.com/317027/news/environment/youth-plaintiffs-testify-as-historic-climate-trial-gets-underway-in-vancouver/",
-      "title": "[My Cariboo Now] Youth plaintiffs testify as historic climate trial gets underway in Vancouver",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F317027%2Fnews%2Fenvironment%2Fyouth-plaintiffs-testify-as-historic-climate-trial-gets-underway-in-vancouver%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/10/aRPL_4543.webp?fit=696%2C392&amp;quality=80&amp;ssl=1\" width=\"696\"/>Youth and experts from across Canada are testifying this week as a historic youth-led climate trial gets underway in Vancouver.</p>\n<p>The post <a href=\"https://www.mycariboonow.com/317027/news/environment/youth-plaintiffs-testify-as-historic-climate-trial-gets-underway-in-vancouver/\">Youth plaintiffs testify as historic climate trial gets underway in Vancouver</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "summary": "Youth and experts from across Canada are testifying this week as a historic youth-led climate trial gets underway in Vancouver. The post Youth plaintiffs testify as historic climate trial gets underway in Vancouver appeared first on My Cariboo Now .",
-      "_excerpt": "Youth and experts from across Canada are testifying this week as a historic youth-led climate trial gets underway in Vancouver. The post Youth plaintiffs testify as historic climate trial gets underway in Vancouver appeared first on My Cariboo Now .",
-      "date_published": "2026-10-28T00:58:35+00:00",
+      "id": "https://thetyee.ca/Analysis/2026/11/03/Deceptions-Killed-Alberta-Renewable-Energy-Industry/",
+      "url": "https://thetyee.ca/Analysis/2026/11/03/Deceptions-Killed-Alberta-Renewable-Energy-Industry/",
+      "title": "[The Tyee] The Deceptions That Crippled a Renewable Energy Industry",
+      "content_html": "<img src=\"https://thetyee.ca/Analysis/2026/10/30/SturgeonCountyDataCentreRender.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FAnalysis%2F2026%2F11%2F03%2FDeceptions-Killed-Alberta-Renewable-Energy-Industry%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAlberta invokes ‘agriculture first’ to block wind and solar while putting gas plants on prime land.",
+      "summary": "Alberta invokes ‘agriculture first’ to block wind and solar while putting gas plants on prime land.",
+      "_excerpt": "Alberta invokes ‘agriculture first’ to block wind and solar while putting gas plants on prime land.",
+      "date_published": "2026-11-03T21:45:00+00:00",
       "authors": [
         {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
         }
       ],
-      "ai_score": 63,
-      "_quality": 80,
-      "_relevance": 70,
+      "ai_score": 69,
+      "_quality": 85,
+      "_relevance": 78,
       "_local": 25,
-      "_theme_score": 20,
-      "_theme_score_raw": 3,
+      "_theme_score": 50,
+      "_theme_score_raw": 8,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 30,
+      "_composite_podcast": 37,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://thetyee.ca/Analysis/2026/10/30/SturgeonCountyDataCentreRender.jpg"
+    },
+    {
+      "id": "https://www.quantamagazine.org/a-new-map-of-empty-space-challenges-a-tranquil-picture-of-the-galaxy-20261030/",
+      "url": "https://www.quantamagazine.org/a-new-map-of-empty-space-challenges-a-tranquil-picture-of-the-galaxy-20261030/",
+      "title": "[Quanta Magazine] A New Map of ‘Empty’ Space Challenges a Tranquil Picture of the Galaxy",
+      "content_html": "<img src=\"https://www.quantamagazine.org/wp-content/uploads/2026/10/Mapping-ISM-cr.NASA-Default.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.quantamagazine.org%2Fa-new-map-of-empty-space-challenges-a-tranquil-picture-of-the-galaxy-20261030%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFor decades, astronomers treated the interstellar medium as a static backdrop to the goings-on of the universe. Now, a wave of 3D mapping is bringing the interstellar medium’s dynamic nature into focus.            <p>The post <a href=\"https://www.quantamagazine.org/a-new-map-of-empty-space-challenges-a-tranquil-picture-of-the-galaxy-20261030/\" rel=\"noopener noreferrer\" target=\"_blank\">A New Map of ‘Empty’ Space Challenges a Tranquil Picture of the Galaxy</a> first appeared on <a href=\"https://www.quantamagazine.org\" rel=\"noopener noreferrer\" target=\"_blank\">Quanta Magazine</a></p>",
+      "summary": "For decades, astronomers treated the interstellar medium as a static backdrop to the goings-on of the universe. Now, a wave of 3D mapping is bringing the interstellar medium’s dynamic nature into focus. The post A New Map of ‘Empty’ Space Challenges a Tranquil Picture of the Galaxy first appeared",
+      "_excerpt": "For decades, astronomers treated the interstellar medium as a static backdrop to the goings-on of the universe. Now, a wave of 3D mapping is bringing the interstellar medium’s dynamic nature into focus. The post A New Map of ‘Empty’ Space Challenges a Tranquil Picture of the Galaxy first appeared on Quanta Magazine",
+      "date_published": "2026-10-30T14:52:05+00:00",
+      "authors": [
+        {
+          "name": "Quanta Magazine",
+          "url": "https://www.quantamagazine.org"
+        }
+      ],
+      "ai_score": 65,
+      "_quality": 85,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 20,
+      "_theme_score_raw": 3,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 35,
+      "_keyword_matches": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "image": "https://www.quantamagazine.org/wp-content/uploads/2026/10/Mapping-ISM-cr.NASA-Default.webp",
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-01T06:08:00.497046+00:00"
       }
     },
     {
@@ -1423,34 +1483,6 @@
         "label": "Arts, Culture & Digital Storytelling",
         "shown_at": "2026-11-02T06:06:39.404767+00:00"
       }
-    },
-    {
-      "id": "https://www.leparisien.fr/environnement/climat/climat-el-nino-continue-de-sintensifier-et-devrait-atteindre-un-pic-en-decembre-08-10-2026-SMTSZ7FANZA4XA3AJFSBMIAE5M.php",
-      "url": "https://www.leparisien.fr/environnement/climat/climat-el-nino-continue-de-sintensifier-et-devrait-atteindre-un-pic-en-decembre-08-10-2026-SMTSZ7FANZA4XA3AJFSBMIAE5M.php",
-      "title": "[leparisien.fr] WMO says powerful El Niño likely to persist through February 2027",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.leparisien.fr%2Fenvironnement%2Fclimat%2Fclimat-el-nino-continue-de-sintensifier-et-devrait-atteindre-un-pic-en-decembre-08-10-2026-SMTSZ7FANZA4XA3AJFSBMIAE5M.php\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe World Meteorological Organization (WMO) says the strong El Niño developing in the tropical Pacific is expected to peak in December and is nearly certain to persist until February 2027. The climate pattern, which warms the central and eastern equatorial Pacific, is forecast to bring above-average temperatures across much of the world and shift rainfall patterns, increasing drought and flood risks in different regions.\n\nIn Ecuador, the Navy’s Oceanographic and Antarctic Institute reported sea temperatures as much as 5.2°C above normal off Ecuador and Peru. It linked the unusually warm water to exceptional coastal rainfall, rainfall deficits in the Andean highlands and Amazon, and reduced nutrient levels affecting some fisheries. Officials urged preparations for coastal flooding. Separately, Copernicus reported that the global average sea-surface temperature outside polar regions reached a September record of 21.05°C.",
-      "summary": "The World Meteorological Organization (WMO) says the strong El Niño developing in the tropical Pacific is expected to peak in December and is nearly certain to persist until February 2027. The climate pattern, which warms the central and eastern equatorial Pacific, is forecast to bring",
-      "_excerpt": "The World Meteorological Organization (WMO) says the strong El Niño developing in the tropical Pacific is expected to peak in December and is nearly certain to persist until February 2027. The climate pattern, which warms the central and eastern equatorial Pacific, is forecast to bring above-average temperatures across much of the world and shift rainfall patterns, increasing drought and flood risks in different regions (leparisien.fr). In Ecuador, the Navy’s Oceanographic and Antarctic Institute reported sea temperatures as much as 5.2°C above normal off Ecuador and Peru. It linked the unusually warm water to exceptional coastal rainfall, rainfall deficits in the Andean highlands and Amazon, and reduced nutrient levels affecting some fisheries. Officials urged preparations for coastal flooding (abc.com.py). Separately, Copernicus reported that the global average sea-surface temperature outside polar regions reached a September record of 21.05°C (leparisien.fr). The 2026 El Niño developed much more suddenly than the 1997–98 event, although the two appeared similar in character by October (nasa.gov). Global temperatures: Copernicus said September’s global mean surface temperature was 1.63°C above pre-industrial levels, making it the second-warmest September recorded (leparisien.fr).",
-      "date_published": "2026-10-24T07:09:00.139000+00:00",
-      "authors": [
-        {
-          "name": "leparisien.fr",
-          "url": "https://www.leparisien.fr"
-        }
-      ],
-      "ai_score": 46,
-      "_quality": 65,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 20,
-      "_theme_score_raw": 3,
-      "_kite_sources": 7,
-      "_kite_context": "Perspective: World Meteorological Organization: Secretary-General Celeste Saulo said the Pacific is drawing on heat stored beneath the ocean surface. More heat is available because the ocean is the warmest on record, she said (leparisien.fr). (Le Parisien)\nQuote: \"Just because this El Niño looks like 1997 doesn’t mean it will be exactly the same—it’s just our best guess at the moment.\" (Josh Willis, project scientist for sea level missions at NASA’s Jet Propulsion Laboratory, NASA)\nTimeline: 6 June 2026: The onset of the current El Niño was declared (thehindu.com).\nTimeline: 5 October 2026: Niño 3.4 sea-surface temperatures first exceeded 30°C (thehindu.com).\nTimeline: 23 October 2026: Ecuador’s ocean institute reported coastal warming and urged flood preparations (abc.com.py).\nBackground: The 1997–98 and 2015–16 El Niño events were among the strongest in the satellite record and disrupted weather across multiple regions. The 1997–98 event brought heavy rain in California and the southern United States, while 2015–16 produced different rainfall",
-      "_composite_podcast": 24,
-      "_keyword_matches": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true
     },
     {
       "id": "https://www.forbes.com/sites/hansabhargava/2026/10/31/ai-in-healthcare-will-we-solve-for-the-rural-healthcare-crisis/",
@@ -1520,34 +1552,6 @@
       "_is_bonus": true
     },
     {
-      "id": "https://www.sciencealert.com/scientists-may-have-discovered-why-mens-prostates-enlarge-with-age",
-      "url": "https://www.sciencealert.com/scientists-may-have-discovered-why-mens-prostates-enlarge-with-age",
-      "title": "[ScienceAlert] Scientists May Have Discovered Why Men's Prostates Enlarge With Age",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencealert.com%2Fscientists-may-have-discovered-why-mens-prostates-enlarge-with-age\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"Scientists May Have Discovered Why Men's Prostates Enlarge With Age\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/10/GettyImages-1255450874-2560x1440-1-1200x675.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1200\"/>Fascinating new thing.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&amp;utm_medium=feed&amp;utm_campaign=rss_feed_promo\" rel=\"noopener noreferrer\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.</a></p>",
-      "summary": "Fascinating new thing. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "_excerpt": "Fascinating new thing. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "date_published": "2026-10-25T00:00:00+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 36,
-      "_quality": 60,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 4,
-      "_theme_score_raw": 2,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 17,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true
-    },
-    {
       "id": "https://vancouversun.com/news/bc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline",
       "url": "https://vancouversun.com/news/bc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline",
       "title": "[Vancouver Sun] B.C. First Nations file court challenge against the proposed Pacific Link pipeline",
@@ -1575,6 +1579,65 @@
       "_source_category": "news",
       "_is_bonus": false,
       "_thin_body": true
+    },
+    {
+      "id": "https://www.npr.org/2026/10/25/nx-s1-6013576/what-people-aged-50-and-older-need-to-know-about-flu-shots",
+      "url": "https://www.npr.org/2026/10/25/nx-s1-6013576/what-people-aged-50-and-older-need-to-know-about-flu-shots",
+      "title": "[NPR Health News] What people aged 50 and older need to know about flu shots",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.npr.org%2F2026%2F10%2F25%2Fnx-s1-6013576%2Fwhat-people-aged-50-and-older-need-to-know-about-flu-shots\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNPR's Ayesha Rascoe asks Dr. Ann Falsey of the University of Rochester Medical School about flu shots for people aged 50 and older.",
+      "summary": "NPR's Ayesha Rascoe asks Dr. Ann Falsey of the University of Rochester Medical School about flu shots for people aged 50 and older.",
+      "_excerpt": "NPR's Ayesha Rascoe asks Dr. Ann Falsey of the University of Rochester Medical School about flu shots for people aged 50 and older.",
+      "date_published": "2026-10-25T12:25:36+00:00",
+      "authors": [
+        {
+          "name": "NPR Health News",
+          "url": "https://www.npr.org/sections/health-shots/"
+        }
+      ],
+      "ai_score": 37,
+      "_quality": 50,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 20,
+      "_theme_score_raw": 3,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 13,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_thin_body": true
+    },
+    {
+      "id": "https://kffhealthnews.org/mental-health/healthq-medical-decision-making-help-brain-acronym/",
+      "url": "https://kffhealthnews.org/mental-health/healthq-medical-decision-making-help-brain-acronym/",
+      "title": "[KFF Health News] Remember This Acronym Next Time You’re Facing a Big Medical Decision: B.R.A.I.N.",
+      "content_html": "<img src=\"https://kffhealthnews.org/wp-content/uploads/sites/8/2026/10/HealthQ_BRAIN_web.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fkffhealthnews.org%2Fmental-health%2Fhealthq-medical-decision-making-help-brain-acronym%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nIf your doctor recommends a big test or procedure, this tool can help you talk through options collaboratively. It works at a routine checkup or in high-stakes medical situations like childbirth.",
+      "summary": "If your doctor recommends a big test or procedure, this tool can help you talk through options collaboratively. It works at a routine checkup or in high-stakes medical situations like childbirth.",
+      "_excerpt": "If your doctor recommends a big test or procedure, this tool can help you talk through options collaboratively. It works at a routine checkup or in high-stakes medical situations like childbirth.",
+      "date_published": "2026-10-27T09:00:00+00:00",
+      "authors": [
+        {
+          "name": "KFF Health News",
+          "url": "https://kffhealthnews.org"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 4,
+      "_theme_score_raw": 2,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 5,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_thin_body": true,
+      "image": "https://kffhealthnews.org/wp-content/uploads/sites/8/2026/10/HealthQ_BRAIN_web.jpg"
     }
   ]
 }
