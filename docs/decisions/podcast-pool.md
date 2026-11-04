@@ -252,3 +252,26 @@ licen*", "old growth", "pulp mill", "mill closure", "commodity price*", …). Me
 pool: 44 matches drop, all but two stray senses ("Global resource squeeze", a Forestnet magazine
 item), and one is gained (BC old growth). The podcast now also promotes a story on charter fit alone
 (curated-podcast-generator, `_charter_promotes`), which covers the two.
+
+## Repair Culture's charter: what a household can do (2026-11-04)
+
+The reader rated Wednesday's episode "meh": "Far too deep in the gear coverage. Not accessible to most
+DIYers." The roundup was Intel 8087 internals, a 486 emulator, unused ESP32 memory and rooting an Echo
+Dot. The charter asked for that: its 55-79 band was "hands-on maker and DIY content … practical
+electronics guides with real technical depth … Most genuine hands-on hardware journalism belongs
+HERE", and its 80-100 band named permacomputing and vintage hardware.
+
+The `scoring_prompt` now asks whether a capable DIYer without an electronics lab could follow it, use
+it or decide something from it. Household repair (appliances, tools, vehicles, small engines, phones,
+replacement parts) is 80-100; how-tos and practical electronics with an everyday use are 55-79;
+enthusiast hardware (chip internals, retro computing and emulators, firmware rooting, component-level
+electronics) is 30-54; gadget trade and import rules with no repair angle are 10-29. New anchors: a
+chainsaw recoil starter (85) and the 8087 chip article (35). `theme_description` follows.
+
+**A charter edit now reaches cached scores.** The single-charter rescore and the contender check
+stamped `rescored: True` and never asked again, so a rewritten charter would only have judged new
+articles while every confirmed score kept the old one for up to a week (and longer in the holdover
+bank). The stamp is now `charter_fingerprint(scoring_prompt)`, and a different fingerprint is
+unconfirmed. The first nightly after this merge re-asks each day's contenders once (the old `True`
+stamps match no fingerprint): up to `contender_band` 150 plus `max_articles_per_run` 120 per day,
+a one-time cost of cents on Haiku 5.5. After that, only a day whose charter changed pays again.

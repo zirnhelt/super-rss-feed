@@ -63,19 +63,38 @@ def test_the_band_is_rejudged_and_stamped(monkeypatch, tmp_path):
     assert confirmed == 2
     assert [(a.title, s) for a, s in out] == [('quiet', 12), ('poll', 4), ('burn', 81)]
     cache = m.load_theme_score_cache()
-    assert cache[f'{poll.link}:::{LABEL}']['rescored'] is True
+    assert cache[f'{poll.link}:::{LABEL}']['rescored'] == m.charter_fingerprint('charter')
 
 
 def test_a_confirmed_score_is_not_paid_for_twice(monkeypatch, tmp_path):
     sent = []
     _isolate(monkeypatch, tmp_path, _charter({'burn': 81, 'quiet': 9}, sent))
     poll, burn, quiet = _article('poll'), _article('burn'), _article('quiet')
-    m.save_theme_score_cache({f'{poll.link}:::{LABEL}': {'score': 4, 'rescored': True}})
+    m.save_theme_score_cache({f'{poll.link}:::{LABEL}': {'score': 4,
+                                                          'rescored': m.charter_fingerprint('charter')}})
 
     m.confirm_theme_contenders([(poll, 4), (burn, 48), (quiet, 12)],
                                'friday', 'charter', LABEL, 'key', SCHEDULE)
 
     assert sorted(sent) == ['burn', 'quiet']
+
+
+def test_an_edited_charter_re_asks_its_confirmed_scores(monkeypatch, tmp_path):
+    """2026-11-04: Repair Culture's charter was rewritten, and every score the old
+    one had confirmed would otherwise have kept it until the article aged out."""
+    sent = []
+    _isolate(monkeypatch, tmp_path, _charter({'poll': 30, 'burn': 81, 'quiet': 9}, sent))
+    poll, burn, quiet = _article('poll'), _article('burn'), _article('quiet')
+    m.save_theme_score_cache({
+        f'{poll.link}:::{LABEL}': {'score': 70, 'rescored': m.charter_fingerprint('old charter')},
+        f'{burn.link}:::{LABEL}': {'score': 48, 'rescored': True},  # stamped before fingerprints
+    })
+
+    m.confirm_theme_contenders([(poll, 70), (burn, 48), (quiet, 12)],
+                               'friday', 'new charter', LABEL, 'key', SCHEDULE)
+
+    # Both stamped scores are unconfirmed under the new charter, so they fill the band of 2.
+    assert sorted(sent) == ['burn', 'poll']
 
 
 def test_a_failed_call_keeps_the_old_scores(monkeypatch, tmp_path):
