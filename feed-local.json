@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-04.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-04.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 4, 2026",
+      "content_html": "<p class=\"meta\">Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/41796831545\">41796831545</a>.</p>\n<div class=\"verdict lvl-good\"><span class=\"icon\">✓</span><div><strong>Shipped clean</strong>Nothing broke and nothing fell back.</div></div>\n<h2>What to do</h2>\n<p>Nothing. The run needs no follow-up.</p>\n<h2>What happened</h2>\n<h3>Run completed on the primary trigger; no fallback needed</h3>\n<p>The primary run at 1:05 AM Pacific completed and published with 0 minutes late. The fallback runs at 2:05 AM and 3:05 AM were scheduled as backstops and were not needed to produce the episode. The 3:05 AM run is the one writing this review.</p>\n<h3>Script came in under target and shipped at 3,244 words</h3>\n<p>The first draft came in at 2,832 words against a target of 3,400, so it was sent back for one expand pass. The shipped script is 3,244 words. This is the pipeline working as designed on a thin day, and it sits under the target without tripping the short-episode threshold.</p>\n<p>The roundup pool is larger than one segment can air. 19 stories were cut by the airtime budget, while 18 roundup citations were in the pool and 13 of them matched a cited source. The 19 dropped stories are a normal consequence of the budget, and a cut story can resurface on a better-matched day.</p>\n<h3>One TTS take came back short and was retried</h3>\n<p>One TTS take came back shorter than its word count predicts. It was retried once. The retry is the only action taken on it, and the facts record no further warning. Nothing needs changing unless short takes start recurring across runs.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>0 pattern hit(s), voice ratio 0.87, 3244 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 48% of the words</td></tr>\n<tr><td>Audio</td><td>19.6 min</td></tr>\n<tr><td>Audio size</td><td>17.9 MB</td></tr>\n<tr><td>Citations matched</td><td>13/18 roundup, 4/4 deep dive</td></tr>\n<tr><td>Feed</td><td>280 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>77,520</td></tr>\n<tr><td>API calls</td><td>27 total: claude 12 · brave-search 6 · kagi-extract 5 · brave-answers 4</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-04T10:05:57+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://100milefreepress.net/2026/11/03/dozens-of-south-cariboo-families-attend-pso-haunted-house/",
       "url": "https://100milefreepress.net/2026/11/03/dozens-of-south-cariboo-families-attend-pso-haunted-house/",
       "title": "[100 Mile Free Press] Dozens of South Cariboo families attend PSO Haunted House",
