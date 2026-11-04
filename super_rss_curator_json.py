@@ -4753,6 +4753,14 @@ def _net_keyword_match_count(text: str, keywords: List[str], anti_keywords: List
     return max(0, hits - anti_hits)
 
 
+def charter_fingerprint(theme_prompt: str) -> str:
+    """Short hash of a theme's scoring prompt. A single-charter rescore is stamped
+    with it, so editing a charter re-asks its articles once instead of never: the
+    `rescored` stamp used to be True, and a rewritten charter (2026-11-04, Repair
+    Culture) left every confirmed score judged against the old one."""
+    return hashlib.md5((theme_prompt or '').encode()).hexdigest()[:12]
+
+
 def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_label: str, api_key: str,
                              force: bool = False) -> List[tuple]:
     """Score articles for thematic fit using Claude.
@@ -4906,7 +4914,7 @@ Articles to evaluate:
                     cache_key = f"{article.link}:::{theme_label}"
                     entry = {'score': theme_score, 'cached_at': now_iso}
                     if force:
-                        entry['rescored'] = True
+                        entry['rescored'] = charter_fingerprint(theme_prompt)
                     theme_cache[cache_key] = entry
 
         except json.JSONDecodeError as e:
@@ -5146,9 +5154,11 @@ def confirm_theme_contenders(scored: List[tuple], theme_name: str, theme_prompt:
     if not scored or band <= 0 or not cfg.get('enabled', False) or theme_name not in (cfg.get('days') or []):
         return scored, 0
 
+    fingerprint = charter_fingerprint(theme_prompt)
+
     def _confirmed(cache: Dict, link: str) -> bool:
         entry = cache.get(f"{link}:::{theme_label}")
-        return isinstance(entry, dict) and bool(entry.get('rescored'))
+        return isinstance(entry, dict) and entry.get('rescored') == fingerprint
 
     cache = load_theme_score_cache()
     unconfirmed = sorted((t for t in scored if not _confirmed(cache, t[0].link)),
@@ -5252,6 +5262,7 @@ def rescore_underserved_themes(cached_articles: List[Dict], schedule_config: Dic
             continue
 
         label = day_cfg['label']
+        fingerprint = charter_fingerprint(day_cfg.get('scoring_prompt', ''))
         keywords = day_cfg.get('keywords', [])
         sources = {s.lower() for s in (day_cfg.get('rescore_sources') or [])}
 
@@ -5262,7 +5273,7 @@ def rescore_underserved_themes(cached_articles: List[Dict], schedule_config: Dic
             # Only rescore what the joint call has already judged and scored low.
             # An article with no cached score yet is still in flight in the async
             # batch; it becomes eligible next run, once there is a score to correct.
-            if not isinstance(entry, dict) or entry.get('rescored'):
+            if not isinstance(entry, dict) or entry.get('rescored') == fingerprint:
                 continue
             if entry.get('score', 0) >= ceiling:
                 continue
