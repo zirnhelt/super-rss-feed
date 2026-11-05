@@ -228,11 +228,16 @@ the top two 73%).
 Article ratings grade story choice. The polish never changes which stories are chosen, so a
 polish-model trial could not be graded by them; only a verdict on the whole episode can grade
 the writing. `review.html` has an **Episode** tab (beside Articles and Example, each with its
-own save button; one token box below serves all three): the last three episode dates
-(today, yesterday, the day before; **yesterday is preselected**, because it is the episode the
-reader has usually heard when the page is open), **Keep / Meh / Skip**, and optional reason
+own save button; one token box below serves all three): the last two episode dates
+(today and yesterday; **today is preselected**), **Keep / Meh / Skip**, and optional reason
 chips (Stories, Writing, Wrong fact, Too long, Repetitive, Hosts). Whether "Writing" or
 "Stories" is ticked is what separates a polish effect from story choice.
+
+*2026-11-05:* the default was yesterday, on the guess that the reader rates the episode heard the
+day before. In practice the reader rates the day's episode, rarely yesterday's and never older:
+a verdict went out against the wrong day. The default moved to today and the day-before option
+was dropped. Today's episode publishes ~08:05 UTC (just after midnight Pacific), so it exists
+whenever the page is realistically opened.
 
 - **Row shape**, saved into the same `feedback/YYYY-MM-DD.json` as the article ratings:
   `{rating: 'episode', episode_date, episode_verdict: 'keep'|'meh'|'skip', episode_reasons: [...], rated_at}`.

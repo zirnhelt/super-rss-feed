@@ -115,9 +115,9 @@ class TestThePageContract:
         assert re.findall(r"'([^']+)'", reasons) == [
             'Stories', 'Writing', 'Wrong fact', 'Too long', 'Repetitive', 'Hosts']
 
-    def test_yesterday_is_the_default_of_the_last_three_dates(self):
-        assert 'const EPISODE_DAYS     = 3;' in PAGE
-        assert 'const EPISODE_DEFAULT  = 1;' in PAGE
+    def test_today_is_the_default_of_the_last_two_dates(self):
+        assert 'const EPISODE_DAYS     = 2;' in PAGE
+        assert 'const EPISODE_DEFAULT  = 0;' in PAGE
 
     def test_dates_come_from_calendar_arithmetic_not_timestamps(self):
         """24 hours before a time just after midnight is the wrong date on the two days a
