@@ -13,6 +13,142 @@
   "language": "en",
   "items": [
     {
+      "id": "https://bencane.com/posts/2026-11-04-microservices-for-low-latency-workloads/",
+      "url": "https://bencane.com/posts/2026-11-04-microservices-for-low-latency-workloads/",
+      "title": "[Benjamin Cane] Microservices can work for low-latency workloads—if you design for it",
+      "content_html": "<img src=\"https://bencane.com/assets/images/posts/2026-11-04-microservices-for-low-latency-workloads.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p>Microservices can work for low-latency workloads if you design them that way.</p>\n<p>Over the years, many people have told me, “Microservices don’t work when you need low latency; use a monolith.”\nI get it; for many, this advice comes from negative experiences.</p>\n<p>When you break a monolith into multiple services, you’re replacing function calls with network calls.\nThose network calls introduce latency, and the more services you depend on, the slower the overall request becomes.</p>\n<p>But does that really mean microservices can’t be used for low-latency systems?\nNo, and I say that from experience.</p>\n<p>I’ve spent a lot of time working on low-latency distributed systems, and I think the key is designing your architecture to compensate for the added overhead.</p>\n<p>Caveat: Low-latency is subjective; designing a system for single-digit milliseconds vs. double- or triple-digit milliseconds will differ, since every additional digit changes your tolerance.</p>\n<h2>Locality Matters</h2>\n<p>One thing I really like about cell-based architecture is that it encourages locality, and locality is good for latency.\nWe often talk about cells in the context of resiliency.\nThey contain failures, reduce the blast radius, and help keep one problem from impacting the entire platform.</p>\n<p>But they also provide a pattern for keeping communication between services local.</p>\n<p>Suppose you are building a microservices-based platform with four or five services that each request must pass through.\nIf you spread those services across multiple availability zones, clusters, or regions, you'll create significant latency.</p>\n<p>Depending on the network topology, that traffic may cross additional switches, routers, firewalls, and other infrastructure.\nCrossing regions also introduces significant physical distance, which adds even more latency.</p>\n<div class=\"mermaid mermaid-sequence\">\nflowchart TB\n    Client[Client]\n    subgraph R1[Region 1]\n        direction TB\n        A1[Service A]\n        B1[Service B]\n        C1[Service C]\n        D1[Service D]\n        A1 ~~~ B1 ~~~ D1 ~~~ C1\n    end\n    subgraph R2[Region 2]\n        direction TB\n        A2[Service A]\n        B2[Service B]\n        C2[Service C]\n        D2[Service D]\n        A2 ~~~ B2 ~~~ D2 ~~~ C2\n    end\n    Client --&gt; A1\n    Client --&gt; A2\n    A1 --&gt;|1| B2\n    B2 --&gt;|2| C1\n    A1 --&gt;|3| C1\n    A1 --&gt;|4| D2\n    D2 --&gt;|5| C1\n    A2 --&gt; B1\n    B1 --&gt; C2\n    A2 --&gt; C2\n    A2 --&gt; D1\n    D1 --&gt; C2\n</div>\n<p>Now, let's imagine those same services running close together within the same Kubernetes cluster and availability zone.</p>\n<p>Keeping those services local can significantly reduce the network infrastructure each request has to traverse.\nIn the best case, the services might even be running on the same physical or virtual server.</p>\n<div class=\"mermaid mermaid-sequence\">\nflowchart TB\n    Client[Client]\n    subgraph R1[\"Region 1: local cell / one AZ\"]\n        A1[Service A] --&gt;|1| B1[Service B]\n        B1 --&gt;|2| C1[Service C]\n        A1 --&gt;|3| C1\n        A1 --&gt;|4| D1[Service D]\n        D1 --&gt;|5| C1\n    end\n    subgraph R2[\"Region 2: separate cell / one AZ\"]\n        A2[Service A] --&gt;|1| B2[Service B]\n        B2 --&gt;|2| C2[Service C]\n        A2 --&gt;|3| C2\n        A2 --&gt;|4| D2[Service D]\n        D2 --&gt;|5| C2\n    end\n    Client --&gt; A1\n    Client --&gt; A2\n</div>\n<p>Of course, Kubernetes clusters can span multiple availability zones, so simply being in the same cluster doesn't necessarily guarantee locality.\nIf you're optimizing purely for network latency, keeping communicating services within the same availability zone is generally preferable.\nBut that doesn't mean your entire platform should depend on a single availability zone.</p>\n<p>Multiple cells that each independently run in an availability zone is one option.\nAnother option is to leverage locality-based routing.\nYou can still design for multi-AZ resiliency while preferring local communication.</p>\n<p>Applying a low-latency lens to cell-based architecture lets you deliberately optimize how services communicate within each cell.</p>\n<p>But locality comes with trade-offs.\nYou need to manage how traffic is distributed, ensure each environment has enough capacity, and think carefully about data consistency.\nAll of this adds operational complexity.</p>\n<p>If low latency is important enough, those trade-offs may be worth it.</p>\n<h2>Stop Rebuilding Connections</h2>\n<p>Another common source of unnecessary latency is frequent connections.</p>\n<p>When two microservices communicate hundreds or thousands of times per second, closing and re-establishing a new connection for every request is highly inefficient.</p>\n<p>Every new TCP connection requires a three-way handshake: SYN, SYN-ACK, and ACK.</p>\n<p>If you're using TLS, you've also got the additional negotiation required to establish a secure connection.</p>\n<p>Each of these steps adds network round trips, and when you're trying to squeeze milliseconds out of a system, those costs matter.</p>\n<div class=\"mermaid mermaid-sequence\">\nsequenceDiagram\n    participant Client\n    participant Server\n    Note over Client,Server: New connection per request\n    loop Each request\n        Note over Client,Server: TCP handshake<br/>and optional TLS setup\n        Client-&gt;&gt;Server: Request\n        Server--&gt;&gt;Client: Response\n        Note over Client,Server: Close connection\n    end\n</div>\n<p>In contrast, a persistent connection allows you to establish a connection once and reuse it for multiple requests.</p>\n<p>While this is absolutely possible with HTTP/1.1, protocols like HTTP/2 take this further by allowing multiple concurrent requests over the same connection.</p>\n<p>Instead of constantly opening and closing connections, keeping a pool of reusable connections open and using them efficiently can significantly reduce request latency.</p>\n<div class=\"mermaid mermaid-sequence\">\nsequenceDiagram\n    participant Client\n    participant Server\n    Note over Client,Server: Reuse an established connection\n    Note over Client,Server: TCP handshake<br/>and optional TLS setup<br/>once\n    loop Multiple requests on the same connection\n        Client-&gt;&gt;Server: Request\n        Server--&gt;&gt;Client: Response\n    end\n</div>\n<p>But this performance improvement has a trade-off: load distribution.</p>\n<h2>Connection Reuse Requires Rethinking Load Distribution</h2>\n<p>Let’s imagine you’ve got ten instances of a service and your client microservice is configured to establish reusable connections based on what it needs.</p>\n<p>With HTTP/2, your client might only need a single connection to handle a significant amount of traffic.\nBut if that connection is pinned to one backend instance, all those requests would end up going to the same instance.</p>\n<p>Meanwhile, the other nine instances are sitting idle.</p>\n<div class=\"mermaid mermaid-sequence\">\nflowchart LR\n    P[Client] --&gt; L[Layer 4 balancer]\n    subgraph Backends[Backend instances]\n        direction TB\n        P1[Instance 1]\n        P2[\"Instance 2<br/>No requests from this client\"]\n        P3[\"Instance 3<br/>No requests from this client\"]\n    end\n    L ==&gt;|One HTTP/2 connection<br/>many requests| P1[Instance 1]\n</div>\n<p>When clients frequently establish new connections, layer 4 (network-level) load balancers have more opportunities to distribute those connections across your microservice instances.\nBut when clients reuse a small number of long-lived connections, those same load balancers have fewer opportunities to redistribute traffic.\nBalancing connections isn't necessarily the same as balancing requests.</p>\n<p>There are multiple options to approach load-distribution with reusable connections, such as having clients open a pool of connections and round-robin sending traffic across that pool.\nYou could also leverage something like a service mesh, which does this for you.</p>\n<div class=\"mermaid mermaid-sequence\">\nflowchart LR\n    Q[Client] --&gt; M[Request-aware proxy]\n    M --&gt;|Reused connection| Q1[Instance 1]\n    M --&gt;|Reused connection| Q2[Instance 2]\n    M --&gt;|Reused connection| Q3[Instance 3]\n</div>\n<p>This is a lesson I learned the hard way: early on, when embracing HTTP/2 in a microservices platform, I was unpleasantly surprised to find two or three microservice instances being hammered with traffic while seven others sat idle.\nBut once we fixed it (we used a service mesh), our latency suddenly dropped as we distributed traffic better, letting each microservice run with less stress.</p>\n<p>It was a great lesson, I just wish I didn’t have to learn it the hard way…</p>\n<h2>Avoid Unnecessary Waiting</h2>\n<p>This is a topic of a recent talk I gave at <a href=\"https://p99conf.io/session/mo-requests-mo-problems-managing-correctness-in-asynchronous-systems/\">P99 Conf 2026</a>.</p>\n<p>HTTP/1.1 supports persistent connections, but it doesn't support multiplexing independent requests over a single connection the way HTTP/2 does.</p>\n<p>In practice, an HTTP/1.1 connection typically handles one request at a time.\nIf your client has more requests than available connections, some requests have to wait for a connection to become available.</p>\n<p>HTTP/2 changes that by allowing multiple requests to be in flight concurrently over the same connection.\nThis can significantly reduce the time requests spend waiting for available connections.</p>\n<p>While HTTP/2 clients make asynchronous communication feel synchronous, there are always trade-offs with asynchronous communication.\nManaging timeouts, knowing when it’s safe to retry, etc.\nAll topics I covered in the talk.</p>\n<p>Managing asynchronous communication introduces complexity, but when you're trying to squeeze every millisecond out of a system, that complexity can be worth it.</p>\n<h2>Final Thoughts</h2>\n<p>Microservices will always introduce some communication overhead compared to the internal function calls of a monolith.\nBut that doesn't necessarily make them a bad choice for low-latency workloads.</p>\n<p>When I talk to folks who prefer monoliths over microservices, many have had bad experiences because their platforms weren't designed for low latency.</p>\n<p>Maybe their services communicated across regions unnecessarily, they weren't reusing connections efficiently, or their load distribution created hot spots.</p>\n<p>It's easy to understand why a monolith might seem like a better option in those situations.\nTo play devil's advocate, solving these problems introduces complexity.</p>\n<p>Microservices aren't free, and not every organization needs the independent scaling, ownership boundaries, and operational flexibility they provide.\nFor many organizations, though, those benefits are valuable enough to justify the additional complexity.</p>\n<p>My advice for anyone building a low-latency platform is simple: don't immediately discount microservices.</p>\n<p>You can absolutely build low-latency systems with microservices.\nYou just have to design for it, and make sure the complexity is worth it.</p>",
+      "date_published": "2026-11-05T00:00:00+00:00",
+      "authors": [
+        {
+          "name": "Benjamin Cane",
+          "url": "https://bencane.com"
+        }
+      ],
+      "image": "https://bencane.com/assets/images/posts/2026-11-04-microservices-for-low-latency-workloads.png",
+      "_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
+      "id": "https://www.fastcompany.com/91633396/a-discussion-on-women-at-work-with-laetitia-vitaud",
+      "url": "https://www.fastcompany.com/91633396/a-discussion-on-women-at-work-with-laetitia-vitaud",
+      "title": "🔓 [Fast Company] A discussion on women at work with Laëtitia Vitaud",
+      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/11/p-1-91633396-A-discussion-on-women-at-work-with-Laetitia-Vitaud.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<div></div>\n<p class=\"wp-block-paragraph\">There’s never a “right” age for a woman at work. Early in their careers, women may face discrimination based on assumptions about whether they’ll take maternity leave. Later, they’re subject to a new set of age-based biases.</p>\n<p class=\"wp-block-paragraph\">In this FC Live, <em>Fast Company</em> senior editor Jon Gluck led a conversation with <em>Fast Company</em> contributor and author Laëtitia Vitaud about the unique advantages that women of all ages bring to the workforce and what those advantages could mean for the future of work.</p>\n<p class=\"wp-block-paragraph\">Despite the challenges women face throughout their careers, Vitaud argues that women are especially poised for the <a href=\"https://www.fastcompany.com/section/artificial-intelligence\" title=\"AI\">AI</a> revolution because “their working lives have frequently included interruptions, pivots, reinventions, periods of part-time work, freelance activity, caregiving, and reentry into employment.”</p>",
+      "date_published": "2026-11-04T23:31:00+00:00",
+      "authors": [
+        {
+          "name": "Fast Company",
+          "url": "https://www.fastcompany.com"
+        }
+      ],
+      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/11/p-1-91633396-A-discussion-on-women-at-work-with-Laetitia-Vitaud.jpg",
+      "_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://vancouversun.com/opinion/op-ed/opinion-new-government-must-halt-ndp-policy-that-cuts-lifeline-of-care-for-people-with-long-covid",
+      "url": "https://vancouversun.com/opinion/op-ed/opinion-new-government-must-halt-ndp-policy-that-cuts-lifeline-of-care-for-people-with-long-covid",
+      "title": "[Vancouver Sun] Opinion: New government must halt NDP changes to &#039;lifeline&#039; of care for people with long COVID",
+      "content_html": "<img src=\"https://smartcdn.gprod.postmedia.digital/vancouversun/wp-content/uploads/2026/11/long-covid_306127995.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nOpinion: Group medical visits play a key role in reducing the burden of care on other parts of the health system. Restricting them will not reduce demand for care but will harm patients and strain health systems",
+      "date_published": "2026-11-04T23:00:19+00:00",
+      "authors": [
+        {
+          "name": "Vancouver Sun",
+          "url": "https://vancouversun.com/news/bc-wildfires-new-evacuation-orders-issued-south-chilcotin"
+        }
+      ],
+      "image": "https://smartcdn.gprod.postmedia.digital/vancouversun/wp-content/uploads/2026/11/long-covid_306127995.jpg",
+      "_score": 38,
+      "_quality": 55,
+      "_relevance": 40,
+      "_local_score": 15,
+      "_content_type": "opinion"
+    },
+    {
+      "id": "https://www.niemanlab.org/2026/11/weird-animals-win-on-instagram-mongabays-next-best-choice-its-reporters/",
+      "url": "https://www.niemanlab.org/2026/11/weird-animals-win-on-instagram-mongabays-next-best-choice-its-reporters/",
+      "title": "[Nieman Lab] Weird animals win on Instagram. Mongabay’s next-best choice? Its reporters.",
+      "content_html": "<img src=\"https://www.niemanlab.org/images/X-990x557.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nMongabay’s most successful videos are about weird animals. But not every video from the environmental newsroom can be about strange — or strangely cute — animals. Some have to be about shrimp farm pollution. Or a deforestation crisis brought on by cacao farming in Liberia. That’s where the challenge comes in, Mongabay video managing editor...",
+      "date_published": "2026-11-04T19:32:33+00:00",
+      "authors": [
+        {
+          "name": "Nieman Lab",
+          "url": "https://www.niemanlab.org"
+        }
+      ],
+      "image": "https://www.niemanlab.org/images/X-990x557.jpg",
+      "_score": 55,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
+      "id": "https://www.fastcompany.com/91632994/jeff-bezos-praised-raising-canes-founder-built-22-billion-fortune-breaking-3-fast-food-rules",
+      "url": "https://www.fastcompany.com/91632994/jeff-bezos-praised-raising-canes-founder-built-22-billion-fortune-breaking-3-fast-food-rules",
+      "title": "🔓 [Fast Company] Jeff Bezos praised Raising Cane’s. Its founder built a $22 billion fortune by breaking 3 fast-food rules",
+      "content_html": "<img src=\"https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/10/bezos-raising-cane-inc.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p class=\"wp-block-paragraph\"><a href=\"https://www.fastcompany.com/91375991/this-cult-brand-chicken-chain-is-gaining-on-chik-fil-a\">Raising Cane’s</a> isn’t following the standard fast-food playbook.</p>\n<p class=\"wp-block-paragraph\">From its limited menu to the employee dress code, founder Todd Graves is charting his own path in a competitive industry. Now, one of the world’s richest men is pointing to his <a href=\"https://www.fastcompany.com/91584029/raising-canes-opening-stores-august-2026-list-of-new-restaurants\">chicken finger empire</a> as a prime example of the power of entrepreneurship.</p>\n<p class=\"wp-block-paragraph\"><a href=\"https://www.foxnews.com/media/jeff-bezos-reveals-his-vision-americas-next-frontier-ai-moon\" rel=\"noopener noreferrer\" target=\"_blank\">In a recent Fox News interview</a>, <a href=\"https://www.fastcompany.com/91610407/jeff-bezos-repeated-these-2-words-for-30-years-they-built-amazon\">Jeff Bezos</a> pushed back on the notion that building a successful business and becoming a billionaire made someone a villain.</p>\n<p class=\"wp-block-paragraph\">Instead, he pointed to <a href=\"https://www.fastcompany.com/section/entrepreneurs\">entrepreneurs</a> who expanded their companies and created thousands of jobs. For the Amazon founder, Graves is a prime example of that.</p>\n<p class=\"wp-block-paragraph\">“There’s nothing wrong with making unbelievably good chicken that people love,” he said. “And it doesn’t make him a bad person.”</p>\n<p class=\"wp-block-paragraph\">However, although Graves and Bezos are both <a href=\"https://www.fastcompany.com/section/billionaires\">billionaires</a>, the former followed a different playbook than the latter.</p>\n<p class=\"wp-block-paragraph\"><a href=\"https://www.raisingcanes.com/who-we-are/\" rel=\"noopener noreferrer\" target=\"_blank\">In 1996,</a> Graves, who was 24, opened the first <a href=\"https://www.fastcompany.com/91397561/raising-canes-chicken-fingers-london-expansion\">Raising Cane’s</a> in Baton Rouge, Louisiana. He used loans from friends, family, and the Small Business Administration, as well as savings from his jobs as a boilermaker and an Alaskan salmon fisherman.</p>\n<p class=\"wp-block-paragraph\">Three decades later, the ethos of the fast-food chain remains the same: a simple menu centered on chicken fingers, fries, coleslaw, Texas toast, and Cane’s Sauce.</p>\n<p class=\"wp-block-paragraph\">Even now, the smallest change, such as the addition of <a href=\"https://order.raisingcanes.com/location/raising-canes-1118/menu/combos/the-sandwich-combo\" rel=\"noopener noreferrer\" target=\"_blank\">a sandwich combo</a>, can create anxiety and stress.</p>\n<p class=\"wp-block-paragraph\">“To tell you the truth, man, I kind of wish we didn’t even have it on the menu. It’s like 3 or 4 percent of sales. And it slows us down,” <a href=\"https://www.inc.com/rob-walker/how-raising-canes-founder-todd-graves-built-a-5-billion-brand/91263570\">Graves previously told Inc.</a> “I wish we didn’t have it, but I won’t take it away now.”</p>\n<p class=\"wp-block-paragraph\">This small admission reflects the chicken chain’s broader philosophy. While Bezos launched a publicly traded giant, Graves has focused on keeping Raising Cane’s limited in scope and tightly controlled.</p>\n<h2 class=\"wp-block-heading\">Keeping the company private</h2>\n<p class=\"wp-block-paragraph\">The biggest difference between the two billionaires may be their views on taking a company public.</p>\n<p class=\"wp-block-paragraph\"><a href=\"https://www.forbes.com/sites/chasewithorn/2025/09/24/how-the-raising-canes-founder-built-a-22-billion-chicken-finger-empire-thats-snoop-doggs-favorite-fast-food-chain/\" rel=\"noopener noreferrer\" target=\"_blank\"><em>Forbes</em> estimates Graves currently owns about 92 percent of the company</a>, with a net worth of approximately $22 billion. The founder has said Raising Cane’s has no plans to go public, a choice he has tied to preserving the chain’s culture.</p>\n<p class=\"wp-block-paragraph\">A key executive has echoed the same sentiment. “We have no plans on that,” AJ Kumaran, the company’s co-CEO and COO, <a href=\"https://www.restaurantbusinessonline.com/operations/why-raising-canes-says-it-will-never-go-public\" rel=\"noopener noreferrer\" target=\"_blank\">told Restaurant Business</a>. “We are privately held because we want to remain that way.”</p>\n<p class=\"wp-block-paragraph\">By comparison, Bezos took Amazon public just three years after its founding. It debuted on the stock market in May 1997 at $18 a share, raising $54 million to fuel its growth.</p>\n<h2 class=\"wp-block-heading\">Focusing on employees</h2>\n<p class=\"wp-block-paragraph\">However, even though Graves is committed to retaining control of the business, he takes a more relaxed approach with his employees.</p>\n<p class=\"wp-block-paragraph\">At Raising Cane’s, crew members wear casual uniforms and music has been allowed in the kitchen since the early days. It is a deliberately relaxed approach that stands apart from Amazon’s more regimented structure.</p>\n<h2 class=\"wp-block-heading\">A commitment to charity</h2>\n<p class=\"wp-block-paragraph\">Yet, even amid their differing approaches to business, both Bezos and Graves are committed to charitable giving.</p>\n<p class=\"wp-block-paragraph\">Bezos’s Earth Fund, backed by a $10 billion pledge, has distributed about $2.4 billion to date. His Day 1 Families Fund has donated more than $850 million to nonprofits addressing homelessness.</p>\n<p class=\"wp-block-paragraph\">After the Texas floods in 2025, <a href=\"https://www.wdsu.com/article/louisiana-native-raising-canes-todd-graves-million-flood-relief/65334106\" rel=\"noopener noreferrer\" target=\"_blank\">Graves donated $1 million to the Red Cross</a>. In August, <a href=\"https://dallasweekly.com/2026/08/raising-canes-30th-anniversary-museum/\" rel=\"noopener noreferrer\" target=\"_blank\">Graves told <em>Dallas Weekly</em></a> that the company had given more than $165 million to charitable causes over its first 30 years, something he hopes will continue.</p>\n<p class=\"wp-block-paragraph\">Raising Cane’s didn’t immediately respond to a request from Inc. for comment.</p>\n<p class=\"wp-block-paragraph\"><em>—Amaya Nichole</em></p>\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<p class=\"wp-block-paragraph\"><em>This article</em> <a href=\"https://www.inc.com/amaya-nichole/jeff-bezos-praised-raising-canes-founder-22-billion-fortune-breaking-3-fast-food-rule/91416758\"><em>originally appeared</em></a> <em>on</em> Fast Company<em>’s sister website, Inc.com.</em> </p>\n<p class=\"wp-block-paragraph\">Inc. <em>is the voice of the American entrepreneur. We inspire, inform, and document the most fascinating people in business: the risk-takers, the innovators, and the ultra-driven go-getters that represent the most dynamic force in the American economy.</em></p>\n<p class=\"wp-block-paragraph\"></p>",
+      "date_published": "2026-11-04T16:45:00+00:00",
+      "authors": [
+        {
+          "name": "Fast Company",
+          "url": "https://www.fastcompany.com"
+        }
+      ],
+      "image": "https://images.fastcompany.com/image/upload/w_1280,q_auto,f_auto,fl_lossy/f_webp,q_auto,c_fit/wp-cms-2/2026/10/bezos-raising-cane-inc.jpg",
+      "_score": 35,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://sciencebasedmedicine.org/christina-applegates-ms-misdiagnosis/?utm_source=rss&utm_medium=rss&utm_campaign=christina-applegates-ms-misdiagnosis",
+      "url": "https://sciencebasedmedicine.org/christina-applegates-ms-misdiagnosis/?utm_source=rss&utm_medium=rss&utm_campaign=christina-applegates-ms-misdiagnosis",
+      "title": "[Science-Based Medicine] Christina Applegate’s MS Misdiagnosis",
+      "content_html": "<img src=\"https://sciencebasedmedicine.org/wp-content/uploads/2026/11/MRI-MS-480x384.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<img alt=\"A six-panel composite of magnetic resonance imaging (MRI) scans showing various brain and spinal cord lesions marked with white boxes or an arrow.\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"384\" src=\"https://sciencebasedmedicine.org/wp-content/uploads/2026/11/MRI-MS-480x384.jpg\" width=\"480\"/><p>Christina Applegate, an American actress, has been an outspoken advocate for patients with multiple sclerosis (MS) since her own diagnosis. She has been open about her “MS journey” in hopes that it will help others facing the same challenge. Recently, however, her journey took an unexpected turn – she apparently does not have MS. She reported on her recent podcast that her […]</p>\nThe post <a href=\"https://sciencebasedmedicine.org/christina-applegates-ms-misdiagnosis/\">Christina Applegate’s MS Misdiagnosis</a> first appeared on <a href=\"https://sciencebasedmedicine.org\">Science-Based Medicine</a>.",
+      "date_published": "2026-11-04T13:05:54+00:00",
+      "authors": [
+        {
+          "name": "Science-Based Medicine",
+          "url": "https://sciencebasedmedicine.org"
+        }
+      ],
+      "image": "https://sciencebasedmedicine.org/wp-content/uploads/2026/11/MRI-MS-480x384.jpg",
+      "_score": 34,
+      "_quality": 65,
+      "_relevance": 35,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.statnews.com/2026/11/04/moving-to-europe-free-health-care-differences/?utm_campaign=rss",
+      "url": "https://www.statnews.com/2026/11/04/moving-to-europe-free-health-care-differences/?utm_campaign=rss",
+      "title": "[STAT News] Opinion: I moved to Europe for free health care. I miss my patient portal",
+      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/11/GettyImages-2274347685-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n“To be honest, in Malta, I pay for medical care all the time. I just pay differently,” writes Mariska Breland.",
+      "date_published": "2026-11-04T09:30:00+00:00",
+      "authors": [
+        {
+          "name": "STAT News",
+          "url": "https://www.statnews.com"
+        }
+      ],
+      "image": "https://www.statnews.com/wp-content/uploads/2026/11/GettyImages-2274347685-645x645.jpg",
+      "_score": 42,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
       "id": "https://beingpatient.com/the-hidden-costs-of-memory-loss-scams-a-physicians-take/",
       "url": "https://beingpatient.com/the-hidden-costs-of-memory-loss-scams-a-physicians-take/",
       "title": "[Being Patient] The Hidden Costs of Memory Loss: Scams — A Physician’s Take",
@@ -49,6 +185,28 @@
       "_relevance": 52,
       "_local_score": 0,
       "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.nytimes.com/2026/11/02/well/pilates-men.html",
+      "url": "https://www.nytimes.com/2026/11/02/well/pilates-men.html",
+      "title": "🔓 [NYT Well] The Pilates Bros Have Arrived",
+      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nLong seen as a women’s workout, the exercise method is winning over men — one trembling leg at a time.",
+      "date_published": "2026-11-03T21:00:49+00:00",
+      "authors": [
+        {
+          "name": "NYT Well",
+          "url": "https://well.blogs.nytimes.com"
+        }
+      ],
+      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128",
+      "_score": 33,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "New York Times"
     },
     {
       "id": "https://nautil.us/why-your-shrink-should-prescribe-exercise-1286325/",
@@ -110,6 +268,24 @@
       "_relevance": 45,
       "_local_score": 0,
       "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.tomshardware.com/software/windows/developer-manages-to-run-windows-11-26h2-with-just-128mb-of-ram-just-3-1-percent-of-recommended-minimum-stripped-down-installation-can-access-desktop-file-explorer-and-notepad",
+      "url": "https://www.tomshardware.com/software/windows/developer-manages-to-run-windows-11-26h2-with-just-128mb-of-ram-just-3-1-percent-of-recommended-minimum-stripped-down-installation-can-access-desktop-file-explorer-and-notepad",
+      "title": "[Tom's Hardware] Developer manages to run Windows 11 26H2 with just 128MB of RAM, just 3.1% of recommended minimum",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/oJNeQW3cEuqE9xWQ3MKm2K-1920-80.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThe developer's latest experiment takes Windows 11's hardware requirements to an extreme, managing to retain basic desktop functionality with just 128MB of memory, although the resulting installation is far too slow for everyday use.",
+      "date_published": "2026-11-03T11:30:00+00:00",
+      "authors": [
+        {
+          "name": "Tom's Hardware",
+          "url": "https://www.tomshardware.com"
+        }
+      ],
+      "image": "https://cdn.mos.cms.futurecdn.net/oJNeQW3cEuqE9xWQ3MKm2K-1920-80.png",
+      "_score": 42,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
     },
     {
       "id": "https://www.outsideonline.com/health/training-performance/exercise-snacking/",
@@ -177,6 +353,24 @@
       "_subscriber_access": "Apple News+"
     },
     {
+      "id": "https://sciencebasedmedicine.org/rfk-jr-may-be-coming-for-your-cell-phone-too/?utm_source=rss&utm_medium=rss&utm_campaign=rfk-jr-may-be-coming-for-your-cell-phone-too",
+      "url": "https://sciencebasedmedicine.org/rfk-jr-may-be-coming-for-your-cell-phone-too/?utm_source=rss&utm_medium=rss&utm_campaign=rfk-jr-may-be-coming-for-your-cell-phone-too",
+      "title": "[Science-Based Medicine] RFK Jr. may be coming for your cell phone too",
+      "content_html": "<img src=\"https://sciencebasedmedicine.org/wp-content/uploads/2015/08/cell-phones-cause-cancer2-480x480.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<img alt=\"\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"480\" src=\"https://sciencebasedmedicine.org/wp-content/uploads/2015/08/cell-phones-cause-cancer2-480x480.jpg\" width=\"480\"/><p>HHS says it's researching the health effects of cell phones and other RF/EMF-emitting devices. RFK, Jr. claims he already has the answers.</p>\nThe post <a href=\"https://sciencebasedmedicine.org/rfk-jr-may-be-coming-for-your-cell-phone-too/\">RFK Jr. may be coming for your cell phone too</a> first appeared on <a href=\"https://sciencebasedmedicine.org\">Science-Based Medicine</a>.",
+      "date_published": "2026-11-03T08:30:00+00:00",
+      "authors": [
+        {
+          "name": "Science-Based Medicine",
+          "url": "https://sciencebasedmedicine.org"
+        }
+      ],
+      "image": "https://sciencebasedmedicine.org/wp-content/uploads/2015/08/cell-phones-cause-cancer2-480x480.jpg",
+      "_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
       "id": "https://beingpatient.com/voices-what-my-failure-taught-me-about-being-a-caregiver/",
       "url": "https://beingpatient.com/voices-what-my-failure-taught-me-about-being-a-caregiver/",
       "title": "[Being Patient] VOICES: What My Failure Taught Me About Being a Caregiver",
@@ -199,7 +393,7 @@
       "id": "https://vancouversun.com/health/life-expectancy-bc-lower-interior-north-than-metro-vancouver-statcan",
       "url": "https://vancouversun.com/health/life-expectancy-bc-lower-interior-north-than-metro-vancouver-statcan",
       "title": "[Vancouver Sun] Life expectancy in B.C. lower in Interior and North than Metro Vancouver, StatCan finds",
-      "content_html": "<img src=\"https://smartcdn.gprod.postmedia.digital/vancouversun/wp-content/uploads/2026/11/1103-life-expectancy-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fvancouversun.com%2Fhealth%2Flife-expectancy-bc-lower-interior-north-than-metro-vancouver-statcan\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nResidents in Richmond live an average lifespan of 86.8 years, the highest in B.C., compared with 80.2 years for the Interior health region",
+      "content_html": "<img src=\"https://smartcdn.gprod.postmedia.digital/vancouversun/wp-content/uploads/2026/11/1103-life-expectancy-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fvancouversun.com%2Fhealth%2Flife-expectancy-bc-lower-interior-north-than-metro-vancouver-statcan\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nResidents in Richmond live an average lifespan of 86.8 years, the highest in B.C., compared with 80.2 years for the Interior health region",
       "date_published": "2026-11-02T22:15:25+00:00",
       "authors": [
         {
@@ -445,6 +639,24 @@
       "_subscriber_access": "Williams Lake Tribune"
     },
     {
+      "id": "https://www.techradar.com/pro/google-is-building-nasa-a-robot-doctor-for-use-on-future-deep-space-missions",
+      "url": "https://www.techradar.com/pro/google-is-building-nasa-a-robot-doctor-for-use-on-future-deep-space-missions",
+      "title": "[TechRadar] Google is building NASA a robot doctor for use on future deep space missions",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/S52AXmcF8SwjhEHAXXYc7k-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nGoogle and NASA are developing a robotic medical assistant for deep-space astronauts, combining equipment handling, basic health monitoring, and supervised medical support.",
+      "date_published": "2026-11-01T19:35:00+00:00",
+      "authors": [
+        {
+          "name": "TechRadar",
+          "url": "https://www.techradar.com"
+        }
+      ],
+      "image": "https://cdn.mos.cms.futurecdn.net/S52AXmcF8SwjhEHAXXYc7k-1920-80.jpg",
+      "_score": 11,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
       "id": "http://www.socialpsychology.org/client/redirect.php?from=rss_feed&id=192284&url=https://www.psypost.org/how-adolescent-mental-health-predicts-adult-political-views/",
       "url": "http://www.socialpsychology.org/client/redirect.php?from=rss_feed&id=192284&url=https://www.psypost.org/how-adolescent-mental-health-predicts-adult-political-views/",
       "title": "[Psychology Headlines Around the World] Teen Mental Health Predicts Voting Patterns at 40, Report Concludes",
@@ -586,6 +798,23 @@
       "_content_type": "analysis"
     },
     {
+      "id": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+      "title": "[blog.google] Google satellite runs Gemma AI in orbit; two-satellite test planned for 2027",
+      "content_html": "Google said its Project Suncatcher prototype satellite has returned its first AI-generated response from orbit. The satellite ran the Gemma 4 model on a data center-class Tensor Processing Unit (TPU) and transmitted a haiku during a ground-station pass over Svalbard, Norway. The satellite launched on Oct. 1, and Google described the response as an early milestone in research into operating AI computing hardware in space.\n\nThe experiment tests whether the hardware can function in orbit; it is not a deployed computing service. Google’s next tests will examine performance under thermal stress and radiation exposure. The company says a successful trial could lead to two interconnected satellites in 2027.",
+      "date_published": "2026-11-01T01:05:58+00:00",
+      "authors": [
+        {
+          "name": "blog.google",
+          "url": "https://blog.google"
+        }
+      ],
+      "_score": 10,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
       "id": "https://www.sciencealert.com/seeing-your-pain-through-an-evolutionary-lens-may-ease-depression-early-trial-finds",
       "url": "https://www.sciencealert.com/seeing-your-pain-through-an-evolutionary-lens-may-ease-depression-early-trial-finds",
       "title": "[ScienceAlert] Seeing Your Pain Through an Evolutionary Lens May Ease Depression, Early Trial Finds",
@@ -631,7 +860,7 @@
       "id": "https://www.forbes.com/sites/hansabhargava/2026/10/31/ai-in-healthcare-will-we-solve-for-the-rural-healthcare-crisis/",
       "url": "https://www.forbes.com/sites/hansabhargava/2026/10/31/ai-in-healthcare-will-we-solve-for-the-rural-healthcare-crisis/",
       "title": "🔓 [Forbes Innovation] The AI Era: Will We Solve For The Rural Healthcare Crisis?",
-      "content_html": "<img src=\"https://imageio.forbes.com/specials-images/imageserve/6ae65973c2c630cd9d45c19d/0x0.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.forbes.com%2Fsites%2Fhansabhargava%2F2026%2F10%2F31%2Fai-in-healthcare-will-we-solve-for-the-rural-healthcare-crisis%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAs AI in Healthcare becomes more integrated, will rural areas be left behind?",
+      "content_html": "<img src=\"https://imageio.forbes.com/specials-images/imageserve/6ae65973c2c630cd9d45c19d/0x0.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.forbes.com%2Fsites%2Fhansabhargava%2F2026%2F10%2F31%2Fai-in-healthcare-will-we-solve-for-the-rural-healthcare-crisis%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAs AI in Healthcare becomes more integrated, will rural areas be left behind?",
       "date_published": "2026-10-31T21:12:56+00:00",
       "authors": [
         {
@@ -758,273 +987,6 @@
       "_score": 35,
       "_quality": 55,
       "_relevance": 40,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/10/261029072142.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261029072142.htm",
-      "title": "[ScienceDaily] A simple blood test could reveal Alzheimer’s risk 10 years before symptoms",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/alzheimers-disease-blood-test-tube.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F10%2F261029072142.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA major international study found that a simple blood test could help predict Alzheimer’s-related cognitive decline years before symptoms appear, with the highest-risk individuals facing a 38% chance of impairment within five years and an estimated 78% chance within 10 years. Scientists believe the discovery could pave the way for earlier intervention and future treatments designed to prevent Alzheimer’s before memory problems begin.",
-      "date_published": "2026-10-31T00:59:52+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "image": "https://www.sciencedaily.com/images/1920/alzheimers-disease-blood-test-tube.webp",
-      "_score": 64,
-      "_quality": 80,
-      "_relevance": 80,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.forbes.com/sites/lisafitzpatrick/2026/10/30/healthcare-contract-wars-are-leaving-seniors-behind/",
-      "url": "https://www.forbes.com/sites/lisafitzpatrick/2026/10/30/healthcare-contract-wars-are-leaving-seniors-behind/",
-      "title": "🔓 [Forbes Innovation] Healthcare Contract Wars Are Leaving Seniors Behind",
-      "content_html": "<img src=\"https://imageio.forbes.com/specials-images/imageserve/6ae3b21d28ed2e1f241bf5c0/0x0.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nHealth systems nationwide are terminating Medicare Advantage contracts and leaving seniors to navigate to new plans with variable support.",
-      "date_published": "2026-10-30T19:50:59+00:00",
-      "authors": [
-        {
-          "name": "Forbes Innovation",
-          "url": "https://www.forbes.com/innovation"
-        }
-      ],
-      "image": "https://imageio.forbes.com/specials-images/imageserve/6ae3b21d28ed2e1f241bf5c0/0x0.jpg",
-      "_score": 45,
-      "_quality": 60,
-      "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "analysis",
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "subscriber-access",
-        "us-policy"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.404media.co/fireside-project-psychedelic-support-line-study/",
-      "url": "https://www.404media.co/fireside-project-psychedelic-support-line-study/",
-      "title": "[404 Media] Scientists Analyzed Thousands of Psychedelic Trips. They Found Something Disturbing",
-      "content_html": "<img src=\"https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/2026/10/data-src-image-9ac36378-94a9-40de-a7b3-3b415c2e35f0-1-1.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nA newly released database of more than 25,000 anonymized calls from the Fireside Project’s Psychedelic Support Line opens a rare window into psychedelic experiences outside of clinical settings.",
-      "date_published": "2026-10-30T18:00:00+00:00",
-      "authors": [
-        {
-          "name": "404 Media",
-          "url": "https://404media.co"
-        }
-      ],
-      "image": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/2026/10/data-src-image-9ac36378-94a9-40de-a7b3-3b415c2e35f0-1-1.jpeg",
-      "_score": 41,
-      "_quality": 72,
-      "_relevance": 45,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://beingpatient.com/what-is-vascular-dementia-causes-symptoms-and-treatment/",
-      "url": "https://beingpatient.com/what-is-vascular-dementia-causes-symptoms-and-treatment/",
-      "title": "[Being Patient] What Is Vascular Dementia? Causes, Symptoms, and Treatment",
-      "content_html": "<img src=\"https://beingpatient.com/wp-content/uploads/2026/10/Vascular-Dementia.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p>Vascular dementia is the second most common type of dementia after Alzheimer's disease.  It occurs when damage to the brain's blood vessels disrupts blood flow, depriving brain tissue of oxygen and nutrients. It can develop after a stroke or from smaller blood vessel injuries that accumulate over time. Vascular dementia accounts for an estimated  [...]</p>\n<p>The post <a href=\"https://beingpatient.com/what-is-vascular-dementia-causes-symptoms-and-treatment/\">What Is Vascular Dementia? Causes, Symptoms, and Treatment</a> appeared first on <a href=\"https://beingpatient.com\">Being Patient</a>.</p>",
-      "date_published": "2026-10-30T17:06:48+00:00",
-      "authors": [
-        {
-          "name": "Being Patient",
-          "url": "https://www.beingpatient.com"
-        }
-      ],
-      "image": "https://beingpatient.com/wp-content/uploads/2026/10/Vascular-Dementia.jpg",
-      "_score": 44,
-      "_quality": 55,
-      "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.statnews.com/2026/10/30/election-stress-heart-attack-risk/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/10/30/election-stress-heart-attack-risk/?utm_campaign=rss",
-      "title": "[STAT News] How Election Day can affect your heart",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/10/AP26295517264673-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nPolitical campaigns can do more than raise your blood pressure. Studies link election stress to irregular heartbeats and an increase in heart attacks.",
-      "date_published": "2026-10-30T14:07:14+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "image": "https://www.statnews.com/wp-content/uploads/2026/10/AP26295517264673-645x645.jpg",
-      "_score": 40,
-      "_quality": 66,
-      "_relevance": 45,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.businessinsider.com/alzheimers-cancer-caregiving-uber-cost-transportation-2026-10",
-      "url": "https://www.businessinsider.com/alzheimers-cancer-caregiving-uber-cost-transportation-2026-10",
-      "title": "[Business Insider] My husband has Alzheimer's, and I have cancer. We spent $500 a month on Uber rides until we found a $3 alternative.",
-      "content_html": "<img src=\"https://i.insider.com/6ae492d6120d8ce03d2467c9?format=jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nCarol Colborn and her husband with Alzheimer's were practically confined to their home until they  discovered Medicare benefits, such as $3 transport.",
-      "date_published": "2026-10-30T13:35:39+00:00",
-      "authors": [
-        {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com"
-        }
-      ],
-      "image": "https://i.insider.com/6ae492d6120d8ce03d2467c9?format=jpeg",
-      "_score": 48,
-      "_quality": 60,
-      "_relevance": 60,
-      "_local_score": 0,
-      "_content_type": "feature",
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "us-policy"
-      ]
-    },
-    {
-      "id": "https://www.statnews.com/2026/10/30/health-news-the-paradox-of-men-health/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/10/30/health-news-the-paradox-of-men-health/?utm_campaign=rss",
-      "title": "[STAT News] The persisting paradox of men’s health",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2022/12/AdobeStock_295549942-645x645.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nA new series in The Lancet argues for the need to investigate a paradox of men’s health: why men experience worse health outcomes than women, even though they hold undeniable…",
-      "date_published": "2026-10-30T13:12:49+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "image": "https://www.statnews.com/wp-content/uploads/2022/12/AdobeStock_295549942-645x645.jpeg",
-      "_score": 44,
-      "_quality": 68,
-      "_relevance": 50,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/10/261029072129.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261029072129.htm",
-      "title": "[ScienceDaily] Type 2 diabetes breakthrough as 54% achieve remission in just 6 months",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/diabetes-wood-block.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nA promising new study suggests that more than half of younger adults with type 2 diabetes could achieve remission in just six months through a combination of a low-calorie diet and structured exercise. Researchers found that 54% of participants under age 45 who followed an intensive diet and exercise program achieved remission, compared with just 4% receiving usual care.",
-      "date_published": "2026-10-30T12:12:46+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "image": "https://www.sciencedaily.com/images/1920/diabetes-wood-block.webp",
-      "_score": 50,
-      "_quality": 55,
-      "_relevance": 65,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/10/261029072117.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261029072117.htm",
-      "title": "[ScienceDaily] Scientists reveal a hidden snakebite crisis killing up to 513,000 people a year",
-      "content_html": "<img src=\"https://www.sciencedaily.com/images/1920/attacking-black-mamba.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F10%2F261029072117.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA startling new study suggests that venomous snakebites are killing far more people worldwide than official statistics indicate, with an estimated 274,000 to 513,000 deaths every year. Researchers found that as many as 7 million people could suffer snake envenoming annually, while more than 800,000 survivors are left with long-term disabilities.",
-      "date_published": "2026-10-30T10:37:00+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "image": "https://www.sciencedaily.com/images/1920/attacking-black-mamba.webp",
-      "_score": 45,
-      "_quality": 68,
-      "_relevance": 52,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://www.wired.com/story/male-insecurity-over-penis-size-is-a-booming-business/",
-      "url": "https://www.wired.com/story/male-insecurity-over-penis-size-is-a-booming-business/",
-      "title": "🔓 [WIRED] Male Insecurity Over Penis Size Is a Booming Business",
-      "content_html": "<img src=\"https://media.wired.com/photos/6ae2718a4c18bfda39de27c9/master/pass/MANHOOD_STILL_1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nManhood, a new documentary about “girth enhancement,” explores how wellness professionals are encouraging men to undergo increasingly extreme procedures to be sexually desirable.",
-      "date_published": "2026-10-30T10:30:00+00:00",
-      "authors": [
-        {
-          "name": "WIRED",
-          "url": "https://www.wired.com"
-        }
-      ],
-      "image": "https://media.wired.com/photos/6ae2718a4c18bfda39de27c9/master/pass/MANHOOD_STILL_1.jpg",
-      "_score": 37,
-      "_quality": 67,
-      "_relevance": 40,
-      "_local_score": 0,
-      "_content_type": "feature",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
-      "id": "https://www.nytimes.com/2026/10/30/well/rififi-anxiety-insomnia-tb-treatment-rifampin.html",
-      "url": "https://www.nytimes.com/2026/10/30/well/rififi-anxiety-insomnia-tb-treatment-rifampin.html",
-      "title": "🔓 [NYT Well] She Was Racked With Anxiety and Crushed by Insomnia. Finally She Understood Why.",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThe woman’s symptoms were common, but the cause was not.",
-      "date_published": "2026-10-30T09:02:23+00:00",
-      "authors": [
-        {
-          "name": "NYT Well",
-          "url": "https://well.blogs.nytimes.com"
-        }
-      ],
-      "image": "https://www.google.com/s2/favicons?domain=well.blogs.nytimes.com&sz=128",
-      "_score": 45,
-      "_quality": 73,
-      "_relevance": 50,
-      "_local_score": 0,
-      "_content_type": "feature",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "New York Times"
-    },
-    {
-      "id": "https://www.statnews.com/2026/10/30/hybrid-er-urgent-care-clinics-hidden-billing-complaints-intuitive-health/?utm_campaign=rss",
-      "url": "https://www.statnews.com/2026/10/30/hybrid-er-urgent-care-clinics-hidden-billing-complaints-intuitive-health/?utm_campaign=rss",
-      "title": "[STAT News] STAT+: How a simple UTI turns into a $1,756 bill",
-      "content_html": "<img src=\"https://www.statnews.com/wp-content/uploads/2026/10/STAT26_HiddenBillTraps_final-645x645.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThey visited for what they thought were obvious urgent care issues — coughs, congestion, flu — and were shocked to get bills for ER care instead, totaling thousands of dollars.",
-      "date_published": "2026-10-30T08:30:00+00:00",
-      "authors": [
-        {
-          "name": "STAT News",
-          "url": "https://www.statnews.com"
-        }
-      ],
-      "image": "https://www.statnews.com/wp-content/uploads/2026/10/STAT26_HiddenBillTraps_final-645x645.jpg",
-      "_score": 36,
-      "_quality": 60,
-      "_relevance": 40,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://beingpatient.com/what-does-cholesterol-have-to-do-with-alzheimers-a-personal-look-at-apoe4-and-brain-health/",
-      "url": "https://beingpatient.com/what-does-cholesterol-have-to-do-with-alzheimers-a-personal-look-at-apoe4-and-brain-health/",
-      "title": "[Being Patient] What Does Cholesterol Have to Do With Alzheimer’s? A Personal Look at ApoE4 and Brain Health",
-      "content_html": "<img src=\"https://beingpatient.com/wp-content/uploads/2026/05/TOTW-WP-Image-1.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p>Deborah Kan is the founder and CEO of Being Patient, a journalism-driven news platform on Alzheimer’s, dementia, and brain health that she launched after her mother’s Alzheimer’s diagnosis and years as a journalist for the Wall Street Journal. She built Being Patient to translate complex dementia research into clear, unbiased reporting for patients and caregivers  [...]</p>\n<p>The post <a href=\"https://beingpatient.com/what-does-cholesterol-have-to-do-with-alzheimers-a-personal-look-at-apoe4-and-brain-health/\">What Does Cholesterol Have to Do With Alzheimer’s? A Personal Look at ApoE4 and Brain Health</a> appeared first on <a href=\"https://beingpatient.com\">Being Patient</a>.</p>",
-      "date_published": "2026-10-30T06:12:28+00:00",
-      "authors": [
-        {
-          "name": "Being Patient",
-          "url": "https://www.beingpatient.com"
-        }
-      ],
-      "image": "https://beingpatient.com/wp-content/uploads/2026/05/TOTW-WP-Image-1.jpg",
-      "_score": 44,
-      "_quality": 72,
-      "_relevance": 50,
       "_local_score": 0,
       "_content_type": "feature"
     }
