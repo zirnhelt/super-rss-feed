@@ -1231,10 +1231,10 @@ async function submitFeedback() {
 // stories were chosen, so only a per-episode answer can grade the writing. Saved into the same
 // feedback file as rating 'episode' with the answer in episode_verdict: not in `rating`, because
 // 'skip' is already an article verdict. The analytic consumers ignore the value and the review
-// stats and the trainer's file count filter it explicitly. The default is yesterday's episode,
-// which is the one the reader has usually heard when the page is open.
-const EPISODE_DAYS     = 3;
-const EPISODE_DEFAULT  = 1;
+// stats and the trainer's file count filter it explicitly. The default is today's episode (it
+// publishes just after midnight Pacific), with yesterday one tap away; older was never used.
+const EPISODE_DAYS     = 2;
+const EPISODE_DEFAULT  = 0;
 const EPISODE_VERDICTS = [['keep', '👍 Keep', 'worth the time'], ['meh', '😐 Meh', 'fine, forgettable'],
                           ['skip', '👎 Skip', 'I would skip it']];
 const EPISODE_REASONS  = ['Stories', 'Writing', 'Wrong fact', 'Too long', 'Repetitive', 'Hosts'];
@@ -1253,7 +1253,7 @@ const episodePick = { date: null, verdict: null, reasons: new Set(), segments: {
 function episodeDates() {
     // Today's date at the moment of the call, not the load-time `todayKey`: the installed app is
     // resumed rather than reloaded, so a page opened the evening before would keep offering the
-    // old dates with the old "yesterday" preselected.
+    // old dates with the old "today" preselected.
     const [y, m, d] = getTodayKey().split('-').map(Number);
     return Array.from({ length: EPISODE_DAYS }, (_, back) =>
         new Date(Date.UTC(y, m - 1, d - back)).toISOString().slice(0, 10));
