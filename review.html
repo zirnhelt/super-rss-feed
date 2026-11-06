@@ -283,6 +283,14 @@
         .episode-segments .seg-name small { display: block; color: #888; font-size: 0.85em; }
         .episode-segments .seg-btns { display: flex; gap: 6px; }
         .episode-segments .episode-opt { flex: 0 0 auto; min-width: 52px; }
+        .episode-cuts { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; align-items: center; }
+        .episode-cuts .cut-hint { grid-column: 1 / -1; font-size: 0.82em; color: #666; margin-top: 6px; }
+        .episode-cuts h3 { grid-column: 1 / -1; font-size: 0.86em; color: #8e24aa; margin-top: 4px; }
+        .episode-cuts .cut-name { font-size: 0.86em; color: #444; min-width: 0; overflow-wrap: anywhere; }
+        .episode-cuts .cut-name a { color: inherit; }
+        .episode-cuts .cut-name small { display: block; color: #888; font-size: 0.85em; }
+        .episode-cuts .seg-btns { display: flex; gap: 6px; }
+        .episode-cuts .episode-opt { flex: 0 0 auto; min-width: 52px; }
         .episode-form label { font-size: 0.82em; color: #666; }
         .episode-form textarea {
             width: 100%; min-height: 72px; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px;
@@ -367,11 +375,12 @@
     <div class="tab-panel" role="tabpanel" id="panel-episode" aria-labelledby="tab-episode" hidden>
     <div class="episode-box" id="episode-box">
         <h2>🎙️ How was the episode?</h2>
-        <p class="subtitle">The overall call, then as much as you like: a thumb per segment and a note. The weekly script review reads all of it beside the scripts.</p>
+        <p class="subtitle">The overall call, then as much as you like: a thumb per segment, your call on what got cut, and a note. The weekly script review reads all of it beside the scripts.</p>
         <div class="episode-form">
             <div class="episode-row" id="episode-dates" role="radiogroup" aria-label="Which episode"></div>
             <div class="episode-row" id="episode-verdicts" role="radiogroup" aria-label="Your verdict"></div>
             <div class="episode-segments" id="episode-segments" role="group" aria-label="Each segment (optional)"></div>
+            <div class="episode-cuts" id="episode-cuts" role="group" aria-label="What the run cut (optional)" hidden></div>
             <div class="episode-row" id="episode-reasons" role="group" aria-label="What drove it (optional)"></div>
             <label for="episode-note">What stood out? (optional: a line that landed, a fact that was off, what you'd change)</label>
             <textarea id="episode-note" maxlength="1500" placeholder="e.g. The deep dive on the mill closure asked the right question but never answered it."></textarea>
@@ -636,6 +645,7 @@ window.addEventListener('DOMContentLoaded', () => {
     wireTabs();
     populateExemplarCategories();
     try { renderEpisodeCard(); } catch (e) { console.error('episode card:', e); }
+    loadEpisodeCuts();
     init();
 });
 
@@ -1246,7 +1256,55 @@ const EPISODE_SEGMENTS = [['cold_open', 'Cold open', 'the hook before the music'
                           ['deep_dive', 'Deep dive', 'the one long conversation'],
                           ['flow', 'Flow', 'how one story and one point led to the next']];
 const EPISODE_NOTE_MAX = 1500;
-const episodePick = { date: null, verdict: null, reasons: new Set(), segments: {}, saving: false };
+const episodePick = { date: null, verdict: null, reasons: new Set(), segments: {}, cuts: {}, saving: false };
+
+// What the run passed over, per episode date, from the podcast's nightly review index (the
+// citations JSON's `cuts`, written by episode_cuts in the generator). The review lands around
+// 3 AM Pacific, so today's list can be missing early; the section then stays hidden. A thumb per
+// article, each optional: 👍 the cut was right, 👎 it should have aired. Saved in the verdict row
+// as episode_cuts; the podcast's weekly script review lists every 👎.
+const REVIEWS_INDEX_URL = 'https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/index.json';
+const CUT_KINDS = [['deep_dive', 'Passed over for the deep dive'], ['roundup', 'Cut from the roundup for airtime']];
+let episodeCuts = {};   // date -> [{kind, url, title, source, theme_pct, aired}]
+
+async function loadEpisodeCuts() {
+    try {
+        const res = await fetch(REVIEWS_INDEX_URL + '?v=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) return;
+        const index = await res.json();
+        const kinds = new Set(CUT_KINDS.map(([k]) => k));
+        episodeCuts = {};
+        for (const entry of Array.isArray(index) ? index : []) {
+            const cuts = entry?.summary?.cuts;
+            if (typeof entry?.date !== 'string' || !Array.isArray(cuts)) continue;
+            episodeCuts[entry.date] = cuts.filter(c => c && kinds.has(c.kind)
+                && typeof c.url === 'string' && typeof c.title === 'string');
+        }
+    } catch (e) {
+        console.warn('episode cuts:', e);   // the verdict card works without them
+    }
+    if (!episodePick.saving) renderEpisodeCuts();
+}
+
+function renderEpisodeCuts() {
+    const box = document.getElementById('episode-cuts');
+    const cuts = episodeCuts[episodePick.date] || [];
+    box.hidden = !cuts.length;
+    box.innerHTML = (cuts.length ? '<p class="cut-hint">Your call on what got cut: 👍 right to cut, 👎 should have aired.</p>' : '')
+        + CUT_KINDS.map(([kind, heading]) => {
+        const rows = cuts.map((c, i) => [c, i]).filter(([c]) => c.kind === kind);
+        if (!rows.length) return '';
+        return `<h3>${escHtml(heading)}</h3>` + rows.map(([c, i]) => {
+            const meta = [c.source, c.aired ? 'aired in the roundup' : '',
+                          typeof c.theme_pct === 'number' ? `theme p${c.theme_pct}` : ''].filter(Boolean).join(' · ');
+            return `<div class="cut-name"><a href="${escAttr(safeHref(c.url))}" target="_blank" rel="noopener">${escHtml(c.title)}</a>${meta ? `<small>${escHtml(meta)}</small>` : ''}</div>
+             <div class="seg-btns">${[['agree', '👍', 'right to cut'], ['disagree', '👎', 'should have aired']].map(([v, icon, word]) =>
+                `<button type="button" class="episode-opt" data-cut="${i}" data-call="${v}"
+                         aria-pressed="${episodePick.cuts[c.url] === v}" aria-label="${escAttr(`${c.title}: ${word}`)}">${icon}</button>`).join('')}
+             </div>`;
+        }).join('');
+    }).join('');
+}
 
 // Calendar arithmetic on the Pacific date string, never on timestamps: 24 hours before a time just
 // after midnight lands on the wrong date on the two days a year the clocks change.
@@ -1286,6 +1344,7 @@ function renderEpisodeCard() {
     document.getElementById('episode-reasons').innerHTML = EPISODE_REASONS.map(reason =>
         `<button type="button" class="episode-opt episode-reason" data-reason="${escAttr(reason)}"
                  aria-pressed="false">${escHtml(reason)}</button>`).join('');
+    renderEpisodeCuts();
     if (!box.dataset.wired) {            // once: the card is re-rendered when the day rolls over
         box.addEventListener('click', onEpisodeClick);
         box.dataset.wired = '1';
@@ -1303,14 +1362,17 @@ function refreshEpisodeDates() {
     episodePick.verdict = null;
     episodePick.reasons.clear();
     episodePick.segments = {};
+    episodePick.cuts = {};
     renderEpisodeCard();
     syncEpisodeCard();
 }
 document.addEventListener('visibilitychange', refreshEpisodeDates);
+// Today's cuts land with the 3 AM review: an app left open overnight picks them up when shown.
+document.addEventListener('visibilitychange', () => { if (!document.hidden) loadEpisodeCuts(); });
 window.addEventListener('pageshow', refreshEpisodeDates);
 
 function onEpisodeClick(event) {
-    const btn = event.target.closest('button[data-date], button[data-verdict], button[data-reason], button[data-segment]');
+    const btn = event.target.closest('button[data-date], button[data-verdict], button[data-reason], button[data-segment], button[data-cut]');
     if (!btn || episodePick.saving) return;
     if (btn.dataset.date) {
         if (btn.dataset.date === episodePick.date) return;   // already selected: keep the answer
@@ -1320,8 +1382,15 @@ function onEpisodeClick(event) {
         episodePick.verdict = null;
         episodePick.reasons.clear();
         episodePick.segments = {};
+        episodePick.cuts = {};
+        renderEpisodeCuts();
     } else if (btn.dataset.verdict) {
         episodePick.verdict = btn.dataset.verdict;
+    } else if (btn.dataset.cut) {
+        const cut = (episodeCuts[episodePick.date] || [])[Number(btn.dataset.cut)];
+        if (!cut) return;
+        if (episodePick.cuts[cut.url] === btn.dataset.call) delete episodePick.cuts[cut.url];
+        else episodePick.cuts[cut.url] = btn.dataset.call;
     } else if (btn.dataset.segment) {
         const { segment, thumb } = btn.dataset;
         if (episodePick.segments[segment] === thumb) delete episodePick.segments[segment];
@@ -1342,6 +1411,9 @@ function syncEpisodeCard() {
         btn.setAttribute('aria-pressed', String(episodePick.reasons.has(btn.dataset.reason)));
     for (const btn of document.querySelectorAll('#episode-box [data-segment]'))
         btn.setAttribute('aria-pressed', String(episodePick.segments[btn.dataset.segment] === btn.dataset.thumb));
+    const cuts = episodeCuts[episodePick.date] || [];
+    for (const btn of document.querySelectorAll('#episode-box [data-cut]'))
+        btn.setAttribute('aria-pressed', String(episodePick.cuts[cuts[Number(btn.dataset.cut)]?.url] === btn.dataset.call));
     const statusEl = document.getElementById('episode-status');
     statusEl.className = 'status-msg';
     statusEl.textContent = '';
@@ -1363,6 +1435,8 @@ async function submitEpisodeVerdict() {
         episode_verdict: episodePick.verdict,
         episode_reasons: EPISODE_REASONS.filter(r => episodePick.reasons.has(r)),
         episode_segments: { ...episodePick.segments },
+        episode_cuts:    (episodeCuts[episodePick.date] || []).filter(c => episodePick.cuts[c.url])
+                             .map(c => ({ kind: c.kind, url: c.url, title: c.title, call: episodePick.cuts[c.url] })),
         episode_note:    document.getElementById('episode-note').value.trim().slice(0, EPISODE_NOTE_MAX) || null,
         rated_at:        new Date().toISOString(),
     };
