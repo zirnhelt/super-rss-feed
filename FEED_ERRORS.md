@@ -3,6 +3,19 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-05 (Thursday)
+
+#### 🔧 Manual Run (10:12 PM Pacific)
+- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
+- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
+- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-04 (Wednesday)
 
 #### 🔧 Manual Run (10:12 PM Pacific)
@@ -79,17 +92,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## 2026-10-29 (Thursday)
-
-#### 🔧 Manual Run (11:14 PM Pacific)
-- ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-10-28 (Wednesday)
 
 #### 🔧 Manual Run (11:14 PM Pacific)
 - ⚠️ **Hacker News** failed — `419 Client Error:  for url: https://news.ycombinator.com/rss`
@@ -1647,6 +1649,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 
 ## Week of 2026-10-27–2026-10-27
+- 2 issues recorded
+- ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-10-28–2026-10-28
 - 2 issues recorded
 - ⚠️ Hacker News failed — 419 Client Error:  for url: https://news.ycombinator.com/rss
 - ⚠️ Kite News: not in this batch: canada | british columbia
