@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-06.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-06.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 6, 2026",
+      "content_html": "<p class=\"meta\">Focus: Wildlife &amp; Conservation (week 2 of 3). Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/42185190434\">42185190434</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>1 thing to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and check which deep-dive sources the script failed to use.</strong><br/><span class=\"evidence\">0/1 deep-dive citations matched the script</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>Every run finished on its primary schedule</h3>\n<p>The primary run started at 1:05 AM Pacific and finished at 1:34 AM Pacific with no lateness. Both fallback slots also completed successfully, so the scheduler never had to recover from a missed trigger. The episode published on time as designed.</p>\n<h3>Three of four fallback-free checks held, but the script stayed short of target</h3>\n<p>The first draft of the script came in at 2729 words against a target of 3400, so it was sent back for one expand pass. The shipped script is 3959 words, which is above target, so the expand pass overshot. The deep dive took 45% of the script's words and drew on one deep-dive source, the Williams Lake Tribune update on a suspected bear attack. Its citation did not match (0 of 1 deep-dive citations), while 11 of 18 roundup citations matched.</p>\n<p>The roundup pool dropped 35 stories to the airtime budget, which is the designed behaviour. The deep-dive citation miss is the one result that needs a check: confirm whether the single source was matched under a different title or URL before trusting the attribution.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>1 articles</td></tr>\n<tr><td>Script</td><td>0 pattern hit(s), voice ratio 0.83, 3959 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 45% of the words</td></tr>\n<tr><td>Audio</td><td>24.1 min</td></tr>\n<tr><td>Audio size</td><td>22.1 MB</td></tr>\n<tr><td>Citations matched</td><td>11/18 roundup, 0/1 deep dive</td></tr>\n<tr><td>Feed</td><td>282 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>80,951</td></tr>\n<tr><td>API calls</td><td>21 total: claude 12 · brave-answers 4 · brave-search 3 · kagi-extract 2</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-06T10:06:00+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://100milefreepress.net/2026/11/05/fuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas/",
       "url": "https://100milefreepress.net/2026/11/05/fuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas/",
       "title": "[100 Mile Free Press] Fuel breaks, burning planned for Mirage Lake and Watch Lake areas",
