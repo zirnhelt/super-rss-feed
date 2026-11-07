@@ -1,6 +1,6 @@
 # Super RSS Feed Curator
 
-An AI-powered RSS aggregator: ~150 feeds → fetch, filter, dedup, score, categorize → 11 category JSON feeds plus 7 themed daily podcast feeds on GitHub Pages, nightly on GitHub Actions. The audience is one reader in Williams Lake, BC (Cariboo); the podcast feeds are read by the sibling repo `curated-podcast-generator`, whose show is public. Live site `https://zirnhelt.github.io/super-rss-feed/`.
+An AI-powered RSS aggregator: ~150 feeds plus Kagi News clusters → fetch, filter, dedup, score, categorize → 11 category JSON feeds plus 7 themed daily podcast feeds on GitHub Pages, nightly on GitHub Actions. The audience is one reader in Williams Lake, BC (Cariboo); the podcast feeds are read by the sibling repo `curated-podcast-generator`, whose show is public. Live site `https://zirnhelt.github.io/super-rss-feed/`.
 
 The values behind both curators are in the podcast repo's [`docs/MANIFESTO.md`](https://github.com/zirnhelt/curated-podcast-generator/blob/main/docs/MANIFESTO.md): read it before changing scoring, the gate, or what a feed admits.
 
@@ -92,7 +92,7 @@ Cache writes are 1.25x input (5-minute TTL) or 2x (1-hour TTL). The Batch API ha
 | `validate_podcast_feeds.py` | Quality **report** on the podcast feeds, its own job after deploy; never exits non-zero. |
 | `tools/review_filter_priority.py` | Cohere review of filter/priority logic → `tools/filter_priority_review.md`. |
 
-**Config (`config/`)**, all via `config_loader.py`: `system.json` (cache paths/TTLs, URLs, `local_scrapes`, `lookback_hours`, `brave`, `hot_refresh`, `kagi_news`, `topic_queries`), `limits.json` and `podcast_schedule.json` (**tunable by calibration**), `filters.json`, `standing_preferences.txt` (the reader's), `categories.json`, `category_rules.json`, `news_interests.txt` (news head only; the biggest news-tuning lever), `quality_charter.txt` (interest-independent; never mention personal interests), `feeds.json` (`"rss": true` adds an RSS mirror), `source_preferences.json`, `feed_slots.json`, `calibration_bounds.json` (whitelist + `forbidden`), `scoring_weights.json` (fitted against ratings), `scoring_modifiers.json`, `topic_queries.json`, `feedback_examples.txt` (generated).
+**Config (`config/`)**, all via `config_loader.py`: `system.json` (cache paths/TTLs, URLs, `local_scrapes`, `lookback_hours`, `brave`, `hot_refresh`, `kagi_news` (incl. `digest`), `standing_preferences` (feeds that ignore `[show]` lines), `topic_queries`), `limits.json` and `podcast_schedule.json` (**tunable by calibration**), `filters.json`, `standing_preferences.txt` (the reader's; a `[show]` line keeps its subject off the podcast only), `categories.json`, `category_rules.json`, `news_interests.txt` (news head only; the biggest news-tuning lever), `quality_charter.txt` (interest-independent; never mention personal interests), `feeds.json` (`"rss": true` adds an RSS mirror), `source_preferences.json`, `feed_slots.json`, `calibration_bounds.json` (whitelist + `forbidden`), `scoring_weights.json` (fitted against ratings), `scoring_modifiers.json`, `topic_queries.json`, `feedback_examples.txt` (generated).
 
 Dated reports live in `reports/`; the root holds code, config, caches and running logs.
 

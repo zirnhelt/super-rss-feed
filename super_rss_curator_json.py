@@ -234,6 +234,37 @@ def _is_general_crime_story(title: str, description: str, category: str = None) 
     return False
 
 
+# Categories whose feed ignores the reader's `[show]` standing preferences
+# (system.json -> standing_preferences.show_only_open_categories). The news head is
+# where the reader catches up on the world; the show is where those lines bite.
+SHOW_ONLY_OPEN_CATEGORIES = frozenset(
+    (SYSTEM.get('standing_preferences') or {}).get('show_only_open_categories', ['news']))
+
+
+def _feed_rejects(article) -> bool:
+    """Whether the gate's verdict keeps this article out of its category feed.
+
+    An "x" verdict drops it everywhere; an "s" verdict (a `[show]` line) only from
+    the categories outside SHOW_ONLY_OPEN_CATEGORIES. None means unjudged: kept.
+    """
+    if getattr(article, 'gate_reject', None):
+        return True
+    return (bool(getattr(article, 'gate_show_reject', None))
+            and (getattr(article, 'category', None) or 'news') not in SHOW_ONLY_OPEN_CATEGORIES)
+
+
+def _show_verdict(article) -> Optional[bool]:
+    """The gate's verdict for the show: rejected on either flag, None when unjudged.
+
+    This is what a pool or bank row stores as `gate_reject`, so every podcast-side
+    reader keeps meaning "not for the show" without knowing about the scope tag.
+    """
+    verdict = getattr(article, 'gate_reject', None)
+    if verdict is None:
+        return None
+    return bool(verdict or getattr(article, 'gate_show_reject', None))
+
+
 def _gate_reject_honoured() -> bool:
     """Whether the gate's reject verdict removes an article from the show.
 
@@ -258,7 +289,7 @@ def podcast_content_exclusion(article) -> Optional[str]:
 
     # The gate's verdict. None means it never ruled (an API failure, or an entry
     # cached before the verdict was stored) and is kept: fail open, as the gate does.
-    if _gate_reject_honoured() and getattr(article, 'gate_reject', None):
+    if _gate_reject_honoured() and _show_verdict(article):
         return 'gate_reject'
 
     source = getattr(article, 'source', '') or ''
@@ -789,6 +820,9 @@ def _make_kite_article(story: dict, category: Optional[str], cutoff_date: dateti
     article.kite_context = _kite_context(story)
     article.kite_sources = int(story.get('unique_domains') or 0) or len(
         {a.get('domain') for a in story.get('articles') or [] if isinstance(a, dict)})
+    article.kite_links = frozenset(
+        canonicalize_url(a['link']) for a in story.get('articles') or []
+        if isinstance(a, dict) and a.get('link'))
     # A provisional category from Kite's own label; deep scoring may still move it.
     article.category = category
     article.kite_batch_at = batch_at
@@ -898,14 +932,31 @@ def fetch_kite_news(cutoff_date: datetime,
             for story in stories[:max_per_category]:
                 article = _make_kite_article(story, our_category, cutoff_date, batch_at)
                 if article:
+                    article.kite_label = label
+                    article.kite_feed = our_category
                     all_articles.append(article)
                     count += 1
             print(f"  ✓ Kite News/{label}: {count} stories")
         except Exception as e:
             print(f"  ✗ Kite News/{label}: {e}")
 
-    print(f"  📰 Kite News: {len(all_articles)} clustered stories from {len(matched)} categories")
+    fetched = len(all_articles)
+    all_articles = _collapse_kite_events(all_articles)
+    collapsed = f" ({fetched - len(all_articles)} filed under two categories, kept once)" \
+        if len(all_articles) < fetched else ''
+    print(f"  📰 Kite News: {len(all_articles)} clustered stories from {len(matched)} categories{collapsed}")
     return all_articles
+
+
+def _collapse_kite_events(articles: List['Article']) -> List['Article']:
+    """One cluster per event: Kite files a story under World and a region with
+    different headlines, which title dedup cannot see. The most widely covered
+    telling is kept, with its own category mapping."""
+    kept: List['Article'] = []
+    for a in sorted(articles, key=lambda x: x.kite_sources, reverse=True):
+        if not any(_same_kite_event(a, k) for k in kept):
+            kept.append(a)
+    return kept
 
 
 # ---------------------------------------------------------------------------
@@ -1131,6 +1182,10 @@ class Article:
         # PRIMARY subject is unwanted (sports, celebrity, deals, advice, AI hype).
         # None means never judged — treated as "keep" downstream (fail-open).
         self.gate_reject: Optional[bool] = None
+        # Same call: True when the subject matches one of the reader's `[show]`
+        # standing preferences, which keep it off the podcast but not out of the
+        # feeds in SHOW_ONLY_OPEN_CATEGORIES (see _feed_rejects / _show_verdict).
+        self.gate_show_reject: Optional[bool] = None
         # Same call again: True when the article reports a major event outside
         # Canada (GATE_WORLD_RUBRIC). Feeds the news world lane; None = unjudged.
         self.gate_world: Optional[bool] = None
@@ -1142,6 +1197,11 @@ class Article:
         self.kite_sources = 0
         self.kite_context = ''
         self.kite_batch_at: Optional[datetime] = None
+        # Kite's own category label and the feed it maps to (system.json ->
+        # kagi_news.category_map), kept apart from `category`, which scoring may move.
+        self.kite_label = ''
+        self.kite_feed: Optional[str] = None
+        self.kite_links: frozenset = frozenset()  # the cluster's outlet URLs (this run only)
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -1465,9 +1525,9 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                     'local': getattr(article, 'local', 0),
                     'q_gate': getattr(article, 'q_gate', None),
                     'content_type': getattr(article, 'content_type', None),
-                    # The gate's verdict (None = it never ruled), read by
-                    # podcast_content_exclusion().
-                    'gate_reject': getattr(article, 'gate_reject', None),
+                    # The gate's verdict for the show (None = it never ruled; a
+                    # `[show]` match counts), read by podcast_content_exclusion().
+                    'gate_reject': _show_verdict(article),
                     'category': article.category,
                     'image': getattr(article, 'image', None),
                     'kite_sources': getattr(article, 'kite_sources', 0),
@@ -1485,9 +1545,9 @@ def save_podcast_cache(articles, main_feed_quality: bool = True):
                 if getattr(article, 'kite_context', '') and not entry.get('kite_context'):
                     entry['kite_context'] = article.kite_context
                 # A re-judged article (a changed rubric) updates its verdict.
-                verdict = getattr(article, 'gate_reject', None)
+                verdict = _show_verdict(article)
                 if verdict is not None:
-                    entry['gate_reject'] = bool(verdict)
+                    entry['gate_reject'] = verdict
 
         existing.sort(key=lambda x: x['pub_date'], reverse=True)
 
@@ -1594,7 +1654,7 @@ def update_theme_holdover(theme_name: str, theme_label: str,
                 # Same fields as bank_articles_for_all_themes: a row without them can
                 # never be judged at the exclusion choke point.
                 'content_type': getattr(article, 'content_type', None),
-                'gate_reject': getattr(article, 'gate_reject', None),
+                'gate_reject': _show_verdict(article),
                 'category': article.category,
                 'image': getattr(article, 'image', None),
                 'kite_sources': getattr(article, 'kite_sources', 0),
@@ -3296,21 +3356,42 @@ above removes it; a line about US politics never covers Canada.
 FLAG local articles whose primary subject is a sports game, score, result, draft,
 trade, player stat or team recap; the [LOCAL] tag does not exempt sports coverage.
 KEEP ai-tech articles with hands-on content, research findings or practical guides.
-"""
+{show_only_section}"""
+
+# The reader's `[show]` lines: subjects kept off the podcast but not out of the
+# reader's news feed (docs/decisions/scoring.md, "Standing preferences get a
+# scope"). Asked as a separate flag, "s", in the same call, so the feed can tell
+# "never show me this" from "not for the show".
+_GATE_SHOW_ONLY_SECTION = """
+--- SHOW-ONLY SUBJECTS ---
+Separately, mark "s" 1 when the article's PRIMARY subject is one of the subjects
+below. They keep an article off the podcast only: the reader still wants them in the
+news feed, so a subject below never sets "x" by itself. Each line's own KEEP clause
+applies, and so does the Canadian-politics KEEP above.
+{show_only}"""
 
 
-def build_gate_reject_rubric(standing: Optional[List[str]] = None) -> str:
-    """The reject rubric with the reader's standing preferences in its subject list.
+def build_gate_reject_rubric(standing: Optional[List[str]] = None,
+                             show_only: Optional[List[str]] = None) -> str:
+    """The reject rubric with the reader's standing preferences in it.
 
     The pipeline owns the structural subjects above; the reader owns the lines in
-    config/standing_preferences.txt, which sit in the same list so the gate weighs
-    them exactly like the built-in ones. They ride in the cached system block, so a
-    preference costs no extra call.
+    config/standing_preferences.txt. Untagged lines sit in the subject list, so the
+    gate weighs them exactly like the built-in ones ("x"); `[show]` lines get their
+    own section and flag ("s"). Both ride in the cached system block, so a
+    preference costs no extra call. With neither argument the live file is read; a
+    `standing` list alone is treated as all-everywhere.
     """
-    if standing is None:
-        standing = config_loader.load_standing_preferences()
-    bullets = ''.join(f"- {line}\n" for line in standing)
-    return _GATE_REJECT_RUBRIC_TEMPLATE.replace('{standing_preferences}', bullets)
+    if standing is None and show_only is None:
+        standing = config_loader.load_standing_preferences('everywhere')
+        show_only = config_loader.load_standing_preferences('show')
+    bullets = ''.join(f"- {line}\n" for line in standing or [])
+    show_bullets = ''.join(f"- {line}\n" for line in show_only or []) or \
+        '- (none: always mark "s" 0)\n'
+    return (_GATE_REJECT_RUBRIC_TEMPLATE
+            .replace('{standing_preferences}', bullets)
+            .replace('{show_only_section}',
+                     _GATE_SHOW_ONLY_SECTION.replace('{show_only}', show_bullets)))
 
 
 GATE_REJECT_RUBRIC = build_gate_reject_rubric()
@@ -3381,6 +3462,7 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
             if (entry.get('gate_reject') is not None
                     and entry.get('gate_rubric') == GATE_RUBRIC_ID):
                 article.gate_reject = bool(entry['gate_reject'])
+                article.gate_show_reject = bool(entry.get('gate_show_reject', False))
                 article.gate_world = bool(entry.get('gate_world', False))
 
         title_l = article.title.lower()
@@ -3412,6 +3494,7 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
     timestamp = datetime.now(timezone.utc).timestamp()
     scored = 0
     rejected = 0
+    show_only = 0
     world = 0
     for i in range(0, len(to_score), batch_size):
         batch = to_score[i:i + batch_size]
@@ -3430,10 +3513,10 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         prompt = (
             "For each article return its absolute newsworthiness/quality per the charter "
             '(0-100) as "q", "x": 1 if its primary subject is unwanted per the '
-            'UNWANTED SUBJECTS rubric, else 0, and "w": 1 if it is a major world event '
-            'per WORLD EVENTS, else 0. '
+            'UNWANTED SUBJECTS rubric, else 0, "s": 1 if it is in SHOW-ONLY SUBJECTS, '
+            'else 0, and "w": 1 if it is a major world event per WORLD EVENTS, else 0. '
             "Respond with ONLY a JSON array, no other text:\n"
-            '[{"a": 1, "q": 55, "x": 0, "w": 0}, {"a": 2, "q": 12, "x": 1, "w": 0}]\n\n'
+            '[{"a": 1, "q": 55, "x": 0, "s": 0, "w": 0}, {"a": 2, "q": 12, "x": 1, "s": 0, "w": 0}]\n\n'
             f"Articles:\n{articles_text}"
         )
         try:
@@ -3467,6 +3550,9 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
                     entry['gate_reject'] = article.gate_reject
                     entry['gate_rubric'] = GATE_RUBRIC_ID
                     rejected += int(article.gate_reject)
+                    article.gate_show_reject = bool(int(item.get('s', 0)))
+                    entry['gate_show_reject'] = article.gate_show_reject
+                    show_only += int(article.gate_show_reject and not article.gate_reject)
                     article.gate_world = bool(int(item.get('w', 0)))
                     entry['gate_world'] = article.gate_world
                     world += int(article.gate_world)
@@ -3481,7 +3567,7 @@ def score_quality_gate(articles: List[Article], api_key: str) -> None:
         print(f"   Gate scored {scored} articles: "
               f"p25={gated_scores[_n // 4]} p50={gated_scores[_n // 2]} p75={gated_scores[3 * _n // 4]}")
     print(f"   Gate flagged {rejected} article(s) as unwanted subjects, "
-          f"{world} as major world events")
+          f"{show_only} more as show-only, {world} as major world events")
 
 
 # Share of the news deep-scoring queue reserved for interest rank rather than
@@ -4011,20 +4097,25 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
     total_removed = auto_removed_count
     haiku_removed_by_category: Dict[str, int] = defaultdict(int)
     unjudged = 0
+    show_only_kept = 0
     for article in articles:
         if article.gate_reject is None:
             unjudged += 1
-        if article.gate_reject:
-            print(f"  ✂️  Scrubbed: {article.title[:90]}")
+        if _feed_rejects(article):
+            print(f"  ✂️  Scrubbed{'' if article.gate_reject else ' (show-only)'}: {article.title[:90]}")
             total_removed += 1
             haiku_removed_by_category[article.category or 'news'] += 1
         else:
+            show_only_kept += bool(getattr(article, 'gate_show_reject', None))
             kept.append(article)
 
     kept.extend(exempt)
 
     if unjudged:
         print(f"  ℹ️  {unjudged} article(s) carried no gate verdict (kept)")
+    if show_only_kept:
+        print(f"  📰 {show_only_kept} show-only article(s) kept for "
+              f"{', '.join(sorted(SHOW_ONLY_OPEN_CATEGORIES))} (still off the podcast)")
     if total_removed:
         print(f"✂️  Final scrub removed {total_removed} article(s) from {len(articles)} quality articles")
     else:
@@ -4034,6 +4125,7 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
         'cohere_removed_by_category': dict(cohere_removed_by_category),
         'haiku_removed_by_category': dict(haiku_removed_by_category),
         'unjudged': unjudged,
+        'show_only_kept': show_only_kept,
     }
     return kept, scrub_stats
 
@@ -4194,7 +4286,7 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
     wildcard = next((a for a in sorted(articles, key=lambda x: getattr(x, 'q_gate', None) or 0,
                                        reverse=True)
                      if id(a) not in included_ids
-                     and not getattr(a, 'gate_reject', None)
+                     and not _feed_rejects(a)
                      and (getattr(a, 'q_gate', None) or 0) >= WILDCARD_MIN_Q_GATE
                      and (getattr(a, 'gate_scored', False)
                           or getattr(a, 'relevance', 0) < WILDCARD_MAX_RELEVANCE)), None)
@@ -4605,8 +4697,13 @@ def generate_rss_feed(feed: Dict, output_path: str) -> None:
     print(f"✅ Generated RSS mirror: {output_path} ({item_count} articles)")
 
 
-def generate_json_feed(articles: List[Article], category: str, output_path: str):
-    """Generate JSON Feed format output"""
+def generate_json_feed(articles: List[Article], category: str, output_path: str,
+                       passthrough_items: Optional[List[Dict]] = None):
+    """Generate JSON Feed format output.
+
+    ``passthrough_items`` are finished item dicts (the Kagi News digest) written
+    first and as they are: no badge, no source prefix, never rebuilt as articles.
+    """
     cat_config = CATEGORIES[category]
     feed_config = FEEDS_CONFIG['feeds'][category]
     podcast_shown_cache = load_podcast_shown_cache()
@@ -4623,7 +4720,9 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str)
         "items": []
     }
 
-    for article in articles[:LIMITS['max_feed_size']]:
+    passthrough_items = list(passthrough_items or [])
+    feed["items"].extend(passthrough_items)
+    for article in articles[:max(0, LIMITS['max_feed_size'] - len(passthrough_items))]:
         clean_desc = _strip_markdown_links(article.description or "")
         has_source_in_title = (article.title.startswith(f"[{article.source}]")
                                or article.source in article.title)
@@ -5456,7 +5555,7 @@ def _in_show_pool(article, pool_links) -> bool:
     """Whether the show can still draw on this article: cached in the pool and not
     dropped at the exclusion choke point as a gate reject."""
     return (article.link in pool_links
-            and not (_gate_reject_honoured() and getattr(article, 'gate_reject', None)))
+            and not (_gate_reject_honoured() and _show_verdict(article)))
 
 
 def _refresh_bank_row(row: Dict, item: Dict) -> bool:
@@ -6477,6 +6576,154 @@ def _retained_is_fresh(item: Dict, new_urls: Set[str], new_term_sets: List[froze
     return not _overlaps_story(_feed_item_terms(item), new_term_sets)
 
 
+# ---------------------------------------------------------------------------
+# Kagi News coverage: which clusters reached a feed, and the daily digest of the rest
+# ---------------------------------------------------------------------------
+# Outcomes, in the order they are tested. The first three mean the reader saw the
+# story; the rest are misses, each named for the stage that dropped it.
+KITE_SEEN_OUTCOMES = ('published', 'already_shown')
+KITE_MISS_OUTCOMES = ('dedup', 'gate_reject', 'show_only', 'ranked_out')
+DIGEST_URL = 'https://news.kagi.com/'
+DIGEST_ID_PREFIX = 'https://news.kagi.com/#digest-'
+DIGEST_SUMMARY_CHARS = 220
+
+
+def _is_digest_item(item: Dict) -> bool:
+    """Whether a written feed item is a Kagi News digest, not an article."""
+    return str(item.get('id', '')).startswith(DIGEST_ID_PREFIX)
+
+
+def _published_title_terms(title: str) -> frozenset:
+    return _term_set(re.sub(r'^\[.*?\]\s*', '', re.sub(r'^(?:🔓\s*)+', '', title or '')).lower())
+
+
+def kite_coverage(kite_articles: List[Article], published: List, unique_hashes: Set[str],
+                  new_hashes: Set[str]) -> List[Tuple[Article, str]]:
+    """Each Kagi News cluster of this run with what became of it.
+
+    `published` is everything the category feeds carry after the merge (this run's
+    articles and retained items alike). A cluster counts as published when its link
+    or its story (feed-merge thresholds) is in one, so an outlet's version of the
+    same event counts. Otherwise it is named for the stage that dropped it:
+    `already_shown` (shown on an earlier run), `dedup` (lost to another version that
+    then did not ship), `gate_reject` (the gate's "x"), `show_only` (a `[show]` line
+    in a feed that honours it), `ranked_out` (filtered or out-ranked for a slot).
+    """
+    urls = {canonicalize_url(getattr(a, 'link', '') or '') for a in published}
+    term_sets = [_published_title_terms(getattr(a, 'title', '')) for a in published]
+    outcomes: List[Tuple[Article, str]] = []
+    for k in kite_articles:
+        if canonicalize_url(k.link) in urls or _overlaps_story(k.title_terms, term_sets):
+            outcome = 'published'
+        elif k.url_hash not in unique_hashes:
+            outcome = 'dedup'
+        elif k.url_hash not in new_hashes:
+            outcome = 'already_shown'
+        elif k.gate_reject:
+            outcome = 'gate_reject'
+        elif _feed_rejects(k):
+            outcome = 'show_only'
+        else:
+            outcome = 'ranked_out'
+        outcomes.append((k, outcome))
+    return outcomes
+
+
+def kite_coverage_stats(outcomes: List[Tuple[Article, str]], digest_count: int) -> Dict:
+    """Counts only (run_stats holds no article text): every cluster and the headlines."""
+    min_sources = SYSTEM.get('kagi_news', {}).get('headline_min_sources', 15)
+    every = Counter(o for _, o in outcomes)
+    heads = Counter(o for k, o in outcomes if k.kite_sources >= min_sources)
+    return {
+        'clusters': len(outcomes),
+        'by_outcome': dict(every),
+        'headline_min_sources': min_sources,
+        'headlines': sum(heads.values()),
+        'headline_by_outcome': dict(heads),
+        'headline_missed': sum(heads[o] for o in KITE_MISS_OUTCOMES),
+        'digest_items': digest_count,
+    }
+
+
+def _same_kite_event(a: Article, b: Article) -> bool:
+    """Whether two Kite clusters report one event: shared outlet links, or the same headline story."""
+    la, lb = getattr(a, 'kite_links', frozenset()), getattr(b, 'kite_links', frozenset())
+    if la and lb and len(la & lb) >= max(3, 0.2 * min(len(la), len(lb))):
+        return True
+    return _overlaps_story(a.title_terms, [b.title_terms])
+
+
+def build_kite_digest(outcomes: List[Tuple[Article, str]],
+                      now: Optional[datetime] = None) -> Optional[Dict]:
+    """One feed item listing the widely covered news clusters no feed carried, or None.
+
+    The reader's catch-up page in place of a general news site: news-mapped Kite
+    clusters with at least `min_sources` outlets that were not published and not
+    already shown, most widely covered first. Gate junk ("x") stays out; a `[show]`
+    match is in, since those lines are for the podcast. Costs nothing: the summaries
+    are Kite's own. CC BY-NC, credited to Kagi News in the item.
+    """
+    cfg = SYSTEM.get('kagi_news', {}).get('digest') or {}
+    if not cfg.get('enabled', False):
+        return None
+    feed = cfg.get('category', 'news')
+    min_sources = int(cfg.get('min_sources', 3))
+    candidates = sorted((k for k, o in outcomes
+                         if o in ('dedup', 'show_only', 'ranked_out')
+                         and k.kite_feed == feed and k.kite_sources >= min_sources),
+                        key=lambda k: k.kite_sources, reverse=True)
+    # Kite files one event under several categories (World and USA, World and Europe)
+    # with different headlines. Two such clusters share outlet URLs (32 and 49 on
+    # 2026-11-07; unrelated ones 0), so the most widely covered telling stands for the rest.
+    picks: List[Article] = []
+    for k in candidates:
+        if len(picks) >= int(cfg.get('max_items', 15)):
+            break
+        if not any(_same_kite_event(k, p) for p in picks):
+            picks.append(k)
+    if not picks:
+        return None
+    now = now or datetime.now(timezone.utc)
+    rows = []
+    for k in picks:
+        summary = _clean_text(k.description or '', max_chars=DIGEST_SUMMARY_CHARS)
+        rows.append(
+            f'<li><strong><a href="{html_escape(k.link, quote=True)}">{html_escape(k.title)}</a></strong> '
+            f'<small>({k.kite_sources} outlets · {html_escape(k.kite_label or "Kagi News")})</small>'
+            + (f'<br>{html_escape(summary)}' if summary else '') + '</li>')
+    day = now.strftime('%a %b ') + str(now.day)
+    content = (
+        '<p>The most widely covered stories that did not make your feeds, ranked by how '
+        f'many outlets carried them. Summaries by <a href="{DIGEST_URL}">Kagi News</a> '
+        '(CC BY-NC).</p><ul>' + ''.join(rows) + '</ul>')
+    return {
+        "id": f"{DIGEST_ID_PREFIX}{now.date().isoformat()}",
+        "url": DIGEST_URL,
+        "title": f"📰 Also in the news, {day}: {len(picks)} stories",
+        "content_html": content,
+        "date_published": now.isoformat(),
+        "authors": [{"name": "Kagi News digest", "url": DIGEST_URL}],
+        "tags": ["digest"],
+        "_digest": True,
+        "_stories": len(picks),
+    }
+
+
+def _print_kite_coverage(outcomes: List[Tuple[Article, str]], stats: Dict) -> None:
+    """The run log's view of the headline misses, titles included (run_stats has none)."""
+    if not outcomes:
+        return
+    print(f"\n📰 Kagi News coverage: {stats['by_outcome'].get('published', 0)} of "
+          f"{stats['clusters']} clusters published; headlines (≥{stats['headline_min_sources']} "
+          f"outlets): {stats['headline_missed']} of {stats['headlines']} missed; "
+          f"digest lists {stats['digest_items']}")
+    missed = sorted(((k, o) for k, o in outcomes
+                     if o in KITE_MISS_OUTCOMES and k.kite_sources >= stats['headline_min_sources']),
+                    key=lambda ko: ko[0].kite_sources, reverse=True)
+    for k, o in missed[:12]:
+        print(f"   · {o:<11} {k.kite_sources:>3} outlets [{k.kite_label}] {k.title[:80]}")
+
+
 def _article_from_scrape(local_entry: Dict) -> 'Article':
     """Build a `local` Article from one scrape_local_news() entry."""
     article = Article(_AttrDict(local_entry), local_entry['source'], local_entry['base_url'])
@@ -6540,6 +6787,7 @@ def main():
     
     unique_articles = deduplicate_articles(all_articles)
     unique_articles = semantic_dedup_articles(unique_articles)
+    unique_hashes = {a.url_hash for a in unique_articles}
 
     shown_cache = _shown_cache.load()
     shown_terms_cache = _shown_terms_cache.load()
@@ -6601,6 +6849,10 @@ def main():
             if _pool_source_excluded(a.source):
                 return False
             if getattr(a, 'content_type', None) == 'sponsored' or _is_aggregator_url(a.link):
+                return False
+            # A gate reject (either flag) is dropped at the exclusion choke point before
+            # any episode, so its seven theme scores and its place under the cap are waste.
+            if _gate_reject_honoured() and _show_verdict(a):
                 return False
             if getattr(a, 'local', 0) >= 25:
                 return True
@@ -6695,7 +6947,7 @@ def main():
     # Below-floor articles now carry the gate's topical verdict, so a sports recap
     # can no longer be rescued into a starved category the way it could when this
     # pool was exempt from scrubbing entirely.
-    selection_pool = scrubbed + [a for a in scrub_below if not a.gate_reject]
+    selection_pool = scrubbed + [a for a in scrub_below if not _feed_rejects(a)]
     _at_floor = sum(1 for a in selection_pool
                     if a.score >= min_score_for_category(a.category))
     print(f"⭐ Selection pool: {len(selection_pool)} articles "
@@ -6952,6 +7204,7 @@ def main():
     all_new_term_sets = [a.title_terms for a in all_new if not _story_dedup_exempt(a.source, a.title)]
 
     evicted_blocked = 0
+    final_items: Dict[str, List] = {}
     for cat_key in CATEGORIES.keys():
         feed_file = f"feed-{cat_key}.json"
         existing_articles = []
@@ -6961,6 +7214,8 @@ def main():
                 with open(feed_file, 'r') as f:
                     existing_feed = json.load(f)
                     for item in existing_feed.get('items', []):
+                        if _is_digest_item(item):
+                            continue  # replaced by tonight's digest, never retained
                         pub_date = datetime.fromisoformat(item['date_published'].replace('Z', '+00:00'))
                         if pub_date > retention_cutoff:
                             if is_blocked_source(((item.get('authors') or [{}])[0]).get('name')):
@@ -6991,9 +7246,22 @@ def main():
         all_items.sort(key=lambda a: a.pub_date, reverse=True)
         all_items = all_items[:LIMITS['max_feed_size']]
 
-        final_feed_sizes[cat_key] = len(all_items)
+        final_items[cat_key] = all_items
 
-        generate_json_feed(all_items, cat_key, feed_file)
+    # The Kagi News clusters no feed carried: counted for the weekly audit, and the
+    # widely covered news ones listed in one digest item on top of the news feed.
+    new_hashes = {a.url_hash for a in new_articles}
+    outcomes = kite_coverage(kite_articles, [a for items in final_items.values() for a in items],
+                             unique_hashes, new_hashes)
+    digest = build_kite_digest(outcomes)
+    digest_cat = (SYSTEM.get('kagi_news', {}).get('digest') or {}).get('category', 'news')
+    run_stats['kite_coverage'] = kite_coverage_stats(outcomes, (digest or {}).get('_stories', 0))
+    _print_kite_coverage(outcomes, run_stats['kite_coverage'])
+
+    for cat_key, all_items in final_items.items():
+        passthrough = [digest] if digest and cat_key == digest_cat else []
+        final_feed_sizes[cat_key] = len(all_items) + len(passthrough)
+        generate_json_feed(all_items, cat_key, f"feed-{cat_key}.json", passthrough_items=passthrough)
 
     run_stats['final_feeds'] = final_feed_sizes
 
@@ -7773,11 +8041,13 @@ def _load_feed_items(cat_key: str) -> Optional[List[Dict]]:
 
 def _write_spliced_feed(cat_key: str, items: List[Dict], new: List[Article], output_dir: str) -> List[str]:
     """Write ``new`` on top of a feed's existing items into ``output_dir``; return the paths written."""
-    all_items = new + [_article_from_feed_item(item, keep_hot_mark=True) for item in items]
+    digests = [item for item in items if _is_digest_item(item)]
+    all_items = new + [_article_from_feed_item(item, keep_hot_mark=True)
+                       for item in items if not _is_digest_item(item)]
     all_items.sort(key=lambda a: a.pub_date, reverse=True)
     out_path = os.path.join(output_dir, f"feed-{cat_key}.json")
     os.makedirs(output_dir, exist_ok=True)
-    generate_json_feed(all_items, cat_key, out_path)
+    generate_json_feed(all_items, cat_key, out_path, passthrough_items=digests)
     written = [out_path]
     if FEEDS_CONFIG['feeds'][cat_key].get('rss'):
         written.append(f"{os.path.splitext(out_path)[0]}.xml")
@@ -7848,7 +8118,7 @@ def _hot_admits(article: Article, min_score: int, gate_floor: int) -> bool:
     An unjudged article (gate outage) is held for the nightly: this pass fails
     closed, because the nightly is its safety net.
     """
-    if article.gate_reject is not False:
+    if article.gate_reject is not False or _feed_rejects(article):
         return False
     if article.category == 'local':
         return True
@@ -7959,7 +8229,7 @@ def refresh_hot_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output')
         if items is None:
             continue  # the nightly has not built this feed yet
         known = {canonicalize_url(item_source_link(item)) for item in items}
-        item_terms = [_feed_item_terms(item) for item in items]
+        item_terms = [_feed_item_terms(item) for item in items if not _is_digest_item(item)]
         ranked = sorted((a for a in candidates if a.category == cat_key),
                         key=lambda a: (a.score, a.pub_date), reverse=True)
         new: List[Article] = []

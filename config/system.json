@@ -36,17 +36,36 @@
     "kite_batch_max_age_hours": 2,
     "_note": "refresh-hot.yml, every 2 h between nightlies: plain GETs, quality gate only, no cache commits. min_score sits in the gate's top band (60-79 held ~5% of a night's articles in October 2026). Off: set enabled false. kite_batch_max_age_hours: Kagi News cuts one batch a day at 12:00 UTC; only a run within this many hours of it reads the batch (the 12:41 run, once), so its news clusters land that afternoon instead of 18 h later with the nightly. Remove the key to stop."
   },
+  "standing_preferences": {
+    "show_only_open_categories": ["news"],
+    "_note": "Feeds that ignore the reader's [show] lines in config/standing_preferences.txt. Those lines keep a subject off the podcast and out of every other feed; news keeps it, so the reader still sees the world (added 2026-11-07, docs/decisions/scoring.md). Remove news to make the lines apply everywhere again."
+  },
   "kagi_news": {
     "enabled": true,
     "base_url": "https://news.kagi.com",
-    "categories": ["World", "Canada", "Canada | British Columbia", "Business", "Technology", "Science",
-                   "AI", "Agriculture", "Cloud Computing", "Cybersecurity", "Climate Change"],
+    "categories": ["World", "Canada", "Canada | British Columbia", "USA", "Europe", "Asia", "Middle East",
+                   "Africa", "Central and South America", "Economy", "Diplomacy", "Business",
+                   "Technology", "AI", "Cloud Computing", "Cybersecurity", "Privacy",
+                   "Science", "Space", "Medicine", "Climate Change", "Energy", "Nuclear Power",
+                   "Smart Home", "3D Printing", "Linux & OSS", "Agriculture"],
     "category_map": {
-      "World": "news", "Canada": "news", "Canada | British Columbia": "news", "Business": "news",
+      "World": "news", "Canada": "news", "Canada | British Columbia": "news", "USA": "news",
+      "Europe": "news", "Asia": "news", "Middle East": "news", "Africa": "news",
+      "Central and South America": "news", "Economy": "news", "Diplomacy": "news", "Business": "news",
       "Technology": "ai-tech", "AI": "ai-tech", "Cloud Computing": "ai-tech", "Cybersecurity": "ai-tech",
-      "Science": "science", "Climate Change": "climate"
+      "Privacy": "ai-tech",
+      "Science": "science", "Space": "science", "Medicine": "wellness",
+      "Climate Change": "climate", "Energy": "climate", "Nuclear Power": "climate",
+      "Smart Home": "homelab", "3D Printing": "homelab", "Linux & OSS": "homelab"
     },
-    "max_stories_per_category": 8,
-    "_note": "Kagi News clusters: one story per event, already merged across outlets and summarised, so each enters as the finished version of its story (wins same-story dedup over any non-local outlet; never sent to Kagi Extract; its summary + talking points become the podcast's story body). Free. category_map sets a provisional feed category from Kite's label; deep scoring can still move it. Agriculture is unmapped on purpose: homestead is hobby-scale, and commodity-market stories belong to the podcast's Working Lands day, not a feed. Content is CC BY-NC, credit Kagi News."
+    "max_stories_per_category": 12,
+    "digest": {
+      "enabled": true,
+      "category": "news",
+      "max_items": 15,
+      "min_sources": 3
+    },
+    "headline_min_sources": 15,
+    "_note": "Kagi News clusters: one story per event, already merged across outlets and summarised, so each enters as the finished version of its story (wins same-story dedup over any non-local outlet; never sent to Kagi Extract; its summary + talking points become the podcast's story body). Free. category_map sets a provisional feed category from Kite's label; deep scoring can still move it. Agriculture is unmapped on purpose: homestead is hobby-scale, and commodity-market stories belong to the podcast's Working Lands day, not a feed. Broadened 2026-11-07 from 11 to 27 categories, 12 stories each (Kite publishes about 12): regions, economy and diplomacy into news, plus topic categories for the interest feeds. Each is one free GET; the extra clusters cost only gate tokens. digest: one item a day at the top of the news feed listing the news-mapped clusters with at least min_sources outlets that reached no feed (gate junk excluded). headline_min_sources: a cluster this widely covered counts as a headline in run_stats.kite_coverage, which the weekly audit reads as the headline miss rate. Content is CC BY-NC, credit Kagi News."
   }
 }
