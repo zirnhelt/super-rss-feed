@@ -6,13 +6,59 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sat, 07 Nov 2026 06:10:38 +0000</lastBuildDate>
+<lastBuildDate>Sat, 07 Nov 2026 10:30:22 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 7, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-07.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-07.html</guid>
+<pubDate>Sat, 07 Nov 2026 10:06:00 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/42353972130&quot;&gt;42353972130&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-good&quot;&gt;&lt;span class=&quot;icon&quot;&gt;✓&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped clean&lt;/strong&gt;Nothing broke and nothing fell back.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;p&gt;Nothing. The run needs no follow-up.&lt;/p&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The fallback chain held, and no run was late&lt;/h3&gt;
+&lt;p&gt;The primary run started at 1:05 AM Pacific and finished at 1:39 AM Pacific, and it succeeded. Fallback 1 at 2:05 AM Pacific also completed successfully, and fallback 2 at 3:05 AM Pacific is the run producing this review. Each run&#x27;s minutes_late is 0. Two of the three runs completed successfully, so the schedule had no effect on the episode that shipped.&lt;/p&gt;
+&lt;h3&gt;Four of 18 roundup stories were cut for airtime&lt;/h3&gt;
+&lt;p&gt;The roundup pool held more stories than one segment could air, so the airtime budget dropped 1 story (roundup_dropped). This is designed behaviour: the cut story stays in the pool and can return on a day that suits it better. The deep dive count was 4, and that is the number to watch if the roundup is ever expanded.&lt;/p&gt;
+&lt;p&gt;Citation matching is weaker on the deep dives than in the roundup: 12 of 18 roundup citations matched, against 2 of 4 deep dive citations. Two deep dive citations did not match, and the four deep dive sources are a small base for drawing a trend, so the first thing to check is whether the unmatched citations are attribution errors or sources the matcher cannot find.&lt;/p&gt;
+&lt;h3&gt;The first draft missed target and shipped under it&lt;/h3&gt;
+&lt;p&gt;The first script draft came in at 2553 words against a target of 3400. It went back for one expand pass, and the shipped script is 3251 words. That is still under target. The expand pass was the only correction made, and the shortfall is inside the range the pipeline accepts on a thin day, so no change is needed unless the shortfall starts to fail SHORT_EPISODE_WORDS.&lt;/p&gt;
+&lt;h3&gt;One TTS take stayed short after retry&lt;/h3&gt;
+&lt;p&gt;One TTS take came back shorter than its word count predicted and was retried once. The retry was still short, and the longer of the two takes was kept, so no speech was dropped from the episode. The audio runs 20.1 minutes. The script has 3251 words and no AI-tell pattern hits. Voice balance is 1.08 Casey over Riley, and Casey carries 52% of deep dive words. Neither voice dominated the episode.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 1.08, 3251 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 52% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;20.1 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.4 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;12/18 roundup, 2/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;283 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;70,657&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;25 total: claude 10 · kagi-extract 6 · brave-search 5 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] New interpretative panels unveiled at Scout Island in Williams Lake</title>
 <link>https://wltribune.com/2026/11/06/new-interpretative-panels-unveiled-at-scout-island-in-williams-lake/</link>
