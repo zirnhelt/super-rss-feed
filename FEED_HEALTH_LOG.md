@@ -87,3 +87,14 @@ No feed met the failure floor — nothing to heal.
 | Action | Feed | Detail | Evidence |
 |---|---|---|---|
 | ✅ Restored | Maclean's | retired source is reachable again | retired unknown |
+
+
+## 2026-11-07
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| ✓ Recovered on its own | Logging and Sawmilling Journal | fetches normally again | 7 failures over 7d (network, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Civil Eats | fetches normally again | 6 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Neuroscience News | fetches normally again | 6 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Canadian Architect | fetches normally again | 5 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| 🔁 Substituted | Dwell | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:dwell.com&hl=en&gl=CA&ceid=CA:en` | 3 failures over 3d (http_403, via feed_http_cache.json) |
