@@ -1,3 +1,90 @@
+## Feedback Training Run — 2026-11-07 18:18 UTC
+
+**Files processed:** 2026-10-09.json, 2026-10-10.json, 2026-10-11.json, 2026-10-12.json, 2026-10-13.json, 2026-10-14.json, 2026-10-15.json, 2026-10-16.json, 2026-10-17.json, 2026-10-18.json, 2026-10-19.json, 2026-10-20.json, 2026-10-21.json, 2026-10-22.json, 2026-10-23.json, 2026-10-24.json, 2026-10-25.json, 2026-10-26.json, 2026-10-27.json, 2026-10-28.json, 2026-10-30.json, 2026-11-01.json, 2026-11-02.json, 2026-11-03.json, 2026-11-04.json, 2026-11-05.json, 2026-11-06.json, 2026-11-07.json
+**Ratings:** 6 Exemplars, 81 Good, 83 Interesting, 74 Podcast-only, 169 Bad, 155 reassigned to day(s), 1 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (13), The Tyee (7), My Cariboo Now (7), ScienceDaily (5), Vancouver Sun (4)
+**Top disliked sources:** NYT Top Stories (15), ArchDaily (14), Edge (GamesRadar) (9), WIRED (7), NYT Business (7)
+**Categories liked:** news (25), local (24), science (10), wellness (6), ai-tech (6), homelab (4), climate (4), design (1), homestead (1)
+**Categories disliked:** news (70), design (18), ai-tech (17), wellness (16), local (15), scifi (9), climate (8), science (6), outdoors (6), homelab (3), homestead (1)
+
+**Day reassignment summary:**
+- thursday → sunday: 12 articles
+- thursday → wednesday: 6 articles
+- thursday → saturday: 6 articles
+- thursday → thursday: 5 articles
+- thursday → tuesday: 5 articles
+- thursday → monday: 4 articles
+- thursday → friday: 3 articles
+- friday → sunday: 12 articles
+- friday → saturday: 7 articles
+- friday → thursday: 5 articles
+- friday → tuesday: 4 articles
+- friday → friday: 3 articles
+- saturday → saturday: 10 articles
+- saturday → sunday: 10 articles
+- saturday → friday: 3 articles
+- saturday → tuesday: 3 articles
+- saturday → thursday: 3 articles
+- saturday → wednesday: 2 articles
+- saturday → monday: 2 articles
+- sunday → sunday: 7 articles
+- sunday → saturday: 6 articles
+- sunday → tuesday: 5 articles
+- sunday → wednesday: 3 articles
+- sunday → friday: 2 articles
+- sunday → thursday: 1 articles
+- sunday → monday: 1 articles
+- monday → saturday: 9 articles
+- monday → sunday: 9 articles
+- monday → tuesday: 6 articles
+- monday → thursday: 4 articles
+- monday → monday: 4 articles
+- monday → wednesday: 3 articles
+- tuesday → sunday: 7 articles
+- tuesday → saturday: 4 articles
+- tuesday → wednesday: 3 articles
+- tuesday → tuesday: 3 articles
+- tuesday → monday: 3 articles
+- tuesday → thursday: 2 articles
+- tuesday → friday: 1 articles
+- wednesday → sunday: 6 articles
+- wednesday → saturday: 4 articles
+- wednesday → wednesday: 3 articles
+- wednesday → tuesday: 2 articles
+- wednesday → friday: 2 articles
+- wednesday → monday: 1 articles
+- wednesday → thursday: 1 articles
+
+**Category retag summary:**
+- news → climate: 1 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+- **Lead with exemplars:** Treat the user-curated exemplars as the strongest signal. Strongly reward Canadian/BC political and climate accountability reporting (federal-provincial disputes, election tax and policy stakes, Indigenous land and water rights) and tech-economics pieces with a clear industry-shift angle.
+- **Favor Indigenous and civic local stories:** Boost First Nations advocacy, reconciliation, land stewardship, cultural fire practices, and substantive Williams Lake/Cariboo civic news (housing, candidate profiles, facilities, public consultation). Routine event listings, sports, and bare portal pages should score low.
+- **Reward local election coverage:** Candidate profiles, municipal governance debates, and mayoral/council endorsements are consistently liked; score them high.
+- **Prize science with real-world stakes:** Favor natural-world discovery, astronomy, evolutionary/animal behavior, geoscience, and research with practical implications. Penalize wellness pseudoscience, longevity checklists, symptom-driven health advice, and generic "diet" pieces.
+- **Filter AI and tech carefully:** Score high on AI security vulnerabilities, manipulation of AI systems, legal rulings, and expert warnings about impact. Score low on product launches, model hype, funding deals, executive moves, and assistant-app features.
+- **Penalize US politics, celebrity, sales, and ad content:** Consistently disliked; also demote gaming, lifestyle shopping guides, and opinion pieces lacking a local or Canadian hook.
+- **Source adjustments:** Raise 100 Mile Free Press, Eagle Feather News, ScienceDaily, ScienceAlert, EarthSky, The Narwhal, and BC Gov News. Lower Reactor, Lifehacker, Tom's Guide, Neowin, CBC Arts, Al Jazeera English, Android Authority, and NYT Top Stories.
+- **Day patterns:** Articles about Williams Lake/local civic matters often move to Friday–Sunday; Indigenous and environmental policy pieces often move to Thursday or Sunday; tech and AI pieces often move to Wednesday or Sunday. Use these as soft hints for podcast-day fit.
+- **Category correction:** Stories about LNG, emissions, and energy projects are frequently miscategorized as news;
+
+---
+## Feedback Archive Run — 2026-11-07 18:18 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 7 (2026-08-03.json … 2026-08-09.json)
+**Ratings folded into rollup:** 106 (rollup now holds 962)
+**Topic/framing lessons:** ✅ consolidated to 216 words
+**Raw bytes freed:** 106.5 KB
+**Live files remaining:** 79
+**URL ledger:** 2492 URLs (+85 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-10-31 18:00 UTC
 
 **Files processed:** 2026-10-02.json, 2026-10-03.json, 2026-10-04.json, 2026-10-05.json, 2026-10-06.json, 2026-10-07.json, 2026-10-08.json, 2026-10-09.json, 2026-10-10.json, 2026-10-11.json, 2026-10-12.json, 2026-10-13.json, 2026-10-14.json, 2026-10-15.json, 2026-10-16.json, 2026-10-17.json, 2026-10-18.json, 2026-10-19.json, 2026-10-20.json, 2026-10-21.json, 2026-10-22.json, 2026-10-23.json, 2026-10-24.json, 2026-10-25.json, 2026-10-26.json, 2026-10-27.json, 2026-10-28.json, 2026-10-30.json
