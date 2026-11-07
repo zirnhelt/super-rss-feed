@@ -59,17 +59,32 @@ def load_quality_charter() -> str:
     """Load the interest-independent newsworthiness rubric (quality gate + theme prompts)."""
     return (CONFIG_DIR / "quality_charter.txt").read_text()
 
-def load_standing_preferences() -> List[str]:
-    """The reader's standing reject rules, one per non-comment line.
+# A standing-preference line that starts with this tag keeps its subject off the
+# podcast only; an untagged line applies everywhere (every feed and the show).
+SHOW_SCOPE_TAG = "[show]"
 
-    Missing file means no preferences, never a failed run: the gate still applies
-    its built-in subjects.
+
+def load_standing_preferences(scope: Optional[str] = None) -> List[str]:
+    """The reader's standing reject rules, one per non-comment line, scope tag removed.
+
+    ``scope`` None returns every line; "everywhere" the untagged lines; "show" the
+    lines tagged ``[show]``. Missing file means no preferences, never a failed run:
+    the gate still applies its built-in subjects.
     """
     path = CONFIG_DIR / "standing_preferences.txt"
     if not path.exists():
         return []
-    return [line.strip() for line in path.read_text(encoding="utf-8").splitlines()
-            if line.strip() and not line.lstrip().startswith("#")]
+    lines: List[str] = []
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        is_show = line.lower().startswith(SHOW_SCOPE_TAG)
+        if is_show:
+            line = line[len(SHOW_SCOPE_TAG):].strip()
+        if scope is None or (scope == "show") == is_show:
+            lines.append(line)
+    return lines
 
 def load_podcast_schedule_config() -> Dict:
     """Load podcast schedule configuration (themed feed routing/scoring)."""

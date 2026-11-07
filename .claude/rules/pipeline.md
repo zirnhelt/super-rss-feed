@@ -18,7 +18,7 @@ paths:
 1. **Fetch** — `feedparser`, last 48 h, conditional GET via `FeedHTTPCache`. Free recovery before paid: 403 → feed-reader UA retry; 404/410 → `_discover_feed_url()` (cached as `resolved_url`). Then Brave → Kagi → Google News RSS. ≥3 consecutive failures skip Brave/Kagi; unrecoverable failures back off 6 h / 24 h / 72 h. Every Brave call goes through `_take_brave_call()`, capped by `system.json` → `brave.max_calls_per_run`.
 2. **Local scrapes** — `scrape_local_news()` scrapes the homepages in `system.json` → `local_scrapes` (Tribune, Quesnel Observer, 100 Mile Free Press): their RSS is mostly provincial syndication. See [sources.md](../../docs/decisions/sources.md).
 3. **Topic news** — Brave News + Kagi from `topic_queries.json`, only when `USE_SEARCH_APIS=true` **and** `system.json` → `topic_queries.enabled`. **Off since 2026-09-23, kept off after the trial (reviewed 2026-10-11)**: ~47 Brave calls a night for 1 of 467 category items. The run log prints `Topic queries: disabled`.
-   **Kagi News** (`fetch_kite_news`, `system.json` → `kagi_news`, free): 11 Kite categories, each story a cluster already merged across outlets and summarised. It enters as the finished version of its story: wins same-story dedup over any non-local outlet, yields to any outlet article published after its batch (Kite cuts one a day at 12:00 UTC, 18 h before the nightly; `_dedup_wins`), links the outlet its summary cites first (never `articles[0]`), and carries its summary + talking points as `_excerpt` with `_kite_sources` so the podcast uses the body as-is.
+   **Kagi News** (`fetch_kite_news`, `system.json` → `kagi_news`, free): 27 Kite categories (12 stories each since 2026-11-07, one cluster per event via `_collapse_kite_events`), each story a cluster already merged across outlets and summarised. It enters as the finished version of its story: wins same-story dedup over any non-local outlet, yields to any outlet article published after its batch (Kite cuts one a day at 12:00 UTC, 18 h before the nightly; `_dedup_wins`), links the outlet its summary cites first (never `articles[0]`), and carries its summary + talking points as `_excerpt` with `_kite_sources` so the podcast uses the body as-is.
 4. **Filter** — `filters.json`: blocked sources, keywords (`blocked_keywords_unless_local` allows a local override), title patterns, URL path patterns, and bare homepages.
 5. **Prescore gate** — high-volume aggregators must match a `PRESCORE_KEYWORDS` term before paid scoring.
 6. **Deduplicate** — URL hash → fuzzy title → term-set containment (source priority local > print > broadcast), plus Cohere similarity when enabled.
@@ -28,14 +28,14 @@ paths:
    b. **News head**: gate survivors are ordered by Cohere Rerank against `news_interests.txt` (ordering only), then the display-bound slice (`quality_gate.deep_slice_multiplier` × `max_slots` per category, 6 since Haiku 5.5) gets full Q/R/L Haiku scoring with `feedback_examples.txt`; the rest keep `q_gate`.
 9. **Local priority** — `local_signals` matches get score ≥ 80 and the `local` feed.
 10. **Source preferences** — per-type adjustments.
-11. **Scrub** — `scrub_feed_with_haiku()` applies step 8a's verdicts. **It makes no API call**; name and `(kept, scrub_stats)` contract kept for the calibration agent.
+11. **Scrub** — `scrub_feed_with_haiku()` applies step 8a's verdicts (`_feed_rejects`: `x` everywhere, a `[show]` match `s` everywhere but news). **It makes no API call**; name and `(kept, scrub_stats)` contract kept for the calibration agent.
 12. **Slot allocation** — `apply_feed_slot_allocation()`, ranked (see the scoring rule).
 13. **Images** — up to 50 articles.
 14. **Categorize** — keyword rules + Claude category assignment.
 15. **Podcast cache** — entry gated by `q_gate >= quality_gate.podcast_floor` (or `local >= 25`); theme scores computed once at ingest against the charters + quality charter (never the interest profile); `targeted_rescore` days (all seven since Haiku 5.5) get a single-charter second pass.
 16. **Podcast feeds** — all 7 regenerated every run from the pool (pure cache reads for the other 6 days).
 17. **Diversify** — per-source caps.
-18. **Merge & output** — JSON Feed files + `curated-feeds.opml`.
+18. **Merge & output** — JSON Feed files + `curated-feeds.opml`. Before writing, `kite_coverage()` gives each Kagi cluster an outcome (`run_stats.kite_coverage`), and `build_kite_digest()` puts one digest item on top of `feed-news.json`.
 
 ## Output Feeds
 

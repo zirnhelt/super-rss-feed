@@ -358,7 +358,8 @@ output tokens an article in the call the gate already makes, plus one re-verdict
 pass when the rubric id changes.
 
 The lane respects the reader's reject lines: a standing preference that covers an
-article still drops it. It is in `calibration_bounds.json` → `forbidden`, because
+article still drops it. (Superseded 2026-11-07: a `[show]` line no longer does; see
+"Standing preferences get a scope" below.) It is in `calibration_bounds.json` → `forbidden`, because
 ratings are what starved it; change `world_slots` by hand. `run_stats` records
 `quality_gate.world_lane_count`, and the lane's articles are counted inside
 `passed_by_category.news`, so news can read 14 against `max_slots` 10.
@@ -517,3 +518,65 @@ so the two `in_feed` picks (top of the feed) would almost never sample it, and t
 could not judge the slot. `REVIEW_QUOTAS` takes 1 `wildcard` from the near-miss quota (8→7,
 batch still 12); `review_pools()` keeps it out of `in_feed` so the strata stay a partition
 and their weights valid. The weekly audit reports its positive rate with the other strata.
+
+## Standing preferences get a scope; the Kagi News digest (2026-11-07)
+
+The reader went back to Google News to catch up on the world. The 09-29 world lane had
+not held, because its own text said "the lane respects the reader's reject lines", and
+by November four of those lines covered most of what a world front page carries:
+"Warfare… with no exception", "US elections, with no exception", "US domestic politics"
+and "Bad news without local relevance". They rode in the gate's one reject flag (`x`),
+which drops an article from every feed and the pool. On 2026-11-06, 49 of ~2,180 cached
+verdicts carried the world flag against 549 rejects, and a crude title match of the
+day's Kagi World and Canada clusters (24) against `feed-news.json` found 5. The
+rejected ones included an Iran strike (42 outlets) and the White House chief of staff (64).
+The rest, such as the Canadian jobs report and Carney on free trade, no rule blocked:
+they ranked out on the interest profile and the 10 + 4 slots.
+
+The reader's intent was "keep this off the show", which is the manifesto's answer 2 (the
+feed follows curiosity, the show serves the community) and answer 7 (distant bad news
+stays off the **show**). So:
+
+- **A `[show]` tag on a standing-preference line** (`config_loader.SHOW_SCOPE_TAG`). The
+  gate asks it as a separate flag, `s`, in the same call (`_GATE_SHOW_ONLY_SECTION`, about
+  four more output tokens an article). `_feed_rejects()` drops an `s` match from every
+  feed except `system.json` → `standing_preferences.show_only_open_categories` (`news`).
+  `_show_verdict()` (either flag) is what pool and bank rows store as `gate_reject`, so the
+  podcast side still reads one field meaning "not for the show". The four lines above
+  were tagged with the reader's approval. Product reviews, ragebait, doomsaying, police
+  blotter and the rest stay untagged: those are about what a story is, not where it
+  happens. The rubric id changed, so the first night re-asks every cached verdict once
+  (about 35 Haiku batches, a few cents).
+- **Gate rejects are no longer podcast candidates** (`_pool_eligible`). The choke point
+  dropped them anyway, so their seven theme scores were waste and they took places under
+  `podcast_candidate_max_per_run`.
+- **Kagi News went from 11 categories to 27, 12 stories each.** Kite publishes about 12
+  clusters per category in its daily batch. The additions are regions (USA, Europe, Asia,
+  Middle East, Africa, Central and South America), Economy and Diplomacy into news, plus
+  Energy and Nuclear Power (climate), Space (science), Medicine (wellness), Privacy (ai-tech),
+  Smart Home, 3D Printing and Linux & OSS (homelab). Defense and the sports categories are
+  left out on purpose. Each category is one free GET. Measured on the 2026-11-07 batch:
+  238 clusters, 39 of them one event filed under two categories with different headlines
+  (World and USA both carried the chief-of-staff story). Title dedup cannot see those, but the
+  pairs share outlet URLs (32 and 49 shared; unrelated clusters 0), so
+  `_collapse_kite_events()` keeps the most widely covered telling (`_same_kite_event`).
+  That leaves about 200 clusters, roughly 100 more than before, at about +5 gate batches a night.
+- **The digest** (`build_kite_digest`, `kagi_news.digest`). This is one item at the top of
+  `feed-news.json` listing up to 15 news-mapped clusters with ≥ 3 outlets that reached no
+  feed: not published (link or story), not already shown, not gate junk. They are ordered by
+  outlet count, and the summaries are Kite's own. It costs nothing to build and replaces itself
+  nightly (`_is_digest_item`, never retained). It passes through the hot and editorial refreshes
+  verbatim (`generate_json_feed(passthrough_items=)`).
+- **Headline coverage** (`kite_coverage`, `run_stats.kite_coverage`, counts only). Every
+  cluster gets one outcome: `published`, `already_shown`, `dedup`, `gate_reject`,
+  `show_only` or `ranked_out`. Clusters with ≥ `headline_min_sources` (15) outlets are headlines.
+  The weekly audit reads the week's headline miss rate (`headline_coverage`, recorded in
+  `weekly_metrics.jsonl` as `headline_miss_pct_7d`) and raises `headline-misses` at ≥ 50% of
+  ≥ 20 headlines. A digest listing still counts as a miss: the question is whether the feeds'
+  own selection carries the day's big stories. The nightly log lists the missed headlines by title.
+
+**Not done yet, on the roadmap (TODO.md):** a headlines lane ranked by outlet count
+instead of the interest profile, once the miss rate says how big the gap is. The
+proposer (`standing_preferences.py`) still writes untagged lines; teaching it to
+propose `[show]` when the notes say "not for the show" is the next step, along with
+rating world stories `interesting` (feed only) rather than `bad`.

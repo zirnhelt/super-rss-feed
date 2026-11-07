@@ -30,6 +30,7 @@ Read the podcast repo's [`docs/MANIFESTO.md`](https://github.com/zirnhelt/curate
 
 - **Feed selection is ranked, not floored.** Pass 1 fills `min_slots` regardless of the floor; pass 2 fills to `max_slots` above it. The floor bounds quality, not volume.
 - **News has a world lane.** `world_slots` (4) go to gate-flagged major world events ranked by `q_gate`, on top of `max_slots`. The ratings starved world news once; keep the lane out of `calibration_bounds.json` knobs.
+- **Headline coverage is measured.** `run_stats.kite_coverage` gives each Kagi News cluster an outcome. The audit's `headline-misses` finding reads the week's miss rate for clusters with ≥ 15 outlets. Read it before you widen the world lane or change the news head.
 - **The weights are fitted against ratings, and two fitted values were deliberately overridden:** `w_local` stays at 0.20 (an editorial commitment, and zeroing it disables the local bonus), and `w_quality` stays at 0.15–0.20 (a range-restriction artifact). Weights stay **out** of `calibration_bounds.json`.
 - **One wildcard a day rides on top of the slots** (pass 3): the best `q_gate` (≥ `WILDCARD_MIN_Q_GATE`) the interest profile missed. Not a rescue for a thin category.
 - **The deep-scoring queue is split**, not sorted by `q_gate`: `NEWS_INTEREST_RESERVE_SHARE` (0.4) goes to interest rank, held at every prefix length (`_interleave_reserved`).
@@ -38,6 +39,7 @@ Read the podcast repo's [`docs/MANIFESTO.md`](https://github.com/zirnhelt/curate
 - **The weekly review stays bounded.** Corpus tables read a rolling 90 days; trend tables show 8 weeks then one row a quarter (`weekly_metrics.jsonl` keeps every week); dated `.md` reports are pruned at 13 weeks, never the weekly HTML (gh-pages deploys it with `keep_files: false`). `CALIBRATION_LOG.md` keeps 8 weeks in full, `notes.md` its last 6 entries plus Haiku-folded standing lessons. A finding that stops firing goes to **Closed Findings**.
 - **A verdict is feed × podcast:** `good` (both), `interesting` (feed only), `podcast_only` (show only), `bad` (neither). Feed, band, sweep and source metrics count good+interesting; day fit (`theme_routing.per_day.good_pct`) counts good+podcast_only. Block a source only at n ≥ 8 with zero positives of any kind, `podcast_only` included.
 - `standing_preferences.txt` is **the reader's**: reject rules placed in the gate's subject list (same call, no extra cost), edited by hand or by merging a weekly proposal PR. The pipeline owns `GATE_REJECT_RUBRIC`. A place rule goes in code or config, never here (see the sources rule).
+- **A `[show]` line is podcast-only.** The gate returns it as `s`, apart from `x`. `_feed_rejects()` drops it from every feed except `standing_preferences.show_only_open_categories` (`news`), and `_show_verdict()` (either flag) is the pool's `gate_reject`. Never collapse the two flags back into one: that is how world news left the feed (2026-11-07).
 
 ## Feedback History (`feedback/`)
 

@@ -222,7 +222,7 @@ def main() -> int:
     from super_rss_curator_json import build_gate_reject_rubric
     standing = config_loader.load_standing_preferences()
     declined = [p["rule"] for p in ledger.get("proposed", [])]
-    text = call_haiku(build_prompt(notes, build_gate_reject_rubric(standing), declined))
+    text = call_haiku(build_prompt(notes, build_gate_reject_rubric(), declined))
     if text is None:
         return 0
     proposals = select_proposals(parse_proposals(text), standing, declined)

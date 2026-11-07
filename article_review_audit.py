@@ -683,6 +683,11 @@ VERDICT_WINDOW_DAYS = 14
 VERDICT_MIN_RATINGS = 50        # a verdict unused across this many ratings is a dead channel
 GATE_MISS_FLAG_PCT = 10.0       # wanted share of rated rejects that makes the gate a finding
 GATE_MISS_MIN_REJECTS = 20
+# Kagi News headlines (clusters covered by at least kagi_news.headline_min_sources
+# outlets) that reached no feed, over the week's runs (run_stats.kite_coverage).
+HEADLINE_MISS_FLAG_PCT = 50.0
+HEADLINE_MISS_MIN_HEADLINES = 20
+HEADLINE_MISS_OUTCOMES = ('dedup', 'gate_reject', 'show_only', 'ranked_out')
 GATE_MISS_MIN_WANTED = 3        # wanted rejects a source needs before it is named
 PLACE_MIN_RATINGS = 5
 PLACE_APPETITE_MARGIN = 15.0    # points above the corpus wanted rate
@@ -1060,6 +1065,15 @@ def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
                 f'Logged {row["run_date"]} as {row["old_value"]} → {row["new_value"]}; '
                 f'config still says {row["current"]}.')
 
+    heads = headline_coverage(runs, today)
+    if heads['headlines'] >= HEADLINE_MISS_MIN_HEADLINES and (heads['miss_pct'] or 0) >= HEADLINE_MISS_FLAG_PCT:
+        reasons = ', '.join(f'{o} {heads["by_outcome"][o]}' for o in HEADLINE_MISS_OUTCOMES
+                            if heads['by_outcome'].get(o))
+        add('headline-misses', f'The feeds missed {heads["miss_pct"]}% of the week\'s headlines',
+            f'{heads["missed"]} of {heads["headlines"]} widely covered Kagi News stories in '
+            f'{heads["runs"]} runs reached no feed ({reasons}). gate_reject is the gate\'s junk '
+            'flag, show_only a [show] line outside news, ranked_out the slots or the score.')
+
     age = price_table_age(today)
     if age is not None and age > PRICE_TABLE_MAX_AGE_DAYS:
         add('stale-prices', 'The Anthropic price table is stale',
@@ -1069,6 +1083,28 @@ def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
         finding['weeks'] = 1 + _consecutive_weeks(finding['id'], history, today)
         finding['escalate'] = finding['weeks'] >= REPEAT_ESCALATE_WEEKS
     return sorted(findings, key=lambda f: -f['weeks'])
+
+
+def headline_coverage(runs: List[Dict], today: date, days: int = 7) -> Dict[str, Any]:
+    """The week's widely covered Kagi News stories, and how many reached no feed.
+
+    The miss rate is what a general news site would have shown that the feeds did
+    not; the digest item lists some of them, but counts as a miss here, because the
+    question is whether the feeds' own selection carries the day's big stories.
+    """
+    since = (today - timedelta(days=days)).isoformat()
+    by_outcome: Counter = Counter()
+    counted = 0
+    for run in runs:
+        cov = run.get('kite_coverage') or {}
+        if not cov or str(run.get('timestamp') or '')[:10] <= since:
+            continue
+        counted += 1
+        by_outcome.update(cov.get('headline_by_outcome') or {})
+    headlines = sum(by_outcome.values())
+    missed = sum(by_outcome[o] for o in HEADLINE_MISS_OUTCOMES)
+    return {'runs': counted, 'headlines': headlines, 'missed': missed,
+            'miss_pct': _pct(missed, headlines), 'by_outcome': dict(by_outcome)}
 
 
 def _consecutive_weeks(finding_id: str, history: List[Dict[str, Any]], today: date) -> int:
@@ -1430,6 +1466,9 @@ def build_report(audit: Dict[str, Any]) -> str:
         '',
         _md_table(['Feed', 'Items'], sorted(audit['feed_counts'].items(), key=lambda kv: -kv[1])),
         '',
+    ]
+    lines += _headline_lines(audit.get('headline_coverage') or {})
+    lines += [
         '## 5. Process Health',
         '',
         _md_table(['Check', 'State'], [
@@ -1445,6 +1484,24 @@ def build_report(audit: Dict[str, Any]) -> str:
     lines += (_trend_lines(audit) + _scorecard_lines(audit) + _followthrough_lines(audit)
               + _closed_lines(audit))
     return '\n'.join(lines) + '\n'
+
+
+def _headline_lines(heads: Dict[str, Any]) -> List[str]:
+    """The week's Kagi News headlines by what became of them (the Google News test)."""
+    if not heads.get('headlines'):
+        return []
+    order = ('published', 'already_shown') + HEADLINE_MISS_OUTCOMES
+    return [
+        '### Headline coverage (Kagi News, last 7 days)',
+        '',
+        f"_Clusters covered by many outlets, over {heads['runs']} runs: "
+        f"{heads['missed']} of {heads['headlines']} ({heads['miss_pct']}%) reached no feed. "
+        "The digest item lists the news ones; the per-story list is in each nightly's log._",
+        '',
+        _md_table(['Outcome', 'Headlines'],
+                  [[o, heads['by_outcome'].get(o, 0)] for o in order if heads['by_outcome'].get(o)]),
+        '',
+    ]
 
 
 def _quarter_label(quarter: str, rows: List[Dict]) -> str:
@@ -1717,6 +1774,7 @@ def run_audit(today: Optional[date] = None,
     costs = stage_costs(runs, today)
     routing = theme_routing_audit(recent)
     category_retag = category_retag_audit(recent)
+    headlines = headline_coverage(runs, today)
     latest_wins = next((run['theme_argmax']['wins'] for run in reversed(runs)
                         if (run.get('theme_argmax') or {}).get('wins')), {})
     record = {
@@ -1730,6 +1788,8 @@ def run_audit(today: Optional[date] = None,
         'closed': closed_findings(findings, history, today),
         'routing_correction_pct': routing['correction_pct'],
         'retag_pct': category_retag['correction_pct'],
+        'headline_miss_pct_7d': headlines['miss_pct'],
+        'headlines_7d': headlines['headlines'],
     }
     trend = merge_metrics_history(history, record, ratings)
     backfill_filler(trend, filler_by_week())
@@ -1759,6 +1819,7 @@ def run_audit(today: Optional[date] = None,
         'volume_trend': parse_feed_log(),
         'funnel': current_funnel(runs),
         'feed_counts': feed_item_counts(),
+        'headline_coverage': headlines,
         'process_health': process_health(runs),
         'blind_spots': findings,
         'scorecard': scorecard,
@@ -1800,6 +1861,7 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
         'category_retag': audit['category_retag'],
         'volume_trend_recent': audit['volume_trend'][-REPORT_RECENT_WEEKS:],
         'process_health': audit['process_health'],
+        'headline_coverage': audit['headline_coverage'],
         'blind_spots': audit['blind_spots'],
         'scorecard': audit['scorecard'],
         'stage_costs': audit['stage_costs'],

@@ -523,6 +523,35 @@ _Last updated by log\_feed\_results.py · 2026-11-07 06:10 UTC_
 
 ## Notes & Review
 
+### 2026-11-07 — World news back in the feed; roadmap: a headlines lane (B)
+
+Shipped: `[show]` standing preferences (podcast-only, news keeps them), Kagi News
+broadened to 27 categories with one cluster per event, a nightly "Also in the news"
+digest item on top of `feed-news.json`, and headline coverage in `run_stats` plus the
+weekly audit (`headline-misses`). See docs/decisions/scoring.md, "Standing preferences
+get a scope".
+
+**Roadmap — B, a headlines lane ranked by outlet count.** Today the news head ranks on
+`news_interests.txt`, which will always score a jobs report or a trade move as
+"breaking news, not analysis". B adds a lane that ignores the interest profile and ranks
+Kagi World / Canada / BC (and the regional) clusters by `kite_sources` (outlets
+covering it), gated only for junk (`x`). Two shapes to choose between:
+- **A wider world lane:** `feed_slots.news.headline_slots` (say 6), filled by
+  `kite_sources` before the composite, beside the `world_slots` q_gate lane. Small change
+  in `apply_feed_slot_allocation()`.
+- **A separate `feed-headlines.json`:** a 12th category feed, interest-blind, the digest's
+  stories as real items. Needs `categories.json` / `feeds.json` entries and a check that
+  nothing downstream (review strata, audit category lists, podcast) assumes 11.
+
+Decide after 2–3 weeks of `headline_miss_pct_7d` in `reports/weekly_metrics.jsonl` and
+of how the digest gets used: if the digest is enough, B may not be needed. Cost of
+either: zero API calls (the clusters are already fetched and gated).
+
+Next small steps: teach `standing_preferences.py` to propose `[show]` lines when the
+notes read "not for the podcast"; rate world stories `interesting` (feed only), not
+`bad`, so the ratings stop re-teaching "never".
+
+
 ### 2026-08-15 — Widened the search-fallback trigger instead of dropping two sources
 
 `Mother Earth News` (homestead, `500` on all 8 runs since 2026-08-03) and
