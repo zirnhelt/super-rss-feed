@@ -27,38 +27,7 @@ _Older entries cut to one line. Every applied change, with its rationale, is in 
 - **2026-08-23** — No changes: Claude analysis failed — BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeKmuNAmHdVLFcyLjMTdq'}
 - **2026-08-24** — applied `limits.min_claude_score`: 20 → 23
 - **2026-08-30** — no changes, 4 human recommendations
-
-## 2026-09-06
-
-Audit window: 21 runs (2026-08-24T04:52:17.558005+00:00 to 2026-09-06T04:01:09.004617+00:00).
-
-
-**Analysis**
-
-The 21-run audit window (August 24–September 6) shows a stabilized pipeline with healthy theme scores following the August 11 dimensional scoring rearchitecture, but user feedback reveals a persistent quality crisis requiring immediate action. The weekday theme score collapse is confirmed RESOLVED (all themes show healthy mean_theme_score_raw: Monday 14.9–15.3, Tuesday 4.2–6.5, Wednesday 2.6–5.9, Thursday 7.6–8.1). However, the dimensional scoring fix did NOT resolve the fundamental quality problem.
-
-User feedback ground truth is damning: 66.2% bad rate overall (up from 65.8% last week), with composite scores showing poor band precision across ALL ranges. Even the 80-100 band is only 57.9% good (42.1% bad), and the 40-59 band is worse than coin-flip at 52.2% bad. The threshold_sweep provides clear evidence for action: current min_claude_score=23 (raised August 24) cuts only 37.5% of bad articles while losing 11.6% of good ones. The sweep shows min_claude_score=25 would cut 37.5% of bad at the same 11.6% good lost—but we're already at 23 and haven't seen the full effect yet in user feedback (feedback window ends August 22, before the raise).
-
-The most critical finding: final feed sizes have exploded to 462–807/run (mean 626), nearly 6× the ~100 target. This is not just "above target"—it's a flood of content that makes the quality crisis worse because users must wade through far too many articles. News category alone passes 475 articles through quality gate despite a 76.0% user-rated bad rate (679/893). The dimensional histograms show why: quality dimension has some separation (news: 14919 in 0-19 vs 420 in 60-79), but relevance is collapsed (15212 in 0-19 vs 20 in 60-79), and local remains binary (16107 in 0-19). The composite weighting (0.25Q + 0.55R + 0.20L) cannot save non-local content when R and L are both near zero.
-
-Noise-to-signal shows concerning volatility: window mean 1.48 (down from 1.77 last week), but with dramatic swings (0.07 on September 1, 3.67 on August 27). The recent trend is rising (1.41–1.54 over last 3 runs), suggesting the August 24 min_claude_score raise to 23 is starting to bite. The podcast routing correction rate is 20.9% (91 routing bugs, 158 theme-scoring misses), indicating theme prompts are stable post-rearchitecture.
-
-
-**Changes applied**
-
-- `limits.min_claude_score`: 23 → 25 — User feedback threshold_sweep shows min_claude_score=25 would cut 37.5% of bad articles while losing 11.6% of good ones—exactly the same tradeoff as current floor of 23, but we haven't seen the effect of the August 24 raise yet in user feedback (feedback ends August 22). However, final feed sizes of 462-807/run (mean 626) vs ~100 target demonstrate the quality gate is still far too permissive. News category has 76.0% bad rate yet passes 475 articles through. Band_precision shows even 40-59 composite scores are 52.2% bad. The current floor demonstrably fails to filter adequate volume. Raising to 25 is conservative (within max_step=3 from current 23) and directly addresses user-verified quality crisis. This will reduce final feed sizes toward target and cut more bad content.
-- `feed_slots.max_slots.news`: 25 → 22 — News category is the primary driver of feed bloat: passes 475 articles through quality gate in recent runs despite 76.0% user-rated bad rate (679/893). Current max_slots.news=25 allows far too much low-quality news through. User feedback shows news has the worst bad rate of any category (76.0% vs 35.6% ai-tech, 54.8% wellness). Lowering max_slots.news from 25→20 will reduce final feed sizes (currently 462-807/run, target ~100) while forcing the pipeline to surface only the highest-scoring news articles. This complements the min_claude_score raise by capping downstream volume even if borderline articles pass quality gate.
-
-**Clamped**
-
-- `feed_slots.max_slots.news`: proposed 20 clamped to 22
-
-**Human recommendations**
-
-- CRITICAL: User feedback shows 66.2% bad rate with news category at 76.0% bad (679/893 rated articles). Worst sources are candidates for immediate blocking: Rolling Stone (100% bad, 18/18), The New Yorker (100% bad, 7/7), Domino (90.9% bad, 10/11), Edge/GamesRadar (87.5% bad, 14/16), Lifehacker (87.0% bad, 20/23), Neowin (86.7% bad, 13/15), Ideal Home (86.7% bad, 13/15), Toms Guide (86.5% bad, 32/37). These sources are polluting feeds with high-volume, low-quality content. Source blocking is outside auto-tunable scope but would have immediate impact.
-- The dimensional histograms reveal a fundamental structural problem: relevance dimension is collapsed for most categories (news: 15212/16128 in 0-19, ai-tech: 130/672 in 0-19, wellness: 835/1100 in 0-19). The composite weighting (0.25Q + 0.55R + 0.20L) heavily weights relevance (0.55), so when R≈0 for most articles, composite scores collapse even when quality is decent. This explains why band_precision is poor across all ranges. Consider: (1) rebalancing weights to reduce relevance dominance, or (2) reviewing scoring_interests.txt to ensure relevance criteria are achievable for realistic article mix, or (3) accepting that relevance must filter aggressively and raising all category min_score floors to compensate. Current system passes too much irrelevant content because quality alone cannot rescue low relevance scores under current weighting.
-- Podcast theme routing shows 20.9% correction rate (91 routing bugs, 158 theme-scoring misses). The theme-scoring misses indicate the theme prompts are working adequately post-rearchitecture, but the routing bugs (articles scoring higher on wrong theme than target theme by >20pts) suggest theme_routing_gap=20 may be too permissive. Consider tightening theme_routing_gap to 15 to reduce cross-theme routing errors, though this is at the edge of auto-tunable bounds (current calibration allows 10-35).
-- The scifi category shows 66.7% bad rate (8/12 rated articles) and design shows 33.3% bad rate (4/12). Both categories have low sample sizes, but the pattern suggests either source mix issues or category definition problems. Review whether scifi and design sources are actually delivering content matching curator interests, or whether category definitions need tightening to exclude lifestyle/entertainment filler that's currently slipping through.
+- **2026-09-06** — applied `limits.min_claude_score`: 23 → 25; `feed_slots.max_slots.news`: 25 → 22
 
 ## 2026-09-13
 
@@ -269,3 +238,29 @@ No changes applied this run.
 - Consider blocking 'Live for the Outdoors (Country Walking)': 9 of 9 rated articles are bad with 0 positive ratings (block_candidate=true in worst_sources). Source blocking is not auto-tunable.
 - Theme-scoring misses are roughly equal to routing bugs (141 vs 145 of 286 corrections, 18.0% correction rate). The scoring-miss share indicates a prompt review of per-theme scoring_prompt/theme_description is warranted, particularly for Monday (Arts & Culture, 37.7% positive) and Tuesday (Working Lands, 34.4% positive), which are the weakest-performing themes by positive rate.
 - Watch the late-October weekend raw-mean decline (Friday ~37→22, Saturday ~40→26, Sunday ~47→30) alongside falling contenders_confirmed. Current evidence points to pool depletion rather than scoring failure, but if raw means continue to slide next week without a corresponding pool change, escalate to a scoring-prompt check.
+
+## 2026-11-07
+
+Audit window: 14 runs (2026-10-25T06:00:53.460455+00:00 to 2026-11-07T06:00:49.721641+00:00).
+
+
+**Analysis**
+
+The 14-day window (Oct 25 – Nov 7) shows infrastructure that is stable and healthy. Weekday theme raw means are within their recent band (Monday ~10–12, Tuesday ~6, Wednesday ~6–8, Thursday ~5, Friday ~20–22, Saturday ~24–25, Sunday ~31–32), podcast feeds consistently hit 100–104 articles with large holdover banks (bank sizes drifting down from ~2,600 to ~1,600 over the window, which is worth watching but reflects the pool being consumed faster than replenished rather than a scoring failure). The weekday-theme collapse from July–August remains resolved; there is no regression, so I am not touching those levers. The downward drift in Friday/Saturday/Sunday raw means since late October coincides with shrinking contender counts, consistent with pool depletion.
+
+User feedback (ground truth through Oct 30) is the binding signal: 57.5% bad overall, stratified weighted_positive_pct 43.0%, reject false-negative rate 17.1%. Band precision separates clearly only at the top (80–100: 84% positive, 10.5% bad) and bottom (0–19: 86% bad). The 40–59 and 60–79 bands remain close to coin-flip (46.7% and 50.3% positive), so composite scoring still lacks middle-range discrimination. The threshold sweep is at clear diminishing returns: the current min_claude_score of 25 cuts 28.5% of bad while losing 7.1% of positives; moving to 30 would cut 43.7% of bad but cost 13.4% of positives, with 'interesting' articles losing 18.8%. Per standing lessons I hold the floor rather than stepping further. The one new data point since last run is that moving from 25→30 now costs proportionally more good articles (8.1% vs earlier estimates), reinforcing the hold.
+
+News remains the epicentre (79.8% bad, 19.2% positive) even with the Sep 23 max_slots.news=10 cap now ~6 weeks old, so the residual problem is relevance/scoring-prompt quality, which is forbidden auto-edit. Noise-to-signal has been stable-to-slightly-improving (window mean 2.34 across these runs, recent runs 2.6–2.8, well inside the historical band), and kagi_search_result_limit has already been raised twice in change history without durably moving the config value, so I do not re-propose it. Theme routing shows an 18.9% correction rate (153 routing bugs vs 140 theme-scoring misses), an essentially even split, so there is no single clear auto-tunable lever. Worst sources: Live for the Outdoors (Country Walking) is the only block candidate (9/9 bad, 0 positive). Edge (GamesRadar), NYT Top Stories, Ideal Home, Country Life, Domino and Country Guide are high-bad but carry some positives or insufficient samples, so they are surfaced as observations only. No knob changes are proposed this run.
+
+
+No changes applied this run.
+
+
+**Human recommendations**
+
+- Scoring-prompt review for the news category: news is 79.8% bad in user feedback even with the max_slots.news=10 cap in place for ~6 weeks, and the sweep shows threshold tuning has reached diminishing returns. The residual problem appears to be relevance/local scoring for generic national and international news; a prompt-level review of the news scoring criteria is the most likely real fix.
+- Composite-weighting review: band precision shows the 40–59 and 60–79 composite bands are close to coin-flip (46.7% and 50.3% positive). The composite (0.25Q + 0.55R + 0.20L) appears to lack middle-range discrimination when R and L collapse for most non-regional content. Consider whether relevance weighting or the R-dimension prompt needs rework.
+- Source blocking candidate: Live for the Outdoors (Country Walking) is 9/9 bad with zero positive ratings and is flagged block_candidate=true. Recommend blocking in feeds.opml or the source blocklist; source blocking is not auto-tunable.
+- Sources to monitor (not yet block-eligible): Edge (GamesRadar) 51/53 bad with 2 interesting; NYT Top Stories 44/49 bad with 4 positive; Ideal Home 30/33 bad with 3 interesting; Country Life 21/24 bad; Domino 18/21 bad; Country Guide 6/6 bad with small sample. Revisit if the positive rate stays at or near zero with more samples. Do not block any source with a positive rating.
+- Theme-scoring misses (~140 of 293 corrections in the window) point to theme_description/scoring_prompt review for Monday, Tuesday, Wednesday and Thursday (Tuesday in particular has 34.6% positive and the lowest good_pct at 21.3%). Routing bugs (~153) are a separate selection-logic issue worth a code-level check.
+- Podcast holdover bank has shrunk from ~2,600 to ~1,600 across this window; if the pool continues to deplete, the source mix or feed breadth may need attention. This is a sourcing question for the human rather than a threshold question.

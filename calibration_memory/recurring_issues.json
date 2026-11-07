@@ -5,9 +5,9 @@
       "id": "weekday-theme-score-collapse-2026-07-26",
       "theme": "monday,tuesday,wednesday,thursday",
       "first_observed": "2026-07-26",
-      "last_observed": "2026-10-10",
+      "last_observed": "2026-11-07",
       "status": "resolved",
-      "description": "Weekday theme collapse remains resolved through Oct 10; weekday raw means have recovered and closed much of the gap with weekend themes. No regression observed.",
+      "description": "Weekday theme collapse remains resolved through Nov 7. Raw means for Monday–Thursday are in their healthy band; no regression observed in this window.",
       "evidence_runs": [
         "2026-07-13T07:28:29.183589+00:00",
         "2026-07-14T06:17:35.491468+00:00",
@@ -73,6 +73,10 @@
         {
           "run_date": "2026-10-10",
           "action": "none — continuing to monitor; no knob change warranted"
+        },
+        {
+          "run_date": "2026-11-07",
+          "action": "none — continuing to monitor; no knob change warranted"
         }
       ],
       "recommendation_pending": false
@@ -81,9 +85,9 @@
       "id": "news-category-quality-crisis",
       "theme": "news",
       "first_observed": "2026-10-04",
-      "last_observed": "2026-10-31",
+      "last_observed": "2026-11-07",
       "status": "monitoring",
-      "description": "News remains the worst category on user feedback (81.8% bad, 17.5% positive among 898 rated over 90 days) even with the Sep 23 max_slots.news=10 cap in place. Residual bad rate points to relevance/local scoring-prompt problems; threshold tuning has reached diminishing returns (min_score 25→30 would cost ~14.6% of positives for ~46% bad cut). Requires human scoring-prompt review.",
+      "description": "News remains the worst category on user feedback (79.8% bad, 19.2% positive among 840 rated over 90 days) even with the Sep 23 max_slots.news=10 cap in place for ~6 weeks. Residual bad rate points to relevance/local scoring-prompt problems; threshold tuning has reached diminishing returns (min_claude_score 25→30 would cost ~13.4% of positives for ~43.7% bad cut). Requires human scoring-prompt review.",
       "evidence_runs": [
         "2026-09-21T04:00:37.666981+00:00",
         "2026-09-22T04:00:45.058198+00:00",
@@ -121,6 +125,10 @@
         {
           "run_date": "2026-10-31",
           "action": "none this run — holding quality floors (further raise costs ~14.6% of positives) and leaving the Sep 23 news cap in place; re-surfacing scoring-prompt review as a human recommendation"
+        },
+        {
+          "run_date": "2026-11-07",
+          "action": "none this run — holding quality floors (further raise costs ~13% of positives per sweep) and leaving the Sep 23 news cap in place; re-surfacing scoring-prompt review as a human recommendation"
         }
       ],
       "recommendation_pending": true
