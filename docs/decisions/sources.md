@@ -209,3 +209,7 @@ Kite's batch API shows one batch a day at 12:00 UTC (31 of 32 days to 2026-10-22
 - `_dedup_wins`: a cluster yields to any single-outlet article published after `kite_batch_at`; otherwise source priority decides.
 - The hot refresh reads the batch once, on the first run after it lands (`hot_refresh.kite_batch_max_age_hours`: 2, so the 12:41 run). Only clusters headed for `news` or `local` are gated, under the hot bar and caps. Tech and science clusters still wait for the nightly. The podcast gains nothing: it writes at 08:05 UTC and the 12:00 batch is already the newest it can read.
 - Kite passes through publishers' dates, future ones included; `pub_date` is clamped to now.
+
+## ArchDaily is a project showcase, demoted and capped (2026-11-08)
+
+The reader rated 29 ArchDaily articles to 2026-11-08: 21 bad (five with the note "No local hook", four of those in the week of Nov 2), 6 interesting, 1 good, 1 podcast-only. The split is the headline format: the "Name / Firm" single-building showcases were 16 of 18 bad, while the essays ("How Surface Materials Shape Contemporary Interiors", "The Invisible Brief", "Integrating Solar Protection as an Envelope Strategy") were mostly interesting or good. Showcases were also reaching the Saturday and Wednesday podcast pools. A block would cost the essays, so ArchDaily gets its own source type, `project_showcase` (score −10, at most 2 a day, like `personal_listicle`): the stronger essays still clear the floor, and the showcases stop filling near-miss slots.

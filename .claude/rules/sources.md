@@ -31,6 +31,7 @@ paths:
 - **`local` means the Cariboo-Chilcotin.** `apply_dimension_adjustments()` demotes a `local` article with no Cariboo anchor (`_has_cariboo_anchor()`); scraped network cards are dropped by `_drop_network_cards()`.
 - **A place rule goes in code or config, never in `standing_preferences.txt`.** The gate cannot hold "outside the Cariboo" reliably (it rejected Cariboo candidate profiles two nights running); out-of-region civic races are `blocked_keywords_unless_local`, where a place or the outlet name overrides.
 - **Comment feeds are not article feeds.** `integrate_discoveries.is_comment_feed()` is the single predicate, applied at the top of `evaluate_candidates()` and in `_probe_page_for_feeds()`. Never add one by hand.
+- **A source whose format the reader rejects is demoted by source type, not blocked** (`source_preferences.json` → `source_types`): ArchDaily is `project_showcase` (−10, 2 a day) because its essays rate well and its showcases don't.
 - Some sites reject the default User-Agent: both `fetch_images.py` and feed fetching send custom UA headers.
 
 ## Feed health agent (`integrate_discoveries.py --heal`)

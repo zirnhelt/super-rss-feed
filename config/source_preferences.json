@@ -24,6 +24,11 @@
       "score_adjustment": -10,
       "max_per_source": 2,
       "description": "High-volume first-person 'I tried/ditched/switched' outlets - cap dominance and dock score for thin personal-anecdote listicles"
+    },
+    "project_showcase": {
+      "score_adjustment": -10,
+      "max_per_source": 2,
+      "description": "Architecture project showcases ('Name / Firm' single buildings far from the Cariboo): the reader rated 16 of 18 'bad' to 2026-11-08, often 'No local hook'; the essays from the same outlet rate interesting, so the outlet is demoted and capped, not blocked"
     }
   },
   "source_map": {
@@ -92,7 +97,8 @@
     "AFAR": "print",
     "Live for the Outdoors (Country Walking)": "print",
     "Edge (GamesRadar)": "print",
-    "Cariboo Signals Reviews": "print"
+    "Cariboo Signals Reviews": "print",
+    "ArchDaily": "project_showcase"
   },
   "editorial_exempt_sources": [
     "Cariboo Signals Reviews"
