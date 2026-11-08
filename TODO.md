@@ -8,6 +8,9 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-11-07 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
+| 2026-11-07 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
+| 2026-11-07 | 🔧 Manual Run | ⚠️ **Logging and Sawmilling Journal** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-11-06 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
 | 2026-11-06 | 🔧 Manual Run | ⚠️ **Canadian Architect** failed | `520 Server Error: <none> for url: https://canadianarchitect.com/feed/` |
 | 2026-11-06 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
@@ -27,9 +30,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-11-01 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
 | 2026-11-01 | 🔧 Manual Run | ⚠️ **Canadian Architect** failed | `520 Server Error: <none> for url: https://canadianarchitect.com/feed/` |
 | 2026-11-01 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
-| 2026-10-31 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
-| 2026-10-31 | 🔧 Manual Run | ⚠️ **Canadian Architect** failed | `520 Server Error: <none> for url: https://canadianarchitect.com/feed/` |
-| 2026-10-31 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -37,17 +37,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-11-07 | 🔧 manual | 88 | ai-tech:18(20%), news:14(16%), climate:12(14%) |
 | 2026-11-06 | 🔧 manual | 86 | ai-tech:18(21%), news:14(16%), local:10(12%) |
 | 2026-11-05 | 🔧 manual | 89 | ai-tech:18(20%), news:15(17%), climate:11(12%) |
 | 2026-11-04 | 🔧 manual | 95 | ai-tech:18(19%), news:14(15%), climate:10(11%) |
 | 2026-11-03 | 🔧 manual | 86 | ai-tech:19(22%), news:14(16%), climate:12(14%) |
 | 2026-11-02 | 🔧 manual | 92 | ai-tech:18(20%), news:15(16%), climate:12(13%) |
 | 2026-11-01 | 🔧 manual | 79 | ai-tech:18(23%), news:15(19%), wellness:10(13%) |
-| 2026-10-31 | 🔧 manual | 77 | ai-tech:18(23%), news:14(18%), wellness:10(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-11-07 06:10 UTC_
+_Last updated by log\_feed\_results.py · 2026-11-08 06:09 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
