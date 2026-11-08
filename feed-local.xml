@@ -6,13 +6,59 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sun, 08 Nov 2026 06:09:40 +0000</lastBuildDate>
+<lastBuildDate>Sun, 08 Nov 2026 10:28:56 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 8, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-08.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-08.html</guid>
+<pubDate>Sun, 08 Nov 2026 10:05:57 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Focus: Sky &amp;amp; Cosmos (week 1 of 4). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/42461426079&quot;&gt;42461426079&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;2 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Open the day&#x27;s citations JSON and check which deep-dive sources the script failed to use.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;0/1 deep-dive citations matched the script&lt;/span&gt; &lt;span class=&quot;recur&quot;&gt;Recurring: on the roadmap, seen 10 nights.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/meta-moment/retry&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/meta-moment/retry&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: first draft failed (model judged none of the week&#x27;s 31 commit(s) listener-noticeable); the retry with upstream changes aired&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The first draft missed its own check and a retry aired in its place&lt;/h3&gt;
+&lt;p&gt;The script generator&#x27;s first draft was rejected by its meta-moment check: the model judged that none of the week&#x27;s 31 commits were noticeable to a listener. The pipeline ran a retry with upstream changes, and that retry is what aired. The listener got the retried segment, and the commit-talk the first draft wanted to make did not reach the episode.&lt;/p&gt;
+&lt;h3&gt;The short-script rule was met, but the draft started 858 words under target&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 2542 words against a target of 3400, so it went back for one expand pass. The shipped script is 3348 words. The draft was thin, and the expand pass brought it close to target without reaching it. Quality checks passed: zero AI-tell hits and a Casey-to-Riley voice ratio of 0.77. The 3348 figure is below target but still above the short-episode threshold, so no action is needed under the current rule.&lt;/p&gt;
+&lt;h3&gt;Eleven of 18 roundup citations matched; the one deep-dive citation did not&lt;/h3&gt;
+&lt;p&gt;Eleven of the 18 roundup citations matched. The single deep-dive citation matched none of its 1 total, and the deep dive was the Williams Lake Tribune story on Operation Red Nose. Roundup alignment is middling and the deep-dive miss is the bigger signal. Check the deep-dive source extraction and the citation match for that one story before the next run.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;1 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.77, 3348 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 46% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;21.4 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;19.6 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;11/18 roundup, 0/1 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;284 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;76,635&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;17 total: claude 12 · brave-answers 4 · kagi-extract 1&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] 2026-2030 Williams Lake city council sworn in</title>
 <link>https://wltribune.com/2026/11/06/2026-2030-williams-lake-city-council-sworn-in/</link>

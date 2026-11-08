@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-08.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-08.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 8, 2026",
+      "content_html": "<p class=\"meta\">Focus: Sky &amp; Cosmos (week 1 of 4). Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/42461426079\">42461426079</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>2 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and check which deep-dive sources the script failed to use.</strong><br/><span class=\"evidence\">0/1 deep-dive citations matched the script</span> <span class=\"recur\">Recurring: on the roadmap, seen 10 nights.</span></li>\n<li><strong><code>script/meta-moment/retry</code> fell back. Search the run log for <code>Degraded 'script/meta-moment/retry'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: first draft failed (model judged none of the week's 31 commit(s) listener-noticeable); the retry with upstream changes aired</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The first draft missed its own check and a retry aired in its place</h3>\n<p>The script generator's first draft was rejected by its meta-moment check: the model judged that none of the week's 31 commits were noticeable to a listener. The pipeline ran a retry with upstream changes, and that retry is what aired. The listener got the retried segment, and the commit-talk the first draft wanted to make did not reach the episode.</p>\n<h3>The short-script rule was met, but the draft started 858 words under target</h3>\n<p>The first draft came in at 2542 words against a target of 3400, so it went back for one expand pass. The shipped script is 3348 words. The draft was thin, and the expand pass brought it close to target without reaching it. Quality checks passed: zero AI-tell hits and a Casey-to-Riley voice ratio of 0.77. The 3348 figure is below target but still above the short-episode threshold, so no action is needed under the current rule.</p>\n<h3>Eleven of 18 roundup citations matched; the one deep-dive citation did not</h3>\n<p>Eleven of the 18 roundup citations matched. The single deep-dive citation matched none of its 1 total, and the deep dive was the Williams Lake Tribune story on Operation Red Nose. Roundup alignment is middling and the deep-dive miss is the bigger signal. Check the deep-dive source extraction and the citation match for that one story before the next run.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>1 articles</td></tr>\n<tr><td>Script</td><td>0 pattern hit(s), voice ratio 0.77, 3348 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 46% of the words</td></tr>\n<tr><td>Audio</td><td>21.4 min</td></tr>\n<tr><td>Audio size</td><td>19.6 MB</td></tr>\n<tr><td>Citations matched</td><td>11/18 roundup, 0/1 deep dive</td></tr>\n<tr><td>Feed</td><td>284 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>76,635</td></tr>\n<tr><td>API calls</td><td>17 total: claude 12 · brave-answers 4 · kagi-extract 1</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-08T10:05:57+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://wltribune.com/2026/11/06/2026-2030-williams-lake-city-council-sworn-in/",
       "url": "https://wltribune.com/2026/11/06/2026-2030-williams-lake-city-council-sworn-in/",
       "title": "🔓 [Williams Lake Tribune] 2026-2030 Williams Lake city council sworn in",
