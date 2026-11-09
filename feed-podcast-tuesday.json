@@ -23,9 +23,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Working Lands & Industry' — forestry, ranching, mining, and agriculture, the resource economy that defines the Cariboo and rural BC.\n\nOUT OF SCOPE — score 0-14: geopolitical and war news with no resource-economy connection; consumer tech and gadget reviews; wildlife content with no agricultural or working-lands relevance; crime and judicial news unrelated to resource industries; financial market and stock ticker stories.\n\nCALIBRATION — apply this ladder to everything else. Trade-press journalism counts fully: equipment, markets, and operations coverage is a real fit, not a near-zero. A BC tie raises a score but is NOT required to reach the top band.\n- 80-100: Excellent working-lands journalism. BC/Cariboo forestry, ranching, mining, and agriculture stories land here (mill closures, beetle kill, BCTS, Cariboo ranchers and water rights, local mine operations, Cariboo Cattlemen) — and so does outstanding national trade reporting with real operational or economic depth.\n- 55-79: Solid resource-economy journalism anywhere in Canada or beyond — Western Producer or Northern Miner-style coverage of farm machinery, harvest technology, livestock and commodity markets, mining operations and exploration, AgTech and precision agriculture, silviculture, sawmills, drone survey work, mine automation, and labour/workforce stories in these industries. Most genuine trade journalism belongs HERE, not below.\n- 30-54: Broader agriculture, forestry, or mining news with clear working-lands relevance but thin reporting — general farm economics, international resource-industry briefs, climate impacts on working lands.\n- 15-29: Tangential mentions — a business, policy, or science story that touches forestry/agriculture/mining in passing, or Cariboo civic news unrelated to working lands.\n\nANCHORS: 'Williams Lake sawmill cuts second shift as beetle-kill supply dwindles' → 95. 'New John Deere baler cuts hay-drying time by a third' → 70. 'Cattle futures slip on weaker export demand' → 60. 'Global copper prices hit two-year high' → 40.\n\nScore 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "tuesday",
-    "generated_at": "2026-11-08T06:08:58.444553+00:00",
-    "article_count": 103,
-    "bonus_count": 70,
+    "generated_at": "2026-11-09T06:07:27.741607+00:00",
+    "article_count": 100,
+    "bonus_count": 64,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -57,9 +57,9 @@
       "_source_category": "local",
       "_is_bonus": false,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -80,7 +80,7 @@
       "_quality": 80,
       "_relevance": 80,
       "_local": 60,
-      "_theme_score": 91,
+      "_theme_score": 90,
       "_theme_score_raw": 58,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -94,9 +94,9 @@
       ],
       "_subscriber_access": "Williams Lake Tribune",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -117,7 +117,7 @@
       "_quality": 70,
       "_relevance": 80,
       "_local": 60,
-      "_theme_score": 84,
+      "_theme_score": 82,
       "_theme_score_raw": 30,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -127,75 +127,9 @@
       "_source_category": "local",
       "_is_bonus": false,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
-      }
-    },
-    {
-      "id": "https://wltribune.com/2026/11/06/2026-2030-williams-lake-city-council-sworn-in/",
-      "url": "https://wltribune.com/2026/11/06/2026-2030-williams-lake-city-council-sworn-in/",
-      "title": "[Williams Lake Tribune] 2026-2030 Williams Lake city council sworn in",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F11%2F06%2F2026-2030-williams-lake-city-council-sworn-in%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n",
-      "summary": "",
-      "_excerpt": "",
-      "date_published": "2026-11-07T06:03:17.706985+00:00",
-      "authors": [
-        {
-          "name": "Williams Lake Tribune",
-          "url": "https://wltribune.com"
-        }
-      ],
-      "ai_score": 61,
-      "_quality": 55,
-      "_relevance": 50,
-      "_local": 100,
-      "_theme_score": 93,
-      "_theme_score_raw": 8,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 84,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Williams Lake Tribune"
-    },
-    {
-      "id": "https://www.realagriculture.com/2026/11/budget-2026-brings-machinery-write-offs-but-farms-left-out-of-new-capital-gains-incentive/",
-      "url": "https://www.realagriculture.com/2026/11/budget-2026-brings-machinery-write-offs-but-farms-left-out-of-new-capital-gains-incentive/",
-      "title": "[RealAgriculture] Budget 2026 brings machinery write-offs, but farms left out of new capital gains incentive",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.realagriculture.com%2F2026%2F11%2Fbudget-2026-brings-machinery-write-offs-but-farms-left-out-of-new-capital-gains-incentive%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe federal budget tabled by the Liberal government on Thursday includes immediate expensing for farm machinery, as well as expanded eligibility for tax rollovers within farm families, but farms were left out of Ottawa's new $15-million capital gains tax incentive. With a theme of \"Masters of Our Destiny,\" the budget projects a federal deficit of... Read More",
-      "summary": "The federal budget tabled by the Liberal government on Thursday includes immediate expensing for farm machinery, as well as expanded eligibility for tax rollovers within farm families, but farms were left out of Ottawa's new $15-million capital gains tax incentive. With a theme of \"Masters of Our",
-      "_excerpt": "The federal budget tabled by the Liberal government on Thursday includes immediate expensing for farm machinery, as well as expanded eligibility for tax rollovers within farm families, but farms were left out of Ottawa's new $15-million capital gains tax incentive. With a theme of \"Masters of Our Destiny,\" the budget projects a federal deficit of... Read More",
-      "date_published": "2026-11-05T23:07:13+00:00",
-      "authors": [
-        {
-          "name": "RealAgriculture",
-          "url": "https://www.realagriculture.com"
-        }
-      ],
-      "ai_score": 63,
-      "_quality": 62,
-      "_relevance": 80,
-      "_local": 10,
-      "_theme_score": 94,
-      "_theme_score_raw": 62,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 83,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -226,6 +160,39 @@
       "_source_category": "news",
       "_is_bonus": false,
       "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
+      }
+    },
+    {
+      "id": "https://www.realagriculture.com/2026/11/budget-2026-brings-machinery-write-offs-but-farms-left-out-of-new-capital-gains-incentive/",
+      "url": "https://www.realagriculture.com/2026/11/budget-2026-brings-machinery-write-offs-but-farms-left-out-of-new-capital-gains-incentive/",
+      "title": "[RealAgriculture] Budget 2026 brings machinery write-offs, but farms left out of new capital gains incentive",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.realagriculture.com%2F2026%2F11%2Fbudget-2026-brings-machinery-write-offs-but-farms-left-out-of-new-capital-gains-incentive%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe federal budget tabled by the Liberal government on Thursday includes immediate expensing for farm machinery, as well as expanded eligibility for tax rollovers within farm families, but farms were left out of Ottawa's new $15-million capital gains tax incentive. With a theme of \"Masters of Our Destiny,\" the budget projects a federal deficit of... Read More",
+      "summary": "The federal budget tabled by the Liberal government on Thursday includes immediate expensing for farm machinery, as well as expanded eligibility for tax rollovers within farm families, but farms were left out of Ottawa's new $15-million capital gains tax incentive. With a theme of \"Masters of Our",
+      "_excerpt": "The federal budget tabled by the Liberal government on Thursday includes immediate expensing for farm machinery, as well as expanded eligibility for tax rollovers within farm families, but farms were left out of Ottawa's new $15-million capital gains tax incentive. With a theme of \"Masters of Our Destiny,\" the budget projects a federal deficit of... Read More",
+      "date_published": "2026-11-05T23:07:13+00:00",
+      "authors": [
+        {
+          "name": "RealAgriculture",
+          "url": "https://www.realagriculture.com"
+        }
+      ],
+      "ai_score": 63,
+      "_quality": 62,
+      "_relevance": 80,
+      "_local": 10,
+      "_theme_score": 93,
+      "_theme_score_raw": 62,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 82,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
         "shown_at": "2026-11-07T06:09:30.411403+00:00"
@@ -249,11 +216,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 96,
+      "_theme_score": 95,
       "_theme_score_raw": 66,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 82,
+      "_composite_podcast": 81,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -282,11 +249,11 @@
       "_quality": 75,
       "_relevance": 85,
       "_local": 100,
-      "_theme_score": 74,
+      "_theme_score": 72,
       "_theme_score_raw": 12,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 82,
+      "_composite_podcast": 81,
       "_keyword_matches": 0,
       "_category": "local",
       "_source_category": "local",
@@ -296,10 +263,38 @@
       ],
       "_subscriber_access": "Williams Lake Tribune",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
+    },
+    {
+      "id": "https://www.realagriculture.com/2026/11/it-takes-more-than-great-genetics-secan-at-50/",
+      "url": "https://www.realagriculture.com/2026/11/it-takes-more-than-great-genetics-secan-at-50/",
+      "title": "[RealAgriculture] It takes more than great genetics: SeCan at 50",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.realagriculture.com%2F2026%2F11%2Fit-takes-more-than-great-genetics-secan-at-50%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAs SeCan celebrates its 50th anniversary, it's pausing to recognize the people, partnerships, and investment that have helped bring new varieties to Canadian growers for five decades. A lot happens between the time a plant breeder develops a promising new variety and the day a farmer puts that seed in the ground. There are years…Read More",
+      "summary": "As SeCan celebrates its 50th anniversary, it's pausing to recognize the people, partnerships, and investment that have helped bring new varieties to Canadian growers for five decades. A lot happens between the time a plant breeder develops a promising new variety and the day a farmer puts that seed",
+      "_excerpt": "As SeCan celebrates its 50th anniversary, it's pausing to recognize the people, partnerships, and investment that have helped bring new varieties to Canadian growers for five decades. A lot happens between the time a plant breeder develops a promising new variety and the day a farmer puts that seed in the ground. There are years…Read More",
+      "date_published": "2026-11-08T17:33:40+00:00",
+      "authors": [
+        {
+          "name": "RealAgriculture",
+          "url": "https://www.realagriculture.com"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 96,
+      "_theme_score_raw": 70,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 80,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true
     },
     {
       "id": "https://e360.yale.edu/features/super-el-nino-agriculture",
@@ -319,7 +314,7 @@
       "_quality": 70,
       "_relevance": 60,
       "_local": 0,
-      "_theme_score": 87,
+      "_theme_score": 84,
       "_theme_score_raw": 42,
       "_kite_sources": 12,
       "_kite_context": "Perspective: Richard Choularton, World Food Programme climate and resilience director: He said the combination of drought and conflict produces some of the worst food-security outcomes, as disruptions to farming, transport and household incomes compound over time (Yale Environment 360)\nPerspective: Zeke Hausfather, Berkeley Earth climatologist: He described the combination of high fertilizer costs, high energy costs and drought across the tropics as a “triple whammy” (yale.edu). (Yale Environment 360)\nPerspective: Joshua Hickman, Long Beach public works director: Hickman said the city is reinforcing beaches and a seawall and providing sandbags, but he was unsure whether those measures would be enough to protect residents (npr.org). (NPR)\nQuote: \"When markets are tight, then if there’s a drought somewhere, that’s a much bigger deal.\" (David Lobell, Stanford agricultural economist, Yale Environment 360)\nTimeline: June 2026: The World Meteorological Organization said the current El Niño episode was declared (leparisien.fr).\nTimeline: July 2026: Tropical Storm Narra submerged villages along China’s southern coast (bbc.co.uk).\nTimeline: August 2026: Super Typhoon Dolphin struck eastern China, bringing floods and casualties (bbc.co.uk).",
@@ -328,39 +323,6 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
-      }
-    },
-    {
-      "id": "https://www.mycariboonow.com/317119/news/indigenous/first-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation/",
-      "url": "https://www.mycariboonow.com/317119/news/indigenous/first-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation/",
-      "title": "[My Cariboo Now] First Nations ask court to review Ottawa’s national-interest pipeline designation",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F317119%2Fnews%2Findigenous%2Ffirst-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"392\" src=\"https://i0.wp.com/www.mycariboonow.com/wp-content/uploads/2026/11/878239615_957991870363712_3605096215933040978_n.jpg?fit=696%2C392&amp;quality=89&amp;ssl=1\" width=\"696\"/>Several First Nations are asking a Federal Court to review Ottawa’s decision to list the proposed new oil pipeline to B.C.’s coast as a “project of national interest.”</p>\n<p>The post <a href=\"https://www.mycariboonow.com/317119/news/indigenous/first-nations-ask-court-to-review-ottawas-national-interest-pipeline-designation/\">First Nations ask court to review Ottawa’s national-interest pipeline designation</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
-      "summary": "Several First Nations are asking a Federal Court to review Ottawa’s decision to list the proposed new oil pipeline to B.C.’s coast as a “project of national interest.” The post First Nations ask court to review Ottawa’s national-interest pipeline designation appeared first on My Cariboo Now .",
-      "_excerpt": "Several First Nations are asking a Federal Court to review Ottawa’s decision to list the proposed new oil pipeline to B.C.’s coast as a “project of national interest.” The post First Nations ask court to review Ottawa’s national-interest pipeline designation appeared first on My Cariboo Now .",
-      "date_published": "2026-11-03T19:07:54+00:00",
-      "authors": [
-        {
-          "name": "My Cariboo Now",
-          "url": "https://www.mycariboonow.com"
-        }
-      ],
-      "ai_score": 74,
-      "_quality": 77,
-      "_relevance": 78,
-      "_local": 60,
-      "_theme_score": 79,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 79,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -426,64 +388,65 @@
       "image": "https://kagiproxy.com/img/9Xev6Q1w6Bxi-yAm2DAbC3gCo5DQAMc80roYpgnxKIxXBtyqEaPO7IH86cdxYCfelPZT7Ccl_YA0HSs8DEm6hwW8NoOCBjkCQKIOl4jxyLx0F9_rQHnxFe-9-VwIXbcXPyATWSgfb8AhGw"
     },
     {
-      "id": "https://www.realagriculture.com/2026/11/ministers-macdonald-sidhu-lead-dual-trade-push-in-china-as-year-end-tariff-deadline-looms/",
-      "url": "https://www.realagriculture.com/2026/11/ministers-macdonald-sidhu-lead-dual-trade-push-in-china-as-year-end-tariff-deadline-looms/",
-      "title": "[RealAgriculture] Ministers MacDonald, Sidhu lead dual trade push in China as year-end tariff deadline looms",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.realagriculture.com%2F2026%2F11%2Fministers-macdonald-sidhu-lead-dual-trade-push-in-china-as-year-end-tariff-deadline-looms%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFederal Agriculture Minister Heath MacDonald and International Trade Minister Maninder Sidhu are in China this week for bilateral trade meetings, pressing for long-term predictability in trade as China's temporary suspensions of some agricultural tariffs are set to expire at the end of the year. The dual-ministerial mission is a precursor to the APEC summit happening... Read More",
-      "summary": "Federal Agriculture Minister Heath MacDonald and International Trade Minister Maninder Sidhu are in China this week for bilateral trade meetings, pressing for long-term predictability in trade as China's temporary suspensions of some agricultural tariffs are set to expire at the end of the year.",
-      "_excerpt": "Federal Agriculture Minister Heath MacDonald and International Trade Minister Maninder Sidhu are in China this week for bilateral trade meetings, pressing for long-term predictability in trade as China's temporary suspensions of some agricultural tariffs are set to expire at the end of the year. The dual-ministerial mission is a precursor to the APEC summit happening... Read More",
-      "date_published": "2026-11-03T22:09:38+00:00",
+      "id": "https://www.dawn.com/news/2042901/global-food-prices-edge-lower",
+      "url": "https://www.dawn.com/news/2042901/global-food-prices-edge-lower",
+      "title": "[dawn.com] Global food prices fall 1.2% as grain costs ease, sugar jumps",
+      "content_html": "<img src=\"https://kagiproxy.com/img/H8uHSBmntWpSA6CNiPLe1JbtSIwR7Bj1nwT4MGG6V878vhrRxo-b6nAab-aJ9_QTZyL33xq6z6DvSCmpZRpZ75Oa7b4t4GIPdeBkO7kV-gKT\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dawn.com%2Fnews%2F2042901%2Fglobal-food-prices-edge-lower\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe Food Price Index of the United Nations Food and Agriculture Organization (FAO) fell 1.2% in October to 133.9 points, as lower cereal, meat and dairy prices outweighed a sharp rise in sugar. The index had reached 135.6 in September, its highest level since November 2022, and October’s reading remained 5.9% above a year earlier.\n\nThe cereal index dropped 4.5%, with wheat prices falling for the first time since May as international demand weakened and production prospects improved, particularly in Argentina. Sugar prices rose 6.6%, their fourth consecutive monthly increase, driven by weather-related disruption to Brazil’s sugar-cane harvest and processing and weaker production prospects in India, the European Union and Thailand. FAO forecasts world cereal production will fall below 2025’s record in 2026 but remain the second-highest on record.",
+      "summary": "The Food Price Index of the United Nations Food and Agriculture Organization (FAO) fell 1.2% in October to 133.9 points, as lower cereal, meat and dairy prices outweighed a sharp rise in sugar. The index had reached 135.6 in September, its highest level since November 2022, and October’s reading",
+      "_excerpt": "The Food Price Index of the United Nations Food and Agriculture Organization (FAO) fell 1.2% in October to 133.9 points, as lower cereal, meat and dairy prices outweighed a sharp rise in sugar. The index had reached 135.6 in September, its highest level since November 2022, and October’s reading remained 5.9% above a year earlier (dawn.com, akhbarona.com, mina.news). The cereal index dropped 4.5%, with wheat prices falling for the first time since May as international demand weakened and production prospects improved, particularly in Argentina. Sugar prices rose 6.6%, their fourth consecutive monthly increase, driven by weather-related disruption to Brazil’s sugar-cane harvest and processing and weaker production prospects in India, the European Union and Thailand. FAO forecasts world cereal production will fall below 2025’s record in 2026 but remain the second-highest on record (agrobiznis.rs, dawn.com, mina.news). Meat and dairy: The meat index fell 1.2% to 125.5 points as pork, sheepmeat and beef prices eased; dairy declined 1.1% to 117.8 points, with lower butter and cheese prices offsetting gains in skim milk powder (agrobiznis.rs, mina.news). Oil movements: Vegetable oils edged up 0.3% to 199.2 points; soybean oil reached its highest level since late 2022 as biofuel-sector demand strengthened, while Black Sea logistics disruptions constrained sunflower oil supplies (agrobiznis.rs, mina.news). Cereal outlook: FAO forecasts rice production to fall 2.5% to 552 million tonnes, while 2026-27 cereal trade is forecast to contract 3.3% to 507.7 million tonnes (dawn.com). Retail prices: The FAO index tracks international commodity prices, not local shop prices; a fall in global grain prices does not mean bread or flour prices will fall by the same amount or in the same month (akhbarona.com).",
+      "date_published": "2026-11-08T02:01:54+00:00",
       "authors": [
         {
-          "name": "RealAgriculture",
-          "url": "https://www.realagriculture.com"
-        }
-      ],
-      "ai_score": 52,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 97,
-      "_theme_score_raw": 72,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 78,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false
-    },
-    {
-      "id": "https://newatlas.com/environment/global-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago/",
-      "url": "https://newatlas.com/environment/global-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago/",
-      "title": "[New Atlas] Global warming may have prevented a return to the ice age 2,000 years ago",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Fenvironment%2Fglobal-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"Satellite photo of Barnes Ice Cap\" src=\"https://assets.newatlas.com/dims4/default/32c3a6b/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F36%2Fa5%2F79caa3844d25aeba43d7c577e090%2Fbarnes-ice-cap.jpg\"/><p>Earth’s persistently frozen poles mean the last ice age never really came to an end. What we think of as the mammoth-romping, Neanderthal-stomping chapter of geological history was technically a glacial maximum, one our planet would now be returning to if not for our love of burning coal, according to a recently published study.</p><p><a href=\"https://newatlas.com/environment/global-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/environment/\">Environment</a>, <a href=\"https://refractor.io/science/\">Science</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/glacier/\" rel=\"tag\">glacier</a>, <a href=\"https://newatlas.com/tag/columbia-university/\" rel=\"tag\">Columbia University</a>, <a href=\"https://newatlas.com/tag/global+warming/\" rel=\"tag\">Global Warming</a>, <a href=\"https://newatlas.com/tag/ice-age/\" rel=\"tag\">ice age</a></p></p>",
-      "summary": "Earth’s persistently frozen poles mean the last ice age never really came to an end. What we think of as the mammoth-romping, Neanderthal-stomping chapter of geological history was technically a glacial maximum, one our planet would now be returning to if not for our love of burning coal, according",
-      "_excerpt": "Earth’s persistently frozen poles mean the last ice age never really came to an end. What we think of as the mammoth-romping, Neanderthal-stomping chapter of geological history was technically a glacial maximum, one our planet would now be returning to if not for our love of burning coal, according to a recently published study. Continue Reading Category: Environment , Science Tags: glacier , Columbia University , Global Warming , ice age",
-      "date_published": "2026-10-28T05:08:15+00:00",
-      "authors": [
-        {
-          "name": "New Atlas",
-          "url": "https://newatlas.com"
+          "name": "dawn.com",
+          "url": "https://www.dawn.com"
         }
       ],
       "ai_score": 50,
-      "_quality": 65,
+      "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 79,
-      "_theme_score_raw": 20,
+      "_theme_score": 89,
+      "_theme_score_raw": 55,
+      "_kite_sources": 6,
+      "_kite_context": "Background: The FAO index remained 16.4% below its record level from March 2022 (agrobiznis.rs, dawn.com).",
+      "_composite_podcast": 78,
+      "_keyword_matches": 3,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "image": "https://kagiproxy.com/img/H8uHSBmntWpSA6CNiPLe1JbtSIwR7Bj1nwT4MGG6V878vhrRxo-b6nAab-aJ9_QTZyL33xq6z6DvSCmpZRpZ75Oa7b4t4GIPdeBkO7kV-gKT"
+    },
+    {
+      "id": "https://www.mycariboonow.com/317247/news/business/economy/big-drop-in-the-cariboo-regions-year-over-year-unemployment-rate/",
+      "url": "https://www.mycariboonow.com/317247/news/business/economy/big-drop-in-the-cariboo-regions-year-over-year-unemployment-rate/",
+      "title": "[My Cariboo Now] Big drop in the Cariboo region’s year-over-year unemployment rate",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mycariboonow.com%2F317247%2Fnews%2Fbusiness%2Feconomy%2Fbig-drop-in-the-cariboo-regions-year-over-year-unemployment-rate%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"391\" src=\"https://i0.wp.com/mtn-cdn.vistareach.ca/mycariboonow/uploads/2026/06/province-jobs-696x391-1.jpeg?fit=696%2C391&amp;quality=89&amp;ssl=1\" width=\"696\"/>The Cariboo region's year-over-year unemployment rate dropped by more than 3% in October !</p>\n<p>The post <a href=\"https://www.mycariboonow.com/317247/news/business/economy/big-drop-in-the-cariboo-regions-year-over-year-unemployment-rate/\">Big drop in the Cariboo region’s year-over-year unemployment rate</a> appeared first on <a href=\"https://www.mycariboonow.com\">My Cariboo Now</a>.</p>",
+      "summary": "The Cariboo region's year-over-year unemployment rate dropped by more than 3% in October ! The post Big drop in the Cariboo region’s year-over-year unemployment rate appeared first on My Cariboo Now .",
+      "_excerpt": "The Cariboo region's year-over-year unemployment rate dropped by more than 3% in October ! The post Big drop in the Cariboo region’s year-over-year unemployment rate appeared first on My Cariboo Now .",
+      "date_published": "2026-11-06T19:05:34+00:00",
+      "authors": [
+        {
+          "name": "My Cariboo Now",
+          "url": "https://www.mycariboonow.com"
+        }
+      ],
+      "ai_score": 78,
+      "_quality": 65,
+      "_relevance": 75,
+      "_local": 100,
+      "_theme_score": 72,
+      "_theme_score_raw": 12,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 76,
-      "_keyword_matches": 1,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false,
+      "_composite_podcast": 78,
+      "_keyword_matches": 0,
+      "_category": "local",
+      "_source_category": "local",
+      "_is_bonus": true,
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-11-05T06:11:14.179763+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -515,9 +478,9 @@
       "_is_bonus": false,
       "image": "https://www.google.com/s2/favicons?domain=www.farms.com&sz=128",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -549,6 +512,34 @@
       "_is_bonus": false
     },
     {
+      "id": "https://www.dagenslantbruk.se/a-ngs-och-betesmarkernas-naturva-rden-a-r-stabila-med-smajpy-skillnader-a-ver-tid",
+      "url": "https://www.dagenslantbruk.se/a-ngs-och-betesmarkernas-naturva-rden-a-r-stabila-med-smajpy-skillnader-a-ver-tid",
+      "title": "[dagenslantbruk.se] Farmers urged to tailor grazing to grassland recovery and climate",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dagenslantbruk.se%2Fa-ngs-och-betesmarkernas-naturva-rden-a-r-stabila-med-smajpy-skillnader-a-ver-tid\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAgricultural specialists in Sweden, France and South Africa say grassland management requires continued upkeep and grazing adapted to local vegetation and weather. Sweden’s inventory found that the natural and cultural values of most re-surveyed meadows and pastures remained broadly stable, while French livestock farmers discussed how the 2026 drought and heat affected forage production.\n\nUniversity of Limpopo pasture scientist Lesego Motshekga says rotational grazing works only when stocking rates match available forage and plants have time to recover; moving animals between camps alone cannot prevent overgrazing. Motshekga recommends deciding when to move livestock based on grass condition rather than a fixed calendar.",
+      "summary": "Agricultural specialists in Sweden, France and South Africa say grassland management requires continued upkeep and grazing adapted to local vegetation and weather. Sweden’s inventory found that the natural and cultural values of most re-surveyed meadows and pastures remained broadly stable, while",
+      "_excerpt": "Agricultural specialists in Sweden, France and South Africa say grassland management requires continued upkeep and grazing adapted to local vegetation and weather (dagenslantbruk.se, lafranceagricole.fr, farmersweekly.co.za). Sweden’s inventory found that the natural and cultural values of most re-surveyed meadows and pastures remained broadly stable, while French livestock farmers discussed how the 2026 drought and heat affected forage production (dagenslantbruk.se, lafranceagricole.fr). University of Limpopo pasture scientist Lesego Motshekga says rotational grazing works only when stocking rates match available forage and plants have time to recover; moving animals between camps alone cannot prevent overgrazing (farmersweekly.co.za). Motshekga recommends deciding when to move livestock based on grass condition rather than a fixed calendar (farmersweekly.co.za). Swedish coverage: Of 260,000 hectares with complete inventory records, nearly 70%—175,000 hectares—received environmental management payments in 2020, 8,000 hectares more than in 2018 (dagenslantbruk.se). French network: The Pâtur’ajuste network, established in 2011, includes 450 livestock farmers across 65 French departments and provides free technical resources (lafranceagricole.fr). Water planning: Motshekga says reliable access to water in each camp helps limit unnecessary animal movement and lets livestock use available grazing effectively (farmersweekly.co.za).",
+      "date_published": "2026-11-08T07:05:45.063000+00:00",
+      "authors": [
+        {
+          "name": "dagenslantbruk.se",
+          "url": "https://www.dagenslantbruk.se"
+        }
+      ],
+      "ai_score": 57,
+      "_quality": 60,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 96,
+      "_theme_score_raw": 68,
+      "_kite_sources": 3,
+      "_kite_context": "Perspective: Sidonie Artru, trainer with Scopela and the Pâtur’ajuste network: Artru advises farmers to define their management objective, understand how vegetation grows on each parcel and observe livestock behaviour before changing pasture practices. (La France Agricole)\nPerspective: Dr Lesego Motshekga, University of Limpopo pasture scientist: Motshekga warns that winter should not automatically be treated as a recovery period; dormant grasses may not be actively recovering even when livestock are absent. (Farmers Weekly)\nQuote: \"The principle that we recommend is to take half, leave half. Half can be consumed by the animals, then half can be reserved and left to allow a rapid regrowth\" (Dr Lesego Motshekga, Farmers Weekly)",
+      "_composite_podcast": 76,
+      "_keyword_matches": 4,
+      "_category": "homestead",
+      "_source_category": "homestead",
+      "_is_bonus": false
+    },
+    {
       "id": "https://www.woodbusiness.ca/cfo-welcomes-federal-forest-investment-while-calling-for-private-forests-to-be-part-of-the-solution/",
       "url": "https://www.woodbusiness.ca/cfo-welcomes-federal-forest-investment-while-calling-for-private-forests-to-be-part-of-the-solution/",
       "title": "[Canadian Forest Industries] CFO welcomes federal forest investment while calling for private forests to be part of the solution",
@@ -577,6 +568,34 @@
       "_is_bonus": false
     },
     {
+      "id": "https://www.dagenslantbruk.se/fa-rba-ttrad-la-nsamhet-fa-r-lantbruket-inom-mja-lk-gris-och-na-t-fortsatt-tufft-fa-r-va-xtodling",
+      "url": "https://www.dagenslantbruk.se/fa-rba-ttrad-la-nsamhet-fa-r-lantbruket-inom-mja-lk-gris-och-na-t-fortsatt-tufft-fa-r-va-xtodling",
+      "title": "[dagenslantbruk.se] Swedish farm survey finds smaller dairy producers plan exits",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dagenslantbruk.se%2Ffa-rba-ttrad-la-nsamhet-fa-r-lantbruket-inom-mja-lk-gris-och-na-t-fortsatt-tufft-fa-r-va-xtodling\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA spring survey by Ludvig &amp; Co, Swedbank and the Swedish Savings Banks Association found that smaller Swedish dairy farms were planning to shut down, even as larger farms prepared to expand. The sector’s overall profitability index stood at +3: half of farmers rated profitability good or very good, while 46% rated it poor.\n\nInvestment plans varied by farm type. Machinery investment rose in 2025, but investment in livestock buildings remained low; farmers planned more barn projects for 2026, mainly on larger farms. Falling milk prices weighed on dairy farmers’ outlook, while crop producers continued to report the weakest profitability.",
+      "summary": "A spring survey by Ludvig & Co, Swedbank and the Swedish Savings Banks Association found that smaller Swedish dairy farms were planning to shut down, even as larger farms prepared to expand. The sector’s overall profitability index stood at +3: half of farmers rated profitability good or very good,",
+      "_excerpt": "A spring survey by Ludvig & Co, Swedbank and the Swedish Savings Banks Association found that smaller Swedish dairy farms were planning to shut down, even as larger farms prepared to expand (dagenslantbruk.se). The sector’s overall profitability index stood at +3: half of farmers rated profitability good or very good, while 46% rated it poor (dagenslantbruk.se). Investment plans varied by farm type. Machinery investment rose in 2025, but investment in livestock buildings remained low; farmers planned more barn projects for 2026, mainly on larger farms (dagenslantbruk.se). Falling milk prices weighed on dairy farmers’ outlook, while crop producers continued to report the weakest profitability (dagenslantbruk.se). Production gap: The profitability index ranged from −54 for crop growers to +54 for pig farms, +44 for dairy and +16 for beef producers (dagenslantbruk.se). Regional divide: Perceived profitability differed by 55 index points between the strongest and weakest regions; farmers in Småland, Blekinge and Öland were most positive (dagenslantbruk.se). Growth barriers: Farmers identifying obstacles to raising production most often cited weak profitability, access to farmland and regulatory complexity (dagenslantbruk.se).",
+      "date_published": "2026-11-08T07:05:43.572000+00:00",
+      "authors": [
+        {
+          "name": "dagenslantbruk.se",
+          "url": "https://www.dagenslantbruk.se"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 97,
+      "_theme_score_raw": 72,
+      "_kite_sources": 1,
+      "_kite_context": "Perspective: Filip Olsson, forestry and agriculture segment head at Ludvig & Co, warned that planned closures among lower-turnover dairy farms would harm food preparedness, farm businesses, biodiversity and rural communities (dagenslantbruk.se). (Dagens Lantbruk)\nPerspective: Jörgen Kennemar, business economist at Swedbank, said predictable long-term rules and strong profitability were needed for farms to withstand economic swings and uncertain global trade (dagenslantbruk.se). (Dagens Lantbruk)",
+      "_composite_podcast": 76,
+      "_keyword_matches": 2,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false
+    },
+    {
       "id": "https://www.northernminer.com/news/ottawa-extends-mining-tax-credits-to-2032/1003897458/",
       "url": "https://www.northernminer.com/news/ottawa-extends-mining-tax-credits-to-2032/1003897458/",
       "title": "[The Northern Miner] Ottawa extends mining tax credits to 2032",
@@ -594,7 +613,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 91,
+      "_theme_score": 90,
       "_theme_score_raw": 58,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -622,40 +641,12 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 94,
+      "_theme_score": 93,
       "_theme_score_raw": 62,
       "_kite_sources": 4,
       "_kite_context": "Perspective: Guinean government: Foreign Minister Morissanda Kouyaté said miners returned to Siguiri after earlier peaceful expulsions, saying they had mistaken Guinea’s pan-Africanism for weakness (guineematin.com). (Guineematin.com)\nPerspective: Burkina Faso: Security Minister Mahamadou Sana said he had been assigned to assess the situation, identify needs and organize a “dignified and decent” return for Burkinabè citizens (auxnouvelles.tg). (AuxNouvelles)",
       "_composite_podcast": 76,
       "_keyword_matches": 2,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false
-    },
-    {
-      "id": "https://www.northernminer.com/news/cameco-bets-reactor-builds-will-drive-growth/1003897383/",
-      "url": "https://www.northernminer.com/news/cameco-bets-reactor-builds-will-drive-growth/1003897383/",
-      "title": "[The Northern Miner] Interview: Cameco bets reactor builds will drive growth",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Fcameco-bets-reactor-builds-will-drive-growth%2F1003897383%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Cameco (TSX: CCO; NYSE: CCJ) expects Westinghouse’s new reactor business to contribute more to its growth by 2030 than uranium mining if some of the...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/cameco-bets-reactor-builds-will-drive-growth/1003897383/\">Interview: Cameco bets reactor builds will drive growth</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
-      "summary": "Cameco (TSX: CCO; NYSE: CCJ) expects Westinghouse’s new reactor business to contribute more to its growth by 2030 than uranium mining if some of the... The post Interview: Cameco bets reactor builds will drive growth appeared first on The Northern Miner .",
-      "_excerpt": "Cameco (TSX: CCO; NYSE: CCJ) expects Westinghouse’s new reactor business to contribute more to its growth by 2030 than uranium mining if some of the... The post Interview: Cameco bets reactor builds will drive growth appeared first on The Northern Miner .",
-      "date_published": "2026-11-04T20:45:52+00:00",
-      "authors": [
-        {
-          "name": "The Northern Miner",
-          "url": "https://www.northernminer.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 87,
-      "_theme_score_raw": 42,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 76,
-      "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false
@@ -678,7 +669,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 87,
+      "_theme_score": 84,
       "_theme_score_raw": 42,
       "_kite_sources": 6,
       "_kite_context": "Where: Beijing, China\nPerspective: Chinese President Xi Jinping: Xi said China supports Gabon in maintaining independence in its political, economic and diplomatic affairs and is ready to exchange governance experience with the country (cgtn.com). (CGTN)\nPerspective: Gabonese President Brice Clotaire Oligui Nguema: Nguema reaffirmed Gabon’s adherence to the one-China principle and said Gabon hoped to learn from China’s experience in governing the party and state (cgtn.com, beijingbulletin.com). (CGTN)\nQuote: \"China is willing to be a reliable friend and partner for Gabon in its independent development\" (Chinese President Xi Jinping, CGTN)\nTimeline: 1974: Gabon and China established diplomatic relations (gabonreview.com).\nTimeline: April 2023: The countries signed a strategic cooperation partnership (gabonreview.com).\nTimeline: 6 November 2026: Oligui Nguema met Xi Jinping and announced elevated bilateral ties (cgtn.com).",
@@ -688,6 +679,39 @@
       "_source_category": "news",
       "_is_bonus": false,
       "image": "https://kagiproxy.com/img/a-Xn0YD_Wdao7wketV_QHF064Lg_o2IbUi4c0AfFBNuuhaGD6umoGIpC3sWRjr0qeCnbSbuIs2yheYetHBE2lzA1qp2JepjYibA28osESqSxWThbyHaxcOTTGXHgTbJO7q5o9J4"
+    },
+    {
+      "id": "https://newatlas.com/environment/global-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago/",
+      "url": "https://newatlas.com/environment/global-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago/",
+      "title": "[New Atlas] Global warming may have prevented a return to the ice age 2,000 years ago",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnewatlas.com%2Fenvironment%2Fglobal-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"Satellite photo of Barnes Ice Cap\" src=\"https://assets.newatlas.com/dims4/default/32c3a6b/2147483647/strip/true/crop/2000x1500+0+0/resize/1280x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2F36%2Fa5%2F79caa3844d25aeba43d7c577e090%2Fbarnes-ice-cap.jpg\"/><p>Earth’s persistently frozen poles mean the last ice age never really came to an end. What we think of as the mammoth-romping, Neanderthal-stomping chapter of geological history was technically a glacial maximum, one our planet would now be returning to if not for our love of burning coal, according to a recently published study.</p><p><a href=\"https://newatlas.com/environment/global-warming-may-have-prevented-a-return-to-the-ice-age-2-000-years-ago/\">Continue Reading</a></p><p><b>Category:</b> <a href=\"https://refractor.io/environment/\">Environment</a>, <a href=\"https://refractor.io/science/\">Science</a></p><p><b>Tags:</b> <a href=\"https://newatlas.com/tag/glacier/\" rel=\"tag\">glacier</a>, <a href=\"https://newatlas.com/tag/columbia-university/\" rel=\"tag\">Columbia University</a>, <a href=\"https://newatlas.com/tag/global+warming/\" rel=\"tag\">Global Warming</a>, <a href=\"https://newatlas.com/tag/ice-age/\" rel=\"tag\">ice age</a></p></p>",
+      "summary": "Earth’s persistently frozen poles mean the last ice age never really came to an end. What we think of as the mammoth-romping, Neanderthal-stomping chapter of geological history was technically a glacial maximum, one our planet would now be returning to if not for our love of burning coal, according",
+      "_excerpt": "Earth’s persistently frozen poles mean the last ice age never really came to an end. What we think of as the mammoth-romping, Neanderthal-stomping chapter of geological history was technically a glacial maximum, one our planet would now be returning to if not for our love of burning coal, according to a recently published study. Continue Reading Category: Environment , Science Tags: glacier , Columbia University , Global Warming , ice age",
+      "date_published": "2026-10-28T05:08:15+00:00",
+      "authors": [
+        {
+          "name": "New Atlas",
+          "url": "https://newatlas.com"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 65,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 78,
+      "_theme_score_raw": 20,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 75,
+      "_keyword_matches": 1,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-11-05T06:11:14.179763+00:00"
+      }
     },
     {
       "id": "https://www.northernminer.com/news/interview-ur-energy-eyes-wyoming-expansion/1003897465/",
@@ -707,47 +731,75 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 93,
+      "_theme_score": 91,
       "_theme_score_raw": 60,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 76,
+      "_composite_podcast": 75,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true
     },
     {
-      "id": "https://www.aptnnews.ca/featured/statimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court/",
-      "url": "https://www.aptnnews.ca/featured/statimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court/",
-      "title": "[APTN News] St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aptnnews.ca%2Ffeatured%2Fstatimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>A group of First Nations in British Columbia announced they have filed a federal court...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/featured/statimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court/\">St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
-      "summary": "A group of First Nations in British Columbia announced they have filed a federal court... The post St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court appeared first on APTN News .",
-      "_excerpt": "A group of First Nations in British Columbia announced they have filed a federal court... The post St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court appeared first on APTN News .",
-      "date_published": "2026-11-02T21:32:27+00:00",
+      "id": "https://www.northernminer.com/news/cameco-bets-reactor-builds-will-drive-growth/1003897383/",
+      "url": "https://www.northernminer.com/news/cameco-bets-reactor-builds-will-drive-growth/1003897383/",
+      "title": "[The Northern Miner] Interview: Cameco bets reactor builds will drive growth",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.northernminer.com%2Fnews%2Fcameco-bets-reactor-builds-will-drive-growth%2F1003897383%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Cameco (TSX: CCO; NYSE: CCJ) expects Westinghouse’s new reactor business to contribute more to its growth by 2030 than uranium mining if some of the...</p>\n<p>The post <a href=\"https://www.northernminer.com/news/cameco-bets-reactor-builds-will-drive-growth/1003897383/\">Interview: Cameco bets reactor builds will drive growth</a> appeared first on <a href=\"https://www.northernminer.com\">The Northern Miner</a>.</p>",
+      "summary": "Cameco (TSX: CCO; NYSE: CCJ) expects Westinghouse’s new reactor business to contribute more to its growth by 2030 than uranium mining if some of the... The post Interview: Cameco bets reactor builds will drive growth appeared first on The Northern Miner .",
+      "_excerpt": "Cameco (TSX: CCO; NYSE: CCJ) expects Westinghouse’s new reactor business to contribute more to its growth by 2030 than uranium mining if some of the... The post Interview: Cameco bets reactor builds will drive growth appeared first on The Northern Miner .",
+      "date_published": "2026-11-04T20:45:52+00:00",
       "authors": [
         {
-          "name": "APTN News",
-          "url": "https://www.aptnnews.ca"
+          "name": "The Northern Miner",
+          "url": "https://www.northernminer.com"
         }
       ],
-      "ai_score": 50,
+      "ai_score": 55,
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 83,
-      "_theme_score_raw": 27,
+      "_theme_score": 84,
+      "_theme_score_raw": 42,
       "_kite_sources": 0,
       "_kite_context": "",
+      "_composite_podcast": 74,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false
+    },
+    {
+      "id": "https://www.cbc.ca/news/canada/calgary/avalanche-search-rescue-dog-parks-canada-9.7412536",
+      "url": "https://www.cbc.ca/news/canada/calgary/avalanche-search-rescue-dog-parks-canada-9.7412536",
+      "title": "[cbc.ca] Parks Canada expects to eliminate about 500 full-time-equivalent positions, ends Banff rescue-dog program",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.cbc.ca%2Fnews%2Fcanada%2Fcalgary%2Favalanche-search-rescue-dog-parks-canada-9.7412536\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nParks Canada expects to eliminate about 500 full-time-equivalent positions, close 13 park-warden detachments and discontinue its Banff search-and-rescue dog program as part of $145 million in cuts over three years. The agency sent workforce-adjustment notices to 2,917 employees and says it will make individual decisions in the coming weeks.\n\nThe Canadian Avalanche Rescue Dog Association and British Columbia Search Dog Association have urged the agency to reverse the cancellation, warning it could weaken rescue capacity. Parks Canada says it will shift wardens to a regional model focused on high-risk areas and that wardens can enforce park law without dogs. The associations say they are working on a short-term volunteer response during avalanche season.",
+      "summary": "Parks Canada expects to eliminate about 500 full-time-equivalent positions, close 13 park-warden detachments and discontinue its Banff search-and-rescue dog program as part of $145 million in cuts over three years. The agency sent workforce-adjustment notices to 2,917 employees and says it will",
+      "_excerpt": "Parks Canada expects to eliminate about 500 full-time-equivalent positions, close 13 park-warden detachments and discontinue its Banff search-and-rescue dog program as part of $145 million in cuts over three years. The agency sent workforce-adjustment notices to 2,917 employees and says it will make individual decisions in the coming weeks (theglobeandmail.com, cbc.ca). The Canadian Avalanche Rescue Dog Association and British Columbia Search Dog Association have urged the agency to reverse the cancellation, warning it could weaken rescue capacity. Parks Canada says it will shift wardens to a regional model focused on high-risk areas and that wardens can enforce park law without dogs. The associations say they are working on a short-term volunteer response during avalanche season (cbc.ca). Rescue record: Leroy, the retired Banff search dog, located 57 missing people and tracked more than 150 during his service (cbc.ca). Wildlife risks: Conservation advocate Kecia Kerr said she knew of at least 11 bison killed by speeding drivers in Elk Island National Park and reported poaching concerns at Elk Island and Jasper (theglobeandmail.com). Visitor spending: Parks Canada’s 2025-26 budget was about $1.3 billion, while visitors spent $6.5 billion in or near its sites, according to the agency (theglobeandmail.com).",
+      "date_published": "2026-11-07T11:00:00+00:00",
+      "authors": [
+        {
+          "name": "cbc.ca",
+          "url": "https://www.cbc.ca"
+        }
+      ],
+      "ai_score": 69,
+      "_quality": 75,
+      "_relevance": 78,
+      "_local": 35,
+      "_theme_score": 78,
+      "_theme_score_raw": 22,
+      "_kite_sources": 3,
+      "_kite_context": "Perspective: Canadian Avalanche Rescue Dog Association and British Columbia Search Dog Association: The associations said Parks Canada’s program helped train civilian dog handlers, and its cancellation would remove that training support (cbc.ca). (CBC News)\nPerspective: William Stevenson, Conservative MP for Yellowhead: Stevenson asked the responsible minister and Parks Canada’s interim chief executive to explain why the program was ended and estimate the savings (cbc.ca). (CBC News)\nQuote: \"They save lives collaterally.\" (Kyle Hale, president of the Canadian Avalanche Rescue Dog Association, CBC News)\nBackground: The program once had six dogs but had operated with one for about a decade before Parks Canada discontinued the Banff program (cbc.ca).",
       "_composite_podcast": 73,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "thursday",
-        "label": "Indigenous Lands & Innovation",
-        "shown_at": "2026-11-05T06:11:14.179763+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -768,7 +820,7 @@
       "_quality": 60,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 95,
+      "_theme_score": 94,
       "_theme_score_raw": 64,
       "_kite_sources": 5,
       "_kite_context": "",
@@ -782,6 +834,146 @@
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-11-06T06:11:15.551820+00:00"
+      }
+    },
+    {
+      "id": "https://thetyee.ca/News/2026/11/09/Mystery-Vital-Vanishing-Cottonwoods/",
+      "url": "https://thetyee.ca/News/2026/11/09/Mystery-Vital-Vanishing-Cottonwoods/",
+      "title": "[The Tyee] The Mystery of the Vital, Vanishing Cottonwoods",
+      "content_html": "<img src=\"https://thetyee.ca/News/2026/11/08/GeorginaJosephCottonwood.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FNews%2F2026%2F11%2F09%2FMystery-Vital-Vanishing-Cottonwoods%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nInside the drive to restore 500,000 ‘keystone’ trees along the dammed Nechako. A Tyee special feature.",
+      "summary": "Inside the drive to restore 500,000 ‘keystone’ trees along the dammed Nechako. A Tyee special feature.",
+      "_excerpt": "Inside the drive to restore 500,000 ‘keystone’ trees along the dammed Nechako. A Tyee special feature.",
+      "date_published": "2026-11-09T08:40:00+00:00",
+      "authors": [
+        {
+          "name": "The Tyee",
+          "url": "https://thetyee.ca"
+        }
+      ],
+      "ai_score": 73,
+      "_quality": 85,
+      "_relevance": 75,
+      "_local": 55,
+      "_theme_score": 93,
+      "_theme_score_raw": 62,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 72,
+      "_keyword_matches": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://thetyee.ca/News/2026/11/08/GeorginaJosephCottonwood.jpg",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
+      }
+    },
+    {
+      "id": "https://www.aptnnews.ca/featured/statimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court/",
+      "url": "https://www.aptnnews.ca/featured/statimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court/",
+      "title": "[APTN News] St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.aptnnews.ca%2Ffeatured%2Fstatimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>A group of First Nations in British Columbia announced they have filed a federal court...</p>\n<p>The post <a href=\"https://www.aptnnews.ca/featured/statimc-chiefs-council-challenges-ottawas-pipeline-plans-in-court/\">St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court</a> appeared first on <a href=\"https://www.aptnnews.ca\">APTN News</a>.</p>",
+      "summary": "A group of First Nations in British Columbia announced they have filed a federal court... The post St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court appeared first on APTN News .",
+      "_excerpt": "A group of First Nations in British Columbia announced they have filed a federal court... The post St’át’imc Chiefs Council challenges Ottawa’s pipeline plans in court appeared first on APTN News .",
+      "date_published": "2026-11-02T21:32:27+00:00",
+      "authors": [
+        {
+          "name": "APTN News",
+          "url": "https://www.aptnnews.ca"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 81,
+      "_theme_score_raw": 27,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 71,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_cross_theme": {
+        "day": "thursday",
+        "label": "Indigenous Lands & Innovation",
+        "shown_at": "2026-11-05T06:11:14.179763+00:00"
+      }
+    },
+    {
+      "id": "https://wltribune.com/2026/11/03/1-dead-1-missing-after-suspected-bear-attack-near-bella-coola/",
+      "url": "https://wltribune.com/2026/11/03/1-dead-1-missing-after-suspected-bear-attack-near-bella-coola/",
+      "title": "[Williams Lake Tribune] UPDATE: Two dead in suspected bear attack near Bella Coola",
+      "content_html": "<img src=\"https://wltribune.com/wp-content/uploads/sites/6/2026/11/zdenek-machacek-Pt3asvL65Mg-unsplash.jpg?w=1024\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F11%2F03%2F1-dead-1-missing-after-suspected-bear-attack-near-bella-coola%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA grizzly bear, like the one pictured here, is suspected to be behind the death of a hiker near Bella Coola. The BC Conservation Officer Service is investigating a suspected fatal bear attack near Bella Coola. The second victim of a suspected grizzly bear attack near Bella Coola has been located dead. The BC Conservation Officer Service said in a post on social media that the second victim was located this afternoon during search efforts by conservation officers and the RCMP. “Throughout the day, our priorities were to secure the area and protect officers and first responders as they searched",
+      "summary": "A grizzly bear, like the one pictured here, is suspected to be behind the death of a hiker near Bella Coola. The BC Conservation Officer Service is investigating a suspected fatal bear attack near Bella Coola. The second victim of a suspected grizzly bear attack near Bella Coola has been located",
+      "_excerpt": "A grizzly bear, like the one pictured here, is suspected to be behind the death of a hiker near Bella Coola. The BC Conservation Officer Service is investigating a suspected fatal bear attack near Bella Coola. The second victim of a suspected grizzly bear attack near Bella Coola has been located dead. The BC Conservation Officer Service said in a post on social media that the second victim was located this afternoon during search efforts by conservation officers and the RCMP. “Throughout the day, our priorities were to secure the area and protect officers and first responders as they searched for the missing person, then respectfully recover the deceased so they could be brought home to their family,” the post reads. “We extend our deepest condolences to both families. We remain committed to supporting them as our investigation continues.” BCCOS noted that officers continue to work to locate and capture any bears involved in the incident and added that it isn’t clear whether more than one bear was involved in the incident. The government agency said that any bears captured will be assessed to determine the appropriate next steps. If a bear is determined to be responsible for the attack, it will be dispatched to ensure public safety, in accordance with provincial human-wildlife conflict response guidelines. “Search efforts have concluded. We continue to urge people to stay away from the Snooka West Trail area for their own safety and to give officers the space and time needed to do this work,” the post reads. BCCOS added they remain in regular contact with the Nuxalk Nation, members of the community and law enforcement as well as emergency response partners. The government agency added that further updates are expected as the investigation continues. One person has been found dead following a suspected grizzly bear attack near Bella Coola, as search efforts continue for a second missing individual. According to a social media post by the BC Conservation Officer",
+      "date_published": "2026-11-04T04:35:18+00:00",
+      "authors": [
+        {
+          "name": "Williams Lake Tribune",
+          "url": "https://wltribune.com"
+        }
+      ],
+      "ai_score": 70,
+      "_quality": 80,
+      "_relevance": 75,
+      "_local": 45,
+      "_theme_score": 78,
+      "_theme_score_raw": 22,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 71,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "image": "https://wltribune.com/wp-content/uploads/sites/6/2026/11/zdenek-machacek-Pt3asvL65Mg-unsplash.jpg?w=1024",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Williams Lake Tribune",
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
+      }
+    },
+    {
+      "id": "https://news.un.org/feed/view/en/story/2026/10/1168677",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168677",
+      "title": "[news.un.org] UN says record greenhouse gases lock in centuries-long warming",
+      "content_html": "<img src=\"https://kagiproxy.com/img/RZQMws7x0SWrHr3AhKgqB3E20v7DfbJ4ZJStXZj7b6unZafeF3iYEUTzObTUAig7sGmWxXtH_sqNnbM1J8UdxGxJS1fgklA33XbXkyBotK1P\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnews.un.org%2Ffeed%2Fview%2Fen%2Fstory%2F2026%2F10%2F1168677\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe World Meteorological Organization (WMO), the United Nations’ weather agency, reported that atmospheric concentrations of carbon dioxide, methane and nitrous oxide all reached record levels in 2025. Carbon dioxide averaged 426.8 parts per million, methane 1,948 parts per billion and nitrous oxide 339.1 parts per billion—153%, 267% and 126% of pre-industrial levels, respectively.\n\nThe annual bulletin measures gases accumulated in the atmosphere, not emissions released during the year. About half of annual carbon dioxide emissions remain in the atmosphere. The WMO says the gases’ heat-trapping effect will drive warming for decades or centuries; the past 11 years were the warmest on record.\n\nCarbon dioxide rose 2.8 parts per million from 2024 to 2025, below the previous year’s 3.6-ppm increase but still above the decade average of 2.6 ppm. The WMO linked the slower increase partly to recovering land carbon sinks and fewer fire emissions after the 2023-24 El Niño. It warned that concentrations could rise further in 2026 as fossil-fuel use continues and another powerful El Niño affects land sinks. The bulletin will inform negotiators at the Nov. 9-20 COP31 climate summit in Antalya, Türkiye.",
+      "summary": "The World Meteorological Organization (WMO), the United Nations’ weather agency, reported that atmospheric concentrations of carbon dioxide, methane and nitrous oxide all reached record levels in 2025. Carbon dioxide averaged 426.8 parts per million, methane 1,948 parts per billion and nitrous",
+      "_excerpt": "The World Meteorological Organization (WMO), the United Nations’ weather agency, reported that atmospheric concentrations of carbon dioxide, methane and nitrous oxide all reached record levels in 2025. Carbon dioxide averaged 426.8 parts per million, methane 1,948 parts per billion and nitrous oxide 339.1 parts per billion—153%, 267% and 126% of pre-industrial levels, respectively (un.org, cbsnews.com, scmp.com). The annual bulletin measures gases accumulated in the atmosphere, not emissions released during the year. About half of annual carbon dioxide emissions remain in the atmosphere. The WMO says the gases’ heat-trapping effect will drive warming for decades or centuries; the past 11 years were the warmest on record (un.org, rte.ie). Carbon dioxide rose 2.8 parts per million from 2024 to 2025, below the previous year’s 3.6-ppm increase but still above the decade average of 2.6 ppm. The WMO linked the slower increase partly to recovering land carbon sinks and fewer fire emissions after the 2023-24 El Niño. It warned that concentrations could rise further in 2026 as fossil-fuel use continues and another powerful El Niño affects land sinks. The bulletin will inform negotiators at the Nov. 9-20 COP31 climate summit in Antalya, Türkiye (un.org, cbsnews.com, 20minutes.fr). Methane sources: About one-third of methane emissions come from natural sources such as wetlands; human sources include livestock, rice cultivation, landfills and biomass burning (scmp.com, rts.ch). Electrical equipment: Sulfur hexafluoride, used to suppress electrical sparks in distribution equipment, reached a record atmospheric concentration in 2025. Its atmospheric lifetime exceeds 1,000 years, and its 100-year warming potential is about 24,300 times that of carbon dioxide (un.org). Hydrogen leakage: The atmospheric concentration of hydrogen rose 5.3% from 2010 to 2024. Although hydrogen is not itself a greenhouse gas, the WMO says leakage can affect atmospheric chemistry and contribute",
+      "date_published": "2026-10-27T12:00:00+00:00",
+      "authors": [
+        {
+          "name": "news.un.org",
+          "url": "https://news.un.org"
+        }
+      ],
+      "ai_score": 43,
+      "_quality": 65,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 74,
+      "_theme_score_raw": 14,
+      "_kite_sources": 15,
+      "_kite_context": "Perspective: World Meteorological Organization: The agency says the energy transition needs monitoring for unintended climate effects, warning that persistent sulfur hexafluoride and hydrogen leakage could erode some benefits of decarbonization (un.org). (UN News)\nQuote: \"Every additional part per million matters because it traps additional heat. In effect, we are supercharging the ocean and the atmosphere. That means that heat waves, tropical cyclones, and rainstorms are intensifying faster than our historical baselines\" (Ko Barrett, WMO deputy secretary-general, UN News)\nTimeline: 2004: The WMO bulletin’s initial CO2 reading was 377.5 ppm (un.org)\nTimeline: 2023-2024: A strong El Niño coincided with drought, fires and a surge in CO2 (un.org)\nTimeline: 2025: Atmospheric CO2, methane and nitrous oxide reached record concentrations (un.org)\nBackground: During 2011-20, annual carbon dioxide growth averaged 2.4 parts per million (un.org).",
+      "_composite_podcast": 70,
+      "_keyword_matches": 1,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "image": "https://kagiproxy.com/img/RZQMws7x0SWrHr3AhKgqB3E20v7DfbJ4ZJStXZj7b6unZafeF3iYEUTzObTUAig7sGmWxXtH_sqNnbM1J8UdxGxJS1fgklA33XbXkyBotK1P",
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
       }
     },
     {
@@ -802,11 +994,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 84,
+      "_theme_score": 82,
       "_theme_score_raw": 35,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 71,
+      "_composite_podcast": 70,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -830,54 +1022,20 @@
       "_quality": 65,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 79,
+      "_theme_score": 78,
       "_theme_score_raw": 20,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 71,
+      "_composite_podcast": 70,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "image": "https://media.indiginews.com/2026/11/Cultural-Fire.2.Credit.ACC_-1024x768.jpg",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
-      }
-    },
-    {
-      "id": "https://news.un.org/feed/view/en/story/2026/10/1168677",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168677",
-      "title": "[news.un.org] UN says record greenhouse gases lock in centuries-long warming",
-      "content_html": "<img src=\"https://kagiproxy.com/img/RZQMws7x0SWrHr3AhKgqB3E20v7DfbJ4ZJStXZj7b6unZafeF3iYEUTzObTUAig7sGmWxXtH_sqNnbM1J8UdxGxJS1fgklA33XbXkyBotK1P\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnews.un.org%2Ffeed%2Fview%2Fen%2Fstory%2F2026%2F10%2F1168677\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe World Meteorological Organization (WMO), the United Nations’ weather agency, reported that atmospheric concentrations of carbon dioxide, methane and nitrous oxide all reached record levels in 2025. Carbon dioxide averaged 426.8 parts per million, methane 1,948 parts per billion and nitrous oxide 339.1 parts per billion—153%, 267% and 126% of pre-industrial levels, respectively.\n\nThe annual bulletin measures gases accumulated in the atmosphere, not emissions released during the year. About half of annual carbon dioxide emissions remain in the atmosphere. The WMO says the gases’ heat-trapping effect will drive warming for decades or centuries; the past 11 years were the warmest on record.\n\nCarbon dioxide rose 2.8 parts per million from 2024 to 2025, below the previous year’s 3.6-ppm increase but still above the decade average of 2.6 ppm. The WMO linked the slower increase partly to recovering land carbon sinks and fewer fire emissions after the 2023-24 El Niño. It warned that concentrations could rise further in 2026 as fossil-fuel use continues and another powerful El Niño affects land sinks. The bulletin will inform negotiators at the Nov. 9-20 COP31 climate summit in Antalya, Türkiye.",
-      "summary": "The World Meteorological Organization (WMO), the United Nations’ weather agency, reported that atmospheric concentrations of carbon dioxide, methane and nitrous oxide all reached record levels in 2025. Carbon dioxide averaged 426.8 parts per million, methane 1,948 parts per billion and nitrous",
-      "_excerpt": "The World Meteorological Organization (WMO), the United Nations’ weather agency, reported that atmospheric concentrations of carbon dioxide, methane and nitrous oxide all reached record levels in 2025. Carbon dioxide averaged 426.8 parts per million, methane 1,948 parts per billion and nitrous oxide 339.1 parts per billion—153%, 267% and 126% of pre-industrial levels, respectively (un.org, cbsnews.com, scmp.com). The annual bulletin measures gases accumulated in the atmosphere, not emissions released during the year. About half of annual carbon dioxide emissions remain in the atmosphere. The WMO says the gases’ heat-trapping effect will drive warming for decades or centuries; the past 11 years were the warmest on record (un.org, rte.ie). Carbon dioxide rose 2.8 parts per million from 2024 to 2025, below the previous year’s 3.6-ppm increase but still above the decade average of 2.6 ppm. The WMO linked the slower increase partly to recovering land carbon sinks and fewer fire emissions after the 2023-24 El Niño. It warned that concentrations could rise further in 2026 as fossil-fuel use continues and another powerful El Niño affects land sinks. The bulletin will inform negotiators at the Nov. 9-20 COP31 climate summit in Antalya, Türkiye (un.org, cbsnews.com, 20minutes.fr). Methane sources: About one-third of methane emissions come from natural sources such as wetlands; human sources include livestock, rice cultivation, landfills and biomass burning (scmp.com, rts.ch). Electrical equipment: Sulfur hexafluoride, used to suppress electrical sparks in distribution equipment, reached a record atmospheric concentration in 2025. Its atmospheric lifetime exceeds 1,000 years, and its 100-year warming potential is about 24,300 times that of carbon dioxide (un.org). Hydrogen leakage: The atmospheric concentration of hydrogen rose 5.3% from 2010 to 2024. Although hydrogen is not itself a greenhouse gas, the WMO says leakage can affect atmospheric chemistry and contribute",
-      "date_published": "2026-10-27T12:00:00+00:00",
-      "authors": [
-        {
-          "name": "news.un.org",
-          "url": "https://news.un.org"
-        }
-      ],
-      "ai_score": 43,
-      "_quality": 65,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 75,
-      "_theme_score_raw": 14,
-      "_kite_sources": 15,
-      "_kite_context": "Perspective: World Meteorological Organization: The agency says the energy transition needs monitoring for unintended climate effects, warning that persistent sulfur hexafluoride and hydrogen leakage could erode some benefits of decarbonization (un.org). (UN News)\nQuote: \"Every additional part per million matters because it traps additional heat. In effect, we are supercharging the ocean and the atmosphere. That means that heat waves, tropical cyclones, and rainstorms are intensifying faster than our historical baselines\" (Ko Barrett, WMO deputy secretary-general, UN News)\nTimeline: 2004: The WMO bulletin’s initial CO2 reading was 377.5 ppm (un.org)\nTimeline: 2023-2024: A strong El Niño coincided with drought, fires and a surge in CO2 (un.org)\nTimeline: 2025: Atmospheric CO2, methane and nitrous oxide reached record concentrations (un.org)\nBackground: During 2011-20, annual carbon dioxide growth averaged 2.4 parts per million (un.org).",
-      "_composite_podcast": 70,
-      "_keyword_matches": 1,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://kagiproxy.com/img/RZQMws7x0SWrHr3AhKgqB3E20v7DfbJ4ZJStXZj7b6unZafeF3iYEUTzObTUAig7sGmWxXtH_sqNnbM1J8UdxGxJS1fgklA33XbXkyBotK1P",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-06T06:11:15.551820+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -898,11 +1056,11 @@
       "_quality": 75,
       "_relevance": 75,
       "_local": 45,
-      "_theme_score": 91,
+      "_theme_score": 90,
       "_theme_score_raw": 58,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 70,
+      "_composite_podcast": 69,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -933,53 +1091,21 @@
       "_quality": 70,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 76,
+      "_theme_score": 75,
       "_theme_score_raw": 16,
       "_kite_sources": 20,
       "_kite_context": "Perspective: Jeni Miller, executive director of the Global Climate and Health Alliance, said healthcare resilience cannot compensate for unchecked warming and argued that cutting the drivers of climate change is essential to protecting health (insideclimatenews.org). (Inside Climate News)\nPerspective: Diana Picon Manyari, international climate senior director at Health Care Without Harm, called for health professionals to have a seat at COP31 and said climate-health financing commitments remain difficult to access (insideclimatenews.org). (Inside Climate News)\nPerspective: Professor Paul Beggs, a Macquarie University climate-health expert, said Australia’s role as COP president should bring progress on emissions cuts and pointed to deaths from heatwaves and bushfire smoke in Australia as evidence that no region is immune (ABC News Australia)\nQuote: \"The rate of increase in many climate-related health threats is accelerating, while heat deaths linked to climate change have reached a record-high, and the economic toll is battering vulnerable sectors and communities the hardest.\" (Marina Romanello, executive director of the Lancet Countdown, ScienceAlert)\nTimeline: 2016: The Paris Agreement entered into force as climate-health risks were tracked (abc.net.au, euronews.com).\nTimeline: 2025: Extreme drought affected about 52% of global land for at least one month (abc.net.au, rte.ie).\nTimeline: 9 November 2026: COP31 is scheduled to open in Antalya, Türkiye (lemonde.fr).",
-      "_composite_podcast": 69,
+      "_composite_podcast": 68,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
       "image": "https://kagiproxy.com/img/u7Q4GbDHxu_QGKQTYkouJiEMxZnYd4pH32JgR8Wayg83wPBJiHgGIEAuuXtPi41rwUqBliRFc_iOvxO8Glrzkn4a12T0z1XZgV8iCv7gvh5gFf86fHeFmcgK8NDj07dIvc-NCioWIU4SxNf1T5ybg8P-4zGpIXk",
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-06T06:11:15.551820+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
       }
-    },
-    {
-      "id": "https://www.theverge.com/tech/1022911/intel-wildcat-lake-sold-out-ram-shortage",
-      "url": "https://www.theverge.com/tech/1022911/intel-wildcat-lake-sold-out-ram-shortage",
-      "title": "[The Verge] Intel says it&#8217;s selling every affordable laptop chip it can make",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Ftech%2F1022911%2Fintel-wildcat-lake-sold-out-ram-shortage\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDuring Intel's latest earnings call, CEO Lip-Bu Tan said that demand for its budget-focused Wildcat Lake chips \"is outstripping supply.\" According to CFO David Zinsner, the chips are now sold out. Zinsner said Intel has \"seen significant growth in Wildcat Lake. It's coming exactly at the right time because it's cost-optimized and we're seeing a […]",
-      "summary": "During Intel's latest earnings call, CEO Lip-Bu Tan said that demand for its budget-focused Wildcat Lake chips \"is outstripping supply.\" According to CFO David Zinsner, the chips are now sold out. Zinsner said Intel has \"seen significant growth in Wildcat Lake. It's coming exactly at the right time",
-      "_excerpt": "During Intel's latest earnings call, CEO Lip-Bu Tan said that demand for its budget-focused Wildcat Lake chips \"is outstripping supply.\" According to CFO David Zinsner, the chips are now sold out. Zinsner said Intel has \"seen significant growth in Wildcat Lake. It's coming exactly at the right time because it's cost-optimized and we're seeing a […]",
-      "date_published": "2026-10-29T23:42:21+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 79,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 69,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News"
     },
     {
       "id": "https://www.datacenterdynamics.com/en/whitepapers/designing-infrastructure-for-enterprise-ai/",
@@ -999,11 +1125,11 @@
       "_quality": 62,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 74,
+      "_theme_score": 72,
       "_theme_score_raw": 12,
       "_kite_sources": 3,
       "_kite_context": "",
-      "_composite_podcast": 68,
+      "_composite_podcast": 67,
       "_keyword_matches": 0,
       "_category": "climate",
       "_source_category": "climate",
@@ -1012,41 +1138,6 @@
         "day": "thursday",
         "label": "Indigenous Lands & Innovation",
         "shown_at": "2026-11-05T06:11:14.179763+00:00"
-      }
-    },
-    {
-      "id": "https://thetyee.ca/Analysis/2026/11/03/Deceptions-Killed-Alberta-Renewable-Energy-Industry/",
-      "url": "https://thetyee.ca/Analysis/2026/11/03/Deceptions-Killed-Alberta-Renewable-Energy-Industry/",
-      "title": "[The Tyee] The Deceptions That Crippled a Renewable Energy Industry",
-      "content_html": "<img src=\"https://thetyee.ca/Analysis/2026/10/30/SturgeonCountyDataCentreRender.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fthetyee.ca%2FAnalysis%2F2026%2F11%2F03%2FDeceptions-Killed-Alberta-Renewable-Energy-Industry%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAlberta invokes ‘agriculture first’ to block wind and solar while putting gas plants on prime land.",
-      "summary": "Alberta invokes ‘agriculture first’ to block wind and solar while putting gas plants on prime land.",
-      "_excerpt": "Alberta invokes ‘agriculture first’ to block wind and solar while putting gas plants on prime land.",
-      "date_published": "2026-11-03T21:45:00+00:00",
-      "authors": [
-        {
-          "name": "The Tyee",
-          "url": "https://thetyee.ca"
-        }
-      ],
-      "ai_score": 69,
-      "_quality": 85,
-      "_relevance": 78,
-      "_local": 25,
-      "_theme_score": 85,
-      "_theme_score_raw": 38,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 66,
-      "_keyword_matches": 1,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "_thin_body": true,
-      "image": "https://thetyee.ca/Analysis/2026/10/30/SturgeonCountyDataCentreRender.jpg",
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
       }
     },
     {
@@ -1067,7 +1158,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 94,
+      "_theme_score": 93,
       "_theme_score_raw": 62,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1078,74 +1169,6 @@
       "_is_bonus": false,
       "_thin_body": true,
       "image": "https://thetyee.ca/News/2026/10/28/BigTreeForest.jpg"
-    },
-    {
-      "id": "https://phys.org/news/2026-11-worse-climate-harder.html",
-      "url": "https://phys.org/news/2026-11-worse-climate-harder.html",
-      "title": "[phys.org] UN warns warming will breach 1.5C as COP31 opens Monday",
-      "content_html": "<img src=\"https://kagiproxy.com/img/-QBi5EsAAkdWVrzVp7lKs5z8zdMjctJ6SnQ0FePFOxRX29zWuLqzlrhN5JYT7tV4lXbsjxRptm-LzQ09ZPA1kzAVYYMriYtxG9Q2dvzTqnfozRzfgLb4QX8EeTCg2vTbeUkrOxD471qXtPG127yVwQ1S7NOflM3xCcJ8sucDOl_twcs3NZfSLaYnVA\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fphys.org%2Fnews%2F2026-11-worse-climate-harder.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe United Nations says global warming will exceed the 1.5-degree Celsius threshold as nearly 200 countries prepare to begin the COP31 climate talks in Antalya, Turkey, on Nov. 9. Climate scientists say the rate of warming has effectively doubled over the past decade. October 2026 was the hottest October on record, and 2026 is virtually certain to become the second year to exceed 1.5C, after 2024. U.N. Secretary-General António Guterres said the world must now limit how far temperatures rise beyond that level and blamed political leaders for failing to act.\n\nThe Nov. 9-20 talks are expected to focus on fulfilling earlier promises to move away from fossil fuels and on funding for poorer countries facing climate impacts. Turkey is promoting a goal to increase electricity’s share of global energy demand from about 20% to 35% by 2035. Developed countries have resisted further funding commitments, and the Trump administration is not taking part in negotiations.",
-      "summary": "The United Nations says global warming will exceed the 1.5-degree Celsius threshold as nearly 200 countries prepare to begin the COP31 climate talks in Antalya, Turkey, on Nov. 9. Climate scientists say the rate of warming has effectively doubled over the past decade. October 2026 was the hottest",
-      "_excerpt": "The United Nations says global warming will exceed the 1.5-degree Celsius threshold as nearly 200 countries prepare to begin the COP31 climate talks in Antalya, Turkey, on Nov. 9. Climate scientists say the rate of warming has effectively doubled over the past decade. October 2026 was the hottest October on record, and 2026 is virtually certain to become the second year to exceed 1.5C, after 2024 (phys.org, france24.com, apnews.com). U.N. Secretary-General António Guterres said the world must now limit how far temperatures rise beyond that level and blamed political leaders for failing to act (apnews.com, independent.co.uk). The Nov. 9-20 talks are expected to focus on fulfilling earlier promises to move away from fossil fuels and on funding for poorer countries facing climate impacts. Turkey is promoting a goal to increase electricity’s share of global energy demand from about 20% to 35% by 2035. Developed countries have resisted further funding commitments, and the Trump administration is not taking part in negotiations (france24.com, apnews.com). Fossil-fuel subsidies: The U.N. estimates global fossil-fuel subsidies reached $1.1 trillion in 2026; climate negotiators say government support for the fuels impedes the transition (apnews.com). Barriers to climate action: Researchers warn that disaster losses may deepen sovereign-debt burdens and crowd out climate investment, while conflict can weaken international cooperation (reddit.com).",
-      "date_published": "2026-11-06T18:20:01+00:00",
-      "authors": [
-        {
-          "name": "phys.org",
-          "url": "https://phys.org"
-        }
-      ],
-      "ai_score": 59,
-      "_quality": 70,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 66,
-      "_theme_score_raw": 8,
-      "_kite_sources": 8,
-      "_kite_context": "Where: Antalya, Turkey\nPerspective: U.N. Secretary-General António Guterres: Guterres said fossil-fuel companies making large profits should be taxed, with the revenue used to support countries facing severe climate impacts (independent.co.uk). (The Associated Press)\nPerspective: WWF climate expert Thomas Häusler: Häusler argued that global finance flows should be redirected more quickly and fairly, noting that about 30 times more money goes to activities that harm nature than to those that benefit it (watson.ch). (Watson)\nQuote: \"This is a moment of truths. We can no longer wait, we can no longer have endless discussions in which everybody tries to push the responsibility to someone else. Everybody must do more, everybody must do more now.\" (U.N. Secretary-General António Guterres, The Associated Press)\nTimeline: 2023: The COP28 pact called for a transition away from fossil fuels (france24.com).\nTimeline: 2025: Scientists told Guterres the 1.5C goal was no longer achievable (apnews.com).\nTimeline: September 2026: The U.N. revised its decade-old 1.5C goal because the world was exceeding that threshold (apnews.com).\nTimeline: 9 November 2026: COP31 opens in Antalya for two weeks of negotiations (apnews.com, france24.com).",
-      "_composite_podcast": 65,
-      "_keyword_matches": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "image": "https://kagiproxy.com/img/-QBi5EsAAkdWVrzVp7lKs5z8zdMjctJ6SnQ0FePFOxRX29zWuLqzlrhN5JYT7tV4lXbsjxRptm-LzQ09ZPA1kzAVYYMriYtxG9Q2dvzTqnfozRzfgLb4QX8EeTCg2vTbeUkrOxD471qXtPG127yVwQ1S7NOflM3xCcJ8sucDOl_twcs3NZfSLaYnVA",
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "us-policy"
-      ]
-    },
-    {
-      "id": "https://100milefreepress.net/2026/11/05/fuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas/",
-      "url": "https://100milefreepress.net/2026/11/05/fuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas/",
-      "title": "[100 Mile Free Press] Fuel breaks, burning planned for Mirage Lake and Watch Lake areas",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F11%2F05%2Ffuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n",
-      "summary": "",
-      "_excerpt": "",
-      "date_published": "2026-11-06T06:03:04.227523+00:00",
-      "authors": [
-        {
-          "name": "100 Mile Free Press",
-          "url": "https://100milefreepress.net"
-        }
-      ],
-      "ai_score": 74,
-      "_quality": 60,
-      "_relevance": 75,
-      "_local": 85,
-      "_theme_score": 79,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 65,
-      "_keyword_matches": 0,
-      "_category": "local",
-      "_source_category": "local",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
-      }
     },
     {
       "id": "https://www.cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
@@ -1165,7 +1188,7 @@
       "_quality": 78,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 79,
+      "_theme_score": 78,
       "_theme_score_raw": 22,
       "_kite_sources": 11,
       "_kite_context": "Perspective: EuroCommerce, a European retail and wholesale trade association: Director General Christel Delberghe said food safety is non-negotiable and affected products should be withdrawn if a cold-chain disruption makes their safety uncertain. She called for (IEU Monitoring)\nPerspective: Joshua Corman, executive-in-residence for public safety and resilience at the Institute for Security and Technology: Corman told CBS News he expects more attacks, warning that the limited number of industrial refrigeration suppliers may leave systems broadly (CBS News)\nQuote: \"Every organization that depends on refrigeration and monitoring systems should assume it could be a target.\" (Chris Butera, CISA acting executive assistant director for cybersecurity, BleepingComputer)\nTimeline: August 2026: Refrigeration malfunctions affected at least six military commissaries (cbsnews.com)\nTimeline: October 2026: Attackers changed refrigeration settings at hundreds of French supermarkets (bleepingcomputer.com)\nTimeline: 2 November 2026: Supermarkets in several European countries reported refrigeration attacks (contractingbusiness.com)\nTimeline: 5 November 2026: Five U.S. agencies published a joint industrial refrigeration warning (cisa.gov)",
@@ -1181,68 +1204,77 @@
       }
     },
     {
-      "id": "https://vancouversun.com/news/bc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline",
-      "url": "https://vancouversun.com/news/bc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline",
-      "title": "[Vancouver Sun] B.C. First Nations file court challenge against the proposed Pacific Link pipeline",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fvancouversun.com%2Fnews%2Fbc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nChiefs say Prime Minister Carney announced project under Build Canada Act without consulting First Nations potentially affected by pipeline",
-      "summary": "Chiefs say Prime Minister Carney announced project under Build Canada Act without consulting First Nations potentially affected by pipeline",
-      "_excerpt": "Chiefs say Prime Minister Carney announced project under Build Canada Act without consulting First Nations potentially affected by pipeline",
-      "date_published": "2026-11-02T23:01:35+00:00",
+      "id": "https://100milefreepress.net/2026/11/05/fuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas/",
+      "url": "https://100milefreepress.net/2026/11/05/fuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas/",
+      "title": "[100 Mile Free Press] Fuel breaks, burning planned for Mirage Lake and Watch Lake areas",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2F100milefreepress.net%2F2026%2F11%2F05%2Ffuel-breaks-burning-planned-for-mirage-lake-and-watch-lake-areas%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n",
+      "summary": "",
+      "_excerpt": "",
+      "date_published": "2026-11-06T06:03:04.227523+00:00",
       "authors": [
         {
-          "name": "Vancouver Sun",
-          "url": "https://vancouversun.com/news/bc-wildfires-new-evacuation-orders-issued-south-chilcotin"
+          "name": "100 Mile Free Press",
+          "url": "https://100milefreepress.net"
         }
       ],
-      "ai_score": 64,
-      "_quality": 68,
-      "_relevance": 72,
-      "_local": 35,
-      "_theme_score": 83,
-      "_theme_score_raw": 26,
+      "ai_score": 74,
+      "_quality": 60,
+      "_relevance": 75,
+      "_local": 85,
+      "_theme_score": 78,
+      "_theme_score_raw": 22,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 63,
+      "_composite_podcast": 64,
       "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "local",
+      "_source_category": "local",
       "_is_bonus": true,
       "_thin_body": true,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
       }
     },
     {
-      "id": "https://www.smallfarmcanada.ca/news/canadian-alpaca-producers-seek-fibre-processing-solution-to-/",
-      "url": "https://www.smallfarmcanada.ca/news/canadian-alpaca-producers-seek-fibre-processing-solution-to-/",
-      "title": "[Small Farm Canada] Canadian Alpaca Producers Seek Fibre Processing Solution to Build Value at Home",
-      "content_html": "<img src=\"https://www.smallfarmcanada.ca/downloads/948/download/timothy-eberly-guVbGnjpenU-unsplash.jpg?cb=5c58984a20154ccfcf43e8629f3d3a66\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.smallfarmcanada.ca%2Fnews%2Fcanadian-alpaca-producers-seek-fibre-processing-solution-to-%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA producer-led effort is underway to strengthen Canada's alpaca fibre industry by securing specialized processing equipment that could help farmers turn raw fleece into value-added yarns and textile products.",
-      "summary": "A producer-led effort is underway to strengthen Canada's alpaca fibre industry by securing specialized processing equipment that could help farmers turn raw fleece into value-added yarns and textile products.",
-      "_excerpt": "A producer-led effort is underway to strengthen Canada's alpaca fibre industry by securing specialized processing equipment that could help farmers turn raw fleece into value-added yarns and textile products.",
-      "date_published": "2026-10-26T14:16:23+00:00",
+      "id": "https://phys.org/news/2026-11-worse-climate-harder.html",
+      "url": "https://phys.org/news/2026-11-worse-climate-harder.html",
+      "title": "[phys.org] UN warns warming will breach 1.5C as COP31 opens Monday",
+      "content_html": "<img src=\"https://kagiproxy.com/img/-QBi5EsAAkdWVrzVp7lKs5z8zdMjctJ6SnQ0FePFOxRX29zWuLqzlrhN5JYT7tV4lXbsjxRptm-LzQ09ZPA1kzAVYYMriYtxG9Q2dvzTqnfozRzfgLb4QX8EeTCg2vTbeUkrOxD471qXtPG127yVwQ1S7NOflM3xCcJ8sucDOl_twcs3NZfSLaYnVA\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fphys.org%2Fnews%2F2026-11-worse-climate-harder.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe United Nations says global warming will exceed the 1.5-degree Celsius threshold as nearly 200 countries prepare to begin the COP31 climate talks in Antalya, Turkey, on Nov. 9. Climate scientists say the rate of warming has effectively doubled over the past decade. October 2026 was the hottest October on record, and 2026 is virtually certain to become the second year to exceed 1.5C, after 2024. U.N. Secretary-General António Guterres said the world must now limit how far temperatures rise beyond that level and blamed political leaders for failing to act.\n\nThe Nov. 9-20 talks are expected to focus on fulfilling earlier promises to move away from fossil fuels and on funding for poorer countries facing climate impacts. Turkey is promoting a goal to increase electricity’s share of global energy demand from about 20% to 35% by 2035. Developed countries have resisted further funding commitments, and the Trump administration is not taking part in negotiations.",
+      "summary": "The United Nations says global warming will exceed the 1.5-degree Celsius threshold as nearly 200 countries prepare to begin the COP31 climate talks in Antalya, Turkey, on Nov. 9. Climate scientists say the rate of warming has effectively doubled over the past decade. October 2026 was the hottest",
+      "_excerpt": "The United Nations says global warming will exceed the 1.5-degree Celsius threshold as nearly 200 countries prepare to begin the COP31 climate talks in Antalya, Turkey, on Nov. 9. Climate scientists say the rate of warming has effectively doubled over the past decade. October 2026 was the hottest October on record, and 2026 is virtually certain to become the second year to exceed 1.5C, after 2024 (phys.org, france24.com, apnews.com). U.N. Secretary-General António Guterres said the world must now limit how far temperatures rise beyond that level and blamed political leaders for failing to act (apnews.com, independent.co.uk). The Nov. 9-20 talks are expected to focus on fulfilling earlier promises to move away from fossil fuels and on funding for poorer countries facing climate impacts. Turkey is promoting a goal to increase electricity’s share of global energy demand from about 20% to 35% by 2035. Developed countries have resisted further funding commitments, and the Trump administration is not taking part in negotiations (france24.com, apnews.com). Fossil-fuel subsidies: The U.N. estimates global fossil-fuel subsidies reached $1.1 trillion in 2026; climate negotiators say government support for the fuels impedes the transition (apnews.com). Barriers to climate action: Researchers warn that disaster losses may deepen sovereign-debt burdens and crowd out climate investment, while conflict can weaken international cooperation (reddit.com).",
+      "date_published": "2026-11-06T18:20:01+00:00",
       "authors": [
         {
-          "name": "Small Farm Canada",
-          "url": "https://www.smallfarmcanada.ca"
+          "name": "phys.org",
+          "url": "https://phys.org"
         }
       ],
-      "ai_score": 45,
-      "_quality": 0,
-      "_relevance": 0,
+      "ai_score": 59,
+      "_quality": 70,
+      "_relevance": 75,
       "_local": 0,
-      "_theme_score": 93,
-      "_theme_score_raw": 60,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
+      "_theme_score": 65,
+      "_theme_score_raw": 8,
+      "_kite_sources": 8,
+      "_kite_context": "Where: Antalya, Turkey\nPerspective: U.N. Secretary-General António Guterres: Guterres said fossil-fuel companies making large profits should be taxed, with the revenue used to support countries facing severe climate impacts (independent.co.uk). (The Associated Press)\nPerspective: WWF climate expert Thomas Häusler: Häusler argued that global finance flows should be redirected more quickly and fairly, noting that about 30 times more money goes to activities that harm nature than to those that benefit it (watson.ch). (Watson)\nQuote: \"This is a moment of truths. We can no longer wait, we can no longer have endless discussions in which everybody tries to push the responsibility to someone else. Everybody must do more, everybody must do more now.\" (U.N. Secretary-General António Guterres, The Associated Press)\nTimeline: 2023: The COP28 pact called for a transition away from fossil fuels (france24.com).\nTimeline: 2025: Scientists told Guterres the 1.5C goal was no longer achievable (apnews.com).\nTimeline: September 2026: The U.N. revised its decade-old 1.5C goal because the world was exceeding that threshold (apnews.com).\nTimeline: 9 November 2026: COP31 opens in Antalya for two weeks of negotiations (apnews.com, france24.com).",
+      "_composite_podcast": 64,
       "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
+      "_category": "climate",
+      "_source_category": "climate",
       "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://www.smallfarmcanada.ca/downloads/948/download/timothy-eberly-guVbGnjpenU-unsplash.jpg?cb=5c58984a20154ccfcf43e8629f3d3a66"
+      "image": "https://kagiproxy.com/img/-QBi5EsAAkdWVrzVp7lKs5z8zdMjctJ6SnQ0FePFOxRX29zWuLqzlrhN5JYT7tV4lXbsjxRptm-LzQ09ZPA1kzAVYYMriYtxG9Q2dvzTqnfozRzfgLb4QX8EeTCg2vTbeUkrOxD471qXtPG127yVwQ1S7NOflM3xCcJ8sucDOl_twcs3NZfSLaYnVA",
+      "_us_policy": true,
+      "_us_policy_scope": "out-of-jurisdiction",
+      "tags": [
+        "us-policy"
+      ],
+      "_cross_theme": {
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
+      }
     },
     {
       "id": "https://100milefreepress.net/2026/10/30/interlakes-community-buys-fire-department-a-new-pickup-truck/",
@@ -1262,7 +1294,7 @@
       "_quality": 50,
       "_relevance": 0,
       "_local": 85,
-      "_theme_score": 79,
+      "_theme_score": 78,
       "_theme_score_raw": 22,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1277,134 +1309,6 @@
         "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-11-06T06:11:15.551820+00:00"
       }
-    },
-    {
-      "id": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
-      "url": "https://www.theverge.com/policy/1021554/anduril-bluechip-65-percent-domestic-buy-american",
-      "title": "[The Verge] Anduril now says its BlueChip laptop will meet Buy American standards at launch",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theverge.com%2Fpolicy%2F1021554%2Fanduril-bluechip-65-percent-domestic-buy-american\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nOn Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a single Made-in-USA laptop would be a surprise, because no […]",
-      "summary": "On Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a",
-      "_excerpt": "On Tuesday, defense contractor Anduril and chipmaker Qualcomm announced a partnership to build laptops entirely in the United States, starting with a single model in 2027. They also announced a \"long-term goal\" of pushing the computer industry to create \"a fully domestic supply chain.\" Even a single Made-in-USA laptop would be a surprise, because no […]",
-      "date_published": "2026-10-29T02:22:46+00:00",
-      "authors": [
-        {
-          "name": "The Verge",
-          "url": "https://www.theverge.com"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 66,
-      "_theme_score_raw": 8,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News",
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-11-04T06:10:48.905611+00:00"
-      }
-    },
-    {
-      "id": "https://flowingdata.com/2026/10/29/cost-of-college-versus-the-return-on-investement/",
-      "url": "https://flowingdata.com/2026/10/29/cost-of-college-versus-the-return-on-investement/",
-      "title": "[FlowingData] Cost of college versus the return on investement",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fflowingdata.com%2F2026%2F10%2F29%2Fcost-of-college-versus-the-return-on-investement%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><a href=\"https://flowingdata.com/2026/10/29/cost-of-college-versus-the-return-on-investement/\"><img src=\"https://flowingdata.com/wp-content/uploads/2026/10/college-cost-income-750x595.png\" style=\"height:auto;\"/></a></p>For the New York Times, Arfa Momin and Ron Lieber charted median income…<p><strong>Tags:</strong> <a href=\"https://flowingdata.com/tag/college/\" rel=\"tag\">college</a>, <a href=\"https://flowingdata.com/tag/education/\" rel=\"tag\">education</a>, <a href=\"https://flowingdata.com/tag/income/\" rel=\"tag\">income</a>, <a href=\"https://flowingdata.com/tag/new-york-times/\" rel=\"tag\">New York Times</a></p>",
-      "summary": "For the New York Times, Arfa Momin and Ron Lieber charted median income… Tags: college , education , income , New York Times",
-      "_excerpt": "For the New York Times, Arfa Momin and Ron Lieber charted median income… Tags: college , education , income , New York Times",
-      "date_published": "2026-10-29T07:31:11+00:00",
-      "authors": [
-        {
-          "name": "FlowingData",
-          "url": "https://flowingdata.com"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 66,
-      "_theme_score_raw": 8,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true
-    },
-    {
-      "id": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
-      "url": "https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/?utm_source=rss",
-      "title": "[Neowin] Anduril and Qualcomm want to build an American laptop that doesn't depend on China",
-      "content_html": "<img src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_full.webp\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.neowin.net%2Fnews%2Fanduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china%2F%3Futm_source%3Drss\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<div style=\"float:left;margin-right:10px;\"><img alt=\"\" src=\"https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_medium.webp\"/></div>Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. <a href=\"https://www.neowin.net/news/anduril-and-qualcomm-want-to-build-an-american-laptop-that-doesnt-depend-on-china/\">Read more...</a>",
-      "summary": "Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. Read more...",
-      "_excerpt": "Anduril is teaming up with Qualcomm to break into personal computing, announcing an ambitious hardware lineup dubbed BlueChip. Read more...",
-      "date_published": "2026-10-27T17:26:01+00:00",
-      "authors": [
-        {
-          "name": "Neowin",
-          "url": "https://www.neowin.net"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 66,
-      "_theme_score_raw": 8,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "image": "https://cdn.neowin.com/news/images/uploaded/2026/10/1793120152_anduril_bluechip_full.webp",
-      "_cross_theme": {
-        "day": "wednesday",
-        "label": "Repair Culture & Practical Tech",
-        "shown_at": "2026-11-04T06:10:48.905611+00:00"
-      }
-    },
-    {
-      "id": "https://www.mining.com/faster-mine-approvals-start-with-better-project-planning-bba-says/",
-      "url": "https://www.mining.com/faster-mine-approvals-start-with-better-project-planning-bba-says/",
-      "title": "[Mining.com] Faster mine approvals start with better project planning, BBA says",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mining.com%2Ffaster-mine-approvals-start-with-better-project-planning-bba-says%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWhile unpredictable regulatory processes remain a challenge, companies can improve their prospects by resolving critical questions earlier and bringing technical, environmental and social teams together.",
-      "summary": "While unpredictable regulatory processes remain a challenge, companies can improve their prospects by resolving critical questions earlier and bringing technical, environmental and social teams together.",
-      "_excerpt": "While unpredictable regulatory processes remain a challenge, companies can improve their prospects by resolving critical questions earlier and bringing technical, environmental and social teams together.",
-      "date_published": "2026-11-05T22:42:51+00:00",
-      "authors": [
-        {
-          "name": "Mining.com",
-          "url": "https://www.mining.com"
-        }
-      ],
-      "ai_score": 48,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 93,
-      "_theme_score_raw": 60,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true
     },
     {
       "id": "https://www.smallfarmcanada.ca/news/pei-farmers-can-dispose-of-old-pesticides-and-livestock-medi/",
@@ -1424,7 +1328,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 96,
+      "_theme_score": 95,
       "_theme_score_raw": 66,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1454,7 +1358,7 @@
       "_quality": 55,
       "_relevance": 72,
       "_local": 30,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 45,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1466,9 +1370,9 @@
       "_thin_body": true,
       "image": "https://www.smallfarmcanada.ca/downloads/935/download/carrots-2-pexels-markus-spiske-1268101.jpg?cb=c8b3a2ea38e95dc3051d6e5fbfe6b30c",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -1489,7 +1393,7 @@
       "_quality": 75,
       "_relevance": 0,
       "_local": 30,
-      "_theme_score": 58,
+      "_theme_score": 57,
       "_theme_score_raw": 6,
       "_kite_sources": 9,
       "_kite_context": "Where: Kramatorsk, Ukraine\nPerspective: Emma Hamill, B.C. SPCA regional manager of animal care services: Hamill said Adams was collaborative and open-minded, and could build relationships with vulnerable people in remote communities where larger organizations may have limited reach (cbc.ca). (CBC News)\nPerspective: Savannah Eanes, RainCoast adopter and friend: Eanes said Adams was central to RainCoast’s advocacy and fundraising, and that his death left her wondering what would happen next for the charity (cbc.ca). (CBC News)\nPerspective: Penny Stone, Victoria Humane Society executive director: Stone said Adams routinely took on animals others might find too large, small, frightening or aggressive (cbc.ca). (CBC News)\nQuote: \"It breaks my heart that we even have to do this type of work, but it is my privilege and honor to be a small part of helping these animals reach a better life for themselves and their families, or to be adopted into new families.\" (Jesse Adams, co-founder of RainCoast Dog Rescue Society, CBC News)\nTimeline: 20 October 2026: Adams said his team evacuated 80 dogs and cats from Kramatorsk (cbc.ca)\nTimeline: 23 October 2026: Adams described an evacuation mission near Kramatorsk amid daily attacks (theglobeandmail.com)\nTimeline: 25 October 2026: A drone struck Adams’s animal-evacuation vehicle; he later died (suspilne.media, timescolonist.com)",
@@ -1500,10 +1404,103 @@
       "_is_bonus": true,
       "image": "https://kagiproxy.com/img/KCv1AeT22LwcdAMAXLDp7JPSsLrKYdQMdLpRcf0DmQneJvCI53M4R-dRiE5u7No2E5_tIRejlzUKu-fJJb49LsWTijRSyHLx55PzACgGguxwgZHPeuxicBf-a2V1hC0XONkyHTEgBnQcUVpOe2jihXIqX68FPiVv359LUXGKfh71jbhCuXpigrFRke8FiP7xhygI5fKKGAAhF0lFcxqxH2sN28UvuCMSirQN-fVEDFitqYNxElxdTVo9ccNaYZRvTUjH_xSKdatJTzNycQ",
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-06T06:11:15.551820+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
+    },
+    {
+      "id": "https://www.mining.com/faster-mine-approvals-start-with-better-project-planning-bba-says/",
+      "url": "https://www.mining.com/faster-mine-approvals-start-with-better-project-planning-bba-says/",
+      "title": "[Mining.com] Faster mine approvals start with better project planning, BBA says",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.mining.com%2Ffaster-mine-approvals-start-with-better-project-planning-bba-says%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nWhile unpredictable regulatory processes remain a challenge, companies can improve their prospects by resolving critical questions earlier and bringing technical, environmental and social teams together.",
+      "summary": "While unpredictable regulatory processes remain a challenge, companies can improve their prospects by resolving critical questions earlier and bringing technical, environmental and social teams together.",
+      "_excerpt": "While unpredictable regulatory processes remain a challenge, companies can improve their prospects by resolving critical questions earlier and bringing technical, environmental and social teams together.",
+      "date_published": "2026-11-05T22:42:51+00:00",
+      "authors": [
+        {
+          "name": "Mining.com",
+          "url": "https://www.mining.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 91,
+      "_theme_score_raw": 60,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 61,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true
+    },
+    {
+      "id": "https://vancouversun.com/news/bc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline",
+      "url": "https://vancouversun.com/news/bc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline",
+      "title": "[Vancouver Sun] B.C. First Nations file court challenge against the proposed Pacific Link pipeline",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fvancouversun.com%2Fnews%2Fbc-first-nations-file-court-challenge-against-proposed-pacific-link-pipeline\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nChiefs say Prime Minister Carney announced project under Build Canada Act without consulting First Nations potentially affected by pipeline",
+      "summary": "Chiefs say Prime Minister Carney announced project under Build Canada Act without consulting First Nations potentially affected by pipeline",
+      "_excerpt": "Chiefs say Prime Minister Carney announced project under Build Canada Act without consulting First Nations potentially affected by pipeline",
+      "date_published": "2026-11-02T23:01:35+00:00",
+      "authors": [
+        {
+          "name": "Vancouver Sun",
+          "url": "https://vancouversun.com/news/bc-wildfires-new-evacuation-orders-issued-south-chilcotin"
+        }
+      ],
+      "ai_score": 64,
+      "_quality": 68,
+      "_relevance": 72,
+      "_local": 35,
+      "_theme_score": 80,
+      "_theme_score_raw": 26,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 61,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+      }
+    },
+    {
+      "id": "https://www.smallfarmcanada.ca/news/canadian-alpaca-producers-seek-fibre-processing-solution-to-/",
+      "url": "https://www.smallfarmcanada.ca/news/canadian-alpaca-producers-seek-fibre-processing-solution-to-/",
+      "title": "[Small Farm Canada] Canadian Alpaca Producers Seek Fibre Processing Solution to Build Value at Home",
+      "content_html": "<img src=\"https://www.smallfarmcanada.ca/downloads/948/download/timothy-eberly-guVbGnjpenU-unsplash.jpg?cb=5c58984a20154ccfcf43e8629f3d3a66\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.smallfarmcanada.ca%2Fnews%2Fcanadian-alpaca-producers-seek-fibre-processing-solution-to-%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA producer-led effort is underway to strengthen Canada's alpaca fibre industry by securing specialized processing equipment that could help farmers turn raw fleece into value-added yarns and textile products.",
+      "summary": "A producer-led effort is underway to strengthen Canada's alpaca fibre industry by securing specialized processing equipment that could help farmers turn raw fleece into value-added yarns and textile products.",
+      "_excerpt": "A producer-led effort is underway to strengthen Canada's alpaca fibre industry by securing specialized processing equipment that could help farmers turn raw fleece into value-added yarns and textile products.",
+      "date_published": "2026-10-26T14:16:23+00:00",
+      "authors": [
+        {
+          "name": "Small Farm Canada",
+          "url": "https://www.smallfarmcanada.ca"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 91,
+      "_theme_score_raw": 60,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 60,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://www.smallfarmcanada.ca/downloads/948/download/timothy-eberly-guVbGnjpenU-unsplash.jpg?cb=5c58984a20154ccfcf43e8629f3d3a66"
     },
     {
       "id": "https://www.theguardian.com/global-development/2026/oct/30/electrocutions-disease-and-no-pay-how-workers-risk-exploitation-in-europes-datacentres",
@@ -1523,19 +1520,19 @@
       "_quality": 90,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 58,
+      "_theme_score": 57,
       "_theme_score_raw": 6,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 61,
+      "_composite_podcast": 60,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-06T06:11:15.551820+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -1556,11 +1553,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 86,
       "_theme_score_raw": 48,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 61,
+      "_composite_podcast": 60,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1585,11 +1582,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 89,
+      "_theme_score": 87,
       "_theme_score_raw": 50,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 61,
+      "_composite_podcast": 60,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
@@ -1614,7 +1611,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 90,
+      "_theme_score": 89,
       "_theme_score_raw": 55,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1637,40 +1634,6 @@
       }
     },
     {
-      "id": "https://macleans.ca/economy/business/the-case-for-nationalizing-stelco/",
-      "url": "https://macleans.ca/economy/business/the-case-for-nationalizing-stelco/",
-      "title": "[Maclean's] The Case for Nationalizing Stelco",
-      "content_html": "<img src=\"https://macleans.mblycdn.com/uploads/mac/2026/11/GettyImages-2260212731.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fmacleans.ca%2Feconomy%2Fbusiness%2Fthe-case-for-nationalizing-stelco%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<img src=\"https://macleans.mblycdn.com/uploads/mac/2026/11/GettyImages-2260212731.jpg\"/>Canada should seize control of local steel production from its Trump-aligned parent company",
-      "summary": "Canada should seize control of local steel production from its Trump-aligned parent company",
-      "_excerpt": "Canada should seize control of local steel production from its Trump-aligned parent company",
-      "date_published": "2026-11-06T17:34:44+00:00",
-      "authors": [
-        {
-          "name": "Maclean's",
-          "url": "https://macleans.ca"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 86,
-      "_theme_score_raw": 40,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 60,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "image": "https://macleans.mblycdn.com/uploads/mac/2026/11/GettyImages-2260212731.jpg",
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
-    },
-    {
       "id": "https://www.theglobeandmail.com/canada/article-lytton-bc-mayor-election-tie-thoss/",
       "url": "https://www.theglobeandmail.com/canada/article-lytton-bc-mayor-election-tie-thoss/",
       "title": "[theglobeandmail.com] Random draw makes Jennifer Thoss Lytton’s mayor after 45-45 tie",
@@ -1688,7 +1651,7 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 66,
+      "_theme_score": 65,
       "_theme_score_raw": 8,
       "_kite_sources": 3,
       "_kite_context": "Where: Lytton, BC, Canada\nPerspective: Jennifer Thoss, incoming mayor: Thoss said a runoff election would make more sense than a draw and that the tied race had prompted her to review the elections bylaw (cbc.ca). (CBC News)\nQuote: \"“dwelling on the negative”\" (Denise O’Connor, incumbent mayor of Lytton, The Globe and Mail)\nTimeline: 2021: Wildfire killed two people and destroyed most of Lytton’s structures (theglobeandmail.com)\nTimeline: 2022: Thoss joined council; O’Connor won the mayoralty (sootoday.com)\nTimeline: 17 October 2026: Mayoral candidates each received 45 votes in village election (cbc.ca, theglobeandmail.com)\nTimeline: 27 October 2026: Recount confirmed tie before random draw selected Thoss (cbc.ca, sootoday.com)\nBackground: The fire destroyed Lytton’s health centre, bank and municipal office (theglobeandmail.com).",
@@ -1699,9 +1662,9 @@
       "_is_bonus": true,
       "image": "https://kagiproxy.com/img/whbtu_l9nCZgQb-FuW6TSYsOJdaizFNxhN6cvUHkH3M9tZWoCdXOkrS4Suq-stvQuNEgAhXaWEVecJayO2NhxVOEZaWW9C9GWwhHXRep-EbelgbJmNjPo1SS8_ZZlCuzwB8pJadv694-C3SqAaq_0N5oz5tIS9GXnmvDbOh9brYIWGOhWLSSWQt4n7Mcs6U-DpQZE8g7WWJ8ld9xSBMyIKm5BWVh6yUy_O_UOLbilO1BS-j7WZBrgZPGOIaFewx9VKRutLXStBvV7SLtQg",
       "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-06T06:11:15.551820+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -1722,7 +1685,7 @@
       "_quality": 68,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 66,
+      "_theme_score": 65,
       "_theme_score_raw": 8,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1732,45 +1695,43 @@
       "_source_category": "wellness",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
-      "id": "https://news.mit.edu/2026/fabric-molds-could-bring-material-saving-concrete-beams-within-reach-1106",
-      "url": "https://news.mit.edu/2026/fabric-molds-could-bring-material-saving-concrete-beams-within-reach-1106",
-      "title": "[MIT News] Fabric molds could bring material-saving concrete beams within reach",
-      "content_html": "<img src=\"https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202610/MIT-CEE-concrete-beams.jpg?itok=VmS0O-Tb\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnews.mit.edu%2F2026%2Ffabric-molds-could-bring-material-saving-concrete-beams-within-reach-1106\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMIT engineers cast a concrete beam using a sewn fabric mold with one-third the amount of concrete and half as much steel as a conventional beam.",
-      "summary": "MIT engineers cast a concrete beam using a sewn fabric mold with one-third the amount of concrete and half as much steel as a conventional beam.",
-      "_excerpt": "MIT engineers cast a concrete beam using a sewn fabric mold with one-third the amount of concrete and half as much steel as a conventional beam.",
-      "date_published": "2026-11-06T19:35:00+00:00",
+      "id": "https://www.scientificamerican.com/article/acorns-not-deer-can-predict-a-rise-in-lyme-spreading-ticks/",
+      "url": "https://www.scientificamerican.com/article/acorns-not-deer-can-predict-a-rise-in-lyme-spreading-ticks/",
+      "title": "[Scientific American] Acorns—not deer—can predict a rise in Lyme-spreading ticks",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Facorns-not-deer-can-predict-a-rise-in-lyme-spreading-ticks%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Despite deer’s essential role in tick reproduction, looking to acorn numbers instead can forecast Lyme disease booms almost two years in advance</p>",
+      "summary": "Despite deer’s essential role in tick reproduction, looking to acorn numbers instead can forecast Lyme disease booms almost two years in advance",
+      "_excerpt": "Despite deer’s essential role in tick reproduction, looking to acorn numbers instead can forecast Lyme disease booms almost two years in advance",
+      "date_published": "2026-11-08T12:00:00+00:00",
       "authors": [
         {
-          "name": "MIT News",
-          "url": ""
+          "name": "Scientific American",
+          "url": "https://www.scientificamerican.com"
         }
       ],
-      "ai_score": 56,
-      "_quality": 70,
-      "_relevance": 70,
+      "ai_score": 60,
+      "_quality": 85,
+      "_relevance": 72,
       "_local": 0,
-      "_theme_score": 79,
-      "_theme_score_raw": 22,
+      "_theme_score": 76,
+      "_theme_score_raw": 18,
       "_kite_sources": 0,
       "_kite_context": "",
       "_composite_podcast": 54,
       "_keyword_matches": 0,
-      "_category": "design",
-      "_source_category": "design",
+      "_category": "science",
+      "_source_category": "science",
       "_is_bonus": true,
       "_thin_body": true,
-      "image": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202610/MIT-CEE-concrete-beams.jpg?itok=VmS0O-Tb",
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
-      }
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
     },
     {
       "id": "https://techxplore.com/news/2026-11-marvell-lumentum-merge-billion-ai.html",
@@ -1790,16 +1751,45 @@
       "_quality": 74,
       "_relevance": 72,
       "_local": 0,
-      "_theme_score": 71,
+      "_theme_score": 69,
       "_theme_score_raw": 10,
       "_kite_sources": 15,
       "_kite_context": "Perspective: Axel Rudolph, IG Group’s chief technical analyst, said investors were justified in questioning whether Marvell was paying too much and taking on too much at once (reuters.com). (Reuters)\nQuote: \"The companies that move first and help define this transition will set the standard for decades to come.\" (Matt Murphy, Marvell chairman and chief executive, Tech Xplore)\nTimeline: February 2026: Marvell completed its $3.5 billion purchase of photonics startup Celestial AI (reuters.com, cnbc.com).\nTimeline: August 2026: Marvell agreed to supply Google chips alongside its AI processors (reuters.com, globo.com).\nTimeline: 2 November 2026: Marvell announced its proposed Lumentum acquisition (reuters.com, cbsnews.com).",
-      "_composite_podcast": 54,
+      "_composite_podcast": 52,
       "_keyword_matches": 0,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
       "image": "https://www.google.com/s2/favicons?domain=techxplore.com&sz=128"
+    },
+    {
+      "id": "https://www.sciencedaily.com/releases/2026/10/261031013035.htm",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261031013035.htm",
+      "title": "[ScienceDaily] Common pesticide linked to 2.5 times the risk of Parkinson’s disease",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F10%2F261031013035.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA UCLA study found that long-term exposure to a common pesticide was linked to more than 2.5 times the risk of Parkinson's disease. Scientists also uncovered how the chemical damages brain cells and identified a promising way to protect them.",
+      "summary": "A UCLA study found that long-term exposure to a common pesticide was linked to more than 2.5 times the risk of Parkinson's disease. Scientists also uncovered how the chemical damages brain cells and identified a promising way to protect them.",
+      "_excerpt": "A UCLA study found that long-term exposure to a common pesticide was linked to more than 2.5 times the risk of Parkinson's disease. Scientists also uncovered how the chemical damages brain cells and identified a promising way to protect them.",
+      "date_published": "2026-11-01T12:33:13+00:00",
+      "authors": [
+        {
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com"
+        }
+      ],
+      "ai_score": 45,
+      "_quality": 74,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 69,
+      "_theme_score_raw": 10,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 49,
+      "_keyword_matches": 0,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": true,
+      "_thin_body": true
     },
     {
       "id": "https://www.sciencedaily.com/releases/2026/10/261027231200.htm",
@@ -1832,39 +1822,6 @@
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-11-06T06:11:15.551820+00:00"
-      }
-    },
-    {
-      "id": "https://www.sciencedaily.com/releases/2026/10/261030002931.htm",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261030002931.htm",
-      "title": "[ScienceDaily] Astronauts just gave the International Space Station a powerful upgrade",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencedaily.com%2Freleases%2F2026%2F10%2F261030002931.htm\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTwo astronauts completed a 7-hour, 11-minute spacewalk to install a new solar array on the International Space Station, bringing NASA one step closer to a major power upgrade. Once the final array is installed on November 5, the station will have up to 30% more available power, supporting critical operations and its eventual controlled deorbit.",
-      "summary": "Two astronauts completed a 7-hour, 11-minute spacewalk to install a new solar array on the International Space Station, bringing NASA one step closer to a major power upgrade. Once the final array is installed on November 5, the station will have up to 30% more available power, supporting critical",
-      "_excerpt": "Two astronauts completed a 7-hour, 11-minute spacewalk to install a new solar array on the International Space Station, bringing NASA one step closer to a major power upgrade. Once the final array is installed on November 5, the station will have up to 30% more available power, supporting critical operations and its eventual controlled deorbit.",
-      "date_published": "2026-10-30T06:12:55+00:00",
-      "authors": [
-        {
-          "name": "ScienceDaily",
-          "url": "https://www.sciencedaily.com"
-        }
-      ],
-      "ai_score": 42,
-      "_quality": 60,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 43,
-      "_theme_score_raw": 4,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 48,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
       }
     },
     {
@@ -1914,16 +1871,21 @@
       "_quality": 80,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 53,
+      "_theme_score": 51,
       "_theme_score_raw": 5,
       "_kite_sources": 34,
       "_kite_context": "Perspective: U.K. National Cyber Security Centre: The agency said defensive AI tools can shorten the time between discovering a zero-day and making the vulnerability known, but systems remain exposed when those tools are not correctly and widely configured. It urged (The Hacker News)\nPerspective: OpenAI: Safety lead Fouad Matin clarified that the company could use Daybreak session data for safety purposes, while customers could continue opting out of model training (cyberscoop.com). (CyberScoop)\nQuote: \"So we’ve been working on trying to make sure the model is really good at both listening to your instructions on what you should touch and what you should not touch inside a particular codebase or company.\" (Eric Wallace, OpenAI researcher focused on training, evaluation and sandboxing, CyberScoop)\nTimeline: July 2026: GPT-5.6 Sol generated 166 exploits using the same research setup (cybersecuritynews.com)\nTimeline: October 2026: A 30-hour Linux campaign generated 948 working privilege-escalation exploits (thehackernews.com)\nTimeline: 27 October 2026: Firefox 159 shipped fixes covered by Mozilla advisory MFSA 2026-118 (cybersecuritynews.com)\nTimeline: 5 November 2026: OpenAI announced GPT-6 Cyber for selected Daybreak Red customers (reuters.com)\nBackground: OpenAI built its scope test around the Hugging Face incident, in which its agents escaped internal sandbox testing and accessed part of the AI code repository (cyberscoop.com, theverge.com).",
-      "_composite_podcast": 47,
+      "_composite_podcast": 46,
       "_keyword_matches": 0,
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
-      "image": "https://kagiproxy.com/img/eWEejSCQCR3warI9a1kySuUvUnQPiacq3H55WN0XCTKTGEStfTIMLyJkjys8727v0kq0iohunpJ59yYT72VnsaUpXIYdkMH_c_hWFRxNKuIfoCXwyGTphXuhCjuDULnscsAdg9FHRXAcIiiSGCXQ8hGgyCcFi7UqNLC8kMuQaDM3dZ85Iw"
+      "image": "https://kagiproxy.com/img/eWEejSCQCR3warI9a1kySuUvUnQPiacq3H55WN0XCTKTGEStfTIMLyJkjys8727v0kq0iohunpJ59yYT72VnsaUpXIYdkMH_c_hWFRxNKuIfoCXwyGTphXuhCjuDULnscsAdg9FHRXAcIiiSGCXQ8hGgyCcFi7UqNLC8kMuQaDM3dZ85Iw",
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
+      }
     },
     {
       "id": "https://www.outsideonline.com/outdoor-adventure/exploration-survival/college-student-outdoor-rec-club-deaths/",
@@ -1957,9 +1919,9 @@
       ],
       "_subscriber_access": "Apple News+",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -1980,49 +1942,16 @@
       "_quality": 62,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 53,
+      "_theme_score": 51,
       "_theme_score_raw": 5,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 41,
+      "_composite_podcast": 40,
       "_keyword_matches": 1,
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
       "_thin_body": true
-    },
-    {
-      "id": "https://www.sciencealert.com/las-eaton-fire-exposed-7-million-residents-to-lead-80-times-above-normal-levels",
-      "url": "https://www.sciencealert.com/las-eaton-fire-exposed-7-million-residents-to-lead-80-times-above-normal-levels",
-      "title": "[ScienceAlert] 7 Million Americans Were Exposed to Lead at 80x Normal Levels During LA's Eaton Fire",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.sciencealert.com%2Flas-eaton-fire-exposed-7-million-residents-to-lead-80-times-above-normal-levels\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p><img alt=\"7 Million Americans Were Exposed to Lead at 80x Normal Levels During LA's Eaton Fire\" class=\"attachment-large size-large wp-post-image\" height=\"675\" src=\"https://www.sciencealert.com/images/2026/10/AP25015470849207-2560x1440-1-1200x675.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1200\"/>50 times more lead than a forest fire.</p><p><a href=\"https://www.sciencealert.com/newsletter?utm_source=rss_feed&amp;utm_medium=feed&amp;utm_campaign=rss_feed_promo\" rel=\"noopener noreferrer\" target=\"_blank\">ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.</a></p>",
-      "summary": "50 times more lead than a forest fire. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "_excerpt": "50 times more lead than a forest fire. ScienceAlert stories are written, fact-checked, and edited by humans, never generated by AI. Don't miss a story, subscribe here.",
-      "date_published": "2026-10-28T18:00:00+00:00",
-      "authors": [
-        {
-          "name": "ScienceAlert",
-          "url": "https://www.sciencealert.com"
-        }
-      ],
-      "ai_score": 45,
-      "_quality": 74,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 27,
-      "_theme_score_raw": 3,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 39,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
-      }
     },
     {
       "id": "https://newatlas.com/space/largest-camera-new-world-beyond-pluto/",
@@ -2042,15 +1971,20 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 27,
+      "_theme_score": 26,
       "_theme_score_raw": 3,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 37,
+      "_composite_podcast": 36,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_cross_theme": {
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
+      }
     },
     {
       "id": "https://www.techradar.com/pro/drones-can-now-be-tracked-down-by-mobile-networks-alone-could-this-new-ericsson-tech-spell-the-end-for-the-current-crop-of-flying-uavs",
@@ -2100,7 +2034,7 @@
       "_quality": 72,
       "_relevance": 90,
       "_local": 0,
-      "_theme_score": 27,
+      "_theme_score": 26,
       "_theme_score_raw": 3,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -2110,9 +2044,9 @@
       "_source_category": "homelab",
       "_is_bonus": true,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -2133,7 +2067,7 @@
       "_quality": 68,
       "_relevance": 78,
       "_local": 0,
-      "_theme_score": 27,
+      "_theme_score": 26,
       "_theme_score_raw": 3,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -2144,9 +2078,9 @@
       "_is_bonus": true,
       "image": "https://passivehouseplus.co.uk/media/k2/items/cache/510f319cf8228eaeec295d7874fc6996_S.jpg",
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-07T06:09:30.411403+00:00"
+        "day": "monday",
+        "label": "Arts, Culture & Digital Storytelling",
+        "shown_at": "2026-11-09T06:07:14.687475+00:00"
       }
     },
     {
@@ -2167,7 +2101,7 @@
       "_quality": 65,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 58,
+      "_theme_score": 57,
       "_theme_score_raw": 6,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -2189,34 +2123,6 @@
       }
     },
     {
-      "id": "https://passivehousenetwork.org/blog/designph_3_is_here/",
-      "url": "https://passivehousenetwork.org/blog/designph_3_is_here/",
-      "title": "[The Passive House Network] designPH 3.0 is here!",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fpassivehousenetwork.org%2Fblog%2Fdesignph_3_is_here%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\ndesignPH 3.0 is here!  The latest version of designPH has been released. designPH is a SketchUp plugin developed by the Passive House Institute. It provides an interactive 3D interface for use by the PHPP, accelerating your ability to design with Passive House through automatic analysis, visual verification, and smart workflows.  [...]",
-      "summary": "designPH 3.0 is here! The latest version of designPH has been released. designPH is a SketchUp plugin developed by the Passive House Institute. It provides an interactive 3D interface for use by the PHPP, accelerating your ability to design with Passive House through automatic analysis, visual",
-      "_excerpt": "designPH 3.0 is here! The latest version of designPH has been released. designPH is a SketchUp plugin developed by the Passive House Institute. It provides an interactive 3D interface for use by the PHPP, accelerating your ability to design with Passive House through automatic analysis, visual verification, and smart workflows. [...]",
-      "date_published": "2026-11-06T20:17:50+00:00",
-      "authors": [
-        {
-          "name": "The Passive House Network",
-          "url": "https://passivehousenetwork.org/featured/mass-timber-passive-house/"
-        }
-      ],
-      "ai_score": 57,
-      "_quality": 60,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 27,
-      "_theme_score_raw": 3,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 29,
-      "_keyword_matches": 0,
-      "_category": "design",
-      "_source_category": "design",
-      "_is_bonus": true
-    },
-    {
       "id": "https://www.tomshardware.com/tech-industry/cyber-security/php-vulnerability-post-mortem-reveals-bug-was-known-two-years-ago-small-team-of-maintainers-knew-of-the-issue-before-it-was-made-public-as-new-php2shell-chained-exploit-ravages-servers",
       "url": "https://www.tomshardware.com/tech-industry/cyber-security/php-vulnerability-post-mortem-reveals-bug-was-known-two-years-ago-small-team-of-maintainers-knew-of-the-issue-before-it-was-made-public-as-new-php2shell-chained-exploit-ravages-servers",
       "title": "[Tom's Hardware] PHP vulnerability post-mortem reveals bug was known two years ago — Small team of maintainers knew of the issue before it was made public, as new PHP2Shell chained exploit ravages servers",
@@ -2234,11 +2140,11 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 27,
+      "_theme_score": 26,
       "_theme_score_raw": 3,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 24,
+      "_composite_podcast": 23,
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
@@ -2284,10 +2190,40 @@
         "us-policy"
       ],
       "_cross_theme": {
-        "day": "monday",
-        "label": "Arts, Culture & Digital Storytelling",
-        "shown_at": "2026-11-02T06:06:39.404767+00:00"
+        "day": "sunday",
+        "label": "Science, Wonder & the Natural World",
+        "shown_at": "2026-11-08T06:08:46.990645+00:00"
       }
+    },
+    {
+      "id": "https://www.howtogeek.com/local-llm-control-thermostat-versus-nest-and-ecobee/",
+      "url": "https://www.howtogeek.com/local-llm-control-thermostat-versus-nest-and-ecobee/",
+      "title": "[How-To Geek] I let a local LLM control my thermostat to see if it could beat Nest and Ecobee",
+      "content_html": "<img src=\"https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/10/a-tado-smart-thermostat-on-a-shelf-display-a-temperature-of-18-degrees.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🌾 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.howtogeek.com%2Flocal-llm-control-thermostat-versus-nest-and-ecobee%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe heat is on.",
+      "summary": "The heat is on.",
+      "_excerpt": "The heat is on.",
+      "date_published": "2026-11-01T23:30:14+00:00",
+      "authors": [
+        {
+          "name": "How-To Geek",
+          "url": "https://www.howtogeek.com"
+        }
+      ],
+      "ai_score": 39,
+      "_quality": 45,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 2,
+      "_theme_score_raw": 2,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 0,
+      "_keyword_matches": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "_thin_body": true,
+      "image": "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/wm/2026/10/a-tado-smart-thermostat-on-a-shelf-display-a-temperature-of-18-degrees.png"
     }
   ]
 }
