@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-09.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-09.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 9, 2026",
+      "content_html": "<p class=\"meta\">Focus: Film &amp; Screen (week 1 of 4).</p>\n<div class=\"verdict lvl-bad\"><span class=\"icon\">✕</span><div><strong>No episode</strong>No run produced an episode today.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the failed run's log. A later rung shipping does not make it a non-event: it spent a retry window.</strong><br/><span class=\"evidence\">failed: Primary (1:05 AM Pacific) — Cloudflare scheduler, Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>Both scheduled runs failed, and the third is the one writing this review</h3>\n<p>The primary run created at <code>1:05 AM Pacific</code> finished at <code>1:19 AM Pacific</code> with a conclusion of failure. The first fallback, created at <code>2:05 AM Pacific</code>, finished at <code>2:07 AM Pacific</code> and also failed. The second fallback, created at <code>3:05 AM Pacific</code>, is the run producing this review, so it has no outcome yet. None of the three started late; all three fired on schedule from the Cloudflare scheduler.</p>\n<p>The gap between the primary and the first fallback is the notable part. The primary ran for 14 minutes before failing, while the fallback ended in two. Whatever broke the primary was not present, or was not reached, in the second attempt. The run logs are the place to find out which step failed in each case; the facts here do not name the failing step.</p>\n<h3>The checkout step was the only slow step on record</h3>\n<p>The \"Checkout repository\" step succeeded but took <code>71.0</code> seconds, which is the only step flagged as slow tonight. A checkout that long is unusual for a repository of this kind and is worth comparing against earlier nights. It did not cause a failure, so it is not the explanation for the two failed runs.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>failure</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>failure</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Anthropic input tokens</td><td>0</td></tr>\n<tr><td>API calls</td><td>}</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-09T10:08:26+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://wltribune.com/2026/11/08/baby-fest-showcases-available-resources-supports-in-williams-lake/",
       "url": "https://wltribune.com/2026/11/08/baby-fest-showcases-available-resources-supports-in-williams-lake/",
       "title": "🔓 [Williams Lake Tribune] Baby Fest showcases available resources, supports in Williams Lake",
