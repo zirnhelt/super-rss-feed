@@ -3,6 +3,17 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-09 (Monday)
+
+#### 🔧 Manual Run (10:10 PM Pacific)
+- ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
+- ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing, privacy
+
+
+---
+
+
+
 ## 2026-11-08 (Sunday)
 
 #### 🔧 Manual Run (10:08 PM Pacific)
@@ -89,19 +100,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ Kite News: not in this batch: canada | british columbia, climate change, cloud computing
-
-
----
-
-
-
-## 2026-11-01 (Sunday)
-
-#### 🔧 Manual Run (10:07 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing
 
 
 ---
@@ -1699,6 +1697,18 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-01–2026-11-01
+- 4 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing
 
 
 ---
