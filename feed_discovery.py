@@ -24,6 +24,7 @@ import api_usage
 import config_loader
 import cohere_integration
 from cache import atomic_write_json
+from sanitize import get_public
 from integrate_discoveries import is_comment_feed
 
 
@@ -93,6 +94,26 @@ FEED_PROBE_PATHS = ["/feed", "/rss", "/atom.xml", "/feed.xml", "/index.xml", "/r
 # limit and getting it cancelled with nothing saved.
 FEED_FETCH_TIMEOUT_SECS = 15
 socket.setdefaulttimeout(FEED_FETCH_TIMEOUT_SECS)
+
+# Candidate URLs come from search results and third-party pages, so every fetch goes
+# through get_public() (each hop checked by name and address, body capped), and the
+# parsed feed is kept for the run: validate, sample and title each used to refetch it.
+_PARSED_FEEDS: Dict[str, object] = {}
+
+
+def _fetch_feed(url: str):
+    """The parsed feed at ``url``, or None if it is not public or not fetchable. Memoised."""
+    if url not in _PARSED_FEEDS:
+        parsed = None
+        try:
+            resp = get_public(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; FeedDiscovery/1.0)'},
+                              timeout=FEED_FETCH_TIMEOUT_SECS)
+            if resp is not None and resp.ok:
+                parsed = feedparser.parse(resp.content)
+        except requests.RequestException:
+            pass
+        _PARSED_FEEDS[url] = parsed
+    return _PARSED_FEEDS[url]
 
 # Configuration
 DISCOVERY_CACHE_FILE = 'discovery_cache.json'
@@ -181,7 +202,9 @@ def _probe_page_for_feeds(page_url: str) -> List[str]:
     feeds = []
     try:
         headers = {'User-Agent': 'Mozilla/5.0 (compatible; FeedDiscovery/1.0)'}
-        resp = requests.get(page_url, headers=headers, timeout=10)
+        resp = get_public(page_url, headers=headers, timeout=10)
+        if resp is None:
+            return []
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, 'html.parser')
         for link in soup.find_all('link', attrs={'rel': 'alternate'}):
@@ -205,8 +228,8 @@ def _probe_page_for_feeds(page_url: str) -> List[str]:
         base = f"{parsed.scheme}://{parsed.netloc}"
         for path in FEED_PROBE_PATHS:
             try:
-                r = requests.head(base + path, timeout=5, allow_redirects=True)
-                if r.status_code == 200:
+                r = get_public(base + path, timeout=5)
+                if r is not None and r.status_code == 200:
                     feeds.append(base + path)
                     break
             except Exception:
@@ -218,8 +241,8 @@ def _probe_page_for_feeds(page_url: str) -> List[str]:
 def _validate_feed_url(url: str) -> bool:
     """Return True if feedparser can parse the URL and finds at least one entry."""
     try:
-        parsed = feedparser.parse(url)
-        return not parsed.bozo and len(parsed.entries) > 0
+        parsed = _fetch_feed(url)
+        return parsed is not None and not parsed.bozo and len(parsed.entries) > 0
     except Exception:
         return False
 
@@ -477,7 +500,10 @@ class FeedDiscovery:
     def _sample_feed_articles(self, candidate: FeedCandidate) -> List[SimpleArticle]:
         """Sample recent articles from a feed candidate"""
         try:
-            parsed = feedparser.parse(candidate.url)
+            parsed = _fetch_feed(candidate.url)
+            if parsed is None:
+                candidate.error = 'feed not fetchable'
+                return []
             articles = []
             # Kite lists bare URLs; name the candidate from the feed itself.
             if candidate.title == _feed_host(candidate.url):
@@ -535,7 +561,7 @@ class FeedDiscovery:
                     if not _validate_feed_url(feed_url):
                         continue
                     seen_feed_urls.add(norm)
-                    parsed = feedparser.parse(feed_url)
+                    parsed = _fetch_feed(feed_url)
                     title = parsed.feed.get('title', '') or urlparse(feed_url).netloc
                     candidates.append(FeedCandidate(
                         title=title,

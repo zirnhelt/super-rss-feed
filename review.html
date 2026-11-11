@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- This page holds a GitHub token in memory and renders feed text. Scripts stay inline (the
+         handlers are inline), but nothing can load from elsewhere, and requests can only reach the
+         feed, the GitHub API and the podcast's review index. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.github.com https://zirnhelt.github.io; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
     <title>Near-Miss Article Review</title>
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#667eea">
@@ -822,7 +826,7 @@ function buildCardInner(idx) {
         const meta = CATEGORIES[slug];
         const selected = slug === category;
         return `<button class="category-chip ${selected ? 'chip-selected' : 'chip-unselected'}"
-            onclick="setCategory(${idx},'${slug}')">${escHtml(meta.emoji || '')} ${escHtml(meta.name || slug)}</button>`;
+            onclick="setCategory(${idx},${escAttr(JSON.stringify(slug))})">${escHtml(meta.emoji || '')} ${escHtml(meta.name || slug)}</button>`;
     }).join('') : '';
 
     const poolNote = art._in_podcast_pool === true  ? `<span class="pool-note in-pool">in the show's pool</span>`

@@ -23,6 +23,7 @@ fetches of article pages, whose bodies are republished as excerpts and images;
 import ipaddress
 import re
 import socket
+import time
 from typing import Any, Dict, Iterable, Optional, Union
 from urllib.parse import urljoin, urlsplit
 
@@ -181,6 +182,26 @@ def _resolves_public(host: str) -> bool:
     return bool(addresses) and all(a.is_global for a in addresses)
 
 
+MAX_BODY_BYTES = 5_000_000   # no article page is larger; a bigger body is a trap or a mistake
+MAX_FETCH_SECONDS = 30       # whole call, redirects included; `timeout=` only bounds each read
+
+
+def _read_capped(response: requests.Response, deadline: float) -> bool:
+    """Read the body into ``response``; False (closed) if too big, too slow or broken off."""
+    buf = bytearray()
+    try:
+        for chunk in response.iter_content(65536):
+            buf += chunk
+            if len(buf) > MAX_BODY_BYTES or time.monotonic() > deadline:
+                response.close()
+                return False
+    except requests.RequestException:
+        response.close()
+        return False
+    response._content, response._content_consumed = bytes(buf), True
+    return True
+
+
 def get_public(url: str, **kwargs: Any) -> Optional[requests.Response]:
     """``requests.get`` for a third-party URL, or None if any hop is not public.
 
@@ -188,17 +209,22 @@ def get_public(url: str, **kwargs: Any) -> Optional[requests.Response]:
     addresses before it is requested, so neither a public name pointing at a
     private address nor a redirect through one is fetched. Redirects are
     followed here (cookies carried, at most ``MAX_REDIRECTS``) so each hop is
-    checked.
+    checked. The body is capped at ``MAX_BODY_BYTES`` and the whole call at
+    ``MAX_FETCH_SECONDS``; a response over either is None.
     """
     # ponytail: resolve-and-check, not resolve-and-pin. requests resolves again, so a
     # DNS answer that changes between the two lookups still gets through (sources.md).
+    deadline = time.monotonic() + MAX_FETCH_SECONDS
     cookies = requests.cookies.RequestsCookieJar()
     for _ in range(MAX_REDIRECTS + 1):
         if not is_public_http_url(url) or not _resolves_public(urlsplit(url).hostname):
             return None
-        response = requests.get(url, allow_redirects=False, cookies=cookies, **kwargs)
+        response = requests.get(url, allow_redirects=False, cookies=cookies, stream=True, **kwargs)
         if not getattr(response, 'is_redirect', False):
-            return response if is_public_http_url(getattr(response, 'url', url)) else None
+            if not is_public_http_url(getattr(response, 'url', url)):
+                response.close()
+                return None
+            return response if _read_capped(response, deadline) else None
         cookies.update(response.cookies)
         url = urljoin(url, response.headers['location'])
         response.close()

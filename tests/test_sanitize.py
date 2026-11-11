@@ -295,7 +295,10 @@ class _Resp:
         pass
 
     def close(self):
-        pass
+        self.closed = True
+
+    def iter_content(self, size):
+        yield self.content
 
 
 # What each test hostname resolves to; anything else does not resolve.
@@ -367,6 +370,20 @@ def test_a_redirect_loop_gives_up(web):
     web.routes['https://news.test/a'] = lambda: _Resp('https://news.test/a', 302, location='https://news.test/a')
     assert s.get_public('https://news.test/a') is None
     assert len(web) == s.MAX_REDIRECTS + 1
+
+
+def test_a_huge_or_slow_body_is_dropped(web, monkeypatch):
+    big = _Resp('https://news.test/big')
+    big.content = b'x' * 2_000
+    monkeypatch.setattr(s, 'MAX_BODY_BYTES', 1_000)
+    web.routes['https://news.test/big'] = lambda: big
+    assert s.get_public('https://news.test/big') is None and big.closed
+
+    monkeypatch.setattr(s, 'MAX_BODY_BYTES', 5_000_000)
+    monkeypatch.setattr(s, 'MAX_FETCH_SECONDS', -1)
+    slow = _Resp('https://news.test/slow')
+    web.routes['https://news.test/slow'] = lambda: slow
+    assert s.get_public('https://news.test/slow') is None and slow.closed
 
 
 def test_a_public_page_is_still_read(web):
