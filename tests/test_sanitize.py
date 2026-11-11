@@ -295,7 +295,10 @@ class _Resp:
         pass
 
     def close(self):
-        pass
+        self.closed = True
+
+    def iter_content(self, size):
+        yield self.content
 
 
 # What each test hostname resolves to; anything else does not resolve.
@@ -367,6 +370,41 @@ def test_a_redirect_loop_gives_up(web):
     web.routes['https://news.test/a'] = lambda: _Resp('https://news.test/a', 302, location='https://news.test/a')
     assert s.get_public('https://news.test/a') is None
     assert len(web) == s.MAX_REDIRECTS + 1
+
+
+def test_a_huge_body_is_dropped(web, monkeypatch):
+    big = _Resp('https://news.test/big')
+    big.content = b'x' * 2_000
+    monkeypatch.setattr(s, 'MAX_BODY_BYTES', 1_000)
+    web.routes['https://news.test/big'] = lambda: big
+    assert s.get_public('https://news.test/big') is None and big.closed
+
+
+def test_a_slow_drip_body_is_abandoned(web, monkeypatch):
+    """`timeout=` bounds each read, not the call: a server that never fills a chunk must not hang it."""
+    import threading
+    gate = threading.Event()
+    slow = _Resp('https://news.test/slow')
+
+    def drip(size):
+        gate.wait(10)
+        yield b'x'
+    slow.iter_content = drip
+    web.routes['https://news.test/slow'] = lambda: slow
+    monkeypatch.setattr(s, 'MAX_FETCH_SECONDS', 0.05)
+    try:
+        assert s.get_public('https://news.test/slow') is None
+    finally:
+        gate.set()
+
+
+def test_a_network_failure_still_raises(web):
+    """Callers tell a refused URL (None) from a failed fetch (an exception)."""
+    def boom():
+        raise s.requests.ConnectionError('refused')
+    web.routes['https://news.test/a'] = boom
+    with pytest.raises(s.requests.ConnectionError):
+        s.get_public('https://news.test/a')
 
 
 def test_a_public_page_is_still_read(web):

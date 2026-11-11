@@ -102,7 +102,7 @@ Dated reports live in `reports/`; the root holds code, config, caches and runnin
 - **Caches:** `Cache('file.json', ttl_hours=48)` → `load()` returns `{}` on missing/corrupt; `save(data)`. `FeedHTTPCache`: `load()` once at startup, `save()` once at shutdown.
 - **Every JSON cache, state, config, OPML, markdown log or `reports/` write goes through `cache.atomic_write_json` / `atomic_write_text`**, never `open(path, 'w')` or `'a'`: CI commits whatever is on disk, and a truncated cache loads as `{}`. An appending log is read and rewritten whole.
 - **Every published feed goes out through `write_feed()`** (sanitize, then atomic write). Never `json.dump` a feed. Text fields are stripped, not escaped.
-- **A fetch of a URL taken from feed content goes through `sanitize.get_public()`**, never a bare `requests.get`.
+- **A fetch of a URL taken from feed content goes through `sanitize.get_public()`**, never a bare `requests.get`. It caps the body (`MAX_BODY_BYTES`) and abandons the call at `MAX_FETCH_SECONDS`.
 - **API usage:** after every Claude call, `api_usage.record_claude_usage(response.usage, stage='<step>')` (`batch=True` for batch results); `api_usage.record_call('cohere' | 'brave' | 'kagi')` for the others; print `api_usage.format_summary()` at the end. A Brave call in the curator goes through `_take_brave_call()`.
 - **Cohere:** check `cohere_integration.is_enabled()`; public functions return falsy when disabled, so always fall back.
 - **`anthropic` is pinned at 0.40.0**, older than the `thinking` kwarg (a `TypeError`). Send newer fields through `extra_body`, as `calibration_agent.py` does. Message Batches live under `client.beta.messages.batches`.

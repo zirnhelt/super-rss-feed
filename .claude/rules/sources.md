@@ -40,4 +40,4 @@ Evidence makes a candidate; a **fresh live probe** decides. Nothing is deleted: 
 
 ## Discovery (`feed_discovery.py`)
 
-Curated OPML lists, Kagi News's `kite_feeds.json` (new hosts only) and Brave search (`BRAVE_SEARCH_TOPICS`, 23 queries a week, counted in `api_usage`). It spends on Brave and Haiku: don't run it locally to test a change; stub `requests.get` instead.
+Curated OPML lists, Kagi News's `kite_feeds.json` (new hosts only) and Brave search (`BRAVE_SEARCH_TOPICS`, 23 queries a week, counted in `api_usage`). It spends on Brave and Haiku: don't run it locally to test a change; stub `requests.get` instead. Every candidate page and feed is fetched through `sanitize.get_public` (`_fetch_feed`, kept until the candidate is sampled), never `feedparser.parse(url)`.

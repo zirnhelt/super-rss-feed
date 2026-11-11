@@ -213,3 +213,21 @@ Kite's batch API shows one batch a day at 12:00 UTC (31 of 32 days to 2026-10-22
 ## ArchDaily is a project showcase, demoted and capped (2026-11-08)
 
 The reader rated 29 ArchDaily articles to 2026-11-08: 21 bad (five with the note "No local hook", four of those in the week of Nov 2), 6 interesting, 1 good, 1 podcast-only. The split is the headline format: the "Name / Firm" single-building showcases were 16 of 18 bad, while the essays ("How Surface Materials Shape Contemporary Interiors", "The Invisible Brief", "Integrating Solar Protection as an Envelope Strategy") were mostly interesting or good. Showcases were also reaching the Saturday and Wednesday podcast pools. A block would cost the essays, so ArchDaily gets its own source type, `project_showcase` (score −10, at most 2 a day, like `personal_listicle`): the stronger essays still clear the floor, and the showcases stop filling near-miss slots.
+
+## Outside fetches are bounded, and discovery uses the guard (2026-11-11)
+
+A code review found two gaps. `get_public` checked where a URL pointed but not how much it sent or
+for how long (`timeout=` bounds each read, not the call). And `feed_discovery.py` did not use it at
+all: pages from Brave results and the feed links on them were fetched with bare `requests` and
+`feedparser.parse(url)`, which also opens `file://`, and each candidate feed was fetched three times
+(validate, title, sample).
+
+- The body is capped at `MAX_BODY_BYTES` while reading. The time cap is a daemon thread and
+  `join(MAX_FETCH_SECONDS)`: a deadline checked between chunks never fires on a slow drip, because
+  requests yields a chunk only once it is full (measured: a 2-second cap took 20 seconds).
+- Discovery fetches through `_fetch_feed`, which keeps a parsed feed until the candidate is sampled.
+  It passes feedparser the response's Content-Type, which is what `parse(url)` used for the charset.
+- The path probe (`/feed`, `/rss`, ...) now asks for a feed with entries, not a 200: many sites answer
+  an unknown path with an HTML page.
+
+The podcast repo carries the same guard (`_get_public`) and got the same size and time caps.

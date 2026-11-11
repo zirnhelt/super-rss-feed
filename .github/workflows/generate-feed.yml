@@ -104,10 +104,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: '3.11'
       
@@ -333,9 +333,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json apple_news_cache.json feed_http_cache.json
-          git add FEED_LOG.md FEED_ERRORS.md TODO.md 2>/dev/null || true
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update cache and feed log [skip ci]"
+          # One add per file: git aborts the whole `git add` when any pathspec matches
+          # nothing, staging none of them. (No existence test: a tracked cache the run
+          # removed must still be staged as a deletion, as it always was.) Commit only if
+          # something is staged: the old `git diff --quiet && ... || git commit` read
+          # unstaged changes, so a stray dirty file forced a commit with nothing staged,
+          # and its non-zero exit failed the step before the push.
+          for f in scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json apple_news_cache.json feed_http_cache.json FEED_LOG.md FEED_ERRORS.md TODO.md; do
+            git add -- "$f" 2>/dev/null || echo "  not staged (absent and untracked): $f"
+          done
+          git diff --cached --quiet || git commit -m "Update cache and feed log [skip ci]"
           bash .github/scripts/git_push_retry.sh main
       
       # The deploy occasionally fails on GitHub's side (transient API/push
@@ -344,7 +351,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deploy
         continue-on-error: true
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
@@ -360,7 +367,7 @@ jobs:
         id: deploy_retry1
         if: steps.deploy.outcome == 'failure'
         continue-on-error: true
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
@@ -374,7 +381,7 @@ jobs:
 
       - name: Deploy to GitHub Pages (attempt 3)
         if: steps.deploy.outcome == 'failure' && steps.deploy_retry1.outcome == 'failure'
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
@@ -420,10 +427,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: '3.11'
 

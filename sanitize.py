@@ -23,6 +23,7 @@ fetches of article pages, whose bodies are republished as excerpts and images;
 import ipaddress
 import re
 import socket
+import threading
 from typing import Any, Dict, Iterable, Optional, Union
 from urllib.parse import urljoin, urlsplit
 
@@ -181,6 +182,42 @@ def _resolves_public(host: str) -> bool:
     return bool(addresses) and all(a.is_global for a in addresses)
 
 
+MAX_BODY_BYTES = 10_000_000  # no article page or feed is larger; a bigger body is a trap or a mistake
+MAX_FETCH_SECONDS = 30       # the whole call: DNS, every redirect hop, headers and body
+
+
+def _read_capped(response: requests.Response) -> bool:
+    """Read the body into ``response``; False (and closed) once it passes ``MAX_BODY_BYTES``."""
+    buf = bytearray()
+    for chunk in response.iter_content(65536):
+        buf += chunk
+        if len(buf) > MAX_BODY_BYTES:
+            response.close()
+            return False
+    response._content, response._content_consumed = bytes(buf), True
+    return True
+
+
+def _follow_public(url: str, **kwargs: Any) -> Optional[requests.Response]:
+    """``get_public`` without the clock: check each hop, follow redirects, read a capped body."""
+    # ponytail: resolve-and-check, not resolve-and-pin. requests resolves again, so a
+    # DNS answer that changes between the two lookups still gets through (sources.md).
+    cookies = requests.cookies.RequestsCookieJar()
+    for _ in range(MAX_REDIRECTS + 1):
+        if not is_public_http_url(url) or not _resolves_public(urlsplit(url).hostname):
+            return None
+        response = requests.get(url, allow_redirects=False, cookies=cookies, stream=True, **kwargs)
+        if not getattr(response, 'is_redirect', False):
+            if not is_public_http_url(getattr(response, 'url', url)):
+                response.close()
+                return None
+            return response if _read_capped(response) else None
+        cookies.update(response.cookies)
+        url = urljoin(url, response.headers['location'])
+        response.close()
+    return None
+
+
 def get_public(url: str, **kwargs: Any) -> Optional[requests.Response]:
     """``requests.get`` for a third-party URL, or None if any hop is not public.
 
@@ -188,21 +225,29 @@ def get_public(url: str, **kwargs: Any) -> Optional[requests.Response]:
     addresses before it is requested, so neither a public name pointing at a
     private address nor a redirect through one is fetched. Redirects are
     followed here (cookies carried, at most ``MAX_REDIRECTS``) so each hop is
-    checked.
+    checked. A body over ``MAX_BODY_BYTES`` or a call over
+    ``MAX_FETCH_SECONDS`` is None.
     """
-    # ponytail: resolve-and-check, not resolve-and-pin. requests resolves again, so a
-    # DNS answer that changes between the two lookups still gets through (sources.md).
-    cookies = requests.cookies.RequestsCookieJar()
-    for _ in range(MAX_REDIRECTS + 1):
-        if not is_public_http_url(url) or not _resolves_public(urlsplit(url).hostname):
-            return None
-        response = requests.get(url, allow_redirects=False, cookies=cookies, **kwargs)
-        if not getattr(response, 'is_redirect', False):
-            return response if is_public_http_url(getattr(response, 'url', url)) else None
-        cookies.update(response.cookies)
-        url = urljoin(url, response.headers['location'])
-        response.close()
-    return None
+    # ponytail: a daemon thread and join(), not a deadline checked between chunks.
+    # `timeout=` bounds each socket read and requests only yields a chunk once it is
+    # full, so a server dripping a byte at a time never reaches a between-chunks check.
+    # A fetch that overruns is abandoned; its thread ends with its socket or the process.
+    box: Dict[str, Any] = {}
+
+    def run() -> None:
+        try:
+            box['response'] = _follow_public(url, **kwargs)
+        except Exception as exc:  # re-raised below, in the caller's thread
+            box['exc'] = exc
+
+    worker = threading.Thread(target=run, daemon=True, name='get-public')
+    worker.start()
+    worker.join(MAX_FETCH_SECONDS)
+    if worker.is_alive():
+        return None
+    if 'exc' in box:
+        raise box['exc']
+    return box['response']
 
 
 def plain_text(value: Any) -> str:
