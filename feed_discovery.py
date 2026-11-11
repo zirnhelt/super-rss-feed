@@ -96,23 +96,30 @@ FEED_FETCH_TIMEOUT_SECS = 15
 socket.setdefaulttimeout(FEED_FETCH_TIMEOUT_SECS)
 
 # Candidate URLs come from search results and third-party pages, so every fetch goes
-# through get_public() (each hop checked by name and address, body capped), and the
-# parsed feed is kept for the run: validate, sample and title each used to refetch it.
+# through get_public() (each hop checked by name and address, body and time capped).
+# A feed that parsed with entries is kept until it is sampled: validating, titling and
+# sampling a candidate used to fetch it three times. A failure is kept as None.
 _PARSED_FEEDS: Dict[str, object] = {}
 
 
 def _fetch_feed(url: str):
-    """The parsed feed at ``url``, or None if it is not public or not fetchable. Memoised."""
+    """The parsed feed at ``url``, or None if it is not public, not fetchable or has no entries."""
     if url not in _PARSED_FEEDS:
         parsed = None
         try:
             resp = get_public(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; FeedDiscovery/1.0)'},
                               timeout=FEED_FETCH_TIMEOUT_SECS)
             if resp is not None and resp.ok:
-                parsed = feedparser.parse(resp.content)
+                # The charset feedparser read off the response when it fetched the URL
+                # itself; without it a sound feed can parse as bozo. Only this header:
+                # the body is already decoded, and Content-Encoding would have it gunzipped.
+                parsed = feedparser.parse(
+                    resp.content,
+                    response_headers={'content-type': resp.headers.get('content-type', ''),
+                                      'content-location': resp.url})
         except requests.RequestException:
             pass
-        _PARSED_FEEDS[url] = parsed
+        _PARSED_FEEDS[url] = parsed if parsed is not None and parsed.entries else None
     return _PARSED_FEEDS[url]
 
 # Configuration
@@ -228,8 +235,9 @@ def _probe_page_for_feeds(page_url: str) -> List[str]:
         base = f"{parsed.scheme}://{parsed.netloc}"
         for path in FEED_PROBE_PATHS:
             try:
-                r = get_public(base + path, timeout=5)
-                if r is not None and r.status_code == 200:
+                # A real feed with entries, not a bare 200: CMSs answer an unknown
+                # path with an HTML page. The parse is kept, so validation is free.
+                if _validate_feed_url(base + path):
                     feeds.append(base + path)
                     break
             except Exception:
@@ -501,6 +509,7 @@ class FeedDiscovery:
         """Sample recent articles from a feed candidate"""
         try:
             parsed = _fetch_feed(candidate.url)
+            _PARSED_FEEDS.pop(candidate.url, None)   # last reader: don't hold every feed for the run
             if parsed is None:
                 candidate.error = 'feed not fetchable'
                 return []
