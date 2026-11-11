@@ -164,6 +164,18 @@ def test_digest_lists_widely_covered_news_misses_best_first():
     for absent in ('Lotto', 'Russell Brand', 'cloud outage', 'Paraguay'):
         assert absent not in html
     assert '64 outlets · USA' in html and 'Kagi News' in html
+    assert item['url'].endswith('/' + m.DIGEST_PAGE), 'a tap opens the page of links, not Kagi'
+
+
+def test_digest_page_lists_every_story_with_its_link(tmp_path):
+    item = _digest_item()
+    page = tmp_path / m.DIGEST_PAGE
+    assert m.write_digest_page(item, str(page)) is True
+    html = page.read_text(encoding='utf-8')
+    assert 'Stephen Miller named chief of staff</a>' in html and '<a href="http' in html
+    assert item['title'].split(',')[0] in html
+    assert m.write_digest_page(None, str(tmp_path / 'none.html')) is False
+    assert not (tmp_path / 'none.html').exists()
 
 
 def test_digest_off_or_empty_is_none(monkeypatch):
