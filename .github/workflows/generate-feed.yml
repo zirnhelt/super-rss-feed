@@ -299,6 +299,9 @@ jobs:
           # so an empty glob is not an error.
           cp feed-*.xml output/ 2>/dev/null || true
 
+          # The "Also in the news" digest item links here; absent on a night with no digest.
+          cp also-in-the-news.html output/ 2>/dev/null || true
+
           # review.html carries no credential: it asks for a token (filled from a
           # password manager) at save time and keeps it only while the page is
           # open. One was baked in here from 2026-06-17 until it was revoked on

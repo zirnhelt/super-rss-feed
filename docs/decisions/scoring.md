@@ -567,6 +567,10 @@ stays off the **show**). So:
   outlet count, and the summaries are Kite's own. It costs nothing to build and replaces itself
   nightly (`_is_digest_item`, never retained). It passes through the hot and editorial refreshes
   verbatim (`generate_json_feed(passthrough_items=)`).
+  **2026-11-11:** the item's `url` was `news.kagi.com`, so in a reader that shows a text
+  snippet the per-story links were unreachable and a tap opened Kagi's World page. The item
+  now links `also-in-the-news.html` (`write_digest_page()`), the same content as a page on
+  gh-pages. The `id` keeps `DIGEST_ID_PREFIX`. The page is gitignored like the feeds.
 - **Headline coverage** (`kite_coverage`, `run_stats.kite_coverage`, counts only). Every
   cluster gets one outcome: `published`, `already_shown`, `dedup`, `gate_reject`,
   `show_only` or `ranked_out`. Clusters with ≥ `headline_min_sources` (15) outlets are headlines.

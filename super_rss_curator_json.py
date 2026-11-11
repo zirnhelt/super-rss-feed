@@ -31,7 +31,7 @@ import cohere_integration
 import api_usage
 import config_loader
 from cache import Cache, FeedHTTPCache, atomic_write_json, atomic_write_text
-from sanitize import get_public, safe_url, sanitize_feed
+from sanitize import get_public, safe_url, sanitize_feed, sanitize_html
 
 # Configuration paths (kept for direct file access e.g. scoring_mode.json)
 CONFIG_DIR = Path(__file__).parent / 'config'
@@ -6586,6 +6586,9 @@ KITE_MISS_OUTCOMES = ('dedup', 'gate_reject', 'show_only', 'ranked_out')
 DIGEST_URL = 'https://news.kagi.com/'
 DIGEST_ID_PREFIX = 'https://news.kagi.com/#digest-'
 DIGEST_SUMMARY_CHARS = 220
+# The digest's own page on gh-pages. A feed reader shows the item as a text snippet and
+# opens its `url` on a tap, so the url has to be a page that lists the stories with links.
+DIGEST_PAGE = 'also-in-the-news.html'
 
 
 def _is_digest_item(item: Dict) -> bool:
@@ -6696,9 +6699,10 @@ def build_kite_digest(outcomes: List[Tuple[Article, str]],
         '<p>The most widely covered stories that did not make your feeds, ranked by how '
         f'many outlets carried them. Summaries by <a href="{DIGEST_URL}">Kagi News</a> '
         '(CC BY-NC).</p><ul>' + ''.join(rows) + '</ul>')
+    base = (SYSTEM.get('urls', {}).get('super_rss_base') or '').rstrip('/')
     return {
         "id": f"{DIGEST_ID_PREFIX}{now.date().isoformat()}",
-        "url": DIGEST_URL,
+        "url": f"{base}/{DIGEST_PAGE}" if base else DIGEST_URL,
         "title": f"📰 Also in the news, {day}: {len(picks)} stories",
         "content_html": content,
         "date_published": now.isoformat(),
@@ -6707,6 +6711,33 @@ def build_kite_digest(outcomes: List[Tuple[Article, str]],
         "_digest": True,
         "_stories": len(picks),
     }
+
+
+_DIGEST_PAGE_STYLE = (
+    ':root{color-scheme:light dark}'
+    'body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;'
+    'line-height:1.5;max-width:42rem;margin:0 auto;padding:1rem}'
+    'h1{font-size:1.3rem}ul{padding-left:1.2rem}li{margin-bottom:1rem}'
+    'small{opacity:.7}')
+
+
+def write_digest_page(digest: Optional[Dict], output_path: str = DIGEST_PAGE) -> bool:
+    """Write the digest item as a standalone page (the item's `url`); False when there is none.
+
+    Rendered from the finished item so the page and the feed cannot drift. A night
+    with no digest writes nothing, and the nightly deploy then drops the old page.
+    """
+    if not digest:
+        return False
+    title = html_escape(digest.get('title', 'Also in the news'))
+    body = sanitize_html(digest.get('content_html', ''))
+    atomic_write_text(output_path, (
+        '<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        '<meta name="robots" content="noindex">'
+        f'<title>{title}</title><style>{_DIGEST_PAGE_STYLE}</style></head>\n'
+        f'<body><h1>{title}</h1>\n{body}\n</body></html>\n'))
+    return True
 
 
 def _print_kite_coverage(outcomes: List[Tuple[Article, str]], stats: Dict) -> None:
@@ -7254,6 +7285,7 @@ def main():
     outcomes = kite_coverage(kite_articles, [a for items in final_items.values() for a in items],
                              unique_hashes, new_hashes)
     digest = build_kite_digest(outcomes)
+    write_digest_page(digest)
     digest_cat = (SYSTEM.get('kagi_news', {}).get('digest') or {}).get('category', 'news')
     run_stats['kite_coverage'] = kite_coverage_stats(outcomes, (digest or {}).get('_stories', 0))
     _print_kite_coverage(outcomes, run_stats['kite_coverage'])
