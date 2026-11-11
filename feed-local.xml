@@ -6,13 +6,56 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Wed, 11 Nov 2026 06:13:26 +0000</lastBuildDate>
+<lastBuildDate>Wed, 11 Nov 2026 10:30:00 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 11, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-11.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-11.html</guid>
+<pubDate>Wed, 11 Nov 2026 10:05:58 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Focus: Maker &amp;amp; Repair (week 1 of 4). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/42984275815&quot;&gt;42984275815&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-good&quot;&gt;&lt;span class=&quot;icon&quot;&gt;✓&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped clean&lt;/strong&gt;Nothing broke and nothing fell back.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;p&gt;Nothing. The run needs no follow-up.&lt;/p&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Two runs timed out and one fallback was needed before the scheduler succeeded&lt;/h3&gt;
+&lt;p&gt;The primary run at 1:05 AM Pacific and the first fallback at 2:05 AM Pacific both completed with a success conclusion, and this review is running on the second fallback at 3:05 AM Pacific. The primary run finished at 1:31 AM Pacific; the first fallback finished at 2:05 AM Pacific with zero minutes late.&lt;/p&gt;
+&lt;p&gt;The scheduler did not require the second fallback to produce the episode. Nothing in the facts says why the earlier triggers were needed, so the cause is not established here. Check the primary and fallback run logs at the URLs in the run record before changing the schedule.&lt;/p&gt;
+&lt;h3&gt;The first draft fell short of target and was expanded once&lt;/h3&gt;
+&lt;p&gt;The script&#x27;s first draft came in at 2,469 words against a target of 3,400. The pipeline sent it back for one expand pass, and the script that shipped was 3,381 words. That leaves it 19 words under target, which the pipeline treats as intended for a thin day. It is a problem only if the word count drops below SHORT_EPISODE_WORDS, which the facts do not report as triggered.&lt;/p&gt;
+&lt;p&gt;The roundup pool still lost 39 stories to the airtime budget. The roundup pool is larger than one segment can air, so this is by design, but the thin first draft and the 39 cut stories together point to a pool that is larger than the target word count can carry. If the expand pass keeps needing to fill gaps, consider raising NEWS_ROUNDUP_COUNT or lowering the airtime budget so the draft meets target without an extra pass.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;1 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.82, 3381 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 46% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;20.3 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.6 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;17/18 roundup, 1/1 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;287 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;72,629&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;23 total: claude 11 · kagi-extract 5 · brave-answers 4 · brave-search 3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] FORSTER: Ladies of the Cariboo Lakes issue last call for care bag donations</title>
 <link>https://100milefreepress.net/2026/11/10/forster-ladies-of-the-cariboo-lakes-issue-last-call-for-care-bag-donations/</link>

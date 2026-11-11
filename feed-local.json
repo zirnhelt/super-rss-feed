@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-11.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-11.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 11, 2026",
+      "content_html": "<p class=\"meta\">Focus: Maker &amp; Repair (week 1 of 4). Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/42984275815\">42984275815</a>.</p>\n<div class=\"verdict lvl-good\"><span class=\"icon\">✓</span><div><strong>Shipped clean</strong>Nothing broke and nothing fell back.</div></div>\n<h2>What to do</h2>\n<p>Nothing. The run needs no follow-up.</p>\n<h2>What happened</h2>\n<h3>Two runs timed out and one fallback was needed before the scheduler succeeded</h3>\n<p>The primary run at 1:05 AM Pacific and the first fallback at 2:05 AM Pacific both completed with a success conclusion, and this review is running on the second fallback at 3:05 AM Pacific. The primary run finished at 1:31 AM Pacific; the first fallback finished at 2:05 AM Pacific with zero minutes late.</p>\n<p>The scheduler did not require the second fallback to produce the episode. Nothing in the facts says why the earlier triggers were needed, so the cause is not established here. Check the primary and fallback run logs at the URLs in the run record before changing the schedule.</p>\n<h3>The first draft fell short of target and was expanded once</h3>\n<p>The script's first draft came in at 2,469 words against a target of 3,400. The pipeline sent it back for one expand pass, and the script that shipped was 3,381 words. That leaves it 19 words under target, which the pipeline treats as intended for a thin day. It is a problem only if the word count drops below SHORT_EPISODE_WORDS, which the facts do not report as triggered.</p>\n<p>The roundup pool still lost 39 stories to the airtime budget. The roundup pool is larger than one segment can air, so this is by design, but the thin first draft and the 39 cut stories together point to a pool that is larger than the target word count can carry. If the expand pass keeps needing to fill gaps, consider raising NEWS_ROUNDUP_COUNT or lowering the airtime budget so the draft meets target without an extra pass.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>1 articles</td></tr>\n<tr><td>Script</td><td>0 pattern hit(s), voice ratio 0.82, 3381 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 46% of the words</td></tr>\n<tr><td>Audio</td><td>20.3 min</td></tr>\n<tr><td>Audio size</td><td>18.6 MB</td></tr>\n<tr><td>Citations matched</td><td>17/18 roundup, 1/1 deep dive</td></tr>\n<tr><td>Feed</td><td>287 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>72,629</td></tr>\n<tr><td>API calls</td><td>23 total: claude 11 · kagi-extract 5 · brave-answers 4 · brave-search 3</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-11T10:05:58+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://100milefreepress.net/2026/11/10/forster-ladies-of-the-cariboo-lakes-issue-last-call-for-care-bag-donations/",
       "url": "https://100milefreepress.net/2026/11/10/forster-ladies-of-the-cariboo-lakes-issue-last-call-for-care-bag-donations/",
       "title": "[100 Mile Free Press] FORSTER: Ladies of the Cariboo Lakes issue last call for care bag donations",
