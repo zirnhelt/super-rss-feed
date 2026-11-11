@@ -3,6 +3,18 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-10 (Tuesday)
+
+#### 🔧 Manual Run (10:13 PM Pacific)
+- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
+- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-09 (Monday)
 
 #### 🔧 Manual Run (10:10 PM Pacific)
@@ -86,20 +98,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 #### 🔧 Manual Run (10:11 PM Pacific)
 - ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-02 (Monday)
-
-#### 🔧 Manual Run (10:12 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ Kite News: not in this batch: canada | british columbia, climate change, cloud computing
 
 
 ---
@@ -1709,6 +1707,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing
+
+
+---
+
+
+
+## Week of 2026-11-02–2026-11-02
+- 5 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
+- ⚠️ Kite News: not in this batch: canada | british columbia, climate change, cloud computing
 
 
 ---
