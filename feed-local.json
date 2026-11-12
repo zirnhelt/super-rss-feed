@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-12.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-12.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 12, 2026",
+      "content_html": "<p class=\"meta\">Focus: Governance, Title &amp; Treaty (week 1 of 4). Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/43180110799\">43180110799</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>1 thing to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong><code>script/pronunciation</code> fell back. Search the run log for <code>Degraded 'script/pronunciation'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: 1 name(s) with no entry in config/pronunciations.json: Esk'et</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>The deep dive fell to one story and the roundup dropped 19 candidates</h3>\n<p>The episode ran one deep dive, a single story from My Cariboo Now on the Esk'etemc First Nation election this weekend. The debate question built on it asks whether the council and services decisions should be governed by a clear, transparent rule set that reflects both resident costs and member rights, given a narrow ten-vote election margin and low turnout. Casey carried 49% of the deep dive's words, and the voice ratio of Casey to Riley came in at 0.96.</p>\n<p>The roundup dropped 19 stories from the pool because the airtime budget for NEWS_ROUNDUP_COUNT could not hold them. That is by design: the pool is larger than one segment can air, and a cut story can come back on a day when it fits better. The roundup citations matched 15 of 18, and the single deep-dive citation matched. Nothing about this run required a change to the budget.</p>\n<h3>The script came in under target and shipped at 3357 words</h3>\n<p>The first draft was 2608 words against a 3400-word target, so it went back for one expand pass. The shipped script is 3357 words, short of target but within the range the pipeline accepts. A thin day shipping under target is intended, and the pipeline only treats it as a problem under SHORT_EPISODE_WORDS.</p>\n<p>The expand pass therefore brought the draft most of the way to target without reaching it. Anyone tuning the expand prompt should weigh that gap against the 2608-word first draft, not against the 3400 target alone.</p>\n<h3>One name had no pronunciation entry and went to TTS unmapped</h3>\n<p>The script step reported one name with no entry in config/pronunciations.json: Esk'et. The pipeline did not stop or substitute a fallback spelling; the name went to text-to-speech as written. Two TTS takes came back shorter than their word count predicted, and one of those two retries stayed short. The longer take was kept, so no segment was dropped from the episode.</p>\n<p>Add \"Esk'et\" to config/pronunciations.json before the next episode that names the nation, since this election will keep the name in rotation.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>1 articles</td></tr>\n<tr><td>Script</td><td>0 pattern hit(s), voice ratio 0.96, 3357 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 49% of the words</td></tr>\n<tr><td>Audio</td><td>20.7 min</td></tr>\n<tr><td>Audio size</td><td>18.9 MB</td></tr>\n<tr><td>Citations matched</td><td>15/18 roundup, 1/1 deep dive</td></tr>\n<tr><td>Feed</td><td>288 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>80,043</td></tr>\n<tr><td>API calls</td><td>30 total: claude 14 · kagi-extract 7 · brave-search 5 · brave-answers 4</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-12T10:06:00+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://quesnelobserver.com/2026/11/10/cariboo-prince-george-omineca-mp-criticizes-the-2026-federal-budget/",
       "url": "https://quesnelobserver.com/2026/11/10/cariboo-prince-george-omineca-mp-criticizes-the-2026-federal-budget/",
       "title": "[Quesnel Cariboo Observer] Cariboo-Prince George-Omineca MP criticizes the 2026 federal budget",

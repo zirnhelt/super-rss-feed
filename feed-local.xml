@@ -6,13 +6,61 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Thu, 12 Nov 2026 06:11:41 +0000</lastBuildDate>
+<lastBuildDate>Thu, 12 Nov 2026 10:30:57 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 12, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-12.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-12.html</guid>
+<pubDate>Thu, 12 Nov 2026 10:06:00 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Focus: Governance, Title &amp;amp; Treaty (week 1 of 4). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/43180110799&quot;&gt;43180110799&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;1 thing to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/pronunciation&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/pronunciation&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: 1 name(s) with no entry in config/pronunciations.json: Esk&#x27;et&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;The deep dive fell to one story and the roundup dropped 19 candidates&lt;/h3&gt;
+&lt;p&gt;The episode ran one deep dive, a single story from My Cariboo Now on the Esk&#x27;etemc First Nation election this weekend. The debate question built on it asks whether the council and services decisions should be governed by a clear, transparent rule set that reflects both resident costs and member rights, given a narrow ten-vote election margin and low turnout. Casey carried 49% of the deep dive&#x27;s words, and the voice ratio of Casey to Riley came in at 0.96.&lt;/p&gt;
+&lt;p&gt;The roundup dropped 19 stories from the pool because the airtime budget for NEWS_ROUNDUP_COUNT could not hold them. That is by design: the pool is larger than one segment can air, and a cut story can come back on a day when it fits better. The roundup citations matched 15 of 18, and the single deep-dive citation matched. Nothing about this run required a change to the budget.&lt;/p&gt;
+&lt;h3&gt;The script came in under target and shipped at 3357 words&lt;/h3&gt;
+&lt;p&gt;The first draft was 2608 words against a 3400-word target, so it went back for one expand pass. The shipped script is 3357 words, short of target but within the range the pipeline accepts. A thin day shipping under target is intended, and the pipeline only treats it as a problem under SHORT_EPISODE_WORDS.&lt;/p&gt;
+&lt;p&gt;The expand pass therefore brought the draft most of the way to target without reaching it. Anyone tuning the expand prompt should weigh that gap against the 2608-word first draft, not against the 3400 target alone.&lt;/p&gt;
+&lt;h3&gt;One name had no pronunciation entry and went to TTS unmapped&lt;/h3&gt;
+&lt;p&gt;The script step reported one name with no entry in config/pronunciations.json: Esk&#x27;et. The pipeline did not stop or substitute a fallback spelling; the name went to text-to-speech as written. Two TTS takes came back shorter than their word count predicted, and one of those two retries stayed short. The longer take was kept, so no segment was dropped from the episode.&lt;/p&gt;
+&lt;p&gt;Add &quot;Esk&#x27;et&quot; to config/pronunciations.json before the next episode that names the nation, since this election will keep the name in rotation.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;1 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.96, 3357 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 49% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;20.7 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.9 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;15/18 roundup, 1/1 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;288 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;80,043&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;30 total: claude 14 · kagi-extract 7 · brave-search 5 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[Quesnel Cariboo Observer] Cariboo-Prince George-Omineca MP criticizes the 2026 federal budget</title>
 <link>https://quesnelobserver.com/2026/11/10/cariboo-prince-george-omineca-mp-criticizes-the-2026-federal-budget/</link>
