@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-13.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-13.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Cariboo Signals, November 13, 2026",
+      "content_html": "<p class=\"meta\">Focus: Recreation &amp; Backcountry Access (week 3 of 3). Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/43390483274\">43390483274</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>2 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Open the day's citations JSON and check which deep-dive sources the script failed to use.</strong><br/><span class=\"evidence\">0/1 deep-dive citations matched the script</span></li>\n<li><strong><code>script/pronunciation</code> fell back. Search the run log for <code>Degraded 'script/pronunciation'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: 1 name(s) with no entry in config/pronunciations.json: PÃ¢tur'ajuste</span> <span class=\"recur\">Recurring: pending for the roadmap, seen 1 night.</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>One ai-tell pattern hit and one unmapped name fell through pronunciation config</h3>\n<p>The script shipped at 3,248 words against a 3,400-word target. The first draft came in at 2,474 words and went back for one expand pass, so the shortfall is the final shipped length, not a draft problem. Only the length of what shipped matters under <code>SHORT_EPISODE_WORDS</code>.</p>\n<p>The degradation: \"PÃ¢tur'ajuste\" has no entry in <code>config/pronunciations.json</code>, so the name was spoken with default pronunciation. Add the entry for this name and check whether the mojibake in the source spelling comes from the feed or from the script.</p>\n<h3>Deep dive ran at 49% of Casey's words and matched zero citations</h3>\n<p>The single deep dive, from The Tyee, carried one citation and it did not match. Roundup citations matched 14 of 18, so the deep dive is the weak point of the citation check. Casey's share of the deep dive was 49 percent of words, and the voice ratio of Casey over Riley is 0.94.</p>\n<p>Check whether the deep-dive citation resolver is looking at the article body or the headline; the unmatched citation is the one to trace first.</p>\n<h3>Roundup kept 32 stories out by airtime budget</h3>\n<p>The roundup pool was cut by 32 stories to fit <code>NEWS_ROUNDUP_COUNT</code>. This is by design: the pool is larger than one segment can air, and cut stories can return on a better-matched day. No action needed unless the pool is consistently larger than the budget across many nights.</p>\n<h3>One TTS take stayed short after retry</h3>\n<p>One TTS take came back shorter than its word count predicted and was retried once; the retry was still short. The longer of the two takes was kept, so no script content was dropped from the episode.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Deep dive</td><td>1 articles</td></tr>\n<tr><td>Script</td><td>1 pattern hit(s), voice ratio 0.94, 3248 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 49% of the words</td></tr>\n<tr><td>Audio</td><td>19.5 min</td></tr>\n<tr><td>Audio size</td><td>17.9 MB</td></tr>\n<tr><td>Citations matched</td><td>14/18 roundup, 0/1 deep dive</td></tr>\n<tr><td>Feed</td><td>289 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>71,811</td></tr>\n<tr><td>API calls</td><td>21 total: claude 12 · brave-search 4 · brave-answers 4 · kagi-extract 1</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-13T10:05:58+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://quesnelobserver.com/2026/11/10/prince-george-rcmp-seek-information-after-child-spotted-running-along-bridge/",
       "url": "https://quesnelobserver.com/2026/11/10/prince-george-rcmp-seek-information-after-child-spotted-running-along-bridge/",
       "title": "[Quesnel Cariboo Observer] Prince George RCMP seek information after child spotted running along bridge",
