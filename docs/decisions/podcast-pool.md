@@ -237,6 +237,40 @@ drops everything it cited in the last 7 days. Lane items carry the day's cached 
 percentile and are `_is_bonus` like any off-keyword pick; no contract key changed. The knob is
 forbidden to calibration: it is an editorial commitment, like the news world lane.
 
+## Saturday is the local day (2026-11-14)
+
+The show's Saturday episode is Cariboo Local Affairs, and on 2026-11-14 its roundup aired no
+local story. Weekday episodes lead with local news (the lane above) and local news is never
+held, so by Saturday the week's Cariboo stories have aired and the show's dedup drops them.
+That night's Saturday feed carried 18 local stories already aired and 3 fresh.
+
+The fresh ones existed. The selection had 101 entries and the feed published 66: the
+3-an-outlet cap (`_pod_source_cap`, written to stop one outlet filling a topical episode) cut
+35, and 23 of those were local stories from the four papers that write nearly all Cariboo
+news. 15 of the 23 had never aired (the South Cariboo landfill fire, the UNBC regional plan,
+Baby Fest, the fog advisory, the search-and-rescue flare training, record Remembrance Day
+temperatures). The cap ranks on composite, so each paper's three survivors were its
+highest-scoring, already-aired stories.
+
+The producer chose a week-in-the-Cariboo Saturday: the podcast recalls the week's aired local
+stories as recaps (`recall_week_local`, in `curated-podcast-generator`) and this feed supplies
+more that have not aired. On a day whose schedule entry sets `local_lane_week` (Saturday only):
+
+- **The outlet cap spares local stories** (`cap_podcast_outlets`, `_local` >= 25). A paper's
+  provincial syndication (local 0-15) is still capped at 3.
+- **The lane reads the week:** 7 days, not 72 hours; 10 slots (`local_lane_slots` on the day),
+  4 an outlet. A story shown on another day stays eligible, behind the ones no feed has
+  carried: shown is not aired (the show airs about a third of a feed), and the podcast decides
+  from its own citations whether to recall it or air it fresh.
+- **BC may fill what the Cariboo leaves:** a story with a local score of 25+ and no Cariboo
+  anchor ranks after every anchored one. On the 11-14 caches that was one storm story.
+
+On the 11-14 caches the cap exemption alone restores the 23 local stories; the lane adds two
+more. No API call and no cache changes: every candidate was scored at ingest. No contract key
+changed. The new soft contract runs the other way: the podcast's recall reads this feed's
+copies of the week's aired local stories, so the Saturday selection must keep carrying them.
+Both knobs are forbidden to calibration, like `local_lane_slots`.
+
 ## Working Lands keywords become phrases (2026-11-03)
 
 Tuesday's keyword list held five bare words with common second senses: "resource", "industrial",
