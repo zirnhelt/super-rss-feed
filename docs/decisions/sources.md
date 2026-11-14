@@ -214,6 +214,32 @@ Kite's batch API shows one batch a day at 12:00 UTC (31 of 32 days to 2026-10-22
 
 The reader rated 29 ArchDaily articles to 2026-11-08: 21 bad (five with the note "No local hook", four of those in the week of Nov 2), 6 interesting, 1 good, 1 podcast-only. The split is the headline format: the "Name / Firm" single-building showcases were 16 of 18 bad, while the essays ("How Surface Materials Shape Contemporary Interiors", "The Invisible Brief", "Integrating Solar Protection as an Envelope Strategy") were mostly interesting or good. Showcases were also reaching the Saturday and Wednesday podcast pools. A block would cost the essays, so ArchDaily gets its own source type, `project_showcase` (score −10, at most 2 a day, like `personal_listicle`): the stronger essays still clear the floor, and the showcases stop filling near-miss slots.
 
+## Niche interests get a Miscellany feed, not a demotion (2026-11-14)
+
+To 2026-11-13 the reader rated Dezeen 6 bad and 5 interesting: "Niche but fun" on some, then
+"No local hook" three days running (a Manhattan apartment, a Cornwall barn, Mexico City
+slides). Architizer was rated bad twice ("Too niche"), and a PyTorch TPU post and a Dark Reading
+patch story got "Too niche". The ArchDaily fix (a −10 demotion) was offered for Dezeen. The
+producer declined it: these are interests that matter now and then, not formats to suppress.
+
+They are typed `niche` in `source_preferences.json` (score adjustment 0, 2 an outlet) and
+`reader_category()` ships their stories in a twelfth feed, `feed-miscellany.json`, instead of
+Design, AI/Tech or News:
+
+- **Slots, not score:** Miscellany has its own allocation (`feed_slots.json`: 1 to 3) at the
+  default floor. The pool measured about 20 niche-outlet stories a week, scored 33-55, so a
+  thin day ships one and a busy one three. Design's 6 slots go to the rest of the design pool.
+- **The category stays.** `article.category` is untouched, so scoring, the cached verdicts and
+  the podcast pool see what they saw. Only the slot allocator, the nightly's per-feed grouping,
+  `--bootstrap-feeds` and the hot refresh read `reader_category()`.
+- **The model never sees it.** `categories.json` marks Miscellany `source_routed`, so both
+  category guides skip it and no keyword rule names it: a story arrives there by outlet only.
+- **The podcast:** every podcast-feed item carries `_niche` (a contract key now), and the show
+  airs about one a week, as the roundup's closer.
+
+ArchDaily stays `project_showcase`: its showcases are rated bad, its essays interesting, and a
+move to `niche` would fill the three slots with showcases.
+
 ## Outside fetches are bounded, and discovery uses the guard (2026-11-11)
 
 A code review found two gaps. `get_public` checked where a URL pointed but not how much it sent or

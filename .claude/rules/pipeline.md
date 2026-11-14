@@ -39,7 +39,7 @@ paths:
 
 ## Output Feeds
 
-11 category feeds (`feed-local.json`, `feed-ai-tech.json`, `feed-climate.json`, `feed-homelab.json`, `feed-wellness.json`, `feed-news.json`, `feed-science.json`, `feed-scifi.json`, `feed-homestead.json`, `feed-design.json`, `feed-outdoors.json`) and 7 podcast feeds (`feed-podcast-{monday..sunday}.json`), all JSON Feed 1.1, published to gh-pages.
+12 category feeds (`feed-local.json`, `feed-ai-tech.json`, `feed-climate.json`, `feed-homelab.json`, `feed-wellness.json`, `feed-news.json`, `feed-science.json`, `feed-scifi.json`, `feed-homestead.json`, `feed-design.json`, `feed-outdoors.json`, `feed-miscellany.json`) and 7 podcast feeds (`feed-podcast-{monday..sunday}.json`), all JSON Feed 1.1, published to gh-pages.
 
 **RSS 2.0 mirrors:** a feed with `"rss": true` in `config/feeds.json` (currently `local`) also gets `feed-<category>.xml`, rendered by `generate_rss_feed()` from the finished JSON Feed dict so the two can't drift, capped at `RSS_MAX_ITEMS` (100). `<guid>` is `id` (always the publisher URL).
 

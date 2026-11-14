@@ -180,7 +180,10 @@ jobs:
             echo "  ✗ $dest (download failed, no valid copy in gh-pages history — will build fresh)"
           }
 
-          for feed in local ai-tech climate homelab homestead wellness news science scifi design outdoors; do
+          # miscellany is downloaded for its retention window but not in the bootstrap
+          # check below: at 1-3 items a night it sits under MIN_ITEMS for a week, and
+          # --bootstrap-feeds re-scores the pool (it spends).
+          for feed in local ai-tech climate homelab homestead wellness news science scifi design outdoors miscellany; do
             download_json "${BASE}/feed-${feed}.json" "feed-${feed}.json"
           done
           # Download themed podcast feeds

@@ -29,6 +29,11 @@
       "score_adjustment": -10,
       "max_per_source": 2,
       "description": "Architecture project showcases ('Name / Firm' single buildings far from the Cariboo): the reader rated 16 of 18 'bad' to 2026-11-08, often 'No local hook'; the essays from the same outlet rate interesting, so the outlet is demoted and capped, not blocked"
+    },
+    "niche": {
+      "score_adjustment": 0,
+      "max_per_source": 2,
+      "description": "Niche interests: outlets the reader enjoys now and then ('Niche but fun') but rates 'Too niche' or 'No local hook' when they take a regular slot. Not demoted: their stories go to the Miscellany feed instead of their category's, and reach the podcast about once a week as the roundup's closer"
     }
   },
   "source_map": {
@@ -98,7 +103,11 @@
     "Live for the Outdoors (Country Walking)": "print",
     "Edge (GamesRadar)": "print",
     "Cariboo Signals Reviews": "print",
-    "ArchDaily": "project_showcase"
+    "ArchDaily": "project_showcase",
+    "Dezeen": "niche",
+    "Architizer": "niche",
+    "PyTorch": "niche",
+    "darkreading.com": "niche"
   },
   "editorial_exempt_sources": [
     "Cariboo Signals Reviews"
