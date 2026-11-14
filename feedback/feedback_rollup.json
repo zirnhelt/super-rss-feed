@@ -52,27 +52,40 @@
     "2026-08-06.json",
     "2026-08-07.json",
     "2026-08-08.json",
-    "2026-08-09.json"
+    "2026-08-09.json",
+    "2026-08-10.json",
+    "2026-08-11.json",
+    "2026-08-12.json",
+    "2026-08-13.json",
+    "2026-08-14.json",
+    "2026-08-15.json",
+    "2026-08-16.json"
   ],
   "by_category": {
     "ai-tech": {
-      "bad": 26,
-      "exemplar": 1,
-      "good": 32,
-      "interesting": 14
+      "bad": 29,
+      "exemplar": 2,
+      "good": 33,
+      "interesting": 16
     },
     "climate": {
       "bad": 6,
       "good": 12,
-      "interesting": 3
+      "interesting": 4
     },
     "design": {
-      "bad": 1
+      "bad": 3,
+      "good": 1,
+      "interesting": 4
     },
     "homelab": {
-      "bad": 3,
-      "exemplar": 1,
+      "bad": 4,
+      "exemplar": 2,
       "good": 3,
+      "interesting": 5
+    },
+    "homestead": {
+      "good": 1,
       "interesting": 2
     },
     "local": {
@@ -81,9 +94,15 @@
       "good": 29
     },
     "news": {
-      "bad": 536,
-      "good": 169,
-      "interesting": 28
+      "bad": 594,
+      "good": 173,
+      "interesting": 30
+    },
+    "outdoors": {
+      "bad": 1,
+      "exemplar": 1,
+      "good": 1,
+      "interesting": 1
     },
     "podcast-friday": {
       "bad": 1
@@ -94,24 +113,31 @@
     "science": {
       "bad": 2,
       "exemplar": 1,
-      "good": 12
+      "good": 15
     },
     "scifi": {
-      "bad": 7
+      "bad": 7,
+      "good": 1,
+      "interesting": 1
     },
     "shared": {
       "good": 4
     },
     "wellness": {
-      "bad": 28,
-      "good": 19,
-      "interesting": 7,
+      "bad": 38,
+      "good": 21,
+      "interesting": 9,
       "skip": 1
     }
   },
   "by_source": {
     "100 Mile Free Press": {
-      "good": 6
+      "bad": 1,
+      "good": 7
+    },
+    "AFAR": {
+      "bad": 4,
+      "good": 1
     },
     "APTN News": {
       "bad": 3,
@@ -124,7 +150,7 @@
     "Al Jazeera English": {
       "bad": 28,
       "good": 5,
-      "interesting": 1
+      "interesting": 2
     },
     "Android Authority": {
       "bad": 21,
@@ -135,12 +161,12 @@
       "good": 1
     },
     "Atlas Obscura": {
-      "bad": 7,
+      "bad": 8,
       "good": 1,
       "interesting": 2
     },
     "BC Gov News": {
-      "bad": 4,
+      "bad": 5,
       "good": 9
     },
     "Bicycling": {
@@ -181,16 +207,26 @@
       "interesting": 2
     },
     "Cottage Life": {
-      "bad": 1
+      "bad": 2
     },
     "Country Life": {
-      "bad": 1
+      "bad": 2
+    },
+    "Country Living UK": {
+      "bad": 1,
+      "good": 1,
+      "interesting": 2
     },
     "Daniele Messi. \u2014 Writing": {
       "bad": 2
     },
+    "Domino": {
+      "bad": 4,
+      "interesting": 1
+    },
     "Dwell": {
-      "bad": 1
+      "bad": 5,
+      "good": 1
     },
     "Eagle Feather News": {
       "good": 6
@@ -200,18 +236,26 @@
       "good": 4
     },
     "Edge (GamesRadar)": {
-      "bad": 1
+      "bad": 6,
+      "interesting": 1
     },
     "Engadget": {
       "bad": 19,
       "good": 10,
       "interesting": 2
     },
+    "Fast Company": {
+      "bad": 1,
+      "good": 1
+    },
     "FlowingData": {
       "bad": 4
     },
+    "Forbes Innovation": {
+      "bad": 1
+    },
     "Gizmodo": {
-      "bad": 13,
+      "bad": 14,
       "good": 5,
       "interesting": 1
     },
@@ -224,24 +268,31 @@
       "bad": 3,
       "good": 2
     },
+    "Homebuilding & Renovating": {
+      "interesting": 2
+    },
     "How-To Geek": {
       "bad": 6,
       "good": 3
     },
     "Ideal Home (Country Homes & Interiors)": {
-      "bad": 1
+      "bad": 6,
+      "interesting": 2
     },
     "InsideEVs": {
       "bad": 7,
       "good": 3,
       "interesting": 3
     },
+    "KFF Health News": {
+      "bad": 1
+    },
     "Kagi Small Web": {
-      "bad": 6,
+      "bad": 7,
       "good": 2
     },
     "Kottke.org": {
-      "bad": 11,
+      "bad": 12,
       "good": 2,
       "interesting": 1
     },
@@ -253,7 +304,7 @@
       "good": 3
     },
     "Live for the Outdoors (Country Walking)": {
-      "bad": 1
+      "bad": 3
     },
     "MacRumors": {
       "bad": 5,
@@ -261,7 +312,8 @@
       "interesting": 3
     },
     "Maclean's": {
-      "bad": 1
+      "bad": 2,
+      "good": 1
     },
     "Make Magazine": {
       "good": 1
@@ -269,6 +321,9 @@
     "MakeUseOf": {
       "bad": 2,
       "good": 3
+    },
+    "Mother Jones": {
+      "bad": 1
     },
     "My Cariboo Now": {
       "bad": 7,
@@ -285,23 +340,23 @@
       "interesting": 1
     },
     "NYT Business": {
-      "bad": 21,
+      "bad": 24,
       "good": 4,
-      "interesting": 2
+      "interesting": 3
     },
     "NYT Top Stories": {
-      "bad": 20,
+      "bad": 23,
       "good": 3,
       "interesting": 2
     },
     "NYT Well": {
-      "bad": 6,
+      "bad": 8,
       "good": 3,
-      "interesting": 3,
+      "interesting": 5,
       "skip": 1
     },
     "Nautilus": {
-      "bad": 3,
+      "bad": 4,
       "good": 4
     },
     "Neowin": {
@@ -317,6 +372,9 @@
       "bad": 2,
       "interesting": 1
     },
+    "Old House Journal": {
+      "bad": 1
+    },
     "Open Culture": {
       "bad": 4,
       "good": 1
@@ -326,12 +384,20 @@
       "interesting": 1
     },
     "Outside Online": {
-      "bad": 9,
-      "good": 7
+      "bad": 13,
+      "good": 8,
+      "interesting": 1
     },
     "Pique Newsmagazine": {
       "bad": 13,
       "good": 4
+    },
+    "Popular Mechanics": {
+      "good": 1
+    },
+    "Popular Woodworking": {
+      "bad": 1,
+      "interesting": 3
     },
     "Quartz": {
       "bad": 15,
@@ -351,37 +417,44 @@
       "good": 1
     },
     "Rolling Stone": {
-      "bad": 1
+      "bad": 8
     },
     "STAT News": {
       "bad": 10,
-      "good": 3,
+      "good": 4,
       "interesting": 2
     },
     "ScienceAlert": {
       "bad": 1,
-      "good": 7
+      "good": 9
     },
     "ScienceDaily": {
-      "good": 5
+      "good": 6
+    },
+    "Scientific American": {
+      "bad": 1,
+      "interesting": 1
     },
     "Strange Horizons": {
       "bad": 3
     },
     "TechCrunch": {
       "bad": 15,
-      "good": 7,
+      "good": 8,
       "interesting": 1
     },
     "TechRadar": {
-      "bad": 13,
+      "bad": 14,
       "good": 10,
       "interesting": 4
     },
+    "The Atlantic": {
+      "bad": 2
+    },
     "The Atlantic Culture": {
-      "bad": 15,
+      "bad": 17,
       "good": 2,
-      "interesting": 2
+      "interesting": 3
     },
     "The Guardian Global Development": {
       "bad": 4
@@ -398,6 +471,9 @@
       "bad": 1,
       "good": 4
     },
+    "The New Yorker": {
+      "bad": 2
+    },
     "The Northern Miner": {
       "bad": 7,
       "good": 8
@@ -408,12 +484,15 @@
       "interesting": 2
     },
     "The Verge": {
-      "bad": 17,
+      "bad": 18,
       "good": 4,
       "interesting": 1
     },
+    "The Walrus": {
+      "good": 1
+    },
     "Tom's Hardware": {
-      "bad": 13,
+      "bad": 14,
       "good": 3,
       "interesting": 2
     },
@@ -425,7 +504,7 @@
       "bad": 1
     },
     "WIRED": {
-      "bad": 15,
+      "bad": 20,
       "good": 5,
       "interesting": 1
     },
@@ -453,11 +532,17 @@
     "cheknews.ca": {
       "good": 1
     },
+    "github.blog": {
+      "exemplar": 1
+    },
     "hackaday.com": {
       "exemplar": 1
     },
     "iFixit": {
       "good": 1
+    },
+    "mobilesyrup.com": {
+      "exemplar": 1
     },
     "ricochet.media": {
       "good": 1
@@ -476,6 +561,9 @@
     },
     "www.theatlantic.com": {
       "good": 1
+    },
+    "xda-developers.com": {
+      "exemplar": 1
     }
   },
   "category_retags": {
@@ -483,12 +571,16 @@
       "homelab": 1
     },
     "news": {
-      "ai-tech": 12,
+      "ai-tech": 13,
       "climate": 2,
+      "design": 3,
       "homelab": 2,
+      "homestead": 3,
       "local": 1,
+      "outdoors": 2,
       "science": 1,
-      "wellness": 4
+      "scifi": 1,
+      "wellness": 5
     },
     "science": {
       "climate": 1
@@ -496,27 +588,27 @@
   },
   "day_reassignments": {
     "friday": {
-      "friday": 4,
-      "monday": 4,
-      "saturday": 7,
-      "sunday": 12,
+      "friday": 5,
+      "monday": 5,
+      "saturday": 8,
+      "sunday": 13,
       "thursday": 5,
-      "tuesday": 7,
-      "wednesday": 11
+      "tuesday": 8,
+      "wednesday": 12
     },
     "monday": {
       "friday": 7,
       "monday": 2,
       "saturday": 9,
-      "sunday": 9,
+      "sunday": 10,
       "thursday": 3,
       "tuesday": 8,
       "wednesday": 8
     },
     "saturday": {
-      "friday": 8,
+      "friday": 9,
       "saturday": 3,
-      "sunday": 16,
+      "sunday": 17,
       "thursday": 5,
       "tuesday": 4,
       "wednesday": 10
@@ -524,16 +616,17 @@
     "sunday": {
       "friday": 7,
       "monday": 4,
-      "saturday": 5,
-      "sunday": 7,
+      "saturday": 6,
+      "sunday": 10,
       "thursday": 1,
-      "tuesday": 6,
-      "wednesday": 11
+      "tuesday": 7,
+      "wednesday": 12
     },
     "thursday": {
       "friday": 8,
       "monday": 1,
-      "sunday": 10,
+      "saturday": 1,
+      "sunday": 11,
       "thursday": 2,
       "tuesday": 6,
       "wednesday": 10
@@ -551,33 +644,33 @@
       "friday": 13,
       "monday": 5,
       "saturday": 10,
-      "sunday": 14,
+      "sunday": 15,
       "thursday": 4,
       "tuesday": 11,
       "wednesday": 10
     }
   },
   "first_rated_at": "2026-06-17T03:56:12.980Z",
-  "last_rated_at": "2026-08-09T17:00:28.253Z",
-  "lessons": "- **Indigenous and Canadian community news:** Consistently favored: First Nations advocacy, reconciliation, land stewardship, and substantive civic or community stories (housing, hospice planning, local fire bans, arts funding, 4-H and agriculture pipelines). Sports recaps, routine event listings, and empty portal pages are rejected.\n- **Environmental framing:** Accepted when the angle is solutions, protection, policy stakes, Indigenous rights, or industry pivots with clear stakes (water, microplastics, persistent chemicals, impact assessments). Pure disaster or weather coverage (wildfire evacuations, smoke, heat) is mostly rejected, though occasional high-impact disaster reporting has landed.\n- **EV and automotive:** Accepted for automaker strategy, corporate turnarounds, charging infrastructure milestones, and battery breakthroughs. Rejected for ownership decline, sales drops, model reveals, spec-sheet reviews, luxury car showpieces, and car listicles.\n- **Science & nature discovery:** Strongly favored: surprising natural phenomena, animal and evolutionary biology, cross-species behavior, astronomy, geoscience, critical minerals, and novel research with real-world implications. Wellness pseudoscience, longevity checklists, and symptom-driven health advice are rejected; neurologically or environmentally grounded health research can land.\n- **AI & tech policy and risk:** Accepted for security vulnerabilities, attacks or manipulation of AI systems, disclosed hacks, legal rulings, expert warnings about societal impact, and critiques of bubbles or overreach. Product launches, model hype, feature updates, funding deals, executive moves, and assistant-app coverage are rejected.\n- **Practical tech and consum",
-  "lessons_batches": 8,
-  "lessons_updated_at": "2026-11-07T18:18:06+00:00",
+  "last_rated_at": "2026-08-16T13:14:32.182Z",
+  "lessons": "- **Indigenous, Canadian, and community civic stories:** Consistently accepted when substantive (First Nations advocacy, reconciliation, land stewardship, housing, local services, arts funding, agriculture pipelines, grants for community groups). Routine sports recaps, event listings, and empty portal pages are rejected.\n- **Environmental framing:** Accepted when the angle is solutions, protection, policy stakes, Indigenous rights, or industry pivots with clear stakes (water, microplastics, persistent chemicals, impact assessments). Pure weather or disaster coverage is mostly rejected unless the reporting is high-impact or policy-relevant.\n- **Climate and health intersections:** Accepted when climate change is analysed for its effects on populations or chronic illness, or when framed around policy or accountability. Health-politics coverage centred on individual public figures (e.g., RFK Jr.) is rejected.\n- **EV and automotive:** Accepted for automaker strategy, corporate turnarounds, charging infrastructure milestones, battery breakthroughs, and the global adoption of electric alternatives. Rejected for model reveals, spec reviews, sales-decline pieces, luxury showpieces, and listicles.\n- **Science and nature discovery:** Strongly favored: surprising natural phenomena, animal and evolutionary biology, astronomy, geoscience (including earthquake faults), nuclear and physics research with concrete implications, and critical minerals. Pseudoscience, wellness checklists, and symptom-driven health advice are rejected.\n- **AI and tech policy and risk:** Accepted for security vulnerabilities, hacks, surveillance controversies, legal rulings, expert warnings about societal impact, and critiques of techno-solutionism or AI bubbles. Product laun",
+  "lessons_batches": 9,
+  "lessons_updated_at": "2026-11-14T18:53:57+00:00",
   "score_bands": {
     "0-19": {
-      "bad": 206,
-      "good": 27,
-      "interesting": 7,
+      "bad": 221,
+      "good": 28,
+      "interesting": 11,
       "skip": 1
     },
     "20-39": {
-      "bad": 160,
-      "good": 51,
-      "interesting": 14
+      "bad": 199,
+      "good": 56,
+      "interesting": 23
     },
     "40-59": {
-      "bad": 158,
-      "good": 114,
-      "interesting": 33
+      "bad": 179,
+      "good": 122,
+      "interesting": 38
     },
     "60-79": {
       "bad": 74,
@@ -591,31 +684,31 @@
   "score_sums": {
     "bad": {
       "local": 492.0,
-      "n": 622,
-      "quality": 19004.0,
-      "relevance": 17196.0,
-      "score": 22083.0
+      "n": 697,
+      "quality": 19647.0,
+      "relevance": 17683.0,
+      "score": 24427.0
     },
     "exemplar": {
       "local": 0.0,
-      "n": 5,
+      "n": 8,
       "quality": 0.0,
       "relevance": 0.0,
       "score": 0.0
     },
     "good": {
       "local": 498.0,
-      "n": 280,
-      "quality": 12438.0,
-      "relevance": 12331.0,
-      "score": 14006.0
+      "n": 294,
+      "quality": 12845.0,
+      "relevance": 12682.0,
+      "score": 14554.0
     },
     "interesting": {
       "local": 8.0,
-      "n": 54,
-      "quality": 1985.0,
-      "relevance": 1644.0,
-      "score": 2086.0
+      "n": 72,
+      "quality": 2230.0,
+      "relevance": 1854.0,
+      "score": 2643.0
     },
     "skip": {
       "local": 0.0,
@@ -625,14 +718,14 @@
       "score": 13.0
     }
   },
-  "total_ratings": 962,
+  "total_ratings": 1072,
   "totals": {
-    "bad": 622,
-    "exemplar": 5,
-    "good": 280,
-    "interesting": 54,
+    "bad": 697,
+    "exemplar": 8,
+    "good": 294,
+    "interesting": 72,
     "skip": 1
   },
-  "updated_at": "2026-11-07T18:18:06+00:00",
+  "updated_at": "2026-11-14T18:53:57+00:00",
   "version": 1
 }
