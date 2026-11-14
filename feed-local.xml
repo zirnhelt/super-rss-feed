@@ -6,13 +6,70 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sat, 14 Nov 2026 06:15:14 +0000</lastBuildDate>
+<lastBuildDate>Sat, 14 Nov 2026 10:29:50 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Local Affairs, November 14, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-14.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-14.html</guid>
+<pubDate>Sat, 14 Nov 2026 10:06:05 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Theme: Cariboo Local Affairs. Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/43574128513&quot;&gt;43574128513&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;2 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Open the day&#x27;s citations JSON and check which deep-dive sources the script failed to use.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;1/3 deep-dive citations matched the script&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Investigate.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;1 local stor(ies) in the pool, 0 aired, roundup opened local: no&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Six held articles, none released to the focus feeds&lt;/h3&gt;
+&lt;p&gt;The focus routing held 6 articles and released 0. Each held item was tagged for a focus that did not get a release tonight: Mining &amp;amp; Energy (3 items, release date 2026-11-24), The Living World (2 items, release dates 2026-11-22), and Language &amp;amp; Culture (1 item, release date 2026-11-19). The held items are listed in the run data with their release dates, so a maintainer can check whether they are being released late or not at all.&lt;/p&gt;
+&lt;p&gt;Edit the focus routing if the release dates show held items aging out without ever being sent. Nothing in tonight&#x27;s run says why the release gate stayed closed.&lt;/p&gt;
+&lt;h3&gt;Theme-matched local story was available but missed the roundup&lt;/h3&gt;
+&lt;p&gt;The theme feed loaded 21 Cariboo Local Affairs articles, and one local story was available for the roundup. Zero local stories aired, and the roundup did not open on a local item. The local story that did air came through the deep dive instead: the lead deep-dive subject is the local story &quot;[My Cariboo Now] Former Quesnel Mayor&#x27;s wife loses defamation case,&quot; with the other two deep-dive subjects being non-local. The deep dive also drew 3 sources, of which 1 citation matched the script&#x27;s citation list (deep_dive_citations_matched: 1 of 3).&lt;/p&gt;
+&lt;p&gt;Check the roundup selection so a theme-feed local story is not left out of the roundup when the deep dive already takes a different subject. The 3 unused on-theme candidates are the first place to look.&lt;/p&gt;
+&lt;h3&gt;The script was 3503 words against a 3400-word target&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 2785 words against the 3400-word target and was sent back for one expand pass. The shipped script is 3503 words. The shipped script therefore sits above target, which the first draft did not. The short-script expand pass is what closed the gap, so the first-draft shortfall is the thing to watch on thinner days.&lt;/p&gt;
+&lt;p&gt;The voice split is 0.87 Casey to Riley, and Casey carries 45% of the deep-dive words. The voice split stays balanced in the shipped script, though the deep-dive weighting leans toward Casey.&lt;/p&gt;
+&lt;h3&gt;One TTS segment came back short and was retried&lt;/h3&gt;
+&lt;p&gt;One TTS take came back shorter than its word count predicts. That take was retried once, and the run data does not say whether the retry succeeded. The short take is one observation and is not a count of missing audio. The spend for the run was $0.13, and openai-tts was the largest spend line at $0.3097.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Articles loaded&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kept after dedup&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Held / released&lt;/td&gt;&lt;td&gt;0 released, 6 held&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Roundup pool&lt;/td&gt;&lt;td&gt;18 stories — standalone:8, public_safety:3, civic_affairs:3, earth_environmental:3, kicker:1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;3 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 0.87, 3503 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 45% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;21.8 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;20.0 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;13/18 roundup, 1/3 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;290 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;75,387&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;117 total: openai-tts 92 · claude 11 · brave-search 4 · kagi-extract 4 · brave-answers 3 · cohere 3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic cost&lt;/td&gt;&lt;td&gt;$0.13 at list price (estimate)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.60 at list price: OpenAI TTS $0.310 · Anthropic $0.128 · Brave Answers $0.123 · Brave Search $0.020 · Kagi Extract $0.016 · Cohere $0.001&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] UPDATE: Fire at South Cariboo Landfill extinguished</title>
 <link>https://100milefreepress.net/2026/11/13/south-cariboo-landfill-closed-due-to-wildfire/</link>
