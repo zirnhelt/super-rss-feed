@@ -121,6 +121,7 @@ Dated reports live in `reports/`; the root holds code, config, caches and runnin
 | `refresh-editorial.yml` | The podcast's review job (scheduler PAT) | The episode review stops landing in `feed-local` |
 | `_changes`, `date_published` in `weekly-state-article.json` on main | The Sunday Meta Moment (`get_upstream_week_changes`) | That half of the segment goes empty |
 | `feed-local.json` | The podcast's `daily-podcast.yml` | — |
+| The week's local stories in `feed-podcast-saturday.json`, aired or not (`local_lane_week`) | The podcast's Saturday recall (`recall_week_local`) | Saturday's roundup loses its week in the Cariboo |
 | The Brave Search key | Both repos' monthly cap | The podcast's research budget runs out |
 
 ## Automation, and who fixes what

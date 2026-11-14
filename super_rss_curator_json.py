@@ -5696,10 +5696,14 @@ LOCAL_LANE_MAX_AGE_HOURS = 72
 # without it the Tribune's provincial syndication (a Penticton encampment, the BC
 # Ferries CEO, local 0-15) qualified as Cariboo news.
 LOCAL_LANE_MIN_LOCAL = 25
+# The week lane (`local_lane_week`, the Saturday feed): the show's local day reads the
+# whole week, not the last three days, and takes more from each of the few local outlets.
+LOCAL_LANE_WEEK_MAX_AGE_HOURS = 168
+LOCAL_LANE_WEEK_PER_SOURCE = 4
 
 
 def select_local_lane(candidates: List, taken_links: set, podcast_shown_cache: Dict,
-                      slots: int, local_signals: List[str]) -> List:
+                      slots: int, local_signals: List[str], week: bool = False) -> List:
     """The most newsworthy recent Cariboo stories not yet aired.
 
     `candidates` have already passed the content and gate exclusions. A story aired
@@ -5707,24 +5711,59 @@ def select_local_lane(candidates: List, taken_links: set, podcast_shown_cache: D
     anything cited in the last 7 days, so a repeat here fills a lane slot with
     nothing. Ranked on `q_gate`, not recency: newest-first picked a snowfall
     bulletin over the councillors' farewells on 2026-10-28.
+
+    `week` is the local day's lane. By Saturday the weekday episodes have aired the
+    week's local news: on 2026-11-14 the feed carried 18 local stories already aired
+    and 3 fresh. It reaches back the whole week; a story shown on another day
+    stays eligible (shown is not aired: the show airs about a third of a feed, and
+    recalls the ones it did air), behind the stories no feed has carried; and a
+    BC story with no Cariboo anchor may take a slot the Cariboo leaves empty.
     """
-    aired = {key.split(':::', 1)[0] for key in podcast_shown_cache}
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=LOCAL_LANE_MAX_AGE_HOURS)
+    shown = {key.split(':::', 1)[0] for key in podcast_shown_cache}
+    max_age = LOCAL_LANE_WEEK_MAX_AGE_HOURS if week else LOCAL_LANE_MAX_AGE_HOURS
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=max_age)
     pool = [a for a in candidates
-            if a.link not in taken_links and a.link not in aired
+            if a.link not in taken_links and (week or a.link not in shown)
             and (a.pub_date if a.pub_date.tzinfo else a.pub_date.replace(tzinfo=timezone.utc)) >= cutoff
             and getattr(a, 'local', 0) >= LOCAL_LANE_MIN_LOCAL
-            and _has_cariboo_anchor(a, local_signals)]
-    pool.sort(key=lambda a: (_podcast_quality(a) or 0, getattr(a, 'local', 0)), reverse=True)
+            and (week or _has_cariboo_anchor(a, local_signals))]
+    pool.sort(key=lambda a: (_has_cariboo_anchor(a, local_signals), a.link not in shown,
+                             _podcast_quality(a) or 0, getattr(a, 'local', 0)), reverse=True)
+    per_source_cap = LOCAL_LANE_WEEK_PER_SOURCE if week else LOCAL_LANE_PER_SOURCE
     lane, per_source = [], defaultdict(int)
     for article in pool:
         if len(lane) >= slots:
             break
-        if per_source[article.source] >= LOCAL_LANE_PER_SOURCE:
+        if per_source[article.source] >= per_source_cap:
             continue
         lane.append(article)
         per_source[article.source] += 1
     return lane
+
+
+PODCAST_OUTLET_CAP = 3
+
+
+def cap_podcast_outlets(items_with_score: List[Tuple], local_day: bool = False) -> Tuple[List[Tuple], int]:
+    """Keep at most `PODCAST_OUTLET_CAP` items an outlet, best first; returns (kept, dropped).
+
+    Avoids 4+ articles from one outlet in an episode. On the local day
+    (`local_lane_week`) a local story is exempt: four papers write the week's Cariboo
+    news, and on 2026-11-14 the cap cut 23 local stories from the Saturday feed, 15 of
+    them never aired, and kept three already-aired ones a paper.
+    """
+    counts: Dict[str, int] = defaultdict(int)
+    kept, dropped = [], 0
+    for score, item in items_with_score:
+        outlet = (item.get('authors') or [{}])[0].get('name', '')
+        if local_day and (item.get('_local') or 0) >= LOCAL_LANE_MIN_LOCAL:
+            kept.append((score, item))
+        elif counts[outlet] < PODCAST_OUTLET_CAP:
+            kept.append((score, item))
+            counts[outlet] += 1
+        else:
+            dropped += 1
+    return kept, dropped
 
 
 def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_shown_cache: Dict,
@@ -6263,13 +6302,16 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     all_entries = theme_articles + bonus_entries
 
+    lane_week = bool(today.get('local_lane_week', False))
     local_lane = select_local_lane(
         local_lane_candidates, {a.link for a, _, _ in all_entries}, podcast_shown_cache,
-        schedule_config.get('local_lane_slots', LOCAL_LANE_DEFAULT_SLOTS),
-        [s.lower() for s in FILTERS.get('local_signals', [])],
+        today.get('local_lane_slots',
+                  schedule_config.get('local_lane_slots', LOCAL_LANE_DEFAULT_SLOTS)),
+        [s.lower() for s in FILTERS.get('local_signals', [])], week=lane_week,
     )
     if local_lane:
-        print(f"  📍 Local lane: +{len(local_lane)} fresh Cariboo stories")
+        print(f"  📍 Local lane: +{len(local_lane)} "
+              f"{'Cariboo and BC stories from the week' if lane_week else 'fresh Cariboo stories'}")
         all_entries += [(a, _podcast_composite(a, _theme_pct(a.link)), _theme_pct(a.link))
                         for a in local_lane]
     _dbg('FINAL (incl. bonus)', all_entries)
@@ -6432,21 +6474,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
 
     items_with_score.sort(key=lambda x: x[0], reverse=True)
 
-    # Per-source cap: avoid 4+ articles from the same outlet in a single podcast episode.
-    _pod_source_counts: Dict[str, int] = defaultdict(int)
-    _pod_source_cap = 3
-    _items_capped = []
-    _items_dropped_source = 0
-    for _score, _item in items_with_score:
-        _src = (_item.get('authors') or [{}])[0].get('name', '')
-        if _pod_source_counts[_src] < _pod_source_cap:
-            _items_capped.append((_score, _item))
-            _pod_source_counts[_src] += 1
-        else:
-            _items_dropped_source += 1
+    items_with_score, _items_dropped_source = cap_podcast_outlets(items_with_score, lane_week)
     if _items_dropped_source:
-        print(f"  ✂️ Source cap ({_pod_source_cap}/outlet): dropped {_items_dropped_source} excess articles")
-    items_with_score = _items_capped
+        print(f"  ✂️ Source cap ({PODCAST_OUTLET_CAP}/outlet): dropped {_items_dropped_source} excess articles")
 
     feed["items"] = [item for _, item in items_with_score]
 
