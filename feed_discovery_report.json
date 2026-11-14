@@ -1,36 +1,100 @@
 {
-  "generated_at": "2026-11-07T18:16:14.487632+00:00",
-  "total_candidates_evaluated": 365,
-  "recommended_feeds": 22,
+  "generated_at": "2026-11-14T18:51:57.824860+00:00",
+  "total_candidates_evaluated": 403,
+  "recommended_feeds": 30,
   "min_score_threshold": 60,
   "categories": {
-    "homelab": {
-      "count": 7,
+    "design": {
+      "count": 4,
       "feeds": [
         {
-          "title": "MakerParts 3D - Resources",
-          "url": "https://makerparts3d.com/blogs/resources.atom",
-          "html_url": "https://makerparts3d.com/blogs/resources",
+          "title": "Browse by category - passivehouseplus.co.uk",
+          "url": "https://passivehouseplus.co.uk/magazine?format=feed",
+          "html_url": "https://passivehouseplus.co.uk/magazine?start=120",
           "source": "brave_search",
-          "average_score": 88.5,
+          "average_score": 76.9,
           "sample_articles": 3,
-          "reason": "Excellent match for your interests"
+          "reason": "Strong alignment with your interests"
         },
         {
-          "title": "All3DP",
-          "url": "https://all3dp.com/feed/newsfeed",
-          "html_url": "https://all3dp.com",
-          "source": "Kagi News Feeds",
-          "average_score": 67.1,
+          "title": "Browse by category - passivehouseplus.co.uk",
+          "url": "https://passivehouseplus.co.uk/magazine?format=feed&type=rss",
+          "html_url": "https://passivehouseplus.co.uk/magazine?start=120",
+          "source": "brave_search",
+          "average_score": 76.9,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
+        },
+        {
+          "title": "Browse by category - passivehouseplus.co.uk",
+          "url": "https://passivehouseplus.co.uk/magazine?format=feed&type=atom",
+          "html_url": "https://passivehouseplus.co.uk/magazine?start=120",
+          "source": "brave_search",
+          "average_score": 76.9,
+          "sample_articles": 3,
+          "reason": "Strong alignment with your interests"
+        },
+        {
+          "title": "Skeptical Science",
+          "url": "https://skepticalscience.com/feed.xml",
+          "html_url": "https://skepticalscience.com/passive-house-promise.html",
+          "source": "brave_search",
+          "average_score": 62.4,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "homestead": {
+      "count": 3,
+      "feeds": [
+        {
+          "title": "I also live on a farm",
+          "url": "https://ialsoliveonafarm.wordpress.com/feed/",
+          "html_url": "https://ialsoliveonafarm.wordpress.com/2011/07/31/the-real-deal-on-being-self-sufficient-on-a-one-acre-homestead/",
+          "source": "brave_search",
+          "average_score": 73.9,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Homesteading Family",
+          "url": "https://homesteadingfamily.com/feed/",
+          "html_url": "https://homesteadingfamily.com/preserve/",
+          "source": "brave_search",
+          "average_score": 64.6,
           "sample_articles": 3,
           "reason": "Good potential addition"
         },
         {
-          "title": "Noted",
-          "url": "https://noted.lol/rss/",
-          "html_url": "https://noted.lol/tag/self-hosted-rss-readers/",
+          "title": "Homestead.org",
+          "url": "https://www.homestead.org/feed/",
+          "html_url": "https://www.homestead.org/food/food-preservation-techniques/",
           "source": "brave_search",
-          "average_score": 64.9,
+          "average_score": 62.9,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "homelab": {
+      "count": 4,
+      "feeds": [
+        {
+          "title": "Automated Home",
+          "url": "https://automatedhome.com/feed/",
+          "html_url": "https://automatedhome.com",
+          "source": "Kagi News Feeds",
+          "average_score": 71.8,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Build a Homelab",
+          "url": "https://peira.dev/rss.xml",
+          "html_url": "https://peira.dev/articles/complete-proxmox-homelab-guide/",
+          "source": "brave_search",
+          "average_score": 65.5,
           "sample_articles": 3,
           "reason": "Good potential addition"
         },
@@ -39,26 +103,8 @@
           "url": "https://meshtastic.org/blog/atom.xml",
           "html_url": "https://meshtastic.org/blog/",
           "source": "brave_search",
-          "average_score": 64.8,
+          "average_score": 60.3,
           "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Thu\u1eadn L\u01b0\u01a1ng",
-          "url": "https://luonghongthuan.com/en/feed/",
-          "html_url": "https://luonghongthuan.com/en/blog/proxmox-selfhost-homelab-guide/",
-          "source": "brave_search",
-          "average_score": 63.6,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Radio Circuits Blog",
-          "url": "https://radio-circuits.blogspot.com/atom.xml",
-          "html_url": "https://radio-circuits.blogspot.com/2026/04/meshtastic-ham-radio-guide-lora-mesh_12.html",
-          "source": "brave_search",
-          "average_score": 62.0,
-          "sample_articles": 1,
           "reason": "Good potential addition"
         },
         {
@@ -72,24 +118,102 @@
         }
       ]
     },
-    "climate": {
-      "count": 2,
+    "news": {
+      "count": 1,
       "feeds": [
         {
-          "title": "Climate - CBSNews.com",
-          "url": "https://www.cbsnews.com/latest/rss/climate",
-          "html_url": "https://cbsnews.com",
+          "title": "The Council of Canadians",
+          "url": "https://canadians.org/feed",
+          "html_url": "https://canadians.org",
           "source": "Kagi News Feeds",
-          "average_score": 84.1,
+          "average_score": 69.0,
           "sample_articles": 3,
-          "reason": "Strong alignment with your interests"
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "climate": {
+      "count": 3,
+      "feeds": [
+        {
+          "title": "Climate Council",
+          "url": "https://www.climatecouncil.org.au/feed/",
+          "html_url": "https://climatecouncil.org.au",
+          "source": "Kagi News Feeds",
+          "average_score": 66.2,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
         },
         {
-          "title": "resourceworks.com",
-          "url": "https://resourceworks.com/feed",
-          "html_url": "https://resourceworks.com/all-the-good-news-that-didnt-make-the-news/",
+          "title": "Entropy Survival - News & Views",
+          "url": "https://entropysurvival.com/blogs/news-views.atom",
+          "html_url": "https://entropysurvival.com/blogs/news-views/how-to-power-a-homestead-off-the-grid-solar-batteries-and-inverters-explained",
           "source": "brave_search",
-          "average_score": 62.8,
+          "average_score": 64.2,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Regenerative Agriculture Podcast",
+          "url": "https://regenerativeagriculture.libsyn.com/rss",
+          "html_url": "https://regenerativeagriculture.libsyn.com/rss",
+          "source": "brave_search",
+          "average_score": 61.3,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "local": {
+      "count": 1,
+      "feeds": [
+        {
+          "title": "Community Archives : My Cariboo Now",
+          "url": "https://www.mycariboonow.com/news/communty/feed/",
+          "html_url": "https://www.mycariboonow.com/news/communty/",
+          "source": "brave_search",
+          "average_score": 65.7,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "ai-tech": {
+      "count": 4,
+      "feeds": [
+        {
+          "title": "The Berkeley Artificial Intelligence Research Blog",
+          "url": "https://bair.berkeley.edu/blog/feed.xml",
+          "html_url": "https://bair.berkeley.edu",
+          "source": "Kagi News Feeds",
+          "average_score": 65.2,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Delta Chat",
+          "url": "https://delta.chat/feed.xml",
+          "html_url": "https://delta.chat",
+          "source": "Kagi News Feeds",
+          "average_score": 64.7,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "Data Protection Report",
+          "url": "https://dataprotectionreport.com/feed",
+          "html_url": "https://dataprotectionreport.com",
+          "source": "Kagi News Feeds",
+          "average_score": 62.5,
+          "sample_articles": 1,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "cyberscoop.com",
+          "url": "https://cyberscoop.com/news/privacy/feed/",
+          "html_url": "https://cyberscoop.com",
+          "source": "Kagi News Feeds",
+          "average_score": 60.5,
           "sample_articles": 3,
           "reason": "Good potential addition"
         }
@@ -136,70 +260,6 @@
         }
       ]
     },
-    "homestead": {
-      "count": 2,
-      "feeds": [
-        {
-          "title": "Homesteading Family",
-          "url": "https://homesteadingfamily.com/feed/",
-          "html_url": "https://homesteadingfamily.com/preservation-101-root-cellaring/",
-          "source": "brave_search",
-          "average_score": 64.6,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "Entropy Survival - News & Views",
-          "url": "https://entropysurvival.com/blogs/news-views.atom",
-          "html_url": "https://entropysurvival.com/blogs/news-views/homestead-foods-preservation-guide",
-          "source": "brave_search",
-          "average_score": 64.2,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
-    },
-    "general": {
-      "count": 4,
-      "feeds": [
-        {
-          "title": "atank.interlogy.com",
-          "url": "http://atank.interlogy.com/feed/",
-          "html_url": "http://atank.interlogy.com",
-          "source": "Kagi Small Web",
-          "average_score": 64.3,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "acme.com",
-          "url": "http://acme.com/updates/updates_rss2.xml",
-          "html_url": "http://acme.com",
-          "source": "Kagi Small Web",
-          "average_score": 60.9,
-          "sample_articles": 2,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "aymannadeem.github.io",
-          "url": "http://aymannadeem.github.io/feed.xml",
-          "html_url": "http://aymannadeem.github.io",
-          "source": "Kagi Small Web",
-          "average_score": 60.4,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        },
-        {
-          "title": "blog.henrikcarlsson.se",
-          "url": "http://blog.henrikcarlsson.se/feed/",
-          "html_url": "http://blog.henrikcarlsson.se",
-          "source": "Kagi Small Web",
-          "average_score": 60.0,
-          "sample_articles": 3,
-          "reason": "Good potential addition"
-        }
-      ]
-    },
     "outdoors": {
       "count": 1,
       "feeds": [
@@ -228,15 +288,47 @@
         }
       ]
     },
-    "ai-tech": {
+    "scifi": {
       "count": 1,
       "feeds": [
         {
-          "title": "Privacy | CyberScoop",
-          "url": "https://cyberscoop.com/news/privacy/feed/",
-          "html_url": "https://cyberscoop.com",
-          "source": "Kagi News Feeds",
-          "average_score": 60.5,
+          "title": "NovelOS Blog",
+          "url": "https://novelos.studio/rss.xml",
+          "html_url": "https://novelos.studio/blog/solarpunk-conflict/",
+          "source": "brave_search",
+          "average_score": 62.1,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        }
+      ]
+    },
+    "general": {
+      "count": 3,
+      "feeds": [
+        {
+          "title": "acme.com",
+          "url": "http://acme.com/updates/updates_rss2.xml",
+          "html_url": "http://acme.com",
+          "source": "Kagi Small Web",
+          "average_score": 60.9,
+          "sample_articles": 2,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "aymannadeem.github.io",
+          "url": "http://aymannadeem.github.io/feed.xml",
+          "html_url": "http://aymannadeem.github.io",
+          "source": "Kagi Small Web",
+          "average_score": 60.4,
+          "sample_articles": 3,
+          "reason": "Good potential addition"
+        },
+        {
+          "title": "blog.henrikcarlsson.se",
+          "url": "http://blog.henrikcarlsson.se/feed/",
+          "html_url": "http://blog.henrikcarlsson.se",
+          "source": "Kagi Small Web",
+          "average_score": 60.0,
           "sample_articles": 3,
           "reason": "Good potential addition"
         }
@@ -245,75 +337,79 @@
   },
   "summary": {
     "by_category": {
-      "homelab": 7,
-      "climate": 2,
+      "design": 4,
+      "homestead": 3,
+      "homelab": 4,
+      "news": 1,
+      "climate": 3,
+      "local": 1,
+      "ai-tech": 4,
       "tech": 4,
-      "homestead": 2,
-      "general": 4,
       "outdoors": 1,
       "science": 1,
-      "ai-tech": 1
+      "scifi": 1,
+      "general": 3
     },
     "top_recommendations": [
       {
-        "title": "MakerParts 3D - Resources",
-        "category": "homelab",
-        "score": 88.5,
-        "url": "https://makerparts3d.com/blogs/resources.atom"
+        "title": "Browse by category - passivehouseplus.co.uk",
+        "category": "design",
+        "score": 76.9,
+        "url": "https://passivehouseplus.co.uk/magazine?format=feed"
       },
       {
-        "title": "Climate - CBSNews.com",
+        "title": "Browse by category - passivehouseplus.co.uk",
+        "category": "design",
+        "score": 76.9,
+        "url": "https://passivehouseplus.co.uk/magazine?format=feed&type=rss"
+      },
+      {
+        "title": "Browse by category - passivehouseplus.co.uk",
+        "category": "design",
+        "score": 76.9,
+        "url": "https://passivehouseplus.co.uk/magazine?format=feed&type=atom"
+      },
+      {
+        "title": "I also live on a farm",
+        "category": "homestead",
+        "score": 73.9,
+        "url": "https://ialsoliveonafarm.wordpress.com/feed/"
+      },
+      {
+        "title": "Automated Home",
+        "category": "homelab",
+        "score": 71.8,
+        "url": "https://automatedhome.com/feed/"
+      },
+      {
+        "title": "The Council of Canadians",
+        "category": "news",
+        "score": 69.0,
+        "url": "https://canadians.org/feed"
+      },
+      {
+        "title": "Climate Council",
         "category": "climate",
-        "score": 84.1,
-        "url": "https://www.cbsnews.com/latest/rss/climate"
+        "score": 66.2,
+        "url": "https://www.climatecouncil.org.au/feed/"
       },
       {
-        "title": "All3DP",
+        "title": "Community Archives : My Cariboo Now",
+        "category": "local",
+        "score": 65.7,
+        "url": "https://www.mycariboonow.com/news/communty/feed/"
+      },
+      {
+        "title": "Build a Homelab",
         "category": "homelab",
-        "score": 67.1,
-        "url": "https://all3dp.com/feed/newsfeed"
+        "score": 65.5,
+        "url": "https://peira.dev/rss.xml"
       },
       {
-        "title": "Hacker News",
-        "category": "tech",
-        "score": 65.0,
-        "url": "http://news.ycombinator.com/rss"
-      },
-      {
-        "title": "Noted",
-        "category": "homelab",
-        "score": 64.9,
-        "url": "https://noted.lol/rss/"
-      },
-      {
-        "title": "Meshtastic Blog",
-        "category": "homelab",
-        "score": 64.8,
-        "url": "https://meshtastic.org/blog/atom.xml"
-      },
-      {
-        "title": "Homesteading Family",
-        "category": "homestead",
-        "score": 64.6,
-        "url": "https://homesteadingfamily.com/feed/"
-      },
-      {
-        "title": "atank.interlogy.com",
-        "category": "general",
-        "score": 64.3,
-        "url": "http://atank.interlogy.com/feed/"
-      },
-      {
-        "title": "Entropy Survival - News & Views",
-        "category": "homestead",
-        "score": 64.2,
-        "url": "https://entropysurvival.com/blogs/news-views.atom"
-      },
-      {
-        "title": "The High Route",
-        "category": "outdoors",
-        "score": 63.8,
-        "url": "https://the-high-route.com/feed/"
+        "title": "The Berkeley Artificial Intelligence Research Blog",
+        "category": "ai-tech",
+        "score": 65.2,
+        "url": "https://bair.berkeley.edu/blog/feed.xml"
       }
     ]
   }
