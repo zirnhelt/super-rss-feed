@@ -98,3 +98,16 @@ No feed met the failure floor — nothing to heal.
 | ✓ Recovered on its own | Neuroscience News | fetches normally again | 6 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
 | ✓ Recovered on its own | Canadian Architect | fetches normally again | 5 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
 | 🔁 Substituted | Dwell | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:dwell.com&hl=en&gl=CA&ceid=CA:en` | 3 failures over 3d (http_403, via feed_http_cache.json) |
+
+
+## 2026-11-14
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| ✓ Recovered on its own | Two Minute Papers | fetches normally again | 7 failures over 7d (http_404, via feed_http_cache.json) |
+| ✓ Recovered on its own | Civil Eats | fetches normally again | 6 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Neuroscience News | fetches normally again | 6 failures over 6d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Logging and Sawmilling Journal | fetches normally again | 4 failures over 6d (network, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | Wildfire Today | fetches normally again | 4 failures over 4d (network, via feed_http_cache.json) |
+| ✓ Recovered on its own | Climate - CBSNews.com | fetches normally again | 3 failures over 4d (http_406, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✅ Restored | Mother Earth News | retired source is reachable again | retired unknown |
