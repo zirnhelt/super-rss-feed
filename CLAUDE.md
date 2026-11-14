@@ -1,6 +1,6 @@
 # Super RSS Feed Curator
 
-An AI-powered RSS aggregator: ~150 feeds plus Kagi News clusters → fetch, filter, dedup, score, categorize → 11 category JSON feeds plus 7 themed daily podcast feeds on GitHub Pages, nightly on GitHub Actions. The audience is one reader in Williams Lake, BC (Cariboo); the podcast feeds are read by the sibling repo `curated-podcast-generator`, whose show is public. Live site `https://zirnhelt.github.io/super-rss-feed/`.
+An AI-powered RSS aggregator: ~150 feeds plus Kagi News clusters → fetch, filter, dedup, score, categorize → 12 category JSON feeds plus 7 themed daily podcast feeds on GitHub Pages, nightly on GitHub Actions. The audience is one reader in Williams Lake, BC (Cariboo); the podcast feeds are read by the sibling repo `curated-podcast-generator`, whose show is public. Live site `https://zirnhelt.github.io/super-rss-feed/`.
 
 The values behind both curators are in the podcast repo's [`docs/MANIFESTO.md`](https://github.com/zirnhelt/curated-podcast-generator/blob/main/docs/MANIFESTO.md): read it before changing scoring, the gate, or what a feed admits.
 

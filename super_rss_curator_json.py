@@ -3806,6 +3806,8 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
     # Haiku 5.5's minimum is 512, so caching no longer depends on it.)
     category_lines = []
     for key, cat_data in CATEGORIES.items():
+        if cat_data.get('source_routed'):
+            continue  # filled by source type, never chosen by the model
         rules = CATEGORY_RULES.get(key, {})
         desc = rules.get('description', cat_data.get('description', ''))
         line = f"  {key}: {desc}"
@@ -4231,7 +4233,7 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
     for a in sorted(articles, key=lambda x: getattr(x, 'q_gate', None) or 0, reverse=True):
         if id(a) in editorial_ids:
             continue
-        cat = a.category or 'news'
+        cat = reader_category(a)
         world_slots = FEED_SLOTS.get(cat, default_cfg).get('world_slots', 0)
         if (not getattr(a, 'gate_world', None)
                 or (getattr(a, 'q_gate', None) or 0) < gate_floor
@@ -4246,7 +4248,7 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
     by_cat: Dict[str, List[Article]] = defaultdict(list)
     for a in sorted(articles, key=lambda x: x.score, reverse=True):
         if id(a) not in lane_ids:
-            by_cat[a.category or 'news'].append(a)
+            by_cat[reader_category(a)].append(a)
 
     cat_counts: Dict[str, int] = defaultdict(int)
     below_floor_admitted = 0
@@ -4270,7 +4272,7 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
     remaining = [a for a in sorted(articles, key=lambda x: x.score, reverse=True)
                  if id(a) not in included_ids]
     for a in remaining:
-        cat = a.category or 'news'
+        cat = reader_category(a)
         cfg = FEED_SLOTS.get(cat, default_cfg)
         max_s = cfg.get('max_slots', default_cfg.get('max_slots', 5))
         if cat_counts[cat] >= max_s:
@@ -4455,6 +4457,29 @@ def filter_by_content_type(articles: List[Article]) -> Tuple[List[Article], Dict
         breakdown = ', '.join(f"{v} {k}" for k, v in removed.items())
         print(f"🚫 Content type filter: removed {total} articles ({breakdown})")
     return kept, {'content_type_removed': dict(removed)}
+
+
+# Niche interests (`source_types.niche`): outlets the reader enjoys now and then but rates
+# "Too niche" or "No local hook" when they take a regular Design or AI/Tech slot. Their
+# stories keep their category for scoring and the podcast pool, and ship in the Miscellany
+# feed instead of their category's.
+NICHE_SOURCE_TYPE = 'niche'
+MISCELLANY_CATEGORY = 'miscellany'
+
+
+def is_niche_source(source: str) -> bool:
+    """Whether `source` is typed niche in source_preferences.json."""
+    return SOURCE_PREFS.get('source_map', {}).get(source) == NICHE_SOURCE_TYPE
+
+
+def reader_category(article) -> str:
+    """The reader feed an article ships in: its category, except that a niche outlet's
+    stories go to Miscellany. A local story stays local."""
+    category = getattr(article, 'category', None) or 'news'
+    if (category != 'local' and MISCELLANY_CATEGORY in CATEGORIES
+            and is_niche_source(getattr(article, 'source', ''))):
+        return MISCELLANY_CATEGORY
+    return category
 
 
 def apply_diversity_limits(articles: List[Article], category: str) -> List[Article]:
@@ -4932,6 +4957,8 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
 
     category_lines = []
     for key, cat_data in CATEGORIES.items():
+        if cat_data.get('source_routed'):
+            continue  # filled by source type, never chosen by the model
         rules = CATEGORY_RULES.get(key, {})
         desc = rules.get('description', cat_data.get('description', ''))
         line = f"  {key}: {desc}"
@@ -5679,7 +5706,7 @@ def bank_articles_for_all_themes(
 PODCAST_FEED_CONTRACT = {
     "items": ("id", "url", "title", "summary", "date_published", "authors", "ai_score",
               "_excerpt", "_is_bonus", "_keyword_matches", "_theme_score", "_theme_score_raw",
-              "_kite_sources", "_kite_context"),
+              "_kite_sources", "_kite_context", "_niche"),
     "_podcast": ("theme", "theme_description"),
 }
 
@@ -6440,6 +6467,9 @@ def generate_podcast_feed(theme_name: str, cached_articles: List[Dict], podcast_
             "_category": article.category,
             "_source_category": article.category,
             "_is_bonus": is_bonus,
+            # A niche-interest outlet (`source_types.niche`): the show airs about one a
+            # week, as the roundup's closer.
+            "_niche": is_niche_source(article.source),
             **({"_thin_body": True} if _item_body_len < 280 else {}),
         }
 
@@ -7063,8 +7093,7 @@ def main():
     
     categorized = defaultdict(list)
     for article in quality_articles:
-        category = article.category or 'news'
-        categorized[category].append(article)
+        categorized[reader_category(article)].append(article)
     
     print(f"\n📂 Categorization results:")
     for cat_key in CATEGORIES.keys():
@@ -7976,7 +8005,7 @@ def bootstrap_feeds_from_podcast_cache(api_key: str = ''):
     # Group by category
     categorized: Dict[str, List[Article]] = defaultdict(list)
     for article in quality_articles:
-        cat = article.category or 'news'
+        cat = reader_category(article)
         if cat not in CATEGORIES:
             cat = 'news'
         categorized[cat].append(article)
@@ -8271,7 +8300,7 @@ def refresh_hot_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'output')
     candidates = []
     for a in fresh:
         a.category = _hot_provisional_category(a, local_signals)
-        if a.category in categories:
+        if reader_category(a) in categories:
             candidates.append(a)
     print(f"\n🔥 Hot refresh: fetched {len(fetched)} → unique {len(unique)} → "
           f"unseen {len(fresh)} → {len(candidates)} headed for {', '.join(categories)}")
