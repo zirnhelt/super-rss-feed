@@ -6,13 +6,70 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sun, 15 Nov 2026 06:09:01 +0000</lastBuildDate>
+<lastBuildDate>Sun, 15 Nov 2026 10:32:55 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Science, Wonder &amp; the Natural World, November 15, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-15.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-15.html</guid>
+<pubDate>Sun, 15 Nov 2026 10:06:05 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Theme: Science, Wonder &amp;amp; the Natural World. Focus: Sky &amp;amp; Cosmos (week 1 of 5). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/43692869039&quot;&gt;43692869039&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;4 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;render/music-fallback&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;render/music-fallback&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: script did not parse into welcome/news/deep-dive — episode rendered without music beds or section structure&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/kagi-extract&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/kagi-extract&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Kagi Extract reply matched no page for 2 of 2 URLs sent&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Investigate.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;2 local stor(ies) in the pool, 1 aired, roundup opened local: no&lt;/span&gt; &lt;span class=&quot;recur&quot;&gt;Recurring: pending for the roadmap, seen 1 night.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The deep dive ran on one source with on-theme candidates unused. Read the Cariboo pick line in the run log and the candidates it passed over.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;the deep dive aired on one source while 32 on-theme candidate(s) went unused&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Two segments fell back to a degraded render, and the script never parsed into sections&lt;/h3&gt;
+&lt;p&gt;The script step produced a draft, but the segment parser could not split it into welcome, news and deep-dive, so the render fell back to TTS-only mode. The episode went out without music beds or section structure. The parse warning reads &quot;Segment parsing failed - falling back to TTS-only mode&quot;, and the render degradation carries the same cause. The listener gets a continuous spoken track with no transitions between the roundup and the deep dive.&lt;/p&gt;
+&lt;p&gt;Alongside this, the Kagi Extract step matched no page for 2 of 2 URLs sent, so the script had no extracted article text for either of those sources. Set the parse failure next to the extract failure and the pattern is that the script stage is degrading in two places at once. Check the segment delimiters in the script prompt and the Kagi Extract request format before the next run.&lt;/p&gt;
+&lt;h3&gt;The roundup aired one of two local stories, and the deep dive is the local one&lt;/h3&gt;
+&lt;p&gt;The roundup pool held 18 stories, 17 on theme and 1 local, and the airtime budget cut 42 from the pool. Of the 2 local stories available, 1 aired, and the roundup did not open with local news. Local material reached the episode through the deep dive, where the lead is Cariboo and the single source is My Cariboo Now.&lt;/p&gt;
+&lt;p&gt;The deep-dive beat count is 4 aired against 5 planned, so the segment ran one beat short. Only 6 of 17 bridges were named, and no roundup pairs were placed in plan order. Treat the bridge gap as the likely cause of the missing beat and the unplaced pairs, and make bridge naming a required output of the script step.&lt;/p&gt;
+&lt;h3&gt;Two released holds were older articles, and 32 on-theme candidates went unused&lt;/h3&gt;
+&lt;p&gt;Focus routing released 2 held articles and held none. Both were held from earlier in the cycle: one from 2026-11-09 and one from 2026-11-12, both on kw=1. The tonight&#x27;s focus is Sky &amp;amp; Cosmos, cycle week 1 of 5, but neither released article is a Sky &amp;amp; Cosmos piece, so the release came from the hold queue rather than from tonight&#x27;s focus match.&lt;/p&gt;
+&lt;p&gt;Meanwhile 32 on-theme candidates were left unused. Those are the pool&#x27;s remaining material after the cut, not a shortage. The routing is working, but the release rule is letting older held items through ahead of fresher on-theme ones. Review the release ordering in focus routing.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Articles loaded&lt;/td&gt;&lt;td&gt;82&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kept after dedup&lt;/td&gt;&lt;td&gt;59&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Held / released&lt;/td&gt;&lt;td&gt;2 released, 0 held&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Roundup pool&lt;/td&gt;&lt;td&gt;18 stories — theme:17, local:1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;1 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.79, 3695 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 40% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;23.8 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;21.8 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;12/18 roundup, 1/1 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;291 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;80,045&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;141 total: openai-tts 112 · claude 12 · brave-search 6 · cohere 5 · brave-answers 4 · kagi-extract 2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic cost&lt;/td&gt;&lt;td&gt;$0.23 at list price (estimate)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.78 at list price: OpenAI TTS $0.343 · Anthropic $0.232 · Brave Answers $0.164 · Brave Search $0.030 · Kagi Extract $0.008 · Cohere $0.003&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>🔓 [Williams Lake Tribune] LETTER: Every minute made a difference in Williams Lake River Valley clean up</title>
 <link>https://wltribune.com/2026/11/14/letter-every-minute-made-a-difference-in-williams-lake-river-valley-clean-up/</link>
