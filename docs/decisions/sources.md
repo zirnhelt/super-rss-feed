@@ -251,6 +251,13 @@ no category rule or interest line changes. Two things to watch in the first week
 crowds Dezeen and the others out of three slots (raise `miscellany.max_slots`, don't demote), and
 whether a music story is what the show should close on (`_niche` feeds the weekly closer).
 
+The producer answered the second the same day: music stays off the show unless it is local or
+community oriented. `podcast_content_exclusion()` now returns `music_outlet` for a story from
+the two blogs (`excluded_content.music_outlets`) unless it names a Cariboo place, scores in the
+Cariboo-focus local band, or carries a community phrase. The rule is by outlet, not subject, so
+a Tribune story about a local band and CBC Arts on Monday are untouched; a third music outlet
+has to be added to `sources`.
+
 ## Outside fetches are bounded, and discovery uses the guard (2026-11-11)
 
 A code review found two gaps. `get_public` checked where a URL pointed but not how much it sent or

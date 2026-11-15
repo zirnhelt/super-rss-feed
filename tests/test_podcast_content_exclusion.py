@@ -634,3 +634,33 @@ class TestCivicRacesOutsideTheCariboo:
                       'B.C. election: Eby vows to fast-track int’l medical grads',
                       'Dene Nation establishes water council as leaders warn of tailings risk'):
             assert not self._filtered(title, 'The Tyee'), title
+
+
+class TestMusicOutlets:
+    """Music blogs stay off the show unless the story is local or community oriented."""
+
+    def test_album_news_from_a_music_blog_is_cut(self):
+        a = _article('Panda Bear Remixes Grace Ives', category='scifi', source='Pitchfork')
+        assert m.podcast_content_exclusion(a) == 'music_outlet'
+
+    def test_a_cariboo_place_keeps_it(self):
+        a = _article('The Williams Lake Band Getting Indie Rock Attention', source='Stereogum')
+        assert m.podcast_content_exclusion(a) is None
+
+    def test_a_local_score_keeps_it(self):
+        a = _article('A Songwriter Comes Home', source='Stereogum')
+        a.local = 85
+        assert m.podcast_content_exclusion(a) is None
+
+    def test_a_community_story_keeps_it(self):
+        a = _article('How a Community Radio Station Saved Its Town\'s Scene', source='Pitchfork')
+        assert m.podcast_content_exclusion(a) is None
+
+    def test_music_from_any_other_outlet_is_untouched(self):
+        a = _article('Panda Bear Remixes Grace Ives', category='scifi', source='CBC Arts')
+        assert m.podcast_content_exclusion(a) is None
+
+    def test_the_listed_outlets_are_the_niche_music_blogs(self):
+        rule = m.PODCAST_EXCLUDED_CONTENT['music_outlets']
+        assert rule['enabled'] and set(rule['sources']) == {'Pitchfork', 'Stereogum'}
+        assert all(m.is_niche_source(s) for s in rule['sources'])

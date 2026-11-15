@@ -311,7 +311,32 @@ def podcast_content_exclusion(article) -> Optional[str]:
                                getattr(article, 'category', None)):
         return 'crime_incident'
 
+    if _is_offshow_music_story(article):
+        return 'music_outlet'
+
     return None
+
+
+def _is_offshow_music_story(article) -> bool:
+    """A music blog's story with nothing local or community about it.
+
+    The music outlets are niche sources for the reader's Miscellany feed; on the
+    show they air only when the story is anchored in the Cariboo or is about a
+    community making music (`excluded_content.music_outlets`). Scoped by outlet:
+    a music story from a local paper never reaches this test.
+    """
+    rule = PODCAST_EXCLUDED_CONTENT.get('music_outlets') or {}
+    if not rule.get('enabled', False):
+        return False
+    if (getattr(article, 'source', '') or '') not in set(rule.get('sources', [])):
+        return False
+    if (getattr(article, 'local', 0) or 0) >= CARIBOO_FOCUS_MIN_LOCAL:
+        return False
+    text = f"{getattr(article, 'title', '') or ''} {getattr(article, 'description', '') or ''}".lower()
+    if any(signal in text for signal in FILTERS.get('local_signals', [])):
+        return False
+    return not any(_keyword_pattern(phrase).search(text)
+                   for phrase in rule.get('community_phrases', []))
 
 
 SCORING_WEIGHTS = config_loader.load_scoring_weights() or {
