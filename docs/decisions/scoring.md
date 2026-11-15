@@ -584,3 +584,26 @@ instead of the interest profile, once the miss rate says how big the gap is. The
 proposer (`standing_preferences.py`) still writes untagged lines; teaching it to
 propose `[show]` when the notes say "not for the show" is the next step, along with
 rating world stories `interesting` (feed only) rather than `bad`.
+
+## The weekly review concludes, and hands its findings to the roadmap fixer (2026-11-15)
+
+By W46 the State of the Feed listed six findings, four of them "6 weeks running", under three
+paragraphs that recited the week's counts. Nobody owned them: the calibration agent can only
+turn whitelisted knobs, and the podcast's roadmap fixer and weekly triage read the episode
+ledger, never this report. Meanwhile PRs merged daily against episode symptoms and the audit's
+own headline slid: the shipped feed went from 45.4% wanted (W42) to 38.1% (W46), and the gate's
+miss rate from 11.8% to 32.7% while `gate-misses` sat open. The reader's word was "cycling".
+
+- **Each finding carries a decision** (`FINDING_PLAYBOOK`, keyed by id prefix): `owner`
+  (`fixer`: a defect a session can root-cause and PR; `reader`: a call or rating effort only
+  the reader can make), one `action`, and `done_when`. Where a finding has a weekly metric, the
+  report shows it at the audit that opened the finding and now (`assign_actions`).
+- **The report opens with a verdict** (`week_verdict`): the reweighted wanted share against
+  the same 28-day rate four weeks earlier (non-overlapping windows, 2 points of margin), and
+  `cycling` when findings are 3+ weeks open and that rate is flat or worse.
+- **The handoff is data, not a prompt.** `generate_weekly_report.py` writes `_verdict` and
+  `_actions` beside `_changes` in `weekly-state-article.json` (plain text, capped, stripped
+  from the feed item). The roadmap fixer's prompt takes `owner: "fixer"` rows as candidates
+  under its own drop rules and reports `reader` rows without building. No model is involved
+  and nothing is spent.
+

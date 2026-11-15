@@ -98,3 +98,29 @@ def test_week_changes_are_plain_bounded_lines():
 
 def test_quiet_week_has_no_changes():
     assert get_week_changes([], [], []) == []
+
+
+# `_actions` is read by the podcast side's roadmap fixer: owned, bounded, plain.
+def test_week_actions_are_owned_plain_and_lead_the_article():
+    from generate_weekly_report import ACTION_TEXT_MAX, build_verdict_html, get_week_actions
+    audit = {
+        'verdict': {'state': 'worse', 'cycling': True, 'headline': f'Down. {HOSTILE}'},
+        'blind_spots': [
+            {'id': 'gate-misses', 'title': HOSTILE, 'detail': 'x' * 900, 'weeks': 6,
+             'owner': 'fixer', 'action': 'Fix the gate.', 'done_when': 'under 10%',
+             'movement': 'worse', 'metric_then': 11.8, 'metric_now': 32.7},
+            {'id': 'headline-misses', 'title': 'Missed headlines', 'detail': 'd', 'weeks': 1,
+             'owner': 'someone-else', 'action': 'Decide.', 'done_when': 'under 50%'},
+            {'id': 'old-summary-row', 'title': 'No playbook fields', 'detail': 'd', 'weeks': 2},
+        ],
+    }
+    actions = get_week_actions(audit)
+    assert [a['id'] for a in actions] == ['gate-misses', 'headline-misses']
+    assert actions[0]['owner'] == 'fixer' and actions[1]['owner'] == 'reader'
+    assert all('<' not in v and len(v) <= ACTION_TEXT_MAX
+               for a in actions for v in a.values() if isinstance(v, str))
+    html = build_verdict_html(audit)
+    assert html.startswith('<h3>Verdict: worse, cycling</h3>')
+    assert '<script>' not in html and '11.8 → 32.7, worse' in html
+    assert 'Done when: under 10%.' in html
+    assert build_verdict_html({}) == ''

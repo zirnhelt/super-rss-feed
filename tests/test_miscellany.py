@@ -12,7 +12,7 @@ from types import SimpleNamespace
 
 import super_rss_curator_json as m
 
-NICHE = ('Dezeen', 'Architizer', 'PyTorch', 'darkreading.com')
+NICHE = ('Dezeen', 'Architizer', 'PyTorch', 'darkreading.com', 'Pitchfork', 'Stereogum')
 
 
 def _a(source, category, score=50, q_gate=50):

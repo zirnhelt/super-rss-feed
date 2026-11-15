@@ -120,6 +120,7 @@ Dated reports live in `reports/`; the root holds code, config, caches and runnin
 | `generate-feed.yml` + its `run_slot` input | The Cloudflare Worker (`cloudflare/scheduler/src/index.ts`) and `deploy-scheduler.yml` | The nightly never starts; the 10:00 backstop lands after the 08:05 read |
 | `refresh-editorial.yml` | The podcast's review job (scheduler PAT) | The episode review stops landing in `feed-local` |
 | `_changes`, `date_published` in `weekly-state-article.json` on main | The Sunday Meta Moment (`get_upstream_week_changes`) | That half of the segment goes empty |
+| `_actions`, `_verdict` in `weekly-state-article.json` on main | The daily roadmap fixer's prompt (a scheduled Claude task) | The audit's findings go back to being reported and owned by nobody |
 | `feed-local.json` | The podcast's `daily-podcast.yml` | — |
 | The week's local stories in `feed-podcast-saturday.json`, aired or not (`local_lane_week`) | The podcast's Saturday recall (`recall_week_local`) | Saturday's roundup loses its week in the Cariboo |
 | The Brave Search key | Both repos' monthly cap | The podcast's research budget runs out |
