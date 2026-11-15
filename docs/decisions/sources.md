@@ -240,6 +240,24 @@ Design, AI/Tech or News:
 ArchDaily stays `project_showcase`: its showcases are rated bad, its essays interesting, and a
 move to `niche` would fill the three slots with showcases.
 
+### Music blogs arrive as niche (2026-11-15)
+
+The reader asked for Pitchfork and Stereogum. Nothing in the config wanted them: `filters.json`
+blocks "pop music" and "hip hop" by title, and `news_interests.txt` lists album releases under
+AVOID, so in a regular category they would cost a gate call each and never ship. Both are typed
+`niche` instead (`https://pitchfork.com/feed/rss`, `https://www.stereogum.com/feed/`, about 70
+items a night between them), so the best two an outlet compete for Miscellany's three slots and
+no category rule or interest line changes. Two things to watch in the first week: whether music
+crowds Dezeen and the others out of three slots (raise `miscellany.max_slots`, don't demote), and
+whether a music story is what the show should close on (`_niche` feeds the weekly closer).
+
+The producer answered the second the same day: music stays off the show unless it is local or
+community oriented. `podcast_content_exclusion()` now returns `music_outlet` for a story from
+the two blogs (`excluded_content.music_outlets`) unless it names a Cariboo place, scores in the
+Cariboo-focus local band, or carries a community phrase. The rule is by outlet, not subject, so
+a Tribune story about a local band and CBC Arts on Monday are untouched; a third music outlet
+has to be added to `sources`.
+
 ## Outside fetches are bounded, and discovery uses the guard (2026-11-11)
 
 A code review found two gaps. `get_public` checked where a URL pointed but not how much it sent or

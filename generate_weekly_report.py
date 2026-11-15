@@ -322,6 +322,68 @@ def get_week_changes(discovery_actions: list, health_actions: list,
     return [" ".join(plain_text(line).split())[:CHANGE_LINE_MAX] for line in lines]
 
 
+ACTION_TEXT_MAX = 400
+
+
+def get_week_actions(feedback_audit: dict) -> list[dict]:
+    """The audit's open findings as owned actions, in the audit's order (fixer first).
+
+    Written to `weekly-state-article.json` → `_actions`, which the podcast side's
+    daily roadmap fixer reads as candidates: an `owner: "fixer"` row is a defect to
+    root-cause, an `owner: "reader"` row waits on the reader and is never built for.
+    Details name feed sources, and the rows end up in a prompt, so every string is
+    stripped to plain text and capped, like `_changes`.
+    """
+    def clean(value: object) -> str:
+        return " ".join(plain_text(str(value or "")).split())[:ACTION_TEXT_MAX]
+
+    actions = []
+    for f in feedback_audit.get("blind_spots") or []:
+        if not f.get("action"):
+            continue
+        row = {
+            "id": clean(f.get("id")),
+            "title": clean(f.get("title")),
+            "owner": "fixer" if f.get("owner") == "fixer" else "reader",
+            "weeks_open": int(f.get("weeks") or 1),
+            "evidence": clean(f.get("detail")),
+            "action": clean(f.get("action")),
+            "done_when": clean(f.get("done_when")),
+            "movement": clean(f.get("movement") or "unmeasured"),
+        }
+        if "metric_then" in f:
+            row["metric_then"], row["metric_now"] = f["metric_then"], f.get("metric_now")
+        actions.append(row)
+    return actions
+
+
+def build_verdict_html(feedback_audit: dict) -> str:
+    """The article's lead: one conclusion, then who does what next and how to tell it worked."""
+    verdict = feedback_audit.get("verdict") or {}
+    actions = get_week_actions(feedback_audit)
+    if not verdict and not actions:
+        return ""
+    state = str(verdict.get("state") or "unmeasured")
+    label = state + (", cycling" if verdict.get("cycling") else "")
+    html = f"<h3>Verdict: {_esc(label)}</h3>\n<p>{_esc(verdict.get('headline', ''))}</p>\n"
+    for owner, heading in (("fixer", "Fix next (a session can do these)"),
+                           ("reader", "Yours to decide or rate")):
+        rows = [a for a in actions if a["owner"] == owner]
+        if not rows:
+            continue
+        html += f"<h4>{heading}</h4>\n<ol>\n"
+        for a in rows:
+            moved = (f", {a['metric_then']} → {a['metric_now']}, {a['movement']}"
+                     if "metric_then" in a else "")
+            html += (f"  <li><strong>{_esc(a['title'])}</strong> "
+                     f"({_esc(a['weeks_open'])} week(s) open{_esc(moved)}). "
+                     f"{_esc(a['action'])} <em>Done when: {_esc(a['done_when'])}.</em></li>\n")
+        html += "</ol>\n"
+    if not actions:
+        html += "<p>Nothing open. No follow-up needed.</p>\n"
+    return html
+
+
 # ---------------------------------------------------------------------------
 # API cost summary from FEED_LOG.md
 # ---------------------------------------------------------------------------
@@ -635,7 +697,8 @@ def build_content_html(
     api_cost: dict,
 ) -> str:
     parts = [f"<p>{_esc(p.strip())}</p>" for p in narrative.split("\n\n") if p.strip()]
-    html = "\n".join(parts)
+    # The conclusion leads; the narrative and tables below are its evidence.
+    html = build_verdict_html(quality_review.get("feedback_audit") or {}) + "\n".join(parts)
 
     if new_feeds:
         html += "\n<h3>New Feeds This Week</h3>\n<ul>\n"
@@ -1044,8 +1107,12 @@ def main():
         "authors": [{"name": "AI Feed Curator", "url": BASE_URL}],
         "_score": 99,
         "_changes": get_week_changes(discovery_actions, health_actions, calibration_changes),
+        "_verdict": (quality_review.get("feedback_audit") or {}).get("verdict") or {},
+        "_actions": get_week_actions(quality_review.get("feedback_audit") or {}),
     }
     print(f"     {len(article['_changes'])} change line(s) for the podcast's Meta Moment")
+    print(f"     {len(article['_actions'])} open action(s) for the roadmap fixer; "
+          f"verdict: {article['_verdict'].get('state', 'none')}")
 
     # Persist article to repo root (committed to main; referenced by generate-feed deploys)
     atomic_write_json("weekly-state-article.json", article, indent=2, ensure_ascii=False)
@@ -1082,7 +1149,8 @@ def main():
         if not i.get("id", "").endswith(f"weekly-report-{iso_year}-W{iso_week:02d}.html")
     ]
     # `_changes` is for the podcast, which reads the committed file, not feed readers.
-    feed_news["items"] = [{k: v for k, v in article.items() if k != "_changes"}] + items
+    feed_news["items"] = [{k: v for k, v in article.items()
+                           if k not in ("_changes", "_verdict", "_actions")}] + items
 
     feed_news_out = OUTPUT_DIR / "feed-news.json"
     # The downloaded items are third-party content like any other feed's.

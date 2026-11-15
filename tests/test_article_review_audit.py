@@ -374,3 +374,35 @@ def test_section_unchanged_collapses_only_inside_noise_and_never_in_week_one():
 def test_report_slice_is_the_rolling_window_skips_included():
     ratings = [_on('good', 0), _on('skip', 10), _on('bad', 89), _on('bad', 90)]
     assert [r['rating'] for r in audit.report_slice(ratings, TODAY)] == ['good', 'skip', 'bad']
+
+
+def test_every_finding_gets_an_owner_and_the_verdict_names_cycling():
+    week = lambda n, wanted, gate: {  # noqa: E731
+        'week': audit._iso_week(TODAY - timedelta(days=7 * n)), 'findings': ['gate-misses'],
+        'shipped_wanted_pct_28d': wanted, 'gate_miss_pct_28d': gate}
+    trend = [week(4, 45.4, 11.8), week(3, 44.0, 14.0), week(2, 42.0, 22.0),
+             week(1, 40.0, 31.0), week(0, 38.1, 32.7)]
+    findings = [
+        {'id': 'headline-misses', 'title': 'h', 'detail': '', 'weeks': 1, 'escalate': False},
+        {'id': 'gate-misses', 'title': 'g', 'detail': '', 'weeks': 5, 'escalate': True},
+        {'id': 'starved-theme:monday', 'title': 's', 'detail': '', 'weeks': 2, 'escalate': False},
+    ]
+    audit.assign_actions(findings, trend, TODAY)
+    assert [f['id'] for f in findings] == ['gate-misses', 'starved-theme:monday', 'headline-misses']
+    gate = findings[0]
+    assert (gate['owner'], gate['metric_then'], gate['metric_now'], gate['movement']) == \
+        ('fixer', 11.8, 32.7, 'worse')
+    assert all(f['action'] and f['done_when'] for f in findings)
+    verdict = audit.week_verdict(findings, trend)
+    assert verdict['state'] == 'worse' and verdict['cycling'] and verdict['stuck'] == 1
+    assert 'gate-misses got worse' in verdict['headline']
+    # Improving, or nothing stuck, is not cycling; too little history says so.
+    assert not audit.week_verdict([], trend)['cycling']
+    assert audit.week_verdict(findings, trend[-2:])['state'] == 'unmeasured'
+
+
+def test_playbook_covers_every_finding_the_audit_can_raise():
+    import inspect
+    import re
+    raised = re.findall(r"add\(f?'([a-z-]+)", inspect.getsource(audit.blind_spots))
+    assert raised and set(raised) <= set(audit.FINDING_PLAYBOOK)

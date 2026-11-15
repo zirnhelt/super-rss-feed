@@ -697,6 +697,8 @@ AUC_MIN_CLASS = 10
 REPEAT_ESCALATE_WEEKS = 3
 BEFORE_AFTER_DAYS = 14
 PRICE_TABLE_MAX_AGE_DAYS = 30
+VERDICT_COMPARE_WEEKS = 4       # the headline rate is a 28-day window: compare non-overlapping ones
+VERDICT_MARGIN_POINTS = 2.0     # movement under this is flat, for the headline and for a finding's metric
 REPORT_WINDOW_DAYS = 90         # the corpus tables; matches limits.feedback_retention_days
 REPORT_RECENT_WEEKS = 8         # trend tables show this many weeks, then one row per quarter
 REPORT_KEEP_DAYS = 91           # dated .md reports older than 13 weeks are pruned
@@ -960,6 +962,147 @@ def price_table_age(today: date) -> Optional[int]:
         return (today - date.fromisoformat(m.group(1))).days if m else None
     except (OSError, ValueError):
         return None
+
+
+# What each finding asks for, keyed by the id before any ':'. A finding without an
+# owner and an exit test gets re-reported every week and acted on by nobody, which is
+# how six sat open for six weeks. `owner`: 'fixer' is a code or config defect a session
+# can root-cause and PR (the podcast's daily roadmap fixer reads these); 'reader' is a
+# call or an effort only the reader can make; nobody builds for it. `metric` names a
+# weekly_metrics.jsonl field (lower is better) so the report can say whether the weeks
+# of work moved it.
+FINDING_PLAYBOOK: Dict[str, Dict[str, str]] = {
+    'unmeasured-categories': {
+        'owner': 'fixer',
+        'action': 'Find why rotate_review_categories() leaves these categories short: a '
+                  '12-a-day batch can give every category the floor. Fix the rotation, not the quota.',
+        'done_when': f'every category has {COVERAGE_MIN_RATINGS}+ ratings in {TREND_WINDOW_DAYS} days',
+    },
+    'gate-misses': {
+        'owner': 'fixer',
+        'action': 'Read the wanted rejects from the named sources in feedback/, find what in '
+                  'quality_charter.txt or the gate prompt rejects them, and fix that one cause.',
+        'done_when': f'wanted share of rated rejects under {GATE_MISS_FLAG_PCT:g}%',
+        'metric': 'gate_miss_pct_28d',
+    },
+    'unused-verdict': {
+        'owner': 'reader',
+        'action': 'Use the verdict when it fits, or say it should go.',
+        'done_when': f'the verdict appears in {VERDICT_WINDOW_DAYS} days of ratings',
+    },
+    'starved-theme': {
+        'owner': 'fixer',
+        'action': 'Check the day\'s theme scoring prompt and targeted_rescore.days before adding sources.',
+        'done_when': 'the day wins at least one article in a week of runs',
+    },
+    'starved-places': {
+        'owner': 'fixer',
+        'action': 'Trace the place\'s own outlets through a run (feed failing, filtered, or '
+                  'unanchored) and fix what keeps them out of the pool; add a source only if none exists.',
+        'done_when': f'the place is in {PLACE_STARVED_POOL_PCT:g}%+ of the pool',
+    },
+    'unmeasured-places': {
+        'owner': 'reader',
+        'action': 'Rate the next stories from these places when the review batch offers them.',
+        'done_when': f'{PLACE_MIN_RATINGS}+ ratings for each place',
+    },
+    'unblocked-candidates': {
+        'owner': 'reader',
+        'action': 'Say block or keep for each source; a block goes in filters.json.',
+        'done_when': 'each source is blocked or has a wanted rating',
+    },
+    'not-landed': {
+        'owner': 'fixer',
+        'action': 'Find why the logged calibration change is not in config (reverted, overwritten '
+                  'or never written) and land or withdraw it.',
+        'done_when': 'config matches the calibration log',
+    },
+    'headline-misses': {
+        'owner': 'reader',
+        'action': 'Decide whether to build the headlines lane (TODO.md, roadmap B): ranked_out '
+                  'misses are the interest ranking working as designed, not a defect.',
+        'done_when': f'under {HEADLINE_MISS_FLAG_PCT:g}% of widely covered stories missed',
+        'metric': 'headline_miss_pct_7d',
+    },
+    'stale-prices': {
+        'owner': 'fixer',
+        'action': 'Refresh the Anthropic price table in CLAUDE.md from the pricing page and update its checked date.',
+        'done_when': f'the table was checked in the last {PRICE_TABLE_MAX_AGE_DAYS} days',
+    },
+}
+DEFAULT_PLAY = {'owner': 'reader', 'action': 'No playbook entry: add one to FINDING_PLAYBOOK.',
+                'done_when': 'the finding stops being reported'}
+OWNER_ORDER = {'fixer': 0, 'reader': 1}
+MOVEMENT_ORDER = {'worse': 0, 'flat': 1, 'unmeasured': 1, 'better': 2}
+
+
+def _movement(then: Optional[float], now: Optional[float]) -> str:
+    """'better' / 'flat' / 'worse' for a lower-is-better rate, 'unmeasured' without both ends."""
+    if then is None or now is None:
+        return 'unmeasured'
+    if abs(now - then) < VERDICT_MARGIN_POINTS:
+        return 'flat'
+    return 'better' if now < then else 'worse'
+
+
+def assign_actions(findings: List[Dict[str, Any]], history: List[Dict[str, Any]],
+                   today: date) -> None:
+    """Give each finding its owner, next action, exit test and, where it has a metric,
+    how that metric moved between the audit that opened it and now."""
+    earlier = [r for r in history if r.get('week') != _iso_week(today)]
+    current = next((r for r in history if r.get('week') == _iso_week(today)), {})
+    for finding in findings:
+        play = FINDING_PLAYBOOK.get(finding['id'].split(':')[0], DEFAULT_PLAY)
+        finding.update(owner=play['owner'], action=play['action'], done_when=play['done_when'])
+        metric = play.get('metric')
+        opened = earlier[-(finding['weeks'] - 1)] if 1 < finding['weeks'] <= len(earlier) + 1 else {}
+        then, now = opened.get(metric), current.get(metric)
+        finding['movement'] = _movement(then, now) if metric else 'unmeasured'
+        if metric and then is not None and now is not None:
+            finding['metric_then'], finding['metric_now'] = then, now
+    findings.sort(key=lambda f: (OWNER_ORDER.get(f['owner'], 9), MOVEMENT_ORDER[f['movement']],
+                                 -f['weeks']))
+
+
+def finding_movement_text(finding: Dict[str, Any]) -> str:
+    """'11.8 → 32.7 (worse)', or '—' for a finding with no tracked metric."""
+    if 'metric_then' not in finding:
+        return '—'
+    return f"{finding['metric_then']} → {finding['metric_now']} ({finding['movement']})"
+
+
+def week_verdict(findings: List[Dict[str, Any]], trend: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """One conclusion for the week: did the shipped feed get better, and is work landing?
+
+    The headline is the reweighted wanted share of the shipped feed, against the same
+    28-day rate VERDICT_COMPARE_WEEKS ago. `cycling` is the state the report exists to
+    catch: findings open for weeks while the headline does not improve, so the fixes
+    that merged in between were aimed at something else.
+    """
+    now = trend[-1].get('shipped_wanted_pct_28d') if trend else None
+    before = (trend[-1 - VERDICT_COMPARE_WEEKS].get('shipped_wanted_pct_28d')
+              if len(trend) > VERDICT_COMPARE_WEEKS else None)
+    # _movement reads lower-is-better; wanted share is higher-is-better.
+    state = _movement(-before if before is not None else None, -now if now is not None else None)
+    stuck = [f for f in findings if f.get('escalate')]
+    cycling = bool(stuck) and state in ('flat', 'worse')
+    if now is None or before is None:
+        headline = 'Too little history to say whether the shipped feed is improving.'
+    else:
+        word = {'better': 'up', 'worse': 'down', 'flat': 'flat at'}[state]
+        change = f'{word} {abs(round(now - before, 1))} points from' if state != 'flat' else 'flat against'
+        headline = (f'The shipped feed is {now}% wanted, {change} {before}% '
+                    f'{VERDICT_COMPARE_WEEKS} weeks ago.')
+    if cycling:
+        worse = [f['id'] for f in stuck if f.get('movement') == 'worse']
+        headline += (f' {len(stuck)} finding(s) have been open {REPEAT_ESCALATE_WEEKS}+ weeks'
+                     + (f', and {", ".join(worse)} got worse while open' if worse else '')
+                     + ': reported every week, none closed.')
+    return {'state': state, 'cycling': cycling, 'wanted_pct': now, 'wanted_pct_before': before,
+            'compare_weeks': VERDICT_COMPARE_WEEKS, 'stuck': len(stuck),
+            'fixer_actions': sum(1 for f in findings if f.get('owner') == 'fixer'),
+            'reader_actions': sum(1 for f in findings if f.get('owner') == 'reader'),
+            'headline': headline}
 
 
 def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
@@ -1351,8 +1494,15 @@ def build_report(audit: Dict[str, Any]) -> str:
         '_Checks one week of numbers cannot make on its own. **Weeks** counts the weekly audits in a '
         f'row that reported it; at {REPEAT_ESCALATE_WEEKS}+ it has been seen and not acted on._',
         '',
-        (_md_table(['Finding', 'Detail', 'Weeks'],
-                   [[('⚠️ ' if f['escalate'] else '') + f['title'], f['detail'], f['weeks']]
+        f"**Verdict: {audit['verdict']['state']}"
+        f"{', cycling' if audit['verdict']['cycling'] else ''}.** {audit['verdict']['headline']}",
+        '',
+        '_**Owner** `fixer` is a defect a session can root-cause and PR; `reader` is yours to '
+        'decide or rate. **Moved** is the finding\'s own metric since the audit that opened it._',
+        '',
+        (_md_table(['Finding', 'Detail', 'Weeks', 'Owner', 'Next action', 'Done when', 'Moved'],
+                   [[('⚠️ ' if f['escalate'] else '') + f['title'], f['detail'], f['weeks'],
+                     f['owner'], f['action'], f['done_when'], finding_movement_text(f)]
                     for f in audit['blind_spots']])
          if audit['blind_spots'] else '_Nothing flagged._'),
         '',
@@ -1793,6 +1943,7 @@ def run_audit(today: Optional[date] = None,
     }
     trend = merge_metrics_history(history, record, ratings)
     backfill_filler(trend, filler_by_week())
+    assign_actions(findings, trend, today)
     previous = _previous_record(history, today) or {}
     return {
         'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
@@ -1822,6 +1973,7 @@ def run_audit(today: Optional[date] = None,
         'headline_coverage': headlines,
         'process_health': process_health(runs),
         'blind_spots': findings,
+        'verdict': week_verdict(findings, trend),
         'scorecard': scorecard,
         'stage_costs': costs,
         'places': places,
@@ -1863,6 +2015,7 @@ def build_summary(audit: Dict[str, Any]) -> Dict[str, Any]:
         'process_health': audit['process_health'],
         'headline_coverage': audit['headline_coverage'],
         'blind_spots': audit['blind_spots'],
+        'verdict': audit['verdict'],
         'scorecard': audit['scorecard'],
         'stage_costs': audit['stage_costs'],
         'places': audit['places'],

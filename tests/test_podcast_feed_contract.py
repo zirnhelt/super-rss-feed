@@ -108,6 +108,8 @@ def test_weekly_state_keeps_the_keys_the_meta_moment_reads():
         if (isinstance(node, ast.Assign) and isinstance(node.value, ast.Dict)
                 and any(getattr(t, "id", None) == "article" for t in node.targets)):
             written |= _literal_keys(node.value)
-    assert {"_changes", "date_published"} <= written, "generate_weekly_report.py stopped writing them"
+    # `_actions` and `_verdict` are read by the roadmap fixer's prompt.
+    keys = {"_changes", "date_published", "_actions", "_verdict"}
+    assert keys <= written, "generate_weekly_report.py stopped writing them"
     committed = json.loads((ROOT / "weekly-state-article.json").read_text(encoding="utf-8"))
-    assert {"_changes", "date_published"} <= committed.keys()
+    assert keys <= committed.keys()
