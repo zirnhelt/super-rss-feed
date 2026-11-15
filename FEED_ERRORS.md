@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-14 (Saturday)
+
+#### 🔧 Manual Run (10:09 PM Pacific)
+- ⚠️ **FolkloreThursday** failed — `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/`
+- ⚠️ **alpennia.com** failed — `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/`
+- ⚠️ **blog.hmvh.net** failed — `415 Client Error: Unsupported Media Type for url: http://blog.hmvh.net/feed/`
+- ⚠️ **3D Printing Industry** failed — `415 Client Error: Unsupported Media Type for url: https://3dprintingindustry.com/feed/`
+- ⚠️ **Automated Home** failed — `415 Client Error: Unsupported Media Type for url: https://automatedhome.com/feed/`
+- ⚠️ **The Council of Canadians** failed — `415 Client Error: Unsupported Media Type for url: https://canadians.org/feed`
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-13 (Friday)
 
 #### 🔧 Manual Run (10:15 PM Pacific)
@@ -85,20 +101,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (10:09 PM Pacific)
 - ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-06 (Friday)
-
-#### 🔧 Manual Run (10:10 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ Kite News: not in this batch: canada | british columbia
@@ -1756,6 +1758,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## Week of 2026-11-05–2026-11-05
 - 4 issues recorded
 - ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-06–2026-11-06
+- 5 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
 - ⚠️ Kite News: not in this batch: canada | british columbia
