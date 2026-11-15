@@ -301,6 +301,14 @@
         .episode-cuts .cut-name small { display: block; color: #888; font-size: 0.85em; }
         .episode-cuts .seg-btns { display: flex; gap: 6px; flex-wrap: wrap; }
         .episode-cuts .episode-opt { flex: 1 1 0; min-height: 36px; padding: 4px 10px; font-size: 0.80em; }
+        /* The day's theme and super-cycle position: what the episode was meant to be, before it is judged */
+        .episode-context { background: #f5f8ff; border-left: 4px solid #667eea; border-radius: 8px; padding: 10px 12px; font-size: 0.86em; color: #444; }
+        .episode-context .ctx-head { font-weight: 700; }
+        .episode-context .ctx-line { margin-top: 3px; color: #555; }
+        .episode-context .ctx-pips { display: inline-flex; gap: 3px; vertical-align: middle; margin-left: 4px; }
+        .episode-context .ctx-pips i { width: 8px; height: 8px; border-radius: 50%; background: #d5dbf5; }
+        .episode-context .ctx-pips i.on { background: #667eea; }
+        .episode-context .ctx-anchor { margin-top: 3px; color: #777; font-size: 0.92em; }
         /* What the deep dive covered: a reminder before the verdict, from the episode review */
         .episode-recap { background: #faf5fb; border-left: 4px solid #8e24aa; border-radius: 8px; padding: 10px 12px; font-size: 0.86em; color: #444; }
         .episode-recap .recap-q { font-weight: 700; margin-bottom: 4px; }
@@ -397,6 +405,7 @@
         <p class="subtitle">The overall call, then as much as you like: a thumb per segment, your call on what got cut, and a note. The weekly script review reads all of it beside the scripts.</p>
         <div class="episode-form">
             <div class="episode-row" id="episode-dates" role="radiogroup" aria-label="Which episode"></div>
+            <div class="episode-context" id="episode-context" aria-label="Today's theme and super-cycle" hidden></div>
             <div class="episode-recap" id="episode-recap" aria-label="What the deep dive covered" hidden></div>
             <div class="episode-row" id="episode-verdicts" role="radiogroup" aria-label="Your verdict"></div>
             <div class="episode-segments" id="episode-segments" role="group" aria-label="Each segment (optional)"></div>
@@ -1291,6 +1300,9 @@ let episodeCuts = {};   // date -> [{kind, url, title, source, theme_pct, aired}
 // What the deep dive covered (summary.deep_dive, from the aired script's debate summary), so the
 // verdict is given with the episode in mind. Plain text; escaped here.
 let episodeRecaps = {}; // date -> {question, riley, casey, resolution, topics[], sources[{title, url}]}
+// The day's rotation (summary.theme, summary.cycle's row for that date, summary.anchor): what the
+// episode was meant to be, so a verdict on "stories" or "deep dive" is read against its theme.
+let episodeContexts = {}; // date -> {theme, row: {day, theme, focus, week, of, next, event}, anchor}
 
 async function loadEpisodeCuts() {
     try {
@@ -1300,7 +1312,13 @@ async function loadEpisodeCuts() {
         const kinds = new Set(CUT_KINDS.map(([k]) => k));
         episodeCuts = {};
         episodeRecaps = {};
+        episodeContexts = {};
         for (const entry of Array.isArray(index) ? index : []) {
+            const sm = entry?.summary;
+            if (typeof entry?.date === 'string' && sm && typeof sm === 'object') {
+                const row = (Array.isArray(sm.cycle) ? sm.cycle : []).find(r => r && r.date === entry.date) || null;
+                if (row || sm.theme) episodeContexts[entry.date] = { theme: sm.theme, row, anchor: sm.anchor };
+            }
             const dd = entry?.summary?.deep_dive;
             if (typeof entry?.date === 'string' && dd && typeof dd === 'object') episodeRecaps[entry.date] = dd;
             const cuts = entry?.summary?.cuts;
@@ -1311,7 +1329,30 @@ async function loadEpisodeCuts() {
     } catch (e) {
         console.warn('episode cuts:', e);   // the verdict card works without them
     }
-    if (!episodePick.saving) { renderEpisodeRecap(); renderEpisodeCuts(); }
+    if (!episodePick.saving) { renderEpisodeContext(); renderEpisodeRecap(); renderEpisodeCuts(); }
+}
+
+function renderEpisodeContext() {
+    const box = document.getElementById('episode-context');
+    const ctx = episodeContexts[episodePick.date] || {};
+    const row = ctx.row && typeof ctx.row === 'object' ? ctx.row : {};
+    const str = v => typeof v === 'string' ? v : '';
+    const num = v => Number.isInteger(v) && v > 0 ? v : 0;
+    const theme = str(ctx.theme) || str(row.theme);
+    box.hidden = !theme;
+    if (!theme) { box.innerHTML = ''; return; }
+    const week = num(row.week), of = num(row.of), focus = str(row.focus);
+    const pips = week && of && of <= 12
+        ? `<span class="ctx-pips" aria-hidden="true">${Array.from({ length: of }, (_, i) => `<i class="${i + 1 === week ? 'on' : ''}"></i>`).join('')}</span>` : '';
+    const cycle = focus
+        ? `<div class="ctx-line">Super-cycle: <b>${escHtml(focus)}</b>${week && of ? `, week ${week} of ${of}` : ''}${pips}</div>`
+        : '<div class="ctx-line">No super-cycle today: the plain theme runs.</div>';
+    const next = str(row.next) && str(row.next) !== focus ? `<div class="ctx-line">Next week: ${escHtml(row.next)}</div>` : '';
+    box.innerHTML = `<div class="ctx-head">📅 ${escHtml(str(row.day))}${row.day ? ' · ' : ''}${escHtml(theme)}</div>`
+        + cycle
+        + (str(row.event) ? `<div class="ctx-line">Event: ${escHtml(row.event)}</div>` : '')
+        + next
+        + (str(ctx.anchor) ? `<div class="ctx-anchor">Week's anchor question: <em>${escHtml(ctx.anchor)}</em></div>` : '');
 }
 
 function renderEpisodeRecap() {
@@ -1395,6 +1436,7 @@ function renderEpisodeCard() {
     document.getElementById('episode-reasons').innerHTML = EPISODE_REASONS.map(reason =>
         `<button type="button" class="episode-opt episode-reason" data-reason="${escAttr(reason)}"
                  aria-pressed="false">${escHtml(reason)}</button>`).join('');
+    renderEpisodeContext();
     renderEpisodeRecap();
     renderEpisodeCuts();
     if (!box.dataset.wired) {            // once: the card is re-rendered when the day rolls over
@@ -1435,6 +1477,7 @@ function onEpisodeClick(event) {
         episodePick.reasons.clear();
         episodePick.segments = {};
         episodePick.cuts = {};
+        renderEpisodeContext();
         renderEpisodeRecap();
         renderEpisodeCuts();
     } else if (btn.dataset.verdict) {
