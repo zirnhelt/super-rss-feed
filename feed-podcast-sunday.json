@@ -24,9 +24,9 @@
     ],
     "theme_scoring_prompt": "Rate how well this article fits the theme 'Science, Wonder & the Natural World' — scientific discovery, ecology, natural phenomena, and the curiosity-driven study of living systems. Strong fits include: wildlife biology and species research, ecology studies and biodiversity findings, watershed and salmon research relevant to BC, astronomy and space science, new species discoveries, citizen science projects, natural history stories, wildfire science and forest ecology, climate science findings (not just policy), geology, evolution, and deep-time Earth stories, and any scientific research grounded in BC or Cariboo landscapes and ecosystems. Prefer articles that convey genuine curiosity and discovery — the 'how' and 'why' of the natural world. Score 70–90 for: prehistoric life and palaeontology (ancient oceans, Cretaceous ecology, deep-time species), new species discoveries in ocean or remote environments, deep-sea biology, evolutionary biology findings, natural history stories with a strong sense of wonder, and field research grounded in BC ecosystems. Penalise (score 0–30): consumer health and pharmaceutical research without ecology or natural-world context; pure policy and advocacy news; technology business stories without a science or ecology angle; human interest and viral news without scientific substance; geopolitical and crime news. Score 0-100 where 100 is a perfect thematic match and 0 is completely unrelated.",
     "day": "sunday",
-    "generated_at": "2026-11-14T06:15:13.322415+00:00",
-    "article_count": 100,
-    "bonus_count": 34,
+    "generated_at": "2026-11-15T06:09:00.250436+00:00",
+    "article_count": 101,
+    "bonus_count": 35,
     "scoring_method": "claude_theme_evaluation_weekly_cache"
   },
   "items": [
@@ -57,6 +57,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://www.quantamagazine.org/wp-content/uploads/2026/11/Origin-of-Life-cr.Mark-Belan-Default.webp"
     },
     {
@@ -86,7 +87,37 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/Py86IJRpGFnUggUlcIeohvqFDbdDQxRozsgB4-FPzfy0QcmMYMt_UAfI5_0kMqRrH3cccMLIDMZjZK5DR8j6EHNR9L-S2_CXTtyWTl115GMRNsZaATBhyY7OKZA1tWPt0h3fq-I"
+    },
+    {
+      "id": "https://www.scimex.org/newsfeed/researchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes",
+      "url": "https://www.scimex.org/newsfeed/researchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes",
+      "title": "[scimex.org] Astronomers trace eight-minute radio pulses to white dwarf and Sun-like star",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scimex.org%2Fnewsfeed%2Fresearchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAstronomers have traced repeating radio pulses from the system GPM J071507−114153 to a white dwarf orbiting a Sun-like star—the first known long-period radio transient with this type of stellar pairing. The pulses recur every 7.9 minutes but appear only during a roughly six-hour window in each 32-hour orbit. The system lies more than 5,000 light-years away.\n\nResearchers discovered the system using Australia’s Murchison Widefield Array, pinpointed it with South Africa’s MeerKAT telescope and used the W. M. Keck Observatory in Hawaii to identify the companion as a G-type star. Measurements of the orbit and the companion’s slight movement indicate that the pulsing object has about two-thirds the Sun’s mass, making it too light to be a neutron star. The study was published in Nature Astronomy on Nov. 12, 2026.",
+      "summary": "Astronomers have traced repeating radio pulses from the system GPM J071507−114153 to a white dwarf orbiting a Sun-like star—the first known long-period radio transient with this type of stellar pairing. The pulses recur every 7.9 minutes but appear only during a roughly six-hour window in each",
+      "_excerpt": "Astronomers have traced repeating radio pulses from the system GPM J071507−114153 to a white dwarf orbiting a Sun-like star—the first known long-period radio transient with this type of stellar pairing (theconversation.com, scimex.org, sci.news). The pulses recur every 7.9 minutes but appear only during a roughly six-hour window in each 32-hour orbit. The system lies more than 5,000 light-years away (theconversation.com, scimex.org, sci.news). Researchers discovered the system using Australia’s Murchison Widefield Array, pinpointed it with South Africa’s MeerKAT telescope and used the W. M. Keck Observatory in Hawaii to identify the companion as a G-type star (scimex.org, phys.org). Measurements of the orbit and the companion’s slight movement indicate that the pulsing object has about two-thirds the Sun’s mass, making it too light to be a neutron star (theconversation.com). The study was published in Nature Astronomy on Nov. 12, 2026 (sci.news). Orbital evidence: As the pulsing object moved along its orbit, pulses arrived up to four seconds earlier or later than expected because the radio waves traveled different distances to Earth (theconversation.com). Stellar activity: The radio observations also revealed flares on the Sun-like star and a likely stellar prominence—a large loop of plasma with a strong magnetic field (scimex.org, sci.news). Formation hypothesis: Researchers think the star that became the white dwarf may have expanded into a giant and engulfed its companion. The companion then spiraled inward before the giant’s outer layers were ejected (theconversation.com).",
+      "date_published": "2026-11-12T10:00:00+00:00",
+      "authors": [
+        {
+          "name": "scimex.org",
+          "url": "https://www.scimex.org"
+        }
+      ],
+      "ai_score": 60,
+      "_quality": 75,
+      "_relevance": 75,
+      "_local": 0,
+      "_theme_score": 100,
+      "_theme_score_raw": 92,
+      "_kite_sources": 6,
+      "_kite_context": "Quote: \"This is the first time the pulses are clear enough to see the white dwarf moving in its orbit around its companion, so we know that the pulsations are coming from a region close to the white dwarf, or possibly even from the white dwarf itself\" (Dr. Sam McSweeney, lead author and commissioning scientist with the Square Kilometre Array Observatory, Dr. Sam)\nTimeline: 2021: The ICRAR research team discovered the first long-period radio transient (scimex.org).\nTimeline: Late 2024: Researchers spotted regular radio flashes in a Murchison Widefield Array survey (theconversation.com).\nTimeline: 12 November 2026: The study appeared in Nature Astronomy (sci.news).",
+      "_composite_podcast": 82,
+      "_keyword_matches": 4,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "_niche": false
     },
     {
       "id": "https://www.livescience.com/archaeology/middle-east/125-000-year-old-poisoned-stone-points-discovered-on-shore-of-ancient-lake-in-saudi-arabia",
@@ -115,35 +146,8 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/tLRHDJw-jXO9h_xv2eel0ArbSdc5qyXFXrQwV19Gvu2crNgtlyv4pDcUTWGR-w216iJZ0GeXE_E5p5Zh_7cNjhoqeiUA8Fo1Hsk4PNx3RZ1C8XxL_7wjqoOH7vPwCvLV"
-    },
-    {
-      "id": "https://www.scimex.org/newsfeed/researchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes",
-      "url": "https://www.scimex.org/newsfeed/researchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes",
-      "title": "[scimex.org] Astronomers trace eight-minute radio pulses to white dwarf and Sun-like star",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scimex.org%2Fnewsfeed%2Fresearchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nAstronomers have traced repeating radio pulses from the system GPM J071507−114153 to a white dwarf orbiting a Sun-like star—the first known long-period radio transient with this type of stellar pairing. The pulses recur every 7.9 minutes but appear only during a roughly six-hour window in each 32-hour orbit. The system lies more than 5,000 light-years away.\n\nResearchers discovered the system using Australia’s Murchison Widefield Array, pinpointed it with South Africa’s MeerKAT telescope and used the W. M. Keck Observatory in Hawaii to identify the companion as a G-type star. Measurements of the orbit and the companion’s slight movement indicate that the pulsing object has about two-thirds the Sun’s mass, making it too light to be a neutron star. The study was published in Nature Astronomy on Nov. 12, 2026.",
-      "summary": "Astronomers have traced repeating radio pulses from the system GPM J071507−114153 to a white dwarf orbiting a Sun-like star—the first known long-period radio transient with this type of stellar pairing. The pulses recur every 7.9 minutes but appear only during a roughly six-hour window in each",
-      "_excerpt": "Astronomers have traced repeating radio pulses from the system GPM J071507−114153 to a white dwarf orbiting a Sun-like star—the first known long-period radio transient with this type of stellar pairing (theconversation.com, scimex.org, sci.news). The pulses recur every 7.9 minutes but appear only during a roughly six-hour window in each 32-hour orbit. The system lies more than 5,000 light-years away (theconversation.com, scimex.org, sci.news). Researchers discovered the system using Australia’s Murchison Widefield Array, pinpointed it with South Africa’s MeerKAT telescope and used the W. M. Keck Observatory in Hawaii to identify the companion as a G-type star (scimex.org, phys.org). Measurements of the orbit and the companion’s slight movement indicate that the pulsing object has about two-thirds the Sun’s mass, making it too light to be a neutron star (theconversation.com). The study was published in Nature Astronomy on Nov. 12, 2026 (sci.news). Orbital evidence: As the pulsing object moved along its orbit, pulses arrived up to four seconds earlier or later than expected because the radio waves traveled different distances to Earth (theconversation.com). Stellar activity: The radio observations also revealed flares on the Sun-like star and a likely stellar prominence—a large loop of plasma with a strong magnetic field (scimex.org, sci.news). Formation hypothesis: Researchers think the star that became the white dwarf may have expanded into a giant and engulfed its companion. The companion then spiraled inward before the giant’s outer layers were ejected (theconversation.com).",
-      "date_published": "2026-11-12T10:00:00+00:00",
-      "authors": [
-        {
-          "name": "scimex.org",
-          "url": "https://www.scimex.org"
-        }
-      ],
-      "ai_score": 60,
-      "_quality": 75,
-      "_relevance": 75,
-      "_local": 0,
-      "_theme_score": 100,
-      "_theme_score_raw": 92,
-      "_kite_sources": 6,
-      "_kite_context": "Quote: \"This is the first time the pulses are clear enough to see the white dwarf moving in its orbit around its companion, so we know that the pulsations are coming from a region close to the white dwarf, or possibly even from the white dwarf itself\" (Dr. Sam McSweeney, lead author and commissioning scientist with the Square Kilometre Array Observatory, Dr. Sam)\nTimeline: 2021: The ICRAR research team discovered the first long-period radio transient (scimex.org).\nTimeline: Late 2024: Researchers spotted regular radio flashes in a Murchison Widefield Array survey (theconversation.com).\nTimeline: 12 November 2026: The study appeared in Nature Astronomy (sci.news).",
-      "_composite_podcast": 82,
-      "_keyword_matches": 4,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false
     },
     {
       "id": "https://cleantechnica.com/2026/11/11/300-glaciers-have-disappeared-from-the-american-west-since-the-mid-20th-century-the-survivors-have-a-few-things-in-common/",
@@ -172,6 +176,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -205,6 +210,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/5ZmHpLi3S448bSAzbi6hefJtd8uRLXqlvuyABGDyRLHchzIZfZHgxDzZ6OM-Jj57w6wm1M5IQN130K1bUVZu0NWjwn5luHQhMbjySOHA2ruL617WcQdrhmlEi4Zo8RrqZontBpsVnopJTpDOcb1lQbhPzGJFPVnGJ9Ecwc_uaCjMMVIsBPILR1GE_CB7g0OG4UAOUrHMVQ"
     },
     {
@@ -234,6 +240,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/vCd15BnyU1KVkQf5W8YQH2r3VPhT7PirvML47v841NJljr_EYATJPf5ZU8dzqAkF30qrjmt_tihyT7A8bad4oDi9UzNWg9_zypQZkskBw3yaB8hDfxJhx7QHPJNkB2leSDxq1eRzTCJCsBjSNA",
       "_cross_theme": {
         "day": "tuesday",
@@ -268,6 +275,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
@@ -301,6 +309,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
@@ -333,7 +342,8 @@
       "_keyword_matches": 3,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_niche": false
     },
     {
       "id": "https://www.sci.news/paleontology/scaphokogia-huachafo-15184.html",
@@ -362,6 +372,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/GOy4pgL1fJIbbzGr_NW0FvDkcJwqvEorhHemle-CNhF8YAO44Wx04t9cYPxGINH-xYLO1q-_vVavZZzoAJSc1ifzGhE08U7R0u0lX4i4BwJR"
     },
     {
@@ -390,7 +401,8 @@
       "_keyword_matches": 2,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_niche": false
     },
     {
       "id": "https://www.dlr.de/en/latest/news/2026/hera-spots-its-target-a-first-glimpse-into-the-study-of-the-didymos-binary-asteroid-system",
@@ -418,7 +430,8 @@
       "_keyword_matches": 3,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_niche": false
     },
     {
       "id": "https://www.astronomy.com/science/mysterious-gas-on-mars-suggests-magma-below/",
@@ -447,6 +460,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/T6yBTNxmXER4aLj9C_EAVoJrI40xO7w38W31ihviRJcomFHCjjIVz3nFt9uvJfKFPmqthu0-oFcTPC0hGIbkRT61hY0I8dWXa_uakFnB0lQOEJkA3hQPDJHYHHLfi7d26ChCxSR8nhGTTw"
     },
     {
@@ -476,6 +490,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/7WyERbGj7XphjP226_4_ymby2RT1-1fkujSr4dqQG15LmLq7E3jjXc1xVFrueiKgTsg7EEa56vU-3imoDg8qj71K4ptLWYzbUtNFF6CZRt8-7Xm_Cu_6pUKL-CA5R8oX"
     },
     {
@@ -505,7 +520,41 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/-32sV89efVJ-4P1PKcmD5gumBq34nCNgcnYbvOGLZVJ3DKapqDSnBQqMQFhnuTQehobu8FmmrQAn8Q2xCkcf5VytaOWMvYCPoOpcNToU7_SjRMyDr5c1Cuk"
+    },
+    {
+      "id": "https://www.scientificamerican.com/article/is-there-a-better-way-of-diagnosing-obesity-than-bmi/",
+      "url": "https://www.scientificamerican.com/article/is-there-a-better-way-of-diagnosing-obesity-than-bmi/",
+      "title": "[Scientific American] Is there a better way of diagnosing obesity than BMI?",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Fis-there-a-better-way-of-diagnosing-obesity-than-bmi%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nFor decades, doctors have relied on body mass index, or BMI, to diagnose obesity. The calculation—simply a person’s weight divided by their squared height—gained popularity because it was quick and easy to use in a doctor's office. But BMI is far from perfect. It reveals little about an individual’s body composition—is the weight fat or muscle, for example?—and perhaps most importantly, it says little about whether excess body fat is actually affecting a person’s health. Despite these shortcomings, scientists have struggled to come up with a different way to diagnose obesity. But a landmark",
+      "summary": "For decades, doctors have relied on body mass index, or BMI, to diagnose obesity. The calculation—simply a person’s weight divided by their squared height—gained popularity because it was quick and easy to use in a doctor's office. But BMI is far from perfect. It reveals little about an",
+      "_excerpt": "For decades, doctors have relied on body mass index, or BMI, to diagnose obesity. The calculation—simply a person’s weight divided by their squared height—gained popularity because it was quick and easy to use in a doctor's office. But BMI is far from perfect. It reveals little about an individual’s body composition—is the weight fat or muscle, for example?—and perhaps most importantly, it says little about whether excess body fat is actually affecting a person’s health. Despite these shortcomings, scientists have struggled to come up with a different way to diagnose obesity. But a landmark study published in _Nature_ this week tests an alternative vision that would distinguish between what researchers call clinical obesity—when excess body fat impairs organ function or everyday activities—and preclinical obesity, in which excess body fat is present but function remains intact. The idea was first proposed in January 202500316-4/fulltext) by an international research group writing in the _Lancet Diabetes & Endocrinology_. The new study is the first major test of whether it could supplant BMI—and the results are encouraging. The 2025 _Lancet_ study recommended supplementing BMI with measurements such as waist circumference and waist-to-height ratio to better identify excess body fat. It also proposed assessing whether that fat was causing measurable organ dysfunction. In the new study, by analyzing health data from more than 844,000 adults across four countries, the researchers found that BMI both overestimated and underestimated obesity in certain groups compared with the new framework. They also found that people with clinical and preclinical obesity faced markedly different long-term health risks. Most people with preclinical obesity did not go on to develop clinical obesity over a decade, while those with clinical obesity faced a substantially higher risk of death. The researchers also found that most people identified as having obesity under the new framework",
+      "date_published": "2026-11-14T13:00:00+00:00",
+      "authors": [
+        {
+          "name": "Scientific American",
+          "url": "https://www.scientificamerican.com"
+        }
+      ],
+      "ai_score": 40,
+      "_quality": 67,
+      "_relevance": 45,
+      "_local": 0,
+      "_theme_score": 76,
+      "_theme_score_raw": 25,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 80,
+      "_keyword_matches": 3,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": false,
+      "_niche": false,
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
     },
     {
       "id": "https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-set-to-dip-in-2026-as-iran-conflict-hits-oil-use",
@@ -534,6 +583,7 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/gneWxoho4gytkdYd9PF4pGSm9WU0MnghQI1F2oJ-6M52NmnxZdL2RlvK8OwHzaMg0W6Ots-OglEPwgxP7IxFrG6-OrYucp-4YBvajf33-icwlhOkIJO4UcE7oYcla1ln",
       "_cross_theme": {
         "day": "friday",
@@ -568,6 +618,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_cross_theme": {
         "day": "wednesday",
         "label": "Repair Culture & Practical Tech",
@@ -601,6 +652,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "tags": [
         "subscriber-access"
       ],
@@ -633,6 +685,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/QJ2F3nHUamjnJgncVFZP3CB8W3rhFTCo27vFlyVBux-IemKaDvs8BJa84E1svOvYTlE9u-QAKLgfFrrLBGzhEOaoQ9Yup0OK6XtBHGkbR0q449lyDf48doz_gnMQjwXWucTZx5yP62k",
       "_cross_theme": {
         "day": "friday",
@@ -667,6 +720,41 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
+      "_niche": false,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-11-14T06:13:52.519999+00:00"
+      }
+    },
+    {
+      "id": "https://www.bbc.co.uk/news/articles/cwg5r8zrm11mo",
+      "url": "https://www.bbc.co.uk/news/articles/cwg5r8zrm11mo",
+      "title": "[bbc.co.uk] Nuxalk Nation keeps support services available after fatal grizzly attack",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Farticles%2Fcwg5r8zrm11mo\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNuxalk Nation leaders say the grizzly attack that killed Jennifer Balcarras and her daughter, Selah Reed, near Bella Coola has renewed trauma in a community still recovering from a separate bear attack last year. The British Columbia Conservation Officer Service said forensic evidence linked a female grizzly and her three yearling cubs to the deaths. The bears were killed, and investigators believe the attack likely involved rare predatory behaviour.\n\nElected Chief Tlhmtimut Samuel Schooner said community support services would remain available for as long as needed. The Nuxalk Nation thanked conservation officers for resolving the incident, while saying the deaths had reopened trauma from the previous attack. Authorities also confirmed the four bears were not involved in that earlier attack, which injured 11 people.",
+      "summary": "Nuxalk Nation leaders say the grizzly attack that killed Jennifer Balcarras and her daughter, Selah Reed, near Bella Coola has renewed trauma in a community still recovering from a separate bear attack last year. The British Columbia Conservation Officer Service said forensic evidence linked a",
+      "_excerpt": "Nuxalk Nation leaders say the grizzly attack that killed Jennifer Balcarras and her daughter, Selah Reed, near Bella Coola has renewed trauma in a community still recovering from a separate bear attack last year (bbc.co.uk, mychamplainvalley.com). The British Columbia Conservation Officer Service said forensic evidence linked a female grizzly and her three yearling cubs to the deaths. The bears were killed, and investigators believe the attack likely involved rare predatory behaviour (bbc.co.uk, dw.com). Elected Chief Tlhmtimut Samuel Schooner said community support services would remain available for as long as needed (mychamplainvalley.com). The Nuxalk Nation thanked conservation officers for resolving the incident, while saying the deaths had reopened trauma from the previous attack (bbc.co.uk). Authorities also confirmed the four bears were not involved in that earlier attack, which injured 11 people (bbc.co.uk, mychamplainvalley.com). Earlier attack: The bear involved in the 2025 school-group attack was never found (bbc.co.uk).",
+      "date_published": "2026-11-11T13:24:29+00:00",
+      "authors": [
+        {
+          "name": "bbc.co.uk",
+          "url": "https://www.bbc.co.uk"
+        }
+      ],
+      "ai_score": 78,
+      "_quality": 72,
+      "_relevance": 78,
+      "_local": 85,
+      "_theme_score": 77,
+      "_theme_score_raw": 30,
+      "_kite_sources": 9,
+      "_kite_context": "Where: Bella Coola, Canada\nPerspective: Lana Ciarnello, Bear Smart program co-creator: Ciarnello said coexistence is possible when residents remove attractants and communities invest in education and trained bear-response officers. She called for development plans to protect wildlife corridors (Canada’s National Observer)\nPerspective: Union of B.C. Municipalities: The union has called on the provincial government to reopen applications and funding for the Bear Smart program, suspended in 2025 (nationalobserver.com). (Canada’s National Observer)\nQuote: \"Our thoughts remain with the victims' families.\" (Tlhmtimut Samuel Schooner, elected chief of the Nuxalk Nation, BBC News)\nBackground: In November 2025, a bear charged a group of elementary school students and teachers from Acwsalcta School, run by the Nuxalk Nation (dw.com).",
+      "_composite_podcast": 80,
+      "_keyword_matches": 0,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -699,7 +787,8 @@
       "_keyword_matches": 3,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_niche": false
     },
     {
       "id": "https://phys.org/news/2026-11-euclid-3d-universe-date.html",
@@ -728,6 +817,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/KeXHbivD1SgR1secH6fKNggNUrLBIjrm02uz4X7UbUyg4ES_j6Ts0Y_9URj81RyLwWPMmur54zAuqmMcbD-FjbGPG03ncRVM24_zK-xbMet4JhMR1CTRAhwL0h3Au7LUIH_rplw"
     },
     {
@@ -748,7 +838,7 @@
       "_quality": 62,
       "_relevance": 30,
       "_local": 0,
-      "_theme_score": 88,
+      "_theme_score": 89,
       "_theme_score_raw": 75,
       "_kite_sources": 3,
       "_kite_context": "",
@@ -757,6 +847,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/EjxyZwbRM_jZLLmBN2Osn9b_ssAbra0uYC9by11nILqDHoQS4mu06sxGGPDTWa4VpSxew3JUQYp1ubDA2qTHf5qL4a4WsobQErHB6e0qbZ11scN-gdcvL7pMLcZebspy3frLM9GGaXh1zejW"
     },
     {
@@ -786,6 +877,7 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
+      "_niche": false,
       "tags": [
         "subscriber-access"
       ],
@@ -795,67 +887,6 @@
         "label": "Cariboo Local Affairs",
         "shown_at": "2026-11-14T06:13:52.519999+00:00"
       }
-    },
-    {
-      "id": "https://www.bbc.co.uk/news/articles/cwg5r8zrm11mo",
-      "url": "https://www.bbc.co.uk/news/articles/cwg5r8zrm11mo",
-      "title": "[bbc.co.uk] Nuxalk Nation keeps support services available after fatal grizzly attack",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Farticles%2Fcwg5r8zrm11mo\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nNuxalk Nation leaders say the grizzly attack that killed Jennifer Balcarras and her daughter, Selah Reed, near Bella Coola has renewed trauma in a community still recovering from a separate bear attack last year. The British Columbia Conservation Officer Service said forensic evidence linked a female grizzly and her three yearling cubs to the deaths. The bears were killed, and investigators believe the attack likely involved rare predatory behaviour.\n\nElected Chief Tlhmtimut Samuel Schooner said community support services would remain available for as long as needed. The Nuxalk Nation thanked conservation officers for resolving the incident, while saying the deaths had reopened trauma from the previous attack. Authorities also confirmed the four bears were not involved in that earlier attack, which injured 11 people.",
-      "summary": "Nuxalk Nation leaders say the grizzly attack that killed Jennifer Balcarras and her daughter, Selah Reed, near Bella Coola has renewed trauma in a community still recovering from a separate bear attack last year. The British Columbia Conservation Officer Service said forensic evidence linked a",
-      "_excerpt": "Nuxalk Nation leaders say the grizzly attack that killed Jennifer Balcarras and her daughter, Selah Reed, near Bella Coola has renewed trauma in a community still recovering from a separate bear attack last year (bbc.co.uk, mychamplainvalley.com). The British Columbia Conservation Officer Service said forensic evidence linked a female grizzly and her three yearling cubs to the deaths. The bears were killed, and investigators believe the attack likely involved rare predatory behaviour (bbc.co.uk, dw.com). Elected Chief Tlhmtimut Samuel Schooner said community support services would remain available for as long as needed (mychamplainvalley.com). The Nuxalk Nation thanked conservation officers for resolving the incident, while saying the deaths had reopened trauma from the previous attack (bbc.co.uk). Authorities also confirmed the four bears were not involved in that earlier attack, which injured 11 people (bbc.co.uk, mychamplainvalley.com). Earlier attack: The bear involved in the 2025 school-group attack was never found (bbc.co.uk).",
-      "date_published": "2026-11-11T13:24:29+00:00",
-      "authors": [
-        {
-          "name": "bbc.co.uk",
-          "url": "https://www.bbc.co.uk"
-        }
-      ],
-      "ai_score": 78,
-      "_quality": 72,
-      "_relevance": 78,
-      "_local": 85,
-      "_theme_score": 75,
-      "_theme_score_raw": 30,
-      "_kite_sources": 9,
-      "_kite_context": "Where: Bella Coola, Canada\nPerspective: Lana Ciarnello, Bear Smart program co-creator: Ciarnello said coexistence is possible when residents remove attractants and communities invest in education and trained bear-response officers. She called for development plans to protect wildlife corridors (Canada’s National Observer)\nPerspective: Union of B.C. Municipalities: The union has called on the provincial government to reopen applications and funding for the Bear Smart program, suspended in 2025 (nationalobserver.com). (Canada’s National Observer)\nQuote: \"Our thoughts remain with the victims' families.\" (Tlhmtimut Samuel Schooner, elected chief of the Nuxalk Nation, BBC News)\nBackground: In November 2025, a bear charged a group of elementary school students and teachers from Acwsalcta School, run by the Nuxalk Nation (dw.com).",
-      "_composite_podcast": 79,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-14T06:13:52.519999+00:00"
-      }
-    },
-    {
-      "id": "https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes",
-      "url": "https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes",
-      "title": "[npr.org] Climate change shifts Arctic greenery, darkens lakes and bleaches coral",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.npr.org%2F2026%2F11%2F08%2Fnx-s1-5393776%2Fcolor-climate-change-coral-lakes\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nClimate change is altering natural colors across Arctic landscapes, lakes and coral reefs, with shifts linked to warming, permafrost thaw and pollution. A satellite study published in 2020 found greening at about 38% of sampled Arctic sites between 1985 and 2016. Another study found that green-wavelength values in more than 400,000 North American boreal-Arctic lakes fell 15% between 1984 and 2019, indicating darker water.\n\nDarker lakes can retain heat longer, while coral bleaching leaves reefs more vulnerable to disease and other stressors. Researchers say thawing permafrost may be darkening lakes as soil mixes into the water.",
-      "summary": "Climate change is altering natural colors across Arctic landscapes, lakes and coral reefs, with shifts linked to warming, permafrost thaw and pollution. A satellite study published in 2020 found greening at about 38% of sampled Arctic sites between 1985 and 2016. Another study found that",
-      "_excerpt": "Climate change is altering natural colors across Arctic landscapes, lakes and coral reefs, with shifts linked to warming, permafrost thaw and pollution (npr.org, reddit.com). A satellite study published in 2020 found greening at about 38% of sampled Arctic sites between 1985 and 2016. Another study found that green-wavelength values in more than 400,000 North American boreal-Arctic lakes fell 15% between 1984 and 2019, indicating darker water (npr.org). Darker lakes can retain heat longer, while coral bleaching leaves reefs more vulnerable to disease and other stressors (npr.org, reddit.com). Researchers say thawing permafrost may be darkening lakes as soil mixes into the water (npr.org). Soot and ice: Arctic wildfires, oil and gas operations, shipping and tourism add soot to snow and ice; the dark particles absorb sunlight and accelerate melting (npr.org, reddit.com). Food resources: Expanding shrubs can shade berry patches that Arctic residents rely on, while shifting weather can change when fruit develops and affect its quality (npr.org).",
-      "date_published": "2026-11-08T11:00:00+00:00",
-      "authors": [
-        {
-          "name": "npr.org",
-          "url": "https://www.npr.org"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 72,
-      "_relevance": 60,
-      "_local": 0,
-      "_theme_score": 93,
-      "_theme_score_raw": 82,
-      "_kite_sources": 2,
-      "_kite_context": "Did you know: Only about 31% of lakes worldwide are blue; researchers found that blue lakes are generally concentrated in cooler northern areas with winter ice cover (npr.org).",
-      "_composite_podcast": 78,
-      "_keyword_matches": 3,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": false
     },
     {
       "id": "https://www.sciencealert.com/scientists-warn-of-a-growing-tsunami-threat-lurking-in-greenlands-fjords",
@@ -883,7 +914,37 @@
       "_keyword_matches": 1,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_niche": false
+    },
+    {
+      "id": "https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes",
+      "url": "https://www.npr.org/2026/11/08/nx-s1-5393776/color-climate-change-coral-lakes",
+      "title": "[npr.org] Climate change shifts Arctic greenery, darkens lakes and bleaches coral",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.npr.org%2F2026%2F11%2F08%2Fnx-s1-5393776%2Fcolor-climate-change-coral-lakes\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nClimate change is altering natural colors across Arctic landscapes, lakes and coral reefs, with shifts linked to warming, permafrost thaw and pollution. A satellite study published in 2020 found greening at about 38% of sampled Arctic sites between 1985 and 2016. Another study found that green-wavelength values in more than 400,000 North American boreal-Arctic lakes fell 15% between 1984 and 2019, indicating darker water.\n\nDarker lakes can retain heat longer, while coral bleaching leaves reefs more vulnerable to disease and other stressors. Researchers say thawing permafrost may be darkening lakes as soil mixes into the water.",
+      "summary": "Climate change is altering natural colors across Arctic landscapes, lakes and coral reefs, with shifts linked to warming, permafrost thaw and pollution. A satellite study published in 2020 found greening at about 38% of sampled Arctic sites between 1985 and 2016. Another study found that",
+      "_excerpt": "Climate change is altering natural colors across Arctic landscapes, lakes and coral reefs, with shifts linked to warming, permafrost thaw and pollution (npr.org, reddit.com). A satellite study published in 2020 found greening at about 38% of sampled Arctic sites between 1985 and 2016. Another study found that green-wavelength values in more than 400,000 North American boreal-Arctic lakes fell 15% between 1984 and 2019, indicating darker water (npr.org). Darker lakes can retain heat longer, while coral bleaching leaves reefs more vulnerable to disease and other stressors (npr.org, reddit.com). Researchers say thawing permafrost may be darkening lakes as soil mixes into the water (npr.org). Soot and ice: Arctic wildfires, oil and gas operations, shipping and tourism add soot to snow and ice; the dark particles absorb sunlight and accelerate melting (npr.org, reddit.com). Food resources: Expanding shrubs can shade berry patches that Arctic residents rely on, while shifting weather can change when fruit develops and affect its quality (npr.org).",
+      "date_published": "2026-11-08T11:00:00+00:00",
+      "authors": [
+        {
+          "name": "npr.org",
+          "url": "https://www.npr.org"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 72,
+      "_relevance": 60,
+      "_local": 0,
+      "_theme_score": 93,
+      "_theme_score_raw": 82,
+      "_kite_sources": 2,
+      "_kite_context": "Did you know: Only about 31% of lakes worldwide are blue; researchers found that blue lakes are generally concentrated in cooler northern areas with winter ice cover (npr.org).",
+      "_composite_podcast": 78,
+      "_keyword_matches": 3,
+      "_category": "science",
+      "_source_category": "science",
+      "_is_bonus": false,
+      "_niche": false
     },
     {
       "id": "https://www.livescience.com/space/astronomy/nasas-destroyed-swift-observatory-took-one-of-the-best-ever-photos-of-bright-andromeda-space-photo-of-the-week",
@@ -912,6 +973,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/_SB5T81e9jU-X_PR2eX_Yw5NJOTpSES7zB-EObodamy8hu5YNm2tnpvwoD7zW82oIfdAt1qbD3ANHyJBGVGlX4s7an_rJ2pfj20HzECBpa8RNvTFRtnPM3Ls9swKTVqLijJiGQY"
     },
     {
@@ -940,41 +1002,37 @@
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
-      "_is_bonus": true
+      "_is_bonus": true,
+      "_niche": false
     },
     {
-      "id": "https://www.theguardian.com/science/2026/nov/02/permanent-damage-crysophere-overshoots-15c-scientists-warn",
-      "url": "https://www.theguardian.com/science/2026/nov/02/permanent-damage-crysophere-overshoots-15c-scientists-warn",
-      "title": "[theguardian.com] UN-backed report warns overshooting 1.5C could permanently damage Earth's ice",
-      "content_html": "<img src=\"https://kagiproxy.com/img/h1DQasA1RpZwiej-JYB4TgThM2I6nAWeoOUpbhjlPQP-OZmIEyDq_-XvyH1JynagkRN73_CwCuY7nAYfJIP9tDn6OZg8UNLslr8WcTSAp6sHuaa1WjH3QSq_fai9P9qhVBWyT5T-nqQbfWNN6xbg4e1y0qPw881zgSeXinswFWIb-e78W_Tijc-IRvJQRbtuPvevInl4gaU4usG2xyb5MxRudw2pwCptc-mCpyD2wcwIEE8OKpwyqDO004HypMOFoFD6mt0HjrojBE914404\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theguardian.com%2Fscience%2F2026%2Fnov%2F02%2Fpermanent-damage-crysophere-overshoots-15c-scientists-warn\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA report by 80 scientists convened by the International Cryosphere Climate Initiative and the U.N. Environment Programme warns that even a temporary rise above the Paris Agreement’s 1.5C warming limit could cause lasting losses to glaciers, sea ice and polar ice sheets. Earth has already warmed about 1.3C from preindustrial levels. The authors say any period above 1.5C should be as brief as possible before temperatures fall much further, and identify a long-term target below 1C by 2150.\n\nUnder current policies, warming is projected to reach about 2.8C, a level the report links to near-total thaw of near-surface permafrost and likely severe disruption to ocean circulation. Greenland and Antarctic ice sheets would continue losing ice even if temperatures later returned to 1.5C, while many ice systems could take centuries or millennia to recover. The report was released ahead of the COP31 climate conference in Turkey.",
-      "summary": "A report by 80 scientists convened by the International Cryosphere Climate Initiative and the U.N. Environment Programme warns that even a temporary rise above the Paris Agreement’s 1.5C warming limit could cause lasting losses to glaciers, sea ice and polar ice sheets. Earth has already warmed",
-      "_excerpt": "A report by 80 scientists convened by the International Cryosphere Climate Initiative and the U.N. Environment Programme warns that even a temporary rise above the Paris Agreement’s 1.5C warming limit could cause lasting losses to glaciers, sea ice and polar ice sheets (theguardian.com, trthaber.com, karar.com). Earth has already warmed about 1.3C from preindustrial levels. The authors say any period above 1.5C should be as brief as possible before temperatures fall much further, and identify a long-term target below 1C by 2150 (theguardian.com, trthaber.com). Under current policies, warming is projected to reach about 2.8C, a level the report links to near-total thaw of near-surface permafrost and likely severe disruption to ocean circulation (theguardian.com, karar.com). Greenland and Antarctic ice sheets would continue losing ice even if temperatures later returned to 1.5C, while many ice systems could take centuries or millennia to recover (theguardian.com, trthaber.com). The report was released ahead of the COP31 climate conference in Turkey (leparisien.fr, trthaber.com). Mountain glaciers: Under current policies, glaciers in the Rockies, Alps, Iceland and Scandinavia could retain less than 10% of their mass; limiting warming to 1.5C would leave about 20% to 35% (theguardian.com, karar.com). Himalayan water: The Hindu Kush Himalayas, a water source for nearly one-quarter of humanity, are projected to retain 41% of their glacier mass under current policies, compared with 83% if warming is limited to 1.5C (theguardian.com, karar.com). Recent losses: Switzerland has lost 20% of its glacier ice in five years, while Greenland and Antarctic ice sheets are melting about six times faster than in the 1990s (theguardian.com, trthaber.com). Emissions cuts: A separate U.N. Environment Programme assessment published the previous month said emissions must fall 18% by 2030 and 45% by 2035 to give a good chance of limiting warming to 1.7C (theguardian.com, karar.com).",
-      "date_published": "2026-11-02T00:01:25+00:00",
+      "id": "https://news.mit.edu/2026/waste-clearing-waves-in-brain-during-sleep-are-impaired-in-older-adults-1113",
+      "url": "https://news.mit.edu/2026/waste-clearing-waves-in-brain-during-sleep-are-impaired-in-older-adults-1113",
+      "title": "[news.mit.edu] Older adults show weaker brain-clearing fluid waves during sleep",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fnews.mit.edu%2F2026%2Fwaste-clearing-waves-in-brain-during-sleep-are-impaired-in-older-adults-1113\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMIT researchers found that older adults had significantly weaker waves of cerebrospinal fluid (CSF), which helps clear waste from the brain during sleep, than younger adults. The researchers used brain imaging and electroencephalography to study volunteers ages 18 to 39 and 60 to 84, linking the reduced flow partly to weaker deep-sleep brain waves and diminished vascular responses.\n\nSeparately, a study described in a paper shared on Reddit found that LSD-related gene-expression patterns in rats and mice ran counter to some patterns associated with human brain aging. LSD also reduced certain amyloid-beta-related changes in mouse brain-cell cultures. These are preclinical findings, not evidence that LSD prevents dementia in people.",
+      "summary": "MIT researchers found that older adults had significantly weaker waves of cerebrospinal fluid (CSF), which helps clear waste from the brain during sleep, than younger adults. The researchers used brain imaging and electroencephalography to study volunteers ages 18 to 39 and 60 to 84, linking the",
+      "_excerpt": "MIT researchers found that older adults had significantly weaker waves of cerebrospinal fluid (CSF), which helps clear waste from the brain during sleep, than younger adults. The researchers used brain imaging and electroencephalography to study volunteers ages 18 to 39 and 60 to 84, linking the reduced flow partly to weaker deep-sleep brain waves and diminished vascular responses (mit.edu, nautil.us). Separately, a study described in a paper shared on Reddit found that LSD-related gene-expression patterns in rats and mice ran counter to some patterns associated with human brain aging. LSD also reduced certain amyloid-beta-related changes in mouse brain-cell cultures. These are preclinical findings, not evidence that LSD prevents dementia in people (reddit.com). Vascular tests: In awake participants, older adults showed smaller blood-flow responses to both a flickering checkerboard and breath-holding, which raises carbon dioxide levels (mit.edu, nautil.us). Unexplained gap: The measured vascular changes accounted for much, but not all, of the age-related difference in CSF flow, leaving some of the difference unexplained (mit.edu, nautil.us). Preclinical LSD: The LSD study compared data from chronic dosing in rats and acute multi-dose testing in mice with human aging-related gene-expression datasets. It also tested amyloid-beta effects in primary mouse cortical cultures (reddit.com).",
+      "date_published": "2026-11-13T10:00:00+00:00",
       "authors": [
         {
-          "name": "theguardian.com",
-          "url": "https://www.theguardian.com"
+          "name": "news.mit.edu",
+          "url": "https://news.mit.edu"
         }
       ],
-      "ai_score": 45,
-      "_quality": 75,
-      "_relevance": 0,
+      "ai_score": 46,
+      "_quality": 66,
+      "_relevance": 55,
       "_local": 0,
-      "_theme_score": 89,
-      "_theme_score_raw": 78,
-      "_kite_sources": 5,
-      "_kite_context": "Perspective: James Kirkham, the report’s lead author, said the cryosphere is one of the climate system’s most sensitive components and its loss has planetwide consequences, citing a deadly ice-and-rock avalanche on the Nepal-China border (theguardian.com, trthaber.com). (The Guardian)\nPerspective: Bill Hare, a climate scientist and chief executive of Climate Analytics, warned that climate impacts could exceed society’s ability to adapt (theguardian.com, trthaber.com). (The Guardian)\nQuote: \"Snow and ice respond rapidly to every fraction of a degree of warming.\" (James Kirkham, glaciologist at the International Cryosphere Climate Initiative and lead author of the report, The)",
+      "_theme_score": 85,
+      "_theme_score_raw": 72,
+      "_kite_sources": 3,
+      "_kite_context": "Quote: \"We know that people age really differently. Some people age very successfully with great cognitive outcomes, and other people develop cognitive decline. If we can figure out who has great trajectories of aging and what are the factors that are associated with\" (Laura Lewis, MIT associate professor of electrical engineering and computer science and senior author of the study, MIT)\nBackground: In a 2019 study, Laura Lewis, an MIT associate professor of electrical engineering and computer science, found that slow brain waves during sleep help generate CSF waves that clear waste from the brain. That work prompted the research team to ask whether",
       "_composite_podcast": 77,
-      "_keyword_matches": 1,
-      "_category": "climate",
-      "_source_category": "climate",
+      "_keyword_matches": 2,
+      "_category": "wellness",
+      "_source_category": "wellness",
       "_is_bonus": false,
-      "image": "https://kagiproxy.com/img/h1DQasA1RpZwiej-JYB4TgThM2I6nAWeoOUpbhjlPQP-OZmIEyDq_-XvyH1JynagkRN73_CwCuY7nAYfJIP9tDn6OZg8UNLslr8WcTSAp6sHuaa1WjH3QSq_fai9P9qhVBWyT5T-nqQbfWNN6xbg4e1y0qPw881zgSeXinswFWIb-e78W_Tijc-IRvJQRbtuPvevInl4gaU4usG2xyb5MxRudw2pwCptc-mCpyD2wcwIEE8OKpwyqDO004HypMOFoFD6mt0HjrojBE914404",
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-13T06:10:43.356652+00:00"
-      }
+      "_niche": false
     },
     {
       "id": "https://www.cbc.ca/news/canada/british-columbia/bc-storm-nov-12-9.7418790",
@@ -994,15 +1052,16 @@
       "_quality": 60,
       "_relevance": 75,
       "_local": 55,
-      "_theme_score": 73,
+      "_theme_score": 74,
       "_theme_score_raw": 22,
       "_kite_sources": 7,
       "_kite_context": "Where: Squamish, BC, Canada\nPerspective: Squamish Mayor Sean Easton said some properties had been affected, but the district did not yet have a clear picture of the damage. The stay-in-place advisory remained in effect while officials waited for river levels to recede (cbc.ca). (CBC News)\nPerspective: Squamish resident Peter Spitzer said neighbours in the cut-off area generally stay put, help one another and keep several days’ worth of food and water on hand (theglobeandmail.com). (The Globe and Mail)\nBackground: In October 2024, two men died after their vehicles were swept off Bamfield Main Road and into the Sarita River during heavy rain (timescolonist.com).",
-      "_composite_podcast": 75,
+      "_composite_podcast": 76,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/VDd1bl8_gtaA0PdMwHzQ5O0x1GyrqonwN-OHehWkbHqyZu_b43HPxfWj23BXS4UOqcubGv9l0BWuep6AviYZy7x818dNDliuqe4BKwxpeqMPnuSnxy0zXtbnbFt2QXWPpPSDmUqhfteXHMgdnCVi8v1V_3nSVkaoQAr5Z3AXG2XDQ3d_lu-FvQxlWoKx5UKuCCkBb3uhjvwg4AumH_RygQR2sHKQV36WrSeXctuPH-bxLA-yO5sEh8izVJ_y3HjG7DQQTzWyB1sQ_Gf9oQ",
       "_cross_theme": {
         "day": "saturday",
@@ -1028,15 +1087,16 @@
       "_quality": 82,
       "_relevance": 80,
       "_local": 80,
-      "_theme_score": 73,
+      "_theme_score": 74,
       "_theme_score_raw": 22,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 74,
+      "_composite_podcast": 75,
       "_keyword_matches": 1,
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": false,
+      "_niche": false,
       "tags": [
         "subscriber-access"
       ],
@@ -1074,6 +1134,7 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
+      "_niche": false,
       "tags": [
         "subscriber-access"
       ],
@@ -1102,7 +1163,7 @@
       "_quality": 45,
       "_relevance": 55,
       "_local": 100,
-      "_theme_score": 73,
+      "_theme_score": 74,
       "_theme_score_raw": 22,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1111,6 +1172,7 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
+      "_niche": false,
       "image": "https://mtn-cdn.vistareach.ca/mycariboonow/uploads/2019/01/mild-weather.jpg",
       "_cross_theme": {
         "day": "saturday",
@@ -1134,7 +1196,7 @@
       ],
       "ai_score": 69,
       "_quality": 75,
-      "_relevance": 78,
+      "_relevance": 0,
       "_local": 35,
       "_theme_score": 79,
       "_theme_score_raw": 40,
@@ -1145,6 +1207,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -1177,24 +1240,25 @@
       "_keyword_matches": 1,
       "_category": "science",
       "_source_category": "science",
-      "_is_bonus": false
+      "_is_bonus": false,
+      "_niche": false
     },
     {
-      "id": "https://wltribune.com/2026/11/12/indigenous-led-joint-venture-west-of-williams-lake-awarded-at-national-conference/",
-      "url": "https://wltribune.com/2026/11/12/indigenous-led-joint-venture-west-of-williams-lake-awarded-at-national-conference/",
-      "title": "[Williams Lake Tribune] Indigenous-led joint venture west of Williams Lake awarded at national conference",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F11%2F12%2Findigenous-led-joint-venture-west-of-williams-lake-awarded-at-national-conference%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nTrevor Acoose, Board Vice President - Cando; Elaine Chambers, Board Secretary-Treasurer - Cando; Percy Guichon, CEO of CCR and Elected Councillor of Tŝideldel First Nation; Patrick Brooks, Board President - Cando. A joint venture of Tŝideldel First Nation, Tl’etinqox Government, and Yunesit’in Government continues to be recognized for its contributions to Indigenous economic development through forest rehabilitation, wildfire risk reduction, and local employment across the Cariboo Chilcotin. Central Chilcotin Rehabilitation Ltd. (CCR) recently received the 2026 Cando (Council for the",
-      "summary": "Trevor Acoose, Board Vice President - Cando; Elaine Chambers, Board Secretary-Treasurer - Cando; Percy Guichon, CEO of CCR and Elected Councillor of Tŝideldel First Nation; Patrick Brooks, Board President - Cando. A joint venture of Tŝideldel First Nation, Tl’etinqox Government, and Yunesit’in",
-      "_excerpt": "Trevor Acoose, Board Vice President - Cando; Elaine Chambers, Board Secretary-Treasurer - Cando; Percy Guichon, CEO of CCR and Elected Councillor of Tŝideldel First Nation; Patrick Brooks, Board President - Cando. A joint venture of Tŝideldel First Nation, Tl’etinqox Government, and Yunesit’in Government continues to be recognized for its contributions to Indigenous economic development through forest rehabilitation, wildfire risk reduction, and local employment across the Cariboo Chilcotin. Central Chilcotin Rehabilitation Ltd. (CCR) recently received the 2026 Cando (Council for the Advancement of Native Development Officers) Indigenous Private Sector Business Award. The award was presented during the non-profit society’s annual national conference held Oct. 5 to Oct. 8 in Victoria as part of its Economic Developer of the Year Awards. In a news release, CCR CEO and elected councillor of Tŝideldel First Nation Percy Guichon called it a proud moment for CCR and the communities behind it. “We have a lot of damaged forests in our territories, and we’ve worked hard to rehabilitate that land while creating jobs and opportunities for our people,” he stated. “This award recognizes the crews, communities, businesses, and partners who have helped us get this work done.” According to its webpage, CCR was originally formed as a joint venture between the Tŝideldel First Nation and Tl’etinqox Government in the spring of 2017 to address the 100,000 hectares of dead pine left in the Chilcotin region and to rehabilitate those stands into productive forests. In summer 2017, fires amplified the need to address heavily burned forest stands with minimal economic value. Yunesit’in Government joined the joint venture in 2024. Member nations are provided a direct role in forestry projects within their territories while building local skills and business opportunities which Philippe Theriault, General Manager of TŝiDelDel Enterprises, said makes a difference for their communities. In",
-      "date_published": "2026-11-13T06:03:36.933661+00:00",
+      "id": "https://wltribune.com/2026/11/14/spanish-mountain-gold-ltd-eyes-redesigned-open-pit-gold-mine-near-williams-lake/",
+      "url": "https://wltribune.com/2026/11/14/spanish-mountain-gold-ltd-eyes-redesigned-open-pit-gold-mine-near-williams-lake/",
+      "title": "[Williams Lake Tribune] Spanish Mountain Gold eyes redesigned open-pit gold mine near Williams Lake",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwltribune.com%2F2026%2F11%2F14%2Fspanish-mountain-gold-ltd-eyes-redesigned-open-pit-gold-mine-near-williams-lake%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSpanish Mountain Gold Ltd. has redesigned its proposed open-pit gold mine near Likely that is planned to utilize filtered stack tailings technology (dry stacking). As B.C’s forestry sector continues to struggle, now is the time for mining according to the Mayor of Williams Lake as a mining exploration company seeks to develop a newly redesigned open-pit gold mine that would annually inject an estimated $190-million into the Cariboo regional economy. Spanish Mountain Gold Ltd. (SMG) has recently resumed early community engagement on its proposed open-pit gold mine near Likely northeast of",
+      "summary": "Spanish Mountain Gold Ltd. has redesigned its proposed open-pit gold mine near Likely that is planned to utilize filtered stack tailings technology (dry stacking). As B.C’s forestry sector continues to struggle, now is the time for mining according to the Mayor of Williams Lake as a mining",
+      "_excerpt": "Spanish Mountain Gold Ltd. has redesigned its proposed open-pit gold mine near Likely that is planned to utilize filtered stack tailings technology (dry stacking). As B.C’s forestry sector continues to struggle, now is the time for mining according to the Mayor of Williams Lake as a mining exploration company seeks to develop a newly redesigned open-pit gold mine that would annually inject an estimated $190-million into the Cariboo regional economy. Spanish Mountain Gold Ltd. (SMG) has recently resumed early community engagement on its proposed open-pit gold mine near Likely northeast of Williams Lake. ”It’s mining time. You can’t go wrong,” Surinderpal Rathor said at a community open house earlier this month in Williams Lake where he was joined by Coun. Scott Nelson. SMG Vice President, Environment, Social and Governance Travis Desormeaux said SMG hopes to have a final investment decision in 2028 with construction commencing shortly after where they would likely be hiring between 750 to 1,000 jobs over a 24-month period. The mine’s utilization of filtered stack tailings technology, also known as dry stacking, is anticipated to provide up to 250 full time jobs during its planned 25-year mine life. A 2021 design previously directly impacted Boswell and Nina Lakes, which are fish-bearing, with the tailings storage facility located directly above Cedar Creek, a catchment that flows into Quesnel Lake and at its confluence sits Cedar Point Provincial Park. The Quesnel Lake Watershed was heavily impacted by a catastrophic August 2014 Mount Polley Mine tailings pond collapse which resulted in the release of millions of cubic metres of waste, and through the early engagement process in 2021 by SGM, concerns of any potential failure risks were identified. Treated mine water would also have been discharged directly into Cedar Creek, passing through the provincial park before entering Quesnel Lake. Water quality, aquatic habitat, cultural rights and geotechnical concerns in",
+      "date_published": "2026-11-15T06:02:52.155741+00:00",
       "authors": [
         {
           "name": "Williams Lake Tribune",
           "url": "https://wltribune.com"
         }
       ],
-      "ai_score": 89,
-      "_quality": 82,
+      "ai_score": 88,
+      "_quality": 78,
       "_relevance": 88,
       "_local": 100,
       "_theme_score": 57,
@@ -1202,18 +1266,48 @@
       "_kite_sources": 0,
       "_kite_context": "",
       "_composite_podcast": 73,
-      "_keyword_matches": 0,
+      "_keyword_matches": 1,
       "_category": "local",
       "_source_category": "local",
-      "_is_bonus": true,
+      "_is_bonus": false,
+      "_niche": false,
       "tags": [
         "subscriber-access"
       ],
-      "_subscriber_access": "Williams Lake Tribune",
+      "_subscriber_access": "Williams Lake Tribune"
+    },
+    {
+      "id": "https://e360.yale.edu/features/super-el-nino-agriculture",
+      "url": "https://e360.yale.edu/features/super-el-nino-agriculture",
+      "title": "[e360.yale.edu] Super El Niño drought threatens crops and deepens global food insecurity",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fe360.yale.edu%2Ffeatures%2Fsuper-el-nino-agriculture\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA powerful El Niño is worsening drought in several food-producing regions. The United Nations World Food Programme warns that it could push 49 million more people into acute food insecurity by the end of 2027, bringing the total to 274 million. Drought has already cut rainfall in northern Sudan to less than half of normal, while dry conditions are affecting crops, livestock and transport in parts of Central America and Southeast Asia.\n\nThe Famine Early Warning Systems Network projects that 2026-27 production of maize, wheat and rice will be 2.7% below the previous year but still the second-largest on record. El Niño is forecast to peak in December and persist into early 2027. In the Philippines, forecasters expect below-normal rainfall in November and drought conditions in several provinces.",
+      "summary": "A powerful El Niño is worsening drought in several food-producing regions. The United Nations World Food Programme warns that it could push 49 million more people into acute food insecurity by the end of 2027, bringing the total to 274 million. Drought has already cut rainfall in northern Sudan to",
+      "_excerpt": "A powerful El Niño is worsening drought in several food-producing regions. The United Nations World Food Programme warns that it could push 49 million more people into acute food insecurity by the end of 2027, bringing the total to 274 million (yale.edu, enn.com). Drought has already cut rainfall in northern Sudan to less than half of normal, while dry conditions are affecting crops, livestock and transport in parts of Central America and Southeast Asia (yale.edu). The Famine Early Warning Systems Network projects that 2026-27 production of maize, wheat and rice will be 2.7% below the previous year but still the second-largest on record (yale.edu). El Niño is forecast to peak in December and persist into early 2027. In the Philippines, forecasters expect below-normal rainfall in November and drought conditions in several provinces (leparisien.fr, manilatimes.net). Coastal flooding: California communities from Long Beach to Pacifica are reinforcing beaches and structures, distributing sandbags and preparing for king tides and coastal flooding this winter (npr.org). Storm damage: East Asian storms have closed airports, cut power to 15,000 homes in Okinawa and damaged crops and infrastructure. The region’s accumulated cyclone energy is forecast to reach nearly twice its 30-year average (bbc.co.uk). Fishery disruption: Peru’s anchovy fishery closed early, while global fishmeal output by September was about half its year-earlier level, raising costs for livestock and aquaculture feed (yale.edu). Philippine temperatures: Philippine forecasting agency Pagasa expects warmer-than-average mean air temperatures across most of the country in November (manilatimes.net).",
+      "date_published": "2026-11-05T17:50:52+00:00",
+      "authors": [
+        {
+          "name": "e360.yale.edu",
+          "url": "https://e360.yale.edu"
+        }
+      ],
+      "ai_score": 50,
+      "_quality": 70,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 81,
+      "_theme_score_raw": 48,
+      "_kite_sources": 12,
+      "_kite_context": "Perspective: Richard Choularton, World Food Programme climate and resilience director: He said the combination of drought and conflict produces some of the worst food-security outcomes, as disruptions to farming, transport and household incomes compound over time (Yale Environment 360)\nPerspective: Zeke Hausfather, Berkeley Earth climatologist: He described the combination of high fertilizer costs, high energy costs and drought across the tropics as a “triple whammy” (yale.edu). (Yale Environment 360)\nPerspective: Joshua Hickman, Long Beach public works director: Hickman said the city is reinforcing beaches and a seawall and providing sandbags, but he was unsure whether those measures would be enough to protect residents (npr.org). (NPR)\nQuote: \"When markets are tight, then if there’s a drought somewhere, that’s a much bigger deal.\" (David Lobell, Stanford agricultural economist, Yale Environment 360)\nTimeline: June 2026: The World Meteorological Organization said the current El Niño episode was declared (leparisien.fr).\nTimeline: July 2026: Tropical Storm Narra submerged villages along China’s southern coast (bbc.co.uk).\nTimeline: August 2026: Super Typhoon Dolphin struck eastern China, bringing floods and casualties (bbc.co.uk).",
+      "_composite_podcast": 72,
+      "_keyword_matches": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-14T06:13:52.519999+00:00"
+        "day": "friday",
+        "label": "Wild Spaces & Outdoor Life",
+        "shown_at": "2026-11-13T06:10:43.356652+00:00"
       }
     },
     {
@@ -1243,45 +1337,13 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://thetyee.ca/News/2026/11/08/GeorginaJosephCottonwood.jpg",
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
         "shown_at": "2026-11-14T06:13:52.519999+00:00"
-      }
-    },
-    {
-      "id": "https://e360.yale.edu/features/super-el-nino-agriculture",
-      "url": "https://e360.yale.edu/features/super-el-nino-agriculture",
-      "title": "[e360.yale.edu] Super El Niño drought threatens crops and deepens global food insecurity",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fe360.yale.edu%2Ffeatures%2Fsuper-el-nino-agriculture\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA powerful El Niño is worsening drought in several food-producing regions. The United Nations World Food Programme warns that it could push 49 million more people into acute food insecurity by the end of 2027, bringing the total to 274 million. Drought has already cut rainfall in northern Sudan to less than half of normal, while dry conditions are affecting crops, livestock and transport in parts of Central America and Southeast Asia.\n\nThe Famine Early Warning Systems Network projects that 2026-27 production of maize, wheat and rice will be 2.7% below the previous year but still the second-largest on record. El Niño is forecast to peak in December and persist into early 2027. In the Philippines, forecasters expect below-normal rainfall in November and drought conditions in several provinces.",
-      "summary": "A powerful El Niño is worsening drought in several food-producing regions. The United Nations World Food Programme warns that it could push 49 million more people into acute food insecurity by the end of 2027, bringing the total to 274 million. Drought has already cut rainfall in northern Sudan to",
-      "_excerpt": "A powerful El Niño is worsening drought in several food-producing regions. The United Nations World Food Programme warns that it could push 49 million more people into acute food insecurity by the end of 2027, bringing the total to 274 million (yale.edu, enn.com). Drought has already cut rainfall in northern Sudan to less than half of normal, while dry conditions are affecting crops, livestock and transport in parts of Central America and Southeast Asia (yale.edu). The Famine Early Warning Systems Network projects that 2026-27 production of maize, wheat and rice will be 2.7% below the previous year but still the second-largest on record (yale.edu). El Niño is forecast to peak in December and persist into early 2027. In the Philippines, forecasters expect below-normal rainfall in November and drought conditions in several provinces (leparisien.fr, manilatimes.net). Coastal flooding: California communities from Long Beach to Pacifica are reinforcing beaches and structures, distributing sandbags and preparing for king tides and coastal flooding this winter (npr.org). Storm damage: East Asian storms have closed airports, cut power to 15,000 homes in Okinawa and damaged crops and infrastructure. The region’s accumulated cyclone energy is forecast to reach nearly twice its 30-year average (bbc.co.uk). Fishery disruption: Peru’s anchovy fishery closed early, while global fishmeal output by September was about half its year-earlier level, raising costs for livestock and aquaculture feed (yale.edu). Philippine temperatures: Philippine forecasting agency Pagasa expects warmer-than-average mean air temperatures across most of the country in November (manilatimes.net).",
-      "date_published": "2026-11-05T17:50:52+00:00",
-      "authors": [
-        {
-          "name": "e360.yale.edu",
-          "url": "https://e360.yale.edu"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 70,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 81,
-      "_theme_score_raw": 48,
-      "_kite_sources": 12,
-      "_kite_context": "Perspective: Richard Choularton, World Food Programme climate and resilience director: He said the combination of drought and conflict produces some of the worst food-security outcomes, as disruptions to farming, transport and household incomes compound over time (Yale Environment 360)\nPerspective: Zeke Hausfather, Berkeley Earth climatologist: He described the combination of high fertilizer costs, high energy costs and drought across the tropics as a “triple whammy” (yale.edu). (Yale Environment 360)\nPerspective: Joshua Hickman, Long Beach public works director: Hickman said the city is reinforcing beaches and a seawall and providing sandbags, but he was unsure whether those measures would be enough to protect residents (npr.org). (NPR)\nQuote: \"When markets are tight, then if there’s a drought somewhere, that’s a much bigger deal.\" (David Lobell, Stanford agricultural economist, Yale Environment 360)\nTimeline: June 2026: The World Meteorological Organization said the current El Niño episode was declared (leparisien.fr).\nTimeline: July 2026: Tropical Storm Narra submerged villages along China’s southern coast (bbc.co.uk).\nTimeline: August 2026: Super Typhoon Dolphin struck eastern China, bringing floods and casualties (bbc.co.uk).",
-      "_composite_podcast": 72,
-      "_keyword_matches": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "friday",
-        "label": "Wild Spaces & Outdoor Life",
-        "shown_at": "2026-11-13T06:10:43.356652+00:00"
       }
     },
     {
@@ -1302,7 +1364,7 @@
       "_quality": 85,
       "_relevance": 92,
       "_local": 90,
-      "_theme_score": 62,
+      "_theme_score": 63,
       "_theme_score_raw": 10,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1311,6 +1373,7 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -1344,6 +1407,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "image": "https://media.indiginews.com/2026/11/SimilkameenYouthGathering261108-52-1024x683.jpg",
       "_cross_theme": {
         "day": "saturday",
@@ -1369,7 +1433,7 @@
       "_quality": 85,
       "_relevance": 75,
       "_local": 0,
-      "_theme_score": 77,
+      "_theme_score": 78,
       "_theme_score_raw": 35,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -1378,6 +1442,42 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-11-14T06:13:52.519999+00:00"
+      }
+    },
+    {
+      "id": "https://www.latimes.com/world-nation/story/2026-11-02/floods-swamp-arid-southwest-forcing-evacuations-altering-election-day-plans",
+      "url": "https://www.latimes.com/world-nation/story/2026-11-02/floods-swamp-arid-southwest-forcing-evacuations-altering-election-day-plans",
+      "title": "[latimes.com] El Niño-linked floods force Southwest evacuations; Arizona declares emergency",
+      "content_html": "<img src=\"https://kagiproxy.com/img/xfpJTEwQrD7KHwzQ0f2pYfPZrYIMOitOnHi70b8RhZv7WNtYMawJkQfparzI5_6vg1q2po1WbDNQdpgrXfmtTA0gg3bl6H777Z9WVNSsj-AiEemrlFnhHMdjF8hoidH_AhgJ5dB9yjE8tYRxaiUB4pHJkTQgVEGD4tFQhbC9x_QJYEfU99xKxPzES3GNUr5AfB9PmIXXytR4dj20In8tCm-qzWr5dB3j9yyPDzWM0LrFO8piXfuuxXa49_OsAy86DRhM3ukK-8XzKxyAFexXvPY-oyMopfW5ODnG0WQKrx_4dUy467PcX3QOLA\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.latimes.com%2Fworld-nation%2Fstory%2F2026-11-02%2Ffloods-swamp-arid-southwest-forcing-evacuations-altering-election-day-plans\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nPacific storm systems brought torrential rain and flooding across the normally arid Southwest, prompting evacuations in Arizona, Colorado, New Mexico and Utah. The National Weather Service said El Niño was disrupting weather patterns as the region faced another round of heavy rain. Arizona Gov. Katie Hobbs declared a statewide emergency Monday to help local authorities clear roads, repair infrastructure and assist displaced residents. At least one person died in the flooding; police said a second death in Flagstaff appeared weather-related, pending an official determination.\n\nFormer National Oceanic and Atmospheric Administration chief scientist Ryan Maue estimated that more than 20 trillion gallons of water fell across the Four Corners states and Nevada over two weeks. Flooding damaged roads and bridges, stranded residents and caused sewage to back up into some homes. Although rain had ended in parts of the Southwest by Monday, flooding along some swollen waterways could continue through at least Tuesday.",
+      "summary": "Pacific storm systems brought torrential rain and flooding across the normally arid Southwest, prompting evacuations in Arizona, Colorado, New Mexico and Utah. The National Weather Service said El Niño was disrupting weather patterns as the region faced another round of heavy rain. Arizona Gov.",
+      "_excerpt": "Pacific storm systems brought torrential rain and flooding across the normally arid Southwest, prompting evacuations in Arizona, Colorado, New Mexico and Utah. The National Weather Service said El Niño was disrupting weather patterns as the region faced another round of heavy rain (latimes.com, apnews.com, abcnews.com). Arizona Gov. Katie Hobbs declared a statewide emergency Monday to help local authorities clear roads, repair infrastructure and assist displaced residents (krdo.com). At least one person died in the flooding; police said a second death in Flagstaff appeared weather-related, pending an official determination (latimes.com, channel3000.com). Former National Oceanic and Atmospheric Administration chief scientist Ryan Maue estimated that more than 20 trillion gallons of water fell across the Four Corners states and Nevada over two weeks (latimes.com, channel3000.com). Flooding damaged roads and bridges, stranded residents and caused sewage to back up into some homes (apnews.com, channel3000.com). Although rain had ended in parts of the Southwest by Monday, flooding along some swollen waterways could continue through at least Tuesday (krdo.com, abcnews.com). Rainfall records: Flagstaff recorded 5.15 inches over two days and had its wettest Nov. 1 on record, while Workman Creek received 7.3 inches (latimes.com, channel3000.com). River levels: More than 10 rivers, creeks and washes in Arizona and southwestern Colorado rose above major flood stage, and some set new records (krdo.com). Evacuation alerts: About 20,000 people in northwestern New Mexico’s San Juan County received alerts to evacuate areas within a half-mile of three rivers (krdo.com). Water hazards: Durango police closed the Animas River to recreational watercraft and warned that sewage and chemicals in the water could make people sick (latimes.com).",
+      "date_published": "2026-11-02T22:14:44+00:00",
+      "authors": [
+        {
+          "name": "latimes.com",
+          "url": "https://www.latimes.com"
+        }
+      ],
+      "ai_score": 33,
+      "_quality": 45,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 77,
+      "_theme_score_raw": 30,
+      "_kite_sources": 14,
+      "_kite_context": "Perspective: Ryan Benally, Utah State University professor: Benally coordinated deliveries of bottled water, waterproof boots, toiletries and other supplies to shelters, while warning that damaged emergency routes were making some residents hard to reach (latimes.com). (Los Angeles Times)\nPerspective: Katie German, owner and chef of Bruin Coffee in Pagosa Springs: German said she feared the town’s single bridge could wash out and prevent trucks carrying food and fuel from reaching the community (channel3000.com). (Channel 3000)\nQuote: \"These storms have been one after another after another. It’s compounding in ways people out here just weren’t prepared for.\" (Ryan Benally, Utah State University professor, Los Angeles Times)\nBackground: Pagosa Springs was nearly wiped out in a 1911 flood when the San Juan River crested at about 17.8 feet (apnews.com, latimes.com). On Oct. 23, the river rose in another destructive flood, and the latest surge pushed it nearly 2 feet above the level reached in",
+      "_composite_podcast": 70,
+      "_keyword_matches": 1,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": false,
+      "_niche": false,
+      "image": "https://kagiproxy.com/img/xfpJTEwQrD7KHwzQ0f2pYfPZrYIMOitOnHi70b8RhZv7WNtYMawJkQfparzI5_6vg1q2po1WbDNQdpgrXfmtTA0gg3bl6H777Z9WVNSsj-AiEemrlFnhHMdjF8hoidH_AhgJ5dB9yjE8tYRxaiUB4pHJkTQgVEGD4tFQhbC9x_QJYEfU99xKxPzES3GNUr5AfB9PmIXXytR4dj20In8tCm-qzWr5dB3j9yyPDzWM0LrFO8piXfuuxXa49_OsAy86DRhM3ukK-8XzKxyAFexXvPY-oyMopfW5ODnG0WQKrx_4dUy467PcX3QOLA",
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -1411,40 +1511,8 @@
       "_category": "homestead",
       "_source_category": "homestead",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/PTKKre4WQzcdJrzC7qR8Lk_RNJjIEOyxKmismpqMgrndGLhb0IIM9tacB1-Axpv5EaSnSlfRVtVYsZf1Ga12PJP4GTWqyYhIE1Sg5sj1YZ_5OCFWHb4irJmS3CDTC2wBsnFF_hHAALJct6Sgri0l_wIoJnQbW2aDKk17mrF47aRrIzVmB_Vy4pQ6O-vD5KvMowLvW1EfH2As",
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-14T06:13:52.519999+00:00"
-      }
-    },
-    {
-      "id": "https://www.theguardian.com/global-development/2026/nov/13/el-nino-death-in-childbirth-millions-midwives-cop31-extreme-weather-maternal-newborn-death-rates",
-      "url": "https://www.theguardian.com/global-development/2026/nov/13/el-nino-death-in-childbirth-millions-midwives-cop31-extreme-weather-maternal-newborn-death-rates",
-      "title": "[The Guardian Global Development] El Niño will increase risk of death in childbirth for millions, say midwives",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.theguardian.com%2Fglobal-development%2F2026%2Fnov%2F13%2Fel-nino-death-in-childbirth-millions-midwives-cop31-extreme-weather-maternal-newborn-death-rates\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>Effects of extreme weather expected in countries that already have high maternal and newborn death rates</p><p>El Niño stokes a higher risk of death in childbirth for millions of women in the world’s harshest crisis zones, midwives have warned.</p><p>Converging waves of weather – floods, cyclones and extreme heat – forecast to peak in the coming months will prove fatal for many, especially pregnant women, who face being cut off from hospital when in labour.</p> <a href=\"https://www.theguardian.com/global-development/2026/nov/13/el-nino-death-in-childbirth-millions-midwives-cop31-extreme-weather-maternal-newborn-death-rates\">Continue reading...</a>",
-      "summary": "Effects of extreme weather expected in countries that already have high maternal and newborn death rates El Niño stokes a higher risk of death in childbirth for millions of women in the world’s harshest crisis zones, midwives have warned. Converging waves of weather – floods, cyclones and extreme",
-      "_excerpt": "Effects of extreme weather expected in countries that already have high maternal and newborn death rates El Niño stokes a higher risk of death in childbirth for millions of women in the world’s harshest crisis zones, midwives have warned. Converging waves of weather – floods, cyclones and extreme heat – forecast to peak in the coming months will prove fatal for many, especially pregnant women, who face being cut off from hospital when in labour. Continue reading...",
-      "date_published": "2026-11-13T12:00:18+00:00",
-      "authors": [
-        {
-          "name": "The Guardian Global Development",
-          "url": "https://www.theguardian.com/global-development"
-        }
-      ],
-      "ai_score": 34,
-      "_quality": 73,
-      "_relevance": 35,
-      "_local": 0,
-      "_theme_score": 77,
-      "_theme_score_raw": 35,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 70,
-      "_keyword_matches": 0,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": true,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -1478,6 +1546,7 @@
       "_category": "local",
       "_source_category": "local",
       "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -1511,12 +1580,42 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://media.wired.com/photos/6ae4b0b9fafa122d7f6143a0/master/pass/103016-Starless%20Galaxy.jpg",
       "tags": [
         "subscriber-access"
       ],
       "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://beingpatient.com/molecular-shuttles-help-dementia-drugs-sneak-into-the-brain/",
+      "url": "https://beingpatient.com/molecular-shuttles-help-dementia-drugs-sneak-into-the-brain/",
+      "title": "[Being Patient] Molecular Shuttles Help Dementia Drugs Sneak Into the Brain",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fbeingpatient.com%2Fmolecular-shuttles-help-dementia-drugs-sneak-into-the-brain%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>The brain is one of medicine’s last frontiers. The organ is surrounded by 400 miles of blood vessels. But rather than allowing anything in the blood to get into the brain, these vessels are gated by a structure called the blood-brain barrier, which stops harmful molecules and proteins from passing through.  Its protective capabilities  [...]</p>\n<p>The post <a href=\"https://beingpatient.com/molecular-shuttles-help-dementia-drugs-sneak-into-the-brain/\">Molecular Shuttles Help Dementia Drugs Sneak Into the Brain</a> appeared first on <a href=\"https://beingpatient.com\">Being Patient</a>.</p>",
+      "summary": "The brain is one of medicine’s last frontiers. The organ is surrounded by 400 miles of blood vessels. But rather than allowing anything in the blood to get into the brain, these vessels are gated by a structure called the blood-brain barrier, which stops harmful molecules and proteins from passing",
+      "_excerpt": "The brain is one of medicine’s last frontiers. The organ is surrounded by 400 miles of blood vessels. But rather than allowing anything in the blood to get into the brain, these vessels are gated by a structure called the blood-brain barrier, which stops harmful molecules and proteins from passing through. Its protective capabilities [...] The post Molecular Shuttles Help Dementia Drugs Sneak Into the Brain appeared first on Being Patient .",
+      "date_published": "2026-11-13T17:50:02+00:00",
+      "authors": [
+        {
+          "name": "Being Patient",
+          "url": "https://www.beingpatient.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 74,
+      "_theme_score_raw": 22,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 69,
+      "_keyword_matches": 0,
+      "_category": "wellness",
+      "_source_category": "wellness",
+      "_is_bonus": true,
+      "_niche": false
     },
     {
       "id": "https://grist.org/extreme-weather/extreme-flooding-in-the-southwest-foreshadows-a-wild-el-nino-winter/",
@@ -1545,74 +1644,13 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": true,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/a0rrD3akwu0Kmfw0X5B-m7F1_NbrJzEXzr3bsmCfefcec11HulPau_RzPeyvT1TQQ2JKv83qyscUSklcP1XQZ1THihiw_FV6T2eaa5TmCVX6RXbDeWycPF1DN_5FUTPaoDgudpvb5EkM-Pbu-cegUGy_4NWQbBZHBqHMGrt9I2_6F6fOj1mU-Es",
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-11-13T06:10:43.356652+00:00"
       }
-    },
-    {
-      "id": "https://www.latimes.com/world-nation/story/2026-11-02/floods-swamp-arid-southwest-forcing-evacuations-altering-election-day-plans",
-      "url": "https://www.latimes.com/world-nation/story/2026-11-02/floods-swamp-arid-southwest-forcing-evacuations-altering-election-day-plans",
-      "title": "[latimes.com] El Niño-linked floods force Southwest evacuations; Arizona declares emergency",
-      "content_html": "<img src=\"https://kagiproxy.com/img/xfpJTEwQrD7KHwzQ0f2pYfPZrYIMOitOnHi70b8RhZv7WNtYMawJkQfparzI5_6vg1q2po1WbDNQdpgrXfmtTA0gg3bl6H777Z9WVNSsj-AiEemrlFnhHMdjF8hoidH_AhgJ5dB9yjE8tYRxaiUB4pHJkTQgVEGD4tFQhbC9x_QJYEfU99xKxPzES3GNUr5AfB9PmIXXytR4dj20In8tCm-qzWr5dB3j9yyPDzWM0LrFO8piXfuuxXa49_OsAy86DRhM3ukK-8XzKxyAFexXvPY-oyMopfW5ODnG0WQKrx_4dUy467PcX3QOLA\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.latimes.com%2Fworld-nation%2Fstory%2F2026-11-02%2Ffloods-swamp-arid-southwest-forcing-evacuations-altering-election-day-plans\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nPacific storm systems brought torrential rain and flooding across the normally arid Southwest, prompting evacuations in Arizona, Colorado, New Mexico and Utah. The National Weather Service said El Niño was disrupting weather patterns as the region faced another round of heavy rain. Arizona Gov. Katie Hobbs declared a statewide emergency Monday to help local authorities clear roads, repair infrastructure and assist displaced residents. At least one person died in the flooding; police said a second death in Flagstaff appeared weather-related, pending an official determination.\n\nFormer National Oceanic and Atmospheric Administration chief scientist Ryan Maue estimated that more than 20 trillion gallons of water fell across the Four Corners states and Nevada over two weeks. Flooding damaged roads and bridges, stranded residents and caused sewage to back up into some homes. Although rain had ended in parts of the Southwest by Monday, flooding along some swollen waterways could continue through at least Tuesday.",
-      "summary": "Pacific storm systems brought torrential rain and flooding across the normally arid Southwest, prompting evacuations in Arizona, Colorado, New Mexico and Utah. The National Weather Service said El Niño was disrupting weather patterns as the region faced another round of heavy rain. Arizona Gov.",
-      "_excerpt": "Pacific storm systems brought torrential rain and flooding across the normally arid Southwest, prompting evacuations in Arizona, Colorado, New Mexico and Utah. The National Weather Service said El Niño was disrupting weather patterns as the region faced another round of heavy rain (latimes.com, apnews.com, abcnews.com). Arizona Gov. Katie Hobbs declared a statewide emergency Monday to help local authorities clear roads, repair infrastructure and assist displaced residents (krdo.com). At least one person died in the flooding; police said a second death in Flagstaff appeared weather-related, pending an official determination (latimes.com, channel3000.com). Former National Oceanic and Atmospheric Administration chief scientist Ryan Maue estimated that more than 20 trillion gallons of water fell across the Four Corners states and Nevada over two weeks (latimes.com, channel3000.com). Flooding damaged roads and bridges, stranded residents and caused sewage to back up into some homes (apnews.com, channel3000.com). Although rain had ended in parts of the Southwest by Monday, flooding along some swollen waterways could continue through at least Tuesday (krdo.com, abcnews.com). Rainfall records: Flagstaff recorded 5.15 inches over two days and had its wettest Nov. 1 on record, while Workman Creek received 7.3 inches (latimes.com, channel3000.com). River levels: More than 10 rivers, creeks and washes in Arizona and southwestern Colorado rose above major flood stage, and some set new records (krdo.com). Evacuation alerts: About 20,000 people in northwestern New Mexico’s San Juan County received alerts to evacuate areas within a half-mile of three rivers (krdo.com). Water hazards: Durango police closed the Animas River to recreational watercraft and warned that sewage and chemicals in the water could make people sick (latimes.com).",
-      "date_published": "2026-11-02T22:14:44+00:00",
-      "authors": [
-        {
-          "name": "latimes.com",
-          "url": "https://www.latimes.com"
-        }
-      ],
-      "ai_score": 33,
-      "_quality": 45,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 75,
-      "_theme_score_raw": 30,
-      "_kite_sources": 14,
-      "_kite_context": "Perspective: Ryan Benally, Utah State University professor: Benally coordinated deliveries of bottled water, waterproof boots, toiletries and other supplies to shelters, while warning that damaged emergency routes were making some residents hard to reach (latimes.com). (Los Angeles Times)\nPerspective: Katie German, owner and chef of Bruin Coffee in Pagosa Springs: German said she feared the town’s single bridge could wash out and prevent trucks carrying food and fuel from reaching the community (channel3000.com). (Channel 3000)\nQuote: \"These storms have been one after another after another. It’s compounding in ways people out here just weren’t prepared for.\" (Ryan Benally, Utah State University professor, Los Angeles Times)\nBackground: Pagosa Springs was nearly wiped out in a 1911 flood when the San Juan River crested at about 17.8 feet (apnews.com, latimes.com). On Oct. 23, the river rose in another destructive flood, and the latest surge pushed it nearly 2 feet above the level reached in",
-      "_composite_podcast": 68,
-      "_keyword_matches": 1,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://kagiproxy.com/img/xfpJTEwQrD7KHwzQ0f2pYfPZrYIMOitOnHi70b8RhZv7WNtYMawJkQfparzI5_6vg1q2po1WbDNQdpgrXfmtTA0gg3bl6H777Z9WVNSsj-AiEemrlFnhHMdjF8hoidH_AhgJ5dB9yjE8tYRxaiUB4pHJkTQgVEGD4tFQhbC9x_QJYEfU99xKxPzES3GNUr5AfB9PmIXXytR4dj20In8tCm-qzWr5dB3j9yyPDzWM0LrFO8piXfuuxXa49_OsAy86DRhM3ukK-8XzKxyAFexXvPY-oyMopfW5ODnG0WQKrx_4dUy467PcX3QOLA",
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-14T06:13:52.519999+00:00"
-      }
-    },
-    {
-      "id": "https://beingpatient.com/molecular-shuttles-help-dementia-drugs-sneak-into-the-brain/",
-      "url": "https://beingpatient.com/molecular-shuttles-help-dementia-drugs-sneak-into-the-brain/",
-      "title": "[Being Patient] Molecular Shuttles Help Dementia Drugs Sneak Into the Brain",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fbeingpatient.com%2Fmolecular-shuttles-help-dementia-drugs-sneak-into-the-brain%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>The brain is one of medicine’s last frontiers. The organ is surrounded by 400 miles of blood vessels. But rather than allowing anything in the blood to get into the brain, these vessels are gated by a structure called the blood-brain barrier, which stops harmful molecules and proteins from passing through.  Its protective capabilities  [...]</p>\n<p>The post <a href=\"https://beingpatient.com/molecular-shuttles-help-dementia-drugs-sneak-into-the-brain/\">Molecular Shuttles Help Dementia Drugs Sneak Into the Brain</a> appeared first on <a href=\"https://beingpatient.com\">Being Patient</a>.</p>",
-      "summary": "The brain is one of medicine’s last frontiers. The organ is surrounded by 400 miles of blood vessels. But rather than allowing anything in the blood to get into the brain, these vessels are gated by a structure called the blood-brain barrier, which stops harmful molecules and proteins from passing",
-      "_excerpt": "The brain is one of medicine’s last frontiers. The organ is surrounded by 400 miles of blood vessels. But rather than allowing anything in the blood to get into the brain, these vessels are gated by a structure called the blood-brain barrier, which stops harmful molecules and proteins from passing through. Its protective capabilities [...] The post Molecular Shuttles Help Dementia Drugs Sneak Into the Brain appeared first on Being Patient .",
-      "date_published": "2026-11-13T17:50:02+00:00",
-      "authors": [
-        {
-          "name": "Being Patient",
-          "url": "https://www.beingpatient.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 73,
-      "_theme_score_raw": 22,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 68,
-      "_keyword_matches": 0,
-      "_category": "wellness",
-      "_source_category": "wellness",
-      "_is_bonus": true
     },
     {
       "id": "https://hackaday.com/2026/11/09/web-satellite-tracker-plays-the-music-of-the-spheres/",
@@ -1632,20 +1670,55 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 75,
+      "_theme_score": 76,
       "_theme_score_raw": 28,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 68,
+      "_composite_podcast": 69,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "image": "https://hackaday.com/wp-content/uploads/2026/11/orbitsounds_feat.png",
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-11-13T06:10:43.356652+00:00"
+      }
+    },
+    {
+      "id": "https://www.nationalobserver.com/2026/11/10/news/dabrusin-defends-canadas-climate-record-advance-climate-conference",
+      "url": "https://www.nationalobserver.com/2026/11/10/news/dabrusin-defends-canadas-climate-record-advance-climate-conference",
+      "title": "[nationalobserver.com] Canada’s climate minister defends record as COP31 opens amid coal dispute",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nationalobserver.com%2F2026%2F11%2F10%2Fnews%2Fdabrusin-defends-canadas-climate-record-advance-climate-conference\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCanadian Environment Minister Julie Dabrusin defended the government’s climate record before the COP31 climate conference in Antalya, citing methane action, electrification and international climate financing as evidence of Canada’s commitment to its targets. She is attending the conference’s first week, when activists expect other countries to question Canada’s recent policy shifts.\n\nThe dispute centres on Ottawa’s unfulfilled 2021 pledge to ban thermal-coal exports: an environment commissioner’s report said work was abandoned in 2024 and formally ended in August 2025. Dabrusin said the previous government made the decision and her government is open to next steps. Climate advocates say continued exports undermine Canada’s leadership in the Powering Past Coal Alliance.",
+      "summary": "Canadian Environment Minister Julie Dabrusin defended the government’s climate record before the COP31 climate conference in Antalya, citing methane action, electrification and international climate financing as evidence of Canada’s commitment to its targets. She is attending the conference’s first",
+      "_excerpt": "Canadian Environment Minister Julie Dabrusin defended the government’s climate record before the COP31 climate conference in Antalya, citing methane action, electrification and international climate financing as evidence of Canada’s commitment to its targets (nationalobserver.com, thestar.com). She is attending the conference’s first week, when activists expect other countries to question Canada’s recent policy shifts (nationalobserver.com, canada.ca). The dispute centres on Ottawa’s unfulfilled 2021 pledge to ban thermal-coal exports: an environment commissioner’s report said work was abandoned in 2024 and formally ended in August 2025. Dabrusin said the previous government made the decision and her government is open to next steps. Climate advocates say continued exports undermine Canada’s leadership in the Powering Past Coal Alliance (nationalobserver.com, thestar.com). Climate funding: Ottawa says it committed to providing $13 billion in climate-related support to developing countries over five years, beginning with an announcement in April 2026 (canada.ca). Methane pledge: Dabrusin plans to co-convene a ministerial meeting with the European Union for the Global Methane Pledge, whose 159 members aim to cut methane emissions by 30% from 2020 levels by 2030 (nationalobserver.com, thestar.com). Fossil fuel concerns: Experts interviewed by Le Devoir and cited in a National Observer report argued that expanding oil and gas production conflicts with Canada’s net-zero goal. The report cited a proposed Pacific Link pipeline with an estimated cost of $35 billion to $45 billion (nationalobserver.com).",
+      "date_published": "2026-11-10T12:01:46+00:00",
+      "authors": [
+        {
+          "name": "nationalobserver.com",
+          "url": "https://www.nationalobserver.com"
+        }
+      ],
+      "ai_score": 62,
+      "_quality": 70,
+      "_relevance": 80,
+      "_local": 0,
+      "_theme_score": 74,
+      "_theme_score_raw": 22,
+      "_kite_sources": 4,
+      "_kite_context": "Where: Antalya, Türkiye\nPerspective: Julie Dabrusin, Canada's environment minister, says other countries remain keen to work with Canada and view it as a reliable energy partner as Ottawa pursues its climate goals (nationalobserver.com). (National Observer)\nPerspective: Annie Chaloux, an associate professor at the Université de Sherbrooke, warns that prioritizing short-term economic gains risks locking Canada into oil and gas, making a future shift away from fossil fuel extraction difficult (nationalobserver.com). (National Observer)\nQuote: \"Ideally, Canada should reaffirm the commitment to banning the export of thermal coal.\" (Julia Levin, associate director of national climate at Environmental Defence, National Observer)\nTimeline: June 2026: UN Secretary-General António Guterres launched a global call to action on methane during London Climate Action Week (nationalobserver.com).\nTimeline: June 2026: Canada joined international partners in launching Electrify Now, an initiative to increase electricity’s share of global final energy consumption to 35% by 2035 (canada.ca).\nTimeline: 9 November 2026: COP31 opened in Antalya. Dabrusin was scheduled to participate from November 11 to 14, leading Canada’s delegation (canada.ca).",
+      "_composite_podcast": 68,
+      "_keyword_matches": 0,
+      "_category": "climate",
+      "_source_category": "climate",
+      "_is_bonus": true,
+      "_niche": false,
+      "_cross_theme": {
+        "day": "saturday",
+        "label": "Cariboo Local Affairs",
+        "shown_at": "2026-11-14T06:13:52.519999+00:00"
       }
     },
     {
@@ -1675,6 +1748,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true,
       "tags": [
         "subscriber-access"
@@ -1713,6 +1787,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true,
       "tags": [
         "subscriber-access"
@@ -1722,73 +1797,6 @@
         "day": "thursday",
         "label": "Indigenous Lands & Innovation",
         "shown_at": "2026-11-12T06:10:50.999414+00:00"
-      }
-    },
-    {
-      "id": "https://www.nationalobserver.com/2026/11/10/news/dabrusin-defends-canadas-climate-record-advance-climate-conference",
-      "url": "https://www.nationalobserver.com/2026/11/10/news/dabrusin-defends-canadas-climate-record-advance-climate-conference",
-      "title": "[nationalobserver.com] Canada’s climate minister defends record as COP31 opens amid coal dispute",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.nationalobserver.com%2F2026%2F11%2F10%2Fnews%2Fdabrusin-defends-canadas-climate-record-advance-climate-conference\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCanadian Environment Minister Julie Dabrusin defended the government’s climate record before the COP31 climate conference in Antalya, citing methane action, electrification and international climate financing as evidence of Canada’s commitment to its targets. She is attending the conference’s first week, when activists expect other countries to question Canada’s recent policy shifts.\n\nThe dispute centres on Ottawa’s unfulfilled 2021 pledge to ban thermal-coal exports: an environment commissioner’s report said work was abandoned in 2024 and formally ended in August 2025. Dabrusin said the previous government made the decision and her government is open to next steps. Climate advocates say continued exports undermine Canada’s leadership in the Powering Past Coal Alliance.",
-      "summary": "Canadian Environment Minister Julie Dabrusin defended the government’s climate record before the COP31 climate conference in Antalya, citing methane action, electrification and international climate financing as evidence of Canada’s commitment to its targets. She is attending the conference’s first",
-      "_excerpt": "Canadian Environment Minister Julie Dabrusin defended the government’s climate record before the COP31 climate conference in Antalya, citing methane action, electrification and international climate financing as evidence of Canada’s commitment to its targets (nationalobserver.com, thestar.com). She is attending the conference’s first week, when activists expect other countries to question Canada’s recent policy shifts (nationalobserver.com, canada.ca). The dispute centres on Ottawa’s unfulfilled 2021 pledge to ban thermal-coal exports: an environment commissioner’s report said work was abandoned in 2024 and formally ended in August 2025. Dabrusin said the previous government made the decision and her government is open to next steps. Climate advocates say continued exports undermine Canada’s leadership in the Powering Past Coal Alliance (nationalobserver.com, thestar.com). Climate funding: Ottawa says it committed to providing $13 billion in climate-related support to developing countries over five years, beginning with an announcement in April 2026 (canada.ca). Methane pledge: Dabrusin plans to co-convene a ministerial meeting with the European Union for the Global Methane Pledge, whose 159 members aim to cut methane emissions by 30% from 2020 levels by 2030 (nationalobserver.com, thestar.com). Fossil fuel concerns: Experts interviewed by Le Devoir and cited in a National Observer report argued that expanding oil and gas production conflicts with Canada’s net-zero goal. The report cited a proposed Pacific Link pipeline with an estimated cost of $35 billion to $45 billion (nationalobserver.com).",
-      "date_published": "2026-11-10T12:01:46+00:00",
-      "authors": [
-        {
-          "name": "nationalobserver.com",
-          "url": "https://www.nationalobserver.com"
-        }
-      ],
-      "ai_score": 62,
-      "_quality": 70,
-      "_relevance": 80,
-      "_local": 0,
-      "_theme_score": 73,
-      "_theme_score_raw": 22,
-      "_kite_sources": 4,
-      "_kite_context": "Where: Antalya, Türkiye\nPerspective: Julie Dabrusin, Canada's environment minister, says other countries remain keen to work with Canada and view it as a reliable energy partner as Ottawa pursues its climate goals (nationalobserver.com). (National Observer)\nPerspective: Annie Chaloux, an associate professor at the Université de Sherbrooke, warns that prioritizing short-term economic gains risks locking Canada into oil and gas, making a future shift away from fossil fuel extraction difficult (nationalobserver.com). (National Observer)\nQuote: \"Ideally, Canada should reaffirm the commitment to banning the export of thermal coal.\" (Julia Levin, associate director of national climate at Environmental Defence, National Observer)\nTimeline: June 2026: UN Secretary-General António Guterres launched a global call to action on methane during London Climate Action Week (nationalobserver.com).\nTimeline: June 2026: Canada joined international partners in launching Electrify Now, an initiative to increase electricity’s share of global final energy consumption to 35% by 2035 (canada.ca).\nTimeline: 9 November 2026: COP31 opened in Antalya. Dabrusin was scheduled to participate from November 11 to 14, leading Canada’s delegation (canada.ca).",
-      "_composite_podcast": 67,
-      "_keyword_matches": 0,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-14T06:13:52.519999+00:00"
-      }
-    },
-    {
-      "id": "https://meatingplace.com/turkeys-remain-under-hpai-pressure-cases-surge-in-northwest-cattle/",
-      "url": "https://meatingplace.com/turkeys-remain-under-hpai-pressure-cases-surge-in-northwest-cattle/",
-      "title": "[meatingplace.com] H5N1 detections hit 40 Washington dairy herds as cases surge",
-      "content_html": "<img src=\"https://kagiproxy.com/img/9Xev6Q1w6Bxi-yAm2DAbC3gCo5DQAMc80roYpgnxKIxXBtyqEaPO7IH86cdxYCfelPZT7Ccl_YA0HSs8DEm6hwW8NoOCBjkCQKIOl4jxyLx0F9_rQHnxFe-9-VwIXbcXPyATWSgfb8AhGw\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fmeatingplace.com%2Fturkeys-remain-under-hpai-pressure-cases-surge-in-northwest-cattle%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nBird flu spread quickly through Central Washington dairy farms in October, with 40 Washington herds testing positive from Oct. 7 to Oct. 30, according to the U.S. Department of Agriculture; 33 were in Yakima County and one was in neighboring Benton County. Officials confirmed the first two cases at Yakima County dairies on Oct. 8 and four additional cases on Oct. 29. A Yakima County resident exposed to infected dairy cattle died Nov. 1, and local officials also reported two other human infections linked to cattle.\n\nContaining the virus is difficult because cattle farms cannot be sealed and controlled as tightly as poultry barns, said Rick Naerbout, executive director of the Washington State Dairy Federation. The federation advised farmers on Oct. 4 to follow biosecurity plans and alert veterinarians to falling milk production; researchers have not established the virus’s natural route of spread among cows. Washington officials say infected cows generally recover within four to six weeks, and state agriculture officials say pasteurized milk remains safe.",
-      "summary": "Bird flu spread quickly through Central Washington dairy farms in October, with 40 Washington herds testing positive from Oct. 7 to Oct. 30, according to the U.S. Department of Agriculture; 33 were in Yakima County and one was in neighboring Benton County. Officials confirmed the first two cases at",
-      "_excerpt": "Bird flu spread quickly through Central Washington dairy farms in October, with 40 Washington herds testing positive from Oct. 7 to Oct. 30, according to the U.S. Department of Agriculture; 33 were in Yakima County and one was in neighboring Benton County (meatingplace.com, tri-cityherald.com). Officials confirmed the first two cases at Yakima County dairies on Oct. 8 and four additional cases on Oct. 29 (capitalpress.com, tri-cityherald.com). A Yakima County resident exposed to infected dairy cattle died Nov. 1, and local officials also reported two other human infections linked to cattle (capitalpress.com, 10tv.com). Containing the virus is difficult because cattle farms cannot be sealed and controlled as tightly as poultry barns, said Rick Naerbout, executive director of the Washington State Dairy Federation (capitalpress.com). The federation advised farmers on Oct. 4 to follow biosecurity plans and alert veterinarians to falling milk production; researchers have not established the virus’s natural route of spread among cows (capitalpress.com). Washington officials say infected cows generally recover within four to six weeks, and state agriculture officials say pasteurized milk remains safe (capitalpress.com, tri-cityherald.com). Farm precautions: State guidance says H5N1 can move between dairies through infected animals and contaminated milk, equipment, vehicles, clothing, footwear or people moving between farms (tri-cityherald.com). Cattle outcomes: The Tri-Cities area health officer put cattle mortality from avian influenza at 2% to 3%, far below the roughly 90% mortality reported for infected chickens (tri-cityherald.com). Raw dairy risk: Washington agriculture officials warn against raw milk and cheese from cows or goats and advise keeping pets away from raw dairy, raw meat and dead birds (tri-cityherald.com). Recent activity elsewhere: Outside Washington, only single herds in Texas and Kansas had new cases in the past month; California had gone about 11",
-      "date_published": "2026-11-03T00:12:21+00:00",
-      "authors": [
-        {
-          "name": "meatingplace.com",
-          "url": "https://meatingplace.com"
-        }
-      ],
-      "ai_score": 50,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 73,
-      "_theme_score_raw": 22,
-      "_kite_sources": 14,
-      "_kite_context": "Where: Yakima, Washington, United States\nPerspective: Washington State Dairy Federation: Executive director Rick Naerbout said he expects bird flu activity to be cyclical within the Yakima Valley (capitalpress.com). (Capital Press)\nQuote: \"Nobody has figured out how to prevent the spread of this anywhere in the world.\" (Rick Naerbout, executive director of the Washington State Dairy Federation, Capital Press)\nTimeline: 4 October 2026: Dairy federation urged farmers to use biosecurity plans and report production drops (capitalpress.com)\nTimeline: 5 October 2026: Washington State University lab detected H5N1 in milk samples (capitalpress.com)\nTimeline: 8 October 2026: USDA confirmed the first two infected Yakima County dairy herds (capitalpress.com, tri-cityherald.com)\nTimeline: 29 October 2026: USDA confirmed four new Washington dairy-herd cases (capitalpress.com)\nBackground: The first U.S. outbreak in dairy cattle began in Texas in 2024, and Washington became the 20th state to report infected dairy herds (capitalpress.com).",
-      "_composite_podcast": 66,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://kagiproxy.com/img/9Xev6Q1w6Bxi-yAm2DAbC3gCo5DQAMc80roYpgnxKIxXBtyqEaPO7IH86cdxYCfelPZT7Ccl_YA0HSs8DEm6hwW8NoOCBjkCQKIOl4jxyLx0F9_rQHnxFe-9-VwIXbcXPyATWSgfb8AhGw",
-      "_cross_theme": {
-        "day": "tuesday",
-        "label": "Working Lands & Industry",
-        "shown_at": "2026-11-10T06:09:07.164900+00:00"
       }
     },
     {
@@ -1809,15 +1817,16 @@
       "_quality": 0,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 71,
+      "_theme_score": 72,
       "_theme_score_raw": 20,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 66,
+      "_composite_podcast": 67,
       "_keyword_matches": 0,
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -1851,6 +1860,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "tags": [
         "subscriber-access"
@@ -1884,6 +1894,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "tags": [
         "subscriber-access"
@@ -1917,6 +1928,7 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true,
       "tags": [
         "subscriber-access"
@@ -1955,8 +1967,39 @@
       "_category": "science",
       "_source_category": "science",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/2026/11/data-src-image-f8cb3932-c6cc-490d-8b01-f99d945d0971-1.jpeg"
+    },
+    {
+      "id": "https://elpais.com/economia/2026-11-08/las-recetas-de-los-supermercados-para-evitar-los-hackeos-segmentar-las-redes-y-cifrar-los-metodos-de-acceso.html",
+      "url": "https://elpais.com/economia/2026-11-08/las-recetas-de-los-supermercados-para-evitar-los-hackeos-segmentar-las-redes-y-cifrar-los-metodos-de-acceso.html",
+      "title": "[elpais.com] Cyberattacks on refrigeration systems fuel concerns about connected household appliances",
+      "content_html": "<img src=\"https://kagiproxy.com/img/yRHNH6pOSAxPiTiNnHrX92Ehf7Ycg-89eGpbyctYkslT-tWDeRCzcssIG-4BEJWJnmj6zAePGJ_DFisERwLLOsKdg2FfU9R44OaNIzf4eUIFQa1vIhtqH830rDvbEDps4Ms4S4eMxc25K_NbqGEaWg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Felpais.com%2Feconomia%2F2026-11-08%2Flas-recetas-de-los-supermercados-para-evitar-los-hackeos-segmentar-las-redes-y-cifrar-los-metodos-de-acceso.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nCyberattacks on internet-connected refrigeration systems in supermarkets and French blood banks have destroyed food in Europe and heightened concerns about connected devices. Nearly 800 freezers were sabotaged in France and Northern Europe this week. On November 2, temperatures also rose in the cold rooms of a blood donation service in France. There, alarms and swift action prevented damage to stored blood.\n\nThe targeted systems used internet-accessible controls for maintenance and remote operation. According to experts, similar attacks on private smart-home devices are less likely because, with typical router configurations, the devices cannot be accessed directly from the internet. Risks include outdated software, weak passwords, and devices with cameras or microphones. Germany’s Federal Office for Information Security recommends automatic updates, separate networks for smart-home devices, and unique passwords. The identity of those behind the attacks remains unclear.",
+      "summary": "Cyberattacks on internet-connected refrigeration systems in supermarkets and French blood banks have destroyed food in Europe and heightened concerns about connected devices. Nearly 800 freezers were sabotaged in France and Northern Europe this week. On November 2, temperatures also rose in the",
+      "_excerpt": "Cyberattacks on internet-connected refrigeration systems in supermarkets and French blood banks have destroyed food in Europe and heightened concerns about connected devices. Nearly 800 freezers were sabotaged in France and Northern Europe this week. On November 2, temperatures also rose in the cold rooms of a blood donation service in France. There, alarms and swift action prevented damage to stored blood (elpais.com, wired.com). The targeted systems used internet-accessible controls for maintenance and remote operation. According to experts, similar attacks on private smart-home devices are less likely because, with typical router configurations, the devices cannot be accessed directly from the internet. Risks include outdated software, weak passwords, and devices with cameras or microphones. Germany’s Federal Office for Information Security recommends automatic updates, separate networks for smart-home devices, and unique passwords (op-marburg.de). The identity of those behind the attacks remains unclear (wired.com, euronews.com). Recorded access attempts: Security company Lupovis recorded more than 276 access attempts by 91 different actors against components of Danfoss control systems between October 20 and 30; activity peaked on October 26 (euronews.com). Weak security: Researchers found nearly 13,000 internet-accessible management services for refrigeration systems in 99 countries; some systems used weak or no passwords (reddit.com). Food inspections: In 2024, more than 285,000 inspections were conducted in retail stores in Spain, and over 60,000 in warehouses and distribution centers (elpais.com). Security measures: The EU Agency for Cybersecurity recommends separate networks, encrypted remote access for maintenance providers, and regular recovery tests for industrial refrigeration systems (elpais.com).",
+      "date_published": "2026-11-08T04:45:01+00:00",
+      "authors": [
+        {
+          "name": "elpais.com",
+          "url": "https://elpais.com"
+        }
+      ],
+      "ai_score": 48,
+      "_quality": 60,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 65,
+      "_theme_score_raw": 12,
+      "_kite_sources": 7,
+      "_kite_context": "Perspective: Lupovis CEO Xavier Bellekens considers a coordinated operation, possibly state-sponsored, conceivable. However, he stresses that the use of Russian hosting services does not prove Russian responsibility (euronews.com). (Euronews)\nPerspective: George Nott, technology editor at The Grocer, warns against jumping to conclusions: there is neither a ransom note nor a credible claim of responsibility; a wide range of actors could be behind the attacks (euronews.com). (Euronews)\nQuote: \"Rest assured that food safety is non-negotiable. If the cold chain cannot be guaranteed, for example because it has been interrupted, retailers remove the affected products from sale.\" (Christel Delberghe, Director General of EuroCommerce, El País)\nTimeline: 12. Oktober 2026: According to an Italian report, an attack affected refrigeration systems in around 700 French supermarkets (reddit.com)\nTimeline: 20. Oktober 2026: Lupovis recorded the beginning of a ten-day reconnaissance campaign targeting Danfoss components (euronews.com)\nTimeline: 26. Oktober 2026: The access attempts against refrigeration systems measured by Lupovis peaked (euronews.com)\nTimeline: 2. November 2026: Attacks disrupted refrigeration systems in supermarkets and French blood banks (wired.com, euronews.com)\nBackground: Supermarket refrigeration systems were attacked as far back as 2022: according to a Danfoss report, 16 stores in Russia and 40 stores in Israel were hit at the time (wired.com).",
+      "_composite_podcast": 62,
+      "_keyword_matches": 1,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "_niche": false,
+      "image": "https://kagiproxy.com/img/yRHNH6pOSAxPiTiNnHrX92Ehf7Ycg-89eGpbyctYkslT-tWDeRCzcssIG-4BEJWJnmj6zAePGJ_DFisERwLLOsKdg2FfU9R44OaNIzf4eUIFQa1vIhtqH830rDvbEDps4Ms4S4eMxc25K_NbqGEaWg"
     },
     {
       "id": "https://techcrunch.com/2026/11/08/coordinated-disturbances-haunt-grids-worldwide-heres-how-researchers-solved-the-mystery/",
@@ -1985,69 +2028,8 @@
       "_category": "climate",
       "_source_category": "climate",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true
-    },
-    {
-      "id": "https://energynews.biz/long-mott-permit-nrc-xe-100-dow-seadrift/",
-      "url": "https://energynews.biz/long-mott-permit-nrc-xe-100-dow-seadrift/",
-      "title": "[energynews.biz] US regulator approves four advanced reactors for Dow’s Texas plant",
-      "content_html": "<img src=\"https://kagiproxy.com/img/VrlkL7oAh-Rdu7aa0f7dEPw6Qk-2-KW36gu_16nIPjN0FoOSmQ34F9QIPaVAqrUuqQPeoLXzHGok4_58sja9cLNIWV3On0yew41NBesmgYR3boF7tgzJelWyDVgb1b9N96IEr9MMJ50qSTls-8opIs7Lzv4UClkhnhUgQr9tilg--H4kzIUyP1vk\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fenergynews.biz%2Flong-mott-permit-nrc-xe-100-dow-seadrift%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nThe U.S. Nuclear Regulatory Commission (NRC) approved construction permits on Nov. 9 for four advanced reactors at Dow’s Seadrift chemical complex on the Texas Gulf Coast, a project developed with reactor company X-energy. The units are intended to provide electricity and process heat to the site. The permits do not commit Dow to build or authorize the reactors to operate; Dow expects to consider a preliminary investment decision in 2027, while X-energy forecasts operations in the early 2030s.\n\nRegulators and developers point to design features intended to limit accident risks, while Union of Concerned Scientists safety director Edwin Lyman has challenged claims that the fuel is meltdown-proof. The NRC dismissed a local environmental group’s legal challenges to the permit application.",
-      "summary": "The U.S. Nuclear Regulatory Commission (NRC) approved construction permits on Nov. 9 for four advanced reactors at Dow’s Seadrift chemical complex on the Texas Gulf Coast, a project developed with reactor company X-energy. The units are intended to provide electricity and process heat to the site.",
-      "_excerpt": "The U.S. Nuclear Regulatory Commission (NRC) approved construction permits on Nov. 9 for four advanced reactors at Dow’s Seadrift chemical complex on the Texas Gulf Coast, a project developed with reactor company X-energy. The units are intended to provide electricity and process heat to the site. The permits do not commit Dow to build or authorize the reactors to operate; Dow expects to consider a preliminary investment decision in 2027, while X-energy forecasts operations in the early 2030s (energynews.biz, news.am). Regulators and developers point to design features intended to limit accident risks, while Union of Concerned Scientists safety director Edwin Lyman has challenged claims that the fuel is meltdown-proof. The NRC dismissed a local environmental group’s legal challenges to the permit application (texastribune.org, insideclimatenews.org). Heat and power: The Xe-100 reactors are rated at 80 megawatts of electricity and 200 megawatts of thermal output apiece, for a total of 320 megawatts electric and 800 megawatts thermal (news.am, energynews.biz). Plant replacement: Dow says the project is intended to replace energy and steam assets at Seadrift that are nearing the end of their service lives. The reactors are planned to serve the site for 60 years (energynews.biz). Industry precedent: The Nuclear Energy Institute’s Martin O’Neal said successful deployment could offer other industries a model for installing dedicated power generation at their own sites (texastribune.org, insideclიმatenews.org).",
-      "date_published": "2026-11-12T07:39:05+00:00",
-      "authors": [
-        {
-          "name": "energynews.biz",
-          "url": "https://energynews.biz"
-        }
-      ],
-      "ai_score": 55,
-      "_quality": 65,
-      "_relevance": 70,
-      "_local": 0,
-      "_theme_score": 65,
-      "_theme_score_raw": 12,
-      "_kite_sources": 4,
-      "_kite_context": "Where: Seadrift, Texas, United States\nPerspective: U.S. Nuclear Regulatory Commission: Chairman Ho K. Nieh said the agency completed the review on an 18-month schedule while maintaining a rigorous safety review (texastribune.org, insideclimatenews.org). (The Texas Tribune)\nPerspective: San Antonio Bay Waterkeeper: Director Diane Wilson objected to indefinite on-site storage of spent fuel, pointing to the lack of a permanent national disposal site (texastribune.org, insideclimatenews.org).\nPerspective: Union of Concerned Scientists: Safety director Edwin Lyman said the NRC deferred fundamental safety issues and should have resolved them before issuing the permit (texastribune.org, news.am).\nQuote: \"We understand that owning a nuclear facility is a different kind of responsibility.\" (Kreshka Young, North American business director for energy and climate at Dow, The Texas Tribune)\nTimeline: 14 May 2025: The Department of Energy reported that the project’s permit application was docketed (energynews.biz).\nTimeline: 9 November 2026: The NRC approved the construction permit for four Xe-100 units (energynews.biz).\nTimeline: 2027: Dow expects to consider a preliminary investment decision on the project (energynews.biz).\nTimeline: early 2030s: X-energy forecasts the installation could be ready to operate (news.am).\nBackground: The Texas Tribune reported that the United States had built only one new nuclear power plant in the preceding three decades (texastribune.org).",
-      "_composite_podcast": 62,
-      "_keyword_matches": 1,
-      "_category": "climate",
-      "_source_category": "climate",
-      "_is_bonus": false,
-      "image": "https://kagiproxy.com/img/VrlkL7oAh-Rdu7aa0f7dEPw6Qk-2-KW36gu_16nIPjN0FoOSmQ34F9QIPaVAqrUuqQPeoLXzHGok4_58sja9cLNIWV3On0yew41NBesmgYR3boF7tgzJelWyDVgb1b9N96IEr9MMJ50qSTls-8opIs7Lzv4UClkhnhUgQr9tilg--H4kzIUyP1vk"
-    },
-    {
-      "id": "https://www.scientificamerican.com/article/why-do-some-people-hear-pitch-better-than-others-internal-noise-may-be-the-key/",
-      "url": "https://www.scientificamerican.com/article/why-do-some-people-hear-pitch-better-than-others-internal-noise-may-be-the-key/",
-      "title": "[Scientific American] Why do some people hear pitch better than others? Internal noise may be the key",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.scientificamerican.com%2Farticle%2Fwhy-do-some-people-hear-pitch-better-than-others-internal-noise-may-be-the-key%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\n<p>The less internal noise you have, the more reliably you can tell similar sounds apart</p>",
-      "summary": "The less internal noise you have, the more reliably you can tell similar sounds apart",
-      "_excerpt": "The less internal noise you have, the more reliably you can tell similar sounds apart",
-      "date_published": "2026-11-08T13:00:00+00:00",
-      "authors": [
-        {
-          "name": "Scientific American",
-          "url": "https://www.scientificamerican.com"
-        }
-      ],
-      "ai_score": 39,
-      "_quality": 77,
-      "_relevance": 40,
-      "_local": 0,
-      "_theme_score": 89,
-      "_theme_score_raw": 78,
-      "_kite_sources": 0,
-      "_kite_context": "",
-      "_composite_podcast": 62,
-      "_keyword_matches": 0,
-      "_category": "science",
-      "_source_category": "science",
-      "_is_bonus": true,
-      "_thin_body": true,
-      "tags": [
-        "subscriber-access"
-      ],
-      "_subscriber_access": "Apple News+"
     },
     {
       "id": "https://www.abc.net.au/news/2026-11-03/ages-of-ice-polar-regions-climate-change-adventure-scientists/107260774",
@@ -2076,6 +2058,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://live-production.wcms.abc-cdn.net.au/f5ef673fd495b8682d47a42e7e0d2ce6?impolicy=wcms_crop_resize&cropH=3335&cropW=2501&xPos=1249&yPos=0&width=862&height=1149"
     },
@@ -2106,6 +2089,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://www.statnews.com/wp-content/uploads/2026/11/2026-Basal-Ganglia-Package-Photos-9-645x645.jpg"
     },
@@ -2136,6 +2120,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://www.resilience.org/wp-content/uploads/2026/11/Peat_Compaction_Dam_South_Sumatra_Indonesia-1024x683.jpg",
       "_cross_theme": {
@@ -2143,6 +2128,35 @@
         "label": "Wild Spaces & Outdoor Life",
         "shown_at": "2026-11-13T06:10:43.356652+00:00"
       }
+    },
+    {
+      "id": "https://blog.adafruit.com/2026/11/14/locating-the-source-of-a-mysterious-beep-using-claude/",
+      "url": "https://blog.adafruit.com/2026/11/14/locating-the-source-of-a-mysterious-beep-using-claude/",
+      "title": "[Adafruit Blog] Locating the source of a mysterious beep using Claude",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F11%2F14%2Flocating-the-source-of-a-mysterious-beep-using-claude%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSimon Willison had an intermittent beep coming from a room full of unpacked boxes, so he had Claude Code build Beep Locator, a system that triangulates a sound using several ordinary devices. He wrote it up on his weblog. A Python web server shows the main map, and other devices join over a URL or […]",
+      "summary": "Simon Willison had an intermittent beep coming from a room full of unpacked boxes, so he had Claude Code build Beep Locator, a system that triangulates a sound using several ordinary devices. He wrote it up on his weblog. A Python web server shows the main map, and other devices join over a URL or",
+      "_excerpt": "Simon Willison had an intermittent beep coming from a room full of unpacked boxes, so he had Claude Code build Beep Locator, a system that triangulates a sound using several ordinary devices. He wrote it up on his weblog. A Python web server shows the main map, and other devices join over a URL or […]",
+      "date_published": "2026-11-14T15:20:23+00:00",
+      "authors": [
+        {
+          "name": "Adafruit Blog",
+          "url": "https://blog.adafruit.com"
+        }
+      ],
+      "ai_score": 49,
+      "_quality": 65,
+      "_relevance": 60,
+      "_local": 0,
+      "_theme_score": 65,
+      "_theme_score_raw": 12,
+      "_kite_sources": 0,
+      "_kite_context": "",
+      "_composite_podcast": 57,
+      "_keyword_matches": 0,
+      "_category": "homelab",
+      "_source_category": "homelab",
+      "_is_bonus": true,
+      "_niche": false
     },
     {
       "id": "https://www.smallfarmcanada.ca/livestock/could-earlier-shearing-help-produce-bigger-healthier-lambs/",
@@ -2162,15 +2176,16 @@
       "_quality": 65,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 75,
+      "_theme_score": 77,
       "_theme_score_raw": 30,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 54,
+      "_composite_podcast": 55,
       "_keyword_matches": 1,
       "_category": "homestead",
       "_source_category": "homestead",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://www.smallfarmcanada.ca/downloads/4433/download/Sheep.png?cb=9556508453a9ac86de443f99d1f67d34",
       "_cross_theme": {
@@ -2197,48 +2212,16 @@
       "_quality": 70,
       "_relevance": 80,
       "_local": 0,
-      "_theme_score": 62,
+      "_theme_score": 63,
       "_theme_score_raw": 10,
       "_kite_sources": 0,
       "_kite_context": "",
-      "_composite_podcast": 53,
+      "_composite_podcast": 54,
       "_keyword_matches": 0,
       "_category": "homestead",
       "_source_category": "homestead",
       "_is_bonus": true,
-      "_cross_theme": {
-        "day": "saturday",
-        "label": "Cariboo Local Affairs",
-        "shown_at": "2026-11-14T06:13:52.519999+00:00"
-      }
-    },
-    {
-      "id": "https://www.thestar.com/news/canada/network-of-deepfake-videos-spreading-falsehoods-about-trade-war-with-u-s-report/article_6dc3f63a-a9c5-56a6-b18f-518c4b81ca84.html",
-      "url": "https://www.thestar.com/news/canada/network-of-deepfake-videos-spreading-falsehoods-about-trade-war-with-u-s-report/article_6dc3f63a-a9c5-56a6-b18f-518c4b81ca84.html",
-      "title": "[thestar.com] McGill report finds deepfake network spreading false Canada-U.S. trade claims",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.thestar.com%2Fnews%2Fcanada%2Fnetwork-of-deepfake-videos-spreading-falsehoods-about-trade-war-with-u-s-report%2Farticle_6dc3f63a-a9c5-56a6-b18f-518c4b81ca84.html\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nA McGill University research centre says a network of nearly 300 TikTok and Instagram accounts has circulated more than 3,201 deepfake videos that drew 22.1 million views over three months. Many focused on Canada’s trade dispute with the United States. One widely viewed false story described a nonexistent 48-hour ultimatum from President Donald Trump and claimed Prime Minister Mark Carney responded by cancelling $8 billion in U.S. defence contracts. It appeared in 161 videos on 129 accounts and drew 5.1 million views.\n\nThe report says the accounts promote misleading claims from both sides of the trade debate, while the network’s operators and purpose remain unknown. Researchers said posting patterns and some accounts’ Chinese-language settings or registrations in China point to activity outside North America, but they could not firmly attribute the network to anyone. The report says the accounts have not been monetized and could be building an audience for later use, testing a tool or operating on behalf of someone seeking to influence Canadians.",
-      "summary": "A McGill University research centre says a network of nearly 300 TikTok and Instagram accounts has circulated more than 3,201 deepfake videos that drew 22.1 million views over three months. Many focused on Canada’s trade dispute with the United States. One widely viewed false story described a",
-      "_excerpt": "A McGill University research centre says a network of nearly 300 TikTok and Instagram accounts has circulated more than 3,201 deepfake videos that drew 22.1 million views over three months. Many focused on Canada’s trade dispute with the United States (thestar.com, lapresse.ca). One widely viewed false story described a nonexistent 48-hour ultimatum from President Donald Trump and claimed Prime Minister Mark Carney responded by cancelling $8 billion in U.S. defence contracts. It appeared in 161 videos on 129 accounts and drew 5.1 million views (thestar.com, lapresse.ca). The report says the accounts promote misleading claims from both sides of the trade debate, while the network’s operators and purpose remain unknown (thestar.com, winnipegfreepress.com). Researchers said posting patterns and some accounts’ Chinese-language settings or registrations in China point to activity outside North America, but they could not firmly attribute the network to anyone (thestar.com). The report says the accounts have not been monetized and could be building an audience for later use, testing a tool or operating on behalf of someone seeking to influence Canadians (thestar.com, lapresse.ca). Few spotted fakes: Only 6.3% of commenters identified the videos as fake or propaganda, while one in 10 addressed the narrator as if they were a real person (thestar.com, lapresse.ca). Few AI labels: The report says TikTok had labelled just 4% of the videos as AI-generated, and the use of real people’s footage may help the fakes evade detection (thestar.com, winnipegfreepress.com). Shifting identities: Narrators present themselves as Canadian in some clips and American in others (thestar.com, lapresse.ca).",
-      "date_published": "2026-11-12T19:11:00+00:00",
-      "authors": [
-        {
-          "name": "thestar.com",
-          "url": "https://www.thestar.com"
-        }
-      ],
-      "ai_score": 58,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 47,
-      "_theme_score_raw": 5,
-      "_kite_sources": 5,
-      "_kite_context": "",
-      "_composite_podcast": 52,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -2272,6 +2255,7 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/ttVOQfZxBNvDyXWc5gSUTjDd10lUxQYK6M_qyJ7ASfYVVENdMeQU6mlK8WAuQtfduP0G5aWotf1spOYix4PcEi6oGozpxYh2qldRqdg0VJvTeLEOgAMcUg-48aW1MiDgX6oczyz2Z5maUsr4578MUVgYFCyRud6hAfpHJXigXXY3_51Hmwvxr-45WFumokgxcAPk6jHeBzoAZit92jOI9F3__IoBrHeDyCIcvy9zwPlYXDmgKYcwugmyZeYbK0k3W-muABGGKjyAPCgMnB9tB7veQdIZSMVfxg",
       "_cross_theme": {
         "day": "friday",
@@ -2306,6 +2290,7 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/Ysyx_FdGbh5Z3PRSfrVw69EUX3LSd3np-RaB3ULJl6UdRr3Nij5rzGJwFOn5TJqHXZr32AS8B_Qt9XuLjztg0cpkq0IYYZA8ED9-GR5ko-iHqdic8oawpLPJ2j6lr1-0oIAW1xLQZXOsmPBUPs-hhbpIPg-DIzGWz3na8GZ8Cq6L5rwBALsjxYBSuD8Mpt_fE3Ltxg"
     },
     {
@@ -2335,6 +2320,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://www.statnews.com/wp-content/uploads/2026/11/bs_screenshot5-645x645.jpg"
     },
@@ -2365,6 +2351,7 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/DK3QtkTozswBFCj9foja5pWcw34X5PFlQouE6SbFVhFzHcL1iQRHKbj9xhcF3G1g9cIzxlqkufS-FJiBIWIfxSbkIg4TlVxqdktHdBpg1BrSFlQ3K895lMFwOESLyoclQflIGesP8eo",
       "_cross_theme": {
         "day": "saturday",
@@ -2399,6 +2386,7 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202611/MIT-ai-design-01-press.jpg?itok=mgkpfRIX"
     },
@@ -2420,7 +2408,7 @@
       "_quality": 40,
       "_relevance": 0,
       "_local": 0,
-      "_theme_score": 62,
+      "_theme_score": 63,
       "_theme_score_raw": 10,
       "_kite_sources": 0,
       "_kite_context": "",
@@ -2429,6 +2417,7 @@
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true
     },
     {
@@ -2458,6 +2447,7 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": true,
+      "_niche": false,
       "_cross_theme": {
         "day": "friday",
         "label": "Wild Spaces & Outdoor Life",
@@ -2491,6 +2481,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
@@ -2524,6 +2515,7 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh54t26Pk-bNbcIXgu8KrKpT_zN1KxEov16xTFlJ8kiPJ3-btXjGUE1lb0ZpamQU5jUHwmxzxHpYLsAQfiaHQUu3gxCIUw2gsEYNwMjL6nRm_jWm6t_VdHJkz6xj3fAsmTZKP8Bbax1qdT98a_PY4ynv81njiDyPXvIIihl4dqXxxC9pMMf8-Mn9dziy_A/s1700-nu-rw-lo-l85-e365/grokai.jpg"
     },
     {
@@ -2553,6 +2545,7 @@
       "_category": "wellness",
       "_source_category": "wellness",
       "_is_bonus": true,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://kffhealthnews.org/wp-content/uploads/sites/8/2026/10/Remote-patient-monitoring-04-web.jpg",
       "_us_policy": true,
@@ -2588,7 +2581,72 @@
       "_category": "ai-tech",
       "_source_category": "ai-tech",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true
+    },
+    {
+      "id": "https://www.dailymaverick.co.za/article/2026-11-04-democrats-capture-congress-in-sweeping-setback-for-trump/",
+      "url": "https://www.dailymaverick.co.za/article/2026-11-04-democrats-capture-congress-in-sweeping-setback-for-trump/",
+      "title": "[dailymaverick.co.za] Democrats win Congress as markets weigh tariffs, war and AI risks",
+      "content_html": "<img src=\"https://kagiproxy.com/img/gShNwDU3ooNgrxchlvBOVTFbVFQrKIh0m170fwM-5FNs7uj1wLvyIWX5qQxV2PsA5kUIfqV4nSEj0tT_OAtTt4fuu7Wg66sgIeVVJmqKhQmc7Q6c5ig-aOdn1bfxYEl5FCLdl9HXMm1dPy5ZstT_9-SXkyqOa0elkdIsmmxHHVUgsyMZolFhTD-lcpgApgWknd0fFeAzm6dbf2gRcH7AKUFSmxy_1KATcGnhrB8cbZ0f96_eqJ4EoAVgXb3TCMNwoLYWReycgfEPo1NPNLqubYGpkN0XdkYYb3zaRSBv_bgCXTwlYMsaN2TteNviyHTFnPmgGdebFoBvK2iuTnSW7Ua02687rHk0cHrNkeyOddk-os2YcFOUKAzbazStaV3_z-h51VpO\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dailymaverick.co.za%2Farticle%2F2026-11-04-democrats-capture-congress-in-sweeping-setback-for-trump%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDemocrats won control of both chambers of Congress in the Nov. 3 midterm elections, flipping Senate seats in states including Texas, Ohio, Kansas and South Carolina. With 228 House seats and 54 Senate seats reported for the party, Democrats will control committees and confirmation votes when the new Congress convenes in January. President Donald Trump retains the power to veto legislation and direct executive policy.\n\nVoters’ concerns about living costs, inflation, tariffs and the Iran war contributed to Republican losses. The conflict, launched in February, drove fuel prices higher; U.S. inflation stood at 3.7% before the election.\n\nMarkets initially wavered, then rallied on Nov. 4: the Dow rose 3%, while Brent crude fell 8.7% to $94.62 a barrel as investors reassessed the risk of prolonged conflict and political uncertainty. The new Congress also faces a Dec. 11 deadline to authorize government spending. Analysts expect legislative gridlock, and Trump may retain his executive authority to impose tariffs.",
+      "summary": "Democrats won control of both chambers of Congress in the Nov. 3 midterm elections, flipping Senate seats in states including Texas, Ohio, Kansas and South Carolina. With 228 House seats and 54 Senate seats reported for the party, Democrats will control committees and confirmation votes when the",
+      "_excerpt": "Democrats won control of both chambers of Congress in the Nov. 3 midterm elections, flipping Senate seats in states including Texas, Ohio, Kansas and South Carolina. With 228 House seats and 54 Senate seats reported for the party, Democrats will control committees and confirmation votes when the new Congress convenes in January. President Donald Trump retains the power to veto legislation and direct executive policy (dailymaverick.co.za, tagesschau.de, euronews.com). Voters’ concerns about living costs, inflation, tariffs and the Iran war contributed to Republican losses. The conflict, launched in February, drove fuel prices higher; U.S. inflation stood at 3.7% before the election (dailymaverick.co.za, tagesschau.de, theguardian.com). Markets initially wavered, then rallied on Nov. 4: the Dow rose 3%, while Brent crude fell 8.7% to $94.62 a barrel as investors reassessed the risk of prolonged conflict and political uncertainty (deccanchronicle.com). The new Congress also faces a Dec. 11 deadline to authorize government spending. Analysts expect legislative gridlock, and Trump may retain his executive authority to impose tariffs (theguardian.com, dw.com, euronews.com). Inflation pressure: A Pew Research Center poll cited by DW found that 56% of Americans expected Trump’s tariffs to have mostly negative effects, compared with 20% who expected mostly positive effects (dw.com). AI policy: Stephen Brown, chief North America economist at Capital Economics, said a Democratic win in the 2028 presidential election could allow the party to raise taxes on corporations and high-income individuals and adopt regulations that could delay AI rollout (dw.com). Interest rates: Investors anticipated at least one more Federal Reserve rate increase as inflation persisted and the outlook for the Iran war remained uncertain (theguardian.com). Trade limits: Stephen Olson, visiting senior fellow at ISEAS-Yusof Ishak Institute, said lawmakers could seek tariff exemptions for products that",
+      "date_published": "2026-11-04T08:20:14+00:00",
+      "authors": [
+        {
+          "name": "dailymaverick.co.za",
+          "url": "https://www.dailymaverick.co.za"
+        }
+      ],
+      "ai_score": 52,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 6,
+      "_theme_score_raw": 2,
+      "_kite_sources": 35,
+      "_kite_context": "Perspective: Jacob Funk Kirkegaard, nonresident senior fellow at the Peterson Institute for International Economics, argued that community resistance to data centers could make projects harder to build and weigh on large technology firms’ valuations, even without federal (DW)\nPerspective: Gabriel Wildau, managing director at Teneo, said Trump, increasingly focused on his personal legacy, could resist pressure to confront China and pursue strategic stability despite the change in congressional control (cnbc.com). (CNBC)\nPerspective: Stephen Olson, visiting senior fellow at ISEAS-Yusof Ishak Institute, warned that with campaign pressure behind him, Trump could be freer to pursue additional tariffs, including against Asian economies (channelnewsasia.com). (Channel NewsAsia)\nQuote: \"The magnitude of the gains for the Democrats in the midterms does not change too much for the near-term policy outlook, given the party still lacks a filibuster-proof majority in the Senate and President Trump has veto power to block legislation\" (Stephen Brown, chief North America economist at Capital Economics, DW)\nTimeline: 3 November 2026: Voters elected House members and one-third of senators (n-tv.de, huffingtonpost.co.uk)\nTimeline: 4 November 2026: U.S. stocks rose as crude prices fell after the election results (deccanchronicle.com)\nTimeline: 11 December 2026: Congress must authorize spending to avert a government shutdown (theguardian.com)",
+      "_composite_podcast": 23,
+      "_keyword_matches": 1,
+      "_category": "news",
+      "_source_category": "news",
+      "_is_bonus": false,
+      "_niche": false,
+      "image": "https://kagiproxy.com/img/gShNwDU3ooNgrxchlvBOVTFbVFQrKIh0m170fwM-5FNs7uj1wLvyIWX5qQxV2PsA5kUIfqV4nSEj0tT_OAtTt4fuu7Wg66sgIeVVJmqKhQmc7Q6c5ig-aOdn1bfxYEl5FCLdl9HXMm1dPy5ZstT_9-SXkyqOa0elkdIsmmxHHVUgsyMZolFhTD-lcpgApgWknd0fFeAzm6dbf2gRcH7AKUFSmxy_1KATcGnhrB8cbZ0f96_eqJ4EoAVgXb3TCMNwoLYWReycgfEPo1NPNLqubYGpkN0XdkYYb3zaRSBv_bgCXTwlYMsaN2TteNviyHTFnPmgGdebFoBvK2iuTnSW7Ua02687rHk0cHrNkeyOddk-os2YcFOUKAzbazStaV3_z-h51VpO"
+    },
+    {
+      "id": "https://biz.heraldcorp.com/article/10928772",
+      "url": "https://biz.heraldcorp.com/article/10928772",
+      "title": "[biz.heraldcorp.com] U.S. banking regulators probe cyber risks after $6.3 billion theft from Binance",
+      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fbiz.heraldcorp.com%2Farticle%2F10928772\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nU.S. banking regulators asked banks about unusual activity and service disruptions after attackers stole more than $6.3 billion in assets from cryptocurrency exchange Binance on Oct. 29. Federal Reserve and Office of the Comptroller of the Currency supervisors began their inquiries on Nov. 2, while banks examined whether the attack exposed weaknesses in their own systems.\n\nAttackers used a fraudulent job interview and malicious software to compromise Binance employees’ computers, then exploited an internal artificial-intelligence tool, Binance said. The FBI and Binance have attributed the theft to North Korea; Pyongyang denies responsibility, while blockchain investigators have linked it to the North Korean group TraderTraitor. South Korean authorities also began checks of financial firms, including a planned inspection of about 580 companies.",
+      "summary": "U.S. banking regulators asked banks about unusual activity and service disruptions after attackers stole more than $6.3 billion in assets from cryptocurrency exchange Binance on Oct. 29. Federal Reserve and Office of the Comptroller of the Currency supervisors began their inquiries on Nov. 2, while",
+      "_excerpt": "U.S. banking regulators asked banks about unusual activity and service disruptions after attackers stole more than $6.3 billion in assets from cryptocurrency exchange Binance on Oct. 29. Federal Reserve and Office of the Comptroller of the Currency supervisors began their inquiries on Nov. 2, while banks examined whether the attack exposed weaknesses in their own systems (cutoday.info, heraldcorp.com). Attackers used a fraudulent job interview and malicious software to compromise Binance employees’ computers, then exploited an internal artificial-intelligence tool, Binance said. The FBI and Binance have attributed the theft to North Korea; Pyongyang denies responsibility, while blockchain investigators have linked it to the North Korean group TraderTraitor (aawsat.com, exxpress.at). South Korean authorities also began checks of financial firms, including a planned inspection of about 580 companies (heraldcorp.com). Funds traced: Cybersecurity researchers said about $2.8 billion had been frozen, while roughly $3.5 billion remained in circulation; the stolen assets were split into tens of thousands of transactions, complicating recovery (voanews.com, eurasiareview.com). Korean checks: South Korea’s Nov. 2 review examined exchange access controls, wallet withdrawal approvals and signing systems, as well as administrator privileges (heraldcorp.com). Revenue motive: Analysts told VOA that cryptocurrency theft has become North Korea’s largest single source of foreign currency and that proceeds could support government programs, including nuclear and missile efforts (voanews.com). Long infiltration: The breach followed a five-month infiltration of Binance, according to one account of the attack (exxpress.at).",
+      "date_published": "2026-11-06T16:30:00+00:00",
+      "authors": [
+        {
+          "name": "biz.heraldcorp.com",
+          "url": "https://biz.heraldcorp.com"
+        }
+      ],
+      "ai_score": 33,
+      "_quality": 60,
+      "_relevance": 0,
+      "_local": 0,
+      "_theme_score": 6,
+      "_theme_score_raw": 2,
+      "_kite_sources": 7,
+      "_kite_context": "Perspective: Nick Carlsen, senior investigator at TRM Labs: Carlsen said exchanges handling large amounts of financial assets need multiple layers of security so that one compromised account or system cannot expose their holdings (voanews.com). (Voice of America)\nQuote: \"Companies can do only so much to defend themselves against repeated attacks without a policy response.\" (Michael Barnhart, lead nation-state threat researcher at DTEX, Voice of America)\nTimeline: 29 October 2026: Attackers stole more than $6.3 billion from Binance (cutoday.info, heraldcorp.com).\nTimeline: 2 November 2026: U.S. banking supervisors began asking banks about unusual activity and interruptions (cutoday.info, heraldcorp.com).\nTimeline: 5 November 2026: South Korean financial authorities met with industry representatives and announced a coordinated cybersecurity review (heraldcorp.com).\nBackground: North Korea established a cyber unit in 1998, and leader Kim Jong Un gave cyberwarfare greater prominence after taking power; in 2013 he called it an “all purpose sword” alongside nuclear weapons and missiles (aawsat.com). South Korea’s National Intelligence",
+      "_composite_podcast": 22,
+      "_keyword_matches": 1,
+      "_category": "ai-tech",
+      "_source_category": "ai-tech",
+      "_is_bonus": false,
+      "_niche": false,
+      "_us_policy": true,
+      "_us_policy_scope": "out-of-jurisdiction",
+      "tags": [
+        "us-policy"
+      ]
     },
     {
       "id": "https://www.jns.org/news/israel-news/israel-touts-shift-in-us-ties-from-aid-to-partnership",
@@ -2617,74 +2675,13 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "image": "https://kagiproxy.com/img/akV2ieRAVrgT5dzlPOcMMJS-fEMjXZSDHk9wgk79q71EulAZgu9NKKqs4VFLDclWWLtfzbbkDk96RbRQq5pnxTrtQkYczv7Z-V8vaocRzejpYp6wuZhOPs1AKf7wAu8_r5mrV-eW1AAc9orKvIBeO4YM6Kg8Co56",
       "_cross_theme": {
         "day": "saturday",
         "label": "Cariboo Local Affairs",
         "shown_at": "2026-11-14T06:13:52.519999+00:00"
       }
-    },
-    {
-      "id": "https://www.dailymaverick.co.za/article/2026-11-04-democrats-capture-congress-in-sweeping-setback-for-trump/",
-      "url": "https://www.dailymaverick.co.za/article/2026-11-04-democrats-capture-congress-in-sweeping-setback-for-trump/",
-      "title": "[dailymaverick.co.za] Democrats win Congress as markets weigh tariffs, war and AI risks",
-      "content_html": "<img src=\"https://kagiproxy.com/img/gShNwDU3ooNgrxchlvBOVTFbVFQrKIh0m170fwM-5FNs7uj1wLvyIWX5qQxV2PsA5kUIfqV4nSEj0tT_OAtTt4fuu7Wg66sgIeVVJmqKhQmc7Q6c5ig-aOdn1bfxYEl5FCLdl9HXMm1dPy5ZstT_9-SXkyqOa0elkdIsmmxHHVUgsyMZolFhTD-lcpgApgWknd0fFeAzm6dbf2gRcH7AKUFSmxy_1KATcGnhrB8cbZ0f96_eqJ4EoAVgXb3TCMNwoLYWReycgfEPo1NPNLqubYGpkN0XdkYYb3zaRSBv_bgCXTwlYMsaN2TteNviyHTFnPmgGdebFoBvK2iuTnSW7Ua02687rHk0cHrNkeyOddk-os2YcFOUKAzbazStaV3_z-h51VpO\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.dailymaverick.co.za%2Farticle%2F2026-11-04-democrats-capture-congress-in-sweeping-setback-for-trump%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nDemocrats won control of both chambers of Congress in the Nov. 3 midterm elections, flipping Senate seats in states including Texas, Ohio, Kansas and South Carolina. With 228 House seats and 54 Senate seats reported for the party, Democrats will control committees and confirmation votes when the new Congress convenes in January. President Donald Trump retains the power to veto legislation and direct executive policy.\n\nVoters’ concerns about living costs, inflation, tariffs and the Iran war contributed to Republican losses. The conflict, launched in February, drove fuel prices higher; U.S. inflation stood at 3.7% before the election.\n\nMarkets initially wavered, then rallied on Nov. 4: the Dow rose 3%, while Brent crude fell 8.7% to $94.62 a barrel as investors reassessed the risk of prolonged conflict and political uncertainty. The new Congress also faces a Dec. 11 deadline to authorize government spending. Analysts expect legislative gridlock, and Trump may retain his executive authority to impose tariffs.",
-      "summary": "Democrats won control of both chambers of Congress in the Nov. 3 midterm elections, flipping Senate seats in states including Texas, Ohio, Kansas and South Carolina. With 228 House seats and 54 Senate seats reported for the party, Democrats will control committees and confirmation votes when the",
-      "_excerpt": "Democrats won control of both chambers of Congress in the Nov. 3 midterm elections, flipping Senate seats in states including Texas, Ohio, Kansas and South Carolina. With 228 House seats and 54 Senate seats reported for the party, Democrats will control committees and confirmation votes when the new Congress convenes in January. President Donald Trump retains the power to veto legislation and direct executive policy (dailymaverick.co.za, tagesschau.de, euronews.com). Voters’ concerns about living costs, inflation, tariffs and the Iran war contributed to Republican losses. The conflict, launched in February, drove fuel prices higher; U.S. inflation stood at 3.7% before the election (dailymaverick.co.za, tagesschau.de, theguardian.com). Markets initially wavered, then rallied on Nov. 4: the Dow rose 3%, while Brent crude fell 8.7% to $94.62 a barrel as investors reassessed the risk of prolonged conflict and political uncertainty (deccanchronicle.com). The new Congress also faces a Dec. 11 deadline to authorize government spending. Analysts expect legislative gridlock, and Trump may retain his executive authority to impose tariffs (theguardian.com, dw.com, euronews.com). Inflation pressure: A Pew Research Center poll cited by DW found that 56% of Americans expected Trump’s tariffs to have mostly negative effects, compared with 20% who expected mostly positive effects (dw.com). AI policy: Stephen Brown, chief North America economist at Capital Economics, said a Democratic win in the 2028 presidential election could allow the party to raise taxes on corporations and high-income individuals and adopt regulations that could delay AI rollout (dw.com). Interest rates: Investors anticipated at least one more Federal Reserve rate increase as inflation persisted and the outlook for the Iran war remained uncertain (theguardian.com). Trade limits: Stephen Olson, visiting senior fellow at ISEAS-Yusof Ishak Institute, said lawmakers could seek tariff exemptions for products that",
-      "date_published": "2026-11-04T08:20:14+00:00",
-      "authors": [
-        {
-          "name": "dailymaverick.co.za",
-          "url": "https://www.dailymaverick.co.za"
-        }
-      ],
-      "ai_score": 52,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 4,
-      "_theme_score_raw": 2,
-      "_kite_sources": 35,
-      "_kite_context": "Perspective: Jacob Funk Kirkegaard, nonresident senior fellow at the Peterson Institute for International Economics, argued that community resistance to data centers could make projects harder to build and weigh on large technology firms’ valuations, even without federal (DW)\nPerspective: Gabriel Wildau, managing director at Teneo, said Trump, increasingly focused on his personal legacy, could resist pressure to confront China and pursue strategic stability despite the change in congressional control (cnbc.com). (CNBC)\nPerspective: Stephen Olson, visiting senior fellow at ISEAS-Yusof Ishak Institute, warned that with campaign pressure behind him, Trump could be freer to pursue additional tariffs, including against Asian economies (channelnewsasia.com). (Channel NewsAsia)\nQuote: \"The magnitude of the gains for the Democrats in the midterms does not change too much for the near-term policy outlook, given the party still lacks a filibuster-proof majority in the Senate and President Trump has veto power to block legislation\" (Stephen Brown, chief North America economist at Capital Economics, DW)\nTimeline: 3 November 2026: Voters elected House members and one-third of senators (n-tv.de, huffingtonpost.co.uk)\nTimeline: 4 November 2026: U.S. stocks rose as crude prices fell after the election results (deccanchronicle.com)\nTimeline: 11 December 2026: Congress must authorize spending to avert a government shutdown (theguardian.com)",
-      "_composite_podcast": 22,
-      "_keyword_matches": 1,
-      "_category": "news",
-      "_source_category": "news",
-      "_is_bonus": false,
-      "image": "https://kagiproxy.com/img/gShNwDU3ooNgrxchlvBOVTFbVFQrKIh0m170fwM-5FNs7uj1wLvyIWX5qQxV2PsA5kUIfqV4nSEj0tT_OAtTt4fuu7Wg66sgIeVVJmqKhQmc7Q6c5ig-aOdn1bfxYEl5FCLdl9HXMm1dPy5ZstT_9-SXkyqOa0elkdIsmmxHHVUgsyMZolFhTD-lcpgApgWknd0fFeAzm6dbf2gRcH7AKUFSmxy_1KATcGnhrB8cbZ0f96_eqJ4EoAVgXb3TCMNwoLYWReycgfEPo1NPNLqubYGpkN0XdkYYb3zaRSBv_bgCXTwlYMsaN2TteNviyHTFnPmgGdebFoBvK2iuTnSW7Ua02687rHk0cHrNkeyOddk-os2YcFOUKAzbazStaV3_z-h51VpO"
-    },
-    {
-      "id": "https://biz.heraldcorp.com/article/10928772",
-      "url": "https://biz.heraldcorp.com/article/10928772",
-      "title": "[biz.heraldcorp.com] U.S. banking regulators probe cyber risks after $6.3 billion theft from Binance",
-      "content_html": "<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fbiz.heraldcorp.com%2Farticle%2F10928772\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nU.S. banking regulators asked banks about unusual activity and service disruptions after attackers stole more than $6.3 billion in assets from cryptocurrency exchange Binance on Oct. 29. Federal Reserve and Office of the Comptroller of the Currency supervisors began their inquiries on Nov. 2, while banks examined whether the attack exposed weaknesses in their own systems.\n\nAttackers used a fraudulent job interview and malicious software to compromise Binance employees’ computers, then exploited an internal artificial-intelligence tool, Binance said. The FBI and Binance have attributed the theft to North Korea; Pyongyang denies responsibility, while blockchain investigators have linked it to the North Korean group TraderTraitor. South Korean authorities also began checks of financial firms, including a planned inspection of about 580 companies.",
-      "summary": "U.S. banking regulators asked banks about unusual activity and service disruptions after attackers stole more than $6.3 billion in assets from cryptocurrency exchange Binance on Oct. 29. Federal Reserve and Office of the Comptroller of the Currency supervisors began their inquiries on Nov. 2, while",
-      "_excerpt": "U.S. banking regulators asked banks about unusual activity and service disruptions after attackers stole more than $6.3 billion in assets from cryptocurrency exchange Binance on Oct. 29. Federal Reserve and Office of the Comptroller of the Currency supervisors began their inquiries on Nov. 2, while banks examined whether the attack exposed weaknesses in their own systems (cutoday.info, heraldcorp.com). Attackers used a fraudulent job interview and malicious software to compromise Binance employees’ computers, then exploited an internal artificial-intelligence tool, Binance said. The FBI and Binance have attributed the theft to North Korea; Pyongyang denies responsibility, while blockchain investigators have linked it to the North Korean group TraderTraitor (aawsat.com, exxpress.at). South Korean authorities also began checks of financial firms, including a planned inspection of about 580 companies (heraldcorp.com). Funds traced: Cybersecurity researchers said about $2.8 billion had been frozen, while roughly $3.5 billion remained in circulation; the stolen assets were split into tens of thousands of transactions, complicating recovery (voanews.com, eurasiareview.com). Korean checks: South Korea’s Nov. 2 review examined exchange access controls, wallet withdrawal approvals and signing systems, as well as administrator privileges (heraldcorp.com). Revenue motive: Analysts told VOA that cryptocurrency theft has become North Korea’s largest single source of foreign currency and that proceeds could support government programs, including nuclear and missile efforts (voanews.com). Long infiltration: The breach followed a five-month infiltration of Binance, according to one account of the attack (exxpress.at).",
-      "date_published": "2026-11-06T16:30:00+00:00",
-      "authors": [
-        {
-          "name": "biz.heraldcorp.com",
-          "url": "https://biz.heraldcorp.com"
-        }
-      ],
-      "ai_score": 33,
-      "_quality": 60,
-      "_relevance": 0,
-      "_local": 0,
-      "_theme_score": 4,
-      "_theme_score_raw": 2,
-      "_kite_sources": 7,
-      "_kite_context": "Perspective: Nick Carlsen, senior investigator at TRM Labs: Carlsen said exchanges handling large amounts of financial assets need multiple layers of security so that one compromised account or system cannot expose their holdings (voanews.com). (Voice of America)\nQuote: \"Companies can do only so much to defend themselves against repeated attacks without a policy response.\" (Michael Barnhart, lead nation-state threat researcher at DTEX, Voice of America)\nTimeline: 29 October 2026: Attackers stole more than $6.3 billion from Binance (cutoday.info, heraldcorp.com).\nTimeline: 2 November 2026: U.S. banking supervisors began asking banks about unusual activity and interruptions (cutoday.info, heraldcorp.com).\nTimeline: 5 November 2026: South Korean financial authorities met with industry representatives and announced a coordinated cybersecurity review (heraldcorp.com).\nBackground: North Korea established a cyber unit in 1998, and leader Kim Jong Un gave cyberwarfare greater prominence after taking power; in 2013 he called it an “all purpose sword” alongside nuclear weapons and missiles (aawsat.com). South Korea’s National Intelligence",
-      "_composite_podcast": 21,
-      "_keyword_matches": 1,
-      "_category": "ai-tech",
-      "_source_category": "ai-tech",
-      "_is_bonus": false,
-      "_us_policy": true,
-      "_us_policy_scope": "out-of-jurisdiction",
-      "tags": [
-        "us-policy"
-      ]
     },
     {
       "id": "https://www.businessinsider.com/gen-x-retirement-savings-financial-insecurity-job-search-unemployment-2026-11",
@@ -2713,6 +2710,7 @@
       "_category": "news",
       "_source_category": "news",
       "_is_bonus": false,
+      "_niche": false,
       "_thin_body": true,
       "image": "https://i.insider.com/6ae4bf92f3bee449b3d29a49?format=jpeg"
     }
