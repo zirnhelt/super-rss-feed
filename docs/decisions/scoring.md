@@ -607,3 +607,30 @@ miss rate from 11.8% to 32.7% while `gate-misses` sat open. The reader's word wa
   under its own drop rules and reports `reader` rows without building. No model is involved
   and nothing is spent.
 
+
+## A [show] flag never removes a Cariboo story (2026-11-16)
+
+The audit's `gate-misses` finding (owner fixer, 6 weeks open, worse) read 17 wanted rejects
+of 52 in the 28 days to 2026-11-14 (32.7%, from 11.8%). Its "most often" sources are
+all-time counts: NYT Well, MacRumors and Outside Online account for 1 of the 17. Seven of
+the 17 were B.C. and Cariboo election coverage from the four local outlets during the
+snap election (2026-10-22 to 11-10). The rubric says "KEEP Canadian politics at every level
+… a B.C. election", and both US lines say "the United States only, never Canada", yet the
+gate removed them. Before 2026-11-07 that meant `x`. Since the scope split, a misread US
+line is an `s`, which still takes a `local` story out of feed-local and off the show. Six
+nightlies (11-10 to 11-16) carried 31 show-only scrubs. Two were Cariboo stories, both
+political, both filed under a US line: the B.C. election's final count (My Cariboo Now,
+local 85) and the Cariboo-Prince George-Omineca MP on the federal budget.
+
+This is the civic-races lesson again (sources.md): the gate cannot hold a place
+exception, so the place test goes in code. `_show_flag()` sets aside `s` on any article
+`_has_cariboo_anchor()` accepts (a scraped Cariboo paper, local ≥ 80, or a `local_signals`
+place in the title, description or outlet name). `_feed_rejects()` and `_show_verdict()`
+read it, so feed-local, the pool, the bank and the hot refresh agree. The scrub log prints
+`📍 Kept, show-only flag set aside (Cariboo story)` for each one.
+
+The trade: every `[show]` line names a subject from beyond the region, but the warfare
+line says "with no exception". A Cariboo-anchored story whose primary subject is war (a
+local unit deploying abroad, a Cariboo defence contractor) now reaches the show. `x` is
+untouched, so sports, police blotter and the rest still apply to local stories. No API call;
+the rubric is unchanged, so no cached verdict is re-asked.

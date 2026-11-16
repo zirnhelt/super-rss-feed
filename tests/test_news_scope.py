@@ -93,6 +93,44 @@ def test_scrub_keeps_show_only_news_and_drops_it_elsewhere():
     assert stats['show_only_kept'] == 1
 
 
+# --- a Cariboo story never carries the show flag (feed state: gate-misses) ---------
+
+def _cariboo(title, source, category='local', local=0, x=False):
+    return types.SimpleNamespace(category=category, gate_reject=x, gate_show_reject=True,
+                                 title=title, description='', source=source, local=local)
+
+
+def test_a_cariboo_story_keeps_its_feed_and_the_show_despite_the_show_flag():
+    # The gate filed both under the US-only [show] lines (2026-11-10, 2026-11-11 nightlies).
+    for story in (_cariboo('Final vote count for snap election hands B.C. Conservatives 64 seat majority',
+                           'My Cariboo Now', local=85),
+                  _cariboo('Cariboo-Prince George-Omineca MP criticizes the 2026 federal budget',
+                           'Prince George Citizen')):
+        assert not m._feed_rejects(story)
+        assert m._show_verdict(story) is False
+
+
+def test_the_anchor_can_be_the_outlet_name_or_the_local_score():
+    assert m._show_verdict(_cariboo('Snap election results are in', 'My Cariboo Now')) is False
+    assert m._show_verdict(_cariboo('Snap election results are in', 'Example', local=85)) is False
+    assert m._show_verdict(_cariboo('Snap election results are in', 'Example', local=40)) is True
+
+
+def test_the_x_flag_still_removes_a_cariboo_story():
+    sports = _cariboo('Williams Lake Stampeders win 4-2', 'Williams Lake Tribune', x=True)
+    assert m._feed_rejects(sports) and m._show_verdict(sports) is True
+
+
+def test_scrub_keeps_a_cariboo_story_and_says_so(capsys):
+    story = _article('Cariboo-Prince George-Omineca MP criticizes the 2026 federal budget',
+                     source='Prince George Citizen', category='local')
+    story.gate_reject, story.gate_show_reject, story.score = False, True, 60
+    kept, stats = m.scrub_feed_with_haiku([story], 'k')
+    assert kept == [story]
+    assert stats['show_only_kept'] == 0, 'a Cariboo story is not "still off the podcast"'
+    assert 'show-only flag set aside (Cariboo story)' in capsys.readouterr().out
+
+
 def test_pool_rows_store_the_show_verdict(monkeypatch, tmp_path):
     path = tmp_path / 'pool.json'
     path.write_text('[]', encoding='utf-8')

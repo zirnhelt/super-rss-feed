@@ -241,15 +241,32 @@ SHOW_ONLY_OPEN_CATEGORIES = frozenset(
     (SYSTEM.get('standing_preferences') or {}).get('show_only_open_categories', ['news']))
 
 
+def _show_flag(article) -> bool:
+    """The gate's "s" verdict (a `[show]` line), which a Cariboo story never carries.
+
+    Every `[show]` line names a subject from beyond the region: US politics and US
+    elections ("never Canada"), distant bad news (local crime is kept), war. The gate
+    does not hold "never Canada" reliably: it filed a B.C. election result
+    (2026-11-10) and the Cariboo-Prince George-Omineca MP on the federal budget
+    (2026-11-11) under the US lines, which took both out of feed-local and off the
+    show. As with the civic races, the place test lives in code
+    (docs/decisions/scoring.md, "A [show] flag never removes a Cariboo story").
+    """
+    if not getattr(article, 'gate_show_reject', None):
+        return False
+    return not _has_cariboo_anchor(article, [s.lower() for s in FILTERS.get('local_signals', [])])
+
+
 def _feed_rejects(article) -> bool:
     """Whether the gate's verdict keeps this article out of its category feed.
 
     An "x" verdict drops it everywhere; an "s" verdict (a `[show]` line) only from
-    the categories outside SHOW_ONLY_OPEN_CATEGORIES. None means unjudged: kept.
+    the categories outside SHOW_ONLY_OPEN_CATEGORIES, and never from a Cariboo story
+    (`_show_flag`). None means unjudged: kept.
     """
     if getattr(article, 'gate_reject', None):
         return True
-    return (bool(getattr(article, 'gate_show_reject', None))
+    return (_show_flag(article)
             and (getattr(article, 'category', None) or 'news') not in SHOW_ONLY_OPEN_CATEGORIES)
 
 
@@ -262,7 +279,7 @@ def _show_verdict(article) -> Optional[bool]:
     verdict = getattr(article, 'gate_reject', None)
     if verdict is None:
         return None
-    return bool(verdict or getattr(article, 'gate_show_reject', None))
+    return bool(verdict or _show_flag(article))
 
 
 def _gate_reject_honoured() -> bool:
@@ -4133,7 +4150,9 @@ def scrub_feed_with_haiku(articles: List[Article], api_key: str) -> Tuple[List[A
             total_removed += 1
             haiku_removed_by_category[article.category or 'news'] += 1
         else:
-            show_only_kept += bool(getattr(article, 'gate_show_reject', None))
+            if getattr(article, 'gate_show_reject', None) and not _show_flag(article):
+                print(f"  📍 Kept, show-only flag set aside (Cariboo story): {article.title[:90]}")
+            show_only_kept += _show_flag(article)
             kept.append(article)
 
     kept.extend(exempt)
@@ -4360,9 +4379,11 @@ def _has_cariboo_anchor(article: Article, local_signals: List[str]) -> bool:
     An anchor is a scraped Cariboo paper, a local score in the prompt's Cariboo-focus
     band, or a `local_signals` place in the title, description or source name.
     """
-    if article.source in _LOCAL_SCRAPE_SOURCES or article.local >= CARIBOO_FOCUS_MIN_LOCAL:
+    source = getattr(article, 'source', None) or ''
+    if source in _LOCAL_SCRAPE_SOURCES or (getattr(article, 'local', 0) or 0) >= CARIBOO_FOCUS_MIN_LOCAL:
         return True
-    text = f"{article.title} {article.description or ''} {article.source}".lower()
+    text = (f"{getattr(article, 'title', None) or ''} "
+            f"{getattr(article, 'description', None) or ''} {source}").lower()
     return any(signal in text for signal in local_signals)
 
 
