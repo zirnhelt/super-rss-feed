@@ -8,6 +8,10 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-11-15 | 🔧 Manual Run | ⚠️ **ScienceAlert** failed | `Exceeded 30 redirects.` |
+| 2026-11-15 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
+| 2026-11-15 | 🔧 Manual Run | ⚠️ **ScienceAlert** failed | `Exceeded 30 redirects.` |
+| 2026-11-15 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 | 2026-11-14 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/` |
 | 2026-11-14 | 🔧 Manual Run | ⚠️ **alpennia.com** failed | `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/` |
 | 2026-11-14 | 🔧 Manual Run | ⚠️ **blog.hmvh.net** failed | `415 Client Error: Unsupported Media Type for url: http://blog.hmvh.net/feed/` |
@@ -29,9 +33,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-11-10 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
 | 2026-11-10 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 | 2026-11-09 | 🔧 Manual Run | ⚠️ **Climate - CBSNews.com** failed | `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate` |
-| 2026-11-08 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
-| 2026-11-08 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
-| 2026-11-08 | 🔧 Manual Run | ⚠️ **Logging and Sawmilling Journal** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -39,17 +40,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-11-15 | 🔧 manual | 81 | ai-tech:18(23%), news:14(18%), homelab:10(13%) |
 | 2026-11-14 | 🔧 manual | 87 | ai-tech:18(21%), news:14(17%), climate:12(14%) |
 | 2026-11-13 | 🔧 manual | 88 | ai-tech:18(20%), news:14(16%), climate:12(14%) |
 | 2026-11-12 | 🔧 manual | 91 | ai-tech:18(20%), news:14(15%), climate:12(13%) |
 | 2026-11-11 | 🔧 manual | 88 | ai-tech:18(20%), news:15(17%), climate:12(14%) |
 | 2026-11-10 | 🔧 manual | 95 | ai-tech:19(20%), news:14(15%), climate:12(13%) |
 | 2026-11-09 | 🔧 manual | 100 | ai-tech:18(18%), local:14(14%), news:14(14%) |
-| 2026-11-08 | 🔧 manual | 78 | ai-tech:18(23%), news:15(19%), climate:12(15%) |
 
-_Last updated by log\_feed\_results.py · 2026-11-15 06:09 UTC_
+_Last updated by log\_feed\_results.py · 2026-11-16 06:09 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

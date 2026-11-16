@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-15 (Sunday)
+
+#### 🔧 Manual Run (10:09 PM Pacific)
+- ⚠️ **ScienceAlert** failed — `Exceeded 30 redirects.`
+- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
+- ⚠️ **ScienceAlert** failed — `Exceeded 30 redirects.`
+- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
+- ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing
+
+
+---
+
+
+
 ## 2026-11-14 (Saturday)
 
 #### 🔧 Manual Run (10:09 PM Pacific)
@@ -91,19 +105,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing, diplomacy
-
-
----
-
-
-
-## 2026-11-07 (Saturday)
-
-#### 🔧 Manual Run (10:09 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ Kite News: not in this batch: canada | british columbia
 
 
 ---
@@ -1771,6 +1772,18 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 5 issues recorded
 - ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
 - ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-07–2026-11-07
+- 4 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
 - ⚠️ Kite News: not in this batch: canada | british columbia
