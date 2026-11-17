@@ -7561,9 +7561,14 @@ REVIEW_CURATED_TARGET = 10
 # Gate rejects rate 91% bad (679 of 827 to 2026-09-24): the verdict is settled, so two a
 # day keep the audit's false-negative rate measured.
 REVIEW_UNFILTERED_CAP = 2
+# The audit's coverage floor (article_review_audit COVERAGE_MIN_RATINGS over its
+# TREND_WINDOW_DAYS): a category under it goes first in the review rotation.
+REVIEW_COVERAGE_MIN = 20
+REVIEW_COVERAGE_DAYS = 28
 
 
-def review_pools(candidates: List[Article], shipped: List[Article]) -> Dict[str, List[Article]]:
+def review_pools(candidates: List[Article], shipped: List[Article],
+                 rated: Optional[Counter] = None) -> Dict[str, List[Article]]:
     """The night's reviewable articles split into the REVIEW_QUOTAS strata.
 
     A partition: the wildcard is its own stratum and never also counts as in_feed, so
@@ -7574,10 +7579,10 @@ def review_pools(candidates: List[Article], shipped: List[Article]) -> Dict[str,
     return {
         'wildcard': [a for a in candidates if a.url_hash in shipped_hashes and is_wildcard(a)],
         'near_miss': rotate_review_categories(review_near_misses(
-            [a for a in candidates if a.url_hash not in shipped_hashes], shipped)),
+            [a for a in candidates if a.url_hash not in shipped_hashes], shipped), rated),
         'in_feed': rotate_review_categories(sorted(
             (a for a in candidates if a.url_hash in shipped_hashes and not is_wildcard(a)),
-            key=lambda a: a.score, reverse=True)),
+            key=lambda a: a.score, reverse=True), rated),
     }
 
 
@@ -7604,14 +7609,22 @@ def review_near_misses(cut: List[Article], shipped: List[Article]) -> List[Artic
     return sorted(cut, key=gap, reverse=True)
 
 
-def rotate_review_categories(articles: List[Article]) -> List[Article]:
+def rotate_review_categories(articles: List[Article],
+                             rated: Optional[Counter] = None) -> List[Article]:
     """Round-robin across categories, each keeping its own order.
 
     Taking a stratum's top scores gave news, the largest category, 58% of the ratings
     in the 28 days to 2026-10-10, and left six categories under 20 ratings each: rates
-    too noisy to read. Round r takes every category's r-th article, categories in the
-    order of their best one, so a stratum's lead article is unchanged. The quotas and
-    pool sizes are untouched, so the stratum weights stay valid.
+    too noisy to read. Round r takes every category's r-th article, so a stratum's lead
+    article is unchanged. The quotas and pool sizes are untouched, so the stratum
+    weights stay valid.
+
+    After the lead's category, the categories under REVIEW_COVERAGE_MIN ratings in
+    `rated` (the trailing REVIEW_COVERAGE_DAYS) come next, fewest first; the rest
+    follow in the order of their best article. Ordering every round by the best
+    article alone handed the 7 near-miss slots to the same categories each night:
+    in the 28 days to 2026-11-14 outdoors had 2 ratings, homestead 3, scifi 9 and
+    homelab 10, five weeks after the rotation shipped.
     """
     rank_in_category: Counter = Counter()
     category_order: Dict[str, int] = {}
@@ -7619,9 +7632,33 @@ def rotate_review_categories(articles: List[Article]) -> List[Article]:
     for article in articles:
         category = article.category or 'news'
         category_order.setdefault(category, len(category_order))
-        keyed.append((rank_in_category[category], category_order[category], article))
+        keyed.append((rank_in_category[category], category, article))
         rank_in_category[category] += 1
-    return [article for _, _, article in sorted(keyed, key=lambda t: t[:2])]
+
+    def priority(category: str) -> tuple:
+        first = category_order[category]
+        if first == 0 or rated is None or rated.get(category, 0) >= REVIEW_COVERAGE_MIN:
+            return (first != 0, 1, 0, first)
+        return (1, 0, rated.get(category, 0), first)
+
+    return [article for _, _, article in
+            sorted(keyed, key=lambda t: (t[0], priority(t[1])))]
+
+
+def recent_ratings_by_category(days: int = 28, today: Optional[str] = None) -> Counter:
+    """Article ratings per shown category over the trailing `days`, from the live
+    feedback files (the audit's count: `original_category`, else `category`)."""
+    end = datetime.strptime(today, '%Y-%m-%d').date() if today \
+        else datetime.now(timezone.utc).date()
+    cutoff = (end - timedelta(days=days)).isoformat()
+    counts: Counter = Counter()
+    for day, rows in _load_live_feedback():
+        if day <= cutoff:
+            continue
+        for r in rows:
+            if r.get('url') and r.get('rating') != 'episode':
+                counts[r.get('original_category') or r.get('category') or 'news'] += 1
+    return counts
 
 
 def review_offered_ledger(previous: Optional[Dict], batch: str, keep_days: int) -> Dict[str, str]:
@@ -7716,7 +7753,13 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     candidates = [a for a in all_by_hash.values()
                   if a.link not in reviewed_urls and a.link not in offered]
 
-    pools = review_pools(candidates, quality_articles)
+    rated = recent_ratings_by_category(REVIEW_COVERAGE_DAYS)
+    thin = sorted(c for c in CATEGORIES if rated.get(c, 0) < REVIEW_COVERAGE_MIN)
+    if thin:
+        print(f"📋 Review rotation: under {REVIEW_COVERAGE_MIN} ratings in "
+              f"{REVIEW_COVERAGE_DAYS} days, offered first: "
+              + ", ".join(f"{c} ({rated.get(c, 0)})" for c in thin))
+    pools = review_pools(candidates, quality_articles, rated)
 
     selected: List[Article] = []
     # The bucket is recorded at pick time. Deriving it afterwards from each pool's first
@@ -7750,7 +7793,8 @@ def generate_review_feed(quality_articles: List[Article], scrubbed: List[Article
     # Unfiltered slot: the rejects that would have shipped on score alone, so
     # over-filtering stays visible where it costs most.
     unfiltered_taken = 0
-    for a in rotate_review_categories(sorted(haiku_rejected or [], key=lambda a: a.score, reverse=True)):
+    for a in rotate_review_categories(sorted(haiku_rejected or [], key=lambda a: a.score, reverse=True),
+                                      rated):
         if unfiltered_taken >= REVIEW_UNFILTERED_CAP:
             break
         if a.link not in reviewed_urls and a.link not in offered:

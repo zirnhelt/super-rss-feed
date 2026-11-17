@@ -163,6 +163,41 @@ def test_rotation_keeps_every_article_and_defaults_a_missing_category_to_news():
     assert m.rotate_review_categories([]) == []
 
 
+def test_categories_under_the_coverage_floor_come_first_after_the_lead():
+    """Feed state `unmeasured-categories`: ordering each round by the best article handed
+    the 7 near-miss slots to the same categories every night (28 days to 2026-11-14:
+    outdoors 2 ratings, homestead 3, scifi 9, homelab 10)."""
+    pool = [_c('news', 90), _c('news', 88), _c('scifi', 70), _c('design', 65),
+            _c('homestead', 55), _c('outdoors', 50)]
+    rated = m.Counter({'news': 76, 'scifi': 9, 'design': 26, 'homestead': 3, 'outdoors': 2})
+
+    rotated = m.rotate_review_categories(pool, rated)
+
+    assert [(a.category, a.score) for a in rotated] == [
+        ('news', 90),                                  # the stratum's lead stays first
+        ('outdoors', 50), ('homestead', 55), ('scifi', 70),   # under 20, fewest first
+        ('design', 65),                                # measured: order of its best
+        ('news', 88)]
+
+
+def test_a_category_never_rated_counts_as_zero():
+    rotated = m.rotate_review_categories([_c('news', 90), _c('design', 80), _c('homelab', 30)],
+                                         m.Counter({'news': 50, 'design': 40}))
+    assert [a.category for a in rotated] == ['news', 'homelab', 'design']
+
+
+def test_recent_ratings_count_the_shown_category_inside_the_window(monkeypatch):
+    monkeypatch.setattr(m, '_load_live_feedback', lambda: [
+        ('2026-10-01', [{'url': 'u0', 'rating': 'good', 'category': 'news'}]),   # too old
+        ('2026-11-10', [{'url': 'u1', 'rating': 'bad', 'category': 'news',
+                         'original_category': 'outdoors'},
+                        {'url': 'u2', 'rating': 'good', 'category': 'scifi'},
+                        {'rating': 'episode', 'episode_date': '2026-11-10'}]),
+    ])
+    assert m.recent_ratings_by_category(28, today='2026-11-17') == m.Counter(
+        {'outdoors': 1, 'scifi': 1})
+
+
 def test_the_wildcard_is_its_own_stratum_and_never_also_in_feed(monkeypatch):
     """docs/MANIFESTO.md: the wildcard ships at the bottom of a category, so in_feed
     (top of the feed) would almost never sample it. A partition keeps the weights valid."""
