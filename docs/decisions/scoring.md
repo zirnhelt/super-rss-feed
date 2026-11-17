@@ -607,3 +607,24 @@ miss rate from 11.8% to 32.7% while `gate-misses` sat open. The reader's word wa
   under its own drop rules and reports `reader` rows without building. No model is involved
   and nothing is spent.
 
+
+## The review rotation serves the thinnest categories first (2026-11-17)
+
+The audit's `unmeasured-categories` row (owner fixer, open 6 weeks) read "Under 20 ratings
+in 28 days: homelab (10), homestead (3), scifi (9), outdoors (2), miscellany (0)", five weeks
+after `rotate_review_categories()` shipped to fix exactly that. The feedback files agree:
+in the 28 days to 2026-11-14, news had 76 ratings and outdoors 2. The rotation took every
+category's r-th article in round r, but ordered the categories by their best article.
+The near-miss stratum has 7 slots and 12 categories, so round 0 never reached past the
+seventh, and the same ones led every night: the closest misses come from the big,
+high-scoring categories.
+
+After the stratum's lead (kept, so the in-feed canary is still the top of the feed), the
+categories under `REVIEW_COVERAGE_MIN` (20, the audit's floor) in the trailing
+`REVIEW_COVERAGE_DAYS` (28) now come next, fewest ratings first; measured categories keep
+the order of their best article. The counts come from the live feedback files
+(`recent_ratings_by_category`, the audit's `original_category`, else `category`). Quotas
+and pool sizes are unchanged, so the stratum weights hold. Once every category clears 20,
+the order is the old one. Not fixed here: Miscellany. A review item records
+`article.category`, not `reader_category()`, so a Dezeen rating counts under design and
+Miscellany reads 0 whatever the rotation does.
