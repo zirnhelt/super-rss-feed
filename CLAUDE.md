@@ -15,7 +15,7 @@ PR descriptions auto-populate from `.github/pull_request_template.md`; `git conf
 - Run a paid or state-writing script to "try" a change (table below). Stub the API in a test instead. The `spend` hook asks first; say why the task needs a live run.
 - Merge a PR before its `pytest` check has finished green on the current head. The `merge` hook denies it. Eight PRs here merged before CI finished; bot-opened PRs have no check at all.
 - Commit regenerated caches, logs, `reports/` or `feedback/` from a session unless the task is about them. The Stop hook points them out; restore with `git checkout -- <file>`.
-- Edit `feedback/*.json` (the reader's ratings; denied in settings) or `config/standing_preferences.txt` (the reader's rules; asks first).
+- Edit `feedback/*.json` (the reader's ratings; denied in settings), `proposals/decisions.json` (the producer's calls on the roadmap fixer's proposals; denied) or `config/standing_preferences.txt` (the reader's rules; asks first).
 - Rename or drop a key in `PODCAST_FEED_CONTRACT`, the `generate-feed.yml` / `refresh-editorial.yml` file names, the `run_slot` input, or `_changes` / `date_published` in `weekly-state-article.json` without the matching change in `curated-podcast-generator` (see Cross-repo contracts).
 - Remove the `0 10 * * *` backstop cron, gate on `github.event.schedule`, or add a `paths:` filter to `tests.yml`'s `pull_request` trigger (see the CI rule).
 - Put scoring weights, the world lane or the podcast local lane into `calibration_bounds.json`; zero `w_local`.
@@ -122,13 +122,14 @@ Dated reports live in `reports/`; the root holds code, config, caches and runnin
 | `_changes`, `date_published` in `weekly-state-article.json` on main | The Sunday Meta Moment (`get_upstream_week_changes`) | That half of the segment goes empty |
 | `_actions`, `_verdict` in `weekly-state-article.json` on main | The daily roadmap fixer's prompt (a scheduled Claude task) | The audit's findings go back to being reported and owned by nobody |
 | `feed-local.json` | The podcast's `daily-podcast.yml` | — |
+| `proposals/` on main: the fixer's `queue.json`, the producer's `decisions.json` (review.html's Proposals tab) | The podcast's roadmap fixer (a scheduled Claude task) writes the queue and acts on the decisions each morning | A call is never acted on, or the tab shows a stale queue |
 | The week's local stories in `feed-podcast-saturday.json`, aired or not (`local_lane_week`) | The podcast's Saturday recall (`recall_week_local`) | Saturday's roundup loses its week in the Cariboo |
 | The Brave Search key | Both repos' monthly cap | The podcast's research budget runs out |
 
 ## Automation, and who fixes what
 
 - **Bots:** `generate-feed` commits caches to `main` and deploys gh-pages; `refresh-hot` and `refresh-editorial` write gh-pages only; `weekly-maintenance` commits `config/`, logs, `feeds.opml` and `reports/` to `main`, auto-merges the discovery PR and opens the standing-preferences PR. Bot pushes and bot PRs (`GITHUB_TOKEN`) trigger no workflows, so the weekly jobs run the tests themselves before committing.
-- **Scheduled Claude tasks that touch this repo** (from the podcast side): the daily **roadmap fixer** may open and merge `claude/roadmap-*` PRs here when the root cause is upstream; the weekly **roadmap triage** only reads. One-shot check-ins after a merge use `/check-nightly <PR>`, which reports and never opens a PR.
+- **Scheduled Claude tasks that touch this repo** (from the podcast side): the daily **roadmap fixer** may open and merge `claude/roadmap-*` PRs here when the root cause is upstream, writes `proposals/queue.json` to main each morning and acts on the producer's calls in `proposals/decisions.json`; the weekly **roadmap triage** only reads. One-shot check-ins after a merge use `/check-nightly <PR>`, which reports and never opens a PR.
 - **Before fixing a feed or podcast-pool symptom**, list open PRs and non-main branches on both repos: a fix may already be in flight from the roadmap fixer or another session.
 
 ## Decision records

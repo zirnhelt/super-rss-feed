@@ -628,3 +628,38 @@ and pool sizes are unchanged, so the stratum weights hold. Once every category c
 the order is the old one. Not fixed here: Miscellany. A review item records
 `article.category`, not `reader_category()`, so a Dezeen rating counts under design and
 Miscellany reads 0 whatever the rotation does.
+
+## The Proposals tab (2026-11-18)
+
+The roadmap fixer (the podcast repo's daily scheduled Claude task) ends every run with the
+producer's episode notes diagnosed and numbered for approval, plus the unmerged work on both repos.
+Approvals came back as chat replies ("1,2&3", "build 1-5"), so anything not answered that morning
+scrolled away: on Nov 18 four proposals from Nov 12 to 16 were still waiting. The producer asked for
+them on the review page, with a way to comment.
+
+**Design.** Two files on main, one writer each:
+
+- `proposals/queue.json`, written by the fixer through the Contents API at the end of each run
+  (`[skip ci]`). `{"generated_at", "items": [...], "done": [...]}`. An item is
+  `{"id", "kind": "proposal"|"pr"|"branch", "repo", "title", "detail", "fix", "url", "links":
+  [{"label", "url"}], "since": "YYYY-MM-DD", "draft", "ci": "green"|"red"|"pending"|"none",
+  "merge": "clean"|"conflict", "response", "acted": {"decided_at", "outcome"}}`. Ids are
+  `note:<date>:<slug>`, `pr:<repo>#<n>`, `branch:<repo>:<name>`. Plain text only; links https.
+  `done` holds the past 7 days' finished items `{"title", "outcome", "at", "url"}`.
+- `proposals/decisions.json`, written only by the page with the token it already uses (fine-grained,
+  this repo only, Contents). `{"updated_at", "decisions": [{"id", "kind", "title", "verdict":
+  "approve"|"decline"|null, "comment", "decided_at"}]}`. Rows are appended; the latest row per id is
+  the producer's whole answer (a comment alone carries the pending call, a withdrawn call saves as
+  null). Rows older than 90 days drop off on the next save. Edits from a session are denied in
+  settings, like `feedback/`.
+
+The fixer acts on every item whose latest row is newer than its `acted.decided_at`: approve builds a
+proposal, merges a PR on green (a draft is marked ready first) or opens a PR for a branch and merges
+it on green; decline drops a proposal, closes a PR or deletes a branch; a comment is answered in
+`response` and folded into the work. It then copies the row's `decided_at` into `acted`.
+
+**Why the page does not merge.** It could, with a wider token (the podcast repo, pull requests
+write). That would put a second merge path beside the fixer's, without its checks (green `pytest` on
+the current head, `mergeable_state` clean, `expectedHeadSha`), on a public page. The cost of keeping
+one path is latency: a call made after the morning run waits for the next one. Approving in the
+fixer's chat thread still works for anything urgent.
