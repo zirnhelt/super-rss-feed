@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-17 (Tuesday)
+
+#### 🔧 Manual Run (10:12 PM Pacific)
+- ⚠️ **GN Western Producer** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:producer.com&hl=en-CA&gl=CA&ceid=`
+- ⚠️ **GN AgWeb** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en`
+- ⚠️ **GN The Walrus** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en-CA&gl=CA&ceid=`
+- ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c`
+- ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
+- ⚠️ **GN Country Guide** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:country-guide.ca&hl=en&gl=CA&ceid`
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-16 (Monday)
 
 #### 🔧 Manual Run (10:10 PM Pacific)
@@ -98,17 +114,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-09 (Monday)
-
-#### 🔧 Manual Run (10:10 PM Pacific)
-- ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
-- ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing, privacy
 
 
 ---
@@ -1803,6 +1808,16 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
 - ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing, diplomacy
+
+
+---
+
+
+
+## Week of 2026-11-09–2026-11-09
+- 2 issues recorded
+- ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
+- ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing, privacy
 
 
 ---
