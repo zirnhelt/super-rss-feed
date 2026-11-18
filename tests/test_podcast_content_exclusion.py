@@ -56,6 +56,14 @@ class TestCrimeIncidents:
             'Accused in drug bust in Williams Lake to go to trial early next year',
             '', 'local')
 
+    def test_a_court_case_behind_a_vague_headline(self):
+        """Episode note 2026-11-17: 'Drug trial wraps up in Quesnel' opened the roundup.
+        The headline reads like a clinical trial; the body says court and charges."""
+        assert m._is_general_crime_story(
+            'Drug trial wraps up in Quesnel',
+            'A two-day trial in provincial court ended Friday; the accused faces '
+            'trafficking, weapons and flight-from-police charges.', 'local')
+
     def test_assault_with_justice_context(self):
         """'assault' is ambiguous; 'RCMP investigating' is what settles it."""
         assert m._is_general_crime_story(
@@ -94,6 +102,14 @@ class TestCrimeFalsePositives:
         assert not m._is_general_crime_story(
             'Egypt must account for Sudanese journalist Ataf Mohamed Mokhtar',
             'He was arrested in Cairo and remains in custody.', 'news')
+
+    def test_a_clinical_trial_is_not_a_court_case(self):
+        assert not m._is_general_crime_story(
+            'Drug trial shows promise for early dementia',
+            'Researchers at UBC enrolled 400 patients in the phase 2 study.', 'news')
+        assert not m._is_general_crime_story(
+            'Synchron Pauses Trials of Its Brain Implant Due to Performance Issues',
+            '', 'news')
 
     def test_wildlife_act_sentencing_is_an_outdoors_story(self):
         assert not m._is_general_crime_story(
