@@ -139,6 +139,15 @@ aired Quesnel story, and no false positives. A vehicle collision is not a crime 
 the rule is not widened for it; the standing line "Police blotter and crashes" covers
 it, and clears those stories from `feed-local.json` too (the reader's choice).
 
+Crime refit, 2026-11-18: bare `trial` joined the **ambiguous** tier after "Drug trial wraps
+up in Quesnel" opened the 2026-11-17 roundup (a trafficking, weapons and police-flight
+case; `on trial` was the only listed form). The headline reads like a clinical trial, and
+the producer's note said as much: headlines like that can't be predicted, so the fix is
+the general word with the justice-context test behind it, not that headline's phrasing.
+Against the 3,190 unique live pool and bank items it adds one hit, the Quesnel story; the
+other `trial` titles (a brain-implant trial, dairy drone trials, a press-freedom referral)
+stay. `trials` is left out: clinical trials are the plural's usual sense.
+
 **The verdict is a snapshot, so a new rubric line arrives gradually.** The gate judges
 only articles new to its 48-hour cache, and a rubric change re-asks only those. A pool entry
 or bank row older than that takes the new ruling only when the article is judged again, so
