@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-11-18T16:00:51Z",
+  "items": [
+    {
+      "id": "note:2026-11-16:bare-focus-words",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Other days' focuses match stray stories on bare name words",
+      "detail": "Same defect as the Sunday fix in #566: a focus's name words count as keywords, so common words in other days' focus names admit unrelated stories to the deep-dive pool. The bare words are \"life\", \"field\", \"land\", \"live\", \"development\", and \"climate\" on Friday.",
+      "fix": "Give those focuses name_keywords phrases in config/super_cycles.json, as #566 did for The Living World, Earth Systems and Discovery. No API cost.",
+      "source": "Episode notes, 2026-11-16",
+      "since": "2026-11-16",
+      "links": [
+        {
+          "label": "#566 (the Sunday fix)",
+          "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/566"
+        }
+      ]
+    },
+    {
+      "id": "note:2026-11-12:followup-correction",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Air the half of the Nov 12 pronunciation correction that was dropped",
+      "detail": "The Nov 12 production correction (prod1108) aired its core but dropped three pieces you asked for: that the voices are English-trained, won't get every name right, and the show hopes to keep learning; the Tl'esqox best reading and the invitation to write in; and \"each community is the final authority\".",
+      "fix": "Queue a short second production correction, dated the next Thursday after you approve, carrying only those three pieces. It airs at the end of that day's roundup.",
+      "source": "Nov 12 report",
+      "since": "2026-11-12"
+    },
+    {
+      "id": "note:2026-11-12:corrections-prompt",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Every point of a production correction airs",
+      "detail": "The script writer condensed the Nov 12 correction to what was said, when, what's right and who caught it, which is what the corrections prompt asks for, and dropped the rest.",
+      "fix": "One line in the corrections prompt: condense a production correction's wording, never drop one of its points. About 25 prompt tokens a night.",
+      "source": "Nov 12 report",
+      "since": "2026-11-12"
+    },
+    {
+      "id": "note:2026-11-13:citation-two-turns",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Let the citation check count two host turns in a row together",
+      "detail": "A story told across two adjacent host turns (the Tyee case) can read as uncited when neither turn alone matches its source.",
+      "fix": "Match a citation against two consecutive turns as well as one. Worth building only if the false alarm comes back.",
+      "source": "Nov 13 report",
+      "since": "2026-11-13"
+    }
+  ],
+  "done": [
+    {
+      "title": "Crime filter catches a court story behind a vague headline",
+      "outcome": "merged",
+      "at": "2026-11-18",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/390"
+    },
+    {
+      "title": "Williams Lake leads the local block every day",
+      "outcome": "merged",
+      "at": "2026-11-18",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/569"
+    },
+    {
+      "title": "The hosts may agree; a roundup reaction rests on the story",
+      "outcome": "merged",
+      "at": "2026-11-18",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/570"
+    },
+    {
+      "title": "Review lists what Brave and Kagi were spent on",
+      "outcome": "merged",
+      "at": "2026-11-18",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/571"
+    }
+  ]
+}
