@@ -2240,6 +2240,21 @@ def _kagi_enrich_articles(
             print(f"     HTTP {status} body: {body}")
 
 
+# Every card in a homepage's top block is read; past it, only cards that name a Cariboo
+# place. The 100 Mile Free Press homepage opens with ten "latest" cards, four of them
+# South Cariboo stories and six syndicated (Vernon, Victoria, the Okanagan), and runs
+# its local section in cards 11-25: on 2026-11-18 five South Cariboo stories sat there,
+# unread, while the audit flagged 100 Mile House as a place the pool never carries.
+SCRAPE_TOP_CARDS = 10
+SCRAPE_MAX_CARDS = 40
+
+
+def _names_cariboo_place(text: str) -> bool:
+    """Whether a card's own text names a `local_signals` place."""
+    text = text.lower()
+    return any(signal.lower() in text for signal in FILTERS.get('local_signals', []))
+
+
 def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_sel, cache,
                       base_url: str = 'https://wltribune.com'):
     """Attempt to extract one paper's articles using a specific set of CSS selectors.
@@ -2253,7 +2268,9 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
         return []
 
     articles = []
-    for article_div in containers[:10]:
+    seen_urls: set = set()
+    for position, article_div in enumerate(containers[:SCRAPE_MAX_CARDS]):
+        below_top = position >= SCRAPE_TOP_CARDS
         try:
             link_elem = article_div.select_one(link_sel) if link_sel else article_div.find('a')
             if not link_elem:
@@ -2268,13 +2285,18 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
             else:
                 full_url = f"{base_url}{href}"
 
-            # Skip links off the paper's own site (ads, external)
-            if domain not in full_url:
+            # Skip links off the paper's own site (ads, external), and a story the page
+            # lists twice (its "latest" block and its local section)
+            if domain not in full_url or full_url in seen_urls:
                 continue
+            seen_urls.add(full_url)
 
             url_hash = hashlib.md5(full_url.encode()).hexdigest()
             cached = cache.get(url_hash)
             if isinstance(cached, dict):
+                if below_top and not _names_cariboo_place(
+                        f"{cached.get('title', '')} {cached.get('description', '')}"):
+                    continue
                 if _READ_TIME_RE.match(cached.get('description', '')):
                     cached.update(description='', summary='', excerpt='')
                 articles.append(cached)
@@ -2287,6 +2309,10 @@ def _try_wlt_selector(soup, container_sel, link_sel, title_sel, desc_sel, img_se
             description = desc_elem.get_text(strip=True) if desc_elem else ''
             if _READ_TIME_RE.match(description):
                 description = ''
+            # Checked before the body fetch, so a syndicated card below the top block
+            # costs nothing.
+            if below_top and not _names_cariboo_place(f"{title} {description}"):
+                continue
 
             img_elem = article_div.select_one(img_sel) if img_sel else None
             image_url = None

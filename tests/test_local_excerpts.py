@@ -125,6 +125,43 @@ def test_every_configured_paper_is_scraped_under_its_own_name(tmp_path, monkeypa
     }
 
 
+def _wp_card(href: str, title: str) -> str:
+    return f'<article><a href="{href}"><h2>{title}</h2></a><p>A short dek.</p></article>'
+
+
+def test_local_cards_below_the_top_block_are_read(monkeypatch):
+    """Feed state `starved-places`: the 100 Mile Free Press runs its local section in
+    cards 11-25, under ten "latest" cards; the scraper stopped at ten (2026-11-18)."""
+    monkeypatch.setattr(m, '_fetch_article_excerpt', lambda *a, **k: '')
+    base = 'https://100milefreepress.net'
+    top = [_wp_card(f'{base}/2026/11/1{i}/latest-{i}/', f'Vernon story {i}') for i in range(10)]
+    below = [_wp_card(f'{base}/2026/11/17/markets/', 'South Cariboo holiday markets support local'),
+             _wp_card(f'{base}/2026/11/17/canucks/', 'Canucks win 3-2 over Utah'),
+             _wp_card(f'{base}/2026/11/16/legion/', 'Remembrance Day at the 100 Mile House Legion'),
+             _wp_card(f'{base}/2026/11/17/markets/', 'South Cariboo holiday markets support local')]
+    soup = m.BeautifulSoup(''.join(top + below), 'html.parser')
+
+    articles = m._try_wlt_selector(soup, 'article', 'a', 'h2', 'p', 'img', {}, base)
+    titles = [a['title'] for a in articles]
+
+    assert titles[:10] == [f'Vernon story {i}' for i in range(10)], 'the top block is read whole'
+    assert titles[10:] == ['South Cariboo holiday markets support local',
+                           'Remembrance Day at the 100 Mile House Legion']
+
+
+def test_a_cached_card_below_the_top_block_needs_a_place_too(monkeypatch):
+    monkeypatch.setattr(m, '_fetch_article_excerpt', lambda *a, **k: '')
+    base = 'https://100milefreepress.net'
+    cards = [_wp_card(f'{base}/top-{i}/', f'Top {i}') for i in range(10)]
+    cards.append(_wp_card(f'{base}/sport/', 'Grey Cup'))
+    url = f'{base}/sport/'
+    cache = {m.hashlib.md5(url.encode()).hexdigest(): {'title': 'Grey Cup', 'link': url,
+                                                       'description': ''}}
+    articles = m._try_wlt_selector(m.BeautifulSoup(''.join(cards), 'html.parser'),
+                                   'article', 'a', 'h2', 'p', 'img', cache, base)
+    assert 'Grey Cup' not in [a['title'] for a in articles]
+
+
 def test_one_paper_down_does_not_stop_the_others(tmp_path, monkeypatch):
     def fake_get(url, **kwargs):
         if 'quesnel' in url:
