@@ -275,3 +275,24 @@ all: pages from Brave results and the feed links on them were fetched with bare 
   an unknown path with an HTML page.
 
 The podcast repo carries the same guard (`_get_public`) and got the same size and time caps.
+
+## The scraper reads below the homepage's top block (2026-11-18)
+
+The audit's `starved-places` row (owner fixer, open 6 weeks): "100 mile house: 69.6% wanted, 0
+in the pool". The 7-day podcast pool held 1,551 items, none naming 100 Mile House, and 4 from
+the 100 Mile Free Press against 22 from the Tribune. Every Free Press local story the scraper
+saw reached the pool (one hospital event was a gate reject). The scraper just saw few of them.
+`_try_wlt_selector` read the first 10 cards of each homepage. The Free Press opens with a
+"latest" block of ten (that night: four South Cariboo stories, six syndicated from Vernon,
+Victoria, Sidney and the Okanagan) and runs its local section in cards 11-25. Five South
+Cariboo stories sat there unread: Remembrance Day, two holiday-market pieces, the PSO haunted
+house and an evening of song.
+
+The top `SCRAPE_TOP_CARDS` (10) cards are still read whole. Below them, up to
+`SCRAPE_MAX_CARDS` (40), a card is read only when its title or dek names a `local_signals`
+place, checked before the body fetch, so a syndicated card further down costs nothing. A
+story listed twice on one page is read once. Replayed on that night's homepage: 6 cards
+became 11, the five South Cariboo stories, and none of the sports or entertainment cards
+below them. Whether this clears the row is the next audit's call. Most Free Press stories
+say "South Cariboo", not "100 Mile House", and the audit's place test needs the town's name
+in the text or excerpt.
