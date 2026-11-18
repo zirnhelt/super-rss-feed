@@ -13,6 +13,27 @@
   "language": "en",
   "items": [
     {
+      "id": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-18.html",
+      "url": "https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-18.html",
+      "title": "[Cariboo Signals Reviews] Episode Review — Repair Culture & Practical Tech, November 18, 2026",
+      "content_html": "<p class=\"meta\">Theme: Repair Culture &amp; Practical Tech. Focus: Maker &amp; Repair (week 1 of 5). Run <a href=\"https://github.com/zirnhelt/curated-podcast-generator/actions/runs/44264007315\">44264007315</a>.</p>\n<div class=\"verdict lvl-warn\"><span class=\"icon\">▲</span><div><strong>Shipped, needs a look</strong>2 things to look at before tomorrow's run.</div></div>\n<h2>What to do</h2>\n<ol class=\"actions\">\n<li><strong>Investigate.</strong><br/><span class=\"evidence\">the deep dive had no Cariboo story or angle</span></li>\n<li><strong><code>script/roundup-echo</code> fell back. Search the run log for <code>Degraded 'script/roundup-echo'</code> and decide whether the fallback is acceptable or the cause needs fixing.</strong><br/><span class=\"evidence\">degrade() row: 3 deep dive line(s) still retell the roundup after polish, e.g. \"Same card, different software on the Arc A750: local AI went from about 19 to 22 tokens per sec</span></li>\n</ol>\n<h2>What happened</h2>\n<h3>Two segments aired under budget and one more retry came back short</h3>\n<p>The first draft of the script came in at <code>2940</code> words against a target of <code>3400</code>, so it was sent back for one expand pass. The shipped script is <code>3767</code> words. The pipeline did not truncate to hit the target; it accepted the overage.</p>\n<p>Four TTS takes came back shorter than their word count predicts. Each was retried once, and <code>3</code> of those retries were still short. The longer take of each pair was kept, so nothing was dropped from the episode, but those three segments may run quieter or faster than the rest. The audio itself is the place to check.</p>\n<h3>The roundup opened on local news and the deep dive drifted from its charter</h3>\n<p>The roundup pool kept <code>18</code> stories, <code>14</code> on theme and <code>4</code> local. The airtime budget cut <code>34</code> stories from the pool. All <code>4</code> local stories aired, and the roundup opened with them. The deep dive led on a charter-aligned item (p100), but the script still retold roundup material: <code>3</code> deep dive lines repeated the roundup after polish, including the Arc A750 tokens-per-second example. This is a script-level overlap the polish pass did not remove.</p>\n<p>The local-first opening is the designed behaviour, and the cut stories remain in the pool for a later day. The deep dive overlap is the item to act on: tighten the deep dive prompt so it does not re-explain roundup items, or add a check that rejects deep dive sentences that repeat a roundup card's specific figures.</p>\n<h3>The day's triggers</h3>\n<table>\n<thead><tr><th>Trigger</th><th>Created</th><th>Drift</th><th>Outcome</th></tr></thead>\n<tbody>\n<tr><td>Primary (1:05 AM Pacific) — Cloudflare scheduler</td><td>1:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler</td><td>2:05 AM Pacific</td><td>+0 min</td><td>success</td></tr>\n<tr><td>Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review's own run</td><td>3:05 AM Pacific</td><td>+0 min</td><td>running this review</td></tr>\n</tbody>\n</table>\n<h3>What shipped</h3>\n<table>\n<thead><tr><th>Measure</th><th>Value</th></tr></thead>\n<tbody>\n<tr><td>Articles loaded</td><td>68</td></tr>\n<tr><td>Kept after dedup</td><td>57</td></tr>\n<tr><td>Held / released</td><td>2 released, 3 held</td></tr>\n<tr><td>Roundup pool</td><td>18 stories — theme:14, local:4</td></tr>\n<tr><td>Deep dive</td><td>4 articles</td></tr>\n<tr><td>Script</td><td>0 pattern hit(s), voice ratio 0.87, 3767 words</td></tr>\n<tr><td>Deep dive split</td><td>Casey 47% of the words</td></tr>\n<tr><td>Audio</td><td>22.1 min</td></tr>\n<tr><td>Audio size</td><td>20.2 MB</td></tr>\n<tr><td>Citations matched</td><td>15/18 roundup, 3/4 deep dive</td></tr>\n<tr><td>Feed</td><td>294 episodes</td></tr>\n<tr><td>Anthropic input tokens</td><td>85,334</td></tr>\n<tr><td>API calls</td><td>146 total: openai-tts 112 · claude 11 · brave-search 8 · kagi-extract 6 · cohere 5 · brave-answers 4</td></tr>\n<tr><td>Anthropic cost</td><td>$0.16 at list price (estimate)</td></tr>\n<tr><td>Total cost</td><td>$0.72 at list price: OpenAI TTS $0.323 · Anthropic $0.165 · Brave Answers $0.164 · Brave Search $0.040 · Kagi Extract $0.024 · Cohere $0.003</td></tr>\n</tbody>\n</table>",
+      "date_published": "2026-11-18T10:06:32+00:00",
+      "authors": [
+        {
+          "name": "Cariboo Signals Reviews",
+          "url": "https://zirnhelt.github.io/curated-podcast-generator"
+        }
+      ],
+      "_score": 0,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0,
+      "_local": true,
+      "tags": [
+        "local-priority"
+      ]
+    },
+    {
       "id": "https://100milefreepress.net/2026/11/17/south-cariboo-vendors-offer-unique-homemade-gifts/",
       "url": "https://100milefreepress.net/2026/11/17/south-cariboo-vendors-offer-unique-homemade-gifts/",
       "title": "[100 Mile Free Press] South Cariboo vendors offer unique homemade gifts",
