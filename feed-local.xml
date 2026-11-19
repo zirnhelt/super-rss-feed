@@ -6,13 +6,68 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Thu, 19 Nov 2026 06:13:15 +0000</lastBuildDate>
+<lastBuildDate>Thu, 19 Nov 2026 10:30:04 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Indigenous Lands &amp; Innovation, November 19, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-19.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-19.html</guid>
+<pubDate>Thu, 19 Nov 2026 10:06:01 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Theme: Indigenous Lands &amp;amp; Innovation. Focus: Language &amp;amp; Culture (week 2 of 4). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/44484681869&quot;&gt;44484681869&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;3 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Investigate.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;the deep dive had no Cariboo story or angle&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/kagi-extract&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/kagi-extract&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Kagi Extract reply matched no page for 6 of 6 URLs sent&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/pronunciation&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/pronunciation&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: 1 name(s) with no entry in config/pronunciations.json: ʔEten&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Two degradations shaped the audio and the script&lt;/h3&gt;
+&lt;p&gt;The script&#x27;s Kagi Extract step returned no matching page for 6 of 6 URLs sent, so the script was written without the extracted article text it normally draws on. The pipeline did not stop; it went on to write from the feed material alone. The listener gets the same show structure, but the detail behind the four deep-dive stories comes from fewer sources than usual.&lt;/p&gt;
+&lt;p&gt;Separately, a name in the script, ʔEten, has no entry in config/pronunciations.json, so the text-to-speech engine guessed at its pronunciation. Add the entry before the next run that names it.&lt;/p&gt;
+&lt;h3&gt;The roundup opened on local news and cut 21 stories&lt;/h3&gt;
+&lt;p&gt;The roundup pool held 18 stories after deduplication, and the airtime budget (NEWS_ROUNDUP_COUNT) dropped 21 more. The pool is designed to be larger than one segment can air, so the cut is expected; the dropped stories can return on a day that matches them better. The roundup aired 5 local stories against 4 available, and it opened with local news. Nothing was split across subjects.&lt;/p&gt;
+&lt;p&gt;Of the 18 pooled stories, 12 of 18 roundup citations matched their sources. Of the 4 deep dives, 3 of 4 citations matched.&lt;/p&gt;
+&lt;h3&gt;Four focus-routed articles were held and none released&lt;/h3&gt;
+&lt;p&gt;The cycle is in week 2 of 4 on the Language &amp;amp; Culture focus. Four articles were routed to other focuses and held, and 0 were released for this focus, so the held articles are not in tonight&#x27;s episode. Two are headed for The Living World and two for Mining &amp;amp; Energy. Their release dates are 2026-11-22 and 2026-11-24. Check that the held articles will be released on those dates; if the focus rotation is shorter than the holds, they will wait a full cycle.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Articles loaded&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kept after dedup&lt;/td&gt;&lt;td&gt;47&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Held / released&lt;/td&gt;&lt;td&gt;0 released, 4 held&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Roundup pool&lt;/td&gt;&lt;td&gt;18 stories — theme:11, local:4, life_sciences:2, kicker:1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;1 pattern hit(s), voice ratio 0.97, 3223 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 49% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;20.1 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;18.4 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;12/18 roundup, 3/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;295 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;77,912&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;126 total: openai-tts 87 · brave-search 13 · claude 12 · kagi-extract 6 · brave-answers 4 · cohere 4&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic cost&lt;/td&gt;&lt;td&gt;$0.14 at list price (estimate)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.68 at list price: OpenAI TTS $0.287 · Brave Answers $0.164 · Anthropic $0.141 · Brave Search $0.065 · Kagi Extract $0.024 · Cohere $0.001&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] South Cariboo’s inaugural Evening of Song a humble success</title>
 <link>https://100milefreepress.net/2026/11/11/south-cariboos-inaugural-evening-of-song-a-humble-success/</link>
