@@ -189,3 +189,37 @@ def test_no_wildcard_when_nothing_clears_the_quality_bar(monkeypatch):
     out = m.apply_feed_slot_allocation([_wc('news', 90, 60, relevance=90), weak])
 
     assert weak not in out
+
+
+def test_the_wildcard_skips_the_readers_misses_and_takes_the_next(monkeypatch):
+    """Reader, 2026-11-19: keep the wildcard but filter out bad news and US-politics
+    outlets. 12 of 18 November wildcards were rated bad, 4 for US politics and 3 for
+    bad news; the 6 the reader liked would all still have run."""
+    monkeypatch.setattr(m, 'FEED_SLOTS', {'news': {'min_slots': 1, 'max_slots': 1},
+                                          'default': {'min_slots': 1, 'max_slots': 5}})
+    monkeypatch.setattr(m, 'LIMITS', dict(m.LIMITS, min_claude_score=10,
+                                          min_score_by_category={}))
+    in_feed = _wc('news', 90, 60, relevance=90)
+    # A [show] line flags it (US politics); the news feed lets it through, the wildcard doesn't.
+    show_line = _wc('news', 40, 90, relevance=10, gate_scored=True)
+    show_line.gate_show_reject = True
+    outlet = _wc('news', 35, 85, relevance=10)
+    outlet.source = 'NYT Top Stories'
+    grim = _wc('news', 32, 80, relevance=10)
+    grim.title = "'These men feel protected': how Mexico's first femicide squad works"
+    surprise = _wc('news', 30, 70, relevance=20)
+    surprise.title = 'Apollo 12 lightning strikes prompted NASA to tighten launch rules'
+
+    out = m.apply_feed_slot_allocation([in_feed, show_line, outlet, grim, surprise])
+
+    assert out == [in_feed, surprise] and surprise.wildcard
+    assert [m._wildcard_screened(a) for a in (show_line, outlet, grim, surprise)] == [
+        'reader line', 'US-politics outlet', 'bad news', None]
+
+
+def test_a_bad_news_term_is_a_whole_word():
+    a = types.SimpleNamespace(title='Deadline extended for the Wildlife grant', source='X',
+                              gate_reject=None)
+    assert m._wildcard_screened(a) is None
+    a.title = 'Klaus-Michael Kühne Has Died'
+    assert m._wildcard_screened(a) == 'bad news'

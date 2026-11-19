@@ -3632,6 +3632,30 @@ NEWS_INTEREST_RESERVE_SHARE = 0.4
 # interest miss in the deep-score prompt's own bands.
 WILDCARD_MIN_Q_GATE = 55
 WILDCARD_MAX_RELEVANCE = 40
+# The reader kept the slot but not its misses (2026-11-19): 12 of 18 November
+# wildcards were rated bad, 4 for US politics and 3 for bad news. Outlets come from
+# config/filters.json; a title term is a whole word or phrase.
+WILDCARD_EXCLUDED_SOURCES = frozenset(s.lower() for s in FILTERS.get('wildcard_excluded_sources', []))
+_WILDCARD_BAD_NEWS = [t.lower() for t in FILTERS.get('wildcard_bad_news_terms', [])]
+WILDCARD_BAD_NEWS_RE = (re.compile(r'\b(?:' + '|'.join(map(re.escape, _WILDCARD_BAD_NEWS)) + r')\b', re.I)
+                        if _WILDCARD_BAD_NEWS else None)
+
+
+def _wildcard_screened(article) -> Optional[str]:
+    """Why an article can't be the day's wildcard, or None when it can.
+
+    A surprise the reader would want, so: nothing the gate flagged under any of the
+    reader's lines, `[show]` ones included (US politics and elections, warfare,
+    non-local bad news), which the news feed otherwise lets through; nothing from an
+    outlet the reader mostly rates as US politics; no title on a death or atrocity.
+    """
+    if _show_verdict(article):
+        return 'reader line'
+    if (getattr(article, 'source', '') or '').lower() in WILDCARD_EXCLUDED_SOURCES:
+        return 'US-politics outlet'
+    if WILDCARD_BAD_NEWS_RE and WILDCARD_BAD_NEWS_RE.search(getattr(article, 'title', '') or ''):
+        return 'bad news'
+    return None
 
 
 def _interleave_reserved(primary: List[Article], reserved: List[Article],
@@ -4340,6 +4364,7 @@ def apply_feed_slot_allocation(articles: List[Article]) -> List[Article]:
                                        reverse=True)
                      if id(a) not in included_ids
                      and not _feed_rejects(a)
+                     and not _wildcard_screened(a)
                      and (getattr(a, 'q_gate', None) or 0) >= WILDCARD_MIN_Q_GATE
                      and (getattr(a, 'gate_scored', False)
                           or getattr(a, 'relevance', 0) < WILDCARD_MAX_RELEVANCE)), None)

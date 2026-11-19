@@ -663,3 +663,30 @@ write). That would put a second merge path beside the fixer's, without its check
 the current head, `mergeable_state` clean, `expectedHeadSha`), on a public page. The cost of keeping
 one path is latency: a call made after the morning run waits for the next one. Approving in the
 fixer's chat thread still works for anything urgent.
+
+## The wildcard skips the reader's misses (2026-11-19)
+
+Of the 18 wildcards the reader rated in November, 1 was wanted in the feed, 5 for the show
+only and 12 were bad: 4 noted "US politics" (NYT Top Stories, NYT Business, Science-Based
+Medicine, NYT Well) and 3 "Bad news" (Kühne's death, Mexico's femicide squad, Deutsche Bank and
+Russian oligarchs). Offered retiring the slot, the reader kept it: "keep the wildcard but filter
+out bad news and US-politics outlets".
+
+`_wildcard_screened` passes over three kinds of story and the next-best candidate takes the slot:
+
+- **Anything the gate flagged under a reader line, `[show]` included.** The slot only checked
+  `_feed_rejects`, which lets a `[show]` flag through in news; the reader's show lines already
+  name US politics and elections, warfare and non-local bad news. The same day added a line for
+  US federal health-agency politics (RFK Jr., the USPSTF), which the slot now honours.
+- **`wildcard_excluded_sources`:** outlets with a "US politics" note on at least 20% of their
+  rated stories (n >= 7) across the live ratings: Mother Jones 50%, NYT Top Stories 46%, KFF
+  Health News 43%, STAT News 33%, The Atlantic 29%, The Atlantic Culture 23%, NYT Business 21%.
+  WIRED (14%) and NYT Well (9%) stay eligible.
+- **`wildcard_bad_news_terms`:** a whole word or phrase in the title about a death or an atrocity
+  (died, killed, murder, femicide, genocide...). The podcast's own bad-news list is violent-death
+  phrases; this adds the deaths and atrocities the wildcard ratings named.
+
+Replayed on the 18 November wildcards (titles and outlets only; gate flags were not stored), the
+outlet and title screens skip 6 of the 12 bad ones and none of the 6 the reader liked. The
+reader-line check is what catches the other two US-politics ones, through the new health-agency
+line.
