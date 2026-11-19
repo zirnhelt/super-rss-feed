@@ -236,7 +236,8 @@ def validate_config() -> Dict[str, List[str]]:
         # Optional lists: blocked_keywords_unless_local, local_signals, blocked_title_patterns,
         # blocked_url_path_patterns, us_policy_signals, canadian_context_signals
         for key in ['blocked_keywords_unless_local', 'local_signals', 'blocked_title_patterns',
-                    'blocked_url_path_patterns', 'us_policy_signals', 'canadian_context_signals']:
+                    'blocked_url_path_patterns', 'us_policy_signals', 'canadian_context_signals',
+                    'wildcard_excluded_sources', 'wildcard_bad_news_terms']:
             if key in filters:
                 if not isinstance(filters[key], list):
                     errors.setdefault('filters.json', []).append(f"{key} must be list")

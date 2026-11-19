@@ -246,5 +246,19 @@
   ],
   "blocked_url_path_patterns": [
     "/sports?/"
+  ],
+  "wildcard_excluded_sources": [
+    "Mother Jones",
+    "NYT Top Stories",
+    "KFF Health News",
+    "STAT News",
+    "The Atlantic",
+    "The Atlantic Culture",
+    "NYT Business"
+  ],
+  "wildcard_bad_news_terms": [
+    "died", "dies", "death", "deaths", "dead", "killed", "kills", "murder", "homicide",
+    "femicide", "genocide", "massacre", "shooting", "stabbing", "fatal", "abuse",
+    "violence", "in memoriam", "obituary"
   ]
 }
