@@ -663,3 +663,11 @@ write). That would put a second merge path beside the fixer's, without its check
 the current head, `mergeable_state` clean, `expectedHeadSha`), on a public page. The cost of keeping
 one path is latency: a call made after the morning run waits for the next one. Approving in the
 fixer's chat thread still works for anything urgent.
+
+## Few ratings is not a finding (2026-11-19)
+
+`unmeasured-places` (owner reader) asked the reader to rate stories from any local place with
+under 5 ratings that had reached the pool; Lac La Hache held it open for four weeks. The
+reader: "a lack of ratings is not a message or signal." The finding is retired. The places
+table in the full report still shows the counts, and `starved-places` (supply: wanted but barely
+in the pool) is unchanged.

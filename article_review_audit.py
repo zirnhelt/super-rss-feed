@@ -1001,11 +1001,6 @@ FINDING_PLAYBOOK: Dict[str, Dict[str, str]] = {
                   'unanchored) and fix what keeps them out of the pool; add a source only if none exists.',
         'done_when': f'the place is in {PLACE_STARVED_POOL_PCT:g}%+ of the pool',
     },
-    'unmeasured-places': {
-        'owner': 'reader',
-        'action': 'Rate the next stories from these places when the review batch offers them.',
-        'done_when': f'{PLACE_MIN_RATINGS}+ ratings for each place',
-    },
     'unblocked-candidates': {
         'owner': 'reader',
         'action': 'Say block or keep for each source; a block goes in filters.json.',
@@ -1188,13 +1183,9 @@ def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
             ', '.join(f"{p['place']}: {p['wanted_pct']}% wanted, {p['in_pool']} in the pool "
                       f"({p['pool_pct']}%)" for p in starved)
             + f'. Baseline {baseline}% wanted.')
-    # A place the pool never carries has nothing to rate: that is supply, and the
-    # places table in the full report shows it. Flag only what reached the pool unrated.
-    unrated = [p['place'] for p in places.get('places', [])
-               if p['rated'] < PLACE_MIN_RATINGS and p['in_pool']]
-    if unrated:
-        add('unmeasured-places', 'Local places with almost no ratings',
-            f'Under {PLACE_MIN_RATINGS} ratings ever: {", ".join(unrated)}.')
+    # No finding for a place with few ratings: "a lack of ratings is not a message or
+    # signal" (the reader, 2026-11-19). The places table in the full report still shows
+    # the counts; only supply (starved-places, above) asks for work.
 
     candidates = [s for s, c in distribution.get('worst_sources', {}).items() if c.get('block_candidate')]
     if candidates:

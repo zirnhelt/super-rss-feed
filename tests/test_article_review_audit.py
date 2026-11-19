@@ -231,8 +231,9 @@ def test_starved_place_needs_appetite_ratings_and_thin_supply(monkeypatch):
                                    'in_pool': 1, 'pool_pct': 0.5}
     found = _spots(places=places)
     assert 'quesnel' in found['starved-places']['detail']
-    # Lac la Hache never reached the pool: a supply gap, not a ratings gap.
-    assert found['unmeasured-places']['detail'].endswith('horsefly.')
+    # Horsefly reached the pool with one rating: few ratings is not a finding (the
+    # reader, 2026-11-19), so nothing asks for more.
+    assert 'unmeasured-places' not in found
 
 
 def test_a_place_counts_when_only_the_source_or_excerpt_names_it():
