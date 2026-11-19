@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-11-18 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
+| 2026-11-18 | 🔧 Manual Run | ⚠️ **GN Dwell** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl=en-CA&gl=CA&ceid=CA:` |
+| 2026-11-18 | 🔧 Manual Run | ⚠️ **GN Consumer Reports** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en-CA&gl=C` |
+| 2026-11-18 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
+| 2026-11-18 | 🔧 Manual Run | ⚠️ **Tsleil-Waututh Nation** failed | `503 Server Error: Service Unavailable for url: https://twnation.ca/feed/` |
 | 2026-11-17 | 🔧 Manual Run | ⚠️ **GN Western Producer** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:producer.com&hl=en-CA&gl=CA&ceid=` |
 | 2026-11-17 | 🔧 Manual Run | ⚠️ **GN AgWeb** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en` |
 | 2026-11-17 | 🔧 Manual Run | ⚠️ **GN The Walrus** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en-CA&gl=CA&ceid=` |
@@ -41,8 +46,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-11-12 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 | 2026-11-12 | 🔧 Manual Run | ⚠️ **Climate - CBSNews.com** failed | `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate` |
 | 2026-11-12 | 🔧 Manual Run | ⚠️ **Logging and Sawmilling Journal** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
-| 2026-11-11 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
-| 2026-11-11 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -50,17 +53,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-11-18 | 🔧 manual | 103 | ai-tech:18(18%), news:15(15%), local:14(14%) |
 | 2026-11-17 | 🔧 manual | 93 | ai-tech:18(20%), news:16(18%), climate:12(13%) |
 | 2026-11-16 | 🔧 manual | 96 | ai-tech:18(19%), news:15(16%), climate:12(13%) |
 | 2026-11-15 | 🔧 manual | 81 | ai-tech:18(23%), news:14(18%), homelab:10(13%) |
 | 2026-11-14 | 🔧 manual | 87 | ai-tech:18(21%), news:14(17%), climate:12(14%) |
 | 2026-11-13 | 🔧 manual | 88 | ai-tech:18(20%), news:14(16%), climate:12(14%) |
 | 2026-11-12 | 🔧 manual | 91 | ai-tech:18(20%), news:14(15%), climate:12(13%) |
-| 2026-11-11 | 🔧 manual | 88 | ai-tech:18(20%), news:15(17%), climate:12(14%) |
 
-_Last updated by log\_feed\_results.py · 2026-11-18 06:12 UTC_
+_Last updated by log\_feed\_results.py · 2026-11-19 06:13 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

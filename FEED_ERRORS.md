@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-18 (Wednesday)
+
+#### 🔧 Manual Run (10:13 PM Pacific)
+- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
+- ⚠️ **GN Dwell** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl=en-CA&gl=CA&ceid=CA:`
+- ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en-CA&gl=C`
+- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
+- ⚠️ **Tsleil-Waututh Nation** failed — `503 Server Error: Service Unavailable for url: https://twnation.ca/feed/`
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-17 (Tuesday)
 
 #### 🔧 Manual Run (10:12 PM Pacific)
@@ -99,18 +114,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 ## 2026-11-11 (Wednesday)
 
 #### 🔧 Manual Run (10:11 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-10 (Tuesday)
-
-#### 🔧 Manual Run (10:13 PM Pacific)
 - ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ Kite News: not in this batch: canada | british columbia
@@ -1818,6 +1821,17 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 2 issues recorded
 - ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
 - ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing, privacy
+
+
+---
+
+
+
+## Week of 2026-11-10–2026-11-10
+- 3 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Kite News: not in this batch: canada | british columbia
 
 
 ---
