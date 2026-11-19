@@ -1,30 +1,14 @@
 {
-  "generated_at": "2026-11-19T14:15:38Z",
+  "generated_at": "2026-11-19T15:51:56Z",
   "items": [
     {
-      "id": "note:2026-11-19:wildcard-slot",
+      "id": "note:2026-11-19:digest-clicks",
       "kind": "proposal",
       "repo": "super-rss-feed",
-      "title": "Retire the daily wildcard from your feeds",
-      "detail": "The wildcard is the day's best gate-scored story your interests missed, added on top of the feed slots. In November you rated 18 of them: 1 wanted in the feed, 5 for the show only, 12 bad. Four of the bad were US politics (Trump and science funding, Rubio and Nvidia, NIH trials, today's RFK Jr. and the USPSTF) and three were bad news (Kuehne's death, Mexico's femicide squad, Deutsche Bank and Russian oligarchs). The gate passed all seven, so the slot is spending its day on the gate's misses.",
-      "fix": "Drop pass 3 (the wildcard) from the reader feeds and the review batch's wildcard stratum. The alternative, if you want to keep a surprise slot: screen it with the podcast's bad-news filter and leave US-politics outlets out of it. No API cost either way.",
-      "source": "Article ratings, Nov 1-19",
-      "since": "2026-11-19",
-      "links": [
-        {
-          "label": "today's wildcard",
-          "url": "https://www.nytimes.com/2026/11/18/well/rfk-jr-uspstf-health-care.html"
-        }
-      ]
-    },
-    {
-      "id": "note:2026-11-19:us-health-policy",
-      "kind": "proposal",
-      "repo": "super-rss-feed",
-      "title": "US health-policy fights keep getting past your US-politics line",
-      "detail": "Second RFK Jr. / HHS story through the gate in 12 days: NYT Well on RFK Jr. and the USPSTF (today, the wildcard, shipped in the wellness feed and sitting in the podcast pool at a Sunday charter score of 57), after Forbes on HHS and unapproved peptides (Nov 8, shipped and in the pool). Science-Based Medicine on NIH-funded trials (Nov 10) is the same family. The gate reads them as health stories, not US politics.",
-      "fix": "One line in standing_preferences.txt naming US federal health and science policy fights (HHS, NIH, CDC, FDA, USPSTF, RFK Jr.) as US politics. That file is yours: approving this is the ask, and I would open it as a PR for you to merge. Sunday's standing-preferences job may also propose it from these notes.",
-      "source": "Article ratings, Nov 8 and 19",
+      "title": "Count your clicks in \"Also in the news\" as a training signal",
+      "detail": "The digest item in the news feed (and also-in-the-news.html) lists up to 15 widely covered stories a night with direct links, so nothing records which ones you open. This week's headline-misses row says 317 of the 384 missed stories were ranked out by your interests. Your clicks are the evidence that would show whether that ranking is missing things you want, and which outlets and subjects it misses.",
+      "fix": "Send each digest link through a small redirect on the Cloudflare Worker the scheduler already runs: it notes the story and the date in Cloudflare KV (no IP or device) and forwards you to the article. The nightly reads the day's clicks with a secret and saves them beside your ratings as clicks, never as ratings. The audit reports click-through by category and outlet, and the reader model takes a click as a weak positive. You would create one KV namespace and one secret in Cloudflare. Free tier, no API cost. Caveat: a reader app that prefetches links would count as clicks.",
+      "source": "Your note, 2026-11-19",
       "since": "2026-11-19"
     },
     {
@@ -55,6 +39,18 @@
     }
   ],
   "done": [
+    {
+      "title": "Keep the wildcard but skip bad news, US-politics outlets and your own lines",
+      "outcome": "merged",
+      "at": "2026-11-19",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/393"
+    },
+    {
+      "title": "Standing preference: US federal health-agency politics (RFK Jr., HHS, USPSTF...)",
+      "outcome": "merged",
+      "at": "2026-11-19",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/392"
+    },
     {
       "title": "Kagi Extract sends each page alone (tonight's fix: one slow site emptied all six pages)",
       "outcome": "merged",
@@ -112,7 +108,7 @@
       "title": "Review lists what Brave and Kagi were spent on",
       "outcome": "merged",
       "at": "2026-11-18",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/571"
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/571"
     }
   ]
 }
