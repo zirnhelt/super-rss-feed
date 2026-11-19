@@ -690,3 +690,11 @@ Replayed on the 18 November wildcards (titles and outlets only; gate flags were 
 outlet and title screens skip 6 of the 12 bad ones and none of the 6 the reader liked. The
 reader-line check is what catches the other two US-politics ones, through the new health-agency
 line.
+
+## Few ratings is not a finding (2026-11-19)
+
+`unmeasured-places` (owner reader) asked the reader to rate stories from any local place with
+under 5 ratings that had reached the pool; Lac La Hache held it open for four weeks. The
+reader: "a lack of ratings is not a message or signal." The finding is retired. The places
+table in the full report still shows the counts, and `starved-places` (supply: wanted but barely
+in the pool) is unchanged.
