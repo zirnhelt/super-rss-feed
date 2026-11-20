@@ -265,6 +265,8 @@ jobs:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
           KAGI_API_KEY: ${{ secrets.KAGI_API_KEY }}
+          # Signs the digest links and reads the clicks back (config/system.json -> clicks).
+          CLICKS_KEY: ${{ secrets.CLICKS_KEY }}
           # Scheduled run, OR any run the Cloudflare scheduler dispatched (run_slot
           # set), OR an explicit manual opt-in. The `schedule` test alone was
           # written before the ladder moved to the Worker: since then the nightly
@@ -345,7 +347,7 @@ jobs:
           # something is staged: the old `git diff --quiet && ... || git commit` read
           # unstaged changes, so a stray dirty file forced a commit with nothing staged,
           # and its non-zero exit failed the step before the push.
-          for f in scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json apple_news_cache.json feed_http_cache.json FEED_LOG.md FEED_ERRORS.md TODO.md; do
+          for f in scored_articles_cache.json wlt_cache.json shown_articles_cache.json calibration_stats_cache.json shown_terms_cache.json podcast_articles_cache.json theme_scores_cache.json podcast_shown_cache.json theme_holdover_cache.json apple_news_cache.json feed_http_cache.json feedback/clicks FEED_LOG.md FEED_ERRORS.md TODO.md; do
             git add -- "$f" 2>/dev/null || echo "  not staged (absent and untracked): $f"
           done
           git diff --cached --quiet || git commit -m "Update cache and feed log [skip ci]"

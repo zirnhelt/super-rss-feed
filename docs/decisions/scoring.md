@@ -698,3 +698,35 @@ under 5 ratings that had reached the pool; Lac La Hache held it open for four we
 reader: "a lack of ratings is not a message or signal." The finding is retired. The places
 table in the full report still shows the counts, and `starved-places` (supply: wanted but barely
 in the pool) is unchanged.
+
+## Digest clicks are evidence, not ratings (2026-11-20)
+
+The audit's `headline-misses` row said 317 of 384 missed headlines were ranked out by the
+interest profile. Nothing showed whether those were stories the reader wanted: the digest
+listed them with direct links, and nothing recorded what was opened. The producer approved
+recording it (Proposals tab, `note:2026-11-19:digest-clicks`).
+
+- **A separate Worker**, `cloudflare/clicks/` in the podcast repo, not the scheduler: the
+  scheduler is cron-only with no public URL so nothing public can touch the crons that start
+  the show. It stores the story URL, the Kite category, the digest date and the time, nothing
+  about the device, for 60 days.
+- **Signed links** (`_digest_href`, `_click_signature`): HMAC-SHA256 with `CLICKS_KEY` over
+  URL, category and date. The Worker follows only a link it can verify, so it is never an open
+  redirect. A test pins the signature against a vector from the Worker's own `sign()`: a change
+  on either side turns every digest link into a 400. An `http` or over-long URL stays plain.
+- **Off until configured.** `system.json` → `clicks.base_url` and the `CLICKS_KEY` secret
+  must both be set; either one missing leaves plain links and reads nothing.
+- **The nightly copies the clicks** (`fetch_digest_clicks`) into `feedback/clicks/<YYYY-MM>.json`
+  from the newest click already saved, so a missed night is caught up the next. It never fails
+  the run. The ratings readers glob only `feedback/????-??-??.json`, so the clicks are never
+  counted as ratings.
+- **The audit reports click-through** (`digest_clicks`) by Kite category and outlet over 7
+  days, against what the digest listed (`run_stats.kite_coverage.digest_by_label` /
+  `digest_by_host`). It shows nothing until a click is recorded: no clicks is not a signal.
+- A prefetch (`Sec-Purpose: prefetch`) or `HEAD` is not counted, but a reader app that fetches
+  links with a plain `GET` would be. Check the first weeks of rows against what was really opened.
+
+**Not done yet:** the reader model taking a click as a weak positive. A click row has the
+outlet's host and Kite's category, while `fit_reader_model` keys on feed source names,
+selection bucket and relevance band, none of which a digest story has. The mapping wants
+real rows to check against; revisit after about four weeks of clicks.

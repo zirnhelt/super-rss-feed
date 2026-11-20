@@ -250,3 +250,149 @@ def test_fetch_keeps_one_cluster_per_event():
     world.kite_links, usa.kite_links = shared, shared | {'https://u.example/1'}
     other.kite_links = frozenset({'https://f.example/1'})
     assert m._collapse_kite_events([world, usa, other]) == [usa, other]
+
+
+# --- digest clicks (cloudflare/clicks in the podcast repo, approved 2026-11-20) ----------
+
+CLICKS_BASE = 'https://cariboo-signals-clicks.example.workers.dev'
+
+
+def _clicks_on(monkeypatch, key='test-key-0123456789abcdef0123456789'):
+    monkeypatch.setitem(m.SYSTEM, 'clicks', {'base_url': CLICKS_BASE + '/'})
+    monkeypatch.setenv('CLICKS_KEY', key)
+
+
+def test_click_signature_matches_the_worker():
+    # Computed by the Worker's own sign() (cloudflare/clicks/src/index.ts). A change on
+    # either side makes every digest link a 400, so both must move together.
+    assert m._click_signature('test-key-0123456789abcdef0123456789', 'https://www.cbc.ca/news/a?b=1&c=2',
+                              'Canada | British Columbia', '2026-11-20') == 'ee046b42a6069e52601a1d9c110b2bfe'
+
+
+def test_digest_links_go_through_the_click_worker_only_when_configured(tmp_path, monkeypatch):
+    from urllib.parse import parse_qs, urlparse
+    story = _kite('Stephen Miller named chief of staff', 64, 'USA')
+    now = datetime(2026, 11, 20, 8, 0, tzinfo=timezone.utc)
+    plain = m.build_kite_digest([(story, 'ranked_out')], now=now)
+    assert f'href="{story.link}"' in plain['content_html'], 'no Worker configured: the story itself'
+
+    monkeypatch.setitem(m.SYSTEM, 'clicks', {'base_url': CLICKS_BASE})
+    monkeypatch.delenv('CLICKS_KEY', raising=False)
+    assert f'href="{story.link}"' in m.build_kite_digest([(story, 'ranked_out')], now=now)['content_html'], \
+        'a URL without the key stays plain: an unsigned link would be a 400'
+
+    _clicks_on(monkeypatch)
+    item = m.build_kite_digest([(story, 'ranked_out')], now=now)
+    href = item['content_html'].split('<li>', 1)[1].split('href="', 1)[1].split('"')[0].replace('&amp;', '&')
+    assert href.startswith(CLICKS_BASE + '/go?')
+    q = {k: v[0] for k, v in parse_qs(urlparse(href).query).items()}
+    assert (q['u'], q['c'], q['d']) == (story.link, 'USA', '2026-11-20')
+    assert q['s'] == m._click_signature('test-key-0123456789abcdef0123456789', story.link, 'USA', '2026-11-20')
+    assert item['_listed'] == [('USA', 'example.com')]
+
+    page = tmp_path / m.DIGEST_PAGE
+    m.write_digest_page({k: v for k, v in item.items() if k != '_listed'}, str(page))
+    assert CLICKS_BASE + '/go?u=' in page.read_text(encoding='utf-8'), 'the page keeps the Worker link'
+
+
+def test_digest_href_falls_back_to_the_story_when_the_worker_would_refuse_it():
+    key, day = 'k' * 32, '2026-11-20'
+    assert m._digest_href('http://insecure.example/a', 'World', day, CLICKS_BASE, key) == 'http://insecure.example/a'
+    long_url = 'https://example.com/' + 'a' * m.CLICKS_MAX_URL_CHARS
+    assert m._digest_href(long_url, 'World', day, CLICKS_BASE, key) == long_url
+    href = m._digest_href('https://example.com/x', 'C' * 120, day, CLICKS_BASE, key)
+    assert 'c=' + 'C' * m.CLICKS_MAX_CATEGORY_CHARS + '&' in href, 'signed as the Worker trims it'
+
+
+def test_coverage_stats_count_what_the_digest_listed():
+    story = _kite('Stephen Miller named chief of staff', 64, 'USA')
+    stats = m.kite_coverage_stats([(story, 'ranked_out')], 1,
+                                  [('USA', 'apnews.com'), ('World', 'apnews.com')])
+    assert stats['digest_by_label'] == {'USA': 1, 'World': 1}
+    assert stats['digest_by_host'] == {'apnews.com': 2}
+    assert m.kite_coverage_stats([], 0)['digest_by_label'] == {}
+
+
+class _Reply:
+    def __init__(self, body, status=200):
+        self.body, self.status_code = body, status
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError(f'HTTP {self.status_code}')
+
+    def json(self):
+        return self.body
+
+
+def _click(at, url='https://www.cbc.ca/a', c='World', d='2026-11-19'):
+    return {'at': at, 'u': url, 'c': c, 'd': d}
+
+
+def test_fetch_digest_clicks_saves_new_clicks_by_month_from_the_last_one_saved(tmp_path, monkeypatch):
+    _clicks_on(monkeypatch)
+    clicks_dir = tmp_path / 'clicks'
+    clicks_dir.mkdir()
+    (clicks_dir / '2026-10.json').write_text(json.dumps(
+        [{'at': '2026-10-31T23:00:00.000Z', 'url': 'https://x.example/old', 'category': 'USA',
+          'digest_date': '2026-10-31'}]))
+    calls = []
+    pages = [{'clicks': [_click('2026-10-31T23:00:00.000Z'), _click('2026-10-31T23:30:00.000Z')], 'more': True},
+             {'clicks': [_click('2026-11-19T09:00:00.000Z', c='Canada')], 'more': False}]
+
+    def fake_get(url, params=None, headers=None, timeout=None):
+        calls.append((url, dict(params or {}), headers))
+        return _Reply(pages[len(calls) - 1])
+
+    monkeypatch.setattr(m.requests, 'get', fake_get)
+    assert m.fetch_digest_clicks(str(clicks_dir)) == 2, 'the click already saved is not new'
+    assert calls[0][0] == CLICKS_BASE + '/clicks'
+    assert calls[0][1] == {'since': '2026-10-31T23:00:00.000Z'}
+    assert calls[1][1] == {'since': '2026-10-31T23:30:00.000Z'}, 'the next page starts after the last row'
+    assert calls[0][2] == {'Authorization': 'Bearer test-key-0123456789abcdef0123456789'}
+    october = json.loads((clicks_dir / '2026-10.json').read_text())
+    november = json.loads((clicks_dir / '2026-11.json').read_text())
+    assert [r['at'] for r in october] == ['2026-10-31T23:00:00.000Z', '2026-10-31T23:30:00.000Z']
+    assert november == [{'at': '2026-11-19T09:00:00.000Z', 'url': 'https://www.cbc.ca/a',
+                         'category': 'Canada', 'digest_date': '2026-11-19'}]
+
+
+def test_fetch_digest_clicks_never_fails_the_run_and_is_off_unconfigured(tmp_path, monkeypatch):
+    clicks_dir = tmp_path / 'clicks'
+
+    def boom(*a, **k):
+        raise AssertionError('no call without a Worker')
+
+    monkeypatch.setattr(m.requests, 'get', boom)
+    monkeypatch.delenv('CLICKS_KEY', raising=False)
+    assert m.fetch_digest_clicks(str(clicks_dir)) == 0
+    _clicks_on(monkeypatch)
+    monkeypatch.setattr(m.requests, 'get', lambda *a, **k: _Reply({}, status=401))
+    assert m.fetch_digest_clicks(str(clicks_dir)) == 0
+    assert not clicks_dir.exists(), 'a failed read writes nothing'
+
+
+def test_click_files_are_not_ratings(tmp_path):
+    (tmp_path / 'clicks').mkdir()
+    (tmp_path / 'clicks' / '2026-11.json').write_text(json.dumps([{'at': '2026-11-19T09:00:00Z'}]))
+    assert audit.load_ratings(tmp_path) == []
+
+
+def test_audit_reports_digest_click_through_by_category_and_outlet(tmp_path):
+    today = date(2026, 11, 22)
+    runs = [{'timestamp': '2026-11-19T08:10:00', 'kite_coverage': {
+                'digest_by_label': {'World': 3, 'Canada': 2}, 'digest_by_host': {'cbc.ca': 2, 'apnews.com': 3}}},
+            {'timestamp': '2026-11-01T08:10:00', 'kite_coverage': {'digest_by_label': {'World': 9}}}]
+    (tmp_path / '2026-11.json').write_text(json.dumps([
+        {'at': '2026-11-19T09:00:00Z', 'url': 'https://www.cbc.ca/a', 'category': 'Canada', 'digest_date': '2026-11-19'},
+        {'at': '2026-11-19T09:05:00Z', 'url': 'https://www.cbc.ca/a', 'category': 'Canada', 'digest_date': '2026-11-19'},
+        {'at': '2026-11-02T09:00:00Z', 'url': 'https://old.example/b', 'category': 'World', 'digest_date': '2026-11-02'},
+    ]))
+    clicks = audit.digest_clicks(runs, audit.load_digest_clicks(tmp_path), today)
+    assert (clicks['listed'], clicks['opened']) == (5, 1), 'last 7 days only; a story opened twice counts once'
+    assert clicks['by_category'][0] == {'name': 'Canada', 'listed': 2, 'opened': 1, 'pct': 50.0}
+    assert clicks['by_host'][0]['name'] == 'cbc.ca'
+    report = '\n'.join(audit._digest_click_lines(clicks))
+    assert 'You opened 1 of the 5 stories' in report and '| cbc.ca | 2 | 1 |' in report
+    assert audit._digest_click_lines(audit.digest_clicks(runs, [], today)) == [], \
+        'no clicks recorded is not a finding'
