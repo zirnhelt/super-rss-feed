@@ -13,6 +13,146 @@
   "language": "en",
   "items": [
     {
+      "id": "https://forum.bambulab.com/t/behindtheprint-06-the-hidden-angle/263079#post_1",
+      "url": "https://forum.bambulab.com/t/behindtheprint-06-the-hidden-angle/263079#post_1",
+      "title": "[Bambu Lab Community Forum - Latest posts] #BehindThePrint 06: The Hidden Angle",
+      "content_html": "<img src=\"https://forum-cdn.bambulab.com/optimized/3X/0/c/0c68c62cfb3b2ead229981d70d21de9b3a174050_2_1024x770.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/0/c/0c68c62cfb3b2ead229981d70d21de9b3a174050.jpeg\" title=\"0\"><img alt=\"0\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/0/c/0c68c62cfb3b2ead229981d70d21de9b3a174050_2_664x500.jpeg\" width=\"664\"/></a></div><p></p>\n<h2><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-behind-the-scenes-of-our-sandtable-creations-1\"></a>Behind the Scenes of Our Sandtable Creations</h2>\n<p>Through our Sandtable Exhibition projects, we explore the possibilities of 3D printing by creating detailed miniature worlds that bring together design, engineering, and craftsmanship.</p>\n<p>In our <strong><span class=\"hashtag-raw\">#BehindThePrint</span></strong> series, we share the unexpected challenges, creative decisions, and practical lessons behind these creations.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/a/0/a08c68e428e9a404732f8ea3a6df52710975223a.jpeg\" title=\"1\"><img alt=\"1\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/a/0/a08c68e428e9a404732f8ea3a6df52710975223a_2_665x500.jpeg\" width=\"665\"/></a></div><p></p>\n<p>Even the smallest architectural details in our miniature worlds can reveal unexpected 3D-printing challenges.</p>\n<h2><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-when-the-corners-have-other-ideas-2\"></a>When the Corners Have Other Ideas</h2>\n<p>At first glance, there was nothing particularly unusual about the colorful geometric structures in our miniature climbing gym.</p>\n<p>The raised details featured sloping edges designed at a 40° overhang angle. For our intended printing conditions, that seemed like a reasonable choice.</p>\n<p>And for the most part, the prints looked fine.</p>\n<p><strong>Except for the corners.</strong></p>\n<p>While the straight edges appeared relatively clean, the corners developed rough, uneven surfaces. The problem was particularly noticeable around the green sections of the model.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/3/8/389771349256499ba0199977a51f9db764187f76.jpeg\" title=\"2\"><img alt=\"2\" height=\"439\" src=\"https://forum-cdn.bambulab.com/optimized/3X/3/8/389771349256499ba0199977a51f9db764187f76_2_690x439.jpeg\" width=\"690\"/></a></div><p></p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/6/a/6abdd923488bf50d6382f5f087797c9f43845fbb.png\" title=\"3\"><img alt=\"3\" height=\"413\" src=\"https://forum-cdn.bambulab.com/optimized/3X/6/a/6abdd923488bf50d6382f5f087797c9f43845fbb_2_690x413.png\" width=\"690\"/></a></div><p></p>\n<blockquote>\n<p>The straight edges printed relatively cleanly, but the corners revealed unexpected surface defects</p>\n</blockquote>\n<p>So what was different about those corners?</p>\n<p>It looked like insufficient cooling was one factor affecting print quality. But the model’s geometry revealed another important part of the problem.</p>\n<p><strong>The corners weren’t actually following the same overhang angle as the edges.</strong></p>\n<p>And the difference was bigger than we might expect.</p>\n<h2><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-the-angle-we-didnt-see-3\"></a>The Angle We Didn’t See</h2>\n<p>When designing an overhang, we usually pay attention to the angle of the sloping surface. If it falls within a range our printer can comfortably handle, the design should be reasonably printable.</p>\n<p>Or so it seems.</p>\n<p>The tricky part is that, on shapes with sharp corners, the angle we design along an edge isn’t necessarily the steepest angle the printer encounters.</p>\n<p>Imagine a square column with a sloping section that gradually widens as it rises.</p>\n<p>With every new layer, the edges extend slightly farther outward. Along a straight edge, this movement follows the intended 40° slope.</p>\n<p>But something different happens at the corners.</p>\n<p>Here, two edges meet, and their outward extensions combine diagonally. That means each corner reaches farther beyond the previous layer than the straight edges do.</p>\n<p>Only a little farther, at first glance. But enough to change the effective overhang angle significantly.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/6/c/6c0304682ebdfafbe65e8125986d192fe8747e2b.png\" title=\"4\"><img alt=\"4\" height=\"422\" src=\"https://forum-cdn.bambulab.com/original/3X/6/c/6c0304682ebdfafbe65e8125986d192fe8747e2b.png\" width=\"392\"/></a></div><p></p>\n<blockquote>\n<p>The corner extends farther outward than the straight edge, creating a steeper effective overhang between successive layers.</p>\n</blockquote>\n<p>For our four-sided shape, the numbers reveal just how much this matters.</p>\n<p>The straight edges were designed at <strong>40°</strong>.</p>\n<p>At the corners, however, the effective overhang angle reached approximately <strong>49.9°</strong>.</p>\n<p>That’s almost 10° steeper than the original design angle!</p>\n<p>For this production case, we were working with a maximum overhang target of 45°, allowing a margin for less favorable printing conditions.</p>\n<p>The straight edges were within that target. The corners had quietly crossed it.</p>\n<p>Suddenly, those rough corners made much more sense.</p>\n<h2><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-what-happens-when-we-change-the-shape-4\"></a>What Happens When We Change the Shape?</h2>\n<p>The interesting thing about this problem is that we don’t necessarily need to change the printer settings to address it.</p>\n<p>Sometimes, we can make geometry work in our favor. And there are several ways to approach it.</p>\n<h3><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-more-sides-less-trouble-5\"></a>More Sides, Less Trouble</h3>\n<p>What if our square shape wasn’t quite so square?</p>\n<p>Imagine replacing the four-sided prism with one that has eight sides. The top-down shape becomes a little closer to a circle, and its corners become less pronounced.</p>\n<p>That also changes how far those corners extend beyond the previous layer.</p>\n<p>With the same 40° edge angle, the calculated maximum corner angle drops from approximately 49.9° to just <strong>42.2°</strong>.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/6/5/6599cc0a0038438d5d3244a15e5642eacf6ad8b5.png\" title=\"5\"><img alt=\"5\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/6/5/6599cc0a0038438d5d3244a15e5642eacf6ad8b5_2_219x500.png\" width=\"219\"/></a></div><p></p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/f/c/fca141cdc0828ff5c1939cd09c93b90f89cde498.png\" title=\"6\"><img alt=\"6\" height=\"499\" src=\"https://forum-cdn.bambulab.com/optimized/3X/f/c/fca141cdc0828ff5c1939cd09c93b90f89cde498_2_221x499.png\" width=\"221\"/></a></div><p></p>\n<p>Adding more sides brings the effective corner overhang closer to the intended 40° edge angle.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/4/1/417370e24b8fb61d8e3962f6e9db48c1f786d529.jpeg\" title=\"7\"><img alt=\"7\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/4/1/417370e24b8fb61d8e3962f6e9db48c1f786d529_2_666x500.jpeg\" width=\"666\"/></a></div><p></p>\n<blockquote>\n<p>The columns with multiple sides never faced the printing issues like the 4 sided version did</p>\n</blockquote>\n<p>Of course, adding sides changes the appearance of the model. If a sharp, square shape is essential to the design, this might not be the ideal solution.</p>\n<p>Fortunately, it isn’t the only option.</p>\n<h3><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-a-gentler-slope-6\"></a>A Gentler Slope</h3>\n<p>Another approach is to keep the four-sided shape but reduce its straight edge angle.</p>\n<p>For example, changing the edge angle from 40° to 35° reduces the calculated corner angle to approximately <strong>44.7°</strong>.</p>\n<p>That brings even the corners within our 45° design target.</p>\n<p>It’s a relatively straightforward geometric adjustment, although the gentler slope also changes the proportions of the feature.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/6/5/6599cc0a0038438d5d3244a15e5642eacf6ad8b5.png\" title=\"5\"><img alt=\"5\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/6/5/6599cc0a0038438d5d3244a15e5642eacf6ad8b5_2_219x500.png\" width=\"219\"/></a></div><p></p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/5/e/5ea3d13fe7fca8d1eb12a99550da46ad0d945152.png\" title=\"9\"><img alt=\"9\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/5/e/5ea3d13fe7fca8d1eb12a99550da46ad0d945152_2_228x500.png\" width=\"228\"/></a></div><p></p>\n<p>A gentler slope reduces the effective overhang angle at the corners without changing the number of sides.</p>\n<h3><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-or-simply-soften-the-corners-7\"></a>Or Simply Soften the Corners</h3>\n<p>There’s also a third possibility: rounding the corners themselves.</p>\n<p>Instead of allowing two straight edges to meet at a sharp point, we can introduce a curved transition.</p>\n<p>This reduces the pronounced diagonal extension at the corner and can bring the maximum overhang closer to the intended edge angle.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/4/8/488e7372bd6cac7f3afb5ac83dcb2585a4227b93.png\" title=\"10\"><img alt=\"10\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/4/8/488e7372bd6cac7f3afb5ac83dcb2585a4227b93_2_222x500.png\" width=\"222\"/></a></div><p></p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/e/1/e1c5679f80096217d1c851156bf74b9e3776b3f2.png\" title=\"11\"><img alt=\"11\" height=\"499\" src=\"https://forum-cdn.bambulab.com/optimized/3X/e/1/e1c5679f80096217d1c851156bf74b9e3776b3f2_2_219x499.png\" width=\"219\"/></a></div><p></p>\n<p>Rounded corners reduce the abrupt change in geometry responsible for the steeper corner overhang.</p>\n<p>Which approach makes the most sense depends on the design.</p>\n<p>Sometimes we can change the overall shape. Other times, preserving its appearance matters more.</p>\n<p>The important thing is understanding what the geometry is doing before deciding how to improve it.</p>\n<p>By this point, you probably wonder about all these nice diagrams and calculations shared above. We have this handy little tool as a <a href=\"https://wiki.bambulab.com/makerworld/makersupply/behindtheprint/overhang-printability.zip\">download link</a> for you.</p>\n<p>Feel free to check it out and explore how the straight slope or corner count will affect the corner angle.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/b/0/b082128a47be45232104615dd3d2e169c0b96c2d.png\" title=\"12\"><img alt=\"12\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/b/0/b082128a47be45232104615dd3d2e169c0b96c2d_2_666x500.png\" width=\"666\"/></a></div><p></p>\n<h2><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-a-different-way-to-look-at-overhangs-8\"></a>A Different Way to Look at Overhangs</h2>\n<p>Our miniature climbing-gym component highlights a detail that’s surprisingly easy to overlook.</p>\n<p>When we check an overhang, we’re often looking at the most obvious sloping surface. But the printer doesn’t only have to deal with that surface. It also has to build the corners where those surfaces meet.</p>\n<p>And as we’ve seen, those corners can behave quite differently.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/3/6/36828291895ce88a75a071208cdf2390c958954f.jpeg\" title=\"13\"><img alt=\"13\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/3/6/36828291895ce88a75a071208cdf2390c958954f_2_462x500.jpeg\" width=\"462\"/></a></div><p></p>\n<p>This doesn’t mean every sharp corner will cause printing problems. Actual print quality also depends on cooling, material, speed, and other conditions.</p>\n<p>But it does give us another useful consideration when designing parts with overhangs: <strong>check the most demanding part of the geometry, not just the angle that’s easiest to see.</strong></p>\n<p><strong>Sometimes, the trickiest overhang isn’t on the surface we’re looking at. It’s hiding right around the corner.</strong></p>\n<h2><a class=\"anchor\" href=\"https://forum.bambulab.com#p-749769-more-stories-behind-the-print-9\"></a>More Stories Behind the Print</h2>\n<p>From unexpected layer lines to hidden geometric challenges, our Sandtable projects keep reminding us that small design details can make a big difference.</p>\n<p>Have you ever encountered a print that looked perfectly reasonable in the model but turned out differently than expected?</p>\n<p>We’d love to hear what you discovered.</p>\n<p>See you in the next <a href=\"https://forum.bambulab.com/tag/behind-the-print/94\">#BehindThePrint</a>!</p>",
+      "date_published": "2026-11-20T05:20:50+00:00",
+      "authors": [
+        {
+          "name": "Bambu Lab Community Forum - Latest posts",
+          "url": "https://forum.bambulab.com/latest"
+        }
+      ],
+      "image": "https://forum-cdn.bambulab.com/optimized/3X/0/c/0c68c62cfb3b2ead229981d70d21de9b3a174050_2_1024x770.jpeg",
+      "_score": 31,
+      "_quality": 35,
+      "_relevance": 40,
+      "_local_score": 0,
+      "_content_type": "feature"
+    },
+    {
+      "id": "https://forum.bambulab.com/t/x2d-top-layer-both-nozzles/263076#post_1",
+      "url": "https://forum.bambulab.com/t/x2d-top-layer-both-nozzles/263076#post_1",
+      "title": "[Bambu Lab Community Forum - Latest posts] X2D Top Layer - Both Nozzles",
+      "content_html": "<img src=\"https://forum-cdn.bambulab.com/optimized/3X/0/4/041390b10cbb11e074d86fb388735cf112e4fbbe_2_1024x823.png\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p><a class=\"mention\" href=\"https://forum.bambulab.com/u/jambobambu\">@JamboBambu</a> asked me in this thread <a href=\"https://forum.bambulab.com/t/extreme-test-can-i-make-my-new-bambu-lab-x2d-fail/263023/2:\">https://forum.bambulab.com/t/extreme-test-can-i-make-my-new-bambu-lab-x2d-fail/263023/2:</a></p>\n<div class=\"title\">\n<div class=\"quote-controls\"></div>\n<img alt=\"\" class=\"avatar\" height=\"24\" src=\"https://forum.bambulab.com/user_avatar/forum.bambulab.com/jambobambu/48/163585_2.png\" width=\"24\"/><a href=\"https://forum.bambulab.com/t/extreme-test-can-i-make-my-new-bambu-lab-x2d-fail/263023/3\"><img alt=\"trophy\" class=\"emoji\" height=\"20\" src=\"https://forum.bambulab.com/images/emoji/twitter/trophy.png?v=15\" title=\"trophy\" width=\"20\"/> Extreme Test: Can I Make My New Bambu Lab X2D Fail?</a></div>\n<blockquote>\n<p>As it seems you are in test mode and testing both nozzles <img alt=\":smiley:\" class=\"emoji\" height=\"20\" src=\"https://forum.bambulab.com/images/emoji/twitter/smiley.png?v=15\" title=\":smiley:\" width=\"20\"/> , could you please just print 2 cubes with both of them like 50x50x10mm with whatever filament you have loaded and make some shots if possible with macro to see and compare the quality of the layers?</p>\n</blockquote>\n<p>So, I printed the attached test model using PLA Basic.<br/>\n<a class=\"attachment\" href=\"https://forum.bambulab.com/uploads/short-url/y8D1DA5gYoxAVtAp4rZk3fIviTu.3mf\">Test.3mf</a> (32.0 KB)</p>\n<p>As you can see I printed both pieces at the same time. The orange part was printed with the left nozzle, the brown part with the auxiliary nozzle.<br/>\n</p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/0/4/041390b10cbb11e074d86fb388735cf112e4fbbe.png\" title=\"image\"><img alt=\"image\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/0/4/041390b10cbb11e074d86fb388735cf112e4fbbe_2_622x500.png\" width=\"622\"/></a></div><p></p>\n<p><strong>These are the results:</strong></p><p><a href=\"https://www.youtube.com/watch?v=q7fDtD03JKk\">X2D Top Layers</a></p>\n<div class=\"d-image-grid\">\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/5/5/55da3852db6b138cecbcf10fcead0408bae6c899.jpeg\" title=\"2026_11_19_19_06_IMG_6400\"><img alt=\"2026_11_19_19_06_IMG_6400\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/5/5/55da3852db6b138cecbcf10fcead0408bae6c899_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/1/6/16a4d5fc3462f6ed3d11172cd457b702ffdca45c.jpeg\" title=\"2026_11_19_18_52_IMG_6386\"><img alt=\"2026_11_19_18_52_IMG_6386\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/1/6/16a4d5fc3462f6ed3d11172cd457b702ffdca45c_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/f/b/fb5a97c0d1782e8d51d43ea8b753b071e38228aa.jpeg\" title=\"2026_11_19_18_52_IMG_6387\"><img alt=\"2026_11_19_18_52_IMG_6387\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/f/b/fb5a97c0d1782e8d51d43ea8b753b071e38228aa_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/3/d/3df687df501729f79af576b93b74e0f0ce4c35f4.jpeg\" title=\"2026_11_19_18_52_IMG_6389\"><img alt=\"2026_11_19_18_52_IMG_6389\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/3/d/3df687df501729f79af576b93b74e0f0ce4c35f4_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/e/f/ef13ac449be762955c65c638c5e3355acad92d99.jpeg\" title=\"2026_11_19_18_59_IMG_6390\"><img alt=\"2026_11_19_18_59_IMG_6390\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/e/f/ef13ac449be762955c65c638c5e3355acad92d99_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/9/b/9b82e47bb25252b283d246c790498b0861a9a37b.jpeg\" title=\"2026_11_19_18_59_IMG_6391\"><img alt=\"2026_11_19_18_59_IMG_6391\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/9/b/9b82e47bb25252b283d246c790498b0861a9a37b_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/9/3/93b3ac00f1c2e61584635c7f7bdd58ba9d6b421e.jpeg\" title=\"2026_11_19_19_00_IMG_6392\"><img alt=\"2026_11_19_19_00_IMG_6392\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/9/3/93b3ac00f1c2e61584635c7f7bdd58ba9d6b421e_2_375x500.jpeg\" width=\"375\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/4/8/4832445f3fa55588013d63f87a1f6e36dc0571cf.jpeg\" title=\"2026_11_19_19_00_IMG_6393\"><img alt=\"2026_11_19_19_00_IMG_6393\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/4/8/4832445f3fa55588013d63f87a1f6e36dc0571cf_2_375x500.jpeg\" width=\"375\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/0/3/03ed4d0f3b8aa292ff2f197985cdf18fd8d9e92b.jpeg\" title=\"2026_11_19_19_06_IMG_6398\"><img alt=\"2026_11_19_19_06_IMG_6398\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/0/3/03ed4d0f3b8aa292ff2f197985cdf18fd8d9e92b_2_666x500.jpeg\" width=\"666\"/></a></div><br/>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://forum-cdn.bambulab.com/original/3X/2/f/2f6f6149e053688e4c1b193b603d16ee5b5c0e41.jpeg\" title=\"2026_11_19_19_06_IMG_6399\"><img alt=\"2026_11_19_19_06_IMG_6399\" height=\"500\" src=\"https://forum-cdn.bambulab.com/optimized/3X/2/f/2f6f6149e053688e4c1b193b603d16ee5b5c0e41_2_666x500.jpeg\" width=\"666\"/></a></div><p></p>\n</div>\n<p>I used all the settings as default. No manual flow calibration. Whatever the printer did automatically to self-calibrate…</p>\n<p><a class=\"mention\" href=\"https://forum.bambulab.com/u/jambobambu\">@JamboBambu</a> is this what you wanted to see?</p>",
+      "date_published": "2026-11-20T03:29:38+00:00",
+      "authors": [
+        {
+          "name": "Bambu Lab Community Forum - Latest posts",
+          "url": "https://forum.bambulab.com/latest"
+        }
+      ],
+      "image": "https://forum-cdn.bambulab.com/optimized/3X/0/4/041390b10cbb11e074d86fb388735cf112e4fbbe_2_1024x823.png",
+      "_score": 41,
+      "_quality": 40,
+      "_relevance": 55,
+      "_local_score": 0,
+      "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.xda-developers.com/home-assistant-automations-power-draw-instead-timers-control-appliances/",
+      "url": "https://www.xda-developers.com/home-assistant-automations-power-draw-instead-timers-control-appliances/",
+      "title": "[XDA Developers] 3 Home Assistant automations that use power draw instead of timers to control your dumb appliances",
+      "content_html": "<img src=\"https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/11/tapo-smart-plug-energy-monitoring-7.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nTimers feel outdated for some appliances.",
+      "date_published": "2026-11-19T22:00:21+00:00",
+      "authors": [
+        {
+          "name": "XDA Developers",
+          "url": "https://www.xda-developers.com"
+        }
+      ],
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/11/tapo-smart-plug-energy-monitoring-7.jpeg",
+      "_score": 43,
+      "_quality": 35,
+      "_relevance": 60,
+      "_local_score": 0,
+      "_content_type": "fluff"
+    },
+    {
+      "id": "https://www.makeuseof.com/subscriptions-worth-paying-for-even-when-you-self-host/",
+      "url": "https://www.makeuseof.com/subscriptions-worth-paying-for-even-when-you-self-host/",
+      "title": "[MakeUseOf] I self-host almost everything, but these subscriptions are still worth paying for",
+      "content_html": "<img src=\"https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/11/using-mullvad-vpn-on-windows.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nEverything but these get a place on my home server.",
+      "date_published": "2026-11-19T19:30:16+00:00",
+      "authors": [
+        {
+          "name": "MakeUseOf",
+          "url": "https://www.makeuseof.com"
+        }
+      ],
+      "image": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/11/using-mullvad-vpn-on-windows.jpg",
+      "_score": 18,
+      "_quality": 0,
+      "_relevance": 0,
+      "_local_score": 0
+    },
+    {
+      "id": "https://www.popularwoodworking.com/editors-blog/my-robot-apprentice/",
+      "url": "https://www.popularwoodworking.com/editors-blog/my-robot-apprentice/",
+      "title": "🔓 [Popular Woodworking] My Robot Apprentice",
+      "content_html": "<img src=\"https://media.popularwoodworking.com/app/uploads/2026/11/19135607/maschinenmensch_in_a_screen_shot_from_the_metropolis_film.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"771\" src=\"https://media.popularwoodworking.com/app/uploads/2026/11/19135607/maschinenmensch_in_a_screen_shot_from_the_metropolis_film-1024x771.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1024\"/>Hopefully, the robots may hold us in high regard as the forefathers of robotic craftsmanship. I’m pretty good at writing woodworking how-to articles and books; actual teaching, not so much. I...\n<p><a href=\"https://www.popularwoodworking.com/editors-blog/my-robot-apprentice/\" rel=\"nofollow\">Source</a></p>",
+      "date_published": "2026-11-19T18:56:29+00:00",
+      "authors": [
+        {
+          "name": "Popular Woodworking",
+          "url": "https://www.popularwoodworking.com"
+        }
+      ],
+      "image": "https://media.popularwoodworking.com/app/uploads/2026/11/19135607/maschinenmensch_in_a_screen_shot_from_the_metropolis_film.jpg",
+      "_score": 33,
+      "_quality": 60,
+      "_relevance": 35,
+      "_local_score": 0,
+      "_content_type": "feature",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.popularwoodworking.com/editors-blog/teaching-live-edge-part-4-faceted-walnut-and-finding-the-right-stance/",
+      "url": "https://www.popularwoodworking.com/editors-blog/teaching-live-edge-part-4-faceted-walnut-and-finding-the-right-stance/",
+      "title": "🔓 [Popular Woodworking] Teaching Live Edge (Part 4): Faceted Walnut and Finding the Right Stance",
+      "content_html": "<img src=\"https://media.popularwoodworking.com/app/uploads/2026/11/17091115/gemini_generated_patricks-table.jpeg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"1024\" src=\"https://media.popularwoodworking.com/app/uploads/2026/11/17091115/gemini_generated_patricks-table-768x1024.jpeg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"768\"/>Not every student who walks into a live-edge workshop is starting from scratch. Patrick arrived at Snow Farm already an experienced hobbyist woodworker, eager to push beyond basic joinery and...\n<p><a href=\"https://www.popularwoodworking.com/editors-blog/teaching-live-edge-part-4-faceted-walnut-and-finding-the-right-stance/\" rel=\"nofollow\">Source</a></p>",
+      "date_published": "2026-11-19T16:09:48+00:00",
+      "authors": [
+        {
+          "name": "Popular Woodworking",
+          "url": "https://www.popularwoodworking.com"
+        }
+      ],
+      "image": "https://media.popularwoodworking.com/app/uploads/2026/11/17091115/gemini_generated_patricks-table.jpeg",
+      "_score": 48,
+      "_quality": 60,
+      "_relevance": 60,
+      "_local_score": 0,
+      "_content_type": "feature",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
+    },
+    {
+      "id": "https://www.smarthomeassistent.de/frigate-0-18-3-nginx2root-sicherheitsupdate/",
+      "url": "https://www.smarthomeassistent.de/frigate-0-18-3-nginx2root-sicherheitsupdate/",
+      "title": "[smarthomeassistent.de] Nginx vulnerabilities threaten smart home systems; Frigate releases emergency update",
+      "content_html": "<img src=\"https://www.smarthomeassistent.de/wp-content/uploads/2026/11/oberflaeche-von-frigate-mit-der-live-ansicht-mehrerer-kameras.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nThe developers of the open-source network video recorder Frigate released version 0.18.3 on November 19, which fixes a critical vulnerability in the bundled nginx web server. nginx 1.27.4 was affected: with HTTP/2 enabled, attackers could execute code without authentication via an accessible Frigate web server. Frigate’s developers describe the flaw as a vulnerability that allows code execution with root privileges; according to security researchers, however, escalating from the nginx process to root privileges on the host also requires a Linux kernel vulnerability.\n\nThe vulnerability is one of ten security flaws that manufacturer F5 fixed with an nginx update released on November 18. F5 rates five of them 9.2 out of 10 under CVSS 4.0. According to security researchers, two HTTP/2 flaws allow remote attacks without authentication. Frigate 0.18.3 updates nginx to version 1.30.7 and also restricts certain options in the go2rtc camera-streaming component.\n\nThe update is particularly urgent for operators who have made Frigate’s web interface accessible over the internet; the security advisories list ports 5000 and 8971. Installations accessible only on the home network should also be updated, as a compromised device could serve as an entry point. Frigate recommends backing up the configuration and database before updating. For standalone nginx installations, the security advisories list version 1.30.7 for the stable branch and 1.31.9 for the mainline branch as the fixed releases.",
+      "date_published": "2026-11-19T06:06:58+00:00",
+      "authors": [
+        {
+          "name": "smarthomeassistent.de",
+          "url": "https://www.smarthomeassistent.de"
+        }
+      ],
+      "image": "https://www.smarthomeassistent.de/wp-content/uploads/2026/11/oberflaeche-von-frigate-mit-der-live-ansicht-mehrerer-kameras.jpg",
+      "_score": 49,
+      "_quality": 65,
+      "_relevance": 60,
+      "_local_score": 0,
+      "_content_type": "breaking"
+    },
+    {
       "id": "https://forum.bambulab.com/t/ai-model-pictures-have-to-go/252952?page=10#post_211",
       "url": "https://forum.bambulab.com/t/ai-model-pictures-have-to-go/252952?page=10#post_211",
       "title": "[Bambu Lab Community Forum - Latest posts] AI Model Pictures Have to GO!",
@@ -125,6 +265,29 @@
       "_relevance": 60,
       "_local_score": 0,
       "_content_type": "analysis"
+    },
+    {
+      "id": "https://www.popularwoodworking.com/projects/lantern-of-candlelight/",
+      "url": "https://www.popularwoodworking.com/projects/lantern-of-candlelight/",
+      "title": "🔓 [Popular Woodworking] Lantern of Candlelight",
+      "content_html": "<img src=\"https://media.popularwoodworking.com/app/uploads/2026/11/17120730/aw173_lantern_1_opener-copy.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"768\" src=\"https://media.popularwoodworking.com/app/uploads/2026/11/17120730/aw173_lantern_1_opener-copy-1024x768.jpg\" style=\"float:left;margin:0 15px 15px 0;\" width=\"1024\"/>Six pieces of wood, a free weekend and a bit of ingenuity, lights your way in the night. During the civil War, soldiers didn’t have flashlights to light their paths...\n<p><a href=\"https://www.popularwoodworking.com/projects/lantern-of-candlelight/\" rel=\"nofollow\">Source</a></p>",
+      "date_published": "2026-11-18T16:12:01+00:00",
+      "authors": [
+        {
+          "name": "Popular Woodworking",
+          "url": "https://www.popularwoodworking.com"
+        }
+      ],
+      "image": "https://media.popularwoodworking.com/app/uploads/2026/11/17120730/aw173_lantern_1_opener-copy.jpg",
+      "_score": 43,
+      "_quality": 50,
+      "_relevance": 55,
+      "_local_score": 0,
+      "_content_type": "feature",
+      "tags": [
+        "subscriber-access"
+      ],
+      "_subscriber_access": "Apple News+"
     },
     {
       "id": "https://blog.adafruit.com/2026/11/18/home-automation-with-the-esp32-managing-loads-through-a-web-server/",
@@ -550,7 +713,7 @@
       "id": "https://www.tomshardware.com/3d-printing/university-of-rochester-researchers-made-a-3d-bioprinter-from-a-modified-ender-3-usd450-bioprinter-makes-engineered-living-material-research-accessible",
       "url": "https://www.tomshardware.com/3d-printing/university-of-rochester-researchers-made-a-3d-bioprinter-from-a-modified-ender-3-usd450-bioprinter-makes-engineered-living-material-research-accessible",
       "title": "[Tom's Hardware] Modified Ender 3 becomes a $450 bioprinter for 3D printing engineered living materials",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ZiLPdL3uLtUwWzEjcCNVWj-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2F3d-printing%2Funiversity-of-rochester-researchers-made-a-3d-bioprinter-from-a-modified-ender-3-usd450-bioprinter-makes-engineered-living-material-research-accessible\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMicrobiologists at the University of Rochester have modified an Ender 3 FDM printer into a 3D bioprinter for $450 and outperforming 3D bioprinters costing more than $100,000.",
+      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/ZiLPdL3uLtUwWzEjcCNVWj-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🎨 🌾 🔧 🪶 🌲 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fwww.tomshardware.com%2F3d-printing%2Funiversity-of-rochester-researchers-made-a-3d-bioprinter-from-a-modified-ender-3-usd450-bioprinter-makes-engineered-living-material-research-accessible\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nMicrobiologists at the University of Rochester have modified an Ender 3 FDM printer into a 3D bioprinter for $450 and outperforming 3D bioprinters costing more than $100,000.",
       "date_published": "2026-11-15T13:00:00+00:00",
       "authors": [
         {
@@ -581,100 +744,6 @@
       "_score": 45,
       "_quality": 60,
       "_relevance": 55,
-      "_local_score": 0,
-      "_content_type": "analysis"
-    },
-    {
-      "id": "https://hackaday.com/2026/11/14/warm-analog-dsp-on-the-esp/",
-      "url": "https://hackaday.com/2026/11/14/warm-analog-dsp-on-the-esp/",
-      "title": "[Hackaday] Warm Analog DSP, on the ESP",
-      "content_html": "<img src=\"https://hackaday.com/wp-content/uploads/2026/11/9847301794483913575.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<div><img alt=\"\" class=\"attachment-large size-large wp-post-image\" height=\"450\" src=\"https://hackaday.com/wp-content/uploads/2026/11/9847301794483913575.jpg?w=800\" style=\"margin:0 auto;margin-bottom:15px;\" width=\"800\"/></div>We love audio, and we love messing around with it. So when [mircemk] wrote in with his latest audio-mangling device, we had to give it a look. It’s a tube-sound <a class=\"read-more\" href=\"https://hackaday.com/2026/11/14/warm-analog-dsp-on-the-esp/\">…read more</a>",
-      "date_published": "2026-11-14T21:00:09+00:00",
-      "authors": [
-        {
-          "name": "Hackaday",
-          "url": "https://hackaday.com"
-        }
-      ],
-      "image": "https://hackaday.com/wp-content/uploads/2026/11/9847301794483913575.jpg",
-      "_score": 33,
-      "_quality": 60,
-      "_relevance": 35,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://linuxiac.com/nextcloud-releases-free-desktop-office-suite-built-on-euro-office/",
-      "url": "https://linuxiac.com/nextcloud-releases-free-desktop-office-suite-built-on-euro-office/",
-      "title": "[linuxiac.com] Nextcloud launches Euro-Office desktop suite for offline editing across platforms",
-      "content_html": "<img src=\"https://linuxiac.com/wp-content/uploads/2026/11/nextcloud-desktop-office-suite.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nNextcloud has released Nextcloud Office Desktop, a free, open-source suite for Linux, Windows and macOS. It is powered by Euro-Office, a European-led fork of the ONLYOFFICE codebase. Users can create, open and edit files locally without running a server or connecting to the internet, or connect to Nextcloud Hub to access cloud files and collaborate in real time. The suite includes word-processing, spreadsheet, presentation and PDF tools, with support for Microsoft Office formats DOCX, XLSX and PPTX as well as OpenDocument formats.\n\nEuro-Office's maintainers say they created it to address limited upstream collaboration, difficulties building the software from source and proprietary components in parts of the ecosystem. The app is available for download now. Linux packages come in DEB and RPM formats, while the Windows and macOS versions support different processors.",
-      "date_published": "2026-11-14T20:31:26+00:00",
-      "authors": [
-        {
-          "name": "linuxiac.com",
-          "url": "https://linuxiac.com"
-        }
-      ],
-      "image": "https://linuxiac.com/wp-content/uploads/2026/11/nextcloud-desktop-office-suite.jpg",
-      "_score": 37,
-      "_quality": 50,
-      "_relevance": 45,
-      "_local_score": 0,
-      "_content_type": "breaking"
-    },
-    {
-      "id": "https://www.techradar.com/phones/iphone/the-iphone-duo-has-transformed-how-i-code-with-my-mac-and-this-game-changing-app-unlocked-its-productivity-potential",
-      "url": "https://www.techradar.com/phones/iphone/the-iphone-duo-has-transformed-how-i-code-with-my-mac-and-this-game-changing-app-unlocked-its-productivity-potential",
-      "title": "[TechRadar] This game-changing app has unlocked my iPhone Duo's coding potential",
-      "content_html": "<img src=\"https://cdn.mos.cms.futurecdn.net/8LmwvCbDwZa7cM8SfVjoyA-1920-80.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nUsing the iPhone Duo with Cursor and Astropad Workbench has transformed my ability to code on the go.",
-      "date_published": "2026-11-14T18:00:00+00:00",
-      "authors": [
-        {
-          "name": "TechRadar",
-          "url": "https://www.techradar.com"
-        }
-      ],
-      "image": "https://cdn.mos.cms.futurecdn.net/8LmwvCbDwZa7cM8SfVjoyA-1920-80.jpg",
-      "_score": 27,
-      "_quality": 0,
-      "_relevance": 0,
-      "_local_score": 0
-    },
-    {
-      "id": "https://blog.adafruit.com/2026/11/14/locating-the-source-of-a-mysterious-beep-using-claude/",
-      "url": "https://blog.adafruit.com/2026/11/14/locating-the-source-of-a-mysterious-beep-using-claude/",
-      "title": "[Adafruit Blog] Locating the source of a mysterious beep using Claude",
-      "content_html": "<img src=\"https://www.google.com/s2/favicons?domain=blog.adafruit.com&amp;sz=128\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\n<p style=\"margin:0 0 0.75em;padding:5px 10px;background:#f0f4f8;border-left:3px solid #7b9fc4;border-radius:3px;font-size:0.82em;color:#444;line-height:1.8;\">🔭 <a href=\"https://zirnhelt.github.io/super-rss-feed/review.html?url=https%3A%2F%2Fblog.adafruit.com%2F2026%2F11%2F14%2Flocating-the-source-of-a-mysterious-beep-using-claude%2F\" style=\"color:#7b9fc4;text-decoration:none;\">✏️</a></p>\nSimon Willison had an intermittent beep coming from a room full of unpacked boxes, so he had Claude Code build Beep Locator, a system that triangulates a sound using several ordinary devices. He wrote it up on his weblog. A Python web server shows the main map, and other devices join over a URL or […]",
-      "date_published": "2026-11-14T15:20:23+00:00",
-      "authors": [
-        {
-          "name": "Adafruit Blog",
-          "url": "https://blog.adafruit.com"
-        }
-      ],
-      "image": "https://www.google.com/s2/favicons?domain=blog.adafruit.com&sz=128",
-      "_score": 49,
-      "_quality": 65,
-      "_relevance": 60,
-      "_local_score": 0,
-      "_content_type": "feature"
-    },
-    {
-      "id": "https://all3dp.com/4/why-desktop-size-metal-3d-printers-are-suddenly-everywhere-and-cheaper-than-ever/",
-      "url": "https://all3dp.com/4/why-desktop-size-metal-3d-printers-are-suddenly-everywhere-and-cheaper-than-ever/",
-      "title": "[All3DP] Why Desktop-Size Metal 3D Printers Are Suddenly Everywhere (And Cheaper Than Ever)",
-      "content_html": "<img src=\"https://i.all3dp.com/workers/images/fit=scale-down,w=1200,h=630,gravity=0.5x0.5,format=jpeg/wp-content/uploads/2026/11/13162310/Small-Metal-Hero.jpg\" style=\"width:100%;max-height:300px;object-fit:cover;\"/>\nMetal 3D printers are getting smaller, cheaper, and suddenly much more numerous. But how many are actually available, and can they deliver on the promise of bringing industrial metal printing to ordinary workshops?",
-      "date_published": "2026-11-14T08:13:49+00:00",
-      "authors": [
-        {
-          "name": "All3DP",
-          "url": "https://all3dp.com"
-        }
-      ],
-      "image": "https://i.all3dp.com/workers/images/fit=scale-down,w=1200,h=630,gravity=0.5x0.5,format=jpeg/wp-content/uploads/2026/11/13162310/Small-Metal-Hero.jpg",
-      "_score": 41,
-      "_quality": 55,
-      "_relevance": 50,
       "_local_score": 0,
       "_content_type": "analysis"
     }
