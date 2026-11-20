@@ -1,44 +1,24 @@
 {
-  "generated_at": "2026-11-19T15:51:56Z",
-  "items": [
-    {
-      "id": "note:2026-11-19:digest-clicks",
-      "kind": "proposal",
-      "repo": "super-rss-feed",
-      "title": "Count your clicks in \"Also in the news\" as a training signal",
-      "detail": "The digest item in the news feed (and also-in-the-news.html) lists up to 15 widely covered stories a night with direct links, so nothing records which ones you open. This week's headline-misses row says 317 of the 384 missed stories were ranked out by your interests. Your clicks are the evidence that would show whether that ranking is missing things you want, and which outlets and subjects it misses.",
-      "fix": "Send each digest link through a small redirect on the Cloudflare Worker the scheduler already runs: it notes the story and the date in Cloudflare KV (no IP or device) and forwards you to the article. The nightly reads the day's clicks with a secret and saves them beside your ratings as clicks, never as ratings. The audit reports click-through by category and outlet, and the reader model takes a click as a weak positive. You would create one KV namespace and one secret in Cloudflare. Free tier, no API cost. Caveat: a reader app that prefetches links would count as clicks.",
-      "source": "Your note, 2026-11-19",
-      "since": "2026-11-19"
-    },
-    {
-      "id": "branch:curated-podcast-generator:claude/determined-albattani-iphwls",
-      "kind": "branch",
-      "repo": "curated-podcast-generator",
-      "title": "Add a YouTube status check to the daily episode review",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/determined-albattani-iphwls",
-      "detail": "From another session (Nov 18), no open PR; this branch's earlier PR #564 merged Nov 16. Its commit message says the upload ledger recorded twelve videos as done that YouTube then abandoned as too long. The review would read the video ID from the run log, ask YouTube for its processing status, show it in the numbers table and raise a youtube-failed signal. 6 files, +225 lines, and the review job gets the YT_* secrets for the read.",
-      "fix": "Approve and I open a PR from it, run the suite and merge on green. It hands the review job YouTube credentials, so it is your call.",
-      "since": "2026-11-18",
-      "links": [
-        {
-          "label": "#564 (earlier PR, merged)",
-          "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/564"
-        }
-      ]
-    },
-    {
-      "id": "branch:curated-podcast-generator:claude/header-image-cropping-xub3eo",
-      "kind": "branch",
-      "repo": "curated-podcast-generator",
-      "title": "YouTube channel banner with the title inside the mobile safe area",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/header-image-cropping-xub3eo",
-      "detail": "From another session (Nov 18), no PR. Two commits that add assets/youtube-banner.png (2.2 MB) and key out its title plate. Nothing in the pipeline reads it; it is for uploading to the channel by hand.",
-      "fix": "Approve to merge the image into the repo; decline to delete the branch. Either way the banner itself is uploaded in YouTube Studio.",
-      "since": "2026-11-18"
-    }
-  ],
+  "generated_at": "2026-11-20T14:14:03Z",
+  "items": [],
   "done": [
+    {
+      "title": "Count your clicks in \"Also in the news\"",
+      "outcome": "merged, off until you set it up (4 steps in cloudflare/clicks/README.md). A separate Worker, not the scheduler, notes the story you open (#577); the nightly saves clicks beside your ratings and the audit shows click-through by category and outlet. The reader model's weak positive waits for about four weeks of clicks.",
+      "at": "2026-11-20",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/395"
+    },
+    {
+      "title": "Add a YouTube status check to the daily episode review",
+      "outcome": "merged",
+      "at": "2026-11-20",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/576"
+    },
+    {
+      "title": "YouTube channel banner with the title inside the mobile safe area",
+      "outcome": "dropped (you declined; the branch was already gone on GitHub)",
+      "at": "2026-11-20"
+    },
     {
       "title": "Keep the wildcard but skip bad news, US-politics outlets and your own lines",
       "outcome": "merged",
