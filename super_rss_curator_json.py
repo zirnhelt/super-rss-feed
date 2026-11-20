@@ -7,7 +7,9 @@ Aggregates feeds, deduplicates, scores with Claude, generates categorized JSON f
 import os
 import sys
 import json
+import glob
 import hashlib
+import hmac
 import re
 import concurrent.futures
 import threading
@@ -6725,6 +6727,98 @@ DIGEST_SUMMARY_CHARS = 220
 # The digest's own page on gh-pages. A feed reader shows the item as a text snippet and
 # opens its `url` on a tap, so the url has to be a page that lists the stories with links.
 DIGEST_PAGE = 'also-in-the-news.html'
+# Digest clicks (the podcast repo's cloudflare/clicks Worker, producer-approved 2026-11-20).
+# With system.json -> clicks.base_url and the CLICKS_KEY secret both set, each digest link
+# goes through the Worker, which notes the click and forwards to the story, and the nightly
+# copies the clicks into CLICKS_DIR: beside the ratings, never as ratings. Either one unset:
+# plain links, nothing read. The signature must match the Worker's sign().
+CLICKS_DIR = os.path.join('feedback', 'clicks')
+CLICKS_MAX_URL_CHARS = 900       # the Worker's cap: the URL rides in 1 KB of KV metadata
+CLICKS_MAX_CATEGORY_CHARS = 80   # the Worker trims the category to this before checking
+CLICKS_FETCH_TIMEOUT = 20
+CLICKS_MAX_PAGES = 5             # 1000 clicks a page; the Worker keeps 60 days
+
+
+def _clicks_config() -> Tuple[str, str]:
+    """(Worker base URL, CLICKS_KEY), or ('', '') unless both are set."""
+    base = str((SYSTEM.get('clicks') or {}).get('base_url') or '').rstrip('/')
+    key = os.environ.get('CLICKS_KEY', '')
+    return (base, key) if base and key else ('', '')
+
+
+def _click_signature(key: str, url: str, category: str, day: str) -> str:
+    """The Worker's sign(): HMAC-SHA256 over url, category and day, first 32 hex characters."""
+    return hmac.new(key.encode(), f'{url}\n{category}\n{day}'.encode(), hashlib.sha256).hexdigest()[:32]
+
+
+def _digest_href(link: str, category: str, day: str, base: str, key: str) -> str:
+    """A digest story's link: through the click Worker when configured, else the story itself."""
+    if not base or not link.lower().startswith('https://') or len(link) > CLICKS_MAX_URL_CHARS:
+        return link
+    category = category[:CLICKS_MAX_CATEGORY_CHARS]
+    return f"{base}/go?" + urlencode({'u': link, 'c': category, 'd': day,
+                                      's': _click_signature(key, link, category, day)})
+
+
+def _click_host(url: str) -> str:
+    host = (urlparse(url).hostname or '').lower()
+    return host[4:] if host.startswith('www.') else host
+
+
+def fetch_digest_clicks(clicks_dir: str = CLICKS_DIR) -> int:
+    """Copy the Worker's new digest clicks into clicks_dir/<YYYY-MM>.json; how many were new.
+
+    Rows are {at, url, category, digest_date}. Reads from the newest click already saved,
+    so a missed night is picked up the next (the Worker keeps 60 days). Never fails the
+    run: a read that goes wrong writes nothing and says so.
+    """
+    base, key = _clicks_config()
+    if not base:
+        if (SYSTEM.get('clicks') or {}).get('base_url'):
+            print("⚠️  Digest clicks: clicks.base_url is set but CLICKS_KEY is not; links stay plain")
+        return 0
+    try:
+        months = sorted(glob.glob(os.path.join(clicks_dir, '????-??.json')))
+        since = max((r.get('at', '') for r in _read_click_rows(months[-1])), default='') if months else ''
+        new: List[Dict] = []
+        for _ in range(CLICKS_MAX_PAGES):
+            resp = requests.get(f'{base}/clicks', params={'since': since},
+                                headers={'Authorization': f'Bearer {key}'},
+                                timeout=CLICKS_FETCH_TIMEOUT)
+            resp.raise_for_status()
+            body = resp.json()
+            rows = [{'at': r['at'], 'url': str(r.get('u', ''))[:CLICKS_MAX_URL_CHARS],
+                     'category': str(r.get('c', ''))[:CLICKS_MAX_CATEGORY_CHARS],
+                     'digest_date': str(r.get('d', ''))[:10]}
+                    for r in body.get('clicks', [])
+                    if isinstance(r, dict) and isinstance(r.get('at'), str) and r['at'] > since]
+            new += rows
+            if not body.get('more') or not rows:
+                break
+            since = max(r['at'] for r in rows)
+    except Exception as e:  # ponytail: the clicks are evidence, never worth a failed nightly
+        print(f"⚠️  Digest clicks not read: {e}")
+        return 0
+    by_month: Dict[str, List[Dict]] = defaultdict(list)
+    for row in new:
+        by_month[row['at'][:7]].append(row)
+    for month, rows in by_month.items():
+        path = os.path.join(clicks_dir, f'{month}.json')
+        merged = {(r['at'], r['url']): r for r in _read_click_rows(path) + rows}
+        os.makedirs(clicks_dir, exist_ok=True)
+        atomic_write_json(path, sorted(merged.values(), key=lambda r: r['at']), indent=1)
+    if new:
+        print(f"🖱️  Digest clicks: {len(new)} new, saved to {clicks_dir}/")
+    return len(new)
+
+
+def _read_click_rows(path: str) -> List[Dict]:
+    try:
+        with open(path, encoding='utf-8') as f:
+            rows = json.load(f)
+        return [r for r in rows if isinstance(r, dict) and isinstance(r.get('at'), str)]
+    except (OSError, ValueError, TypeError):
+        return []
 
 
 def _is_digest_item(item: Dict) -> bool:
@@ -6768,8 +6862,13 @@ def kite_coverage(kite_articles: List[Article], published: List, unique_hashes: 
     return outcomes
 
 
-def kite_coverage_stats(outcomes: List[Tuple[Article, str]], digest_count: int) -> Dict:
-    """Counts only (run_stats holds no article text): every cluster and the headlines."""
+def kite_coverage_stats(outcomes: List[Tuple[Article, str]], digest_count: int,
+                        listed: Optional[List[Tuple[str, str]]] = None) -> Dict:
+    """Counts only (run_stats holds no article text): every cluster and the headlines.
+
+    `listed` is the digest's (Kite category, outlet host) per story, the denominators
+    of the audit's digest click-through.
+    """
     min_sources = SYSTEM.get('kagi_news', {}).get('headline_min_sources', 15)
     every = Counter(o for _, o in outcomes)
     heads = Counter(o for k, o in outcomes if k.kite_sources >= min_sources)
@@ -6781,6 +6880,8 @@ def kite_coverage_stats(outcomes: List[Tuple[Article, str]], digest_count: int) 
         'headline_by_outcome': dict(heads),
         'headline_missed': sum(heads[o] for o in KITE_MISS_OUTCOMES),
         'digest_items': digest_count,
+        'digest_by_label': dict(Counter(label for label, _ in listed or [])),
+        'digest_by_host': dict(Counter(host for _, host in listed or [])),
     }
 
 
@@ -6823,11 +6924,13 @@ def build_kite_digest(outcomes: List[Tuple[Article, str]],
     if not picks:
         return None
     now = now or datetime.now(timezone.utc)
+    base, key = _clicks_config()
     rows = []
     for k in picks:
         summary = _clean_text(k.description or '', max_chars=DIGEST_SUMMARY_CHARS)
+        href = _digest_href(k.link, k.kite_label or 'Kagi News', now.date().isoformat(), base, key)
         rows.append(
-            f'<li><strong><a href="{html_escape(k.link, quote=True)}">{html_escape(k.title)}</a></strong> '
+            f'<li><strong><a href="{html_escape(href, quote=True)}">{html_escape(k.title)}</a></strong> '
             f'<small>({k.kite_sources} outlets · {html_escape(k.kite_label or "Kagi News")})</small>'
             + (f'<br>{html_escape(summary)}' if summary else '') + '</li>')
     day = now.strftime('%a %b ') + str(now.day)
@@ -6846,6 +6949,8 @@ def build_kite_digest(outcomes: List[Tuple[Article, str]],
         "tags": ["digest"],
         "_digest": True,
         "_stories": len(picks),
+        # Popped before the feed is written: what was listed, for click-through in the audit.
+        "_listed": [(k.kite_label or 'Kagi News', _click_host(k.link)) for k in picks],
     }
 
 
@@ -7420,9 +7525,11 @@ def main():
     outcomes = kite_coverage(kite_articles, [a for items in final_items.values() for a in items],
                              unique_hashes, new_hashes)
     digest = build_kite_digest(outcomes)
+    listed = digest.pop('_listed', []) if digest else []
     write_digest_page(digest)
     digest_cat = (SYSTEM.get('kagi_news', {}).get('digest') or {}).get('category', 'news')
-    run_stats['kite_coverage'] = kite_coverage_stats(outcomes, (digest or {}).get('_stories', 0))
+    run_stats['kite_coverage'] = kite_coverage_stats(outcomes, (digest or {}).get('_stories', 0), listed)
+    fetch_digest_clicks()
     _print_kite_coverage(outcomes, run_stats['kite_coverage'])
 
     for cat_key, all_items in final_items.items():

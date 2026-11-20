@@ -36,12 +36,14 @@ from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
+from urllib.parse import urlparse
 
 import config_loader
 from cache import atomic_write_text
 
 BASE_DIR = Path(__file__).parent
 FEEDBACK_DIR = BASE_DIR / 'feedback'
+CLICKS_DIR = FEEDBACK_DIR / 'clicks'   # digest clicks, written by the nightly; not ratings
 FEED_LOG_FILE = BASE_DIR / 'FEED_LOG.md'
 CALIBRATION_STATS_FILE = BASE_DIR / 'calibration_stats_cache.json'
 CALIBRATION_LOG_FILE = BASE_DIR / 'CALIBRATION_LOG.md'
@@ -1241,6 +1243,49 @@ def headline_coverage(runs: List[Dict], today: date, days: int = 7) -> Dict[str,
             'miss_pct': _pct(missed, headlines), 'by_outcome': dict(by_outcome)}
 
 
+def load_digest_clicks(clicks_dir: Path = CLICKS_DIR) -> List[Dict]:
+    """Every saved digest click ({at, url, category, digest_date}), oldest month first."""
+    rows: List[Dict] = []
+    for path in sorted(clicks_dir.glob('????-??.json')):
+        data = _load_json(path, [])
+        rows += [r for r in data if isinstance(r, dict)] if isinstance(data, list) else []
+    return rows
+
+
+def _click_host(url: str) -> str:
+    host = (urlparse(url or '').hostname or '').lower()
+    return host[4:] if host.startswith('www.') else host
+
+
+def digest_clicks(runs: List[Dict], clicks: List[Dict], today: date, days: int = 7) -> Dict[str, Any]:
+    """What the reader opened from the digest against what it listed, by Kite category and outlet.
+
+    Evidence for the headline-misses question: whether the stories the interest ranking
+    leaves out are ones the reader goes looking for. A story opened twice counts once.
+    """
+    since = (today - timedelta(days=days)).isoformat()
+    listed_cat: Counter = Counter()
+    listed_host: Counter = Counter()
+    for run in runs:
+        cov = run.get('kite_coverage') or {}
+        if str(run.get('timestamp') or '')[:10] <= since:
+            continue
+        listed_cat.update(cov.get('digest_by_label') or {})
+        listed_host.update(cov.get('digest_by_host') or {})
+    opened = {(r.get('digest_date'), r.get('url')): r for r in clicks
+              if str(r.get('digest_date') or '') > since}
+    opened_cat = Counter(str(r.get('category') or '?') for r in opened.values())
+    opened_host = Counter(_click_host(str(r.get('url') or '')) for r in opened.values())
+
+    def rows(listed: Counter, got: Counter) -> List[Dict[str, Any]]:
+        keys = sorted(set(listed) | set(got), key=lambda k: (-got[k], -listed[k], k))
+        return [{'name': k, 'listed': listed[k], 'opened': got[k], 'pct': _pct(got[k], listed[k])}
+                for k in keys]
+
+    return {'recorded': bool(clicks), 'listed': sum(listed_cat.values()), 'opened': len(opened),
+            'by_category': rows(listed_cat, opened_cat), 'by_host': rows(listed_host, opened_host)}
+
+
 def _consecutive_weeks(finding_id: str, history: List[Dict[str, Any]], today: date) -> int:
     """Earlier weekly audits in a row, newest first, that reported `finding_id`."""
     this_week = _iso_week(today)
@@ -1609,6 +1654,7 @@ def build_report(audit: Dict[str, Any]) -> str:
         '',
     ]
     lines += _headline_lines(audit.get('headline_coverage') or {})
+    lines += _digest_click_lines(audit.get('digest_clicks') or {})
     lines += [
         '## 5. Process Health',
         '',
@@ -1643,6 +1689,28 @@ def _headline_lines(heads: Dict[str, Any]) -> List[str]:
                   [[o, heads['by_outcome'].get(o, 0)] for o in order if heads['by_outcome'].get(o)]),
         '',
     ]
+
+
+def _digest_click_lines(clicks: Dict[str, Any]) -> List[str]:
+    """Digest click-through; nothing until a click has been recorded (no clicks is not a signal)."""
+    if not clicks.get('recorded'):
+        return []
+    rate = _pct(clicks['opened'], clicks['listed'])
+    opened_hosts = [r for r in clicks['by_host'] if r['opened']]
+    return [
+        '### Digest clicks (Also in the news, last 7 days)',
+        '',
+        f"_You opened {clicks['opened']} of the {clicks['listed']} stories the digest listed"
+        + (f' ({rate}%)' if rate is not None else '') + ". Evidence for the headline-misses "
+        "question, never a rating._",
+        '',
+        _md_table(['Kite category', 'Listed', 'Opened', '%'],
+                  [[r['name'], r['listed'], r['opened'], '—' if r['pct'] is None else r['pct']]
+                   for r in clicks['by_category']]),
+        '',
+    ] + ([_md_table(['Outlet', 'Listed', 'Opened'], [[r['name'], r['listed'], r['opened']]
+                                                     for r in opened_hosts[:10]]), '']
+         if opened_hosts else [])
 
 
 def _quarter_label(quarter: str, rows: List[Dict]) -> str:
@@ -1916,6 +1984,7 @@ def run_audit(today: Optional[date] = None,
     routing = theme_routing_audit(recent)
     category_retag = category_retag_audit(recent)
     headlines = headline_coverage(runs, today)
+    clicks = digest_clicks(runs, load_digest_clicks(), today)
     latest_wins = next((run['theme_argmax']['wins'] for run in reversed(runs)
                         if (run.get('theme_argmax') or {}).get('wins')), {})
     record = {
@@ -1962,6 +2031,7 @@ def run_audit(today: Optional[date] = None,
         'funnel': current_funnel(runs),
         'feed_counts': feed_item_counts(),
         'headline_coverage': headlines,
+        'digest_clicks': clicks,
         'process_health': process_health(runs),
         'blind_spots': findings,
         'verdict': week_verdict(findings, trend),
