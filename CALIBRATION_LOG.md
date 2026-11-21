@@ -29,32 +29,7 @@ _Older entries cut to one line. Every applied change, with its rationale, is in 
 - **2026-08-30** — no changes, 4 human recommendations
 - **2026-09-06** — applied `limits.min_claude_score`: 23 → 25; `feed_slots.max_slots.news`: 25 → 22
 - **2026-09-13** — applied `source_preferences.kagi_search_result_limit`: 10 → 12
-
-## 2026-09-20
-
-Audit window: 14 runs (2026-09-07T04:01:02.273459+00:00 to 2026-09-20T04:00:32.093265+00:00).
-
-
-**Analysis**
-
-The 14-run audit window (September 7–20) reveals a pipeline recovering from the September 6 overcorrection but still struggling with upstream volume scarcity. Final feed sizes have stabilized at 465–506/run (window mean 476), down from the August explosion (626/run mean) but still well above the ~100 target. The noise-to-signal ratio shows concerning volatility: window mean 2.39 with dramatic swings (min 1.35 on September 14, max 3.76 on September 10). The recent trend is moderating (1.98 on September 20 vs 3.76 peak) but remains elevated compared to August's best runs (0.56–0.88).
-
-User feedback ground truth (ending September 13, now including post-September 6 data) confirms the quality crisis persists: 67.2% bad rate overall, with composite scores showing poor band precision across all ranges. The 80-100 band is only 60.0% good (40.0% bad), and the 40-59 band is 54.0% bad—essentially coin-flip territory. The threshold_sweep is critical: current min_claude_score=25 cuts 37.0% of bad articles while losing 10.4% of good ones. This is nearly identical to the tradeoff at min_claude_score=30 (which would cut 37.0% bad at 10.4% good lost per interpolation), confirming we've hit diminishing returns at the quality gate. The dimensional histograms show the structural problem: quality has some separation (news: 10792 in 0-19 vs 165 in 60-79), but relevance is collapsed (11128 in 0-19 vs 19 in 60-79) and local remains binary (11533 in 0-19). The composite weighting cannot rescue non-local content when R≈0 and L≈0.
-
-Theme scores remain healthy and stable post-rearchitecture (Monday 14.0–14.6, Tuesday 5.3–6.9, Wednesday 5.3–7.6, Thursday 6.9–7.2, Friday 36.0–37.0, Saturday 38.4–39.2, Sunday 46.9–48.0), proving the dimensional scoring infrastructure is sound. Podcast feeds consistently hit 100 articles with robust holdover banks (2631–3468 per theme). The podcast routing correction rate is 19.7% (108 routing bugs, 177 theme-scoring misses), indicating theme prompts are stable. Worst sources show severity: Rolling Stone 100% bad (24/24), The New Yorker 100% bad (9/9), Cottage Life 100% bad (8/8), The Atlantic 100% bad (8/8)—these are strong blocking candidates.
-
-The critical diagnosis: the September 6 min_claude_score raise to 25 was correct (user feedback supports it), but we've starved the pipeline of upstream volume. The current kagi_search_result_limit=10 fetches 1127–1907 articles/run, but with 67.2% bad rate and strict quality gate we're not finding enough good content. The noise-to-signal spike (1.98–3.76 recent runs) indicates we're scraping the barrel—high reject rates mean we're processing more noise per qualifying article. The feed_slots caps are NOT the bottleneck (news at 119–126/run vs max_slots=22 means we're filling slots), so the issue is raw material scarcity. Raising kagi_search_result_limit is the correct lever to address volume shortage without lowering quality thresholds.
-
-
-**Changes applied**
-
-- `source_preferences.kagi_search_result_limit`: 10 → 12 — Noise-to-signal has spiked to 1.98–3.76 recent runs (window mean 2.39 vs 1.48 last week), indicating upstream volume is insufficient after quality tightening. The September 6 min_claude_score raise to 25 is correct (user feedback shows 67.2% bad rate and threshold_sweep supports it), but current kagi_search_result_limit=10 fetches only 1127–1907 articles/run. With 67.2% bad rate and strict quality gate (dropping 9224/13012 news articles), we're not finding enough good content. Final feeds average 476/run vs ~100 target, but news category alone passes 119–126/run (filling all 25 max_slots), proving we need more raw material to find qualifying articles, not lower thresholds. Raising to 12 (+2 from current 10) is conservative and directly addresses volume scarcity without compromising quality floors.
-
-**Human recommendations**
-
-- SOURCE BLOCKING URGENT: User feedback reveals catastrophic failure rates for specific sources that are poisoning the entire pipeline. Recommend immediately blocking: Rolling Stone (100% bad, 24/24 articles), The New Yorker (100% bad, 9/9), Cottage Life (100% bad, 8/8), The Atlantic (100% bad, 8/8), Live for the Outdoors/Country Walking (100% bad, 6/6), Mother Jones (100% bad, 6/6). These six sources alone account for 65 user-rated bad articles with ZERO good articles. Blocking them would immediately improve signal quality and reduce noise-to-signal ratio without touching any scoring thresholds. Additional blocking candidates with >85% bad rate: Edge/GamesRadar (92.6% bad, 25/27), Lifehacker (88.0% bad, 22/25), Toms Guide (87.5% bad, 35/40), Ideal Home/Country Homes & Interiors (87.5% bad, 21/24).
-- COMPOSITE SCORING STRUCTURAL ISSUE: The dimensional histograms reveal the core problem that dimensional scoring has NOT fixed: relevance and local dimensions are binary cliffs for non-Cariboo content (news: 11128/11560 articles score 0-19 on R, 11533/11560 score 0-19 on L). The composite weighting (0.25Q + 0.55R + 0.20L) collapses scores when R≈0 and L≈0 even if quality is acceptable. This explains why band_precision shows 40-59 composite band is 54.0% bad—the weighting punishes non-local content regardless of journalistic merit. Recommend human review of: (1) relevance scoring_prompt to ensure it's not conflating 'local' with 'relevant' (rural/BC stories should score high on R even if L=0), (2) composite weighting formula to reduce L coefficient or add floor logic so non-local quality journalism isn't penalized, (3) local_keyword_bonus modifier (currently +25) which may be creating cliff rather than gradient. The user feedback proves the audience wants non-local content (climate 62.5% good, science 79.2% good, homelab 29.2% good)—these categories have low L scores but high user value.
-- CATEGORY ASSIGNMENT REVIEW: User feedback by_category shows scifi has 69.2% bad rate (9/13 rated) and design has 47.1% bad rate (8/17 rated), both significantly worse than homelab (25.0%), science (12.5%), climate (25.0%), or homestead (0.0%). This suggests either source mix issues or category definition problems. Recommend human review of category assignment prompts for scifi and design to ensure they're not catching lifestyle filler that should be filtered as fluff. The wellness category's 54.2% bad rate (52/96 rated) also warrants prompt review—the 'evidence-based' requirement may not be filtering effectively.
+- **2026-09-20** — applied `source_preferences.kagi_search_result_limit`: 10 → 12
 
 ## 2026-09-27
 
@@ -257,3 +232,28 @@ No changes applied this run.
 - Observe, but do not yet block: Edge (GamesRadar), NYT Top Stories, Ideal Home (Country Homes & Interiors), Country Life, Boing Boing, Domino. All have high bad rates but either carry some positive ratings or sit below a sufficient sample threshold. Revisit if the bad rate persists after the next audit window.
 - Upstream sourcing: bank sizes have fallen steadily across the window (≈2,050 → ≈1,000) and contender counts are shrinking, which suggests the pool is being depleted faster than it refills. If feed volume becomes a constraint, the lever is feeds.opml / source mix, which the agent cannot reach. kagi_search_result_limit has already been raised twice without durably changing the config value, so that path needs a human check of why the value is not sticking.
 - Theme routing correction rate is about 20% (168 routing bugs versus 142 theme-scoring misses). The routing-bug share is worth a code-side look at selection logic, since that half is not a prompt issue; the scoring-miss share needs prompt review.
+
+## 2026-11-21
+
+Audit window: 14 runs (2026-11-08T06:00:50.865217+00:00 to 2026-11-21T06:00:50.447630+00:00).
+
+
+**Analysis**
+
+The 14-day window (Nov 8–21) shows infrastructure that is stable. Weekday theme raw means sit in their healthy band (Monday ~10–11, Tuesday ~6, Wednesday ~10, Thursday ~5, Friday ~20–24, Saturday ~27–28, Sunday ~35), and podcast feeds consistently hit ~100–104 articles per theme. The July–August weekday-theme collapse remains resolved with no regression, so those levers stay untouched. Bank sizes have continued to drift down (roughly 1,500 to 700), which reads as pool depletion rather than a scoring failure, since contender counts are still substantial on most days.
+
+User feedback (ground truth through Nov 14) remains the binding signal: 54.4% bad overall, stratified weighted_positive_pct 41.5%, reject false-negative rate 14.9%. Band precision separates well only at the top (80–100: 81.7% positive, 10.6% bad) and bottom (0–19: 87.3% bad). The 40–59 and 60–79 bands are roughly coin-flip (45.9% and 49.1% positive), so composite scoring still lacks middle-range discrimination. The threshold sweep is at clear diminishing returns: the current min_claude_score of 25 cuts 25.2% of bad at 4.9% positive lost; moving to 30 would cut 39.1% of bad but cost 8.8% of positives, with 'interesting' articles losing 12.6%. Given that the 25 floor was set in September and the sweep is now flattening, I am holding rather than stepping again, consistent with standing lessons.
+
+News is still the epicentre (77.0% bad, 20.4% positive) even with the Sep 23 max_slots.news=10 cap now about seven weeks old and news shipping at its cap. The residual problem is relevance/scoring-prompt quality, which is forbidden auto-edit and is re-surfaced as a human recommendation. Noise-to-signal is elevated but within its recent range (window mean 2.57, min 1.15, max 3.37); kagi_search_result_limit has been proposed upward twice in change history without durably moving the config value, so I do not re-propose it. Theme routing shows a 22.3% correction rate (185 routing bugs vs 152 theme-scoring misses), a near-even split, so no single auto-tunable lever dominates. Worst sources: Live for the Outdoors (Country Walking) remains the only clean block candidate (6/6 bad, 0 positive; sample is small, so surfaced for the operator rather than acted on). Edge (GamesRadar), Ideal Home, NYT Top Stories, Domino, Boing Boing, and Country Life carry high bad rates but have positives or are near the sample threshold, so they are observations only. No knob changes are proposed this run.
+
+
+No changes applied this run.
+
+
+**Human recommendations**
+
+- News scoring-prompt review: news is 77% bad / 20% positive in user feedback even with max_slots.news=10 in place. The residual problem is relevance and local-fit scoring, which is prompt-level and outside the auto-tunable whitelist. Recommend rewriting the news scoring rubric to weight Cariboo/BC/rural relevance more heavily and to penalize generic national/international wire content.
+- Theme-scoring prompt review: about 152 of the 337 theme-day corrections (~45%) are scoring misses rather than routing bugs, concentrated in Tuesday (Working Lands) and Thursday (Indigenous Lands). Recommend a human pass on the theme_description and scoring_prompt for these two days.
+- Composite-weight reassessment: band precision shows the 40–59 and 60–79 composite bands are roughly coin-flip (46% and 49% positive), so the composite does little to separate positives from bad in the middle range. Threshold tuning cannot fix this; recommend a human review of the w_quality/w_relevance/w_local weighting and whether the relevance dimension is over- or under-weighted.
+- Block-candidate for operator consideration: Live for the Outdoors (Country Walking) is 6/6 bad with 0 positive ratings. Sample is small, so not auto-acted on; operator may wish to block it if the pattern holds.
+- Watch: pool depletion. Holdover bank has drifted from ~1,500 to ~700 over the window while contender counts remain high on most days. If bank size keeps falling, podcast themes may start to thin and the holdover_threshold / source mix will need human attention rather than further floor raises.
