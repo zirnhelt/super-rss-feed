@@ -111,3 +111,17 @@ No feed met the failure floor — nothing to heal.
 | ✓ Recovered on its own | Wildfire Today | fetches normally again | 4 failures over 4d (network, via feed_http_cache.json) |
 | ✓ Recovered on its own | Climate - CBSNews.com | fetches normally again | 3 failures over 4d (http_406, via feed_http_cache.json+FEED_ERRORS.md) |
 | ✅ Restored | Mother Earth News | retired source is reachable again | retired unknown |
+
+
+## 2026-11-21
+
+| Action | Feed | Detail | Evidence |
+|---|---|---|---|
+| 🔁 Substituted | Civil Eats | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:civileats.com&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| 🔁 Substituted | Neuroscience News | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:neurosciencenews.com&hl=en&gl=CA&ceid=CA:en` | 5 failures over 5d (http_520, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | GN AgWeb | fetches normally again | 3 failures over 4d (http_429, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | GN The Walrus | fetches normally again | 3 failures over 3d (http_429, via FEED_ERRORS.md) |
+| 🔁 Substituted | Wildfire Today | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:wildfiretoday.com&hl=en&gl=CA&ceid=CA:en` | 3 failures over 3d (network, via feed_http_cache.json+FEED_ERRORS.md) |
+| 🔁 Substituted | Parents | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:parents.com&hl=en&gl=CA&ceid=CA:en` | 3 failures over 3d (http_403, via feed_http_cache.json) |
+| 🔁 Substituted | Logging and Sawmilling Journal | outlet unreachable but still publishing → `https://news.google.com/rss/search?q=site:forestnet.com&hl=en&gl=CA&ceid=CA:en` | 3 failures over 3d (network, via feed_http_cache.json+FEED_ERRORS.md) |
+| ✓ Recovered on its own | GN Consumer Reports | fetches normally again | 3 failures over 2d (http_429, via FEED_ERRORS.md) |
