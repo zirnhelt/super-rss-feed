@@ -6,13 +6,72 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Sat, 21 Nov 2026 06:10:47 +0000</lastBuildDate>
+<lastBuildDate>Sat, 21 Nov 2026 10:31:24 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Cariboo Local Affairs, November 21, 2026</title>
+<link>https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-21.html</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-21.html</guid>
+<pubDate>Sat, 21 Nov 2026 10:06:03 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Theme: Cariboo Local Affairs. Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/44883218714&quot;&gt;44883218714&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;1 thing to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/weather&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/weather&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Open-Meteo did not answer — the episode airs with no weather check and no weather credit&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Two of three runs were fallbacks, and the primary run was not the one that published the episode&lt;/h3&gt;
+&lt;p&gt;The primary run started at 1:05 AM Pacific and completed at 1:33 AM Pacific with a success conclusion. Fallback 1 (2:05 AM Pacific) also completed successfully. Fallback 2 at 3:05 AM Pacific is the run writing this review and is still in progress. Each run&#x27;s url is in the run record above, so the maintainer can check which run produced the published artifacts.&lt;/p&gt;
+&lt;p&gt;Weather did not run. Open-Meteo did not answer, so the episode aired with no weather check and no weather credit. This is the one degradation in the run, and it removed a segment from the listener&#x27;s episode entirely rather than shortening it.&lt;/p&gt;
+&lt;h3&gt;The script came in under target and shipped under target&lt;/h3&gt;
+&lt;p&gt;The first draft was 2,407 words against a 3,400-word target. It was sent back for one expand pass, and the shipped script is 3,100 words. The episode is still 300 words short of target, which is the thin-day case the pipeline tolerates. The episode&#x27;s word count is well above the length the pipeline counts as short under SHORT_EPISODE_WORDS.&lt;/p&gt;
+&lt;p&gt;The cold open was skipped because it ran 91 words, which exceeded the length limit. Listeners heard the episode without it. Consider raising the cold-open word limit if this recurs on normal nights, since skipping it removes the framing the show normally opens with.&lt;/p&gt;
+&lt;h3&gt;Local stories filled the roundup but only two theme stories made it in&lt;/h3&gt;
+&lt;p&gt;The roundup pool kept 18 stories: 16 local and 2 theme. Of 39 local stories available, 16 aired. The roundup opened local, and the deep dives all led with local subjects, with one Cariboo deep dive. Six on-theme candidates were not used. The airtime budget (NEWS_ROUNDUP_COUNT) cut 55 stories from the roundup pool; those stories remain eligible for a later, better-matched day.&lt;/p&gt;
+&lt;p&gt;Theme loading, by contrast, was not the constraint: 52 theme articles loaded against 51 bonus articles. The bottleneck was airtime, not the feed. If the theme should carry more of the roundup, raise its share of NEWS_ROUNDUP_COUNT rather than widening the pool.&lt;/p&gt;
+&lt;h3&gt;Thirteen of eighteen roundup citations matched the aired script&lt;/h3&gt;
+&lt;p&gt;Roundup citations matched 12 of 18, and deep-dive citations matched 3 of 5. Five roundup citations and two deep-dive citations did not align with what was aired. Check the citation alignment step against the storyboard before trusting those segments&#x27; source attributions.&lt;/p&gt;
+&lt;h3&gt;The text-to-speech canary timed out and OpenAI rendered the whole episode&lt;/h3&gt;
+&lt;p&gt;Two of the short TTS takes were retried, and both retries came back short again. The longer take of each was kept, so no content was dropped, but the audio for those two takes is shorter than their word count predicts. This is a single observation about two takes, not a missing segment.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Articles loaded&lt;/td&gt;&lt;td&gt;106&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kept after dedup&lt;/td&gt;&lt;td&gt;79&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Held / released&lt;/td&gt;&lt;td&gt;0 released, 7 held&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Roundup pool&lt;/td&gt;&lt;td&gt;18 stories — local:16, theme:2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;5 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.74, 3100 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 39% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;19.2 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;17.6 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;12/18 roundup, 3/5 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;297 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;YouTube&lt;/td&gt;&lt;td&gt;ok — processed, public&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;74,772&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;122 total: openai-tts 98 · claude 11 · brave-answers 4 · cohere 4 · brave-search 3 · kagi-extract 2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic cost&lt;/td&gt;&lt;td&gt;$0.14 at list price (estimate)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.59 at list price: OpenAI TTS $0.269 · Brave Answers $0.164 · Anthropic $0.136 · Brave Search $0.015 · Kagi Extract $0.008 · Cohere $0.001&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[100 Mile Free Press] 53 floats entered in 100 Mile House Santa Claus Parade</title>
 <link>https://100milefreepress.net/2026/11/20/53-floats-entered-in-100-mile-house-santa-claus-parade/</link>
