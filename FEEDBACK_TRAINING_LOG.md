@@ -1,3 +1,94 @@
+## Feedback Training Run — 2026-11-21 20:17 UTC
+
+**Files processed:** 2026-10-23.json, 2026-10-24.json, 2026-10-25.json, 2026-10-26.json, 2026-10-27.json, 2026-10-28.json, 2026-10-30.json, 2026-11-01.json, 2026-11-02.json, 2026-11-03.json, 2026-11-04.json, 2026-11-05.json, 2026-11-06.json, 2026-11-07.json, 2026-11-08.json, 2026-11-09.json, 2026-11-10.json, 2026-11-11.json, 2026-11-12.json, 2026-11-13.json, 2026-11-14.json, 2026-11-16.json, 2026-11-17.json, 2026-11-18.json, 2026-11-19.json, 2026-11-20.json, 2026-11-21.json
+**Ratings:** 3 Exemplars, 54 Good, 58 Interesting, 89 Podcast-only, 123 Bad, 143 reassigned to day(s), 0 recategorized
+**Status:** ✅ config/feedback_examples.txt updated
+
+**Top liked sources:** Williams Lake Tribune (10), The Tyee (6), Vancouver Sun (4), 100 Mile Free Press (3), My Cariboo Now (3)
+**Top disliked sources:** ArchDaily (16), NYT Business (6), My Cariboo Now (6), STAT News (6), NYT Top Stories (5)
+**Categories liked:** news (19), local (15), climate (6), science (6), ai-tech (3), wellness (2), homelab (2), homestead (1)
+**Categories disliked:** news (27), design (22), ai-tech (18), wellness (16), local (12), climate (8), scifi (7), science (6), outdoors (3), homelab (3), homestead (1)
+
+**Day reassignment summary:**
+- thursday → sunday: 15 articles
+- thursday → saturday: 7 articles
+- thursday → tuesday: 6 articles
+- thursday → wednesday: 6 articles
+- thursday → friday: 3 articles
+- thursday → thursday: 3 articles
+- thursday → monday: 2 articles
+- saturday → saturday: 6 articles
+- saturday → sunday: 6 articles
+- saturday → wednesday: 3 articles
+- saturday → monday: 2 articles
+- saturday → thursday: 1 articles
+- saturday → friday: 1 articles
+- monday → saturday: 9 articles
+- monday → tuesday: 6 articles
+- monday → sunday: 6 articles
+- monday → friday: 3 articles
+- monday → thursday: 1 articles
+- monday → monday: 1 articles
+- monday → wednesday: 1 articles
+- tuesday → saturday: 5 articles
+- tuesday → monday: 4 articles
+- tuesday → sunday: 4 articles
+- tuesday → wednesday: 3 articles
+- tuesday → tuesday: 2 articles
+- tuesday → thursday: 1 articles
+- tuesday → friday: 1 articles
+- wednesday → sunday: 6 articles
+- wednesday → friday: 4 articles
+- wednesday → wednesday: 4 articles
+- wednesday → saturday: 3 articles
+- wednesday → monday: 2 articles
+- wednesday → thursday: 1 articles
+- wednesday → tuesday: 1 articles
+- friday → sunday: 12 articles
+- friday → tuesday: 5 articles
+- friday → saturday: 4 articles
+- friday → friday: 2 articles
+- friday → wednesday: 2 articles
+- friday → thursday: 1 articles
+- sunday → sunday: 8 articles
+- sunday → saturday: 6 articles
+- sunday → tuesday: 6 articles
+- sunday → wednesday: 5 articles
+- sunday → monday: 3 articles
+- sunday → friday: 2 articles
+- sunday → thursday: 2 articles
+
+**Synthesized signals (written to feedback_examples.txt):**
+
+- **Prioritize user-curated exemplars above all else**: the strongest signals are the flagged examples (solar/agriculture business evolution, EV news with real-world driving impressions, rail and Canadian policy coverage). Score articles closely matching these framings higher even when passive ratings are mixed.
+
+- **Boost Canadian, BC, and Cariboo-Chilcotin local civic stories**: First Nations agreements, reconciliation, library/post office openings, community services, and regional elections consistently score well. Give local Williams Lake, 100 Mile, and Quesnel coverage a relevance lift unless it is routine crime, sports, or event listings.
+
+- **Favour solutions-oriented environmental and science coverage**: surprising natural phenomena, geoscience, astronomy, biology, and concrete-implication research score high. Climate content works when it covers protection, policy stakes, land stewardship, or industry pivots; pure disaster or weather reporting should be scored down unless high-impact or policy-relevant.
+
+- **Score AI/tech by angle, not topic**: security vulnerabilities, hacks, surveillance, legal rulings, and critiques of AI hype are strong; product launches, gadgets, executive deals, and hardware price news are weak. Practical how-tos and business-model analysis are a middle ground.
+
+- **Penalize US domestic partisan politics and listicle/product content**: US midterm, partisan, and political-figure pieces, plus model reveals, spec reviews, decor/design showcases, and bargain roundups, consistently fail unless tied to broader policy or public-resource stakes.
+
+- **Reduce weight for sources with strong negative history**: Rolling Stone, The New Yorker, Reactor, Lifehacker, Domino, Tom's Guide, Neowin, and CBC Arts are near-universally disliked. Conversely, Eagle Feather News, ScienceAlert, 100 Mile Free Press, ScienceDaily, EarthSky, and The Narwhal are reliably liked.
+
+- **Lift Interesting-tier topics even though they lack a podcast slot**: niche architecture-as-culture, AI-agent economics, and offbeat science (Ramanujan equations, living computers) are wanted; they should score at Good-tier relevance, not below.
+
+- **Retag patterns to correct**: general "news" items that are really AI/tech (frequent), wellness, design, homestead,
+
+---
+## Feedback Archive Run — 2026-11-21 20:16 UTC
+
+**Status:** ✅ archived
+**Retention:** 90 days
+**Files archived:** 6 (2026-08-17.json … 2026-08-22.json)
+**Ratings folded into rollup:** 94 (rollup now holds 1166)
+**Topic/framing lessons:** ✅ consolidated to 224 words
+**Raw bytes freed:** 95.9 KB
+**Live files remaining:** 80
+**URL ledger:** 2650 URLs (+74 new, −0 pruned)
+
+---
 ## Feedback Training Run — 2026-11-14 18:54 UTC
 
 **Files processed:** 2026-10-16.json, 2026-10-17.json, 2026-10-18.json, 2026-10-19.json, 2026-10-20.json, 2026-10-21.json, 2026-10-22.json, 2026-10-23.json, 2026-10-24.json, 2026-10-25.json, 2026-10-26.json, 2026-10-27.json, 2026-10-28.json, 2026-10-30.json, 2026-11-01.json, 2026-11-02.json, 2026-11-03.json, 2026-11-04.json, 2026-11-05.json, 2026-11-06.json, 2026-11-07.json, 2026-11-08.json, 2026-11-09.json, 2026-11-10.json, 2026-11-11.json, 2026-11-12.json, 2026-11-13.json, 2026-11-14.json
