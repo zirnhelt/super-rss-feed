@@ -59,6 +59,18 @@ APPLE_NEWS_PRIMARY_CHANNEL_LINK = SOURCE_PREFS.get('apple_news_channels', {}).ge
 # second. Exempt sources still pass through scoring, URL dedup, the quality floor
 # and slot allocation like anything else; story-overlap dedup skips them (below).
 EDITORIAL_EXEMPT_SOURCES = frozenset(SOURCE_PREFS.get('editorial_exempt_sources', []))
+# An editorial source ships in one feed only. Without a home, a review the categorizer
+# filed under news made news a feed that "carries" reviews, so the same-morning refresh
+# spliced every later review into both and the retention merge kept the copies.
+EDITORIAL_HOME = dict(SOURCE_PREFS.get('editorial_home_category', {}))
+
+
+def _misfiled_editorial(item: Dict, cat_key: str) -> bool:
+    """Whether a retained feed item is from an editorial source homed in another category."""
+    home = EDITORIAL_HOME.get(((item.get('authors') or [{}])[0]).get('name'))
+    return bool(home) and home != cat_key
+
+
 # Headline series whose every instalment is a different story under the same kicker.
 SERIES_TITLE_RE = re.compile(
     '|'.join(SOURCE_PREFS.get('series_title_patterns', [])) or r'(?!)', re.I)
@@ -4552,7 +4564,11 @@ def is_niche_source(source: str) -> bool:
 
 def reader_category(article) -> str:
     """The reader feed an article ships in: its category, except that a niche outlet's
-    stories go to Miscellany. A local story stays local."""
+    stories go to Miscellany. A local story stays local. An editorial source ships
+    in its configured home (EDITORIAL_HOME), whatever the categorizer said."""
+    home = EDITORIAL_HOME.get(getattr(article, 'source', ''))
+    if home in CATEGORIES:
+        return home
     category = getattr(article, 'category', None) or 'news'
     if (category != 'local' and MISCELLANY_CATEGORY in CATEGORIES
             and is_niche_source(getattr(article, 'source', ''))):
@@ -7492,6 +7508,8 @@ def main():
                             if is_blocked_source(((item.get('authors') or [{}])[0]).get('name')):
                                 evicted_blocked += 1
                                 continue
+                            if _misfiled_editorial(item, cat_key):
+                                continue  # an editorial source's copy outside its home feed
                             existing_articles.append(item)
             except Exception as e:
                 print(f"⚠️ Error loading existing {cat_key} feed: {e}")
@@ -8403,7 +8421,8 @@ def refresh_editorial_feeds(opml_path: str = 'feeds.opml', output_dir: str = 'ou
             continue
         carried = {(item.get('authors') or [{}])[0].get('name') for item in items}
         known = {canonicalize_url(item_source_link(item)) for item in items}
-        new = [a for a in fresh if a.source in carried and canonicalize_url(a.link) not in known]
+        new = [a for a in fresh if a.source in carried and canonicalize_url(a.link) not in known
+               and EDITORIAL_HOME.get(a.source, cat_key) == cat_key]
         if new:
             written += _write_spliced_feed(cat_key, items, new, output_dir)
 
