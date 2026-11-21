@@ -758,21 +758,71 @@ def _kite_text(text: str, attribute: bool) -> str:
     return _KITE_CITATION_RE.sub(_group, text or '').strip()
 
 
+# Kite translates headline and summary to English but links the original outlet,
+# and its article dicts carry no language field. The domain's country code and the
+# article's own (original-language) title are the only signals, so judge by those.
+# The reader takes English and French; anything else is a last resort.
+_KITE_FOREIGN_TLDS = frozenset({
+    'de', 'at', 'es', 'it', 'pt', 'nl', 'pl', 'ru', 'ua', 'cz', 'sk', 'hu', 'ro', 'bg',
+    'gr', 'tr', 'se', 'no', 'dk', 'fi', 'is', 'ee', 'lv', 'lt', 'si', 'hr', 'rs',
+    'jp', 'cn', 'kr', 'tw', 'th', 'vn', 'id', 'br', 'mx', 'ar', 'cl', 'co', 'pe', 've',
+    'ir', 'il', 'sa', 'eg'})
+_KITE_FOREIGN_WORDS = frozenset(
+    # German, Spanish, Italian, Portuguese, Dutch
+    'der die das und ist nicht ein eine nach vor zum zur über für mit von auf dem den '
+    'el los las una por con para sobre del como pero más '
+    'il gli della degli nel sulla sono che per non più '
+    'os uma não são sobre com para '
+    'het een van voor niet naar bij'.split())
+_KITE_ENGLISH_WORDS = frozenset(
+    'the and of to in for on with is are after over as by at from has have its his her'.split())
+
+
+def _kite_is_readable(article: dict) -> bool:
+    """True unless the article looks to be in a language the reader skips.
+
+    English and French pass. A country TLD from `_KITE_FOREIGN_TLDS` fails; on
+    a generic one (.com, .org) the article's own title decides, by stopwords.
+    """
+    domain = (article.get('domain') or '').lower()
+    if domain.rsplit('.', 1)[-1] in _KITE_FOREIGN_TLDS:
+        return False
+    title = (article.get('title') or '').lower()
+    letters = [ch for ch in title if ch.isalpha()]
+    if letters and sum(ord(ch) > 0x24F for ch in letters) / len(letters) > 0.3:
+        return False  # CJK, Cyrillic, Arabic... on a generic TLD
+    words = re.findall(r"[^\W\d_]+", title)
+    foreign = sum(w in _KITE_FOREIGN_WORDS for w in words)
+    english = sum(w in _KITE_ENGLISH_WORDS for w in words)
+    return not (foreign >= 2 and foreign > english)
+
+
 def _kite_primary_article(story: dict) -> dict:
-    """The cluster article the summary cites first; `articles[0]` is often not it.
+    """The cluster article to link: the first cited one the reader can read.
 
     Kite orders `articles` by fetch, not by relevance: the first is regularly a
     foreign-language page on a neighbouring story. The summary's first citation
-    names the article the headline was written from. A cited article Kite only
-    has as a Google News redirect is passed over: the podcast pool refuses those.
+    names the article the headline was written from, but Kite writes that in
+    English whatever the outlet's language, so a German outlet's page (swr.de,
+    2026-11-21) can sit behind an English headline. Order of preference: a cited
+    English or French article, any such article in the cluster, then the first
+    cited article whatever its language. A cited article Kite only has as a
+    Google News redirect is passed over: the podcast pool refuses those.
     """
     articles = [a for a in (story.get('articles') or [])
                 if isinstance(a, dict) and not _is_aggregator_url(a.get('link') or '')]
+    cited: List[dict] = []
     for domain, n in _KITE_CITE_RE.findall(story.get('short_summary') or ''):
         from_domain = [a for a in articles if (a.get('domain') or '').lower() == domain.lower()]
         if from_domain:
-            return from_domain[min(int(n), len(from_domain)) - 1]
-    return articles[0] if articles else {}
+            pick = from_domain[min(int(n), len(from_domain)) - 1]
+            if pick not in cited:
+                cited.append(pick)
+    for pool in (cited, articles):
+        for article in pool:
+            if _kite_is_readable(article):
+                return article
+    return (cited or articles or [{}])[0]
 
 
 def _kite_excerpt(story: dict) -> str:
