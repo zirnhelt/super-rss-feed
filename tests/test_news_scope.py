@@ -295,6 +295,12 @@ def test_digest_links_go_through_the_click_worker_only_when_configured(tmp_path,
     assert CLICKS_BASE + '/go?u=' in page.read_text(encoding='utf-8'), 'the page keeps the Worker link'
 
 
+def test_click_key_ignores_whitespace_pasted_with_it(monkeypatch):
+    # The deploy strips whitespace before giving the key to the Worker; so must the nightly.
+    _clicks_on(monkeypatch, key='test-key-0123456789abcdef0123456789\r\n')
+    assert m._clicks_config() == (CLICKS_BASE, 'test-key-0123456789abcdef0123456789')
+
+
 def test_digest_href_falls_back_to_the_story_when_the_worker_would_refuse_it():
     key, day = 'k' * 32, '2026-11-20'
     assert m._digest_href('http://insecure.example/a', 'World', day, CLICKS_BASE, key) == 'http://insecure.example/a'

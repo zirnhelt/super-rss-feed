@@ -6742,7 +6742,7 @@ CLICKS_MAX_PAGES = 5             # 1000 clicks a page; the Worker keeps 60 days
 def _clicks_config() -> Tuple[str, str]:
     """(Worker base URL, CLICKS_KEY), or ('', '') unless both are set."""
     base = str((SYSTEM.get('clicks') or {}).get('base_url') or '').rstrip('/')
-    key = os.environ.get('CLICKS_KEY', '')
+    key = ''.join(os.environ.get('CLICKS_KEY', '').split())  # as the deploy trims it: a pasted newline
     return (base, key) if base and key else ('', '')
 
 
