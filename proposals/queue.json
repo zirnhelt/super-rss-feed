@@ -1,10 +1,33 @@
 {
-  "generated_at": "2026-11-20T14:14:03Z",
-  "items": [],
+  "generated_at": "2026-11-21T14:05:00Z",
+  "items": [
+    {
+      "id": "branch:curated-podcast-generator:claude/adoring-ramanujan-i3fnf7",
+      "kind": "branch",
+      "repo": "curated-podcast-generator",
+      "title": "Wednesdays explain the tech in plain language",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/adoring-ramanujan-i3fnf7",
+      "detail": "From another session (Nov 20), no PR. Its commit says listener feedback found Wednesdays lean on acronyms and assumed knowledge. It adds a plain-language paragraph to the Gear, Gadgets & Practical Tech theme's lens (config/themes.json), so on Wednesdays the storyboard and script say what a piece of tech does before naming it, spell out acronyms, and give one plain sentence on how it works; no other day changes. The polish prompts never see the lens, so a polish could trim the explanations back out. It changes what the hosts say on air, so it needs your call.",
+      "fix": "Approve to open a PR and merge it on green; decline to delete the branch (GitHub can restore it).",
+      "since": "2026-11-20"
+    }
+  ],
   "done": [
     {
+      "title": "Refresh the Anthropic price table (audit row stale-prices)",
+      "outcome": "merged in both repos: every price held except Sonnet 5.5 cache reads, now $0.10, which the podcast's cost meter had logged at $0.20 (super-rss-feed #398)",
+      "at": "2026-11-21",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/579"
+    },
+    {
+      "title": "Click capture is on",
+      "outcome": "merged: Worker live, setup fixes for pasted newlines (#578, #396); the 2:30 AM check found all 15 of Saturday's digest links signed and working",
+      "at": "2026-11-21",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/397"
+    },
+    {
       "title": "Count your clicks in \"Also in the news\"",
-      "outcome": "merged, off until you set it up (4 steps in cloudflare/clicks/README.md). A separate Worker, not the scheduler, notes the story you open (#577); the nightly saves clicks beside your ratings and the audit shows click-through by category and outlet. The reader model's weak positive waits for about four weeks of clicks.",
+      "outcome": "merged (#577 and this one). A separate Worker, not the scheduler, notes the story you open; the nightly saves clicks beside your ratings and the audit shows click-through by category and outlet. The reader model's weak positive waits for about four weeks of clicks.",
       "at": "2026-11-20",
       "url": "https://github.com/zirnhelt/super-rss-feed/pull/395"
     },
