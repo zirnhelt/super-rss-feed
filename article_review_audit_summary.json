@@ -1,102 +1,102 @@
 {
-  "generated_at": "2026-11-14 18:54 UTC",
+  "generated_at": "2026-11-21 20:17 UTC",
   "window": {
-    "first": "2026-08-17",
-    "last": "2026-11-14",
+    "first": "2026-08-24",
+    "last": "2026-11-21",
     "days": 90,
-    "all_time": 2560
+    "all_time": 2632
   },
-  "total_rated": 1510,
+  "total_rated": 1490,
   "counts": {
-    "bad": 821,
-    "good": 306,
-    "interesting": 285,
+    "interesting": 284,
+    "good": 313,
+    "bad": 777,
     "skip": 1,
-    "podcast_only": 97
+    "podcast_only": 115
   },
-  "bad_pct": 54.4,
-  "good_pct": 20.3,
-  "positive_pct": 39.1,
+  "bad_pct": 52.1,
+  "good_pct": 21.0,
+  "positive_pct": 40.1,
   "score_by_rating": {
     "good": {
-      "n": 306,
-      "mean_score": 61.8,
-      "median_score": 63.5,
-      "mean_quality": 45.4,
-      "mean_relevance": 47.2
+      "n": 313,
+      "mean_score": 61.9,
+      "median_score": 65,
+      "mean_quality": 45.0,
+      "mean_relevance": 47.1
     },
     "interesting": {
-      "n": 285,
-      "mean_score": 49.5,
-      "median_score": 48,
-      "mean_quality": 35.5,
-      "mean_relevance": 33.2
+      "n": 284,
+      "mean_score": 49.8,
+      "median_score": 48.0,
+      "mean_quality": 36.1,
+      "mean_relevance": 33.8
     },
     "podcast_only": {
-      "n": 97,
-      "mean_score": 51.4,
+      "n": 115,
+      "mean_score": 50.5,
       "median_score": 47,
-      "mean_quality": 59.4,
-      "mean_relevance": 50.9
+      "mean_quality": 57.6,
+      "mean_relevance": 49.7
     },
     "bad": {
-      "n": 821,
-      "mean_score": 39.7,
-      "median_score": 38,
-      "mean_quality": 17.4,
-      "mean_relevance": 13.8
+      "n": 777,
+      "mean_score": 40.4,
+      "median_score": 40,
+      "mean_quality": 19.2,
+      "mean_relevance": 15.2
     }
   },
   "band_precision": [
     {
       "band": "80-100",
-      "n": 104,
-      "good": 65,
-      "interesting": 20,
+      "n": 109,
+      "good": 67,
+      "interesting": 22,
       "bad": 11,
-      "good_pct": 62.5,
+      "good_pct": 61.5,
       "positive_pct": 81.7,
-      "bad_pct": 10.6
+      "bad_pct": 10.1
     },
     {
       "band": "60-79",
-      "n": 316,
-      "good": 97,
+      "n": 324,
+      "good": 100,
       "interesting": 58,
-      "bad": 139,
-      "good_pct": 30.7,
-      "positive_pct": 49.1,
-      "bad_pct": 44.0
+      "bad": 141,
+      "good_pct": 30.9,
+      "positive_pct": 48.8,
+      "bad_pct": 43.5
     },
     {
       "band": "40-59",
-      "n": 555,
-      "good": 117,
-      "interesting": 138,
-      "bad": 256,
-      "good_pct": 21.1,
-      "positive_pct": 45.9,
-      "bad_pct": 46.1
+      "n": 550,
+      "good": 118,
+      "interesting": 135,
+      "bad": 247,
+      "good_pct": 21.5,
+      "positive_pct": 46.0,
+      "bad_pct": 44.9
     },
     {
       "band": "20-39",
-      "n": 378,
-      "good": 23,
+      "n": 359,
+      "good": 24,
       "interesting": 54,
-      "bad": 278,
-      "good_pct": 6.1,
-      "positive_pct": 20.4,
-      "bad_pct": 73.5
+      "bad": 250,
+      "good_pct": 6.7,
+      "positive_pct": 21.7,
+      "bad_pct": 69.6
     },
     {
       "band": "0-19",
-      "n": 157,
+      "n": 148,
       "good": 4,
       "interesting": 15,
-      "bad": 137,
-      "good_pct": 2.5,
-      "positive_pct": 12.1,
-      "bad_pct": 87.3
+      "bad": 128,
+      "good_pct": 2.7,
+      "positive_pct": 12.8,
+      "bad_pct": 86.5
     }
   ],
   "threshold_sweep": [
@@ -113,19 +113,19 @@
     },
     {
       "threshold": 15,
-      "bad_cut": 40,
-      "bad_cut_pct": 4.9,
+      "bad_cut": 36,
+      "bad_cut_pct": 4.6,
       "good_lost": 1,
       "good_lost_pct": 0.3,
-      "interesting_lost": 3,
-      "interesting_lost_pct": 1.1,
-      "positive_lost": 4,
-      "positive_lost_pct": 0.7
+      "interesting_lost": 1,
+      "interesting_lost_pct": 0.4,
+      "positive_lost": 2,
+      "positive_lost_pct": 0.3
     },
     {
       "threshold": 20,
-      "bad_cut": 137,
-      "bad_cut_pct": 16.7,
+      "bad_cut": 128,
+      "bad_cut_pct": 16.5,
       "good_lost": 4,
       "good_lost_pct": 1.3,
       "interesting_lost": 15,
@@ -135,240 +135,240 @@
     },
     {
       "threshold": 25,
-      "bad_cut": 207,
-      "bad_cut_pct": 25.2,
-      "good_lost": 8,
-      "good_lost_pct": 2.6,
+      "bad_cut": 186,
+      "bad_cut_pct": 23.9,
+      "good_lost": 9,
+      "good_lost_pct": 2.9,
       "interesting_lost": 21,
       "interesting_lost_pct": 7.4,
-      "positive_lost": 29,
-      "positive_lost_pct": 4.9
+      "positive_lost": 30,
+      "positive_lost_pct": 5.0
     },
     {
       "threshold": 30,
-      "bad_cut": 321,
-      "bad_cut_pct": 39.1,
+      "bad_cut": 284,
+      "bad_cut_pct": 36.6,
       "good_lost": 16,
-      "good_lost_pct": 5.2,
-      "interesting_lost": 36,
-      "interesting_lost_pct": 12.6,
-      "positive_lost": 52,
-      "positive_lost_pct": 8.8
+      "good_lost_pct": 5.1,
+      "interesting_lost": 35,
+      "interesting_lost_pct": 12.3,
+      "positive_lost": 51,
+      "positive_lost_pct": 8.5
     },
     {
       "threshold": 35,
-      "bad_cut": 377,
-      "bad_cut_pct": 45.9,
-      "good_lost": 19,
-      "good_lost_pct": 6.2,
+      "bad_cut": 338,
+      "bad_cut_pct": 43.5,
+      "good_lost": 20,
+      "good_lost_pct": 6.4,
       "interesting_lost": 52,
-      "interesting_lost_pct": 18.2,
-      "positive_lost": 71,
-      "positive_lost_pct": 12.0
+      "interesting_lost_pct": 18.3,
+      "positive_lost": 72,
+      "positive_lost_pct": 12.1
     },
     {
       "threshold": 40,
-      "bad_cut": 415,
-      "bad_cut_pct": 50.5,
-      "good_lost": 27,
-      "good_lost_pct": 8.8,
+      "bad_cut": 378,
+      "bad_cut_pct": 48.6,
+      "good_lost": 28,
+      "good_lost_pct": 8.9,
       "interesting_lost": 69,
-      "interesting_lost_pct": 24.2,
-      "positive_lost": 96,
+      "interesting_lost_pct": 24.3,
+      "positive_lost": 97,
       "positive_lost_pct": 16.2
     },
     {
       "threshold": 45,
-      "bad_cut": 476,
-      "bad_cut_pct": 58.0,
-      "good_lost": 44,
+      "bad_cut": 439,
+      "bad_cut_pct": 56.5,
+      "good_lost": 45,
       "good_lost_pct": 14.4,
-      "interesting_lost": 97,
-      "interesting_lost_pct": 34.0,
-      "positive_lost": 141,
-      "positive_lost_pct": 23.9
+      "interesting_lost": 99,
+      "interesting_lost_pct": 34.9,
+      "positive_lost": 144,
+      "positive_lost_pct": 24.1
     },
     {
       "threshold": 50,
-      "bad_cut": 632,
-      "bad_cut_pct": 77.0,
-      "good_lost": 128,
-      "good_lost_pct": 41.8,
-      "interesting_lost": 195,
-      "interesting_lost_pct": 68.4,
-      "positive_lost": 323,
-      "positive_lost_pct": 54.7
+      "bad_cut": 586,
+      "bad_cut_pct": 75.4,
+      "good_lost": 127,
+      "good_lost_pct": 40.6,
+      "interesting_lost": 192,
+      "interesting_lost_pct": 67.6,
+      "positive_lost": 319,
+      "positive_lost_pct": 53.4
     },
     {
       "threshold": 60,
-      "bad_cut": 671,
-      "bad_cut_pct": 81.7,
-      "good_lost": 144,
-      "good_lost_pct": 47.1,
-      "interesting_lost": 207,
-      "interesting_lost_pct": 72.6,
-      "positive_lost": 351,
-      "positive_lost_pct": 59.4
+      "bad_cut": 625,
+      "bad_cut_pct": 80.4,
+      "good_lost": 146,
+      "good_lost_pct": 46.6,
+      "interesting_lost": 204,
+      "interesting_lost_pct": 71.8,
+      "positive_lost": 350,
+      "positive_lost_pct": 58.6
     }
   ],
   "current_min_score": 25,
   "by_category": {
     "news": {
-      "n": 736,
-      "good": 70,
-      "interesting": 80,
-      "bad": 567,
-      "podcast_only": 19,
-      "positive": 150,
-      "good_pct": 9.5,
-      "bad_pct": 77.0,
-      "positive_pct": 20.4
+      "n": 687,
+      "good": 74,
+      "interesting": 78,
+      "bad": 514,
+      "podcast_only": 21,
+      "positive": 152,
+      "good_pct": 10.8,
+      "bad_pct": 74.8,
+      "positive_pct": 22.1
     },
     "ai-tech": {
       "n": 192,
-      "good": 31,
+      "good": 30,
       "interesting": 93,
       "bad": 61,
-      "podcast_only": 7,
-      "positive": 124,
-      "good_pct": 16.1,
+      "podcast_only": 8,
+      "positive": 123,
+      "good_pct": 15.6,
       "bad_pct": 31.8,
-      "positive_pct": 64.6
+      "positive_pct": 64.1
     },
     "local": {
-      "n": 145,
-      "good": 76,
-      "interesting": 21,
-      "bad": 35,
-      "podcast_only": 12,
-      "positive": 97,
-      "good_pct": 52.4,
-      "bad_pct": 24.1,
-      "positive_pct": 66.9
+      "n": 153,
+      "good": 79,
+      "interesting": 23,
+      "bad": 36,
+      "podcast_only": 14,
+      "positive": 102,
+      "good_pct": 51.6,
+      "bad_pct": 23.5,
+      "positive_pct": 66.7
     },
     "wellness": {
-      "n": 123,
+      "n": 121,
       "good": 33,
-      "interesting": 22,
+      "interesting": 19,
       "bad": 56,
-      "podcast_only": 12,
-      "positive": 55,
-      "good_pct": 26.8,
-      "bad_pct": 45.5,
-      "positive_pct": 44.7
+      "podcast_only": 13,
+      "positive": 52,
+      "good_pct": 27.3,
+      "bad_pct": 46.3,
+      "positive_pct": 43.0
     },
     "science": {
-      "n": 88,
-      "good": 37,
-      "interesting": 10,
-      "bad": 11,
-      "podcast_only": 30,
-      "positive": 47,
-      "good_pct": 42.0,
-      "bad_pct": 12.5,
-      "positive_pct": 53.4
-    },
-    "design": {
-      "n": 63,
-      "good": 3,
-      "interesting": 21,
-      "bad": 38,
-      "podcast_only": 1,
-      "positive": 24,
-      "good_pct": 4.8,
-      "bad_pct": 60.3,
-      "positive_pct": 38.1
+      "n": 95,
+      "good": 38,
+      "interesting": 11,
+      "bad": 12,
+      "podcast_only": 34,
+      "positive": 49,
+      "good_pct": 40.0,
+      "bad_pct": 12.6,
+      "positive_pct": 51.6
     },
     "climate": {
-      "n": 60,
+      "n": 64,
       "good": 26,
       "interesting": 10,
-      "bad": 17,
-      "podcast_only": 7,
+      "bad": 18,
+      "podcast_only": 10,
       "positive": 36,
-      "good_pct": 43.3,
-      "bad_pct": 28.3,
-      "positive_pct": 60.0
+      "good_pct": 40.6,
+      "bad_pct": 28.1,
+      "positive_pct": 56.2
+    },
+    "design": {
+      "n": 64,
+      "good": 3,
+      "interesting": 19,
+      "bad": 41,
+      "podcast_only": 1,
+      "positive": 22,
+      "good_pct": 4.7,
+      "bad_pct": 64.1,
+      "positive_pct": 34.4
     },
     "homelab": {
-      "n": 43,
-      "good": 16,
-      "interesting": 12,
-      "bad": 10,
-      "podcast_only": 5,
-      "positive": 28,
-      "good_pct": 37.2,
-      "bad_pct": 23.3,
-      "positive_pct": 65.1
+      "n": 44,
+      "good": 17,
+      "interesting": 10,
+      "bad": 11,
+      "podcast_only": 6,
+      "positive": 27,
+      "good_pct": 38.6,
+      "bad_pct": 25.0,
+      "positive_pct": 61.4
     },
     "scifi": {
-      "n": 23,
+      "n": 27,
       "good": 0,
-      "interesting": 8,
-      "bad": 15,
-      "podcast_only": 0,
-      "positive": 8,
+      "interesting": 12,
+      "bad": 14,
+      "podcast_only": 1,
+      "positive": 12,
       "good_pct": 0.0,
-      "bad_pct": 65.2,
-      "positive_pct": 34.8
+      "bad_pct": 51.9,
+      "positive_pct": 44.4
     },
     "outdoors": {
-      "n": 20,
+      "n": 24,
       "good": 4,
-      "interesting": 5,
-      "bad": 10,
-      "podcast_only": 1,
-      "positive": 9,
-      "good_pct": 20.0,
+      "interesting": 6,
+      "bad": 12,
+      "podcast_only": 2,
+      "positive": 10,
+      "good_pct": 16.7,
       "bad_pct": 50.0,
-      "positive_pct": 45.0
+      "positive_pct": 41.7
     },
     "homestead": {
-      "n": 17,
-      "good": 10,
+      "n": 19,
+      "good": 9,
       "interesting": 3,
-      "bad": 1,
-      "podcast_only": 3,
-      "positive": 13,
-      "good_pct": 58.8,
-      "bad_pct": 5.9,
-      "positive_pct": 76.5
+      "bad": 2,
+      "podcast_only": 5,
+      "positive": 12,
+      "good_pct": 47.4,
+      "bad_pct": 10.5,
+      "positive_pct": 63.2
     }
   },
   "stratified": {
     "per_stratum": {
       "border": {
-        "n": 167,
-        "good": 36,
-        "interesting": 39,
+        "n": 145,
+        "good": 31,
+        "interesting": 33,
         "podcast_only": 0,
-        "bad": 92,
+        "bad": 81,
         "weight_sum": 9864.333000000002,
         "weighted": 105,
-        "good_pct": 21.6,
-        "positive_pct": 44.9
+        "good_pct": 21.4,
+        "positive_pct": 44.1
       },
       "low": {
-        "n": 55,
+        "n": 45,
         "good": 3,
-        "interesting": 7,
+        "interesting": 6,
         "podcast_only": 0,
-        "bad": 45,
+        "bad": 36,
         "weight_sum": 3075.0,
         "weighted": 32,
-        "good_pct": 5.5,
-        "positive_pct": 18.2
+        "good_pct": 6.7,
+        "positive_pct": 20.0
       },
       "unfiltered": {
-        "n": 457,
-        "good": 19,
-        "interesting": 49,
-        "podcast_only": 10,
-        "bad": 379,
-        "weight_sum": 11023.0,
-        "weighted": 287,
-        "good_pct": 4.2,
-        "positive_pct": 14.9
+        "n": 409,
+        "good": 18,
+        "interesting": 42,
+        "podcast_only": 11,
+        "bad": 338,
+        "weight_sum": 12259.0,
+        "weighted": 299,
+        "good_pct": 4.4,
+        "positive_pct": 14.7
       },
       "high": {
         "n": 73,
@@ -415,62 +415,49 @@
         "positive_pct": 68.6
       },
       "near_miss": {
-        "n": 216,
-        "good": 29,
-        "interesting": 54,
-        "podcast_only": 58,
-        "bad": 75,
-        "weight_sum": 19731.99960000001,
-        "weighted": 216,
-        "good_pct": 13.4,
-        "positive_pct": 38.4
+        "n": 258,
+        "good": 37,
+        "interesting": 65,
+        "podcast_only": 70,
+        "bad": 86,
+        "weight_sum": 24312.000199999995,
+        "weighted": 258,
+        "good_pct": 14.3,
+        "positive_pct": 39.5
       },
       "in_feed": {
-        "n": 58,
-        "good": 29,
-        "interesting": 7,
-        "podcast_only": 17,
-        "bad": 5,
-        "weight_sum": 2415.0,
-        "weighted": 58,
-        "good_pct": 50.0,
-        "positive_pct": 62.1
+        "n": 70,
+        "good": 34,
+        "interesting": 9,
+        "podcast_only": 21,
+        "bad": 6,
+        "weight_sum": 2952.0,
+        "weighted": 70,
+        "good_pct": 48.6,
+        "positive_pct": 61.4
       },
       "wildcard": {
-        "n": 16,
+        "n": 22,
         "good": 0,
         "interesting": 1,
-        "podcast_only": 4,
-        "bad": 11,
-        "weight_sum": 16.0,
-        "weighted": 16,
+        "podcast_only": 5,
+        "bad": 16,
+        "weight_sum": 22.0,
+        "weighted": 22,
         "good_pct": 0.0,
-        "positive_pct": 6.2
+        "positive_pct": 4.5
       }
     },
     "weighted_positive_pct": 41.5,
-    "weight_coverage_pct": 91.9,
-    "weighted_rows": 968,
-    "shipped_rows": 1053,
-    "bad_shipped": 442,
-    "bad_correctly_rejected": 379,
-    "rejects_n": 457,
-    "reject_false_negative_pct": 14.9
+    "weight_coverage_pct": 95.1,
+    "weighted_rows": 1028,
+    "shipped_rows": 1081,
+    "bad_shipped": 439,
+    "bad_correctly_rejected": 338,
+    "rejects_n": 409,
+    "reject_false_negative_pct": 14.7
   },
   "worst_sources": {
-    "My East Kootenay Now": {
-      "n": 6,
-      "good": 0,
-      "interesting": 0,
-      "bad": 6,
-      "podcast_only": 0,
-      "positive": 0,
-      "good_pct": 0.0,
-      "bad_pct": 100.0,
-      "positive_pct": 0.0,
-      "block_candidate": false,
-      "blocked": false
-    },
     "Live for the Outdoors (Country Walking)": {
       "n": 6,
       "good": 0,
@@ -484,81 +471,107 @@
       "block_candidate": false,
       "blocked": false
     },
+    "My East Kootenay Now": {
+      "n": 5,
+      "good": 0,
+      "interesting": 0,
+      "bad": 5,
+      "podcast_only": 0,
+      "positive": 0,
+      "good_pct": 0.0,
+      "bad_pct": 100.0,
+      "positive_pct": 0.0,
+      "block_candidate": false,
+      "blocked": false
+    },
     "Edge (GamesRadar)": {
-      "n": 48,
+      "n": 44,
       "good": 0,
       "interesting": 1,
-      "bad": 47,
+      "bad": 43,
       "podcast_only": 0,
       "positive": 1,
       "good_pct": 0.0,
-      "bad_pct": 97.9,
-      "positive_pct": 2.1,
+      "bad_pct": 97.7,
+      "positive_pct": 2.3,
       "block_candidate": false,
       "blocked": false
     },
     "Ideal Home (Country Homes & Interiors)": {
-      "n": 25,
+      "n": 20,
       "good": 0,
       "interesting": 1,
-      "bad": 24,
+      "bad": 19,
       "podcast_only": 0,
       "positive": 1,
       "good_pct": 0.0,
-      "bad_pct": 96.0,
-      "positive_pct": 4.0,
+      "bad_pct": 95.0,
+      "positive_pct": 5.0,
+      "block_candidate": false,
+      "blocked": false
+    },
+    "Dwell": {
+      "n": 10,
+      "good": 1,
+      "interesting": 0,
+      "bad": 9,
+      "podcast_only": 0,
+      "positive": 1,
+      "good_pct": 10.0,
+      "bad_pct": 90.0,
+      "positive_pct": 10.0,
       "block_candidate": false,
       "blocked": false
     },
     "NYT Top Stories": {
-      "n": 49,
-      "good": 2,
-      "interesting": 3,
-      "bad": 43,
+      "n": 48,
+      "good": 1,
+      "interesting": 4,
+      "bad": 42,
       "podcast_only": 1,
       "positive": 5,
-      "good_pct": 4.1,
-      "bad_pct": 87.8,
-      "positive_pct": 10.2,
-      "block_candidate": false,
-      "blocked": false
-    },
-    "Domino": {
-      "n": 16,
-      "good": 0,
-      "interesting": 2,
-      "bad": 14,
-      "podcast_only": 0,
-      "positive": 2,
-      "good_pct": 0.0,
+      "good_pct": 2.1,
       "bad_pct": 87.5,
-      "positive_pct": 12.5,
-      "block_candidate": false,
-      "blocked": false
-    },
-    "Boing Boing": {
-      "n": 15,
-      "good": 0,
-      "interesting": 2,
-      "bad": 13,
-      "podcast_only": 0,
-      "positive": 2,
-      "good_pct": 0.0,
-      "bad_pct": 86.7,
-      "positive_pct": 13.3,
+      "positive_pct": 10.4,
       "block_candidate": false,
       "blocked": false
     },
     "Country Life": {
-      "n": 22,
+      "n": 19,
       "good": 1,
-      "interesting": 2,
-      "bad": 19,
+      "interesting": 1,
+      "bad": 17,
       "podcast_only": 0,
-      "positive": 3,
-      "good_pct": 4.5,
-      "bad_pct": 86.4,
-      "positive_pct": 13.6,
+      "positive": 2,
+      "good_pct": 5.3,
+      "bad_pct": 89.5,
+      "positive_pct": 10.5,
+      "block_candidate": false,
+      "blocked": false
+    },
+    "Country Living UK": {
+      "n": 18,
+      "good": 1,
+      "interesting": 1,
+      "bad": 16,
+      "podcast_only": 0,
+      "positive": 2,
+      "good_pct": 5.6,
+      "bad_pct": 88.9,
+      "positive_pct": 11.1,
+      "block_candidate": false,
+      "blocked": false
+    },
+    "Boing Boing": {
+      "n": 14,
+      "good": 0,
+      "interesting": 2,
+      "bad": 12,
+      "podcast_only": 0,
+      "positive": 2,
+      "good_pct": 0.0,
+      "bad_pct": 85.7,
+      "positive_pct": 14.3,
       "block_candidate": false,
       "blocked": false
     },
@@ -574,143 +587,132 @@
       "positive_pct": 14.3,
       "block_candidate": false,
       "blocked": false
-    },
-    "KFF Health News": {
-      "n": 7,
-      "good": 1,
-      "interesting": 0,
-      "bad": 6,
-      "podcast_only": 0,
-      "positive": 1,
-      "good_pct": 14.3,
-      "bad_pct": 85.7,
-      "positive_pct": 14.3,
-      "block_candidate": false,
-      "blocked": false
     }
   },
   "content_type_by_rating": {
     "unlabeled": {
-      "bad": 581,
-      "good": 96,
-      "interesting": 121,
-      "podcast_only": 12
+      "interesting": 117,
+      "bad": 529,
+      "good": 99,
+      "podcast_only": 15
     },
     "analysis": {
-      "good": 76,
-      "bad": 67,
-      "interesting": 73,
-      "podcast_only": 48
+      "interesting": 72,
+      "bad": 73,
+      "good": 78,
+      "podcast_only": 56
     },
     "breaking": {
       "good": 62,
-      "bad": 73,
+      "bad": 70,
       "interesting": 36,
-      "podcast_only": 18
+      "podcast_only": 20
     },
     "feature": {
-      "interesting": 33,
-      "bad": 67,
+      "interesting": 37,
+      "bad": 72,
       "good": 46,
-      "podcast_only": 13
+      "podcast_only": 16
     },
     "opinion": {
-      "bad": 16,
-      "interesting": 8,
+      "bad": 15,
+      "interesting": 9,
       "good": 7,
       "skip": 1,
-      "podcast_only": 6
+      "podcast_only": 7
     },
     "news": {
-      "interesting": 8,
+      "interesting": 7,
       "bad": 10,
-      "good": 14
+      "good": 15,
+      "podcast_only": 1
     },
     "recap": {
       "bad": 5,
       "interesting": 2,
-      "good": 1
+      "good": 2
     },
     "fluff": {
       "good": 3,
       "interesting": 2
     },
+    "wire": {
+      "interesting": 1,
+      "good": 1,
+      "bad": 1
+    },
     "investigation": {
       "interesting": 1,
       "bad": 1
-    },
-    "wire": {
-      "interesting": 1,
-      "good": 1
     },
     "essay": {
       "bad": 1
     }
   },
   "theme_routing": {
-    "rated_with_day": 1510,
-    "corrections": 337,
-    "correction_pct": 22.3,
+    "rated_with_day": 1490,
+    "corrections": 359,
+    "correction_pct": 24.1,
     "root_cause": {
-      "routing_bug": 185,
-      "theme_scoring_miss": 152,
+      "routing_bug": 197,
+      "theme_scoring_miss": 162,
       "missing_scores": 0
     },
     "per_day": {
       "monday": {
         "label": "Arts, Culture & Digital Storytelling",
-        "n": 262,
-        "good": 48,
-        "interesting": 65,
-        "podcast_only": 17,
-        "bad": 132,
-        "good_pct": 24.8,
-        "positive_pct": 43.1,
-        "corrected_away": 55
+        "n": 258,
+        "good": 51,
+        "interesting": 67,
+        "podcast_only": 18,
+        "bad": 122,
+        "good_pct": 26.7,
+        "positive_pct": 45.7,
+        "corrected_away": 60
       },
       "tuesday": {
         "label": "Working Lands & Industry",
-        "n": 247,
-        "good": 46,
-        "interesting": 44,
-        "podcast_only": 13,
-        "bad": 144,
-        "good_pct": 23.9,
-        "positive_pct": 36.4,
-        "corrected_away": 46
+        "n": 245,
+        "good": 49,
+        "interesting": 41,
+        "podcast_only": 14,
+        "bad": 141,
+        "good_pct": 25.7,
+        "positive_pct": 36.7,
+        "corrected_away": 50
       },
       "wednesday": {
         "label": "Repair Culture & Practical Tech",
-        "n": 222,
-        "good": 47,
-        "interesting": 38,
-        "podcast_only": 10,
-        "bad": 127,
-        "good_pct": 25.7,
-        "positive_pct": 38.3,
-        "corrected_away": 52
+        "n": 218,
+        "good": 48,
+        "interesting": 39,
+        "podcast_only": 13,
+        "bad": 118,
+        "good_pct": 28.0,
+        "positive_pct": 39.9,
+        "corrected_away": 54
       },
       "thursday": {
         "label": "Indigenous Lands & Innovation",
-        "n": 229,
+        "n": 227,
         "good": 40,
-        "interesting": 36,
-        "podcast_only": 20,
-        "bad": 133,
-        "good_pct": 26.2,
-        "positive_pct": 33.2,
-        "corrected_away": 55
+        "interesting": 38,
+        "podcast_only": 26,
+        "bad": 123,
+        "good_pct": 29.1,
+        "positive_pct": 34.4,
+        "corrected_away": 61
       },
       "friday": {
         "label": "Wild Spaces & Outdoor Life",
-        "n": 196,
-        "good": 43,
-        "interesting": 35,
-        "podcast_only": 12,
-        "bad": 106,
-        "good_pct": 28.1,
-        "positive_pct": 39.8,
-        "corrected_away": 51
+        "n": 193,
+        "good": 42,
+        "interesting": 34,
+        "podcast_only": 17,
+        "bad": 100,
+        "good_pct": 30.6,
+        "positive_pct": 39.4,
+        "corrected_away": 56
       },
       "saturday": {
         "label": "Cariboo Local Affairs",
@@ -725,55 +727,55 @@
       },
       "sunday": {
         "label": "Science, Wonder & the Natural World",
-        "n": 183,
-        "good": 34,
-        "interesting": 33,
-        "podcast_only": 17,
-        "bad": 98,
-        "good_pct": 27.9,
-        "positive_pct": 36.6,
+        "n": 178,
+        "good": 35,
+        "interesting": 31,
+        "podcast_only": 19,
+        "bad": 92,
+        "good_pct": 30.3,
+        "positive_pct": 37.1,
         "corrected_away": 35
       }
     },
     "confusion": {
       "monday": {
-        "tuesday": 12,
-        "sunday": 19,
-        "wednesday": 8,
-        "saturday": 12,
-        "friday": 2,
+        "sunday": 20,
+        "tuesday": 13,
+        "wednesday": 9,
+        "saturday": 13,
+        "friday": 3,
         "thursday": 2
       },
       "tuesday": {
-        "sunday": 20,
+        "sunday": 21,
         "monday": 6,
-        "wednesday": 6,
-        "friday": 2,
-        "saturday": 10,
+        "wednesday": 7,
+        "friday": 3,
+        "saturday": 11,
         "thursday": 2
       },
       "wednesday": {
         "saturday": 12,
-        "monday": 5,
+        "monday": 6,
         "sunday": 18,
         "tuesday": 9,
-        "friday": 6,
+        "friday": 7,
         "thursday": 2
       },
       "thursday": {
-        "tuesday": 9,
+        "tuesday": 10,
         "wednesday": 8,
         "friday": 1,
         "monday": 4,
-        "saturday": 7,
-        "sunday": 26
+        "saturday": 9,
+        "sunday": 29
       },
       "friday": {
-        "wednesday": 5,
+        "wednesday": 6,
         "monday": 3,
         "saturday": 12,
-        "tuesday": 9,
-        "sunday": 19,
+        "tuesday": 11,
+        "sunday": 21,
         "thursday": 3
       },
       "saturday": {
@@ -785,30 +787,31 @@
         "thursday": 4
       },
       "sunday": {
-        "monday": 4,
-        "saturday": 9,
-        "wednesday": 10,
         "tuesday": 8,
-        "friday": 4
+        "wednesday": 10,
+        "friday": 4,
+        "saturday": 10,
+        "monday": 2,
+        "thursday": 1
       }
     }
   },
   "category_retag": {
-    "rated_with_category": 1510,
-    "corrections": 86,
-    "correction_pct": 5.7,
+    "rated_with_category": 1490,
+    "corrections": 78,
+    "correction_pct": 5.2,
     "confusion": {
       "news": {
-        "ai-tech": 22,
-        "homestead": 5,
-        "design": 3,
-        "scifi": 5,
-        "homelab": 11,
-        "wellness": 3,
+        "homestead": 4,
         "local": 4,
         "outdoors": 6,
+        "design": 1,
         "climate": 5,
-        "science": 9
+        "homelab": 10,
+        "ai-tech": 20,
+        "science": 9,
+        "wellness": 2,
+        "scifi": 4
       },
       "science": {
         "wellness": 3,
@@ -832,12 +835,6 @@
     }
   },
   "volume_trend_recent": [
-    {
-      "week": "2026-W39",
-      "runs": 8,
-      "avg_fetched": 1363,
-      "avg_quality": 74
-    },
     {
       "week": "2026-W40",
       "runs": 7,
@@ -876,116 +873,139 @@
     },
     {
       "week": "2026-W46",
+      "runs": 7,
+      "avg_fetched": 1665,
+      "avg_quality": 90
+    },
+    {
+      "week": "2026-W47",
       "runs": 5,
-      "avg_fetched": 1833,
-      "avg_quality": 92
+      "avg_fetched": 1844,
+      "avg_quality": 94
     }
   ],
   "process_health": {
-    "calibration_log_entries": 30,
+    "calibration_log_entries": 31,
     "calibration_no_change_entries": 9,
     "calibration_stats_runs": 14,
-    "calibration_stats_range": "2026-11-01 → 2026-11-14",
+    "calibration_stats_range": "2026-11-08 → 2026-11-21",
     "theme_holdover_cache_present": true
   },
   "headline_coverage": {
     "runs": 7,
-    "headlines": 400,
-    "missed": 343,
-    "miss_pct": 85.8,
+    "headlines": 399,
+    "missed": 338,
+    "miss_pct": 84.7,
     "by_outcome": {
-      "ranked_out": 286,
-      "published": 51,
-      "dedup": 30,
-      "gate_reject": 23,
-      "show_only": 4,
-      "already_shown": 6
+      "ranked_out": 272,
+      "published": 53,
+      "gate_reject": 33,
+      "dedup": 28,
+      "already_shown": 8,
+      "show_only": 5
     }
   },
   "blind_spots": [
     {
-      "id": "unmeasured-categories",
-      "title": "5 categories are unmeasured",
-      "detail": "Under 20 ratings in 28 days: homelab (10), homestead (3), scifi (9), outdoors (2), miscellany (0). Their rates are noise, not \"fine\"; news took 24.4% of the ratings.",
-      "weeks": 6,
-      "escalate": true
+      "id": "gate-misses",
+      "title": "The gate threw away 38.0% of the rejects you wanted",
+      "detail": "19 of 50 rated rejects in 28 days. Most often, all time: NYT Well (14), MacRumors (9), Outside Online (8), 100 Mile Free Press (6), Fast Company (6), The Northern Miner (5).",
+      "weeks": 7,
+      "escalate": true,
+      "owner": "fixer",
+      "action": "Read the wanted rejects from the named sources in feedback/, find what in quality_charter.txt or the gate prompt rejects them, and fix that one cause.",
+      "done_when": "wanted share of rated rejects under 10%",
+      "movement": "worse",
+      "metric_then": 11.8,
+      "metric_now": 38.0
     },
     {
-      "id": "gate-misses",
-      "title": "The gate threw away 32.7% of the rejects you wanted",
-      "detail": "17 of 52 rated rejects in 28 days. Most often, all time: NYT Well (14), MacRumors (9), Outside Online (8), Fast Company (6), The Northern Miner (5), WIRED (5).",
-      "weeks": 6,
-      "escalate": true
+      "id": "unmeasured-categories",
+      "title": "5 categories are unmeasured",
+      "detail": "Under 20 ratings in 28 days: homelab (11), homestead (6), scifi (12), outdoors (5), miscellany (0). Their rates are noise, not \"fine\"; news took 22.7% of the ratings.",
+      "weeks": 7,
+      "escalate": true,
+      "owner": "fixer",
+      "action": "Find why rotate_review_categories() leaves these categories short: a 12-a-day batch can give every category the floor. Fix the rotation, not the quota.",
+      "done_when": "every category has 20+ ratings in 28 days",
+      "movement": "unmeasured"
     },
     {
       "id": "starved-places",
       "title": "Places you want that the pool barely carries",
-      "detail": "100 mile house: 69.6% wanted, 0 in the pool (0.0%). Baseline 41.2% wanted.",
-      "weeks": 6,
-      "escalate": true
-    },
-    {
-      "id": "unmeasured-places",
-      "title": "Local places with almost no ratings",
-      "detail": "Under 5 ratings ever: lac la hache.",
-      "weeks": 4,
-      "escalate": true
+      "detail": "100 mile house: 69.6% wanted, 2 in the pool (0.1%). Baseline 41.9% wanted.",
+      "weeks": 7,
+      "escalate": true,
+      "owner": "fixer",
+      "action": "Trace the place's own outlets through a run (feed failing, filtered, or unanchored) and fix what keeps them out of the pool; add a source only if none exists.",
+      "done_when": "the place is in 1%+ of the pool",
+      "movement": "unmeasured"
     },
     {
       "id": "headline-misses",
-      "title": "The feeds missed 85.8% of the week's headlines",
-      "detail": "343 of 400 widely covered Kagi News stories in 7 runs reached no feed (dedup 30, gate_reject 23, show_only 4, ranked_out 286). gate_reject is the gate's junk flag, show_only a [show] line outside news, ranked_out the slots or the score.",
-      "weeks": 1,
-      "escalate": false
-    },
-    {
-      "id": "stale-prices",
-      "title": "The Anthropic price table is stale",
-      "detail": "CLAUDE.md prices were checked 37 days ago. Refresh them before a cost decision.",
-      "weeks": 1,
-      "escalate": false
+      "title": "The feeds missed 84.7% of the week's headlines",
+      "detail": "338 of 399 widely covered Kagi News stories in 7 runs reached no feed (dedup 28, gate_reject 33, show_only 5, ranked_out 272). gate_reject is the gate's junk flag, show_only a [show] line outside news, ranked_out the slots or the score.",
+      "weeks": 2,
+      "escalate": false,
+      "owner": "reader",
+      "action": "Decide whether to build the headlines lane (TODO.md, roadmap B): ranked_out misses are the interest ranking working as designed, not a defect.",
+      "done_when": "under 50% of widely covered stories missed",
+      "movement": "flat",
+      "metric_then": 85.8,
+      "metric_now": 84.7
     }
   ],
+  "verdict": {
+    "state": "worse",
+    "cycling": true,
+    "wanted_pct": 39.0,
+    "wanted_pct_before": 44.2,
+    "compare_weeks": 4,
+    "stuck": 3,
+    "fixer_actions": 3,
+    "reader_actions": 1,
+    "headline": "The shipped feed is 39.0% wanted, down 5.2 points from 44.2% 4 weeks ago. 3 finding(s) have been open 3+ weeks, and gate-misses got worse while open: reported every week, none closed."
+  },
   "scorecard": {
     "weeks": 4,
-    "n": 312,
-    "n_news": 76,
+    "n": 300,
+    "n_news": 68,
     "signals": {
       "score": {
         "name": "final score",
         "stage": "gate + deep_score",
-        "auc": 0.676,
-        "auc_news": 0.599
+        "auc": 0.701,
+        "auc_news": 0.696
       },
       "quality": {
         "name": "quality (Q)",
         "stage": "deep_score; q_gate elsewhere",
-        "auc": 0.676,
-        "auc_news": 0.616
+        "auc": 0.606,
+        "auc_news": 0.5
       },
       "relevance": {
         "name": "relevance (R)",
         "stage": "deep_score",
-        "auc": 0.712,
-        "auc_news": 0.641
+        "auc": 0.693,
+        "auc_news": 0.565
       },
       "local": {
         "name": "local (L)",
         "stage": "deep_score",
-        "auc": 0.581,
-        "auc_news": 0.67
+        "auc": 0.589,
+        "auc_news": 0.659
       },
       "theme_today": {
         "name": "theme fit for that day's theme",
         "stage": "theme_ingest / theme / theme_batch",
-        "auc": 0.662,
-        "auc_news": 0.656
+        "auc": 0.635,
+        "auc_news": 0.601
       },
       "reader_model": {
         "name": "reader model",
         "stage": "free: your earlier ratings",
-        "auc": 0.768,
-        "auc_news": 0.804
+        "auc": 0.736,
+        "auc_news": 0.722
       }
     }
   },
@@ -993,53 +1013,53 @@
     "days": 7,
     "runs": 7,
     "runs_with_stages": 7,
-    "est_cost_usd": 1.3416,
+    "est_cost_usd": 1.3138,
     "by_stage": {
       "gate": {
-        "calls": 252,
-        "est_cost_usd": 0.2205
+        "calls": 238,
+        "est_cost_usd": 0.2059
       },
       "theme": {
-        "calls": 195,
-        "est_cost_usd": 0.1536
+        "calls": 185,
+        "est_cost_usd": 0.1429
       },
       "deep_score": {
         "calls": 112,
-        "est_cost_usd": 0.1206
+        "est_cost_usd": 0.1205
       }
     }
   },
   "places": {
-    "baseline_wanted_pct": 41.2,
-    "pool_size": 1474,
+    "baseline_wanted_pct": 41.9,
+    "pool_size": 1531,
     "places": [
       {
         "place": "williams lake",
-        "rated": 92,
-        "wanted_pct": 77.2,
-        "in_pool": 32,
-        "pool_pct": 2.2
+        "rated": 96,
+        "wanted_pct": 78.1,
+        "in_pool": 36,
+        "pool_pct": 2.4
       },
       {
         "place": "cariboo",
-        "rated": 122,
-        "wanted_pct": 73.0,
-        "in_pool": 30,
+        "rated": 129,
+        "wanted_pct": 73.6,
+        "in_pool": 31,
         "pool_pct": 2.0
       },
       {
         "place": "quesnel",
-        "rated": 54,
-        "wanted_pct": 55.6,
-        "in_pool": 12,
-        "pool_pct": 0.8
+        "rated": 57,
+        "wanted_pct": 56.1,
+        "in_pool": 8,
+        "pool_pct": 0.5
       },
       {
         "place": "100 mile house",
         "rated": 23,
         "wanted_pct": 69.6,
-        "in_pool": 0,
-        "pool_pct": 0.0
+        "in_pool": 2,
+        "pool_pct": 0.1
       },
       {
         "place": "horsefly",
@@ -1168,38 +1188,6 @@
     }
   ],
   "trend_recent": [
-    {
-      "backfilled": true,
-      "filler": 182,
-      "filler_analysed": 1469,
-      "filler_pct": 12,
-      "gate_miss_pct_28d": 13.8,
-      "news_share_pct_28d": 70.2,
-      "notes": 23,
-      "rated": 142,
-      "rated_by_category_28d": {
-        "ai-tech": 54,
-        "climate": 10,
-        "design": 7,
-        "homelab": 5,
-        "homestead": 1,
-        "local": 42,
-        "news": 384,
-        "outdoors": 2,
-        "science": 12,
-        "scifi": 1,
-        "wellness": 29
-      },
-      "shipped_wanted_pct_28d": 41.1,
-      "through": "2026-09-26",
-      "verdicts": {
-        "bad": 77,
-        "good": 31,
-        "interesting": 34,
-        "podcast_only": 0
-      },
-      "week": "2026-W39"
-    },
     {
       "backfilled": true,
       "filler": 162,
@@ -1616,42 +1604,11 @@
       "week": "2026-W45"
     },
     {
-      "week": "2026-W46",
-      "through": "2026-11-14",
-      "rated": 84,
-      "verdicts": {
-        "good": 16,
-        "interesting": 15,
-        "podcast_only": 23,
-        "bad": 30
-      },
-      "notes": 22,
-      "shipped_wanted_pct_28d": 38.1,
-      "gate_miss_pct_28d": 32.7,
-      "news_share_pct_28d": 24.4,
-      "rated_by_category_28d": {
-        "news": 76,
-        "ai-tech": 51,
-        "local": 41,
-        "science": 41,
-        "wellness": 32,
-        "design": 26,
-        "climate": 21,
-        "homelab": 10,
-        "scifi": 9,
-        "homestead": 3,
-        "outdoors": 2
-      },
-      "scorecard": {
-        "score": 0.676,
-        "quality": 0.676,
-        "relevance": 0.712,
-        "local": 0.581,
-        "theme_today": 0.662,
-        "reader_model": 0.768
-      },
-      "est_cost_usd_7d": 1.3416,
       "claude_by_stage_7d": {
+        "deep_score": {
+          "calls": 112,
+          "est_cost_usd": 0.1206
+        },
         "gate": {
           "calls": 252,
           "est_cost_usd": 0.2205
@@ -1659,20 +1616,28 @@
         "theme": {
           "calls": 195,
           "est_cost_usd": 0.1536
-        },
-        "deep_score": {
-          "calls": 112,
-          "est_cost_usd": 0.1206
         }
       },
-      "theme_wins": {
-        "monday": 58,
-        "tuesday": 78,
-        "wednesday": 77,
-        "thursday": 15,
-        "friday": 104,
-        "saturday": 262,
-        "sunday": 843
+      "closed": [
+        {
+          "calibration_changes": [],
+          "id": "unblocked-candidates",
+          "opened": "2026-W41",
+          "title": "Block candidates still unblocked",
+          "weeks": 5
+        }
+      ],
+      "est_cost_usd_7d": 1.3416,
+      "filler": 13,
+      "filler_analysed": 1315,
+      "filler_pct": 1,
+      "finding_titles": {
+        "gate-misses": "The gate threw away 32.7% of the rejects you wanted",
+        "headline-misses": "The feeds missed 85.8% of the week's headlines",
+        "stale-prices": "The Anthropic price table is stale",
+        "starved-places": "Places you want that the pool barely carries",
+        "unmeasured-categories": "5 categories are unmeasured",
+        "unmeasured-places": "Local places with almost no ratings"
       },
       "findings": [
         "unmeasured-categories",
@@ -1682,38 +1647,163 @@
         "headline-misses",
         "stale-prices"
       ],
+      "gate_miss_pct_28d": 32.7,
+      "headline_miss_pct_7d": 85.8,
+      "headlines_7d": 400,
+      "news_share_pct_28d": 24.4,
+      "notes": 22,
+      "rated": 84,
+      "rated_by_category_28d": {
+        "ai-tech": 51,
+        "climate": 21,
+        "design": 26,
+        "homelab": 10,
+        "homestead": 3,
+        "local": 41,
+        "news": 76,
+        "outdoors": 2,
+        "science": 41,
+        "scifi": 9,
+        "wellness": 32
+      },
+      "retag_pct": 5.7,
+      "routing_correction_pct": 22.3,
+      "scorecard": {
+        "local": 0.581,
+        "quality": 0.676,
+        "reader_model": 0.768,
+        "relevance": 0.712,
+        "score": 0.676,
+        "theme_today": 0.662
+      },
+      "shipped_wanted_pct_28d": 38.1,
+      "theme_wins": {
+        "friday": 104,
+        "monday": 58,
+        "saturday": 262,
+        "sunday": 843,
+        "thursday": 15,
+        "tuesday": 78,
+        "wednesday": 77
+      },
+      "through": "2026-11-14",
+      "verdicts": {
+        "bad": 30,
+        "good": 16,
+        "interesting": 15,
+        "podcast_only": 23
+      },
+      "week": "2026-W46"
+    },
+    {
+      "week": "2026-W47",
+      "through": "2026-11-21",
+      "rated": 72,
+      "verdicts": {
+        "good": 14,
+        "interesting": 17,
+        "podcast_only": 18,
+        "bad": 23
+      },
+      "notes": 14,
+      "shipped_wanted_pct_28d": 39.0,
+      "gate_miss_pct_28d": 38.0,
+      "news_share_pct_28d": 22.7,
+      "rated_by_category_28d": {
+        "news": 68,
+        "ai-tech": 46,
+        "local": 38,
+        "science": 36,
+        "wellness": 29,
+        "design": 25,
+        "climate": 24,
+        "scifi": 12,
+        "homelab": 11,
+        "homestead": 6,
+        "outdoors": 5
+      },
+      "scorecard": {
+        "score": 0.701,
+        "quality": 0.606,
+        "relevance": 0.693,
+        "local": 0.589,
+        "theme_today": 0.635,
+        "reader_model": 0.736
+      },
+      "est_cost_usd_7d": 1.3138,
+      "claude_by_stage_7d": {
+        "gate": {
+          "calls": 238,
+          "est_cost_usd": 0.2059
+        },
+        "theme": {
+          "calls": 185,
+          "est_cost_usd": 0.1429
+        },
+        "deep_score": {
+          "calls": 112,
+          "est_cost_usd": 0.1205
+        }
+      },
+      "theme_wins": {
+        "monday": 53,
+        "tuesday": 79,
+        "wednesday": 92,
+        "thursday": 22,
+        "friday": 110,
+        "saturday": 299,
+        "sunday": 1014
+      },
+      "findings": [
+        "unmeasured-categories",
+        "gate-misses",
+        "starved-places",
+        "headline-misses"
+      ],
       "finding_titles": {
         "unmeasured-categories": "5 categories are unmeasured",
-        "gate-misses": "The gate threw away 32.7% of the rejects you wanted",
+        "gate-misses": "The gate threw away 38.0% of the rejects you wanted",
         "starved-places": "Places you want that the pool barely carries",
-        "unmeasured-places": "Local places with almost no ratings",
-        "headline-misses": "The feeds missed 85.8% of the week's headlines",
-        "stale-prices": "The Anthropic price table is stale"
+        "headline-misses": "The feeds missed 84.7% of the week's headlines"
       },
       "closed": [
         {
-          "id": "unblocked-candidates",
-          "title": "Block candidates still unblocked",
-          "opened": "2026-W41",
-          "weeks": 5,
+          "id": "unmeasured-places",
+          "title": "Local places with almost no ratings",
+          "opened": "2026-W43",
+          "weeks": 4,
+          "calibration_changes": []
+        },
+        {
+          "id": "stale-prices",
+          "title": "The Anthropic price table is stale",
+          "opened": "2026-W46",
+          "weeks": 1,
           "calibration_changes": []
         }
       ],
-      "routing_correction_pct": 22.3,
-      "retag_pct": 5.7,
-      "headline_miss_pct_7d": 85.8,
-      "headlines_7d": 400,
-      "filler_analysed": 1315,
-      "filler": 13,
+      "routing_correction_pct": 24.1,
+      "retag_pct": 5.2,
+      "headline_miss_pct_7d": 84.7,
+      "headlines_7d": 399,
+      "filler_analysed": 1348,
+      "filler": 14,
       "filler_pct": 1
     }
   ],
   "closed_findings": [
     {
-      "id": "unblocked-candidates",
-      "title": "Block candidates still unblocked",
-      "opened": "2026-W41",
-      "weeks": 5,
+      "id": "unmeasured-places",
+      "title": "Local places with almost no ratings",
+      "opened": "2026-W43",
+      "weeks": 4,
+      "calibration_changes": []
+    },
+    {
+      "id": "stale-prices",
+      "title": "The Anthropic price table is stale",
+      "opened": "2026-W46",
+      "weeks": 1,
       "calibration_changes": []
     }
   ]
