@@ -146,6 +146,41 @@ def test_refresh_never_places_a_source_the_nightly_has_not(tmp_path, monkeypatch
     assert m.refresh_editorial_feeds(output_dir='output') == []
 
 
+# --- One home per editorial source --------------------------------------------
+# 2026-11-17..21: a nightly filed a review under news. The refresh then treated
+# news as a feed that "carries" reviews and spliced every new one into both, and
+# the retention merge kept the news copies. The reader saw each review twice.
+
+def test_reviews_have_a_single_home_category() -> None:
+    review = _review(10)
+    review.category = 'news'                  # what the categorizer might say
+    assert m.reader_category(review) == 'local'
+    other = _article('A story', 'Williams Lake Tribune', 'https://wltribune.example/a')
+    other.category = 'news'
+    assert m.reader_category(other) == 'news'
+
+
+def test_refresh_splices_only_into_the_home_feed(tmp_path, monkeypatch) -> None:
+    import json
+    old = _item(_review_url(9), REVIEWS, 'Episode Review — Cariboo Signals, October 9, 2026', 24)
+    _setup(tmp_path, monkeypatch, {'local': [old], 'news': [old]}, _rss(10, 9))
+
+    written = m.refresh_editorial_feeds(output_dir='output')
+
+    assert sorted(written) == ['output/feed-local.json', 'output/feed-local.xml']
+    assert not (tmp_path / 'output/feed-news.json').exists()
+    local_ids = [i['id'] for i in json.loads((tmp_path / 'output/feed-local.json').read_text())['items']]
+    assert _review_url(10) in local_ids
+
+
+def test_retention_drops_a_review_filed_outside_its_home() -> None:
+    review = _item(_review_url(9), REVIEWS, 'Episode Review — Cariboo Signals, October 9, 2026')
+    story = _item('https://cbc.example/1', 'CBC', 'News')
+    assert m._misfiled_editorial(review, 'news')
+    assert not m._misfiled_editorial(review, 'local')
+    assert not m._misfiled_editorial(story, 'news')
+
+
 def _profile(name: str, role: str = 'City councillor candidate') -> m.Article:
     slug = name.lower().replace(' ', '-')
     return _article(f'MEET THE CANDIDATES: {role} {name}', 'Williams Lake Tribune',

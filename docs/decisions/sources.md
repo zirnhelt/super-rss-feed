@@ -296,3 +296,9 @@ became 11, the five South Cariboo stories, and none of the sports or entertainme
 below them. Whether this clears the row is the next audit's call. Most Free Press stories
 say "South Cariboo", not "100 Mile House", and the audit's place test needs the town's name
 in the text or excerpt.
+
+## An editorial source has one home feed (2026-11-21)
+
+The reader saw each Cariboo Signals episode review twice, in Williams Lake Local and in Canadian and Global News. The nightly's categorizer filed one review under news around Nov 17-18. `refresh_editorial_feeds()` places a source in every feed that already carries it, so news now counted, and each morning's refresh spliced the new review into both. The nightly's retention merge only compares a retained item with its own category's new URLs, so the news copies were kept for the full retention window. The Nov 17 refresh wrote two files (local JSON + RSS mirror); the Nov 21 one wrote three.
+
+`source_preferences.json` → `editorial_home_category` names the one feed a source ships in. `reader_category()` returns it regardless of the categorizer, the refresh splices only into it, and the retention merge drops a retained copy filed elsewhere, which clears the existing news copies on the next nightly. A source with no entry behaves as before.
