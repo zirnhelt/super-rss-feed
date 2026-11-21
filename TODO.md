@@ -8,6 +8,13 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **GN Western Producer** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:producer.com&hl=en-CA&gl=CA&ceid=` |
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **GN AgWeb** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en-CA&gl=CA&ceid=CA:` |
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **Wildfire Today** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **Logging and Sawmilling Journal** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
+| 2026-11-20 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
 | 2026-11-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
 | 2026-11-19 | 🔧 Manual Run | ⚠️ **Canadian Architect** failed | `520 Server Error: <none> for url: https://canadianarchitect.com/feed/` |
 | 2026-11-19 | 🔧 Manual Run | ⚠️ **GN The Walrus** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=CA:` |
@@ -40,10 +47,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-11-14 | 🔧 Manual Run | ⚠️ **3D Printing Industry** failed | `415 Client Error: Unsupported Media Type for url: https://3dprintingindustry.com/feed/` |
 | 2026-11-14 | 🔧 Manual Run | ⚠️ **Automated Home** failed | `415 Client Error: Unsupported Media Type for url: https://automatedhome.com/feed/` |
 | 2026-11-14 | 🔧 Manual Run | ⚠️ **The Council of Canadians** failed | `415 Client Error: Unsupported Media Type for url: https://canadians.org/feed` |
-| 2026-11-13 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
-| 2026-11-13 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
-| 2026-11-13 | 🔧 Manual Run | ⚠️ **Climate - CBSNews.com** failed | `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate` |
-| 2026-11-13 | 🔧 Manual Run | ⚠️ **Logging and Sawmilling Journal** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -51,17 +54,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-11-20 | 🔧 manual | 87 | ai-tech:18(21%), news:15(18%), climate:12(14%) |
 | 2026-11-19 | 🔧 manual | 91 | ai-tech:18(20%), news:16(18%), climate:12(14%) |
 | 2026-11-18 | 🔧 manual | 103 | ai-tech:18(18%), news:15(15%), local:14(14%) |
 | 2026-11-17 | 🔧 manual | 93 | ai-tech:18(20%), news:16(18%), climate:12(13%) |
 | 2026-11-16 | 🔧 manual | 96 | ai-tech:18(19%), news:15(16%), climate:12(13%) |
 | 2026-11-15 | 🔧 manual | 81 | ai-tech:18(23%), news:14(18%), homelab:10(13%) |
 | 2026-11-14 | 🔧 manual | 87 | ai-tech:18(21%), news:14(17%), climate:12(14%) |
-| 2026-11-13 | 🔧 manual | 88 | ai-tech:18(20%), news:14(16%), climate:12(14%) |
 
-_Last updated by log\_feed\_results.py · 2026-11-20 06:14 UTC_
+_Last updated by log\_feed\_results.py · 2026-11-21 06:10 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

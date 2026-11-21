@@ -3,6 +3,24 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-20 (Friday)
+
+#### 🔧 Manual Run (10:10 PM Pacific)
+- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
+- ⚠️ **GN Western Producer** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:producer.com&hl=en-CA&gl=CA&ceid=`
+- ⚠️ **GN AgWeb** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en-CA&gl=CA&ceid=CA:`
+- ⚠️ **Wildfire Today** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
+- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+- ⚠️ Google News fallback failed for wildfiretoday.com: 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site%3Awildfiretoday.com%20when%3A3d&hl=en-CA&gl=CA&ceid=CA:en
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-19 (Thursday)
 
 #### 🔧 Manual Run (10:14 PM Pacific)
@@ -99,22 +117,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 
 #### 🔧 Manual Run (10:15 PM Pacific)
 - ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
-- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-12 (Thursday)
-
-#### 🔧 Manual Run (10:11 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
-- ⚠️ **Universe Discovery** failed — `504 Server Error: Gateway Time-out for url: https://www.universediscovery.com/feed/`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
 - ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
@@ -1844,6 +1846,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - 3 issues recorded
 - ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-12–2026-11-12
+- 7 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
+- ⚠️ Universe Discovery failed — 504 Server Error: Gateway Time-out for url: https://www.universediscovery.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
+- ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
 
