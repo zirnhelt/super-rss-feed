@@ -50,6 +50,51 @@ def test_links_the_first_cited_outlet_not_articles_zero() -> None:
     assert article.source == 'agrifocusafrica.com'
 
 
+GERMAN_FIRST = {
+    'title': 'After attacks on supermarket refrigeration systems, experts warn of smart home flaws',
+    'short_summary': ('Attackers heated instead of cooled supermarket fridges [swr.de#1]. '
+                      'France blamed Iran [reuters.com#1].'),
+    'unique_domains': 2,
+    'articles': [
+        {'link': 'https://www.swr.de/kuehlung', 'domain': 'swr.de', 'date': RECENT,
+         'title': 'Nach Angriffen auf Kühlsysteme warnen Experten vor Smart-Home-Lücken'},
+        {'link': 'https://www.reuters.com/fridges', 'domain': 'reuters.com', 'date': RECENT,
+         'title': 'Hackers hit supermarket fridges in Europe'},
+    ],
+}
+
+
+def test_prefers_an_english_outlet_over_a_german_first_citation() -> None:
+    assert _kite(GERMAN_FIRST).link == 'https://www.reuters.com/fridges'
+
+
+def test_french_is_accepted_as_a_link_language() -> None:
+    story = dict(GERMAN_FIRST, short_summary='Fridges heated [lemonde.fr#1][reuters.com#1].',
+                 articles=[
+                     {'link': 'https://www.lemonde.fr/frigos', 'domain': 'lemonde.fr', 'date': RECENT,
+                      'title': 'Des pirates ont chauffé les réfrigérateurs des supermarchés'},
+                     GERMAN_FIRST['articles'][1]])
+    assert _kite(story).link == 'https://www.lemonde.fr/frigos'
+
+
+def test_a_generic_tld_is_judged_by_its_own_title() -> None:
+    german_com = {'link': 'https://www.dw.com/x', 'domain': 'dw.com', 'date': RECENT,
+                  'title': 'Die Bundesregierung warnt vor einem Angriff auf die Stromnetze'}
+    story = dict(GERMAN_FIRST, short_summary='Grid [dw.com#1][reuters.com#1].',
+                 articles=[german_com, GERMAN_FIRST['articles'][1]])
+    assert _kite(story).link == 'https://www.reuters.com/fridges'
+
+
+def test_non_latin_title_on_a_generic_tld_is_skipped() -> None:
+    assert not m._kite_is_readable({'domain': 'example.com', 'title': 'ロヒンギャへのジェノサイド認定'})
+    assert m._kite_is_readable({'domain': 'lemonde.fr', 'title': 'Élections : été très chaud à Québec'})
+
+
+def test_all_foreign_cluster_falls_back_to_the_first_citation() -> None:
+    story = dict(GERMAN_FIRST, articles=GERMAN_FIRST['articles'][:1])
+    assert _kite(story).link == 'https://www.swr.de/kuehlung'
+
+
 def test_citations_are_stripped_from_the_feed_text_and_kept_in_the_body() -> None:
     article = _kite()
     assert '[' not in article.description and '#1' not in article.description
