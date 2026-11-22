@@ -1119,6 +1119,12 @@ def blind_spots(ratings: List[Dict], runs: List[Dict], today: date,
     # category can go a season without enough ratings to say anything about it.
     try:
         categories = config_loader.get_all_categories()
+        # A source-routed feed (Miscellany, `source_routed` in categories.json) carries
+        # stories rated under their own scoring category, so no rating ever names it:
+        # counted here it read 0 every week and held the finding open for good.
+        routed = {key for key, cat in config_loader.load_categories_config().items()
+                  if isinstance(cat, dict) and cat.get('source_routed')}
+        categories = [c for c in categories if c not in routed]
     except Exception:
         categories = []
     shown = Counter(_shown_category(r) for r in recent)

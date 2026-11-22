@@ -188,6 +188,22 @@ def test_unused_verdict_and_unmeasured_category(monkeypatch):
     assert 'news (' not in found['unmeasured-categories']['detail']
 
 
+def test_a_source_routed_feed_is_not_an_unmeasured_category(monkeypatch):
+    # Miscellany ships niche outlets' stories, which keep (and are rated under) their
+    # own category, so no rating names it: it read "miscellany (0)" every week from
+    # 2026-11-14 and kept the finding open however the rotation did.
+    monkeypatch.setattr(audit.config_loader, 'get_all_categories',
+                        lambda: ['news', 'design', 'miscellany'])
+    monkeypatch.setattr(audit.config_loader, 'load_categories_config', lambda: {
+        'news': {}, 'design': {}, 'miscellany': {'source_routed': True}})
+    monkeypatch.setattr(audit, 'price_table_age', lambda today: 0)
+    ratings = ([_on('good', 2, original_category='news') for _ in range(25)]
+               + [_on('good', 2, original_category='design') for _ in range(25)])
+    assert 'unmeasured-categories' not in _spots(ratings)
+    thin = _spots(ratings[:25] + ratings[25:30])
+    assert thin['unmeasured-categories']['detail'].startswith('Under 20 ratings in 28 days: design (5).')
+
+
 def test_a_theme_that_never_wins_is_flagged_once_it_never_wins(monkeypatch):
     monkeypatch.setattr(audit, 'price_table_age', lambda today: 0)
     monkeypatch.setattr(audit.config_loader, 'get_all_categories', lambda: [])

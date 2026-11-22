@@ -629,6 +629,15 @@ the order is the old one. Not fixed here: Miscellany. A review item records
 `article.category`, not `reader_category()`, so a Dezeen rating counts under design and
 Miscellany reads 0 whatever the rotation does.
 
+**2026-11-22, the Miscellany half.** The W47 audit still listed `unmeasured-categories`
+after the rotation, with `miscellany (0)` among them. The other four were moving (homelab
+10 to 11, homestead 3 to 6, scifi 9 to 12, outdoors 2 to 5 in the 28-day window; about one
+rating a day each since 11-18) and need the window to fill. Miscellany could never move:
+its stories are rated under their scoring category. The coverage check now skips
+`source_routed` categories, so the finding can close once the four reach 20. Measuring
+Miscellany as a feed would need the review row to record `reader_category()`; that waits
+until someone wants its rate.
+
 ## The Proposals tab (2026-11-18)
 
 The roadmap fixer (the podcast repo's daily scheduled Claude task) ends every run with the
