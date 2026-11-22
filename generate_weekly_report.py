@@ -684,6 +684,297 @@ def build_noise_signal_html(nts_benchmarks: list) -> str:
     return html
 
 
+# ---------------------------------------------------------------------------
+# Charts (inline SVG, standalone page only)
+#
+# sanitize_feed strips <svg>, so these never go into the feed copy of the report;
+# the tables further down are the table view for every chart here. No dependencies.
+# Colours are CSS variables (--s1.. , --ink..) that build_html_page defines for
+# light and dark; categorical slots are the validated order blue, aqua, violet, orange.
+# ---------------------------------------------------------------------------
+
+METRICS_PATH = Path("reports/weekly_metrics.jsonl")
+VERDICT_SERIES = [
+    ("good", "Good", "var(--s1)"),
+    ("interesting", "Interesting", "var(--s2)"),
+    ("podcast_only", "Podcast only", "var(--s3)"),
+    ("bad", "Bad", "var(--s4)"),
+]
+CHART_W = 480
+
+
+def get_metrics_trend(limit: int = 8) -> list:
+    """The last `limit` weekly rows of reports/weekly_metrics.jsonl (one per week)."""
+    if not METRICS_PATH.exists():
+        return []
+    rows = []
+    for line in METRICS_PATH.read_text("utf-8").splitlines():
+        try:
+            row = json.loads(line)
+        except ValueError:
+            continue
+        if isinstance(row, dict) and row.get("week"):
+            rows.append(row)
+    return sorted(rows, key=lambda r: str(r["week"]))[-limit:]
+
+
+def _num(value: object) -> float | None:
+    return float(value) if isinstance(value, (int, float)) and not isinstance(value, bool) else None
+
+
+def _bar_path(x: float, y: float, w: float, h: float, r: float = 4) -> str:
+    """A bar anchored square on its baseline with a rounded data end (right side)."""
+    w = max(w, 1.0)
+    r = min(r, w, h / 2)
+    return (f"M{x:.1f},{y:.1f}h{w - r:.1f}a{r:.1f},{r:.1f} 0 0 1 {r:.1f},{r:.1f}"
+            f"v{h - 2 * r:.1f}a{r:.1f},{r:.1f} 0 0 1 -{r:.1f},{r:.1f}h-{w - r:.1f}z")
+
+
+def _figure(title: str, caption: str, svg: str, legend: list | None = None) -> str:
+    key = ""
+    if legend:
+        key = '<div class="legend">' + "".join(
+            f'<span><i style="background:{color}"></i>{_esc(name)}</span>' for name, color in legend
+        ) + "</div>"
+    return (f'<figure class="chart"><figcaption><strong>{_esc(title)}</strong>'
+            f'<span>{_esc(caption)}</span></figcaption>{key}{svg}</figure>\n')
+
+
+def _svg(height: float, label: str, body: str) -> str:
+    return (f'<svg viewBox="0 0 {CHART_W} {height:.0f}" role="img" aria-label="{_esc(label)}" '
+            f'preserveAspectRatio="xMidYMid meet">{body}</svg>')
+
+
+def hbar_chart_svg(rows: list, label: str, fmt: str = "{:,.0f}") -> str:
+    """Ranked horizontal bars, one hue, value at the bar end. rows = [(name, value)]."""
+    rows = [(n, v) for n, v in rows if v is not None]
+    if not rows:
+        return ""
+    row_h, left, right = 30, 110, 56
+    top_value = max(v for _, v in rows) or 1
+    plot_w = CHART_W - left - right
+    parts = []
+    for i, (name, value) in enumerate(rows):
+        y = 4 + i * row_h
+        width = plot_w * value / top_value
+        text = fmt.format(value)
+        parts.append(
+            f'<g><title>{_esc(name)}: {_esc(text)}</title>'
+            f'<text x="{left - 10}" y="{y + 15}" class="t2" text-anchor="end">{_esc(name)}</text>'
+            f'<path d="{_bar_path(left, y + 2, width, 18)}" fill="var(--s1)"/>'
+            f'<text x="{left + width + 8:.1f}" y="{y + 15}" class="t1">{_esc(text)}</text></g>'
+        )
+    parts.append(f'<line x1="{left}" y1="2" x2="{left}" y2="{4 + len(rows) * row_h - 4}" class="axis"/>')
+    return _svg(len(rows) * row_h + 8, label, "".join(parts))
+
+
+def stacked_hbar_svg(rows: list, series: list, label: str) -> str:
+    """100% stacked horizontal bars. rows = [(name, n, {key: count})]; shares labelled in-segment."""
+    rows = [r for r in rows if r[1]]
+    if not rows:
+        return ""
+    row_h, left, right = 36, 72, 52
+    plot_w = CHART_W - left - right
+    parts = []
+    for i, (name, total, counts) in enumerate(rows):
+        y = 4 + i * row_h
+        parts.append(f'<text x="{left - 10}" y="{y + 20}" class="t2" text-anchor="end">{_esc(name)}</text>')
+        x = float(left)
+        for key, series_name, color in series:
+            share = 100.0 * (counts.get(key) or 0) / total
+            seg_w = plot_w * share / 100
+            if seg_w <= 0:
+                continue
+            parts.append(
+                f'<g><title>{_esc(name)} · {_esc(series_name)}: {counts.get(key, 0)} of {total} ({share:.0f}%)</title>'
+                f'<rect x="{x:.1f}" y="{y + 3}" width="{max(seg_w - 2, 1):.1f}" height="24" fill="{color}"/>'
+                + (f'<text x="{x + (seg_w - 2) / 2:.1f}" y="{y + 20}" class="on-fill" text-anchor="middle">{share:.0f}%</text>'
+                   if seg_w > 30 else "")
+                + "</g>"
+            )
+            x += seg_w
+        parts.append(f'<text x="{CHART_W - right + 8}" y="{y + 20}" class="t3">n={total:,}</text>')
+    return _svg(len(rows) * row_h + 8, label, "".join(parts))
+
+
+def stacked_columns_svg(weeks: list, series: list, label: str) -> str:
+    """100% stacked columns per week. weeks = [(label, {key: count})]; good sits on the baseline."""
+    weeks = [(w, c) for w, c in weeks if sum((c.get(k) or 0) for k, _, _ in series)]
+    if not weeks:
+        return ""
+    height, top, bottom, left, right = 250, 12, 28, 40, 12
+    plot_h = height - top - bottom
+    slot = (CHART_W - left - right) / len(weeks)
+    col_w = min(slot * 0.7, 52)
+    parts = []
+    for pct in (0, 25, 50, 75, 100):
+        y = top + plot_h * (1 - pct / 100)
+        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{CHART_W - right}" y2="{y:.1f}" class="{"axis" if pct == 0 else "grid"}"/>'
+                     f'<text x="{left - 6}" y="{y + 4:.1f}" class="t3" text-anchor="end">{pct}%</text>')
+    for i, (week, counts) in enumerate(weeks):
+        total = sum((counts.get(k) or 0) for k, _, _ in series)
+        x = left + i * slot + (slot - col_w) / 2
+        y = top + plot_h
+        for key, name, color in series:
+            n = counts.get(key) or 0
+            h = plot_h * n / total
+            if h <= 0:
+                continue
+            parts.append(
+                f'<g><title>{_esc(week)} · {_esc(name)}: {n} of {total} ({100 * n / total:.0f}%)</title>'
+                f'<rect x="{x:.1f}" y="{y - h + 1:.1f}" width="{col_w:.1f}" height="{max(h - 2, 1):.1f}" fill="{color}"/>'
+                + (f'<text x="{x + col_w / 2:.1f}" y="{y - h / 2 + 4:.1f}" class="on-fill" text-anchor="middle">{100 * n / total:.0f}</text>'
+                   if h > 17 else "") + "</g>"
+            )
+            y -= h
+        parts.append(f'<text x="{x + col_w / 2:.1f}" y="{height - 8}" class="t3" text-anchor="middle">{_esc(week)}</text>')
+    return _svg(height, label, "".join(parts))
+
+
+def line_chart_svg(points: list, label: str, fmt: str = "{:.2f}", band: list | None = None) -> str:
+    """One line over weeks, optional min–max band, last point labelled. points = [(x_label, value)]."""
+    points = [(x, _num(v)) for x, v in points]
+    if sum(v is not None for _, v in points) < 2:
+        return ""
+    height, top, bottom, left, right = 220, 14, 28, 46, 52
+    plot_w, plot_h = CHART_W - left - right, height - top - bottom
+    highs = [_num(b[1]) for b in (band or []) if b and _num(b[1]) is not None]
+    top_value = max([v for _, v in points if v is not None] + highs) * 1.1 or 1
+    step = plot_w / max(len(points) - 1, 1)
+
+    def px(i: int) -> float:
+        return left + i * step
+
+    def py(v: float) -> float:
+        return top + plot_h * (1 - v / top_value)
+
+    parts = []
+    for frac in (0, 0.5, 1):
+        v = top_value / 1.1 * frac
+        y = py(v)
+        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{CHART_W - right}" y2="{y:.1f}" class="{"axis" if frac == 0 else "grid"}"/>'
+                     f'<text x="{left - 6}" y="{y + 4:.1f}" class="t3" text-anchor="end">{_esc(fmt.format(v))}</text>')
+    if band:
+        pairs = [(i, _num(b[0]), _num(b[1])) for i, b in enumerate(band) if b and _num(b[0]) is not None and _num(b[1]) is not None]
+        if len(pairs) > 1:
+            upper = " ".join(f"{px(i):.1f},{py(hi):.1f}" for i, _, hi in pairs)
+            lower = " ".join(f"{px(i):.1f},{py(lo):.1f}" for i, lo, _ in reversed(pairs))
+            parts.append(f'<polygon points="{upper} {lower}" fill="var(--s1)" opacity="0.16"/>')
+    coords = [(i, v) for i, (_, v) in enumerate(points) if v is not None]
+    parts.append('<polyline fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round" points="'
+                 + " ".join(f"{px(i):.1f},{py(v):.1f}" for i, v in coords) + '"/>')
+    for i, v in coords:
+        parts.append(f'<g><title>{_esc(points[i][0])}: {_esc(fmt.format(v))}</title>'
+                     f'<circle cx="{px(i):.1f}" cy="{py(v):.1f}" r="4" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/></g>')
+        parts.append(f'<text x="{px(i):.1f}" y="{height - 8}" class="t3" text-anchor="middle">{_esc(points[i][0])}</text>')
+    last_i, last_v = coords[-1]
+    parts.append(f'<text x="{px(last_i) + 10:.1f}" y="{py(last_v) + 4:.1f}" class="t1">{_esc(fmt.format(last_v))}</text>')
+    return _svg(height, label, "".join(parts))
+
+
+def auc_dot_svg(signals: list, label: str) -> str:
+    """Dot plot of AUC per signal against the 0.5 coin-flip line. signals = [(name, auc, auc_news)]."""
+    signals = [s for s in signals if _num(s[1]) is not None or _num(s[2]) is not None]
+    if not signals:
+        return ""
+    row_h, left, right = 34, 200, 16
+    lo, hi = 0.4, 0.8
+    plot_w = CHART_W - left - right
+
+    def px(v: float) -> float:
+        return left + plot_w * (min(max(v, lo), hi) - lo) / (hi - lo)
+
+    height = len(signals) * row_h + 30
+    parts = []
+    for v in (0.4, 0.5, 0.6, 0.7, 0.8):
+        parts.append(f'<line x1="{px(v):.1f}" y1="4" x2="{px(v):.1f}" y2="{height - 26}" class="{"ref" if v == 0.5 else "grid"}"/>'
+                     f'<text x="{px(v):.1f}" y="{height - 8}" class="t3" text-anchor="middle">{v:.1f}</text>')
+    parts.append(f'<text x="{px(0.5) - 4:.1f}" y="14" class="t3" text-anchor="end">coin flip</text>')
+    for i, (name, auc, auc_news) in enumerate(signals):
+        y = 22 + i * row_h
+        parts.append(f'<text x="{left - 10}" y="{y + 4}" class="t2" text-anchor="end">{_esc(name)}</text>')
+        a, n = _num(auc), _num(auc_news)
+        if a is not None and n is not None:
+            parts.append(f'<line x1="{px(a):.1f}" y1="{y}" x2="{px(n):.1f}" y2="{y}" class="grid" stroke-width="3"/>')
+        for value, color, kind in ((a, "var(--s1)", "all ratings"), (n, "var(--s4)", "news only")):
+            if value is not None:
+                parts.append(f'<g><title>{_esc(name)} · {kind}: AUC {value:.3f}</title>'
+                             f'<circle cx="{px(value):.1f}" cy="{y}" r="6" fill="{color}" stroke="var(--surface)" stroke-width="2"/></g>')
+    return _svg(height, label, "".join(parts))
+
+
+def build_charts_html(
+    stats: dict,
+    nts_benchmarks: list,
+    api_cost: dict,
+    quality_review: dict,
+    trend: list,
+) -> str:
+    """The report's at-a-glance charts; each reads data the tables below already show."""
+    audit = quality_review.get("feedback_audit") or {}
+    figures = []
+
+    cat_totals = stats.get("cat_totals") or {}
+    rows = sorted(((c, cat_totals.get(c, 0)) for c in CATEGORY_ORDER if cat_totals.get(c)), key=lambda r: -r[1])
+    svg = hbar_chart_svg(rows, "Articles per category this week, largest first")
+    if svg:
+        figures.append(_figure("Where the articles went",
+                               f"Articles per category over {stats.get('total_runs', 0)} nightly runs", svg))
+
+    weeks = [(str(r["week"]).split("-")[-1], r.get("verdicts") or {}) for r in trend]
+    svg = stacked_columns_svg(weeks, VERDICT_SERIES, "Share of each week's ratings by verdict")
+    if svg:
+        figures.append(_figure("What you thought, week by week",
+                               "Share of rated articles by verdict. The review batch is a quota sample, so read the trend, not the level.",
+                               svg, [(n, c) for _, n, c in VERDICT_SERIES]))
+
+    # Band rows carry good / interesting / bad; what is left of n is podcast_only.
+    band_rows = []
+    for b in audit.get("band_precision") or []:
+        n = b.get("n") or 0
+        counts = {k: b.get(k) or 0 for k in ("good", "interesting", "bad")}
+        counts["podcast_only"] = max(n - sum(counts.values()), 0)
+        band_rows.append((str(b.get("band")), n, counts))
+    svg = stacked_hbar_svg(band_rows, VERDICT_SERIES, "Verdict share by pipeline score band")
+    if svg:
+        figures.append(_figure("Do higher scores earn better ratings?",
+                               "Verdicts by score band. The good + interesting share should climb with the score.",
+                               svg, [(n, c) for _, n, c in VERDICT_SERIES]))
+
+    signals = ((audit.get("scorecard") or {}).get("signals") or {}).values()
+    svg = auc_dot_svg([(s.get("name", "?"), s.get("auc"), s.get("auc_news")) for s in signals],
+                      "AUC per scoring signal against the 0.5 coin-flip line")
+    if svg:
+        figures.append(_figure("What each score buys",
+                               "AUC: 0.5 is a coin flip, 1.0 is perfect. Further right is better.",
+                               svg, [("All ratings", "var(--s1)"), ("News only", "var(--s4)")]))
+
+    svg = line_chart_svg([(str(r["week"]).split("-")[-1], r.get("est_cost_usd_7d")) for r in trend],
+                         "Estimated Claude cost per week in US dollars", fmt="${:.2f}")
+    if svg:
+        figures.append(_figure("Weekly Claude cost", "Estimated spend over the trailing 7 days, in USD", svg))
+
+    stages = ((audit.get("stage_costs") or {}).get("by_stage") or {})
+    svg = hbar_chart_svg(
+        sorted(((s, _num(c.get("est_cost_usd")) or 0.0) for s, c in stages.items()), key=lambda r: -r[1]),
+        "Estimated Claude cost by pipeline stage, last 7 days", fmt="${:.2f}")
+    if svg:
+        figures.append(_figure("Cost by stage", "Last 7 days, estimated", svg))
+
+    svg = line_chart_svg(
+        [(str(w.get("week_date", "?"))[5:], w.get("mean")) for w in nts_benchmarks],
+        "Mean noise-to-signal ratio per week with min–max range",
+        band=[(w.get("min"), w.get("max")) for w in nts_benchmarks])
+    if svg:
+        figures.append(_figure("Noise-to-signal",
+                               "Weekly mean with the min–max band across runs; lower is more efficient", svg))
+
+    if not figures:
+        return ""
+    return ('\n<h3>At a glance</h3>\n<div class="charts">\n' + "".join(figures)
+            + '</div>\n<p class="meta">Every chart has its table below.</p>\n')
+
+
 def build_content_html(
     narrative: str,
     stats: dict,
@@ -695,10 +986,11 @@ def build_content_html(
     actions: list,
     nts_benchmarks: list,
     api_cost: dict,
+    charts_html: str = "",
 ) -> str:
     parts = [f"<p>{_esc(p.strip())}</p>" for p in narrative.split("\n\n") if p.strip()]
     # The conclusion leads; the narrative and tables below are its evidence.
-    html = build_verdict_html(quality_review.get("feedback_audit") or {}) + "\n".join(parts)
+    html = build_verdict_html(quality_review.get("feedback_audit") or {}) + "\n".join(parts) + charts_html
 
     if new_feeds:
         html += "\n<h3>New Feeds This Week</h3>\n<ul>\n"
@@ -966,16 +1258,43 @@ def build_html_page(title: str, content_html: str, week_label: str, pub_date: st
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <style>
-    body {{ font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }}
-    h1 {{ border-bottom: 2px solid #333; padding-bottom: 0.5rem; font-size: 1.6rem; }}
-    h3 {{ margin-top: 1.5rem; font-size: 1.1rem; color: #444; }}
+    :root {{
+      color-scheme: light dark;
+      --bg: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --ink3: #898781; --link: #0066cc;
+      --line: #e1e0d9; --axis: #c3c2b7; --th: #f3f2ef; --surface: #fcfcfb;
+      --s1: #2a78d6; --s2: #1baf7a; --s3: #6250d6; --s4: #eb6834;
+    }}
+    @media (prefers-color-scheme: dark) {{
+      :root {{
+        --bg: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --ink3: #898781; --link: #6da7ec;
+        --line: #2c2c2a; --axis: #383835; --th: #232321; --surface: #1a1a19;
+        --s1: #3987e5; --s2: #199e70; --s3: #9085e9; --s4: #d95926;
+      }}
+    }}
+    body {{ font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: var(--ink); background: var(--bg); }}
+    h1 {{ border-bottom: 2px solid var(--ink); padding-bottom: 0.5rem; font-size: 1.6rem; }}
+    h3 {{ margin-top: 1.5rem; font-size: 1.1rem; color: var(--ink2); }}
     table {{ border-collapse: collapse; width: 100%; margin: 0.5rem 0; }}
-    th, td {{ border: 1px solid #ddd; padding: 0.4rem 0.8rem; text-align: left; }}
-    th {{ background: #f5f5f5; }}
-    .meta {{ color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }}
-    a {{ color: #0066cc; }}
+    th, td {{ border: 1px solid var(--line); padding: 0.4rem 0.8rem; text-align: left; }}
+    th {{ background: var(--th); }}
+    .meta {{ color: var(--ink2); font-size: 0.9rem; margin-bottom: 1.5rem; }}
+    a {{ color: var(--link); }}
     ul {{ padding-left: 1.4rem; }}
     li {{ margin: 0.25rem 0; }}
+    .charts {{ display: grid; gap: 1rem; grid-template-columns: 1fr; }}
+    .chart {{ margin: 0; padding: 0.9rem 1rem 0.6rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }}
+    .chart figcaption {{ display: flex; flex-direction: column; margin-bottom: 0.4rem; line-height: 1.35; }}
+    .chart figcaption span {{ color: var(--ink2); font-size: 0.85rem; }}
+    .chart svg {{ width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; }}
+    .legend {{ display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 0.8rem; color: var(--ink2); margin-bottom: 0.3rem; }}
+    .legend i {{ display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.35rem; }}
+    svg text {{ font-family: inherit; font-size: 13px; fill: var(--ink2); }}
+    svg .t1 {{ fill: var(--ink); font-weight: 600; }}
+    svg .t3 {{ fill: var(--ink3); font-size: 12px; }}
+    svg .on-fill {{ fill: #fff; font-size: 12px; font-weight: 600; }}
+    svg .grid {{ stroke: var(--line); stroke-width: 1; }}
+    svg .axis {{ stroke: var(--axis); stroke-width: 1; }}
+    svg .ref {{ stroke: var(--ink3); stroke-width: 1; stroke-dasharray: 4 3; }}
   </style>
 </head>
 <body>
@@ -1096,6 +1415,13 @@ def main():
         calibration_changes, quality_review, actions,
         nts_benchmarks, api_cost,
     )
+    # The permalink page also gets the SVG charts; the feed copy can't carry them.
+    page_content_html = build_content_html(
+        narrative, stats, new_feeds, errors, discovery,
+        calibration_changes, quality_review, actions,
+        nts_benchmarks, api_cost,
+        charts_html=build_charts_html(stats, nts_benchmarks, api_cost, quality_review, get_metrics_trend()),
+    )
 
     # JSON Feed article item
     article = {
@@ -1118,7 +1444,7 @@ def main():
     atomic_write_json("weekly-state-article.json", article, indent=2, ensure_ascii=False)
 
     # HTML permalink — written to both reports/ (for generate-feed.yml to copy) and output/
-    html_page = build_html_page(title, content_html, week_label, pub_date_human)
+    html_page = build_html_page(title, page_content_html, week_label, pub_date_human)
     html_filename = f"{article_slug}.html"
     Path("reports").mkdir(exist_ok=True)
     atomic_write_text(str(Path("reports") / html_filename), html_page)

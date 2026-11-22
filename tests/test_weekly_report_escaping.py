@@ -124,3 +124,25 @@ def test_week_actions_are_owned_plain_and_lead_the_article():
     assert '<script>' not in html and '11.8 → 32.7, worse' in html
     assert 'Done when: under 10%.' in html
     assert build_verdict_html({}) == ''
+
+
+def test_charts_escape_and_degrade():
+    """Charts are inline SVG on the permalink page: hostile labels stay inert, empty data draws nothing."""
+    from generate_weekly_report import build_charts_html
+
+    assert build_charts_html({}, [], {}, {}, []) == ''
+    html = build_charts_html(
+        {'cat_totals': {'news': 3}, 'total_runs': 1},
+        [{'week_date': '2026-11-07', 'mean': 2.0, 'min': 1.0, 'max': 3.0},
+         {'week_date': HOSTILE, 'mean': 2.5, 'min': 1.5, 'max': 3.5}],
+        {},
+        {'feedback_audit': {
+            'band_precision': [{'band': HOSTILE, 'n': 10, 'good': 5, 'interesting': 2, 'bad': 2}],
+            'scorecard': {'signals': {'x': {'name': HOSTILE, 'auc': 0.7, 'auc_news': None}}},
+            'stage_costs': {'by_stage': {HOSTILE: {'est_cost_usd': 0.5}}},
+        }},
+        [{'week': '2026-W46', 'verdicts': {'good': 1, 'bad': 2}, 'est_cost_usd_7d': 1.0},
+         {'week': '2026-W47', 'verdicts': {'good': 2, 'bad': 1}, 'est_cost_usd_7d': 1.5}],
+    )
+    assert html.count('<figure') == 7
+    assert HOSTILE not in html
