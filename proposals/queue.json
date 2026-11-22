@@ -1,7 +1,34 @@
 {
-  "generated_at": "2026-11-21T14:40:00Z",
-  "items": [],
+  "generated_at": "2026-11-22T14:10:00Z",
+  "items": [
+    {
+      "id": "note:2026-11-21:cut-reasons",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Say why each story didn't make it, and leave out the ones you already heard",
+      "detail": "Saturday's card listed 15 stories that didn't make it, with no reason given. 4 of its 9 roundup rows had already aired earlier in the week (Spanish Mountain Gold on Nov 15, the council trip on Nov 18, the regional district board and the poppy workshop on Nov 20): Saturday's week recall brings the week's local stories back, and the airtime budget then cut those four. The run knows why it drops each story (the airtime budget, the three-a-cluster cap, US politics, the theme floor, no room for a pair, the closing slot) but never writes it down.",
+      "fix": "Record the reason where the roundup curation drops each story and show it on the card (a deep-dive row says not picked for the deep dive, or that the roundup carried it), and leave stories that aired earlier in the week off the list. No API cost.",
+      "source": "Your note, 2026-11-21",
+      "since": "2026-11-22"
+    },
+    {
+      "id": "note:2026-11-21:cold-open",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Saturday aired with no cold open, and nothing said so",
+      "detail": "The cold open came back at 91 words. Anything over 90 is dropped with no second try and no warning (run 44883218714: Cold open too long, 91 words, skipping cold open), so the episode started at the welcome and the nightly review never flagged it.",
+      "fix": "When the first teaser runs long, ask once more for a shorter one (one more Haiku call, about a tenth of a cent, only on those nights), and record a warning whenever an episode ships without a cold open so the review shows it.",
+      "source": "Your note, 2026-11-21",
+      "since": "2026-11-22"
+    }
+  ],
   "done": [
+    {
+      "title": "Miscellany no longer counts as an unmeasured category (audit row unmeasured-categories)",
+      "outcome": "merged: Miscellany's stories are rated under their own category, so it read 0 every week and kept the row open; the other four categories are gaining about a rating a day each and need the 28-day window to fill",
+      "at": "2026-11-22",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/402"
+    },
     {
       "title": "Wednesdays explain the tech in plain language (another session's branch)",
       "outcome": "dropped: you called the listing invalid, and the branch is gone from GitHub",
