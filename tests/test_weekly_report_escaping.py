@@ -128,21 +128,49 @@ def test_week_actions_are_owned_plain_and_lead_the_article():
 
 def test_charts_escape_and_degrade():
     """Charts are inline SVG on the permalink page: hostile labels stay inert, empty data draws nothing."""
-    from generate_weekly_report import build_charts_html
+    from generate_weekly_report import build_charts_html, build_content_html
 
-    assert build_charts_html({}, [], {}, {}, []) == ''
-    html = build_charts_html(
+    empty = build_charts_html({}, [], {}, {}, [])
+    assert set(empty) == {'glance', 'pipeline', 'quality', 'cost', 'discovery'}
+    assert not any(empty.values())
+
+    audit = {
+        'band_precision': [{'band': HOSTILE, 'n': 10, 'good': 5, 'interesting': 2, 'bad': 2}],
+        'scorecard': {'signals': {'x': {'name': HOSTILE, 'auc': 0.7, 'auc_news': None}}},
+        'stage_costs': {'by_stage': {HOSTILE: {'est_cost_usd': 0.5}}},
+        'by_category': {HOSTILE: {'n': 4, 'good': 2, 'bad': 2}},
+        'theme_routing': {'per_day': {'monday': {'label': HOSTILE, 'n': 4, 'good': 2, 'bad': 2}}},
+        'headline_coverage': {'headlines': 5, 'missed': 4, 'miss_pct': 80, 'by_outcome': {HOSTILE: 4, 'published': 1}},
+        'threshold_sweep': [{'threshold': 20, 'bad_cut_pct': 10, 'positive_lost_pct': 1},
+                            {'threshold': 25, 'bad_cut_pct': 20, 'positive_lost_pct': 3}],
+        'current_min_score': 25,
+        'places': {'baseline_wanted_pct': 40, 'places': [{'place': HOSTILE, 'rated': 30, 'wanted_pct': 70}]},
+        'volume_trend_recent': [{'week': '2026-W46', 'avg_fetched': 10, 'avg_quality': 5},
+                                {'week': '2026-W47', 'avg_fetched': 12, 'avg_quality': 6}],
+    }
+    quality_review = {
+        'feedback_audit': audit,
+        'scrub': {'feeds': {'a': {'title': HOSTILE, 'count': 3, 'avg_score': 50, 'stale_count': 0,
+                                  'top_source': 'x', 'top_source_pct': 20}}},
+        'alignment': {'total_direct': 3, 'total_rescue': 1},
+    }
+    charts = build_charts_html(
         {'cat_totals': {'news': 3}, 'total_runs': 1},
         [{'week_date': '2026-11-07', 'mean': 2.0, 'min': 1.0, 'max': 3.0},
          {'week_date': HOSTILE, 'mean': 2.5, 'min': 1.5, 'max': 3.5}],
-        {},
-        {'feedback_audit': {
-            'band_precision': [{'band': HOSTILE, 'n': 10, 'good': 5, 'interesting': 2, 'bad': 2}],
-            'scorecard': {'signals': {'x': {'name': HOSTILE, 'auc': 0.7, 'auc_news': None}}},
-            'stage_costs': {'by_stage': {HOSTILE: {'est_cost_usd': 0.5}}},
-        }},
+        {'vendor_totals': {'claude': 3, 'brave': 2}, 'total_cost': 1.0, 'run_count': 1},
+        quality_review,
         [{'week': '2026-W46', 'verdicts': {'good': 1, 'bad': 2}, 'est_cost_usd_7d': 1.0},
          {'week': '2026-W47', 'verdicts': {'good': 2, 'bad': 1}, 'est_cost_usd_7d': 1.5}],
+        [(HOSTILE, 80.0), ('Other', 70.0)],
     )
-    assert html.count('<figure') == 7
-    assert HOSTILE not in html
+    counts = {k: v.count('<figure') for k, v in charts.items()}
+    assert counts == {'glance': 4, 'pipeline': 3, 'quality': 7, 'cost': 3, 'discovery': 1}
+    page = build_content_html(
+        'Quiet.', {'cat_totals': {'news': 3}}, [], [], [{'title': 'x', 'score': 1}], [],
+        quality_review, [], [], {'vendor_totals': {'claude': 3}, 'total_cost': 1.0,
+                                 'avg_cost_per_run': 1.0, 'total_tokens': 1, 'run_count': 1},
+        charts=charts,
+    )
+    assert page.count('<figure') == 18
+    assert HOSTILE not in page
