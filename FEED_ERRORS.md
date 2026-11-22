@@ -3,6 +3,21 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-21 (Saturday)
+
+#### 🔧 Manual Run (10:08 PM Pacific)
+- ⚠️ **GN Western Producer** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:producer.com&hl=en-CA&gl=CA&ceid=`
+- ⚠️ **GN AgWeb** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en-CA&gl=CA&ceid=CA:`
+- ⚠️ **GN Dwell** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl=en&gl=CA&ceid=CA:en`
+- ⚠️ **GN Parents** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:parents.com&hl=en-CA&gl=CA&ceid=C`
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
 ## 2026-11-20 (Friday)
 
 #### 🔧 Manual Run (10:10 PM Pacific)
@@ -106,20 +121,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **3D Printing Industry** failed — `415 Client Error: Unsupported Media Type for url: https://3dprintingindustry.com/feed/`
 - ⚠️ **Automated Home** failed — `415 Client Error: Unsupported Media Type for url: https://automatedhome.com/feed/`
 - ⚠️ **The Council of Canadians** failed — `415 Client Error: Unsupported Media Type for url: https://canadians.org/feed`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-13 (Friday)
-
-#### 🔧 Manual Run (10:15 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
-- ⚠️ **Logging and Sawmilling Journal** failed — `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))`
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
 
@@ -1858,6 +1859,19 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
 - ⚠️ Canadian Architect failed — 520 Server Error: <none> for url: https://canadianarchitect.com/feed/
 - ⚠️ Universe Discovery failed — 504 Server Error: Gateway Time-out for url: https://www.universediscovery.com/feed/
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
+- ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-13–2026-11-13
+- 5 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
 - ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
