@@ -353,6 +353,10 @@
         .proposal-calls .episode-opt { min-height: 40px; }
         .proposal-calls .episode-opt[aria-pressed=true] { background: #2e7d32; border-color: #2e7d32; }
         .proposal-calls .episode-opt.decline[aria-pressed=true] { background: #c62828; border-color: #c62828; }
+        /* A call already in decisions.json: muted with a check. Solid means tapped and not yet saved. */
+        .proposal-calls .episode-opt[data-saved][aria-pressed=true] { background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; }
+        .proposal-calls .episode-opt.decline[data-saved][aria-pressed=true] { background: #ffebee; color: #c62828; border-color: #c62828; }
+        .proposal-calls .episode-opt[data-saved][aria-pressed=true]::before { content: '✓ '; }
         .proposal-card textarea {
             width: 100%; min-height: 44px; margin-top: 6px; padding: 7px 9px; border: 1px solid #ddd; border-radius: 6px;
             font-size: 0.85em; font-family: inherit; color: #333; resize: vertical;
@@ -1684,6 +1688,21 @@ function pendingDecision(item) {
     return item.acted && item.acted.decided_at >= saved.decided_at ? null : saved;
 }
 
+// ' data-saved' when `verdict` is the call already in decisions.json for this item (CSS mutes it),
+// so a saved call never looks like one tapped and still waiting for Save.
+function callSaved(id, verdict) {
+    const item = proposalItems.find(i => i.id === id);
+    const pending = item ? pendingDecision(item) : null;
+    return pending && verdict && verdict === pending.verdict ? ' data-saved' : '';
+}
+
+// Save has something to do only when a call or comment differs from what is saved.
+function updateProposalSave() {
+    const btn = document.getElementById('proposal-save');
+    btn.disabled = proposalSaving || !decisionEntries().length;
+    btn.title = btn.disabled && !proposalSaving ? 'Nothing new to save' : '';
+}
+
 async function fetchRepoJson(path) {
     const res = await githubFetch(GITHUB_CONTENTS + path, {
         headers: { 'Accept': 'application/vnd.github.raw+json', 'X-GitHub-Api-Version': '2022-11-28' },
@@ -1746,8 +1765,8 @@ function proposalCard(item) {
         ${item.response ? `<div class="proposal-reply">💬 ${escHtml(item.response)}</div>` : ''}
         ${state ? `<div class="proposal-state">${state}</div>` : ''}
         <div class="proposal-calls" role="group" aria-label="${escAttr('Your call on ' + item.title)}">
-            <button type="button" class="episode-opt" data-id="${id}" data-verdict="approve" aria-pressed="${verdict === 'approve'}">${escHtml(kind.yes)}</button>
-            <button type="button" class="episode-opt decline" data-id="${id}" data-verdict="decline" aria-pressed="${verdict === 'decline'}">${escHtml(kind.no)}</button>
+            <button type="button" class="episode-opt" data-id="${id}" data-verdict="approve" aria-pressed="${verdict === 'approve'}"${callSaved(item.id, verdict)}>${escHtml(kind.yes)}</button>
+            <button type="button" class="episode-opt decline" data-id="${id}" data-verdict="decline" aria-pressed="${verdict === 'decline'}"${callSaved(item.id, verdict)}>${escHtml(kind.no)}</button>
         </div>
         <textarea data-id="${id}" maxlength="${PROPOSAL_COMMENT_MAX}" aria-label="${escAttr('Comment on ' + item.title)}"
                   placeholder="Comment (optional): what to change, or why">${escHtml(comment)}</textarea>
@@ -1764,6 +1783,7 @@ function renderProposals() {
         proposalDone.map(d => `<li>${d.url ? `<a href="${escAttr(safeHref(d.url))}" target="_blank" rel="noopener">${escHtml(d.title)}</a>` : escHtml(d.title)}: ${escHtml(d.outcome)}${d.at ? ` (${escHtml(d.at)})` : ''}</li>`).join('')
     }</ul></details>` : '';
     document.getElementById('proposal-save').hidden = !proposalItems.length;
+    updateProposalSave();
     const open = proposalItems.filter(item => !pendingDecision(item)).length;
     setTabBadge('proposals', open ? `${open} to decide` : '');
     if (!list.dataset.wired) {            // once: the list is re-rendered after each save
@@ -1781,9 +1801,14 @@ function onProposalClick(event) {
     const pick = proposalPicks[btn.dataset.id] || (proposalPicks[btn.dataset.id] = {});
     // Tapping the pressed call again withdraws it.
     pick.verdict = btn.getAttribute('aria-pressed') === 'true' ? null : btn.dataset.verdict;
-    card.querySelectorAll('button[data-verdict]').forEach(b =>
-        b.setAttribute('aria-pressed', String(b.dataset.verdict === pick.verdict)));
+    const shown = pick.verdict;
+    const saved = callSaved(btn.dataset.id, shown) !== '';
+    card.querySelectorAll('button[data-verdict]').forEach(b => {
+        b.setAttribute('aria-pressed', String(b.dataset.verdict === shown));
+        b.toggleAttribute('data-saved', saved);
+    });
     card.classList.toggle('picked', Boolean(pick.verdict || (pick.comment || '').trim()));
+    updateProposalSave();
 }
 
 function onProposalInput(event) {
@@ -1792,6 +1817,7 @@ function onProposalInput(event) {
     const pick = proposalPicks[box.dataset.id] || (proposalPicks[box.dataset.id] = {});
     pick.comment = box.value;
     box.closest('.proposal-card').classList.toggle('picked', Boolean(pick.verdict || box.value.trim()));
+    updateProposalSave();
 }
 
 // One row per item whose call or comment changed. A comment alone carries the pending call with it,
@@ -1863,16 +1889,17 @@ async function saveDecisions(entries) {
 
 async function submitDecisions() {
     const statusEl = document.getElementById('proposal-status');
-    const saveBtn  = document.getElementById('proposal-save');
     if (proposalSaving) return;
     const entries = decisionEntries();
     if (!entries.length) {
         statusEl.className = 'status-msg error';
-        statusEl.textContent = 'Pick a call or write a comment first.';
+        statusEl.textContent = proposalItems.length && proposalItems.every(i => pendingDecision(i))
+            ? 'Nothing new to save: every call is already saved.'
+            : 'Pick a call or write a comment first.';
         return;
     }
     proposalSaving = true;
-    saveBtn.disabled = true;
+    updateProposalSave();
     statusEl.className = 'status-msg';
     statusEl.textContent = 'Saving…';
     try {
@@ -1886,7 +1913,7 @@ async function submitDecisions() {
         statusEl.textContent = '❌ Save failed: ' + e.message;
     } finally {
         proposalSaving = false;
-        saveBtn.disabled = false;
+        updateProposalSave();
     }
 }
 

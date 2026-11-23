@@ -108,3 +108,19 @@ def test_the_committed_queue_has_the_shape_the_page_reads() -> None:
         assert item["kind"] in ("proposal", "pr", "branch") and item["title"].strip(), item
         for link in [item.get("url")] + [l["url"] for l in item.get("links", [])]:
             assert link is None or link.startswith("https://"), link
+
+
+def test_a_saved_call_looks_saved_and_save_waits_for_a_change() -> None:
+    """2026-11-23: with every call already saved, Save answered 'Pick a call', and a saved call
+    drew the same solid green as one tapped and not yet saved."""
+    assert "episode-opt[data-saved][aria-pressed=true]" in PAGE
+    card = _between("function proposalCard", "function renderProposals")
+    assert card.count("callSaved(item.id, verdict)") == 2
+    click = _between("function onProposalClick", "function onProposalInput")
+    assert "callSaved(" in click and "updateProposalSave()" in click
+    save = _between("function updateProposalSave", "async function fetchRepoJson")
+    assert "!decisionEntries().length" in save and "proposalSaving" in save
+    submit = _between("async function submitDecisions", "// User-submitted exemplar")
+    assert "Nothing new to save: every call is already saved." in submit
+    assert "Pick a call or write a comment first." in submit
+    assert "saveBtn" not in submit
