@@ -1447,7 +1447,9 @@ function renderEpisodeCuts() {
         // Collapsed to a count: a long list buried the note box. Opens itself once one is answered.
         const open = rows.some(([c]) => episodePick.cuts[c.url]) ? ' open' : '';
         return `<details${open}><summary><h3>${escHtml(heading)} (${rows.length})</h3></summary>` + rows.map(([c, i]) => {
-            const meta = [c.source, c.aired ? 'aired in the roundup' : '',
+            // Why the run passed it over (the podcast's episode_cuts `reason`); older days have none.
+            const why = typeof c.reason === 'string' && c.reason ? c.reason : (c.aired ? 'aired in the roundup' : '');
+            const meta = [c.source, why,
                           typeof c.theme_pct === 'number' ? `theme p${c.theme_pct}` : ''].filter(Boolean).join(' · ');
             return `<div class="cut-row${episodePick.cuts[c.url] ? ' answered' : ''}" data-cut-row="${i}">
              <div class="cut-name"><a href="${escAttr(safeHref(c.url))}" target="_blank" rel="noopener">${escHtml(c.title)}</a>${meta ? `<small>${escHtml(meta)}</small>` : ''}</div>
