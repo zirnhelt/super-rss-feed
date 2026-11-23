@@ -638,6 +638,15 @@ its stories are rated under their scoring category. The coverage check now skips
 Miscellany as a feed would need the review row to record `reader_category()`; that waits
 until someone wants its rate.
 
+**2026-11-23, starved-places counts 100 Mile House's own paper.** The W47 row said
+"100 mile house: 69.6% wanted, 2 in the pool (0.1%)". The pool held 11 stories from the 100
+Mile Free Press; `_place_text` reads the source, but "100 Mile Free Press" doesn't contain
+"100 mile house", and its stories say "100 Mile" or "South Cariboo". `PLACE_ALIASES` lets
+the place also match "100 mile", on both sides (ratings and pool): 47 rated at 74.5% wanted,
+11 in the pool (0.7%). The row stays open on real numbers, under the 1% bar; what's left
+is the gate (the 100 Mile Free Press is 6 of the `gate-misses` wanted rejects), which is
+the reader's call, not the fixer's.
+
 ## The Proposals tab (2026-11-18)
 
 The roadmap fixer (the podcast repo's daily scheduled Claude task) ends every run with the
