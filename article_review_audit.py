@@ -694,6 +694,11 @@ GATE_MISS_MIN_WANTED = 3        # wanted rejects a source needs before it is nam
 PLACE_MIN_RATINGS = 5
 PLACE_APPETITE_MARGIN = 15.0    # points above the corpus wanted rate
 PLACE_STARVED_POOL_PCT = 1.0    # share of the podcast pool mentioning the place
+# How a place is also named. The town's own paper is the "100 Mile Free Press" and locals
+# say "100 Mile": the full name found 2 of the paper's 11 pool stories on 2026-11-22, so
+# starved-places read 0.1% for a town the pool carried at 0.7%. Williams Lake needs no
+# alias: its paper's name contains the town's.
+PLACE_ALIASES: Dict[str, Tuple[str, ...]] = {'100 mile house': ('100 mile',)}
 SCORECARD_TEST_WEEKS = 4
 AUC_MIN_CLASS = 10
 REPEAT_ESCALATE_WEEKS = 3
@@ -875,9 +880,10 @@ def place_supply(ratings: List[Dict], pool: List[Dict],
     baseline = _wanted_pct(rated)
     rows = []
     for place in places:
-        needle = place.lower()
-        mentions = [r for r in rated if needle in _place_text(r)]
-        in_pool = sum(1 for item in pool if needle in _place_text(item))
+        needles = (place.lower(),) + PLACE_ALIASES.get(place.lower(), ())
+        names = lambda item: any(n in _place_text(item) for n in needles)  # noqa: E731
+        mentions = [r for r in rated if names(r)]
+        in_pool = sum(1 for item in pool if names(item))
         rows.append({
             'place': place,
             'rated': len(mentions),

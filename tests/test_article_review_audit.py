@@ -252,6 +252,17 @@ def test_starved_place_needs_appetite_ratings_and_thin_supply(monkeypatch):
     assert 'unmeasured-places' not in found
 
 
+def test_100_mile_house_counts_its_own_paper():
+    # 2026-11-22: the pool held 11 stories from the 100 Mile Free Press, and the
+    # full town name found 2 of them, so the audit called the place starved at 0.1%.
+    ratings = [_on('good', 5, title='Coat drive', source='100 Mile Free Press')]
+    pool = [{'title': 'Coat drive', 'source': '100 Mile Free Press'},
+            {'title': '53 floats in the 100 Mile House parade', 'source': 'My Cariboo Now'},
+            {'title': 'Mile markers on Highway 97'}, {'title': 'other'}]
+    row = audit.place_supply(ratings, pool, ['100 mile house'])['places'][0]
+    assert (row['rated'], row['in_pool']) == (1, 2)
+
+
 def test_a_place_counts_when_only_the_source_or_excerpt_names_it():
     ratings = [_on('good', 5, title='Council votes', source='Williams Lake Tribune')]
     pool = [{'title': 'Council votes', 'source': 'Williams Lake Tribune'},
