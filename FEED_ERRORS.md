@@ -3,6 +3,20 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-22 (Sunday)
+
+#### 🔧 Manual Run (10:07 PM Pacific)
+- ⚠️ **GN AgWeb** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en`
+- ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c`
+- ⚠️ **GN Parents** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:parents.com&hl=en&gl=CA&ceid=CA:e`
+- ⚠️ **GN Neuroscience News** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:neurosciencenews.com&hl=en-CA&gl=`
+- ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing, diplomacy
+
+
+---
+
+
+
 ## 2026-11-21 (Saturday)
 
 #### 🔧 Manual Run (10:08 PM Pacific)
@@ -106,22 +120,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **ScienceAlert** failed — `Exceeded 30 redirects.`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ Kite News: not in this batch: 3d printing, canada | british columbia, cloud computing
-
-
----
-
-
-
-## 2026-11-14 (Saturday)
-
-#### 🔧 Manual Run (10:09 PM Pacific)
-- ⚠️ **FolkloreThursday** failed — `415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/`
-- ⚠️ **alpennia.com** failed — `415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/`
-- ⚠️ **blog.hmvh.net** failed — `415 Client Error: Unsupported Media Type for url: http://blog.hmvh.net/feed/`
-- ⚠️ **3D Printing Industry** failed — `415 Client Error: Unsupported Media Type for url: https://3dprintingindustry.com/feed/`
-- ⚠️ **Automated Home** failed — `415 Client Error: Unsupported Media Type for url: https://automatedhome.com/feed/`
-- ⚠️ **The Council of Canadians** failed — `415 Client Error: Unsupported Media Type for url: https://canadians.org/feed`
-- ⚠️ Kite News: not in this batch: canada | british columbia
 
 
 ---
@@ -1875,6 +1873,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
 - ⚠️ Logging and Sawmilling Journal failed — ('Connection aborted.', RemoteDisconnected('Remote end closed connection with
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-14–2026-11-14
+- 7 issues recorded
+- ⚠️ FolkloreThursday failed — 415 Client Error: Unsupported Media Type for url: https://folklorethursday.com/feed/
+- ⚠️ alpennia.com failed — 415 Client Error: Unsupported Media Type for url: http://alpennia.com/blog/feed/
+- ⚠️ blog.hmvh.net failed — 415 Client Error: Unsupported Media Type for url: http://blog.hmvh.net/feed/
+- ⚠️ 3D Printing Industry failed — 415 Client Error: Unsupported Media Type for url: https://3dprintingindustry.com/feed/
+- ⚠️ Automated Home failed — 415 Client Error: Unsupported Media Type for url: https://automatedhome.com/feed/
+- ⚠️ The Council of Canadians failed — 415 Client Error: Unsupported Media Type for url: https://canadians.org/feed
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
 
