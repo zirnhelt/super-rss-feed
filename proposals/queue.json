@@ -1,28 +1,66 @@
 {
-  "generated_at": "2026-11-22T14:10:00Z",
+  "generated_at": "2026-11-23T14:15:00Z",
   "items": [
     {
-      "id": "note:2026-11-21:cut-reasons",
+      "id": "note:2026-11-22:roundup-same-subject",
       "kind": "proposal",
       "repo": "curated-podcast-generator",
-      "title": "Say why each story didn't make it, and leave out the ones you already heard",
-      "detail": "Saturday's card listed 15 stories that didn't make it, with no reason given. 4 of its 9 roundup rows had already aired earlier in the week (Spanish Mountain Gold on Nov 15, the council trip on Nov 18, the regional district board and the poppy workshop on Nov 20): Saturday's week recall brings the week's local stories back, and the airtime budget then cut those four. The run knows why it drops each story (the airtime budget, the three-a-cluster cap, US politics, the theme floor, no room for a pair, the closing slot) but never writes it down.",
-      "fix": "Record the reason where the roundup curation drops each story and show it on the card (a deep-dive row says not picked for the deep dive, or that the roundup carried it), and leave stories that aired earlier in the week off the list. No API cost.",
-      "source": "Your note, 2026-11-21",
-      "since": "2026-11-22"
+      "title": "Sunday's roundup jumped from fossils to fungus to cactus and back to fossils",
+      "detail": "The storyboard planned the roundup as the Taung Child fossil, then the giant fungus, then the cactus drought study, then the Homo erectus fossils and the 13-million-year-old camel fossil, every link a clean pivot. It may move same-subject stories together but didn't, and nothing in code does. The review's split-subject check caught it (through the words million year and year old); this week's triage wants to quiet that check for age phrases, which would have hidden this one.",
+      "fix": "After the storyboard order is applied, move a later roundup story up beside an earlier one whose headline shares its subject (the same matcher the split check uses), the way a repeated kicker is already moved. Local stays first. No API cost.",
+      "source": "Your note, 2026-11-22",
+      "since": "2026-11-23"
     },
     {
-      "id": "note:2026-11-21:cold-open",
+      "id": "note:2026-11-22:meta-moment-pr-numbers",
       "kind": "proposal",
       "repo": "curated-podcast-generator",
-      "title": "Saturday aired with no cold open, and nothing said so",
-      "detail": "The cold open came back at 91 words. Anything over 90 is dropped with no second try and no warning (run 44883218714: Cold open too long, 91 words, skipping cold open), so the episode started at the welcome and the nightly review never flagged it.",
-      "fix": "When the first teaser runs long, ask once more for a shorter one (one more Haiku call, about a tenth of a cent, only on those nights), and record a warning whenever an episode ships without a cold open so the review shows it.",
-      "source": "Your note, 2026-11-21",
-      "since": "2026-11-22"
+      "title": "Riley read pull request numbers aloud in the Meta Moment",
+      "detail": "Sunday's Meta Moment had Riley say #569 and #580. The segment is written from the week's commit subjects, and merged pull requests end in (#569)-style numbers, which the model kept and the voice read as codes.",
+      "fix": "Strip the (#123) pull request numbers from the commit subjects before the Meta Moment prompt, and drop any #123 left in the segment's text. No API cost.",
+      "source": "Your note, 2026-11-22",
+      "since": "2026-11-23"
+    },
+    {
+      "id": "note:2026-11-22:card-focus",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "The review card shows the calendar's focus, not the one the run used",
+      "detail": "You judged Sunday's cuts against The Living World, but the run had moved the focus to Sky & Cosmos (it matched 10 stories) and built the deep dive and cold open around it. Monday moved too, from Music & Live Performance to Visual Arts & Heritage. The run logs the move; the card never shows it.",
+      "fix": "Write the focus the run used, and the one it moved from, into the citations and the review summary, and show it on the Episode card beside the theme. No API cost.",
+      "source": "Your note, 2026-11-22",
+      "since": "2026-11-23"
+    },
+    {
+      "id": "note:2026-11-23:weak-focus",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "A focus moved onto one-keyword matches steered Monday's deep dive and was named anyway",
+      "detail": "Monday's week focus (Music & Live Performance) matched 1 story, so the run moved to Visual Arts & Heritage, which matched 5, each on a single keyword. The deep dive was built on them: a New Orleans cruise ship crash, a Van Gogh restitution claim, an architecture roundup and the Internet Archive union, its lead at the 51st percentile on the day's charter while 11 stronger on-theme stories went unused. The cold open then named the focus because the script, written around it, used its words 26 times.",
+      "fix": "Let a focus centre the deep dive only when its matches clear the charter floor the Cariboo bar already uses (p70); otherwise the plain theme ranking stands. Name the focus in the cold open only on a day the deep dive was centred on it. This changes what airs, so it needs your call. No API cost.",
+      "source": "Your note, 2026-11-23",
+      "since": "2026-11-23"
     }
   ],
   "done": [
+    {
+      "title": "Say why each story didn't make it, and leave out the ones you already heard",
+      "outcome": "built and merged, as you approved: each cut row gives its reason, and stories that aired earlier in the week are left off (page side super-rss-feed #405)",
+      "at": "2026-11-23",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/586"
+    },
+    {
+      "title": "Saturday aired with no cold open, and nothing said so",
+      "outcome": "built and merged, as you approved: a long teaser gets one shorter try, and every episode that ships without a cold open now shows as a warning",
+      "at": "2026-11-23",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/585"
+    },
+    {
+      "title": "100 Mile House counts its own paper (audit row starved-places)",
+      "outcome": "merged: the audit missed 9 of the 100 Mile Free Press's 11 pool stories, so the town read 0.1% of the pool; it is 0.7%, still under the 1% bar, and the rest is the gate's call",
+      "at": "2026-11-23",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/406"
+    },
     {
       "title": "Miscellany no longer counts as an unmeasured category (audit row unmeasured-categories)",
       "outcome": "merged: Miscellany's stories are rated under their own category, so it read 0 every week and kept the row open; the other four categories are gaining about a rating a day each and need the 28-day window to fill",
