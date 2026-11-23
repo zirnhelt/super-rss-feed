@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-11-23T14:15:00Z",
+  "generated_at": "2026-11-23T18:30:00Z",
   "items": [
-    {
-      "id": "note:2026-11-22:roundup-same-subject",
-      "kind": "proposal",
-      "repo": "curated-podcast-generator",
-      "title": "Sunday's roundup jumped from fossils to fungus to cactus and back to fossils",
-      "detail": "The storyboard planned the roundup as the Taung Child fossil, then the giant fungus, then the cactus drought study, then the Homo erectus fossils and the 13-million-year-old camel fossil, every link a clean pivot. It may move same-subject stories together but didn't, and nothing in code does. The review's split-subject check caught it (through the words million year and year old); this week's triage wants to quiet that check for age phrases, which would have hidden this one.",
-      "fix": "After the storyboard order is applied, move a later roundup story up beside an earlier one whose headline shares its subject (the same matcher the split check uses), the way a repeated kicker is already moved. Local stays first. No API cost.",
-      "source": "Your note, 2026-11-22",
-      "since": "2026-11-23"
-    },
     {
       "id": "note:2026-11-22:meta-moment-pr-numbers",
       "kind": "proposal",
@@ -43,6 +33,12 @@
     }
   ],
   "done": [
+    {
+      "title": "Sunday's roundup jumped from fossils to fungus to cactus and back to fossils",
+      "outcome": "built your way and merged: the storyboard prompt now groups stories on one topic, not only one subject, and names the topic in the bridge (a topic is grouped, never folded)",
+      "at": "2026-11-23",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/587"
+    },
     {
       "title": "Say why each story didn't make it, and leave out the ones you already heard",
       "outcome": "built and merged, as you approved: each cut row gives its reason, and stories that aired earlier in the week are left off (page side super-rss-feed #405)",
