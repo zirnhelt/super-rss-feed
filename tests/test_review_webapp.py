@@ -34,3 +34,13 @@ def test_worker_never_intercepts_cross_origin() -> None:
 def test_both_deploys_stage_the_webapp() -> None:
     for name in ("deploy-static.yml", "generate-feed.yml"):
         assert "cp -r webapp/. output/" in (ROOT / ".github/workflows" / name).read_text(), name
+
+
+def test_a_cut_row_says_why_the_run_passed_it_over() -> None:
+    """The producer, 2026-11-21: "Can we add the skip reason?" The podcast's cut rows carry
+    `reason`; the row shows it, escaped with the rest of its meta line."""
+    page = (Path(__file__).resolve().parent.parent / "review.html").read_text(encoding="utf-8")
+    body = page[page.index("function renderEpisodeCuts"):page.index("function episodeDates")]
+    assert "typeof c.reason === 'string' && c.reason ? c.reason" in body
+    assert "const meta = [c.source, why," in body
+    assert "${escHtml(meta)}" in body
