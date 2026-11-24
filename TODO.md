@@ -8,6 +8,11 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-11-23 | 🔧 Manual Run | ⚠️ **GN AgWeb** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en` |
+| 2026-11-23 | 🔧 Manual Run | ⚠️ **GN Wildfire Today** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:wildfiretoday.com&hl=en&gl=CA&cei` |
+| 2026-11-23 | 🔧 Manual Run | ⚠️ **GN The Walrus** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=CA:` |
+| 2026-11-23 | 🔧 Manual Run | ⚠️ **GN Consumer Reports** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c` |
+| 2026-11-23 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
 | 2026-11-22 | 🔧 Manual Run | ⚠️ **GN AgWeb** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en` |
 | 2026-11-22 | 🔧 Manual Run | ⚠️ **GN Consumer Reports** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c` |
 | 2026-11-22 | 🔧 Manual Run | ⚠️ **GN Parents** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:parents.com&hl=en&gl=CA&ceid=CA:e` |
@@ -39,13 +44,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-11-17 | 🔧 Manual Run | ⚠️ **GN Consumer Reports** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c` |
 | 2026-11-17 | 🔧 Manual Run | ⚠️ **Climate - CBSNews.com** failed | `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate` |
 | 2026-11-17 | 🔧 Manual Run | ⚠️ **GN Country Guide** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:country-guide.ca&hl=en&gl=CA&ceid` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **GN AgWeb** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **GN The Walrus** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=CA:` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **GN Dwell** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl=en-CA&gl=CA&ceid=CA:` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **GN Consumer Reports** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
-| 2026-11-16 | 🔧 Manual Run | ⚠️ **Climate - CBSNews.com** failed | `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -53,17 +51,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-11-23 | 🔧 manual | 97 | ai-tech:18(19%), news:15(16%), climate:12(13%) |
 | 2026-11-22 | 🔧 manual | 81 | ai-tech:19(24%), news:14(18%), climate:12(15%) |
 | 2026-11-21 | 🔧 manual | 84 | ai-tech:18(22%), news:14(17%), climate:12(15%) |
 | 2026-11-20 | 🔧 manual | 87 | ai-tech:18(21%), news:15(18%), climate:12(14%) |
 | 2026-11-19 | 🔧 manual | 91 | ai-tech:18(20%), news:16(18%), climate:12(14%) |
 | 2026-11-18 | 🔧 manual | 103 | ai-tech:18(18%), news:15(15%), local:14(14%) |
 | 2026-11-17 | 🔧 manual | 93 | ai-tech:18(20%), news:16(18%), climate:12(13%) |
-| 2026-11-16 | 🔧 manual | 96 | ai-tech:18(19%), news:15(16%), climate:12(13%) |
 
-_Last updated by log\_feed\_results.py · 2026-11-23 06:07 UTC_
+_Last updated by log\_feed\_results.py · 2026-11-24 06:09 UTC_
 
 <!-- AUTO:END -->
+
 
 
 
