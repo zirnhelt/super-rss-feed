@@ -44,6 +44,7 @@ from cache import atomic_write_text
 BASE_DIR = Path(__file__).parent
 FEEDBACK_DIR = BASE_DIR / 'feedback'
 CLICKS_DIR = FEEDBACK_DIR / 'clicks'   # digest clicks, written by the nightly; not ratings
+FEED_CLICK_PREFIX = 'feed:'   # category of a click on a feed article; the digest's are Kite labels. A test pins it to the curator's
 FEED_LOG_FILE = BASE_DIR / 'FEED_LOG.md'
 CALIBRATION_STATS_FILE = BASE_DIR / 'calibration_stats_cache.json'
 CALIBRATION_LOG_FILE = BASE_DIR / 'CALIBRATION_LOG.md'
@@ -1268,7 +1269,9 @@ def digest_clicks(runs: List[Dict], clicks: List[Dict], today: date, days: int =
 
     Evidence for the headline-misses question: whether the stories the interest ranking
     leaves out are ones the reader goes looking for. A story opened twice counts once.
+    Clicks on feed articles (``feed:<feed>``) share the files but not the question: skipped.
     """
+    clicks = [r for r in clicks if not str(r.get('category') or '').startswith(FEED_CLICK_PREFIX)]
     since = (today - timedelta(days=days)).isoformat()
     listed_cat: Counter = Counter()
     listed_host: Counter = Counter()

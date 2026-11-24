@@ -91,6 +91,9 @@ jobs:
         id: splice
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Signs the feed links (config/system.json -> clicks): the refresh rebuilds
+          # retained items, and without the key would turn them back into plain links.
+          CLICKS_KEY: ${{ secrets.CLICKS_KEY }}
         run: |
           set -euo pipefail
           python super_rss_curator_json.py --refresh-hot 2>&1 | tee /tmp/refresh.txt

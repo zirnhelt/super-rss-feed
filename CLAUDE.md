@@ -126,7 +126,7 @@ Dated reports live in `reports/`; the root holds code, config, caches and runnin
 | `proposals/` on main: the fixer's `queue.json`, the producer's `decisions.json` (review.html's Proposals tab) | The podcast's roadmap fixer (a scheduled Claude task) writes the queue and acts on the decisions each morning | A call is never acted on, or the tab shows a stale queue |
 | The week's local stories in `feed-podcast-saturday.json`, aired or not (`local_lane_week`) | The podcast's Saturday recall (`recall_week_local`) | Saturday's roundup loses its week in the Cariboo |
 | The Brave Search key | Both repos' monthly cap | The podcast's research budget runs out |
-| Signed digest links (`_click_signature`) and the `CLICKS_KEY` secret | The podcast repo's click Worker (`cloudflare/clicks`), which also serves `/clicks` to `fetch_digest_clicks` | Every digest link answers 400, or the clicks stop arriving |
+| Signed digest and feed-article links (`_click_signature`, `clicks.feeds`) and the `CLICKS_KEY` secret | The podcast repo's click Worker (`cloudflare/clicks`), which also serves `/clicks` to `fetch_digest_clicks` | Every digest link answers 400, or the clicks stop arriving |
 
 ## Automation, and who fixes what
 
