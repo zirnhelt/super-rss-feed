@@ -1,38 +1,42 @@
 {
-  "generated_at": "2026-11-23T18:30:00Z",
+  "generated_at": "2026-11-24T14:30:00Z",
   "items": [
     {
-      "id": "note:2026-11-22:meta-moment-pr-numbers",
+      "id": "fixer:2026-11-24:bar-second-report",
       "kind": "proposal",
       "repo": "curated-podcast-generator",
-      "title": "Riley read pull request numbers aloud in the Meta Moment",
-      "detail": "Sunday's Meta Moment had Riley say #569 and #580. The segment is written from the week's commit subjects, and merged pull requests end in (#569)-style numbers, which the model kept and the voice read as codes.",
-      "fix": "Strip the (#123) pull request numbers from the commit subjects before the Meta Moment prompt, and drop any #123 left in the segment's text. No API cost.",
-      "source": "Your note, 2026-11-22",
-      "since": "2026-11-23"
-    },
-    {
-      "id": "note:2026-11-22:card-focus",
-      "kind": "proposal",
-      "repo": "curated-podcast-generator",
-      "title": "The review card shows the calendar's focus, not the one the run used",
-      "detail": "You judged Sunday's cuts against The Living World, but the run had moved the focus to Sky & Cosmos (it matched 10 stories) and built the deep dive and cold open around it. Monday moved too, from Music & Live Performance to Visual Arts & Heritage. The run logs the move; the card never shows it.",
-      "fix": "Write the focus the run used, and the one it moved from, into the citations and the review summary, and show it on the Episode card beside the theme. No API cost.",
-      "source": "Your note, 2026-11-22",
-      "since": "2026-11-23"
-    },
-    {
-      "id": "note:2026-11-23:weak-focus",
-      "kind": "proposal",
-      "repo": "curated-podcast-generator",
-      "title": "A focus moved onto one-keyword matches steered Monday's deep dive and was named anyway",
-      "detail": "Monday's week focus (Music & Live Performance) matched 1 story, so the run moved to Visual Arts & Heritage, which matched 5, each on a single keyword. The deep dive was built on them: a New Orleans cruise ship crash, a Van Gogh restitution claim, an architecture roundup and the Internet Archive union, its lead at the 51st percentile on the day's charter while 11 stronger on-theme stories went unused. The cold open then named the focus because the script, written around it, used its words 26 times.",
-      "fix": "Let a focus centre the deep dive only when its matches clear the charter floor the Cariboo bar already uses (p70); otherwise the plain theme ranking stands. Name the focus in the cold open only on a day the deep dive was centred on it. This changes what airs, so it needs your call. No API cost.",
-      "source": "Your note, 2026-11-23",
-      "since": "2026-11-23"
+      "title": "Tuesday's deep dive went overseas while a second report of the local strike story sat unused",
+      "detail": "The Cariboo bar picked the Williams Lake Tribune's story on the Labour Relations Board ruling against Teck's replacement workers at Highland Valley Copper, then set it aside for want of a second report. The Tyee had one (\"Teck Used Illegal Replacement Workers, Labour Board Finds\", raw 72 on the day's charter), but it had no theme keyword, so it sat in the bonus stories the bar never sees, and it was cut from the roundup too. The deep dive aired four farm stories from Poland, Sweden and Australia instead. The review's \"no Cariboo story or angle\" item has now been seen 3 nights.",
+      "fix": "Show the bar, as second reports only and never as a lead, the day's bonus stories whose headline shares a word with a local candidate (checked in Python, the same test the bar already uses: both headlines say \"replacement workers\"). Tuesday's deep dive would have been the strike ruling from two outlets. A few more stories in the one Haiku call, under $0.0001 a run. This changes what airs, so it needs your call.",
+      "source": "Tonight's review (deep dive had no Cariboo story, 3 nights)",
+      "since": "2026-11-24"
     }
   ],
   "done": [
+    {
+      "title": "The review card shows the calendar's focus, not the one the run used",
+      "outcome": "built and merged, as you approved: the Episode card shows the focus the run used, the one it moved from, and whether the deep dive was centred on it, from tomorrow's review on (page side super-rss-feed #408)",
+      "at": "2026-11-24",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/591"
+    },
+    {
+      "title": "A focus moved onto one-keyword matches steered Monday's deep dive and was named anyway",
+      "outcome": "built and merged, as you approved: a focus centres the deep dive only on matches at the p70 charter floor the Cariboo bar uses, and the cold open names it only on those days",
+      "at": "2026-11-24",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/590"
+    },
+    {
+      "title": "Riley read pull request numbers aloud in the Meta Moment",
+      "outcome": "built and merged, as you approved: commit subjects lose their (#123) before the prompt, and any the dialogue writes anyway are dropped",
+      "at": "2026-11-24",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/589"
+    },
+    {
+      "title": "The roundup's plan put a theme story among the local ones (tonight's fix)",
+      "outcome": "merged: the plan is now repaired with the locals first, so the script gets one order instead of the plan's and the draft's at once (the order check read 9/15)",
+      "at": "2026-11-24",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/588"
+    },
     {
       "title": "Sunday's roundup jumped from fossils to fungus to cactus and back to fossils",
       "outcome": "built your way and merged: the storyboard prompt now groups stories on one topic, not only one subject, and names the topic in the bridge (a topic is grouped, never folded)",
