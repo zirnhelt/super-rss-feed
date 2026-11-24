@@ -4867,12 +4867,20 @@ def generate_rss_feed(feed: Dict, output_path: str) -> None:
 
 
 def generate_json_feed(articles: List[Article], category: str, output_path: str,
-                       passthrough_items: Optional[List[Dict]] = None):
+                       passthrough_items: Optional[List[Dict]] = None,
+                       exposure: Optional[Dict[str, Dict]] = None):
     """Generate JSON Feed format output.
 
     ``passthrough_items`` are finished item dicts (the Kagi News digest) written
     first and as they are: no badge, no source prefix, never rebuilt as articles.
+
+    A feed listed in ``system.json`` -> ``clicks.feeds`` sends each article's link
+    through the click Worker. Every writer wraps (the hot and editorial refreshes
+    rebuild retained items too, and would otherwise turn them back to plain links);
+    only the nightly passes ``exposure``, the ledger it persists.
     """
+    click_base, click_key = _clicks_config() if category in _click_feeds() else ('', '')
+    click_day = datetime.now(timezone.utc).date().isoformat()
     cat_config = CATEGORIES[category]
     feed_config = FEEDS_CONFIG['feeds'][category]
     podcast_shown_cache = load_podcast_shown_cache()
@@ -4966,6 +4974,11 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str,
         if subscriber_label:
             item["title"] = f"🔓 {item['title']}"
             apply_subscriber_links(item, article, subscriber_label)
+
+        if click_base:
+            target = apply_click_tracking(item, category, click_day, click_base, click_key)
+            if target and exposure is not None:
+                record_click_exposure(exposure, target, item, category, len(feed["items"]), click_day)
 
         feed["items"].append(item)
 
@@ -6803,6 +6816,15 @@ CLICKS_MAX_URL_CHARS = 900       # the Worker's cap: the URL rides in 1 KB of KV
 CLICKS_MAX_CATEGORY_CHARS = 80   # the Worker trims the category to this before checking
 CLICKS_FETCH_TIMEOUT = 20
 CLICKS_MAX_PAGES = 5             # 1000 clicks a page; the Worker keeps 60 days
+# Feed-article clicks (phase 1 of a click training signal, 2026-11-24). The feeds listed in
+# system.json -> clicks.feeds send each item's `url` through the same Worker, under the
+# category `feed:<feed>` so the audit can tell them from the digest's Kite labels. The
+# exposure ledger records what each feed offered (a click with nothing to compare against
+# trains nothing); the nightly joins every click to its ledger entry. Podcast feeds are never
+# wrapped: the show reads their links.
+CLICK_FEED_PREFIX = 'feed:'
+CLICK_EXPOSURE_FILE = os.path.join(CLICKS_DIR, 'exposure.json')
+CLICK_EXPOSURE_KEEP_DAYS = 28    # after an article last sat in a feed
 
 
 def _clicks_config() -> Tuple[str, str]:
@@ -6826,17 +6848,87 @@ def _digest_href(link: str, category: str, day: str, base: str, key: str) -> str
                                       's': _click_signature(key, link, category, day)})
 
 
+def _click_feeds() -> Set[str]:
+    """The category feeds whose item links go through the click Worker (system.json -> clicks.feeds)."""
+    return {str(k) for k in ((SYSTEM.get('clicks') or {}).get('feeds') or [])}
+
+
+def apply_click_tracking(item: Dict, feed_key: str, day: str, base: str, key: str) -> Optional[str]:
+    """Send a feed item's link through the click Worker; the URL it forwards to, or None if left plain.
+
+    The Worker forwards to what the reader would have opened (the publisher's page, or an
+    apple.news link). The publisher URL stays recoverable through ``item_source_link()``:
+    ``external_url`` keeps it, unless Apple News already put it there.
+    """
+    target = item.get('url') or ''
+    href = _digest_href(target, CLICK_FEED_PREFIX + feed_key, day, base, key)
+    if href == target:
+        return None
+    item.setdefault('external_url', target)
+    item['url'] = href
+    return target
+
+
+def record_click_exposure(exposure: Dict[str, Dict], target: str, item: Dict, feed_key: str,
+                          position: int, day: str) -> None:
+    """Note that a feed offered an article today, with what a click model would key on.
+
+    ``exposure`` maps canonical forwarded URL -> entry. An article counts once a day however
+    many runs write it; ``best_pos`` is its highest place in the feed (0 = top).
+    """
+    relevance = item.get('_relevance')
+    authors = item.get('authors') or [{}]
+    entry = exposure.setdefault(canonicalize_url(target), {
+        'first': day, 'last': '', 'days': 0, 'best_pos': position})
+    if entry['last'] != day:
+        entry['days'] += 1
+        entry['last'] = day
+    entry.update({
+        'link': item_source_link(item),
+        'source': authors[0].get('name') or '',
+        'feed': entry.get('feed') or feed_key,
+        'content_type': item.get('_content_type'),
+        'relevance_band': int(relevance) // 20 if isinstance(relevance, (int, float)) else None,
+        'best_pos': min(entry['best_pos'], position),
+    })
+
+
+def load_click_exposure(path: str = CLICK_EXPOSURE_FILE) -> Dict[str, Dict]:
+    """The exposure ledger; empty when absent or unreadable, like every cache."""
+    try:
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return {}
+    return {k: v for k, v in data.items() if isinstance(v, dict)} if isinstance(data, dict) else {}
+
+
+def save_click_exposure(exposure: Dict[str, Dict], day: str, path: str = CLICK_EXPOSURE_FILE,
+                        keep_days: int = CLICK_EXPOSURE_KEEP_DAYS) -> int:
+    """Write the ledger without the articles that left the feeds ``keep_days`` ago; how many are kept."""
+    cutoff = (datetime.strptime(day, '%Y-%m-%d') - timedelta(days=keep_days)).strftime('%Y-%m-%d')
+    kept = {k: v for k, v in exposure.items() if str(v.get('last', '')) >= cutoff}
+    os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
+    atomic_write_json(path, kept, separators=(',', ':'), sort_keys=True)
+    return len(kept)
+
+
 def _click_host(url: str) -> str:
     host = (urlparse(url).hostname or '').lower()
     return host[4:] if host.startswith('www.') else host
 
 
-def fetch_digest_clicks(clicks_dir: str = CLICKS_DIR) -> int:
-    """Copy the Worker's new digest clicks into clicks_dir/<YYYY-MM>.json; how many were new.
+def fetch_digest_clicks(clicks_dir: str = CLICKS_DIR,
+                        exposure: Optional[Dict[str, Dict]] = None) -> int:
+    """Copy the Worker's new clicks into clicks_dir/<YYYY-MM>.json; how many were new.
 
-    Rows are {at, url, category, digest_date}. Reads from the newest click already saved,
-    so a missed night is picked up the next (the Worker keeps 60 days). Never fails the
-    run: a read that goes wrong writes nothing and says so.
+    Rows are {at, url, category, digest_date}. A click on a feed article (category
+    ``feed:<feed>``) also carries ``article``: its exposure-ledger entry (source, content
+    type, relevance band, best position, days offered), when the ledger still has it.
+    ``exposure`` is the nightly's in-memory ledger; without one it is read from clicks_dir.
+    Reads from the newest click already saved, so a missed night is picked up the next
+    (the Worker keeps 60 days). Never fails the run: a read that goes wrong writes nothing
+    and says so.
     """
     base, key = _clicks_config()
     if not base:
@@ -6844,6 +6936,8 @@ def fetch_digest_clicks(clicks_dir: str = CLICKS_DIR) -> int:
             print("⚠️  Digest clicks: clicks.base_url is set but CLICKS_KEY is not; links stay plain")
         return 0
     try:
+        if exposure is None:
+            exposure = load_click_exposure(os.path.join(clicks_dir, os.path.basename(CLICK_EXPOSURE_FILE)))
         months = sorted(glob.glob(os.path.join(clicks_dir, '????-??.json')))
         since = max((r.get('at', '') for r in _read_click_rows(months[-1])), default='') if months else ''
         new: List[Dict] = []
@@ -6858,6 +6952,10 @@ def fetch_digest_clicks(clicks_dir: str = CLICKS_DIR) -> int:
                      'digest_date': str(r.get('d', ''))[:10]}
                     for r in body.get('clicks', [])
                     if isinstance(r, dict) and isinstance(r.get('at'), str) and r['at'] > since]
+            for row in rows:
+                entry = exposure.get(canonicalize_url(row['url'])) if row['category'].startswith(CLICK_FEED_PREFIX) else None
+                if entry:
+                    row['article'] = entry
             new += rows
             if not body.get('more') or not rows:
                 break
@@ -7597,13 +7695,20 @@ def main():
     write_digest_page(digest)
     digest_cat = (SYSTEM.get('kagi_news', {}).get('digest') or {}).get('category', 'news')
     run_stats['kite_coverage'] = kite_coverage_stats(outcomes, (digest or {}).get('_stories', 0), listed)
-    fetch_digest_clicks()
     _print_kite_coverage(outcomes, run_stats['kite_coverage'])
 
+    click_exposure = load_click_exposure()
     for cat_key, all_items in final_items.items():
         passthrough = [digest] if digest and cat_key == digest_cat else []
         final_feed_sizes[cat_key] = len(all_items) + len(passthrough)
-        generate_json_feed(all_items, cat_key, f"feed-{cat_key}.json", passthrough_items=passthrough)
+        generate_json_feed(all_items, cat_key, f"feed-{cat_key}.json", passthrough_items=passthrough,
+                           exposure=click_exposure)
+
+    # After the feeds, so a click on an article spliced in by a refresh since the last
+    # nightly (it is retained in tonight's feed) still finds its ledger entry.
+    if click_exposure:
+        save_click_exposure(click_exposure, datetime.now(timezone.utc).date().isoformat())
+    fetch_digest_clicks(exposure=click_exposure)
 
     run_stats['final_feeds'] = final_feed_sizes
 

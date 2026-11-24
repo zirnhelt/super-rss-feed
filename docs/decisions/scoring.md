@@ -748,3 +748,44 @@ recording it (Proposals tab, `note:2026-11-19:digest-clicks`).
 outlet's host and Kite's category, while `fit_reader_model` keys on feed source names,
 selection bucket and relevance band, none of which a digest story has. The mapping wants
 real rows to check against; revisit after about four weeks of clicks.
+
+## Feed clicks, phase 1 of a click signal (2026-11-24)
+
+The producer wants clicks as a training signal, not only a digest report. The digest's click rows
+carry an outlet host and a Kite category, which `fit_reader_model` cannot use (it keys on source,
+category, content type and relevance band). A feed article has every one of those fields when the
+feed is written, so the feeds are instrumented instead, and the click is joined back to the article.
+
+- **Which feeds:** `system.json` → `clicks.feeds` (`news`, `local`, `ai-tech`, the ones the reader
+  opens most). Same Worker, same signed `/go` link (`apply_click_tracking`, which reuses
+  `_digest_href`), category `feed:<feed>`, date the run's UTC day. The Worker needed no change: it
+  takes any category up to 80 characters and an ISO date. The audit's `digest_clicks` skips `feed:`
+  rows (`FEED_CLICK_PREFIX`, pinned to the curator's constant by a test), so they never touch the
+  digest's click-through.
+- **`url` is wrapped, `external_url` keeps the publisher URL** (unless Apple News already put it
+  there). `id` and the RSS `<guid>` stay the publisher URL, and `item_source_link()` still returns
+  it, so retained items are rebuilt from the publisher link and re-wrapped, never stacked. The cost
+  is that a copied or shared link is a workers.dev link.
+- **Every writer wraps, only the nightly records.** `refresh-hot` and `refresh-editorial` rebuild
+  retained items through `generate_json_feed()`, so both workflows carry `CLICKS_KEY`; without it a
+  refresh would turn the day's links back to plain. Only the nightly passes the exposure ledger.
+- **Podcast feeds are never wrapped.** The show reads their links (`PODCAST_FEED_CONTRACT`); a test
+  checks `generate_podcast_feed` never calls the wrapper.
+- **The exposure ledger** (`feedback/clicks/exposure.json`, committed by the nightly with the clicks)
+  maps each article offered to what a click model keys on: source, feed, content type, relevance band,
+  best position, first and last day, days offered. A click without what was *not* clicked trains
+  nothing, and position bias (top-of-feed items get opened regardless of quality) needs `best_pos`.
+  Entries leave 28 days after the article last sat in a feed. Corrupt or absent loads as empty.
+- **The join runs after the feeds are written** (`fetch_digest_clicks(exposure=…)`), so a click on an
+  article a refresh spliced in since the last nightly still finds its entry. A click the ledger no
+  longer has is kept, unjoined.
+- **Evidence, not ratings.** Nothing here reads a click into a score, the gate, the reader model or
+  calibration. Phase 2 is a separate click model, P(click | shown), fitted with the reader model's
+  shrunk log-odds method; a click means the headline pulled the reader in, a rating means the
+  article was worth it, so the two stay apart. Phase 3 blends it into `fit_reader_model` as one weak
+  term for the review batch's order. Revisit after about four weeks of rows.
+
+**Limits:** one reader gives a few dozen clicks a week, so only coarse fields will be learnable. An
+unclicked item is a weak negative at best. A reader app that fetches links with a plain `GET` would be
+counted (the Worker skips `HEAD` and `Sec-Purpose: prefetch` only): check the first rows against what
+was really opened.

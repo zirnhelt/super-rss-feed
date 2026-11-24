@@ -70,6 +70,7 @@
   },
   "clicks": {
     "base_url": "https://cariboo-signals-clicks.zirnhelt.workers.dev",
-    "_note": "The digest-click Worker (curated-podcast-generator cloudflare/clicks, approved 2026-11-20). Set base_url to its workers.dev URL and the CLICKS_KEY secret to the Worker's key: each Also in the news link then goes through the Worker, which notes the click (story, Kite category, digest date; nothing about the device) and forwards to the story, and the nightly copies the clicks into feedback/clicks/<YYYY-MM>.json, never as ratings. Empty: plain links, nothing read."
+    "feeds": ["news", "local", "ai-tech"],
+    "_note": "The digest-click Worker (curated-podcast-generator cloudflare/clicks, approved 2026-11-20). Set base_url to its workers.dev URL and the CLICKS_KEY secret to the Worker's key: each Also in the news link then goes through the Worker, which notes the click (story, Kite category, digest date; nothing about the device) and forwards to the story, and the nightly copies the clicks into feedback/clicks/<YYYY-MM>.json, never as ratings. Empty: plain links, nothing read. feeds: the category feeds whose article links go through the Worker too (category feed:<feed>; 2026-11-24), with an exposure ledger beside the clicks; the podcast feeds are never listed. Empty: only the digest."
   }
 }
