@@ -44,3 +44,17 @@ def test_a_cut_row_says_why_the_run_passed_it_over() -> None:
     assert "typeof c.reason === 'string' && c.reason ? c.reason" in body
     assert "const meta = [c.source, why," in body
     assert "${escHtml(meta)}" in body
+
+
+def test_the_episode_card_shows_the_focus_the_run_used() -> None:
+    """The producer, 2026-11-22: Sunday's cuts were judged against the calendar's focus (The
+    Living World) while the run had moved to Sky & Cosmos. The podcast's review summary carries
+    `focus` {name, moved_from, centred}; the card shows it, escaped, beside the calendar line."""
+    page = (ROOT / "review.html").read_text(encoding="utf-8")
+    load = page[page.index("async function loadEpisodeCuts"):page.index("function renderEpisodeContext")]
+    assert "focus: sm.focus" in load
+    body = page[page.index("function renderEpisodeContext"):page.index("function renderEpisodeRecap")]
+    assert "typeof run.moved_from === 'string'" in body
+    assert "<b>${escHtml(used)}</b> (moved from ${escHtml(run.moved_from || 'none')})" in body
+    assert "run.centred === true" in body
+    assert "+ cycle\n        + ran\n" in body

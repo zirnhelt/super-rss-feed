@@ -1363,7 +1363,9 @@ let episodeCuts = {};   // date -> [{kind, url, title, source, theme_pct, aired}
 let episodeRecaps = {}; // date -> {question, riley, casey, resolution, topics[], sources[{title, url}]}
 // The day's rotation (summary.theme, summary.cycle's row for that date, summary.anchor): what the
 // episode was meant to be, so a verdict on "stories" or "deep dive" is read against its theme.
-let episodeContexts = {}; // date -> {theme, row: {day, theme, focus, week, of, next, event}, anchor}
+// summary.focus is what the run did with it: the focus it used, the calendar's when it moved off
+// it, and whether it centred the deep dive (the podcast's `focus_record`).
+let episodeContexts = {}; // date -> {theme, row: {day, theme, focus, week, of, next, event}, anchor, focus: {name, moved_from, centred}}
 
 async function loadEpisodeCuts() {
     try {
@@ -1378,7 +1380,7 @@ async function loadEpisodeCuts() {
             const sm = entry?.summary;
             if (typeof entry?.date === 'string' && sm && typeof sm === 'object') {
                 const row = (Array.isArray(sm.cycle) ? sm.cycle : []).find(r => r && r.date === entry.date) || null;
-                if (row || sm.theme) episodeContexts[entry.date] = { theme: sm.theme, row, anchor: sm.anchor };
+                if (row || sm.theme) episodeContexts[entry.date] = { theme: sm.theme, row, anchor: sm.anchor, focus: sm.focus };
             }
             const dd = entry?.summary?.deep_dive;
             if (typeof entry?.date === 'string' && dd && typeof dd === 'object') episodeRecaps[entry.date] = dd;
@@ -1409,8 +1411,19 @@ function renderEpisodeContext() {
         ? `<div class="ctx-line">Super-cycle: <b>${escHtml(focus)}</b>${week && of ? `, week ${week} of ${of}` : ''}${pips}</div>`
         : '<div class="ctx-line">No super-cycle today: the plain theme runs.</div>';
     const next = str(row.next) && str(row.next) !== focus ? `<div class="ctx-line">Next week: ${escHtml(row.next)}</div>` : '';
+    // The producer, 2026-11-22: cuts judged against the calendar's focus when the run had moved.
+    const run = ctx.focus && typeof ctx.focus === 'object' ? ctx.focus : null;
+    const used = run ? str(run.name) : '';
+    const dd = run && run.centred === true ? 'deep dive centred on it' : 'deep dive on the plain theme';
+    const ran = !run ? ''
+        : typeof run.moved_from === 'string'
+            ? (used
+                ? `<div class="ctx-line">The run's focus: <b>${escHtml(used)}</b> (moved from ${escHtml(run.moved_from || 'none')}) · ${dd}</div>`
+                : `<div class="ctx-line">The run moved off ${escHtml(run.moved_from || 'the focus')}: the plain theme ran</div>`)
+            : (used ? `<div class="ctx-line">The run kept it · ${dd}</div>` : '');
     box.innerHTML = `<div class="ctx-head">📅 ${escHtml(str(row.day))}${row.day ? ' · ' : ''}${escHtml(theme)}</div>`
         + cycle
+        + ran
         + (str(row.event) ? `<div class="ctx-line">Event: ${escHtml(row.event)}</div>` : '')
         + next
         + (str(ctx.anchor) ? `<div class="ctx-anchor">Week's anchor question: <em>${escHtml(ctx.anchor)}</em></div>` : '');
