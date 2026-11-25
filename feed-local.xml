@@ -6,13 +6,73 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Wed, 25 Nov 2026 06:14:06 +0000</lastBuildDate>
+<lastBuildDate>Wed, 25 Nov 2026 10:23:58 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Repair Culture &amp; Practical Tech, November 25, 2026</title>
+<link>https://cariboo-signals-clicks.zirnhelt.workers.dev/go?u=https%3A%2F%2Fzirnhelt.github.io%2Fcurated-podcast-generator%2Fpodcasts%2Freviews%2Fepisode-review-2026-11-25.html&amp;c=feed%3Alocal&amp;d=2026-11-25&amp;s=608c6d360447069859500821ae9ec5f3</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-25.html</guid>
+<pubDate>Wed, 25 Nov 2026 10:06:02 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Theme: Repair Culture &amp;amp; Practical Tech. Focus: Homestead &amp;amp; Off-Grid Tech (week 2 of 5). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/45573271021&quot;&gt;45573271021&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;2 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Investigate.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;the deep dive had no Cariboo story or angle&lt;/span&gt; &lt;span class=&quot;recur&quot;&gt;Recurring: on the roadmap, seen 4 nights.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/weather-fallback&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/weather-fallback&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Open-Meteo did not answer — Environment Canada&#x27;s forecast stood in (Williams Lake leads; Horsefly gets no figure)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Focus fallback: no article matched Homestead &amp;amp; Off-Grid Tech, so the base theme ran&lt;/h3&gt;
+&lt;p&gt;The cycle was in week 2 of 5 on the focus &lt;code&gt;Homestead &amp;amp; Off-Grid Tech&lt;/code&gt;, but zero articles matched it. The pipeline needs at least 4, so it fell back to the base theme selection, &lt;code&gt;Gear, Gadgets &amp;amp; Practical Tech&lt;/code&gt;, with the theme feed &lt;code&gt;Repair Culture &amp;amp; Practical Tech&lt;/code&gt;. Of 78 articles loaded, 19 were on theme and 58 were bonus. After 65 were removed as duplicates, 3 were released by focus routing and 7 were held for other focus days. The listener got the standing theme for the day, not the week&#x27;s planned focus, and nothing on the homestead theme aired.&lt;/p&gt;
+&lt;p&gt;The held queue shows what the routing sent to other days. Seven items were held, four of them for &lt;code&gt;Discovery, Health &amp;amp; How Science Works&lt;/code&gt; and &lt;code&gt;Economic Development&lt;/code&gt;, and the earliest release date is 2026-11-26. Nothing was lost, but the focus cycle will not carry the homestead story unless homestead articles arrive on their own.&lt;/p&gt;
+&lt;p&gt;Change: if zero-match weeks recur, check the homestead feed sources in the focus configuration before the cycle starts, not after it has already fallen back.&lt;/p&gt;
+&lt;h3&gt;Roundup built from 18 stories; 39 cut by the airtime budget&lt;/h3&gt;
+&lt;p&gt;The roundup pool held 18 stories, 13 on theme and 5 local. All 5 local stories aired, and the roundup opened on local news. The airtime budget cut 39 stories from the pool; by design those can resurface on a better-matched day. The short-script result is the tension to watch: the first draft came in at 2738 words against a target of 3400, was sent back for one expand pass, and shipped at 3255 words. That is under target but above the short-episode threshold, so no alert fired.&lt;/p&gt;
+&lt;p&gt;Citations were matched on 14 of 18 roundup stories and 2 of 4 deep-dive stories, so the deep dive is the weaker of the two on sourcing.&lt;/p&gt;
+&lt;p&gt;Change: none for the budget. If the citation gap on deep dives repeats, inspect the four deep-dive source links in the script stage.&lt;/p&gt;
+&lt;h3&gt;Weather came from Environment Canada; Open-Meteo did not respond&lt;/h3&gt;
+&lt;p&gt;Open-Meteo did not answer, so the weather segment used the Environment Canada forecast. Williams Lake was reported, and Horsefly got no figure. Listeners in Horsefly heard no forecast for their own town.&lt;/p&gt;
+&lt;p&gt;Change: add a Horsefly fallback source to the weather step, or drop the town from the segment when the primary feed is down.&lt;/p&gt;
+&lt;h3&gt;One TTS take stayed short after retry; the longer take was kept&lt;/h3&gt;
+&lt;p&gt;One TTS take came back shorter than its word count predicted and was retried. The retry was still short, so the longer of the two takes was kept and nothing was dropped from the episode. The retry count is one take, not a run of problems.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Articles loaded&lt;/td&gt;&lt;td&gt;78&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kept after dedup&lt;/td&gt;&lt;td&gt;65&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Held / released&lt;/td&gt;&lt;td&gt;3 released, 7 held&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Roundup pool&lt;/td&gt;&lt;td&gt;18 stories — theme:13, local:5&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.68, 3255 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 38% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;19.4 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;17.8 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;14/18 roundup, 2/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;301 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;YouTube&lt;/td&gt;&lt;td&gt;ok — processed, public&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;73,913&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;118 total: openai-tts 86 · claude 11 · brave-search 7 · kagi-extract 6 · cohere 5 · brave-answers 3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic cost&lt;/td&gt;&lt;td&gt;$0.14 at list price (estimate)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.60 at list price: OpenAI TTS $0.276 · Anthropic $0.143 · Brave Answers $0.123 · Brave Search $0.035 · Kagi Extract $0.024 · Cohere $0.003&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[Quesnel Cariboo Observer] Air quality warning issued for Quesnel due to coarse particulate matter</title>
 <link>https://cariboo-signals-clicks.zirnhelt.workers.dev/go?u=https%3A%2F%2Fquesnelobserver.com%2F2026%2F11%2F24%2Fair-quality-warning-issued-for-quesnel-due-to-coarse-particulate-matter%2F&amp;c=feed%3Alocal&amp;d=2026-11-25&amp;s=a51520a6885c9b4538a32e90bdf4b853</link>
