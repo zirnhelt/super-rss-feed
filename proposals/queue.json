@@ -1,18 +1,70 @@
 {
-  "generated_at": "2026-11-24T14:30:00Z",
+  "generated_at": "2026-11-25T14:20:00Z",
   "items": [
     {
-      "id": "fixer:2026-11-24:bar-second-report",
+      "id": "note:2026-11-24:roundup-junction",
       "kind": "proposal",
       "repo": "curated-podcast-generator",
-      "title": "Tuesday's deep dive went overseas while a second report of the local strike story sat unused",
-      "detail": "The Cariboo bar picked the Williams Lake Tribune's story on the Labour Relations Board ruling against Teck's replacement workers at Highland Valley Copper, then set it aside for want of a second report. The Tyee had one (\"Teck Used Illegal Replacement Workers, Labour Board Finds\", raw 72 on the day's charter), but it had no theme keyword, so it sat in the bonus stories the bar never sees, and it was cut from the roundup too. The deep dive aired four farm stories from Poland, Sweden and Australia instead. The review's \"no Cariboo story or angle\" item has now been seen 3 nights.",
-      "fix": "Show the bar, as second reports only and never as a lead, the day's bonus stories whose headline shares a word with a local candidate (checked in Python, the same test the bar already uses: both headlines say \"replacement workers\"). Tuesday's deep dive would have been the strike ruling from two outlets. A few more stories in the one Haiku call, under $0.0001 a run. This changes what airs, so it needs your call.",
-      "source": "Tonight's review (deep dive had no Cariboo story, 3 nights)",
-      "since": "2026-11-24"
+      "title": "Tuesday's roundup went from mining to Remembrance Day and back to mining",
+      "detail": "The local block opened on the two mining stories (Osiris near Mount Polley, the strike ruling) because a Williams Lake story leads it, then ran through the Clinton fire, pile burning, Remembrance Day and the rest of the local block before the theme block's mining stories (The Tyee on Logan Lake, Brazil, Pakistan). The plan tried to keep The Tyee beside the strike story, but local news airs first, so it moved behind the rest of the local block. Two rules collided: local first, and one subject in one place.",
+      "fix": "Keep the Williams Lake lead, and let the storyboard close the local block on the local story that shares a subject with the stories after it, so they follow it directly (Tuesday: the strike ruling last among the locals, then The Tyee, Brazil and Pakistan). A prompt line on the storyboard, under $0.0001 a run. It changes the airing order, so it needs your call.",
+      "source": "Your note, 2026-11-24",
+      "since": "2026-11-25"
+    },
+    {
+      "id": "note:2026-11-24:own-focus-bonus",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "The deep dive left the week's mining focus for four overseas farm stories",
+      "detail": "Tuesday's focus, Mining & Energy, had fewer than four matches among the theme stories but nine counting the mining stories that carried no theme keyword (the bonus stories). The rule that moves a starved focus counts those for the week's own focus but only ever brings a sibling's into the deep-dive pool, so Agriculture & Ranching, with 11 theme matches, took the day and the deep dive went to Poland, Sweden and Australia. Wednesday had the same gap: Homestead & Off-Grid Tech matched 0 theme stories and 3 bonus ones at the 87th to 98th percentile.",
+      "fix": "When the week's own focus reaches four with its on-charter bonus matches, keep it and bring those matches into the deep-dive pool, as a sibling's already are; a sibling takes the day only when it has more. The p70 floor still decides whether the focus centres the deep dive. No API cost. It changes what airs, so it needs your call.",
+      "source": "Your note, 2026-11-24",
+      "since": "2026-11-25"
+    },
+    {
+      "id": "note:2026-11-24:cariboo-beat-sourced",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Every deep dive should reach the Cariboo, and say how, not imply it",
+      "detail": "The storyboard plans a Cariboo beat every day and the deep dives do name a Cariboo place (Tuesday the Clinton Community Forest, Wednesday Williams Lake and Quesnel). But Wednesday's beat was a stand-in: \"a Williams Lake or Quesnel independent garage serving ranch and logging trucks stands in for the question\", a garage the material never mentions. Tonight's review fix counts a named place, and the approved bar change states the connection for a local deep dive; neither makes the beat rest on a real Cariboo fact.",
+      "fix": "Tell the storyboard the Cariboo beat rests on something sourced (a roundup story, an aired local story from the week, or the research block), says the link in plain words, and is never a hypothetical stand-in. A prompt line on the storyboard, under $0.0001 a run. It changes what the hosts say, so it needs your call.",
+      "source": "Your note, 2026-11-24",
+      "since": "2026-11-25"
+    },
+    {
+      "id": "note:2026-11-25:focus-semantic",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "Plenty of stories fit Wednesday's Homestead & Off-Grid focus, but the keyword gate saw none",
+      "detail": "The focus counts keyword hits in the theme stories only, and found 0. The pool had a garage door opener that reboots when the internet is down, an old desktop turned into a home NAS, \"Which solar panel type is best for your home?\", solar-powered irrigation, and too many devices on a home network, most of them bonus stories and several missing the keyword list (it has \"solar panel\" but not solar alone, and nothing for batteries or home networks). The deep dive ran on the plain theme: a housing fund, an AI hacking tool, an xAI lawsuit and right to repair.",
+      "fix": "When the week's focus has fewer than four keyword matches, let the Cohere rerank the run already makes score the whole on-charter pool, bonus stories included, against the focus's description, and centre the deep dive on the focus when four clear the p70 floor and a relevance cutoff; otherwise the plain theme stands. One rerank call either way, so no cost change. It changes what airs, so it needs your call.",
+      "source": "Your note, 2026-11-25",
+      "since": "2026-11-25"
+    },
+    {
+      "id": "branch:curated-podcast-generator:claude/peaceful-cerf-aethzw",
+      "kind": "branch",
+      "repo": "curated-podcast-generator",
+      "title": "The episode review grades the script against its storyboard (another session's branch)",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/peaceful-cerf-aethzw",
+      "detail": "From another session (Nov 25), no PR. It adds one Haiku call a night to the episode review (about 8K input tokens, around $0.001) that reads the day's storyboard beside the aired script and grades the roundup's order and bridges, each deep dive beat (aired, changed or dropped), the Cariboo beat and the landing. The review page gets a table under The plan and the review feed gets its verdict line. Display only: it opens no roadmap item. It raises the nightly spend slightly, so it needs your call.",
+      "fix": "Approve to open a PR and merge it on green; decline to delete the branch (GitHub can restore it).",
+      "since": "2026-11-25"
     }
   ],
   "done": [
+    {
+      "title": "Tuesday's deep dive went overseas while a second report of the local strike story sat unused",
+      "outcome": "built and merged, as you approved: the Cariboo bar can now find a local story's second report among the bonus stories (never as the lead), and per your comment the Cariboo angle names the place and the people and the hosts are told to say it plainly",
+      "at": "2026-11-25",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/592"
+    },
+    {
+      "title": "The review said the deep dive had no Cariboo angle on nights it named one (tonight's fix)",
+      "outcome": "merged: the check now counts a Cariboo community named in the aired deep dive, not only a local source; over the last two weeks it would have fired on 2 nights of 14 instead of almost every themed day",
+      "at": "2026-11-25",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/593"
+    },
     {
       "title": "The review card shows the calendar's focus, not the one the run used",
       "outcome": "built and merged, as you approved: the Episode card shows the focus the run used, the one it moved from, and whether the deep dive was centred on it, from tomorrow's review on (page side super-rss-feed #408)",
@@ -141,36 +193,6 @@
       "title": "Air the half of the Nov 12 pronunciation correction that was dropped",
       "outcome": "dropped (you declined)",
       "at": "2026-11-19"
-    },
-    {
-      "title": "Proposals tab on the review page",
-      "outcome": "merged",
-      "at": "2026-11-18",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/391"
-    },
-    {
-      "title": "Crime filter catches a court story behind a vague headline",
-      "outcome": "merged",
-      "at": "2026-11-18",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/390"
-    },
-    {
-      "title": "Williams Lake leads the local block every day",
-      "outcome": "merged",
-      "at": "2026-11-18",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/569"
-    },
-    {
-      "title": "The hosts may agree; a roundup reaction rests on the story",
-      "outcome": "merged",
-      "at": "2026-11-18",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/570"
-    },
-    {
-      "title": "Review lists what Brave and Kagi were spent on",
-      "outcome": "merged",
-      "at": "2026-11-18",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/571"
     }
   ]
 }
