@@ -789,3 +789,19 @@ feed is written, so the feeds are instrumented instead, and the click is joined 
 unclicked item is a weak negative at best. A reader app that fetches links with a plain `GET` would be
 counted (the Worker skips `HEAD` and `Sec-Purpose: prefetch` only): check the first rows against what
 was really opened.
+
+## Category keywords match whole words (2026-11-26)
+
+`categorize_article()`, the prescore gate (`_apply_prescore_filter` and Kagi enrichment's
+title check) and `feed_discovery`'s candidate gate all tested the `category_rules.json`
+keywords as substrings, after the theme keywords had already moved to whole words. Found while
+fixing the same bug in `blocked_keywords` ("mma" in "summary"). Measured on 2,475 articles
+(published feeds plus `feedback/`): 92 changed category and 76 stopped passing the gate. The
+gate admissions were coincidences: "cern" in concern (29), "aging" in managing, imaging,
+damaging and foraging (16), "llm" in hallmark and installment, "canning" in scanning, "4-h"
+in 24-hour. The category moves were mostly those same articles leaving `wellness` and `science`,
+plus "AI safety concerns" stories going from science to ai-tech. Stems whose inflections were
+real hits gained a `*`: health (healthy), nutrition, sleep, diet, stress, geriatric, canoe,
+snowshoe, AI agent (agentic). `keyword_pattern` moved to `config_loader` so `feed_discovery`
+can share it. The two scoring prompts print the keywords with the `*` stripped, so their
+cached prefix is unchanged.
