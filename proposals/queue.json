@@ -1,58 +1,83 @@
 {
-  "generated_at": "2026-11-25T14:20:00Z",
+  "generated_at": "2026-11-26T14:20:00Z",
   "items": [
     {
-      "id": "note:2026-11-24:roundup-junction",
-      "kind": "proposal",
+      "id": "pr:curated-podcast-generator#600",
+      "kind": "pr",
       "repo": "curated-podcast-generator",
-      "title": "Tuesday's roundup went from mining to Remembrance Day and back to mining",
-      "detail": "The local block opened on the two mining stories (Osiris near Mount Polley, the strike ruling) because a Williams Lake story leads it, then ran through the Clinton fire, pile burning, Remembrance Day and the rest of the local block before the theme block's mining stories (The Tyee on Logan Lake, Brazil, Pakistan). The plan tried to keep The Tyee beside the strike story, but local news airs first, so it moved behind the rest of the local block. Two rules collided: local first, and one subject in one place.",
-      "fix": "Keep the Williams Lake lead, and let the storyboard close the local block on the local story that shares a subject with the stories after it, so they follow it directly (Tuesday: the strike ruling last among the locals, then The Tyee, Brazil and Pakistan). A prompt line on the storyboard, under $0.0001 a run. It changes the airing order, so it needs your call.",
-      "source": "Your note, 2026-11-24",
-      "since": "2026-11-25"
+      "title": "A keyword-starved focus asks Cohere before giving up the day (your approved 11-25 note, built as a draft)",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/600",
+      "detail": "Built as you approved: when the week's focus is still short of four matches after its own bonus stories, one Cohere rerank scores the on-charter pool against the focus, and four stories at or over the cutoff keep the focus and centre the deep dive (Wednesday's home NAS, offline garage-door opener and solar-panel guide would qualify). It is a draft for two things the proposal did not say: it adds one Cohere rerank ($0.002) on a keyword-starved day where the focus is not found, about $0.03 a month, and its 0.3 cutoff is a first guess with every score logged for a refit.",
+      "fix": "Approve to merge it as it stands; decline to close it; or say in a comment what cutoff or limit you want.",
+      "since": "2026-11-26",
+      "draft": true,
+      "ci": "pending",
+      "merge": "clean"
     },
     {
-      "id": "note:2026-11-24:own-focus-bonus",
-      "kind": "proposal",
+      "id": "pr:curated-podcast-generator#599",
+      "kind": "pr",
       "repo": "curated-podcast-generator",
-      "title": "The deep dive left the week's mining focus for four overseas farm stories",
-      "detail": "Tuesday's focus, Mining & Energy, had fewer than four matches among the theme stories but nine counting the mining stories that carried no theme keyword (the bonus stories). The rule that moves a starved focus counts those for the week's own focus but only ever brings a sibling's into the deep-dive pool, so Agriculture & Ranching, with 11 theme matches, took the day and the deep dive went to Poland, Sweden and Australia. Wednesday had the same gap: Homestead & Off-Grid Tech matched 0 theme stories and 3 bonus ones at the 87th to 98th percentile.",
-      "fix": "When the week's own focus reaches four with its on-charter bonus matches, keep it and bring those matches into the deep-dive pool, as a sibling's already are; a sibling takes the day only when it has more. The p70 floor still decides whether the focus centres the deep dive. No API cost. It changes what airs, so it needs your call.",
-      "source": "Your note, 2026-11-24",
-      "since": "2026-11-25"
+      "title": "The review job stops waiting 15 minutes for nothing (another session's PR)",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/599",
+      "detail": "From another session today. The review job's wait for the review to go live used grep -q under pipefail, which always reads as a failure, so every run waited all 30 tries (15 minutes) before refreshing super-rss-feed's editorial items. A one-line change to the workflow; nothing on air changes. CI green, merges cleanly.",
+      "fix": "Approve to merge it; decline to close it.",
+      "since": "2026-11-26",
+      "draft": false,
+      "ci": "green",
+      "merge": "clean"
     },
     {
-      "id": "note:2026-11-24:cariboo-beat-sourced",
-      "kind": "proposal",
-      "repo": "curated-podcast-generator",
-      "title": "Every deep dive should reach the Cariboo, and say how, not imply it",
-      "detail": "The storyboard plans a Cariboo beat every day and the deep dives do name a Cariboo place (Tuesday the Clinton Community Forest, Wednesday Williams Lake and Quesnel). But Wednesday's beat was a stand-in: \"a Williams Lake or Quesnel independent garage serving ranch and logging trucks stands in for the question\", a garage the material never mentions. Tonight's review fix counts a named place, and the approved bar change states the connection for a local deep dive; neither makes the beat rest on a real Cariboo fact.",
-      "fix": "Tell the storyboard the Cariboo beat rests on something sourced (a roundup story, an aired local story from the week, or the research block), says the link in plain words, and is never a hypothetical stand-in. A prompt line on the storyboard, under $0.0001 a run. It changes what the hosts say, so it needs your call.",
-      "source": "Your note, 2026-11-24",
-      "since": "2026-11-25"
-    },
-    {
-      "id": "note:2026-11-25:focus-semantic",
-      "kind": "proposal",
-      "repo": "curated-podcast-generator",
-      "title": "Plenty of stories fit Wednesday's Homestead & Off-Grid focus, but the keyword gate saw none",
-      "detail": "The focus counts keyword hits in the theme stories only, and found 0. The pool had a garage door opener that reboots when the internet is down, an old desktop turned into a home NAS, \"Which solar panel type is best for your home?\", solar-powered irrigation, and too many devices on a home network, most of them bonus stories and several missing the keyword list (it has \"solar panel\" but not solar alone, and nothing for batteries or home networks). The deep dive ran on the plain theme: a housing fund, an AI hacking tool, an xAI lawsuit and right to repair.",
-      "fix": "When the week's focus has fewer than four keyword matches, let the Cohere rerank the run already makes score the whole on-charter pool, bonus stories included, against the focus's description, and centre the deep dive on the focus when four clear the p70 floor and a relevance cutoff; otherwise the plain theme stands. One rerank call either way, so no cost change. It changes what airs, so it needs your call.",
-      "source": "Your note, 2026-11-25",
-      "since": "2026-11-25"
-    },
-    {
-      "id": "branch:curated-podcast-generator:claude/peaceful-cerf-aethzw",
-      "kind": "branch",
-      "repo": "curated-podcast-generator",
-      "title": "The episode review grades the script against its storyboard (another session's branch)",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/peaceful-cerf-aethzw",
-      "detail": "From another session (Nov 25), no PR. It adds one Haiku call a night to the episode review (about 8K input tokens, around $0.001) that reads the day's storyboard beside the aired script and grades the roundup's order and bridges, each deep dive beat (aired, changed or dropped), the Cariboo beat and the landing. The review page gets a table under The plan and the review feed gets its verdict line. Display only: it opens no roadmap item. It raises the nightly spend slightly, so it needs your call.",
-      "fix": "Approve to open a PR and merge it on green; decline to delete the branch (GitHub can restore it).",
-      "since": "2026-11-25"
+      "id": "pr:super-rss-feed#410",
+      "kind": "pr",
+      "repo": "super-rss-feed",
+      "title": "Category keywords match whole words, not substrings (another session's PR)",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/410",
+      "detail": "From another session today. The category rules, the prescore gate and feed discovery matched keywords inside other words (cern in concern, aging in managing, llm in hallmark). Measured on 2,475 articles, 63 that were admitted by coincidence stop passing the gate and 92 change category; nine stems gain a * so real inflections still match. It changes what the feed admits, so it needs your call. CI green, merges cleanly.",
+      "fix": "Approve to merge it; decline to close it.",
+      "since": "2026-11-26",
+      "draft": false,
+      "ci": "green",
+      "merge": "clean"
     }
   ],
   "done": [
+    {
+      "title": "The deep dive's debate summary was cut short (tonight's fix)",
+      "outcome": "merged: the deep dive's debate summary ran out of room at 1000 tokens on both paths and the memory got the keyword fallback; it now has 2000, which bills only what is used",
+      "at": "2026-11-26",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/598"
+    },
+    {
+      "title": "Tuesday's roundup went from mining to Remembrance Day and back to mining",
+      "outcome": "built and merged, as you approved: the Williams Lake story still leads, and the local story that shares a subject with the stories after the local block now closes it, so they follow it",
+      "at": "2026-11-26",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/596"
+    },
+    {
+      "title": "Every deep dive should reach the Cariboo, and say how, not imply it",
+      "outcome": "built and merged, as you approved, with your comment: the Cariboo beat says its link plainly, rests on a real story where there is one, and otherwise reasons from rural use to a likely benefit or challenge here, without inventing a named person, business or event",
+      "at": "2026-11-26",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/596"
+    },
+    {
+      "title": "The deep dive left the week's mining focus for four overseas farm stories",
+      "outcome": "built and merged, as you approved: a week whose own theme and bonus matches reach four keeps its focus, and those bonus stories join the deep-dive pool",
+      "at": "2026-11-26",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/595"
+    },
+    {
+      "title": "Plenty of stories fit Wednesday's Homestead & Off-Grid focus, but the keyword gate saw none",
+      "outcome": "built as you approved, but opened as a draft: it adds a small Cohere cost the proposal did not mention; the PR card above needs your call",
+      "at": "2026-11-26",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/600"
+    },
+    {
+      "title": "The episode review grades the script against its storyboard (another session's branch)",
+      "outcome": "merged before this run got to it (#594)",
+      "at": "2026-11-26",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/594"
+    },
     {
       "title": "Tuesday's deep dive went overseas while a second report of the local strike story sat unused",
       "outcome": "built and merged, as you approved: the Cariboo bar can now find a local story's second report among the bonus stories (never as the lead), and per your comment the Cariboo angle names the place and the people and the hosts are told to say it plainly",
@@ -152,47 +177,6 @@
       "title": "YouTube channel banner with the title inside the mobile safe area",
       "outcome": "dropped (you declined; the branch was already gone on GitHub)",
       "at": "2026-11-20"
-    },
-    {
-      "title": "Keep the wildcard but skip bad news, US-politics outlets and your own lines",
-      "outcome": "merged",
-      "at": "2026-11-19",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/393"
-    },
-    {
-      "title": "Standing preference: US federal health-agency politics (RFK Jr., HHS, USPSTF...)",
-      "outcome": "merged",
-      "at": "2026-11-19",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/392"
-    },
-    {
-      "title": "Kagi Extract sends each page alone (tonight's fix: one slow site emptied all six pages)",
-      "outcome": "merged",
-      "at": "2026-11-19",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/572"
-    },
-    {
-      "title": "Other days' focuses match stray stories on bare name words",
-      "outcome": "merged: built your way, like the crime filter: a bare name word now counts only when a real keyword confirms it",
-      "at": "2026-11-19",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/573"
-    },
-    {
-      "title": "Every point of a production correction airs",
-      "outcome": "merged",
-      "at": "2026-11-19",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/574"
-    },
-    {
-      "title": "Let the citation check count two host turns in a row together",
-      "outcome": "merged: deep dive only, headline test only (18 more of 922 past sources credited)",
-      "at": "2026-11-19",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/575"
-    },
-    {
-      "title": "Air the half of the Nov 12 pronunciation correction that was dropped",
-      "outcome": "dropped (you declined)",
-      "at": "2026-11-19"
     }
   ]
 }
