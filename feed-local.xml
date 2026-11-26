@@ -6,13 +6,70 @@
 <atom:link href="https://zirnhelt.github.io/super-rss-feed/feed-local.xml" rel="self" type="application/rss+xml" />
 <description>AI-curated local news articles</description>
 <language>en</language>
-<lastBuildDate>Thu, 26 Nov 2026 06:14:18 +0000</lastBuildDate>
+<lastBuildDate>Thu, 26 Nov 2026 14:13:55 +0000</lastBuildDate>
 <generator>Super RSS Feed Curator</generator>
 <image>
 <url>https://zirnhelt.github.io/super-rss-feed/favicon.ico</url>
 <title>🏔️ Williams Lake Local</title>
 <link>https://zirnhelt.github.io/super-rss-feed</link>
 </image>
+<item>
+<title>[Cariboo Signals Reviews] Episode Review — Indigenous Lands &amp; Innovation, November 26, 2026</title>
+<link>https://cariboo-signals-clicks.zirnhelt.workers.dev/go?u=https%3A%2F%2Fzirnhelt.github.io%2Fcurated-podcast-generator%2Fpodcasts%2Freviews%2Fepisode-review-2026-11-26.html&amp;c=feed%3Alocal&amp;d=2026-11-26&amp;s=23315aff08ac2781e6461835b4533b73</link>
+<guid isPermaLink="false">https://zirnhelt.github.io/curated-podcast-generator/podcasts/reviews/episode-review-2026-11-26.html</guid>
+<pubDate>Thu, 26 Nov 2026 10:06:08 +0000</pubDate>
+<dc:creator>Cariboo Signals Reviews</dc:creator>
+<category>local-priority</category>
+<description>&lt;p class=&quot;meta&quot;&gt;Theme: Indigenous Lands &amp;amp; Innovation. Focus: Economic Development (week 3 of 4). Run &lt;a href=&quot;https://github.com/zirnhelt/curated-podcast-generator/actions/runs/45780240933&quot;&gt;45780240933&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;verdict lvl-warn&quot;&gt;&lt;span class=&quot;icon&quot;&gt;▲&lt;/span&gt;&lt;div&gt;&lt;strong&gt;Shipped, needs a look&lt;/strong&gt;2 things to look at before tomorrow&#x27;s run.&lt;/div&gt;&lt;/div&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;ol class=&quot;actions&quot;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;script/debate-summary&lt;/code&gt; fell back. Search the run log for &lt;code&gt;Degraded &#x27;script/debate-summary&#x27;&lt;/code&gt; and decide whether the fallback is acceptable or the cause needs fixing.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;degrade() row: Claude debate extraction failed, used keyword fallback: Unterminated string starting at: line 1 column 2940 (char 2939)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Investigate.&lt;/strong&gt;&lt;br/&gt;&lt;span class=&quot;evidence&quot;&gt;one subject aired in separate places: public service&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;What happened&lt;/h2&gt;
+&lt;h3&gt;Focus rotation fell back to the base theme because no article matched&lt;/h3&gt;
+&lt;p&gt;The scheduled focus for this cycle was &lt;code&gt;Economic Development&lt;/code&gt; (week 3 of 4), but zero articles matched it. The pipeline logged the fallback and used the base theme selection, &lt;code&gt;Indigenous Lands &amp;amp; Innovation&lt;/code&gt;, instead. Of the 67 articles loaded, 20 were theme articles and 41 were bonus articles. The fallback meant the day&#x27;s focus segment was built from the general theme pool rather than from economic-development material.&lt;/p&gt;
+&lt;p&gt;Focus routing still ran in parallel. One held article was released (&lt;code&gt;[APTN News] AFN calls for strengthening of First Nations Cle...&lt;/code&gt;, held since 2026-11-25), and three remain held: a Recreation &amp;amp; Backcountry Access piece dated 2026-11-27, a Digital Life &amp;amp; Security piece dated 2026-12-02, and an Agriculture &amp;amp; Ranching piece dated 2026-12-08. Those three will wait for their own focus days. If Economic Development stays thin across the cycle, the focus rotation should be reviewed against the feed mix; the intake pool needs more economic coverage before the next Economic Development week.&lt;/p&gt;
+&lt;h3&gt;Debate extraction failed and fell back to keyword matching&lt;/h3&gt;
+&lt;p&gt;Claude&#x27;s debate-summary extraction failed with an unterminated string at line 1, column 2940, and a batch debate-summary parse failed separately at column 2916. Both were JSON truncation errors, which suggests the model output was cut off before the closing bracket. The pipeline fell back to keyword extraction for the debate summary. The listener gets a debate question, &lt;code&gt;Deep dive on Indigenous Lands &amp;amp; Innovation&lt;/code&gt;, that was pulled by keyword rather than by reading the segment, so it may describe the topic less precisely than the model would have. The script itself passed quality checks: 0 AI-tell pattern hits, and a Casey-to-Riley voice ratio of 0.79.&lt;/p&gt;
+&lt;p&gt;Both warnings point at the same output-length limit. Raising the token budget for the debate-extraction call, or adding a retry that requests a shorter summary on parse failure, should be the first change to test.&lt;/p&gt;
+&lt;h3&gt;Script came in under target and shipped under target&lt;/h3&gt;
+&lt;p&gt;The first draft came in at 2958 words against a target of 3400. The pipeline sent it back for one expand pass, and the shipped script was 3565 words, which is above target. The expand pass was enough to clear the target, so the thin first draft did not reach the listener. Only one expand pass is allowed per run, so a first draft that starts much thinner would not have been rescued the same way.&lt;/p&gt;
+&lt;p&gt;Roundup citations matched 12 of 18, and deep-dive citations matched 4 of 4. The roundup gap is the more useful number: 6 roundup citations did not match a source, and that is where a listener checking the references would find something missing. The roundup pool held 18 stories and dropped 24 to the airtime budget by design, so the 18 that aired were the ones the pipeline ranked highest, not a shortfall. The citation mismatch should be looked at before the next run that carries a similar roundup load.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Script vs. storyboard: loosely kept.&lt;/strong&gt; The episode mostly follows the plan&#x27;s shape, but the roundup frame is replaced by a different opening, several roundup stories are dropped or merged, and the deep dive drops the Kalshi and C-39 pushback framing and adds a new contested detail about Seabridge and the Tsetsaut case. The landing is left open as planned, but the Cariboo beat is substantially reworked.&lt;/p&gt;
+&lt;h3&gt;The day&#x27;s triggers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Trigger&lt;/th&gt;&lt;th&gt;Created&lt;/th&gt;&lt;th&gt;Drift&lt;/th&gt;&lt;th&gt;Outcome&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Primary (1:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;1:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 1 (2:05 AM Pacific) — Cloudflare scheduler&lt;/td&gt;&lt;td&gt;2:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;success&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Fallback 2 (3:05 AM Pacific) — Cloudflare scheduler — this review&#x27;s own run&lt;/td&gt;&lt;td&gt;3:05 AM Pacific&lt;/td&gt;&lt;td&gt;+0 min&lt;/td&gt;&lt;td&gt;running this review&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What shipped&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Measure&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Articles loaded&lt;/td&gt;&lt;td&gt;67&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Kept after dedup&lt;/td&gt;&lt;td&gt;48&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Held / released&lt;/td&gt;&lt;td&gt;1 released, 3 held&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Roundup pool&lt;/td&gt;&lt;td&gt;18 stories — theme:10, local:4, public_safety:3, kicker:1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive&lt;/td&gt;&lt;td&gt;4 articles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Script&lt;/td&gt;&lt;td&gt;0 pattern hit(s), voice ratio 0.79, 3565 words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Deep dive split&lt;/td&gt;&lt;td&gt;Casey 43% of the words&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio&lt;/td&gt;&lt;td&gt;22.0 min&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Audio size&lt;/td&gt;&lt;td&gt;20.2 MB&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Citations matched&lt;/td&gt;&lt;td&gt;12/18 roundup, 4/4 deep dive&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Feed&lt;/td&gt;&lt;td&gt;302 episodes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;YouTube&lt;/td&gt;&lt;td&gt;ok — processed, public&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic input tokens&lt;/td&gt;&lt;td&gt;86,085&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;API calls&lt;/td&gt;&lt;td&gt;125 total: openai-tts 85 · claude 13 · brave-search 11 · kagi-extract 7 · cohere 5 · brave-answers 4&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Anthropic cost&lt;/td&gt;&lt;td&gt;$0.14 at list price (estimate)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.70 at list price: OpenAI TTS $0.314 · Brave Answers $0.164 · Anthropic $0.138 · Brave Search $0.055 · Kagi Extract $0.028 · Cohere $0.003&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+</item>
 <item>
 <title>[Quesnel Cariboo Observer] SHOP LOCAL: Family-owned City Furniture celebrates decades of business, community support in Quesnel</title>
 <link>https://cariboo-signals-clicks.zirnhelt.workers.dev/go?u=https%3A%2F%2Fquesnelobserver.com%2F2026%2F11%2F25%2Fshop-local-family-owned-city-furniture-celebrates-decades-of-business-community-support-in-quesnel%2F&amp;c=feed%3Alocal&amp;d=2026-11-26&amp;s=d3f4229bdd6b84b402d5636329f727c9</link>
