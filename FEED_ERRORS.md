@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-25 (Wednesday)
+
+#### 🔧 Manual Run (10:14 PM Pacific)
+- ⚠️ **FolkloreThursday** failed — `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolut`
+- ⚠️ **GN Wildfire Today** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:wildfiretoday.com&hl=en-CA&gl=CA&`
+- ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
+- ⚠️ **GN The Walrus** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=CA:`
+- ⚠️ **GN Dwell** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl=en&gl=CA&ceid=CA:en`
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+- ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing
+
+
+---
+
+
+
 ## 2026-11-24 (Tuesday)
 
 #### 🔧 Manual Run (10:14 PM Pacific)
@@ -104,22 +120,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en-CA&gl=C`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
 - ⚠️ **Tsleil-Waututh Nation** failed — `503 Server Error: Service Unavailable for url: https://twnation.ca/feed/`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-17 (Tuesday)
-
-#### 🔧 Manual Run (10:12 PM Pacific)
-- ⚠️ **GN Western Producer** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:producer.com&hl=en-CA&gl=CA&ceid=`
-- ⚠️ **GN AgWeb** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en&gl=CA&ceid=CA:en`
-- ⚠️ **GN The Walrus** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en-CA&gl=CA&ceid=`
-- ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c`
-- ⚠️ **Climate - CBSNews.com** failed — `406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate`
-- ⚠️ **GN Country Guide** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:country-guide.ca&hl=en&gl=CA&ceid`
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
 
@@ -1918,6 +1918,21 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
 - ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
 - ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing, diplomacy
+
+
+---
+
+
+
+## Week of 2026-11-17–2026-11-17
+- 7 issues recorded
+- ⚠️ GN Western Producer failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:p
+- ⚠️ GN AgWeb failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl
+- ⚠️ GN The Walrus failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalr
+- ⚠️ GN Consumer Reports failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:c
+- ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
+- ⚠️ GN Country Guide failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:coun
+- ⚠️ Kite News: not in this batch: canada | british columbia
 
 
 ---
