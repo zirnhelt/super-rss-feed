@@ -665,7 +665,7 @@ class FeedDiscovery:
                 text = " ".join(
                     f"{a.title} {a.description}" for a in candidate.sample_articles
                 ).lower()
-                if not any(kw in text for kw in PRESCORE_KEYWORDS):
+                if not any(config_loader.keyword_pattern(kw).search(text) for kw in PRESCORE_KEYWORDS):
                     candidate.average_score = 0
                     candidate.error = "No keyword match (prescore filter)"
                     self.cache[candidate.url] = {

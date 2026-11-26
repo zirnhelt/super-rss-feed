@@ -208,6 +208,25 @@ class TestFeedFilters:
                                   'https://www.mycariboonow.com/316385/news/transport/red-rock')
 
 
+class TestCategoryKeywordsWholeWords:
+    """Category include/exclude keywords (and PRESCORE_KEYWORDS, their union)
+    match whole words: "cern" was filing every "concerns" story under science,
+    "aging" every "imaging" and "packaging" one under wellness."""
+
+    def test_substrings_no_longer_categorize(self):
+        assert m.categorize_article('Merck discontinues antibiotic despite concerns', '') != 'science'
+        assert m.categorize_article('Creality scanner requires wired PC connection', '') is None
+
+    def test_starred_stems_keep_inflections(self):
+        assert m.categorize_article('Mole rats get stressed when the field vanishes', '') == 'wellness'
+        assert m.categorize_article('How healthy are nuts?', '') == 'wellness'
+
+    def test_prescore_gate_ignores_substrings(self):
+        hits = lambda text: {kw for kw in m.PRESCORE_KEYWORDS if m._keyword_pattern(kw).search(text)}
+        assert not hits('privacy concerns over packaging and 24-hour scanning')
+        assert 'sleep*' in hits('sleeping badly')
+
+
 class TestExclusionReasons:
     def test_opinion_is_excluded_by_content_type(self):
         a = _article('DOERKSON: Natural resource sector crumbling under NDP',

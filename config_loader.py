@@ -6,6 +6,7 @@ Loads all configuration from config/ directory with validation
 
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -388,3 +389,18 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
         raise SystemExit(1)
+
+
+@lru_cache(maxsize=None)
+def keyword_pattern(keyword: str) -> 're.Pattern[str]':
+    """Whole words, plural allowed; a trailing '*' matches any word ending.
+
+    A bare substring test let "nation" hit "international", "mill" hit
+    "million", "zine" hit "magazine" and "park" hit "spark". A keyword whose
+    inflections matter says so with '*' ("flood*" for flooding); the stem
+    still has to start a word, so "evolution*" never matches "revolution".
+    """
+    kw = keyword.lower()
+    if kw.endswith('*'):
+        return re.compile(r'(?<!\w)' + re.escape(kw[:-1]))
+    return re.compile(r'(?<!\w)' + re.escape(kw) + r'(?:s|es)?(?!\w)')

@@ -2240,7 +2240,7 @@ def _kagi_enrich_articles(
             continue
         if any(d in a.link for d in _LOCAL_BC_DOMAINS):
             local.append(a)
-        elif prescore_keywords is None or any(kw in a.title.lower() for kw in prescore_keywords):
+        elif prescore_keywords is None or any(_keyword_pattern(kw).search(a.title.lower()) for kw in prescore_keywords):
             other.append(a)
         else:
             skipped_gate += 1
@@ -3397,8 +3397,10 @@ def categorize_article(title: str, description: str) -> Optional[str]:
         include_keywords = [kw.lower() for kw in rules.get('include', [])]
         exclude_keywords = [kw.lower() for kw in rules.get('exclude', [])]
 
-        has_include = any(keyword in text for keyword in include_keywords)
-        has_exclude = any(keyword in text for keyword in exclude_keywords)
+        # Whole words (_keyword_pattern): "cern" was filing every "concerns" under
+        # science and "aging" every "imaging" and "packaging" under wellness.
+        has_include = any(_keyword_pattern(keyword).search(text) for keyword in include_keywords)
+        has_exclude = any(_keyword_pattern(keyword).search(text) for keyword in exclude_keywords)
         
         if has_include and not has_exclude:
             return category
@@ -3953,7 +3955,7 @@ def score_articles_with_claude_pure(articles: List[Article], api_key: str) -> Li
         includes = rules.get('include', [])
         excludes = rules.get('exclude', [])
         if includes:
-            line += f"\n    Signals that suggest this category: {', '.join(includes)}"
+            line += f"\n    Signals that suggest this category: {', '.join(k.rstrip('*') for k in includes)}"
         if excludes:
             line += f"\n    Do NOT use this category for: {', '.join(excludes)}"
         if cat_data.get('always_priority'):
@@ -4300,7 +4302,7 @@ def apply_prescore_filter(articles: List[Article]) -> List[Article]:
             continue
         text = f"{article.title} {article.description}".lower()
         is_local = any(sig in text for sig in local_signals_lower)
-        hits = sum(1 for kw in PRESCORE_KEYWORDS if kw in text)
+        hits = sum(1 for kw in PRESCORE_KEYWORDS if _keyword_pattern(kw).search(text))
         # Local articles pass through even with zero keyword hits — the pipeline's
         # local-preservation rules must have a chance to run. Non-local zero-hit
         # articles are dropped as off-topic for this feed's interests.
@@ -4999,19 +5001,8 @@ def load_podcast_schedule():
         return None
 
 
-@lru_cache(maxsize=None)
-def _keyword_pattern(keyword: str) -> 're.Pattern[str]':
-    """Whole words, plural allowed; a trailing '*' matches any word ending.
-
-    A bare substring test let "nation" hit "international", "mill" hit
-    "million", "zine" hit "magazine" and "park" hit "spark". A keyword whose
-    inflections matter says so with '*' ("flood*" for flooding); the stem
-    still has to start a word, so "evolution*" never matches "revolution".
-    """
-    kw = keyword.lower()
-    if kw.endswith('*'):
-        return re.compile(r'(?<!\w)' + re.escape(kw[:-1]))
-    return re.compile(r'(?<!\w)' + re.escape(kw) + r'(?:s|es)?(?!\w)')
+# The whole-word keyword matcher; config_loader holds it so feed_discovery can share it.
+_keyword_pattern = config_loader.keyword_pattern
 
 
 def _keyword_match_count(text: str, keywords: List[str]) -> int:
@@ -5122,7 +5113,7 @@ def score_articles_for_theme(articles: List[Article], theme_prompt: str, theme_l
         includes = rules.get('include', [])
         excludes = rules.get('exclude', [])
         if includes:
-            line += f"\n    Signals: {', '.join(includes)}"
+            line += f"\n    Signals: {', '.join(k.rstrip('*') for k in includes)}"
         if excludes:
             line += f"\n    Exclude: {', '.join(excludes)}"
         category_lines.append(line)

@@ -63,6 +63,8 @@ Ratings from `review.html` land in `feedback/YYYY-MM-DD.json`. They are the read
 
 **`review.html` never holds a credential.** It asks for a fine-grained token (super-rss-feed only, Contents read/write) in a password field when saving, filled from a password manager, and keeps it only while open — never in browser storage. A token was baked into this public page from 2026-06-17 until it was revoked on 2026-09-23; it is still in gh-pages history.
 
+**Category keywords match whole words** (`config_loader.keyword_pattern`): `categorize_article()`, the prescore gate and discovery's gate. A stem that needs its inflections ends in `*` (`"stress*"`); the scoring prompts strip the `*`.
+
 ## Calibration agent
 
 Only whitelisted knobs in `calibration_bounds.json`, clamped to bounds and `global_caps`, with a flip-flop guard. **The workflow commits all of `config/`** (after `config_loader.py` + pytest pass in the job). Changes go to `CALIBRATION_LOG.md` and `calibration_memory/change_history.json`. A fresh `article_review_audit_summary.json` is treated as ground truth. Skip reasons are logged verbatim.
