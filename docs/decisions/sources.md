@@ -302,3 +302,15 @@ in the text or excerpt.
 The reader saw each Cariboo Signals episode review twice, in Williams Lake Local and in Canadian and Global News. The nightly's categorizer filed one review under news around Nov 17-18. `refresh_editorial_feeds()` places a source in every feed that already carries it, so news now counted, and each morning's refresh spliced the new review into both. The nightly's retention merge only compares a retained item with its own category's new URLs, so the news copies were kept for the full retention window. The Nov 17 refresh wrote two files (local JSON + RSS mirror); the Nov 21 one wrote three.
 
 `source_preferences.json` → `editorial_home_category` names the one feed a source ships in. `reader_category()` returns it regardless of the categorizer, the refresh splices only into it, and the retention merge drops a retained copy filed elsewhere, which clears the existing news copies on the next nightly. A source with no entry behaves as before.
+
+## Blocked keywords match whole words (2026-11-26)
+
+`Article.should_filter()` tested `blocked_keywords` and `blocked_keywords_unless_local` as plain
+substrings of the title and description. The podcast's 2026-11-26 episode review said
+`script/debate-summary`, and `"mma"` is inside "su**mma**ry", so the review was dropped at fetch by
+both the nightly and `refresh-editorial` (the editorial exemption applies only after this filter).
+An audit of the published feeds and `feedback/` found the same leak in daily news: `"mma"` hit
+"summary", "command", "Emma" and "immaculate" (671 occurrences), and `"nfl"` hit "inflation",
+"conflict", "influence" and "sunflower" (122). `"nba"` showed up only in escaped-newline artifacts. Both lists now go through
+`_keyword_pattern`, the whole-word matcher the category keywords moved to after the same lesson
+("nation" in "international"). No sports term in the corpus relied on a substring hit.

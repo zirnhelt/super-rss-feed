@@ -1348,7 +1348,9 @@ class Article:
 
         # blocked_keywords always applies — sports leagues, sports terms, advice columns,
         # and stock jargon are universally unwanted regardless of local signals.
-        if any(keyword in text for keyword in FILTERS['blocked_keywords']):
+        # Whole words (_keyword_pattern), never substrings: "mma" was dropping every
+        # "summary" and "command", "nfl" every "inflation" and "conflict".
+        if any(_keyword_pattern(keyword).search(text) for keyword in FILTERS['blocked_keywords']):
             return True
 
         # Title-pattern blocklist: first-person anecdote listicles ("I ditched...",
@@ -1376,7 +1378,7 @@ class Article:
         is_local = any(signal in f"{text} {source_lower}" for signal in FILTERS.get('local_signals', []))
         nonlocal_keywords = FILTERS.get('blocked_keywords_unless_local', [])
         if nonlocal_keywords and not is_local:
-            if any(keyword in text for keyword in nonlocal_keywords):
+            if any(_keyword_pattern(keyword).search(text) for keyword in nonlocal_keywords):
                 return True
 
         return False
