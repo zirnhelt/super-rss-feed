@@ -203,6 +203,16 @@ class TestFeedFilters:
         assert self._filtered('The 10 most rewarding day trips from Budapest',
                               'https://qz.com/most-rewarding-day-trips-budapest')
 
+    def test_blocked_keywords_match_whole_words(self):
+        """'mma' inside "summary" dropped the podcast's 2026-11-26 episode review;
+        'nfl' inside "inflation" and "conflict" dropped news daily."""
+        url = 'https://example.com/story'
+        assert not self._filtered('script/debate-summary fell back', url)
+        assert not self._filtered('Inflation eases as conflict widens', url)
+        assert not self._filtered('Mayor issues command on sunflower bylaw', url)
+        assert self._filtered('UFC and MMA fight night recap', url)
+        assert self._filtered('NFL playoffs: who is in', url)
+
     def test_ordinary_article_passes(self):
         assert not self._filtered('Red Rock inspection station rebuild begins',
                                   'https://www.mycariboonow.com/316385/news/transport/red-rock')
