@@ -1,47 +1,58 @@
 {
-  "generated_at": "2026-11-26T14:20:00Z",
+  "generated_at": "2026-11-27T14:50:00Z",
   "items": [
     {
-      "id": "pr:curated-podcast-generator#600",
-      "kind": "pr",
+      "id": "note:2026-11-26:multi-outlet-deep-dive",
+      "kind": "proposal",
       "repo": "curated-podcast-generator",
-      "title": "A keyword-starved focus asks Cohere before giving up the day (your approved 11-25 note, built as a draft)",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/600",
-      "detail": "Built as you approved: when the week's focus is still short of four matches after its own bonus stories, one Cohere rerank scores the on-charter pool against the focus, and four stories at or over the cutoff keep the focus and centre the deep dive (Wednesday's home NAS, offline garage-door opener and solar-panel guide would qualify). It is a draft for two things the proposal did not say: it adds one Cohere rerank ($0.002) on a keyword-starved day where the focus is not found, about $0.03 a month, and its 0.3 cutoff is a first guess with every score logged for a refit.",
-      "fix": "Approve to merge it as it stands; decline to close it; or say in a comment what cutoff or limit you want.",
-      "since": "2026-11-26",
-      "draft": true,
-      "ci": "pending",
-      "merge": "clean"
+      "title": "Wednesday's biggest story, told by two outlets, aired only in the roundup",
+      "detail": "Wednesday's deep dive was four unrelated stories the rerank picked: a Winnipeg youth protest, the KSM mine decision, a BHP Foundation fund and tribes against Kalshi. Premier Doerkson's order to reverse the province's Indigenous and climate commitments was in the same pool, told by the Globe and Mail (p94) and Pique (p97), with the Yellowhead Institute's piece on Indigenous diplomacy and Alberta separatism (p99) beside it. All three aired as roundup stories instead, and the Yellowhead one was listed but never told. Nothing outside the Cariboo bar prefers a story several outlets carry, and a headline test would miss this one: one headline says Doerkson, the other says the premier.",
+      "fix": "When two stories at the charter floor share two names across headline and summary (here Doerkson and DRIPA), count them as one story told twice, and let it lead the deep dive ahead of the rerank's picks, with both reports as sources. Two names, not one: the Williams Lake Tribune's return-to-office story also names Doerkson. Checked in Python, no new spend. If names miss too often, a Cohere similarity check is the next step. It changes what airs, so it needs your call.",
+      "source": "Your episode note (11-26)",
+      "since": "2026-11-27"
     },
     {
-      "id": "pr:curated-podcast-generator#599",
-      "kind": "pr",
+      "id": "note:2026-11-26:bc-stories-cut",
+      "kind": "proposal",
       "repo": "curated-podcast-generator",
-      "title": "The review job stops waiting 15 minutes for nothing (another session's PR)",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/599",
-      "detail": "From another session today. The review job's wait for the review to go live used grep -q under pipefail, which always reads as a failure, so every run waited all 30 tries (15 minutes) before refreshing super-rss-feed's editorial items. A one-line change to the workflow; nothing on air changes. CI green, merges cleanly.",
-      "fix": "Approve to merge it; decline to close it.",
-      "since": "2026-11-26",
-      "draft": false,
-      "ci": "green",
-      "merge": "clean"
+      "title": "B.C.'s rural doctors story was cut while overseas stories aired untold",
+      "detail": "Wednesday's roundup cut the Vancouver Sun's story on B.C. doctors pressing the Conservatives on their rural health promises (p87), and The Tyee's on the Building Canada Strong Act hitting B.C.'s environment hardest (p93), as over the airtime budget. The 18 stories it kept included two from Denmark and one each from Brazil, Myanmar and California. The citations show the script told only 13 of the 18: both Denmark stories, a Guardian tribute, the Yellowhead piece and two local stories were listed and never told.",
+      "fix": "When the roundup is over its airtime budget, cut stories from outside Canada before a B.C. story at p80 or better (B.C. named in the headline or a B.C. outlet, checked in Python). Wednesday would have kept the doctors and the Tyee stories in place of the two untold Denmark stories. No new spend. It changes what airs, so it needs your call. Separately, 13 told of 18 suggests the 18-story budget is more than the airtime holds; worth measuring before tuning anything else.",
+      "source": "Your episode note (11-26)",
+      "since": "2026-11-27"
     },
     {
-      "id": "pr:super-rss-feed#410",
-      "kind": "pr",
-      "repo": "super-rss-feed",
-      "title": "Category keywords match whole words, not substrings (another session's PR)",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/410",
-      "detail": "From another session today. The category rules, the prescore gate and feed discovery matched keywords inside other words (cern in concern, aging in managing, llm in hallmark). Measured on 2,475 articles, 63 that were admitted by coincidence stop passing the gate and 92 change category; nine stems gain a * so real inflections still match. It changes what the feed admits, so it needs your call. CI green, merges cleanly.",
-      "fix": "Approve to merge it; decline to close it.",
-      "since": "2026-11-26",
-      "draft": false,
-      "ci": "green",
-      "merge": "clean"
+      "id": "branch:curated-podcast-generator:claude/quirky-dirac-4hmyp6",
+      "kind": "branch",
+      "repo": "curated-podcast-generator",
+      "title": "The weekly anchor follows a real news case (another session's branch, no PR yet)",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/quirky-dirac-4hmyp6",
+      "detail": "From another session on 11-26, never opened as a PR and not yet run through CI. It replaces the seeded weekly questions with one real, still-open case built from the last eight weeks of citations. The case's sources ride into every script prompt, so each day's mention can be sourced. It drops the 26-week dimension cooldown for a no-repeat check on subject and sources, and relabels the RSS line THIS WEEK WE'RE FOLLOWING. Cost: about 7K input tokens every three weeks, plus about 200 a day. It changes what airs, and the editorial-voice rule file on the branch still describes the old cooldown. A new week starts Monday 11-30.",
+      "fix": "Approve to have it opened as a PR with the rule file brought up to date, and merged once CI is green (in time for Monday if you call it by Sunday); decline to delete the branch; or say in a comment what to change.",
+      "since": "2026-11-27",
+      "ci": "not run",
+      "merge": "unknown"
     }
   ],
   "done": [
+    {
+      "title": "Plenty of stories fit Wednesday's Homestead & Off-Grid focus, but the keyword gate saw none",
+      "outcome": "marked ready and merged, as you approved the draft: a week still short of four keyword matches asks Cohere once, and four stories at or over the 0.3 cutoff keep the focus and centre the deep dive; every score is logged for a refit",
+      "at": "2026-11-27",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/600"
+    },
+    {
+      "title": "The review job stops waiting 15 minutes for nothing (another session's PR)",
+      "outcome": "merged by you on 11-26; this morning's review reached feed-local, and only feed-local",
+      "at": "2026-11-27",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/599"
+    },
+    {
+      "title": "Category keywords match whole words, not substrings (another session's PR)",
+      "outcome": "merged by you on 11-26; this morning's feeds are the first built with it",
+      "at": "2026-11-27",
+      "url": "https://github.com/zirnhelt/super-rss-feed/pull/410"
+    },
     {
       "title": "The deep dive's debate summary was cut short (tonight's fix)",
       "outcome": "merged: the deep dive's debate summary ran out of room at 1000 tokens on both paths and the memory got the keyword fallback; it now has 2000, which bills only what is used",
@@ -65,12 +76,6 @@
       "outcome": "built and merged, as you approved: a week whose own theme and bonus matches reach four keeps its focus, and those bonus stories join the deep-dive pool",
       "at": "2026-11-26",
       "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/595"
-    },
-    {
-      "title": "Plenty of stories fit Wednesday's Homestead & Off-Grid focus, but the keyword gate saw none",
-      "outcome": "built as you approved, but opened as a draft: it adds a small Cohere cost the proposal did not mention; the PR card above needs your call",
-      "at": "2026-11-26",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/600"
     },
     {
       "title": "The episode review grades the script against its storyboard (another session's branch)",
@@ -160,23 +165,6 @@
       "outcome": "merged: Worker live, setup fixes for pasted newlines (#578, #396); the 2:30 AM check found all 15 of Saturday's digest links signed and working",
       "at": "2026-11-21",
       "url": "https://github.com/zirnhelt/super-rss-feed/pull/397"
-    },
-    {
-      "title": "Count your clicks in \"Also in the news\"",
-      "outcome": "merged (#577 and this one). A separate Worker, not the scheduler, notes the story you open; the nightly saves clicks beside your ratings and the audit shows click-through by category and outlet. The reader model's weak positive waits for about four weeks of clicks.",
-      "at": "2026-11-20",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/395"
-    },
-    {
-      "title": "Add a YouTube status check to the daily episode review",
-      "outcome": "merged",
-      "at": "2026-11-20",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/576"
-    },
-    {
-      "title": "YouTube channel banner with the title inside the mobile safe area",
-      "outcome": "dropped (you declined; the branch was already gone on GitHub)",
-      "at": "2026-11-20"
     }
   ]
 }
