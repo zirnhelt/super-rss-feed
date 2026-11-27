@@ -8,6 +8,12 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 
 | Date | Slot | Issue | Detail |
 |------|------|-------|--------|
+| 2026-11-26 | 🔧 Manual Run | ⚠️ **GN AgWeb** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en-CA&gl=CA&ceid=CA:` |
+| 2026-11-26 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolut` |
+| 2026-11-26 | 🔧 Manual Run | ⚠️ **GN Wildfire Today** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:wildfiretoday.com&hl=en&gl=CA&cei` |
+| 2026-11-26 | 🔧 Manual Run | ⚠️ **GN Consumer Reports** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c` |
+| 2026-11-26 | 🔧 Manual Run | ⚠️ **Wikipedia  - Recent changes [en]** failed | `429 Client Error: We suspect this request is automated: if so, please respect our robot policy. If you think you were in` |
+| 2026-11-26 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
 | 2026-11-25 | 🔧 Manual Run | ⚠️ **FolkloreThursday** failed | `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolut` |
 | 2026-11-25 | 🔧 Manual Run | ⚠️ **GN Wildfire Today** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:wildfiretoday.com&hl=en-CA&gl=CA&` |
 | 2026-11-25 | 🔧 Manual Run | ⚠️ **Canadian Architect** failed | `520 Server Error: <none> for url: https://canadianarchitect.com/feed/` |
@@ -42,10 +48,6 @@ Add your own notes in the **Notes & Review** section — it is never overwritten
 | 2026-11-20 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 | 2026-11-20 | 🔧 Manual Run | ⚠️ **Logging and Sawmilling Journal** failed | `('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))` |
 | 2026-11-20 | 🔧 Manual Run | ⚠️ **EEVblog** failed | `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/` |
-| 2026-11-19 | 🔧 Manual Run | ⚠️ **Civil Eats** failed | `520 Server Error: <none> for url: https://civileats.com/feed/` |
-| 2026-11-19 | 🔧 Manual Run | ⚠️ **Canadian Architect** failed | `520 Server Error: <none> for url: https://canadianarchitect.com/feed/` |
-| 2026-11-19 | 🔧 Manual Run | ⚠️ **GN The Walrus** failed | `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=CA:` |
-| 2026-11-19 | 🔧 Manual Run | ⚠️ **Neuroscience News** failed | `520 Server Error: <none> for url: https://neurosciencenews.com/feed/` |
 
 _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
@@ -53,17 +55,18 @@ _Full error history: [FEED_ERRORS.md](FEED_ERRORS.md)._
 
 | Date | Slot | Quality | Mix (top 3) |
 |------|------|---------|-------------|
+| 2026-11-26 | 🔧 manual | 92 | ai-tech:18(20%), news:15(17%), climate:12(13%) |
 | 2026-11-25 | 🔧 manual | 91 | ai-tech:18(20%), news:14(16%), climate:12(14%) |
 | 2026-11-24 | 🔧 manual | 93 | ai-tech:18(20%), news:15(17%), climate:12(13%) |
 | 2026-11-23 | 🔧 manual | 97 | ai-tech:18(19%), news:15(16%), climate:12(13%) |
 | 2026-11-22 | 🔧 manual | 81 | ai-tech:19(24%), news:14(18%), climate:12(15%) |
 | 2026-11-21 | 🔧 manual | 84 | ai-tech:18(22%), news:14(17%), climate:12(15%) |
 | 2026-11-20 | 🔧 manual | 87 | ai-tech:18(21%), news:15(18%), climate:12(14%) |
-| 2026-11-19 | 🔧 manual | 91 | ai-tech:18(20%), news:16(18%), climate:12(14%) |
 
-_Last updated by log\_feed\_results.py · 2026-11-26 06:14 UTC_
+_Last updated by log\_feed\_results.py · 2026-11-27 06:11 UTC_
 
 <!-- AUTO:END -->
+
 
 
 

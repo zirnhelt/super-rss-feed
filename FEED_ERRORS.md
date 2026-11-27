@@ -3,6 +3,22 @@
 _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds, errors, or warnings appear here. Full detail kept for the last 7 days; older entries are compressed to weekly summaries._
 
 
+## 2026-11-26 (Thursday)
+
+#### 🔧 Manual Run (10:11 PM Pacific)
+- ⚠️ **GN AgWeb** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:agweb.com&hl=en-CA&gl=CA&ceid=CA:`
+- ⚠️ **FolkloreThursday** failed — `HTTPSConnectionPool(host='folklorethursday.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolut`
+- ⚠️ **GN Wildfire Today** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:wildfiretoday.com&hl=en&gl=CA&cei`
+- ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en&gl=CA&c`
+- ⚠️ **Wikipedia  - Recent changes [en]** failed — `429 Client Error: We suspect this request is automated: if so, please respect our robot policy. If you think you were in`
+- ⚠️ **EEVblog** failed — `502 Server Error: Bad Gateway for url: https://www.eevblog.com/feed/`
+- ⚠️ Kite News: not in this batch: canada | british columbia, cloud computing, diplomacy
+
+
+---
+
+
+
 ## 2026-11-25 (Wednesday)
 
 #### 🔧 Manual Run (10:14 PM Pacific)
@@ -105,21 +121,6 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ **Canadian Architect** failed — `520 Server Error: <none> for url: https://canadianarchitect.com/feed/`
 - ⚠️ **GN The Walrus** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:thewalrus.ca&hl=en&gl=CA&ceid=CA:`
 - ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ Kite News: not in this batch: canada | british columbia
-
-
----
-
-
-
-## 2026-11-18 (Wednesday)
-
-#### 🔧 Manual Run (10:13 PM Pacific)
-- ⚠️ **Civil Eats** failed — `520 Server Error: <none> for url: https://civileats.com/feed/`
-- ⚠️ **GN Dwell** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl=en-CA&gl=CA&ceid=CA:`
-- ⚠️ **GN Consumer Reports** failed — `429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:consumerreports.org&hl=en-CA&gl=C`
-- ⚠️ **Neuroscience News** failed — `520 Server Error: <none> for url: https://neurosciencenews.com/feed/`
-- ⚠️ **Tsleil-Waututh Nation** failed — `503 Server Error: Service Unavailable for url: https://twnation.ca/feed/`
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
 
@@ -1932,6 +1933,20 @@ _Auto-updated 2× daily (4:30 AM / 8:30 PM Pacific). Only runs with failed feeds
 - ⚠️ GN Consumer Reports failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:c
 - ⚠️ Climate - CBSNews.com failed — 406 Client Error: Not Acceptable for url: https://www.cbsnews.com/latest/rss/climate
 - ⚠️ GN Country Guide failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:coun
+- ⚠️ Kite News: not in this batch: canada | british columbia
+
+
+---
+
+
+
+## Week of 2026-11-18–2026-11-18
+- 6 issues recorded
+- ⚠️ Civil Eats failed — 520 Server Error: <none> for url: https://civileats.com/feed/
+- ⚠️ GN Dwell failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:dwell.com&hl
+- ⚠️ GN Consumer Reports failed — 429 Client Error: Too Many Requests for url: https://news.google.com/rss/search?q=site:c
+- ⚠️ Neuroscience News failed — 520 Server Error: <none> for url: https://neurosciencenews.com/feed/
+- ⚠️ Tsleil-Waututh Nation failed — 503 Server Error: Service Unavailable for url: https://twnation.ca/feed/
 - ⚠️ Kite News: not in this batch: canada | british columbia
 
 
