@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T14:50:00Z",
+  "generated_at": "2026-11-28T14:20:00Z",
   "items": [
     {
       "id": "note:2026-11-26:multi-outlet-deep-dive",
@@ -7,34 +7,49 @@
       "repo": "curated-podcast-generator",
       "title": "Wednesday's biggest story, told by two outlets, aired only in the roundup",
       "detail": "Wednesday's deep dive was four unrelated stories the rerank picked: a Winnipeg youth protest, the KSM mine decision, a BHP Foundation fund and tribes against Kalshi. Premier Doerkson's order to reverse the province's Indigenous and climate commitments was in the same pool, told by the Globe and Mail (p94) and Pique (p97), with the Yellowhead Institute's piece on Indigenous diplomacy and Alberta separatism (p99) beside it. All three aired as roundup stories instead, and the Yellowhead one was listed but never told. Nothing outside the Cariboo bar prefers a story several outlets carry, and a headline test would miss this one: one headline says Doerkson, the other says the premier.",
-      "fix": "When two stories at the charter floor share two names across headline and summary (here Doerkson and DRIPA), count them as one story told twice, and let it lead the deep dive ahead of the rerank's picks, with both reports as sources. Two names, not one: the Williams Lake Tribune's return-to-office story also names Doerkson. Checked in Python, no new spend. If names miss too often, a Cohere similarity check is the next step. It changes what airs, so it needs your call.",
+      "fix": "Two ways that could work, both your call: (a) for a week, log the Cohere similarity the run already computes for same-story clustering for each pair of deep-dive candidates (no airtime or spend change), then set a cutoff from what the logs show; or (b) let the Cariboo bar's Haiku call, which already judges same-story reports, name a second report for a non-local lead too, with the same Python headline guard (under $0.001 a day). Approve again with a comment naming (a) or (b), or decline.",
       "source": "Your episode note (11-26)",
-      "since": "2026-11-27"
-    },
-    {
-      "id": "note:2026-11-26:bc-stories-cut",
-      "kind": "proposal",
-      "repo": "curated-podcast-generator",
-      "title": "B.C.'s rural doctors story was cut while overseas stories aired untold",
-      "detail": "Wednesday's roundup cut the Vancouver Sun's story on B.C. doctors pressing the Conservatives on their rural health promises (p87), and The Tyee's on the Building Canada Strong Act hitting B.C.'s environment hardest (p93), as over the airtime budget. The 18 stories it kept included two from Denmark and one each from Brazil, Myanmar and California. The citations show the script told only 13 of the 18: both Denmark stories, a Guardian tribute, the Yellowhead piece and two local stories were listed and never told.",
-      "fix": "When the roundup is over its airtime budget, cut stories from outside Canada before a B.C. story at p80 or better (B.C. named in the headline or a B.C. outlet, checked in Python). Wednesday would have kept the doctors and the Tyee stories in place of the two untold Denmark stories. No new spend. It changes what airs, so it needs your call. Separately, 13 told of 18 suggests the 18-story budget is more than the airtime holds; worth measuring before tuning anything else.",
-      "source": "Your episode note (11-26)",
-      "since": "2026-11-27"
+      "since": "2026-11-27",
+      "acted": {
+        "decided_at": "2026-11-27T15:44:38.283Z",
+        "outcome": "not built: the test as approved misses its own example (see the reply)"
+      },
+      "response": "Not built. Inside the deep-dive pool the Globe and Pique stories share one distinctive name, Doerkson; their other shared names, British Columbia and Indigenous, are on most stories that day. Every looser Python test I measured over six days of feeds paired unrelated stories on most days (two China stories, fossils and a fungus; two Williams Lake stories; a protest and a park bill), and each false pair would tell the hosts to tell two stories as one."
     },
     {
       "id": "branch:curated-podcast-generator:claude/quirky-dirac-4hmyp6",
       "kind": "branch",
       "repo": "curated-podcast-generator",
-      "title": "The weekly anchor follows a real news case (another session's branch, no PR yet)",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/tree/claude/quirky-dirac-4hmyp6",
-      "detail": "From another session on 11-26, never opened as a PR and not yet run through CI. It replaces the seeded weekly questions with one real, still-open case built from the last eight weeks of citations. The case's sources ride into every script prompt, so each day's mention can be sourced. It drops the 26-week dimension cooldown for a no-repeat check on subject and sources, and relabels the RSS line THIS WEEK WE'RE FOLLOWING. Cost: about 7K input tokens every three weeks, plus about 200 a day. It changes what airs, and the editorial-voice rule file on the branch still describes the old cooldown. A new week starts Monday 11-30.",
-      "fix": "Approve to have it opened as a PR with the rule file brought up to date, and merged once CI is green (in time for Monday if you call it by Sunday); decline to delete the branch; or say in a comment what to change.",
+      "title": "The weekly anchor follows a real news case (another session's branch, deleted after your approval)",
+      "detail": "From another session on 11-26. It replaces the seeded weekly questions with one real, still-open case built from the last eight weeks of citations, whose sources ride into every script prompt, drops the 26-week dimension cooldown, and relabels the RSS line THIS WEEK WE'RE FOLLOWING. About 7K input tokens every three weeks plus about 200 a day. It changes what airs. The branch was deleted after you approved it; the commit can be restored. A new week starts Monday 11-30.",
+      "fix": "Approve again to have the commit restored as a branch, opened as a PR with the editorial-voice rule file brought up to date, and merged once CI is green (in time for Monday if you call it by Sunday); decline to let it go.",
       "since": "2026-11-27",
       "ci": "not run",
-      "merge": "unknown"
+      "merge": "unknown",
+      "acted": {
+        "decided_at": "2026-11-27T15:44:38.283Z",
+        "outcome": "not opened: the branch was deleted from GitHub after your approval, with no PR and nothing on main"
+      },
+      "response": "The branch was gone from GitHub when this run got to it, so there was nothing to open a PR from. Its last commit (d268c15) is still on GitHub, so it can be restored; I didn't restore it without your say-so, since someone deleted it on purpose."
+    },
+    {
+      "id": "note:2026-11-27:high-impact-no-focus",
+      "kind": "proposal",
+      "repo": "curated-podcast-generator",
+      "title": "A wide California story took Friday's focus away, then never made the deep dive",
+      "detail": "Friday's deep dive was Indonesia's wildfires, climate-driven extreme weather deaths, whitebark pine in the Chilcotin and a COP31 fossil-fuel draft (p65), rather than the week's Recreation & Backcountry Access. The Guardian's California king tides story (12 outlets, raw 55) counted as high impact and fit no focus in Wild Spaces' cycle, so the day dropped its focus for the plain theme. That also skipped the search a starved week gets. The king tides story itself had one keyword hit and never reached the deep dive (you rated its Pacifica telling: no local hook). Meanwhile Country Walking's young walkers without maps (p97) and Outside's Dragon Bravo Fire report (p97) sat in the pool with no keyword.",
+      "fix": "A high-impact story that fits no focus in the cycle no longer moves the day; the week's focus and the starved-week search run as usual. On Friday that would have asked Cohere about Recreation & Backcountry Access first (the route you approved on 11-25), then looked for a sibling, where Wildfire & Climate Resilience had the most matches. A story that fits a sibling still moves the day, as now. Python only; the Cohere call is the one #600 already makes on a starved day. It changes what airs, so it needs your call.",
+      "source": "Your episode note (11-27)",
+      "since": "2026-11-28"
     }
   ],
   "done": [
+    {
+      "title": "B.C.'s rural doctors story was cut while overseas stories aired untold",
+      "outcome": "built and merged, as you approved: when the budget cuts, a B.C. story at p80 or better takes the place of the weakest kept story from outside Canada, never the local block, the closing story or the theme floor; on Wednesday both B.C. stories would have aired in place of the two weakest overseas ones",
+      "at": "2026-11-28",
+      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/602"
+    },
     {
       "title": "Plenty of stories fit Wednesday's Homestead & Off-Grid focus, but the keyword gate saw none",
       "outcome": "marked ready and merged, as you approved the draft: a week still short of four keyword matches asks Cohere once, and four stories at or over the 0.3 cutoff keep the focus and centre the deep dive; every score is logged for a refit",
@@ -148,23 +163,6 @@
       "outcome": "merged: Miscellany's stories are rated under their own category, so it read 0 every week and kept the row open; the other four categories are gaining about a rating a day each and need the 28-day window to fill",
       "at": "2026-11-22",
       "url": "https://github.com/zirnhelt/super-rss-feed/pull/402"
-    },
-    {
-      "title": "Wednesdays explain the tech in plain language (another session's branch)",
-      "outcome": "dropped: you called the listing invalid, and the branch is gone from GitHub",
-      "at": "2026-11-21"
-    },
-    {
-      "title": "Refresh the Anthropic price table (audit row stale-prices)",
-      "outcome": "merged in both repos: every price held except Sonnet 5.5 cache reads, now $0.10, which the podcast's cost meter had logged at $0.20 (super-rss-feed #398)",
-      "at": "2026-11-21",
-      "url": "https://github.com/zirnhelt/curated-podcast-generator/pull/579"
-    },
-    {
-      "title": "Click capture is on",
-      "outcome": "merged: Worker live, setup fixes for pasted newlines (#578, #396); the 2:30 AM check found all 15 of Saturday's digest links signed and working",
-      "at": "2026-11-21",
-      "url": "https://github.com/zirnhelt/super-rss-feed/pull/397"
     }
   ]
 }
