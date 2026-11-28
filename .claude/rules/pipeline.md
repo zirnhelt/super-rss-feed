@@ -35,7 +35,7 @@ paths:
 15. **Podcast cache** — entry gated by `q_gate >= quality_gate.podcast_floor` (or `local >= 25`); theme scores computed once at ingest against the charters + quality charter (never the interest profile); `targeted_rescore` days (all seven since Haiku 5.5) get a single-charter second pass.
 16. **Podcast feeds** — all 7 regenerated every run from the pool (pure cache reads for the other 6 days).
 17. **Diversify** — per-source caps.
-18. **Merge & output** — JSON Feed files + `curated-feeds.opml`. Before writing, `kite_coverage()` gives each Kagi cluster an outcome (`run_stats.kite_coverage`), and `build_kite_digest()` puts one digest item on top of `feed-news.json`.
+18. **Merge & output** — JSON Feed files + `curated-feeds.opml`. Before writing, `kite_coverage()` gives each Kagi cluster an outcome (`run_stats.kite_coverage`), and `select_also_in_the_news()` adds the widest-covered unshipped news clusters to `feed-news.json` as ordinary items.
 
 ## Output Feeds
 

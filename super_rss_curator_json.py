@@ -1291,6 +1291,7 @@ class Article:
         self.kite_label = ''
         self.kite_feed: Optional[str] = None
         self.kite_links: frozenset = frozenset()  # the cluster's outlet URLs (this run only)
+        self.also_in_news = False  # True when placed by select_also_in_the_news(), not a slot
         self.category = None
         self.image = self._extract_image(entry)
 
@@ -1525,7 +1526,9 @@ def _article_from_feed_item(item: Dict, keep_hot_mark: bool = False):
         'relevance': item.get('_relevance', 0),
         'local': item.get('_local_score', 0),
         'content_type': item.get('_content_type'),
-        'image': item.get('image')
+        'image': item.get('image'),
+        'also_in_news': bool(item.get('_also_in_news')),
+        'kite_label': item.get('_kite_label', ''),
     })()
 
 
@@ -4871,12 +4874,12 @@ def generate_rss_feed(feed: Dict, output_path: str) -> None:
 
 
 def generate_json_feed(articles: List[Article], category: str, output_path: str,
-                       passthrough_items: Optional[List[Dict]] = None,
                        exposure: Optional[Dict[str, Dict]] = None):
     """Generate JSON Feed format output.
 
-    ``passthrough_items`` are finished item dicts (the Kagi News digest) written
-    first and as they are: no badge, no source prefix, never rebuilt as articles.
+    An "Also in the news" story (``also_in_news``) is an ordinary item with the
+    ``also-in-the-news`` tag, ``_also_in_news`` and its Kite label, so a refresh
+    or tomorrow's merge rebuilds it as one.
 
     A feed listed in ``system.json`` -> ``clicks.feeds`` sends each article's link
     through the click Worker. Every writer wraps (the hot and editorial refreshes
@@ -4901,9 +4904,7 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str,
         "items": []
     }
 
-    passthrough_items = list(passthrough_items or [])
-    feed["items"].extend(passthrough_items)
-    for article in articles[:max(0, LIMITS['max_feed_size'] - len(passthrough_items))]:
+    for article in articles[:LIMITS['max_feed_size']]:
         clean_desc = _strip_markdown_links(article.description or "")
         has_source_in_title = (article.title.startswith(f"[{article.source}]")
                                or article.source in article.title)
@@ -4912,6 +4913,9 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str,
         item_tags: List[str] = []
         if category == 'local':
             item_tags.append("local-priority")
+        also_in_news = bool(getattr(article, 'also_in_news', False))
+        if also_in_news:
+            item_tags.append(ALSO_IN_NEWS_TAG)
 
         subscriber_label = SUBSCRIBER_ACCESS.get(article.source)
         if subscriber_label:
@@ -4938,7 +4942,9 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str,
             article_url=article.link,
         )
 
-        # image → badge → description
+        # image → badge → description. A retained item's text already carries its credit line.
+        if also_in_news and ALSO_IN_NEWS_CREDIT not in clean_desc[:200]:
+            clean_desc = _also_in_news_credit(article) + clean_desc
         content_html = badge + clean_desc
         if hasattr(article, 'image') and article.image:
             content_html = _lead_image_html(article.image) + content_html
@@ -4967,6 +4973,10 @@ def generate_json_feed(articles: List[Article], category: str, output_path: str,
 
         if getattr(article, 'hot_refresh', False):
             item["_hot_refresh"] = True
+
+        if also_in_news:
+            item["_also_in_news"] = True
+            item["_kite_label"] = getattr(article, 'kite_label', '') or ''
 
         if _us_scope:
             item["_us_policy"] = True
@@ -6793,12 +6803,12 @@ def _retained_is_fresh(item: Dict, new_urls: Set[str], new_term_sets: List[froze
 # story; the rest are misses, each named for the stage that dropped it.
 KITE_SEEN_OUTCOMES = ('published', 'already_shown')
 KITE_MISS_OUTCOMES = ('dedup', 'gate_reject', 'show_only', 'ranked_out')
-DIGEST_URL = 'https://news.kagi.com/'
+# The single digest item of 2026-11-07..11-28. Its stories are feed items now
+# (select_also_in_the_news); the prefix stays so a leftover digest is dropped, never retained.
 DIGEST_ID_PREFIX = 'https://news.kagi.com/#digest-'
-DIGEST_SUMMARY_CHARS = 220
-# The digest's own page on gh-pages. A feed reader shows the item as a text snippet and
-# opens its `url` on a tap, so the url has to be a page that lists the stories with links.
-DIGEST_PAGE = 'also-in-the-news.html'
+ALSO_IN_NEWS_TAG = 'also-in-the-news'
+ALSO_IN_NEWS_LANE = 'also_in_news'   # the exposure ledger's mark, read by the audit
+ALSO_IN_NEWS_CREDIT = 'Also in the news'
 # Digest clicks (the podcast repo's cloudflare/clicks Worker, producer-approved 2026-11-20).
 # With system.json -> clicks.base_url and the CLICKS_KEY secret both set, each digest link
 # goes through the Worker, which notes the click and forwards to the story, and the nightly
@@ -6884,6 +6894,9 @@ def record_click_exposure(exposure: Dict[str, Dict], target: str, item: Dict, fe
         'relevance_band': int(relevance) // 20 if isinstance(relevance, (int, float)) else None,
         'best_pos': min(entry['best_pos'], position),
     })
+    if item.get('_also_in_news'):
+        # The audit's "Also in the news" click-through reads these two.
+        entry.update({'lane': ALSO_IN_NEWS_LANE, 'kite_label': item.get('_kite_label') or ''})
 
 
 def load_click_exposure(path: str = CLICK_EXPOSURE_FILE) -> Dict[str, Dict]:
@@ -7050,24 +7063,31 @@ def _same_kite_event(a: Article, b: Article) -> bool:
     return _overlaps_story(a.title_terms, [b.title_terms])
 
 
-def build_kite_digest(outcomes: List[Tuple[Article, str]],
-                      now: Optional[datetime] = None) -> Optional[Dict]:
-    """One feed item listing the widely covered news clusters no feed carried, or None.
+def select_also_in_the_news(outcomes: List[Tuple[Article, str]],
+                            in_feed: Optional[List] = None) -> List[Article]:
+    """The widely covered news clusters no feed carried, as articles for the news feed.
 
-    The reader's catch-up page in place of a general news site: news-mapped Kite
-    clusters with at least `min_sources` outlets that were not published and not
-    already shown, most widely covered first. Gate junk ("x") stays out; a `[show]`
-    match is in, since those lines are for the podcast. Costs nothing: the summaries
-    are Kite's own. CC BY-NC, credited to Kagi News in the item.
+    The reader's catch-up in place of a general news site: news-mapped Kite clusters
+    with at least `min_sources` outlets that were not published and not already shown,
+    most widely covered first. Gate junk ("x") stays out; a `[show]` match is in, since
+    those lines are for the podcast. Each pick is marked `also_in_news`, and the feed
+    item opens with the outlet count and the Kagi News credit (CC BY-NC,
+    `_also_in_news_credit`). Costs nothing: the summaries are Kite's own. `in_feed` is the news feed's retained items: a story an
+    earlier night already added is not added twice.
     """
     cfg = SYSTEM.get('kagi_news', {}).get('digest') or {}
     if not cfg.get('enabled', False):
-        return None
+        return []
     feed = cfg.get('category', 'news')
     min_sources = int(cfg.get('min_sources', 3))
+    in_feed = in_feed or []
+    feed_urls = {canonicalize_url(getattr(a, 'link', '') or '') for a in in_feed}
+    feed_terms = [_published_title_terms(getattr(a, 'title', '')) for a in in_feed]
     candidates = sorted((k for k, o in outcomes
                          if o in ('dedup', 'show_only', 'ranked_out')
-                         and k.kite_feed == feed and k.kite_sources >= min_sources),
+                         and k.kite_feed == feed and k.kite_sources >= min_sources
+                         and canonicalize_url(k.link) not in feed_urls
+                         and not _overlaps_story(k.title_terms, feed_terms)),
                         key=lambda k: k.kite_sources, reverse=True)
     # Kite files one event under several categories (World and USA, World and Europe)
     # with different headlines. Two such clusters share outlet URLs (32 and 49 on
@@ -7078,64 +7098,18 @@ def build_kite_digest(outcomes: List[Tuple[Article, str]],
             break
         if not any(_same_kite_event(k, p) for p in picks):
             picks.append(k)
-    if not picks:
-        return None
-    now = now or datetime.now(timezone.utc)
-    base, key = _clicks_config()
-    rows = []
     for k in picks:
-        summary = _clean_text(k.description or '', max_chars=DIGEST_SUMMARY_CHARS)
-        href = _digest_href(k.link, k.kite_label or 'Kagi News', now.date().isoformat(), base, key)
-        rows.append(
-            f'<li><strong><a href="{html_escape(href, quote=True)}">{html_escape(k.title)}</a></strong> '
-            f'<small>({k.kite_sources} outlets · {html_escape(k.kite_label or "Kagi News")})</small>'
-            + (f'<br>{html_escape(summary)}' if summary else '') + '</li>')
-    day = now.strftime('%a %b ') + str(now.day)
-    content = (
-        '<p>The most widely covered stories that did not make your feeds, ranked by how '
-        f'many outlets carried them. Summaries by <a href="{DIGEST_URL}">Kagi News</a> '
-        '(CC BY-NC).</p><ul>' + ''.join(rows) + '</ul>')
-    base = (SYSTEM.get('urls', {}).get('super_rss_base') or '').rstrip('/')
-    return {
-        "id": f"{DIGEST_ID_PREFIX}{now.date().isoformat()}",
-        "url": f"{base}/{DIGEST_PAGE}" if base else DIGEST_URL,
-        "title": f"📰 Also in the news, {day}: {len(picks)} stories",
-        "content_html": content,
-        "date_published": now.isoformat(),
-        "authors": [{"name": "Kagi News digest", "url": DIGEST_URL}],
-        "tags": ["digest"],
-        "_digest": True,
-        "_stories": len(picks),
-        # Popped before the feed is written: what was listed, for click-through in the audit.
-        "_listed": [(k.kite_label or 'Kagi News', _click_host(k.link)) for k in picks],
-    }
+        k.also_in_news = True
+    return picks
 
 
-_DIGEST_PAGE_STYLE = (
-    ':root{color-scheme:light dark}'
-    'body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;'
-    'line-height:1.5;max-width:42rem;margin:0 auto;padding:1rem}'
-    'h1{font-size:1.3rem}ul{padding-left:1.2rem}li{margin-bottom:1rem}'
-    'small{opacity:.7}')
-
-
-def write_digest_page(digest: Optional[Dict], output_path: str = DIGEST_PAGE) -> bool:
-    """Write the digest item as a standalone page (the item's `url`); False when there is none.
-
-    Rendered from the finished item so the page and the feed cannot drift. A night
-    with no digest writes nothing, and the nightly deploy then drops the old page.
-    """
-    if not digest:
-        return False
-    title = html_escape(digest.get('title', 'Also in the news'))
-    body = sanitize_html(digest.get('content_html', ''))
-    atomic_write_text(output_path, (
-        '<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">'
-        '<meta name="viewport" content="width=device-width, initial-scale=1">'
-        '<meta name="robots" content="noindex">'
-        f'<title>{title}</title><style>{_DIGEST_PAGE_STYLE}</style></head>\n'
-        f'<body><h1>{title}</h1>\n{body}\n</body></html>\n'))
-    return True
+def _also_in_news_credit(article) -> str:
+    """The line an "Also in the news" item opens with: why it is there, and Kagi's credit."""
+    outlets = getattr(article, 'kite_sources', 0)
+    return (f"<p><small>📰 {ALSO_IN_NEWS_CREDIT}"
+            + (f" · {outlets} outlets" if outlets else '')
+            + f" · {html_escape(getattr(article, 'kite_label', '') or 'Kagi News')}"
+            + " · summary by Kagi News (CC BY-NC)</small></p>\n")
 
 
 def _print_kite_coverage(outcomes: List[Tuple[Article, str]], stats: Dict) -> None:
@@ -7145,7 +7119,7 @@ def _print_kite_coverage(outcomes: List[Tuple[Article, str]], stats: Dict) -> No
     print(f"\n📰 Kagi News coverage: {stats['by_outcome'].get('published', 0)} of "
           f"{stats['clusters']} clusters published; headlines (≥{stats['headline_min_sources']} "
           f"outlets): {stats['headline_missed']} of {stats['headlines']} missed; "
-          f"digest lists {stats['digest_items']}")
+          f"also in the news: {stats['digest_items']}")
     missed = sorted(((k, o) for k, o in outcomes
                      if o in KITE_MISS_OUTCOMES and k.kite_sources >= stats['headline_min_sources']),
                     key=lambda ko: ko[0].kite_sources, reverse=True)
@@ -7679,23 +7653,28 @@ def main():
         final_items[cat_key] = all_items
 
     # The Kagi News clusters no feed carried: counted for the weekly audit, and the
-    # widely covered news ones listed in one digest item on top of the news feed.
+    # widely covered news ones added to the news feed as "Also in the news" items.
+    # A story an earlier night added that way is not the feeds' own selection, so it
+    # does not count as published: the headline miss rate keeps its meaning.
     new_hashes = {a.url_hash for a in new_articles}
-    outcomes = kite_coverage(kite_articles, [a for items in final_items.values() for a in items],
+    outcomes = kite_coverage(kite_articles,
+                             [a for items in final_items.values() for a in items
+                              if not getattr(a, 'also_in_news', False)],
                              unique_hashes, new_hashes)
-    digest = build_kite_digest(outcomes)
-    listed = digest.pop('_listed', []) if digest else []
-    write_digest_page(digest)
-    digest_cat = (SYSTEM.get('kagi_news', {}).get('digest') or {}).get('category', 'news')
-    run_stats['kite_coverage'] = kite_coverage_stats(outcomes, (digest or {}).get('_stories', 0), listed)
+    also_cat = (SYSTEM.get('kagi_news', {}).get('digest') or {}).get('category', 'news')
+    also_in_news = select_also_in_the_news(
+        outcomes, [a for a in final_items.get(also_cat, []) if getattr(a, 'also_in_news', False)])
+    if also_in_news and also_cat in final_items:
+        merged = sorted(final_items[also_cat] + also_in_news, key=lambda a: a.pub_date, reverse=True)
+        final_items[also_cat] = merged[:LIMITS['max_feed_size']]
+    listed = [(k.kite_label or 'Kagi News', _click_host(k.link)) for k in also_in_news]
+    run_stats['kite_coverage'] = kite_coverage_stats(outcomes, len(also_in_news), listed)
     _print_kite_coverage(outcomes, run_stats['kite_coverage'])
 
     click_exposure = load_click_exposure()
     for cat_key, all_items in final_items.items():
-        passthrough = [digest] if digest and cat_key == digest_cat else []
-        final_feed_sizes[cat_key] = len(all_items) + len(passthrough)
-        generate_json_feed(all_items, cat_key, f"feed-{cat_key}.json", passthrough_items=passthrough,
-                           exposure=click_exposure)
+        final_feed_sizes[cat_key] = len(all_items)
+        generate_json_feed(all_items, cat_key, f"feed-{cat_key}.json", exposure=click_exposure)
 
     # After the feeds, so a click on an article spliced in by a refresh since the last
     # nightly (it is retained in tonight's feed) still finds its ledger entry.
@@ -7706,7 +7685,7 @@ def main():
     run_stats['final_feeds'] = final_feed_sizes
 
     now_ts = datetime.now(timezone.utc).timestamp()
-    for article in quality_articles:
+    for article in quality_articles + also_in_news:
         shown_cache[article.url_hash] = now_ts
         if _story_dedup_exempt(article.source, article.title):
             continue
@@ -8525,13 +8504,12 @@ def _load_feed_items(cat_key: str) -> Optional[List[Dict]]:
 
 def _write_spliced_feed(cat_key: str, items: List[Dict], new: List[Article], output_dir: str) -> List[str]:
     """Write ``new`` on top of a feed's existing items into ``output_dir``; return the paths written."""
-    digests = [item for item in items if _is_digest_item(item)]
     all_items = new + [_article_from_feed_item(item, keep_hot_mark=True)
-                       for item in items if not _is_digest_item(item)]
+                       for item in items if not _is_digest_item(item)]  # a leftover digest goes
     all_items.sort(key=lambda a: a.pub_date, reverse=True)
     out_path = os.path.join(output_dir, f"feed-{cat_key}.json")
     os.makedirs(output_dir, exist_ok=True)
-    generate_json_feed(all_items, cat_key, out_path, passthrough_items=digests)
+    generate_json_feed(all_items, cat_key, out_path)
     written = [out_path]
     if FEEDS_CONFIG['feeds'][cat_key].get('rss'):
         written.append(f"{os.path.splitext(out_path)[0]}.xml")

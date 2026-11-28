@@ -3,7 +3,7 @@
 Standing preferences get a scope: a `[show]` line keeps its subject off the podcast
 and out of every feed but news. The Kagi News clusters no feed carried are counted
 (run_stats.kite_coverage, read by the weekly audit) and the widely covered news ones
-are listed in one digest item on top of the news feed.
+go into the news feed as "Also in the news" items (one digest item until 2026-11-28).
 """
 import json
 import sys
@@ -146,7 +146,7 @@ def test_coverage_names_each_cluster_for_the_stage_that_dropped_it():
     assert 'Stephen' not in json.dumps(stats), 'run_stats holds counts only'
 
 
-def test_digest_lists_widely_covered_news_misses_best_first():
+def test_also_in_the_news_picks_widely_covered_news_misses_best_first():
     cut = _kite('Stephen Miller named chief of staff', 64, 'USA')
     small = _kite('Toronto van attacker drops appeal', 3, 'Canada')
     tiny = _kite('Lotto Max jackpot split', 2, 'Canada')
@@ -155,52 +155,61 @@ def test_digest_lists_widely_covered_news_misses_best_first():
     shown = _kite('Paraguay impeaches president', 80)
     outcomes = [(small, 'ranked_out'), (cut, 'show_only'), (tiny, 'ranked_out'),
                 (junk, 'gate_reject'), (tech, 'ranked_out'), (shown, 'published')]
-    now = datetime(2026, 11, 7, 6, 0, tzinfo=timezone.utc)
-    item = m.build_kite_digest(outcomes, now=now)
-    html = item['content_html']
-    assert item['id'] == 'https://news.kagi.com/#digest-2026-11-07'
-    assert item['_stories'] == 2 and '2 stories' in item['title']
-    assert html.index('Stephen Miller') < html.index('Toronto van')
-    for absent in ('Lotto', 'Russell Brand', 'cloud outage', 'Paraguay'):
-        assert absent not in html
-    assert '64 outlets · USA' in html and 'Kagi News' in html
-    assert item['url'].endswith('/' + m.DIGEST_PAGE), 'a tap opens the page of links, not Kagi'
+    picks = m.select_also_in_the_news(outcomes)
+    assert picks == [cut, small]
+    assert all(k.also_in_news for k in picks) and not getattr(tiny, 'also_in_news', False)
 
 
-def test_digest_page_lists_every_story_with_its_link(tmp_path):
-    item = _digest_item()
-    page = tmp_path / m.DIGEST_PAGE
-    assert m.write_digest_page(item, str(page)) is True
-    html = page.read_text(encoding='utf-8')
-    assert 'Stephen Miller named chief of staff</a>' in html and '<a href="http' in html
-    assert item['title'].split(',')[0] in html
-    assert m.write_digest_page(None, str(tmp_path / 'none.html')) is False
-    assert not (tmp_path / 'none.html').exists()
-
-
-def test_digest_off_or_empty_is_none(monkeypatch):
-    assert m.build_kite_digest([]) is None
+def test_also_in_the_news_off_or_empty_is_nothing(monkeypatch):
+    assert m.select_also_in_the_news([]) == []
     monkeypatch.setitem(m.SYSTEM, 'kagi_news', {'digest': {'enabled': False}})
-    assert m.build_kite_digest([(_kite('Big story', 50), 'ranked_out')]) is None
+    assert m.select_also_in_the_news([(_kite('Big story', 50), 'ranked_out')]) == []
 
 
-def _digest_item():
-    return m.build_kite_digest([(_kite('Stephen Miller named chief of staff', 64, 'USA'), 'ranked_out')],
-                               now=datetime.now(timezone.utc))
+def test_also_in_the_news_skips_a_story_an_earlier_night_added():
+    k = _kite('Stephen Miller named chief of staff', 64, 'USA')
+    retained = _published('Stephen Miller named chief of staff', 'https://elsewhere.example/m')
+    assert m.select_also_in_the_news([(k, 'ranked_out')], [retained]) == []
 
 
-def test_digest_is_written_verbatim_on_top_and_survives_a_splice(tmp_path, monkeypatch):
+def _also_item(tmp_path, monkeypatch, **extra):
     monkeypatch.chdir(tmp_path)
-    digest = _digest_item()
-    story = {'id': 'https://cbc.example/1', 'url': 'https://cbc.example/1', 'title': '[CBC] Story',
-             'content_html': '<p>Body.</p>',
-             'date_published': (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat(),
-             'authors': [{'name': 'CBC', 'url': 'https://cbc.example'}]}
-    m._write_spliced_feed('news', [digest, story], [], str(tmp_path))
-    items = json.loads((tmp_path / 'feed-news.json').read_text())['items']
-    assert items[0]['id'] == digest['id'] and items[0]['title'] == digest['title']
-    assert items[0]['_digest'] is True and 'Score' not in items[0]['content_html']
-    assert m._is_digest_item(items[0]) and not m._is_digest_item(items[1])
+    k = _kite('Stephen Miller named chief of staff', 64, 'USA')
+    k.link, k.pub_date, k.source_url = 'https://apnews.example/miller', datetime.now(timezone.utc), 'https://apnews.example'
+    k.score = k.quality = k.relevance = k.local = 50
+    k.content_type, k.image = None, None
+    for key, value in extra.items():
+        setattr(k, key, value)
+    (k,) = m.select_also_in_the_news([(k, 'ranked_out')])
+    m.generate_json_feed([k], 'news', 'feed-news.json')
+    (item,) = json.loads((tmp_path / 'feed-news.json').read_text())['items']
+    return item
+
+
+def test_also_in_the_news_is_an_ordinary_feed_item_with_kagis_credit(tmp_path, monkeypatch):
+    monkeypatch.setitem(m.SYSTEM, 'clicks', {})
+    item = _also_item(tmp_path, monkeypatch)
+    assert item['id'] == item['url'] == 'https://apnews.example/miller', 'a tap opens the story itself'
+    assert not m._is_digest_item(item)
+    assert item['_also_in_news'] is True and item['_kite_label'] == 'USA'
+    assert m.ALSO_IN_NEWS_TAG in item['tags']
+    assert 'Also in the news · 64 outlets · USA' in item['content_html']
+    assert 'Kagi News (CC BY-NC)' in item['content_html']
+
+
+def test_also_in_the_news_survives_a_splice_without_stacking_its_credit(tmp_path, monkeypatch):
+    monkeypatch.setitem(m.SYSTEM, 'clicks', {})
+    item = _also_item(tmp_path, monkeypatch)
+    leftover = {'id': m.DIGEST_ID_PREFIX + '2026-11-27', 'url': 'https://x.example/also-in-the-news.html',
+                'title': 'Also in the news', 'content_html': '<ul></ul>',
+                'date_published': datetime.now(timezone.utc).isoformat(),
+                'authors': [{'name': 'Kagi News digest', 'url': 'https://news.kagi.com/'}]}
+    m._write_spliced_feed('news', [leftover, item], [], str(tmp_path))
+    (again,) = json.loads((tmp_path / 'feed-news.json').read_text())['items']
+    assert again['_also_in_news'] is True and again['_kite_label'] == 'USA', 'the old digest item is dropped'
+    assert again['content_html'].count(m.ALSO_IN_NEWS_CREDIT) == 1
+    rebuilt = m._article_from_feed_item(again)
+    assert rebuilt.also_in_news, 'tomorrow\'s coverage count can tell it from the feeds\' own pick'
 
 
 # --- the weekly audit ----------------------------------------------------------------
@@ -223,7 +232,7 @@ def test_audit_reads_the_week_of_headline_coverage():
     assert any('Headline coverage' in line for line in audit._headline_lines(heads))
 
 
-def test_digest_lists_one_telling_of_each_event():
+def test_also_in_the_news_lists_one_telling_of_each_event():
     a = _kite('Trump appoints Stephen Miller chief of staff', 64, 'World')
     b = _kite("Miller's promotion puts immigration enforcement at center of fight", 40, 'USA')
     c = _kite('France prepares 70,000 officers for protests', 59, 'Europe')
@@ -231,8 +240,7 @@ def test_digest_lists_one_telling_of_each_event():
     a.kite_links = shared | {'https://a.example/1'}
     b.kite_links = shared | {'https://b.example/1'}
     c.kite_links = frozenset({'https://o1.example/france', 'https://o2.example/france'})
-    item = m.build_kite_digest([(a, 'ranked_out'), (b, 'ranked_out'), (c, 'ranked_out')])
-    assert item['_stories'] == 2 and 'center of fight' not in item['content_html']
+    assert m.select_also_in_the_news([(a, 'ranked_out'), (b, 'ranked_out'), (c, 'ranked_out')]) == [a, c]
 
 
 def test_gate_rejects_are_not_pool_candidates_worth_theme_scoring():
@@ -269,30 +277,23 @@ def test_click_signature_matches_the_worker():
                               'Canada | British Columbia', '2026-11-20') == 'ee046b42a6069e52601a1d9c110b2bfe'
 
 
-def test_digest_links_go_through_the_click_worker_only_when_configured(tmp_path, monkeypatch):
+def test_also_in_the_news_links_go_through_the_click_worker_as_news_clicks(tmp_path, monkeypatch):
     from urllib.parse import parse_qs, urlparse
-    story = _kite('Stephen Miller named chief of staff', 64, 'USA')
-    now = datetime(2026, 11, 20, 8, 0, tzinfo=timezone.utc)
-    plain = m.build_kite_digest([(story, 'ranked_out')], now=now)
-    assert f'href="{story.link}"' in plain['content_html'], 'no Worker configured: the story itself'
-
-    monkeypatch.setitem(m.SYSTEM, 'clicks', {'base_url': CLICKS_BASE})
-    monkeypatch.delenv('CLICKS_KEY', raising=False)
-    assert f'href="{story.link}"' in m.build_kite_digest([(story, 'ranked_out')], now=now)['content_html'], \
-        'a URL without the key stays plain: an unsigned link would be a 400'
-
     _clicks_on(monkeypatch)
-    item = m.build_kite_digest([(story, 'ranked_out')], now=now)
-    href = item['content_html'].split('<li>', 1)[1].split('href="', 1)[1].split('"')[0].replace('&amp;', '&')
-    assert href.startswith(CLICKS_BASE + '/go?')
-    q = {k: v[0] for k, v in parse_qs(urlparse(href).query).items()}
-    assert (q['u'], q['c'], q['d']) == (story.link, 'USA', '2026-11-20')
-    assert q['s'] == m._click_signature('test-key-0123456789abcdef0123456789', story.link, 'USA', '2026-11-20')
-    assert item['_listed'] == [('USA', 'example.com')]
-
-    page = tmp_path / m.DIGEST_PAGE
-    m.write_digest_page({k: v for k, v in item.items() if k != '_listed'}, str(page))
-    assert CLICKS_BASE + '/go?u=' in page.read_text(encoding='utf-8'), 'the page keeps the Worker link'
+    m.SYSTEM['clicks']['feeds'] = ['news']
+    exposure = {}
+    monkeypatch.chdir(tmp_path)
+    k = _kite('Stephen Miller named chief of staff', 64, 'USA')
+    k.link, k.pub_date, k.source_url = 'https://apnews.example/miller', datetime.now(timezone.utc), 'https://apnews.example'
+    k.score = k.quality = k.relevance = k.local = 50
+    k.content_type, k.image = None, None
+    m.select_also_in_the_news([(k, 'ranked_out')])
+    m.generate_json_feed([k], 'news', 'feed-news.json', exposure=exposure)
+    (item,) = json.loads((tmp_path / 'feed-news.json').read_text())['items']
+    q = {key: v[0] for key, v in parse_qs(urlparse(item['url']).query).items()}
+    assert item['url'].startswith(CLICKS_BASE + '/go?') and (q['u'], q['c']) == (k.link, 'feed:news')
+    entry = exposure[m.canonicalize_url(k.link)]
+    assert (entry['lane'], entry['kite_label']) == (m.ALSO_IN_NEWS_LANE, 'USA')
 
 
 def test_click_key_ignores_whitespace_pasted_with_it(monkeypatch):
@@ -399,6 +400,6 @@ def test_audit_reports_digest_click_through_by_category_and_outlet(tmp_path):
     assert clicks['by_category'][0] == {'name': 'Canada', 'listed': 2, 'opened': 1, 'pct': 50.0}
     assert clicks['by_host'][0]['name'] == 'cbc.ca'
     report = '\n'.join(audit._digest_click_lines(clicks))
-    assert 'You opened 1 of the 5 stories' in report and '| cbc.ca | 2 | 1 |' in report
+    assert 'You opened 1 of the 5 Also in the news stories' in report and '| cbc.ca | 2 | 1 |' in report
     assert audit._digest_click_lines(audit.digest_clicks(runs, [], today)) == [], \
         'no clicks recorded is not a finding'
