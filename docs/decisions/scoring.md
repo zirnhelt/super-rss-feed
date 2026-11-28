@@ -571,6 +571,8 @@ stays off the **show**). So:
   snippet the per-story links were unreachable and a tap opened Kagi's World page. The item
   now links `also-in-the-news.html` (`write_digest_page()`), the same content as a page on
   gh-pages. The `id` keeps `DIGEST_ID_PREFIX`. The page is gitignored like the feeds.
+  **2026-11-28:** the page and the single item are gone; the stories are feed items (see
+  "Also in the news goes back into the feed" below).
 - **Headline coverage** (`kite_coverage`, `run_stats.kite_coverage`, counts only). Every
   cluster gets one outcome: `published`, `already_shown`, `dedup`, `gate_reject`,
   `show_only` or `ranked_out`. Clusters with ≥ `headline_min_sources` (15) outlets are headlines.
@@ -805,3 +807,28 @@ real hits gained a `*`: health (healthy), nutrition, sleep, diet, stress, geriat
 snowshoe, AI agent (agentic). `keyword_pattern` moved to `config_loader` so `feed_discovery`
 can share it. The two scoring prompts print the keywords with the `*` stripped, so their
 cached prefix is unchanged.
+
+## Also in the news goes back into the feed; every category feed is click-tracked (2026-11-28)
+
+The reader's call: a separate page for the stories they may have missed was one tap too many,
+and they scan the news feed anyway. Two changes:
+
+- **The digest's picks are news-feed items** (`select_also_in_the_news`, same selection as
+  `build_kite_digest`: news-mapped, ≥ `min_sources` outlets, not shipped or shown, no gate junk,
+  one telling per event, up to `max_items`). Each is an ordinary item sorted by date, tagged
+  `also-in-the-news`, carrying `_also_in_news` and `_kite_label`, and opening with
+  "📰 Also in the news · N outlets · label · summary by Kagi News (CC BY-NC)"
+  (`_also_in_news_credit`, added only when the text lacks it, so a retained item never stacks it).
+  A tap opens the story. `write_digest_page()`, `DIGEST_PAGE` and the workflow's copy step are gone;
+  `DIGEST_ID_PREFIX` stays so a leftover digest is dropped by the next writer.
+- **They are retained and marked shown**, like any item, so a story is not added twice
+  (`in_feed` check against retained ones too). **They never count as `published`** in
+  `kite_coverage`: the headline miss rate asks whether the feeds' own selection carried the story.
+- **Their clicks are `feed:news` rows**, and the exposure entry gets `lane: also_in_news` plus the
+  Kite label, so the audit's digest click-through (`_also_in_news_click`) still files them by Kite
+  category against `digest_by_label` / `digest_by_host`. The lane string is pinned across the two
+  files by a test.
+- **`clicks.feeds` widens from news, local and ai-tech to all twelve category feeds.** The phase-1
+  limit was that one reader gives a few dozen clicks a week; the other nine feeds add rows at no
+  cost (no API call, one KV write a click on the Worker). Podcast feeds stay unwrapped. A test pins
+  the list to `CATEGORIES`, so a new category feed is tracked or the test says why not.

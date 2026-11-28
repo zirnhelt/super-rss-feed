@@ -45,6 +45,7 @@ BASE_DIR = Path(__file__).parent
 FEEDBACK_DIR = BASE_DIR / 'feedback'
 CLICKS_DIR = FEEDBACK_DIR / 'clicks'   # digest clicks, written by the nightly; not ratings
 FEED_CLICK_PREFIX = 'feed:'   # category of a click on a feed article; the digest's are Kite labels. A test pins it to the curator's
+ALSO_IN_NEWS_LANE = 'also_in_news'   # the exposure ledger's mark on an Also in the news item; a test pins it
 FEED_LOG_FILE = BASE_DIR / 'FEED_LOG.md'
 CALIBRATION_STATS_FILE = BASE_DIR / 'calibration_stats_cache.json'
 CALIBRATION_LOG_FILE = BASE_DIR / 'CALIBRATION_LOG.md'
@@ -1238,7 +1239,7 @@ def headline_coverage(runs: List[Dict], today: date, days: int = 7) -> Dict[str,
     """The week's widely covered Kagi News stories, and how many reached no feed.
 
     The miss rate is what a general news site would have shown that the feeds did
-    not; the digest item lists some of them, but counts as a miss here, because the
+    not; the news feed carries some as Also in the news items, but those count as misses here, because the
     question is whether the feeds' own selection carries the day's big stories.
     """
     since = (today - timedelta(days=days)).isoformat()
@@ -1270,13 +1271,26 @@ def _click_host(url: str) -> str:
     return host[4:] if host.startswith('www.') else host
 
 
+def _also_in_news_click(row: Dict) -> Dict:
+    """A feed click on an "Also in the news" item, filed under its Kite label like a digest click.
+
+    Since 2026-11-28 the digest's stories are news-feed items, so their clicks arrive as
+    ``feed:news`` rows joined to an exposure entry marked ``lane: also_in_news``.
+    """
+    article = row.get('article') if isinstance(row.get('article'), dict) else {}
+    if article.get('lane') != ALSO_IN_NEWS_LANE:
+        return row
+    return {**row, 'category': article.get('kite_label') or 'Kagi News'}
+
+
 def digest_clicks(runs: List[Dict], clicks: List[Dict], today: date, days: int = 7) -> Dict[str, Any]:
     """What the reader opened from the digest against what it listed, by Kite category and outlet.
 
     Evidence for the headline-misses question: whether the stories the interest ranking
     leaves out are ones the reader goes looking for. A story opened twice counts once.
-    Clicks on feed articles (``feed:<feed>``) share the files but not the question: skipped.
+    Clicks on other feed articles (``feed:<feed>``) share the files but not the question: skipped.
     """
+    clicks = [_also_in_news_click(r) for r in clicks]
     clicks = [r for r in clicks if not str(r.get('category') or '').startswith(FEED_CLICK_PREFIX)]
     since = (today - timedelta(days=days)).isoformat()
     listed_cat: Counter = Counter()
@@ -1698,7 +1712,7 @@ def _headline_lines(heads: Dict[str, Any]) -> List[str]:
         '',
         f"_Clusters covered by many outlets, over {heads['runs']} runs: "
         f"{heads['missed']} of {heads['headlines']} ({heads['miss_pct']}%) reached no feed. "
-        "The digest item lists the news ones; the per-story list is in each nightly's log._",
+        "The news feed carries the widest-covered ones as Also in the news items; the per-story list is in each nightly's log._",
         '',
         _md_table(['Outcome', 'Headlines'],
                   [[o, heads['by_outcome'].get(o, 0)] for o in order if heads['by_outcome'].get(o)]),
@@ -1715,7 +1729,7 @@ def _digest_click_lines(clicks: Dict[str, Any]) -> List[str]:
     return [
         '### Digest clicks (Also in the news, last 7 days)',
         '',
-        f"_You opened {clicks['opened']} of the {clicks['listed']} stories the digest listed"
+        f"_You opened {clicks['opened']} of the {clicks['listed']} Also in the news stories"
         + (f' ({rate}%)' if rate is not None else '') + ". Evidence for the headline-misses "
         "question, never a rating._",
         '',

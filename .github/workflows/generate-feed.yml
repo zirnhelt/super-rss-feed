@@ -265,7 +265,7 @@ jobs:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
           KAGI_API_KEY: ${{ secrets.KAGI_API_KEY }}
-          # Signs the digest links and reads the clicks back (config/system.json -> clicks).
+          # Signs the feed article links and reads the clicks back (config/system.json -> clicks).
           CLICKS_KEY: ${{ secrets.CLICKS_KEY }}
           # Scheduled run, OR any run the Cloudflare scheduler dispatched (run_slot
           # set), OR an explicit manual opt-in. The `schedule` test alone was
@@ -303,9 +303,6 @@ jobs:
           # RSS mirrors (currently feed-local.xml). Not every category has one,
           # so an empty glob is not an error.
           cp feed-*.xml output/ 2>/dev/null || true
-
-          # The "Also in the news" digest item links here; absent on a night with no digest.
-          cp also-in-the-news.html output/ 2>/dev/null || true
 
           # review.html carries no credential: it asks for a token (filled from a
           # password manager) at save time and keeps it only while the page is

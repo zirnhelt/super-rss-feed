@@ -106,17 +106,16 @@ def test_a_retained_item_is_rewrapped_from_the_publisher_url_never_stacked(tmp_p
     assert item['external_url'] == 'https://news.test/a'
 
 
-def test_the_digest_item_and_the_podcast_feeds_are_never_wrapped(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    _on(monkeypatch)
-    digest = {'id': m.DIGEST_ID_PREFIX + '2026-11-24', 'url': f'{m.FEEDS_CONFIG["base_url"]}/{m.DIGEST_PAGE}',
-              'title': 'Also in the news', 'content_html': '<p>x</p>', 'date_published': '2026-11-24T08:00:00+00:00',
-              'authors': [{'name': 'Kagi News', 'url': 'https://kite.kagi.com'}]}
-    m.generate_json_feed([_article('https://news.test/a')], 'news', 'feed-news.json', passthrough_items=[digest])
-    first = _written(tmp_path)[0]
-    assert first['url'] == digest['url'] and 'external_url' not in first
+def test_the_podcast_feeds_are_never_wrapped():
     # The show reads these links and defaults what it cannot match: no wrapper may reach them.
     assert 'apply_click_tracking' not in inspect.getsource(m.generate_podcast_feed)
+
+
+def test_every_category_feed_is_tracked_and_no_podcast_feed_is():
+    listed = set(m.SYSTEM['clicks']['feeds'])
+    categories = set(m.CATEGORIES)
+    assert listed == categories, 'widened to every category feed on 2026-11-28'
+    assert not any('podcast' in f for f in listed)
 
 
 def test_exposure_is_recorded_per_article_with_its_features(tmp_path, monkeypatch):
@@ -237,3 +236,16 @@ def test_feed_clicks_stay_out_of_the_digest_click_through():
                           'digest_date': '2026-11-23'}]
     got = audit.digest_clicks(runs, mixed, today)
     assert got['opened'] == 1 and [r['name'] for r in got['by_category'] if r['opened']] == ['World']
+
+
+def test_also_in_the_news_clicks_count_in_the_digest_click_through():
+    assert audit.ALSO_IN_NEWS_LANE == m.ALSO_IN_NEWS_LANE
+    runs = [{'timestamp': '2026-11-28T08:10:00', 'kite_coverage': {
+        'digest_by_label': {'USA': 1, 'World': 1}, 'digest_by_host': {'apnews.com': 2}}}]
+    rows = [{'at': '2026-11-28T09:00:00Z', 'url': 'https://apnews.com/a', 'category': 'feed:news',
+             'digest_date': '2026-11-28', 'article': {'lane': 'also_in_news', 'kite_label': 'USA'}},
+            {'at': '2026-11-28T09:01:00Z', 'url': 'https://cbc.ca/b', 'category': 'feed:news',
+             'digest_date': '2026-11-28', 'article': {'source': 'CBC'}}]
+    got = audit.digest_clicks(runs, rows, datetime(2026, 11, 29).date())
+    assert got['recorded'] and got['opened'] == 1
+    assert [r['name'] for r in got['by_category'] if r['opened']] == ['USA']
